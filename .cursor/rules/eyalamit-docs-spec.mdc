@@ -1,0 +1,12 @@
+---
+description: עריכת מסמכי אפיון ו-docs — שפה, CEO, סנכרון
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# מסמכי פרויקט (docs/)
+
+- שפה: עברית לצוות וללקוח פנימי; עקביות מונחים עם `SITE-SPECIFICATION-FINAL` ומפת האתר.
+- **אל** לערבב טקסט שמיועד **לייצוא לאייל** בתוך `.md` בלי לעדכן גם את מקור ה-docx או להריץ מחדש `scripts/build_eyal_ceo_deliverables.py` כשהחבילה הרשמית משתנה.
+- עדכון אינדקסים: `team-100-preplanning/README.md`, `eyal-ceo-submissions-and-responses/README.md` כשמוסיפים מסמך משמעותי.
+- קישורים יחסיים בין קבצים תחת `docs/project/` — שמרו על נתיבים שבורים-פחות.

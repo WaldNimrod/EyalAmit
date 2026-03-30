@@ -1,0 +1,26 @@
+---
+description: EyalAmit 2026 — יעדים, SSOT, מאגרים, נקודת כניסה
+alwaysApply: true
+---
+
+# EyalAmit.co.il-2026 — קונטקסט Cursor
+
+## נקודת כניסה
+
+לפני שינוי משמעותי: קראו **`docs/PROJECT-ENTRY.md`** (יעדים, עקרונות, סביבה, קישורים). נוהל מלא: **`docs/sop/SSOT.md`**. סיכום לסוכן: **`AGENTS.md`** בשורש.
+
+## שני מאגרים
+
+- **המאגר הנוכחי:** תכנון, אפיון, `docs/project/`, סקריפטי docx — אין כאן עץ WordPress מלא.
+- **יישום WP:** `../eyalamit.co.il/` — תמה, תוספים, פקודות `wp-cli` כמתועד ב-SSOT.
+
+## כללים קבועים
+
+- **לאייל:** רק **docx או PDF** — לא Markdown.
+- **QR:** אין שבירת permalinks למודפס; `docs/project/team-100-preplanning/QR-URL-POLICY.md`.
+- **מקורות אמת:** אייל → מסמכי צוות 100 מסונכרנים → מחקר בעזר.
+- **ייצוא Word:** `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר.
+
+## שלב
+
+תכנון/אפיון צוות 100; Build והשקה רק אחרי אישור אייל (ראו טבלת שלב ב-SSOT).
