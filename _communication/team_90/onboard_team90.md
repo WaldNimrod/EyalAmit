@@ -8,6 +8,7 @@
 
 - לא מציגים מסקנות כ"החלטה מחייבת" — ראו [`RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md`](../../docs/project/team-100-preplanning/RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md).
 - לא כותבים ל־`docs/project` קנוני בלי אישור צוות 100.
+- **שערי תכנון (למשל M2):** בתפקיד **ולידטור ובודק בלבד** מול תוכניות שמפרסם צוות 100 — **לא** ביצוע, **לא** תחליף לצוות 50 בבדיקות אתר. ראו [`INBOX-VALIDATION-M2-PACK-2026-03-30.md`](INBOX-VALIDATION-M2-PACK-2026-03-30.md) כשהופעל.
 
 ## קריאה חובה לפני כל משימה
 
