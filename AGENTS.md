@@ -29,6 +29,11 @@ WordPress רזה; SEO ונגישות; סליקה חיצונית; שימור QR; 
 
 → [`docs/project/team-100-preplanning/RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md`](docs/project/team-100-preplanning/RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md)
 
+## תקשורת בין-צוותים
+
+דוחות ותוכניות צוות — **רק** תחת [`_communication/`](_communication/README.md). מודל ארגוני 2026: [`docs/ORGANIZATION-TEAMS-2026.md`](docs/ORGANIZATION-TEAMS-2026.md).  
+אונבורד לפי צוות: `_communication/team_XX/onboard_teamXX.md`.
+
 ## אינדקס מסמכים
 
 | נושא | נתיב |
@@ -37,5 +42,13 @@ WordPress רזה; SEO ונגישות; סליקה חיצונית; שימור QR; 
 | אפיון סופי | `docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md` |
 | מפת אתר | `docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md` |
 | מיגרציה | `docs/project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md` |
+
+## Cursor — שורש workspace
+
+כללי `.cursor/rules` נטענים כששורש ה-workspace הוא **`EyalAmit.co.il-2026`**. אם פתוח רק תיקיית האב `Eyal Amit`, ראו [`WORKSPACE-POINTER.md`](../WORKSPACE-POINTER.md).
+
+## WordPress skills
+
+סקילים לסוכן: [`.cursor/skills/README.md`](.cursor/skills/README.md).
 
 ענף Git במאגר הישן (יישום WP): ראו SSOT; לעדכן שם כשמשתנה.

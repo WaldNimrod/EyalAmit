@@ -32,6 +32,12 @@
 | ייצוא Word ללקוח | `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר; תלות: `pip install -r scripts/requirements-docx.txt` |
 | סביבה מקומית (עתידי) | תיקייה `local/` — לא ל־commit סודות |
 | **מאגר WordPress קיים** | `../eyalamit.co.il/` (GitHub: `EYALAMIT1/eyalamit.co.il`) |
+| **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו |
+| **WordPress Agent Skills (Cursor)** | [`.cursor/skills/`](../.cursor/skills/README.md) — סקילים ממאגר WordPress הרשמי |
+
+### 3.1 שורש workspace ב-Cursor (חשוב)
+
+כללי **`.cursor/rules`** נטענים לפי **שורש ה-workspace**. **מומלץ** לפתוח ב-Cursor את התיקייה **`EyalAmit.co.il-2026`** כ־Open Folder. אם ה-workspace הוא רק תיקיית האב **`Eyal Amit`**, הכללים תחת `EyalAmit.co.il-2026/.cursor/rules/` **לא** יופעלו — פתחו את תת־התיקייה כפרויקט או השתמשו ב־[`WORKSPACE-POINTER.md`](../../WORKSPACE-POINTER.md) בתיקיית האב.
 
 ## 4. מצב שלב נוכחי (מתעדכן ב-SSOT)
 
@@ -50,13 +56,27 @@
 | הגשות / תשובות אייל | [`docs/project/eyal-ceo-submissions-and-responses/README.md`](project/eyal-ceo-submissions-and-responses/README.md) |
 | בלוג | [`BLOG-REVIVAL-PLAN.md`](project/BLOG-REVIVAL-PLAN.md) |
 
-## 6. קונטקסט ל-Cursor (קבצים שכדאי שיהיו טעונים)
+## 6. מבנה צוותים ואונבורד
+
+מודל ארגוני 2026 (מול SSOT ישן): [`docs/ORGANIZATION-TEAMS-2026.md`](ORGANIZATION-TEAMS-2026.md).
+
+| צוות | אונבורד (קראו לפני משימה) |
+|------|----------------------------|
+| 100 | [`_communication/team_100/onboard_team100.md`](../_communication/team_100/onboard_team100.md) |
+| 10 | [`_communication/team_10/onboard_team10.md`](../_communication/team_10/onboard_team10.md) |
+| 20 | [`_communication/team_20/onboard_team20.md`](../_communication/team_20/onboard_team20.md) |
+| 30 | [`_communication/team_30/onboard_team30.md`](../_communication/team_30/onboard_team30.md) |
+| 50 | [`_communication/team_50/onboard_team50.md`](../_communication/team_50/onboard_team50.md) |
+| 90 | [`_communication/team_90/onboard_team90.md`](../_communication/team_90/onboard_team90.md) |
+
+## 7. קונטקסט ל-Cursor (קבצים שכדאי שיהיו טעונים)
 
 - [`AGENTS.md`](../AGENTS.md) — הוראות לסוכני AI (מקוצר מול SSOT).
 - [`.cursor/rules/eyalamit-2026-project-context.mdc`](../.cursor/rules/eyalamit-2026-project-context.mdc) — כלל שורש (תמיד פעיל).
 - [`.cursor/rules/eyalamit-docs-spec.mdc`](../.cursor/rules/eyalamit-docs-spec.mdc) — כללים בעת עריכת `docs/`.
+- [`.cursor/skills/README.md`](../.cursor/skills/README.md) — סקילי WordPress לסוכן.
 
-## 7. מחקר מחוץ למאגר (עזר בלבד)
+## 8. מחקר מחוץ למאגר (עזר בלבד)
 
 - `/Users/nimrod/Documents/Eyal Amit/CLIENT-DECISION-REPORT-EYALAMIT-2026-03-29.md`
 - `/Users/nimrod/Documents/Eyal Amit/PRELIMINARY-PLANNING-EYALAMIT-2026-03-29.md`
