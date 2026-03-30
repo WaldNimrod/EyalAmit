@@ -1,19 +1,30 @@
 # חבילת מימוש, מיגרציה והשקה — צוות 100
 
-**גרסה:** 1.0  
-**תאריך:** 2026-03-29  
+**גרסה:** 1.1  
+**תאריך:** 2026-03-30  
 
 ---
 
-## 0. תנאים מקדימים
+## 0. תנאים מקדימים (מדורגים — יישור מול [`ROADMAP-2026.md`](../ROADMAP-2026.md) v12.1)
 
-- תקציר מנהלים חתום על ידי אייל — **ב-docx או PDF בלבד** (מקור פנימי לעריכה: [`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](./EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md); הגשה: [`EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx`](./EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx)).
-- [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) בסטטוס `APPROVED` (לאחר טיוטה).
-- [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](./07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) — שער כיוון ויזואלי עבר לפני בנייה מלאה.
+### 0.1 לפני **מעטפת אתר (M2)** — מבנה, תפריטים, עמודי placeholder
+
+- [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) כ־CANONICAL במאגר.
+- [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) בגרסה **DRAFT מסונכרנת** עם הצוות — **מספיק** ל־M2; שינויים אחרי אישור אייל ייכנסו כשדרוג IA.
+- [`05-PLATFORM-DECISION.md`](./05-PLATFORM-DECISION.md) כיוון פלטפורמה (WordPress רזה).
+
+### 0.2 לפני **מיגרציית תוכן מלאה (M3)** / מילוי עשיר
+
+- תקציר מנהלים **חתום** על ידי אייל — **ב-docx או PDF בלבד** (מקור פנימי: [`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](./EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md) **v2.0+**; הגשה: [`EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx`](./EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx)).
+- מפת אתר: סטטוס **`APPROVED`** (מ־`DRAFT` לאחר אישור אייל) — או waiver מפורש מ־צוות **100** אם יש סטייה מבוקרת.
+- [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](./07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) — שער כיוון ויזואלי עבר.
+- [`CONTENT-SSOT-INVENTORY.csv`](./CONTENT-SSOT-INVENTORY.csv) ממולא לפי היקף המיגרציה.
+
+### 0.3 לפני **cutover / עלייה סופית לפרודקשן**
+
 - [`01-GATE-ZERO-STRATEGY.md`](./01-GATE-ZERO-STRATEGY.md) מאושר.
-- [`CONTENT-SSOT-INVENTORY.csv`](./CONTENT-SSOT-INVENTORY.csv) ממולא.
 - [`03-SCOPE-MATRIX.md`](./03-SCOPE-MATRIX.md) מאושר כולל טבלת 301.
-- [`05-PLATFORM-DECISION.md`](./05-PLATFORM-DECISION.md) חתום.
+- בדיקות וצ'קליסט — סעיפים 3–5 להלן.
 
 ---
 
