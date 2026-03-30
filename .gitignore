@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+local/.env
+local/*.sql
+local/*.zip
+__pycache__/
+*.pyc
+.python-version
+.venv/
+venv/
