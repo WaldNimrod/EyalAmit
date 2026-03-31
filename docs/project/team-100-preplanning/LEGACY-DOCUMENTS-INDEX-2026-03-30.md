@@ -27,7 +27,14 @@
 | `07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md` | עקרונות תהליך; **לא** מחליף את גוף האפיון ב־FINAL. |
 | `RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md` | היררכיית מקורות ישנה חלקית; SSOT לתוכן = WP (FINAL §1.3). |
 | `CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md` | טבלה מול SSOT ישן; יתעדכן אחרי דוח Inventory החדש. |
-| `OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` | ארכיון שאלות לפני נעילה; תשובות ב־FINAL + סעיף ב׳ בפתוחים. |
+| `eyal-ceo-submissions-and-responses/archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` | ארכיון שאלות לפני נעילה; טבלאות א–ד והספירה ב־ד — **לא** למצב פתוח נוכחי; סעיף **ב׳** + טבלת **נסגר** בתוך הקובץ מעודכנים יותר. |
+| `eyal-ceo-submissions-and-responses/archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md` | סינתזת משוב מוקדמת; אם סותר את [`SPEC-V1.2-DECISIONS-LOCK`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) או את ה־FINAL — **קובעים הנעילה וה־FINAL**. |
+
+---
+
+## קטגוריה ב׳ — קישורי Google Docs (`.gdoc`)
+
+קבצי `*.md.gdoc` ב־`eyal-ceo-submissions-and-responses/archive/gdoc-sync-stubs/` — **מצביעים ל-Google Docs בלבד**; אין לראותם כ־SSOT. **מקור עריכה במאגר:** קבצי `.md` ב־`eyal-ceo-submissions-and-responses/for-eyal/md-sources/` (טופס בחירות + חשבונית ירוקה).
 
 ---
 
@@ -35,7 +42,7 @@
 
 | קובץ | הערת LEGACY |
 |------|-------------|
-| `EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md` | תקציר פנימי; **חבילת 2026-03-30** ב־`to-eyal` מעודכנת בסקריפט. |
+| `EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md` | **לא** מחליף את [`SITE-SPECIFICATION-FINAL`](./SITE-SPECIFICATION-FINAL-2026-03-30.md); מקור פנימי לייצוא Word (v2.0 מסונכרן לטופס בחירות + נעילה). חבילת 2026-03-30 ב־`to-eyal` מיוצרת מהסקריפט. |
 
 ---
 
@@ -50,5 +57,5 @@
 - [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) — **CANONICAL**  
 - [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) — יומן החלטות  
 - [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) — מפת IA עדכנית (טיוטה לאישור)  
-- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — טופס בחירות פעיל  
+- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — טופס בחירות פעיל  
 - [`QR-URL-POLICY.md`](./QR-URL-POLICY.md), [`GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md`](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md), [`GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](./GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md), [`PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md`](./PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md) — מדיניות / מחקר / ממצאים / שלב 1

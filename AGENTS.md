@@ -14,7 +14,7 @@
 ## הגשה ל-CEO אייל
 
 **אסור** להגיש `.md`. כל מה שיוצא **מול אייל** — **Word (.docx) או PDF בלבד**.  
-ארכיון: `docs/project/eyal-ceo-submissions-and-responses/` (`to-eyal/` / `from-eyal/`).  
+ארכיון מול אייל: `docs/project/eyal-ceo-submissions-and-responses/` — `to-eyal/…/final-spec-package-for-eyal/` (הגשה עדכנית), `from-eyal/` (חזר מאייל), `archive/` (ישן / כפול / LEGACY).  
 ייצוא חבילה: `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר (אחרי `pip install -r scripts/requirements-docx.txt`).
 
 ## יעדים בקצרה

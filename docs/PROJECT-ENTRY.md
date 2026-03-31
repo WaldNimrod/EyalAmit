@@ -53,7 +53,7 @@
 | Keep / Merge / Drop | [`CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md`](project/team-100-preplanning/CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md) |
 | תהליך ואפיון | [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](project/team-100-preplanning/07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) |
 | מיגרציה והשקה | [`06-IMPLEMENTATION-MIGRATION-PACK.md`](project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) |
-| הגשות / תשובות אייל | [`docs/project/eyal-ceo-submissions-and-responses/README.md`](project/eyal-ceo-submissions-and-responses/README.md) |
+| הגשות / תשובות אייל | [`INDEX.html`](project/eyal-ceo-submissions-and-responses/INDEX.html) (ללא `.md`) · [`INDEX.md`](project/eyal-ceo-submissions-and-responses/INDEX.md) · [`README.md`](project/eyal-ceo-submissions-and-responses/README.md) |
 | בלוג | [`BLOG-REVIVAL-PLAN.md`](project/BLOG-REVIVAL-PLAN.md) |
 
 ## 6. מבנה צוותים ואונבורד

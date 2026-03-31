@@ -5,7 +5,12 @@
 **הוראות:** לכל סעיף — סמן **אות אחת** (א / ב / ג), או כתוב **"שילוב:"** ופרט.  
 **הגשה:** רק **Word או PDF** (לא Markdown). ניתן לייצא ממסמך זה לאחר העתקה ל-Word.
 
-מקור החלטות צוות: [`../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
+מקור החלטות צוות: [`../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
+
+**עדכון מפגישה 2026-03-31 + סגירה:** החלטות **מסוכמות** ב־[`../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md`](../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) (כולל טבלת סגירה 1–10); מפת אתר: [`../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md`](../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) **v2.3**.  
+**תנועה וקידום (לאייל):** [`../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) — מסמך הנחיות + ייצוא Word מ־`build_eyal_ceo_deliverables.py`.  
+**נכסי HTML לסקירה (לא חתימה ב־Git):** [`../assets/home-dashboard/index.html`](../assets/home-dashboard/index.html) (שלוש אופציות דף בית); [`../assets/mockups/mockup-digital-course.html`](../assets/mockups/mockup-digital-course.html); [`../assets/mockups/mockup-lectures.html`](../assets/mockups/mockup-lectures.html); [`../assets/kmd-inventory-prototype.html`](../assets/kmd-inventory-prototype.html).  
+סעיפים 1–7 למטה — לעדכן בטופס Word אם מעדיפים עותק חתום אחיד.
 
 ---
 
@@ -42,7 +47,7 @@ _(מאשר שקראת שהנושאים למעלה אינם דורשים החלט
 
 **מסמך פעולה לאייל (תקציר + בדיקות מול Morning + דוגמה לפיתוח):** [`FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](./FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) — **להגשה ב־Word/PDF** (מיוצא מ־`build_eyal_ceo_deliverables.py`).
 
-**מחקר:** הושלם — פירוט מלא ב־[`../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md) (מנוי Best+ לרוב קישורי התשלום; API/Woo לשלב עומק).
+**מחקר:** הושלם — פירוט מלא ב־[`../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md) (מנוי Best+ לרוב קישורי התשלום; API/Woo לשלב עומק).
 
 **באתר WordPress:** נשאר **קטלוג** — עמוד מוצר = תוכן + **כפתור** ליעד חיצוני (לינק / דף מכירה Morning).
 
@@ -110,7 +115,8 @@ _(מאשר שקראת שהנושאים למעלה אינם דורשים החלט
 
 ## 7. דף הבית — כיוון עיצובי (בחר אחד או שילוב)
 
-ראו תרשימים במסמך הפנימי [`HOME-PAGE-DIRECTIONS-v1.2.md`](../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md) (מצורף לצוות כ-PDF או הדפסה).
+ראו תרשימים במסמך הפנימי [`HOME-PAGE-DIRECTIONS-v1.2.md`](../../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md) (מצורף לצוות כ-PDF או הדפסה).  
+**תרשים ויזואלי בדפדפן (תמונות מהאתר הקיים):** [`../assets/home-directions-visual.html`](../assets/home-directions-visual.html) — פתיחה לפני פגישה / הצגה על מסך.
 
 | אפשרות | שם |
 |--------|-----|

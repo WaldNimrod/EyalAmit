@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>דף בית — אופציה ב׳ (בינוני) — מוקאפ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard-base.css" />
+  <style>
+    .blocks {
+      display: grid;
+      gap: 1.1rem;
+    }
+    .block-large {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (max-width: 720px) { .block-large { grid-template-columns: 1fr; } }
+    .block-large img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+    }
+    .block-large .inner h2 { margin-top: 0; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="banner-note">מוקאפ — תוכן דמה. <a href="index.html">חזרה לבחירת אופציה</a></p>
+    <nav class="nav-pill" aria-label="ניווט מוקאפ">
+      <a href="home-dashboard-option-a.html">א׳ צפיפות</a>
+      <a href="home-dashboard-option-b.html">ב׳ בינוני</a>
+      <a href="home-dashboard-option-c.html">ג׳ SEO</a>
+    </nav>
+
+    <section class="hero" aria-label="Hero">
+      <img src="../home-preview/eyal-portrait-hero.jpg" alt="" width="800" height="600" decoding="async" />
+      <div class="hero-overlay">
+        <h1>נשימה · צליל · נוכחות</h1>
+        <p>מרכז לטיפול ולימוד דיג׳רידו עם אייל עמית — גישה מקצועית וחמה.</p>
+        <div class="cta-row">
+          <a class="btn" href="#">קביעת שיחה</a>
+          <a class="btn btn-ghost" href="#">לעמוד השיטה</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="blocks">
+      <div class="card block-large">
+        <img src="../home-preview/workshop-thumb.jpg" alt="" width="400" height="300" decoding="async" />
+        <div class="inner">
+          <h2>מה קורה עכשיו</h2>
+          <p style="color:var(--muted);font-size:0.95rem;">בלוק אחד בולט לסדנה הקרובה או קמפיין. תאריך, מקום, משפט אחד על הערך, וכפתור לטופס חיצוני.</p>
+          <a class="btn" href="#" style="margin-top:0.75rem;display:inline-block;">פרטים והרשמה</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>שירותים מרכזיים</h3>
+        <p>ארבעה עמודים חזקים: לימוד · טיפול · סאונד הילינג · כלים — עם קישורים ברורים וללא עומס בתפריט הבית.</p>
+      </div>
+
+      <div class="card">
+        <h3>למה לבחור במרכז</h3>
+        <p>פסקה קצרה על ניסיון, גישה, והבדל בין נגינה לטיפול — טקסט סופי מאייל.</p>
+      </div>
+
+      <div class="card">
+        <h3>קול קהילה</h3>
+        <p>המלצה אחת בולטת + קישור לעמוד «המלצות ומדיה».</p>
+      </div>
+    </div>
+
+    <section class="seo-block" aria-label="SEO קצר">
+      <h2>מילות מפתח ומבנה (בינוני)</h2>
+      <p>
+        פסקה אחת–שתיים ל־SEO: דיג׳רידו, נשימה מעגלית, טיפול בישראל, סדנאות וקורסים.
+        פחות בלוקים מ־אופציה א׳, יותר מרווח לקריאה ול־CTA.
+      </p>
+    </section>
+
+    <footer class="mock-foot">מוקאפ אופציה ב׳ — בינוני</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>דף בית — אופציה ג׳ (ממוקד SEO) — מוקאפ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard-base.css" />
+  <style>
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+    .mini-map {
+      background: var(--panel);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1rem;
+      position: sticky;
+      top: 1rem;
+    }
+    .mini-map h2 {
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+    }
+    .mini-map ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.88rem;
+    }
+    .mini-map li { margin-bottom: 0.45rem; }
+    .mini-map li a { color: var(--text); }
+    .mini-map li a:hover { color: var(--accent); }
+    .rich p { margin: 0 0 1rem; color: var(--muted); font-size: 0.92rem; }
+    .rich h2 { font-size: 1.2rem; margin: 1.25rem 0 0.5rem; }
+    .rich h2:first-child { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="banner-note">מוקאפ — תוכן דמה. <a href="index.html">חזרה לבחירת אופציה</a></p>
+    <nav class="nav-pill" aria-label="ניווט מוקאפ">
+      <a href="home-dashboard-option-a.html">א׳ צפיפות</a>
+      <a href="home-dashboard-option-b.html">ב׳ בינוני</a>
+      <a href="home-dashboard-option-c.html">ג׳ SEO</a>
+    </nav>
+
+    <section class="hero" style="min-height:180px" aria-label="Hero">
+      <img src="../home-preview/hero-wide-studio.jpg" alt="" width="1200" height="320" decoding="async" />
+      <div class="hero-overlay">
+        <h1>דיג׳רידו, נשימה וטיפול — אייל עמית</h1>
+        <p>מרכז מקצועי בישראל · לימוד · טיפול · סאונד הילינג</p>
+        <div class="cta-row">
+          <a class="btn" href="#">English</a>
+          <a class="btn btn-ghost" href="#">צור קשר</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <div class="rich">
+        <h2>טקסט מבוא עשיר (SEO)</h2>
+        <p>
+          עמוד הבית מספק הקשר מלא למנועי חיפוש ולמבקרים חדשים: מהי נשימה מעגלית, איך הדיג׳רידו משמש
+          בטיפול ובלמידה, ומה מבדיל בין שיעור נגינה לבין מפגש טיפולי. הטקסט הסופי ייסגר עם אייל ויעודכן
+          לפי מפת מילות מפתח.
+        </p>
+        <h2>שירותים ותוכן</h2>
+        <p>
+          פסקה שנייה יכולה לכלול שאלות נפוצות קצרות, אזכור מיקום גיאוגרפי (פרדס חנה־כרכור והסביבה),
+          והפניות לעמודי שירות מפורטים. כך נשמר איזון בין חוויית משתמש נקייה לבין עומק טקסטואלי ל־SEO.
+        </p>
+        <h2>בלוג ועדכונים</h2>
+        <p>
+          שורה או שתיים על ערוץ הבלוג כנכס צמיחה, עם קישור פנימי לקטגוריות. אפשר לשלב תאריך עדכון אחרון
+          או «מה חדש» בשורה אחת מתחת לכותרת.
+        </p>
+      </div>
+      <aside class="mini-map" aria-label="מפת מיני אתר">
+        <h2>מפת מיני־אתר</h2>
+        <ul>
+          <li><a href="#">בית</a></li>
+          <li><a href="#">השיטה</a></li>
+          <li><a href="#">שירותים</a> (תתי־עמודים)</li>
+          <li><a href="#">אייל עמית</a> · <a href="#">מוקש דהימן</a></li>
+          <li><a href="#">בלוג דיג׳רידו</a></li>
+          <li><a href="#">המלצות ומדיה</a></li>
+          <li><a href="#">ספרים</a></li>
+          <li><a href="#">קורסים</a></li>
+          <li><a href="#">הכשרות למטפלים</a></li>
+          <li><a href="#">גלריות</a></li>
+          <li><a href="#">צור קשר</a></li>
+          <li><a href="#">English</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="seo-block" style="margin-top:1.75rem" aria-label="טקסט SEO נוסף">
+      <h2>בלוק SEO נוסף</h2>
+      <p>
+        כאן אפשר להרחיב עם רשימת שאלות נפוצות, או פסקה טכנית יותר על סאונד הילינג ומדיטציה קולית,
+        תמיד בניסוח אנושי. קישורים פנימיים חוזרים לעמודי עומק מפורטים כדי לחזק את מבנה האתר אצל מנועי חיפוש.
+      </p>
+    </section>
+
+    <footer class="mock-foot">מוקאפ אופציה ג׳ — ממוקד SEO</footer>
+  </div>
+</body>
+</html>

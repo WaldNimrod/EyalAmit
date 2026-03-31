@@ -95,10 +95,13 @@
 
 **מטרה (למילוי אייל):** תיירים / קהילה בינלאומית / חיפושים באנגלית.
 
+**כותרת עמוד (מאושרת — 2026-03-31):** `Didgeridoo healing center - Eyal Amit` — לשימוש כ־**H1** ראשי וכמסר מרכזי בעמוד.  
+**`<title>` מוצע לדפדפן/SEO:** `Didgeridoo healing center — Eyal Amit | Israel` (או וריאנט קצר עם מיקום אחרי אישור ניסוח משנה).
+
 **מבנה מוצע:**
 
 ```
-[H1 — Eyal Amit | Didgeridoo & Circular Breathing Studio, Israel]
+[H1 — Didgeridoo healing center - Eyal Amit]
 [Sub — Pardes Hanna–Karkur area — או ניסוח מדויק]
 [פסקה קצרה: מי, מה, 25+ שנות ניסיון — ללא עומס]
 [3 bullets — Lessons | Healing / breath | Sound healing]
@@ -111,6 +114,9 @@
 - `lang="en"` לעמוד; `hreflang` בין `he` ל-`en` אם מיושם.
 - OG נפרד לעמוד EN.
 - אותם דרישות נגישות כמו לשאר האתר.
+
+**תוכן ראשוני (טיוטה) + מוקאפ HTML:**  
+[`EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](./EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) · תצוגה: [`../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html)
 
 ---
 

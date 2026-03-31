@@ -153,9 +153,9 @@
 
 ---
 
-### F1 — from-eyal/ ריקה — ארכיון חסר
+### F1 — from-eyal/ (מעודכן 2026-03-31)
 
-**ממצא:** `docs/project/eyal-ceo-submissions-and-responses/from-eyal/` — **ריקה**. הפידבק של אייל מתועד רק בטבלת הסינתזה (EYAL-FEEDBACK-RESPONSE-TABLE). המסמכים המקוריים שאייל החזיר (שצוינו ב-README: "קבצים שהוחזרו מאייל") — **אינם בתיקייה**.
+**ממצא נוכחי:** ב־`from-eyal/` קיימים שלושת קבצי ה־Word מהסבב **2026-03-29** (משוב עם הערות בגוף). **ממצא היסטורי:** בעבר התיקייה הייתה ריקה והתיעוד היה בעיקר ב־`archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE`. לסבב חדש — להוסיף קבצים מתוארכים ולא להחליף בלי ארכיון.
 
 **UNVERIFIED:** איפה קבצי המשוב המקוריים של אייל? האם נמחקו, לא הועתקו, או שמורים במקום אחר?
 
@@ -208,7 +208,7 @@
 
 ### F5 — OPEN-QUESTIONS מסומן "ארכיון" אבל נגיש
 
-**ממצא:** הקובץ `OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` מסומן כ"ארכיון לפני הנעילה" בראשו, אבל עדיין נמצא בתיקיית submissions. אם אייל רואה אותו (או שהוא חלק מ-docx package), ייתכן בלבול — יש 9 שאלות A1-A9 שנראות פתוחות.
+**ממצא (מעודכן 2026-03-31):** `OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` הועבר ל־`eyal-ceo-submissions-and-responses/archive/md-legacy/` — לא נשאר בשורש submissions. (טקסט מקורי לפני העברה: אם אייל רואה את הקובץ, ייתכן בלבול בגלל A1–A9.)
 
 **חלופה:** (א) ודאו שהקובץ **לא** נשלח לאייל כ-docx; (ב) אם כן — הוסיפו באנר ברור: "מסמך פנימי מלפני נעילה — **לא** להפצה לאייל."
 
@@ -295,8 +295,8 @@
 | `SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md` | CC1, CC2 |
 | `FOR-EYAL-CHOICES-v1.2-2026-03-30.md` | CC1, CC2, F3 |
 | `FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md` | F4 |
-| `EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md` | CC3, F1, F7 |
-| `OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` | F5 |
+| `archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md` | CC3, F1, F7 |
+| `archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md` | F5 |
 | `HOME-PAGE-DIRECTIONS-v1.2.md` | — (תקין) |
 | `to-eyal/2026-03-30--final-spec-package-for-eyal/` | F2, F6 |
 

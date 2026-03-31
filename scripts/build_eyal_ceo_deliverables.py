@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Build Word (.docx) CEO packages for Eyal: executive summary, site map, decisions.
 
-Outputs go to docs/project/eyal-ceo-submissions-and-responses/to-eyal/
-and executive is also mirrored to team-100-preplanning/ for scripts compatibility.
+All .docx outputs go to a single dated package folder only:
+  docs/project/eyal-ceo-submissions-and-responses/to-eyal/{DELIVERY_DATE}--final-spec-package-for-eyal/
 
-Also writes dated folder: to-eyal/{DELIVERY_DATE}--final-spec-package-for-eyal/
+Executive summary is also mirrored to team-100-preplanning/ for scripts compatibility.
+No duplicate .docx copies at to-eyal/ root (archive holds older rounds).
 
 Requires: pip install python-docx
 """
-import shutil
 from pathlib import Path
+from typing import Optional
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -28,9 +29,15 @@ def _paths():
     return root, to_eyal, team100
 
 
-def build_executive_summary_docx():
+def _final_package_dir(to_eyal: Path) -> Path:
+    return to_eyal / f"{DELIVERY_DATE}--final-spec-package-for-eyal"
+
+
+def build_executive_summary_docx(out_dir: Optional[Path] = None):
     _, to_eyal, team100 = _paths()
-    out_primary = to_eyal / f"{DELIVERY_DATE}--executive-summary--{VERSION_TAG}.docx"
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_primary = out_dir / f"{DELIVERY_DATE}--executive-summary--{VERSION_TAG}.docx"
     out_mirror = team100 / "EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx"
 
     doc = Document()
@@ -147,15 +154,16 @@ def build_executive_summary_docx():
         size=9,
     )
 
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out_primary)
     doc.save(out_mirror)
     return out_primary, out_mirror
 
 
-def build_site_map_docx():
+def build_site_map_docx(out_dir: Optional[Path] = None):
     _, to_eyal, team100 = _paths()
-    out = to_eyal / f"{DELIVERY_DATE}--site-map-draft-v2--{VERSION_TAG}.docx"
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{DELIVERY_DATE}--site-map-draft-v2--{VERSION_TAG}.docx"
     md_path = team100 / "SITEMAP-NEW-SITE-v2-DRAFT.md"
 
     doc = Document()
@@ -173,7 +181,6 @@ def build_site_map_docx():
     add_md_file_as_docx(doc, md_path, skip_first_h1=True)
     doc.add_paragraph()
     add_rtl_paragraph(doc, "חתימה לאישור מפת אתר: __________________  תאריך: __________", bold=True)
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out)
     return out
 
@@ -195,9 +202,11 @@ def _add_table(doc, headers: tuple, rows: tuple):
     return table
 
 
-def build_decisions_docx():
+def build_decisions_docx(out_dir: Optional[Path] = None):
     _, to_eyal, team100 = _paths()
-    out = to_eyal / f"{DELIVERY_DATE}--decisions-for-approval--{VERSION_TAG}.docx"
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{DELIVERY_DATE}--decisions-for-approval--{VERSION_TAG}.docx"
 
     doc = Document()
     t = doc.add_paragraph()
@@ -291,16 +300,20 @@ def build_decisions_docx():
     doc.add_paragraph()
     add_rtl_paragraph(doc, "מסמך מקור מחייב לצוות: SITE-SPECIFICATION-FINAL-2026-03-30.md", size=9)
 
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out)
     return out
 
 
-def build_for_eyal_choices_docx():
+def _md_sources_dir(to_eyal: Path) -> Path:
+    return to_eyal.parent / "for-eyal" / "md-sources"
+
+
+def build_for_eyal_choices_docx(out_dir: Optional[Path] = None):
     _, to_eyal, _ = _paths()
-    eyal_dir = to_eyal.parent
-    md_path = eyal_dir / "FOR-EYAL-CHOICES-v1.2-2026-03-30.md"
-    out = to_eyal / f"{DELIVERY_DATE}--for-eyal-choices-v1.2--{VERSION_TAG}.docx"
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    md_path = _md_sources_dir(to_eyal) / "FOR-EYAL-CHOICES-v1.2-2026-03-30.md"
+    out = out_dir / f"{DELIVERY_DATE}--for-eyal-choices-v1.2--{VERSION_TAG}.docx"
 
     doc = Document()
     t = doc.add_paragraph()
@@ -313,16 +326,16 @@ def build_for_eyal_choices_docx():
     add_md_file_as_docx(doc, md_path, skip_first_h1=True)
     doc.add_paragraph()
     add_rtl_paragraph(doc, "חתימה: __________________  תאריך: __________", bold=True)
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out)
     return out
 
 
-def build_green_invoice_action_sheet_docx():
+def build_green_invoice_action_sheet_docx(out_dir: Optional[Path] = None):
     _, to_eyal, _ = _paths()
-    eyal_dir = to_eyal.parent
-    md_path = eyal_dir / "FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md"
-    out = to_eyal / f"{DELIVERY_DATE}--for-eyal-green-invoice-action-sheet--{VERSION_TAG}.docx"
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    md_path = _md_sources_dir(to_eyal) / "FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md"
+    out = out_dir / f"{DELIVERY_DATE}--for-eyal-green-invoice-action-sheet--{VERSION_TAG}.docx"
 
     doc = Document()
     t = doc.add_paragraph()
@@ -339,15 +352,41 @@ def build_green_invoice_action_sheet_docx():
     add_md_file_as_docx(doc, md_path, skip_first_h1=True)
     doc.add_paragraph()
     add_rtl_paragraph(doc, "חתימה: __________________  תאריך: __________", bold=True)
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out)
     return out
 
 
-def build_site_spec_final_docx():
+def build_eyal_traffic_guide_docx(out_dir: Optional[Path] = None):
     _, to_eyal, team100 = _paths()
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    md_path = team100 / "EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md"
+    out = out_dir / f"{DELIVERY_DATE}--eyal-traffic-aeo-geo-guide--{VERSION_TAG}.docx"
+
+    doc = Document()
+    t = doc.add_paragraph()
+    t.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    r = t.add_run("תנועה, גילוי וקידום — הנחיות לאייל (SEO · AEO · GEO)")
+    set_run_font(r, size=18, bold=True)
+    add_rtl_paragraph(
+        doc,
+        f"תאריך: {DELIVERY_DATE}  |  מסמך עבודה להכנת דוח ודרישות; מקור Markdown בצוות 100",
+        size=10,
+    )
+    doc.add_paragraph()
+    add_md_file_as_docx(doc, md_path, skip_first_h1=True)
+    doc.add_paragraph()
+    add_rtl_paragraph(doc, "חתימה / הערות: __________________", bold=True)
+    doc.save(out)
+    return out
+
+
+def build_site_spec_final_docx(out_dir: Optional[Path] = None):
+    _, to_eyal, team100 = _paths()
+    out_dir = out_dir or _final_package_dir(to_eyal)
+    out_dir.mkdir(parents=True, exist_ok=True)
     md_path = team100 / "SITE-SPECIFICATION-FINAL-2026-03-30.md"
-    out = to_eyal / f"{DELIVERY_DATE}--site-specification-final--{VERSION_TAG}.docx"
+    out = out_dir / f"{DELIVERY_DATE}--site-specification-final--{VERSION_TAG}.docx"
 
     doc = Document()
     t = doc.add_paragraph()
@@ -359,20 +398,11 @@ def build_site_spec_final_docx():
     add_md_file_as_docx(doc, md_path, skip_first_h1=True)
     doc.add_paragraph()
     add_rtl_paragraph(doc, "אישור צוות / הערות אייל (אם רלוונטי): __________________", bold=True)
-    to_eyal.mkdir(parents=True, exist_ok=True)
     doc.save(out)
     return out
 
 
-def assemble_final_package(files: tuple[Path, ...]) -> Path:
-    _, to_eyal, _ = _paths()
-    pkg = to_eyal / f"{DELIVERY_DATE}--final-spec-package-for-eyal"
-    if pkg.exists():
-        shutil.rmtree(pkg)
-    pkg.mkdir(parents=True, exist_ok=True)
-    for p in files:
-        if p.is_file():
-            shutil.copy2(p, pkg / p.name)
+def write_final_package_readme(pkg: Path, files: tuple[Path, ...]) -> None:
     for junk in ("Icon\r", "Icon"):
         j = pkg / junk
         if j.exists():
@@ -391,24 +421,31 @@ def assemble_final_package(files: tuple[Path, ...]) -> Path:
     readme += """
 מקורות Markdown פנימיים (צוות):
   team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md
+  team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md
   team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md
-  eyal-ceo-submissions-and-responses/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
+  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md
+  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
 
 לייצוא PDF: פתחו כל .docx ב-Word ושמרו כ-PDF.
 """
     (pkg / "README.txt").write_text(readme, encoding="utf-8")
-    return pkg
 
 
 def main():
-    e1, e2 = build_executive_summary_docx()
-    s = build_site_map_docx()
-    d = build_decisions_docx()
-    c = build_for_eyal_choices_docx()
-    g = build_green_invoice_action_sheet_docx()
-    f = build_site_spec_final_docx()
-    primary_outputs = (e1, s, d, c, g, f)
-    pkg = assemble_final_package(primary_outputs)
+    _, to_eyal, _ = _paths()
+    pkg = _final_package_dir(to_eyal)
+    pkg.mkdir(parents=True, exist_ok=True)
+    for stale in pkg.glob("*.docx"):
+        stale.unlink()
+    e1, e2 = build_executive_summary_docx(out_dir=pkg)
+    s = build_site_map_docx(out_dir=pkg)
+    d = build_decisions_docx(out_dir=pkg)
+    c = build_for_eyal_choices_docx(out_dir=pkg)
+    g = build_green_invoice_action_sheet_docx(out_dir=pkg)
+    f = build_site_spec_final_docx(out_dir=pkg)
+    tguide = build_eyal_traffic_guide_docx(out_dir=pkg)
+    primary_outputs = (e1, s, d, c, g, f, tguide)
+    write_final_package_readme(pkg, primary_outputs)
     print("Written:")
     for p in primary_outputs:
         print(" ", p)

@@ -16,6 +16,8 @@
 
 **המלצה:** **אפשרות A** — WordPress חדש או התקנה נקייה, תבנית בלוקים או תמה מינימלית, ללא Elementor/Bridge/WooCommerce בפרודקשן.
 
+**בחירת תבנית (עברית · ביצועים · קידום):** ניתוח חלופות, יתרונות/חסרונות והמלצת סדר עדיפות — [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md).
+
 **ענף Git לפיתוח:** `feature/lean-wp-rebuild-2026` (נוצר במאגר).  
 **מקור אמת לתוכן:** אתר חי `https://www.eyalamit.co.il/` (אפשרי) + ייצוא במאגר; מסלול מונולית — [`../ARCHIVE-LEGACY-MONOLITH-PATH.md`](../ARCHIVE-LEGACY-MONOLITH-PATH.md).
 

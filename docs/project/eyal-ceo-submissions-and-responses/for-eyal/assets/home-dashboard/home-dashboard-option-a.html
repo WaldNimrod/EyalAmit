@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>דף בית — אופציה א׳ (צפיפות מקסימלית) — מוקאפ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard-base.css" />
+  <style>
+    .dense-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.65rem;
+    }
+    .dense-grid .card { min-height: 88px; display: flex; flex-direction: column; justify-content: center; }
+    .dense-grid .card h3 { font-size: 0.92rem; }
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+    @media (max-width: 640px) { .row-2 { grid-template-columns: 1fr; } }
+    .subgrid-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dim);
+      margin: 1.25rem 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="banner-note">מוקאפ — תוכן דמה. <a href="index.html">חזרה לבחירת אופציה</a> · <a href="../home-directions-visual.html">תרשים A/B/C</a></p>
+    <nav class="nav-pill" aria-label="ניווט מוקאפ">
+      <a href="home-dashboard-option-a.html">א׳ צפיפות</a>
+      <a href="home-dashboard-option-b.html">ב׳ בינוני</a>
+      <a href="home-dashboard-option-c.html">ג׳ SEO</a>
+    </nav>
+    <section class="hero" aria-label="Hero">
+      <img src="../home-preview/hero-wide-studio.jpg" alt="" width="1200" height="400" decoding="async" />
+      <div class="hero-overlay">
+        <h1>המרכז לטיפול בדיג׳רידו — אייל עמית</h1>
+        <p>נשימה מעגלית · סאונד הילינג · לימוד נגינה · פרדס חנה־כרכור</p>
+        <div class="cta-row">
+          <a class="btn" href="#">צור קשר</a>
+          <a class="btn btn-ghost" href="#">שיעור ניסיון</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="subgrid-title">שירותים ומסלולים</p>
+    <div class="dense-grid">
+      <div class="card"><h3>שיעורי דיג׳רידו</h3><p>מסלולים לכל רמה</p></div>
+      <div class="card"><h3>טיפול בנשימה</h3><p>מפגשים אישיים</p></div>
+      <div class="card"><h3>סאונד הילינג</h3><p>מדיטציה קולית</p></div>
+      <div class="card"><h3>תיקון כלים</h3><p>שירות מקצועי</p></div>
+      <div class="card"><h3>כלים בעבודת יד</h3><p>חשבונית ירוקה</p></div>
+      <div class="card"><h3>הרצאות</h3><p>ארגונים וצוותים</p></div>
+      <div class="card"><h3>סדנאות</h3><p>תאריכים בעמוד</p></div>
+      <div class="card"><h3>קורסים</h3><p>קישור לסקולר</p></div>
+    </div>
+
+    <p class="subgrid-title">תוכן וקהילה</p>
+    <div class="row-2">
+      <div class="card">
+        <h3>מהבלוג</h3>
+        <p>שלושה כותרות אחרונות — טקסט דמה לתצוגת כרטיסים.</p>
+      </div>
+      <div class="card">
+        <h3>ספרים</h3>
+        <p>כרטיסים לדפי ספר + רכישה חיצונית.</p>
+      </div>
+    </div>
+    <div class="row-2" style="margin-top:0.85rem">
+      <div class="card">
+        <h3>המלצות</h3>
+        <p>ציטוט קצר + קישור לעמוד עדויות.</p>
+      </div>
+      <div class="card">
+        <h3>אירוע / חדשות</h3>
+        <p>תאריך · משפט מפתח · CTA לטופס חיצוני.</p>
+      </div>
+    </div>
+
+    <p class="subgrid-title">גלריה ומשנה</p>
+    <div class="dense-grid">
+      <div class="card"><h3>גלריה</h3><p>תצוגת מחיצות</p></div>
+      <div class="card"><h3>אודות</h3><p>מסע מקצועי</p></div>
+      <div class="card"><h3>מוקש דהימן</h3><p>לזכרו</p></div>
+      <div class="card"><h3>English</h3><p>Didgeridoo healing</p></div>
+    </div>
+
+    <section class="seo-block" aria-label="טקסט SEO">
+      <h2>טקסט SEO — דוגמה (ארוך)</h2>
+      <p>
+        סטודיו נשימה מעגלית ודיג׳רידו בישראל: לימוד נגינה, טיפול בנשימה, וסדנאות סאונד הילינג.
+        האתר משקף את פעילות המרכז בפרדס חנה־כרכור ואת ניסיון של עשרות שנים בהוראה ובטיפול.
+        כאן יופיעו פסקאות נוספות עם מילות מפתח טבעיות (דיג׳רידו, נשימה מעגלית, טיפול, סאונד הילינג, ישראל)
+        לפי אסטרטגיית תוכן שאושרה — הטקסט הנוכחי הוא placeholder למבנה עמוד בלבד.
+      </p>
+      <p>
+        קישורי משנה: <a href="#">השיטה</a> · <a href="#">שירותים</a> · <a href="#">בלוג</a> · <a href="#">צור קשר</a> ·
+        <a href="#">נגישות</a> · <a href="#">תקנון</a>.
+      </p>
+    </section>
+
+    <footer class="mock-foot">מוקאפ אופציה א׳ — צפיפות מקסימלית</footer>
+  </div>
+</body>
+</html>

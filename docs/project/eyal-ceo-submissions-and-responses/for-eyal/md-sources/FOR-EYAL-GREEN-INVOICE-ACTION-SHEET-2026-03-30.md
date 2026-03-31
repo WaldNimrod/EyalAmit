@@ -3,7 +3,7 @@
 **לא:** אייל עמית  
 **תאריך:** 2026-03-30  
 **הגשה:** Word או PDF בלבד (לא Markdown).  
-**מקור מחקר מלא (צוות):** [`../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md)
+**מקור מחקר מלא (צוות):** [`../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md)
 
 ---
 

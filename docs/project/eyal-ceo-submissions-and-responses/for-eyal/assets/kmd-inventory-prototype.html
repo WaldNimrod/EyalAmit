@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KMD — מלאי עמודים (אבטיפוס צד־לקוח)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1a1612;
+      --panel: #2d2620;
+      --accent: #c4713b;
+      --text: #f3ebe3;
+      --muted: #a89888;
+      --border: rgba(196, 113, 59, 0.35);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Heebo", sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 1rem 0.75rem 2rem; }
+    h1 { font-family: "Frank Ruhl Libre", serif; font-size: 1.35rem; margin: 0 0 0.5rem; }
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      background: rgba(45, 38, 32, 0.6);
+    }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; align-items: center; }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--accent);
+      color: #1a1612;
+      font-weight: 700;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+    button.secondary { background: var(--panel); color: var(--text); }
+    button:hover { filter: brightness(1.08); }
+    .status { font-size: 0.82rem; color: var(--muted); min-height: 1.25rem; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th, td { border-bottom: 1px solid var(--border); padding: 0.35rem 0.45rem; text-align: right; vertical-align: middle; }
+    th { background: rgba(196, 113, 59, 0.12); color: var(--accent); font-weight: 700; position: sticky; top: 0; z-index: 1; }
+    tr:last-child td { border-bottom: none; }
+    input.cell {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0.25rem 0.35rem;
+      border-radius: 4px;
+    }
+    input.cell:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(26, 22, 18, 0.5);
+    }
+    col.url { width: 38%; }
+    col.kmd { width: 10%; }
+    col.notes { width: 52%; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Keep / Merge / Drop — טבלת אבטיפוס</h1>
+    <p class="note">הכול בדפדפן בלבד — ללא שרת. ערכו תאים, העתיקו כ־TSV ללוח, או ייצאו CSV. שורות דמה לפי מפת אתר v2.3 + placeholders.</p>
+    <div class="toolbar">
+      <button type="button" id="btnCopyTsv">העתקה ללוח (TSV)</button>
+      <button type="button" id="btnCopyJson">העתקה ללוח (JSON)</button>
+      <button type="button" id="btnCsv">ייצוא CSV</button>
+      <button type="button" id="btnReset" class="secondary">איפוס לברירת מחדל</button>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="url" />
+          <col class="kmd" />
+          <col class="notes" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">URL יעד (או נתיב מוצע)</th>
+            <th scope="col">K / M / D</th>
+            <th scope="col">הערות</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const DEFAULT_ROWS = [
+      ["/", "Keep", "דף בית חדש"],
+      ["/השיטה/", "Keep", ""],
+      ["/שירותים/", "Merge", "מאגר או mega-menu"],
+      ["/שירותים/שיעורי-דיגרידו/", "Keep", ""],
+      ["/שירותים/טיפול-דיגרידו/", "Keep", ""],
+      ["/שירותים/סאונד-הילינג/", "Keep", ""],
+      ["/שירותים/תיקון-כלים/", "Keep", ""],
+      ["/שירותים/כלים-בעבודת-יד/", "Keep", "קישור חשבונית ירוקה"],
+      ["/שירותים/הרצאות/", "Keep", "מוקאפ HTML קיים"],
+      ["/שירותים/סדנאות/", "Keep", ""],
+      ["/אייל-עמית/", "Keep", "אודות"],
+      ["/אייל-עמית/מוקש-דהימן/", "Keep", "עמוד חדש + תפריט v2.3"],
+      ["/בלוג/", "Keep", "בלוג דיג׳רידו"],
+      ["/בלוג/…", "Merge", "פוסטים — למלא בפועל"],
+      ["/המלצות-ומדיה/", "Keep", ""],
+      ["/ספרים/", "Keep", "מוזג הוצאה"],
+      ["/ספרים/…", "Keep", "דפי ספר SEO"],
+      ["/קורסים/", "Keep", "חיצוני סקולר"],
+      ["/קורסים/קורס-דיגיטלי/", "Keep", "מוקאפ — תוכן מאייל"],
+      ["/הכשרות-למטפלים/", "Keep", "יעלה בקרוב"],
+      ["/גלריות/", "Keep", "תקרה ~150 למחיצה — ראו דוח"],
+      ["/גלריות/…", "Merge", "למלא מ־Envira"],
+      ["/צור-קשר/", "Keep", ""],
+      ["/en/", "Keep", "Didgeridoo healing center - Eyal Amit"],
+      ["/נגישות/", "Keep", ""],
+      ["/תקנון/", "Keep", ""],
+      ["/קטלוג-ישן/", "Merge", "301 — לפי מטריצה M4/M5"],
+      ["/shop/…", "Drop", "לא עגלה פנימית — יעד חיצוני"],
+      ["/הופעות-ארכיון/", "Keep", "LEGACY — לא בתפריט ראשי"],
+      ["[placeholder-1]", "Drop", "URL ישן לדוגמה"],
+      ["[placeholder-2]", "Merge", "לאחד עם עמוד שירות"],
+      ["[placeholder-3]", "Keep", ""],
+      ["[placeholder-4]", "Keep", ""],
+    ];
+
+    const tbody = document.getElementById("tbody");
+    const statusEl = document.getElementById("status");
+
+    function render(rows) {
+      tbody.innerHTML = "";
+      rows.forEach((r) => {
+        const tr = document.createElement("tr");
+        ["url", "kmd", "notes"].forEach((key, i) => {
+          const td = document.createElement("td");
+          const inp = document.createElement("input");
+          inp.type = "text";
+          inp.className = "cell";
+          inp.value = r[i];
+          inp.dataset.col = key;
+          td.appendChild(inp);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    function getRows() {
+      return Array.from(tbody.querySelectorAll("tr")).map((tr) => {
+        const inputs = tr.querySelectorAll("input.cell");
+        return [inputs[0].value, inputs[1].value, inputs[2].value];
+      });
+    }
+
+    function setStatus(msg) {
+      statusEl.textContent = msg;
+      if (msg) setTimeout(() => { statusEl.textContent = ""; }, 4000);
+    }
+
+    function escapeCsvField(s) {
+      const x = String(s).replace(/"/g, '""');
+      if (/[",\n\r]/.test(x)) return '"' + x + '"';
+      return x;
+    }
+
+    document.getElementById("btnCopyTsv").addEventListener("click", async () => {
+      const rows = getRows();
+      const lines = [["url", "kmd", "notes"], ...rows].map((line) =>
+        line.map((c) => String(c).replace(/\t/g, " ")).join("\t")
+      );
+      const text = lines.join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        setStatus("הועתק ללוח כ־TSV.");
+      } catch {
+        setStatus("שגיאה בהעתקה — נסו דפדפן מעודכן או הרשאות.");
+      }
+    });
+
+    document.getElementById("btnCopyJson").addEventListener("click", async () => {
+      const rows = getRows();
+      const obj = rows.map(([url, kmd, notes]) => ({ url, kmd, notes }));
+      const text = JSON.stringify(obj, null, 2);
+      try {
+        await navigator.clipboard.writeText(text);
+        setStatus("הועתק ללוח כ־JSON.");
+      } catch {
+        setStatus("שגיאה בהעתקה.");
+      }
+    });
+
+    document.getElementById("btnCsv").addEventListener("click", () => {
+      const rows = getRows();
+      const header = ["url", "kmd", "notes"];
+      const lines = [header, ...rows].map((line) => line.map(escapeCsvField).join(","));
+      const csv = "\uFEFF" + lines.join("\r\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "kmd-inventory-" + new Date().toISOString().slice(0, 10) + ".csv";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      setStatus("קובץ CSV הורד.");
+    });
+
+    document.getElementById("btnReset").addEventListener("click", () => {
+      if (confirm("לאפס את כל השדות לברירת המחדל?")) {
+        render(DEFAULT_ROWS.map((r) => [...r]));
+        setStatus("אופס לברירת מחדל.");
+      }
+    });
+
+    render(DEFAULT_ROWS.map((r) => [...r]));
+  </script>
+</body>
+</html>

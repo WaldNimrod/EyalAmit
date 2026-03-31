@@ -4,7 +4,7 @@
 **תאריך נעילה:** 2026-03-30  
 **סטטוס:** `LOCKED_FOR_EYAL_PACKAGE` — מסמכי בחירה לאייל נגזרים מכאן.
 
-מסמך זה משלים את [`EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md`](../eyal-ceo-submissions-and-responses/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md) ואת [`OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md).
+מסמך זה **קובע** מעל שני מסמכי הארכיון הבאים (מסומנים **LEGACY** בראש הקובץ): [`EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md`](../eyal-ceo-submissions-and-responses/archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md), [`OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md) — הם נשמרים לפרובננס ולטבלאות היסטוריות; **במקרה סתירה קובעים מסמך זה + ה־FINAL**.
 
 **אפיון סופי נקי (מקור מחייב לבנייה):** [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) — **קובע** במקרה סתירה. מסמכים ישנים: [`LEGACY-DOCUMENTS-INDEX-2026-03-30.md`](./LEGACY-DOCUMENTS-INDEX-2026-03-30.md).
 
@@ -53,7 +53,9 @@
 ## 5. קורסים והכשרות (IA)
 
 - **קורסים:** **כן** — **מחיצה בתפריט הראשי** (פריט "קורסים" / מקביל), קישור לסקולר (רב מסר) לפי אפיון.  
-- **הכשרות למטפלים:** **עמוד נפרד** — חלק ממפת האתר **מיום א**; תבנית + תוכן **"יעלה בקרוב"**; תוכן מלא **בהמשך**.
+- **קורס דיגיטלי:** מופיע במפת v2.2 כהרחבה תחת ענף הקורסים — **ניסוח ומבנה** לפי סקולר (לסגור באפיון עמוד).  
+- **הכשרות למטפלים:** **עמוד נפרד** — חלק ממפת האתר **מיום א**; תבנית + תוכן **"יעלה בקרוב"**; תוכן מלא **בהמשך**.  
+- **הופעות + כתבות היסטוריות (עדכון 2026-03-31):** **לא** ב**סרגל / תפריט ראשי**; **שימור LEGACY** — זמינות לניהול מנהל ול־URL ישיר; לא חזית שיווקית — ראו מפת v2.2.
 
 ---
 
@@ -80,8 +82,8 @@
 ## 9. גלריה
 
 - **נדרשת גלריה** (פשוטה).  
-- **נקודת עבודה:** **העתקת המחיצות הקיימות** מהאתר הנוכחי; הצוות **מציע מיקום בעץ ובתפריט** לאישור אייל כחלק מההגשה והאפיון.  
-- פירוט: [`GALLERY-DECISION-SCOPE-v1.2.md`](./GALLERY-DECISION-SCOPE-v1.2.md).
+- **פגישה 2026-03-31:** **כל תוכן הגלריות עובר**; תנאי אייל: ללא upload «מת»; ~**150 תמונות/מחיצה**; דוח מניינים לפני בנייה; SEO — ראו [`GALLERY-DECISION-SCOPE-v1.2.md`](./GALLERY-DECISION-SCOPE-v1.2.md) ו־[`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).  
+- **נקודת עבודה:** **העתקת המחיצות הקיימות**; הצוות **מציע מיקום בעץ ובתפריט** (אושרה הגישה).
 
 ---
 
@@ -106,7 +108,7 @@
 |------|--------|
 | [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) | **אפיון סופי נקי** — מקור מחייב לבנייה |
 | [`LEGACY-DOCUMENTS-INDEX-2026-03-30.md`](./LEGACY-DOCUMENTS-INDEX-2026-03-30.md) | סימון גרסאות ישנות — לא להסתמך כ־SSOT |
-| [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | בחירות לאייל (ניסוחים / אופציות) — ייצוא docx/pdf |
+| [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | בחירות לאייל (ניסוחים / אופציות) — ייצוא docx/pdf |
 | [`NIMROD-BRIEF-v1.2-INLINE-QA.md`](./NIMROD-BRIEF-v1.2-INLINE-QA.md) | שאלות שהוצגו כ"סודיות" — תשובה ישירה |
 | [`GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md`](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md) | מנדט מחקר לאיגנט |
 | [`HOME-PAGE-DIRECTIONS-v1.2.md`](./HOME-PAGE-DIRECTIONS-v1.2.md) | 3 כיווני בית + סכמה |

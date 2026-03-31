@@ -47,5 +47,5 @@
 
 ## 4. העברה הלאה
 
-- מסמך **לאייל** (תקציר + בדיקות מול Morning + דוגמה לפיתוח): [`../eyal-ceo-submissions-and-responses/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](../eyal-ceo-submissions-and-responses/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) — ייצוא **docx** ב־`build_eyal_ceo_deliverables.py`.  
+- מסמך **לאייל** (תקציר + בדיקות מול Morning + דוגמה לפיתוח): [`../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) — ייצוא **docx** ב־`build_eyal_ceo_deliverables.py`.  
 - **טופס בחירות:** `FOR-EYAL-CHOICES` (סעיף חשבונית ירוקה) — לעדכן אחרי אישור אייל.

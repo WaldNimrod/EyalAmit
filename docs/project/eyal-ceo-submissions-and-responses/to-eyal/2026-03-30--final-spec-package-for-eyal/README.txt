@@ -11,10 +11,13 @@
   - 2026-03-30--for-eyal-choices-v1.2--v2-final.docx
   - 2026-03-30--for-eyal-green-invoice-action-sheet--v2-final.docx
   - 2026-03-30--site-specification-final--v2-final.docx
+  - 2026-03-30--eyal-traffic-aeo-geo-guide--v2-final.docx
 
 מקורות Markdown פנימיים (צוות):
   team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md
+  team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md
   team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md
-  eyal-ceo-submissions-and-responses/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
+  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md
+  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
 
 לייצוא PDF: פתחו כל .docx ב-Word ושמרו כ-PDF.

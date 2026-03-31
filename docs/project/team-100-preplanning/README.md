@@ -12,7 +12,11 @@
 
 | קובץ | תיאור |
 |------|--------|
-| [SITE-SPECIFICATION-FINAL-2026-03-30.md](./SITE-SPECIFICATION-FINAL-2026-03-30.md) | **אפיון נקי ומלא** — מקור מחייב לבנייה; Word בחבילת to-eyal |
+| [MEETING-MINUTES-EYAL-2026-03-31.md](./MEETING-MINUTES-EYAL-2026-03-31.md) | פרוטוקול פגישת אייל + סנכרון מ־meeting-brief v1.1 |
+| [SITE-SPECIFICATION-FINAL-2026-03-30.md](./SITE-SPECIFICATION-FINAL-2026-03-30.md) | **אפיון נקי ומלא** — מקור מחייב לבנייה; Word בחבילת to-eyal; **§4** תנועה/AEO/GEO |
+| [EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md](./EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) | הנחיות מקיפות לאייל — דוח, דרישות, כלים, רפרנסים; Word בחבילת to-eyal |
+| [WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) | השוואת תבניות WP — FSE מול קלאסית מול מקומית; המלצות מול M2 |
+| [EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md](./EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) | תוכן ראשוני לעמוד EN בודד + מטא |
 | [LEGACY-DOCUMENTS-INDEX-2026-03-30.md](./LEGACY-DOCUMENTS-INDEX-2026-03-30.md) | סימון גרסאות ישנות — לא SSOT |
 | [PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md](./PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md) | **שלב 1:** תשתית מקומית, סקירות, מיפוי + קישור למנדט חשבונית ירוקה |
 
@@ -21,13 +25,15 @@
 | קובץ | תיאור |
 |------|--------|
 | [SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) | נעילת החלטות נימרוד + יסודות הגשה לאייל |
-| [FOR-EYAL-CHOICES-v1.2-2026-03-30.md](../eyal-ceo-submissions-and-responses/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | טופס בחירות (א / ב / ג) לאייל |
-| [FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md](../eyal-ceo-submissions-and-responses/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | חשבונית ירוקה — תקציר, בדיקות Morning, דוגמה לפיתוח |
+| [FOR-EYAL-CHOICES-v1.2-2026-03-30.md](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | טופס בחירות (א / ב / ג) לאייל |
+| [FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | חשבונית ירוקה — תקציר, בדיקות Morning, דוגמה לפיתוח |
 | [GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md) | מנדט מחקר (§0) — **הושלם** |
 | [GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md](./GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md) | **תוצר צוות הבדיקה** — יכולות חשבונית ירוקה / Morning |
 | [HOME-PAGE-DIRECTIONS-v1.2.md](./HOME-PAGE-DIRECTIONS-v1.2.md) | 3 כיווני דף בית + סכמה |
 | [NIMROD-BRIEF-v1.2-INLINE-QA.md](./NIMROD-BRIEF-v1.2-INLINE-QA.md) | תשובות ישירות לשאלות "סודיות" |
 | [GALLERY-DECISION-SCOPE-v1.2.md](./GALLERY-DECISION-SCOPE-v1.2.md) | מה מחליטים בגלריה |
+
+**ארכיון משוב / שאלות (LEGACY — לא רשימת פתוחים נוכחית):** [`EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md`](../eyal-ceo-submissions-and-responses/archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md), [`OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md) — מסומנים בראש הקובץ; קובעים הנעילה וה־FINAL.
 
 ## מסמכי ליבה v2 (אפיון וסנכרון)
 

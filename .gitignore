@@ -10,3 +10,5 @@ __pycache__/
 .python-version
 .venv/
 venv/
+# Google Drive desktop sync temp (avoid duplicate junk in eyal-ceo tree)
+**/.tmp.driveupload/

@@ -22,4 +22,4 @@ if __name__ == "__main__":
         build_all()
     else:
         main()
-        print("(הרץ עם --all לייצור כל חבילת ההגשות ל-to-eyal/)")
+        print("(הרץ עם --all לייצור חבילה מלאה — to-eyal/…/final-spec-package-for-eyal/)")
