@@ -1,6 +1,6 @@
 # סינתזת משוב אייל — טבלת השלכות ופעולות
 
-> **LEGACY (ארכיון):** מסמך **סינתזה** ממחזור משוב מוקדם. **החלטות מאוחרות ונעילת v1.2** — ב־[`../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md); **אפיון בנייה** — ב־[`../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md); **בחירות פעילות לאייל** — [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../../for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md). אם עמודת **החלטת צוות / נימרוד** כאן **סותרת** את הנעילה או את ה־FINAL — **קובעים הנעילה וה־FINAL**. הערות או תיקונים שאייל הוסיף **בגוף קבצי Word** — ראו [`from-eyal/`](../../from-eyal/) וסנכרנו ל־Markdown לפי הצורך.
+> **LEGACY (ארכיון):** מסמך **סינתזה** ממחזור משוב מוקדם. **נעילות CEO אחרי 2026-03-31** — [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) + [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §13; **אפיון בנייה** — [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md). **FOR-EYAL-CHOICES** — ייצוא Word; **פתוח:** §7 דף בית בלבד. אם עמודת **החלטת צוות / נימרוד** כאן **סותרת** את הנעילה או את ה־FINAL — **קובעים הנעילה וה־FINAL**. הערות או תיקונים שאייל הוסיף **בגוף קבצי Word** — ראו [`from-eyal/`](../../from-eyal/) וסנכרנו ל־Markdown לפי הצורך.
 
 **גרסת מסמך:** 1.2 (דיוק הבנה + החלטות צוות / נימרוד)  
 **תאריך עדכון:** 2026-03-30  
@@ -53,11 +53,11 @@
 
 ## קישורים פנימיים לעדכון (v1.2)
 
-- [`../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md`](../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md)  
-- [`../../team-100-preplanning/01-GATE-ZERO-STRATEGY.md`](../../team-100-preplanning/01-GATE-ZERO-STRATEGY.md)  
-- [`../../team-100-preplanning/03-SCOPE-MATRIX.md`](../../team-100-preplanning/03-SCOPE-MATRIX.md)  
-- [`../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md)  
-- [`../../team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md`](../../team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md)  
+- [`../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md`](../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md)  
+- [`../../../team-100-preplanning/01-GATE-ZERO-STRATEGY.md`](../../../team-100-preplanning/01-GATE-ZERO-STRATEGY.md)  
+- [`../../../team-100-preplanning/03-SCOPE-MATRIX.md`](../../../team-100-preplanning/03-SCOPE-MATRIX.md)  
+- [`../../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](../../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md)  
+- [`../../../team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md`](../../../team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md)  
 
 ---
 

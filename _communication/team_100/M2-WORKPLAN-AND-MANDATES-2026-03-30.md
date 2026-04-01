@@ -1,16 +1,16 @@
 # תוכנית עבודה ומנדטים — אבן דרך M2 (הקמת אתר רזה)
 
 **מוציא:** צוות 100 (אדריכלות מערכת)  
-**גרסה:** 2.2  
-**תאריך:** 2026-03-30  
-**בסיס ולידציה:** דוח צוות 90 v2.0 — [`../team_90/VALIDATION-REPORT-M2-WORKPLAN-from-team90-2026-03-30.md`](../team_90/VALIDATION-REPORT-M2-WORKPLAN-from-team90-2026-03-30.md) (**PASS WITH CONDITIONS**); גרסאות **2.1–2.2** — טיפול ב־C1–C4 / F וב־**יישור רודמאפ+מיגרציה+חבילת אייל** (דוח [`../team_90/CONTROL-REPORT-ROADMAP-AND-EYAL-PACKAGE-2026-03-30.md`](../team_90/CONTROL-REPORT-ROADMAP-AND-EYAL-PACKAGE-2026-03-30.md)).
+**גרסה:** 2.3  
+**תאריך:** 2026-03-29  
+**בסיס ולידציה:** דוח צוות 90 v2.0 — [`../team_90/VALIDATION-REPORT-M2-WORKPLAN-from-team90-2026-03-30.md`](../team_90/VALIDATION-REPORT-M2-WORKPLAN-from-team90-2026-03-30.md) (**PASS WITH CONDITIONS**); גרסאות **2.1–2.3** — טיפול ב־C1–C4 / F, **יישור רודמאפ+מיגרציה+חבילת אייל**, ו־**נעילת תבנית** (GeneratePress + `ea-eyalamit`) — דוח [`../team_90/CONTROL-REPORT-ROADMAP-AND-EYAL-PACKAGE-2026-03-30.md`](../team_90/CONTROL-REPORT-ROADMAP-AND-EYAL-PACKAGE-2026-03-30.md).
 
 **סטטוס:** `APPROVED_FOR_EXECUTION` — **מותר להתחיל G1** לאחר ש־**צוות 100** מילא שורת **`CONDITIONS_MET`** ב־§2.1 (תאריך + חתימה). **אין** דרישת ריירון שני של 90 על אותה גרסת היקף, אלא אם 100 מוסיף שער/מנדט חדש.
 
 | שדה | ערך |
 |-----|-----|
-| `CONDITIONS_MET` | ______________ (תאריך) |
-| חתימת צוות 100 | ______________ |
+| `CONDITIONS_MET` | **2026-03-31** |
+| חתימת צוות 100 | **נימרוד — אושר למימוש; ראו [`M2-G1-G2-CLOSEOUT-DECISIONS-2026-03-31.md`](./M2-G1-G2-CLOSEOUT-DECISIONS-2026-03-31.md)** |
 
 ---
 
@@ -34,11 +34,12 @@
 | יעד | התקנת WordPress נקייה, תבנית ותוספים לפי מינימום; מבנה תפריטים ועמודי מעטפת; תואם אפיון ו־IA פנימית |
 | אפיון | [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) |
 | פלטפורמה | [`05-PLATFORM-DECISION.md`](../../docs/project/team-100-preplanning/05-PLATFORM-DECISION.md) — WP רזה; **אסור** Elementor / Bridge / Woo / Toolset / LayerSlider ב־M2 ללא **חריגה חתומה בכתב** מ־**100** (לא מ־90) |
-| IA | [`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) — בסיס מבני עד עדכון עתידי |
+| תבנית | **נעול:** **GeneratePress** + child **`ea-eyalamit`** — [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](../../docs/project/team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7 · [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../docs/project/team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §14; שינוי parent — רק **waiver** מ־100 |
+| IA | [`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) — **v2.3 `APPROVED`** (שם `DRAFT` בקובץ היסטורי) |
 
 ### 1.1 עקביות מול רודמאפ ותנאי מיגרציה (גרסה 2.2)
 
-- **מפת דרכים:** [`ROADMAP-2026.md`](../../docs/project/ROADMAP-2026.md) **v12.1** — מגדירה מדיניות **פנימית מול אייל** (מעטפת M2 מול חתימה/מיגרציה מלאה), תלויות בין M1–M7, ו־**M6** בלי דוגמאות לתוספים אסורים.
+- **מפת דרכים:** [`ROADMAP-2026.md`](../../docs/project/ROADMAP-2026.md) **v12.2+** — מגדירה מדיניות **פנימית מול אייל** (מעטפת M2 מול חתימה/מיגרציה מלאה), תלויות בין M1–M7, שער **M1→G1**, ו־**M6** בלי דוגמאות לתוספים אסורים.
 - **מיגרציה והשקה:** [`06-IMPLEMENTATION-MIGRATION-PACK.md`](../../docs/project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) **§0 v1.1** — **0.1** (DRAFT מספיק ל־M2) מול **0.2–0.3** (חתימת אייל / `APPROVED` / cutover). אין סתירה: G1–G4 בחבילה זו עומדים ב־**0.1** כל עוד האפיון CANONICAL ו־DRAFT מסונכרנים.
 
 ---
@@ -144,6 +145,8 @@
 | 20.10 | העברת גישה ל־10 | משתמש מנהל או deployment — מתועד | 10 מאשר בקבלה קצרה ב־`team_10/M2-HANDOFF-FROM-20.md` (מומלץ) |
 | **20.11** | **(F12, F13) תמיכה ו־rollback** | ב־runbook: פרטי **תמיכה טכנית** (ספק + פתיחת קריאה); נוהל **rollback** אם G2 נכשל באמצע (שחזור מ־20.5a + עצירה עד החלטת 100) | סעיפים "תמיכה" ו־"rollback" קיימים |
 
+**הערת צוות 100 — 20.5a על uPress (2026-03-29):** עמידה ב־**20.5a** לפני G2 מתקבלת כ־**תיעוד גיבוי מובנה** בפאנל **uPress** (תאריך/מזהה ב־runbook), בלי חובת snapshot חיצוני נוסף אם אותו גיבוי הוא בסיס ל־rollback ב־**20.11**. **מקומי:** קוד ב־Git + DB מקומי לא כמקור אמת לפרודקשן — ראו [`docs/project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md`](../../docs/project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md) §8.
+
 ### 5.2 איסורים ל־20
 
 אין `search-replace` על serialized DB בלי פרוטוקול; אין deploy לפרודקשן חי בלי החלטת 100.
@@ -159,7 +162,7 @@
 | # | משימה | פירוט ביצוע | בדיקת השלמה |
 |---|--------|-------------|--------------|
 | 10.1 | קריאת runbook מ־20 | אימות גישה | קובץ handoff או סעיף "G1 accepted" בסיכום |
-| 10.2 | בחירת תמה רזה | Block/FSE או תמה מינימלית; **רשום נימוק** בסיכום **לפי §6.3 (שורת תמה)** | אין Elementor פעיל |
+| 10.2 | התקנת תמה **נעולה** | **חובה:** **GeneratePress** (parent) + child **`ea-eyalamit`** — [`05-PLATFORM-DECISION.md`](../../docs/project/team-100-preplanning/05-PLATFORM-DECISION.md) §6 · [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](../../docs/project/team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7. **רשום גרסאות** בסיכום + **שורת נימוק** מול §6.3 (תמיכת RTL / PHP 8 / Lighthouse). **חריגה** — רק `M2-ARCHITECTURE-WAIVER` מ־100 | אין Elementor פעיל; parent/child כנדרש |
 | 10.3 | יצירת **child theme** | כל קוד מותאם תחת child; קידומת `ea_` לפונקציות/קבצים מותאמים; **`style.css` מציין parent** (**F6**) — אם **לא** child theme → חובה **`M2-ARCHITECTURE-WAIVER`** מ־100 לפני המשך G2 | Waiver או child פעיל |
 | 10.4 | תוסף **SEO אחד בלבד** | Yoast **או** Rank Math — לא שניהם; **שורת נימוק אחת** בסיכום לפי §6.3 (**F5**) | רשימת תוספים מעודכנת |
 | 10.5 | תוסף **טפסים אחד** | Fluent Forms או CF7 — טופס בסיסי בדף צור קשר; **שורת נימוק אחת** לפי §6.3 (**F5**) | שליחה לדוא"ל בדיקה או לוג |

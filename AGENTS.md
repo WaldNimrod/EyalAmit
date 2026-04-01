@@ -15,7 +15,7 @@
 
 **אסור** להגיש `.md`. כל מה שיוצא **מול אייל** — **Word (.docx) או PDF בלבד**.  
 ארכיון מול אייל: `docs/project/eyal-ceo-submissions-and-responses/` — `to-eyal/…/final-spec-package-for-eyal/` (הגשה עדכנית), `from-eyal/` (חזר מאייל), `archive/` (ישן / כפול / LEGACY).  
-ייצוא חבילה: `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר (אחרי `pip install -r scripts/requirements-docx.txt`).
+**סקריפטים (`scripts/*.py`, `pip install`, `docker compose`, בדיקות):** הסוכן **מריץ בעצמו** בסביבה עם shell — **אין** להפנות את המשתמש להריץ פקודות כשאפשר להריץ כאן. ייצוא חבילת Word: `python3 scripts/build_eyal_ceo_deliverables.py` + תלות `scripts/requirements-docx.txt` — **לבצע מהצד של הסוכן**, לא להשאיר הוראה "תריץ אתה".
 
 ## יעדים בקצרה
 
@@ -42,6 +42,16 @@ WordPress רזה; SEO ונגישות; סליקה חיצונית; שימור QR; 
 | אפיון סופי | `docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md` |
 | מפת אתר | `docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md` |
 | מיגרציה | `docs/project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md` |
+| נטיב טכני — צעדים ומשימות תשתית (DB, WP, סטייג'ינג) | [`_communication/team_20/M2-TECHNICAL-INFRA-TRACK-NEXT-STEPS-2026-03-29.md`](_communication/team_20/M2-TECHNICAL-INFRA-TRACK-NEXT-STEPS-2026-03-29.md) |
+| M2 runbook סביבה (צוות 20 / G1) | [`_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md`](_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md) |
+| M2 מסירה לצוות 10 (G1→G2) | [`_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md`](_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md) |
+| M2 סיכום יישום G2 (צוות 10) | [`_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) |
+| M2 אימות G2 + המשך (20/100) | [`_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md`](_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md) |
+| uPress — נתונים לחיבור, Git/FTP, צ'קליסט פאנל | [`_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md`](_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md) |
+| uPress — סטייג'ינג URL, PHP, מדריך Git (לא לשכפל מונוריפו ל־/) | [`_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md) |
+| FTP / wp-admin — העברה מאובטחת (לא בצ'אט, לא ב-Git) | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · `local/staging.credentials.example.md` |
+| phpMyAdmin / DB — נוהל עבודה | [`_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md) |
+| מפת צוותים (מספרים, תפקידים) | [`docs/ORGANIZATION-TEAMS-2026.md`](docs/ORGANIZATION-TEAMS-2026.md) · [`_communication/README.md`](_communication/README.md) |
 
 ## Cursor — שורש workspace
 

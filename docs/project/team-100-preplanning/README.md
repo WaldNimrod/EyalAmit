@@ -15,7 +15,7 @@
 | [MEETING-MINUTES-EYAL-2026-03-31.md](./MEETING-MINUTES-EYAL-2026-03-31.md) | פרוטוקול פגישת אייל + סנכרון מ־meeting-brief v1.1 |
 | [SITE-SPECIFICATION-FINAL-2026-03-30.md](./SITE-SPECIFICATION-FINAL-2026-03-30.md) | **אפיון נקי ומלא** — מקור מחייב לבנייה; Word בחבילת to-eyal; **§4** תנועה/AEO/GEO |
 | [EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md](./EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) | הנחיות מקיפות לאייל — דוח, דרישות, כלים, רפרנסים; Word בחבילת to-eyal |
-| [WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) | השוואת תבניות WP — FSE מול קלאסית מול מקומית; המלצות מול M2 |
+| [WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) | תבנית **נעולה:** GeneratePress + `ea-eyalamit` (§7); §§2–4 רקע השוואתי |
 | [EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md](./EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) | תוכן ראשוני לעמוד EN בודד + מטא |
 | [LEGACY-DOCUMENTS-INDEX-2026-03-30.md](./LEGACY-DOCUMENTS-INDEX-2026-03-30.md) | סימון גרסאות ישנות — לא SSOT |
 | [PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md](./PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md) | **שלב 1:** תשתית מקומית, סקירות, מיפוי + קישור למנדט חשבונית ירוקה |
@@ -41,7 +41,7 @@
 |------|--------|
 | [RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md](./RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md) | היררכיית מקורות אמת; דוח מחקר = עזר; דוגמת QR |
 | [07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md](./07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) | עקרונות תהליך, שערים, UX, הפניה למפת אתר |
-| [SITEMAP-NEW-SITE-v2-DRAFT.md](./SITEMAP-NEW-SITE-v2-DRAFT.md) | מפת אתר מלאה — **טיוטה לאישור אייל** |
+| [SITEMAP-NEW-SITE-v2-DRAFT.md](./SITEMAP-NEW-SITE-v2-DRAFT.md) | מפת אתר v2.3 — **`APPROVED`** מול אייל (שם `DRAFT` בקובץ = היסטורי) |
 | [CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md](./CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md) | טבלת החלטות תוכן מול SSOT |
 | [PAGE-SPECS-TEMPLATE.md](./PAGE-SPECS-TEMPLATE.md) | תבנית אפיון לכל עמוד אחרי אישור המפה |
 
@@ -73,6 +73,7 @@
 | [04-IA-SEO-SOCIAL-REQUIREMENTS.md](./04-IA-SEO-SOCIAL-REQUIREMENTS.md) | מבנה מידע, SEO, שיתוף, נגישות |
 | [05-PLATFORM-DECISION.md](./05-PLATFORM-DECISION.md) | המלצה ורשימת תוספים מותרים |
 | [06-IMPLEMENTATION-MIGRATION-PACK.md](./06-IMPLEMENTATION-MIGRATION-PACK.md) | מיגרציה, השקה, צ'קליסט, תחזוקה |
+| [WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md](../WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md) | מסלולים כפולים (טכני לפני תוכן); Docker→staging uPress; גבולות `site/`; PHP; גיבוי; סיסמאות אחרי go-live |
 
 **מסמכים ברמת `docs/project/`:** [`BLOG-REVIVAL-PLAN.md`](../BLOG-REVIVAL-PLAN.md), [`LAUNCH-CHECKLIST-2026.md`](../LAUNCH-CHECKLIST-2026.md), [`ARCHIVE-LEGACY-MONOLITH-PATH.md`](../ARCHIVE-LEGACY-MONOLITH-PATH.md).  
 **צעדי פיתוח WP:** [`LEAN-WP-NEXT-STEPS.md`](./LEAN-WP-NEXT-STEPS.md).

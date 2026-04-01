@@ -4,18 +4,20 @@
 
 תיקייה זו **אינה** מחליפה את חבילת ההגשה הרשמית ב־[`../to-eyal/`](../to-eyal/) (Word/PDF לאישור חתום).
 
-כאן נשמרים **תזכירי פגישה** ומסמכים חד־פעמיים שמסכמים נעילות + מפה + שאלות פתוחות.
+כאן נשמרים **תזכירי פגישה** ומסמכים חד־פעמיים שמסכמים נעילות + מפה. **פתוח מול אייל:** דף בית (מוקאפים) בלבד — ראו [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md).
+
+## מדיניות תשתית ומסלולים כפולים (Word לאייל)
+
+הקובץ נוצר ע"י הסקריפט [`scripts/build_eyal_deploy_dual_track_docx.py`](../../../scripts/build_eyal_deploy_dual_track_docx.py). **ב-Cursor:** הסוכן מריץ את הסקריפט בעצמו — לא מפנים את המשתמש להריץ פקודות.
+
+פלט טיפוסי: תיקייה `YYYY-MM-DD--infrastructure-policy-for-eyal/` וקובץ  
+`…infrastructure-dual-track-policy-for-eyal--v1.0.docx`.
 
 ## ייצור תזכיר פגישה (Word)
 
-```bash
-python3 scripts/build_eyal_meeting_brief_docx.py
-```
+הסקריפט: [`scripts/build_eyal_meeting_brief_docx.py`](../../../scripts/build_eyal_meeting_brief_docx.py) — **הרצה באחריות הסוכן** (כמו לעיל).
 
-נוצרת תיקייה בתבנית `YYYY-MM-DD--meeting-brief/` עם קובץ  
-`YYYY-MM-DD--meeting-brief-for-eyal--v1.docx`.
-
-הסקריפט: [`../../../scripts/build_eyal_meeting_brief_docx.py`](../../../scripts/build_eyal_meeting_brief_docx.py).
+פלט: תיקייה `YYYY-MM-DD--meeting-brief/` וקובץ `…meeting-brief-for-eyal--v1.docx`.
 
 ## תרשים ויזואלי — כיווני דף הבית
 
@@ -25,12 +27,12 @@ python3 scripts/build_eyal_meeting_brief_docx.py
 ## עמוד נחיתה באנגלית (מוקאפ)
 
 - [`assets/en-landing-page-preview.html`](./assets/en-landing-page-preview.html) — תוכן ראשוני, מבקר קצר.  
-- מקור טקסט קנוני: [`../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md)
+- מקור טקסט: [`../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) — **H1 נעול:** `Didgeridoo healing center - Eyal Amit` (v1.1).
 
 ## תנועה וקידום — הנחיות לאייל (SEO · AEO · GEO)
 
 - מסמך מלא (Markdown): [`../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md)  
-- ייצוא Word: הריצו `python3 scripts/build_eyal_ceo_deliverables.py` — בחבילת `to-eyal/…final-spec-package-for-eyal/` יווצר קובץ `…eyal-traffic-aeo-geo-guide…docx`.
+- ייצוא Word: הסוכן מריץ `python3 scripts/build_eyal_ceo_deliverables.py` — בחבילת `to-eyal/…final-spec-package-for-eyal/` נוצר קובץ `…eyal-traffic-aeo-geo-guide…docx`.
 
 ## מוקאפים נוספים (2026-03-31)
 

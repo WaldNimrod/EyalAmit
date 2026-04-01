@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 from docx import Document
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
 from docx.oxml import OxmlElement
@@ -36,6 +37,47 @@ def add_rtl_paragraph(doc, text: str, bold: bool = False, size: int = 11, headin
     return p
 
 
+def add_hyperlink(paragraph, text: str, url: str, name: str = "Arial", size: int = 11):
+    part = paragraph.part
+    r_id = part.relate_to(url, RT.HYPERLINK, is_external=True)
+
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), r_id)
+
+    new_run = OxmlElement("w:r")
+    r_pr = OxmlElement("w:rPr")
+
+    r_style = OxmlElement("w:rStyle")
+    r_style.set(qn("w:val"), "Hyperlink")
+    r_pr.append(r_style)
+
+    r_fonts = OxmlElement("w:rFonts")
+    r_fonts.set(qn("w:ascii"), name)
+    r_fonts.set(qn("w:hAnsi"), name)
+    r_fonts.set(qn("w:cs"), name)
+    r_pr.append(r_fonts)
+
+    sz = OxmlElement("w:sz")
+    sz.set(qn("w:val"), str(size * 2))
+    r_pr.append(sz)
+
+    sz_cs = OxmlElement("w:szCs")
+    sz_cs.set(qn("w:val"), str(size * 2))
+    r_pr.append(sz_cs)
+
+    rtl = OxmlElement("w:rtl")
+    rtl.set(qn("w:val"), "0")
+    r_pr.append(rtl)
+
+    new_run.append(r_pr)
+    text_el = OxmlElement("w:t")
+    text_el.text = text
+    new_run.append(text_el)
+    hyperlink.append(new_run)
+    paragraph._p.append(hyperlink)
+    return hyperlink
+
+
 def strip_md_links(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
 
@@ -44,8 +86,12 @@ def strip_md_bold(text: str) -> str:
     return re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
 
 
+def strip_md_code(text: str) -> str:
+    return re.sub(r"`([^`]+)`", r"\1", text)
+
+
 def clean_inline_md(text: str) -> str:
-    return strip_md_links(strip_md_bold(text))
+    return strip_md_code(strip_md_links(strip_md_bold(text)))
 
 
 def add_md_file_as_docx(doc: Document, md_path: Path, *, skip_first_h1: bool = False):

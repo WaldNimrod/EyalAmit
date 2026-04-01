@@ -2,7 +2,9 @@
 
 **תאריך:** 2026-03-30  
 
-> **LEGACY:** כל הקובץ — **ארכיון טרום-נעילה**. טבלאות **א–ד** ושורת **ההמלצה** בסוף משקפות מצב **לפני** [`SPEC-V1.2-DECISIONS-LOCK`](../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md); **אל תספרו מהן "כמה פתוח"** אחרי 2026-03-30. **מקור עבודה עכשיו:** [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md), הנעילה, [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../../for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md). **מה כן מעודכן בתוך הקובץ:** סעיף **ב׳** (תשובות ישירות) וטבלת **נסגר / הועבר ל-v1.2** בתחתית.
+> **אזהרת דריפט (2026-04-01):** אל תשתמשו בטבלאות א–ד כאן כרשימת «פתוחים» נוכחית. **אחרי פגישה 2026-03-31:** [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) + [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §13. קובץ זה — פרובננס טרום-נעילה בלבד.
+
+> **LEGACY:** כל הקובץ — **ארכיון טרום-נעילה**. טבלאות **א–ד** ושורת **ההמלצה** בסוף משקפות מצב **לפני** [`SPEC-V1.2-DECISIONS-LOCK`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md); **אל תספרו מהן "כמה פתוח"** אחרי 2026-03-30. **מקור עבודה אחרי 2026-03-31:** [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md), [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md), [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §13 — **לא** טבלאות בקובץ זה. (טופס FOR-EYAL — ייצוא בלבד לסעיפים נעולים.) **מה כן מעודכן בתוך הקובץ:** סעיף **ב׳** (תשובות ישירות) וטבלת **נסגר / הועבר ל-v1.2** בתחתית.
 
 > **הערות אייל בתוך Word:** אם הוחזרו קבצים עם הערות בגוף המסמך — הם ב־[`from-eyal/`](../../from-eyal/); יש לסנכרן ל־Markdown / ל־FINAL או לטופס הבחירות כדי שלא יישארו רק ב־`.docx`.
 
@@ -58,7 +60,7 @@
 
 **מה פירוש "רזה":** התקנה נקייה; תבנית מודרנית רזה ותקינה; מינימום תוספים (רק מוקפים ונחוצים); ניקוי פלונטרים של הפניות וקישורים שבורים; עדכון עץ האתר לפעילות אייל.
 
-**חד־משמעי?** **כן** — אין המשך דיון A/B/C על "מחוץ ל־WP". ראו [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) §1.
+**חד־משמעי?** **כן** — אין המשך דיון A/B/C על "מחוץ ל־WP". ראו [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](../../../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) §1.
 
 ---
 
@@ -112,7 +114,7 @@
 
 ## ד. סיכום מנהלים
 
-> **LEGACY:** הספירות וההמלצה למטה הן **טרום-נעילה** — **לא** משקפות מצב נוכחי. לסטטוס אחרי נעילה ראו טבלת **נסגר** למטה ו־[`SPEC-V1.2-DECISIONS-LOCK`](../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
+> **LEGACY:** הספירות וההמלצה למטה הן **טרום-נעילה** — **לא** משקפות מצב נוכחי. לסטטוס אחרי נעילה ראו טבלת **נסגר** למטה ו־[`SPEC-V1.2-DECISIONS-LOCK`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
 
 | קטגוריה                        | כמות פריטים (בערך) |
 | ------------------------------ | ------------------ |
@@ -128,7 +130,7 @@
 ## קישורים
 
 - [`EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md`](./EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md)  
-- [`../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md)
+- [`../../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](../../../team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md)
 
 ---
 

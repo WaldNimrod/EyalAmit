@@ -11,7 +11,7 @@
 | [`from-eyal/`](./from-eyal/) | **תשובות מאייל** (הגרסה העדכנית ביותר לכל סבב): Word עם הערות בגוף, חתום סרוק, PDF, וכו'. |
 | [`archive/`](./archive/) | כל מה ש**לא עדכני**: מסמכי LEGACY ב־Markdown, הגשות 2026-03-29, כפילויות `(1)`, stubs של GDocs — ראו [`archive/README.md`](./archive/README.md). |
 | [`for-eyal/`](./for-eyal/) | **הכנה מול אייל:** תזכירי פגישה, **מוקאפי HTML**, ומקורות MD לייצוא — ראו [`INDEX.md`](./INDEX.md). |
-| [`for-eyal/md-sources/`](./for-eyal/md-sources/) | מקורות Markdown **פעילים** לייצוא Word: `FOR-EYAL-CHOICES…`, `FOR-EYAL-GREEN-INVOICE…` |
+| [`for-eyal/md-sources/`](./for-eyal/md-sources/) | מקורות Markdown לייצוא Word; **נעילות CEO** — ב־[`MEETING-MINUTES-EYAL-2026-03-31.md`](../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) §13 (לא לסמן מחדש טופס כ«פתוח»). |
 | [`INDEX.html`](./INDEX.html) | **אינדקס לאייל בדפדפן** — קישורים ל־Word / HTML / טקסט בלבד (**ללא** `.md`) |
 | [`INDEX.md`](./INDEX.md) | אותו סדר עבודה + קישורי Markdown לצוות (מפה, אפיון, מחקרים) |
 
@@ -37,7 +37,7 @@ YYYY-MM-DD--short-topic--vN.ext
 
 - [`../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md`](../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) — אפיון מחייב  
 - [`../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) — יומן נעילה  
-- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — טופס בחירות פעיל  
+- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — ייצוא Word; **סעיפים 1–6, 8 נעולים**; **פתוח:** §7 דף בית בלבד  
 
 מסמכים מסומנים **LEGACY** בתיקייה זו וב־[`../team-100-preplanning/LEGACY-DOCUMENTS-INDEX-2026-03-30.md`](../team-100-preplanning/LEGACY-DOCUMENTS-INDEX-2026-03-30.md).
 

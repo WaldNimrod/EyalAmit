@@ -6,7 +6,7 @@
 
 **יומן החלטות:** [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) נשאר כארכיון החלטות נימרוד; אם יש סתירה — **קובע מסמך זה**.
 
-**תוספת 2026-03-31 (פגישת אייל + סגירה):** [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md) · מפת אתר: [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) **v2.3**.  
+**תוספת 2026-03-31 (פגישת אייל + סגירה):** [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md) · מפת אתר: [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) **v2.3 — `APPROVED`** (שם הקובץ `…DRAFT…` היסטורי בלבד). נעילות CEO (מותג, חשבונית ירוקה כפתור, EN H1, קטלוג): **§13** ב־[`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) — לא טופס FOR-EYAL לסעיפים 1–6, 8.  
 **תוספת 2026-03-29 (תנועה · AEO · GEO):** §4 + [`EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](./EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md).
 
 ---
@@ -26,6 +26,12 @@
 - **מינימום תוספים** — רק תוספים **מוקפים** ו**נחוצים**.  
 - **ניקוי** כל הפלונטרים של **הפניות (redirects)** ושל **קישורים שבורים**.  
 - **עדכון עץ האתר** כך שישקף נכון יותר את **פעילות אייל**.
+
+#### 1.2.1 תבנית — נעול (2026-03-29)
+
+- **Parent:** **GeneratePress** · **Child:** **`ea-eyalamit`** — כל התאמות מותג וקוד מותאם **רק** ב־child (קידומת `ea_` לפונקציות PHP — עקבי עם מנדט M2).  
+- **מקור החלטה:** [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7 · [`05-PLATFORM-DECISION.md`](./05-PLATFORM-DECISION.md) §6 · [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §14.  
+- **החלפת תבנית parent** ב־M2 — רק עם **`M2-ARCHITECTURE-WAIVER`** חתום מ־**צוות 100**.
 
 ### 1.3 מקור אמת לתוכן
 
@@ -111,7 +117,7 @@
 - **בלוג:** החייאה כנכס SEO; ניסוח מותג במפה: **בלוג דיג׳רידו**.  
 - **עמוד EN:** **מאושר** — כותרת ראשית: `Didgeridoo healing center - Eyal Amit`; פירוט wireframe ו־`<title>` מוצע ב־[`IA-WIREFRAMES-AND-EN-LANDING.md`](./IA-WIREFRAMES-AND-EN-LANDING.md) §7.
 
-מפת אתר מפורטת: [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) **v2.3** — **קובעת** על סדר ענפי שירותים, **עמוד מוקש דהימן + פריט תפריט**, והסרת הופעות מהעץ הציבורי הראשי.
+מפת אתר מפורטת: [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) **v2.3** — **`APPROVED` מול אייל (2026-03-31)**; **קובעת** על סדר ענפי שירותים, **עמוד מוקש דהימן + פריט תפריט**, והסרת הופעות מהעץ הציבורי הראשי.
 
 - **תמונת כותרת (Hero) בכל עמוד ציבורי:** לכל עמוד בשיווק הראשי — **תמונת כותרת ייעודית** לנושא העמוד (לא תמונה אחת זהה לכל האתר). חובה **טקסט חלופי (alt)** מתואם; לשמור על ביצועים (גודל קובץ, LCP). עמודים טכניים מינימליים (למשל תודה אחרי טפסים) — לפי אפיון עמוד ב־[`PAGE-SPECS-TEMPLATE.md`](./PAGE-SPECS-TEMPLATE.md).
 
@@ -153,7 +159,7 @@
 
 ## 11. בחירות שממשיכות לדרוש סימון מאייל
 
-טופס מרוכז: [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — **ייצוא Word/PDF בלבד** להגשה.
+טופס מרוכז (ייצוא Word/PDF): [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — **סעיפים 1–6, 8 נעולים** (v1.1); **לבחירה פעילה:** §7 דף בית בלבד.
 
 ---
 

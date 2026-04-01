@@ -1,8 +1,8 @@
 # החלטת פלטפורמה — צוות 100
 
-**גרסה:** 1.1  
+**גרסה:** 1.2  
 **תאריך:** 2026-03-29  
-**סטטוס:** WordPress רזה **נבחר בתכנון** (נימרוד); חתימת אייל ב-[`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](./EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md)
+**סטטוס:** WordPress רזה **נבחר בתכנון** (נימרוד); חתימת אייל ב-[`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](./EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md) · **תבנית נעולה** — §6.
 
 ---
 
@@ -16,7 +16,7 @@
 
 **המלצה:** **אפשרות A** — WordPress חדש או התקנה נקייה, תבנית בלוקים או תמה מינימלית, ללא Elementor/Bridge/WooCommerce בפרודקשן.
 
-**בחירת תבנית (עברית · ביצועים · קידום):** ניתוח חלופות, יתרונות/חסרונות והמלצת סדר עדיפות — [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md).
+**תבנית (נעולה):** [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7 — **GeneratePress** + child **`ea-eyalamit`**. פירוט והשוואות היסטוריות — באותו מסמך.
 
 **ענף Git לפיתוח:** `feature/lean-wp-rebuild-2026` (נוצר במאגר).  
 **מקור אמת לתוכן:** אתר חי `https://www.eyalamit.co.il/` (אפשרי) + ייצוא במאגר; מסלול מונולית — [`../ARCHIVE-LEGACY-MONOLITH-PATH.md`](../ARCHIVE-LEGACY-MONOLITH-PATH.md).
@@ -60,3 +60,16 @@
 **נבחרה אפשרות:** A / B / C  
 
 **חתימה:** __________________ **תאריך:** ________
+
+---
+
+## 6. תבנית WordPress — נעול (2026-03-29)
+
+| שדה | ערך |
+|-----|-----|
+| **Parent** | **GeneratePress** (גרסה מדויקת — בתיעוד M2 אחרי התקנה) |
+| **Child** | **`ea-eyalamit`** |
+| **מקור החלטה** | [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7 · [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §14 |
+| **שינוי** | רק ב־**waiver** חתום מ־**צוות 100** (כמו שאר חריגות M2) |
+
+**נעול על ידי:** צוות **100** / נימרוד — **2026-03-29**

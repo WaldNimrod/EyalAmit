@@ -1,12 +1,13 @@
-# מפת אתר — אתר חדש eyalamit.co.il (v2 טיוטה)
+# מפת אתר — אתר חדש eyalamit.co.il (v2.3)
 
 **גרסה:** 2.3 (סגירת החלטות — 2026-03-31)  
 **תאריך:** 2026-03-31  
-**סטטוס:** `DRAFT` — **מסונכרן עם** `Copy of …meeting-brief…v1.1.docx` + סגירה ב־[`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).
+**סטטוס:** `APPROVED` — **מבנה IA סופי** מול אייל; מסונכרן עם `Copy of …meeting-brief…v1.1.docx` + [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).  
+**הערת שם קובץ:** `…v2-DRAFT…` נשמר לתאימות קישורים היסטוריים ב־Git וסקריפטים — **אין לפרש כטיוטה פתוחה לאישור עץ**.
 
 **עדכון v2.3 — מוקש דהימן:** במקום «קישור קיים בלבד» — **עמוד ייעודי באתר החדש** + **פריט תפריט** (המלצה: **תת־פריט** תחת **אייל עמית**, למשל «מוקש דהימן — לזכרו»). שמירת URL legacy ו־**301** ל־slug החדש — **בכפוף** ל־[`06-IMPLEMENTATION-MIGRATION-PACK.md`](./06-IMPLEMENTATION-MIGRATION-PACK.md) בעת מיגרציה.
 
-**עדכוני v1.2 (נעול צוות):** ראו [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) · טופס בחירות לאייל: [`../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md).
+**עדכוני v1.2 (נעול צוות):** ראו [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) · **נעילת CEO 2026-03-31:** §13 באותו מסמך + [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md). טופס FOR-EYAL היסטורי — ראו שם; **העץ כאן קובע**.
 
 **הערות:**
 
@@ -64,8 +65,8 @@
 
 ---
 
-## לאחר אישור
+## לאחר אישור (בוצע 2026-03-31)
 
-1. סמנו `APPROVED` בראש הקובץ.  
+1. ~~סמנו `APPROVED` בראש הקובץ.~~ — **בוצע.**  
 2. מלאו [`PAGE-SPECS-TEMPLATE.md`](./PAGE-SPECS-TEMPLATE.md) לכל עמוד בעץ.  
-3. קיימו שער כיוון ויזואלי לפי [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](./07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md).
+3. קיימו שער כיוון ויזואלי לפי [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](./07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) — **דף בית:** ממתין אישור סופי אייל על מוקאפים — [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).

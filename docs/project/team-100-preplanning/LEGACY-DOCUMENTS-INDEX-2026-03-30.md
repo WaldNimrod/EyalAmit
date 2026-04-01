@@ -56,6 +56,6 @@
 
 - [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) — **CANONICAL**  
 - [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) — יומן החלטות  
-- [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) — מפת IA עדכנית (טיוטה לאישור)  
-- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — טופס בחירות פעיל  
+- [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) — מפת IA v2.3 — **`APPROVED`** (2026-03-31); שם הקובץ `…DRAFT…` היסטורי  
+- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — ייצוא Word; נעילות ב־`MEETING-MINUTES-EYAL-2026-03-31.md`; **פתוח:** §7 דף בית בלבד  
 - [`QR-URL-POLICY.md`](./QR-URL-POLICY.md), [`GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md`](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md), [`GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](./GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md), [`PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md`](./PHASE-1-LOCAL-AND-RESEARCH-KICKOFF-2026-03-30.md) — מדיניות / מחקר / ממצאים / שלב 1

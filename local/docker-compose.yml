@@ -1,0 +1,33 @@
+# PHP image tag MUST match uPress after team 20 locks version — see local/README.md
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: ${WORDPRESS_IMAGE:-wordpress:php8.3-apache}
+    restart: unless-stopped
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+    depends_on:
+      - db
+    volumes:
+      - wp_data:/var/www/html
+      # When site/wp-content exists, prefer bind-mount for child theme from repo:
+      # - ../site/wp-content:/var/www/html/wp-content
+
+volumes:
+  db_data:
+  wp_data:

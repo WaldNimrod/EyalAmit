@@ -67,6 +67,51 @@
     .pkg a { font-weight: 600; }
     .muted { color: var(--muted); font-size: 0.9rem; }
     code { font-size: 0.88em; background: #ede8e0; padding: 0.12em 0.35em; border-radius: 4px; }
+    .open-intro {
+      background: #fff;
+      border: 1px dashed var(--accent);
+      padding: 1rem 1.15rem;
+      border-radius: 8px;
+      margin: 1rem 0 1.5rem;
+    }
+    .open-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    }
+    .open-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .q-id {
+      font-family: ui-monospace, monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: #2c2419;
+      color: #faf6ef;
+      padding: 0.2em 0.5em;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+    .open-card .block-title { color: var(--muted); font-size: 0.8rem; font-weight: 600; margin: 0.85rem 0 0.25rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .open-card p { margin: 0.35rem 0; }
+    .open-card ul { margin: 0.35rem 0 0; }
+    .rec { background: #f0ebe3; padding: 0.65rem 0.85rem; border-radius: 6px; margin-top: 0.5rem; border-right: 3px solid var(--accent); }
+    .fb {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .fb code { background: #e8dfd2; }
   </style>
 </head>
 <body>
@@ -129,6 +174,100 @@
 
     <h2>5. צוות (מקורות פנימיים)</h2>
     <p class="muted">אפיון מלא, פרוטוקולים, מחקרים ומקורות Markdown נמצאים תחת <code>docs/project/team-100-preplanning/</code> — לא מקושרים מדף זה בכוונה. לייצוא מחדש של חבילת ה־Word: <code>python3 scripts/build_eyal_ceo_deliverables.py</code> משורש המאגר.</p>
+
+    <h2>6. פתוחים מול אייל — לא טכניים בלבד</h2>
+    <div class="open-intro">
+      <strong>מטרה:</strong> נושאים שדורשים <strong>החלטה, תוכן או חוויית משתמש</strong> ממך. התקנות, שרתים, מסדי נתונים ו־301 — נסגרים מול הצוות הטכני בנפרד.<br />
+      <span class="muted">מקור מצב: פגישה 2026-03-31 + פרוטוקול צוות. עדכון רשימה זו: 2026-03-31.</span>
+    </div>
+
+    <article class="open-card" id="q-eyal-home-01">
+      <h3><span class="q-id">Q-EYAL-HOME-01</span> דף הבית — בחירה סופית</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>נעלת עקרון: <strong>ללא מהפכות בממשק</strong>; האתר הקיים כ<strong>סקיצה עיצובית</strong>; רענון מודרני; דגש על מה שמוצג בבית. הוכנו מוקאפים: כיוונים מופשטים (A/B/C) ושלושה <strong>דשבורדים מלאים</strong> עם בלוק SEO.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — שער אחד: Hero + בלוק עדכני + עד שלושה כרטיסים (כמו בטופס FOR-EYAL §7).</li>
+        <li><strong>ב׳</strong> — מרכז + עומק: Hero צר + עמודה + עדכונים + שני בלוקים.</li>
+        <li><strong>ג׳</strong> — תמונה דומיננטית כמעט מסך מלא + חדשות קצרות + שתי פעולות.</li>
+        <li><strong>ד׳</strong> — אחת משלוש <strong>אופציות הדשבורד המלא</strong> ב־<a href="for-eyal/assets/home-dashboard/index.html">home-dashboard</a> (א׳ / ב׳ / ג׳), או שילוב (פרט מה למשוך מכל אחת).</li>
+        <li><strong>ה׳</strong> — «קרוב למה שיש היום» + רשימת שינויים קצרה (במילים חופשיות).</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> להסתמך על מבנה הדף הקיים, וליישר קו עם <strong>אופציית דשבורד אחת</strong> שמכסה גם בלוק SEO — כדי לא לפתוח שני סבבי עיצוב.</div>
+      <p class="fb">משוב נדרש: בשורה אחת במייל או בהערה ב־Word — ציין <code>Q-EYAL-HOME-01</code> + האות/שם האופציה (א׳–ה׳) או תיאור שילוב.</p>
+    </article>
+
+    <article class="open-card" id="q-eyal-en-body-02">
+      <h3><span class="q-id">Q-EYAL-EN-BODY-02</span> עמוד אנגלית — גוף הטקסט (מעבר ל־H1)</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>כותרת ראשית <strong>נעולה</strong>: <code>Didgeridoo healing center - Eyal Amit</code>. פסקאות ה־lead, הרשימות והניסוחים באנגלית עדיין <strong>טיוטה</strong> — משפיעים על איך נראה העמוד לקהל בינלאומי.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — לאשר את ניסוח המוקאפ כמעט כפי שהוא (תיקוני ניסוח קלים בלבד בצד הצוות).</li>
+        <li><strong>ב׳</strong> — לשלוח עריכה ממוקדת (בולטים / פסקה / טון פורמלי יותר או יותר חם).</li>
+        <li><strong>ג׳</strong> — לקבוע שיחה קצרה (15 דק׳) לסגירת טון ואז הצוות מנסח.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>א׳</strong> אחרי קריאה אחת של <a href="for-eyal/assets/en-landing-page-preview.html">מוקאפ EN</a> — חוסך סבבים; אם משהו «לא נשמע כמוך» — <strong>ב׳</strong> עם 3–5 משפטים בלבד.</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-EN-BODY-02</code> + א׳ / ב׳ / ג׳; אם ב׳ — צרף טקסט או סימון במסמך Word.</p>
+    </article>
+
+    <article class="open-card" id="q-eyal-gallery-03">
+      <h3><span class="q-id">Q-EYAL-GALLERY-03</span> גלריות — אישור לפני בנייה</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>הוחלט: <strong>כל תוכן הגלריות עובר</strong> לאתר החדש. לפני יישום — הצגה של <strong>רשימת גלריות + מספר תמונות למחיצה</strong>, תקרה כללית ~150 תמונות למחיצה, ובחינת השפעה על SEO. הדוח המספרי עשוי להשלים כשיש גישה טכנית — אבל <strong>העקרון והרף</strong> דורשים את אישורך.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — מאשר מראש את עקרון התקרה והתהליך (רשימה מפורטת תגיע לאישור שני קצר).</li>
+        <li><strong>ב׳</strong> — רוצה לראות טבלה ממוספרת לפני כל עבודת בנייה בגלריות.</li>
+        <li><strong>ג׳</strong> — לבקש תקרה אחרת למחיצה (לפרט איזו) — יידרש אישור בכתב מול אפיון.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>א׳</strong> כדי לא לעצור את שאר M2; כשהטבלה מוכנה — אישור שני של 10 דקות.</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-GALLERY-03</code> + א׳ / ב׳ / ג׳ (אם ג׳ — פירוט).</p>
+    </article>
+
+    <article class="open-card" id="q-eyal-kmd-04">
+      <h3><span class="q-id">Q-EYAL-KMD-04</span> Keep / Merge / Drop — רמת אישורך</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>יש כלי HTML לצוות למפות עמודים ישנים ל־Keep / Merge / Drop. לפני מיגרציית תוכן מלאה צריך clarity: <strong>האם אתה חותם על טבלה מלאה</strong> או מסתפק בסיכום מנהלים כשאין מחיקות שנויות במחלוקת.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — אישור על <strong>סיכום אחד עמוד</strong> (מספרים: כמה Keep / Merge / Drop) + רשימת חריגים אם יש.</li>
+        <li><strong>ב׳</strong> — חתימה על <strong>טבלה מלאה</strong> (או ייצוא CSV) לפני מיגרציה.</li>
+        <li><strong>ג׳</strong> — הרשאה לנימרוד/100 לסגור טכנית כל עוד אין Drop לתוכן «מותג ראשי» ללא עדכון מוקדם.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>א׳</strong> כברירת מחדל; <strong>ב׳</strong> אם יש הרבה Drop או מיזוגים כואבים.</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-KMD-04</code> + א׳ / ב׳ / ג׳.</p>
+    </article>
+
+    <article class="open-card" id="q-eyal-courses-05">
+      <h3><span class="q-id">Q-EYAL-COURSES-05</span> קורס דיגיטלי והרצאות — תוכן ומסרים</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>מוקאפי <a href="for-eyal/assets/mockups/mockup-digital-course.html">קורס</a> ו<a href="for-eyal/assets/mockups/mockup-lectures.html">הרצאות</a> ממחישים מבנה; נדרש <strong>תוכן סופי</strong> (כותרות, תיאורים, קריאה לפעולה) וקישורים לסקולר/רב מסר כשהם מוכנים.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — לספק טקסטים וקישורים עד תאריך שתקבע עם הצוות.</li>
+        <li><strong>ב׳</strong> — לאשר שהמוקאפ משקף כוונה והצוות משלים placeholder עד שתשלח חומר.</li>
+        <li><strong>ג׳</strong> — לדחות עמודים אלה לשלב מאוחר (מסומן «בקרוב») — דורש סנכרון עם מפת האתר.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>ב׳</strong> ל־M2 כדי לא לחסום מעטפת; <strong>א׳</strong> עם דדליין לפני מסירת תוכן עשיר (M3).</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-COURSES-05</code> + א׳ / ב׳ / ג׳ + תאריך יעד אם א׳.</p>
+    </article>
+
+    <article class="open-card" id="q-eyal-green-ux-06">
+      <h3><span class="q-id">Q-EYAL-GREEN-UX-06</span> חשבונית ירוקה — אימות חוויית כפתור (לא ארכיטקטורה)</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>המסלול <strong>נעול</strong>: כפתור מעמוד מוצר לקישור תשלום Morning. נשאר לשלוח <strong>דוגמת כפתור/דף תשלום</strong> כדי לוודא שהניסוח והמיקום באתר תואמים את מה שאתה מוכר בפועל.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — שולח דוגמה מ־Morning תוך X ימים; הצוות משעין אליה את העיצוב.</li>
+        <li><strong>ב׳</strong> — מאשר שצוות ישתמש בכפתור גנרי עד שתשלח דוגמה.</li>
+        <li><strong>ג׳</strong> — מבקש טקסט אחר לכפתור (למשל «לתשלום מאובטח») — ציין ניסוח.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>א׳</strong> כשיש קישור אמיתי (גם לסכום סמלי לבדיקה); עד אז <strong>ב׳</strong>.</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-GREEN-UX-06</code> + א׳ / ב׳ / ג׳ + קישור או ניסוח אם רלוונטי.</p>
+    </article>
+
+    <p class="muted" style="margin-top:2rem;">נושאים טכניים בלבד (שרת, PHP, תוספים, 301, slug מוקש דהימן, סריקת קישורים) — סגירה מול צוות הפיתוח; לא נדרש משוב בטופס זה.</p>
   </div>
 </body>
 </html>

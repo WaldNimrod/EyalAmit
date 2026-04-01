@@ -113,3 +113,36 @@
 | [`GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md`](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md) | מנדט מחקר לאיגנט |
 | [`HOME-PAGE-DIRECTIONS-v1.2.md`](./HOME-PAGE-DIRECTIONS-v1.2.md) | 3 כיווני בית + סכמה |
 | [`GALLERY-DECISION-SCOPE-v1.2.md`](./GALLERY-DECISION-SCOPE-v1.2.md) | מה מחליטים בגלריה |
+| [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) | תבנית נעולה — GeneratePress + `ea-eyalamit` (§7) |
+
+---
+
+## 13. נעילת CEO — פגישה + `meeting-brief` v1.1 (2026-03-31)
+
+**מקור חתום:** `Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx` · **תמליל SSOT במאגר:** [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).
+
+| נושא | סטטוס |
+|------|--------|
+| ניסוח מותג עברית | **נעול** — נוסח מדויק ב־`MEETING-MINUTES-EYAL-2026-03-31.md` §«תשובות מאייל מתוך v1.1» |
+| חשבונית ירוקה | **נעול** — כפתור בלבד; דוגמת כפתור = תפעולי |
+| מפת אתר | **APPROVED** — [`SITEMAP-NEW-SITE-v2-DRAFT.md`](./SITEMAP-NEW-SITE-v2-DRAFT.md) v2.3 (שם קובץ היסטורי) |
+| תוויות «מחיצות» בטופס FOR-EYAL ישן | **מבוטלות** כמקור החלטה — קובע **העץ** ב־SITEMAP |
+| עמוד EN — H1 | **נעול** — `Didgeridoo healing center - Eyal Amit` |
+| קטלוג slug | **נעול** — כפי ב־v1.1 |
+| דף בית — פריסה סופית | **פתוח** — אישור אייל אחרי מוקאפי דשבורד |
+
+**דריפט:** אל תשחזרו בחירות מ־[`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) לסעיפים 1–6, 8 — המסמך עודכן ל**ארכיון ייצוא**; קראו את הטקסט שם תחת «נעול 2026-03-31».
+
+---
+
+## 14. תבנית WordPress — נעול (צוות 100 / נימרוד, 2026-03-29)
+
+| שדה | ערך נעול |
+|-----|-----------|
+| **Parent theme** | **GeneratePress** |
+| **Child theme** | **`ea-eyalamit`** |
+| **תיעוד מלא** | [`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](./WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7 |
+| **פלטפורמה** | [`05-PLATFORM-DECISION.md`](./05-PLATFORM-DECISION.md) §6 |
+| **שינוי** | רק עם **`M2-ARCHITECTURE-WAIVER`** מ־**100** |
+
+**הערה:** גרסת GeneratePress המדויקת מותקנת — נרשמת ב־`M2-IMPLEMENTATION-SUMMARY` (צוות 10).

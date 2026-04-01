@@ -3,7 +3,9 @@
 **לא:** אייל עמית  
 **תאריך:** 2026-03-30  
 **הגשה:** Word או PDF בלבד (לא Markdown).  
-**מקור מחקר מלא (צוות):** [`../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md)
+**מקור מחקר מלא (צוות):** [`../../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md`](../../../team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md)
+
+> **נעול 2026-03-31 (v1.1 + פגישה):** המסלול המאושר הוא **כפתור בלבד** — קישור תשלום Morning מכל עמוד מוצר. **לא** נדרשת מחדש בחירה בין א׳/ב׳/ג׳. **נשאר תפעולי:** דוגמת כפתור שתסופק מאייל/Morning. ראו [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md).
 
 ---
 

@@ -6,6 +6,7 @@
 
 | תיקייה | שימוש מומלץ בפרויקט Eyal Amit |
 |--------|--------------------------------|
+| **`eyalamit-staging-ftp`** | **מקומי לפרויקט:** סטייג'ינג uPress מ־Cursor — תוסף SFTP/FTP, `sftp.json` בטוח, סקריפט `wp-config` |
 | `wp-plugin-development` | PHP, תוספים, ודפוסי WordPress כלליים |
 | `wp-rest-api` | REST, אינטגרציות |
 | `wp-performance` | ביצועים, אופטימיזציה |

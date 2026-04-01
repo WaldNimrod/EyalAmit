@@ -34,13 +34,13 @@
 | נושא | קישור |
 |------|--------|
 | אפיון מחייב | [`../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md`](../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) |
-| מפת אתר v2.3 | [`../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md`](../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) |
+| מפת אתר v2.3 (**`APPROVED`**) | [`../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md`](../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) — שם `DRAFT` בקובץ היסטורי |
 | פרוטוקול פגישה + סגירה 1–10 | [`../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md`](../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) |
 | Wireframes + EN | [`../team-100-preplanning/IA-WIREFRAMES-AND-EN-LANDING.md`](../team-100-preplanning/IA-WIREFRAMES-AND-EN-LANDING.md) |
 | כיווני דף בית | [`../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md`](../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md) |
 | בחירת תבנית WP | [`../team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](../team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) |
 | תנועה · AEO · GEO | [`../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) |
-| עמוד EN — טיוטת טקסט | [`../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) |
+| עמוד EN (H1 נעול; גוף לעריכה) | [`../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) · [`MEETING-MINUTES-EYAL-2026-03-31.md`](../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) |
 | דוח גלריות + מיפוי | [`../team-100-preplanning/GALLERY-INVENTORY-REPORT-DRAFT-2026-03-31.md`](../team-100-preplanning/GALLERY-INVENTORY-REPORT-DRAFT-2026-03-31.md) · תבנית CSV · סקריפט `scripts/inventory_legacy_galleries.py` |
 
 ---

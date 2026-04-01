@@ -11,6 +11,9 @@
 
 ## קריאה חובה לפני כל משימה
 
+**M2 — קבלת סביבה מ־20 (כשפעיל):** [`M2-HANDOFF-FROM-20-2026-03-31.md`](./M2-HANDOFF-FROM-20-2026-03-31.md) + [`../team_20/M2-RUNBOOK-ENV-2026-03-31.md`](../team_20/M2-RUNBOOK-ENV-2026-03-31.md)  
+**M2 — סיכום G2 / המשך:** [`M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](./M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) · אימות והוראות: [`../team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md`](../team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md)
+
 1. [`docs/PROJECT-ENTRY.md`](../../docs/PROJECT-ENTRY.md)
 2. [`AGENTS.md`](../../AGENTS.md)
 3. [`docs/sop/SSOT.md`](../../docs/sop/SSOT.md) — סעיפי פיתוח, `ea_`, תמה

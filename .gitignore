@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 local/.env
+local/staging.credentials.md
+# SFTP/FTP extension (Cursor/VS Code) — never commit passwords
+.vscode/sftp.json
 local/*.sql
 local/*.zip
 __pycache__/

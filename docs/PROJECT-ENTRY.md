@@ -30,7 +30,18 @@
 | מסמכי פרויקט | `docs/project/` |
 | SSOT מנהלי | `docs/sop/SSOT.md` |
 | ייצוא Word ללקוח | `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר; תלות: `pip install -r scripts/requirements-docx.txt` |
-| סביבה מקומית (עתידי) | תיקייה `local/` — לא ל־commit סודות |
+| סביבה מקומית (Docker) | [`local/README.md`](../local/README.md) — `.env` לא ב־Git; PHP מיושר ל־uPress לפי צוות 20 |
+| פריסה קנונית (מה שעולה לשרת) | [`site/README.md`](../site/README.md) — לא מעלים `_communication/` או `docs/` |
+| מדיניות מסלולים כפולים + uPress | [`docs/project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md`](project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md) |
+| נטיב טכני — משימות DB / WP / סטייג'ינג | [`_communication/team_20/M2-TECHNICAL-INFRA-TRACK-NEXT-STEPS-2026-03-29.md`](../_communication/team_20/M2-TECHNICAL-INFRA-TRACK-NEXT-STEPS-2026-03-29.md) |
+| M2 runbook סביבה (G1) | [`_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md`](../_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md) |
+| M2 מסירה 20→10 (G2) | [`_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md`](../_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md) |
+| M2 סיכום יישום G2 (10) | [`_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](../_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) |
+| M2 אימות G2 + המשך (20/100) | [`_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md`](../_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md) |
+| uPress — נתונים לחיבור (Git/FTP), בדיקות פאנל | [`_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md`](../_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md) |
+| uPress — סטייג'ינג, PHP, מדריך Git | [`_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](../_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md) |
+| העברת FTP / WP בצורה מאובטחת | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · תבנית [`local/staging.credentials.example.md`](../local/staging.credentials.example.md) |
+| phpMyAdmin — נוהל עבודה (בלי "להציק") | [`_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](../_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md) |
 | **מאגר WordPress (ישן — נפרד מריפו 2026)** | `../eyalamit.co.il-legacy/` מקומית; Git: `EYALAMIT1/eyalamit.co.il` — **לא** חלק מ־[WaldNimrod/EyalAmit](https://github.com/WaldNimrod/EyalAmit) |
 | **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו |
 | **WordPress Agent Skills (Cursor)** | [`.cursor/skills/`](../.cursor/skills/README.md) — סקילים ממאגר WordPress הרשמי |
@@ -41,7 +52,7 @@
 
 ## 4. מצב שלב נוכחי (מתעדכן ב-SSOT)
 
-**ביצוע — לפי מפת דרכים 2026 ([`ROADMAP-2026.md`](project/ROADMAP-2026.md) v12.1):** מתקדמים לפי אפיון פנימי CANONICAL ואבני דרך M1–M7; **מעטפת אתר (M2)** יכולה להתקדם על בסיס **SITEMAP DRAFT** מסונכרן — ראו מדיניות בראש הרודמאפ. **חתימת אייל** על תקציר (docx/PDF) ו־**מפת אתר `APPROVED`** נדרשים ל**מיגרציית תוכן מלאה** ול־**cutover** — ראו [`06-IMPLEMENTATION-MIGRATION-PACK.md`](project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) §0 (מדורג). **מסירת האתר לאייל** = אבן דרך **M7**. תקציר מנהלים פנימי **v2.0** (מסונכרן טופס בחירות + CANONICAL): [`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](project/team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md).
+**ביצוע — לפי מפת דרכים 2026 ([`ROADMAP-2026.md`](project/ROADMAP-2026.md) v12.3):** מתקדמים לפי אפיון פנימי CANONICAL ואבני דרך M1–M7; **מעטפת אתר (M2)** יכולה להתקדם על בסיס **SITEMAP DRAFT** מסונכרן — ראו מדיניות בראש הרודמאפ. **חתימת אייל** על תקציר (docx/PDF) ו־**מפת אתר `APPROVED`** נדרשים ל**מיגרציית תוכן מלאה** ול־**cutover** — ראו [`06-IMPLEMENTATION-MIGRATION-PACK.md`](project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) §0 (מדורג). **מסירת האתר לאייל** = אבן דרך **M7**. תקציר מנהלים פנימי **v2.0** (מסונכרן טופס בחירות + CANONICAL): [`EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md`](project/team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md).
 
 ## 5. מסמכי ליבה — קישורים ישירים
 
@@ -49,7 +60,7 @@
 |------|------|
 | אינדקס צוות 100 | [`docs/project/team-100-preplanning/README.md`](project/team-100-preplanning/README.md) |
 | אפיון סופי (canonical לבנייה) | [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) |
-| מפת אתר (טיוטה לאישור) | [`SITEMAP-NEW-SITE-v2-DRAFT.md`](project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) |
+| מפת אתר v2.3 (**מאושרת**; שם קובץ DRAFT היסטורי) | [`SITEMAP-NEW-SITE-v2-DRAFT.md`](project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) |
 | Keep / Merge / Drop | [`CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md`](project/team-100-preplanning/CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md) |
 | תהליך ואפיון | [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](project/team-100-preplanning/07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) |
 | מיגרציה והשקה | [`06-IMPLEMENTATION-MIGRATION-PACK.md`](project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) |

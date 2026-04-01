@@ -19,7 +19,7 @@ alwaysApply: true
 - **לאייל:** רק **docx או PDF** — לא Markdown.
 - **QR:** אין שבירת permalinks למודפס; `docs/project/team-100-preplanning/QR-URL-POLICY.md`.
 - **מקורות אמת:** אייל → מסמכי צוות 100 מסונכרנים → מחקר בעזר.
-- **ייצוא Word:** `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר.
+- **ייצוא Word / סקריפטים:** להריץ **באמצעות הסוכן** (shell) — **לא** להפנות את המשתמש להריץ `python3`, `docker`, `pip` וכו' כשיש גישה להרצה כאן. דוגמה: `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר.
 
 ## תקשורת צוותים ותפקיד יחיד
 
