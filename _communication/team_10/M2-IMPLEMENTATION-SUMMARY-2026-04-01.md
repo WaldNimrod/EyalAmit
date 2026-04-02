@@ -1,6 +1,6 @@
 # M2 — סיכום יישום G2 (צוות 10)
 
-**תאריך:** 2026-04-01 · **עדכון מנדט / TLS:** 2026-04-02 · **עדכון סטטוס פאנל / בסיס:** 2026-03-29 (נימרוד) · **תשתית מקומית + מדיה §3.2:** 2026-04-03  
+**תאריך:** 2026-04-01 · **עדכון מנדט / TLS:** 2026-04-02 · **עדכון סטטוס פאנל / בסיס:** 2026-03-29 (נימרוד) · **תשתית מקומית + מדיה §3.2:** 2026-04-03 · **נגישות — WP Accessibility + מסמך הגדרות/QA:** 2026-04-09  
 **מאגר ארטיפקטים:** [`site/`](../../site/README.md)  
 **מקורות מנדט:** [`M2-HANDOFF-FROM-20-2026-03-31.md`](./M2-HANDOFF-FROM-20-2026-03-31.md) · [`M2-WORKPLAN-AND-MANDATES-2026-03-30.md`](../team_100/M2-WORKPLAN-AND-MANDATES-2026-03-30.md) §6–§7 · **[`M2-MANDATE-G2-TEAM10-2026-04-02.md`](./M2-MANDATE-G2-TEAM10-2026-04-02.md)**  
 **GO מ־100 (שער 20-A / TLS):** [`M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md`](../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md) — **מותר להמשיך G2** ללא המתנה ל־`curl` בלי `-k` תקין על סטייג'ינג.  
@@ -56,7 +56,7 @@
 | רכיב | גרסה / מיקום | הערות |
 |------|----------------|--------|
 | **GeneratePress (parent)** | *לרשום גרסה מדויקת מ־wp-admin* | ☑ **מותקנת** (2026-03-29) — מ־קטלוג WP / [wordpress.org/themes/generatepress](https://wordpress.org/themes/generatepress/) — **לא** מהמאגר |
-| **EA Eyal Amit (child)** | **1.0.1** | [`site/wp-content/themes/ea-eyalamit/style.css`](../../site/wp-content/themes/ea-eyalamit/style.css) — `Template: generatepress` (**F6**) |
+| **EA Eyal Amit (child)** | **1.1.0** | [`style.css`](../../site/wp-content/themes/ea-eyalamit/style.css) — טיפוגרפיה/טוקנים דף בית (Rubik) · [`home-front.css`](../../site/wp-content/themes/ea-eyalamit/assets/css/home-front.css) — פריסה בלבד · [`template-home-dashboard.php`](../../site/wp-content/themes/ea-eyalamit/page-templates/template-home-dashboard.php) — ללא inline CSS |
 | **קישור `style.css` parent** | בשרת בלבד | אחרי התקנת GeneratePress: `{base}/wp-content/themes/generatepress/style.css` — התבנית **לא** במאגר 2026 |
 | **קישור `style.css` child** | במאגר | [`site/wp-content/themes/ea-eyalamit/style.css`](../../site/wp-content/themes/ea-eyalamit/style.css) |
 
@@ -68,6 +68,7 @@
 
 - מחלקת גוף **`ea-lang-en`** לעמודים עם slug **`en`** או **`english`** + כללי LTR ב־CSS — עמידה ב־**EN LTR** ([`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](../../docs/project/team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §§5–7).
 - enqueue נשאר תלוי ב־`generate-style` (GeneratePress).
+- **דף בית (2026-04-08):** מימוש **מוקאפ דשבורד אופציה ב׳** — פלטת צבעים ומבנה מ־[`for-eyal/assets/home-dashboard/`](../../docs/project/eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/); תמונות אמיתיות מ־legacy ב־`ea-eyalamit/assets/home/`; שער אישור אייל — [`M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](./M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md).
 
 ---
 
@@ -77,6 +78,7 @@
 |--------|--------|-------------------------|
 | **SEO (אחד)** | **Yoast SEO** | sitemap + meta, **noindex לעמוד בודד** (חובה ל־**P15**), Schema בסיסי, בשימוש נרחב בסביבה עברית |
 | **טפסים (אחד)** | **Fluent Forms** | שליחה לאימייל, לוגים, honeypot מובנה, טפסים נגישים יחסית |
+| **נגישות (כלי עזר)** | **WP Accessibility** (Joe Dolson, wordpress.org) | משלים תמה+תוכן; **לא** תחליף לת"י 5568 — ראו [`M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md`](./M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md) · **לא** Enable Accessibility (uPress) |
 | **קאש** | **סטייג'ינג:** **ללא Varnish** עד פרודקשן (SSL); מצבי מטמון חלופיים בפאנל — **מינימום** בפיתוח ([runbook §13.0](../team_20/M2-RUNBOOK-ENV-2026-03-31.md)). **פרודקשן:** Varnish + לפי KB; EzCache/TinyPNG/CDN — **אחרי עליה לאוויר**. | **10.6** + [ארכיטקטורה §5.2](../team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md) |
 
 ### 3.1 תוספי עזר (אושרו ע״י 100 — uPress)
@@ -237,4 +239,4 @@
 
 ---
 
-*סוף סיכום G2 (עודכן 2026-04-04 — P0 סטייג'ינג; קודם: 2026-03-29 / 2026-04-02).*
+*סוף סיכום G2 (עודכן 2026-03-29 — child **1.1.0** Rubik אחיד לדף בית; 1.0.9 Hero מכווצת; 1.0.8 טיפוגרפיה; 2026-04-09 נגישות; 2026-04-04 P0 סטייג'ינג).*

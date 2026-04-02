@@ -48,6 +48,7 @@
 | **משוב QA קנוני — סטייג'ינג, TLS, סטטוס G2** | [`M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md`](./M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md) — **חובה** לפני פרשנות דוחות / סגירת באגי «SSL בסטייג'ינג» |
 | **GO קליטת תוכן (תשתית)** | [`../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md`](../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md) — יישור 100 מול דוחות 50 |
 | **אימות 100 אחרי P0 (הקשר)** | [`../team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md`](../team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md) — לא מחליף דוח 50 |
+| **נגישות — WP Accessibility + ת"י (M2)** | בריף יישום/הגדרות: [`../team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md`](../team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md); פלט: `M2-ACCESSIBILITY-QA-REPORT-TEAM50-<תאריך>.md` |
 
 ## סיום אונבורד
 

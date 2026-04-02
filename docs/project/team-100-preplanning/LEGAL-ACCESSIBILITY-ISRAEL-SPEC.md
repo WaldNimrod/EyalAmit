@@ -36,6 +36,15 @@
 
 ---
 
+## תוסף WP Accessibility (M2)
+
+בפרויקט נבחר **[WP Accessibility](https://wordpress.org/plugins/wp-accessibility/)** (Joe Dolson) כ**כלי עזר** — למשל דילוג לתוכן והדגשת מיקוד מקלדת. **אינו** מחליף תכנון תבנית, תוכן, טפסים או בדיקות ידניות מול ת"י 5568 / WCAG.
+
+- **הבחנה:** זהו תוסף **שונה** מ־**Enable Accessibility** בחבילת uPress; האחרון **לא** מומלץ כתחליף לנגישות אמיתית — ראו [`_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md`](../../_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md).
+- **הגדרות, יעדי skip עם GeneratePress, וצ'קליסט QA:** [`_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md`](../../_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md).
+
+---
+
 ## צ'קליסט בדיקות לפני השקה (מינימום)
 
 - [ ] מעבר מלא במקלדת בדף הבית, דף שירות, צור קשר, בלוג, עמוד נגישות, עמוד EN.

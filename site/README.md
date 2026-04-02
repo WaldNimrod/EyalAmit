@@ -4,7 +4,7 @@
 
 ## מה שייך לכאן
 
-- `wp-content/themes/ea-eyalamit/` — **child** נעול לאפיון ([`SITE-SPECIFICATION-FINAL`](../docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) §1.2.1); כל התאמה מותגית/PHP נוסף — כאן בלבד, קידומת **`ea_`**
+- `wp-content/themes/ea-eyalamit/` — **child** נעול לאפיון ([`SITE-SPECIFICATION-FINAL`](../docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) §1.2.1); כל התאמה מותגית/PHP נוסף — כאן בלבד, קידומת **`ea_`** · **דף בית:** `style.css` (טיפוגרפיה/טוקנים) + `assets/css/home-front.css` (פריסה) + `page-templates/template-home-dashboard.php` (ללא inline CSS) + **`assets/home/eyal-portrait-hero.jpg`** · **`workshop-thumb.jpg`** — מקורות לגסי כמתועד; מסמך סטטוס: [`../_communication/team_10/M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](../_communication/team_10/M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md) · **נגישות (שרת):** תוסף **WP Accessibility** מ־wordpress.org — הגדרות ו־QA: [`../_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md`](../_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md)
 - `wp-content/mu-plugins/ea-staging-noindex.php` — `noindex` לסטייג'ינג **uPress** (`*.upress.link`) + **v1.0.2** `nocache_headers` + `DONOTCACHEPAGE`; ראו runbook §8
 - `wp-content/mu-plugins/ea-m2-auto-activate-child.php` — מחליף ל־child **ea-eyalamit** בבקשה הראשונה (אופציונלי להסיר אחרי ייצוב)
 - `wp-content/mu-plugins/ea-m2-ensure-fluent-active.php` — **v1.0.1** — על סטייג'ינג uPress מפעיל את **Fluent Forms** אם מותקן וכבוי (עם הוקי activation מלאים)

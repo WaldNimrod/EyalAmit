@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.0.1
+Version: 1.1.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -20,4 +20,170 @@ body.ea-lang-en {
 	direction: ltr;
 	text-align: left;
 	unicode-bidi: isolate;
+}
+
+/*
+ * ---------------------------------------------------------------------------
+ * דף בית — טיפוגרפיה וטוקנים (מקור יחיד)
+ * ---------------------------------------------------------------------------
+ * פונט יחיד — Rubik (sans, עברית + לטינית באותה משפחה; היררכיה במשקלים 400–700).
+ * נטען ב־functions.php — לא inline / לא בלוק תוכן. כותרת אתר ותפריט — GeneratePress.
+ */
+body.ea-home-dashboard {
+	--ea-home-bg: #ffffff;
+	--ea-home-panel: #f9f9f9;
+	--ea-home-border: #e1e1e1;
+	--ea-home-accent: #1abc9c;
+	--ea-home-accent-hover: #17a589;
+	--ea-home-heading: #303030;
+	--ea-home-text: #818181;
+	--ea-home-muted: #6f6f6f;
+	--ea-home-hero-shade: linear-gradient(to top, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.5) 45%, transparent 72%);
+
+	--ea-font-sans: "Rubik", sans-serif;
+	--ea-fw-normal: 400;
+	--ea-fw-medium: 500;
+	--ea-fw-semibold: 600;
+	--ea-fw-bold: 700;
+	--ea-leading-tight: 1.25;
+	--ea-leading-snug: 1.45;
+	--ea-leading-body: 1.55;
+	--ea-leading-relaxed: 1.65;
+	--ea-size-xs: 0.8rem;
+	--ea-size-sm: 0.86rem;
+	--ea-size-md: 0.88rem;
+	--ea-size-95: 0.95rem;
+	--ea-size-h3: 1.02rem;
+	--ea-size-h2-card: 1.15rem;
+	--ea-size-h2-priority: 1.2rem;
+	--ea-size-h2-seo: 1.05rem;
+	--ea-size-hero-h1: clamp(1.2rem, 3.6vw, 1.75rem);
+	--ea-track-heading: 0.02em;
+}
+
+body.ea-home-dashboard .ea-home-front {
+	font-family: var(--ea-font-sans);
+	font-size: 1rem;
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body.ea-home-dashboard .ea-home-front h1 {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-bold);
+	color: var(--ea-home-heading);
+	line-height: var(--ea-leading-tight);
+}
+
+body.ea-home-dashboard .ea-home-front h2,
+body.ea-home-dashboard .ea-home-front h3 {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-semibold);
+	color: var(--ea-home-heading);
+	line-height: var(--ea-leading-tight);
+}
+
+body.ea-home-dashboard .ea-home-front a {
+	font-family: inherit;
+	font-weight: var(--ea-fw-semibold);
+	text-decoration: none;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-banner {
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+	color: var(--ea-home-muted);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay h1 {
+	font-size: var(--ea-size-hero-h1);
+	letter-spacing: var(--ea-track-heading);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay .ea-home-hero-sub {
+	font-size: var(--ea-size-95);
+	font-weight: var(--ea-fw-medium);
+	line-height: var(--ea-leading-body);
+	color: var(--ea-home-text);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay .ea-home-hero-meta {
+	font-size: var(--ea-size-xs);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-snug);
+	color: var(--ea-home-muted);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-btn {
+	font-family: inherit;
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-bold);
+	line-height: var(--ea-leading-tight);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-priority > h2 {
+	font-size: var(--ea-size-h2-priority);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-priority > .ea-home-priority-intro {
+	font-size: 0.9rem;
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+	color: var(--ea-home-text);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-priority-grid a {
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-semibold);
+	line-height: var(--ea-leading-tight);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-card h3 {
+	font-size: var(--ea-size-h3);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-card p {
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+	color: var(--ea-home-text);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-card ul {
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-block-large .inner h2 {
+	font-size: var(--ea-size-h2-card);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-legacy h3 {
+	font-weight: var(--ea-fw-semibold);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-legacy p,
+body.ea-home-dashboard .ea-home-front .ea-home-legacy li {
+	font-size: var(--ea-size-sm);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-legacy a {
+	font-weight: var(--ea-fw-medium);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-seo-block h2 {
+	font-size: var(--ea-size-h2-seo);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-seo-block p {
+	font-size: var(--ea-size-md);
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-relaxed);
+	color: var(--ea-home-text);
 }

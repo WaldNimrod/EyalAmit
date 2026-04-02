@@ -9,6 +9,8 @@
 
 ## 1. לפני הזנה ל־WP
 
+**תמונות דף בית (דוגמה):** ב־child theme תחת `site/wp-content/themes/ea-eyalamit/assets/home/` — מקור legacy מתועד ב־[`M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](./M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md).
+
 1. לשמור **עותק** של החומר מאייל (docx/PDF/מייל) — **לא** ב־Git אם מכיל מידע פרטי; אינדקס שם קובץ + תאריך ב־`_communication/team_10/` או אצל מנהל הפרויקט.  
 2. **השוואה:** לעבור על כל פריט בעץ החדש מול עמודות §4 (מזהה Pxx, slug, הורה).  
 3. אם יש **שינוי slug / הורה / מחיקת עמוד** — לעדכן את טבלת §4 **במסמך זה** (סעיף 3) ואז להפיק WXR מחדש או לייצר עמודים ידנית — **לא** לשבור QR / P22 בלי אישור 100 (ראו runbook slugs).
