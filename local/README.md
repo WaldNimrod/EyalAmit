@@ -6,7 +6,9 @@
 
 | קובץ | תיאור |
 |------|--------|
-| `docker-compose.yml` | WordPress + MariaDB; נפחים לפיתוח |
+| `docker-compose.yml` | WordPress + MariaDB; בנייה מ־`Dockerfile.wordpress` |
+| `Dockerfile.wordpress` | שכבת **Xdebug 3** + **WP-CLI** מעל `WORDPRESS_IMAGE` (ברירת מחדל PHP 8.3) |
+| `xdebug.ini` | הגדרות Xdebug לדיבוג מקומי בלבד |
 | `.env.example` | דוגמה — **העתק ל־`.env`** (לא ב־commit) |
 
 ## גרסת PHP — חובה ליישר ל־uPress
@@ -41,7 +43,47 @@
 cd local
 cp .env.example .env
 # ערוך .env — סיסמאות DB וכו'
-docker compose up -d
+docker compose build --no-cache wordpress
+docker compose up -d --force-recreate wordpress
 ```
 
-כתובת ברירת מחדל: `http://localhost:8080` (ניתן לשנות ב־`.env`).
+**אחרי `git pull` שמשנה `Dockerfile.wordpress` או תג `image` ב־`docker-compose.yml`:** חובה `docker compose build --no-cache wordpress` ואז `docker compose up -d --force-recreate wordpress` — אחרת עשוי להישאר **קונטיינר ישן** על תמונה בלי WP-CLI. **אימות Q3 (צוות 50):** משורש המאגר — `bash scripts/verify_local_wp_cli.sh` (בונה תמונה ובודק `wp --info` בלי DB). בתוך `local/` אחרי `up`: `docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root cli info` (גם `/usr/local/bin/wp` קיים).
+
+כתובת ברירת מחדל: `http://localhost:9090` (מיושר ל־SSOT; ניתן לשנות `WORDPRESS_PORT` ב־`.env` אם הפורט תפוס).
+
+**מיפוי `wp-content`:** ב־`docker-compose.yml` מופעל כברירת מחדל **`../site/wp-content` → `/var/www/html/wp-content`** — עריכה ב־מאגר משתקפת מיד בקונטיינר (תמה child, mu-plugins). אחרי שינוי ב־compose: `docker compose up -d`.
+
+**שינוי `WORDPRESS_IMAGE` ב־`.env`:** להריץ מחדש `docker compose build --no-cache wordpress` כדי לבנות שכבת Xdebug + WP-CLI על בסיס התמונה החדשה. **בניית התמונה נכשלת** אם הורדת ה־phar של WP-CLI נכשלה — בשלב ה־`RUN` ב־Dockerfile מופעל `wp --info` לאימות.
+
+## WP-CLI (בתוך הקונטיינר)
+
+WP-CLI מותקן ב־`/usr/local/bin/wp` **ובקישור** ל־`/usr/bin/wp` (חלק מסביבות `exec` עם `PATH` מצומצם לא מוצאים את `local`).
+
+דוגמאות (אחרי `docker compose up -d`; מהתיקייה `local/`):
+
+```bash
+docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root core version
+docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root plugin list
+```
+
+ייבוא WXR מקומי (אחרי העתקת הקובץ לקונטיינר או mount נתיב):
+
+```bash
+docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root import /path/to/file.wxr --authors=create
+```
+
+(הנתיב לקובץ חייב להיות נגיש מתוך הקונטיינר — למשל העתקה ל־`/tmp` או volume.)
+
+## PHP Debug (Cursor / VS Code) + Xdebug
+
+1. **הרחבה:** PHP Debug (מותקנת לפי `.vscode/extensions.json`).  
+2. **הקונטיינר** כולל Xdebug (פורט **9003**, `client_host=host.docker.internal`; ב־Compose מוגדר `extra_hosts: host-gateway`).  
+3. **מיפוי קבצים:** ברירת המחדל במאגר — bind-mount ל־`site/wp-content`; ב־Cursor: **Run and Debug** → **Listen for Xdebug (PHP)** (מ־[`.vscode/launch.json`](../.vscode/launch.json)).  
+4. לפתוח דף ב־`http://localhost:9090` — נקודות עצירה ב־PHP תחת `wp-content` אמורות להתאים לקבצי המאגר.  
+5. אם הוסר ה־bind-mount — להשתמש בתצורה **Listen for Xdebug (PHP, no path map)**.
+
+פירוט תקן עורך: [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](../docs/sop/AGENT-WORKSPACE-STANDARD.md) §3.5.
+
+## Cursor — הרחבות מומלצות (לא Docker)
+
+רשימת ההרחבות לעורך נמצאת ב־**`../.vscode/extensions.json`** (שורש המאגר). הוראות התקנה צעד־אחר־צעד: [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](../docs/sop/AGENT-WORKSPACE-STANDARD.md) §3.1–3.2.

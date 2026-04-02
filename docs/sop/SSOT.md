@@ -1,5 +1,5 @@
 📖 נוהל עבודה מרכזי (Master SSOT) — Eyal Amit (תכנון 2026 + יישום WP)
-גרסה: 12.2 (מסונכרן עם מאגר התכנון)
+גרסה: 12.3 (מסונכרן עם מאגר התכנון; נוסף §9.1 תקן סוכני Cursor)
 סמכות עליונה: CEO אייל עמית
 **מאגר תכנון / אפיון / מסמכים (מחייב לעבודה כאן):** `/Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026`  
 **מאגר קוד אתר WordPress (יישום, תמה, תוספים):** `/Users/nimrod/Documents/Eyal Amit/eyalamit.co.il-legacy`
@@ -338,6 +338,9 @@ WordPress: http://localhost:9090 (PHP 8.3)
 phpMyAdmin: http://localhost:9091
 
 Active Branch: feature/lean-wp-rebuild-2026
+
+**9.1 סוכני AI ב-Cursor (מחייב לכולם)**  
+הנוהל המלא לכלים, סקילים, MCP דפדפן וזרימת מקומי↔סטייג'ינג: [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](AGENT-WORKSPACE-STANDARD.md). עדכון התקן יסונכרן עם `AGENTS.md`, `.cursor/rules/`, וטבלת הסקילים ב-`.cursor/skills/README.md`.
 
 🛠️ 10. סטנדרט פיתוח והנדסה (Development Standards)
 

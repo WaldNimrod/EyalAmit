@@ -22,6 +22,8 @@
 
 **קוד WordPress (כשעובדים על המאגר הישן):** קידומת `ea_`; שינויים ב־child theme / `mu-plugins` בלבד — פירוט ב־SSOT.
 
+**סוכני AI ב-Cursor:** תקן מחייב — [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](sop/AGENT-WORKSPACE-STANDARD.md) (סקילים, MCP דפדפן, הרחבות, זרימת עבודה). **ברירת מחדל לתפקיד סוכן במאגר:** צוות **100** — [`.cursor/rules/eyalamit-team-100-architect-role.mdc`](../.cursor/rules/eyalamit-team-100-architect-role.mdc) · [`_communication/team_100/onboard_team100.md`](../_communication/team_100/onboard_team100.md).
+
 ## 3. סביבה ומאגרים
 
 | מה | נתיב / הערה |
@@ -37,14 +39,31 @@
 | M2 runbook סביבה (G1) | [`_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md`](../_communication/team_20/M2-RUNBOOK-ENV-2026-03-31.md) |
 | M2 מסירה 20→10 (G2) | [`_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md`](../_communication/team_10/M2-HANDOFF-FROM-20-2026-03-31.md) |
 | M2 סיכום יישום G2 (10) | [`_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](../_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) |
+| M2 G2 — בקשת QA לצוות 50 | [`_communication/team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md`](../_communication/team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md) |
+| M2 — בקרת תשתית לפני תוכן (צוות 50) | [`_communication/team_50/M2-INFRA-READY-QA-REQUEST-TEAM50-2026-04-03.md`](../_communication/team_50/M2-INFRA-READY-QA-REQUEST-TEAM50-2026-04-03.md) |
+| M2 — תיקון QA + בדיקה חוזרת (צוות 100) | [`_communication/team_100/M2-QA-REMEDIATION-AND-RETEST-PLAN-2026-04-04.md`](../_communication/team_100/M2-QA-REMEDIATION-AND-RETEST-PLAN-2026-04-04.md) |
+| M2 — מנדט ריטסט QA 50 (תשתית Q3 + G2 contact/מטמון) | [`_communication/team_100/M2-QA50-RETEST-MANDATE-INFRA-G2-2026-04-06.md`](../_communication/team_100/M2-QA50-RETEST-MANDATE-INFRA-G2-2026-04-06.md) |
+| M2 — בקשת ריטסט QA 50 אחרי purge uPress | [`_communication/team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-04-07.md`](../_communication/team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-04-07.md) |
+| M2 — משוב QA קנוני 50 (סטייג'ינג / TLS / G2) | [`_communication/team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md`](../_communication/team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md) |
+| M2 — GO תשתית לקליטת תוכן (100) | [`_communication/team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md`](../_communication/team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md) |
+| M2 G2 — השלמת סטייג'ינג P0 (צוות 10) | [`_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md`](../_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md) · דוח ביצוע: [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](../_communication/team_10/M2-G2-STAGING-P0-DONE-2026-04-04.md) · **אימות 100:** [`_communication/team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md`](../_communication/team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md) |
+| M2 — קליטת תוכן מאייל (צוות 10) | [`_communication/team_10/M2-CONTENT-INTAKE-FROM-EYAL-2026-04-03.md`](../_communication/team_10/M2-CONTENT-INTAKE-FROM-EYAL-2026-04-03.md) |
 | M2 אימות G2 + המשך (20/100) | [`_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md`](../_communication/team_20/M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md) |
+| M2 G2 — תיקון שער 20-A + GO ל־10 | [`_communication/team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md`](../_communication/team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md) |
+| M2 G2 — דוח השלמת תשתית 20→100 | [`_communication/team_20/M2-INFRA-COMPLETION-REPORT-TO-TEAM100-2026-04-01.md`](../_communication/team_20/M2-INFRA-COMPLETION-REPORT-TO-TEAM100-2026-04-01.md) |
+| M2 G2 — אינדקס סדר מנדטים | [`_communication/team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md`](../_communication/team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md) |
+| M2 G2 — מנדט צוות 20 | [`_communication/team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md`](../_communication/team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md) |
+| M2 G2 — מנדט צוות 10 | [`_communication/team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md`](../_communication/team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md) |
+| M2 — תוספי uPress (המלצות 100) | [`_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md`](../_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md) |
 | uPress — נתונים לחיבור (Git/FTP), בדיקות פאנל | [`_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md`](../_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md) |
 | uPress — סטייג'ינג, PHP, מדריך Git | [`_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](../_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md) |
 | העברת FTP / WP בצורה מאובטחת | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · תבנית [`local/staging.credentials.example.md`](../local/staging.credentials.example.md) |
 | phpMyAdmin — נוהל עבודה (בלי "להציק") | [`_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](../_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md) |
 | **מאגר WordPress (ישן — נפרד מריפו 2026)** | `../eyalamit.co.il-legacy/` מקומית; Git: `EYALAMIT1/eyalamit.co.il` — **לא** חלק מ־[WaldNimrod/EyalAmit](https://github.com/WaldNimrod/EyalAmit) |
-| **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו |
-| **WordPress Agent Skills (Cursor)** | [`.cursor/skills/`](../.cursor/skills/README.md) — סקילים ממאגר WordPress הרשמי |
+| **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו · **פרומט הקמה לפי צוות:** [אונבורד ופרומט ראשון](../_communication/README.md#onboarding-prompts) |
+| **WordPress Agent Skills (Cursor)** | [`.cursor/skills/`](../.cursor/skills/README.md) — סקילים ממאגר WordPress הרשמי + בלוקים/FSE |
+| **תקן סביבת סוכן (מחייב)** | [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](sop/AGENT-WORKSPACE-STANDARD.md) — הרחבות, MCP דפדפן, סקילים, זרימת עבודה |
+| **הרחבות Cursor מומלצות** | [`.vscode/extensions.json`](../.vscode/extensions.json) (Intelephense, EditorConfig, PHP Debug, GitLens); **מול ~8 המלצות ב-Cursor:** [§3.4](sop/AGENT-WORKSPACE-STANDARD.md); **איך להתקין:** [§3.1–3.2](sop/AGENT-WORKSPACE-STANDARD.md) (⌘⇧P → `Extensions: Show Recommended Extensions`); דיבוג PHP: [`.vscode/launch.json`](../.vscode/launch.json) + Xdebug בסביבה |
 
 ### 3.1 שורש workspace ב-Cursor (חשוב)
 

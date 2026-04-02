@@ -1,0 +1,16 @@
+# Local WordPress + Xdebug 3 — aligns with WORDPRESS_IMAGE (PHP 8.3 default)
+ARG WORDPRESS_IMAGE=wordpress:php8.3-apache
+FROM ${WORDPRESS_IMAGE}
+
+RUN pecl channel-update pecl.php.net \
+	&& pecl install xdebug-3.3.2 \
+	&& docker-php-ext-enable xdebug
+
+COPY xdebug.ini /usr/local/etc/php/conf.d/99-xdebug.ini
+
+# WP-CLI — local automation (import, options, menus)
+# Also install to /usr/bin/wp: some `docker compose exec` environments use a minimal PATH without /usr/local/bin.
+RUN curl -fsSL -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+	&& chmod +x /usr/local/bin/wp \
+	&& ln -sf /usr/local/bin/wp /usr/bin/wp \
+	&& /usr/bin/wp --info

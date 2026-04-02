@@ -1,4 +1,5 @@
-# PHP image tag MUST match uPress after team 20 locks version — see local/README.md
+# PHP: build local image from Dockerfile.wordpress (Xdebug + same base as WORDPRESS_IMAGE).
+# See local/README.md — rebuild after changing WORDPRESS_IMAGE: docker compose build --no-cache wordpress
 services:
   db:
     image: mariadb:11
@@ -12,10 +13,18 @@ services:
       - db_data:/var/lib/mysql
 
   wordpress:
-    image: ${WORDPRESS_IMAGE:-wordpress:php8.3-apache}
+    build:
+      context: .
+      dockerfile: Dockerfile.wordpress
+      args:
+        WORDPRESS_IMAGE: ${WORDPRESS_IMAGE:-wordpress:php8.3-apache}
+    # Bump tag when Dockerfile changes so compose does not reuse an old image without WP-CLI.
+    image: eyalamit-local-wp:xdebug-wpcli-v3
     restart: unless-stopped
     ports:
-      - "${WORDPRESS_PORT:-8080}:80"
+      - "${WORDPRESS_PORT:-9090}:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
@@ -25,8 +34,7 @@ services:
       - db
     volumes:
       - wp_data:/var/www/html
-      # When site/wp-content exists, prefer bind-mount for child theme from repo:
-      # - ../site/wp-content:/var/www/html/wp-content
+      - ../site/wp-content:/var/www/html/wp-content
 
 volumes:
   db_data:

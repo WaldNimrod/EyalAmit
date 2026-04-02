@@ -1,17 +1,20 @@
 # סטייג'ינג — סטטוס ערוצים
 
 **URL:** `https://eyalamit-co-il-2026.s887.upress.link`  
-**עדכון אחרון:** 2026-03-31 (גיבוי לפני G2 בוצע; מנדט G2 הועבר לצוות 10)
+**עדכון אחרון:** 2026-04-02 (מדיניות TLS סטייג'ינג מול פרודקשן)
+
+**כלל מחייב:** בסטייג'ינג — SSL תקין **לא מותקן**. **באתר הסופי** (אחרי סטייג'ינג) — עבודה **רק** עם SSL תקין — [`STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md`](./STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md).
 
 | ערוץ | סטטוס |
 |------|--------|
-| **HTTPS / אתר** | ✅ WordPress נטען (דף בית RTL, כותרת אתר) |
+| **TLS סטייג'ינג** | לפי פאנל: **אין** SSL תקין ציבורי כמו בפרודקשן — עבודה לפי [`STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md`](./STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md); אימות טכני ישן: [`M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md`](./M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md) |
+| **HTTPS / אתר (סטייג'ינג)** | ⚠️ צפוי אי-התאמת תעודה / אזהרת דפדפן — **מקובל** למסלול זה; **לא** מייצג את פרודקשן |
 | **FTP (פורט 21)** | ✅ התחברות תקינה (אחרי עדכון סיסמה בפאנל וב־`staging.credentials.md`) |
 | **wp-admin** | ✅ לבדיקה ידנית: `/wp-admin` / `wp-login.php` |
 | **phpMyAdmin** | לא אומת אוטומטית — להוסיף URL ב־`staging.credentials.md` כשצריך |
 | **G1 → G2** | ☑ גיבוי uPress לפני G2 · ☑ מנדט הועבר ל־10 — [`../team_10/M2-HANDOFF-FROM-20-2026-03-31.md`](../team_10/M2-HANDOFF-FROM-20-2026-03-31.md) |
 | **G2 ארטיפקטי Git** | סיכום 10: [`../team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](../team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) · אימות 20/100: [`M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md`](./M2-G2-VERIFICATION-AND-NEXT-STEPS-2026-04-01.md) |
-| **סטייג'ינג חי (2026-04-01)** | דיווח 10: תמה עדיין **Twenty Twenty-Five**; **noindex** אחרי העלאת mu-plugin; **SSL** — תעודה שפגה (טיפול 20) |
+| **סטייג'ינג חי (2026-04-01)** | דיווח 10: תמה עדיין **Twenty Twenty-Five**; **noindex** אחרי העלאת mu-plugin; **HTTPS** — מסלול סטייג'ינג לפי מדיניות חשבון (לא כמו פרודקשן) |
 
 ## מה תוקן בדרך
 

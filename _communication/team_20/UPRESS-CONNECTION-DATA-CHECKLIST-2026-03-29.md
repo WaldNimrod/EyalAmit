@@ -6,10 +6,24 @@
 **רישום סטייג'ינג + PHP + Git (מפורט):** [`UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](./UPRESS-STAGING-SITE-RECORD-2026-03-31.md).  
 **הנחות מאושרות (נימרוד):** Docker מקומי קיים — **להשתמש בו**; התקנת WordPress בסיסית דרך הממשק ב־uPress **מותרת ומועילה**; אפשרות **GitHub** או **FTP** — לבחור אחרי בדיקת מבנה הפריסה למטה.
 
-**תיעוד רשמי uPress (להסתמך עליו):**
+**תיעוד רשמי uPress (חובה — מקור אמת לסביבה):** [מרכז התמיכה](https://support.upress.co.il/)
 
-- [שינוי גרסת PHP](https://support.upress.co.il/general/change-version/) — בחירת גרסה מ־**הגדרות → ניהול הגדרות PHP**; אם גרסה חסרה — פנייה לתמיכה.
-- [קישור פרויקט Git למנהל קבצים](https://support.upress.co.il/dev/file-manager-git-project/) — שכפול לתיקייה, **Pull / Status / Log**; מאגר **פומבי** ישירות; **פרטי** דורש Personal Access Token (GitHub וכו').
+| נושא | קישור | נתיב / הערה בפאנל (לפי המאמר) |
+|------|--------|----------------------------------|
+| PHP | [שינוי גרסת PHP](https://support.upress.co.il/general/change-version/) | **הגדרות → ניהול הגדרות PHP** |
+| Git | [קישור פרויקט Git למנהל קבצים](https://support.upress.co.il/dev/file-manager-git-project/) | מנהל קבצים → ניהול Git |
+| **Varnish (מטמון דפים)** | [הפעלת והגדרת מטמון Varnish Cache](https://support.upress.co.il/performance/%d7%94%d7%a4%d7%a2%d7%9c%d7%aa-%d7%95%d7%94%d7%92%d7%93%d7%a8%d7%aa-%d7%9e%d7%98%d7%9e%d7%95%d7%9f-varnish-cache/) | **ביצועים → הגדרות מתקדמות → הפעלת Varnish**; ניהול החרגות ב־**ניהול הגדרות Varnish** |
+| **EzCache** (תוסף WP) | אותו מאמר (סעיף EZCache) + [EZCache ב־wordpress.org](https://wordpress.org/plugins/ezcache/) | ניקוי מטמון מ־WP; ניהול Varnish לפי uPress |
+| **ניקוי מטמון** | [כיצד לנקות זכרון מטמון](https://support.upress.co.il/dev/how-to-clear-cache/) | **פיתוח → ניהול כלי אחסון → בצע ניקוי מטמון** |
+| **CDN** | [יצירת אזור CDN](https://support.upress.co.il/performance/create-cdn-zone/) | **ביצועים → ניהול אזור CDN** |
+| **TTFB** | [Time to First Byte](https://support.upress.co.il/performance/time-to-first-byte/) | אבחון איטיות |
+| **סביבת פיתוח** | [יצירת סביבת פיתוח מאתר חי](https://support.upress.co.il/dev/import-to-sandbox/) | **פיתוח → ניהול סביבות הפיתוח** |
+| **תוספי WP בפאנל** | [ניהול תוספי wordpress](https://support.upress.co.il/wordpress/manage-wordpress-plugins/) | **WordPress → ניהול תוספי WordPress** |
+| קטגוריות | [ביצועים](https://support.upress.co.il/category/performance/) · [פיתוח](https://support.upress.co.il/category/dev/) | — |
+
+**ארכיטקטורת תוספים + מדיה:** [`M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md`](../team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md) (§0–§5).
+
+**צ׳ק־ליסט ביצוע בממשק (סטייג'ינג = סביבת פיתוח):** [`M2-RUNBOOK-ENV-2026-03-31.md`](./M2-RUNBOOK-ENV-2026-03-31.md) §13.
 
 ---
 
@@ -55,7 +69,7 @@
 - **גיבויים** — איפה מופעל גיבוי אוטומטי / ידני; תיעוד ל־**20.5a**.
 - **מנהל קבצים + Git** (אם נבחר) — ניסוי שכפול לתיקיית בדיקה או אישור תמיכה על מבנה נתיב.
 - **FTP** — יצירת חשבון + בדיקת כתיבה לנתון הנכון.
-- **Cache / Redis** (אם מופיע בחשבון) — האם פעיל על סטייג'ינג ומה מנקים אחרי deploy.
+- **מטמון (Varnish / EzCache)** — לפי [מאמר Varnish](https://support.upress.co.il/performance/%d7%94%d7%a4%d7%a2%d7%9c%d7%aa-%d7%95%d7%94%d7%92%d7%93%d7%a8%d7%aa-%d7%9e%d7%98%d7%9e%d7%95%d7%9f-varnish-cache/) ו־[ניקוי מטמון](https://support.upress.co.il/dev/how-to-clear-cache/): האם **Varnish** פעיל בסטייג'ינג; האם **EzCache** מותקן; **נוהל ניקוי** אחרי deploy (פאנל + תוסף). אופציות נוספות בפאנל (למשל Redis) — **לתעד צילום מסך ולאמת מול תמיכה**.
 - **דוא"ל / SMTP** — לא חובה למקומי; בשרת — איזה מסלול uPress מציע (לשלב מאוחר יותר).
 
 ---

@@ -4,6 +4,8 @@
 **מקור משוב:** [`../team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](../team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md)  
 **מאמת:** צוות **100** / **20** (מסמך זה)
 
+**מנדטים + GO 10:** [`../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md`](../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md) · אינדקס [`../team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md`](../team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md) · **20:** [`M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md`](./M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md) · **10:** [`../team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md`](../team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md)
+
 ---
 
 ## 1. אימות במאגר (עבר)
@@ -27,7 +29,7 @@
 
 | נושא | מצב | בעלות |
 |------|-----|--------|
-| **תמה פעילה** | עדיין **Twenty Twenty-Five** בפלט HTML | **צוות 10** — השלמת שרשרת handoff §3 (GeneratePress → FTP child + mu-plugin → הפעלת child). |
+| **תמה פעילה** | **עודכן 2026-04-03:** פלט HTML מציג **GP + child `ea-eyalamit`** אחרי פריסת FTP + בקשה לדף הבית — לאמת ב־50 | **צוות 50** — לאשר ב־דוח תשתית; אם חוזר TT5 — **צוות 10** לבדוק mu-plugin / הפעלת תמה. |
 | **`noindex` סטייג'ינג** | לא ב־`<head>` עד העלאת [`ea-staging-noindex.php`](../../site/wp-content/mu-plugins/ea-staging-noindex.php) | **צוות 10** (FTP) + אימות `view-source`. |
 | **SSL** | אימות מחמיר נכשל — **תעודה שפגה** (דיווח 10) | **צוות 20** — פאנל uPress / תמיכה: **חידוש או יישור תעודה** לדומיין הסטייג'ינג; עדכון runbook §6 לאחר תיקון. |
 

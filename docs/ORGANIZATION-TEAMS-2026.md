@@ -23,6 +23,6 @@
 | Team 3 — Gatekeeper / Docs & Git | **לא בשימוש** במודל 2026 | תיאום אנושי / צוות 100; Git תחת **צוות 20**; תיעוד תחת **צוות 30** |
 | Team 4 — Database | | **צוות 20** (יחד עם DevOps/Git) |
 
-## אונבורד
+## אונבורד ופרומט ראשון
 
-לכל צוות קובץ קבוע: `_communication/team_XX/onboard_teamXX.md`.
+לכל צוות קובץ קבוע: `_communication/team_XX/onboard_teamXX.md` — **זהו פרומט ההקמה וההגדרה** לסשן; יש לקרוא אותו **במלואו** לפני משימת ביצוע. **אינדקס כל הקבצים + סדר עבודה:** [`_communication/README.md`](../_communication/README.md#onboarding-prompts) (עוגן `onboarding-prompts`).

@@ -1,0 +1,35 @@
+---
+description: תקן חובה — סביבת Cursor, סקילים, MCP דפדפן, זרימת WP
+alwaysApply: true
+---
+
+# סביבת סוכן — כללי חובה (EyalAmit 2026)
+
+## מסמך מחייב
+
+לפני או במהלך עבודה על וורדפרס, סטייג'ינג, או כלי פיתוח בפרויקט — עמודו ב-[`docs/sop/AGENT-WORKSPACE-STANDARD.md`](docs/sop/AGENT-WORKSPACE-STANDARD.md) (תקן מלא: **הרחבות §3.1–3.2**, סקילים, MCP, זרימה). קונטקסט מאגרים ו־`site/` מול legacy: [`eyalamit-2026-project-context.mdc`](eyalamit-2026-project-context.mdc).
+
+## פרומט ראשון (תפקיד צוות)
+
+**לפני משימת ביצוע:** קראו את קובץ **`onboard_teamXX.md`** של הצוות הרלוונטי **במלואו** — ראו טבלה ב־[`eyalamit-2026-project-context.mdc`](eyalamit-2026-project-context.mdc) ואינדקס ב־[`_communication/README.md`](_communication/README.md#onboarding-prompts). **ברירת מחדל במאגר:** צוות **100** — [`eyalamit-team-100-architect-role.mdc`](eyalamit-team-100-architect-role.mdc). לצוות אחר — הגדרה מפורשת מהמשתמש או הדבקת תוכן האונבורד בצ'אט.
+
+## Workspace
+
+- שורש הפרויקט ב-Cursor: **`EyalAmit.co.il-2026`** (לטעינת `.cursor/rules` ו־`.cursor/skills`).
+
+## Skills
+
+- בחרו סקיל מ־[`.cursor/skills/README.md`](.cursor/skills/README.md) בהתאם למשימה; לסטייג'ינג/FTP — **`eyalamit-staging-ftp`**; לבלוקים — **`wp-block-development`** / **`wp-block-themes`** כנדרש.
+
+## MCP דפדפן
+
+- אם בודקים אתר: **navigate → lock → snapshot לפני אינטראקציה → unlock** בסיום; אל תנעלו לפני שיש טאב.
+
+## ביצוע
+
+- להריץ סקריפטים (`python3`, `docker`, `bash`) **כאן** כשיש shell — לא להפנות את המשתמש כברירת מחדל.
+- סודות רק ב־`local/staging.credentials.md` — לא בצ'אט ולא ב-Git.
+
+## מקורות אמת
+
+- `AGENTS.md`, `docs/PROJECT-ENTRY.md`, `docs/sop/SSOT.md`; תקשורת צוותים רק ב־`_communication/team_XX/`.

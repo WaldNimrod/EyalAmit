@@ -4,6 +4,8 @@
 **מאת:** צוות **20** (תשתית / G1)  
 **אל:** צוות **10** (יישום / G2)
 
+**מנדטים (100) — קבצים נפרדים:** **GO ל־10** — [`../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md`](../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md) · אינדקס סדר [`../team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md`](../team_100/M2-G2-MANDATE-SEQUENCE-INDEX-2026-04-02.md) · **20:** [`../team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md`](../team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md) · **10:** [`M2-MANDATE-G2-TEAM10-2026-04-02.md`](./M2-MANDATE-G2-TEAM10-2026-04-02.md)
+
 **סטטוס מסירה (עדכון):** ☑ גיבוי **uPress** בוצע לפני G2 (**2026-03-31**, דיווח נימרוד). ☑ **מנדט G2 הועבר לצוות 10** — הפריסה (GeneratePress, FTP child/mu-plugin), התוספים, כל עמודי §7, תפריטים, ו־`M2-IMPLEMENTATION-SUMMARY` הם **באחריות צוות 10** לפי **M2-WORKPLAN §6**; צוות 100/20 לא ממשיכים ביצוע מוצר על הסטייג'ינג.
 
 ---
@@ -60,9 +62,12 @@
 
 **חתימה / תאריך / אחראי 10:** ___________________ _(למלא על ידי צוות 10)_
 
+**בקשת QA (צוות 50):** לאחר השלמת פריסת G2 על הסטייג'ינג — [`../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md`](../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md).
+
 ---
 
 ## 5. הערות מ־20
 
+- **2026-04-02 — TLS סטייג'ינג:** מדיניות חשבון — SSL תקין **רק בפרודקשן**; סטייג'ינג לא אמור להיחשב כשיקוף HTTPS סופי. דרך עבודה: [`../team_20/STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md`](../team_20/STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md) · אימות טכני ישן: [`../team_20/M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md`](../team_20/M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md).
 - **מאגר פריסה:** רק תוכן תחת [`site/`](../../site/README.md) — לא שורש המונוריפו.
 - **סקריפט DB:** `scripts/ftp_sync_wp_config_db_password.py` — רק אם משנים סיסמת MySQL בפאנל; לשמור תאימות עם `staging.credentials.md`.

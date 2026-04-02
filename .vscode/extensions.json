@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "EditorConfig.EditorConfig",
+    "xdebug.php-debug",
+    "eamodio.gitlens"
+  ],
+  "unwantedRecommendations": [
+    "donjayamanne.githistory"
+  ]
+}

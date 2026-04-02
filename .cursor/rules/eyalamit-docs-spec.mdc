@@ -6,6 +6,7 @@ alwaysApply: false
 
 # מסמכי פרויקט (docs/)
 
+- **תפקיד:** עריכה תחת `docs/` חייבת להתאים לצוות שבו אתה פועל — **צוות 30** (טיוטות ב־`_communication/team_30/` לפני שילוב קנוני); שינוי **קנוני** ב־`docs/project` / `docs/sop` — רק לפי אישור **צוות 100** (ראו [`onboard_team30.md`](../_communication/team_30/onboard_team30.md)).
 - שפה: עברית לצוות וללקוח פנימי; עקביות מונחים עם `SITE-SPECIFICATION-FINAL` ומפת האתר.
 - **אל** לערבב טקסט שמיועד **לייצוא לאייל** בתוך `.md` בלי לעדכן גם את מקור ה-docx או להריץ מחדש `scripts/build_eyal_ceo_deliverables.py` כשהחבילה הרשמית משתנה.
 - עדכון אינדקסים: `team-100-preplanning/README.md`, `eyal-ceo-submissions-and-responses/README.md` כשמוסיפים מסמך משמעותי.

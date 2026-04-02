@@ -1,31 +1,58 @@
 ---
-description: EyalAmit 2026 — יעדים, SSOT, מאגרים, נקודת כניסה
+description: EyalAmit 2026 — יעדים, SSOT, מאגרים, סביבת WP, סטייג'ינג
 alwaysApply: true
 ---
 
-# EyalAmit.co.il-2026 — קונטקסט Cursor
+# EyalAmit.co.il-2026 — קונטקסט Cursor (מלא)
 
 ## נקודת כניסה
 
-לפני שינוי משמעותי: קראו **`docs/PROJECT-ENTRY.md`** (יעדים, עקרונות, סביבה, קישורים). נוהל מלא: **`docs/sop/SSOT.md`**. סיכום לסוכן: **`AGENTS.md`** בשורש.
+לפני שינוי משמעותי: **`docs/PROJECT-ENTRY.md`** · **`AGENTS.md`** · **`docs/sop/SSOT.md`**.  
+**תקן חובה לסוכנים:** **`docs/sop/AGENT-WORKSPACE-STANDARD.md`** (הרחבות §3 כולל *איך להתקין*, Skills, MCP דפדפן, מקומי↔סטייג'ינג).  
+**פרומט הקמה (תפקיד):** לכל צוות קובץ **`_communication/team_XX/onboard_teamXX.md`** — לקרוא **במלואו** לפני עבודה; משימה קונקרטית — **אחרי** האונבורד. **אינדקס וטבלה:** [`_communication/README.md`](_communication/README.md) → עוגן `#onboarding-prompts`.
 
-## שני מאגרים
+| צוות | קובץ |
+|------|------|
+| 100 | `_communication/team_100/onboard_team100.md` |
+| 10 | `_communication/team_10/onboard_team10.md` |
+| 20 | `_communication/team_20/onboard_team20.md` |
+| 30 | `_communication/team_30/onboard_team30.md` |
+| 50 | `_communication/team_50/onboard_team50.md` |
+| 90 | `_communication/team_90/onboard_team90.md` |
 
-- **המאגר הנוכחי:** תכנון, אפיון, `docs/project/`, סקריפטי docx — אין כאן עץ WordPress מלא.
-- **יישום WP:** `../eyalamit.co.il-legacy/` — תמה, תוספים, פקודות `wp-cli` כמתועד ב-SSOT.
+## מפת מאגרים וקוד WordPress
+
+| מה | איפה (יחסית לשורש `EyalAmit.co.il-2026`) |
+|----|---------------------------------------------|
+| **מאגר 2026 (זה)** | אפיון, `docs/`, `_communication/`, `scripts/`, `.cursor/`, `local/` |
+| **פריסה קנונית לשרת (child, mu-plugins, ייצואים)** | **`site/`** — ראו **`site/README.md`**; פריסה ל-uPress: סקריפטים כמו `scripts/ftp_deploy_site_wp_content.py` + סקיל **`eyalamit-staging-ftp`** |
+| **מאגר WP legacy (יישום ישן / מעבר)** | **`../eyalamit.co.il-legacy/`** — תמה ותוספים לפי SSOT; Git נפרד מהמאגר 2026 |
+| **סודות סטייג'ינג (מקומי בלבד)** | **`local/staging.credentials.md`** (לא ב-Git); תבנית: `local/staging.credentials.example.md` |
+
+**להבהיר לסוכן:** יש **שני** מסלולי קוד WP — (א) **`site/`** במאגר 2026 למעטפת חדשה ופריסה; (ב) **legacy** לקוד היסטורי. אל תבלבלו ביניהם; משימה ספציפית או `site/README` קובעים.
+
+## סביבות ריצה
+
+| סביבה | מטרה |
+|--------|------|
+| **מקומי** | Docker / `local/README.md` — פיתוח ובדיקות לפני פריסה |
+| **סטייג'ינג uPress** | אינטגרציה, QA, PHP/תוספים כמו בפרודקשן; URL ופרטים ב־`UPRESS-STAGING-SITE-RECORD` / `staging.credentials.md` |
+| **ייצור** | רק לפי נוהל ואישורים; HTTPS תקין (לא כמו חריגות סטייג'ינג TLS) |
 
 ## כללים קבועים
 
 - **לאייל:** רק **docx או PDF** — לא Markdown.
 - **QR:** אין שבירת permalinks למודפס; `docs/project/team-100-preplanning/QR-URL-POLICY.md`.
 - **מקורות אמת:** אייל → מסמכי צוות 100 מסונכרנים → מחקר בעזר.
-- **ייצוא Word / סקריפטים:** להריץ **באמצעות הסוכן** (shell) — **לא** להפנות את המשתמש להריץ `python3`, `docker`, `pip` וכו' כשיש גישה להרצה כאן. דוגמה: `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר.
+- **ייצוא Word / סקריפטים:** להריץ **באמצעות הסוכן** (shell) כשיש גישה — לא להפנות את המשתמש כברירת מחדל.
+- **MCP דפדפן:** לאימות אתר (סטייג'ינג/מקומי) — navigate → lock → snapshot לפני אינטראקציה → unlock; הופעל אצל המשתמש לבדיקות סוכן.
 
 ## תקשורת צוותים ותפקיד יחיד
 
 - דוחות/תוכניות צוות — **רק** ב־`_communication/team_XX/` (ראו `_communication/README.md`).
-- סוכן שמקבל משימה חייב **להיצמד לתפקיד** לפי `onboard_teamXX.md` של הצוות הרלוונטי; לא לשלב תפקידים.
+- סוכן חייב **להיצמד לתפקיד** לפי `onboard_teamXX.md`; לא לשלב תפקידים.
+- **ברירת מחדל במאגר זה:** סוכן כ**צוות 100** — גבולות ומניעת דריפט: [`eyalamit-team-100-architect-role.mdc`](eyalamit-team-100-architect-role.mdc). צוות אחר רק אם המשתמש הגדיר במפורש.
 
 ## שלב
 
-תכנון/אפיון צוות 100; Build והשקה רק אחרי אישור אייל (ראו טבלת שלב ב-SSOT).
+תכנון/אפיון צוות 100; Build והשקה רק אחרי אישור אייל (ראו SSOT).
