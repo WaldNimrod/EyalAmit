@@ -1,9 +1,9 @@
 # פרוטוקול פגישה — אייל עמית · 2026-03-31
 
-> **SSOT לנעילות מול אייל (אחרי v1.1):** המקור החתום הוא **`Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx`** ב־`for-eyal/2026-03-31--meeting-brief/`. **מסמך זה** הוא תמליל עבודה מלא במאגר.  
-> **איסור דריפט:** אל תסתמכו על [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) או על [`archive/md-legacy/OPEN-QUESTIONS-…`](../eyal-ceo-submissions-and-responses/archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md) כדי לקבוע «מה עוד פתוח» בנושאים שמופיעים כאן כ**נסגרים** — הם **ארכיון / ייצוא Word בלבד** לסעיפים 1–6 ו־8.
+> **SSOT לנעילות מול אייל (אחרי v1.1):** המקור החתום הוא **`Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx`** ב־`to-eyal/2026-03-31--meeting-brief/`. **מסמך זה** הוא תמליל עבודה מלא במאגר.  
+> **איסור דריפט:** אל תסתמכו על [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) או על [`archive/md-legacy/OPEN-QUESTIONS-…`](../eyal-ceo-submissions-and-responses/archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md) כדי לקבוע «מה עוד פתוח» בנושאים שמופיעים כאן כ**נסגרים** — הם **ארכיון / ייצוא Word בלבד** לסעיפים 1–6 ו־8.
 
-**מקור מילוי:** תעוד צוות 100 + עיבוד תוכן מ־`Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx` (תיקיית `for-eyal/2026-03-31--meeting-brief/`).
+**מקור מילוי:** תעוד צוות 100 + עיבוד תוכן מ־`Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx` (תיקיית `to-eyal/2026-03-31--meeting-brief/`).
 
 ## החלטות מפורשות מהפגישה / מתעוד הצוות
 
@@ -19,14 +19,14 @@
 |---|------|----------------|
 | 1 | חשבונית ירוקה | **מסלול נעול:** כפתור בלבד (קישור Morning). **תפעולי:** דוגמת כפתור — **ימים הקרובים** (לא שינוי החלטה). |
 | 2 | עמוד EN — שם | **נסגר:** `Didgeridoo healing center - Eyal Amit` — ראו גם טבלת «נעילות סופיות» למטה. |
-| 3 | דף הבית | לפי **מבנה העמוד הקיים** בפועל: Hero גדול + מתחת **מגוון אלמנטים**; לבנות **מוקאפ מלא מעודכן** לאישור; לבחון אלמנטים לכלול; אופציה «דשבורד מלא» + SEO — **3 אופציות HTML** ב־[`for-eyal/assets/home-dashboard/`](../eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/). |
+| 3 | דף הבית | לפי **מבנה העמוד הקיים** בפועל: Hero גדול + מתחת **מגוון אלמנטים**; לבנות **מוקאפ מלא מעודכן** לאישור; לבחון אלמנטים לכלול; אופציה «דשבורד מלא» + SEO — **3 אופציות HTML** ב־[`to-eyal/_shared-assets/home-dashboard/`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-dashboard/). |
 | 4 | דוח גלריות | **הופק** טיוטה: [`GALLERY-INVENTORY-REPORT-DRAFT-2026-03-31.md`](./GALLERY-INVENTORY-REPORT-DRAFT-2026-03-31.md) + סקריפט/הנחיות [`scripts/inventory_legacy_galleries.py`](../../../scripts/inventory_legacy_galleries.py). |
-| 5 | KMD / Inventory | **כלי HTML זמני:** [`for-eyal/assets/kmd-inventory-prototype.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/kmd-inventory-prototype.html) — עריכה, העתקה, ייצוא. |
+| 5 | KMD / Inventory | **כלי HTML זמני:** [`to-eyal/_shared-assets/kmd-inventory-prototype.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/kmd-inventory-prototype.html) — עריכה, העתקה, ייצוא. |
 | 6 | מטריצת 301 | **לשלב** באבן הדרך הרלוונטית — ראו [`ROADMAP-2026.md`](../ROADMAP-2026.md) (M4/M5). |
 | 7 | סריקת קישורים שבורים | **חלק מסעיף 6** — נכלל ב־M4/M5 יחד עם הכנת 301. |
 | 8 | מוקש דהימן | **עמוד נפרד** באתר החדש + **קישור בתפריט** (המלצה: תת־פריט תחת «אייל עמית»); 301 מ־URL legacy — במיגרציה. |
-| 9 | קורס דיגיטלי | **מוקאפ דמה** — [`mockup-digital-course.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/mockups/mockup-digital-course.html); אייל יספק תוכן סופי. |
-| 10 | הרצאות | **אותו מצב** — [`mockup-lectures.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/mockups/mockup-lectures.html). |
+| 9 | קורס דיגיטלי | **מוקאפ דמה** — [`mockup-digital-course.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/mockups/mockup-digital-course.html); אייל יספק תוכן סופי. |
+| 10 | הרצאות | **אותו מצב** — [`mockup-lectures.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/mockups/mockup-lectures.html). |
 
 ## תשובות מאייל מתוך v1.1 (לתיעוד)
 
@@ -44,7 +44,7 @@
 ## קישור למסמך Word המקורי
 
 קובץ במאגר (שם עם רווחים):  
-`docs/project/eyal-ceo-submissions-and-responses/for-eyal/2026-03-31--meeting-brief/Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx`
+`docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-03-31--meeting-brief/Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx`
 
 ---
 

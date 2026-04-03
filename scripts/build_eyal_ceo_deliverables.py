@@ -305,7 +305,7 @@ def build_decisions_docx(out_dir: Optional[Path] = None):
 
 
 def _md_sources_dir(to_eyal: Path) -> Path:
-    return to_eyal.parent / "for-eyal" / "md-sources"
+    return _final_package_dir(to_eyal) / "md-sources"
 
 
 def build_for_eyal_choices_docx(out_dir: Optional[Path] = None):
@@ -423,8 +423,8 @@ def write_final_package_readme(pkg: Path, files: tuple[Path, ...]) -> None:
   team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md
   team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md
   team-100-preplanning/GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md
-  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md
-  eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
+  eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md
+  eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md
 
 לייצוא PDF: פתחו כל .docx ב-Word ושמרו כ-PDF.
 """

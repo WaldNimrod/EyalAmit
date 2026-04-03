@@ -66,4 +66,4 @@ Extensive **photo galleries** document workshops, instruments, and events. On th
 - לשמור **עמוד בודד**; לא לשכפל את כל עץ האתר באנגלית בשלב ראשון.  
 - **Schema:** `WebPage` + `LocalBusiness` או `ProfessionalService` — לפי אישור SEO ותוסף.  
 - **hreflang:** כשהעמוד העברי המקביל יציב — לקשר `he` ↔ `en`.  
-- תצוגה חיה למוקאפ: [`../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html)
+- תצוגה חיה למוקאפ: [`../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/en-landing-page-preview.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/en-landing-page-preview.html)

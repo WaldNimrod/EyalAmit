@@ -1,5 +1,6 @@
-for-eyal/assets
-================
+to-eyal/_shared-assets
+======================
+מוקאפי HTML חוצי-גלים (לא תחת תיקיית תאריך יחיד). קאנון: [`../../EYAL-CORRESPONDENCE-CANON.md`](../../EYAL-CORRESPONDENCE-CANON.md).
 
 home-directions-visual.html
   תרשים HTML (RTL) לשלושה כיווני דף הבית (A/B/C מופשטות) — לפתיחה בדפדפן.

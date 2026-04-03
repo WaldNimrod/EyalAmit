@@ -68,7 +68,7 @@
 
 - מחלקת גוף **`ea-lang-en`** לעמודים עם slug **`en`** או **`english`** + כללי LTR ב־CSS — עמידה ב־**EN LTR** ([`WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md`](../../docs/project/team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §§5–7).
 - enqueue נשאר תלוי ב־`generate-style` (GeneratePress).
-- **דף בית (2026-04-08):** מימוש **מוקאפ דשבורד אופציה ב׳** — פלטת צבעים ומבנה מ־[`for-eyal/assets/home-dashboard/`](../../docs/project/eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/); תמונות אמיתיות מ־legacy ב־`ea-eyalamit/assets/home/`; שער אישור אייל — [`M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](./M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md).
+- **דף בית (2026-04-08):** מימוש **מוקאפ דשבורד אופציה ב׳** — פלטת צבעים ומבנה מ־[`to-eyal/_shared-assets/home-dashboard/`](../../docs/project/eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-dashboard/); תמונות אמיתיות מ־legacy ב־`ea-eyalamit/assets/home/`; שער אישור אייל — [`M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](./M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md).
 
 ---
 
@@ -218,7 +218,7 @@
 
 **מימוש במאגר (2026-03-29):** ארטיפקטי `site/` אומתו; נוסף [`scripts/verify_m2_g2_repo_artifacts.sh`](../../scripts/verify_m2_g2_repo_artifacts.sh); **הודעת QA לצוות 50:** [`../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md`](../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md).
 
-**פריסה לסטייג'ינג (wp-admin / FTP):** אינה מתבצעת מתוך Cursor; **מחזיק הגישה** משלים את השורות למטה — לאחר מכן **צוות 50** מריץ את מטריצת §3 בבריף QA.
+**פריסה לסטייג'ינג (FTP):** **צוות פיתוח / סוכן** מריץ מהמאגר `python3 scripts/ftp_deploy_site_wp_content.py` (קורא `local/staging.credentials.md` במחשב המקומי) — מעלה child `ea-eyalamit` + MU; **הלקוח אינו אחראי להעלאת קבצים ב-FTP**. לאחר מכן **צוות 50** מריץ את מטריצת §3 בבריף QA. (מסיבות רשת/אבטחה, סביבת סוכן בענן לעיתים לא תתחבר ל-uPress — אז אותו סקריפט רץ **אצל מחזיק המאגר**.)
 
 | סדר | פעולה | DoD קצר | סטטוס (מאגר / סטייג'ינג) |
 |-----|--------|---------|---------------------------|

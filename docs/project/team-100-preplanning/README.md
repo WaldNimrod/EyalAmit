@@ -25,8 +25,8 @@
 | קובץ | תיאור |
 |------|--------|
 | [SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md](./SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) | נעילת החלטות נימרוד + יסודות הגשה לאייל |
-| [FOR-EYAL-CHOICES-v1.2-2026-03-30.md](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | טופס בחירות (א / ב / ג) לאייל |
-| [FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | חשבונית ירוקה — תקציר, בדיקות Morning, דוגמה לפיתוח |
+| [FOR-EYAL-CHOICES-v1.2-2026-03-30.md](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | טופס בחירות (א / ב / ג) לאייל |
+| [FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | חשבונית ירוקה — תקציר, בדיקות Morning, דוגמה לפיתוח |
 | [GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md) | מנדט מחקר (§0) — **הושלם** |
 | [GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md](./GREEN-INVOICE-CAPABILITIES-FINDINGS-2026-03-30.md) | **תוצר צוות הבדיקה** — יכולות חשבונית ירוקה / Morning |
 | [HOME-PAGE-DIRECTIONS-v1.2.md](./HOME-PAGE-DIRECTIONS-v1.2.md) | 3 כיווני דף בית + סכמה |

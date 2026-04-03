@@ -7,7 +7,7 @@
 **הוגש על ידי:** נימרוד (ליווי מיגרציה)  
 **סטטוס:** החלטות תוכן **מאושרות בפגישה 2026-03-31** (`meeting-brief` v1.1) — ראו [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md). חתימה על גלופת Word / PDF — לפי נוהל הגשה; **אין** להחזיר ל«פתוחים» נושאים שכבר בפרוטוקל.  
 
-**הערת גרסה:** v2.0 — יישור מלא מול [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md), [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) ומשוב אייל (ספרים/הוצאה אינם "ארכיון" ראשי; נגישות ו־QR כפי שנסגרו ב־v1.2).
+**הערת גרסה:** v2.0 — יישור מלא מול [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md), [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) ומשוב אייל (ספרים/הוצאה אינם "ארכיון" ראשי; נגישות ו־QR כפי שנסגרו ב־v1.2).
 
 ---
 

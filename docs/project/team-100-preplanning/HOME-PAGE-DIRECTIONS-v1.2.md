@@ -3,9 +3,9 @@
 **תאריך:** 2026-03-30  
 **עקרונות נימרוד:** מינימליסטי; תמונה גדולה; מקום **אחד בולט** לתוכן עדכני + עד **2–3** משניים; לא "עיתון יומי".
 
-**תרשים ויזואלי (HTML + תמונות מהאתר הקיים):** [`../eyal-ceo-submissions-and-responses/for-eyal/assets/home-directions-visual.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/home-directions-visual.html) — פתיחה בדפדפן; מקור תמונות: `for-eyal/assets/home-preview/`.
+**תרשים ויזואלי (HTML + תמונות מהאתר הקיים):** [`../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-directions-visual.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-directions-visual.html) — פתיחה בדפדפן; מקור תמונות: `to-eyal/_shared-assets/home-preview/`.
 
-**שלוש אופציות נוספות — «דשבורד מלא» (מוקאפ HTML):** בנוסף ל־A/B/C המופשטות למעלה, הופקו **שלוש דפים נפרדים** עם Hero גדול, רשת אלמנטים, ובלוק טקסט SEO — ברמות צפיפות שונות (מקסימום / בינוני / ממוקד־SEO). נקודת כניסה: [`../eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/index.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/index.html). **לאישור אייל** לפני קיבוע בעיצוב סופי.
+**שלוש אופציות נוספות — «דשבורד מלא» (מוקאפ HTML):** בנוסף ל־A/B/C המופשטות למעלה, הופקו **שלוש דפים נפרדים** עם Hero גדול, רשת אלמנטים, ובלוק טקסט SEO — ברמות צפיפות שונות (מקסימום / בינוני / ממוקד־SEO). נקודת כניסה: [`../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-dashboard/index.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-dashboard/index.html). **לאישור אייל** לפני קיבוע בעיצוב סופי.
 
 ---
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """מסמך Word לפגישה עם אייל: נעילות + מפת אתר + שאלות פתוחות עם אופציות והערות.
 
-פלט: docs/project/eyal-ceo-submissions-and-responses/for-eyal/YYYY-MM-DD--meeting-brief/
+פלט: docs/project/eyal-ceo-submissions-and-responses/to-eyal/YYYY-MM-DD--meeting-brief/
 Requires: pip install python-docx
 """
 from datetime import date
@@ -45,7 +45,7 @@ def _add_question(
 def main():
     _, team100, eyal = _paths()
     d = date.today().strftime("%Y-%m-%d")
-    out_dir = eyal / "for-eyal" / f"{d}--meeting-brief"
+    out_dir = eyal / "to-eyal" / f"{d}--meeting-brief"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_docx = out_dir / f"{d}--meeting-brief-for-eyal--v1.docx"
 
@@ -163,7 +163,7 @@ def main():
     add_rtl_paragraph(doc, "← תרשים ויזואלי לשאלה 7", heading_level=2)
     add_rtl_paragraph(
         doc,
-        "קובץ HTML (דפדפן): for-eyal/assets/home-directions-visual.html — שלושה מסכים עם דוגמאות מדיה מהאתר הקיים (תיקיית home-preview). מומלץ לפתוח במקביל לפגישה או להצגה על מסך.",
+        "קובץ HTML (דפדפן): to-eyal/_shared-assets/home-directions-visual.html — שלושה מסכים עם דוגמאות מדיה מהאתר הקיים (תיקיית home-preview). מומלץ לפתוח במקביל לפגישה או להצגה על מסך.",
         size=10,
     )
     add_rtl_paragraph(doc, "_" * 50, size=9)

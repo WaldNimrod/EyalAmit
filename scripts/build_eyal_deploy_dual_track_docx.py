@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Word (.docx) for Eyal: infrastructure policy — dual tracks, uPress, Git/deploy boundary.
 
-Output: docs/project/eyal-ceo-submissions-and-responses/for-eyal/YYYY-MM-DD--infrastructure-policy-for-eyal/
+Output: docs/project/eyal-ceo-submissions-and-responses/to-eyal/YYYY-MM-DD--infrastructure-policy-for-eyal/
 Requires: pip install python-docx
 """
 from pathlib import Path
@@ -44,7 +44,7 @@ def _add_table_2col(doc: Document, headers: tuple, rows: list[tuple[str, str]]):
 
 def main():
     _, eyal = _paths()
-    out_dir = eyal / "for-eyal" / f"{DOC_DATE}--infrastructure-policy-for-eyal"
+    out_dir = eyal / "to-eyal" / f"{DOC_DATE}--infrastructure-policy-for-eyal"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_docx = out_dir / f"{DOC_DATE}--infrastructure-dual-track-policy-for-eyal--{VERSION}.docx"
 

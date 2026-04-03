@@ -4,7 +4,7 @@
 
 בתיקיית האב ([`..`](..)) נשארים רק:
 
-- מקורות Markdown **פעילים:** `for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md`, `for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`
+- מקורות Markdown **פעילים:** `to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md`, `…/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`
 - [`../to-eyal/`](../to-eyal/) — **רק** חבילת ההגשה העדכנית: `2026-03-30--final-spec-package-for-eyal/` (יוצרים ב־`scripts/build_eyal_ceo_deliverables.py`)
 - [`../from-eyal/`](../from-eyal/) — **העתקים המקוריים** של קבצים שחזרו מאייל (כולל הערות בגוף ה־Word). זו הגרסה “החיה” של משוב אייל בקבצים; אם הגיע עדכון חדש — שמרו כאן בשם מתוארך.
 

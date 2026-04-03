@@ -10,4 +10,5 @@ alwaysApply: false
 - שפה: עברית לצוות וללקוח פנימי; עקביות מונחים עם `SITE-SPECIFICATION-FINAL` ומפת האתר.
 - **אל** לערבב טקסט שמיועד **לייצוא לאייל** בתוך `.md` בלי לעדכן גם את מקור ה-docx או להריץ מחדש `scripts/build_eyal_ceo_deliverables.py` כשהחבילה הרשמית משתנה.
 - עדכון אינדקסים: `team-100-preplanning/README.md`, `eyal-ceo-submissions-and-responses/README.md` כשמוסיפים מסמך משמעותי.
+- **מול אייל:** חומר יוצא רק תחת `docs/project/eyal-ceo-submissions-and-responses/to-eyal/YYYY-MM-DD--topic/` (או `_shared-assets/` למוקאפים חוצי-גלים) — לא ליצור `for-eyal/` חדש; קאנון: `EYAL-CORRESPONDENCE-CANON.md` באותה תיקייה.
 - קישורים יחסיים בין קבצים תחת `docs/project/` — שמרו על נתיבים שבורים-פחות.

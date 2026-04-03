@@ -16,7 +16,7 @@
 ## הגשה ל-CEO אייל
 
 **אסור** להגיש `.md`. כל מה שיוצא **מול אייל** — **Word (.docx) או PDF בלבד**.  
-ארכיון מול אייל: `docs/project/eyal-ceo-submissions-and-responses/` — `to-eyal/…/final-spec-package-for-eyal/` (הגשה עדכנית), `from-eyal/` (חזר מאייל), `archive/` (ישן / כפול / LEGACY).  
+ארכיון מול אייל: `docs/project/eyal-ceo-submissions-and-responses/` — `from-eyal/` (נכנס), `to-eyal/` (יוצא — גלים תחת `YYYY-MM-DD--topic/`, מוקאפים ב־`_shared-assets/`), `archive/` (ישן). קאנון: `EYAL-CORRESPONDENCE-CANON.md`.  
 **סקריפטים (`scripts/*.py`, `pip install`, `docker compose`, בדיקות):** הסוכן **מריץ בעצמו** בסביבה עם shell — **אין** להפנות את המשתמש להריץ פקודות כשאפשר להריץ כאן. ייצוא חבילת Word: `python3 scripts/build_eyal_ceo_deliverables.py` + תלות `scripts/requirements-docx.txt` — **לבצע מהצד של הסוכן**, לא להשאיר הוראה "תריץ אתה".
 
 ## יעדים בקצרה

@@ -108,7 +108,7 @@
 |------|--------|
 | [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](./SITE-SPECIFICATION-FINAL-2026-03-30.md) | **אפיון סופי נקי** — מקור מחייב לבנייה |
 | [`LEGACY-DOCUMENTS-INDEX-2026-03-30.md`](./LEGACY-DOCUMENTS-INDEX-2026-03-30.md) | סימון גרסאות ישנות — לא להסתמך כ־SSOT |
-| [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | בחירות לאייל (ניסוחים / אופציות) — ייצוא docx/pdf |
+| [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | בחירות לאייל (ניסוחים / אופציות) — ייצוא docx/pdf |
 | [`NIMROD-BRIEF-v1.2-INLINE-QA.md`](./NIMROD-BRIEF-v1.2-INLINE-QA.md) | שאלות שהוצגו כ"סודיות" — תשובה ישירה |
 | [`GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md`](./GREEN-INVOICE-CAPABILITIES-RESEARCH-BRIEF.md) | מנדט מחקר לאיגנט |
 | [`HOME-PAGE-DIRECTIONS-v1.2.md`](./HOME-PAGE-DIRECTIONS-v1.2.md) | 3 כיווני בית + סכמה |
@@ -131,7 +131,7 @@
 | קטלוג slug | **נעול** — כפי ב־v1.1 |
 | דף בית — פריסה סופית | **פתוח** — אישור אייל אחרי מוקאפי דשבורד |
 
-**דריפט:** אל תשחזרו בחירות מ־[`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) לסעיפים 1–6, 8 — המסמך עודכן ל**ארכיון ייצוא**; קראו את הטקסט שם תחת «נעול 2026-03-31».
+**דריפט:** אל תשחזרו בחירות מ־[`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) לסעיפים 1–6, 8 — המסמך עודכן ל**ארכיון ייצוא**; קראו את הטקסט שם תחת «נעול 2026-03-31».
 
 ---
 

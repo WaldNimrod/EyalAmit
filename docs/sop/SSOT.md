@@ -10,7 +10,7 @@
 | תפקיד | נתיב |
 |--------|------|
 | **הגשה ל-CEO אייל (חובה קבועה)** | **רק Word (.docx) או PDF** — **אסור** להעביר לאייל קבצי Markdown (`.md`). Markdown = עבודה פנימית / Git בלבד. חל על כל מסמך המיועד **ליוצא מול אייל** (חתימה, אישור, קריאה רשמית) — לא רק תקציר מנהלים. |
-| **ארכיון הגשות ותשובות מול אייל** | `docs/project/eyal-ceo-submissions-and-responses/` — `to-eyal/…/final-spec-package-for-eyal/` (חבילת יציאה עדכנית), `from-eyal/` (חוזר), `archive/` (ישן); אינדקס ב-[`README.md`](../project/eyal-ceo-submissions-and-responses/README.md) |
+| **ארכיון הגשות ותשובות מול אייל** | `docs/project/eyal-ceo-submissions-and-responses/` — `from-eyal/` (נכנס), `to-eyal/` (יוצא: גלים `YYYY-MM-DD--topic/`, מוקאפים `_shared-assets/`), `archive/` (ישן); קאנון [`EYAL-CORRESPONDENCE-CANON.md`](../project/eyal-ceo-submissions-and-responses/EYAL-CORRESPONDENCE-CANON.md); אינדקס [`README.md`](../project/eyal-ceo-submissions-and-responses/README.md) |
 | אינדקס תוכנית העבודה | `docs/project/team-100-preplanning/README.md` |
 | היררכיית מקורות אמת (אייל > מסמכים מסונכרנים > מחקר עזר) | `docs/project/team-100-preplanning/RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md` |
 | תקציר לאישור — **קובץ ללקוח** | ייצור: `team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx` (או PDF); **חבילת הגשה:** אותו קובץ נכלל ב־`to-eyal/YYYY-MM-DD--final-spec-package-for-eyal/` (סקריפט `build_eyal_ceo_deliverables.py`) |
@@ -460,7 +460,7 @@ Active Branch: feature/lean-wp-rebuild-2026
 - **שלב זה:** השלמת חבילת תכנון v2, אישורי אייל, ואז המשך לפי `06-IMPLEMENTATION-MIGRATION-PACK.md` ו-SSOT סעיפים 5–10.
 - **מסמכי תוכנית נוספים:** `docs/project/team-100-preplanning/01-GATE-ZERO-STRATEGY.md`, `03-SCOPE-MATRIX.md`, `04-IA-SEO-SOCIAL-REQUIREMENTS.md`, `QR-URL-POLICY.md`, `docs/project/BLOG-REVIVAL-PLAN.md`.
 - **מסמכים ל-CEO אייל:** כל מה שנשלח אליו חייב להיות **.docx או PDF** — לא Markdown.
-- **ארכיון מול אייל:** `docs/project/eyal-ceo-submissions-and-responses/` (`to-eyal/…/final-spec-package-for-eyal`, `from-eyal`, `archive`, אינדקס ב-README).
+- **ארכיון מול אייל:** `docs/project/eyal-ceo-submissions-and-responses/` (`from-eyal`, `to-eyal` כולל גלים ו־`_shared-assets`, `archive`, `EYAL-CORRESPONDENCE-CANON.md`, אינדקס ב-README).
 
 ---
 

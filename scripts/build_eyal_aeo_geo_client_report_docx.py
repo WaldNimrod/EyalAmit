@@ -14,16 +14,13 @@ VERSION = "v1"
 
 def _paths():
     root = Path(__file__).resolve().parents[1]
-    md_source = (
+    base = (
         root
-        / "docs/project/eyal-ceo-submissions-and-responses/for-eyal/md-sources"
-        / f"{DOC_DATE}-AEO-GEO-client-report-he.md"
-    )
-    out_dir = (
-        root
-        / "docs/project/eyal-ceo-submissions-and-responses/for-eyal"
+        / "docs/project/eyal-ceo-submissions-and-responses/to-eyal"
         / f"{DOC_DATE}--aeo-geo-client-report"
     )
+    md_source = base / "md-sources" / f"{DOC_DATE}-AEO-GEO-client-report-he.md"
+    out_dir = base
     return root, md_source, out_dir
 
 

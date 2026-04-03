@@ -126,7 +126,7 @@
 ## 7. INVENTORY / Keep–Merge–Drop (KMD)
 
 - הצוות **מכין דוח** (רשימה מסוננת, Keep/Merge/Drop, הערות).  
-- **כלי HTML זמני (צוות + הצגה לאייל):** [`for-eyal/assets/kmd-inventory-prototype.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/kmd-inventory-prototype.html) — עריכה, העתקה, ייצוא CSV; ללא שרת.  
+- **כלי HTML זמני (צוות + הצגה לאייל):** [`to-eyal/_shared-assets/kmd-inventory-prototype.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/kmd-inventory-prototype.html) — עריכה, העתקה, ייצוא CSV; ללא שרת.  
 - **אייל מאשר** — **לא** ממלא בעצמו 135+ שורות טכניות.
 
 ---
@@ -144,8 +144,8 @@
 
 ## 9. דף בית
 
-- שלושה **כיוונים אופציונליים** (סכמה מופשטת) — [`HOME-PAGE-DIRECTIONS-v1.2.md`](./HOME-PAGE-DIRECTIONS-v1.2.md) + תרשים HTML ב־[`for-eyal/assets/home-directions-visual.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/home-directions-visual.html).  
-- **בנוסף:** שלוש **אופציות «דשבורד מלא»** (HTML נפרדות, צפיפות שונה + בלוק SEO) — [`for-eyal/assets/home-dashboard/`](../eyal-ceo-submissions-and-responses/for-eyal/assets/home-dashboard/) — **לאישור אייל**.  
+- שלושה **כיוונים אופציונליים** (סכמה מופשטת) — [`HOME-PAGE-DIRECTIONS-v1.2.md`](./HOME-PAGE-DIRECTIONS-v1.2.md) + תרשים HTML ב־[`to-eyal/_shared-assets/home-directions-visual.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-directions-visual.html).  
+- **בנוסף:** שלוש **אופציות «דשבורד מלא»** (HTML נפרדות, צפיפות שונה + בלוק SEO) — [`to-eyal/_shared-assets/home-dashboard/`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/home-dashboard/) — **לאישור אייל**.  
 - **כיוון מאייל (2026-03-31):** **ללא מהפכות בממשק**; האתר הקיים כ**סקיצה עיצובית** לעמודים; רענון מודרני; דגש על **מה מוצג בדף הבית**. פירוט: [`MEETING-MINUTES-EYAL-2026-03-31.md`](./MEETING-MINUTES-EYAL-2026-03-31.md).
 
 ---
@@ -159,7 +159,7 @@
 
 ## 11. בחירות שממשיכות לדרוש סימון מאייל
 
-טופס מרוכז (ייצוא Word/PDF): [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — **סעיפים 1–6, 8 נעולים** (v1.1); **לבחירה פעילה:** §7 דף בית בלבד.
+טופס מרוכז (ייצוא Word/PDF): [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — **סעיפים 1–6, 8 נעולים** (v1.1); **לבחירה פעילה:** §7 דף בית בלבד.
 
 ---
 
@@ -175,4 +175,4 @@
 `docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/`  
 (מיוצרים ע״י `scripts/build_eyal_ceo_deliverables.py`).
 
-**חשבונית ירוקה — מסמך פעולה לאייל:** [`FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](../eyal-ceo-submissions-and-responses/for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) (גם כ־`…green-invoice-action-sheet….docx` בחבילה).
+**חשבונית ירוקה — מסמך פעולה לאייל:** [`FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](../eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) (גם כ־`…green-invoice-action-sheet….docx` בחבילה).

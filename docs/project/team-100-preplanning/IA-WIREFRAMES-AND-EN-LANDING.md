@@ -116,7 +116,7 @@
 - אותם דרישות נגישות כמו לשאר האתר.
 
 **תוכן ראשוני (טיוטה) + מוקאפ HTML:**  
-[`EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](./EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) · תצוגה: [`../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html`](../eyal-ceo-submissions-and-responses/for-eyal/assets/en-landing-page-preview.html)
+[`EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](./EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) · תצוגה: [`../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/en-landing-page-preview.html`](../eyal-ceo-submissions-and-responses/to-eyal/_shared-assets/en-landing-page-preview.html)
 
 ---
 

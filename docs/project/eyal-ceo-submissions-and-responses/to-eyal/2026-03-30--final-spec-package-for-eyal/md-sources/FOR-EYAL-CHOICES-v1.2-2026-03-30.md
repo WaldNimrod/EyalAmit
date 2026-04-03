@@ -4,16 +4,16 @@
 **תאריך:** 2026-03-30  
 **עדכון נעילה:** 2026-04-01 — **סעיפים 1–6 ו־8 נעולים**; רק **§7 (דף בית)** נשאר לבחירה סופית אחרי מוקאפים.
 
-> **אזהרת דריפט:** אל תשתמשו בטבלאות א׳/ב׳/ג׳ למטה כדי לקבוע «מה פתוח». **מקור נעילות CEO:** `Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx` + [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) + [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §13.  
+> **אזהרת דריפט:** אל תשתמשו בטבלאות א׳/ב׳/ג׳ למטה כדי לקבוע «מה פתוח». **מקור נעילות CEO:** `Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx` + [`MEETING-MINUTES-EYAL-2026-03-31.md`](../../../../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) + [`SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) §13.  
 > **תפקיד מסמך זה עכשיו:** ייצוא ל־Word/PDF לארכיון והתאמה לגלופות; **לא** SSOT להחלטות פתוחות.
 
 **הוראות (היסטוריות):** לכל סעיף — סמן **אות אחת** (א / ב / ג), או כתוב **"שילוב:"** ופרט.  
 **הגשה:** רק **Word או PDF** (לא Markdown). ניתן לייצא ממסמך זה לאחר העתקה ל-Word.
 
-מקור החלטות צוות לפני פגישה: [`../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
+מקור החלטות צוות לפני פגישה: [`../../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../../../../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md).
 
-**תנועה וקידום (לאייל):** [`../../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](../../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) — מסמך הנחיות + ייצוא Word מ־`build_eyal_ceo_deliverables.py`.  
-**נכסי HTML לסקירה:** [`../assets/home-dashboard/index.html`](../assets/home-dashboard/index.html) (שלוש אופציות דף בית — **היחיד שעדיין דורש אישור סופי**); [`../assets/home-directions-visual.html`](../assets/home-directions-visual.html); מוקאפים נוספים כבעבר.
+**תנועה וקידום (לאייל):** [`../../../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md`](../../../../team-100-preplanning/EYAL-TRAFFIC-GROWTH-AEO-GEO-GUIDE-2026-03-29.md) — מסמך הנחיות + ייצוא Word מ־`build_eyal_ceo_deliverables.py`.  
+**נכסי HTML לסקירה:** [`../../_shared-assets/home-dashboard/index.html`](../../_shared-assets/home-dashboard/index.html) (שלוש אופציות דף בית — **היחיד שעדיין דורש אישור סופי**); [`../../_shared-assets/home-directions-visual.html`](../../_shared-assets/home-directions-visual.html); מוקאפים נוספים כבעבר.
 
 ---
 
@@ -23,7 +23,7 @@
 |------|--------|
 | **1 מותג** | כותרת למשתמש: «המרכז לטיפול בדיג׳רידו - אייל עמית» · למנועים/מתחת: «המרכז לטיפול בנשימה באמצעות דיג׳ירידו - סטודיו נשימה מעגלית - אייל עמית» |
 | **2 חשבונית ירוקה** | **כפתור בלבד** (קישור Morning מעמוד מוצר) |
-| **3–5 תפריט** | **לא** א׳/ב׳/ג׳ — קובע [`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) v2.3 (סטטוס APPROVED) |
+| **3–5 תפריט** | **לא** א׳/ב׳/ג׳ — קובע [`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) v2.3 (סטטוס APPROVED) |
 | **6 EN** | H1: `Didgeridoo healing center - Eyal Amit` |
 | **8 קטלוג** | שמירת slug + תוכן מינימלי — מאושר |
 
@@ -80,14 +80,14 @@ _(טבלת א׳/ב׳/ג׳ להלן — היסטורית לייצוא בלבד.)_
 
 ## 3–5. תוויות מחיצות (טופס ישן) — **מבוטל כמקור החלטה**
 
-**קובע:** עץ התפריט והעמודים ב־[`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) v2.3 (APPROVED).
+**קובע:** עץ התפריט והעמודים ב־[`SITEMAP-NEW-SITE-v2-DRAFT.md`](../../../../team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) v2.3 (APPROVED).
 
 ---
 
 ## 6. עמוד אנגלית — **נעול**
 
 **H1 מאושר:** `Didgeridoo healing center - Eyal Amit`  
-גוף העמוד והמטא — [`../../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) (כותרת ראשית נעולה; שאר הפסקאות — עריכת ניסוח שוטפת בלבד).
+גוף העמוד והמטא — [`../../../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md`](../../../../team-100-preplanning/EN-LANDING-PAGE-CONTENT-DRAFT-2026-03-29.md) (כותרת ראשית נעולה; שאר הפסקאות — עריכת ניסוח שוטפת בלבד).
 
 ---
 
@@ -95,7 +95,7 @@ _(טבלת א׳/ב׳/ג׳ להלן — היסטורית לייצוא בלבד.)_
 
 זהו **הסעיף היחיד** שעדיין דורש החלטה ויזואלית מפורשת אחרי סקירת המוקאפים.
 
-ראו [`HOME-PAGE-DIRECTIONS-v1.2.md`](../../../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md) · [`../assets/home-directions-visual.html`](../assets/home-directions-visual.html) · [`../assets/home-dashboard/index.html`](../assets/home-dashboard/index.html).
+ראו [`HOME-PAGE-DIRECTIONS-v1.2.md`](../../../../team-100-preplanning/HOME-PAGE-DIRECTIONS-v1.2.md) · [`../../_shared-assets/home-directions-visual.html`](../../_shared-assets/home-directions-visual.html) · [`../../_shared-assets/home-dashboard/index.html`](../../_shared-assets/home-dashboard/index.html).
 
 | אפשרות | שם |
 |--------|-----|

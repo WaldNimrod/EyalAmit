@@ -5,15 +5,18 @@
 
 ## מבנה
 
+**קאנון מלא:** [`EYAL-CORRESPONDENCE-CANON.md`](./EYAL-CORRESPONDENCE-CANON.md).
+
 | תיקייה | תפקיד |
 |--------|--------|
-| [`to-eyal/`](./to-eyal/) | **פלט יצוא Word בלבד:** `YYYY-MM-DD--final-spec-package-for-eyal/` — **`.docx`** (ו־PDF אם יוצרו מ־Word). **לא** כפול ל־`for-eyal/`: כאן רק מה שמוגש רשמית לאייל; מקורות ה־Markdown נמצאים ב־`for-eyal/md-sources/` וב־`team-100-preplanning/`. |
-| [`from-eyal/`](./from-eyal/) | **תשובות מאייל** (הגרסה העדכנית ביותר לכל סבב): Word עם הערות בגוף, חתום סרוק, PDF, וכו'. |
-| [`archive/`](./archive/) | כל מה ש**לא עדכני**: מסמכי LEGACY ב־Markdown, הגשות 2026-03-29, כפילויות `(1)`, stubs של GDocs — ראו [`archive/README.md`](./archive/README.md). |
-| [`for-eyal/`](./for-eyal/) | **הכנה מול אייל:** תזכירי פגישה, **מוקאפי HTML**, ומקורות MD לייצוא — ראו [`INDEX.md`](./INDEX.md). |
-| [`for-eyal/md-sources/`](./for-eyal/md-sources/) | מקורות Markdown לייצוא Word; **נעילות CEO** — ב־[`MEETING-MINUTES-EYAL-2026-03-31.md`](../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) §13 (לא לסמן מחדש טופס כ«פתוח»). |
+| [`from-eyal/`](./from-eyal/) | **נכנס** — תשובות מאייל (Word/PDF/סריקות). |
+| [`to-eyal/`](./to-eyal/) | **יוצא** — גלי הגשה: `YYYY-MM-DD--topic/` (Word, `md-sources/`, `assets` לגל). מוקאפי HTML משותפים: [`to-eyal/_shared-assets/`](./to-eyal/_shared-assets/). |
+| [`archive/`](./archive/) | כל מה ש**לא עדכני** — ראו [`archive/README.md`](./archive/README.md). |
+| [`for-eyal/`](./for-eyal/) | **Stub בלבד** — מפנה לקאנון; **אין** ליצור כאן חומר חדש. |
 | [`INDEX.html`](./INDEX.html) | **אינדקס לאייל בדפדפן** — קישורים ל־Word / HTML / טקסט בלבד (**ללא** `.md`) |
-| [`INDEX.md`](./INDEX.md) | אותו סדר עבודה + קישורי Markdown לצוות (מפה, אפיון, מחקרים) |
+| [`INDEX.md`](./INDEX.md) | סדר עבודה + קישורי Markdown לצוות |
+
+**נעילות CEO** (לא לסמן מחדש טופס כ«פתוח»): [`MEETING-MINUTES-EYAL-2026-03-31.md`](../team-100-preplanning/MEETING-MINUTES-EYAL-2026-03-31.md) §13.
 
 ## שמות קבצים (מומלץ)
 
@@ -37,7 +40,7 @@ YYYY-MM-DD--short-topic--vN.ext
 
 - [`../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md`](../team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) — אפיון מחייב  
 - [`../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md`](../team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md) — יומן נעילה  
-- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — ייצוא Word; **סעיפים 1–6, 8 נעולים**; **פתוח:** §7 דף בית בלבד  
+- [`FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) — ייצוא Word; **סעיפים 1–6, 8 נעולים**; **פתוח:** §7 דף בית בלבד  
 
 מסמכים מסומנים **LEGACY** בתיקייה זו וב־[`../team-100-preplanning/LEGACY-DOCUMENTS-INDEX-2026-03-30.md`](../team-100-preplanning/LEGACY-DOCUMENTS-INDEX-2026-03-30.md).
 
@@ -57,8 +60,8 @@ YYYY-MM-DD--short-topic--vN.ext
 | 2026-03-29 | from-eyal | משוב אייל (הערות בגוף) על סבב 29.3 | [`from-eyal/2026-03-29--executive-summary--v1.docx`](./from-eyal/2026-03-29--executive-summary--v1.docx) וכו' | **העתקים המקוריים** — אם יש סבב חדש, הוסיפו קבצים מתוארכים |
 | 2026-03-30 | פנימי (ארכיון) | **טבלת סינתזה — משוב (LEGACY)** | [`archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md`](./archive/md-legacy/EYAL-FEEDBACK-RESPONSE-TABLE-2026-03-30.md) | קובעים נעילה + FINAL אם יש סתירה |
 | 2026-03-30 | פנימי (ארכיון) | **שאלות פתוחות (LEGACY)** | [`archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md`](./archive/md-legacy/OPEN-QUESTIONS-PRE-SPEC-v1.2-2026-03-30.md) | טבלאות א–ד = טרום-נעילה |
-| 2026-03-30 | md-sources (מקור MD) | **טופס בחירות לאייל v1.2** | [`for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | ייצוא Word/PDF להגשה |
-| 2026-03-30 | md-sources (מקור MD) | **חשבונית ירוקה — תקציר ובדיקות לאייל** | [`for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](./for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | ייצוא Word; חבילת final-spec |
+| 2026-03-30 | md-sources (מקור MD) | **טופס בחירות לאייל v1.2** | [`to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md`](./to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md) | ייצוא Word/PDF להגשה |
+| 2026-03-30 | md-sources (מקור MD) | **חשבונית ירוקה — תקציר ובדיקות לאייל** | [`to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md`](./to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-GREEN-INVOICE-ACTION-SHEET-2026-03-30.md) | ייצוא Word; חבילת final-spec |
 | 2026-03-30 | to-eyal | **חבילת אפיון סופית (Word)** | [`to-eyal/2026-03-30--final-spec-package-for-eyal/`](./to-eyal/2026-03-30--final-spec-package-for-eyal/) | `build_eyal_ceo_deliverables.py` — README בתיקייה |
 
 ---
