@@ -49,9 +49,9 @@
 ## 4. איך מעבירים סודות **מאובטחים** (מומלץ לפי סדר)
 
 1. **קובץ מקומי בלבד (במחשב שלך, לא ב־Git)**  
-   - העתק את [`local/staging.credentials.example.md`](../../local/staging.credentials.example.md) ל־**`local/staging.credentials.md`** (שם הקובץ ב־`.gitignore`).  
-   - מלא את הערכים **רק שם**.  
-   - ב־Cursor אפשר לומר לסוכן: "הפרטים ב־`local/staging.credentials.md`" — הסוכן קורא מהדיסק המקומי; **אל** תעלה את הקובץ ל-GitHub ואל תשתף אותו במייל לא מאובטח.
+   - צור **`local/.env.upress`** לפי בלוק **§2** ב־[`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) (ב־`.gitignore`).  
+   - מלא את הערכים **רק שם** לפי [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) §12 (ושדות הרחבה בתבנית).  
+   - ב־Cursor אפשר לומר לסוכן: "הפרטים ב־`local/.env.upress`" — הסוכן קורא מהדיסק המקומי; **אל** תעלה את הקובץ ל-GitHub ואל תשתף אותו במייל לא מאובטח.  
 
 2. **מנהל סיסמאות (1Password / Bitwarden וכו')**  
    - פריט מאובטח או **שיתוף חד־פעמי** / **Send** עם קישור שפג תוקף.  
@@ -67,12 +67,12 @@
 
 ## 5. phpMyAdmin — עבודה "בלי להציק"
 
-רואו [`DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](./DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md): URL מלא + פרטי MySQL ב־`staging.credentials.md` = הסוכן לא שואל חוזר; פעולות DB רק כשצריך, עם גיבוי.
+רואו [`DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](./DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md): URL מלא + פרטי MySQL ב־**`.env.upress`** = הסוכן לא שואל חוזר; פעולות DB רק כשצריך, עם גיבוי.
 
 ---
 
 ## 6. קישורים
 
-- תבנית שדות: [`local/staging.credentials.example.md`](../../local/staging.credentials.example.md)  
+- ייחוס שדות (§2): [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) · נוהל: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md)  
 - סטייג'ינג: [`UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](./UPRESS-STAGING-SITE-RECORD-2026-03-31.md)  
 - מדיניות סודות ב־onboard צוות 20: [`onboard_team20.md`](./onboard_team20.md)

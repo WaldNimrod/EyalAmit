@@ -14,8 +14,10 @@
 
 ## פריסה ראשונה לסטייג'ינג (תמצית)
 
+**הלקוח אינו מעלה קבצים ב-FTP** — צוות הפיתוח מריץ את הסקריפטים למטה (או SFTP מקומי) עם **`local/.env.upress`** (שדות: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md) §2; נוהל: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md)).
+
 1. התקנת **GeneratePress** ב־wp-admin.  
-2. **FTP (מומלץ — סקריפט מהמאגר):** משורש המאגר, עם `local/staging.credentials.md` — `python3 scripts/ftp_deploy_site_wp_content.py` (child + mu-plugins). להעלאת קובץ הייבוא לשרת: `python3 scripts/ftp_deploy_site_wp_content.py --upload-wxr` (בשרת: `wp-content/uploads/ea-m2-seed/m2-pages-seed.wxr`).  
+2. **FTP (מומלץ — סקריפט מהמאגר):** משורש המאגר, עם `local/.env.upress` ו־`pip install -r scripts/requirements-upress.txt` — `python3 scripts/ftp_deploy_site_wp_content.py` (child + mu-plugins). להעלאת קובץ הייבוא לשרת: `python3 scripts/ftp_deploy_site_wp_content.py --upload-wxr` (בשרת: `wp-content/uploads/ea-m2-seed/m2-pages-seed.wxr`).  
 3. **FTP ידני (חלופה):** `themes/ea-eyalamit/` → `wp-content/themes/ea-eyalamit/`; ב־`mu-plugins/`: `ea-staging-noindex.php`, `ea-m2-auto-activate-child.php`, `ea-m2-ensure-fluent-active.php`, `ea-m2-seed-shell-once.php`.  
 4. להפעיל את תבנית **EA Eyal Amit**; לוודא permalink `/%postname%/`.  
 5. **ייבוא:** כלים → ייבוא → `exports/m2-pages-seed.wxr` (מהמחשב או מהמדיה אחרי `--upload-wxr`) — אחר כך **הגדרות → קריאה** (בית סטטי, בלוג). פירוט P0: [`_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md`](../_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md).  

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "sections": [
+    {
+      "id": "M2-SEC-PLAN-G0G1",
+      "titleHe": "תכנית, תנאים וסביבה (G0–G1)",
+      "tasks": [
+        {
+          "id": "M2-T-G0-VAL",
+          "titleHe": "ולידציית תכנית M2 (צוות 90 → 100)",
+          "status": "completed",
+          "priorityHe": "נמוכה",
+          "stateHe": "תכנית העבודה אושרה לביצוע עם תנאים (C1–C4); אין מנדט ביצוע ל־90. בסיס לאתר הקל."
+        },
+        {
+          "id": "M2-T-G1-RUNBOOK",
+          "titleHe": "Runbook סביבה, SSL, גיבוי, noindex (צוות 20)",
+          "status": "completed",
+          "priorityHe": "נמוכה",
+          "stateHe": "סביבת סטייג'ינג פעילה; תיעוד גישה ונתיבים ב־runbook. אם האתר החי לא זמין — מתועד כ־LIVE_SITE_UNAVAILABLE עם תאריך בדיקה חוזרת."
+        },
+        {
+          "id": "M2-T-G1-COND",
+          "titleHe": "מילוי CONDITIONS_MET ושחרור G2",
+          "status": "completed",
+          "priorityHe": "נמוכה",
+          "stateHe": "צוות 100 אישר תנאים בראש המסמך; G2 (ליבת אתר) אושר להתחלה לאחר קבלת runbook."
+        }
+      ]
+    },
+    {
+      "id": "M2-SEC-G2-STACK",
+      "titleHe": "ליבה טכנית — תמה, תוספים, child (G2)",
+      "tasks": [
+        {
+          "id": "M2-T-GP-CHILD",
+          "titleHe": "GeneratePress + child ea-eyalamit — נעילה ואקטיבציה",
+          "status": "completed",
+          "priorityHe": "נמוכה",
+          "stateHe": "Parent/child לפי החלטות 100; MU או הליך להפעלת child יציב אחרי ביקור בדף הבית."
+        },
+        {
+          "id": "M2-T-PLUG-MIN",
+          "titleHe": "תוספים במינימום מאושר (Fluent, Yoast וכו׳)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "רשימת תוספים תואמת מנדט; אין Elementor/Woo וכו׳ בלי waiver. נדרשת התאמה מתמשכת לגרסאות ול־uPress bundled לפי ארכיטקטורת 100."
+        },
+        {
+          "id": "M2-T-MU-EA",
+          "titleHe": "MU-plugins תומכי M2 (הפעלת child, Fluent וכו׳)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "קובצי mu-plugin במאגר; פריסה לסטייג'ינג ואימות שההתנהגות בפועל תואמת את הסיכום הטכני."
+        }
+      ]
+    },
+    {
+      "id": "M2-SEC-G2-IA",
+      "titleHe": "מבנה אתר — ייבוא, עמודים, תפריטים, קריאה",
+      "tasks": [
+        {
+          "id": "M2-T-WXR-IMPORT",
+          "titleHe": "ייבוא WXR (מזרע עמודי M2)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "קובץ m2-pages-seed.wxr במאגר; ביצוע ייבוא ב־wp-admin, מיפוי מחברים, ניקוי Sample Page אם מבלבל. תלות בפריסת קבצים / העלאת WXR לשרת."
+        },
+        {
+          "id": "M2-T-READING",
+          "titleHe": "הגדרות קריאה — בית סטטי + בלוג",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "דף ראשי סטטי (יעד slug home); עמוד פוסטים (יעד blog). אימות ש־/ אינו מציג רשימת פוסטים יחידה כברירת מחדל."
+        },
+        {
+          "id": "M2-T-MENUS-T1T6",
+          "titleHe": "תפריטים T1–T6 (עברית, EN, קורסים)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "תפריט ראשי עברית, משני לפי צורך, פריט English ל־/en/, קישור ל־courses-soon אם נדרש במטריצה. בחזית אין רק Sample Page — הניווט משקף עץ M2."
+        },
+        {
+          "id": "M2-T-HUB-SITE-TREE-LOCK",
+          "titleHe": "אישור תפעולי של עץ האתר ב־Hub + ייצוא JSON (דחוף — אייל)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "מבנה IA v2.3 APPROVED במסמך הקנוני — בממשק: לפתוח site-tree.html, לסקור צמתים ותבניות, להוסיף הערות לפי הצורך, ולייצא JSON (exportType eyal-site-tree-feedback) עד 2026-04-07 או תאריך שיוסכם עם הצוות. לשמור את הקובץ ב־from-eyal (Drive→מאגר) או להעביר לצוות; אין העלאת קבצים כבדים דרך הדפדפן."
+        },
+        {
+          "id": "M2-T-PAGE-EN",
+          "titleHe": "עמוד אנגלית (EN, LTR)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "עמוד עם slug en (או שנקבע אחרת); placeholder תוכן; מחלקת גוף ea-lang-en מה־child לאימות כיווניות."
+        },
+        {
+          "id": "M2-T-YOAST-P15",
+          "titleHe": "Yoast — noindex לעמוד therapist-training (P15)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "לאחר קיום העמוד ו־200: noindex ברמת העמוד ב־Yoast; מתועד בדוחות QA."
+        }
+      ]
+    },
+    {
+      "id": "M2-SEC-FORMS",
+      "titleHe": "טפסים וצור קשר",
+      "tasks": [
+        {
+          "id": "M2-T-CONTACT-P16",
+          "titleHe": "עמוד צור קשר + Fluent Forms (P16)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "עמוד contact עם shortcode טופס; שליחת בדיקה; WP Mail Logging אם מותקן. אימות סופי בפרודקשן — רק אחרי cutover (מדיניות M2)."
+        },
+        {
+          "id": "M2-T-FORM-SPAM",
+          "titleHe": "הגנות ספאם / הודעות כשלון",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "לפי אפיון ותוספים זמינים; תיעוד התנהגות במדריך המפעיל (G3)."
+        }
+      ]
+    },
+    {
+      "id": "M2-SEC-G3",
+      "titleHe": "תיעוד מפעיל ומלאי (G3, צוות 30)",
+      "tasks": [
+        {
+          "id": "M2-T-OP-GUIDE",
+          "titleHe": "מדריך מפעיל M2 + מלאי תוספים",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "מסמכים מתעדכנים מול CHANGELOG-G3 מצוות 10; נדרש סנכרון לפני דוח 50 FINAL."
+        },
+        {
+          "id": "M2-T-CHANGELOG-G3",
+          "titleHe": "מעקב שינויים אחרי תחילת G3 (חובת 10)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "כל שינוי מהותי בתוסף, תפריט, slug קריטי — תוך 24 שעות ב־CHANGELOG-G3 בסיכום היישום."
+        }
+      ]
+    },
+    {
+      "id": "M2-SEC-G4-QA",
+      "titleHe": "בדיקות וסגירה (G4, צוות 50 → 100)",
+      "tasks": [
+        {
+          "id": "M2-T-QA-G2-P0",
+          "titleHe": "מעגל QA סטייג'ינג (G2) — תיקוני P0",
+          "status": "qa",
+          "priorityHe": "גבוהה",
+          "stateHe": "דוחות צוות 50 על תשתית, ייבוא, תפריטים; מנדטי P0 ל־10; retest עד PASS או סימון שאריות מתועדות."
+        },
+        {
+          "id": "M2-T-QA-FINAL",
+          "titleHe": "דוח QA FINAL לסגירת M2",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "בדיקות מלאות לפי §8 בתכנית; דרוש PASS לפני עדכון ROADMAP ל־M2 COMPLETED ופתיחת M3."
+        },
+        {
+          "id": "M2-T-M2-CLOSE-11",
+          "titleHe": "סגירת §11 DoD + סימון מסמך M2 כ־CLOSED (100)",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "לאחר דוח 50 PASS: צוות 100 מעדכן רודמאפ, סוגר את תכנית M2, ומשחרר מעבר מבוקר ל־M3 (F1)."
+        }
+      ]
+    }
+  ]
+}

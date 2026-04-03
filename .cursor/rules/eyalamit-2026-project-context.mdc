@@ -5,6 +5,10 @@ alwaysApply: true
 
 # EyalAmit.co.il-2026 — קונטקסט Cursor (מלא)
 
+## ממשק לקוח (Hub) — מקור יחיד
+
+- **רק** תיקיית **`hub/`** בשורש המאגר — אין מימוש מקביל תחת `docs/project/eyal-client-hub/` (שם נשמרת רק הפניה ב־`README.md`). עדכוני JSON/CSS → בנייה → פריסת FTP ל־`ea-eyal-hub`.
+
 ## נקודת כניסה
 
 לפני שינוי משמעותי: **`docs/PROJECT-ENTRY.md`** · **`AGENTS.md`** · **`docs/sop/SSOT.md`**.  
@@ -27,7 +31,7 @@ alwaysApply: true
 | **מאגר 2026 (זה)** | אפיון, `docs/`, `_communication/`, `scripts/`, `.cursor/`, `local/` |
 | **פריסה קנונית לשרת (child, mu-plugins, ייצואים)** | **`site/`** — ראו **`site/README.md`**; פריסה ל-uPress: סקריפטים כמו `scripts/ftp_deploy_site_wp_content.py` + סקיל **`eyalamit-staging-ftp`** |
 | **מאגר WP legacy (יישום ישן / מעבר)** | **`../eyalamit.co.il-legacy/`** — תמה ותוספים לפי SSOT; Git נפרד מהמאגר 2026 |
-| **סודות סטייג'ינג (מקומי בלבד)** | **`local/staging.credentials.md`** (לא ב-Git); תבנית: `local/staging.credentials.example.md` |
+| **סודות סטייג'ינג / FTP / REST (מקומי בלבד)** | **`local/.env.upress`** (לא ב-Git); נוהל קנוני: **`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`** §12; ייחוס שדות: **`docs/project/EYAL_ENV_VARS_REFERENCE.md`** §2 |
 
 **להבהיר לסוכן:** יש **שני** מסלולי קוד WP — (א) **`site/`** במאגר 2026 למעטפת חדשה ופריסה; (ב) **legacy** לקוד היסטורי. אל תבלבלו ביניהם; משימה ספציפית או `site/README` קובעים.
 
@@ -36,8 +40,18 @@ alwaysApply: true
 | סביבה | מטרה |
 |--------|------|
 | **מקומי** | Docker / `local/README.md` — פיתוח ובדיקות לפני פריסה |
-| **סטייג'ינג uPress** | אינטגרציה, QA, PHP/תוספים כמו בפרודקשן; URL ופרטים ב־`UPRESS-STAGING-SITE-RECORD` / `staging.credentials.md` |
+| **סטייג'ינג uPress** | אינטגרציה, QA, PHP/תוספים כמו בפרודקשן; URL ופרטים ב־`UPRESS-STAGING-SITE-RECORD` וב־**`local/.env.upress`** (לא ב־Git) |
 | **ייצור** | רק לפי נוהל ואישורים; HTTPS תקין (לא כמו חריגות סטייג'ינג TLS) |
+
+## תאריך נוכחי (סשן מודל מול קנון)
+
+הנחיות טקסט בלבד לא מספיקות — במאגר יש **מקור חיצוני** ו**אימות**:
+
+- **`hub/data/calendar-anchor.txt`** — עדכון ידני; השורה האחרונה (לא `#`) = תאריך ISO לעבודה. סוכן: לקרוא לפני הוספת `date`.
+- **`python3 scripts/check_hub_calendar.py`** — השוואה ללוח שנה אמיתי; נכשל אם `updates.json` מכיל תאריך אחרי היום. רץ מתוך **`build_eyal_client_hub.py`**.
+- כלל ממוקד נוסף (טעינה נפרדת): [`eyalamit-calendar-date.mdc`](eyalamit-calendar-date.mdc).
+- **`user_info` / Today's date** או תאריך מהמשתמש — משלימים, לא תחליף לעוגן כשיש סתירה.
+- **`hub/data/updates.json`:** ISO בלבד; הבילד ממיין לפי `date` יורד.
 
 ## כללים קבועים
 

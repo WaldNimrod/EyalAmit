@@ -12,7 +12,8 @@
 
 | תיקייה | שימוש מומלץ בפרויקט Eyal Amit |
 |--------|--------------------------------|
-| **`eyalamit-staging-ftp`** | **מקומי לפרויקט:** סטייג'ינג uPress מ־Cursor — תוסף SFTP/FTP, `sftp.json` בטוח, סקריפט `wp-config` |
+| **`eyalamit-staging-ftp`** | **מקומי לפרויקט:** סטייג'ינג uPress מ־Cursor — תוסף SFTP/FTP, `sftp.json` בטוח, סודות ב־`local/.env.upress` ([`UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md)), סקריפט `wp-config` |
+| **`eyal-client-hub-publish`** | **ממשק לאייל (hub):** בניית `hub/dist/` + העלאת FTP ל־`ea-eyal-hub` (`UPRESS_EYAL_HUB_PATH`) — חובה אחרי שינויי JSON/CSS תחת `hub/` כדי שאייל יראה עדכון בקישור |
 | `wp-plugin-development` | PHP, תוספים, ודפוסי WordPress כלליים |
 | `wp-block-development` | בלוקים מותאמים, Block API, עורך בלוקים |
 | `wp-block-themes` | תבניות בלוק, `theme.json`, FSE (כשנוגעים בתחום) |

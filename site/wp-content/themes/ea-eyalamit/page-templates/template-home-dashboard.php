@@ -27,15 +27,15 @@ while ( have_posts() ) {
 				<section class="ea-home-hero" aria-label="<?php esc_attr_e( 'כותרת ראשית', 'ea-eyalamit' ); ?>">
 					<?php
 					/*
-					 * `eyal-portrait-hero.jpg` — שם יציב לפריסה (דריסת FTP).
-					 * מקור: eyalamit.co.il-legacy/…/2020/07/דיגרידו-אייל-עמית.jpg — בפרויקט נשמר **נגזרת לרשת** (720×576, JPEG מכווץ), לא חובה מימד המקור.
+					 * `eyal-portrait-hero.jpg` — שם קובץ יציב לפריסה (דריסת FTP).
+					 * מקור חי (2026): https://www.eyalamit.co.il/wp-content/uploads/2023/09/1.jpg — אותם בתים כמו באתר הראשי (כותרת Bridge).
 					 */
 					?>
 					<img
 						src="<?php echo esc_url( $img_base . 'eyal-portrait-hero.jpg' ); ?>"
 						alt="<?php echo esc_attr__( 'אייל עמית - המרכז לטיפול בדיג׳רידו סטודיו נשימה מעגלית', 'ea-eyalamit' ); ?>"
-						width="720"
-						height="576"
+						width="4000"
+						height="1868"
 						decoding="async"
 						fetchpriority="high"
 					/>

@@ -21,7 +21,7 @@ description: "Use when editing Eyal Amit staging on uPress via SFTP/FTP from Cur
 
 1. קובץ קונפיג: **`.vscode/sftp.json`** (או פרופיל שהתוסף תומך בו) — **עם סיסמאות**.
 2. הקובץ **ב־`.gitignore`** — כבר מוגדר בפרויקט (`sftp.json`).
-3. פרטים מפורטים גם ב־`local/staging.credentials.md` (gitignored) — לשמור עקביות עם מה שהזנת ב־`sftp.json`.
+3. פרטים מפורטים גם ב־**`local/.env.upress`** (gitignored; שדות: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §2) — לשמור עקביות עם מה שהזנת ב־`sftp.json` · נוהל קנוני: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md).
 
 דוגמת מבנה (ערכים אמיתיים **רק** אצלך מקומית):
 
@@ -42,8 +42,8 @@ description: "Use when editing Eyal Amit staging on uPress via SFTP/FTP from Cur
 
 ## מתי להשתמש בסקריפט במקום התוסף
 
-- עדכון אוטומטי של **`DB_PASSWORD`** ב־`wp-config.php` לפי `local/staging.credentials.md`:  
-  `python3 scripts/ftp_sync_wp_config_db_password.py`
+- עדכון אוטומטי של **`DB_PASSWORD`** ב־`wp-config.php` לפי **`local/.env.upress`**:  
+  `pip install -r scripts/requirements-upress.txt && python3 scripts/ftp_sync_wp_config_db_password.py`
 
 ## אימות
 
@@ -54,7 +54,7 @@ description: "Use when editing Eyal Amit staging on uPress via SFTP/FTP from Cur
 
 | תסמין | פעולה |
 |--------|--------|
-| 530 Login incorrect | סנכרון סיסמה מול פאנל uPress + `staging.credentials.md` |
+| 530 Login incorrect | סנכרון סיסמה מול פאנל uPress + **`local/.env.upress`** |
 | timeout | חסימת רשת; לנסות מרשת אחרת או VPN |
 
 ## קישורי פרויקט

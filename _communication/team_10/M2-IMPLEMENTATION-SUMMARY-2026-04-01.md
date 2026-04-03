@@ -218,7 +218,7 @@
 
 **מימוש במאגר (2026-03-29):** ארטיפקטי `site/` אומתו; נוסף [`scripts/verify_m2_g2_repo_artifacts.sh`](../../scripts/verify_m2_g2_repo_artifacts.sh); **הודעת QA לצוות 50:** [`../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md`](../team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md).
 
-**פריסה לסטייג'ינג (FTP):** **צוות פיתוח / סוכן** מריץ מהמאגר `python3 scripts/ftp_deploy_site_wp_content.py` (קורא `local/staging.credentials.md` במחשב המקומי) — מעלה child `ea-eyalamit` + MU; **הלקוח אינו אחראי להעלאת קבצים ב-FTP**. לאחר מכן **צוות 50** מריץ את מטריצת §3 בבריף QA. (מסיבות רשת/אבטחה, סביבת סוכן בענן לעיתים לא תתחבר ל-uPress — אז אותו סקריפט רץ **אצל מחזיק המאגר**.)
+**פריסה לסטייג'ינג (FTP):** **צוות פיתוח / סוכן** מריץ מהמאגר `pip install -r scripts/requirements-upress.txt` ואז `python3 scripts/ftp_deploy_site_wp_content.py` (קורא **`local/.env.upress`** במחשב המקומי; נוהל: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md)) — מעלה child `ea-eyalamit` + MU; **הלקוח אינו אחראי להעלאת קבצים ב-FTP**. לאחר מכן **צוות 50** מריץ את מטריצת §3 בבריף QA. (מסיבות רשת/אבטחה, סביבת סוכן בענן לעיתים לא תתחבר ל-uPress — אז אותו סקריפט רץ **אצל מחזיק המאגר**.)
 
 | סדר | פעולה | DoD קצר | סטטוס (מאגר / סטייג'ינג) |
 |-----|--------|---------|---------------------------|

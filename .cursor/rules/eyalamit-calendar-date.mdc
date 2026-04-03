@@ -1,0 +1,11 @@
+---
+description: תאריך קנון — קובץ עוגן + אימות shell (לא סשן מודל)
+alwaysApply: true
+---
+
+# תאריך לפני שדות `date` בפרויקט
+
+1. **קראו** [`hub/data/calendar-anchor.txt`](hub/data/calendar-anchor.txt) — השורה האחרונה שאינה מתחילה ב־`#` חייבת להיות `YYYY-MM-DD`. זה עדיפה על «מה שהמודל זוכר».
+2. **אימות חיצוני:** `python3 scripts/check_hub_calendar.py` — בודק מול לוח שנה אמיתי (`Asia/Jerusalem`); **נכשל** אם יש ב־`hub/data/updates.json` תאריך אחרי היום.
+3. **בילד האב** מריץ את הבדיקה הזו אוטומטית — לא ניתן לפרוס `hub/dist` עם תאריכי עתיד «מומצאים».
+4. אם העוגן מיושן — עדכנו אותו או הריצו `TZ=Asia/Jerusalem date +%F` והדביקו כשורה אחרונה.

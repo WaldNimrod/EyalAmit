@@ -30,7 +30,7 @@
 
 בפאנל הוצגו גרסאות: **7.4**, **8.3**, **8.4**.  
 **המלצה לפרויקט:** **8.3** לסטייג'ינג (ליישר מול Docker מקומי: `wordpress:php8.3-apache`).  
-**נעול בפאנל (אושר):** **PHP 8.3** — **2026-03-31** (יישור מול `wordpress:php8.3-apache` ב־Docker / [`local/.env.example`](../../local/.env.example)) · **אומת מול הפאנל (דיווח 2026-03-29):** **הוגדר 8.3**.
+**נעול בפאנל (אושר):** **PHP 8.3** — **2026-03-31** (יישור מול `wordpress:php8.3-apache` ב־Docker / [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §1) · **אומת מול הפאנל (דיווח 2026-03-29):** **הוגדר 8.3**.
 
 ---
 
@@ -95,8 +95,8 @@ QR: [`QR-URL-INVENTORY.csv`](../../docs/project/team-100-preplanning/QR-URL-INVE
 
 | נושא | פירוט |
 |------|--------|
-| **FTP** | Host: `ftp.s887.upress.link`, פורט **21** (פרוטוקול FTP). **סיסמאות ומשתמשים — לא במאגר;** ראו `local/staging.credentials.md` (gitignored) אצל מחזיק הסודות. |
-| **סקריפט סנכרון DB → wp-config** | `python3 scripts/ftp_sync_wp_config_db_password.py` (קורא מ־`staging.credentials.md`; תיקן באג שימוש ב־`**Password:**` FTP). |
+| **FTP / FTPS** | Host: `ftp.s887.upress.link`, פורט **21**. **סיסמאות — לא במאגר;** ראו **`local/.env.upress`** (gitignored) · נוהל קנוני: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md). `UPRESS_FTP_USE_TLS=true` כברירת מחדל; `false` רק לחריג סטייג'ינג מתועד. |
+| **סקריפט סנכרון DB → wp-config** | `pip install -r scripts/requirements-upress.txt` · `python3 scripts/ftp_sync_wp_config_db_password.py` (קורא מ־**`.env.upress`**; גיבוי `wp-config.php.bak` לפני overwrite לפי v2 §2.3). |
 | **Cursor / SFTP** | תוסף SFTP + `.vscode/sftp.json` (gitignored) — ראו `.cursor/skills/eyalamit-staging-ftp/SKILL.md`. |
 | **מיקום קוד במאגר 2026** | [`site/README.md`](../../site/README.md) — **FTP (דוגמה):** `wp-content/themes/ea-eyalamit/` (קבצי child מהמאגר) · `wp-content/mu-plugins/ea-staging-noindex.php`. Parent **GeneratePress** — **לא** מהמאגר; התקנה מממשק WP או מ־wordpress.org ([`WP-THEME-EVALUATION`](../../docs/project/team-100-preplanning/WP-THEME-EVALUATION-HEBREW-SEO-2026-03-29.md) §7). קידומת PHP: **`ea_`**. |
 | **Git על השרת** | לא משתמשים במונוריפו המלא; FTP כמסלול ראשי לסטייג'ינג. |

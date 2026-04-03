@@ -70,4 +70,4 @@
 
 - **2026-04-02 — TLS סטייג'ינג:** מדיניות חשבון — SSL תקין **רק בפרודקשן**; סטייג'ינג לא אמור להיחשב כשיקוף HTTPS סופי. דרך עבודה: [`../team_20/STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md`](../team_20/STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md) · אימות טכני ישן: [`../team_20/M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md`](../team_20/M2-GATE-20A-TLS-VERIFICATION-2026-04-02.md).
 - **מאגר פריסה:** רק תוכן תחת [`site/`](../../site/README.md) — לא שורש המונוריפו.
-- **סקריפט DB:** `scripts/ftp_sync_wp_config_db_password.py` — רק אם משנים סיסמת MySQL בפאנל; לשמור תאימות עם `staging.credentials.md`.
+- **סקריפט DB:** `pip install -r scripts/requirements-upress.txt` · `scripts/ftp_sync_wp_config_db_password.py` — רק אם משנים סיסמת MySQL בפאנל; לשמור תאימות עם **`local/.env.upress`**.

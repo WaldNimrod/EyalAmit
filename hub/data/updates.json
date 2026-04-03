@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "UPD-2026-03-29-HUB-TREE-INTAKE",
+      "date": "2026-03-29",
+      "titleHe": "Hub: עץ אתר אינטראקטיבי, טיפוסי עמוד וקליטת תוכן",
+      "bodyHe": "נוספו site-tree.html (הערות לפי צומת + ייצוא JSON), content-intake.html (שדות לפי תבנית + Drive), מוקאפים תחת mockups/page-types/, ורשימת legacy לא ממופה (legacy-unmapped.json). נדרשת משימת אייל: M2-T-HUB-SITE-TREE-LOCK."
+    },
+    {
+      "id": "UPD-2026-04-03-HUB-V11",
+      "date": "2026-04-03",
+      "titleHe": "האב v1.1 — יישור נוהל ארגוני ומבנה נתונים",
+      "bodyHe": "ממשק על השרת (כניסה) הוגדר במרץ; גרסה זו מיישרת CLIENT_HUB_STANDARD_v1.1, decisions/tasks, SSOT ב־hub/ssot והפרדת מטא־דאטה. משוב מובנה — מ־tasks.html. מצב נכון ל־3.4.2026."
+    },
+    {
+      "id": "UPD-2026-04-02-SEO",
+      "date": "2026-04-02",
+      "titleHe": "משוב צוות — יישור עץ אתר ו־SEO · AEO · GEO",
+      "bodyHe": "משוב צוות התקבל ב־2.4.2026; יישור עץ אתר ו־SEO / AEO / GEO — קובץ Word ב־files/ (אם הופעל mirror) או במאגר to-eyal."
+    },
+    {
+      "id": "UPD-2026-03-31-AEO",
+      "date": "2026-03-31",
+      "titleHe": "דוח מסכם — מוכנות SEO / AEO / GEO",
+      "bodyHe": "קובץ Word בגל האחרון."
+    },
+    {
+      "id": "UPD-2026-03-31-BRIEF",
+      "date": "2026-03-31",
+      "titleHe": "תזכיר פגישה v1.1 (מקור חתום)",
+      "bodyHe": "נעילות ועץ — Word."
+    }
+  ]
+}

@@ -16,7 +16,7 @@
 | **אופציות** | **א** — **7.4** (ישן, לא מומלץ לאתר חדש) · **ב** — **8.3** (מומלץ) · **ג** — **8.4** (חדש; לוודא תאימות אחרי התקנת תמה) |
 | **המלצה** | **ב — PHP 8.3** בפאנל uPress לסטייג'ינג; עדכון `WORDPRESS_IMAGE` ב־`local/.env` ל־`wordpress:php8.3-apache`. |
 | **אחרי החלטה** | ☑ **בוצע** — runbook §2 + `docker-compose` ברירת מחדל **8.3**. |
-| **קישורים** | [שינוי גרסת PHP — uPress](https://support.upress.co.il/general/change-version/) · [`local/.env.example`](../../local/.env.example) |
+| **קישורים** | [שינוי גרסת PHP — uPress](https://support.upress.co.il/general/change-version/) · [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §1 |
 
 ---
 

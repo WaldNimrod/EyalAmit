@@ -16,6 +16,7 @@
 | תקציר לאישור — **קובץ ללקוח** | ייצור: `team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx` (או PDF); **חבילת הגשה:** אותו קובץ נכלל ב־`to-eyal/YYYY-MM-DD--final-spec-package-for-eyal/` (סקריפט `build_eyal_ceo_deliverables.py`) |
 | תקציר לאישור — **מקור פנימי לצוות** | `docs/project/team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-APPROVAL.md` |
 | מפת אתר חדש (טיוטה) | `docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md` |
+| **חובות לקוח (אייל) — תוכן לפי שלב** | [`docs/project/EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md`](../project/EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md) |
 | Keep / Merge / Drop | `docs/project/team-100-preplanning/CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md` |
 | עקרונות תהליך ואפיון | `docs/project/team-100-preplanning/07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md` |
 | דוחות מחקר (עזר בלבד, שורש workspace) | `/Users/nimrod/Documents/Eyal Amit/CLIENT-DECISION-REPORT-EYALAMIT-2026-03-29.md`, `PRELIMINARY-PLANNING-EYALAMIT-2026-03-29.md` |

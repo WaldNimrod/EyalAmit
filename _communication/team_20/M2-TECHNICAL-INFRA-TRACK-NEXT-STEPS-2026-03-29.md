@@ -20,7 +20,7 @@
 | # | משימה | תוצאה מדידה |
 |---|--------|-------------|
 | A1 | Docker קיים ופעיל (מאושר לפרויקט) — שימוש ב־`local/docker-compose.yml` | `docker compose version` עובד; מיכלים עולים |
-| A2 | יצירת `local/.env` מ־`local/.env.example` + סיסמאות חזקות (לא ב־Git) | קובץ קיים; `.env` ב־`.gitignore` |
+| A2 | יצירת `local/.env` לפי [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §1 + סיסמאות חזקות (לא ב־Git) | `.env` ב־`.gitignore` |
 | A3 | הרצת `docker compose` מתיקיית `local/` | שירותי `db` + `wordpress` ב־`running` |
 | A4 | השלמת אשף התקנת WordPress בדפדפן (שפה, כותרת אתר, משתמש מנהל) | כניסה ל־`wp-admin` מקומית עובדת |
 | A5 | אימות חיבור DB מתוך הקונטיינר (אופציונלי: `wp-cli` אם מותקן בקונטיינר) | אתר טוען; אין שגיאת DB ב־`debug.log` אם הופעל דיבוג |

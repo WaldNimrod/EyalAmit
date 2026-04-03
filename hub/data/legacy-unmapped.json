@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "generatedNoteHe": "נוצר ע״י scripts/hub_generate_legacy_unmapped.py — עמודי publish באתר הישן שלא נמצא legacyUrl תואם בעץ החדש.",
+  "items": [
+    {
+      "wpId": "12037",
+      "titleHe": "My Account",
+      "legacyUrl": "https://www.eyalamit.co.il/my-account/"
+    },
+    {
+      "wpId": "15177",
+      "titleHe": "QR",
+      "legacyUrl": "https://www.eyalamit.co.il/qr/"
+    },
+    {
+      "wpId": "14939",
+      "titleHe": "qr10 - וואט איז דאט?",
+      "legacyUrl": "https://www.eyalamit.co.il/qr10/"
+    },
+    {
+      "wpId": "14942",
+      "titleHe": "qr11 - חורשט זבזי",
+      "legacyUrl": "https://www.eyalamit.co.il/qr11/"
+    },
+    {
+      "wpId": "14944",
+      "titleHe": "qr12 - אינדיאנה ג'ונס והמכרה הארור",
+      "legacyUrl": "https://www.eyalamit.co.il/qr12/"
+    },
+    {
+      "wpId": "14955",
+      "titleHe": "qr13 - ואהבתָ",
+      "legacyUrl": "https://www.eyalamit.co.il/qr13/"
+    },
+    {
+      "wpId": "14957",
+      "titleHe": "qr14 - גורילות בערפל האמזונס",
+      "legacyUrl": "https://www.eyalamit.co.il/qr14/"
+    },
+    {
+      "wpId": "14960",
+      "titleHe": "qr15 - היקיקומורי",
+      "legacyUrl": "https://www.eyalamit.co.il/qr15/"
+    },
+    {
+      "wpId": "14964",
+      "titleHe": "qr16 - דם על הידיים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr16/"
+    },
+    {
+      "wpId": "14966",
+      "titleHe": "qr17 - יוגי לודג'",
+      "legacyUrl": "https://www.eyalamit.co.il/qr17/"
+    },
+    {
+      "wpId": "14970",
+      "titleHe": "qr18 - אחד לשלושה טריליון",
+      "legacyUrl": "https://www.eyalamit.co.il/qr18/"
+    },
+    {
+      "wpId": "14972",
+      "titleHe": "qr19 - הפיצה הכי טעימה שאכלתי בחיים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr19/"
+    },
+    {
+      "wpId": "14892",
+      "titleHe": "qr2 - אקדח לתוך הראש",
+      "legacyUrl": "https://www.eyalamit.co.il/qr2/"
+    },
+    {
+      "wpId": "14976",
+      "titleHe": "qr20 - אבא, אני רעב",
+      "legacyUrl": "https://www.eyalamit.co.il/qr20/"
+    },
+    {
+      "wpId": "14978",
+      "titleHe": "qr21 - ג'סי ראם!",
+      "legacyUrl": "https://www.eyalamit.co.il/qr21/"
+    },
+    {
+      "wpId": "14982",
+      "titleHe": "qr22 - בולט אנט",
+      "legacyUrl": "https://www.eyalamit.co.il/qr22/"
+    },
+    {
+      "wpId": "14984",
+      "titleHe": "qr23 - יום כן יום לא",
+      "legacyUrl": "https://www.eyalamit.co.il/qr23/"
+    },
+    {
+      "wpId": "14986",
+      "titleHe": "qr24 - קוֹל פּוּט שוֹרט סטופ!",
+      "legacyUrl": "https://www.eyalamit.co.il/qr24/"
+    },
+    {
+      "wpId": "14988",
+      "titleHe": "qr25 - גרין ווש",
+      "legacyUrl": "https://www.eyalamit.co.il/qr25/"
+    },
+    {
+      "wpId": "14990",
+      "titleHe": "qr26 - כורסת הציפורניים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr26/"
+    },
+    {
+      "wpId": "14992",
+      "titleHe": "qr27 - אמסטרדם",
+      "legacyUrl": "https://www.eyalamit.co.il/qr27/"
+    },
+    {
+      "wpId": "14994",
+      "titleHe": "qr28 - נזכור ולא נשכח",
+      "legacyUrl": "https://www.eyalamit.co.il/qr28/"
+    },
+    {
+      "wpId": "14996",
+      "titleHe": "qr29 - לעבור דירה",
+      "legacyUrl": "https://www.eyalamit.co.il/qr29/"
+    },
+    {
+      "wpId": "14897",
+      "titleHe": "qr3 - האלמנה השחורה",
+      "legacyUrl": "https://www.eyalamit.co.il/qr3/"
+    },
+    {
+      "wpId": "14998",
+      "titleHe": "qr30 - פרדס חפלה",
+      "legacyUrl": "https://www.eyalamit.co.il/qr30/"
+    },
+    {
+      "wpId": "15000",
+      "titleHe": "qr31 - פיפי במעלית",
+      "legacyUrl": "https://www.eyalamit.co.il/qr31/"
+    },
+    {
+      "wpId": "15002",
+      "titleHe": "qr32 - נשימה מעגלית",
+      "legacyUrl": "https://www.eyalamit.co.il/qr32/"
+    },
+    {
+      "wpId": "15013",
+      "titleHe": "qr33 - תאכלו ביצים, תהיו טייסים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr33/"
+    },
+    {
+      "wpId": "15019",
+      "titleHe": "qr34 - תקום",
+      "legacyUrl": "https://www.eyalamit.co.il/qr34/"
+    },
+    {
+      "wpId": "15021",
+      "titleHe": "qr35 - הגבר החדש",
+      "legacyUrl": "https://www.eyalamit.co.il/qr35/"
+    },
+    {
+      "wpId": "15023",
+      "titleHe": "qr36 - חוני המעגל",
+      "legacyUrl": "https://www.eyalamit.co.il/qr36/"
+    },
+    {
+      "wpId": "15025",
+      "titleHe": "qr37 - דרך השלום",
+      "legacyUrl": "https://www.eyalamit.co.il/qr37/"
+    },
+    {
+      "wpId": "15027",
+      "titleHe": "qr38 - הבטחות או לא להיות",
+      "legacyUrl": "https://www.eyalamit.co.il/qr38/"
+    },
+    {
+      "wpId": "15029",
+      "titleHe": "qr39 - תחשוב חיובי",
+      "legacyUrl": "https://www.eyalamit.co.il/qr39/"
+    },
+    {
+      "wpId": "14916",
+      "titleHe": "qr4 - בום-בום-בום על דלתי מרום",
+      "legacyUrl": "https://www.eyalamit.co.il/qr4/"
+    },
+    {
+      "wpId": "15031",
+      "titleHe": "qr40 - אבנים חמות",
+      "legacyUrl": "https://www.eyalamit.co.il/qr40/"
+    },
+    {
+      "wpId": "15033",
+      "titleHe": "qr41 - לופ בטעם תות לימון",
+      "legacyUrl": "https://www.eyalamit.co.il/qr41/"
+    },
+    {
+      "wpId": "15037",
+      "titleHe": "qr42 - הבטחות אחים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr42/"
+    },
+    {
+      "wpId": "15039",
+      "titleHe": "qr43 - עכשיו!!!",
+      "legacyUrl": "https://www.eyalamit.co.il/qr43/"
+    },
+    {
+      "wpId": "15041",
+      "titleHe": "qr44 - כולנו פרעושים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr44/"
+    },
+    {
+      "wpId": "15043",
+      "titleHe": "qr45 - צום מיצים",
+      "legacyUrl": "https://www.eyalamit.co.il/qr45/"
+    },
+    {
+      "wpId": "15045",
+      "titleHe": "qr46  - האומץ לאהוב את הפחד",
+      "legacyUrl": "https://www.eyalamit.co.il/qr46/"
+    },
+    {
+      "wpId": "15047",
+      "titleHe": "qr47  - טיפול זוגי",
+      "legacyUrl": "https://www.eyalamit.co.il/qr47/"
+    },
+    {
+      "wpId": "15965",
+      "titleHe": "qr48 -וסיימת",
+      "legacyUrl": "https://www.eyalamit.co.il/qr48/"
+    },
+    {
+      "wpId": "14923",
+      "titleHe": "qr5 - אלכסון הוא אסון",
+      "legacyUrl": "https://www.eyalamit.co.il/qr5/"
+    },
+    {
+      "wpId": "14931",
+      "titleHe": "qr6 - ספיבאק",
+      "legacyUrl": "https://www.eyalamit.co.il/qr6/"
+    },
+    {
+      "wpId": "14933",
+      "titleHe": "qr7 - אחד לשלושה",
+      "legacyUrl": "https://www.eyalamit.co.il/qr7/"
+    },
+    {
+      "wpId": "14935",
+      "titleHe": "qr8 - סופה במדבר",
+      "legacyUrl": "https://www.eyalamit.co.il/qr8/"
+    },
+    {
+      "wpId": "14937",
+      "titleHe": "qr9 - טיפול שורש",
+      "legacyUrl": "https://www.eyalamit.co.il/qr9/"
+    },
+    {
+      "wpId": "2271",
+      "titleHe": "ביקורות גולשים אודות: עכשיו!!!!! - מופע הסיפורים הקצרים של אייל עמית - תופעת יחיד",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%92%d7%95%d7%91%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%b4%d7%9e%d7/"
+    },
+    {
+      "wpId": "14728",
+      "titleHe": "בלוג דיג'רידו \\ אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%91%d7%9c%d7%95%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7/"
+    },
+    {
+      "wpId": "17721",
+      "titleHe": "דיג'רידו - המרכז לטיפול בדיג'רידו - סטודיו נשימה מעגלית - אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7/"
+    },
+    {
+      "wpId": "18209",
+      "titleHe": "דיג'רידו למכירה - כלים בעבודת יד",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9e%d7%9b%d7%99%d7%a8%d7%94-%d7%9b%d7%9c%d7%99%d7%9d-%d7%91%d7%a2%d7/"
+    },
+    {
+      "wpId": "14724",
+      "titleHe": "הופעות",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa/"
+    },
+    {
+      "wpId": "16572",
+      "titleHe": "הרשמתך נקלטה בהצלחה",
+      "legacyUrl": "https://www.eyalamit.co.il/thankyou/"
+    },
+    {
+      "wpId": "16568",
+      "titleHe": "והודיתָּ",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%95%d7%94%d7%95%d7%93%d7%99%d7%aa/"
+    },
+    {
+      "wpId": "14854",
+      "titleHe": "והקדמת - qr1",
+      "legacyUrl": "https://www.eyalamit.co.il/qr1/"
+    },
+    {
+      "wpId": "19429",
+      "titleHe": "וכתבת / אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/"
+    },
+    {
+      "wpId": "2415",
+      "titleHe": "וכתבת אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%/"
+    },
+    {
+      "wpId": "12034",
+      "titleHe": "חנות",
+      "legacyUrl": "https://www.eyalamit.co.il/shop/"
+    },
+    {
+      "wpId": "18239",
+      "titleHe": "טיפול בדיג'רידו - ריפוי עצמי בעזרת דיג'רידו",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%94%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9b%d7%9b%d7%9c%d7%99-%d7%9c%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7/"
+    },
+    {
+      "wpId": "18063",
+      "titleHe": "טיפולי סאונד הילינג בדיג'רידו",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99-%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7/"
+    },
+    {
+      "wpId": "15955",
+      "titleHe": "כושי בלאנטיס אוטוביוגרפיה בסיפורים",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%/"
+    },
+    {
+      "wpId": "17193",
+      "titleHe": "מבצעים",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%93%d7%a3-%d7%9e%d7%91%d7%a6%d7%a2%d7%99%d7%9d-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d/"
+    },
+    {
+      "wpId": "14726",
+      "titleHe": "מוזה הוצאה לאור | אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/"
+    },
+    {
+      "wpId": "18327",
+      "titleHe": "מוקש דהימן - מאסטר דיג'רידו - דף להנצחת זכרו ופועלו 1950-2020",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7/"
+    },
+    {
+      "wpId": "2267",
+      "titleHe": "מן התקשורת - כתבות בעיתונות אודות ״עכשיו!!!! מופע הסיפורים של אייל עמית - תופעת יחיד\"",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%9e%d7%95%d7/"
+    },
+    {
+      "wpId": "17080",
+      "titleHe": "מפת אתר - site map",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%9e%d7%a4%d7%aa-%d7%90%d7%aa%d7%a8-site-map/"
+    },
+    {
+      "wpId": "18236",
+      "titleHe": "סאונד הילינג דיג'רידו - צלילים מרפאים דיג'רידו - מדיטציית דיג'רידו",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7/"
+    },
+    {
+      "wpId": "18061",
+      "titleHe": "סדנה עצמית לבניית דיג'רידו",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a1%d7%93%d7%a0%d7%90%d7%95%d7%aa-%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7/"
+    },
+    {
+      "wpId": "18342",
+      "titleHe": "סטנד נגינה לדיג'רידו בישיבה נמוכה",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a1%d7%98%d7%a0%d7%93-%d7%a8%d7%a6%d7%a4%d7%aa%d7%99-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%a0%d7/"
+    },
+    {
+      "wpId": "18343",
+      "titleHe": "סטנדים לאחסון דיג'רידו בתלייה או בעמידה",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a1%d7%98%d7%a0%d7%93%d7%99%d7%9d-%d7%9c%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7/"
+    },
+    {
+      "wpId": "12035",
+      "titleHe": "עגלת קניות",
+      "legacyUrl": "https://www.eyalamit.co.il/cart/"
+    },
+    {
+      "wpId": "14864",
+      "titleHe": "פרק א",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a4%d7%a8%d7%a7-%d7%90/"
+    },
+    {
+      "wpId": "12036",
+      "titleHe": "קופה",
+      "legacyUrl": "https://www.eyalamit.co.il/checkout/"
+    },
+    {
+      "wpId": "18069",
+      "titleHe": "תיקים לדיג'רידו בתפירה איכותית של מילגה",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%99%d7%a7%d7%99%d7%9d-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    }
+  ]
+}

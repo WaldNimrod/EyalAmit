@@ -13,11 +13,25 @@
 
 **תפקיד ברירת־מחדל של סוכן AI במאגר זה:** **צוות 100** (אדריכלות) — [`.cursor/rules/eyalamit-team-100-architect-role.mdc`](.cursor/rules/eyalamit-team-100-architect-role.mdc) · אונבורד: [`_communication/team_100/onboard_team100.md`](_communication/team_100/onboard_team100.md). **צוות אחר (10 / 20 / 30 / 50 / 90):** לקרוא **במלואו** את קובץ `onboard_teamXX.md` מהטבלה ב־[`_communication/README.md#onboarding-prompts`](_communication/README.md#onboarding-prompts), או שהמשתמש מגדיר במפורש בתחילת הסשן / מדביק את תוכן האונבורד.
 
+**תאריך קלנדרי:** (א) **`hub/data/calendar-anchor.txt`** — שורת ISO אחרונה (לא הערה); (ב) **`python3 scripts/check_hub_calendar.py`** — אימות מול היום ב־`Asia/Jerusalem`; (ג) בילד האב מריץ את הבדיקה. הנחיות מודל בלבד לא מספיקות — ראו [`.cursor/rules/eyalamit-calendar-date.mdc`](.cursor/rules/eyalamit-calendar-date.mdc).
+
 ## הגשה ל-CEO אייל
 
 **אסור** להגיש `.md`. כל מה שיוצא **מול אייל** — **Word (.docx) או PDF בלבד**.  
 ארכיון מול אייל: `docs/project/eyal-ceo-submissions-and-responses/` — `from-eyal/` (נכנס), `to-eyal/` (יוצא — גלים תחת `YYYY-MM-DD--topic/`, מוקאפים ב־`_shared-assets/`), `archive/` (ישן). קאנון: `EYAL-CORRESPONDENCE-CANON.md`.  
 **סקריפטים (`scripts/*.py`, `pip install`, `docker compose`, בדיקות):** הסוכן **מריץ בעצמו** בסביבה עם shell — **אין** להפנות את המשתמש להריץ פקודות כשאפשר להריץ כאן. ייצוא חבילת Word: `python3 scripts/build_eyal_ceo_deliverables.py` + תלות `scripts/requirements-docx.txt` — **לבצע מהצד של הסוכן**, לא להשאיר הוראה "תריץ אתה".
+
+### Client Hub (ממשק אייל) — בנייה ופריסה: חובה על הסוכן
+
+לאחר **כל** שינוי ב־`hub/data/*.json`, ב־`hub/src/**`, או ב־`scripts/build_eyal_client_hub.py` שמשפיע על ה־Hub:
+
+1. **הסוכן מריץ** (בשורש `EyalAmit.co.il-2026`):  
+   `python3 scripts/build_eyal_client_hub.py`  
+   ואז **`python3 scripts/ftp_publish_eyal_client_hub.py`** (פריסה ל־uPress לפי `local/.env.upress`).
+2. **אין** להסתפק בהנחיה למשתמש "תריץ בנייה/פריסה" — **אלא אם** אין shell / אין הרשאת רשת / חסרים credentials; אז לתעד במפורש למה לא בוצעה פריסה.
+3. **בסיום משימה** שעדכנה את ה־Hub: לחזור למשתמש עם **אישור שפריסה הושלמה** (פלט `Done: Eyal client hub FTP publish` או שקיל), ועם **`generatedAt`** מ־`hub/dist/metadata.json` (או מפלט הבנייה). אימות HTTP מול הסטייג'ינג — **כשהרשת/DNS מאפשרים**; אם לא — עדיין לציין ש־FTP הצליח.
+
+פירוט נוהל SSOT/קליטה: [`hub/EYAL-HUB-SSOT-WORKFLOW.md`](hub/EYAL-HUB-SSOT-WORKFLOW.md).
 
 ## יעדים בקצרה
 
@@ -50,6 +64,7 @@ WordPress רזה; SEO ונגישות; סליקה חיצונית; שימור QR; 
 | M2 סיכום יישום G2 (צוות 10) | [`_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md`](_communication/team_10/M2-IMPLEMENTATION-SUMMARY-2026-04-01.md) |
 | M2 G2 — בקשת QA (צוות 50) | [`_communication/team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md`](_communication/team_50/M2-G2-QA-BRIEF-FOR-TEAM50-2026-03-29.md) |
 | M2 — בקרת תשתית + דוח 50 | [`_communication/team_50/M2-INFRA-READY-QA-REQUEST-TEAM50-2026-04-03.md`](_communication/team_50/M2-INFRA-READY-QA-REQUEST-TEAM50-2026-04-03.md) · [`M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md`](_communication/team_50/M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md) |
+| M2 — QA מוכנות סטייג'ינג אחרי UPRESS v2 (50) | [`_communication/team_50/M2-STAGING-V2-READINESS-QA-REQUEST-2026-04-09.md`](_communication/team_50/M2-STAGING-V2-READINESS-QA-REQUEST-2026-04-09.md) |
 | M2 — תיקון QA + בדיקה חוזרת (100) | [`_communication/team_100/M2-QA-REMEDIATION-AND-RETEST-PLAN-2026-04-04.md`](_communication/team_100/M2-QA-REMEDIATION-AND-RETEST-PLAN-2026-04-04.md) |
 | M2 G2 — השלמת סטייג'ינג P0 (10) | [`_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md`](_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md) · [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](_communication/team_10/M2-G2-STAGING-P0-DONE-2026-04-04.md) · אימות 100: [`M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md`](_communication/team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md) |
 | M2 — קליטת תוכן מאייל (10) | [`_communication/team_10/M2-CONTENT-INTAKE-FROM-EYAL-2026-04-03.md`](_communication/team_10/M2-CONTENT-INTAKE-FROM-EYAL-2026-04-03.md) |
@@ -64,7 +79,8 @@ WordPress רזה; SEO ונגישות; סליקה חיצונית; שימור QR; 
 | M2 — תוספי uPress (בחינה 100) | [`_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md`](_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md) |
 | uPress — נתונים לחיבור, Git/FTP, צ'קליסט פאנל | [`_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md`](_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md) |
 | uPress — סטייג'ינג URL, PHP, מדריך Git (לא לשכפל מונוריפו ל־/) | [`_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md) |
-| FTP / wp-admin — העברה מאובטחת (לא בצ'אט, לא ב-Git) | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · `local/staging.credentials.example.md` |
+| uPress / WordPress — נוהל ארגוני v2 | [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) · משתנים: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](docs/project/EYAL_ENV_VARS_REFERENCE.md) (§1 Docker, §2 uPress) |
+| FTP / wp-admin — העברה מאובטחת (לא בצ'אט, לא ב-Git) | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · שדות uPress: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](docs/project/EYAL_ENV_VARS_REFERENCE.md) §2 |
 | phpMyAdmin / DB — נוהל עבודה | [`_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md) |
 | מפת צוותים (מספרים, תפקידים) | [`docs/ORGANIZATION-TEAMS-2026.md`](docs/ORGANIZATION-TEAMS-2026.md) · [`_communication/README.md`](_communication/README.md) |
 

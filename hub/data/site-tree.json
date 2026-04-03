@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "treeApprovedDocRef": "SITEMAP-NEW-SITE-v2-DRAFT.md v2.3 APPROVED (2026-03-31)",
+  "liveSiteBase": "https://www.eyalamit.co.il",
+  "nodes": [
+    {
+      "id": "st-home",
+      "parentId": null,
+      "titleHe": "בית",
+      "slug": "home",
+      "templateId": "tpl-home",
+      "menuHint": "תפריט ראשי",
+      "legacyUrl": "https://www.eyalamit.co.il/",
+      "legacyNoteHe": "דף הבית בפרודקשן הנוכחי — לעיתים מוצג גם תוכן מ־עמוד המרכז הארוך; לבחור מקור מיגרציה לפי SSOT."
+    },
+    {
+      "id": "st-method",
+      "parentId": null,
+      "titleHe": "השיטה",
+      "slug": "method",
+      "templateId": "tpl-method",
+      "menuHint": "תפריט ראשי"
+    },
+    {
+      "id": "st-services-hub",
+      "parentId": null,
+      "titleHe": "שירותים",
+      "slug": "services",
+      "templateId": "tpl-nav-hub",
+      "menuHint": "תפריט ראשי — דף מאגר או תפריט מורחב לפי יישום"
+    },
+    {
+      "id": "st-svc-lessons",
+      "parentId": "st-services-hub",
+      "titleHe": "שיעורי דיג'רידו / נגינה",
+      "slug": "lessons",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a9%d7%99%d7%a2%d7%95%d7%a8%d7%99-%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    },
+    {
+      "id": "st-svc-treatment",
+      "parentId": "st-services-hub",
+      "titleHe": "טיפול בדיג'רידו / נשימה",
+      "slug": "treatment",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyNoteHe": "מקור מיגרציה מומלץ: wp_id 18239 ב־SSOT — ודא URL מלא באתר החי (שדה slug ב־CSV עלול להיות חתוך)."
+    },
+    {
+      "id": "st-svc-sound",
+      "parentId": "st-services-hub",
+      "titleHe": "סאונד הילינג / מדיטציית דיג'רידו",
+      "slug": "sound-healing",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyNoteHe": "באתר החי מספר עמודים קרובים (למשל טיפולי סאונד); לאחד לפי תוכן סופי — ראו SSOT."
+    },
+    {
+      "id": "st-svc-repair",
+      "parentId": "st-services-hub",
+      "titleHe": "תיקון וחידוש כלים",
+      "slug": "repair",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%99%d7%a7%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    },
+    {
+      "id": "st-svc-handmade",
+      "parentId": "st-services-hub",
+      "titleHe": "כלים בעבודת יד ואביזרים",
+      "slug": "instruments",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyNoteHe": "מיפוי מדויק ל־URL באתר החי — wp_id 18209 ב־CONTENT-SSOT-INVENTORY (slug ב־CSV עלול להיות חתוך)."
+    },
+    {
+      "id": "st-svc-lectures",
+      "parentId": "st-services-hub",
+      "titleHe": "הרצאות",
+      "slug": "lectures",
+      "templateId": "tpl-lecture-product",
+      "menuHint": "תת־שירות"
+    },
+    {
+      "id": "st-svc-workshops",
+      "parentId": "st-services-hub",
+      "titleHe": "סדנאות",
+      "slug": "workshops",
+      "templateId": "tpl-service",
+      "menuHint": "תת־שירות",
+      "legacyNoteHe": "wp_id 18061 ב־SSOT — סדנאות; אמת URL מלא מול האתר החי."
+    },
+    {
+      "id": "st-eyal-hub",
+      "parentId": null,
+      "titleHe": "אייל עמית — אודות",
+      "slug": "eyal-amit",
+      "templateId": "tpl-about",
+      "menuHint": "תפריט ראשי",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa/"
+    },
+    {
+      "id": "st-about-journey",
+      "parentId": "st-eyal-hub",
+      "titleHe": "מסע",
+      "slug": "journey",
+      "templateId": "tpl-secondary",
+      "menuHint": "תת־פריט תחת אייל עמית"
+    },
+    {
+      "id": "st-mokesh",
+      "parentId": "st-eyal-hub",
+      "titleHe": "מוקש דהימן — לזכרו",
+      "slug": "mokesh-dahiman",
+      "templateId": "tpl-memorial",
+      "menuHint": "תת־פריט תחת אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%93%d7%a3-%d7%9c%d7%94%d7%a0%d7%a6%d7%97%d7%aa-%d7%96%d7%9a/"
+    },
+    {
+      "id": "st-blog",
+      "parentId": null,
+      "titleHe": "בלוג דיג'רידו",
+      "slug": "blog",
+      "templateId": "tpl-blog-archive",
+      "menuHint": "תפריט ראשי",
+      "legacyNoteHe": "URL מדויק באתר החי — בדוק ב־SSOT (slug ארוך)."
+    },
+    {
+      "id": "st-media",
+      "parentId": null,
+      "titleHe": "המלצות ומדיה",
+      "slug": "media",
+      "templateId": "tpl-media",
+      "menuHint": "תפריט ראשי"
+    },
+    {
+      "id": "st-books",
+      "parentId": null,
+      "titleHe": "ספרים",
+      "slug": "books",
+      "templateId": "tpl-books",
+      "menuHint": "תפריט ראשי",
+      "legacyNoteHe": "מוזג מדור הוצאה; דפי ספר בודדים — ראו SSOT למיפוי."
+    },
+    {
+      "id": "st-courses",
+      "parentId": null,
+      "titleHe": "קורסים (סקולר)",
+      "slug": "courses-external",
+      "templateId": "tpl-external-menu",
+      "menuHint": "תפריט ראשי — קישור חיצוני"
+    },
+    {
+      "id": "st-trainings",
+      "parentId": null,
+      "titleHe": "הכשרות למטפלים",
+      "slug": "therapist-training",
+      "templateId": "tpl-placeholder",
+      "menuHint": "תפריט ראשי",
+      "legacyNoteHe": "ייתכן noindex לפי מנדט M2 — ראו Yoast."
+    },
+    {
+      "id": "st-contact",
+      "parentId": null,
+      "titleHe": "צור קשר",
+      "slug": "contact",
+      "templateId": "tpl-contact",
+      "menuHint": "תפריט ראשי",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/"
+    },
+    {
+      "id": "st-legal-access",
+      "parentId": null,
+      "titleHe": "הצהרת נגישות",
+      "slug": "accessibility",
+      "templateId": "tpl-legal",
+      "menuHint": "משני / פוטר"
+    },
+    {
+      "id": "st-legal-terms",
+      "parentId": null,
+      "titleHe": "תקנון",
+      "slug": "terms",
+      "templateId": "tpl-legal",
+      "menuHint": "משני / פוטר",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/"
+    },
+    {
+      "id": "st-thankyou",
+      "parentId": null,
+      "titleHe": "תודה אחרי טפסים",
+      "slug": "thank-you",
+      "templateId": "tpl-secondary",
+      "menuHint": "מערכת"
+    },
+    {
+      "id": "st-html-sitemap",
+      "parentId": null,
+      "titleHe": "מפת אתר HTML (אופציונלי)",
+      "slug": "sitemap",
+      "templateId": "tpl-secondary",
+      "menuHint": "משני"
+    },
+    {
+      "id": "st-en",
+      "parentId": null,
+      "titleHe": "English",
+      "slug": "en",
+      "templateId": "tpl-en-landing",
+      "menuHint": "תפריט — EN"
+    }
+  ]
+}

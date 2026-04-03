@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "templates": [
+    {
+      "id": "tpl-home",
+      "nameHe": "דף בית",
+      "descriptionHe": "נחיתה ראשית — מסר מרכזי, אזור עדכונים, CTA. ראו HOME-PAGE-DIRECTIONS.",
+      "mockupHref": "mockups/page-types/tpl-home.html",
+      "fields": [
+        { "id": "hero_title", "labelHe": "כותרת ראשית (H1)", "type": "text" },
+        { "id": "hero_subtitle", "labelHe": "תת־כותרת / מסר", "type": "textarea" },
+        { "id": "cta_primary", "labelHe": "טקסט ופעולה ל־CTA ראשי", "type": "textarea" },
+        { "id": "updates_block", "labelHe": "טקסט לאזור עדכונים", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "הערות לתמונות / וידאו (קישורי Drive)", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-method",
+      "nameHe": "השיטה",
+      "descriptionHe": "הסבר מהות השיטה, הבדלים בין נגינה / טיפול / סאונד הילינג; ללא הבטחה רפואית רחבה.",
+      "mockupHref": "mockups/page-types/tpl-method.html",
+      "fields": [
+        { "id": "intro", "labelHe": "פתיח", "type": "textarea" },
+        { "id": "pillars", "labelHe": "עקרונות / עמודים תומכים (רשימה)", "type": "textarea" },
+        { "id": "disclaimer", "labelHe": "גבולות אחריות (ניסוח)", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "מדיה — קישורי Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-service",
+      "nameHe": "עמוד שירות",
+      "descriptionHe": "תבנית אחידה לשירותי סטודיו (שיעורים, טיפול, סדנאות וכו׳).",
+      "mockupHref": "mockups/page-types/tpl-service.html",
+      "fields": [
+        { "id": "h1", "labelHe": "כותרת עמוד", "type": "text" },
+        { "id": "summary", "labelHe": "תקציר למטא / שיתוף", "type": "textarea" },
+        { "id": "body", "labelHe": "גוף העמוד", "type": "textarea" },
+        { "id": "faq", "labelHe": "שאלות נפוצות (אופציונלי)", "type": "textarea" },
+        { "id": "cta", "labelHe": "קריאה לפעולה", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "מדיה — קישורי Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-lecture-product",
+      "nameHe": "מוצר — הרצאות",
+      "descriptionHe": "תוכן + כפתור סליקה חיצונית.",
+      "mockupHref": "mockups/mockups/mockup-lectures.html",
+      "fields": [
+        { "id": "title", "labelHe": "כותרת", "type": "text" },
+        { "id": "description", "labelHe": "תיאור", "type": "textarea" },
+        { "id": "checkout_url", "labelHe": "קישור סליקה חיצוני", "type": "url" },
+        { "id": "media_notes", "labelHe": "מדיה — קישורי Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-about",
+      "nameHe": "אודות",
+      "descriptionHe": "אודות אייל — ביוגרפיה, קול אישי.",
+      "mockupHref": "mockups/page-types/tpl-about.html",
+      "fields": [
+        { "id": "bio", "labelHe": "ביוגרפיה / סיפור", "type": "textarea" },
+        { "id": "highlights", "labelHe": "נקודות בולטות", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "תמונות — קישורי Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-memorial",
+      "nameHe": "מוקש דהימן — לזכרו",
+      "descriptionHe": "עמוד הנצחה ייעודי; 301 מ־URL legacy.",
+      "mockupHref": "mockups/page-types/tpl-memorial.html",
+      "fields": [
+        { "id": "title", "labelHe": "כותרת", "type": "text" },
+        { "id": "body", "labelHe": "תוכן", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "מדיה — קישורי Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-blog-archive",
+      "nameHe": "ארכיון בלוג",
+      "descriptionHe": "רשימת פוסטים + מבנה קטגוריות לפי BLOG-REVIVAL-PLAN.",
+      "mockupHref": "mockups/page-types/tpl-blog-archive.html",
+      "fields": [
+        { "id": "intro", "labelHe": "טקסט מבוא לארכיון", "type": "textarea" },
+        { "id": "notes", "labelHe": "הערות קטגוריות / סינון", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-media",
+      "nameHe": "המלצות ומדיה",
+      "descriptionHe": "עדויות, פודקאסטים, כתבות נבחרות.",
+      "mockupHref": "mockups/page-types/tpl-media.html",
+      "fields": [
+        { "id": "intro", "labelHe": "פתיח", "type": "textarea" },
+        { "id": "items", "labelHe": "פריטים (כותרת + קישור לכל שורה)", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "קבצי מדיה ב־Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-books",
+      "nameHe": "ספרים",
+      "descriptionHe": "מדור מרוכז; כרטיסים + דפי ספר ל־SEO.",
+      "mockupHref": "mockups/page-types/tpl-books.html",
+      "fields": [
+        { "id": "intro", "labelHe": "פתיח המדור", "type": "textarea" },
+        { "id": "books_list", "labelHe": "רשימת ספרים (כותרת, תקציר, קישור רכישה)", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "כריכות — Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-external-menu",
+      "nameHe": "פריט תפריט — קישור חיצוני (קורסים)",
+      "descriptionHe": "מצביע לסקולר / רב מסר; אין עמוד מלא באתר.",
+      "mockupHref": "mockups/mockups/mockup-digital-course.html",
+      "fields": [
+        { "id": "label", "labelHe": "טקסט בפריט תפריט", "type": "text" },
+        { "id": "external_url", "labelHe": "כתובת יעד", "type": "url" },
+        { "id": "notes", "labelHe": "הערות", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-placeholder",
+      "nameHe": "עמוד ״יעלה בקרוב״",
+      "descriptionHe": "הכשרות למטפלים וכו׳ — תוכן מינימלי עד עדכון.",
+      "mockupHref": "mockups/page-types/tpl-placeholder.html",
+      "fields": [
+        { "id": "message", "labelHe": "הודעה לביקור", "type": "textarea" },
+        { "id": "cta_optional", "labelHe": "CTA אופציונלי (טופס / קשר)", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-contact",
+      "nameHe": "צור קשר",
+      "descriptionHe": "טלפון, וואטסאפ, טופס קצר, קישורים לטפסים חיצוניים.",
+      "mockupHref": "mockups/page-types/tpl-contact.html",
+      "fields": [
+        { "id": "intro", "labelHe": "טקסט מעל הטופס", "type": "textarea" },
+        { "id": "phones", "labelHe": "טלפונים / וואטסאפ", "type": "textarea" },
+        { "id": "external_forms", "labelHe": "קישורים לטפסים חיצוניים", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-legal",
+      "nameHe": "משפטי / מערכת",
+      "descriptionHe": "תקנון, נגישות, מדיניות.",
+      "mockupHref": "mockups/page-types/tpl-legal.html",
+      "fields": [
+        { "id": "body", "labelHe": "תוכן משפטי", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-en-landing",
+      "nameHe": "English landing",
+      "descriptionHe": "עמוד נחיתה LTR — ראו IA-WIREFRAMES-AND-EN-LANDING.",
+      "mockupHref": "mockups/en-landing-page-preview.html",
+      "fields": [
+        { "id": "headline", "labelHe": "Headline", "type": "text" },
+        { "id": "body_en", "labelHe": "Body (English)", "type": "textarea" },
+        { "id": "cta_en", "labelHe": "CTA", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-secondary",
+      "nameHe": "עמוד משני (גנרי)",
+      "descriptionHe": "מסע, מפת אתר HTML, תודה אחרי טפסים וכו׳.",
+      "mockupHref": "mockups/page-types/tpl-secondary.html",
+      "fields": [
+        { "id": "title", "labelHe": "כותרת", "type": "text" },
+        { "id": "body", "labelHe": "תוכן", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "מדיה — Drive", "type": "textarea" }
+      ]
+    },
+    {
+      "id": "tpl-nav-hub",
+      "nameHe": "דף מאגר שירותים (אופציונלי)",
+      "descriptionHe": "אם נשמר דף אב לפני תתי־השירותים.",
+      "mockupHref": "mockups/page-types/tpl-service.html",
+      "fields": [
+        { "id": "intro", "labelHe": "פתיח", "type": "textarea" },
+        { "id": "cards", "labelHe": "תיאור כרטיסים לשירותים", "type": "textarea" }
+      ]
+    }
+  ]
+}

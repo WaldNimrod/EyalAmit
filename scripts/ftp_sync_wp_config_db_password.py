@@ -1,51 +1,29 @@
 #!/usr/bin/env python3
 """
-Sync DB_NAME, DB_USER, DB_PASSWORD in remote wp-config.php from local/staging.credentials.md (FTP).
+Sync DB_NAME, DB_USER, DB_PASSWORD in remote wp-config.php from local/.env.upress (FTP/FTPS).
 
-Parses MySQL triple from the הערות line: `DB: … user: … password: …` (avoids mistaking **Password:** for DB).
-Usage (from repo root): python3 scripts/ftp_sync_wp_config_db_password.py
+Also ensures define( 'WP_ENVIRONMENT_TYPE', ... ) exists (insert or update) per
+https://developer.wordpress.org/apis/wp-config-php/#wp-environment-type — value from
+UPRESS_WP_ENVIRONMENT_TYPE (default: staging).
 
-Requires: FTP access from this machine to uPress (port 21 open).
+Before overwriting wp-config.php, uploads a backup as wp-config.php.bak (v2 §2.3).
+
+Usage (from repo root):
+  pip install -r scripts/requirements-upress.txt
+  python3 scripts/ftp_sync_wp_config_db_password.py
+
+Requires: UPRESS_DB_PASS and optionally UPRESS_DB_NAME, UPRESS_DB_USER in .env.upress (v2 §12).
 """
 from __future__ import annotations
 
 import io
 import re
-from pathlib import Path
 
-
-def parse_credentials(md: str) -> dict:
-    out = {}
-    for label, key in (
-        ("**Host:**", "ftp_host"),
-        ("**Port:**", "ftp_port"),
-        ("**Username:**", "ftp_user"),
-        ("**Password:**", "ftp_password"),
-    ):
-        m = re.search(re.escape(label) + r"\s*([^\n]+)", md)
-        if m:
-            out[key] = m.group(1).strip()
-
-    # MySQL: single line "DB: x user: y password: z" (under הערות) — NOT generic password: (breaks on **Password:**)
-    m = re.search(
-        r"DB:\s*(\S+)\s+user:\s*(\S+)\s+password:\s*(\S+)",
-        md,
-        re.IGNORECASE,
-    )
-    if m:
-        out["db_name"] = m.group(1)
-        out["db_user"] = m.group(2)
-        out["db_password"] = m.group(3)
-    else:
-        m = re.search(r"\*\*סיסמת MySQL / הערות:\*\*\s*([^\n]+)", md)
-        if m:
-            out["db_password"] = m.group(1).strip()
-    if "db_password" not in out:
-        raise SystemExit(
-            "Could not find DB credentials. Add a line like: DB: name user: user password: pass (under מסד נתונים)."
-        )
-
-    return out
+from upress_ftp_env import (
+    connect_ftp,
+    get_db_triple_for_wp_config,
+    get_wp_environment_type_for_wp_config,
+)
 
 
 def replace_define_value(content: str, const_name: str, new_value: str) -> str:
@@ -63,31 +41,49 @@ def replace_define_value(content: str, const_name: str, new_value: str) -> str:
     return content[: m.start()] + new_line + content[m.end() :]
 
 
+def ensure_wp_environment_type(content: str, env_type: str) -> str:
+    """Insert or update WP_ENVIRONMENT_TYPE; no-op if already set to env_type."""
+    define_re = re.compile(
+        r"define\s*\(\s*['\"]WP_ENVIRONMENT_TYPE['\"]\s*,\s*['\"]([^'\"]*)['\"]\s*\)\s*;",
+        re.IGNORECASE,
+    )
+    m = define_re.search(content)
+    if m:
+        current = m.group(1).strip().lower()
+        if current == env_type:
+            return content
+        return replace_define_value(content, "WP_ENVIRONMENT_TYPE", env_type)
+
+    anchor = re.compile(
+        r"(define\s*\(\s*['\"]DB_HOST['\"]\s*,\s*['\"][^'\"]*['\"]\s*\)\s*;\s*\n)",
+        re.IGNORECASE,
+    )
+    ma = anchor.search(content)
+    if not ma:
+        raise SystemExit(
+            "wp-config.php has no WP_ENVIRONMENT_TYPE and no DB_HOST line to anchor after — "
+            "add manually: https://developer.wordpress.org/apis/wp-config-php/#wp-environment-type"
+        )
+    snippet = (
+        "\n"
+        "/** WordPress environment type: "
+        "https://developer.wordpress.org/apis/wp-config-php/#wp-environment-type */\n"
+        f"define( 'WP_ENVIRONMENT_TYPE', '{env_type}' );\n"
+    )
+    return content[: ma.end()] + snippet + content[ma.end() :]
+
+
 def main() -> None:
-    root = Path(__file__).resolve().parents[1]
-    cred_path = root / "local" / "staging.credentials.md"
-    if not cred_path.is_file():
-        raise SystemExit(f"Missing {cred_path}")
+    db_name, db_user, db_pw = get_db_triple_for_wp_config()
+    wp_env_type = get_wp_environment_type_for_wp_config()
 
-    text = cred_path.read_text(encoding="utf-8")
-    c = parse_credentials(text)
+    ftp, _remote_rr = connect_ftp(timeout=45)
 
-    import ftplib
-
-    host = c["ftp_host"]
-    port = int(c.get("ftp_port") or "21")
-    user = c["ftp_user"]
-    pw = c["ftp_password"]
-    db_pw = c["db_password"]
-    db_name = c.get("db_name")
-    db_user = c.get("db_user")
-
-    ftp = ftplib.FTP()
-    ftp.connect(host, port, timeout=45)
-    ftp.login(user, pw)
-    ftp.cwd("/")
     if "wp-config.php" not in ftp.nlst():
-        raise SystemExit("wp-config.php not found in FTP root (check remote path).")
+        ftp.quit()
+        raise SystemExit(
+            "wp-config.php not found in WordPress FTP root — check UPRESS_FTP_REMOTE_ROOT."
+        )
 
     buf = io.BytesIO()
     ftp.retrbinary("RETR wp-config.php", buf.write)
@@ -98,15 +94,25 @@ def main() -> None:
     if db_user:
         updated = replace_define_value(updated, "DB_USER", db_user)
     updated = replace_define_value(updated, "DB_PASSWORD", db_pw)
+    updated = ensure_wp_environment_type(updated, wp_env_type)
     if updated == original:
-        print("wp-config.php DB_* already match credentials (no upload).")
+        print(
+            "wp-config.php already matches .env.upress (DB_* and WP_ENVIRONMENT_TYPE); no upload."
+        )
         ftp.quit()
         return
+
+    # Backup current file on server before overwrite (v2 §2.3)
+    bak = io.BytesIO(original.encode("utf-8"))
+    ftp.storbinary("STOR wp-config.php.bak", bak)
 
     out = io.BytesIO(updated.encode("utf-8"))
     ftp.storbinary("STOR wp-config.php", out)
     ftp.quit()
-    print("OK: wp-config.php DB_NAME / DB_USER / DB_PASSWORD synced from staging.credentials.md.")
+    print(
+        "OK: wp-config.php DB_* and WP_ENVIRONMENT_TYPE synced from local/.env.upress "
+        "(backup: wp-config.php.bak)."
+    )
 
 
 if __name__ == "__main__":

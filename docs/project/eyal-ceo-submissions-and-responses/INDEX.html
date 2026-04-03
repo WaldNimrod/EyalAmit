@@ -112,15 +112,202 @@
       font-weight: 600;
     }
     .fb code { background: #e8dfd2; }
+    .updates {
+      background: linear-gradient(180deg, #fff 0%, #faf7f2 100%);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem 1.15rem;
+      margin: 1.25rem 0 1.75rem;
+    }
+    .updates h2 {
+      margin-top: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .updates .muted { margin: 0 0 0.75rem; }
+    .updates ul {
+      margin: 0.5rem 0 0;
+      padding: 0 1.25rem 0 0;
+      list-style: disc;
+    }
+    .updates ul li {
+      margin: 0.65rem 0;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border);
+    }
+    .updates ul li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    .updates .d { font-size: 0.82rem; font-weight: 700; color: var(--muted); letter-spacing: 0.03em; margin-bottom: 0.25rem; }
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1rem 0 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+    }
+    table.eyal-answers {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      min-width: 56rem;
+    }
+    table.eyal-answers th,
+    table.eyal-answers td {
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.5rem;
+      vertical-align: top;
+      text-align: right;
+    }
+    table.eyal-answers th {
+      background: #f0ebe3;
+      font-weight: 700;
+    }
+    table.eyal-answers tbody tr:nth-child(even) { background: #fcfaf7; }
+    table.eyal-answers .mono { font-family: ui-monospace, monospace; font-size: 0.76rem; }
+    table.eyal-answers .ans { background: #fff9f0; min-width: 4.5rem; font-weight: 700; color: var(--accent); }
+    .answers-intro {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.75rem;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>אינדקס חומר עדכני — אייל עמית</h1>
-    <p class="sub">תאריך: 2026-03-29 · סדר עבודה · <strong>כל הקישורים למטה — קבצי Word, HTML או טקסט בלבד</strong> (אין קישורים ל־<code>.md</code>)</p>
+    <p class="sub"><strong>עודכן (דף אינדקס זה):</strong> 2026-03-29 · סדר עבודה · <strong>כל הקישורים — Word, HTML או טקסט בלבד</strong> (אין קישורים ל־<code>.md</code>) · <strong>חדש ביותר למעלה</strong> בקטע «עדכונים אחרונים» · <a href="#answers-table">טבלת תשובות קצרה</a> למטה.</p>
 
     <div class="callout">
       <strong>הגשה רשמית:</strong> Word (<code>.docx</code>) או PDF בלבד. דף זה מרכז את מה שניתן לפתוח ישירות מהדיסק / דרייב. מקורות Markdown הם לצוות בלבד ואינם מקושרים כאן.
+    </div>
+
+    <div class="updates" id="latest">
+      <h2>עדכונים אחרונים</h2>
+      <p class="muted">הפריט העליון הוא העדכני ביותר. בעת הוספת חומר חדש — <strong>הוסיפו פריט חדש בראש הרשימה</strong> (ולא למטה).</p>
+      <ul>
+        <li>
+          <div class="d">2026-03-29</div>
+          <strong>טבלת תשובות מרוכזת</strong> — מילוי מהיר למייל: מקטע <a href="#answers-table">טבלת תשובות — תוכן והחלטות</a> (עמודה «תשובתי» — אות בלבד).</li>
+        <li>
+          <div class="d">2026-04-04</div>
+          <strong>משוב צוות — יישור עץ אתר ו־SEO · AEO · GEO</strong> (אחרי המסמך שלך מאפריל)<br />
+          <a href="to-eyal/2026-04-04--sitemap-seo-aeo-geo-feedback/2026-04-04--sitemap-seo-aeo-geo-alignment-feedback-for-eyal--v1.docx">2026-04-04--sitemap-seo-aeo-geo-alignment-feedback-for-eyal--v1.docx</a>
+          · <a href="to-eyal/2026-04-04--sitemap-seo-aeo-geo-feedback/README.txt">README.txt</a>
+        </li>
+        <li>
+          <div class="d">2026-03-31</div>
+          <strong>דוח מסכם לאייל — מוכנות SEO / AEO / GEO</strong><br />
+          <a href="to-eyal/2026-03-31--aeo-geo-client-report/2026-03-31--aeo-geo-client-report-for-eyal--v1.docx">2026-03-31--aeo-geo-client-report-for-eyal--v1.docx</a>
+        </li>
+        <li>
+          <div class="d">2026-03-31</div>
+          <strong>תזכיר פגישה — נעילות ועץ (מקור חתום v1.1)</strong><br />
+          <a href="to-eyal/2026-03-31--meeting-brief/Copy%20of%202026-03-31--meeting-brief-for-eyal--v1.1.docx">Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx</a>
+          · <a href="to-eyal/2026-03-31--meeting-brief/README.txt">README.txt</a>
+        </li>
+        <li>
+          <div class="d">2026-03-30</div>
+          <strong>חבילת אפיון סופית — כל קבצי ה־Word</strong> (תקציר, מפה, החלטות, טפסים, אפיון, תנועה)<br />
+          <a href="to-eyal/2026-03-30--final-spec-package-for-eyal/README.txt">README.txt בתיקיית החבילה</a>
+          — פירוט שמות הקבצים בפנים; או מקטע <a href="#pkg-full">«1. חובה — חבילת Word»</a> למטה.
+        </li>
+        <li>
+          <div class="d">2026-03-29</div>
+          <strong>תשתית ומסלולי עבודה (דואלי) — לידיעת אייל</strong><br />
+          <a href="to-eyal/2026-03-29--infrastructure-policy-for-eyal/2026-03-29--infrastructure-dual-track-policy-for-eyal--v1.0.docx">2026-03-29--infrastructure-dual-track-policy-for-eyal--v1.0.docx</a>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="answers-table">טבלת תשובות — תוכן והחלטות (מילוי קצר)</h2>
+    <div class="answers-intro">
+      <strong>איך ממלאים:</strong> בעמודה האחרונה כתובו <strong>אות בלבד</strong> (למשל <code>א׳</code>) או קו קצר. אפשר להעתיק את השורה למייל או להדפיס ולעגל ידנית. לכל שאלה יש הרחבה ומוקאפים במקטע <a href="#open-questions">«פתוחים מול אייל»</a> למטה.<br />
+      <span class="muted">מסמכי יסוד: תזכיר v1.1 · משוב יישור SEO מ־04-04 · מוקאפי HTML בתיקיית <code>_shared-assets</code>.</span>
+    </div>
+    <div class="table-wrap" role="region" aria-label="טבלת תשובות לאייל">
+      <table class="eyal-answers">
+        <thead>
+          <tr>
+            <th scope="col">מזהה</th>
+            <th scope="col">נושא</th>
+            <th scope="col">הקשר קצר</th>
+            <th scope="col">אופציות (בחירה באות)</th>
+            <th scope="col">השלכות</th>
+            <th scope="col">המלצת צוות</th>
+            <th scope="col" class="ans">תשובתי</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">Q-EYAL-SITE-07</td>
+            <td>עץ אתר · SEO · AEO · GEO</td>
+            <td>לאחר המסמך שלך ומשוב הצוות ב־Word מ־04-04 — האם המבנה תואם את v2.3 המאושר או נדרשת התאמה?</td>
+            <td><strong>א׳</strong> מאשר יישור כפי שבמשוב · <strong>ב׳</strong> יש שינוי למחיצה/סדר (פרט במייל נפרד) · <strong>ג׳</strong> רוצה שיחת הבהרה לפני מימוש</td>
+            <td>א׳/ב׳ משפיעים על תפריטים ו־WXR; ג׳ עוצר הזנה מבנית עד שיחה</td>
+            <td>א׳ אם אין סתירה לטבלת v2.3</td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-HOME-01</td>
+            <td>דף הבית — בחירה סופית</td>
+            <td>ללא מהפכה בממשק; רענון מודרני; בלוק SEO. מוקאפים: כיוונים A/B/C ודשבורד מלא.</td>
+            <td><strong>א׳</strong> שער אחד · <strong>ב׳</strong> מרכז+עומק · <strong>ג׳</strong> תמונה דומיננטית · <strong>ד׳</strong> אחת מדשבורדי <a href="to-eyal/_shared-assets/home-dashboard/index.html">home-dashboard</a> / שילוב · <strong>ה׳</strong> קרוב להיום + רשימת שינויים</td>
+            <td>קובעים סבב עיצוב אחד; ד׳/ה׳ דורשים פירוט נוסף ממך</td>
+            <td>ד׳ — דשבורד אחד עם SEO</td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-EN-BODY-02</td>
+            <td>עמוד EN — גוף הטקסט</td>
+            <td>H1 נעול: Didgeridoo healing center - Eyal Amit. שאר הניסוח — טיוטה.</td>
+            <td><strong>א׳</strong> לאשר מוקאפ · <strong>ב׳</strong> עריכה ממוקדת (תשלח טקסט) · <strong>ג׳</strong> שיחת טון 15 דק׳</td>
+            <td>א׳ חוסך סבבים; ב׳/ג׳ דורשים זמן ממך</td>
+            <td>א׳ לאחר קריאה אחת של <a href="to-eyal/_shared-assets/en-landing-page-preview.html">מוקאפ EN</a></td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-GALLERY-03</td>
+            <td>גלריות — לפני בנייה</td>
+            <td>כל התוכן עובר; תקרה ~150 תמונות למחיצה; טבלת מספרים לאישור.</td>
+            <td><strong>א׳</strong> מאשר עקרון מראש · <strong>ב׳</strong> מחכה לטבלה מלאה · <strong>ג׳</strong> תקרה אחרת (פרט)</td>
+            <td>א׳ משחרר מיגרציה; ב׳ עוצר עד טבלה</td>
+            <td>א׳ + אישור שני קצר כשהטבלה מוכנה</td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-KMD-04</td>
+            <td>Keep / Merge / Drop</td>
+            <td>לפני מיגרציה מלאה — רמת חתימה על מיפוי עמודים ישנים.</td>
+            <td><strong>א׳</strong> סיכום מספרים + חריגים · <strong>ב׳</strong> טבלה מלאה · <strong>ג׳</strong> הרשאה ל־100/נימרוד בלי Drop למותג ראשי</td>
+            <td>ב׳ כבד יותר לך; ג׳ דורש אמון</td>
+            <td>א׳; ב׳ אם הרבה Drop</td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-COURSES-05</td>
+            <td>קורס דיגיטלי והרצאות</td>
+            <td>מוקאפים מוכנים; נדרש תוכן וקישורים (סקולר/רב מסר) לשלב מאוחר.</td>
+            <td><strong>א׳</strong> טקסטים+קישורים עד תאריך · <strong>ב׳</strong> מוקאפ+placeholder עד שתשלח · <strong>ג׳</strong> דחייה ל«בקרוב»</td>
+            <td>ג׳ דורש סנכרון מפת אתר</td>
+            <td>ב׳ ל־M2; א׳ עם דדליין לפני M3</td>
+            <td class="ans">____</td>
+          </tr>
+          <tr>
+            <td class="mono">Q-EYAL-GREEN-UX-06</td>
+            <td>חשבונית ירוקה — כפתור (חוויה)</td>
+            <td>מסלול נעול: כפתור ל־Morning. נדרשת דוגמה אמיתית לניסוח/מיקום.</td>
+            <td><strong>א׳</strong> שולח דוגמת Morning · <strong>ב׳</strong> כפתור גנרי עד אז · <strong>ג׳</strong> ניסוח כפתור אחר</td>
+            <td>א׳ מדויק ביותר ללקוחות</td>
+            <td>א׳; עד אז ב׳</td>
+            <td class="ans">____</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <h2>איך מתמצאים: from-eyal ו־to-eyal</h2>
@@ -130,7 +317,7 @@
     </ul>
     <p class="muted">קאנון: <code>from-eyal</code> = נכנס · <code>to-eyal</code> = יוצא (גלים + <code>_shared-assets</code>). ראו <code>EYAL-CORRESPONDENCE-CANON.md</code> במאגר.</p>
 
-    <h2>1. חובה — חבילת Word</h2>
+    <h2 id="pkg-full">1. חובה — חבילת Word</h2>
     <p class="muted">תיקייה: <code>to-eyal/2026-03-30--final-spec-package-for-eyal/</code></p>
     <p><a href="to-eyal/2026-03-30--final-spec-package-for-eyal/README.txt">README.txt</a> בתיקיית החבילה</p>
     <div class="pkg">
@@ -159,27 +346,46 @@
     <p><a href="to-eyal/_shared-assets/README.txt">to-eyal/_shared-assets/README.txt</a> — פירוט נכסים</p>
 
     <h2>3. תזכיר פגישה (Word)</h2>
+    <p class="muted">העדכני ביותר למעלה.</p>
     <ul>
-      <li><a href="to-eyal/2026-03-31--meeting-brief/Copy%20of%202026-03-31--meeting-brief-for-eyal--v1.1.docx">תזכיר פגישה — עותק v1.1</a></li>
+      <li><a href="to-eyal/2026-03-31--meeting-brief/Copy%20of%202026-03-31--meeting-brief-for-eyal--v1.1.docx">תזכיר פגישה — v1.1 (מקור חתום)</a></li>
       <li><a href="to-eyal/2026-03-31--meeting-brief/2026-03-31--meeting-brief-for-eyal--v1.docx">תזכיר פגישה — v1</a></li>
       <li><a href="to-eyal/2026-03-31--meeting-brief/README.txt">הנחיות תיקיית התזכיר</a></li>
     </ul>
 
-    <h2>4. תשובות מאייל / ארכיון</h2>
-    <p class="muted">תיקיות ללא אינדקס HTML ייעודי — יש לפתוח מתוך סייר הקבצים:</p>
+    <h2>4. תשובות מאייל / נכנס (<code>from-eyal</code>)</h2>
+    <p class="muted">קבצי Word שנשמרו כאן — <strong>העדכני ביותר למעלה</strong>. (מסמכי Markdown בתיקייה — לצוות בלבד, לא מקושרים מכאן.)</p>
     <ul>
-      <li><code>from-eyal/</code> — חתימות והערות (כשמתעדכן)</li>
-      <li><code>archive/</code> — חומר ישן / LEGACY</li>
+      <li><a href="from-eyal/%D7%A2%D7%A5%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A0%D7%9E%D7%A8%D7%95%D7%93%20-%20%D7%A9%D7%99%D7%A7%D7%95%D7%9C%D7%99%20SEO%20GEO%20AEO.docx">עץ אתר לנמרוד — שיקולי SEO · GEO · AEO</a> (Word)</li>
+      <li><a href="from-eyal/2026-03-29--site-map-draft-v2--v1.docx">2026-03-29 — מפת אתר (חתימה v1)</a></li>
+      <li><a href="from-eyal/2026-03-29--decisions-for-approval--v1.docx">2026-03-29 — החלטות לאישור (חתימה v1)</a></li>
+      <li><a href="from-eyal/2026-03-29--executive-summary--v1.docx">2026-03-29 — תקציר מנהלים (חתימה v1)</a></li>
     </ul>
+    <p class="muted">ארכיון: <code>archive/</code> — חומר ישן / LEGACY (פתיחה מסייר הקבצים).</p>
 
     <h2>5. צוות (מקורות פנימיים)</h2>
     <p class="muted">אפיון מלא, פרוטוקולים, מחקרים ומקורות Markdown נמצאים תחת <code>docs/project/team-100-preplanning/</code> — לא מקושרים מדף זה בכוונה. לייצוא מחדש של חבילת ה־Word: <code>python3 scripts/build_eyal_ceo_deliverables.py</code> משורש המאגר.</p>
 
-    <h2>6. פתוחים מול אייל — לא טכניים בלבד</h2>
+    <h2 id="open-questions">6. פתוחים מול אייל — לא טכניים בלבד</h2>
     <div class="open-intro">
       <strong>מטרה:</strong> נושאים שדורשים <strong>החלטה, תוכן או חוויית משתמש</strong> ממך. התקנות, שרתים, מסדי נתונים ו־301 — נסגרים מול הצוות הטכני בנפרד.<br />
-      <span class="muted">מקור מצב: פגישה 2026-03-31 + פרוטוקול צוות. עדכון רשימה זו: 2026-03-31.</span>
+      <strong>מילוי מהיר:</strong> ראו <a href="#answers-table">טבלת תשובות</a> בראש הדף (עמודה אחרונה).<br />
+      <span class="muted">מקור מצב: פגישה 2026-03-31 + פרוטוקול צוות. עדכון רשימה זו: 2026-03-31. שאלה Q-EYAL-SITE-07 נוספה עם משוב SEO מ־04-04.</span>
     </div>
+
+    <article class="open-card" id="q-eyal-site-07">
+      <h3><span class="q-id">Q-EYAL-SITE-07</span> עץ אתר · SEO · AEO · GEO — יישור מול v2.3</h3>
+      <p class="block-title">קונטקסט</p>
+      <p>קיבלנו את מסמך העץ והשיקולים שלך; פרסמנו משוב צוות ב־Word מ־04-04. מפת האתר <strong>v2.3</strong> כבר <strong>APPROVED</strong> מולך בפגישה — צריך לוודא שאין סתירה בין המסמכים לפני שמזינים מבנה סופי ב־WordPress.</p>
+      <p class="block-title">אופציות</p>
+      <ul>
+        <li><strong>א׳</strong> — מאשרים את יישור הצוות למפת v2.3 כפי שבמשוב.</li>
+        <li><strong>ב׳</strong> — יש שינוי נקודתי למחיצה/סדר (לפרט במייל או בהערה ב־Word).</li>
+        <li><strong>ג׳</strong> — רוצה שיחת הבהרה קצרה לפני מימוש.</li>
+      </ul>
+      <div class="rec"><strong>המלצת צוות:</strong> <strong>א׳</strong> אם אין סתירה לטבלת v2.3 אחרי השוואה שורה־שורה.</div>
+      <p class="fb">משוב נדרש: <code>Q-EYAL-SITE-07</code> + א׳ / ב׳ / ג׳ — או מילוי <a href="#answers-table">בטבלה</a>.</p>
+    </article>
 
     <article class="open-card" id="q-eyal-home-01">
       <h3><span class="q-id">Q-EYAL-HOME-01</span> דף הבית — בחירה סופית</h3>

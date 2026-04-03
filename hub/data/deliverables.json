@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "noteHe": "קישורים יחסיים לתיקיית files/ אחרי בנייה עם --mirror-docx. בלי mirror — יש להוריד מהמאגר או לבקש מהצוות.",
+  "items": [
+    {
+      "id": "DELIV-2026-04-04-SEO-FB",
+      "date": "2026-04-04",
+      "titleHe": "משוב יישור SEO/AEO/GEO",
+      "href": "files/to-eyal/2026-04-04--sitemap-seo-aeo-geo-feedback/2026-04-04--sitemap-seo-aeo-geo-alignment-feedback-for-eyal--v1.docx"
+    },
+    {
+      "id": "DELIV-2026-03-31-AEO",
+      "date": "2026-03-31",
+      "titleHe": "דוח AEO/GEO ללקוח",
+      "href": "files/to-eyal/2026-03-31--aeo-geo-client-report/2026-03-31--aeo-geo-client-report-for-eyal--v1.docx"
+    },
+    {
+      "id": "DELIV-2026-03-31-BRIEF",
+      "date": "2026-03-31",
+      "titleHe": "תזכיר פגישה v1.1",
+      "href": "files/to-eyal/2026-03-31--meeting-brief/Copy of 2026-03-31--meeting-brief-for-eyal--v1.1.docx"
+    },
+    {
+      "id": "DELIV-2026-03-30-PKG",
+      "date": "2026-03-30",
+      "titleHe": "חבילת אפיון סופית (README בתיקייה)",
+      "href": "files/to-eyal/2026-03-30--final-spec-package-for-eyal/README.txt"
+    },
+    {
+      "id": "DELIV-2026-03-29-INFRA",
+      "date": "2026-03-29",
+      "titleHe": "מדיניות תשתית דואלית",
+      "href": "files/to-eyal/2026-03-29--infrastructure-policy-for-eyal/2026-03-29--infrastructure-dual-track-policy-for-eyal--v1.0.docx"
+    }
+  ]
+}

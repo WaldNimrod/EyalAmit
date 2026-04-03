@@ -50,7 +50,7 @@
 
 **מסלול פריסה (החלטה):** **FTP/SFTP בלבד** — ללא Git על השרת למונוריפו המלא.
 
-**סודות:** [`CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](./CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · תבנית שדות: [`local/staging.credentials.example.md`](../../local/staging.credentials.example.md) → העתק ל־`local/staging.credentials.md` (ב־`.gitignore`).
+**סודות:** [`CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](./CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · נוהל קנוני: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) · ייחוס שדות: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §2 → **`local/.env.upress`** (ב־`.gitignore`).
 
 ---
 

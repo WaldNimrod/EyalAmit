@@ -1,0 +1,38 @@
+/* Shared shell for Hub page-type mockups (static preview only) */
+:root {
+  --m-bg: #f6f3ee;
+  --m-ink: #1a1510;
+  --m-accent: #8b4513;
+  --m-muted: #5c5348;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Heebo", system-ui, sans-serif;
+  background: var(--m-bg);
+  color: var(--m-ink);
+  line-height: 1.55;
+  padding: 1.5rem;
+  direction: rtl;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--m-accent);
+  border: 1px solid var(--m-accent);
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 1rem;
+}
+h1 { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: 1.75rem; margin: 0 0 0.5rem; }
+.sub { color: var(--m-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.block {
+  background: #fff;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.75rem;
+  min-height: 2.5rem;
+}
+.placeholder { color: var(--m-muted); font-style: italic; }

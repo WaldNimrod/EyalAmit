@@ -1,0 +1,14 @@
+# Eyal Client Hub — ביטול מטמון HTTP לכל התיקייה (מועתק ל־dist/.htaccess בבנייה).
+# דורש Apache עם mod_headers (נפוץ ב־uPress). אם אחרי פריסה curl -I עדיין מציג Cache-Control ארוך —
+# ייתכן שהקבצים הסטטיים עוברים דרך Nginx/CDN בלי לכבד .htaccess → פנו ל־uPress לחריגת נתיב UPRESS_EYAL_HUB_PATH.
+
+<IfModule mod_headers.c>
+  Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
+  Header always set Pragma "no-cache"
+  Header unset ETag
+</IfModule>
+FileETag None
+
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>

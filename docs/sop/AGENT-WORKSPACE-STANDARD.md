@@ -151,7 +151,7 @@ Cursor (וגם VS Code) יכולים להציג **מיזוג** של:
 ## 7. סקריפטים ופקודות — הרצה
 
 - **חובה:** כשיש גישת shell בסביבת העבודה — להריץ סקריפטים (`python3`, `bash`, `docker compose`) **באמצעות הסוכן**, לא להסתפק בהנחיות "תריץ בעצמך" (כפי שמפורט ב-`AGENTS.md`).
-- **סודות:** רק מקומיות ב־`local/staging.credentials.md` (ב־`.gitignore`); **לא** להדביק סיסמאות בצ'אט או במסמכים ב-Git.
+- **סודות:** רק מקומיות ב־**`local/.env.upress`** (ב־`.gitignore`); הנוהל המלא — [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../project/UPRESS_WORDPRESS_STANDARD_v2.md) §12; ייחוס שדות — [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../project/EYAL_ENV_VARS_REFERENCE.md) §2. **לא** להדביק סיסמאות בצ'אט או במסמכים ב-Git.
 
 ---
 

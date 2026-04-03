@@ -32,6 +32,7 @@
 | מסמכי פרויקט | `docs/project/` |
 | SSOT מנהלי | `docs/sop/SSOT.md` |
 | ייצוא Word ללקוח | `python3 scripts/build_eyal_ceo_deliverables.py` משורש המאגר; תלות: `pip install -r scripts/requirements-docx.txt` |
+| ממשק תקשורת לאייל (Hub) | **`hub/`** (Standard v1.1): `python3 scripts/build_eyal_client_hub.py` · `ftp_publish_eyal_client_hub.py`; SSOT: `hub/ssot/` · נוהל: [`docs/CLIENT_HUB_STANDARD_v1.md`](CLIENT_HUB_STANDARD_v1.md) · נספח: [`docs/CLIENT_HUB_APPENDIX_EYAL.md`](CLIENT_HUB_APPENDIX_EYAL.md) · זרימת עבודה: [`hub/EYAL-HUB-SSOT-WORKFLOW.md`](../hub/EYAL-HUB-SSOT-WORKFLOW.md) · כניסה: [`hub/README.md`](../hub/README.md) · טיוטת פלטפורמה (SUPERSEDED לעומת הנוהל הנעול): [`docs/project/client-hub-platform/CLIENT-HUB-PLATFORM-SPEC-DRAFT.md`](project/client-hub-platform/CLIENT-HUB-PLATFORM-SPEC-DRAFT.md) |
 | סביבה מקומית (Docker) | [`local/README.md`](../local/README.md) — `.env` לא ב־Git; PHP מיושר ל־uPress לפי צוות 20 |
 | פריסה קנונית (מה שעולה לשרת) | [`site/README.md`](../site/README.md) — לא מעלים `_communication/` או `docs/` |
 | מדיניות מסלולים כפולים + uPress | [`docs/project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md`](project/WORDPRESS-DEPLOY-AND-DUAL-TRACK-2026-03-29.md) |
@@ -46,6 +47,7 @@
 | M2 — בקשת ריטסט QA 50 אחרי purge uPress | [`_communication/team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-04-07.md`](../_communication/team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-04-07.md) |
 | M2 — משוב QA קנוני 50 (סטייג'ינג / TLS / G2) | [`_communication/team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md`](../_communication/team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md) |
 | M2 — GO תשתית לקליטת תוכן (100) | [`_communication/team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md`](../_communication/team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md) |
+| M2 — בקשת QA: מוכנות סטייג'ינג אחרי UPRESS v2 (`.env.upress`, FTPS, hub, REST) | [`_communication/team_50/M2-STAGING-V2-READINESS-QA-REQUEST-2026-04-09.md`](../_communication/team_50/M2-STAGING-V2-READINESS-QA-REQUEST-2026-04-09.md) |
 | M2 — דף בית מוקאפ דשבורד (יישום 10) | [`_communication/team_10/M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md`](../_communication/team_10/M2-HOME-DASHBOARD-IMPLEMENTATION-STATUS-2026-04-08.md) |
 | M2 — נגישות: WP Accessibility (הגדרות + QA 50) | [`_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md`](../_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md) · תכנון ת"י: [`docs/project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md`](project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md) |
 | M2 G2 — השלמת סטייג'ינג P0 (צוות 10) | [`_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md`](../_communication/team_10/M2-G2-STAGING-P0-COMPLETION-2026-04-04.md) · דוח ביצוע: [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](../_communication/team_10/M2-G2-STAGING-P0-DONE-2026-04-04.md) · **אימות 100:** [`_communication/team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md`](../_communication/team_100/M2-G2-P0-TEAM10-VERIFICATION-BY-100-2026-04-04.md) |
@@ -57,9 +59,10 @@
 | M2 G2 — מנדט צוות 20 | [`_communication/team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md`](../_communication/team_20/M2-MANDATE-G2-PREREQ-TEAM20-2026-04-02.md) |
 | M2 G2 — מנדט צוות 10 | [`_communication/team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md`](../_communication/team_10/M2-MANDATE-G2-TEAM10-2026-04-02.md) |
 | M2 — תוספי uPress (המלצות 100) | [`_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md`](../_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md) |
+| uPress — נוהל ארגוני WordPress (קנון v2) | [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](project/UPRESS_WORDPRESS_STANDARD_v2.md) · משתני סביבה: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](project/EYAL_ENV_VARS_REFERENCE.md) (§2 → `.env.upress`) |
 | uPress — נתונים לחיבור (Git/FTP), בדיקות פאנל | [`_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md`](../_communication/team_20/UPRESS-CONNECTION-DATA-CHECKLIST-2026-03-29.md) |
 | uPress — סטייג'ינג, PHP, מדריך Git | [`_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](../_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md) |
-| העברת FTP / WP בצורה מאובטחת | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · תבנית [`local/staging.credentials.example.md`](../local/staging.credentials.example.md) |
+| העברת FTP / WP בצורה מאובטחת | [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) · שדות uPress: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](project/EYAL_ENV_VARS_REFERENCE.md) §2 |
 | phpMyAdmin — נוהל עבודה (בלי "להציק") | [`_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md`](../_communication/team_20/DB-AND-PHPMYADMIN-WORKFLOW-2026-03-31.md) |
 | **מאגר WordPress (ישן — נפרד מריפו 2026)** | `../eyalamit.co.il-legacy/` מקומית; Git: `EYALAMIT1/eyalamit.co.il` — **לא** חלק מ־[WaldNimrod/EyalAmit](https://github.com/WaldNimrod/EyalAmit) |
 | **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו · **פרומט הקמה לפי צוות:** [אונבורד ופרומט ראשון](../_communication/README.md#onboarding-prompts) |
@@ -82,9 +85,12 @@
 | אינדקס צוות 100 | [`docs/project/team-100-preplanning/README.md`](project/team-100-preplanning/README.md) |
 | אפיון סופי (canonical לבנייה) | [`SITE-SPECIFICATION-FINAL-2026-03-30.md`](project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md) |
 | מפת אתר v2.3 (**מאושרת**; שם קובץ DRAFT היסטורי) | [`SITEMAP-NEW-SITE-v2-DRAFT.md`](project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md) |
+| **איפה כל מסמכי אייל / מפה / אפיון / אישורים (אינדקס)** | [`EYAL-DOCS-FINDER-2026-04-04.md`](project/eyal-ceo-submissions-and-responses/EYAL-DOCS-FINDER-2026-04-04.md) |
+| מסמך אייל (אפריל) — ניתוח מול v2.3 + M2 | [`M2-EYAL-SITEMAP-SEO-AEO-GEO-ALIGNMENT-2026-04-04.md`](../_communication/team_100/M2-EYAL-SITEMAP-SEO-AEO-GEO-ALIGNMENT-2026-04-04.md) |
 | Keep / Merge / Drop | [`CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md`](project/team-100-preplanning/CONTENT-DECISIONS-KEEP-MERGE-DROP-v2.md) |
 | תהליך ואפיון | [`07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md`](project/team-100-preplanning/07-PROCESS-PRINCIPLES-AND-SITE-SPECIFICATION.md) |
 | מיגרציה והשקה | [`06-IMPLEMENTATION-MIGRATION-PACK.md`](project/team-100-preplanning/06-IMPLEMENTATION-MIGRATION-PACK.md) |
+| **מה נדרש מאייל (תוכן) לפי שלב** | [`EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md`](project/EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md) |
 | הגשות / תשובות אייל | [`INDEX.html`](project/eyal-ceo-submissions-and-responses/INDEX.html) (ללא `.md`) · [`INDEX.md`](project/eyal-ceo-submissions-and-responses/INDEX.md) · [`README.md`](project/eyal-ceo-submissions-and-responses/README.md) |
 | בלוג | [`BLOG-REVIVAL-PLAN.md`](project/BLOG-REVIVAL-PLAN.md) |
 

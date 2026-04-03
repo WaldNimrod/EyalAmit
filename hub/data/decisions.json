@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "introHe": "החלטות הדורשות קלט או אישור מאייל. לכל פריט יש הקשר, אפשרויות, משמעות והמלצת צוות. מילוי וייצוא JSON — בעמוד «משימות והחלטות».",
+  "decisions": [
+    {
+      "id": "D-EYAL-SITE-07",
+      "titleHe": "עץ אתר · SEO · AEO · GEO",
+      "contextHe": "לאחר המסמך שלך ומשוב הצוות ב־Word מ־04-04 — האם המבנה תואם את v2.3 המאושר או נדרשת התאמה?",
+      "optionsHe": "א׳ מאשר יישור כפי שבמשוב · ב׳ יש שינוי למחיצה/סדר (פרט במייל) · ג׳ שיחת הבהרה לפני מימוש",
+      "implicationsHe": "א׳/ב׳ משפיעים על תפריטים ו־WXR; ג׳ עוצר הזנה מבנית עד שיחה",
+      "recommendationHe": "א׳ אם אין סתירה לטבלת v2.3",
+      "status": "pending"
+    },
+    {
+      "id": "D-EYAL-HOME-01",
+      "titleHe": "דף הבית — בחירה סופית",
+      "contextHe": "ללא מהפכה בממשק; רענון מודרני; בלוק SEO. מוקאפים: כיוונים A/B/C ודשבורד מלא.",
+      "optionsHe": "א׳ שער אחד · ב׳ מרכז+עומק · ג׳ תמונה דומיננטית · ד׳ אחת מדשבורדי home-dashboard / שילוב · ה׳ קרוב להיום + רשימת שינויים",
+      "implicationsHe": "קובעים סבב עיצוב אחד; ד׳/ה׳ דורשים פירוט נוסף",
+      "recommendationHe": "ד׳ — דשבורד אחד עם SEO",
+      "status": "pending",
+      "mockupHref": "mockups/home-dashboard/index.html"
+    },
+    {
+      "id": "D-EYAL-EN-BODY-02",
+      "titleHe": "עמוד EN — גוף הטקסט",
+      "contextHe": "H1 נעול: Didgeridoo healing center - Eyal Amit. שאר הניסוח — טיוטה.",
+      "optionsHe": "א׳ לאשר מוקאפ · ב׳ עריכה ממוקדת (תשלח טקסט) · ג׳ שיחת טון 15 דק׳",
+      "implicationsHe": "א׳ חוסך סבבים; ב׳/ג׳ דורשים זמן ממך",
+      "recommendationHe": "א׳ לאחר קריאה אחת של מוקאפ EN",
+      "status": "pending",
+      "mockupHref": "mockups/en-landing-page-preview.html"
+    },
+    {
+      "id": "D-EYAL-GALLERY-03",
+      "titleHe": "גלריות — לפני בנייה",
+      "contextHe": "כל התוכן עובר; תקרה ~150 תמונות למחיצה; טבלת מספרים לאישור.",
+      "optionsHe": "א׳ מאשר עקרון מראש · ב׳ מחכה לטבלה מלאה · ג׳ תקרה אחרת (פרט)",
+      "implicationsHe": "א׳ משחרר מיגרציה; ב׳ עוצר עד טבלה",
+      "recommendationHe": "א׳ + אישור שני קצר כשהטבלה מוכנה",
+      "status": "pending"
+    },
+    {
+      "id": "D-EYAL-KMD-04",
+      "titleHe": "Keep / Merge / Drop",
+      "contextHe": "לפני מיגרציה מלאה — רמת חתימה על מיפוי עמודים ישנים.",
+      "optionsHe": "א׳ סיכום מספרים + חריגים · ב׳ טבלה מלאה · ג׳ הרשאה ל־100/נימרוד בלי Drop למותג ראשי",
+      "implicationsHe": "ב׳ כבד יותר; ג׳ דורש אמון",
+      "recommendationHe": "א׳; ב׳ אם הרבה Drop",
+      "status": "pending",
+      "mockupHref": "mockups/kmd-inventory-prototype.html"
+    },
+    {
+      "id": "D-EYAL-COURSES-05",
+      "titleHe": "קורס דיגיטלי והרצאות",
+      "contextHe": "מוקאפים מוכנים; נדרש תוכן וקישורים (סקולר/רב מסר) לשלב מאוחר.",
+      "optionsHe": "א׳ טקסטים+קישורים עד תאריך · ב׳ מוקאפ+placeholder עד שתשלח · ג׳ דחייה ל«בקרוב»",
+      "implicationsHe": "ג׳ דורש סנכרון מפת אתר",
+      "recommendationHe": "ב׳ ל־M2; א׳ עם דדליין לפני M3",
+      "status": "pending",
+      "mockupHref": "mockups/mockups/mockup-digital-course.html"
+    },
+    {
+      "id": "D-EYAL-GREEN-UX-06",
+      "titleHe": "חשבונית ירוקה — כפתור (חוויה)",
+      "contextHe": "מסלול נעול: כפתור ל־Morning. נדרשת דוגמה אמיתית לניסוח/מיקום.",
+      "optionsHe": "א׳ שולח דוגמת Morning · ב׳ כפתור גנרי עד אז · ג׳ ניסוח כפתור אחר",
+      "implicationsHe": "א׳ מדויק ביותר ללקוחות",
+      "recommendationHe": "א׳; עד אז ב׳",
+      "status": "pending"
+    }
+  ]
+}

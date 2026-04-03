@@ -23,7 +23,7 @@
 ## סביבת Cursor ומפת פרויקט (חובה — כל הצוותים)
 
 1. **תקן סוכן מלא:** [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](../../docs/sop/AGENT-WORKSPACE-STANDARD.md) — workspace, **הרחבות (איפה הקובץ ואיך מתקינים — §3.1–3.2)**, Agent Skills, MCP דפדפן, מקומי↔סטייג'ינג.
-2. **קונטקסט גלובלי:** [`.cursor/rules/eyalamit-2026-project-context.mdc`](../../.cursor/rules/eyalamit-2026-project-context.mdc) — מאגר 2026, **`site/`** מול **legacy**, סטייג'ינג uPress, `local/staging.credentials.md`.
+2. **קונטקסט גלובלי:** [`.cursor/rules/eyalamit-2026-project-context.mdc`](../../.cursor/rules/eyalamit-2026-project-context.mdc) — מאגר 2026, **`site/`** מול **legacy**, סטייג'ינג uPress, **`local/.env.upress`**.
 3. **הרחבות Cursor:** הקובץ [`.vscode/extensions.json`](../../.vscode/extensions.json). **איך:** לפתוח את התיקייה **`EyalAmit.co.il-2026`** ב-Cursor → **⌘⇧P** (Mac) או **Ctrl+Shift+P** (Windows/Linux) → להקליד **`Extensions: Show Recommended Extensions`** → **Install** לכל מה שמוצג (או **Install** מהתראת workspace אם הופיעה).
 
 ## מאגרים

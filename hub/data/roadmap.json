@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "currentFocusId": "MILESTONE-M2",
+  "summaryHe": "שבוע 0 ננעל מבחינת מדיניות; השלמת §11 ב־M2-WORKPLAN ואז מעבר ל־M3.",
+  "clientObligationsHe": [
+    "מפת IA v2.3 כבר APPROVED במסמך — בממשק Hub: אישור תפעולי + הערות בעץ (site-tree.html) וייצוא JSON.",
+    "דף בית: משוב על מוקאפים (כניסה → מוקאפים) עד נעילה ויזואלית.",
+    "תוכן לעמודים: content-intake.html — קבצים גדולים ב־Drive, בטופס רק שם קובץ או קישור.",
+    "פירוט מלא לפי שלב: מסמך EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md במאגר (תקשורת פנימית — לא חובה להדפיס לאייל)."
+  ],
+  "milestones": [
+    {
+      "id": "MILESTONE-M1",
+      "code": "M1",
+      "titleHe": "בסיס ביצוע פנימי",
+      "status": "completed",
+      "detailHe": "אפיון CANONICAL, מפת אתר v2.3 APPROVED, KMD, פלטפורמה, סביבת עבודה"
+    },
+    {
+      "id": "MILESTONE-M2",
+      "code": "M2",
+      "titleHe": "הקמת אתר רזה",
+      "status": "in_progress",
+      "detailHe": "WP + GeneratePress + child, תפריטים, G2 סטייג'ינג; טופס צור קשר — אימות סופי בפרודקשן בלבד"
+    },
+    {
+      "id": "MILESTONE-M3",
+      "code": "M3",
+      "titleHe": "מיגרציית תוכן ומדיה",
+      "status": "not_started",
+      "detailHe": "קליטת תוכן מאייל, מדיה, בלוקים לפי אפיון"
+    },
+    {
+      "id": "MILESTONE-M4",
+      "code": "M4",
+      "titleHe": "אינטגרציות והמרות",
+      "status": "not_started",
+      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; 301 ראשוני"
+    },
+    {
+      "id": "MILESTONE-M5",
+      "code": "M5",
+      "titleHe": "איכות לפני מסירה",
+      "status": "not_started",
+      "detailHe": "בדיקות, SEO בסיסי, נגישות, הכנת 301; תוכנית והכנה למעבר מלא ל‑HTTPS בפרודקשן (כל ענפי הפרויקט — ראו ROADMAP-2026)"
+    },
+    {
+      "id": "MILESTONE-M6",
+      "code": "M6",
+      "titleHe": "השלמות פרימיום (אם נדרש)",
+      "status": "not_started",
+      "detailHe": "תוספים בתשלום רק עם waiver מ־100"
+    },
+    {
+      "id": "MILESTONE-M7",
+      "code": "M7",
+      "titleHe": "מסירה לאייל",
+      "status": "not_started",
+      "detailHe": "גישה, חבילת מסירה, הדרכה; אימות סופי טופס צור קשר; cutover; מעבר מלא ל‑HTTPS/SSL בפרודקשן — אתר, Hub, REST, FTPS, תיעוד (ROADMAP-2026 + LAUNCH-CHECKLIST)"
+    }
+  ],
+  "currentFocusBreakdown": {
+    "milestoneId": "MILESTONE-M2",
+    "titleHe": "פירוט אבן הדרך הנוכחית — M2 הקמת אתר רזה",
+    "introHe": "להפניה במייל ובתקשורת מול אייל: ציינו את מזהה המשימה (עמודת «מזהה משימה») או מזהה החבילה (כותרת הסעיף). הטבלאות משקפות מצב עבודה מפורט; עדכון השדות כאן הוא חלק מבניית הממשק מהמאגר.",
+    "sections": [
+      {
+        "id": "M2-SEC-PLAN-G0G1",
+        "titleHe": "תכנית, תנאים וסביבה (G0–G1)",
+        "tasks": [
+          {
+            "id": "M2-T-G0-VAL",
+            "titleHe": "ולידציית תכנית M2 (צוות 90 → 100)",
+            "status": "completed",
+            "stateHe": "תכנית העבודה אושרה לביצוע עם תנאים (C1–C4); אין מנדט ביצוע ל־90. בסיס לאתר הקל."
+          },
+          {
+            "id": "M2-T-G1-RUNBOOK",
+            "titleHe": "Runbook סביבה, SSL, גיבוי, noindex (צוות 20)",
+            "status": "completed",
+            "stateHe": "סביבת סטייג'ינג פעילה; תיעוד גישה ונתיבים ב־runbook. אם האתר החי לא זמין — מתועד כ־LIVE_SITE_UNAVAILABLE עם תאריך בדיקה חוזרת."
+          },
+          {
+            "id": "M2-T-G1-COND",
+            "titleHe": "מילוי CONDITIONS_MET ושחרור G2",
+            "status": "completed",
+            "stateHe": "צוות 100 אישר תנאים בראש המסמך; G2 (ליבת אתר) אושר להתחלה לאחר קבלת runbook."
+          }
+        ]
+      },
+      {
+        "id": "M2-SEC-G2-STACK",
+        "titleHe": "ליבה טכנית — תמה, תוספים, child (G2)",
+        "tasks": [
+          {
+            "id": "M2-T-GP-CHILD",
+            "titleHe": "GeneratePress + child ea-eyalamit — נעילה ואקטיבציה",
+            "status": "completed",
+            "stateHe": "Parent/child לפי החלטות 100; MU או הליך להפעלת child יציב אחרי ביקור בדף הבית."
+          },
+          {
+            "id": "M2-T-PLUG-MIN",
+            "titleHe": "תוספים במינימום מאושר (Fluent, Yoast וכו׳)",
+            "status": "in_progress",
+            "stateHe": "רשימת תוספים תואמת מנדט; אין Elementor/Woo וכו׳ בלי waiver. נדרשת התאמה מתמשכת לגרסאות ול־uPress bundled לפי ארכיטקטורת 100."
+          },
+          {
+            "id": "M2-T-MU-EA",
+            "titleHe": "MU-plugins תומכי M2 (הפעלת child, Fluent וכו׳)",
+            "status": "in_progress",
+            "stateHe": "קובצי mu-plugin במאגר; פריסה לסטייג'ינג ואימות שההתנהגות בפועל תואמת את הסיכום הטכני."
+          }
+        ]
+      },
+      {
+        "id": "M2-SEC-G2-IA",
+        "titleHe": "מבנה אתר — ייבוא, עמודים, תפריטים, קריאה",
+        "tasks": [
+          {
+            "id": "M2-T-WXR-IMPORT",
+            "titleHe": "ייבוא WXR (מזרע עמודי M2)",
+            "status": "in_progress",
+            "stateHe": "קובץ m2-pages-seed.wxr במאגר; ביצוע ייבוא ב־wp-admin, מיפוי מחברים, ניקוי Sample Page אם מבלבל. תלות בפריסת קבצים / העלאת WXR לשרת."
+          },
+          {
+            "id": "M2-T-READING",
+            "titleHe": "הגדרות קריאה — בית סטטי + בלוג",
+            "status": "in_progress",
+            "stateHe": "דף ראשי סטטי (יעד slug home); עמוד פוסטים (יעד blog). אימות ש־/ אינו מציג רשימת פוסטים יחידה כברירת מחדל."
+          },
+          {
+            "id": "M2-T-MENUS-T1T6",
+            "titleHe": "תפריטים T1–T6 (עברית, EN, קורסים)",
+            "status": "in_progress",
+            "stateHe": "תפריט ראשי עברית, משני לפי צורך, פריט English ל־/en/, קישור ל־courses-soon אם נדרש במטריצה. בחזית אין רק Sample Page — הניווט משקף עץ M2."
+          },
+          {
+            "id": "M2-T-PAGE-EN",
+            "titleHe": "עמוד אנגלית (EN, LTR)",
+            "status": "in_progress",
+            "stateHe": "עמוד עם slug en (או שנקבע אחרת); placeholder תוכן; מחלקת גוף ea-lang-en מה־child לאימות כיווניות."
+          },
+          {
+            "id": "M2-T-YOAST-P15",
+            "titleHe": "Yoast — noindex לעמוד therapist-training (P15)",
+            "status": "in_progress",
+            "stateHe": "לאחר קיום העמוד ו־200: noindex ברמת העמוד ב־Yoast; מתועד בדוחות QA."
+          }
+        ]
+      },
+      {
+        "id": "M2-SEC-FORMS",
+        "titleHe": "טפסים וצור קשר",
+        "tasks": [
+          {
+            "id": "M2-T-CONTACT-P16",
+            "titleHe": "עמוד צור קשר + Fluent Forms (P16)",
+            "status": "in_progress",
+            "stateHe": "עמוד contact עם shortcode טופס; שליחת בדיקה; WP Mail Logging אם מותקן. אימות סופי בפרודקשן — רק אחרי cutover (מדיניות M2)."
+          },
+          {
+            "id": "M2-T-FORM-SPAM",
+            "titleHe": "הגנות ספאם / הודעות כשלון",
+            "status": "not_started",
+            "stateHe": "לפי אפיון ותוספים זמינים; תיעוד התנהגות במדריך המפעיל (G3)."
+          }
+        ]
+      },
+      {
+        "id": "M2-SEC-G3",
+        "titleHe": "תיעוד מפעיל ומלאי (G3, צוות 30)",
+        "tasks": [
+          {
+            "id": "M2-T-OP-GUIDE",
+            "titleHe": "מדריך מפעיל M2 + מלאי תוספים",
+            "status": "in_progress",
+            "stateHe": "מסמכים מתעדכנים מול CHANGELOG-G3 מצוות 10; נדרש סנכרון לפני דוח 50 FINAL."
+          },
+          {
+            "id": "M2-T-CHANGELOG-G3",
+            "titleHe": "מעקב שינויים אחרי תחילת G3 (חובת 10)",
+            "status": "in_progress",
+            "stateHe": "כל שינוי מהותי בתוסף, תפריט, slug קריטי — תוך 24 שעות ב־CHANGELOG-G3 בסיכום היישום."
+          }
+        ]
+      },
+      {
+        "id": "M2-SEC-G4-QA",
+        "titleHe": "בדיקות וסגירה (G4, צוות 50 → 100)",
+        "tasks": [
+          {
+            "id": "M2-T-QA-G2-P0",
+            "titleHe": "מעגל QA סטייג'ינג (G2) — תיקוני P0",
+            "status": "awaiting_qa",
+            "stateHe": "דוחות צוות 50 על תשתית, ייבוא, תפריטים; מנדטי P0 ל־10; retest עד PASS או סימון שאריות מתועדות."
+          },
+          {
+            "id": "M2-T-QA-FINAL",
+            "titleHe": "דוח QA FINAL לסגירת M2",
+            "status": "not_started",
+            "stateHe": "בדיקות מלאות לפי §8 בתכנית; דרוש PASS לפני עדכון ROADMAP ל־M2 COMPLETED ופתיחת M3."
+          },
+          {
+            "id": "M2-T-M2-CLOSE-11",
+            "titleHe": "סגירת §11 DoD + סימון מסמך M2 כ־CLOSED (100)",
+            "status": "not_started",
+            "stateHe": "לאחר דוח 50 PASS: צוות 100 מעדכן רודמאפ, סוגר את תכנית M2, ומשחרר מעבר מבוקר ל־M3 (F1)."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -29,14 +29,14 @@
 8. [`UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](./UPRESS-STAGING-SITE-RECORD-2026-03-31.md) — כתובת סטייג'ינג, PHP 7.4/8.3/8.4, **אל** לשכפל `WaldNimrod/EyalAmit` ל־`/`
 9. [`_communication/README.md`](../README.md)
 10. **שורש Cursor:** **`EyalAmit.co.il-2026`** לכללי פרויקט; עבודה על קבצי WP ב־**`../eyalamit.co.il-legacy/`**; ארטיפקטים לפריסה חדשה — [`site/`](../../site/README.md).  
-11. סודות סטייג'ינג: [`CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](./CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) — **לא** בצ'אט ולא ב-Git; `local/staging.credentials.md` (מקומי בלבד).
+11. סודות סטייג'ינג: [`CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](./CREDENTIALS-HANDOFF-SECURE-2026-03-31.md) — **לא** בצ'אט ולא ב-Git; **`local/.env.upress`** (מקומי בלבד) לפי [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) §12.
 
 משימות נקודתיות (שלב נוכחי, TLS, runbook עדכני וכו') — **לא** חלק מהאונבורד; יועברו **בפרומט משימה נפרד** או דרך אינדקס ב־[`docs/PROJECT-ENTRY.md`](../../docs/PROJECT-ENTRY.md) / `_communication/team_20/`.
 
 ## סביבת Cursor ומפת פרויקט (חובה — כל הצוותים)
 
 1. **תקן סוכן מלא:** [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](../../docs/sop/AGENT-WORKSPACE-STANDARD.md) — workspace, **הרחבות (איפה הקובץ ואיך מתקינים — §3.1–3.2)**, Agent Skills, MCP דפדפן, מקומי↔סטייג'ינג.
-2. **קונטקסט גלובלי:** [`.cursor/rules/eyalamit-2026-project-context.mdc`](../../.cursor/rules/eyalamit-2026-project-context.mdc) — מאגר 2026, **`site/`** מול **legacy**, סטייג'ינג uPress, `local/staging.credentials.md`.
+2. **קונטקסט גלובלי:** [`.cursor/rules/eyalamit-2026-project-context.mdc`](../../.cursor/rules/eyalamit-2026-project-context.mdc) — מאגר 2026, **`site/`** מול **legacy**, סטייג'ינג uPress, **`local/.env.upress`**.
 3. **הרחבות Cursor:** [`.vscode/extensions.json`](../../.vscode/extensions.json). **איך:** פתיחת **`EyalAmit.co.il-2026`** ב-Cursor → **⌘⇧P** / **Ctrl+Shift+P** → **`Extensions: Show Recommended Extensions`** → Install הכל (או מהתראת workspace).
 
 ## מאגרים

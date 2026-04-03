@@ -1,0 +1,3 @@
+# pip install -r scripts/requirements-upress.txt
+# Used by scripts/upress_ftp_env.py and FTP deploy/publish/sync scripts.
+python-dotenv>=1.0.0

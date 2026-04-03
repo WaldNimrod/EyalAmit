@@ -9,11 +9,11 @@
 | `docker-compose.yml` | WordPress + MariaDB; בנייה מ־`Dockerfile.wordpress` |
 | `Dockerfile.wordpress` | שכבת **Xdebug 3** + **WP-CLI** מעל `WORDPRESS_IMAGE` (ברירת מחדל PHP 8.3) |
 | `xdebug.ini` | הגדרות Xdebug לדיבוג מקומי בלבד |
-| `.env.example` | דוגמה — **העתק ל־`.env`** (לא ב־commit) |
+| (אין `.env.example`) | משתני סביבה מתועדים ב־[`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md): **§1** → `local/.env`, **§2** → `local/.env.upress`. ראו גם [`UPRESS_WORDPRESS_STANDARD_v2.md`](../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) |
 
 ## גרסת PHP — חובה ליישר ל־uPress
 
-תג התמונה ב־`WORDPRESS_IMAGE` חייב להתאים לגרסת PHP שצוות **20** מתעד ב־runbook מול **uPress**. דוגמה ב־`.env.example`: `wordpress:php8.3-apache` (בפאנל זמינות לפחות 7.4 / 8.3 / 8.4 — ראו [`UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](../_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md)).
+תג התמונה ב־`WORDPRESS_IMAGE` חייב להתאים לגרסת PHP שצוות **20** מתעד ב־runbook מול **uPress**. דוגמה: `wordpress:php8.3-apache` (ב־[`EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md) §1; בפאנל זמינות לפחות 7.4 / 8.3 / 8.4 — ראו [`UPRESS-STAGING-SITE-RECORD-2026-03-31.md`](../_communication/team_20/UPRESS-STAGING-SITE-RECORD-2026-03-31.md)).
 
 ## דוא"ל
 
@@ -21,8 +21,12 @@
 
 ## סודות
 
-- `.env` — ב־`.gitignore`; אל תכניסו סיסמאות למאגר.  
-- **סטייג'ינג (FTP / wp-admin):** תבנית [`staging.credentials.example.md`](./staging.credentials.example.md) → העתק ל־`staging.credentials.md` (ב־`.gitignore`). מדריך העברה מאובטחת: [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md).  
+- `.env` (דוקר) — ב־`.gitignore`; אל תכניסו סיסמאות למאגר.
+- **סטייג'ינג uPress / FTP / REST:** הנוהל הארגוני המחייב — [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md).  
+  - **גלישה בסטייג'ינג:** אין SSL ציבורי תקין כמו בפרודקשן — בדפדפן וב־`curl` העדיפו **`http://`** לפי [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md) §2 ו־[`docs/CLIENT_HUB_APPENDIX_EYAL.md`](../docs/CLIENT_HUB_APPENDIX_EYAL.md).  
+  - צור **`local/.env.upress`** לפי §2 ב־[`EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md) (ב־`.gitignore`).  
+  - סקריפטי FTP דורשים: `pip install -r scripts/requirements-upress.txt`.  
+- מדריך העברת סודות מאובטחת (עקרונות): [`_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](../_communication/team_20/CREDENTIALS-HANDOFF-SECURE-2026-03-31.md).  
 - רישום גישות — [`_communication/team_20/`](../_communication/team_20/).
 
 ## עריכת קבצים על הסטייג'ינג מ־Cursor (מומלץ)
@@ -33,16 +37,21 @@
 
 ## סנכרון `wp-config.php` (סיסמת DB) לסטייג'ינג ב־FTP
 
-אם שינית סיסמת MySQL בפאנל — לעדכן גם ב־`wp-config.php` בשרת. מהשורש של המאגר (אחרי ש־`local/staging.credentials.md` מעודכן ו־FTP עובד):
+אם שינית סיסמת MySQL בפאנל — לעדכן גם ב־`wp-config.php` בשרת. מהשורש של המאגר (אחרי ש־`local/.env.upress` מעודכן ו־FTP עובד):
 
 `python3 scripts/ftp_sync_wp_config_db_password.py`
+
+## REST API — אימות Application Password (v2 §7)
+
+אחרי מילוי `UPRESS_WP_REST_BASE`, `UPRESS_WP_APP_USER`, `UPRESS_WP_APP_PASS` ב־`.env.upress`:
+
+`pip install -r scripts/requirements-upress.txt && python3 scripts/verify_upress_rest.py`
 
 ## הרצה
 
 ```bash
 cd local
-cp .env.example .env
-# ערוך .env — סיסמאות DB וכו'
+# צור .env — העתק מ־docs/project/EYAL_ENV_VARS_REFERENCE.md §1 והתאם סיסמאות DB
 docker compose build --no-cache wordpress
 docker compose up -d --force-recreate wordpress
 ```

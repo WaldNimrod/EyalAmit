@@ -1,6 +1,8 @@
 # אינדקס חומר עדכני לאייל עמית — סדר עבודה
 
-**לאייל / דפדפן (ללא קישורי Markdown):** פתחו **[`INDEX.html`](./INDEX.html)** — כל הקישורים שם הם ל־`.docx` / `.html` / `.txt` בלבד.
+**ממשק על השרת (מומלץ לאייל):** לאחר בנייה ופריסה — בסטייג'ינג השתמשו ב־**`http://`** (אין תעודת SSL תקינה על sandbox): `http://<staging-host>/ea-eyal-hub/index.html` (מקור בנייה בלעדי: [`hub/`](../../../hub/) · [`hub/README.md`](../../../hub/README.md) · [`docs/CLIENT_HUB_APPENDIX_EYAL.md`](../../CLIENT_HUB_APPENDIX_EYAL.md)). בפרודקשן — רק **HTTPS** תקין. שם: מפת דרכים, **משימות והחלטות** (`tasks.html`), **ייצוא משוב JSON** ל־`hub/ssot/`.
+
+**לאייל / דפדפן מקומי (ללא Markdown):** **[`INDEX.html`](./INDEX.html)** — כל הקישורים שם ל־`.docx` / `.html` / `.txt`. **תחזוקה:** בעדכונים אחרונים — חומר חדש **בראש** הרשימה. **טבלת תשובות** `#answers-table` — עמודת «תשובתי»; לסנכרון מלא עם הממשק הפרוס יש לעדכן [`hub/data/decisions.json`](../../../hub/data/decisions.json) (ומשימות ב־`hub/data/tasks.json` לפי הצורך) ולהריץ `build_eyal_client_hub.py`.
 
 **תאריך:** 2026-03-29 · **אינדקס מציאות (אפריל 2026):** [`EYAL-DOCS-FINDER-2026-04-04.md`](./EYAL-DOCS-FINDER-2026-04-04.md) — מפת אתר v2.3, אפיון, חבילת Word, מסמך GEO/AEO/SEO של אייל, דוח יישור צוות 100.  
 **קאנון תיקיות (SSOT):** [`EYAL-CORRESPONDENCE-CANON.md`](./EYAL-CORRESPONDENCE-CANON.md) — רק `from-eyal/` ו־`to-eyal/`; **אין** יצירת `for-eyal/` חדש (stub בלבד).  

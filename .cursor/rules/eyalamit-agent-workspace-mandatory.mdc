@@ -28,7 +28,7 @@ alwaysApply: true
 ## ביצוע
 
 - להריץ סקריפטים (`python3`, `docker`, `bash`) **כאן** כשיש shell — לא להפנות את המשתמש כברירת מחדל.
-- סודות רק ב־`local/staging.credentials.md` — לא בצ'אט ולא ב-Git.
+- סודות רק ב־**`local/.env.upress`** / **`local/.env`** (לא ב-Git). שמות שדות — [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](docs/project/EYAL_ENV_VARS_REFERENCE.md); **אין** במאגר קבצי `.env*.example`. נוהל מלא: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](docs/project/UPRESS_WORDPRESS_STANDARD_v2.md). לא בצ'אט ולא במסמכים ב־Git.
 
 ## מקורות אמת
 

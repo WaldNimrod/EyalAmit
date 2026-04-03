@@ -1,8 +1,8 @@
 .DS_Store
 .env
 .env.*
-!.env.example
 local/.env
+local/.env.upress
 local/staging.credentials.md
 # SFTP/FTP extension (Cursor/VS Code) — never commit passwords
 .vscode/sftp.json
@@ -16,3 +16,5 @@ venv/
 # Google Drive desktop sync temp (avoid duplicate junk in eyal-ceo tree)
 **/.tmp.driveupload/
 **/.tmp.drivedownload/
+# Eyal client hub build output (regenerate with scripts/build_eyal_client_hub.py)
+hub/dist/

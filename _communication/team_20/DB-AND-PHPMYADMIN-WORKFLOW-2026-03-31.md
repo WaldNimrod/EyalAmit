@@ -9,7 +9,7 @@
 
 ## מה נדרש בקובץ הסודות (מקומי)
 
-ב־`local/staging.credentials.md` (לא ב־Git) מומלל:
+ב־**`local/.env.upress`** (לא ב־Git; שדות: §2 ב־[`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md)) מומלל:
 
 - **כתובת מלאה ל־phpMyAdmin** (מפאנל uPress — לעיתים לא תחת דומיין האתר).  
 - שם משתמש / סיסמת **MySQL** (כפי שמופיעים בפאנל — לא בהכרח זהים ל־FTP או ל־WP).
@@ -48,22 +48,22 @@
    - `DB_PASSWORD` ← **כאן בדרך כלל הפער אחרי רוטציית סיסמה**
    - `DB_HOST` — אם עדיין נכשל אחרי סיסמה, להשוות מול מה שהפאנל מציג.
 4. לשמור את הקובץ; לרענן את האתר. אם יש **Opcode cache** — לפעמים נדרש דקה או ניקוי מטמון בפאנל.
-5. לעדכן את **`local/staging.credentials.md`** כך שישקף את אותה סיסמה (לעבודה מקומית של הצוות) — **בלי** commit ל־Git.
+5. לעדכן את **`local/.env.upress`** (`UPRESS_DB_*`) כך שישקף את אותה סיסמה (לעבודה מקומית של הצוות) — **בלי** commit ל־Git.
 
 **אלטרנטיבה:** אם uPress מציע "סנכרון הגדרות" / התקנה מחדש של חיבור DB מהפאנל — לפי תיעוד הספק; אם לא, עריכת `wp-config.php` היא הנתיב הסטנדרטי.
 
 ## מי מתחבר ב־FTP — חובה שאתה תתחבר?
 
-**לא בהכרח.** דרך העבודה הרצויה: **פרטי FTP ב־`local/staging.credentials.md`** (מחוץ ל־Git) → הסוכן או סקריפט מקומי **מתחברים**, מורידים `wp-config.php`, מעדכנים `DB_PASSWORD` (ואם צריך `DB_USER` / `DB_NAME` / `DB_HOST`), ומעלים חזרה — **בלי** שאתה נכנס ידנית לכל תיקון.
+**לא בהכרח.** דרך העבודה הרצויה: **פרטי FTP ב־`local/.env.upress`** (מחוץ ל־Git) → הסוכן או סקריפט מקומי **מתחברים**, מורידים `wp-config.php`, מעדכנים `DB_PASSWORD` (ואם צריך `DB_USER` / `DB_NAME` / `DB_HOST`), ומעלים חזרה — **בלי** שאתה נכנס ידנית לכל תיקון.
 
 **תנאים:**
 
 - **רשת:** מכונת הפיתוח (או סביבת Cursor) חייבת לאפשר יציאה ל־**FTP/SFTP** לשרת uPress; לפעמים סביבות ענן חוסמות — אז נדרשת הרצה **על המחשב שלך** או עדכון ידני חד־פעמי.
-- **התחברות:** אם השרת מחזיר **530 Login incorrect** — לעדכן בפאנל uPress את סיסמת/משתמש ה־FTP ואת **`staging.credentials.md`**, ואז לנסות שוב. בלי התאמה בין הקובץ לפאנל — אף אחד (גם לא הסוכן) לא יכול לערוך בשמך.
+- **התחברות:** אם השרת מחזיר **530 Login incorrect** — לעדכן בפאנל uPress את סיסמת/משתמש ה־FTP ואת **`local/.env.upress`**, ואז לנסות שוב. בלי התאמה בין הקובץ לפאנל — אף אחד (גם לא הסוכן) לא יכול לערוך בשמך.
 
 **סיכום:** אתה לא "חייב" להיות זה שעורך ב-FileZilla — אבל **חייבים** פרטי FTP תקפים ורשת שמגיעה לשרת; אחרת מישהו עם גישה תקינה (אתה או הסוכן מהמחשב המקומי) יעדכן.
 
 ## קישורים
 
 - סודות והעברה מאובטחת: [`CREDENTIALS-HANDOFF-SECURE-2026-03-31.md`](./CREDENTIALS-HANDOFF-SECURE-2026-03-31.md)  
-- תבנית שדות: [`local/staging.credentials.example.md`](../../local/staging.credentials.example.md)
+- ייחוס שדות: [`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../../docs/project/EYAL_ENV_VARS_REFERENCE.md) §2 · נוהל: [`docs/project/UPRESS_WORDPRESS_STANDARD_v2.md`](../../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md)
