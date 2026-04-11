@@ -1,0 +1,26 @@
+project_id: eyalamit
+display_name: "Eyal Amit — EyalAmit.co.il 2026"
+domain: eyalamit
+profile: L0
+is_hub: false
+managed_projects: []
+
+boundaries:
+  allowed_write_roots:
+    - "_aos/"
+    - "_COMMUNICATION/"
+    - ".claude/"
+    - "hub/"
+    - "scripts/"
+    - "site/"
+    - "docs/"
+    - "_communication/"
+    - "local/"
+
+  forbidden_patterns:
+    - "from tiktrack"
+    - "from smallfarmsagents"
+    - "import agents_os"
+    - "from aos_engine"
+
+  cross_project_routing: "Route cross-project queries to agents-os hub via Team 00 (Nimrod) only. No direct cross-repo imports."

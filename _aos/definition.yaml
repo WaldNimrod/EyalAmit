@@ -1,0 +1,123 @@
+# _aos/definition.yaml — Project Team Definition Snapshot
+#
+# SNAPSHOT of relevant teams from the hub's core/definition.yaml.
+# Enables this project to function independently (Iron Rule #8).
+#
+# Source: agents-os/core/definition.yaml (hub SSoT)
+# Snapshot date: 2026-04-11
+# Snapshot by: Team 100 (AOS canonization — eyalamit migration)
+#
+# IRON RULE: Physical copy only — never symlink. Updates via explicit refresh.
+# Contains: multi-domain teams + universal project teams relevant to eyalamit.
+
+version: "1.0.0"
+source_ref: "core/definition.yaml"
+snapshot_date: "2026-04-11"
+profile: L0
+
+# ============================================================
+# MULTI-DOMAIN TEAMS (shared across all AOS projects)
+# ============================================================
+
+team_00:
+  id: team_00
+  label: Team 00
+  name: System Designer (Principal)
+  engine: human
+  group: leadership
+  profession: principal
+  role_description: "Human owner. Sets all Iron Rules, holds final approval, defines product vision and constraints."
+
+team_100:
+  id: team_100
+  label: Team 100
+  name: Chief System Architect
+  engine: claude-code
+  group: architecture
+  profession: chief_architect
+  role_description: "Program-level architecture and synthesis. GATE_2 owner. Coordinates domain architects and execution teams."
+
+team_190:
+  id: team_190
+  label: Team 190
+  name: Constitutional Validator
+  engine: openai
+  group: governance
+  profession: constitutional_validator
+  role_description: "Cross-engine validation authority. L-GATE_V constitutional review. Must differ from builder engine (Iron Rule #1)."
+
+# ============================================================
+# UNIVERSAL PROJECT TEAMS (same number = same role everywhere)
+# ============================================================
+
+team_10:
+  id: team_10
+  label: Team 10
+  name: WordPress Implementation
+  engine: cursor
+  group: implementation
+  profession: wordpress_engineer
+  role_description: "WordPress theme/plugin implementation, content entry, WXR import, FTP deploy."
+
+team_20:
+  id: team_20
+  label: Team 20
+  name: Infrastructure & DevOps
+  engine: cursor
+  group: implementation
+  profession: devops_engineer
+  role_description: "uPress setup, Docker local env, DB, FTP, git, environment management."
+
+team_30:
+  id: team_30
+  label: Team 30
+  name: Documentation
+  engine: cursor
+  group: documentation
+  profession: technical_writer
+  role_description: "Technical writing, specs, SOPs, client documentation packages."
+
+team_40:
+  id: team_40
+  label: Team 40
+  name: Media Curation
+  engine: cursor
+  group: design
+  profession: media_curator
+  role_description: "Legacy media cataloging, image tagging, site-tree mapping, gallery generation."
+
+team_50:
+  id: team_50
+  label: Team 50
+  name: QA & Functional Acceptance
+  engine: cursor
+  group: qa
+  profession: qa_engineer
+  role_description: "QA & Functional Acceptance. Every QA run must be a FRESH test with full evidence."
+
+team_80:
+  id: team_80
+  label: Team 80
+  name: Design & Brand
+  engine: cursor
+  group: design
+  profession: ui_designer
+  role_description: "Design tokens, brand palette, mockups, logo, visual consistency."
+
+team_90:
+  id: team_90
+  label: Team 90
+  name: Control & Audit
+  engine: cursor
+  group: governance
+  profession: auditor
+  role_description: "Cross-team audit, delivery verification, gate sign-off, roadmap control."
+
+team_110:
+  id: team_110
+  label: Team 110
+  name: Domain Builder Agent
+  engine: cursor-composer
+  group: implementation
+  profession: domain_builder
+  role_description: "Implements against LOD400 specs. Owns L-GATE_B exit. Must differ from validator engine."

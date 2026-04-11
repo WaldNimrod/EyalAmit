@@ -1,0 +1,129 @@
+# roadmap.yaml — EyalAmit WP State Registry (Schema v1.1)
+# SSoT for WHAT/WHEN. Iron Rule #4: single-writer — exactly one agent holds write authority.
+# Current write authority: eyalamit_arch (Team 100 / Claude Code)
+
+schema_version: "1.1"
+
+project:
+  id: eyalamit
+  name: "Eyal Amit — EyalAmit.co.il 2026"
+  profile: L0
+  lean_kit_version: "3.1.3"
+  created: "2026-03-29"
+  owner: eyalamit_sd
+  active_milestone: "S001"
+  notes: >
+    WordPress 6.x refresh of eyalamit.co.il (uPress staging).
+    Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub + books v2) COMPLETE as of 2026-04-11.
+    S001 = AOS canonization stage. Future content milestones will be S002+.
+
+work_packages:
+  - id: S001-P001-WP001
+    label: "_aos/ Foundation — governance structure + lean-kit snapshot"
+    status: IN_PROGRESS
+    track: A
+    current_lean_gate: L-GATE_S
+    lod_status: LOD400
+    assigned_builder: eyalamit_arch
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-11"
+    milestone_ref: "S001"
+    spec_ref: "_aos/work_packages/S001/S001-P001-WP001/LOD400_spec.md"
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-11"
+        notes: "Eligibility confirmed. AOS migration approved by Team 00."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-11"
+        notes: "LOD400 spec authored. Team 110+190 review submitted."
+    notes: "Creates _aos/ structure with all required files per lean-kit canon."
+
+  - id: S001-P001-WP002
+    label: "Root context files — CLAUDE.md + .cursorrules"
+    status: IN_PROGRESS
+    track: A
+    current_lean_gate: L-GATE_S
+    lod_status: LOD400
+    assigned_builder: eyalamit_arch
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-11"
+    milestone_ref: "S001"
+    spec_ref: "_aos/work_packages/S001/S001-P001-WP002/LOD400_spec.md"
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-11"
+        notes: "Eligibility confirmed."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-11"
+        notes: "LOD400 approved."
+    notes: "Synthesized from existing AGENTS.md + .cursor/rules/ + docs/sop/."
+
+  - id: S001-P001-WP003
+    label: "Governance contracts — team_00/100/110/190 + context activation files"
+    status: IN_PROGRESS
+    track: A
+    current_lean_gate: L-GATE_S
+    lod_status: LOD400
+    assigned_builder: eyalamit_arch
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-11"
+    milestone_ref: "S001"
+    spec_ref: "_aos/work_packages/S001/S001-P001-WP003/LOD400_spec.md"
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-11"
+        notes: "Eligibility confirmed."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-11"
+        notes: "LOD400 approved."
+    notes: "Distilled from existing _communication/team_XX/onboard_teamXX.md files."
+
+  - id: S001-P001-WP004
+    label: "_COMMUNICATION/ canonical structure + AOS onboarding files"
+    status: IN_PROGRESS
+    track: A
+    current_lean_gate: L-GATE_S
+    lod_status: LOD400
+    assigned_builder: eyalamit_arch
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-11"
+    milestone_ref: "S001"
+    spec_ref: "_aos/work_packages/S001/S001-P001-WP004/LOD400_spec.md"
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-11"
+        notes: "Eligibility confirmed."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-11"
+        notes: "LOD400 approved."
+    notes: "Uppercase _COMMUNICATION/ alongside existing lowercase _communication/ (no rename)."
+
+  - id: S001-P001-WP005
+    label: "AOS hub registration — projects/eyalamit.yaml + _aos/projects.yaml entry"
+    status: IN_PROGRESS
+    track: A
+    current_lean_gate: L-GATE_S
+    lod_status: LOD400
+    assigned_builder: eyalamit_arch
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-11"
+    milestone_ref: "S001"
+    spec_ref: "_aos/work_packages/S001/S001-P001-WP005/LOD400_spec.md"
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-11"
+        notes: "Eligibility confirmed."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-11"
+        notes: "LOD400 approved."
+    notes: "Registers eyalamit as spoke project in agents-os hub."
