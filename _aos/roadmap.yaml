@@ -16,7 +16,8 @@ project:
     WordPress 6.x refresh of eyalamit.co.il (uPress staging).
     Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub + books v2) COMPLETE as of 2026-04-11.
     S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V PASS.
-    S002 = content completion (About, Home, Services, SEO). Pending Team 110 (AOS) arch sign-off.
+    S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12.
+    S002 WPs initialized 2026-04-12.
 
 work_packages:
   - id: S001-P001-WP001
@@ -163,3 +164,55 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "eyalamit_val (openai) — PASS. S001 milestone closed."
+
+  - id: S002-P001-WP001
+    label: "About page — content completion + Hebrew copy"
+    status: PENDING
+    track: A
+    current_lean_gate: L-GATE_E
+    lod_status: LOD100
+    assigned_builder: eyalamit_build
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-12"
+    milestone_ref: "S002"
+    spec_ref: "_aos/work_packages/S002/S002-P001-WP001/LOD400_spec.md"
+    gate_history: []
+
+  - id: S002-P001-WP002
+    label: "Home page — hero copy + section content completion"
+    status: PENDING
+    track: A
+    current_lean_gate: L-GATE_E
+    lod_status: LOD100
+    assigned_builder: eyalamit_build
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-12"
+    milestone_ref: "S002"
+    spec_ref: "_aos/work_packages/S002/S002-P001-WP002/LOD400_spec.md"
+    gate_history: []
+
+  - id: S002-P001-WP003
+    label: "Services page — offerings content + pricing"
+    status: PENDING
+    track: A
+    current_lean_gate: L-GATE_E
+    lod_status: LOD100
+    assigned_builder: eyalamit_build
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-12"
+    milestone_ref: "S002"
+    spec_ref: "_aos/work_packages/S002/S002-P001-WP003/LOD400_spec.md"
+    gate_history: []
+
+  - id: S002-P001-WP004
+    label: "SEO — meta titles, descriptions, and OG tags for all pages"
+    status: PENDING
+    track: A
+    current_lean_gate: L-GATE_E
+    lod_status: LOD100
+    assigned_builder: eyalamit_build
+    assigned_validator: eyalamit_val
+    created_at: "2026-04-12"
+    milestone_ref: "S002"
+    spec_ref: "_aos/work_packages/S002/S002-P001-WP004/LOD400_spec.md"
+    gate_history: []
