@@ -49,7 +49,7 @@ musician, sound healer, and author (Muse publisher). Hosted on **uPress** (Israe
 | `hub/data/roadmap.json` | Project phases + task tracking (legacy, pre-AOS) |
 | `docs/PROJECT-ENTRY.md` | Full project entry for new team members |
 | `docs/sop/SSOT.md` | Single source of truth (legacy governance) |
-| `_communication/README.md` | Legacy team communication index |
+| `_COMMUNICATION/README.md` | Team communication index |
 | `scripts/intake_new_content.py` | Content intake trigger script |
 
 ---

@@ -1,0 +1,4 @@
+# שכבה סמנטית (CLIP) — התקנה חד-פעמית; גודל משוער: PyTorch + משקלים
+torch>=2.1
+open_clip_torch>=2.24.0
+torchvision>=0.16

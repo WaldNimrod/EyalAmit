@@ -14,7 +14,6 @@ boundaries:
     - "scripts/"
     - "site/"
     - "docs/"
-    - "_communication/"
     - "local/"
 
   forbidden_patterns:

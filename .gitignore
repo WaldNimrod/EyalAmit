@@ -18,15 +18,15 @@ venv/
 **/.tmp.drivedownload/
 # Eyal client hub build output (regenerate with scripts/build_eyal_client_hub.py)
 hub/dist/
-# _communication — media assets backed up on Drive, not in git
+# _COMMUNICATION — media assets backed up on Drive, not in git
 # Index files (JSON/HTML/MD) remain tracked — scanner needs them
-_communication/**/media/
-_communication/**/*.jpg
-_communication/**/*.jpeg
-_communication/**/*.png
-_communication/**/*.gif
-_communication/**/*.webp
-_communication/**/*.mp4
-_communication/**/*.mov
-_communication/**/*.psd
-_communication/**/*.pdf
+_COMMUNICATION/**/media/
+_COMMUNICATION/**/*.jpg
+_COMMUNICATION/**/*.jpeg
+_COMMUNICATION/**/*.png
+_COMMUNICATION/**/*.gif
+_COMMUNICATION/**/*.webp
+_COMMUNICATION/**/*.mp4
+_COMMUNICATION/**/*.mov
+_COMMUNICATION/**/*.psd
+_COMMUNICATION/**/*.pdf

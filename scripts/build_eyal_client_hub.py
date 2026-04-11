@@ -1987,7 +1987,7 @@ def copy_hub_reference_files(repo_root: Path, dist_dir: Path) -> None:
     """מסמכי מקור מהמאגר (Markdown וכו׳) ל־dist/files/reference/ — קישור מ־deliverables."""
     pairs = [
         (
-            "_communication/team_100/DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md",
+            "_COMMUNICATION/team_100/DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md",
             "DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md",
         ),
     ]
@@ -2186,7 +2186,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--skip-team40-legacy-media",
         action="store_true",
-        help="Do not copy _communication/team_40/ea-legacy-curated-* to dist/files/team40/",
+        help="Do not copy _COMMUNICATION/team_40/ea-legacy-curated-* to dist/files/team40/",
     )
     args = parser.parse_args()
 

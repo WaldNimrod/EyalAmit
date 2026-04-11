@@ -71,8 +71,7 @@ For validation: activate **eyalamit_val** (Team 190, OpenAI).
 | `_aos/governance/` | Team contracts |
 | `_aos/context/` | Activation files |
 | `_aos/work_packages/` | LOD specs |
-| `_COMMUNICATION/` | AOS inter-team artifacts |
-| `_communication/` | Legacy project team comms (unchanged) |
+| `_COMMUNICATION/` | All inter-team artifacts (AOS canonical + legacy) |
 | `hub/data/` | JSON data for Hub system |
 | `scripts/` | Build, deploy, intake scripts |
 | `site/wp-content/themes/ea-eyalamit/` | Active WP child theme |

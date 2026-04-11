@@ -24,7 +24,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FROM_EYAL = REPO_ROOT / "docs/project/eyal-ceo-submissions-and-responses/from-eyal"
 CONTENT_DIR = FROM_EYAL / "CONTENT"
-LEGACY_MEDIA = REPO_ROOT / "_communication/team_40"
+LEGACY_MEDIA = REPO_ROOT / "_COMMUNICATION/team_40"
 INDEX_PATH = REPO_ROOT / "hub/data/content-index.json"
 
 # Dirs under FROM_EYAL that are known special — not unpackaged content

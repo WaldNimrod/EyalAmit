@@ -30,7 +30,7 @@
 ## Writes To
 
 - `_COMMUNICATION/team_00/` (AOS governance artifacts)
-- `_communication/team_100/` (project-level decisions, legacy convention)
+- `_COMMUNICATION/team_100/` (project-level decisions)
 
 ## Boundaries
 
