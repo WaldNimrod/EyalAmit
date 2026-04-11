@@ -41,7 +41,7 @@ Task ID: EA-V11-SITEMAP-ERRORS-FIX
 
 **היקף:**
 - סה"כ תקלות: 228 URLs עם בעיות
-- סוג בעיה: כל התקלות הן redirects שמפנים לכתובת שגויה (`localhost:80` במקום `localhost:9090`)
+- סוג בעיה: כל התקלות הן redirects שמפנים לכתובת שגויה (`localhost:80` במקום `localhost:8088`)
 - קבצים: לא נכללים - רק עמודים, קטגוריות, תגיות, וכו'
 
 **צוותים מעורבים:**
@@ -100,8 +100,8 @@ Task ID: EA-V11-PRE-DEPLOYMENT-TEST
 - `docs/communication/DISPATCH-PRE-DEPLOYMENT-TESTING.md` - הודעת הפעלה לצוות 2
 
 **מצב Sitemap:**
-- ✅ WordPress Core Sitemap: `http://localhost:9090/sitemap.xml` - פעיל
-- ✅ Yoast SEO Sitemap: `http://localhost:9090/sitemap_index.xml` - פעיל
+- ✅ WordPress Core Sitemap: `http://localhost:8088/sitemap.xml` - פעיל
+- ✅ Yoast SEO Sitemap: `http://localhost:8088/sitemap_index.xml` - פעיל
 - 🟡 נדרש: עדכון ואימות שתי ה-sitemaps
 
 ---

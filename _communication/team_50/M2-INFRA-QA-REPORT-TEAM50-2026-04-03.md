@@ -18,7 +18,7 @@
 | # | בדיקה | תוצאה (☑ / ✗) | הערות / ראיה |
 |---|--------|---------------|----------------|
 | Q1 | `verify_m2_g2_repo_artifacts.sh` | ☑ | `OK: M2 G2 repo artifacts verified under site/`; אומתו child, mu-plugins, WXR ו־PHP lint. |
-| Q2 | Docker bind-mount `site/wp-content` | ☑ | `local/docker-compose.yml` ממפה `../site/wp-content:/var/www/html/wp-content`; `docker compose ps` הראה `local-db-1` ו־`local-wordpress-1` רצים. בריטסט הקונטיינר רץ מתמונה מעודכנת `eyalamit-local-wp:xdebug-wpcli-v3`. `WORDPRESS_PORT` בפועל הוא `8080` ב־`local/.env`. |
+| Q2 | Docker bind-mount `site/wp-content` | ☑ | `local/docker-compose.yml` ממפה `../site/wp-content:/var/www/html/wp-content`; `docker compose ps` הראה `local-db-1` ו־`local-wordpress-1` רצים. בריטסט הקונטיינר רץ מתמונה מעודכנת `eyalamit-local-wp:xdebug-wpcli-v3`. `WORDPRESS_PORT` בדוח המקורי היה `8080` (לא קאנוני); **קאנון מאגר:** `8088` ב־`local/.env` + `docker-compose` default. |
 | Q3 | WP-CLI בקונטיינר | ☑ | `bash scripts/verify_local_wp_cli.sh` עבר והחזיר `WP-CLI version: 2.12.0`; לאחר `docker compose up -d --force-recreate wordpress` גם `docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root cli info` עבר ביציאה `0`. |
 | Q4 | Xdebug טעון | ☑ | `docker compose exec wordpress php -m | grep -i xdebug` החזיר `xdebug` ו־`Xdebug`. |
 | Q5 | Runbook §14 | ☑ | `M2-RUNBOOK-ENV-2026-03-31.md` כולל סעיף §14 "סביבה מקומית (Docker) — יישור טכני (2026-04-03)" עם bind-mount, WP-CLI, Xdebug ו־MariaDB. הערת QA: בבקשת הבקרה נכתב `§11.1`, אך התיעוד המקומי בפועל הוא §14. |

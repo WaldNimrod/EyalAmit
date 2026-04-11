@@ -16,10 +16,22 @@
 
 | תיקייה | מה יש שם |
 |--------|-----------|
-| **`from-eyal/`** | **נכנס** — חומר שחוזר מאייל (Word/PDF/סריקות). |
+| **`from-eyal/`** | **נכנס** — חומר שחוזר מאייל (Word/PDF/סריקות). **תוכן לפי עץ נעול:** [`from-eyal/CANONICAL-CONTENT-SUBMISSION-FROM-EYAL.md`](./from-eyal/CANONICAL-CONTENT-SUBMISSION-FROM-EYAL.md) (JSON/Markdown/Drive). |
 | **`to-eyal/`** | **יוצא** — כל גל הגשה תחת `YYYY-MM-DD--topic-kebab-case/` (Word, `md-sources/`, `assets` לגל, וכו'). מוקאפי HTML חוצי-גלים: **`to-eyal/_shared-assets/`**. |
 
 ---
+
+## 0. תבנית תוכן קנונית + עץ JSON (מסירה לאייל)
+
+- תיקייה: [`to-eyal/2026-04-06--content-submission-canonical-for-eyal/`](./to-eyal/2026-04-06--content-submission-canonical-for-eyal/) — מפרט Markdown, `page-templates.json`, `site-tree.json`, [`SITE-TREE-DIRECT-LINK.txt`](./to-eyal/2026-04-06--content-submission-canonical-for-eyal/SITE-TREE-DIRECT-LINK.txt) (קישור ישיר ל־`data/site-tree.json` אחרי פריסת Hub).
+- קליטה מצוות אייל: [`from-eyal/canonical_update_pack_2026-04-06/`](./from-eyal/canonical_update_pack_2026-04-06/README.md) (נוהל מחייב) · [`from-eyal/PACKAGE-ROLES-PROCEDURE-VS-CONTENT.md`](./from-eyal/PACKAGE-ROLES-PROCEDURE-VS-CONTENT.md) (**הפרדה:** נוהל / דמו / תוכן מאושר) · [`from-eyal/poc_st-book-kushi_2026-04-06/`](./from-eyal/poc_st-book-kushi_2026-04-06/README.md) (כולל `2026-04-06--st-book-kushi--content--from-eyal.md` + דמו ישן; דף POC ב־Hub מעודכן למסמך המאושר).  
+  **POC ללקוח (תוכן + מדיה + עימוד):** [`../../sop/PAGE-PACKAGE-CLIENT-POC-MANDATORY.md`](../../sop/PAGE-PACKAGE-CLIENT-POC-MANDATORY.md).
+
+### 0.1 חבילות CONTENT (zip) — קליטה 2026-04-06 עד 2026-04-09
+
+- **אינדקס:** [`from-eyal/CONTENT/README.md`](./from-eyal/CONTENT/README.md) — שש חבילות, מזהים `EYAL-CONTENT-PKG-*`, מיפוי ל־`pageId` / תבנית.
+- **מסמך סבב צוות 100:** [`../../../_communication/team_100/M4-CONTENT-IMPLEMENTATION-ROUND-FROM-EYAL-CONTENT-2026-04-09.md`](../../../_communication/team_100/M4-CONTENT-IMPLEMENTATION-ROUND-FROM-EYAL-CONTENT-2026-04-09.md) (תקציר מנהלים + תהליך מומלץ).
+- **Hub:** רשומות ב־[`../../../hub/data/deliverables.json`](../../../hub/data/deliverables.json); הורדת zip אחרי `build_eyal_client_hub.py --mirror-docs`.
 
 ## 1. חובה — חבילת Word (התחילו כאן)
 
@@ -84,7 +96,8 @@
 
 ## 6. תשובות מאייל (כשמתעדכן)
 
-- [`from-eyal/`](./from-eyal/) — קבצים חתומים / עם הערות (אם קיימים במאגר). ראו [`from-eyal/README.md`](./from-eyal/README.md) ו־[`from-eyal/2026-04-02--INGEST-STATUS.md`](./from-eyal/2026-04-02--INGEST-STATUS.md) לסטטוס קליטת מסמך «עץ אתר לנמרוד — SEO · GEO · AEO».
+- [`from-eyal/`](./from-eyal/) — קבצים חתומים / עם הערות (אם קיימים במאגר). ראו [`from-eyal/README.md`](./from-eyal/README.md) ו־[`from-eyal/2026-04-02--INGEST-STATUS.md`](./from-eyal/2026-04-02--INGEST-STATUS.md) לסטטוס קליטת מסמך «עץ אתר לנמרוד — SEO · GEO · AEO».  
+- **לוגו / מותג:** מלאי קבצים + מפרט פורמט מומלץ — [`from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md`](./from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md).
 
 ---
 

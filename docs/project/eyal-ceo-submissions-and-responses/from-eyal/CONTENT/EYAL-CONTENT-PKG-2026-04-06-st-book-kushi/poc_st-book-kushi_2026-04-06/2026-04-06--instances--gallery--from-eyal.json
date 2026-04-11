@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "exportType": "eyal-instances-gallery",
+  "instances": [
+    {
+      "titleHe": "כושי בלאנטיס - גלריה 1",
+      "captionHe": "דימוי מתוך העולם החזותי של הספר.",
+      "targetPageIds": [
+        "st-book-kushi"
+      ],
+      "driveRefs": [
+        "כושי בלאנטיס1"
+      ]
+    },
+    {
+      "titleHe": "כושי בלאנטיס - גלריה 2",
+      "captionHe": "צילום נוסף המשויך לעמוד הספר הקיים.",
+      "targetPageIds": [
+        "st-book-kushi"
+      ],
+      "driveRefs": [
+        "כושי בלאנטיס1"
+      ]
+    },
+    {
+      "titleHe": "איל מישה איטליה - כושי בלאנטיס 3",
+      "captionHe": "צילום אווירה לעולם הספר.",
+      "targetPageIds": [
+        "st-book-kushi"
+      ],
+      "driveRefs": [
+        "איל מישה איטליה - כושי בלאנטיס 3"
+      ]
+    },
+    {
+      "titleHe": "ScreenShot2013-03-12at8",
+      "captionHe": "נכס חזותי קיים שיש למפות מול Drive לפני פריסה.",
+      "targetPageIds": [
+        "st-book-kushi"
+      ],
+      "driveRefs": [
+        "ScreenShot2013-03-12at8"
+      ]
+    },
+    {
+      "titleHe": "סיני יוני 09 151",
+      "captionHe": "נכס חזותי קיים שיש למפות מול Drive לפני פריסה.",
+      "targetPageIds": [
+        "st-book-kushi"
+      ],
+      "driveRefs": [
+        "סיני יוני 09 151"
+      ]
+    }
+  ]
+}

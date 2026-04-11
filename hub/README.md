@@ -10,6 +10,7 @@
 | פלט בנייה | `hub/dist/` (לא ב־Git) |
 | עוגן תאריך לסוכנים | `hub/data/calendar-anchor.txt` |
 | נוהל view ↔ SSOT | [`EYAL-HUB-SSOT-WORKFLOW.md`](EYAL-HUB-SSOT-WORKFLOW.md) |
+| פלטת צבעי מותג (מחייבת לממשקים) | [`../docs/project/EYAL-SITE-COLOR-PALETTE.md`](../docs/project/EYAL-SITE-COLOR-PALETTE.md) — ממומש ב־`hub/src/assets/hub.css` |
 
 **נוהל ארגוני:** [`docs/CLIENT_HUB_STANDARD_v1.md`](../docs/CLIENT_HUB_STANDARD_v1.md) · **נספח Eyal:** [`docs/CLIENT_HUB_APPENDIX_EYAL.md`](../docs/CLIENT_HUB_APPENDIX_EYAL.md).
 

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "canonical_update_pack_2026-04-06",
+  "packType": "canonical_update_pack",
+  "receivedDate": "2026-04-06",
+  "sourceLabelHe": "צוות אייל / ליווי תוכן",
+  "bindingForTeams": ["team_100", "team_20"],
+  "artifacts": [
+    {
+      "relativePath": "README.md",
+      "role": "index"
+    },
+    {
+      "relativePath": "PROCEDURE-MANDATORY-v1.md",
+      "role": "mandatory_procedure"
+    },
+    {
+      "relativePath": "PACK-MANIFEST.schema.json",
+      "role": "json_schema"
+    },
+    {
+      "relativePath": "PACK-MANIFEST.json",
+      "role": "manifest_self"
+    }
+  ],
+  "references": [
+    {
+      "pathInRepo": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CANONICAL-CONTENT-SUBMISSION-FROM-EYAL.md",
+      "role": "canonical_content_format"
+    },
+    {
+      "pathInRepo": "hub/data/site-tree.json",
+      "role": "locked_ia"
+    },
+    {
+      "pathInRepo": "hub/data/page-templates.json",
+      "role": "template_fields"
+    }
+  ],
+  "notesHe": "חבילה זו מגדירה שמות תיקיות וחובות מניפסט; אינה מחליפה את עץ האתר או את שדות התבנית — רק את נוהל המסירה והוכחת ההבנה (POC)."
+}

@@ -8,6 +8,13 @@ Uploads:
   - site/wp-content/mu-plugins/ea-m2-auto-activate-child.php -> wp-content/mu-plugins/
   - site/wp-content/mu-plugins/ea-m2-ensure-fluent-active.php -> wp-content/mu-plugins/
   - site/wp-content/mu-plugins/ea-m2-seed-shell-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m3-team80-placeholder-content-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m3-seed-instances-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m2-ia-slug-fixups-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-m4-g2348-governance-once.php -> wp-content/mu-plugins/
   Optional (--upload-wxr):
   - site/exports/m2-pages-seed.wxr -> wp-content/uploads/ea-m2-seed/m2-pages-seed.wxr
 
@@ -49,6 +56,13 @@ def main() -> None:
     mu_activate = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-auto-activate-child.php"
     mu_fluent = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-ensure-fluent-active.php"
     mu_seed = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-seed-shell-once.php"
+    mu_tree = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-site-tree-lock-sync-once.php"
+    mu_m3_80 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-team80-placeholder-content-once.php"
+    mu_m3_inst = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-seed-instances-once.php"
+    mu_m2_ia = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-ia-slug-fixups-once.php"
+    mu_m3_g5g7 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-g5g7-q16-rest-dedupe-once.php"
+    mu_m3_r2 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-r2-featured-sample-once.php"
+    mu_m4_g2348 = root / "site" / "wp-content" / "mu-plugins" / "ea-m4-g2348-governance-once.php"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
     if not mu_noindex.is_file():
@@ -59,6 +73,20 @@ def main() -> None:
         raise SystemExit(f"Missing mu-plugin: {mu_fluent}")
     if not mu_seed.is_file():
         raise SystemExit(f"Missing mu-plugin: {mu_seed}")
+    if not mu_tree.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_tree}")
+    if not mu_m3_80.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m3_80}")
+    if not mu_m3_inst.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m3_inst}")
+    if not mu_m2_ia.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m2_ia}")
+    if not mu_m3_g5g7.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m3_g5g7}")
+    if not mu_m3_r2.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m3_r2}")
+    if not mu_m4_g2348.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_m4_g2348}")
 
     files: list[tuple[Path, str]] = []
     for f in sorted(theme_src.rglob("*")):
@@ -69,6 +97,13 @@ def main() -> None:
     files.append((mu_activate, "wp-content/mu-plugins/ea-m2-auto-activate-child.php"))
     files.append((mu_fluent, "wp-content/mu-plugins/ea-m2-ensure-fluent-active.php"))
     files.append((mu_seed, "wp-content/mu-plugins/ea-m2-seed-shell-once.php"))
+    files.append((mu_tree, "wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php"))
+    files.append((mu_m3_80, "wp-content/mu-plugins/ea-m3-team80-placeholder-content-once.php"))
+    files.append((mu_m3_inst, "wp-content/mu-plugins/ea-m3-seed-instances-once.php"))
+    files.append((mu_m2_ia, "wp-content/mu-plugins/ea-m2-ia-slug-fixups-once.php"))
+    files.append((mu_m3_g5g7, "wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php"))
+    files.append((mu_m3_r2, "wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php"))
+    files.append((mu_m4_g2348, "wp-content/mu-plugins/ea-m4-g2348-governance-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

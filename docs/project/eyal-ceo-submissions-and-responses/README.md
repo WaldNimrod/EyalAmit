@@ -9,7 +9,7 @@
 
 | תיקייה | תפקיד |
 |--------|--------|
-| [`from-eyal/`](./from-eyal/) | **נכנס** — תשובות מאייל (Word/PDF/סריקות). |
+| [`from-eyal/`](./from-eyal/) | **נכנס** — תשובות מאייל (Word/PDF/סריקות). לוגו: [`from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md`](./from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md). |
 | [`to-eyal/`](./to-eyal/) | **יוצא** — גלי הגשה: `YYYY-MM-DD--topic/` (Word, `md-sources/`, `assets` לגל). מוקאפי HTML משותפים: [`to-eyal/_shared-assets/`](./to-eyal/_shared-assets/). |
 | [`archive/`](./archive/) | כל מה ש**לא עדכני** — ראו [`archive/README.md`](./archive/README.md). |
 | [`for-eyal/`](./for-eyal/) | **Stub בלבד** — מפנה לקאנון; **אין** ליצור כאן חומר חדש. |

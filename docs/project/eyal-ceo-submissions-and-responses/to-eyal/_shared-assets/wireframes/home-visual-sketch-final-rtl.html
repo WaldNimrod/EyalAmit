@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>סקיצה ויזואלית — דף הבית | אייל עמית</title>
+  <style>
+    :root {
+      --bg: #f4f0eb;
+      --bg-hero: linear-gradient(165deg, #ebe6df 0%, #f6f2ed 42%, #e8e3dc 100%);
+      --card: #ffffff;
+      --ink: #1c1c1c;
+      --muted: #5c5650;
+      --line: rgba(28, 28, 28, 0.08);
+      --accent: #5a7268;
+      --accent-deep: #3d5249;
+      --accent-soft: rgba(90, 114, 104, 0.12);
+      --warm-shadow: 0 12px 40px rgba(28, 28, 28, 0.07);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      direction: rtl;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    }
+    /* שורה 1: לוגו + קישורים · שורה 2: אייקוני EN + צור קשר (חוסך מקום, נוח במסך צר) */
+    .nav {
+      direction: rtl;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 22px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .nav-row-main {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 16px 20px;
+      min-width: 0;
+    }
+    .nav-row-tools {
+      direction: rtl;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    @media (min-width: 720px) {
+      .nav-row-tools {
+        justify-content: flex-start;
+      }
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(90, 114, 104, 0.2);
+    }
+    .nav-links {
+      direction: rtl;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px 4px;
+      min-width: 0;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: background 0.15s ease;
+    }
+    .nav-links a:hover {
+      background: rgba(28, 28, 28, 0.05);
+    }
+    .nav-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+    .nav-icon-btn:hover {
+      background: rgba(28, 28, 28, 0.04);
+      color: var(--ink);
+    }
+    .nav-icon-btn svg {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+    .nav-icon-btn--en {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+    .nav-icon-btn--en:hover {
+      color: var(--accent-deep);
+      border-color: rgba(90, 114, 104, 0.35);
+    }
+    .nav-icon-btn--contact {
+      background: var(--accent);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 3px 12px rgba(90, 114, 104, 0.35);
+    }
+    .nav-icon-btn--contact:hover {
+      background: var(--accent-deep);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff !important;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 4px 14px rgba(90, 114, 104, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(90, 114, 104, 0.4);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+    /* Hero: רקע מדיה + כיסוי — ב־WP: שדות hero_background / hero_overlay (ראו tpl-home) */
+    .hero {
+      position: relative;
+      min-height: min(78vh, 640px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      direction: rtl;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #2a2824;
+      background-image:
+        linear-gradient(120deg, rgba(18, 16, 14, 0.72) 0%, rgba(45, 58, 52, 0.55) 42%, rgba(22, 20, 18, 0.78) 100%),
+        radial-gradient(ellipse 90% 70% at 70% 20%, rgba(120, 140, 128, 0.25), transparent 55%),
+        linear-gradient(165deg, #4a433c 0%, #2d3531 38%, #1a1816 100%);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12, 11, 10, 0.85) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .hero .inner {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 64px 22px 56px;
+      text-align: center;
+    }
+    .hero .inner h1,
+    .hero .inner .sub,
+    .hero .inner .reinforce {
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    }
+    .hero .inner .reinforce {
+      opacity: 0.92;
+    }
+    .hero-cms-strip {
+      position: absolute;
+      z-index: 3;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      pointer-events: none;
+    }
+    @media (min-width: 720px) {
+      .hero-cms-strip {
+        justify-content: flex-start;
+      }
+    }
+    .hero-cms-chip {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.45);
+      color: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      line-height: 1.18;
+      margin: 0 0 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .reinforce {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--accent-deep) !important;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+    .hero .btn:hover {
+      background: #f4f1ec;
+    }
+    .site-footer {
+      direction: rtl;
+      background: #1e1d1b;
+      color: rgba(255, 255, 255, 0.82);
+      padding: 48px 0 28px;
+      margin-top: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+    .site-footer__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px 24px;
+      margin-bottom: 36px;
+    }
+    .site-footer h3 {
+      margin: 0 0 14px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+    }
+    .site-footer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .site-footer li { margin-bottom: 4px; }
+    .site-footer__contact p {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .site-footer__credits {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: center;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .site-footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .site-footer__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      margin: 0 0 16px;
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .section .lead {
+      max-width: 52rem;
+      margin: 0 auto 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      box-shadow: var(--warm-shadow);
+    }
+    .compare {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .compare .card h3 {
+      margin-top: 0;
+      font-size: 1.45rem;
+      color: var(--accent-deep);
+    }
+    .bullets { margin: 0; padding-inline-start: 22px; }
+    .bullets li { margin-bottom: 8px; }
+    .wrap.video {
+      direction: rtl;
+    }
+    .video {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .video-box {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #3d4540 0%, #5a635c 40%, #7a857d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: var(--warm-shadow);
+      overflow: hidden;
+    }
+    .video-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.15), transparent 45%);
+    }
+    .play {
+      position: relative;
+      z-index: 1;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    }
+    /* חץ נגינה לכיוון התחלה בעברית (שמאלה) */
+    .play::before {
+      content: "";
+      border-style: solid;
+      border-width: 10px 16px 10px 0;
+      border-color: transparent var(--accent-deep) transparent transparent;
+      margin-inline-start: -4px;
+    }
+    .grid4 {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .mini-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(28, 28, 28, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .mini-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(28, 28, 28, 0.09);
+    }
+    .mini-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    .mini-card p { margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; }
+    .mini-card a,
+    .small-btn {
+      display: inline-block;
+      border: 1.5px solid var(--accent);
+      color: var(--accent-deep);
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      background: #fff;
+    }
+    .fit {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .method {
+      background: linear-gradient(180deg, #ebe7e1 0%, #f0ece6 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-grid { direction: rtl; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .faq-item h3 { margin: 0 0 10px; font-size: 1.1rem; }
+    .faq-item p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+    .quotes { direction: rtl; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .quote {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+      font-size: 1rem;
+      color: var(--ink);
+      box-shadow: 0 6px 22px rgba(28, 28, 28, 0.05);
+      position: relative;
+    }
+    .quote::before {
+      content: "״";
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--accent-soft);
+      font-weight: 700;
+    }
+    .about {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: minmax(200px, 260px) 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .portrait {
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, #c4bdb4 0%, #8a8278 50%, #5c554d 100%);
+      box-shadow: var(--warm-shadow);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .bottom-cta { text-align: center; background: #fff; }
+    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-secondary {
+      display: inline-block;
+      border: 2px solid var(--accent);
+      color: var(--accent-deep);
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      background: #fff;
+    }
+    .footer-note {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 22px 40px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      border-top: 1px dashed rgba(28, 28, 28, 0.12);
+    }
+    .tag-dev {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    @media (max-width: 900px) {
+      .compare, .video, .fit, .about, .grid4, .quotes, .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .portrait { max-width: 280px; margin: 0 auto; }
+      .nav-row-main {
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+      }
+      .brand { justify-self: start; }
+      .nav-links { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" dir="rtl" aria-label="תפריט ראשי">
+      <div class="nav-row-main">
+        <a class="brand" href="#">לוגו</a>
+        <div class="nav-links">
+          <a href="#">טיפול בדיג'רידו</a>
+          <a href="#">השיטה</a>
+          <a href="#">שיעורי דיג'רידו</a>
+          <a href="#">סאונד הילינג</a>
+          <a href="#">לימוד והכשרה</a>
+          <a href="#">כלים ואביזרים</a>
+          <a href="#">מוזה הוצאה לאור</a>
+          <a href="#">בלוג דיג'רידו</a>
+          <a href="#">אייל עמית</a>
+        </div>
+      </div>
+      <div class="nav-row-tools" role="toolbar" aria-label="שפה ויצירת קשר">
+        <a href="#" class="nav-icon-btn nav-icon-btn--en" hreflang="en" title="אנגלית (EN)" aria-label="מעבר לעמוד באנגלית">EN</a>
+        <a href="#" class="nav-icon-btn nav-icon-btn--contact" title="צור קשר — תיאום שיחה, וואטסאפ וטופס" aria-label="צור קשר">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <path d="m22 6-10 7L2 6" />
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" role="img" aria-label="רקע Hero — בפרודקשן: תמונה או וידאו מהמדיה"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="inner">
+      <span class="tag-dev" style="color:rgba(255,255,255,0.55);margin-bottom:10px;display:inline-block">בלוק Hero</span>
+      <h1 id="hero-heading">המרכז לטיפול בנשימה באמצעות דיג'רידו - שיטת cbDIDG של אייל עמית</h1>
+      <p class="sub">גישת טיפול ייחודית המבוססת על דיג'רידו, נשימה וצליל, שפותחה ומיושמת על ידי אייל עמית - מהוותיקים בארץ בתחום.</p>
+      <p class="reinforce">אייל עמית הוא מורה לדיג'רידו ומטפל בנשימה באמצעות דיג'רידו, הפועל מאז 1999 ומייסד המרכז לטיפול בדיג'רידו בפרדס חנה.</p>
+      <p class="reinforce" style="font-size:0.95rem;margin-top:-12px">תיאום שיחה, וואטסאפ וטופס — כולם בעמוד <strong>צור קשר</strong> אחד.</p>
+      <a class="btn" href="#">צור קשר</a>
+    </div>
+    <div class="hero-cms-strip" title="שדות לעריכה שוטפת ב־WordPress / ACF" aria-hidden="true">
+      <span class="hero-cms-chip">hero_background</span>
+      <span class="hero-cms-chip">hero_overlay</span>
+      <span class="hero-cms-chip">hero_title</span>
+      <span class="hero-cms-chip">hero_subtitle</span>
+      <span class="hero-cms-chip">hero_supporting</span>
+      <span class="hero-cms-chip">cta_primary</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>מה זה טיפול בדיג'רידו?</h2>
+      <p class="lead">טיפול בדיג'רידו הוא תהליך עבודה עם הנשימה באמצעות הכלי, שבו לומדים להשתמש בצליל ובנשימה כדי ליצור יציבות, ריכוז והקשבה לגוף. זה לא רק להקשיב לצליל - אלא לעבוד באופן פעיל עם הנשימה והגוף דרך הכלי.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>טיפול בדיג'רידו מול סאונד הילינג</h2>
+      <div class="compare">
+        <div class="card">
+          <h3>טיפול בדיג'רידו</h3>
+          <ul class="bullets">
+            <li>עבודה אקטיבית עם הנשימה</li>
+            <li>השתתפות פעילה</li>
+            <li>תהליך אישי ולמידה</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>סאונד הילינג</h3>
+          <ul class="bullets">
+            <li>הקשבה לצליל</li>
+            <li>חוויה פסיבית</li>
+            <li>הרפיה כללית</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap video">
+      <div class="card">
+        <span class="tag-dev">בלוק וידאו</span>
+        <h2 style="text-align:right;margin-top:0">הצצה למרחב ולדרך העבודה</h2>
+        <p class="lead" style="text-align:right;margin:0 0 18px;max-width:none">סרטון קצר שנותן תחושה של המרחב, הצליל והעבודה עם דיג'רידו.</p>
+        <p style="margin:0;color:var(--muted)">בסרטון ניתן לראות דוגמה לעבודה עם דיג'רידו, למרחב שבו מתקיימים המפגשים, ולאופי החוויה כפי שהיא מתרחשת בפועל.</p>
+      </div>
+      <div class="video-box" role="img" aria-label="מקום לתצוגת וידאו">
+        <div class="play" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>תחומי הפעילות</h2>
+      <p class="lead" style="margin-top:-8px">ארבעה מוקדי שירות מרכזיים (כמו בווירפריים מאייל).</p>
+      <div class="grid4">
+        <div class="mini-card">
+          <h3>טיפול בדיג'רידו</h3>
+          <p>עבודה אישית עם נשימה ודיג'רידו</p>
+          <a href="#">למידע נוסף</a>
+        </div>
+        <div class="mini-card">
+          <h3>שיעורי דיג'רידו</h3>
+          <p>לימוד נגינה ככלי לנשימה</p>
+          <a href="#">למידע נוסף</a>
+        </div>
+        <div class="mini-card">
+          <h3>סאונד הילינג</h3>
+          <p>מפגשי הקשבה והרפיה</p>
+          <a href="#">למידע נוסף</a>
+        </div>
+        <div class="mini-card">
+          <h3>השיטה</h3>
+          <p>הגישה הייחודית cbDIDG</p>
+          <a href="#">למידע נוסף</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section method">
+    <div class="wrap">
+      <h2>שיטת cbDIDG</h2>
+      <p class="lead">שיטת cbDIDG היא גישה שפותחה לאורך שנים של עבודה עם אנשים, ומשלבת בין נשימה, צליל ועבודה עם הגוף. היא מבוססת על ניסיון מעשי של עשרות שנים בליווי תלמידים ומטופלים.</p>
+      <p style="text-align:center"><a class="small-btn" href="#">להכיר את השיטה</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap fit">
+      <div class="card">
+        <h2 style="text-align:right;margin-top:0">למי זה מתאים?</h2>
+        <ul class="bullets">
+          <li>אנשים עם עומס ומתח</li>
+          <li>מי שמחפש חיבור לנשימה</li>
+          <li>אנשים עם קשב וריכוז</li>
+          <li>מי שרוצה ללמוד לעבוד עם הגוף</li>
+        </ul>
+        <p style="margin-top:20px"><a class="small-btn" href="#">צור קשר</a></p>
+      </div>
+      <div class="portrait">תמונת פורטרט — מקום לצילום מקצועי</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>שאלות שאנשים שואלים לפני מפגש ראשון</h2>
+      <p class="lead">כאן <strong>אינסטנסים</strong> של אותו אובייקט FAQ; בעמוד הקטלוג המרכזי מרוכזות כל הרשומות + מבוא — קישור <strong>חובה בפוטר</strong> (כמו גלריות והמלצות).</p>
+      <div class="faq-grid">
+        <div class="card faq-item">
+          <h3>מה זה טיפול בדיג'רידו?</h3>
+          <p>זהו תהליך עבודה עם הנשימה באמצעות הכלי, שבו האדם משתתף באופן פעיל ולומד לעבוד עם נשימה, צליל והקשבה לגוף.</p>
+        </div>
+        <div class="card faq-item">
+          <h3>מה ההבדל בין טיפול בדיג'רידו לסאונד הילינג?</h3>
+          <p>בטיפול בדיג'רידו העבודה היא אקטיבית והאדם משתתף בתהליך. בסאונד הילינג מדובר בעיקר בהקשבה לצליל ובחוויה פסיבית יותר.</p>
+        </div>
+        <div class="card faq-item">
+          <h3>למי זה יכול להתאים?</h3>
+          <p>לאנשים שמחפשים חיבור לנשימה, יותר שקט, תהליך אישי, או דרך מעשית לעבוד עם הגוף דרך דיג'רידו.</p>
+        </div>
+        <div class="card faq-item">
+          <h3>האם צריך ניסיון קודם?</h3>
+          <p>לא. אפשר להגיע בלי רקע מוקדם ולבדוק יחד מה נכון יותר: טיפול, שיעורים או סאונד הילינג.</p>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:22px"><a class="small-btn" href="#">שאלות נפוצות (FAQ)</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>מה אומרים תלמידים ומטופלים</h2>
+      <div class="quotes">
+        <div class="quote">הגעתי לטיפול בדיג'רידו עם המון מתח, ומהר מאוד הרגשתי שהנשימה שלי מקבלת יותר מקום.</div>
+        <div class="quote">השיעורים עזרו לי להבין את הכלי ואת הגוף שלי בדרך שלא הכרתי קודם.</div>
+        <div class="quote">מפגש הסאונד הילינג נתן לי תחושת שקט עמוקה ונדירה.</div>
+      </div>
+      <p style="text-align:center; margin-top:22px"><a class="small-btn" href="#">המלצות — קטלוג מרכזי</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap about">
+      <div class="portrait">אייל עמית — תמונה לעמוד אודות</div>
+      <div class="card">
+        <h2 style="text-align:right;margin-top:0">אייל עמית</h2>
+        <p>אייל עמית עוסק בדיג'רידו מאז 1999, ומוביל דרך ייחודית לעבודה עם נשימה באמצעות הכלי. לאורך השנים ליווה תלמידים ומטופלים רבים, ופיתח את שיטת cbDIDG.</p>
+        <p><a class="small-btn" href="#">לעמוד אייל עמית</a></p>
+        <p style="margin-top:12px;color:var(--muted);font-size:0.92rem">בעץ האתר, תחת «אייל עמית» מופיע גם עמוד <strong>מוקש דהימן — לזכרו</strong> (לא בדף הבית).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bottom-cta">
+    <div class="wrap">
+      <h2>רוצה לבדוק אם זה מתאים לך?</h2>
+      <p class="lead">אפשר להתחיל בשיחת היכרות קצרה ולהבין איך העבודה יכולה להתאים לך.</p>
+      <div class="btn-row">
+        <a class="cta" href="#" style="text-decoration:none">צור קשר</a>
+        <a class="btn-secondary" href="#">שליחת הודעה בוואטסאפ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" dir="rtl">
+    <div class="wrap site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <h3>ניווט</h3>
+          <ul>
+            <li><a href="#">טיפול בדיג'רידו</a></li>
+            <li><a href="#">השיטה</a></li>
+            <li><a href="#">שיעורי דיג'רידו</a></li>
+            <li><a href="#">סאונד הילינג</a></li>
+            <li><a href="#">לימוד והכשרה</a></li>
+            <li><a href="#">כלים ואביזרים</a></li>
+            <li><a href="#">מוזה הוצאה לאור</a></li>
+            <li><a href="#">בלוג דיג'רידו</a></li>
+            <li><a href="#">אייל עמית</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>קטלוגים (פוטר)</h3>
+          <ul>
+            <li><a href="#">שאלות נפוצות (FAQ)</a></li>
+            <li><a href="#">גלריות — קטלוג מרכזי</a></li>
+            <li><a href="#">המלצות — קטלוג מרכזי (ומדיה)</a></li>
+          </ul>
+          <p style="margin:14px 0 0;font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.5">שלושת הסוגים: אובייקט CMS אחיד · אינסטנסים בעמודים לפי קבוצות · עמוד קטלוג מלא.</p>
+        </div>
+        <div>
+          <h3>משפטי ומערכת</h3>
+          <ul>
+            <li><a href="#">מדיניות פרטיות</a></li>
+            <li><a href="#">הצהרת נגישות</a></li>
+            <li><a href="#">תקנון</a></li>
+            <li><a href="#">מפת אתר</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__contact">
+          <h3>יצירת קשר</h3>
+          <p><strong>אייל עמית — המרכז לטיפול בדיג'רידו</strong></p>
+          <p>פרדס חנה־כרכור (דוגמה)</p>
+          <p>טלפון: <a href="tel:">05X-XXX-XXXX</a></p>
+          <p>וואטסאפ · טופס · <a href="#">עמוד צור קשר מלא</a></p>
+          <p style="margin-top:12px"><a href="#" hreflang="en">English</a></p>
+        </div>
+      </div>
+      <div class="site-footer__credits">
+        © כל הזכויות שמורות · אייל עמית · עיצוב ופיתוח: [שם הסטודיו / הצוות]<br />
+        הסקיצה מייצגת פוטר גלובלי ב־WP — עריכה מרכזית (תפריט פוטר, וידג׳טים, ACF אופציונלי).
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer-note">
+    <strong>סקיצה ויזואלית (לא פרודקשן):</strong> <strong>מוקאף דף בית מאושר על ידי אייל (2026-04-06)</strong> — Hub 1.5.0. מבנה בלוקים לפי ווירפריים מאייל; <strong>Hero</strong> עם רקע מדיה + כיסוי + שבבים לשדות CMS (<code>tpl-home</code>). <strong>פוטר מלא</strong> — ניווט, שלישיית קטלוגים (FAQ / גלריות / המלצות), משפטי, פרטי קשר, קרדיטים. עץ: <code>st-galleries-catalog</code>, <code>st-media</code>, <code>st-faq</code> + <code>tpl-entity-catalog</code>; מודל אינסטנסים — <code>D-EYAL-ENTITY-CATALOG-12</code>. הדר: 9 קישורים + אייקוני EN וצור קשר.
+  </div>
+</body>
+</html>

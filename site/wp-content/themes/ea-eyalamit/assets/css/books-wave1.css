@@ -1,0 +1,333 @@
+/**
+ * Wave1 — מוזה (tpl-books) + דף ספר (tpl-book-detail).
+ * משתני צבע: :root ב-functions.php (ea_eyalamit_enqueue_palette_root_overrides).
+ * מיועד לייבוא תוכן עשיר (בלוקים / HTML) בתוך .entry-content.
+ */
+
+/* --- Books hub (muzza) --- */
+.ea-books-hub {
+	max-width: 46rem;
+	margin: 0 auto;
+	padding: 0.25rem 0 3rem;
+}
+
+.ea-books-hub-title {
+	font-family: "Frank Ruhl Libre", Georgia, serif;
+	font-size: clamp(1.85rem, 4.5vw, 2.35rem);
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 1.5rem;
+	padding-bottom: 1rem;
+	border-bottom: 2px solid rgba(164, 78, 43, 0.35);
+	color: var(--eyal-chocolate, #5c3a2e);
+	letter-spacing: 0.02em;
+}
+
+.ea-books-hub-intro {
+	margin-bottom: 2.25rem;
+	line-height: 1.7;
+	font-size: 1.05rem;
+	color: var(--eyal-ink, #2e2b28);
+}
+
+.ea-books-hub-intro > *:first-child {
+	margin-top: 0;
+}
+
+.ea-books-hub-intro > *:last-child {
+	margin-bottom: 0;
+}
+
+.ea-books-hub-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.35rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@media (min-width: 36rem) {
+	.ea-books-hub-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 52rem) {
+	.ea-books-hub-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.ea-books-hub-card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 14px;
+	border: 1px solid rgba(46, 43, 40, 0.1);
+	background: linear-gradient(165deg, #fffdfa 0%, rgba(216, 199, 181, 0.28) 55%, #fdf9f4 100%);
+	box-shadow:
+		0 2px 4px rgba(46, 43, 40, 0.04),
+		0 14px 40px rgba(46, 43, 40, 0.08);
+	overflow: hidden;
+	min-height: 100%;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ea-books-hub-card:hover {
+	transform: translateY(-3px);
+	box-shadow:
+		0 4px 8px rgba(46, 43, 40, 0.06),
+		0 20px 48px rgba(46, 43, 40, 0.1);
+}
+
+.ea-books-hub-card__media {
+	margin: 0;
+	aspect-ratio: 3 / 4;
+	background: linear-gradient(160deg, rgba(110, 111, 74, 0.12) 0%, rgba(46, 43, 40, 0.04) 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ea-books-hub-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.ea-books-hub-card__body {
+	padding: 1.1rem 1.15rem 1.25rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 0.55rem;
+}
+
+.ea-books-hub-card__title {
+	margin: 0;
+	font-size: 1.08rem;
+	font-weight: 600;
+	color: var(--eyal-chocolate, #5c3a2e);
+	line-height: 1.35;
+}
+
+.ea-books-hub-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ea-books-hub-card__title a:hover {
+	color: var(--eyal-brick, #ab3a2b);
+}
+
+.ea-books-hub-card__excerpt {
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: var(--eyal-ink, #2e2b28);
+	margin: 0;
+	flex: 1;
+	opacity: 0.95;
+}
+
+.ea-books-hub-card__cta {
+	margin-top: auto;
+	font-weight: 600;
+	font-size: 0.88rem;
+}
+
+.ea-books-hub-card__cta a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: var(--eyal-brick, #ab3a2b);
+	text-decoration: none;
+}
+
+.ea-books-hub-card__cta a::after {
+	content: "←";
+	font-size: 0.85em;
+	opacity: 0.85;
+}
+
+.ea-books-hub-card__cta a:hover {
+	text-decoration: underline;
+}
+
+.ea-books-hub-empty {
+	padding: 1.1rem 1.2rem;
+	border-radius: 12px;
+	background: rgba(110, 111, 74, 0.12);
+	border: 1px dashed rgba(110, 111, 74, 0.35);
+	font-size: 0.95rem;
+	color: var(--eyal-earth, #8a5a44);
+}
+
+/* --- Book detail --- */
+.ea-book-detail {
+	max-width: 46rem;
+	margin: 0 auto;
+	padding: 0.25rem 0 3.5rem;
+}
+
+.ea-book-detail h1 {
+	font-family: "Amatic SC", cursive;
+	font-size: clamp(2.6rem, 7vw, 3.75rem);
+	line-height: 1.08;
+	margin: 0 0 0.75rem;
+	letter-spacing: 0.03em;
+	color: var(--eyal-chocolate, #5c3a2e);
+}
+
+.ea-book-lead {
+	font-size: 1.12rem;
+	margin: 0 0 1.85rem;
+	color: var(--eyal-ink, #2e2b28);
+	font-weight: 500;
+	max-width: 40rem;
+	line-height: 1.7;
+	padding-inline-start: 1rem;
+	border-inline-start: 4px solid rgba(164, 78, 43, 0.45);
+}
+
+.ea-book-cover {
+	margin: 0 0 1.85rem;
+	max-width: 16rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (min-width: 640px) {
+	.ea-book-cover {
+		float: right;
+		margin: 0 0 1rem 1.35rem;
+		max-width: 14rem;
+	}
+
+	.ea-book-detail__cover-clearfix::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.ea-book-cover img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	box-shadow:
+		0 4px 12px rgba(46, 43, 40, 0.08),
+		0 18px 44px rgba(46, 43, 40, 0.12);
+	border: 1px solid rgba(138, 90, 68, 0.22);
+}
+
+.ea-book-cover figcaption {
+	font-size: 0.74rem;
+	color: var(--eyal-earth, #8a5a44);
+	margin-top: 0.45rem;
+	text-align: center;
+	line-height: 1.35;
+}
+
+/* גוף עמוד — תומך בלוקים מיובאים */
+.ea-book-body {
+	line-height: 1.75;
+	font-size: 1.04rem;
+	clear: both;
+}
+
+.ea-book-body > *:first-child {
+	margin-top: 0;
+}
+
+.ea-book-body p {
+	margin: 0 0 1.1rem;
+}
+
+.ea-book-body p strong {
+	color: var(--eyal-chocolate, #5c3a2e);
+}
+
+.ea-book-body h2,
+.ea-book-body h3 {
+	font-family: "Rubik", system-ui, sans-serif;
+	color: var(--eyal-olive, #6e6f4a);
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 2rem 0 0.75rem;
+}
+
+.ea-book-body h2 {
+	font-size: 1.28rem;
+}
+
+.ea-book-body h3 {
+	font-size: 1.1rem;
+}
+
+.ea-book-body ul,
+.ea-book-body ol {
+	margin: 0 0 1.1rem;
+	padding-inline-start: 1.35rem;
+}
+
+.ea-book-body blockquote {
+	margin: 1.5rem 0;
+	padding: 1rem 1.15rem;
+	border-inline-start: 4px solid rgba(110, 111, 74, 0.45);
+	background: rgba(110, 111, 74, 0.07);
+	border-radius: 0 10px 10px 0;
+	font-style: normal;
+}
+
+.ea-book-body .wp-block-image img,
+.ea-book-body figure img {
+	border-radius: 10px;
+	box-shadow: 0 8px 28px rgba(46, 43, 40, 0.08);
+}
+
+.ea-book-body .wp-block-gallery {
+	gap: 1rem;
+	margin: 1.75rem 0;
+}
+
+.ea-book-body .wp-block-separator {
+	border-color: rgba(164, 78, 43, 0.25);
+	margin: 2rem auto;
+	max-width: 8rem;
+}
+
+/* כפתורי רכישה חיצוניים — מבנה נפוץ מיובא */
+.ea-book-body .ea-book-purchase-row,
+.ea-book-body .wp-block-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 1.5rem 0;
+}
+
+.ea-book-body .ea-book-purchase-row a,
+.ea-book-body .wp-block-button__link {
+	display: inline-block;
+	background: linear-gradient(145deg, var(--eyal-brick, #ab3a2b), var(--eyal-terracotta, #a44e2b));
+	color: #fff !important;
+	text-decoration: none !important;
+	font-weight: 600;
+	padding: 0.65rem 1.3rem;
+	border-radius: 9px;
+	font-size: 0.95rem;
+	box-shadow: 0 4px 14px rgba(171, 58, 43, 0.25);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ea-book-body .ea-book-purchase-row a:hover,
+.ea-book-body .wp-block-button__link:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 22px rgba(171, 58, 43, 0.3);
+}
+
+.ea-book-body .ea-book-purchase-row a.ea-secondary {
+	background: linear-gradient(145deg, var(--eyal-olive, #6e6f4a), #5a5b3d);
+	box-shadow: 0 4px 14px rgba(90, 91, 61, 0.2);
+}

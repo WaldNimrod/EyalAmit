@@ -200,7 +200,7 @@ SELECT option_value FROM {prefix}_options WHERE option_name LIKE 'widget_%';
 services:
   wordpress:
     build: .
-    ports: ["8080:80"]
+    ports: ["8088:80"]
     volumes:
       - ./site/wp-content:/var/www/html/wp-content
     environment:

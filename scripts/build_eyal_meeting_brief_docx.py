@@ -163,7 +163,7 @@ def main():
     add_rtl_paragraph(doc, "← תרשים ויזואלי לשאלה 7", heading_level=2)
     add_rtl_paragraph(
         doc,
-        "קובץ HTML (דפדפן): to-eyal/_shared-assets/home-directions-visual.html — שלושה מסכים עם דוגמאות מדיה מהאתר הקיים (תיקיית home-preview). מומלץ לפתוח במקביל לפגישה או להצגה על מסך.",
+        "קובץ HTML (דפדפן): to-eyal/_shared-assets/home-directions-visual.html — שלושה מסכים; אזורי Hero כרקע מדומה (בלי תמונות סטוק). מומלץ לפתוח במקביל לפגישה או להצגה על מסך.",
         size=10,
     )
     add_rtl_paragraph(doc, "_" * 50, size=9)

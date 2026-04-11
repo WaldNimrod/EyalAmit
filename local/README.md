@@ -9,7 +9,7 @@
 | `docker-compose.yml` | WordPress + MariaDB; בנייה מ־`Dockerfile.wordpress` |
 | `Dockerfile.wordpress` | שכבת **Xdebug 3** + **WP-CLI** מעל `WORDPRESS_IMAGE` (ברירת מחדל PHP 8.3) |
 | `xdebug.ini` | הגדרות Xdebug לדיבוג מקומי בלבד |
-| (אין `.env.example`) | משתני סביבה מתועדים ב־[`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md): **§1** → `local/.env`, **§2** → `local/.env.upress`. ראו גם [`UPRESS_WORDPRESS_STANDARD_v2.md`](../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) |
+| (אין `.env.example`) | משתני סביבה מתועדים ב־[`docs/project/EYAL_ENV_VARS_REFERENCE.md`](../docs/project/EYAL_ENV_VARS_REFERENCE.md): **§1** → `local/.env`, **§2** → `local/.env.upress`, **§2.1** → FTP פרודקשן legacy (`EYAL_LEGACY_*`). ראו גם [`UPRESS_WORDPRESS_STANDARD_v2.md`](../docs/project/UPRESS_WORDPRESS_STANDARD_v2.md) |
 
 ## גרסת PHP — חובה ליישר ל־uPress
 
@@ -58,7 +58,7 @@ docker compose up -d --force-recreate wordpress
 
 **אחרי `git pull` שמשנה `Dockerfile.wordpress` או תג `image` ב־`docker-compose.yml`:** חובה `docker compose build --no-cache wordpress` ואז `docker compose up -d --force-recreate wordpress` — אחרת עשוי להישאר **קונטיינר ישן** על תמונה בלי WP-CLI. **אימות Q3 (צוות 50):** משורש המאגר — `bash scripts/verify_local_wp_cli.sh` (בונה תמונה ובודק `wp --info` בלי DB). בתוך `local/` אחרי `up`: `docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root cli info` (גם `/usr/local/bin/wp` קיים).
 
-כתובת ברירת מחדל: `http://localhost:9090` (מיושר ל־SSOT; ניתן לשנות `WORDPRESS_PORT` ב־`.env` אם הפורט תפוס).
+כתובת ברירת מחדל: `http://localhost:8088` (מיושר ל־SSOT ולהקצאת הפורטים של הפרויקט; ניתן לשנות `WORDPRESS_PORT` ב־`.env` רק אם הפורט תפוס — לא לבחור פורט שרירותי).
 
 **מיפוי `wp-content`:** ב־`docker-compose.yml` מופעל כברירת מחדל **`../site/wp-content` → `/var/www/html/wp-content`** — עריכה ב־מאגר משתקפת מיד בקונטיינר (תמה child, mu-plugins). אחרי שינוי ב־compose: `docker compose up -d`.
 
@@ -88,7 +88,7 @@ docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root impo
 1. **הרחבה:** PHP Debug (מותקנת לפי `.vscode/extensions.json`).  
 2. **הקונטיינר** כולל Xdebug (פורט **9003**, `client_host=host.docker.internal`; ב־Compose מוגדר `extra_hosts: host-gateway`).  
 3. **מיפוי קבצים:** ברירת המחדל במאגר — bind-mount ל־`site/wp-content`; ב־Cursor: **Run and Debug** → **Listen for Xdebug (PHP)** (מ־[`.vscode/launch.json`](../.vscode/launch.json)).  
-4. לפתוח דף ב־`http://localhost:9090` — נקודות עצירה ב־PHP תחת `wp-content` אמורות להתאים לקבצי המאגר.  
+4. לפתוח דף ב־`http://localhost:8088` — נקודות עצירה ב־PHP תחת `wp-content` אמורות להתאים לקבצי המאגר.  
 5. אם הוסר ה־bind-mount — להשתמש בתצורה **Listen for Xdebug (PHP, no path map)**.
 
 פירוט תקן עורך: [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](../docs/sop/AGENT-WORKSPACE-STANDARD.md) §3.5.

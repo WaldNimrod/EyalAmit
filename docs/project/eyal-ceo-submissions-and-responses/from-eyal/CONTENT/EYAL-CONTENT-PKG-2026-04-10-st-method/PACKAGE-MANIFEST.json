@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-10-st-method",
+  "ingestedDate": "2026-04-11",
+  "sourceZip": "final_st-method_2026-04-10_SINGLE.zip",
+  "sourceMd": "final_st-method_2026-04-10_SINGLE.md",
+  "pageIds": ["st-method"],
+  "templateIds": ["tpl-method"],
+  "packageRole": "approved_content_final",
+  "noteHe": "תוכן FINAL לעמוד השיטה (cbDIDG). קובץ ZIP כולל מדיה (~271MB). מקור ב-'CONTENT EYAL 10.4.26/'."
+}

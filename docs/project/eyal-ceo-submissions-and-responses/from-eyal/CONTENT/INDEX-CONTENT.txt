@@ -1,0 +1,14 @@
+אינדקס חבילות תוכן — from-eyal/CONTENT (טקסט בלבד; מקביל ל־README.md)
+תאריך: 2026-04-09
+
+מזהה קנוני                                  תאריך קליטה   pageId              zip
+------------------------------------------------------------------------------------------------------------------------
+EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment   2026-04-09   st-svc-treatment    final_st-svc-treatment_2026-04-09_SINGLE.zip
+EYAL-CONTENT-PKG-2026-04-07-st-book-bundle     2026-04-07   st-book-bundle      proposed_st-book-bundle_2026-04-07.zip
+EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh      2026-04-07   st-books            final_st-books_muzeh_2026-04-07.zip
+EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt 2026-04-07   st-book-vekatavt     final_st-book-vekatavt_2026-04-07.zip
+EYAL-CONTENT-PKG-2026-04-07-st-book-tsva      2026-04-07   st-book-tsva        final_st-book-tsva_2026-04-07.zip
+EYAL-CONTENT-PKG-2026-04-06-st-book-kushi     2026-04-06   st-book-kushi       poc_st-book-kushi_2026-04-06.zip
+
+פירוט מלא: README.md באותה תיקייה (לצוות).
+Hub deliverables: hub/data/deliverables.json (אחרי build + mirror-docs).

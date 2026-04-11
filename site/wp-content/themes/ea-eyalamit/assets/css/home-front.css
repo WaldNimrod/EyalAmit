@@ -55,15 +55,14 @@ body.ea-home-dashboard .ea-home-front .ea-home-hero {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-/* גובה כמו title_without_animation באתר החי (Bridge ~300px); תמונת המקור — 2023/09/1.jpg */
-body.ea-home-dashboard .ea-home-front .ea-home-hero img {
+/* רקע Hero — בלי תמונות ארכיון/סטוק; תמונת מותג תישב כאן אחרי אספקה מאייל */
+body.ea-home-dashboard .ea-home-front .ea-home-hero-backdrop {
 	width: 100%;
 	height: 300px;
 	min-height: 300px;
 	max-height: 300px;
-	object-fit: cover;
-	object-position: center center;
 	display: block;
+	background: linear-gradient(165deg, #e8e4de 0%, #d4cdc3 45%, #c5bdb2 100%);
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay {
@@ -287,6 +286,159 @@ body.ea-home-dashboard .ea-home-front .ea-home-seo-block p {
 
 body.ea-home-dashboard .ea-home-front .ea-home-seo-block p:last-child {
 	margin-bottom: 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-section {
+	margin-bottom: 1.5rem;
+	padding: 1.15rem 1.2rem;
+	background: var(--ea-home-panel);
+	border: 1px solid var(--ea-home-border);
+	border-radius: 4px;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-section > h2 {
+	margin: 0 0 0.5rem;
+	color: var(--ea-home-heading);
+	font-size: 1.15rem;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-section-lead {
+	margin: 0;
+	max-width: 42em;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-section-lead--compact {
+	margin-bottom: 0.65rem;
+	font-size: 0.95rem;
+	color: var(--ea-home-muted);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-video-block .ea-home-video-placeholder {
+	min-height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.06);
+	border: 1px dashed var(--ea-home-border);
+	border-radius: 4px;
+	color: var(--ea-home-muted);
+	font-size: 0.9rem;
+	margin: 0.75rem 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-video-caption {
+	margin: 0.5rem 0 0;
+	font-size: 0.9rem;
+	color: var(--ea-home-muted);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-areas-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 0.65rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-area-card {
+	margin: 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-area-card a {
+	display: block;
+	padding: 0.75rem 0.85rem;
+	background: var(--ea-home-bg);
+	border: 1px solid var(--ea-home-border);
+	border-radius: 4px;
+	text-decoration: none !important;
+	font-weight: 600;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-area-card a:hover {
+	border-color: var(--ea-home-accent);
+	background: rgba(26, 188, 156, 0.06);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item {
+	margin-top: 0.5rem;
+	border: 1px solid var(--ea-home-border);
+	border-radius: 4px;
+	padding: 0.35rem 0.65rem;
+	background: var(--ea-home-bg);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: var(--ea-home-heading);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item p {
+	margin: 0.5rem 0 0;
+	font-size: 0.92rem;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-faq-more {
+	margin: 1rem 0 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom {
+	margin-top: 2rem;
+	padding: 1.5rem 1.25rem;
+	text-align: center;
+	background: var(--ea-home-panel);
+	border: 1px solid var(--ea-home-border);
+	border-radius: 4px;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__title {
+	margin: 0 0 0.5rem;
+	color: var(--ea-home-heading);
+	font-size: 1.2rem;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__text {
+	margin: 0 0 1rem;
+	color: var(--ea-home-text);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__hint {
+	margin: 0.75rem 0 0;
+	font-size: 0.88rem;
+	color: var(--ea-home-muted, var(--ea-home-text));
+	opacity: 0.9;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-testimonials-sub {
+	margin: 0 0 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--ea-home-heading);
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-quote {
+	margin: 0.75rem 0;
+	padding: 0.75rem 1rem;
+	border-inline-start: 3px solid var(--ea-home-accent);
+	background: var(--ea-home-panel);
+	border-radius: 0 4px 4px 0;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-quote p {
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-placeholder-tag {
+	margin: 0.5rem 0 0;
+	font-size: 0.78rem;
+	opacity: 0.85;
+}
+
+body.ea-home-dashboard .ea-home-front .ea-home-cta-row--center {
+	justify-content: center;
 }
 
 /* Hide GP default page title on this layout */

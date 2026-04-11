@@ -1,25 +1,63 @@
 {
   "schemaVersion": 1,
-  "introHe": "החלטות הדורשות קלט או אישור מאייל. לכל פריט יש הקשר, אפשרויות, משמעות והמלצת צוות. מילוי וייצוא JSON — בעמוד «משימות והחלטות».",
+  "introHe": "עץ האתר ודף הבית נעולים (6.4.2026) ומממשים את מודל עולם התוכן §7.9 ואת מודל האינסטנסים — D-EYAL-CONTENT-MODEL-09, D-EYAL-ENTITY-CATALOG-12. נעולות גם: תפריט §6.1, מותג בתפריט, חשבונית ירוקה, מיגרציית גלריות (D-EYAL-GALLERY-03), KMD (D-EYAL-KMD-04), קורס דיגיטלי והרצאות (D-EYAL-COURSES-05). עמוד EN (D-EYAL-EN-BODY-02) נדחה לשלב האחרון של בניית האתר — אין קלט CEO נדרש כעת. לוגו: אחרי תבנית סופית יוגדר פורמט/גודל וייווצר מנכסים קיימים (from-eyal). מילוי וייצוא JSON — tasks.html.",
+  "meetingChecklistIntroHe": "עמוד זה הוא מקור העבודה בפגישה: קודם כל החלטות «ממתין» (אם יש), אחר כך תוכן משלים מ־eyal-pending, ואז — נדחו לשלב מאוחר (חלק ג׳) ונעולות (חלק ד׳, מכווץ). אחרי הפגישה: משימות והחלטות — ייצוא JSON.",
+  "meetingChecklistPartAIntroHe": "מזהי D-EYAL-* במצב «ממתין» בלבד. נדחו — חלק ג׳; נעולות — חלק ד׳. לבחור א׳/ב׳/ג׳ או לפרט בשורת «החלטה בפגישה», ואז tasks.html.",
+  "meetingChecklistPartBIntroHe": "קליטת טקסטים וקבצים: בעיקר דרך content-intake.html או Drive; אין כאן מזהה החלטה בטופס — רושמים מה התקבל בפגישה.",
+  "meetingChecklistPartCIntroHe": "החלטות שאושרו ונסגרו — אין צורך להחליט שוב; אפשר לפתוח לקריאה אם צריך להזכיר הקשר.",
   "decisions": [
     {
       "id": "D-EYAL-SITE-07",
-      "titleHe": "עץ אתר · SEO · AEO · GEO",
-      "contextHe": "לאחר המסמך שלך ומשוב הצוות ב־Word מ־04-04 — האם המבנה תואם את v2.3 המאושר או נדרשת התאמה?",
-      "optionsHe": "א׳ מאשר יישור כפי שבמשוב · ב׳ יש שינוי למחיצה/סדר (פרט במייל) · ג׳ שיחת הבהרה לפני מימוש",
-      "implicationsHe": "א׳/ב׳ משפיעים על תפריטים ו־WXR; ג׳ עוצר הזנה מבנית עד שיחה",
-      "recommendationHe": "א׳ אם אין סתירה לטבלת v2.3",
-      "status": "pending"
+      "titleHe": "עץ אתר · תפריט · SEO · AEO · GEO",
+      "contextHe": "מקור מפתח: מסמך אייל eyal_amit_dev_brief_GEO_AEO_SEO.md (from-eyal) + דלטה DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md (team_100). התפריט שטוח §6.1 (11+לוגו) משוקף ב־hub/data/site-tree.json.",
+      "optionsHe": "א׳ מאשר אימוץ §6.1 לתפריט הראשי (עם מיפוי slug) · ב׳ שינוי חלקי (פרט אילו פריטים) · ג׳ להשאיר v2.3 בשלב א׳ ולתכנן EN בנפרד · ד׳ שיחת הבהרה לפני מימוש",
+      "implicationsHe": "א׳/ב׳ משפיעים על תפריטי WP, WXR ו־site-tree.json; ג׳ משאיר פער זמני בין מסמך לבין ממשק Hub",
+      "recommendationHe": "א׳ אם אין התנגדות ל־§6.1 לאחר צפייה במוקאפים ia-compare",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): אייל אישר את עץ האתר ב־Hub כמקור אמת ל־IA. יישום ב־WP וסנכרון SSOT — לפי משימות M2.",
+      "mockupHref": "mockups/ia-compare/menu-eyal-flat-11.html"
     },
     {
       "id": "D-EYAL-HOME-01",
-      "titleHe": "דף הבית — בחירה סופית",
-      "contextHe": "ללא מהפכה בממשק; רענון מודרני; בלוק SEO. מוקאפים: כיוונים A/B/C ודשבורד מלא.",
-      "optionsHe": "א׳ שער אחד · ב׳ מרכז+עומק · ג׳ תמונה דומיננטית · ד׳ אחת מדשבורדי home-dashboard / שילוב · ה׳ קרוב להיום + רשימת שינויים",
-      "implicationsHe": "קובעים סבב עיצוב אחד; ד׳/ה׳ דורשים פירוט נוסף",
-      "recommendationHe": "ד׳ — דשבורד אחד עם SEO",
-      "status": "pending",
-      "mockupHref": "mockups/home-dashboard/index.html"
+      "titleHe": "דף הבית — מבנה ויזואלי סופי",
+      "contextHe": "מסמך אייל: 12 בלוקים (§7.1), Hero §8.2, FAQ בבית, CTA תחתון. המוקאפ החוזי המאושר משלב ווירפריים מאייל עם תפריט §6.1, Hero מדיה, פוטר מלא ומודל קטלוגים.",
+      "optionsHe": "א׳ מאשר מבנה 12 בלוקים + נוסח Hero כפי במסמך · ב׳ מאשר מבנה, מבקש עריכת ניסוח נקודתית (יפורט בקליטת תוכן) · ג׳ דורש שינוי סדר/בלוקים (פרט)",
+      "implicationsHe": "א׳ משחרר יישום תבנית; ב׳/ג׳ דורשים סבב תוכן או אפיון",
+      "recommendationHe": "א׳ לאחר סקירת mockups/home-dashboard (אופציה ב׳) ו־mockups/ia-compare/hero-dashboard-vs-brief.html",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): אייל אישר את מוקאפ home-visual-sketch-final-rtl.html כבסיס ליישום דף הבית. ניסוחי טקסט שיווקי — עדיין בקליטת תוכן; שינוי מבנה בלוקים — רק באישור מחדש.",
+      "mockupHref": "mockups/wireframes/home-visual-sketch-final-rtl.html"
+    },
+    {
+      "id": "D-EYAL-IA-MENU-08",
+      "titleHe": "תפריט ראשי — §6.1 מול v2.3 (השוואה ויזואלית)",
+      "contextHe": "ההבחנה בין v2.3 (שירותים כהאב) לבין §6.1 שטוח — נסגרה לטובת §6.1 כפי בעץ המאושר ובמוקאף הבית.",
+      "optionsHe": "א׳ §6.1 מלא · ב׳ היברידי (פרט) · ג׳ נשארים ב־v2.3 זמנית",
+      "implicationsHe": "נגזר מ־D-EYAL-SITE-07; מוקאפים ממחישים את אותה החלטה מזווית תפריט",
+      "recommendationHe": "לצפות בשני הקבצים: menu-v23-services-hub.html ו־menu-eyal-flat-11.html",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): א׳ — תפריט §6.1 כפי ב־site-tree ובמוקאף דף הבית המאושר.",
+      "mockupHref": "mockups/wireframes/home-visual-sketch-final-rtl.html"
+    },
+    {
+      "id": "D-EYAL-CONTENT-MODEL-09",
+      "titleHe": "מודל «תוכן» — דף שער מול שני URLים",
+      "contextHe": "במסמך אייל §7.9: עולם תוכן עם בלוג דיג׳רידו והמלצות ומדיה. האם דף שער אחד עם שני מסלולים או שני עמודים/URL נפרדים ברורים ל־SEO.",
+      "optionsHe": "א׳ דף שער + שני קישורים פנימיים · ב׳ שני slugים נפרדים מהיום · ג׳ להחליט אחרי מיפוי תוכן",
+      "implicationsHe": "משפיע על מבנה עמודים וקליטת תוכן",
+      "recommendationHe": "א׳ או ב׳ — לפי נוחות תחזוקה וכוונת חיפוש",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): ב׳ — שני slugים ציבוריים נפרדים, לא דף שער יחיד. ממומש בעץ המאושר: בלוג דיג׳רידו — st-blog (slug blog, תפריט ראשי מקום 9); המלצות/מדיה — st-media (slug media, קטלוג מרכזי + קישור חובה בפוטר). ראו hub/data/site-tree.json. אישור אייל לעץ ב־6.4.2026 חל גם כאן."
+    },
+    {
+      "id": "D-EYAL-MENU-BRAND-10",
+      "titleHe": "ניסוח מותג בתפריט — cbDIDG מול «השיטה»",
+      "contextHe": "המסמך מדגיש את cbDIDG כשם השיטה; בתפריט §6.1 מופיע «השיטה». האם להציג במקום אחד את שני הניסוחים או ניסוח אחד עקבי.",
+      "optionsHe": "א׳ «השיטה (cbDIDG)» בתפריט · ב׳ רק «השיטה» עם הסבר בעמוד · ג׳ רק «cbDIDG»",
+      "implicationsHe": "עקביות GEO/AEO — יש לשמור על מונחים עקביים בגוף האתר גם אחרי בחירה בתפריט",
+      "recommendationHe": "א׳ אם רוצים בהירות מקסימלית בשורת הניווט",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): ב׳ — בתפריט «השיטה»; cbDIDG בגוף ה־Hero ובעמוד השיטה (כפי במוקאף הבית המאושר)."
     },
     {
       "id": "D-EYAL-EN-BODY-02",
@@ -28,7 +66,8 @@
       "optionsHe": "א׳ לאשר מוקאפ · ב׳ עריכה ממוקדת (תשלח טקסט) · ג׳ שיחת טון 15 דק׳",
       "implicationsHe": "א׳ חוסך סבבים; ב׳/ג׳ דורשים זמן ממך",
       "recommendationHe": "א׳ לאחר קריאה אחת של מוקאפ EN",
-      "status": "pending",
+      "status": "deferred",
+      "resolutionHe": "נדחה (2026-04-06): גוף עמוד EN יטופל בשלב האחרון של בניית האתר — לא נדרש קלט נוסף מניהול כעת. מוקאפ ב־Hub: mockups/en-landing-page-preview.html.",
       "mockupHref": "mockups/en-landing-page-preview.html"
     },
     {
@@ -38,7 +77,8 @@
       "optionsHe": "א׳ מאשר עקרון מראש · ב׳ מחכה לטבלה מלאה · ג׳ תקרה אחרת (פרט)",
       "implicationsHe": "א׳ משחרר מיגרציה; ב׳ עוצר עד טבלה",
       "recommendationHe": "א׳ + אישור שני קצר כשהטבלה מוכנה",
-      "status": "pending"
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06, דיוק מדיניות מיגרציה מאייל): כל תמונה שמופיעה בעמודים הציבוריים באתר הישן עוברת מיגרציה מלאה לקטגוריה המדויקת ביעד. קבצים נוספים שקיימים רק בתיקיית המדיה הישנה ואינם מוטמעים/מוצגים בעמודים ציבוריים — לא עוברים מיגרציה. צוות מייצר מיפוי/טבלה לפי עמודים ציבוריים וגלריות בפועל; ניהול קטגוריות בגלריה הישנה מאפשר חוקים לפי קטגוריה — ליישור מול המיפוי."
     },
     {
       "id": "D-EYAL-KMD-04",
@@ -47,7 +87,8 @@
       "optionsHe": "א׳ סיכום מספרים + חריגים · ב׳ טבלה מלאה · ג׳ הרשאה ל־100/נימרוד בלי Drop למותג ראשי",
       "implicationsHe": "ב׳ כבד יותר; ג׳ דורש אמון",
       "recommendationHe": "א׳; ב׳ אם הרבה Drop",
-      "status": "pending",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): נוהל KMD נסגר — לא נדרש אישור נוסף מניהול מעבר לסיכום מספרים וחריגים לפי מסלול הצוות (א׳). מוקאפ ייחוס: mockups/kmd-inventory-prototype.html.",
       "mockupHref": "mockups/kmd-inventory-prototype.html"
     },
     {
@@ -57,8 +98,20 @@
       "optionsHe": "א׳ טקסטים+קישורים עד תאריך · ב׳ מוקאפ+placeholder עד שתשלח · ג׳ דחייה ל«בקרוב»",
       "implicationsHe": "ג׳ דורש סנכרון מפת אתר",
       "recommendationHe": "ב׳ ל־M2; א׳ עם דדליין לפני M3",
-      "status": "pending",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): מוקאפ קורס דיגיטלי ב־Hub (לאחר build, יחסית לשורש האתר המקומי): mockups/mockups/mockup-digital-course.html — קישור «פתח מוקאפ» גם ב־tasks ובצ׳קליסט. הרצאות: mockups/mockups/mockup-lectures.html. טקסטים זמניים ומילוי placeholder — אחריות הצוות לפי הנחיה; יישור סופי לדף הבית כשהתבנית תהיה מוכנה. קישורי סקולר/רב־מסר — כשיהיו מוכנים, דרך קליטת תוכן.",
       "mockupHref": "mockups/mockups/mockup-digital-course.html"
+    },
+    {
+      "id": "D-EYAL-ENTITY-CATALOG-12",
+      "titleHe": "מודל אינסטנסים — FAQ, גלריות, המלצות",
+      "contextHe": "שלושת הסוגים פועלים כאובייקט אחיד ב־CMS: רשומות עם קטגוריות/קבוצות, משובצות בעמודים כבלוקים, ומסתיימות בעמוד קטלוג מרכזי (פוטר: FAQ, גלריות, המלצות). נוסף st-galleries-catalog; st-media עודכן לכותרת קטלוג מרכזי.",
+      "optionsHe": "א׳ מאשר מודל אחיד + שלושה עמודי קטלוג ציבוריים · ב׳ חריגות לסוג אחד (פרט) · ג׳ דיון אחרי בחירת מנוע CMS",
+      "implicationsHe": "א׳ משפיע על תבניות WP, שדות ACF/CPT ופוטר גלובלי",
+      "recommendationHe": "א׳ — עקביות תחזוקה ו־AEO",
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06): א׳ — מודל אחיד + שלושה עמודי קטלוג ציבוריים בפוטר, כפי בעץ: st-faq (faq), st-galleries-catalog (galleries), st-media (media); הערות treeNoteHe על CPT/שיבוץ לבלוקים. מוקאף דף הבית המאושר משקף פוטר וקטלוגים. יישום WP — לפי M2.",
+      "mockupHref": "mockups/wireframes/home-visual-sketch-final-rtl.html"
     },
     {
       "id": "D-EYAL-GREEN-UX-06",
@@ -67,7 +120,8 @@
       "optionsHe": "א׳ שולח דוגמת Morning · ב׳ כפתור גנרי עד אז · ג׳ ניסוח כפתור אחר",
       "implicationsHe": "א׳ מדויק ביותר ללקוחות",
       "recommendationHe": "א׳; עד אז ב׳",
-      "status": "pending"
+      "status": "approved",
+      "resolutionHe": "נעול (2026-04-06, השלמת מידע): דוגמת לינק Morning לרכישת הספר «כושי בלאנטיס | אייל עמית» — https://mrng.to/MTUiO3vkIg . בעמודי האתר וב־WP: אין סליקה מוטמעת — רק הפניה חיצונית ל־Morning (כפתור/קישור). במוקאפים ובממשקי הדגמה פנימיים: לא להפעיל תשלום «חי» מתוך האתר; כפתורי דמו — ללא סליקה או עם קישור מפורש לסביבת רכישה חיצונית בלבד."
     }
   ]
 }

@@ -5,7 +5,7 @@
 ## מבנה מאגר
 
 - **שורש Hub:** `hub/` (לא תחת `docs/project/eyal-client-hub/`).
-- **נתונים:** `hub/data/` — `decisions.json`, `tasks.json`, `roadmap.json`, `updates.json`, `deliverables.json` (הרחבה F-14).
+- **נתונים:** `hub/data/` — `decisions.json`, `tasks.json`, `roadmap.json`, `updates.json`, `deliverables.json` (הרחבה F-14), **`eyal-pending.json`** (אופציונלי): רשימת «מה חסר» עם בעלים (`nimrod` | `eyal` | `dev`) ו־`hubAction` — נטען בבנייה לכרטיס **מסלול לאייל** ולטבלה ב־**`tasks.html`** (בכניסה רק תמונת מצב כללית + הפניה). קשר למסמך המפתח של אייל (`eyal_amit_dev_brief_GEO_AEO_SEO.md`) ולדלטה מול SSOT תחת `_communication/team_100/`.
 - **SSOT:** `hub/ssot/` — `manifest.json`, `responses/`.
 - **פלט בנייה:** `hub/dist/` (לא ב-Git).
 

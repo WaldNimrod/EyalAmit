@@ -52,7 +52,7 @@
 - מתוך `local/`, אחרי `git pull` ו־`docker compose build --no-cache wordpress` + `docker compose up -d --force-recreate wordpress`:
   - `docker compose exec wordpress /usr/bin/wp --path=/var/www/html --allow-root cli info` — **חייב** לצאת 0 ולהדפיס גרסת WP-CLI.
   - אופציונלי: `bash scripts/verify_local_wp_cli.sh` משורש המאגר.
-- Q2: אם `WORDPRESS_PORT` ב־`.env` שונה מ־9090 — לתעד בדוח את ה־URL בפועל (לא כשגיאה).
+- Q2: אם `WORDPRESS_PORT` ב־`.env` שונה מ־8088 (הקאנון) — לתעד בדוח את ה־URL בפועל (לא כשגיאה).
 
 ### 4.2 G2 מוצרי (פתיחת BLOCKED)
 

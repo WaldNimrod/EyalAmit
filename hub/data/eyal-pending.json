@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "titleHe": "מול אייל — אין שערי החלטה CEO פתוחים",
+  "introHe": "נכון ל־6.4.2026: D-EYAL-KMD-04 ו־D-EYAL-COURSES-05 נעולים; D-EYAL-EN-BODY-02 נדחה לשלב אחרון של בניית האתר. אין דרישת קלט החלטה בפגישה על שלושת הנושאים האלה. להלן רק תוכן שוטף (לא חוסם IA).",
+  "lockedSummaryHe": "נעול: D-EYAL-SITE-07 · D-EYAL-IA-MENU-08 · D-EYAL-HOME-01 · D-EYAL-MENU-BRAND-10 · D-EYAL-GREEN-UX-06 · D-EYAL-CONTENT-MODEL-09 · D-EYAL-ENTITY-CATALOG-12 · D-EYAL-GALLERY-03 · D-EYAL-KMD-04 · D-EYAL-COURSES-05. נדחה: D-EYAL-EN-BODY-02.",
+  "stepsHe": [
+    "החלטות פורמליות: tasks.html — ייצוא JSON אם נדרש היסטוריה.",
+    "תוכן לעמודים: content-intake.html או Drive.",
+    "לוגו לרשת: אחרי תבנית סופית — יוגדר פורמט וגודל וייווצר מקבצי from-eyal לפי LOGO-ASSETS-AND-FORMAT-SPEC.md."
+  ],
+  "items": [
+    {
+      "id": "OPEN-BRAND-LOGO",
+      "titleHe": "לוגו — ייצוא לרשת (אחרי תבנית)",
+      "owner": "team",
+      "hubAction": "content-intake",
+      "noteHe": "כשתבנית WP סופית: מפרט פורמט/גודל, ייצור SVG/PNG מנכסים קיימים (from-eyal + מאגר)."
+    },
+    {
+      "id": "OPEN-FAQ-COPY",
+      "titleHe": "טקסטים ל־FAQ בבית ולעמוד FAQ מלא",
+      "owner": "team",
+      "hubAction": "content-intake",
+      "noteHe": "טקסטים זמניים לפי הנחיה; §9.3–§9.4 במסמך המפתח."
+    },
+    {
+      "id": "OPEN-HOME-MARKETING-COPY",
+      "titleHe": "ניסוחי שיווק בדף הבית",
+      "owner": "team",
+      "hubAction": "content-intake",
+      "noteHe": "מבנה הבית נעול; גוון טקסט — צוות + קליטת תוכן."
+    }
+  ]
+}

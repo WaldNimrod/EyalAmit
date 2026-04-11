@@ -97,11 +97,11 @@
       margin-bottom: 10px;
       border: 1px solid var(--card-border);
     }
-    .layout-a .hero img {
+    .layout-a .hero-ph-fill {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
+      background: linear-gradient(165deg, #3a3229 0%, #1a1612 100%);
+      border: 1px dashed var(--accent-dim);
     }
     .layout-a .hero span {
       position: absolute;
@@ -180,12 +180,11 @@
       border: 1px solid var(--card-border);
       position: relative;
     }
-    .layout-b .hero-small img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: brightness(0.75);
+    .layout-b .hero-small-ph {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #2d2620, #3d3429);
+      border: 1px dashed var(--card-border);
     }
     .layout-b .hero-small span {
       position: absolute;
@@ -232,11 +231,11 @@
       border: 1px solid var(--card-border);
       margin-bottom: 10px;
     }
-    .layout-c .fullscreen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 30% center;
+    .layout-c .fullscreen-ph {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, #352e28 0%, #1a1612 55%, #2d2620 100%);
+      border: 1px dashed var(--accent-dim);
     }
     .layout-c .overlay {
       position: absolute;
@@ -305,7 +304,7 @@
       <h1>שלושה כיוונים לדף הבית</h1>
       <p>
         תרשים ויזואלי לפגישה — כל אופציה מראה <strong>איך המבקר רואה את הדף</strong> (לא עיצוב סופי).
-        תמונות הן מדיה קיימת מהאתר הנוכחי — להמחשה בלבד.
+        אזורי Hero הם <strong>מוקאפ נקי</strong> (בלי תמונות סטוק) — יוחלפו בתמונת מותג/וידאו מאייל.
       </p>
     </header>
 
@@ -319,7 +318,7 @@
         <p class="idea">מבקר מבין תוך שניות <strong>מה קורה עכשיו</strong>; שאר האתר דרך התפריט הראשי.</p>
         <div class="mock">
           <div class="hero">
-            <img src="home-preview/hero-wide-studio.jpg" alt="" width="1024" height="792" decoding="async" />
+            <div class="hero-ph-fill" aria-hidden="true"></div>
             <span>Hero מלא רוחב — תמונה או וידאו קצר</span>
           </div>
           <div class="news">בלוק חדשות / אירוע מרכזי — <strong>מקום אחד בולט</strong> לעדכון</div>
@@ -343,7 +342,7 @@
             <div class="side">תפריט / ניווט משני (אופציונלי)</div>
             <div class="main">
               <div class="hero-small">
-                <img src="home-preview/workshop-thumb.jpg" alt="" width="300" height="225" decoding="async" />
+                <div class="hero-small-ph" aria-hidden="true"></div>
                 <span>Hero צר + משפט מסר + CTA</span>
               </div>
               <div class="updates">
@@ -369,7 +368,7 @@
         </p>
         <div class="mock">
           <div class="fullscreen">
-            <img src="home-preview/eyal-portrait-hero.jpg" alt="" width="566" height="1024" decoding="async" />
+            <div class="fullscreen-ph" aria-hidden="true"></div>
             <div class="overlay">
               <strong>טקסט קצר + קריאה לפעולה על גבי התמונה</strong>
               <em>כמעט מסך מלא — מסר אחד חד</em>
@@ -386,7 +385,7 @@
 
     <footer>
       מסמך פנימי — v1.2 · מקור מילולי: <code>HOME-PAGE-DIRECTIONS-v1.2.md</code>
-      <div class="credit">תמונות: ארכיון מדיה מהאתר הקיים (wp-content/uploads), הועתקו ל־to-eyal/_shared-assets/home-preview/</div>
+      <div class="credit">אזורי מדיה במוקאפ זה — רקעים מדומים; ללא תמונות ארכיון.</div>
     </footer>
   </div>
 </body>

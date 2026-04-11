@@ -1,0 +1,1381 @@
+/**
+ * books-v2.css — Muzeh Books Section (Hub + Detail)
+ * Design System: D-EYAL-DESIGN-STYLE-13 (LOCKED 2026-04-07)
+ *
+ * Coverage:
+ *   .ea-books-hub          — Hub page (/muzza/)
+ *   .ea-books-bundle       — Bundle CTA section (new in V2)
+ *   .ea-book-detail        — Individual book pages
+ *   .ea-btn                — Shared pill button system
+ *
+ * Typography: Heebo ONLY (enqueued via ea_eyalamit_books_v2_assets in functions.php)
+ * Color tokens: defined in :root via ea_eyalamit_enqueue_palette_root_overrides().
+ *
+ * Wave1 violations corrected throughout — inline comments prefixed [W1→V2].
+ *
+ * RTL-aware: uses logical properties (padding-inline-start, border-inline-start,
+ * float: inline-start, margin-inline) throughout — site is Hebrew/RTL.
+ *
+ * Layout contract with GeneratePress:
+ *   GeneratePress `.inside-article` is the outer frame.
+ *   `.entry-content` is the direct parent of our root classes.
+ *
+ * @package ea_eyalamit
+ * @since   1.4.0
+ */
+
+/* ==========================================================================
+   §0. BOX-SIZING SCOPE
+   ========================================================================== */
+
+.ea-books-hub *,
+.ea-books-hub *::before,
+.ea-books-hub *::after,
+.ea-books-bundle *,
+.ea-books-bundle *::before,
+.ea-books-bundle *::after,
+.ea-book-detail *,
+.ea-book-detail *::before,
+.ea-book-detail *::after {
+	box-sizing: border-box;
+}
+
+/* ==========================================================================
+   §1. SCROLL-REVEAL UTILITY
+   Rule 1 (whitespace): elements enter with a gentle upward drift, not a flash.
+   IntersectionObserver (threshold 0.15) adds .visible.
+   [W1→V2] Wave1 had no reveal system. V2 adds it consistently.
+   ========================================================================== */
+
+.reveal {
+	opacity: 0;
+	transform: translateY( 30px );
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+	opacity: 1;
+	transform: translateY( 0 );
+}
+
+/* ==========================================================================
+   §2. SHARED BUTTON SYSTEM — .ea-btn
+   Rule 5: border-radius 100px (pill). Rule 6: Terracotta ONLY on touch points.
+   Rule 3: no box-shadow anywhere. Font: Heebo 300 0.78rem.
+   [W1→V2] Wave1 buttons: border-radius 9px + box-shadow + linear-gradient.
+   All three violations. V2: flat solid color + pill radius + no shadow.
+   ========================================================================== */
+
+.ea-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4em;
+	padding: 0.7em 1.6em;
+	border-radius: 100px;          /* Rule 5: pill only — not 9px, 12px, 14px, 16px */
+	border: 1px solid transparent;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+
+	font-family: "Heebo", sans-serif; /* [W1→V2] replaces Rubik/Frank Ruhl/Amatic SC */
+	font-size: 0.78rem;
+	font-weight: 300;              /* Rule: button weight = 300 */
+	line-height: 1;
+	letter-spacing: 0.2px;
+
+	/* Transition: color shift only — no transform, no shadow */
+	transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+/* Primary: flat Terracotta fill */
+.ea-btn--primary {
+	background-color: var( --eyal-terracotta, #a44e2b );
+	color: #fff;
+	border-color: var( --eyal-terracotta, #a44e2b );
+}
+
+.ea-btn--primary:hover,
+.ea-btn--primary:focus-visible {
+	background-color: var( --eyal-brick, #ab3a2b ); /* Rule 6: Terracotta on touch */
+	border-color: var( --eyal-brick, #ab3a2b );
+	color: #fff;
+	/* [W1→V2] Wave1 used transform: translateY(-1px) + box-shadow — both banned. */
+}
+
+/* Ghost: transparent with Terracotta border */
+.ea-btn--ghost {
+	background-color: transparent;
+	color: var( --eyal-terracotta, #a44e2b );
+	border-color: var( --eyal-terracotta, #a44e2b );
+}
+
+.ea-btn--ghost:hover,
+.ea-btn--ghost:focus-visible {
+	background-color: var( --eyal-sand, #d8c7b5 );
+	color: var( --eyal-brick, #ab3a2b );
+	border-color: var( --eyal-brick, #ab3a2b );
+}
+
+/* Focus ring — accessibility, not a shadow */
+.ea-btn:focus-visible {
+	outline: 2px solid var( --eyal-terracotta, #a44e2b );
+	outline-offset: 3px;
+}
+
+/* ==========================================================================
+   §3. BOOKS HUB — OUTER CONTAINER (.ea-books-hub)
+   Rule 1: section padding 80-100px. Content max-width 960px.
+   [W1→V2] Wave1: max-width 46rem (~736px), padding 0.25rem 0 3rem —
+   starved of whitespace. V2 uses the system 960px grid + 80px breathing room.
+   ========================================================================== */
+
+.ea-books-hub {
+	max-width: 960px;
+	margin-inline: auto;           /* RTL-safe centering */
+	padding: 40px 32px 100px;      /* inner-page: top = half of homepage hero [2026-04-11] */
+}
+
+/* ==========================================================================
+   §4. HUB TITLE (.ea-books-hub-title)
+   Typography: H2 → Heebo 200, 2rem, lh 1.2, ls -0.3px.
+   Rule 2: accent line = Terracotta 1px, 24px wide (::after pseudo).
+   Rule 4: no heavy borders — replaces the 2px border-bottom.
+   [W1→V2] Was: Frank Ruhl Libre 700, clamp(1.85rem,4.5vw,2.35rem),
+   border-bottom: 2px solid rgba(164,78,43,0.35).
+   Wrong font, wrong weight, wrong border weight.
+   ========================================================================== */
+
+.ea-books-hub-title {
+	font-family: "Heebo", sans-serif;
+	font-size: 2rem;               /* H2 scale */
+	font-weight: 200;              /* [W1→V2] was 700 — Rule: larger = lighter */
+	line-height: 1.2;
+	letter-spacing: -0.3px;
+	color: var( --eyal-ink, #2e2b28 );
+	margin: 0 0 1.5rem;
+	padding-bottom: 0;
+	border-bottom: none;           /* [W1→V2] Wave1 had border-bottom: 2px — removed */
+	position: relative;
+}
+
+/* Terracotta accent line: 1px × 24px — Rule 2: the ONLY graphic element */
+.ea-books-hub-title::after {
+	content: "";
+	display: block;
+	width: 24px;                   /* Rule 2: thin lines 20-32px wide */
+	height: 1px;                   /* Rule 2: 1px only */
+	background-color: var( --eyal-terracotta, #a44e2b );
+	margin-top: 0.65rem;
+}
+
+/* ==========================================================================
+   §5. HUB INTRO (.ea-books-hub-intro)
+   Body text: Heebo 300, 0.9rem, lh 1.88. Comfortable prose max-width.
+   [W1→V2] Wave1: 1.05rem + lh 1.7 — slightly off-spec. V2 matches table.
+   ========================================================================== */
+
+.ea-books-hub-intro {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.9rem;             /* Body: 0.9rem / 15px */
+	font-weight: 300;
+	line-height: 1.88;             /* Body: 1.85-1.9 */
+	color: var( --eyal-ink, #2e2b28 );
+	max-width: 680px;              /* Comfortable prose width within 960px */
+	margin-block-end: 3rem;        /* Generous gap before grid — Rule 1 */
+}
+
+.ea-books-hub-intro > *:first-child { margin-top: 0; }
+.ea-books-hub-intro > *:last-child  { margin-bottom: 0; }
+
+/* ==========================================================================
+   §6. BOOKS GRID (.ea-books-hub-grid)
+   Rule 4: gap 1px. The 1px gap creates hairline dividers; the grid background
+   itself provides the line color, bleeding through between cards.
+   [W1→V2] Was: gap 1.35rem — violates the 1px grid-gap rule.
+   ========================================================================== */
+
+.ea-books-hub-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1px;                      /* [W1→V2] was 1.35rem — Rule 4: 1px grid gap */
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	/* 1px gap is the grid background bleeding through between flush cards */
+	background-color: var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+}
+
+/* 2-column above 540px, 3-column above 800px */
+@media ( min-width: 540px ) {
+	.ea-books-hub-grid {
+		grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+	}
+}
+
+@media ( min-width: 800px ) {
+	.ea-books-hub-grid {
+		grid-template-columns: repeat( 3, minmax( 0, 1fr ) );
+	}
+}
+
+/* ==========================================================================
+   §7. BOOK CARD (.ea-books-hub-card)
+   Rule 3: no box-shadow. Rule 4: no heavy borders.
+   Rule 5: cards in a flush 1px grid use sharp corners (radius 0).
+   Hover = background color shift only — no transform, no shadow.
+   [W1→V2] Was: border-radius 14px + 2-layer box-shadow + linear-gradient bg
+   + transform: translateY(-3px) on hover. All four violations corrected.
+   ========================================================================== */
+
+.ea-books-hub-card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0;                          /* [W1→V2] was 14px — Rule 5 */
+	border: none;
+	background-color: #faf8f5;                 /* --bg flat — [W1→V2] replaces gradient */
+	box-shadow: none;                          /* [W1→V2] was 2-layer shadow — Rule 3 */
+	overflow: hidden;
+	transition: background-color 0.18s ease;  /* hover = bg shift only */
+}
+
+.ea-books-hub-card:hover {
+	background-color: #f3eee8;                 /* --bg-alt on hover */
+	/* [W1→V2] Wave1: transform: translateY(-3px) + heavier shadow — both banned. */
+}
+
+/* ==========================================================================
+   §8. CARD MEDIA (.ea-books-hub-card__media)
+   Neutral Sand background as placeholder when no image is set.
+   Images fill the 3:4 aspect-ratio area via object-fit: cover.
+   [W1→V2] Was: linear-gradient placeholder — decorative, removed.
+   ========================================================================== */
+
+.ea-books-hub-card__media {
+	margin: 0;
+	aspect-ratio: 3 / 4;
+	background-color: var( --eyal-sand, #d8c7b5 );
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.ea-books-hub-card__media img {
+	width: 100%;
+	height: 100%;
+	/*
+	 * object-fit: contain — מציג את כריכת הספר במלואה, ללא חיתוך.
+	 * רקע --sand מראה מסביב לתמונות שיחסן שונה מ-3:4.
+	 * [שינוי 2026-04-11: "כל הספר חייב להופיע במלואו"]
+	 */
+	object-fit: contain;
+	display: block;
+	border-radius: 0;
+}
+
+/* ==========================================================================
+   §9. CARD BODY (.ea-books-hub-card__body)
+   Rule 1: generous internal padding. Natural flex column flow.
+   ========================================================================== */
+
+.ea-books-hub-card__body {
+	padding: 1.4rem 1.2rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 0.6rem;
+}
+
+/* ==========================================================================
+   §10. CARD TITLE (.ea-books-hub-card__title)
+   Typography: H3 → Heebo 400, 0.92rem, lh 1.4.
+   Rule: larger = lighter — H3 in a card is 400, not 600.
+   [W1→V2] Was: font-weight 600 + no font-family override (inherited Rubik).
+   ========================================================================== */
+
+.ea-books-hub-card__title {
+	margin: 0;
+	font-family: "Heebo", sans-serif;
+	font-size: 0.92rem;            /* H3 scale */
+	font-weight: 400;              /* [W1→V2] was 600 */
+	line-height: 1.4;
+	color: var( --eyal-chocolate, #5c3a2e );
+}
+
+.ea-books-hub-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ea-books-hub-card__title a:hover,
+.ea-books-hub-card__title a:focus-visible {
+	color: var( --eyal-terracotta, #a44e2b ); /* Rule 6: Terracotta on touch */
+}
+
+/* ==========================================================================
+   §11. CARD EXCERPT (.ea-books-hub-card__excerpt)
+   Body text scale. Fills available card space.
+   ========================================================================== */
+
+.ea-books-hub-card__excerpt {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	line-height: 1.88;
+	color: var( --eyal-ink, #2e2b28 );
+	margin: 0;
+	flex: 1;
+}
+
+/* ==========================================================================
+   §12. CARD CTA LINK (.ea-books-hub-card__cta)
+   Link typography: Heebo 400, 0.82rem. Terracotta on active states.
+   RTL arrow (←) points right-to-left for Hebrew reading direction.
+   [W1→V2] Was: font-weight 600 — too heavy. V2 uses 400.
+   ========================================================================== */
+
+.ea-books-hub-card__cta {
+	margin-top: auto;
+	margin-bottom: 0;
+}
+
+.ea-books-hub-card__cta a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	font-family: "Heebo", sans-serif;
+	font-size: 0.82rem;            /* Link scale */
+	font-weight: 400;              /* [W1→V2] was 600 */
+	color: var( --eyal-terracotta, #a44e2b );
+	text-decoration: none;
+	letter-spacing: 0;
+}
+
+.ea-books-hub-card__cta a::after {
+	content: "←";                 /* RTL direction indicator */
+	font-size: 0.85em;
+	opacity: 0.8;
+	transition: transform 0.15s ease;
+}
+
+.ea-books-hub-card__cta a:hover,
+.ea-books-hub-card__cta a:focus-visible {
+	color: var( --eyal-brick, #ab3a2b );
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+/* ==========================================================================
+   §13. HUB EMPTY STATE (.ea-books-hub-empty)
+   Rule 5: border-radius 4px (images/containers scale).
+   Rule 4: 1px dashed border only.
+   [W1→V2] Was: border-radius 12px — violates Rule 5.
+   ========================================================================== */
+
+.ea-books-hub-empty {
+	padding: 1.25rem 1.35rem;
+	border-radius: 4px;            /* [W1→V2] was 12px — Rule 5 */
+	background-color: #faf8f5;
+	border: 1px dashed var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+	font-family: "Heebo", sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	color: var( --eyal-earth, #8a5a44 );
+	line-height: 1.88;
+}
+
+/* ==========================================================================
+   §14. BUNDLE SECTION (.ea-books-bundle)
+   NEW in V2 — no Wave1 equivalent.
+   Rule 1: 80px section padding. Rule 2: Terracotta accent line only.
+   Rule 3: no shadow. Rule 6: Terracotta on CTA only.
+   bg-alt visually separates from card grid above.
+   ========================================================================== */
+
+.ea-books-bundle {
+	margin-block-start: 1px;       /* Flush against grid's 1px gap */
+	padding: 80px 1.2rem;
+	background-color: #f3eee8;     /* --bg-alt */
+	text-align: center;
+}
+
+/* Terracotta accent line: 1px × 24px — Rule 2 */
+.ea-books-bundle__accent {
+	width: 24px;
+	height: 1px;
+	background-color: var( --eyal-terracotta, #a44e2b );
+	margin-inline: auto;           /* RTL-safe centering */
+	margin-block-end: 2rem;
+}
+
+/* Bundle title: H2 scale */
+.ea-books-bundle__title {
+	font-family: "Heebo", sans-serif;
+	font-size: 2rem;
+	font-weight: 200;
+	line-height: 1.2;
+	letter-spacing: -0.3px;
+	color: var( --eyal-ink, #2e2b28 );
+	margin: 0 0 0.75rem;
+}
+
+/* Bundle description: body scale */
+.ea-books-bundle__desc {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	line-height: 1.88;
+	color: var( --eyal-earth, #8a5a44 );
+	max-width: 480px;
+	margin-inline: auto;
+	margin-block-end: 2.5rem;
+}
+
+.ea-books-bundle__desc strong {
+	font-weight: 500;
+	color: var( --eyal-ink, #2e2b28 );
+}
+
+/* Bundle CTA row */
+.ea-books-bundle__cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+	align-items: center;
+}
+
+/* ==========================================================================
+   §15. SECTION LABEL UTILITY (.ea-section-label)
+   Label/section-label: Heebo 200, 0.58rem, uppercase, ls 3.5px.
+   ========================================================================== */
+
+.ea-section-label {
+	display: block;
+	font-family: "Heebo", sans-serif;
+	font-size: 0.58rem;
+	font-weight: 200;
+	line-height: 1.4;
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var( --eyal-muted, #a8a19b );
+	margin-block-end: 0.75rem;
+}
+
+/* ==========================================================================
+   §16. BOOK DETAIL — OUTER CONTAINER (.ea-book-detail)
+   Rule 1: 80-100px section padding. Max-width 960px.
+   [W1→V2] Was: max-width 46rem, padding 0.25rem 0 3.5rem — no breathing room.
+   ========================================================================== */
+
+.ea-book-detail {
+	max-width: 960px;
+	margin-inline: auto;
+	padding: 40px 32px 100px;      /* inner-page: top = half of homepage hero [2026-04-11] */
+}
+
+/* ==========================================================================
+   §17. BOOK DETAIL — H1 TITLE
+   Typography: H1 inner pages → Heebo 200, 2.8rem, lh 1.12, ls -0.5px.
+   [W1→V2] Was: Amatic SC (cursive/bold display), clamp(2.6rem,7vw,3.75rem),
+   letter-spacing 0.03em — wrong font family, wrong weight, wrong tracking.
+   V2: Heebo 200, restrained and precise.
+   ========================================================================== */
+
+.ea-book-detail h1 {
+	font-family: "Heebo", sans-serif;
+	font-size: 2.8rem;
+	font-weight: 200;              /* [W1→V2] Amatic SC implied bold — Heebo 200 */
+	line-height: 1.12;
+	letter-spacing: -0.5px;
+	color: var( --eyal-ink, #2e2b28 );
+	margin: 0 0 1.25rem;
+}
+
+/* ==========================================================================
+   §18. BOOK LEAD TEXT (.ea-book-lead)
+   Slightly larger body text as the lead/excerpt paragraph.
+   Rule 4: 1px border-inline-start (not 4px).
+   [W1→V2] Was: border-inline-start: 4px solid rgba(164,78,43,0.45) — too heavy.
+   V2: 1px solid Terracotta per Rule 4.
+   ========================================================================== */
+
+.ea-book-lead {
+	font-family: "Heebo", sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.88;
+	color: var( --eyal-ink, #2e2b28 );
+	max-width: 640px;
+	margin: 0 0 2.5rem;
+	padding-inline-start: 1rem;
+	border-inline-start: 1px solid var( --eyal-terracotta, #a44e2b );
+	/* [W1→V2] was 4px — Rule 4: only 1px dividers */
+}
+
+/* ==========================================================================
+   §19. BOOK COVER (.ea-book-cover)
+   Rule 3: no box-shadow. Rule 4: 1px border using --line token.
+   Rule 5: border-radius 4px on image (not 12px).
+   Float: RTL-aware — float: inline-start = visually floats LEFT in LTR,
+   RIGHT in RTL (Hebrew). Hebrew readers see the cover to the right of text.
+   [W1→V2] Was: border-radius 12px + 2-layer box-shadow + border 1px rgba(138,90,68,0.22).
+   All three corrected.
+   ========================================================================== */
+
+.ea-book-cover {
+	margin-block-end: 2rem;
+	max-width: 17rem;
+	margin-inline: auto;
+}
+
+@media ( min-width: 800px ) {
+	.ea-book-cover {
+		float: inline-start;           /* RTL-aware float — appears on right in Hebrew */
+		margin-block: 0.25rem 1.5rem;
+		margin-inline-end: 2rem;
+		margin-inline-start: 0;
+		max-width: 15rem;
+	}
+
+	.ea-book-detail__cover-clearfix::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.ea-book-cover img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 4px;            /* [W1→V2] was 12px — Rule 5: images use 4px */
+	box-shadow: none;              /* [W1→V2] was 2-layer shadow — Rule 3 */
+	border: 1px solid var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+	/* [W1→V2] border uses --line token, not earth rgba */
+}
+
+.ea-book-cover figcaption {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.74rem;
+	font-weight: 300;
+	color: var( --eyal-earth, #8a5a44 );
+	margin-block-start: 0.5rem;
+	text-align: center;
+	line-height: 1.4;
+}
+
+/* ==========================================================================
+   §20. BOOK BODY (.ea-book-body)
+   The rich-content area. Hosts WP blocks, purchase buttons, galleries.
+   Rule 1: generous line-height. Body: Heebo 300, 0.9rem, lh 1.88.
+   [W1→V2] Was: 1.04rem + lh 1.75 — slightly off-spec values.
+   ========================================================================== */
+
+.ea-book-body {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	line-height: 1.88;
+	color: var( --eyal-ink, #2e2b28 );
+	clear: both;
+}
+
+.ea-book-body > *:first-child { margin-top: 0; }
+
+.ea-book-body p {
+	margin: 0 0 1.2rem;
+	font-weight: 300;
+}
+
+.ea-book-body p strong {
+	font-weight: 500;
+	color: var( --eyal-chocolate, #5c3a2e );
+}
+
+/* ==========================================================================
+   §21. BOOK BODY — HEADINGS (h2, h3 inside .ea-book-body)
+   H2: Heebo 200, 2rem, lh 1.2, ls -0.3px.
+   H3: Heebo 400, 0.92rem, lh 1.4.
+   Rule: larger = lighter — H2 uses weight 200, H3 uses 400.
+   [W1→V2] Was: font-family Rubik + font-weight 600 for both — three violations
+   (wrong font, wrong H2 weight, wrong H3 weight).
+   ========================================================================== */
+
+.ea-book-body h2 {
+	font-family: "Heebo", sans-serif;
+	font-size: 2rem;               /* H2 scale */
+	font-weight: 200;              /* [W1→V2] was Rubik 600 */
+	line-height: 1.2;
+	letter-spacing: -0.3px;
+	color: var( --eyal-olive, #6e6f4a );
+	margin: 2.5rem 0 0.75rem;
+}
+
+.ea-book-body h3 {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.92rem;            /* H3 scale */
+	font-weight: 400;              /* [W1→V2] was Rubik 600 */
+	line-height: 1.4;
+	letter-spacing: 0;
+	color: var( --eyal-ink, #2e2b28 );
+	margin: 1.75rem 0 0.55rem;
+}
+
+/* ==========================================================================
+   §22. BOOK BODY — LISTS
+   RTL-aware: padding-inline-start instead of padding-left.
+   ========================================================================== */
+
+.ea-book-body ul,
+.ea-book-body ol {
+	margin: 0 0 1.2rem;
+	padding-inline-start: 1.5rem;
+	font-weight: 300;
+}
+
+.ea-book-body li {
+	margin-block-end: 0.35rem;
+	line-height: 1.88;
+}
+
+/* ==========================================================================
+   §23. BOOK BODY — BLOCKQUOTE
+   Rule 4: 1px border-inline-start (not 4px). Rule 3: no bg gradient.
+   Rule 5: no rounded corners.
+   [W1→V2] Was: border-inline-start: 4px + border-radius: 0 10px 10px 0
+   + background rgba(110,111,74,0.07). Three violations corrected.
+   ========================================================================== */
+
+.ea-book-body blockquote {
+	margin: 2rem 0;
+	padding: 1.1rem 1.25rem;
+	border-inline-start: 1px solid var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+	/* [W1→V2] was 4px solid — Rule 4: 1px only */
+	background-color: #f3eee8;    /* --bg-alt flat — [W1→V2] no gradient */
+	border-radius: 0;             /* [W1→V2] was 0 10px 10px 0 — Rule 5: sharp */
+	font-style: normal;
+}
+
+.ea-book-body blockquote p { margin-bottom: 0; }
+
+/* ==========================================================================
+   §24. BOOK BODY — IMAGES AND WP BLOCK IMAGE
+   Rule 3: no box-shadow. Rule 5: border-radius 4px.
+   [W1→V2] Was: box-shadow 0 8px 28px + border-radius 10px. Both corrected.
+   ========================================================================== */
+
+.ea-book-body .wp-block-image img,
+.ea-book-body figure:not( .ea-book-cover ) img {
+	border-radius: 4px;            /* [W1→V2] was 10px — Rule 5 */
+	box-shadow: none;              /* [W1→V2] — Rule 3 */
+	border: 1px solid var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* ==========================================================================
+   §25. BOOK BODY — WP BLOCK GALLERY
+   Rule 4: gap 1px between gallery cells.
+   [W1→V2] Was: gap 1rem — violates Rule 4.
+   ========================================================================== */
+
+.ea-book-body .wp-block-gallery {
+	gap: 1px;                      /* [W1→V2] was 1rem — Rule 4 */
+	margin: 2rem 0;
+}
+
+.ea-book-body .wp-block-gallery .wp-block-image img {
+	border-radius: 4px;
+	box-shadow: none;
+}
+
+/* ==========================================================================
+   §26. BOOK BODY — WP BLOCK SEPARATOR
+   A short centered 1px divider. Complements the Terracotta accent line.
+   ========================================================================== */
+
+.ea-book-body .wp-block-separator {
+	border: none;
+	border-top: 1px solid var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+	margin: 2.5rem auto;
+	max-width: 6rem;
+}
+
+.ea-book-body .wp-block-separator.is-style-wide {
+	max-width: 100%;
+}
+
+/* ==========================================================================
+   §27. BOOK BODY — WP BLOCK BUTTONS + PURCHASE ROW
+   Rule 3: no box-shadow. Rule 5: border-radius 100px (pill).
+   Rule 6: Terracotta on CTA only, flat solid (no gradient).
+   [W1→V2] Was: border-radius 9px + box-shadow + linear-gradient brick/terra
+   + transform: translateY(-1px) on hover + font-weight 600.
+   All five violations corrected.
+   ========================================================================== */
+
+.ea-book-body .wp-block-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 2rem 0;
+}
+
+.ea-book-body .wp-block-button {
+	margin: 0;
+}
+
+.ea-book-body .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.7em 1.6em;
+	border-radius: 100px !important;  /* [W1→V2] was 9px — Rule 5: pill */
+	border: 1px solid transparent;
+	text-decoration: none !important;
+	cursor: pointer;
+	white-space: nowrap;
+
+	font-family: "Heebo", sans-serif;
+	font-size: 0.78rem;
+	font-weight: 300 !important;      /* [W1→V2] was 600 */
+	line-height: 1;
+	letter-spacing: 0.2px;
+
+	background-color: var( --eyal-terracotta, #a44e2b ) !important;
+	/* [W1→V2] was linear-gradient — Rule 3: no decorative gradients */
+	color: #fff !important;
+	box-shadow: none !important;      /* [W1→V2] Rule 3 */
+
+	transition: background-color 0.18s ease;
+}
+
+.ea-book-body .wp-block-button__link:hover,
+.ea-book-body .wp-block-button__link:focus-visible {
+	background-color: var( --eyal-brick, #ab3a2b ) !important;
+	transform: none !important;   /* [W1→V2] was translateY(-1px) — banned */
+	box-shadow: none !important;  /* [W1→V2] Rule 3 */
+}
+
+/* Outline / ghost button variant */
+.ea-book-body .wp-block-button.is-style-outline .wp-block-button__link {
+	background-color: transparent !important;
+	color: var( --eyal-terracotta, #a44e2b ) !important;
+	border-color: var( --eyal-terracotta, #a44e2b ) !important;
+}
+
+.ea-book-body .wp-block-button.is-style-outline .wp-block-button__link:hover,
+.ea-book-body .wp-block-button.is-style-outline .wp-block-button__link:focus-visible {
+	background-color: var( --eyal-sand, #d8c7b5 ) !important;
+	color: var( --eyal-brick, #ab3a2b ) !important;
+	border-color: var( --eyal-brick, #ab3a2b ) !important;
+}
+
+/* Legacy purchase row (.ea-book-purchase-row) — same rules */
+.ea-book-body .ea-book-purchase-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 2rem 0;
+}
+
+.ea-book-body .ea-book-purchase-row a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.7em 1.6em;
+	border-radius: 100px;          /* [W1→V2] was 9px — Rule 5: pill */
+	background-color: var( --eyal-terracotta, #a44e2b );
+	/* [W1→V2] was linear-gradient */
+	color: #fff;
+	text-decoration: none;
+	font-family: "Heebo", sans-serif;
+	font-size: 0.78rem;
+	font-weight: 300;              /* [W1→V2] was 600 */
+	letter-spacing: 0.2px;
+	line-height: 1;
+	border: 1px solid transparent;
+	box-shadow: none;              /* [W1→V2] Rule 3 */
+	transition: background-color 0.18s ease;
+}
+
+.ea-book-body .ea-book-purchase-row a:hover,
+.ea-book-body .ea-book-purchase-row a:focus-visible {
+	background-color: var( --eyal-brick, #ab3a2b );
+	transform: none;               /* [W1→V2] was translateY(-1px) */
+	box-shadow: none;              /* [W1→V2] Rule 3 */
+}
+
+/* Secondary purchase button (olive) */
+.ea-book-body .ea-book-purchase-row a.ea-secondary {
+	background-color: var( --eyal-olive, #6e6f4a );
+	/* [W1→V2] was linear-gradient — Rule 3 */
+}
+
+.ea-book-body .ea-book-purchase-row a.ea-secondary:hover,
+.ea-book-body .ea-book-purchase-row a.ea-secondary:focus-visible {
+	background-color: #5a5b3d;
+}
+
+/* ==========================================================================
+   §27b. GALLERY PLACEHOLDER
+   גלריית דמה — 5 פריטים ויזואליים ברורים עד לקבלת תמונות מאושרות מ-team_40.
+   עיצוב: רקע --bg-alt, קו 1px --line, פינות 4px, טקסט --muted.
+   מוצג בתוך .ea-book-body כ-Custom HTML block.
+   [נוסף 2026-04-11]
+   ========================================================================== */
+
+.ea-book-gallery-placeholder {
+	margin: 2rem 0;
+}
+
+.ea-book-gallery-placeholder__label {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.58rem;
+	font-weight: 200;
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var( --eyal-muted, #a8a19b );
+	margin-block-end: 1rem;
+	display: block;
+}
+
+.ea-book-gallery-placeholder__grid {
+	display: grid;
+	grid-template-columns: repeat( 3, 1fr );
+	gap: 1px;
+	background-color: var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+}
+
+.ea-book-gallery-placeholder__item {
+	aspect-ratio: 4 / 3;
+	background-color: #f3eee8;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	cursor: default;
+}
+
+/* פריט ראשון — רוחב מלא */
+.ea-book-gallery-placeholder__item:first-child {
+	grid-column: 1 / -1;
+	aspect-ratio: 16 / 7;
+}
+
+.ea-book-gallery-placeholder__icon {
+	display: block;
+	width: 28px;
+	height: 28px;
+	opacity: 0.35;
+}
+
+.ea-book-gallery-placeholder__text {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.72rem;
+	font-weight: 300;
+	color: var( --eyal-muted, #a8a19b );
+	letter-spacing: 0.5px;
+}
+
+.ea-book-gallery-placeholder__note {
+	font-family: "Heebo", sans-serif;
+	font-size: 0.62rem;
+	font-weight: 200;
+	color: var( --eyal-muted, #a8a19b );
+	opacity: 0.7;
+}
+
+@media ( max-width: 799px ) {
+	.ea-book-gallery-placeholder__grid {
+		grid-template-columns: repeat( 2, 1fr );
+	}
+	.ea-book-gallery-placeholder__item:first-child {
+		grid-column: 1 / -1;
+	}
+}
+
+/* ==========================================================================
+   §28. RESPONSIVE — SINGLE COLUMN BELOW 800px
+   Per spec: single column at 800px breakpoint.
+   ========================================================================== */
+
+@media ( max-width: 799px ) {
+
+	.ea-books-hub {
+		padding-block-start: 30px;   /* inner-page: half of homepage hero [2026-04-11] */
+		padding-block-end: 60px;
+		padding-inline: 20px;
+	}
+
+	.ea-book-detail {
+		padding-block-start: 30px;   /* inner-page: half of homepage hero [2026-04-11] */
+		padding-block-end: 60px;
+		padding-inline: 20px;
+	}
+
+	/* Cover: no float on mobile — stacks above body text */
+	.ea-book-cover {
+		float: none;
+		margin-inline: auto;
+		margin-block-end: 2rem;
+		max-width: 14rem;
+	}
+
+	/* Bundle: stack CTA buttons vertically on small screens */
+	.ea-books-bundle__cta {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/* Slightly smaller headings on mobile */
+	.ea-book-detail h1 {
+		font-size: 2rem;
+	}
+
+	.ea-books-hub-title {
+		font-size: 1.6rem;
+	}
+}
+
+@media ( max-width: 400px ) {
+	.ea-books-hub   { padding-inline: 16px; }
+	.ea-book-detail { padding-inline: 16px; }
+	.ea-books-bundle { padding-block: 60px; padding-inline: 16px; }
+}
+
+/* ==========================================================================
+   §29. ACCESSIBILITY — FOCUS STYLES
+   All interactive elements get a visible Terracotta outline.
+   :focus-visible avoids mouse-click outlines while ensuring keyboard access.
+   ========================================================================== */
+
+.ea-books-hub-card__title a:focus-visible,
+.ea-books-hub-card__cta a:focus-visible,
+.ea-book-body a:focus-visible,
+.ea-book-body .wp-block-button__link:focus-visible {
+	outline: 2px solid var( --eyal-terracotta, #a44e2b );
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* ==========================================================================
+   §30. PRINT
+   Remove decorative backgrounds and purchase CTAs from print output.
+   ========================================================================== */
+
+@media print {
+	.ea-books-hub,
+	.ea-book-detail {
+		padding: 0;
+		max-width: 100%;
+	}
+	.ea-books-hub-card { break-inside: avoid; }
+	.ea-book-cover {
+		float: none;
+		max-width: 10rem;
+	}
+	.ea-btn,
+	.ea-books-bundle,
+	.ea-book-body .wp-block-buttons,
+	.ea-book-body .ea-book-purchase-row,
+	.ea-books-hub-hero,
+	.ea-book-detail-hero,
+	.ea-cover-lightbox-overlay {
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   §31. LOGO — navigation bar [V2.1 2026-04-11]
+   ========================================================================== */
+
+.ea-shell-header__logo-link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.ea-shell-logo {
+	max-height: 40px;
+	width: auto;
+	display: block;
+	object-fit: contain;
+}
+
+/* ==========================================================================
+   §30b. GP LAYOUT FIXES — uPress staging has display:flex on site-content,
+   and GP injects a .page-header-image featured image block we don't want.
+   ========================================================================== */
+
+/* 1. Force flex-wrap so hero + inside-article stack vertically */
+.ea-books-hub-view #content.site-content,
+.ea-book-detail-view #content.site-content {
+	flex-wrap: wrap;
+}
+
+.ea-books-hub-view .inside-article,
+.ea-book-detail-view .inside-article {
+	flex: 1 0 100%;
+	width: 100%;
+}
+
+/* 2. Hide GP's auto-injected featured image page header — we have our own hero */
+.ea-books-hub-view .featured-image.page-header-image,
+.ea-book-detail-view .featured-image.page-header-image {
+	display: none !important;
+}
+
+/* ==========================================================================
+   §32. HUB HERO — inner-page banner [V2.1 2026-04-11]
+   Full-width image banner: Ink gradient overlay, title anchored at bottom.
+   Height 320px (≈ 60% of homepage hero ~530px).
+   D-EYAL-DESIGN-STYLE-13: no box-shadow, Heebo 200, gradient over Ink only.
+   ========================================================================== */
+
+.ea-books-hub-hero {
+	position: relative;
+	width: 100%;                         /* break out of GP flex row container */
+	flex: 1 0 100%;                      /* GP staging: site-content is display:flex row */
+	height: 320px;
+	background-image: url( '../images/books-hero.jpg' );
+	background-size: cover;
+	background-position: 60% center;     /* B&W portrait: face on left, push slightly right for RTL balance */
+	display: flex;
+	align-items: flex-end;
+	overflow: hidden;
+}
+
+.ea-books-hub-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient( to top,  rgba( 46, 43, 40, 0.92 ) 0%, rgba( 46, 43, 40, 0.35 ) 55%, rgba( 46, 43, 40, 0.08 ) 100% );
+	z-index: 1;
+}
+
+.ea-books-hub-hero__content {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	max-width: 960px;
+	margin-inline: auto;
+	padding: 0 32px 44px;
+	text-align: start;       /* RTL: right-aligned (start = right in RTL) */
+}
+
+.ea-books-hub-hero__content .ea-section-label {
+	color: rgba( 250, 248, 245, 0.60 );
+	letter-spacing: 3.5px;
+	display: block;
+	margin-block-end: 0.5rem;
+}
+
+.ea-books-hub-hero__title {
+	color: #faf8f5;
+	font-family: "Heebo", sans-serif;
+	font-weight: 200;
+	font-size: 2.8rem;
+	line-height: 1.12;
+	letter-spacing: -0.5px;
+	margin: 0;
+}
+
+/* Hub: remove top padding since hero replaces it */
+.ea-books-hub {
+	padding-block-start: 0;
+}
+
+@media ( max-width: 799px ) {
+	.ea-books-hub-hero {
+		height: 220px;
+	}
+	.ea-books-hub-hero__content {
+		padding-inline: 20px;
+		padding-block-end: 28px;
+	}
+	.ea-books-hub-hero__title {
+		font-size: 2rem;
+	}
+}
+
+/* ==========================================================================
+   §33. BOOK DETAIL HERO — inner-page banner with blurred cover [V2.1 2026-04-11]
+   Uses book cover as blurred background via CSS custom property --book-hero-bg.
+   H1 anchored at bottom, breadcrumb back-link above it.
+   ========================================================================== */
+
+.ea-book-detail-hero {
+	position: relative;
+	width: 100%;                         /* break out of GP flex row container */
+	flex: 1 0 100%;                      /* GP staging: site-content is display:flex row */
+	height: 320px;
+	background-color: var( --eyal-ink, #2e2b28 );
+	display: flex;
+	align-items: flex-end;
+	overflow: hidden;
+}
+
+/* Blurred cover layer (pseudo-element) */
+.ea-book-detail-hero__blur {
+	position: absolute;
+	inset: 0;
+	background-image: var( --book-hero-bg, none );
+	background-size: cover;
+	background-position: center 20%;
+	filter: blur( 10px ) saturate( 0.55 ) brightness( 0.65 );
+	transform: scale( 1.08 );   /* avoid blur fringe at edges */
+	z-index: 0;
+}
+
+.ea-book-detail-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba( 46, 43, 40, 0.92 ) 0%,
+		rgba( 46, 43, 40, 0.40 ) 60%,
+		rgba( 46, 43, 40, 0.10 ) 100%
+	);
+	z-index: 1;
+}
+
+.ea-book-detail-hero__content {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	max-width: 960px;
+	margin-inline: auto;
+	padding: 0 32px 40px;
+	text-align: start;       /* RTL: right-aligned */
+}
+
+.ea-book-detail-hero__back {
+	display: block;
+	color: rgba( 250, 248, 245, 0.50 );
+	font-family: "Heebo", sans-serif;
+	font-size: 0.72rem;
+	font-weight: 300;
+	text-decoration: none;
+	letter-spacing: 0.5px;
+	margin-block-end: 0.6rem;
+	transition: color 0.2s ease;
+}
+
+.ea-book-detail-hero__back:hover {
+	color: rgba( 250, 248, 245, 0.85 );
+}
+
+.ea-book-detail-hero__title {
+	color: #faf8f5;
+	font-family: "Heebo", sans-serif;
+	font-weight: 200;
+	font-size: 2.8rem;
+	line-height: 1.12;
+	letter-spacing: -0.5px;
+	margin: 0;
+}
+
+/* Detail: H1 is now inside the hero — hide the duplicate in .ea-book-detail */
+.ea-book-detail > h1,
+.ea-book-detail h1:first-child {
+	display: none;
+}
+
+/* Remove top padding since hero replaces it */
+.ea-book-detail {
+	padding-block-start: 0;
+}
+
+@media ( max-width: 799px ) {
+	.ea-book-detail-hero {
+		height: 220px;
+	}
+	.ea-book-detail-hero__content {
+		padding-inline: 20px;
+		padding-block-end: 28px;
+	}
+	.ea-book-detail-hero__title {
+		font-size: 2rem;
+	}
+}
+
+/* ==========================================================================
+   §34. COVER LIGHTBOX — pure CSS (checkbox hack) [V2.1 2026-04-11]
+   Click cover → full-size overlay. No JS required.
+   D-EYAL-DESIGN-STYLE-13: Ink background, no shadows, 4px radius on image.
+   ========================================================================== */
+
+/* Larger cover display */
+.ea-book-cover-wrap {
+	float: inline-start;     /* RTL: floats right alongside body text */
+	margin-inline-end: 2rem; /* RTL: gap between cover (right) and text (left) */
+	margin-block-end: 1.5rem;
+	max-width: 22rem;
+	position: relative;
+}
+
+.ea-book-cover {
+	float: none;             /* float moved to wrapper */
+	margin: 0;
+	max-width: 100%;
+	position: relative;
+}
+
+.ea-cover-lightbox-trigger {
+	display: block;
+	cursor: zoom-in;
+	position: relative;
+}
+
+.ea-cover-img {
+	width: 100%;
+	border-radius: 4px;
+	display: block;
+	transition: transform 0.6s ease;
+}
+
+.ea-cover-lightbox-trigger:hover .ea-cover-img {
+	transform: scale( 1.02 );
+}
+
+.ea-cover-zoom-hint {
+	position: absolute;
+	bottom: 0.6rem;
+	inset-inline-start: 0.6rem;
+	color: rgba( 250, 248, 245, 0.80 );
+	font-size: 1.4rem;
+	line-height: 1;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.ea-cover-lightbox-trigger:hover .ea-cover-zoom-hint {
+	opacity: 1;
+}
+
+/* Hidden toggle */
+.ea-cover-lightbox-toggle {
+	display: none;
+}
+
+/* Lightbox overlay */
+.ea-cover-lightbox-overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	background: rgba( 46, 43, 40, 0.94 );
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.ea-cover-lightbox-toggle:checked ~ .ea-cover-lightbox-overlay {
+	display: flex;
+}
+
+.ea-cover-lightbox-img {
+	max-height: 90vh;
+	max-width: 90vw;
+	object-fit: contain;
+	border-radius: 4px;
+	box-shadow: none;
+}
+
+.ea-cover-lightbox-close {
+	position: absolute;
+	top: 1.5rem;
+	inset-inline-end: 2rem;
+	color: rgba( 250, 248, 245, 0.65 );
+	font-size: 1.6rem;
+	cursor: pointer;
+	line-height: 1;
+	transition: color 0.2s ease;
+	z-index: 1;
+}
+
+.ea-cover-lightbox-close:hover {
+	color: #faf8f5;
+}
+
+@media ( max-width: 799px ) {
+	.ea-book-cover-wrap {
+		float: none;
+		max-width: 100%;
+		margin-inline-start: 0;
+		margin-block-end: 1.5rem;
+	}
+}
+
+/* ==========================================================================
+   §35. ENHANCED HUB CARDS — hover scale + refined body [V2.1 2026-04-11]
+   ========================================================================== */
+
+/* Scale cover image on card hover */
+.ea-books-hub-card__media {
+	overflow: hidden;     /* clip the scale transform */
+}
+
+.ea-books-hub-card__media img {
+	transition: transform 0.6s ease;
+}
+
+.ea-books-hub-card:hover .ea-books-hub-card__media img {
+	transform: scale( 1.04 );
+}
+
+/* Card body — more breathing room */
+.ea-books-hub-card__body {
+	padding: 1.6rem 1.4rem 1.8rem;
+	gap: 0.8rem;
+}
+
+/* Card title — slightly larger, lighter weight */
+.ea-books-hub-card__title {
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+/* CTA with animated RTL arrow */
+.ea-books-hub-card__cta a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	text-decoration: none;
+}
+
+.ea-books-hub-card__cta a::before {
+	content: '→';           /* RTL: → points toward text (right side) */
+	font-size: 0.85em;
+	display: inline-block;
+	transition: transform 0.25s ease;
+}
+
+.ea-books-hub-card__cta a:hover::before {
+	transform: translateX( 3px );
+}
+
+/* ==========================================================================
+   §36. GALLERY — real images (wp:gallery block) [V2.1 2026-04-11]
+   ========================================================================== */
+
+.ea-book-body .wp-block-gallery {
+	gap: 1px;
+	background-color: var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
+}
+
+.ea-book-body .wp-block-gallery .wp-block-image img {
+	border-radius: 0;
+	object-fit: cover;
+	aspect-ratio: 4 / 3;
+	display: block;
+	transition: transform 0.6s ease;
+}
+
+.ea-book-body .wp-block-gallery .wp-block-image img:hover {
+	transform: scale( 1.03 );
+}

@@ -81,6 +81,31 @@ def ftp_cwd_to_wordpress_root(ftp: ftplib.FTP, remote_root: str) -> None:
         ftp_ensure_cwd(ftp, rr.strip("/"))
 
 
+def _ftp_connect_with_creds(
+    *,
+    host: str,
+    user: str,
+    password: str,
+    port: int,
+    use_tls: bool,
+    remote_root: str,
+    timeout: int,
+) -> tuple[ftplib.FTP, str]:
+    if use_tls:
+        ftp = ReusedSessionFTP_TLS()
+        ftp.connect(host, port, timeout=timeout)
+        ftp.login(user, password)
+        ftp.prot_p()
+    else:
+        ftp = ftplib.FTP()
+        ftp.connect(host, port, timeout=timeout)
+        ftp.login(user, password)
+
+    ftp_cwd_to_wordpress_root(ftp, remote_root)
+    norm_root = remote_root if remote_root else "/"
+    return ftp, norm_root
+
+
 def connect_ftp(*, timeout: int = 120) -> tuple[ftplib.FTP, str]:
     """
     Load .env.upress, connect with TLS or plain FTP per UPRESS_FTP_USE_TLS.
@@ -97,20 +122,50 @@ def connect_ftp(*, timeout: int = 120) -> tuple[ftplib.FTP, str]:
         )
     use_tls = _truthy("UPRESS_FTP_USE_TLS", default=True)
     remote_root = (os.getenv("UPRESS_FTP_REMOTE_ROOT") or "").strip().replace("\\", "/")
+    return _ftp_connect_with_creds(
+        host=host,
+        user=user,
+        password=pw,
+        port=port,
+        use_tls=use_tls,
+        remote_root=remote_root,
+        timeout=timeout,
+    )
 
-    if use_tls:
-        ftp = ReusedSessionFTP_TLS()
-        ftp.connect(host, port, timeout=timeout)
-        ftp.login(user, pw)
-        ftp.prot_p()
-    else:
-        ftp = ftplib.FTP()
-        ftp.connect(host, port, timeout=timeout)
-        ftp.login(user, pw)
 
-    ftp_cwd_to_wordpress_root(ftp, remote_root)
-    norm_root = remote_root if remote_root else "/"
-    return ftp, norm_root
+def connect_ftp_legacy_production(*, timeout: int = 120) -> tuple[ftplib.FTP, str]:
+    """
+    FTP/FTPS to legacy production WordPress root (www.eyalamit.co.il).
+
+    Env (local/.env.upress): EYAL_LEGACY_FTP_HOST, EYAL_LEGACY_FTP_USER,
+    EYAL_LEGACY_FTP_PASS, optional EYAL_LEGACY_FTP_PORT (default 21),
+    EYAL_LEGACY_FTP_USE_TLS (default true), EYAL_LEGACY_FTP_REMOTE_ROOT.
+
+    See docs/project/EYAL_ENV_VARS_REFERENCE.md §2.1.
+    """
+    load_upress_dotenv()
+    host = os.getenv("EYAL_LEGACY_FTP_HOST", "").strip()
+    user = os.getenv("EYAL_LEGACY_FTP_USER", "").strip()
+    pw = os.getenv("EYAL_LEGACY_FTP_PASS", "")
+    port = int(os.getenv("EYAL_LEGACY_FTP_PORT", "21").strip() or "21")
+    if not host or not user:
+        raise SystemExit(
+            "EYAL_LEGACY_FTP_HOST and EYAL_LEGACY_FTP_USER must be set in local/.env.upress "
+            "(see docs/project/EYAL_ENV_VARS_REFERENCE.md §2.1)."
+        )
+    use_tls = _truthy("EYAL_LEGACY_FTP_USE_TLS", default=True)
+    remote_root = (os.getenv("EYAL_LEGACY_FTP_REMOTE_ROOT") or "").strip().replace(
+        "\\", "/"
+    )
+    return _ftp_connect_with_creds(
+        host=host,
+        user=user,
+        password=pw,
+        port=port,
+        use_tls=use_tls,
+        remote_root=remote_root,
+        timeout=timeout,
+    )
 
 
 def eyal_hub_relative_path() -> str:

@@ -3,87 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>דף בית — אופציה ב׳ (בינוני) — מוקאפ</title>
+  <title>דף בית — מבנה מאושר במסמך אייל §7.1–§8 (מוקאפ)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="dashboard-base.css" />
   <style>
-    .blocks {
-      display: grid;
-      gap: 1.1rem;
-    }
-    .block-large {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 1rem;
-      align-items: center;
-    }
-    @media (max-width: 720px) { .block-large { grid-template-columns: 1fr; } }
-    .block-large img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--card-border);
-    }
-    .block-large .inner h2 { margin-top: 0; color: var(--accent); }
+    .stack { display: grid; gap: 1rem; }
+    .block-num { font-size: 0.75rem; color: var(--muted); margin: 0 0 0.25rem; }
+    .areas4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.6rem; list-style: none; margin: 0; padding: 0; }
+    .areas4 li { background: var(--panel); border: 1px solid var(--card-border); border-radius: 10px; padding: 0.65rem; font-size: 0.88rem; text-align: center; }
+    .vid-ph { min-height: 140px; border: 1px dashed var(--card-border); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.85rem; }
+    details.faq { margin-top: 0.5rem; border: 1px solid var(--card-border); border-radius: 8px; padding: 0.4rem 0.65rem; }
+    .cta-end { text-align: center; margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--accent-dim); border-radius: 12px; background: rgba(196, 113, 59, 0.08); }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="banner-note">מוקאפ — תוכן דמה. <a href="index.html">חזרה לבחירת אופציה</a></p>
+    <p class="banner-note">מוקאפ — סדר 12 בלוקים לפי <strong>eyal_amit_dev_brief_GEO_AEO_SEO.md</strong> (§7.1). וידאו אחרי הסברים; FAQ קצר; CTA תחתון. <a href="index.html">חזרה</a> · <a href="../ia-compare/README.txt">השוואת תפריט</a></p>
     <nav class="nav-pill" aria-label="ניווט מוקאפ">
-      <a href="home-dashboard-option-a.html">א׳ צפיפות</a>
-      <a href="home-dashboard-option-b.html">ב׳ בינוני</a>
-      <a href="home-dashboard-option-c.html">ג׳ SEO</a>
+      <a href="home-dashboard-option-a.html">א׳ צפיפות (היסטורי)</a>
+      <a href="home-dashboard-option-b.html">ב׳ מסמך אייל</a>
+      <a href="home-dashboard-option-c.html">ג׳ SEO (היסטורי)</a>
     </nav>
 
-    <section class="hero" aria-label="Hero">
-      <img src="../home-preview/eyal-portrait-hero.jpg" alt="" width="800" height="600" decoding="async" />
+    <p class="block-num">בלוק 1 — Header</p>
+    <p style="color:var(--muted);font-size:0.9rem;margin:0 0 1rem;">ב־WP: כותרת עליונה + תפריט (השוואה ויזואלית: <code>ia-compare/</code>).</p>
+
+    <section class="hero" aria-label="בלוק 2 Hero">
+      <div class="hero-media-ph" role="img" aria-label="אזור רקע Hero — מוקאפ ללא תמונה">רקע Hero · מוקאפ (בלי תמונת סטוק — יוחלף בתמונת מותג)</div>
       <div class="hero-overlay">
-        <h1>נשימה · צליל · נוכחות</h1>
-        <p>מרכז לטיפול ולימוד דיג׳רידו עם אייל עמית — גישה מקצועית וחמה.</p>
+        <h1>המרכז לטיפול בנשימה באמצעות דיג׳רידו - שיטת cbDIDG של אייל עמית</h1>
+        <p>גישת טיפול ייחודית המבוססת על דיג׳רידו, נשימה וצליל, שפותחה ומיושמת על ידי אייל עמית - מהוותיקים בארץ בתחום.</p>
+        <p style="margin-top:0.5rem;font-size:0.88rem;">אייל עמית הוא מורה לדיג׳רידו ומטפל בנשימה באמצעות דיג׳רידו, הפועל מאז 1999 ומייסד המרכז לטיפול בדיג׳רידו בפרדס חנה.</p>
         <div class="cta-row">
-          <a class="btn" href="#">קביעת שיחה</a>
-          <a class="btn btn-ghost" href="#">לעמוד השיטה</a>
+          <a class="btn" href="#">לתיאום שיחה</a>
+          <a class="btn btn-ghost" href="#">השיטה</a>
         </div>
       </div>
     </section>
 
-    <div class="blocks">
-      <div class="card block-large">
-        <img src="../home-preview/workshop-thumb.jpg" alt="" width="400" height="300" decoding="async" />
-        <div class="inner">
-          <h2>מה קורה עכשיו</h2>
-          <p style="color:var(--muted);font-size:0.95rem;">בלוק אחד בולט לסדנה הקרובה או קמפיין. תאריך, מקום, משפט אחד על הערך, וכפתור לטופס חיצוני.</p>
-          <a class="btn" href="#" style="margin-top:0.75rem;display:inline-block;">פרטים והרשמה</a>
-        </div>
+    <div class="stack">
+      <div class="card"><p class="block-num">בלוק 3</p><h3>מה זה טיפול בדיג׳רידו</h3><p>תשובה ברורה ומיידית — טקסט סופי מאייל.</p></div>
+      <div class="card"><p class="block-num">בלוק 4</p><h3>טיפול בדיג׳רידו מול סאונד הילינג</h3><p>השוואה לסריקה — בלי טשטוש.</p></div>
+      <div class="card"><p class="block-num">בלוק 5</p><h3>וידאו</h3><p>אחרי ההסברים; ללא autoplay; כותרת + טקסט מתחת.</p><div class="vid-ph">placeholder וידאו</div></div>
+      <div class="card"><p class="block-num">בלוק 6</p><h3>תחומי הפעילות (4 כרטיסים)</h3><ul class="areas4"><li>טיפול בדיג׳רידו</li><li>שיעורי דיג׳רידו</li><li>סאונד הילינג</li><li>השיטה</li></ul></div>
+      <div class="card"><p class="block-num">בלוק 7</p><h3>שיטת cbDIDG</h3><p>בלוק סמכות — קישור לעמוד השיטה.</p></div>
+      <div class="card"><p class="block-num">בלוק 8</p><h3>למי זה מתאים</h3><p>תוכן סופי מאייל.</p></div>
+      <div class="card"><p class="block-num">בלוק 9</p><h3>FAQ קצר</h3>
+        <details class="faq"><summary>שאלה לדוגמה</summary><p>תשובה קצרה.</p></details>
+        <details class="faq"><summary>שאלה לדוגמה</summary><p>תשובה קצרה.</p></details>
+        <p style="margin-top:0.65rem;"><a class="btn btn-ghost" href="#">לעמוד FAQ המלא</a></p>
       </div>
-
-      <div class="card">
-        <h3>שירותים מרכזיים</h3>
-        <p>ארבעה עמודים חזקים: לימוד · טיפול · סאונד הילינג · כלים — עם קישורים ברורים וללא עומס בתפריט הבית.</p>
-      </div>
-
-      <div class="card">
-        <h3>למה לבחור במרכז</h3>
-        <p>פסקה קצרה על ניסיון, גישה, והבדל בין נגינה לטיפול — טקסט סופי מאייל.</p>
-      </div>
-
-      <div class="card">
-        <h3>קול קהילה</h3>
-        <p>המלצה אחת בולטת + קישור לעמוד «המלצות ומדיה».</p>
-      </div>
+      <div class="card"><p class="block-num">בלוק 10</p><h3>המלצות</h3><p>עם הקשר טיפול/שיעורים/סאונד — קישור להמלצות ומדיה.</p></div>
+      <div class="card"><p class="block-num">בלוק 11</p><h3>אודות קצר</h3><p>קישור לאודות מלא — לא ביוגרפיה ארוכה בבית.</p></div>
     </div>
 
-    <section class="seo-block" aria-label="SEO קצר">
-      <h2>מילות מפתח ומבנה (בינוני)</h2>
-      <p>
-        פסקה אחת–שתיים ל־SEO: דיג׳רידו, נשימה מעגלית, טיפול בישראל, סדנאות וקורסים.
-        פחות בלוקים מ־אופציה א׳, יותר מרווח לקריאה ול־CTA.
-      </p>
-    </section>
+    <div class="cta-end"><p class="block-num">בלוק 12</p><h2 style="margin:0 0 0.5rem;">CTA תחתון</h2><p style="color:var(--muted);margin:0 0 1rem;">סיום הדף עם הזמנה ברורה ליצירת קשר.</p><a class="btn" href="#">צור קשר / לתיאום שיחה</a></div>
 
-    <footer class="mock-foot">מוקאפ אופציה ב׳ — בינוני</footer>
+    <footer class="mock-foot">מוקאפ אופציה ב׳ — יישור מסמך אייל GEO/AEO/SEO</footer>
   </div>
 </body>
 </html>

@@ -191,7 +191,7 @@ QR: [`QR-URL-INVENTORY.csv`](../../docs/project/team-100-preplanning/QR-URL-INVE
 | שדה | ערך |
 |-----|-----|
 | **נתיב מאגר** | `EyalAmit.co.il-2026/local/` |
-| **URL** | `http://localhost:9090` (או `WORDPRESS_PORT` מ־`local/.env`) |
+| **URL** | `http://localhost:8088` (או `WORDPRESS_PORT` מ־`local/.env` — חייב לעמוד בהקצאת הפורטים; לא 8080 שרירותי) |
 | **בסיס תמונה** | `WORDPRESS_IMAGE` + בנייה מ־`Dockerfile.wordpress` (Xdebug 3 + WP-CLI) |
 | **מיפוי `wp-content`** | ☑ **`../site/wp-content` → `/var/www/html/wp-content`** ב־`docker-compose.yml` — עריכת child/mu-plugins במאגר משתקפת בקונטיינר |
 | **MariaDB** | שירות `db` — גרסה **11** (תמונת `mariadb:11`) |

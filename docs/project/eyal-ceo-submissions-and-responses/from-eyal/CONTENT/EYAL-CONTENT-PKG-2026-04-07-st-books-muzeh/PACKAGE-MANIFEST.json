@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
+  "ingestedDate": "2026-04-07",
+  "sourceZip": "final_st-books_muzeh_2026-04-07.zip",
+  "pageIds": ["st-books"],
+  "templateIds": ["tpl-books"],
+  "packageRole": "approved_content_final",
+  "noteHe": "תוכן FINAL לתבנית ספרים (מוז״ה) — MD + JSON."
+}

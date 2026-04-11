@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.1.1
+Version: 1.3.6
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -16,10 +16,62 @@ Tags: custom-menu, featured-images, rtl-language-support, translation-ready, blo
 /* Custom rules: add below. Prefer small overrides; heavy layout via GeneratePress + blocks. */
 
 /* P19 English — LTR shell (full content polish in later milestones). */
-body.ea-lang-en {
+body.ea-lang-en,
+body.ea-lang-en.ltr {
 	direction: ltr;
 	text-align: left;
 	unicode-bidi: isolate;
+}
+
+/* EN בהדר — מחוץ לרשימת פריטי התפריט הראשי (site-tree st-en). */
+.main-navigation .ea-header-en-wrap {
+	display: inline-flex;
+	align-items: center;
+	margin-inline-start: 0.75rem;
+}
+
+.main-navigation .ea-header-en-link {
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	padding: 0.35em 0.55em;
+	border: 1px solid currentColor;
+	border-radius: 3px;
+	text-decoration: none;
+	opacity: 0.85;
+}
+
+.main-navigation .ea-header-en-link:hover,
+.main-navigation .ea-header-en-link:focus {
+	opacity: 1;
+}
+
+/* פוטר — קטלוגים ומשפטי (M2 Footer EA). */
+.ea-footer-legal-nav {
+	padding: 1rem 1.25rem 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ea-footer-legal-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.65rem 1.25rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0.85rem;
+}
+
+.ea-footer-legal-menu a {
+	text-decoration: none;
+}
+
+.ea-footer-legal-menu a:hover,
+.ea-footer-legal-menu a:focus {
+	text-decoration: underline;
 }
 
 /*
@@ -186,4 +238,214 @@ body.ea-home-dashboard .ea-home-front .ea-home-seo-block p {
 	font-weight: var(--ea-fw-normal);
 	line-height: var(--ea-leading-relaxed);
 	color: var(--ea-home-text);
+}
+
+/* ---------------------------------------------------------------------------
+ * M3 — קטלוגי אינסטנסים (FAQ / גלריות / מדיה)
+ * --------------------------------------------------------------------------- */
+.ea-instance-catalog-wrap {
+	margin-top: 1.75rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ea-instance-catalog {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.ea-instance-catalog__item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.ea-instance-catalog__thumb {
+	flex: 0 0 auto;
+	max-width: 160px;
+}
+
+.ea-instance-catalog__thumb img {
+	display: block;
+	height: auto;
+	border-radius: 4px;
+}
+
+.ea-instance-catalog__title {
+	font-size: 1.15rem;
+	margin: 0 0 0.35rem;
+	line-height: 1.35;
+}
+
+.ea-instance-catalog__title a {
+	text-decoration: none;
+}
+
+.ea-instance-catalog__title a:hover,
+.ea-instance-catalog__title a:focus {
+	text-decoration: underline;
+}
+
+.ea-instance-catalog__excerpt {
+	font-size: 0.95rem;
+	line-height: 1.5;
+	opacity: 0.92;
+}
+
+.ea-catalog-empty {
+	margin: 0.5rem 0 0;
+	font-size: 0.95rem;
+	opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+ * M3-M4 — ליטוש ויזואלי מבני (תוכן פנימי + קטלוגים + פוטר)
+ * מקור פלטה: docs/project/EYAL-SITE-COLOR-PALETTE.md
+ * --------------------------------------------------------------------------- */
+/* טוקני --eyal-* ו־GP (--accent וכו׳) מוגדרים ב־:root דרך inline ב־functions.php כדי לנצח dynamic CSS של GeneratePress. */
+body.ea-m4-polish {
+	--ea-font-sans: "Rubik", sans-serif;
+	--ea-fw-normal: 400;
+	--ea-fw-medium: 500;
+	--ea-fw-semibold: 600;
+	--ea-fw-bold: 700;
+	--ea-leading-tight: 1.28;
+	--ea-leading-body: 1.58;
+	--ea-m4-border: rgba(var(--eyal-accent-rgb), 0.22);
+}
+
+body.ea-m4-polish .inside-article,
+body.ea-m4-polish .entry-header,
+body.ea-m4-polish .entry-content,
+body.ea-m4-polish .page-content {
+	font-family: var(--ea-font-sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body.ea-m4-polish .entry-title,
+body.ea-m4-polish h1.entry-title {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-bold);
+	color: var(--eyal-ink);
+	line-height: var(--ea-leading-tight);
+	letter-spacing: 0.02em;
+}
+
+body.ea-m4-polish .inside-article h2,
+body.ea-m4-polish .entry-content h2,
+body.ea-m4-polish .page-content h2 {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-semibold);
+	color: var(--eyal-chocolate);
+	line-height: var(--ea-leading-tight);
+	margin-top: 1.65em;
+	margin-bottom: 0.55em;
+}
+
+body.ea-m4-polish .inside-article h3,
+body.ea-m4-polish .entry-content h3,
+body.ea-m4-polish .page-content h3 {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-semibold);
+	color: var(--eyal-ink);
+	line-height: var(--ea-leading-tight);
+	margin-top: 1.35em;
+	margin-bottom: 0.45em;
+}
+
+body.ea-m4-polish .entry-content p,
+body.ea-m4-polish .page-content p,
+body.ea-m4-polish .inside-article p {
+	font-weight: var(--ea-fw-normal);
+	line-height: var(--ea-leading-body);
+	color: var(--eyal-ink);
+}
+
+body.ea-m4-polish .entry-content a:not(.wp-block-button__link),
+body.ea-m4-polish .page-content a:not(.wp-block-button__link),
+body.ea-m4-polish .inside-article a:not(.wp-block-button__link) {
+	color: var(--eyal-terracotta);
+	font-weight: var(--ea-fw-semibold);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.12em;
+}
+
+body.ea-m4-polish .entry-content a:not(.wp-block-button__link):hover,
+body.ea-m4-polish .entry-content a:not(.wp-block-button__link):focus,
+body.ea-m4-polish .page-content a:not(.wp-block-button__link):hover,
+body.ea-m4-polish .page-content a:not(.wp-block-button__link):focus,
+body.ea-m4-polish .inside-article a:not(.wp-block-button__link):hover,
+body.ea-m4-polish .inside-article a:not(.wp-block-button__link):focus {
+	color: var(--eyal-brick);
+}
+
+body.ea-m4-polish .entry-content ul,
+body.ea-m4-polish .entry-content ol,
+body.ea-m4-polish .page-content ul,
+body.ea-m4-polish .page-content ol {
+	line-height: var(--ea-leading-body);
+}
+
+body.ea-m4-polish .ea-instance-catalog-wrap {
+	border-top-color: var(--ea-m4-border);
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+}
+
+body.ea-m4-polish .ea-instance-catalog {
+	gap: 1.35rem;
+}
+
+body.ea-m4-polish .ea-instance-catalog__item {
+	padding: 0.85rem 0;
+	border-bottom: 1px solid var(--ea-m4-border);
+}
+
+body.ea-m4-polish .ea-instance-catalog__item:last-child {
+	border-bottom: none;
+}
+
+body.ea-m4-polish .ea-instance-catalog__title {
+	font-family: var(--ea-font-sans);
+	font-weight: var(--ea-fw-semibold);
+	color: var(--eyal-ink);
+}
+
+body.ea-m4-polish .ea-instance-catalog__title a {
+	color: var(--eyal-terracotta);
+}
+
+body.ea-m4-polish .ea-instance-catalog__thumb img {
+	border: 1px solid var(--ea-m4-border);
+}
+
+body.ea-m4-polish .ea-instance-catalog__excerpt {
+	color: var(--eyal-earth);
+}
+
+body.ea-m4-polish .ea-footer-legal-nav {
+	border-top-color: var(--ea-m4-border);
+	background: linear-gradient(180deg, transparent 0%, rgba(216, 199, 181, 0.22) 100%);
+	padding-top: 1.15rem;
+	padding-bottom: 0.35rem;
+}
+
+body.ea-m4-polish .ea-footer-legal-menu {
+	font-family: var(--ea-font-sans);
+}
+
+body.ea-m4-polish .ea-footer-legal-menu a {
+	color: var(--eyal-earth);
+	font-weight: var(--ea-fw-medium);
+}
+
+body.ea-m4-polish .ea-footer-legal-menu a:hover,
+body.ea-m4-polish .ea-footer-legal-menu a:focus {
+	color: var(--eyal-terracotta);
 }

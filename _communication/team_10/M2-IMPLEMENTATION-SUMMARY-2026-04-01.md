@@ -1,11 +1,11 @@
 # M2 — סיכום יישום G2 (צוות 10)
 
-**תאריך:** 2026-04-01 · **עדכון מנדט / TLS:** 2026-04-02 · **עדכון סטטוס פאנל / בסיס:** 2026-03-29 (נימרוד) · **תשתית מקומית + מדיה §3.2:** 2026-04-03 · **נגישות — WP Accessibility + מסמך הגדרות/QA:** 2026-04-09  
+**תאריך:** 2026-04-01 · **עדכון מנדט / TLS:** 2026-04-02 · **עדכון סטטוס פאנל / בסיס:** 2026-03-29 (נימרוד) · **תשתית מקומית + מדיה §3.2:** 2026-04-03 · **נגישות — WP Accessibility + מסמך הגדרות/QA:** 2026-04-09 · **QA FINAL צוות 50 (ריטסט IA):** 2026-04-06 · **§11 / סגירת M2 (צוות 100):** 2026-04-06 — [`M2-G4-ACCEPTANCE-M2-CLOSEOUT-TEAM100-2026-04-06.md`](../team_100/M2-G4-ACCEPTANCE-M2-CLOSEOUT-TEAM100-2026-04-06.md)  
 **מאגר ארטיפקטים:** [`site/`](../../site/README.md)  
 **מקורות מנדט:** [`M2-HANDOFF-FROM-20-2026-03-31.md`](./M2-HANDOFF-FROM-20-2026-03-31.md) · [`M2-WORKPLAN-AND-MANDATES-2026-03-30.md`](../team_100/M2-WORKPLAN-AND-MANDATES-2026-03-30.md) §6–§7 · **[`M2-MANDATE-G2-TEAM10-2026-04-02.md`](./M2-MANDATE-G2-TEAM10-2026-04-02.md)**  
 **GO מ־100 (שער 20-A / TLS):** [`M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md`](../team_100/M2-GATE-20A-AMENDMENT-AND-GO-TEAM10-2026-04-02.md) — **מותר להמשיך G2** ללא המתנה ל־`curl` בלי `-k` תקין על סטייג'ינג.  
 **מסלול TLS (חובה לקריאה):** [`STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md`](../team_20/STAGING-TLS-VS-PRODUCTION-WORKFLOW-2026-04-02.md)  
-**סטטוס G2 (סטייג'ינג):** **P0 הושלם (2026-04-04)** — עמודים, קריאה, תפריט **M2 Primary EA** (מיקום `primary`), Fluent ב־`/contact/`, `noindex` meta ל־**P15** — ראו [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](./M2-G2-STAGING-P0-DONE-2026-04-04.md). **QA צוות 50:** [`M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md`](../team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md) — **G2 = PASS WITH NOTES** (הערה פתוחה: F2 מייל / `WP Mail Logging` — לא חוסמת קליטת תוכן). **תשתית לקליטת תוכן:** **GO** — [`../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md`](../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md). **גיבוי uPress:** ☑ · **מקומי:** Docker + WP-CLI (runbook §14) · תשתית Q3: [`M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md`](../team_50/M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md) **PASS**.
+**סטטוס G2 (סטייג'ינג):** **P0 הושלם (2026-04-04)** — עמודים, קריאה, תפריט **M2 Primary EA** (מיקום `primary`), Fluent ב־`/contact/`, `noindex` meta ל־**P15** — ראו [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](./M2-G2-STAGING-P0-DONE-2026-04-04.md). **QA צוות 50 (FINAL ריטסט 2026-04-06):** [`M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md`](../team_50/M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md) — **PASS WITH NOTES** (NOTE **F2** — mailbox / `WP Mail Logging` מ־wp-admin). דוח FAIL קודם כנספח audit: [`M2-SMOKE-REPORT-FINAL-2026-04-06.md`](../team_50/M2-SMOKE-REPORT-FINAL-2026-04-06.md). **G2 מוקדם:** [`M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md`](../team_50/M2-QA-CANONICAL-FEEDBACK-TEAM50-STAGING-TLS-G2-2026-04-02.md). **תשתית לקליטת תוכן:** **GO** — [`../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md`](../team_100/M2-CONTENT-INTAKE-INFRASTRUCTURE-GO-TEAM100-2026-04-08.md). **גיבוי uPress:** ☑ · **מקומי:** Docker + WP-CLI (runbook §14) · תשתית Q3: [`M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md`](../team_50/M2-INFRA-QA-REPORT-TEAM50-2026-04-03.md) **PASS**.
 
 ---
 
@@ -133,6 +133,13 @@
 | P24 | תודה | — | `thank-you` | **29** | **F9:** לקשר מטפסים אם בשימוש |
 | — | קורסים — בקרוב (פנימי) | — | `courses-soon` | **30** | **F11-b** ל־T3 |
 
+### 4.1 יישור לעץ אתר נעול (2026-04-06)
+
+**מקור אמת ל־IA ותפריט:** [`hub/data/site-tree.json`](../../hub/data/site-tree.json) (`treeApprovedDocRef`).  
+- **אין חנות** בעץ הנעול — סליקה בכפתורים חיצוניים בלבד. שורת **P22 / shop** בטבלה לעיל משקפת **מצב סטייג’ינג/ייבוא ישן**; לתפריט ול־QA סופי — **לא** נדרש עמוד חנות.  
+- **קורסים:** בעץ — **`st-courses`** (`courses-external`, **`tpl-external-menu`**) תחת **לימוד והכשרה**. יש לסנכרן תפריט מ־`courses-soon` פנימי לקישור חיצוני מאושר כשמוגדר URL סופי.  
+- **דף בית:** נעול למוקאף **`home-visual-sketch-final-rtl.html`** (**D-EYAL-HOME-01**).
+
 ---
 
 ## 5. תפריטים (10.8, 10.9)
@@ -181,6 +188,8 @@
 
 | תאריך | שינוי |
 |--------|--------|
+| **2026-03-29** | **IA:** טבלת תפריט ראשי נעולה מול `site-tree.json` — [`M2-MENU-PRIMARY-LOCKED-FROM-SITE-TREE-2026-03-29.md`](./M2-MENU-PRIMARY-LOCKED-FROM-SITE-TREE-2026-03-29.md). **פיתוח:** תבנית `template-faq-catalog.php` + MU `ea-m2-ia-slug-fixups-once.php` (faq/media/galleries/method); קישורי בית ל־`/method/`. **G3:** מדריך מפעיל §D5.1 (ספאם/טפסים). |
+| **2026-04-10** | **G3:** מדריך מפעיל + מלאי תוספים — [`../team_30/M2-OPERATOR-GUIDE-DRAFT-2026-04-10.md`](../team_30/M2-OPERATOR-GUIDE-DRAFT-2026-04-10.md), [`../team_30/M2-PLUGIN-INVENTORY-2026-04-10.md`](../team_30/M2-PLUGIN-INVENTORY-2026-04-10.md). **IA:** §4.1 יישור ל־`site-tree.json` נעול (בלי חנות; קורסים חיצוני). **QA:** מנדט מרוכז ל־50 — [`../team_50/M2-QA-CONSOLIDATED-MANDATE-TEAM50-2026-04-10.md`](../team_50/M2-QA-CONSOLIDATED-MANDATE-TEAM50-2026-04-10.md). |
 | **2026-04-04** | **P0 סטייג'ינג:** MU `ea-m2-seed-shell-once` + פריסת FTP; עמודים §7, קריאה, תפריט `primary`, Fluent shortcode, Yoast P15; דוח [`M2-G2-STAGING-P0-DONE-2026-04-04.md`](./M2-G2-STAGING-P0-DONE-2026-04-04.md). |
 | **מעודכן** | **גיבוי uPress** — בוצע (אישור מחזיק). **העברה לצוות 50** — חומר לריטסט הועבר; צוות 10: Fluent/handoff/M10-15 + מענה לדוח ריטסט. |
 | **2026-04-02** | תיעוד מנדט + TLS: GO מ־100; סטייג'ינג ≠ HTTPS פרודקשן; אימות TLS מלא ל־M7 — ראו §1.1. |
@@ -227,15 +236,31 @@
 | 3 | **עמודי §7** (זריעה MU או WXR) | כל שורות §4 קיימות | ☑ (MU) |
 | 4 | **קריאה:** בית סטטי + בלוג | **W10** | ☑ |
 | 5 | **Yoast:** **P15** → `noindex` (**F10**) | post meta | ☑ (זריעה) |
-| 6 | **Fluent:** shortcode ב־**צור קשר** + בדיקת שליחה | מייל בדיקה / לוג | ◐ — לוודא טופס id=1 + שליחה |
-| 7 | **תפריטים** T1–T6 (**§5**) | ללא 404 פנימיים | ☑ (`M2 Primary EA` → `primary`) |
+| 6 | **Fluent:** shortcode ב־**צור קשר** + בדיקת שליחה | מייל בדיקה / לוג | ☑ submit אפליקטיבי בדוח v2 (`insert_id: 3`); **F2** — אימות mailbox / WP Mail Logging → M7 / פרודקשן |
+| 7 | **תפריטים** T1–T6 (**§5**) | ללא 404 פנימיים; **יישור לעץ נעול** — [`M2-MENU-PRIMARY-LOCKED-FROM-SITE-TREE-2026-03-29.md`](./M2-MENU-PRIMARY-LOCKED-FROM-SITE-TREE-2026-03-29.md) | ☑ — אומת ב־[`M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md`](../team_50/M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md) (PASS WITH NOTES) |
 | 8 | **`view-source`:** `noindex` לסטייג'ינג (**M10-12**) | מילולי בסיכום | ☑ (דוח QA קודם + אימות) |
 | 9 | **מזהה WP** בטבלה §4 | מספרים | ☑ |
 | 10 | **M10-15:** [`M2-HANDOFF-FROM-20-2026-03-31.md`](./M2-HANDOFF-FROM-20-2026-03-31.md) — צ'קבוקסים + חתימה | חתום ידנית | _למלא_ |
-| 11 | **צוות 50:** דוח QA חוזר | [`M2-G2-STAGING-P0-COMPLETION-2026-04-04.md`](./M2-G2-STAGING-P0-COMPLETION-2026-04-04.md) | **חומר הועבר** — ממתין דוח 50 |
-| 12 | **צוות 100:** סגירת M2 לפי **M2-WORKPLAN §11** DoD | אחרי PASS מ־50 | _ממתין_ |
+| 11 | **צוות 50:** דוח QA FINAL (סגירת פערי IA) | [`M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md`](../team_50/M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md) | ☑ **PASS WITH NOTES** (F2 בלבד) |
+| 12 | **צוות 100:** סגירת M2 לפי **M2-WORKPLAN §11** DoD | אחרי PASS / PASS WITH NOTES (F2) מ־50 | **בתהליך** — קליטת §11 G4 |
 
 **אחרי G2:** מעבר ל־**M3** (תוכן/מיגרציה) לפי [`ROADMAP-2026.md`](../../docs/project/ROADMAP-2026.md) — לא לפני סימון **M2 COMPLETED** ע"י 100.
+
+---
+
+## עדכון 2026-03-29 — חבילת סגירה מול `site-tree.json` (דוח 50 FINAL 2026-04-06)
+
+**מטרה:** לסגור פערי IA (תפריט, עמודים, פוטר, EN בהדר, קישורי בית, הפניות legacy) לפי [`hub/data/site-tree.json`](../../hub/data/site-tree.json).
+
+| רכיב | פירוט |
+|------|--------|
+| **MU סנכרון** | [`site/wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php`](../../site/wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php) v1.1 — תפריטים **M2 Primary EA** + **M2 Footer EA** (מיקום `ea_footer_legal`); אופציה **`ea_m2_site_tree_lock_sync_v2`**; `template_redirect` עם מפת 301 לנתיבי legacy |
+| **זריעה** | [`ea-m2-seed-shell-once.php`](../../site/wp-content/mu-plugins/ea-m2-seed-shell-once.php) v1.1 — ללא יצירת §7; IA נטען מסנכרון (init 28) |
+| **Child** | גרסה **1.1.2** — פוטר משפטי, EN בהדר (`generate_inside_navigation`), תיקון `/treatment/` בדף בית |
+| **בקשת QA** | [`../team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-03-29.md`](../team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-03-29.md) |
+| **שער פנימי** | [`M2-INTERNAL-STAGING-GATE-2026-03-29.md`](./M2-INTERNAL-STAGING-GATE-2026-03-29.md) |
+
+**סטטוס סטייג’ינג:** נדרשת **פריסת FTP** + טעינה אחת; רק אז אימות מול הטבלה בצ׳ק־ליסט הפנימי וריטסט צוות 50.
 
 ---
 

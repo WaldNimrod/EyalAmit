@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "treeApprovedDocRef": "נעול ליישום — אישור אייל (פגישה 2026-04-06). עץ האתר כפי בקובץ זה הוא מקור אמת ל־IA ולתפריט; שינוי מבנה או slugs — רק אחרי סבב אישור מחדש. מוקאפ דף הבית החוזי (ויזואלי, RTL): mockups/wireframes/home-visual-sketch-final-rtl.html בפלט Hub (מקור: to-eyal/_shared-assets/wireframes/).",
+  "liveSiteBase": "https://www.eyalamit.co.il",
+  "nodes": [
+    {
+      "id": "st-home",
+      "parentId": null,
+      "treeOrder": 1,
+      "titleHe": "דף הבית",
+      "slug": "home",
+      "templateId": "tpl-home",
+      "treeNoteHe": "מוקאפ מאושר על ידי אייל (2026-04-06): wireframes/home-visual-sketch-final-rtl.html — מבנה בלוקים, Hero, פוטר, תפריט.",
+      "menuHint": "תפריט ראשי · מקום 1 — לוגו בלבד (ללא כפתור טקסט «בית»)",
+      "legacyUrl": "https://www.eyalamit.co.il/",
+      "legacyNoteHe": "דף הבית בפרודקשן הנוכחי — לעיתים מוצג גם תוכן מ־עמוד המרכז הארוך; לבחור מקור מיגרציה לפי SSOT."
+    },
+    {
+      "id": "st-svc-treatment",
+      "parentId": null,
+      "treeOrder": 2,
+      "titleHe": "טיפול בדיג'רידו",
+      "slug": "treatment",
+      "templateId": "tpl-service",
+      "menuHint": "תפריט ראשי · מקום 2",
+      "legacyNoteHe": "מקור מיגרציה מומלץ: wp_id 18239 ב־SSOT — ודא URL מלא באתר החי (שדה slug ב־CSV עלול להיות חתוך)."
+    },
+    {
+      "id": "st-method",
+      "parentId": null,
+      "treeOrder": 3,
+      "titleHe": "השיטה",
+      "slug": "method",
+      "templateId": "tpl-method",
+      "menuHint": "תפריט ראשי · מקום 3"
+    },
+    {
+      "id": "st-svc-lessons",
+      "parentId": null,
+      "treeOrder": 4,
+      "titleHe": "שיעורי דיג'רידו",
+      "slug": "lessons",
+      "templateId": "tpl-service",
+      "menuHint": "תפריט ראשי · מקום 4",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a9%d7%99%d7%a2%d7%95%d7%a8%d7%99-%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    },
+    {
+      "id": "st-svc-sound",
+      "parentId": null,
+      "treeOrder": 5,
+      "titleHe": "סאונד הילינג",
+      "slug": "sound-healing",
+      "templateId": "tpl-service",
+      "menuHint": "תפריט ראשי · מקום 5",
+      "legacyNoteHe": "באתר החי מספר עמודים קרובים (למשל טיפולי סאונד); לאחד לפי תוכן סופי — ראו SSOT."
+    },
+    {
+      "id": "st-learning-hub",
+      "parentId": null,
+      "treeOrder": 6,
+      "titleHe": "לימוד והכשרה",
+      "slug": "learning",
+      "templateId": "tpl-nav-hub",
+      "menuHint": "תפריט ראשי · מקום 6",
+      "treeNoteHe": "עמוד ראשי עם תוכן כללי + הצגת כל סוגי הלימוד/ההכשרה במערכת; כל תת־עמוד (כולל סדנאות) עמוד קיים ונפרד."
+    },
+    {
+      "id": "st-trainings",
+      "parentId": "st-learning-hub",
+      "treeOrder": 1,
+      "titleHe": "הכשרות למטפלים",
+      "slug": "therapist-training",
+      "templateId": "tpl-placeholder",
+      "menuHint": "רמה 2 · תחת לימוד והכשרה",
+      "legacyNoteHe": "ייתכן noindex לפי מנדט M2 — ראו Yoast."
+    },
+    {
+      "id": "st-courses",
+      "parentId": "st-learning-hub",
+      "treeOrder": 2,
+      "titleHe": "קורסים (סקולר / חיצוני)",
+      "slug": "courses-external",
+      "templateId": "tpl-external-menu",
+      "menuHint": "רמה 2 · תחת לימוד והכשרה — קישור חיצוני"
+    },
+    {
+      "id": "st-svc-lectures",
+      "parentId": "st-learning-hub",
+      "treeOrder": 3,
+      "titleHe": "הרצאות",
+      "slug": "lectures",
+      "templateId": "tpl-lecture-product",
+      "menuHint": "רמה 2 · תחת לימוד והכשרה"
+    },
+    {
+      "id": "st-svc-workshops",
+      "parentId": "st-learning-hub",
+      "treeOrder": 4,
+      "titleHe": "סדנאות",
+      "slug": "workshops",
+      "templateId": "tpl-service",
+      "menuHint": "רמה 2 · תחת לימוד והכשרה",
+      "legacyNoteHe": "wp_id 18061 ב־SSOT — סדנאות; אמת URL מלא מול האתר החי."
+    },
+    {
+      "id": "st-didg-gear-hub",
+      "parentId": null,
+      "treeOrder": 7,
+      "titleHe": "כלים ואביזרים",
+      "slug": "tools-and-accessories",
+      "templateId": "tpl-nav-hub",
+      "menuHint": "תפריט ראשי · מקום 7 — שם נעול",
+      "treeNoteHe": "שער לעולם הכלים; ילדים: עמוד כלים/אביזרים, תיקון."
+    },
+    {
+      "id": "st-svc-handmade",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 1,
+      "titleHe": "כלים בעבודת יד ואביזרים",
+      "slug": "instruments",
+      "templateId": "tpl-service",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "legacyNoteHe": "מיפוי מדויק ל־URL באתר החי — wp_id 18209 ב־CONTENT-SSOT-INVENTORY (slug ב־CSV עלול להיות חתוך)."
+    },
+    {
+      "id": "st-svc-repair",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 2,
+      "titleHe": "תיקון וחידוש כלים",
+      "slug": "repair",
+      "templateId": "tpl-service",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%99%d7%a7%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    },
+    {
+      "id": "st-books",
+      "parentId": null,
+      "treeOrder": 8,
+      "titleHe": "מוזה הוצאה לאור",
+      "slug": "muzza",
+      "templateId": "tpl-books",
+      "menuHint": "תפריט ראשי · מקום 8 — שער ההוצאה + גריד ספרים",
+      "legacyNoteHe": "מוזג מדור הוצאה; דפי ספר בודדים — ראו SSOT למיפוי.",
+      "treeNoteHe": "לכל ספר עמוד ייעודי (רמה 2); slug שער נעול: muzza."
+    },
+    {
+      "id": "st-book-tsva",
+      "parentId": "st-books",
+      "treeOrder": 1,
+      "titleHe": "צבע בכחול וזרוק לים",
+      "slug": "muzza/tsva-bechol-ve-zorek-layam",
+      "templateId": "tpl-secondary",
+      "menuHint": "רמה 2 · תחת מוזה הוצאה לאור",
+      "treeNoteHe": "דף ספר בודד; slug סופי לפי SSOT."
+    },
+    {
+      "id": "st-book-kushi",
+      "parentId": "st-books",
+      "treeOrder": 2,
+      "titleHe": "כושי בלאנטיס",
+      "slug": "muzza/kushi-blantis",
+      "templateId": "tpl-book-detail",
+      "menuHint": "רמה 2 · תחת מוזה הוצאה לאור",
+      "treeNoteHe": "דף ספר בודד; slug סופי לפי SSOT. רכישה מחוץ ל־WP: מודפס Morning; אלקטרוני מנדלי. אין סליקה מוטמעת.",
+      "morningCheckoutUrl": "https://mrng.to/MTUiO3vkIg"
+    },
+    {
+      "id": "st-book-vekatavt",
+      "parentId": "st-books",
+      "treeOrder": 3,
+      "titleHe": "וכתבת",
+      "slug": "muzza/vekatavt",
+      "templateId": "tpl-secondary",
+      "menuHint": "רמה 2 · תחת מוזה הוצאה לאור",
+      "treeNoteHe": "דף ספר בודד; slug סופי לפי SSOT."
+    },
+    {
+      "id": "st-blog",
+      "parentId": null,
+      "treeOrder": 9,
+      "titleHe": "בלוג דיג'רידו",
+      "slug": "blog",
+      "templateId": "tpl-blog-archive",
+      "menuHint": "תפריט ראשי · מקום 9 — ארכיון פוסטים",
+      "legacyNoteHe": "URL מדויק באתר החי — בדוק ב־SSOT (slug ארוך)."
+    },
+    {
+      "id": "st-blog-post",
+      "parentId": "st-blog",
+      "treeOrder": 1,
+      "titleHe": "פוסט בודד בבלוג",
+      "slug": "blog/post-slug",
+      "templateId": "tpl-secondary",
+      "menuHint": "רמה 2 · תבנית פוסט (דינמית ב־WP)",
+      "treeNoteHe": "ייצוג סכימתי — בפועל מאות עמודים לפי פוסטים."
+    },
+    {
+      "id": "st-eyal-hub",
+      "parentId": null,
+      "treeOrder": 10,
+      "titleHe": "אייל עמית",
+      "slug": "eyal-amit",
+      "templateId": "tpl-about",
+      "menuHint": "תפריט ראשי · מקום 10 — עמוד אודות ראשי",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa/",
+      "treeNoteHe": "שער אודות; תת־עמוד יחיד: מוקש דהימן (עמוד המסע הוסר מן העץ)."
+    },
+    {
+      "id": "st-mokesh",
+      "parentId": "st-eyal-hub",
+      "treeOrder": 1,
+      "titleHe": "מוקש דהימן — לזכרו",
+      "slug": "mokesh-dahiman",
+      "templateId": "tpl-memorial",
+      "menuHint": "רמה 2 · תחת אייל עמית",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%93%d7%a3-%d7%9c%d7%94%d7%a0%d7%a6%d7%97%d7%aa-%d7%96%d7%9a/"
+    },
+    {
+      "id": "st-contact",
+      "parentId": null,
+      "treeOrder": 11,
+      "titleHe": "צור קשר",
+      "slug": "contact",
+      "templateId": "tpl-contact",
+      "menuHint": "תפריט ראשי · מקום 11",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/",
+      "treeNoteHe": "עמוד צור קשר אחד — כל ערוצי יצירת הקשר (טופס, טלפון, וואטסאפ וכו׳) באותו עמוד."
+    },
+    {
+      "id": "st-en",
+      "parentId": null,
+      "treeOrder": 12,
+      "titleHe": "אנגלית (EN)",
+      "slug": "en",
+      "templateId": "tpl-en-landing",
+      "menuHint": "הדר — איקון קטן בצד; לא בתפריט הראשי",
+      "treeNoteHe": "ניווט לעמוד EN רק דרך איקון בהדר, לא כפריט בשורת התפריט."
+    },
+    {
+      "id": "st-media",
+      "parentId": null,
+      "treeOrder": 13,
+      "titleHe": "המלצות — קטלוג מרכזי (ומדיה)",
+      "slug": "media",
+      "templateId": "tpl-media",
+      "menuHint": "פוטר — קישור חובה; לא בתפריט הראשי",
+      "treeNoteHe": "עמוד קטלוג מרכזי: מבוא + כל רשומות ההמלצות/עדויות/מדיה לפי קטגוריות. אינסטנסים משובצים גם בעמודי תוכן (בית, שירותים וכו׳). מודל זהה ל־FAQ ולגלריות — אובייקט CPT אחיד + קטלוג + שיבוץ לפי קבוצות."
+    },
+    {
+      "id": "st-extra-pages",
+      "parentId": null,
+      "treeOrder": 14,
+      "titleHe": "עמודים נוספים",
+      "slug": "extra-pages-virtual",
+      "templateId": "tpl-secondary",
+      "menuHint": "מאגר IA — פוטר / מערכת",
+      "treeNoteHe": "צמתים שאינם בתפריט הראשי; חלקם עמודי מערכת בלבד. שלישיית קטלוגים ציבוריים (FAQ, גלריות, המלצות) — קישורים מהפוטר."
+    },
+    {
+      "id": "st-faq",
+      "parentId": "st-extra-pages",
+      "treeOrder": 1,
+      "titleHe": "שאלות נפוצות (FAQ)",
+      "slug": "faq",
+      "templateId": "tpl-entity-catalog",
+      "menuHint": "פוטר בלבד — קישור חובה; לא בתפריט ראשי",
+      "treeNoteHe": "קטלוג מרכזי: כל אינסטנסי FAQ + מבוא. אותו מודל אובייקט כמו גלריות והמלצות — פריטים משויכים לקבוצות/קטגוריות ומשובצים בבלוקים בתוך עמודים; כאן כל הרשומות למען SEO וניווט."
+    },
+    {
+      "id": "st-gallery-cms",
+      "parentId": "st-extra-pages",
+      "treeOrder": 2,
+      "titleHe": "ניהול גלריות (ממשק מערכת)",
+      "slug": "gallery-management-internal",
+      "templateId": "tpl-secondary",
+      "menuHint": "מערכת — לא עמוד ציבורי בתפריט",
+      "treeNoteHe": "ממשק מערכת / יצירת פריטים — לא עמוד ציבורי. הקטלוג הציבורי: st-galleries-catalog."
+    },
+    {
+      "id": "st-galleries-catalog",
+      "parentId": "st-extra-pages",
+      "treeOrder": 3,
+      "titleHe": "גלריות — קטלוג מרכזי",
+      "slug": "galleries",
+      "templateId": "tpl-entity-catalog",
+      "menuHint": "פוטר — קישור חובה; לא בתפריט ראשי",
+      "treeNoteHe": "קטלוג כל אינסטנסי הגלריה + מבוא כללי. שיבוץ לפי קבוצות בעמודים; מודל אחיד עם FAQ והמלצות."
+    },
+    {
+      "id": "st-404",
+      "parentId": "st-extra-pages",
+      "treeOrder": 4,
+      "titleHe": "עמוד 404",
+      "slug": "404",
+      "templateId": "tpl-secondary",
+      "menuHint": "מערכת",
+      "treeNoteHe": "תבנית שגיאה — ללא פריט תפריט."
+    },
+    {
+      "id": "st-privacy",
+      "parentId": "st-extra-pages",
+      "treeOrder": 5,
+      "titleHe": "מדיניות פרטיות",
+      "slug": "privacy",
+      "templateId": "tpl-legal",
+      "menuHint": "פוטר",
+      "treeNoteHe": "עמוד משפטי חובה לפי מסמך טכני מאייל."
+    },
+    {
+      "id": "st-legal-access",
+      "parentId": "st-extra-pages",
+      "treeOrder": 6,
+      "titleHe": "הצהרת נגישות",
+      "slug": "accessibility",
+      "templateId": "tpl-legal",
+      "menuHint": "פוטר"
+    },
+    {
+      "id": "st-legal-terms",
+      "parentId": "st-extra-pages",
+      "treeOrder": 7,
+      "titleHe": "תקנון",
+      "slug": "terms",
+      "templateId": "tpl-legal",
+      "menuHint": "פוטר",
+      "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/"
+    },
+    {
+      "id": "st-thankyou",
+      "parentId": "st-extra-pages",
+      "treeOrder": 8,
+      "titleHe": "תודה אחרי טפסים",
+      "slug": "thank-you",
+      "templateId": "tpl-secondary",
+      "menuHint": "מערכת"
+    },
+    {
+      "id": "st-html-sitemap",
+      "parentId": "st-extra-pages",
+      "treeOrder": 9,
+      "titleHe": "מפת אתר HTML (אופציונלי)",
+      "slug": "sitemap",
+      "templateId": "tpl-secondary",
+      "menuHint": "משני / SEO"
+    },
+    {
+      "id": "st-services-hub",
+      "parentId": "st-extra-pages",
+      "treeOrder": 10,
+      "titleHe": "דף מאגר «שירותים» (legacy v2.3)",
+      "slug": "services",
+      "templateId": "tpl-nav-hub",
+      "menuHint": "legacy — לא בתפריט החדש",
+      "treeNoteHe": "ליישור מול אתר ישן; להסיר לאחר מיגרציה סופית אם לא נדרש."
+    }
+  ]
+}

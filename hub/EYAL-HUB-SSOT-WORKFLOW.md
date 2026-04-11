@@ -54,6 +54,8 @@ python3 scripts/ingest_eyal_feedback_json.py path/to/export.json --by "שם מק
 4. הסקריפט בודק `schemaVersion`, `exportType` (`eyal-feedback`), **`respondent` לא ריק**, ושכל `answers[].id` קיים ב־`hub/data/decisions.json`; כותב ל־`hub/ssot/responses/` ומעדכן `manifest.json`.
 5. **Commit** למאגר.
 
+**חובה לפני ייצוא:** כל מזהה החלטה חדש (`D-EYAL-*`) חייב להופיע ב־`hub/data/decisions.json` לפני שאייל מייצא — אחרת קליטת JSON תיכשל.
+
 ---
 
 ## 3.1 ייצואי JSON נוספים (עץ אתר · קליטת תוכן)

@@ -4,11 +4,14 @@
     {
       "id": "tpl-home",
       "nameHe": "דף בית",
-      "descriptionHe": "נחיתה ראשית — מסר מרכזי, אזור עדכונים, CTA. ראו HOME-PAGE-DIRECTIONS.",
+      "descriptionHe": "נחיתה ראשית — Hero עם רקע מדיה ושכבת כיסוי, מסר מרכזי, בלוקים, CTA. ראו HOME-PAGE-DIRECTIONS.",
       "mockupHref": "mockups/page-types/tpl-home.html",
       "fields": [
+        { "id": "hero_background", "labelHe": "Hero — תמונת/וידאו רקע (מדיה WP / ACF)", "type": "textarea" },
+        { "id": "hero_overlay", "labelHe": "Hero — אטימות שכבת כהות (למשל 45–65%) או צבע מותאם", "type": "text" },
         { "id": "hero_title", "labelHe": "כותרת ראשית (H1)", "type": "text" },
         { "id": "hero_subtitle", "labelHe": "תת־כותרת / מסר", "type": "textarea" },
+        { "id": "hero_supporting", "labelHe": "פסקת חיזוק (אופציונלי)", "type": "textarea" },
         { "id": "cta_primary", "labelHe": "טקסט ופעולה ל־CTA ראשי", "type": "textarea" },
         { "id": "updates_block", "labelHe": "טקסט לאזור עדכונים", "type": "textarea" },
         { "id": "media_notes", "labelHe": "הערות לתמונות / וידאו (קישורי Drive)", "type": "textarea" }
@@ -85,9 +88,20 @@
       ]
     },
     {
+      "id": "tpl-entity-catalog",
+      "nameHe": "קטלוג אינסטנסים (FAQ / גלריות / מבנה משותף)",
+      "descriptionHe": "עמוד שער מרכזי: מבוא כללי + כל הרשומות (או סינון לפי קטגוריות/קבוצות). פריטי FAQ, גלריה והמלצה הם אותו מודל — אובייקט ב־CMS, משובץ כאינסטנסים בעמודים; כאן הקטלוג המלא לניווט ו־SEO.",
+      "mockupHref": "mockups/page-types/tpl-secondary.html",
+      "fields": [
+        { "id": "intro", "labelHe": "מבוא לעמוד הקטלוג", "type": "textarea" },
+        { "id": "taxonomy_note", "labelHe": "הסבר קטגוריות / קבוצות (למשתמש ולמנועי חיפוש)", "type": "textarea" },
+        { "id": "cms_note", "labelHe": "הערות מימוש (CPT, בלוקים, שדות)", "type": "textarea" }
+      ]
+    },
+    {
       "id": "tpl-media",
-      "nameHe": "המלצות ומדיה",
-      "descriptionHe": "עדויות, פודקאסטים, כתבות נבחרות.",
+      "nameHe": "המלצות — קטלוג מרכזי (ומדיה)",
+      "descriptionHe": "קטלוג מרכזי להמלצות, עדויות ומדיה; אינסטנסים משובצים בעמודים. שדות אופייניים למסלול תוכן זה.",
       "mockupHref": "mockups/page-types/tpl-media.html",
       "fields": [
         { "id": "intro", "labelHe": "פתיח", "type": "textarea" },
@@ -96,13 +110,37 @@
       ]
     },
     {
+      "id": "tpl-book-detail",
+      "nameHe": "דף ספר (מלא)",
+      "descriptionHe": "עמוד ספר בודד: תקציר, גוף, קטע קריאה, מהדורה, שני כפתורי רכישה חיצוניים (מודפס + אלקטרוני), גלריה מאינסטנסים. POC: mockups/poc/poc-kushi-blantis-st-book-kushi-2026-04-06.html (st-book-kushi).",
+      "mockupHref": "mockups/poc/poc-kushi-blantis-st-book-kushi-2026-04-06.html",
+      "fields": [
+        { "id": "title", "labelHe": "כותרת", "type": "text" },
+        { "id": "summary", "labelHe": "תקציר (שורה־שתיים)", "type": "textarea" },
+        { "id": "body", "labelHe": "תיאור / גוף", "type": "textarea" },
+        { "id": "excerpt_heading", "labelHe": "כותרת בלוק קטע קריאה", "type": "text" },
+        { "id": "excerpt_body", "labelHe": "קטע קריאה / הנחיות שילוב", "type": "textarea" },
+        { "id": "edition_note", "labelHe": "הערת מהדורה", "type": "text" },
+        { "id": "purchase_primary_label", "labelHe": "תווית רכישה ראשית", "type": "text" },
+        { "id": "purchase_primary_url", "labelHe": "כתובת רכישה ראשית", "type": "url" },
+        { "id": "purchase_secondary_label", "labelHe": "תווית רכישה משנית", "type": "text" },
+        { "id": "purchase_secondary_url", "labelHe": "כתובת רכישה משנית", "type": "url" },
+        { "id": "gallery_heading", "labelHe": "כותרת גלריה", "type": "text" },
+        { "id": "gallery_intro", "labelHe": "מבוא לגלריה", "type": "textarea" },
+        { "id": "cta_footer", "labelHe": "טקסט סיום / CTA", "type": "textarea" },
+        { "id": "media_notes", "labelHe": "הערות מימוש גלריה / Drive", "type": "textarea" }
+      ]
+    },
+    {
       "id": "tpl-books",
-      "nameHe": "ספרים",
-      "descriptionHe": "מדור מרוכז; כרטיסים + דפי ספר ל־SEO.",
+      "nameHe": "ספרים — מוזה הוצאה לאור",
+      "descriptionHe": "מדור מרוכז; כרטיסים + דפי ספר ל־SEO. כולל אלמנט איגום ספרים (bundle) + קישור רכישה.",
       "mockupHref": "mockups/page-types/tpl-books.html",
       "fields": [
         { "id": "intro", "labelHe": "פתיח המדור", "type": "textarea" },
         { "id": "books_list", "labelHe": "רשימת ספרים (כותרת, תקציר, קישור רכישה)", "type": "textarea" },
+        { "id": "bundle_intro", "labelHe": "טקסט איגום ספרים (bundle) — הצעת ערך משולבת", "type": "textarea" },
+        { "id": "bundle_purchase_url", "labelHe": "קישור רכישה איגום — URL", "type": "url" },
         { "id": "media_notes", "labelHe": "כריכות — Drive", "type": "textarea" }
       ]
     },
@@ -161,7 +199,7 @@
     {
       "id": "tpl-secondary",
       "nameHe": "עמוד משני (גנרי)",
-      "descriptionHe": "מסע, מפת אתר HTML, תודה אחרי טפסים וכו׳.",
+      "descriptionHe": "מסע, מפת אתר HTML, תודה אחרי טפסים, עמודים גנריים קצרים. דף ספר מלא — תבנית tpl-book-detail + POC כושי בלאנטיס.",
       "mockupHref": "mockups/page-types/tpl-secondary.html",
       "fields": [
         { "id": "title", "labelHe": "כותרת", "type": "text" },

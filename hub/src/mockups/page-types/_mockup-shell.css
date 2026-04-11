@@ -1,9 +1,9 @@
 /* Shared shell for Hub page-type mockups (static preview only) */
 :root {
-  --m-bg: #f6f3ee;
-  --m-ink: #1a1510;
-  --m-accent: #8b4513;
-  --m-muted: #5c5348;
+  --m-bg: #faf7f3;
+  --m-ink: #2e2b28;
+  --m-accent: #a44e2b;
+  --m-muted: #8a5a44;
 }
 * { box-sizing: border-box; }
 body {
@@ -29,10 +29,27 @@ h1 { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: 1.75rem; margin
 .sub { color: var(--m-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
 .block {
   background: #fff;
-  border: 1px solid rgba(139, 69, 19, 0.2);
+  border: 1px solid rgba(164, 78, 43, 0.22);
   border-radius: 6px;
   padding: 1rem 1.1rem;
   margin-bottom: 0.75rem;
   min-height: 2.5rem;
 }
 .placeholder { color: var(--m-muted); font-style: italic; }
+
+.mockup-crosslinks {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  background: rgba(164, 78, 43, 0.08);
+  border: 1px solid rgba(164, 78, 43, 0.18);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.mockup-crosslinks a {
+  font-weight: 600;
+  color: var(--m-accent);
+}
+.mockup-crosslinks a:hover {
+  color: #ab3a2b;
+}

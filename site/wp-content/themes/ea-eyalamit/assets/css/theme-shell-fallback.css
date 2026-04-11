@@ -1,0 +1,311 @@
+/**
+ * Shell כשתבנית האב GeneratePress חסרה במחשב פיתוח (רק child במאגר).
+ * מספק טיפוגרפיה, ריווח, מיכל ורקע — בסיס לתדמית ולייבוא תוכן לתבניות.
+ */
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body.ea-m4-polish,
+body.ea-home-dashboard,
+body.ea-books-hub-view,
+body.ea-book-detail-view {
+	margin: 0;
+	min-height: 100vh;
+	font-family: "Rubik", system-ui, sans-serif;
+	font-size: 1.05rem;
+	line-height: 1.65;
+	color: var(--eyal-ink, #2e2b28);
+	background-color: #fffdfb;
+	background-image:
+		radial-gradient(ellipse 120% 80% at 100% 0%, rgba(216, 199, 181, 0.35) 0%, transparent 55%),
+		radial-gradient(ellipse 100% 60% at 0% 100%, rgba(110, 111, 74, 0.08) 0%, transparent 50%),
+		linear-gradient(180deg, #fffdfb 0%, #f7f2eb 100%);
+}
+
+body.rtl {
+	direction: rtl;
+	text-align: right;
+}
+
+.ea-shell#page,
+#page.ea-shell {
+	max-width: 72rem;
+	margin: 0 auto;
+	padding: 0 1rem 3rem;
+}
+
+/* כותרת shell — כשאין GeneratePress */
+.ea-shell-header {
+	margin-bottom: 1.75rem;
+}
+
+.ea-shell-header__bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--eyal-terracotta, #a44e2b) 0%, var(--eyal-olive, #6e6f4a) 55%, var(--eyal-sand, #d8c7b5) 100%);
+	border-radius: 0 0 4px 4px;
+}
+
+.ea-shell-header__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem 1.25rem;
+	padding: 1rem 0 1.1rem;
+	border-bottom: 1px solid rgba(46, 43, 40, 0.12);
+}
+
+.ea-shell-header__brand {
+	flex: 0 1 auto;
+	min-width: min(100%, 12rem);
+	max-width: 20rem;
+}
+
+.ea-shell-nav {
+	flex: 1 1 38%;
+	min-width: min(100%, 18rem);
+}
+
+.ea-shell-header__tools {
+	flex: 0 0 auto;
+	margin-inline-start: auto;
+	align-self: center;
+}
+
+/* תפריט ראשי — מיקום primary / M2 Primary EA */
+.ea-shell-nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.2rem 0.15rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ea-shell-nav__list > li {
+	position: relative;
+}
+
+.ea-shell-nav__list > li > a {
+	display: block;
+	padding: 0.45rem 0.55rem;
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: var(--eyal-ink, #2e2b28);
+	text-decoration: none;
+	border-radius: 7px;
+	white-space: nowrap;
+}
+
+.ea-shell-nav__list > li > a:hover,
+.ea-shell-nav__list > li.current-menu-item > a,
+.ea-shell-nav__list > li.current-menu-ancestor > a {
+	background: rgba(164, 78, 43, 0.14);
+	color: var(--eyal-brick, #ab3a2b);
+}
+
+.ea-shell-nav .sub-menu {
+	display: none;
+	position: absolute;
+	top: calc(100% + 2px);
+	inset-inline-end: 0;
+	min-width: 13rem;
+	z-index: 50;
+	margin: 0;
+	padding: 0.4rem 0;
+	list-style: none;
+	background: #fffdfb;
+	border: 1px solid rgba(46, 43, 40, 0.12);
+	border-radius: 10px;
+	box-shadow: 0 12px 36px rgba(46, 43, 40, 0.12);
+}
+
+.ea-shell-nav .sub-menu li {
+	position: relative;
+}
+
+.ea-shell-nav .sub-menu a {
+	display: block;
+	padding: 0.45rem 0.85rem;
+	font-size: 0.88rem;
+	font-weight: 500;
+	color: var(--eyal-ink, #2e2b28);
+	text-decoration: none;
+}
+
+.ea-shell-nav .sub-menu a:hover,
+.ea-shell-nav .sub-menu .current-menu-item > a {
+	background: rgba(110, 111, 74, 0.1);
+	color: var(--eyal-brick, #ab3a2b);
+}
+
+.ea-shell-nav li:hover > .sub-menu,
+.ea-shell-nav li:focus-within > .sub-menu {
+	display: block;
+}
+
+.ea-shell-nav .sub-menu .sub-menu {
+	top: 0;
+	inset-inline-end: 100%;
+	margin-inline-end: 4px;
+}
+
+@media (max-width: 52rem) {
+	.ea-shell-header__inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.ea-shell-nav {
+		order: 3;
+		width: 100%;
+	}
+
+	.ea-shell-nav__list {
+		justify-content: flex-start;
+	}
+
+	.ea-shell-header__tools {
+		order: 2;
+		margin-inline-start: 0;
+		align-self: flex-end;
+	}
+}
+
+.ea-shell-site-title {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.ea-shell-site-title a {
+	color: var(--eyal-chocolate, #5c3a2e);
+	text-decoration: none;
+}
+
+.ea-shell-site-title a:hover {
+	color: var(--eyal-brick, #ab3a2b);
+}
+
+.ea-shell-header__en a {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--eyal-brick, #ab3a2b);
+	text-decoration: none;
+	padding: 0.2rem 0.5rem;
+	border-radius: 6px;
+	border: 1px solid rgba(171, 58, 43, 0.35);
+}
+
+.ea-shell-header__en a:hover {
+	background: rgba(171, 58, 43, 0.08);
+}
+
+.ea-shell-main {
+	min-height: 40vh;
+}
+
+.screen-reader-text.ea-skip-link:focus {
+	position: absolute;
+	left: 0.5rem;
+	top: 0.5rem;
+	z-index: 99999;
+	padding: 0.5rem 0.75rem;
+	background: #fff;
+	border: 2px solid var(--eyal-terracotta, #a44e2b);
+	clip: auto;
+	width: auto;
+	height: auto;
+}
+
+/* מבנה legacy אם עדיין מופיע */
+#headerimg h1 {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+#headerimg h1 a {
+	color: var(--eyal-chocolate, #5c3a2e);
+	text-decoration: none;
+}
+
+#page > hr {
+	display: none;
+}
+
+.inside-article {
+	padding: 0 0 2rem;
+}
+
+.entry-content a:not(.ea-home-btn):not(.ea-books-hub-card__title a) {
+	color: var(--eyal-brick, #ab3a2b);
+	font-weight: 500;
+	text-underline-offset: 0.15em;
+}
+
+.entry-content a:hover {
+	color: var(--eyal-terracotta, #a44e2b);
+}
+
+.ea-shell-footer {
+	margin-top: 3rem;
+	padding: 1.75rem 0 2rem;
+	border-top: 1px solid rgba(46, 43, 40, 0.12);
+	font-size: 0.88rem;
+	color: var(--eyal-earth, #8a5a44);
+	background: linear-gradient(180deg, transparent 0%, rgba(110, 111, 74, 0.06) 100%);
+	border-radius: 12px 12px 0 0;
+}
+
+.ea-shell-footer__inner {
+	max-width: 46rem;
+	margin: 0 auto;
+}
+
+.ea-shell-footer__brand {
+	margin: 0 0 0.75rem;
+	font-weight: 600;
+}
+
+.ea-shell-footer__brand a {
+	color: var(--eyal-chocolate, #5c3a2e);
+	text-decoration: none;
+}
+
+.ea-shell-footer .ea-footer-legal-nav {
+	margin-top: 0.5rem;
+}
+
+#footer {
+	margin-top: 3rem;
+	padding: 1.5rem 0;
+	border-top: 1px solid rgba(46, 43, 40, 0.1);
+	font-size: 0.88rem;
+	color: var(--eyal-earth, #8a5a44);
+}
+
+#footer a {
+	color: var(--eyal-olive, #6e6f4a);
+}
+
+/* בלוקים מוורדפרס */
+.entry-content .wp-block-group,
+.entry-content .wp-block-columns {
+	margin-bottom: 1.5rem;
+}
+
+.entry-content p {
+	margin: 0 0 1rem;
+}

@@ -3,6 +3,11 @@
   "project": "EyalAmit2026",
   "description": "SSOT למשוב והחלטות מול אייל — קבצים ב-responses/ לאחר ingest מתועד בלבד. מיקום קנוני: hub/ssot/.",
   "responsesDir": "responses",
-  "lastIngestIso": null,
-  "ingestedExports": []
+  "lastIngestIso": "2026-04-06T15:00:00.000Z",
+  "ingestedExports": [
+    {
+      "file": "responses/2026-04-06--eyal-meeting-checklist-from-html-paste.json",
+      "noteHe": "חילוץ מתוך meeting-checklist (HTML שהודבק) — תשובות ב־answers + שלושה פריטים ב־meetingChecklistSupplementAnswers"
+    }
+  ]
 }

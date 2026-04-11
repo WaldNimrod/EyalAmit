@@ -2,6 +2,264 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "UPD-2026-04-09-HUB-CONTENT-WAVE1-INTAKE",
+      "date": "2026-04-09",
+      "titleHe": "קליטת תוכן מאייל — 6 חבילות + גל Wave1 (תבנית ספר → טיפולים)",
+      "bodyHe": "נקלטו שש חבילות zip תחת מזהים קנוניים EYAL-CONTENT-PKG-* ב־from-eyal/CONTENT; רישום ב־deliverables.json + מניפסטים. מסמך סבב: team_100/M4-CONTENT-IMPLEMENTATION-ROUND-FROM-EYAL-CONTENT-2026-04-09.md. החלטת מיקוד: Wave1 פעיל — נעילת תבנית (80) → עמוד ספר ייחוס בסטייג’ינג → שכפול ספרים + st-books → רטרו חוקים → עמוד טיפולים → פריסה ופרזנטציה. חבילות ותוכניות מחוץ לגל (למשל st-book-bundle הצעתי) — deferred עד סיום Wave1. מדיה: site/wp-content/uploads/ea-wave1-media/ (README)."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-M4-G2348-TEAM10-DONE",
+      "date": "2026-04-07",
+      "titleHe": "M4 — צוות 10: מימוש §8 governance (G2–G4, G8)",
+      "bodyHe": "MU ea-m4-g2348-governance-once.php; סנכרון עץ v3; תיקון כלים repair + 301; קורסים learning/courses-external; שלד ספר צבע; מדיה+קטגוריית המלצות. ftp_deploy כולל MU. יומן: M3-EXECUTION-PLAN קליטת §8; M3-GOVERNANCE §9."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-GOV-NIMROD-LOCK-G2G3G8",
+      "date": "2026-04-07",
+      "titleHe": "Governance — נעילת נימרוד (G2, G3, G4, G8)",
+      "bodyHe": "אישורים: G1 נשאר DEFERRED. G2 איחוד מיידי ל־repair. G3 עמוד פנימי + קישורי רכישה וקורס חוץ. G4 שלד כמו ספר אחר + placeholders. G8 מדיה מאוחדת — המלצות כקטגוריה. פירוט: team_100/M3-GOVERNANCE-G1G4G8-DECISIONS §7–§8; תיק backlog + מטריצה עודכנו."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-M3-TECH-CLOSE-FINAL",
+      "date": "2026-04-07",
+      "titleHe": "M3 — סגירה טכנית סופית + מעבר מיקוד ל־M4",
+      "bodyHe": "צוות 100: החלטות G1–G4/G8 (DEFERRED מאושר) — team_100/M3-GOVERNANCE-G1G4G8-DECISIONS-TEAM100-2026-04-07.md; תיק governance + נספח מטריצה מעודכנים. ROADMAP-2026 v12.7: M3 COMPLETED (טכני), M4 IN_PROGRESS. Hub roadmap.json + tasks (M3-SEC-TECH-CLOSE-100). פירוט: M3-EXECUTION-PLAN §«סגירת M3 טכנית סופית»."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-QA2-RETEST-G5G7-R1R4-CLOSE",
+      "date": "2026-04-07",
+      "titleHe": "M3 — ריטסט QA-2 סגור + G5–G7 ו־R1–R4 הושלמו",
+      "bodyHe": "צוות 10: G5–G7 (MU dedupe + 301), R1–R4 (מפרט, MU featured, מטריצה), READINESS ריטסט. צוות 50: M3-QA-INSTANCES-GALLERIES-REPORT-RETEST-TEAM50-2026-04-08.md — FINAL PASS WITH NOTES; M3-SYNC-POST-QA2-RETEST-DOC-VERIFY. צוות 100: קליטה — יומן M3-EXECUTION-PLAN §0; GO מלא M3-M4 מ־50 עדיין לא לפי דוח. Hub tasks: G5–G7 + R1–R4 → completed."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-ORCHESTRATION-POLICY-SSOT",
+      "date": "2026-03-29",
+      "titleHe": "נוהל: מקור אמת אחד + Hub מצומצם",
+      "bodyHe": "אורקסטרציה צוות 100: מעקב חי רק ב־_communication/team_100/M3-EXECUTION-PLAN-AND-MANDATES-TEAM100-2026-04-07.md (§0, יומן, §4) — בלי חבילות סיכום במקביל. Hub הוא תצוגת סטטוס לאייל: פריט עדכון אחד בסוף שלב משמעותי, לא אחרי כל צעד. פירוט: §0 באותו מסמך + onboard_team100.md."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-M3-FULL-CLOSEOUT-HANDOFF-PACK",
+      "date": "2026-04-07",
+      "titleHe": "M3 — צוות 100: חבילת מנדטים להשלמה מלאה",
+      "bodyHe": "מסמך: team_100/M3-FULL-CLOSEOUT-MANDATE-HANDOFF-PACK-TEAM100-2026-04-07.md — פירוט מנדטים ל־10/50/20/80 וחובות מימוש ישיר 100 (החלטות G1–G4/G8, סגירת M3 ברודמאפ+Hub, מנדטי QA חדשים לפי צורך). יומן §4 מקושר."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-M3-100-NEXT-PHASE-AFTER-QA-M4",
+      "date": "2026-04-07",
+      "titleHe": "M3 — צוות 100: קליטת ריטסט QA-M4 + שלב הבא",
+      "bodyHe": "מסמך קליטה: team_100/M3-QA-M4-RETEST-ACCEPTANCE-AND-NEXT-PHASE-TEAM100-2026-04-07.md. יומן M3-EXECUTION-PLAN §2.5 (P1–P3). Hub tasks: מקטע M3-SEC-AFTER-QA-M4 (G5–G7, R1–R4). roadmap.json — מיקוד אחרי סגירת שער ויזואל M4."
+    },
+    {
+      "id": "UPD-2026-04-07-HUB-M3-M4-QA-NOTES-FIX",
+      "date": "2026-04-07",
+      "titleHe": "M3-M4 — דוח QA-M4 + תיקוני הערות והגשה חוזרת",
+      "bodyHe": "דוח 50 ראשון: M3-QA-M4-VISUAL-NOTE-REPORT-TEAM50-2026-04-07.md — PASS WITH NOTES. צוות 10: תמה ea-eyalamit 1.3.1 + הגשה חוזרת. ריטסט קנוני: M3-QA-M4-VISUAL-NOTE-RETEST-TEAM50-2026-04-07.md — FINAL, PASS; הערת audit לא־חוסמת על מחרוזת GP במקור. יומן + handoff עודכנו."
+    },
+    {
+      "id": "UPD-2026-04-01-HUB-M3-M4-READINESS-STAGE1",
+      "date": "2026-04-01",
+      "titleHe": "M3-M4 — שלב 1: קוד, פריסה, READINESS ל־QA-M4",
+      "bodyHe": "צוות 10: child ea-eyalamit 1.3.0 (Rubik בחזית, ea-m4-polish, טוקני פלטה ב־style.css); FTP לסטייג’ינג; ארטיפקט M3-M4-STAGING-DEPLOY-VERIFY-TEAM10-2026-04-01.md; בקשת מוכנות M3-QA-M4-READINESS-REQUEST-TEAM10-2026-04-01.md; מסירת שלב 1 ל־100: M3-M4-STAGE1-HANDOFF-TEAM10-TO-TEAM100-2026-04-01.md. יומן §4 + §2.4 עודכנו. Hub: M3-T-M4-VISUAL-10 → completed; M3-T-QA-M4-50 נשאר open עד דוח 50. מקביל: עדכון G5–G7 + חיתוך R1–R4 ב־M3-M2-GOVERNANCE-BACKLOG / M3-QA-2-READINESS-RESUBMISSION."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-M3-PACKAGE4-100-SEQUENCE",
+      "date": "2026-03-29",
+      "titleHe": "M3 — חבילה 4: צוות 100 סגר מימוש ישיר + רצף 10→50",
+      "bodyHe": "מסמך: _communication/team_100/M3-PACKAGE4-TEAM100-DIRECT-IMPLEMENTATION-AND-SEQUENCE-2026-03-29.md — אימות A1–A4 (waiver W-Q1-6-2026-04-08, יומן M3-EXECUTION-PLAN, תיק governance G5–G7, מנדטי M3-M4/QA-M4). רצף ארגוני: 10 (M3-M4+READINESS) ואז 50 (QA-M4). מקבילות G5–G7 עם M3-M4 בתוך 10 לפי waiver. Hub tasks.json: מקטע M3-SEC-PACKAGE4 (M3-T-M4-VISUAL-10, M3-T-QA-M4-50). מנדטים עודכנו בסעיף «רצף ארגוני»."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-M2-TEAM100-G4-CLOSE-11",
+      "date": "2026-04-06",
+      "titleHe": "M2 — צוות 100: קליטת G4 וסגירת §11",
+      "bodyHe": "מסמך: _communication/team_100/M2-G4-ACCEPTANCE-M2-CLOSEOUT-TEAM100-2026-04-06.md — אישור PASS WITH NOTES (F2) לפי שבוע 0; M2-WORKPLAN §11 מסומן CLOSED; ROADMAP-2026: M2 COMPLETED, M3 IN_PROGRESS; Hub roadmap.json (מיקוד M3), tasks M2-T-M2-CLOSE-11 completed."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-M2-QA50-FINAL-V2-PASS-NOTES",
+      "date": "2026-04-06",
+      "titleHe": "M2 — צוות 50: דוח FINAL v2 — PASS WITH NOTES",
+      "bodyHe": "דוח: _communication/team_50/M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md — סגירת פערי IA/301/EN/Fluent; NOTE יחיד F2 (mailbox / WP Mail Logging מ־wp-admin). דוח FAIL קודם נשאר נספח: M2-SMOKE-REPORT-FINAL-2026-04-06.md. Hub tasks/roadmap עודכנו; §11 — מעבר לצוות 100."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-M2-TEAM50-VALIDATION-RETEST",
+      "date": "2026-04-06",
+      "titleHe": "M2 — בקשת ולידציה חוזרת לצוות 50",
+      "bodyHe": "מסמך: _communication/team_50/M2-VALIDATION-RETEST-REQUEST-TEAM50-2026-04-06.md — ריצת FINAL מלאה מול מנדט M2-QA-CONSOLIDATED-MANDATE-TEAM50-2026-04-10.md; ראיות פריסה: team_10/M2-STAGING-DEPLOY-VERIFY-ARTIFACT-2026-04-06.md; דוח קודם: M2-SMOKE-REPORT-FINAL-2026-04-06.md (FAIL)."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-M2-SITE-TREE-CLOSEOUT-PACK",
+      "date": "2026-03-29",
+      "titleHe": "M2 — חבילת סגירת פערים מול עץ נעול + בקשת ריטסט צוות 50",
+      "bodyHe": "MU ea-m2-site-tree-lock-sync-once v1.1: תפריט M2 Footer EA (ea_footer_legal), מפתח סנכרון v2 (ריצה אוטומטית אחרי פריסה), הפניות 301 legacy (shop, courses-soon, hashita, books, testimonials-media, services/*). זריעה ea-m2-seed-shell-once v1.1: ללא IA legacy — סנכרון בלבד. Child: קישור EN בהדר, רינדור פוטר, תיקון /treatment/ בדף בית. מסמך: team_50/M2-QA-RETEST-REQUEST-TEAM50-2026-03-29.md. אחרי FTP: purge מטמון; אימות curl לפי team_10/M2-INTERNAL-STAGING-GATE-2026-03-29.md. Hub build: hub/dist/metadata.json — generatedAt אחרי `python3 scripts/build_eyal_client_hub.py`."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-M2-MENU-TABLE-FAQ-MU",
+      "date": "2026-04-06",
+      "titleHe": "M2 — טבלת תפריט נעולה + FAQ/ספאם במאגר",
+      "bodyHe": "מסמך team_10/M2-MENU-PRIMARY-LOCKED-FROM-SITE-TREE-2026-03-29.md (יעד WP מול site-tree). Child: תבנית FAQ, קישורי בית ל־/method/, MU חדש ea-m2-ia-slug-fixups-once (method+faq+galleries+media). מדריך מפעיל §D5.1 (טפסים/ספאם). עדיין נדרש: יישום תפריט חי ב־WP, דוח 50, §11."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-M2-HUB-SYNC-QA-MANDATE",
+      "date": "2026-04-06",
+      "titleHe": "Hub — סנכרון מצב M2 + מנדט QA מרוכז לצוות 50",
+      "bodyHe": "tasks.json: השלמות G2/G3 במאגר (תוספים, MU, ייבוא/זריעה, קריאה, EN, Yoast P15, צור קשר, סיכום IA ב־Hub, תבנית בית נעולה, מדריך+מלאי ב־team_30); מעקב QA FINAL + מנדט יחיד M2-QA-CONSOLIDATED-MANDATE-TEAM50-2026-04-10.md. נשארו: סנכרון תפריט WP לעץ נעול (קורסים חיצוני), FAQ תוכן, דוח 50 FINAL, §11 סגירה 100."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V163-KUSHI-WP-MEDIA",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.6.3 — מדיה st-book-kushi בתיקייה + תמונות ב־POC",
+      "bodyHe": "mockups/poc/st-book-kushi-wp-media/ (cover + gallery SVG ממלאי מקום, README להחלפה ב־WP); POC משלב כריכה וגלריה; build: copy_mockups מעתיק תת־תיקיות תחת poc."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V162-KUSHI-POC-AUTHORITATIVE",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.6.2 — POC כושי בלאנטיס לפי מסמך מאושר + tpl-book-detail",
+      "bodyHe": "mockups/poc/poc-kushi-blantis-st-book-kushi-2026-04-06.html: תוכן מ־2026-04-06--st-book-kushi--content--from-eyal.md (כותרת, תקציר, גוף, קטע קריאה, שני קישורי רכישה Morning+מנדלי, גלריה). page-templates: tpl-book-detail חדשה; site-tree st-book-kushi → tpl-book-detail; verify_kushi_intake_poc_parity.py מאמת מול מאושר."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V161-SITE-TREE-KUSHI-VISIBLE-HOME-WP",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.6.1 — כושי בלאנטיס גלוי בעץ + דף בית כחי ב־WP",
+      "bodyHe": "עץ: פאנל «מוצרים ומוקאפים — קישורים מהירים» + קישורים במפת מבט-על; st-home: deployed + productHref לאתר החי; מקרא: הבהרה approved מול מותמע. build_eyal_client_hub: _render_site_tree_deliverables_panel, _node_overview_links_html."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V160-SITE-TREE-LIFECYCLE",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.6.0 — עץ אתר: שלבי מוצר + קישור מוצר עדכני",
+      "bodyHe": "site-tree.json: lifecycleStage, productHref, productHrefLabelHe, lifecycleModelVersion; דוגמאות ל־st-home (אושר+מוקאפ), st-book-kushi (תוכן+POC), st-svc-lessons (מותמע+אתר חי). site-tree.html: תג צבע בשורה, בלוק «מוצר עדכני», מקרא שלבים; hub.css: .lifecycle-pill. ייצוא nodesMeta כולל שדות lifecycle (קריאה בלבד)."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V159-MOCKUPS-BOOK-POC-LINKS",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.9 — קישורי מוקאפ לדף הספר + עוגן בעץ",
+      "bodyHe": "site-tree: pageMockupHref ל־st-book-kushi; site-tree.html: קישור «מוקאפ עמוד» + id על כל צומת; מפת מוקאפים: סעיף מוזה; tpl-books/tpl-secondary: crosslinks; POC: ניווט חזרה; page-templates: תיאור tpl-secondary."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V158-BRAND-COLOR-PALETTE",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.8 — פלטת צבעי מיתוג מצגת Canva",
+      "bodyHe": "מסמך קנוני docs/project/EYAL-SITE-COLOR-PALETTE.md; צילום שקופית ב-reference/; hub.css: טוקני --eyal-* + יישור --ink/--muted; כפתורי ייצוא בגרדיאנט Terracotta→Brick; POC כושי בלאנטיס מעודכן לפלטה."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V157-EYAL-CONTENT-PACKS-POC-KUSHI",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.7 — חבילות נוהל מצוות אייל + POC כושי בלאנטיס",
+      "bodyHe": "from-eyal: canonical_update_pack_2026-04-06 (מניפסט + PROCEDURE-MANDATORY-v1) + poc_st-book-kushi_2026-04-06 (JSON/MD + TEAM100-CONTENT-ANALYSIS). צוות 100: MANDATORY-EYAL-CONTENT-PACK-CANON-2026-04-06. mockups/poc: poc-kushi-blantis-st-book-kushi-2026-04-06.html. build: העתקת תיקיית poc ל-dist."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V156-CLOSURE-EN-KMD-COURSES",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.6 — סגירת שערים: EN נדחה, KMD+קורסים נעולים",
+      "bodyHe": "D-EYAL-EN-BODY-02 → deferred + resolutionHe (שלב אחרון בנייה). D-EYAL-KMD-04 → approved (נוהל נעול, ללא אישור נוסף). D-EYAL-COURSES-05 → approved + נתיבי מוקאפ (mockup-digital-course, mockup-lectures) וטקסטים זמניים צוות. eyal-pending: ללא פריטי decision; לוגו/FAQ/בית כתוכן שוטף. צ׳קליסט: חלק ג׳ נדחו, חלק ד׳ נעולות."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V155-GALLERY-MIGRATION-SCOPE",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.5 — גלריות: מיגרציה רק מתמונות בעמודים ציבוריים",
+      "bodyHe": "D-EYAL-GALLERY-03 → approved + resolutionHe (מלא לקטגוריה מדויקת; לא קבצי יתום בתיקיית מדיה). eyal-pending: הוסר OPEN-GALLERY; lockedSummary. SSOT response עודכן. introHe: שלוש pending."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V154-TREE-LOCKS-CONTENT-ENTITY",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.4 — סנכרון החלטות מול עץ ובית (תוכן + אינסטנסים)",
+      "bodyHe": "D-EYAL-CONTENT-MODEL-09 → approved: ב׳ שני URLים (st-blog / st-media) כפי בעץ. D-EYAL-ENTITY-CATALOG-12 → approved: א׳ שלושה קטלוגים בפוטר כפי בעץ. introHe + eyal-pending (הוסרו OPEN-CONTENT-MODEL, OPEN-ENTITY-CATALOG). צ׳קליסט פגישה: נשארו 4 pending + חלק ב׳."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V153-MEETING-CHECKLIST-OPEN-FIRST",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.3 — צ׳קליסט פגישה: פתוחים קודם, תוכן, נעולים מכווצים",
+      "bodyHe": "meeting-checklist.html: חלק א׳ החלטות pending בלבד; חלק ב׳ פריטים מ־eyal-pending (לא decision) כולל לוגו+FAQ+בית; חלק ג׳ נעול ב־details. מבואות ב־decisions.json (meetingChecklistPartA/B/C). כותרת העמוד «מה עוד חסר מאייל». eyal-pending: OPEN-BRAND-LOGO."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V152-GREEN-INVOICE-KUSHI",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.2 — חשבונית ירוקה: לינק Morning ל«כושי בלאנטיס»",
+      "bodyHe": "D-EYAL-GREEN-UX-06 → approved + resolutionHe (ללא סליקה ב־WP; מוקאפים — כפתור דמו לא מסליק באתר). site-tree: st-book-kushi.morningCheckoutUrl + הערת עץ. eyal-pending: הוסר OPEN-GREEN-UX; lockedSummary כולל GREEN-UX. site-tree.html מציג קישור Morning. GREEN-INVOICE-LINK-MAP v1.1."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V151-EYAL-OPEN-ONLY",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.1 — רשימת «מה פתוח» מול אייל אחרי הנעילה",
+      "bodyHe": "eyal-pending.json: רק 7 החלטות pending + תוכן (FAQ, ניסוחי בית); סיכום נעילות. decisions introHe מעודכן. tasks.html: מקטע נפרד להחלטות פתוחות מול נעולות; סטטוס approved לא נדרס מ־SSOT. meeting-checklist: פריטים מאושרים עם פאנל «נעול»; סדר צ׳קליסט כולל D-EYAL-ENTITY-CATALOG-12."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V150-EYAL-LOCK-TREE-HOME",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.5.0 — נעילה: אישור אייל לעץ האתר ולמוקאף דף הבית",
+      "bodyHe": "treeApprovedDocRef + treeNoteHe על st-home. החלטות: D-EYAL-SITE-07, D-EYAL-HOME-01, D-EYAL-IA-MENU-08, D-EYAL-MENU-BRAND-10 — status approved + resolutionHe. כניסת Hub: סעיף «נעול ליישום». משימות: אישור עץ Hub הושלם; עדכוני ניסוח ברודמאפ. תג סטטוס approved בבונה."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V142-CATALOG-FOOTER-HERO-IA",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.4.2 — קטלוג גלריות, מודל אינסטנסים, Hero ופוטר בסקיצה",
+      "bodyHe": "site-tree: st-galleries-catalog (slug galleries); st-media כותרת «המלצות — קטלוג מרכזי» + קישור חובה בפוטר; st-faq → tpl-entity-catalog; הערות tree על מודל אחיד FAQ/גלריות/המלצות. page-templates: tpl-entity-catalog; tpl-home — שדות Hero (רקע, כיסוי). החלטה D-EYAL-ENTITY-CATALOG-12. מוקאפ בית: Hero עם רקע ושכבת כיסוי + פוטר מלא."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V141-JOURNEY-DROP-HOME-SKETCH",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.4.1 — הורדת עמוד המסע + סקיצת בית",
+      "bodyHe": "site-tree: הוסר st-about-journey (מסע); תחת אייל עמית נשאר מוקש בלבד. מוקאפ חדש wireframes/home-visual-sketch-final-rtl.html — סקיצה ויזואלית לדף הבית (Arial, RTL, אותם בלוקים כמו wireframe v2 מאייל) עם תפריט §6.1. עדכון sitemap-logical-closure."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V140-IA-FINAL-LOCK",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.4.0 — נעילת עץ אתר סופית",
+      "bodyHe": "תפריט: 11+לוגו; EN איקון בהדר; צור קשר עמוד אחד; מקום 9 בלוג; שער «מוזה הוצאה לאור»; «כלים ואביזרים»; לימוד והכשרה כעמוד ראשי+תתים כולל סדנאות; FAQ כמודל גלריות (פוטר); עמודי מערכת: 404+פרטיות. עדכון טקסט פתיחה ב־site-tree."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V138-SITE-TREE-MEDIA-BOOKS-GALLERY",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.3.8 — עץ: המלצות ומדיה נפרד, דפי ספר, ניהול גלריות",
+      "bodyHe": "המלצות ומדיה כשורש עצמאי; תחת ספרים — שלושה דפי ספר לדוגמה; עמודים נוספים — ניהול גלריות (מערכת); הערת tree על מאגר שירותים מול תפריט שטוח (UX/SEO)."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V137-SITE-TREE-MENU",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.3.7 — עץ אתר: תפריט 12 פריטים + רמות + עמודים נוספים",
+      "bodyHe": "site-tree.json: סדר תפריט (לוגו→בית, טיפול, שיטה, שיעורים, סאונד, לימוד והכשרה, דיג'רידו ואביזרים, ספרים, בלוג, אייל, צור קשר, EN) + ענף «עמודים נוספים». שדה treeOrder, הערות treeNoteHe, אינדנטציה ויזואלית ב־site-tree.html."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V136-HOME-MOCK-NO-STOCK",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.3.6 — מוקאפי דף בית: בלי תמונות סטוק",
+      "bodyHe": "הוסרו תמונות home-preview מכל מוקאפי הדשבורד ומ־home-directions-visual; Hero כרקע/placeholder בלבד. תבנית WP Home Dashboard: רקע גרדיאנט במקום eyal-portrait-hero.jpg."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V135-IA-CLOSURE",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.3.5 — סגירת IA: עץ לוגי + ווירפריים דף בית מאייל",
+      "bodyHe": "מוקאפים: sitemap-logical-closure.html (תפריט §6.1, מבנה פנימי §7, מיפוי ל־site-tree, עמודים מחוץ לתפריט, יישור §7.1 מול wireframe) + wireframes/eyal_homepage_wireframe_rtl_arial_v2.html מהמאגר from-eyal. סומן פער סדר ניווט בווירפריים מול §6.1."
+    },
+    {
+      "id": "UPD-2026-03-29-HUB-V134-MEETING-CHECKLIST",
+      "date": "2026-03-29",
+      "titleHe": "Hub 1.3.4 — צ׳קליסט פגישה (החלטות לפי סדר)",
+      "bodyHe": "נוסף meeting-checklist.html: מספור ברור, שלבים לפי סדר החלטה (אתר/IA, בית, תוכן, EN, גלריות, KMD, קורסים, ירוק), לכל פריט — הקשר, אופציות, השלכות, המלצת צוות, קישור מוקאפ אם קיים, ושדה editable לרישום החלטה בזמן הפגישה. קישור מהכניסה ומהניווט."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V133-ROADMAP",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.3.3 — מפת דרכים: נטיב אייל מול נטיב טכני",
+      "bodyHe": "ב־roadmap.html: מסלול אייל לפי נושאים (מה נדרש, תוצאה, קישורי Hub); מסלול צוות מקובץ לנושאי תשתית / WordPress / תיעוד־QA. רשימת חובות תמציתית ב־details."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-V132",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.3.2 — חומרים: דלטה MD; מוקאפים לפי סבב ותאריך",
+      "bodyHe": "בחומרים: קובץ דלטה DELTA-EYAL-DEV-BRIEF… (מאגר team_100) מועתק ל־files/reference/ בכל בנייה. מוקאפים בכניסה מחולקים לסבב 6.4 (מסמך מפתח) ולסבב M2 נקודתי; לכל פריט מצוינים מזהי החלטה D-EYAL-*."
+    },
+    {
+      "id": "UPD-2026-04-06-HUB-INDEX-V131",
+      "date": "2026-04-06",
+      "titleHe": "Hub 1.3.1 — כניסה: תמונת מצב; משימות: מסלול ומידע חסר",
+      "bodyHe": "במסך הכניסה: מספר גרסה ומועד בנייה; סטטיסטיקות אבני דרך/משימות; לוג עדכונים מעודכן. מסלול העבודה לאייל וטבלת «מידע חסר» הועברו לעמוד «משימות והחלטות» כדי לא לכפול תוכן. מוקאפי ia-compare ודף בית לפי מסמך אייל — ללא שינוי קישורים; ראו גם עדכון 29.3 על מסמך המפתח."
+    },
+    {
+      "id": "UPD-2026-03-29-EYAL-DEV-BRIEF-HUB",
+      "date": "2026-03-29",
+      "titleHe": "מסמך מפתח אייל (GEO/AEO/SEO) — יישור Hub ומוקאפים",
+      "bodyHe": "התקבל/הוגדר מסמך eyal_amit_dev_brief_GEO_AEO_SEO.md תחת from-eyal; דלטה מול SSOT: _communication/team_100/DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md. עודכנו מוקאפ בית (12 בלוקים), ia-compare (תפריט), החלטות D-EYAL-* חדשות, roadmap/tasks; פירוט מסלול ומידע חסר — בעמוד משימות והחלטות."
+    },
+    {
       "id": "UPD-2026-03-29-HUB-TREE-INTAKE",
       "date": "2026-03-29",
       "titleHe": "Hub: עץ אתר אינטראקטיבי, טיפוסי עמוד וקליטת תוכן",

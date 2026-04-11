@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "exportType": "eyal-page-content-intake",
+  "exportTimestamp": "2026-04-06T12:00:00.000Z",
+  "respondent": "Eyal Amit — צוות ליווי תוכן",
+  "pageId": "st-book-kushi",
+  "pageRef": "EA-16",
+  "pageTitleHe": "כושי בלאנטיס",
+  "slug": "muzeh/kushi-blantis",
+  "templateId": "tpl-secondary",
+  "fieldValues": {
+    "title": "כושי בלאנטיס — הרפתקאה צבעונית לילדים",
+    "body": "ספר ילדים בעברית רהוטה ומלאת הומור, שמזמין את הקוראים הצעירים למסע אחרי כושי — דמות שובבה וסקרנית שמגלה את כוחה של השמחה והדמיון.\n\nהספר מתאים להקריאה משותפת להורים וילדים, ומדגיש ערכים של חברות, אומץ וקבלת השונה — בלי לשכוח לצחוק בדרך.\n\nהוצאת מוזה — חלק מעולם התוכן של אייל עמית סביב דיג'רידו, ספרות ויצירה.",
+    "media_notes": "כריכה קדמית — Drive: kushi-blantis-cover-front.jpg (300dpi לשימוש דפוס; לרשת — גרסת web באותה תיקייה). תמונת פנים לדוגמה — kushi-blantis-spread-sample-01.jpg."
+  },
+  "driveRefs": [
+    "https://drive.google.com/drive/folders/PLACEHOLDER-kushi-blantis-assets"
+  ],
+  "implementationNotesHe": "כפתור רכישה באתר: לא סליקה ב־WordPress. מקור אמת ל־URL חיצוני — שדה morningCheckoutUrl על הצומת st-book-kushi ב־hub/data/site-tree.json (נכון לעץ הנעול).\n\n[צוות] fieldValues כאן = דמו סינתטי לתבנית tpl-secondary בלבד — לא מלל מאושר מאייל. תוכן מאושר: קובץ 2026-04-06--st-book-kushi--content--from-eyal.md (tpl-book-detail). ראו PACKAGE-ROLES-PROCEDURE-VS-CONTENT.md."
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-06-st-book-kushi",
+  "ingestedDate": "2026-04-06",
+  "sourceZip": "poc_st-book-kushi_2026-04-06.zip",
+  "pageIds": ["st-book-kushi"],
+  "templateIds": ["tpl-book-detail"],
+  "packageRole": "approved_content_poc",
+  "noteHe": "חבילת POC לספר קושי — תוכן מאושר ב־Markdown/JSON; מיושר למסלול Hub POC הקיים."
+}

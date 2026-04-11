@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-book-tsva",
+  "ingestedDate": "2026-04-07",
+  "sourceZip": "final_st-book-tsva_2026-04-07.zip",
+  "pageIds": ["st-book-tsva"],
+  "templateIds": ["tpl-book-detail"],
+  "packageRole": "approved_content_final",
+  "noteHe": "תוכן FINAL לעמוד ספר צבע — JSON/MD + גלריה."
+}

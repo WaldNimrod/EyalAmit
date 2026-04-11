@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>סגירת IA — עץ אתר לוגי + יישור ווירפריים דף בית</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #fffefb;
+      --ink: #2a2218;
+      --muted: #5c5348;
+      --line: #d4ccc0;
+      --accent: #8b4513;
+      --accent-soft: rgba(139, 69, 19, 0.12);
+      --branch: #4a6f64;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Heebo", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 1rem;
+    }
+    .wrap { max-width: 58rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    h1 {
+      font-family: "Frank Ruhl Libre", serif;
+      font-size: 1.85rem;
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+    }
+    .lede {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+      max-width: 48rem;
+    }
+    .sources {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 2rem;
+      font-size: 0.92rem;
+    }
+    .sources h2 { margin: 0 0 0.6rem; font-size: 1rem; }
+    .sources ul { margin: 0; padding-inline-start: 1.2rem; }
+    h2.sec {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--accent-soft);
+      color: var(--ink);
+    }
+    h3.sub { font-size: 1.02rem; margin: 1.25rem 0 0.5rem; color: #3d342a; }
+
+    .nav-visual {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: flex-start;
+      align-items: stretch;
+      margin: 1rem 0 1.5rem;
+      padding: 1rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .nav-visual .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 0.55rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid rgba(139, 69, 19, 0.35);
+      background: #fff;
+      white-space: nowrap;
+    }
+    .nav-visual .chip i {
+      font-style: normal;
+      opacity: 0.65;
+      font-weight: 700;
+      margin-left: 0.35rem;
+      font-size: 0.75rem;
+    }
+    .nav-visual .chip.cta {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .hint {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+
+    table.closure {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    table.closure th,
+    table.closure td {
+      padding: 0.55rem 0.65rem;
+      text-align: right;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    table.closure th {
+      background: var(--accent-soft);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    table.closure tr:last-child td { border-bottom: none; }
+    code {
+      font-family: ui-monospace, monospace;
+      font-size: 0.82rem;
+      background: rgba(0,0,0,0.05);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .tree {
+      margin: 1rem 0;
+      padding: 1rem 1.1rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .tree ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .tree li {
+      margin: 0.35rem 0;
+      padding-right: 0.5rem;
+      border-right: 3px solid var(--branch);
+    }
+    .tree .root > li { border-right-width: 4px; }
+    .tree strong { color: var(--accent); }
+
+    .dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 820px) {
+      .dual { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    .panel h3 { margin: 0 0 0.5rem; font-size: 0.98rem; }
+    .panel ol { margin: 0; padding-inline-start: 1.2rem; }
+    .panel li { margin-bottom: 0.35rem; }
+
+    .cta-links {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--accent-soft);
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .cta-links a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>סגירת IA — עץ אתר לוגי + יישור ווירפריים דף בית</h1>
+    <p class="lede">
+      מסמך עבודה לפגישה: ארבע שכבות — <strong>תפריט ראשי מאושר</strong> (מסמך המפתח), <strong>מבנה פנימי</strong> לפי פרקי §7,
+      <strong>מיפוי ל־site-tree</strong> (JSON ב־Hub), ו<strong>עמודים שלא בתפריט</strong>. בתחתית — יישור בין §7.1 לבין הווירפריים העדכני מאייל.
+    </p>
+
+    <section class="sources">
+      <h2>מקורות</h2>
+      <ul>
+        <li><code>eyal_amit_dev_brief_GEO_AEO_SEO.md</code> — §6.1 (סרגל עליון), §7 (מבנה פנימי), §7.1 (דף בית).</li>
+        <li><code>site-tree.json</code> (Hub) — <code>treeApprovedDocRef</code> עדיין מצביע על v2.3; המסמך כאן משקף <strong>כוונת §6.1 שטוחה</strong> כיעד מוצר.</li>
+        <li><code>wireframes/eyal_homepage_wireframe_rtl_arial_v2.html</code> — ווירפריים דף בית (Arial, RTL, FAQ בבית, טקסט תחת וידאו).</li>
+      </ul>
+    </section>
+
+    <h2 class="sec">1. תפריט ראשי — §6.1 (סדר קריאה מימין לשמאל בעברית)</h2>
+    <p class="hint">במסך RTL הפריט הראשון (בית) מופיע בקצה הימני; כאן מספור 1–11 כבמסמך המפתח.</p>
+    <p class="hint" style="background:#fff8e6;border:1px solid #e8d48a;border-radius:10px;padding:0.65rem 0.85rem">
+      <strong>פער ידוע בווירפריים v2:</strong> בקובץ <code>eyal_homepage_wireframe_rtl_arial_v2.html</code> סדר פריטי הניווט ב־HTML אינו תואם את סדר §6.1 (בית אמור להיות הקצה הימני של שורת הניווט). יש ליישר סדר/פריסה לפני חיתוך תבנית — התרשים כאן משקף את <strong>מקור האמת המילולי</strong> במסמך המפתח.
+    </p>
+    <div class="nav-visual" aria-label="תרשים תפריט ראשי">
+      <span class="chip"><i>1</i> בית</span>
+      <span class="chip"><i>2</i> טיפול בדיג'רידו</span>
+      <span class="chip"><i>3</i> השיטה</span>
+      <span class="chip"><i>4</i> שיעורי דיג'רידו</span>
+      <span class="chip"><i>5</i> סאונד הילינג</span>
+      <span class="chip"><i>6</i> לימוד והכשרה</span>
+      <span class="chip"><i>7</i> דיג'רידו וכלים</span>
+      <span class="chip"><i>8</i> ספרים</span>
+      <span class="chip"><i>9</i> תוכן</span>
+      <span class="chip"><i>10</i> אייל עמית</span>
+      <span class="chip cta"><i>11</i> לתיאום שיחה / צור קשר</span>
+    </div>
+
+    <table class="closure">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>פריט בתפריט</th>
+          <th>מבנה פנימי (מסמך §7)</th>
+          <th>צומת site-tree (slug)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>בית</td>
+          <td>§7.1 — 12 בלוקים (Hero, הסברים, וידאו, פעילות, שיטה, התאמה, FAQ, המלצות, אודות, CTA)</td>
+          <td><code>st-home</code> · <code>home</code></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>טיפול בדיג'רידו</td>
+          <td>§7.2</td>
+          <td><code>st-svc-treatment</code> · <code>treatment</code> <small>(ב־v2.3: ילד תחת «שירותים»)</small></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>השיטה</td>
+          <td>§7.3</td>
+          <td><code>st-method</code> · <code>method</code></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>שיעורי דיג'רידו</td>
+          <td>§7.4</td>
+          <td><code>st-svc-lessons</code> · <code>lessons</code></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>סאונד הילינג</td>
+          <td>§7.5</td>
+          <td><code>st-svc-sound</code> · <code>sound-healing</code></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>לימוד והכשרה</td>
+          <td>§7.6 — הכשרות, קורסים דיגיטליים, הרצאות <small>(וב־SSOT גם סדנאות — כניסה פנימית מאותו עולם)</small></td>
+          <td>
+            <code>st-trainings</code> · <code>therapist-training</code><br />
+            <code>st-courses</code> · <code>courses-external</code> (חיצוני)<br />
+            <code>st-svc-lectures</code> · <code>lectures</code><br />
+            <code>st-svc-workshops</code> · <code>workshops</code>
+          </td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>דיג'רידו וכלים</td>
+          <td>§7.7 — כלי יד, אביזרים, תיקון וחידוש</td>
+          <td><code>st-svc-handmade</code> · <code>instruments</code><br /><code>st-svc-repair</code> · <code>repair</code></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>ספרים</td>
+          <td>§7.8</td>
+          <td><code>st-books</code> · <code>books</code></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>תוכן</td>
+          <td>§7.9 — בלוג + המלצות ומדיה <small>(שאלה פתוחה: שער אחד או שני URL — ראו D-EYAL-CONTENT-MODEL-09)</small></td>
+          <td><code>st-blog</code> · <code>blog</code><br /><code>st-media</code> · <code>media</code></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>אייל עמית</td>
+          <td>§7.10 — אודות; מוקש דהימן (ללא עמוד מסע נפרד בעץ)</td>
+          <td><code>st-eyal-hub</code> · <code>eyal-amit</code><br />ילד: <code>st-mokesh</code> (מוקש) — עמוד המסע הוסר מן העץ</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>לתיאום שיחה / צור קשר</td>
+          <td>§7.11</td>
+          <td><code>st-contact</code> · <code>contact</code> <small>+ CTA בולט בראש כבמסמך</small></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="sec">2. תרשים היררכי — עולמות תוכן (מתחת לתפריט השטוח)</h2>
+    <p class="hint">במימוש §6.1 אין «שירותים» כהאב בתפריט; עדיין אפשר לארגן תתי־עמודים בתוך כל עולם.</p>
+    <div class="tree">
+      <ul class="root">
+        <li>
+          <strong>לימוד והכשרה</strong> (§7.6)
+          <ul>
+            <li>הכשרות למטפלים → <code>st-trainings</code></li>
+            <li>קורסים (סקולר) → <code>st-courses</code></li>
+            <li>הרצאות → <code>st-svc-lectures</code></li>
+            <li>סדנאות → <code>st-svc-workshops</code></li>
+          </ul>
+        </li>
+        <li>
+          <strong>דיג'רידו וכלים</strong> (§7.7)
+          <ul>
+            <li>כלים בעבודת יד / אביזרים → <code>st-svc-handmade</code></li>
+            <li>תיקון וחידוש → <code>st-svc-repair</code></li>
+          </ul>
+        </li>
+        <li>
+          <strong>תוכן</strong> (§7.9)
+          <ul>
+            <li>בלוג דיג'רידו → <code>st-blog</code></li>
+            <li>המלצות ומדיה → <code>st-media</code></li>
+          </ul>
+        </li>
+        <li>
+          <strong>אייל עמית</strong> (§7.10)
+          <ul>
+            <li>אודות (עמוד שער / גוף) → <code>st-eyal-hub</code></li>
+            <li>מוקש דהימן — לזכרו → <code>st-mokesh</code> <small>(עמוד המסע אינו בעץ)</small></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="sec">3. עמודים שלא מקושרים מהתפריט הראשי §6.1</h2>
+    <table class="closure">
+      <thead>
+        <tr>
+          <th>עמוד / קבוצה</th>
+          <th>צומת site-tree</th>
+          <th>איפה מופיעים</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>English</td>
+          <td><code>st-en</code> · <code>en</code></td>
+          <td>תפריט נפרד / מנשק שפה (מצוין ב־<code>menuHint</code> כ־EN)</td>
+        </tr>
+        <tr>
+          <td>הצהרת נגישות, תקנון</td>
+          <td><code>st-legal-access</code>, <code>st-legal-terms</code></td>
+          <td>פוטר / משני</td>
+        </tr>
+        <tr>
+          <td>תודה אחרי טפסים</td>
+          <td><code>st-thankyou</code></td>
+          <td>מערכת (redirect לאחר שליחה)</td>
+        </tr>
+        <tr>
+          <td>מפת אתר HTML (אופציונלי)</td>
+          <td><code>st-html-sitemap</code></td>
+          <td>משני / SEO</td>
+        </tr>
+        <tr>
+          <td>דף מאגר «שירותים» (v2.3)</td>
+          <td><code>st-services-hub</code></td>
+          <td>לא קיים ב־§6.1 השטוח; נשאר ב־JSON עד עדכון SSOT / החלטת D-EYAL-SITE-07</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="sec">4. דף בית — יישור §7.1 מול ווירפריים Arial v2</h2>
+    <div class="dual">
+      <div class="panel">
+        <h3>מסמך מפתח §7.1 (סדר בלוקים)</h3>
+        <ol>
+          <li>Header</li>
+          <li>Hero</li>
+          <li>מה זה טיפול בדיג'רידו</li>
+          <li>טיפול בדיג'רידו מול סאונד הילינג</li>
+          <li>וידאו — הצצה למרחב</li>
+          <li>תחומי הפעילות</li>
+          <li>שיטת cbDIDG</li>
+          <li>למי זה מתאים</li>
+          <li>FAQ קצר</li>
+          <li>המלצות</li>
+          <li>אודות קצר</li>
+          <li>CTA תחתון</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h3>ווירפריים <code>eyal_homepage_wireframe_rtl_arial_v2</code></h3>
+        <ol>
+          <li>Header + תפריט (כולל CTA לתיאום שיחה)</li>
+          <li>Hero (H1 + תת־כותרת + חיזוק + כפתור)</li>
+          <li>מה זה טיפול בדיג'רידו</li>
+          <li>טיפול מול סאונד הילינג (שתי עמודות)</li>
+          <li>וידאו + טקסט מלווה</li>
+          <li>תחומי פעילות (ארבעה כרטיסים)</li>
+          <li>שיטת cbDIDG</li>
+          <li>למי זה מתאים + אזור תמונה</li>
+          <li>FAQ (ארבע שאלות) + קישור לעמוד FAQ מלא</li>
+          <li>המלצות (שלוש ציטוטים)</li>
+          <li>אודות אייל + תמונה</li>
+          <li>CTA תחתון (שיחה + וואטסאפ)</li>
+        </ol>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:1rem">
+      <strong>מסקנה:</strong> סדר הבלוקים בווירפריים תואם את §7.1. ההבדלים העיקריים הם רמת פירוט העיצוב (Arial, כרטיסים) והרחבת FAQ בדף הבית כפי שמצוין בהערת התחתית של קובץ הווירפריים.
+    </p>
+
+    <div class="cta-links">
+      פתיחה מהירה:
+      <a href="wireframes/eyal_homepage_wireframe_rtl_arial_v2.html">ווירפריים דף בית v2 (מאייל)</a>
+      ·
+      <a href="../site-tree.html">עץ אתר אינטראקטיבי ב־Hub</a> (קישור יחסי — עובד כשהדפים מוגשים מתיקיית <code>hub/dist</code>)
+    </div>
+  </div>
+</body>
+</html>

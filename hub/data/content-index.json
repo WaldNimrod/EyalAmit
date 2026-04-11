@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-11T19:33:01Z",
+  "noteHe": "אינדקס כל הנכסים שהתקבלו מאייל או נשלחו אליו — תוכן עמודים, מסמכי מפרט, לוגו, מדיה. מנוהל על-ידי scripts/scan_eyal_content_index.py.",
+  "scanRoot": "docs/project/eyal-ceo-submissions-and-responses/from-eyal",
+  "changelog": [
+    {
+      "at": "2026-04-11T19:33:01Z",
+      "event": "st_method_packaged",
+      "noteHe": "st-method אורז לתיקייה קנונית EYAL-CONTENT-PKG-2026-04-10-st-method. status עודכן מ-pending ל-ingested."
+    },
+    {
+      "at": "2026-04-11T19:33:01Z",
+      "event": "scan_update",
+      "noteHe": "1 עודכנו (mtime)"
+    },
+    {
+      "at": "2026-04-11T00:00:00Z",
+      "event": "initial_population",
+      "noteHe": "אכלוס ראשוני — 13 פריטים מזוהים (6 חבילות, 1 ממתין, 2 לוגו, 1 מדיה, 3 מפרטים)."
+    }
+  ],
+  "items": [
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-06-st-book-kushi",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — ספר קושי (POC)",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-06-st-book-kushi",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-06",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-06-st-book-kushi",
+      "pageIds": [
+        "st-book-kushi"
+      ],
+      "templateIds": [
+        "tpl-book-detail"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "POC מאושר — תוכן + JSON + MD. בשימוש כ-Hub POC."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-tsva",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — ספר צבע",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-tsva",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-book-tsva",
+      "pageIds": [
+        "st-book-tsva"
+      ],
+      "templateIds": [
+        "tpl-book-detail"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "FINAL + גלריה. ממתין להעלאת מדיה ו-URL רכישה מ-morning.to."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — ספר וקטבט",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt",
+      "pageIds": [
+        "st-book-vekatavt"
+      ],
+      "templateIds": [
+        "tpl-book-detail"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "FINAL + גלריה. ממתין להעלאת מדיה ו-URL רכישה מ-morning.to."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — ספרים מוז\"ה",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
+      "pageIds": [
+        "st-books"
+      ],
+      "templateIds": [
+        "tpl-books"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "תוכן FINAL לדף ספרים."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-bundle",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "איגום ספרים — אלמנט תוכן בעמוד ההוצאה",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-bundle",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-book-bundle",
+      "pageIds": [
+        "st-books"
+      ],
+      "templateIds": [
+        "tpl-books"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "אושר 2026-04-11: לא עמוד נפרד — אלמנט תוכן (bundle) בתוך עמוד מוזה הוצאה לאור (st-books) + קישור רכישה. אין הרחבת site-tree."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — שירות טיפול (st-svc-treatment)",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-09",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
+      "pageIds": [
+        "st-svc-treatment"
+      ],
+      "templateIds": [
+        "tpl-service"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "תוכן FINAL — tpl-service, FAQ, המלצות, brief."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-10-st-method",
+      "category": "content_package",
+      "status": "ingested",
+      "titleHe": "חבילת תוכן — עמוד השיטה (st-method)",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-10-st-method",
+      "indexedAt": "2026-04-11T19:33:01Z",
+      "receivedDate": "2026-04-10",
+      "packageId": "EYAL-CONTENT-PKG-2026-04-10-st-method",
+      "pageIds": [
+        "st-method"
+      ],
+      "templateIds": [
+        "tpl-method"
+      ],
+      "packageRole": "approved_content_final",
+      "noteHe": "תוכן FINAL לעמוד השיטה (cbDIDG). קובץ ZIP ~271MB + MD. אורז מ-'CONTENT EYAL 10.4.26/' ב-2026-04-11."
+    },
+    {
+      "id": "EYAL-ASSET-LOGO-PSD-2024",
+      "category": "logo_asset",
+      "status": "blocked",
+      "titleHe": "לוגו מקורי PSD — master logo cbdidg",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/master logo cbdidg.psd",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "actionNeededHe": "ייצוא SVG/PNG בעל רזולוציה מספקת — חסום עד לנעילת תבנית WordPress.",
+      "noteHe": "קובץ Photoshop עם הלוגו המקורי. בשימוש כ-JPEG בלבד כרגע — איכות לא מספקת לאתר."
+    },
+    {
+      "id": "EYAL-ASSET-LOGO-DIR-2026",
+      "category": "logo_asset",
+      "status": "reference",
+      "titleHe": "תיקיית לוגו — JPEG + PDF מקורי",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/LOGO",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "noteHe": "מכיל: WhatsApp JPEG (לוגו) + master logo cbdidg.psd. ראה גם LOGO-ASSETS-AND-FORMAT-SPEC.md."
+    },
+    {
+      "id": "EYAL-ASSET-LEGACY-MEDIA-CATALOG-2026-04-11",
+      "category": "media_ref",
+      "status": "pending",
+      "titleHe": "קטלוג מדיה לגסי — 315 תמונות (צוות 40)",
+      "repoPath": "_communication/team_40/ea-legacy-curated-2026-04-11",
+      "indexedAt": "2026-04-11T19:33:01Z",
+      "receivedDate": "2026-04-11",
+      "mediaCount": 315,
+      "actionNeededHe": "מיפוי siteNodeId לכל תמונה ב-catalog.json — כרגע תגיות היוריסטיות בלבד.",
+      "noteHe": "קטלוג מלא עם gallery.html. תגיות עץ אתר אוטומטיות — דורשות אימות ידני ומיפוי סופי לעמודי האתר."
+    },
+    {
+      "id": "EYAL-SPEC-SEO-SITEMAP-2026-04-02",
+      "category": "spec_doc",
+      "status": "reference",
+      "titleHe": "מפרט SEO/GEO/AEO — עץ אתר מאייל",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/עץ אתר לנמרוד - שיקולי SEO GEO AEO.docx",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-02",
+      "noteHe": "מסמך Word מאייל. ניתוח ב-INGEST-STATUS.md ומשוב נשלח ב-2026-04-04. עותק טקסט: seo-content from eyal 2-4.md."
+    },
+    {
+      "id": "EYAL-SPEC-DEV-BRIEF-2026-04",
+      "category": "spec_doc",
+      "status": "reference",
+      "titleHe": "מסמך מפתח — GEO/AEO/SEO",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/eyal_amit_dev_brief_GEO_AEO_SEO.md",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-04-07",
+      "noteHe": "תדריך פיתוח מורחב מאייל. דלטה מול SSOT ב-DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md."
+    },
+    {
+      "id": "EYAL-SPEC-DECISIONS-2026-03-29",
+      "category": "spec_doc",
+      "status": "reference",
+      "titleHe": "החלטות לאישור — מפגש 2026-03-29",
+      "repoPath": "docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-03-29--decisions-for-approval--v1.docx",
+      "indexedAt": "2026-04-11T00:00:00Z",
+      "receivedDate": "2026-03-29",
+      "noteHe": "מסמך החלטות ראשוני מהפגישה הראשונה. כולל מפת אתר ראשונית ועקרונות עיצוב."
+    }
+  ]
+}

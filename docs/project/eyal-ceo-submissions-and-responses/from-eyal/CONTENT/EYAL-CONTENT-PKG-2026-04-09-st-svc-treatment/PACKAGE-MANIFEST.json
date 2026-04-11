@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
+  "ingestedDate": "2026-04-09",
+  "sourceZip": "final_st-svc-treatment_2026-04-09_SINGLE.zip",
+  "pageIds": ["st-svc-treatment"],
+  "templateIds": ["tpl-service"],
+  "packageRole": "approved_content_final",
+  "noteHe": "חבילה מלאה לשירות טיפול — MD/JSON, FAQ, המלצות CSV, brief למפתחים, docx production, מניפסט."
+}

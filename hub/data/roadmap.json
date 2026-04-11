@@ -1,12 +1,127 @@
 {
   "schemaVersion": 1,
-  "currentFocusId": "MILESTONE-M2",
-  "summaryHe": "שבוע 0 ננעל מבחינת מדיניות; השלמת §11 ב־M2-WORKPLAN ואז מעבר ל־M3.",
+  "currentFocusId": "MILESTONE-M4",
+  "summaryHe": "M3 טכני הושלם (2026-04-07). מיקוד M4: אינטגרציות (מקביל) + Wave1 — נעילת תבנית ספר (צוות 80) → עמוד ספר ייחוס פיקסל־פרפקט בסטייג’ינג → שכפול לספרים + עמוד הוצאה (st-books) → רטרו חוקים → עמוד טיפולים → פריסה/פרזנטציה/משוב Hub. קליטת 6 חבילות CONTENT (2026-04-09) רשומה ב־updates + deliverables; שאר חבילות תוכן deferred לסוף Wave1.",
+  "eyalNarrative": {
+    "titleHe": "נטיב אייל — תוכן, אישורים ושיווק",
+    "introHe": "החלק הזה מתאר בשפה של בעלים: מה נדרש ממך בכל נושא ומה מתקבל בסוף. למטה מופיע נפרד נטיב טכני לצוות (משימות מזוהות M2-T).",
+    "topics": [
+      {
+        "titleHe": "מבנה האתר, תפריט וניווט (IA)",
+        "timingHe": "נעול (2026-04-06) — יישום ב־WP",
+        "requiredHe": [
+          "המבנה אושר: עץ ב־Hub (site-tree.html) + החלטות D-EYAL-SITE-07 / D-EYAL-IA-MENU-08",
+          "שינוי תפריט או slugs — רק בסבב אישור מחדש",
+          "לייצא JSON משוב ל־Drive לפי נוהל הצוות אם נדרש ארכיון"
+        ],
+        "outcomeHe": "מבנה ניווט נעול לאחר אישור אייל; הצוות מיישם תפריטי WordPress ו־URLs לפי העץ.",
+        "hubRefs": [
+          {
+            "labelHe": "משימות והחלטות",
+            "href": "tasks.html"
+          },
+          {
+            "labelHe": "עץ אתר",
+            "href": "site-tree.html"
+          },
+          {
+            "labelHe": "מוקאפי תפריט (מכניסה)",
+            "href": "index.html#mockups"
+          }
+        ]
+      },
+      {
+        "titleHe": "דף בית, Hero ושלד §7–§8",
+        "timingHe": "נעול (2026-04-06) — תוכן ויישום תבנית",
+        "requiredHe": [
+          "מוקאף מאושר: mockups/wireframes/home-visual-sketch-final-rtl.html (כניסת Hub)",
+          "להכין או ללטש טקסטים לבלוקים דרך «קליטת תוכן»; שינוי מבנה בלוקים — באישור מחדש",
+          "הצוות מיישם תבנית WP לפי המוקאף"
+        ],
+        "outcomeHe": "שלד בית נעול; תוכן וקוד מתקדמים מול אותו מבנה.",
+        "hubRefs": [
+          {
+            "labelHe": "משימות והחלטות (D-EYAL-HOME-01)",
+            "href": "tasks.html"
+          },
+          {
+            "labelHe": "קליטת תוכן",
+            "href": "content-intake.html"
+          },
+          {
+            "labelHe": "מוקאפי בית",
+            "href": "index.html#mockups"
+          }
+        ]
+      },
+      {
+        "titleHe": "תוכן לעמודים, FAQ ומדיה",
+        "timingHe": "לאורך M2–M3",
+        "requiredHe": [
+          "למלא שדות ב־«קליטת תוכן» לפי עמוד; קבצים גדולים ב־Drive — בטופס רק שם קובץ או קישור",
+          "לספק טקסטים ל־FAQ בבית ולעמוד FAQ מלא כשהעמודים קיימים",
+          "גלריות ומדיה — לפי טבלאות שיקבעו עם הצוות"
+        ],
+        "outcomeHe": "עמודים עם טקסט מאושר שמתאים לאפיון ולמסמך המפתח; פחות סבבי תיקונים אחרי עלייה.",
+        "hubRefs": [
+          {
+            "labelHe": "קליטת תוכן",
+            "href": "content-intake.html"
+          },
+          {
+            "labelHe": "משימות והחלטות",
+            "href": "tasks.html"
+          }
+        ]
+      },
+      {
+        "titleHe": "מסמכים, אפיון ומשובים רשמיים",
+        "timingHe": "רציף",
+        "requiredHe": [
+          "מסמך מפתח GEO/AEO/SEO (from-eyal) כמקור לשפה ולמבנה",
+          "קריאת דלטה מול SSOT (בחומרים) כשמבקשים יישור מלא בין מסמכים",
+          "מסמכי Word נשלחים ל־Drive / from-eyal לפי נוהל הצוות"
+        ],
+        "outcomeHe": "פחות פערים בין «מה שכתוב במסמך» לבין «מה שמוצג באתר וב־Hub».",
+        "hubRefs": [
+          {
+            "labelHe": "חומרים (כניסה)",
+            "href": "index.html"
+          },
+          {
+            "labelHe": "עדכונים אחרונים (כניסה)",
+            "href": "index.html"
+          }
+        ]
+      },
+      {
+        "titleHe": "שיווק, EN ונכסים נקודתיים",
+        "timingHe": "לפי סבב",
+        "requiredHe": [
+          "עמוד EN — בשלב האחרון של בניית האתר (מוקאפ ב־Hub); לא נדרש קלט CEO בשלב זה",
+          "KMD — נוהל נעול (D-EYAL-KMD-04); קורסים והרצאות — נעול (D-EYAL-COURSES-05), טקסטים זמניים צוות",
+          "חשבונית ירוקה — דוגמה לספר «כושי בלאנטיס» ב־Hub + מיפוי; שאר מוצרים כשמגיע התור"
+        ],
+        "outcomeHe": "כל ערוץ שמופיע באתר תואם החלטה מסודרת ולא נשאר «טיוטה אפורה».",
+        "hubRefs": [
+          {
+            "labelHe": "משימות והחלטות",
+            "href": "tasks.html"
+          },
+          {
+            "labelHe": "מוקאפים (EN, KMD, קורסים)",
+            "href": "index.html#mockups"
+          }
+        ]
+      }
+    ]
+  },
   "clientObligationsHe": [
-    "מפת IA v2.3 כבר APPROVED במסמך — בממשק Hub: אישור תפעולי + הערות בעץ (site-tree.html) וייצוא JSON.",
-    "דף בית: משוב על מוקאפים (כניסה → מוקאפים) עד נעילה ויזואלית.",
-    "תוכן לעמודים: content-intake.html — קבצים גדולים ב־Drive, בטופס רק שם קובץ או קישור.",
-    "פירוט מלא לפי שלב: מסמך EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md במאגר (תקשורת פנימית — לא חובה להדפיס לאייל)."
+    "מסמך מפתח: eyal_amit_dev_brief_GEO_AEO_SEO.md (from-eyal) — מגדיר תפריט §6.1, 12 בלוקי בית, Hero §8.2, FAQ. להשתמש ב־Hub: החלטות (tasks.html), עץ (site-tree.html), קליטת תוכן (content-intake.html).",
+    "נעילה (2026-04-06): עץ האתר ומוקאף דף הבית אושרו על ידי אייל — ראו כניסת Hub «נעול ליישום» ו־treeApprovedDocRef ב־site-tree.json. שינוי מבנה — רק בסבב חדש.",
+    "לסנכרן SSOT / מסמכי sitemap רשמיים מול העץ הנעול (משימת צוות M2-T-EYAL-SITEMAP).",
+    "תוכן לעמודים: content-intake.html — קבצים גדולים ב־Drive; בטופס רק שם קובץ או קישור.",
+    "פירוט מלא לפי שלב: EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md במאגר."
   ],
   "milestones": [
     {
@@ -20,22 +135,22 @@
       "id": "MILESTONE-M2",
       "code": "M2",
       "titleHe": "הקמת אתר רזה",
-      "status": "in_progress",
-      "detailHe": "WP + GeneratePress + child, תפריטים, G2 סטייג'ינג; טופס צור קשר — אימות סופי בפרודקשן בלבד"
+      "status": "completed",
+      "detailHe": "הושלם: WP + child, סטייג’ינג G2, G3 במאגר, דוח 50 FINAL v2 — PASS WITH NOTES (F2 mailbox — פרודקשן/M7). §11 CLOSED — _communication/team_100/M2-G4-ACCEPTANCE-M2-CLOSEOUT-TEAM100-2026-04-06.md"
     },
     {
       "id": "MILESTONE-M3",
       "code": "M3",
       "titleHe": "מיגרציית תוכן ומדיה",
-      "status": "not_started",
-      "detailHe": "קליטת תוכן מאייל, מדיה, בלוקים לפי אפיון"
+      "status": "completed",
+      "detailHe": "שלד טכני סגור: _communication/team_100/M3-EXECUTION-PLAN §«סגירת M3 טכנית סופית». קליטת תוכן מאייל — נמשכת במקביל (M2-CONTENT-INTAKE, Hub) תחת M4."
     },
     {
       "id": "MILESTONE-M4",
       "code": "M4",
       "titleHe": "אינטגרציות והמרות",
-      "status": "not_started",
-      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; 301 ראשוני"
+      "status": "in_progress",
+      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; יישום DEFERRED מתיק governance (G1,G2,G8,G9); 301 ראשוני; מקביל — תוכן CEO."
     },
     {
       "id": "MILESTONE-M5",
@@ -60,151 +175,85 @@
     }
   ],
   "currentFocusBreakdown": {
-    "milestoneId": "MILESTONE-M2",
-    "titleHe": "פירוט אבן הדרך הנוכחית — M2 הקמת אתר רזה",
-    "introHe": "להפניה במייל ובתקשורת מול אייל: ציינו את מזהה המשימה (עמודת «מזהה משימה») או מזהה החבילה (כותרת הסעיף). הטבלאות משקפות מצב עבודה מפורט; עדכון השדות כאן הוא חלק מבניית הממשק מהמאגר.",
+    "milestoneId": "MILESTONE-M4",
+    "titleHe": "פירוט אבן הדרך הנוכחית — M4 אינטגרציות והמרות",
+    "introHe": "לאחר סגירת M3 הטכנית (2026-04-07): ליבת M4 — אינטגרציות וטפסים בפרודקשן. במקביל — Wave1: מימוש תוכן מאויש (ספרים + טיפולים) לפי מסלול משלבים; מדיה תחת ea-wave1-media. קליטת zip CONTENT (6 חבילות) הושלמה — המשך עבודה ב־Hub tasks + מסמך M4-CONTENT-IMPLEMENTATION-ROUND.",
     "sections": [
       {
-        "id": "M2-SEC-PLAN-G0G1",
-        "titleHe": "תכנית, תנאים וסביבה (G0–G1)",
+        "id": "M4-SEC-WAVE1-BOOKS-TREATMENT",
+        "titleHe": "M4 — Wave1: תבנית ספר → ספרים → טיפולים (מסלול פעיל)",
         "tasks": [
           {
-            "id": "M2-T-G0-VAL",
-            "titleHe": "ולידציית תכנית M2 (צוות 90 → 100)",
-            "status": "completed",
-            "stateHe": "תכנית העבודה אושרה לביצוע עם תנאים (C1–C4); אין מנדט ביצוע ל־90. בסיס לאתר הקל."
-          },
-          {
-            "id": "M2-T-G1-RUNBOOK",
-            "titleHe": "Runbook סביבה, SSL, גיבוי, noindex (צוות 20)",
-            "status": "completed",
-            "stateHe": "סביבת סטייג'ינג פעילה; תיעוד גישה ונתיבים ב־runbook. אם האתר החי לא זמין — מתועד כ־LIVE_SITE_UNAVAILABLE עם תאריך בדיקה חוזרת."
-          },
-          {
-            "id": "M2-T-G1-COND",
-            "titleHe": "מילוי CONDITIONS_MET ושחרור G2",
-            "status": "completed",
-            "stateHe": "צוות 100 אישר תנאים בראש המסמך; G2 (ליבת אתר) אושר להתחלה לאחר קבלת runbook."
-          }
-        ]
-      },
-      {
-        "id": "M2-SEC-G2-STACK",
-        "titleHe": "ליבה טכנית — תמה, תוספים, child (G2)",
-        "tasks": [
-          {
-            "id": "M2-T-GP-CHILD",
-            "titleHe": "GeneratePress + child ea-eyalamit — נעילה ואקטיבציה",
-            "status": "completed",
-            "stateHe": "Parent/child לפי החלטות 100; MU או הליך להפעלת child יציב אחרי ביקור בדף הבית."
-          },
-          {
-            "id": "M2-T-PLUG-MIN",
-            "titleHe": "תוספים במינימום מאושר (Fluent, Yoast וכו׳)",
+            "id": "M4-WAVE1-T1-DESIGN-LOCK-80",
+            "titleHe": "שלב 1 — נעילת תבנית: רפרנס מצוות 80 + חוקי עיצוב מפורטים",
             "status": "in_progress",
-            "stateHe": "רשימת תוספים תואמת מנדט; אין Elementor/Woo וכו׳ בלי waiver. נדרשת התאמה מתמשכת לגרסאות ול־uPress bundled לפי ארכיטקטורת 100."
+            "stateHe": "ממתין קליטת קונטקסט/רפרנס מחייב מ־80; עד אז אין pixel-perfect סופי. תלות: פלטה + רשת טיפוגרפיה + מובייל."
           },
           {
-            "id": "M2-T-MU-EA",
-            "titleHe": "MU-plugins תומכי M2 (הפעלת child, Fluent וכו׳)",
-            "status": "in_progress",
-            "stateHe": "קובצי mu-plugin במאגר; פריסה לסטייג'ינג ואימות שההתנהגות בפועל תואמת את הסיכום הטכני."
-          }
-        ]
-      },
-      {
-        "id": "M2-SEC-G2-IA",
-        "titleHe": "מבנה אתר — ייבוא, עמודים, תפריטים, קריאה",
-        "tasks": [
-          {
-            "id": "M2-T-WXR-IMPORT",
-            "titleHe": "ייבוא WXR (מזרע עמודי M2)",
-            "status": "in_progress",
-            "stateHe": "קובץ m2-pages-seed.wxr במאגר; ביצוע ייבוא ב־wp-admin, מיפוי מחברים, ניקוי Sample Page אם מבלבל. תלות בפריסת קבצים / העלאת WXR לשרת."
-          },
-          {
-            "id": "M2-T-READING",
-            "titleHe": "הגדרות קריאה — בית סטטי + בלוג",
-            "status": "in_progress",
-            "stateHe": "דף ראשי סטטי (יעד slug home); עמוד פוסטים (יעד blog). אימות ש־/ אינו מציג רשימת פוסטים יחידה כברירת מחדל."
-          },
-          {
-            "id": "M2-T-MENUS-T1T6",
-            "titleHe": "תפריטים T1–T6 (עברית, EN, קורסים)",
-            "status": "in_progress",
-            "stateHe": "תפריט ראשי עברית, משני לפי צורך, פריט English ל־/en/, קישור ל־courses-soon אם נדרש במטריצה. בחזית אין רק Sample Page — הניווט משקף עץ M2."
-          },
-          {
-            "id": "M2-T-PAGE-EN",
-            "titleHe": "עמוד אנגלית (EN, LTR)",
-            "status": "in_progress",
-            "stateHe": "עמוד עם slug en (או שנקבע אחרת); placeholder תוכן; מחלקת גוף ea-lang-en מה־child לאימות כיווניות."
-          },
-          {
-            "id": "M2-T-YOAST-P15",
-            "titleHe": "Yoast — noindex לעמוד therapist-training (P15)",
-            "status": "in_progress",
-            "stateHe": "לאחר קיום העמוד ו־200: noindex ברמת העמוד ב־Yoast; מתועד בדוחות QA."
-          }
-        ]
-      },
-      {
-        "id": "M2-SEC-FORMS",
-        "titleHe": "טפסים וצור קשר",
-        "tasks": [
-          {
-            "id": "M2-T-CONTACT-P16",
-            "titleHe": "עמוד צור קשר + Fluent Forms (P16)",
-            "status": "in_progress",
-            "stateHe": "עמוד contact עם shortcode טופס; שליחת בדיקה; WP Mail Logging אם מותקן. אימות סופי בפרודקשן — רק אחרי cutover (מדיניות M2)."
-          },
-          {
-            "id": "M2-T-FORM-SPAM",
-            "titleHe": "הגנות ספאם / הודעות כשלון",
+            "id": "M4-WAVE1-T2-BOOK-REF-STAGING",
+            "titleHe": "שלב 2 — עמוד ספר ייחוס אחד בסטייג’ינג (פיקסלים) + אישור נימרוד",
             "status": "not_started",
-            "stateHe": "לפי אפיון ותוספים זמינים; תיעוד התנהגות במדריך המפעיל (G3)."
+            "stateHe": "בסיס: st-book-kushi + POC Hub; השלמת מדיה ודיוק תבנית child. יעד: staging בלבד."
+          },
+          {
+            "id": "M4-WAVE1-T3-BOOKS-ST-BOOKS",
+            "titleHe": "שלב 3 — שכפול תבנית לשאר הספרים + עמוד הוצאה (st-books)",
+            "status": "not_started",
+            "stateHe": "tpl-book-detail / tpl-books לפי עץ נעול."
+          },
+          {
+            "id": "M4-WAVE1-T4-RETRO-RULES",
+            "titleHe": "שלב 4 — בחינת תהליך וחידוד/הרחבת חוקים עיצוביים",
+            "status": "not_started",
+            "stateHe": "לאחר 2+ עמודים באותה תבנית."
+          },
+          {
+            "id": "M4-WAVE1-T5-TREATMENT",
+            "titleHe": "שלב 5 — מימוש עמוד טיפולים (st-svc-treatment)",
+            "status": "not_started",
+            "stateHe": "חבילה EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment."
+          },
+          {
+            "id": "M4-WAVE1-T6-DEPLOY-PRESENT-FEEDBACK",
+            "titleHe": "שלב 6 — פריסה סופית, פרזנטציה לאייל, עדכון ממשק משוב ב־Hub",
+            "status": "not_started",
+            "stateHe": "FTP Hub + אתר; content-intake/tasks לפי סגירה."
           }
         ]
       },
       {
-        "id": "M2-SEC-G3",
-        "titleHe": "תיעוד מפעיל ומלאי (G3, צוות 30)",
+        "id": "M4-SEC-INTEGRATIONS",
+        "titleHe": "אינטגרציות ותפעול (ליבת M4)",
         "tasks": [
           {
-            "id": "M2-T-OP-GUIDE",
-            "titleHe": "מדריך מפעיל M2 + מלאי תוספים",
-            "status": "in_progress",
-            "stateHe": "מסמכים מתעדכנים מול CHANGELOG-G3 מצוות 10; נדרש סנכרון לפני דוח 50 FINAL."
+            "id": "M4-T-INTEGRATIONS-CORE",
+            "titleHe": "ירוקה, קורסים (רב מסר), טפסים — השלמה בפרודקשן",
+            "status": "not_started",
+            "stateHe": "ר׳ ROADMAP-2026 אבן M4; runbook צוות 20."
           },
           {
-            "id": "M2-T-CHANGELOG-G3",
-            "titleHe": "מעקב שינויים אחרי תחילת G3 (חובת 10)",
-            "status": "in_progress",
-            "stateHe": "כל שינוי מהותי בתוסף, תפריט, slug קריטי — תוך 24 שעות ב־CHANGELOG-G3 בסיכום היישום."
+            "id": "M4-T-GOV-DEFERRED",
+            "titleHe": "יישום governance — G2, G3, G8 (+ G1 deferred, G4 שלד)",
+            "status": "completed",
+            "stateHe": "מאגר (2026-04-07): MU ea-m4-g2348-governance-once.php; ea-m2-site-tree-lock-sync-once v1.2 + v3; תמה ea-eyalamit (ea_testimonial_cat, template-media-catalog). פריסה: ftp_deploy_site_wp_content.py. קליטת 100: M3-EXECUTION-PLAN §§8 G2348 + M3-GOVERNANCE §9."
           }
         ]
       },
       {
-        "id": "M2-SEC-G4-QA",
-        "titleHe": "בדיקות וסגירה (G4, צוות 50 → 100)",
+        "id": "M4-SEC-CONTENT-PARALLEL",
+        "titleHe": "מקביל — תוכן CEO (לא נעצר)",
         "tasks": [
           {
-            "id": "M2-T-QA-G2-P0",
-            "titleHe": "מעגל QA סטייג'ינג (G2) — תיקוני P0",
-            "status": "awaiting_qa",
-            "stateHe": "דוחות צוות 50 על תשתית, ייבוא, תפריטים; מנדטי P0 ל־10; retest עד PASS או סימון שאריות מתועדות."
+            "id": "M4-T-CEO-INTAKE",
+            "titleHe": "קליטת חבילות zip מ־from-eyal/CONTENT (מזהים EYAL-CONTENT-PKG-*)",
+            "status": "completed",
+            "stateHe": "הושלם (2026-04-09): 6 חבילות בתיקיות קנוניות + PACKAGE-MANIFEST + deliverables.json + M4-CONTENT-IMPLEMENTATION-ROUND. המשך מילוי שדות לפי עמוד — בתוך Wave1; מיקוד מימוש: מקטע Wave1 למעלה."
           },
           {
-            "id": "M2-T-QA-FINAL",
-            "titleHe": "דוח QA FINAL לסגירת M2",
-            "status": "not_started",
-            "stateHe": "בדיקות מלאות לפי §8 בתכנית; דרוש PASS לפני עדכון ROADMAP ל־M2 COMPLETED ופתיחת M3."
-          },
-          {
-            "id": "M2-T-M2-CLOSE-11",
-            "titleHe": "סגירת §11 DoD + סימון מסמך M2 כ־CLOSED (100)",
-            "status": "not_started",
-            "stateHe": "לאחר דוח 50 PASS: צוות 100 מעדכן רודמאפ, סוגר את תכנית M2, ומשחרר מעבר מבוקר ל־M3 (F1)."
+            "id": "M4-T-MEDIA-FAQ",
+            "titleHe": "מדיה, FAQ, טקסטים — השלמה הדרגתית",
+            "status": "in_progress",
+            "stateHe": "מדיה Wave1: site/wp-content/uploads/ea-wave1-media/ (README) — תיוג והעלאה ל־WP; FAQ/Open copy — צוות 10; Envira legacy — DEFERRED ל־100 במסגרת M3-GOVERNANCE §3."
           }
         ]
       }

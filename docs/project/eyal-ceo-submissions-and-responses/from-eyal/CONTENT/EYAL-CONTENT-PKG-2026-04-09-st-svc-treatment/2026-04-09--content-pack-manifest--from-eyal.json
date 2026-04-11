@@ -1,0 +1,14 @@
+{
+  "packageName": "final_st-svc-treatment_2026-04-09_SINGLE.zip",
+  "pageId": "st-svc-treatment",
+  "slug": "treatment",
+  "templateId": "tpl-service",
+  "files": [
+    "2026-04-09--st-svc-treatment--content--from-eyal.json",
+    "2026-04-09--st-svc-treatment--content--from-eyal.md",
+    "2026-04-09--st-svc-treatment--developer-brief--from-eyal.md",
+    "2026-04-09--st-svc-treatment--faq--from-eyal.md",
+    "2026-04-09--st-svc-treatment--production-brief--from-eyal.docx",
+    "2026-04-09--st-svc-treatment--testimonials--from-eyal.csv"
+  ]
+}

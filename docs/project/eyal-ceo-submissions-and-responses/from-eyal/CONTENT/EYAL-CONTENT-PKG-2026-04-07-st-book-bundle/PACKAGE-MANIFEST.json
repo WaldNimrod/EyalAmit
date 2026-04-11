@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packageId": "EYAL-CONTENT-PKG-2026-04-07-st-book-bundle",
+  "ingestedDate": "2026-04-07",
+  "sourceZip": "proposed_st-book-bundle_2026-04-07.zip",
+  "pageIds": ["st-book-bundle"],
+  "templateIds": ["tpl-secondary"],
+  "packageRole": "proposed_content_and_site_tree",
+  "noteHe": "הצעת תוכן + הרחבת עץ אתר (site-tree addition) — לאישור צוות 100 לפני נעילת IA."
+}

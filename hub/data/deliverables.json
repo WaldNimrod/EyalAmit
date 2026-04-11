@@ -1,7 +1,70 @@
 {
   "schemaVersion": 1,
-  "noteHe": "קישורים יחסיים לתיקיית files/ אחרי בנייה עם --mirror-docx. בלי mirror — יש להוריד מהמאגר או לבקש מהצוות.",
+  "noteHe": "קישורים יחסיים ל־files/ ב־Hub. מסמכי Word — אחרי בנייה עם --mirror-docs. קבצי zip תחת from-eyal/CONTENT/ ממוררים עם --mirror-docs. קובץ הדלטה (Markdown) מועתק מהמאגר בכל בנייה ל־files/reference/.",
   "items": [
+    {
+      "id": "DELIV-2026-04-11-LEGACY-MEDIA-CATALOG",
+      "date": "2026-04-11",
+      "titleHe": "קטלוג מדיה לגסי — גלריה + אינדקס JSON (צוות 40)",
+      "href": "files/team40/ea-legacy-curated/gallery.html",
+      "noteHe": "תגיות עץ אתר היוריסטיות (CLIP + מיפוי); סינון בגלריה; לחיצה על כרטיס מעתיקה מזהה ושם קובץ ללוח. מקור במאגר: _communication/team_40/ea-legacy-curated-2026-04-11/"
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-10-st-method",
+      "date": "2026-04-10",
+      "titleHe": "חבילת תוכן — עמוד השיטה (st-method) · קליטה 2026-04-11",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-10-st-method/final_st-method_2026-04-10_SINGLE.zip",
+      "noteHe": "מזהה קנוני: EYAL-CONTENT-PKG-2026-04-10-st-method — תוכן FINAL לעמוד השיטה (cbDIDG). tpl-method."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
+      "date": "2026-04-09",
+      "titleHe": "חבילת תוכן — שירות טיפול (st-svc-treatment) · קליטה 2026-04-09",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment/final_st-svc-treatment_2026-04-09_SINGLE.zip",
+      "noteHe": "מזהה קנוני: EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment — tpl-service, FAQ, המלצות, brief."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-bundle",
+      "date": "2026-04-07",
+      "titleHe": "חבילת תוכן — איגום ספרים (הצעה + עץ) · קליטה 2026-04-07",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-bundle/proposed_st-book-bundle_2026-04-07.zip",
+      "noteHe": "מוצע: תוכן + הרחבת site-tree — לאישור IA לפני יישום."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
+      "date": "2026-04-07",
+      "titleHe": "חבילת תוכן — ספרים מוז״ה (st-books) · קליטה 2026-04-07",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh/final_st-books_muzeh_2026-04-07.zip",
+      "noteHe": "tpl-books — תוכן FINAL."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt",
+      "date": "2026-04-07",
+      "titleHe": "חבילת תוכן — ספר וקטבט · קליטה 2026-04-07",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-vekatavt/final_st-book-vekatavt_2026-04-07.zip",
+      "noteHe": "st-book-vekatavt — FINAL + גלריה."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-07-st-book-tsva",
+      "date": "2026-04-07",
+      "titleHe": "חבילת תוכן — ספר צבע · קליטה 2026-04-07",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-tsva/final_st-book-tsva_2026-04-07.zip",
+      "noteHe": "st-book-tsva — FINAL + גלריה."
+    },
+    {
+      "id": "EYAL-CONTENT-PKG-2026-04-06-st-book-kushi",
+      "date": "2026-04-06",
+      "titleHe": "חבילת תוכן — ספר קושי (POC) · קליטה 2026-04-06",
+      "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-06-st-book-kushi/poc_st-book-kushi_2026-04-06.zip",
+      "noteHe": "POC מאושר — st-book-kushi, tpl-book-detail."
+    },
+    {
+      "id": "DELIV-2026-04-10-DELTA-DEV-BRIEF",
+      "date": "2026-04-10",
+      "titleHe": "דלטה — מסמך מפתח GEO/AEO/SEO מול SSOT (טבלאות + השלכות)",
+      "href": "files/reference/DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md",
+      "noteHe": "מקור במאגר: _communication/team_100/; נכתב ערב משוב SEO מ־4.4 ומסמך המפתח מ־from-eyal. לצפייה בדפדפן או הורדה; עריכה רק במאגר."
+    },
     {
       "id": "DELIV-2026-04-04-SEO-FB",
       "date": "2026-04-04",

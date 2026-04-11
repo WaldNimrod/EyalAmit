@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "proposalType": "site-tree-addition",
+  "proposalStatus": "pending-approval",
+  "basedOnTreeApprovedDocRef": "נעול ליישום — אישור אייל (פגישה 2026-04-06). תוספת זו מוצעת כהרחבה נקודתית לעץ.",
+  "addNode": {
+    "id": "st-book-bundle",
+    "parentId": "st-books",
+    "treeOrder": 4,
+    "titleHe": "חבילת 3 הספרים של אייל עמית",
+    "slug": "muzeh/3-books-bundle",
+    "templateId": "tpl-secondary",
+    "menuHint": "רמה 2 · תחת מוזה הוצאה לאור",
+    "treeNoteHe": "הצעת תוספת לעץ הנעול: עמוד bundle אחד בלבד לשלושת הספרים יחד במחיר מיוחד. לא דף מבצעים כללי.",
+    "legacyUrl": "https://www.eyalamit.co.il/%D7%9E%D7%95%D7%96%D7%94-%D7%94%D7%95%D7%A6%D7%90%D7%94-%D7%9C%D7%90%D7%95%D7%A8/%D7%93%D7%A3-%D7%9E%D7%91%D7%A6%D7%A2%D7%99%D7%9D-%D7%94%D7%A1%D7%A4%D7%A8%D7%99%D7%9D-%D7%A9%D7%9C-%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA-%D7%A8%D7%9B%D7%99%D7%A9%D7%94-%D7%99%D7%A9/",
+    "legacyNoteHe": "בעמוד הישן היו כמה מבצעים; בעץ החדש מוצע עמוד bundle יחיד בלבד לשלושת הספרים.",
+    "bundleCheckoutUrl": "TODO_BUNDLE_CHECKOUT_URL"
+  },
+  "rationaleHe": [
+    "התוספת שומרת על עץ הספרים הקיים ומוסיפה עמוד משני אחד בלבד תחת מוזה הוצאה לאור.",
+    "העמוד החדש אינו דף מבצעים כללי אלא דף bundle ממוקד, ולכן אינו מעמיס על המיצוב של האתר.",
+    "בחירה ב-tpl-secondary מאפשרת עמוד תוכן מלא עם הסבר, פירוט קצר על כל ספר ו-CTA ברור, בלי לפתוח תבנית חדשה בשלב זה."
+  ]
+}

@@ -1,5 +1,5 @@
 📖 נוהל עבודה מרכזי (Master SSOT) — Eyal Amit (תכנון 2026 + יישום WP)
-גרסה: 12.3 (מסונכרן עם מאגר התכנון; נוסף §9.1 תקן סוכני Cursor)
+גרסה: 12.4 (מסונכרן עם מאגר התכנון; נוסף שורת לוגו מ־from-eyal)
 סמכות עליונה: CEO אייל עמית
 **מאגר תכנון / אפיון / מסמכים (מחייב לעבודה כאן):** `/Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026`  
 **מאגר קוד אתר WordPress (יישום, תמה, תוספים):** `/Users/nimrod/Documents/Eyal Amit/eyalamit.co.il-legacy`
@@ -11,6 +11,7 @@
 |--------|------|
 | **הגשה ל-CEO אייל (חובה קבועה)** | **רק Word (.docx) או PDF** — **אסור** להעביר לאייל קבצי Markdown (`.md`). Markdown = עבודה פנימית / Git בלבד. חל על כל מסמך המיועד **ליוצא מול אייל** (חתימה, אישור, קריאה רשמית) — לא רק תקציר מנהלים. |
 | **ארכיון הגשות ותשובות מול אייל** | `docs/project/eyal-ceo-submissions-and-responses/` — `from-eyal/` (נכנס), `to-eyal/` (יוצא: גלים `YYYY-MM-DD--topic/`, מוקאפים `_shared-assets/`), `archive/` (ישן); קאנון [`EYAL-CORRESPONDENCE-CANON.md`](../project/eyal-ceo-submissions-and-responses/EYAL-CORRESPONDENCE-CANON.md); אינדקס [`README.md`](../project/eyal-ceo-submissions-and-responses/README.md) |
+| **לוגו ומותג — מלאי + פורמט ייצור** | [`from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md`](../project/eyal-ceo-submissions-and-responses/from-eyal/LOGO-ASSETS-AND-FORMAT-SPEC.md) (מקורות PDF ב־`from-eyal/`; מפרט SVG/PNG/favicon לאייל/מעצב) |
 | אינדקס תוכנית העבודה | `docs/project/team-100-preplanning/README.md` |
 | היררכיית מקורות אמת (אייל > מסמכים מסונכרנים > מחקר עזר) | `docs/project/team-100-preplanning/RESEARCH-SYNC-AND-SOURCE-OF-TRUTH-v2.md` |
 | תקציר לאישור — **קובץ ללקוח** | ייצור: `team-100-preplanning/EYAL-EXECUTIVE-SUMMARY-FOR-EYAL.docx` (או PDF); **חבילת הגשה:** אותו קובץ נכלל ב־`to-eyal/YYYY-MM-DD--final-spec-package-for-eyal/` (סקריפט `build_eyal_ceo_deliverables.py`) |
@@ -234,7 +235,7 @@ Manual Rebuild: בנייה מחדש של דפי הליבה באלמנטור לב
 **כלים מותקנים וזמינים (עדיפות גבוהה - כבר מותקן):**
 - ✅ **Selenium Hub + Firefox Node** - מותקן דרך docker-compose
   - Console Verification: חובת הרצת tests/console_verification_test.py לכל דוח אימות
-  - הרצה: `python3 tests/console_verification_test.py --url http://localhost:9090 --output docs/testing/reports/console-log.txt`
+  - הרצה: `python3 tests/console_verification_test.py --url http://localhost:8088 --output docs/testing/reports/console-log.txt`
 
 **כלים מתוכננים ליישום (שלב 3 - עדיפות גבוהה):**
 - 🔴 **PHPCS (PHP CodeSniffer)** - עדיפות ראשונה (נדרש לפני כל כתיבת קוד)
@@ -247,7 +248,7 @@ Manual Rebuild: בנייה מחדש של דפי הליבה באלמנטור לב
   - בדיקות ביצועים אוטומטיות (Performance, Accessibility, SEO, Best Practices)
   - דרישה: Score > 90 בכל הקטגוריות
   - התקנה: `npm install -g @lhci/cli`
-  - שימוש: `lhci autorun --collect.url=http://localhost:9090`
+  - שימוש: `lhci autorun --collect.url=http://localhost:8088`
   - חובה: כל עדכון חייב לעבור Lighthouse CI לפני Merge
 
 - 🟢 **Playwright** - עדיפות שלישית (נדרש לבדיקות E2E מתקדמות)
@@ -294,7 +295,7 @@ Manual Rebuild: בנייה מחדש של דפי הליבה באלמנטור לב
 Serialization Safety: איסור על REPLACE ידני ב-SQL. שימוש ב-wp search-replace בלבד.
 
 Elementor URLs: חובה להשתמש בפקודה הייעודית:
-wp elementor replace-urls http://www.eyalamit.co.il http://localhost:9090 --allow-root
+wp elementor replace-urls http://www.eyalamit.co.il http://localhost:8088 --allow-root
 
 Legacy JS: וודאו ש-jquery-migrate פעיל ותקין עבור תבנית ה-Bridge.
 
@@ -334,7 +335,7 @@ UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ''', "'") WHERE meta_val
 
 🌐 9. הגדרות סביבה
 
-WordPress: http://localhost:9090 (PHP 8.3)
+WordPress: http://localhost:8088 (PHP 8.3)
 
 phpMyAdmin: http://localhost:9091
 
