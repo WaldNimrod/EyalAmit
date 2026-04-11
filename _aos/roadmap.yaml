@@ -11,19 +11,20 @@ project:
   lean_kit_version: "3.1.3"
   created: "2026-03-29"
   owner: eyalamit_sd
-  active_milestone: "S001"
+  active_milestone: "S002"
   notes: >
     WordPress 6.x refresh of eyalamit.co.il (uPress staging).
     Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub + books v2) COMPLETE as of 2026-04-11.
-    S001 = AOS canonization stage. Future content milestones will be S002+.
+    S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V PASS.
+    S002 = content completion (About, Home, Services, SEO). Pending Team 110 (AOS) arch sign-off.
 
 work_packages:
   - id: S001-P001-WP001
     label: "_aos/ Foundation — governance structure + lean-kit snapshot"
-    status: IN_PROGRESS
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_S
-    lod_status: LOD400
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_arch
     assigned_validator: eyalamit_val
     created_at: "2026-04-11"
@@ -38,14 +39,21 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "LOD400 spec authored. Team 110+190 review submitted."
-    notes: "Creates _aos/ structure with all required files per lean-kit canon."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-11"
+        notes: "validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-11"
+        notes: "eyalamit_val (openai) — constitutional review PASS. No blocking issues."
 
   - id: S001-P001-WP002
     label: "Root context files — CLAUDE.md + .cursorrules"
-    status: IN_PROGRESS
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_S
-    lod_status: LOD400
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_arch
     assigned_validator: eyalamit_val
     created_at: "2026-04-11"
@@ -60,14 +68,21 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "LOD400 approved."
-    notes: "Synthesized from existing AGENTS.md + .cursor/rules/ + docs/sop/."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-11"
+        notes: "CLAUDE.md + .cursorrules created. No forbidden pattern triggers. LOD500 complete."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-11"
+        notes: "eyalamit_val (openai) — PASS."
 
   - id: S001-P001-WP003
-    label: "Governance contracts — team_00/100/110/190 + context activation files"
-    status: IN_PROGRESS
+    label: "Governance contracts + context activation files"
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_S
-    lod_status: LOD400
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_arch
     assigned_validator: eyalamit_val
     created_at: "2026-04-11"
@@ -82,14 +97,21 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "LOD400 approved."
-    notes: "Distilled from existing _communication/team_XX/onboard_teamXX.md files."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-11"
+        notes: "4 governance contracts + 4 context files created. LOD500 complete."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-11"
+        notes: "eyalamit_val (openai) — PASS."
 
   - id: S001-P001-WP004
     label: "_COMMUNICATION/ canonical structure + AOS onboarding files"
-    status: IN_PROGRESS
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_S
-    lod_status: LOD400
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_arch
     assigned_validator: eyalamit_val
     created_at: "2026-04-11"
@@ -104,14 +126,21 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "LOD400 approved."
-    notes: "Uppercase _COMMUNICATION/ alongside existing lowercase _communication/ (no rename)."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-11"
+        notes: "_COMMUNICATION/ created alongside _communication/ (lowercase). LOD500 complete."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-11"
+        notes: "eyalamit_val (openai) — PASS."
 
   - id: S001-P001-WP005
     label: "AOS hub registration — projects/eyalamit.yaml + _aos/projects.yaml entry"
-    status: IN_PROGRESS
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_S
-    lod_status: LOD400
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_arch
     assigned_validator: eyalamit_val
     created_at: "2026-04-11"
@@ -126,4 +155,11 @@ work_packages:
         result: PASS
         date: "2026-04-11"
         notes: "LOD400 approved."
-    notes: "Registers eyalamit as spoke project in agents-os hub."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-11"
+        notes: "Hub registration complete. Migration specs submitted to teams 110+190. LOD500 complete."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-11"
+        notes: "eyalamit_val (openai) — PASS. S001 milestone closed."

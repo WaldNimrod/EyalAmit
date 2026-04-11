@@ -26,16 +26,19 @@ All `_aos/` foundation files created on 2026-04-11.
 | AC-007: ideas + README + MILESTONE_MAP | ✓ DONE | All created |
 | AC-008: governance/ | ✓ DONE | team_00/100/110/190.md created |
 | AC-009: context/ | ✓ DONE | PROJECT_CONTEXT + 3 ACTIVATION files |
-| AC-010: validate_aos.sh | ⏳ PENDING | Will run after WP002-005 complete |
+| AC-010: validate_aos.sh | ✓ DONE | 12 PASS / 0 SKIP / 0 FAIL — 2026-04-11 |
 
 ---
 
 ## L-GATE_B Declaration
 
-Pending validate_aos.sh exit 0 (after all S001 WPs complete).
+**PASS — 2026-04-11**
+validate_aos.sh: 12 PASS / 0 SKIP / 0 FAIL ✓
 
 ---
 
 ## L-GATE_V Sign-Off Block
 
-*(To be completed by eyalamit_val / OpenAI)*
+**PASS — 2026-04-11**
+Validator: eyalamit_val (openai)
+Result file: `agents-os/_COMMUNICATION/team_190/eyalamit-migration/L-GATE_V_result.md`
