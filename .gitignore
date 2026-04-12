@@ -8,6 +8,9 @@ local/staging.credentials.md
 .vscode/sftp.json
 local/*.sql
 local/*.zip
+local/_wp_config*.php
+local/_tmp_*.php
+local/*.log
 __pycache__/
 *.pyc
 .python-version

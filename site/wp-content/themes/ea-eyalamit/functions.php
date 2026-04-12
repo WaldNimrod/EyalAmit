@@ -578,6 +578,101 @@ function ea_eyalamit_book_detail_template( $template ) {
 add_filter( 'template_include', 'ea_eyalamit_book_detail_template', 94 );
 
 /**
+ * דף טיפול בדיג׳רידו — tpl-treatment (S002 st-svc-treatment).
+ *
+ * @param string $template Path to template file.
+ * @return string
+ */
+function ea_eyalamit_treatment_template( $template ) {
+	if ( ! is_page( 'treatment' ) ) {
+		return $template;
+	}
+	$t = get_stylesheet_directory() . '/page-templates/template-treatment.php';
+	return is_readable( $t ) ? $t : $template;
+}
+add_filter( 'template_include', 'ea_eyalamit_treatment_template', 93 );
+
+/**
+ * דף שיטת cbDIDG — tpl-method (S002 st-method).
+ *
+ * @param string $template Path to template file.
+ * @return string
+ */
+function ea_eyalamit_method_template( $template ) {
+	if ( ! is_page( 'method' ) ) {
+		return $template;
+	}
+	$t = get_stylesheet_directory() . '/page-templates/template-method.php';
+	return is_readable( $t ) ? $t : $template;
+}
+add_filter( 'template_include', 'ea_eyalamit_method_template', 92 );
+
+/**
+ * עמודי שירות (treatment, method): ללא סרגל צד, ללא כותרת GP.
+ *
+ * @return bool
+ */
+function ea_eyalamit_is_service_page_view() {
+	if ( ! is_singular( 'page' ) ) {
+		return false;
+	}
+	$post = get_queried_object();
+	if ( ! $post instanceof WP_Post ) {
+		return false;
+	}
+	return in_array( $post->post_name, array( 'treatment', 'method' ), true );
+}
+
+/**
+ * No sidebar on service pages.
+ *
+ * @param string $layout Layout slug.
+ * @return string
+ */
+function ea_eyalamit_service_sidebar_layout( $layout ) {
+	if ( ea_eyalamit_is_service_page_view() ) {
+		return 'no-sidebar';
+	}
+	return $layout;
+}
+add_filter( 'generate_sidebar_layout', 'ea_eyalamit_service_sidebar_layout', 22 );
+
+/**
+ * Hide GP content title on service pages — H1 is inside template.
+ *
+ * @param bool $show Whether to show title.
+ * @return bool
+ */
+function ea_eyalamit_service_hide_title( $show ) {
+	if ( ea_eyalamit_is_service_page_view() ) {
+		return false;
+	}
+	return $show;
+}
+add_filter( 'generate_show_title', 'ea_eyalamit_service_hide_title', 22 );
+
+/**
+ * Enqueue services.css on treatment + method pages.
+ *
+ * @return void
+ */
+function ea_eyalamit_service_pages_assets() {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! ea_eyalamit_is_service_page_view() ) {
+		return;
+	}
+	wp_enqueue_style(
+		'ea-eyalamit-services',
+		get_stylesheet_directory_uri() . '/assets/css/services.css',
+		array( 'ea-eyalamit-style', 'ea-eyalamit-fonts-rubik' ),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_eyalamit_service_pages_assets', 27 );
+
+/**
  * עיצוב V2 — ספרים.
  * D-EYAL-DESIGN-STYLE-13: Heebo בלבד, ללא Frank Ruhl Libre / Amatic SC.
  *

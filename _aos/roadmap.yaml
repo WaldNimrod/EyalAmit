@@ -193,16 +193,32 @@ work_packages:
 
   - id: S002-P001-WP003
     label: "Services page — offerings content + pricing"
-    status: PENDING
+    status: COMPLETE
     track: A
-    current_lean_gate: L-GATE_E
-    lod_status: LOD100
+    current_lean_gate: L-GATE_V
+    lod_status: LOD500
     assigned_builder: eyalamit_build
     assigned_validator: eyalamit_val
     created_at: "2026-04-12"
     milestone_ref: "S002"
     spec_ref: "_aos/work_packages/S002/S002-P001-WP003/LOD400_spec.md"
-    gate_history: []
+    gate_history:
+      - gate: L-GATE_E
+        result: PASS
+        date: "2026-04-12"
+        notes: "Eligibility confirmed. Content packages received from Eyal (2026-04-09, 2026-04-10). Builder eyalamit_build assigned."
+      - gate: L-GATE_S
+        result: PASS
+        date: "2026-04-12"
+        notes: "LOD400 spec confirmed. eyalamit_sd (Nimrod) authorized build in S002 Session 1. Services list sourced from Eyal content packages — pricing via CTA-to-contact (Eyal-approved approach, explicit pricing not provided in packages)."
+      - gate: L-GATE_B
+        result: PASS
+        date: "2026-04-12"
+        notes: "validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete. /treatment (ID=54) + /method (ID=55) live on staging (HTTP 200). FTP deploy complete (23 theme files). Templates set via REST API. scripts/wp_rest_client.py created."
+      - gate: L-GATE_V
+        result: PASS
+        date: "2026-04-12"
+        notes: "eyalamit_val (openai) — constitutional review PASS. AC trace complete, checklist 7/7, live /treatment and /method verified HTTP 200."
 
   - id: S002-P001-WP004
     label: "SEO — meta titles, descriptions, and OG tags for all pages"

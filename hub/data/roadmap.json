@@ -209,15 +209,15 @@
           },
           {
             "id": "M4-WAVE1-T5-TREATMENT",
-            "titleHe": "שלב 5 — מימוש עמוד טיפולים (st-svc-treatment)",
-            "status": "not_started",
-            "stateHe": "חבילה EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment."
+            "titleHe": "שלב 5 — מימוש עמוד טיפולים + עמוד השיטה (st-svc-treatment + st-method)",
+            "status": "completed",
+            "stateHe": "הושלם 2026-04-12. /treatment/ ו-/method/ חיים בסטייג׳ינג. תוכן מחבילות 2026-04-09 ו-2026-04-10. L-GATE_V PASS (Team 190)."
           },
           {
             "id": "M4-WAVE1-T6-DEPLOY-PRESENT-FEEDBACK",
-            "titleHe": "שלב 6 — פריסה סופית, פרזנטציה לאייל, עדכון ממשק משוב ב־Hub",
-            "status": "not_started",
-            "stateHe": "FTP Hub + אתר; content-intake/tasks לפי סגירה."
+            "titleHe": "שלב 6 — פרזנטציה לאייל + קבלת תוכן עמודים נותרים",
+            "status": "in_progress",
+            "stateHe": "פגישה עם אייל 2026-04-13. ממתין לתוכן: About, Home, כיוון SEO."
           }
         ]
       },

@@ -1,0 +1,480 @@
+/*
+ * services.css — Treatment page (tpl-treatment) + Method page (tpl-method)
+ * RTL, Rubik, פלטת ea-eyalamit (terracotta/sand/ink)
+ * S002-P001-WP003 | 2026-04-12
+ */
+
+/* ─────────────────────────────────────────────────────────
+   SHARED TOKENS (both pages inherit from :root via functions.php)
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-page,
+.ea-method-page {
+	--svc-sand:        var(--eyal-sand, #d8c7b5);
+	--svc-terracotta:  var(--eyal-terracotta, #a44e2b);
+	--svc-earth:       var(--eyal-earth, #8a5a44);
+	--svc-ink:         var(--eyal-ink, #2e2b28);
+	--svc-shade:       #f5f0eb;
+	--svc-border:      rgba(164, 78, 43, 0.18);
+	--svc-font:        "Rubik", "Heebo", Arial, sans-serif;
+	--svc-radius:      6px;
+	--svc-max-w:       820px;
+	direction: rtl;
+	text-align: right;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HERO — TREATMENT
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-hero {
+	background: linear-gradient(135deg, var(--svc-terracotta) 0%, var(--svc-earth) 100%);
+	color: #fff;
+	padding: 72px 24px 64px;
+	text-align: center;
+}
+
+.ea-treatment-hero__inner {
+	max-width: var(--svc-max-w);
+	margin: 0 auto;
+}
+
+.ea-treatment-hero__h1 {
+	font-family: var(--svc-font);
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 1rem;
+	color: #fff;
+}
+
+.ea-treatment-hero__sub {
+	font-size: clamp(1rem, 2.2vw, 1.2rem);
+	font-weight: 400;
+	line-height: 1.65;
+	margin: 0 0 2rem;
+	opacity: 0.92;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HERO — METHOD
+   ───────────────────────────────────────────────────────── */
+
+.ea-method-hero {
+	background: linear-gradient(135deg, #5c3a2e 0%, var(--svc-terracotta) 100%);
+	color: #fff;
+	padding: 72px 24px 56px;
+	text-align: center;
+}
+
+.ea-method-hero__inner {
+	max-width: var(--svc-max-w);
+	margin: 0 auto;
+}
+
+.ea-method-hero__h1 {
+	font-family: var(--svc-font);
+	font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0;
+	color: #fff;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SHARED BLOCK LAYOUT
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-block,
+.ea-method-block {
+	padding: 56px 24px;
+}
+
+.ea-treatment-block--shaded,
+.ea-method-block--shaded {
+	background: var(--svc-shade);
+}
+
+.ea-treatment-block__inner,
+.ea-method-block__inner {
+	max-width: var(--svc-max-w);
+	margin: 0 auto;
+}
+
+.ea-treatment-block__inner--center,
+.ea-method-block__inner--center {
+	text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HEADINGS
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-block__h2,
+.ea-method-block__h2 {
+	font-family: var(--svc-font);
+	font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+	font-weight: 700;
+	color: var(--svc-terracotta);
+	margin: 0 0 1.25rem;
+	line-height: 1.3;
+}
+
+.ea-treatment-block__h2--small,
+.ea-method-block__h3 {
+	font-family: var(--svc-font);
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--svc-earth);
+	margin: 1.5rem 0 0.6rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BODY TEXT
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-block p,
+.ea-method-block p {
+	font-family: var(--svc-font);
+	font-size: 1.05rem;
+	line-height: 1.8;
+	color: var(--svc-ink);
+	margin: 0 0 1rem;
+}
+
+.ea-treatment-block p:last-child,
+.ea-method-block p:last-child {
+	margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   VISUAL DIVIDER
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-divider,
+.ea-method-divider {
+	height: 3px;
+	background: linear-gradient(to left, transparent, var(--svc-sand), transparent);
+	margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   WHO LIST — TREATMENT
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-who-list {
+	list-style: none;
+	margin: 0 0 1.25rem;
+	padding: 0;
+}
+
+.ea-treatment-who-list li {
+	font-family: var(--svc-font);
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--svc-ink);
+	padding: 0.5rem 1.5rem 0.5rem 0;
+	border-bottom: 1px solid var(--svc-border);
+	position: relative;
+}
+
+.ea-treatment-who-list li::before {
+	content: "✦";
+	position: absolute;
+	right: 0;
+	top: 0.55rem;
+	color: var(--svc-terracotta);
+	font-size: 0.7rem;
+}
+
+.ea-treatment-who-note,
+.ea-method-who-note {
+	font-size: 0.95rem !important;
+	color: var(--svc-earth) !important;
+	font-style: italic;
+	margin-top: 1.25rem !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CTA BUTTON — TREATMENT & METHOD
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-cta-btn,
+.ea-method-cta-btn {
+	display: inline-block;
+	background: var(--svc-terracotta);
+	color: #fff;
+	font-family: var(--svc-font);
+	font-size: 1.05rem;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 0.85em 2em;
+	border-radius: var(--svc-radius);
+	transition: background 0.2s ease;
+	margin-top: 0.5rem;
+}
+
+.ea-treatment-cta-btn:hover,
+.ea-treatment-cta-btn:focus,
+.ea-method-cta-btn:hover,
+.ea-method-cta-btn:focus {
+	background: var(--eyal-brick, #ab3a2b);
+	color: #fff;
+	text-decoration: none;
+}
+
+.ea-treatment-cta-text,
+.ea-method-cta-text {
+	font-size: 1.1rem !important;
+	line-height: 1.9 !important;
+	color: var(--svc-ink) !important;
+}
+
+.ea-treatment-cta-sub,
+.ea-method-cta-sub {
+	font-size: 0.95rem !important;
+	color: var(--svc-earth) !important;
+	margin-bottom: 1.5rem !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TESTIMONIALS CAROUSEL
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-testimonials-track {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.ea-treatment-testimonial {
+	background: #fff;
+	border: 1px solid var(--svc-border);
+	border-radius: var(--svc-radius);
+	padding: 1.25rem 1.5rem;
+}
+
+.ea-treatment-testimonial blockquote {
+	margin: 0;
+	padding: 0;
+}
+
+.ea-treatment-testimonial blockquote p {
+	font-style: italic;
+	font-size: 0.98rem !important;
+	color: var(--svc-ink) !important;
+	margin-bottom: 0.75rem !important;
+}
+
+.ea-treatment-testimonial blockquote footer {
+	font-size: 0.88rem;
+	color: var(--svc-earth);
+	font-style: normal;
+}
+
+.ea-treatment-testimonial blockquote cite {
+	font-style: normal;
+	font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────
+   FAQ ACCORDION — BOTH PAGES
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-faq-list,
+.ea-method-faq-list {
+	margin-top: 1.25rem;
+	border-top: 1px solid var(--svc-border);
+}
+
+.ea-treatment-faq-item,
+.ea-method-faq-item {
+	border-bottom: 1px solid var(--svc-border);
+}
+
+.ea-treatment-faq-q,
+.ea-method-faq-q {
+	display: block;
+	cursor: pointer;
+	padding: 1rem 2rem 1rem 0;
+	font-family: var(--svc-font);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--svc-ink);
+	list-style: none;
+	position: relative;
+	user-select: none;
+}
+
+.ea-treatment-faq-q::-webkit-details-marker,
+.ea-method-faq-q::-webkit-details-marker {
+	display: none;
+}
+
+.ea-treatment-faq-q::after,
+.ea-method-faq-q::after {
+	content: "+";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.3rem;
+	font-weight: 400;
+	color: var(--svc-terracotta);
+	line-height: 1;
+}
+
+.ea-treatment-faq-item[open] .ea-treatment-faq-q::after,
+.ea-method-faq-item[open] .ea-method-faq-q::after {
+	content: "−";
+}
+
+.ea-treatment-faq-a,
+.ea-method-faq-a {
+	padding: 0 0 1rem;
+}
+
+.ea-treatment-faq-a p,
+.ea-method-faq-a p {
+	font-size: 0.98rem !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   DISCLAIMER
+   ───────────────────────────────────────────────────────── */
+
+.ea-treatment-block--disclaimer {
+	background: #fafaf8;
+	border-top: 1px solid var(--svc-border);
+}
+
+.ea-treatment-block--disclaimer p {
+	font-size: 0.88rem !important;
+	line-height: 1.75 !important;
+	color: #666 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   METHOD: STEPS
+   ───────────────────────────────────────────────────────── */
+
+.ea-method-steps {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.ea-method-step {
+	display: flex;
+	gap: 1.25rem;
+	align-items: flex-start;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--svc-border);
+}
+
+.ea-method-step:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.ea-method-step__num {
+	flex-shrink: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background: var(--svc-terracotta);
+	color: #fff;
+	font-family: var(--svc-font);
+	font-size: 0.8rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ea-method-step__title {
+	font-family: var(--svc-font);
+	font-size: 1.05rem;
+	font-weight: 700;
+	color: var(--svc-terracotta);
+	margin: 0 0 0.4rem;
+}
+
+.ea-method-step__body p {
+	margin: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   METHOD: WHO GRID
+   ───────────────────────────────────────────────────────── */
+
+.ea-method-who-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.ea-method-who-card {
+	background: var(--svc-shade);
+	border: 1px solid var(--svc-border);
+	border-radius: var(--svc-radius);
+	padding: 1.25rem;
+}
+
+.ea-method-who-card__title {
+	font-family: var(--svc-font);
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--svc-terracotta);
+	margin: 0 0 0.5rem;
+}
+
+.ea-method-who-card p {
+	font-size: 0.95rem !important;
+	margin: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE — RESPONSIVE
+   ───────────────────────────────────────────────────────── */
+
+@media (max-width: 680px) {
+
+	.ea-treatment-hero,
+	.ea-method-hero {
+		padding: 48px 18px 40px;
+	}
+
+	.ea-treatment-block,
+	.ea-method-block {
+		padding: 40px 18px;
+	}
+
+	.ea-treatment-testimonials-track {
+		grid-template-columns: 1fr;
+	}
+
+	.ea-method-who-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.ea-method-step {
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.ea-treatment-cta-btn,
+	.ea-method-cta-btn {
+		display: block;
+		text-align: center;
+	}
+}
+
+@media (min-width: 681px) and (max-width: 900px) {
+	.ea-treatment-testimonials-track {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

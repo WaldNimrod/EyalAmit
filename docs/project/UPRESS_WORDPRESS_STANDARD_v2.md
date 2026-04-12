@@ -184,6 +184,21 @@ SELECT option_value FROM {prefix}_options WHERE option_name LIKE 'widget_%';
 | **Development mode** | During active development: maximize agent capabilities — REST API with Application Password, automated testing, FTP deployment scripts, phpMyAdmin access. |
 | **uPress sandboxes** | Per [uPress sandbox docs](https://www.upress.co.il/features/sandboxes/), staging environments are separate WordPress instances. Content sync from production to staging is available via uPress panel import: [import to sandbox](https://support.upress.co.il/dev/import-to-sandbox/). |
 
+### WP_ENVIRONMENT_TYPE — Critical Setting for Staging
+
+WordPress uses `WP_ENVIRONMENT_TYPE` to adjust behavior per environment. In staging without SSL, add to `wp-config.php` before `/* That's all, stop editing! */`:
+
+```php
+define( 'WP_ENVIRONMENT_TYPE', 'local' ); // or 'development'
+```
+
+**Effects:**
+- Enables Application Passwords without HTTPS (critical for staging — see §7.4)
+- Does not automatically enable `WP_DEBUG`
+- **In production with valid HTTPS — this setting is not needed**
+
+**Method:** `scripts/ftp_sync_wp_config_db_password.py` supports `UPRESS_WP_ENVIRONMENT_TYPE` in `.env.upress` — adds the constant automatically.
+
 ---
 
 ## 6. Local Docker Environment — Strongly Recommended
@@ -279,6 +294,43 @@ function create_app_password_once() {
 add_action('init', 'create_app_password_once');
 ```
 
+**Preferred programmatic method (no deployment required):**
+Use cookie session + REST API nonce — no code footprint, no cleanup required:
+
+```python
+import os, requests, re
+
+BASE = os.getenv('UPRESS_PUBLIC_BASE')  # e.g. http://yourdomain.s887.upress.link
+s = requests.Session()
+
+# Step 1: Login (cookie auth)
+s.cookies.set('wordpress_test_cookie', 'WP Cookie check')
+r = s.post(BASE + "/wp-login.php", data={
+    'log': os.getenv('UPRESS_WP_ADMIN_USER'),   # user_login, NOT email
+    'pwd': os.getenv('UPRESS_WP_ADMIN_PASS'),
+    'wp-submit': 'Log In',
+    'redirect_to': '/wp-admin/',
+    'testcookie': '1',
+}, allow_redirects=True, timeout=15)
+assert 'wp-admin' in r.url, "Login failed — verify user_login (not email) and password"
+
+# Step 2: Get REST API nonce (post-login session)
+nonce = s.get(BASE + "/wp-admin/admin-ajax.php",
+              params={'action': 'rest-nonce'}, timeout=10).text.strip()
+
+# Step 3: Create Application Password via REST API
+r_app = s.post(
+    BASE + "/wp-json/wp/v2/users/1/application-passwords",
+    json={"name": "agent-automation"},
+    headers={"X-WP-Nonce": nonce, "Content-Type": "application/json"},
+    timeout=15
+)
+assert r_app.status_code == 201
+raw_pass = r_app.json()['password']  # WordPress-generated 24-char password
+```
+
+**Note:** Requires `UPRESS_WP_ADMIN_USER` (user_login, not email) and `UPRESS_WP_ADMIN_PASS` in `.env.upress`. The functions.php hook method (below) is a fallback for environments where `wp-login.php` is blocked.
+
 Pair with a temporary REST endpoint for retrieval (see Section 10 one-time hook pattern). **Checklist after retrieval:**
 - [ ] Store credentials in `.env.upress`
 - [ ] Remove the init hook from functions.php
@@ -327,7 +379,14 @@ pages = requests.get(f"{REST}/wp/v2/pages",
 
 ### 7.4 Key Notes
 
-- Application Passwords require **HTTPS**; they will not work over plain HTTP.
+- **Application Passwords and HTTP staging:** WordPress requires HTTPS for Application Passwords by default. **Solution for staging without SSL:** Add one line to `wp-config.php` before `/* That's all, stop editing! */`:
+
+  ```php
+  define( 'WP_ENVIRONMENT_TYPE', 'local' ); // staging HTTP — enables Application Passwords without HTTPS
+  ```
+
+  Valid values: `local` | `development` | `staging` | `production`. In production with valid HTTPS — this setting is not needed. **Method:** Download `wp-config.php` via FTP, add the line, re-upload. Verify: `curl .../wp-json/ | python3 -c "import sys,json; d=json.load(sys.stdin); print('application-passwords' in d.get('authentication',{}))"`.
+
 - `context=edit` returns raw content; `status=any` includes drafts/private/trash.
 - `user_login` (for auth) may differ from the email shown in wp-admin. Always verify.
 - Pagination: max 100 items per page. Check `X-WP-Total` / `X-WP-TotalPages` headers.
@@ -504,6 +563,7 @@ if ($css_post) {
 | Upload media | REST API or FTP | REST for media library integration; FTP for raw files |
 | Local PHP testing / WP-CLI | Docker | Safe sandbox, no risk to live site |
 | WXR import/export | Docker WP-CLI | `wp import`, `wp export` |
+| Create / update WP page (slug, title, template, status) | `scripts/wp_rest_client.py` | Python module with auto-auth from `.env.upress`. API: `ensure_page`, `set_page_template`, `list_pages`, `get_page_by_slug`. CLI: `python3 scripts/wp_rest_client.py --verify`. |
 
 ---
 
@@ -512,33 +572,39 @@ if ($css_post) {
 **This is the organizational standard for storing uPress/WordPress secrets.** Never use markdown files for secrets. Always `.gitignore` this file.
 
 ```env
-# ── FTPS ──
+# ── FTPS / FTP ──
 UPRESS_SFTP_HOST=ftp.s{NNN}.upress.link
 UPRESS_SFTP_PORT=21
 UPRESS_SFTP_USER={user}@{domain}
 UPRESS_SFTP_PASS={password}
+UPRESS_FTP_REMOTE_ROOT=/           # Path from FTP root to WP root. '/' if already at WP root.
+UPRESS_FTP_USE_TLS=true            # true for production; false for staging if TLS fails
 
-# ── URLs ──
+# ── URLs (staging: http://, production: https://) ──
 UPRESS_PUBLIC_BASE=https://{domain}
 UPRESS_WP_ADMIN=https://{domain}/wp-admin
-UPRESS_WP_REST_BASE=https://www.{domain}/wp-json
+UPRESS_WP_REST_BASE=https://{domain}/wp-json
 UPRESS_PAGE_SLUG=/{primary_page_slug}
 UPRESS_UPLOAD_PATH=wp-content/uploads/{project}
 
-# ── phpMyAdmin ──
+# ── phpMyAdmin + DB ──
 UPRESS_PHPMYADMIN_URL=https://s-il-{NNN}-{code}.upress.io/{token}/
 UPRESS_DB_NAME={db_name}
 UPRESS_DB_USER={db_user}
 UPRESS_DB_PASS={db_pass}
-UPRESS_DB_TABLE_PREFIX={prefix}_
+UPRESS_DB_TABLE_PREFIX={abc}_      # NEVER assume 'wp_' — discover from wp-config.php or SHOW TABLES
 
 # ── WordPress Admin (dashboard login) ──
-UPRESS_WP_ADMIN_USER={admin_email}
+# Use user_login (NOT email) — may differ: e.g., 'nimrodadmin' not 'admin@domain.com'
+# Discover via SQL: SELECT user_login FROM {prefix}_users WHERE ID=1;
+UPRESS_WP_ADMIN_USER={user_login}
 UPRESS_WP_ADMIN_PASS={admin_password}
 
 # ── REST API Application Password ──
-UPRESS_WP_APP_USER={wp_user_login}
-UPRESS_WP_APP_PASS={application_password}
+# Format: "XXXX XXXX XXXX XXXX XXXX XXXX" (WordPress generates on creation)
+# Create via: cookie-session + REST API (see §7.2 preferred method)
+UPRESS_WP_APP_USER={user_login}    # Same as UPRESS_WP_ADMIN_USER
+UPRESS_WP_APP_PASS={application_password_with_spaces}
 ```
 
 **Per-project reference (no `.env.example` in repo):** [`EYAL_ENV_VARS_REFERENCE.md`](EYAL_ENV_VARS_REFERENCE.md) — section **§2** lists `UPRESS_*` placeholders; copy into `local/.env.upress` (gitignored).
@@ -580,8 +646,88 @@ Some uPress accounts: FTP root = WordPress root. Others: FTP root = `public_html
 ### Child Theme is Mandatory
 All code changes go in the child theme, never the parent theme. Parent theme updates will overwrite direct changes. This is true regardless of which parent theme is used (Flatsome, GeneratePress, etc.).
 
-### mu-plugins Are Platform-Managed
-uPress places its own must-use plugins in `wp-content/mu-plugins/`. These load before regular plugins and cannot be deactivated. Do not conflict with their names.
+### mu-plugins — Restricted Zone for Temporary Code (Critical)
+
+**NEVER** place temporary PHP files (scripts, one-off utilities, debug tools) in `wp-content/mu-plugins/`. Every PHP file in mu-plugins runs automatically on every WordPress request — even without activation. A broken file = immediate HTTP 500 for the entire site.
+
+- **Temporary code:** Do not upload to server at all. Use REST API or a gated functions.php hook instead.
+- **Legitimate mu-plugins:** Only plugins that must always run, before other plugins. Place in `site/wp-content/mu-plugins/` in the repository and deploy via `ftp_deploy_site_wp_content.py`.
+
+uPress also places its own must-use plugins in `wp-content/mu-plugins/`. These load before regular plugins and cannot be deactivated. Do not conflict with their names.
+
+### WP Admin Credentials in a New Staging Environment
+
+uPress installs a fresh WordPress in sandbox environments with a new admin user created at install time — which is not necessarily the email or user_login in your production `.env.upress`.
+
+**Discovery protocol for a new environment:**
+1. Connect to phpMyAdmin (`UPRESS_PHPMYADMIN_URL` + `UPRESS_DB_USER/PASS`)
+2. Run: `SELECT ID, user_login, user_email FROM {prefix}_users ORDER BY ID;`
+3. Update `.env.upress` with the correct `user_login` (not email) in `UPRESS_WP_ADMIN_USER`
+
+**Password reset via SQL (without WP-CLI):**
+```sql
+-- WP accepts MD5 and auto-upgrades to phpass on next login
+UPDATE {prefix}_users SET user_pass=MD5('NewPassword123!') WHERE user_login='{user_login}';
+```
+
+### Never Compute phpass Hashes Manually
+
+WordPress uses phpass with `count_log2=13` (8192 iterations) and an 8-char base64-encoded salt. Attempting to implement phpass in Python/JavaScript manually will very likely fail silently (401 with no explanation).
+
+- **To reset WP admin password:** Use SQL MD5 (see lesson above) — WP accepts MD5 and upgrades automatically.
+- **To create an Application Password:** Use the REST API cookie-session method (see §7.2).
+- **Never** store Application Password hashes manually in the DB — WP manages this via `WP_Application_Passwords::create_new_application_password()`.
+
+### phpMyAdmin Python Session — Correct Endpoint and Token
+
+Token mismatch errors occur when using the pre-login token after login. Always extract the post-login token from the response:
+
+```python
+import requests, re, json
+
+BASE = "https://s-il-{NNN}-{code}.upress.io/{token}"
+s = requests.Session()
+s.verify = False  # phpMyAdmin on uPress may have HTTPS warning
+
+# Step 1: Get pre-login token
+r1 = s.get(BASE + "/index.php", timeout=15)
+pre_token = re.search(r'name="token" value="([^"]+)"', r1.text).group(1)
+
+# Step 2: Login
+r2 = s.post(BASE + "/index.php", data={
+    'pma_username': os.getenv('UPRESS_DB_USER'),
+    'pma_password': os.getenv('UPRESS_DB_PASS'),
+    'server': '1', 'lang': 'en', 'token': pre_token,
+}, timeout=15, allow_redirects=True)
+
+# CRITICAL: extract POST-LOGIN token (different from pre-login token!)
+post_token = re.findall(r'name="token" value="([^"]+)"', r2.text)[0]
+
+# Step 3: Execute SQL — use route=/import with ajax_request=1
+r3 = s.post(BASE + "/index.php?route=/import&db=" + os.getenv('UPRESS_DB_NAME'), data={
+    'db': os.getenv('UPRESS_DB_NAME'), 'table': '', 'token': post_token,
+    'sql_query': 'SELECT ID, user_login FROM {prefix}_users;',
+    'ajax_request': '1', 'server': '1',
+}, timeout=20)
+result = json.loads(r3.text)
+```
+
+`route=/import` with `ajax_request=1` is the SQL execution endpoint. Always use the post-login token.
+
+### Table Prefix — Discover Before Any DB Operation
+
+Assuming `wp_` as prefix causes wasted time when the actual prefix differs (common: `heu_`, `abc_`, etc.).
+
+```bash
+# Via FTP: read wp-config.php
+grep "table_prefix" wp-config.php
+
+# Via phpMyAdmin:
+SHOW TABLES LIKE '%users';
+-- The prefix is everything before "users"
+```
+
+Update `UPRESS_DB_TABLE_PREFIX` in `.env.upress` immediately after discovery. Never assume `wp_`.
 
 ### Staging-to-Production Differences
 Do not assume staging and production behave identically. TLS, SSL certificates, FTP configuration, caching, and CDN may differ. Always verify critical behavior in the target environment.
