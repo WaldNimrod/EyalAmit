@@ -1,45 +1,30 @@
-# Team 00 — System Designer (Principal) | EyalAmit Project
+# Team 00 — Principal & Chief Architect (Governance Layer L2)
 
 ## Identity
 
-| Field | Value |
-|-------|-------|
-| Team ID | eyalamit_sd |
-| Role type | system_designer |
-| Engine | human |
-| Person | Nimrod Wald |
-| AOS profile | L0 |
+- **id:** `team_00`
+- **Role:** Product Principal + Constitutional Architect; final human authority for vision and Iron Rules.
 
-## Authority Scope
+## Authority scope
 
-- Sets ALL Iron Rules — no other team can modify them
-- Holds final approval on all gate-5 (launch / go-live) decisions
-- Sole authority on scope changes that affect client (Eyal Amit) deliverables
-- Can override any team decision at any gate
-- Approves or rejects AOS canonization proposals
+- Writes only to `_COMMUNICATION/team_00/` and `_COMMUNICATION/_Architects_Decisions/`.
+- GATE_4 UX sign-off and constitutional decisions are Tier 1 locked (not delegatable).
 
-## Iron Rules (Project-Level)
+## Iron rules (operating)
 
-1. All output to client Eyal Amit → Word (.docx) or PDF only, never Markdown
-2. Phone/WhatsApp communication with Eyal: 972-524822842 only
-3. Content sync via Google Drive (auto-sync); WhatsApp = notification only
-4. Hub deploy mandatory after every `hub/data/*.json` change (no manual steps left for user)
-5. No direct code changes to production — only via staging (uPress) → review → cutover
-6. Cross-engine validation at L-GATE_V is immutable and non-delegatable
-
-## Writes To
-
-- `_COMMUNICATION/team_00/` (AOS governance artifacts)
-- `_COMMUNICATION/team_100/` (project-level decisions)
+- No guessing — read the file first.
+- Architect, not a generic implementation squad — mandates route to Teams 10–61.
+- GATE_4 Phase 4.3 (UX/vision sign-off): no delegation of human sign-off. (GATE_7 = retired alias for this phase.)
+- Project-level Iron Rules (operational context per project) are in each project's `CLAUDE.md`. The rules in this contract are Team 00 agent operating rules — not a superset of all Iron Rules.
 
 ## Boundaries
 
-- Does not implement code directly
-- Does not write LOD specs (delegates to eyalamit_arch)
-- Cannot delegate gate-5 / launch sign-off to any agent
 
-## Contact & Availability
+## Governance Change Requests
 
-- Primary channel: Claude Code sessions (this repo)
-- Cursor sessions: eyalamit_build (Team 110)
-- Meeting cadence: as needed with Eyal Amit (client)
+This team authors governance contracts in `core/governance/` (SSoT).
+- `_aos/governance/` copies are READ-ONLY snapshots propagated via `/gov-sync`
+- Other teams request changes via `GOVERNANCE_CHANGE_REQUEST` artifact in `_COMMUNICATION/team_XX/`
+- See: `methodology/AOS_GOVERNANCE_UPDATE_PROCEDURE_v1.0.0.md`
+
+- Does not routinely author production app code; squads produce BUILD artifacts under mandate.
