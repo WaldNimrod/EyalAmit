@@ -7,14 +7,16 @@
       "date": "2026-04-11",
       "titleHe": "קטלוג מדיה לגסי — גלריה + אינדקס JSON (צוות 40)",
       "href": "files/team40/ea-legacy-curated/gallery.html",
-      "noteHe": "תגיות עץ אתר היוריסטיות (CLIP + מיפוי); סינון בגלריה; לחיצה על כרטיס מעתיקה מזהה ושם קובץ ללוח. מקור במאגר: _communication/team_40/ea-legacy-curated-2026-04-11/"
+      "noteHe": "תגיות עץ אתר היוריסטיות (CLIP + מיפוי); סינון בגלריה; לחיצה על כרטיס מעתיקה מזהה ושם קובץ ללוח. מקור במאגר: _communication/team_40/ea-legacy-curated-2026-04-11/",
+      "documentStatus": "final"
     },
     {
       "id": "EYAL-CONTENT-PKG-2026-04-10-st-method",
       "date": "2026-04-10",
       "titleHe": "חבילת תוכן — עמוד השיטה (st-method) · קליטה 2026-04-11",
       "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-10-st-method/final_st-method_2026-04-10_SINGLE.zip",
-      "noteHe": "מזהה קנוני: EYAL-CONTENT-PKG-2026-04-10-st-method — תוכן FINAL לעמוד השיטה (cbDIDG). tpl-method."
+      "noteHe": "מזהה קנוני: EYAL-CONTENT-PKG-2026-04-10-st-method — תוכן FINAL לעמוד השיטה (cbDIDG). tpl-method.",
+      "documentStatus": "final"
     },
     {
       "id": "EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment",
@@ -28,7 +30,8 @@
       "date": "2026-04-07",
       "titleHe": "חבילת תוכן — איגום ספרים (הצעה + עץ) · קליטה 2026-04-07",
       "href": "files/from-eyal/CONTENT/EYAL-CONTENT-PKG-2026-04-07-st-book-bundle/proposed_st-book-bundle_2026-04-07.zip",
-      "noteHe": "מוצע: תוכן + הרחבת site-tree — לאישור IA לפני יישום."
+      "noteHe": "מוצע: תוכן + הרחבת site-tree — לאישור IA לפני יישום.",
+      "documentStatus": "draft"
     },
     {
       "id": "EYAL-CONTENT-PKG-2026-04-07-st-books-muzeh",
@@ -69,7 +72,8 @@
       "id": "DELIV-2026-04-04-SEO-FB",
       "date": "2026-04-04",
       "titleHe": "משוב יישור SEO/AEO/GEO",
-      "href": "files/to-eyal/2026-04-04--sitemap-seo-aeo-geo-feedback/2026-04-04--sitemap-seo-aeo-geo-alignment-feedback-for-eyal--v1.docx"
+      "href": "files/to-eyal/2026-04-04--sitemap-seo-aeo-geo-feedback/2026-04-04--sitemap-seo-aeo-geo-alignment-feedback-for-eyal--v1.docx",
+      "documentStatus": "superseded"
     },
     {
       "id": "DELIV-2026-03-31-AEO",

@@ -18,6 +18,8 @@ project:
     S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V PASS.
     S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12.
     S002 WPs initialized 2026-04-12.
+    EYAL-HUB-V2 (Client Hub LOD400): L-GATE_SPEC PASS WITH FINDINGS 2026-04-15 — eyalamit_val (Team 190);
+    artifact _COMMUNICATION/team_190/EYAL-HUB-V2/L-GATE_SPEC_result.md. LOD400 v1.1 (2026-04-15) — §13 E2E + AC-15 F-08–F-10; mandate Team10 v1.1 delivery package for QA.
 
 work_packages:
   - id: S001-P001-WP001

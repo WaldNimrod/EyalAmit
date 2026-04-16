@@ -134,6 +134,19 @@ Cursor (וגם VS Code) יכולים להציג **מיזוג** של:
 
 אם בפרויקט הופעלו MCP אחרים (למשל Linear לניהול משימות), יש להשתמש בהם **למעקב ותיאום** — הם **לא** מחליפים את תקן הוורדפרס, הפריסה לסטייג'ינג, או את מסמכי ה-SSOT.
 
+### 5.3 למה לפעמים אין `cursor-ide-browser` בסשן Cursor
+
+Cursor טוען תיאורי MCP מ־`~/.cursor/projects/<slug>/mcps/`, כאשר ה־**slug** תלוי בנתיב ה־**Open Folder**. פתיחת **`Eyal Amit`** (האב) מול **`EyalAmit.co.il-2026`** (המאגר) יוצרת **שני** מזהי פרויקט — ולעיתים רק לאחד מהם מצורף `cursor-ide-browser`.
+
+**פתרונות:**
+
+1. **קנוני:** לפתוח את שורש העבודה הנכון ולהריץ פעם אחת (מקומי):  
+   [`scripts/ensure_cursor_mcp_ide_browser_symlink.sh`](../../scripts/ensure_cursor_mcp_ide_browser_symlink.sh)  
+   (מפעיל symlink לעותק ה־MCP מתיקיית הפרויקט של תיקיית האב).
+2. **תיעוד מלא:** [`docs/sop/CURSOR-MCP-BROWSER-WORKSPACE.md`](./CURSOR-MCP-BROWSER-WORKSPACE.md).
+
+לבדיקת `hub/dist/` בדפדפן — להרים שרת HTTP מקומי (לא להסתמך על `file://`); ראו אותו מסמך §4.
+
 ---
 
 ## 6. זרימת פיתוח WordPress (מקומי ↔ סטייג'ינג)
@@ -171,5 +184,6 @@ Cursor (וגם VS Code) יכולים להציג **מיזוג** של:
 - [`docs/PROJECT-ENTRY.md`](../PROJECT-ENTRY.md) (שורה בטבלת סביבה)
 - [`.cursor/rules/eyalamit-agent-workspace-mandatory.mdc`](../../.cursor/rules/eyalamit-agent-workspace-mandatory.mdc) אם משתנים כללי התנהגות חובה
 - [`.vscode/extensions.json`](../../.vscode/extensions.json) ו־[`.vscode/launch.json`](../../.vscode/launch.json) כשמשנים הרחבות / דיבוג PHP
+- [`CURSOR-MCP-BROWSER-WORKSPACE.md`](./CURSOR-MCP-BROWSER-WORKSPACE.md) כשמשנים §5 (MCP דפדפן / symlink)
 
 צוות 3 / Gatekeeper אחראי לוודא שהגרסה כאן תואמת את מה שמיושם בפועל ב-Cursor.

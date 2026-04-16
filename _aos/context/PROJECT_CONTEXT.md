@@ -21,7 +21,7 @@ musician, sound healer, and author (Muse publisher). Hosted on **uPress** (Israe
 |-------|-------|
 | Profile | L0 (governance-only, no engine) |
 | Active milestone | S001 — AOS Canonization |
-| Lean-kit version | 3.1.3+3e4164e |
+| Lean-kit version | 3.1.7+3e4164e |
 | Canonized | 2026-04-11 |
 
 ---
@@ -78,6 +78,8 @@ musician, sound healer, and author (Muse publisher). Hosted on **uPress** (Israe
 ```bash
 bash _aos/lean-kit/modules/validation-quality/scripts/validate_aos.sh .
 ```
+
+In DB-online AOS governance mode, apply ADR034 API + `deploy_cascade()` flow for structured AOS state changes.
 
 Run before any L-GATE_B declaration.
 

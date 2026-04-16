@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "meetingDate": "2026-04-20",
+  "titleHe": "סנכרון Wave1 — תבנית ספר וסטייג'ינג",
+  "goalsHe": [
+    "לאשר מצב תבנית הספר לפני שכפול לעמודים נוספים",
+    "לסגור פערי תוכן לטיפולים אם נדרש"
+  ],
+  "agendaHe": [
+    "סטטוס M4 ומיקוד נוכחי",
+    "בדיקת רשימת משימות פתוחות",
+    "שאיות וקליטת קבצים בדרייב"
+  ],
+  "openDecisionsRefs": ["D-EYAL-HOME-01", "D-EYAL-SITE-07"],
+  "prepHe": "לעיין ב־roadmap.html וב־tasks.html לפני הפגישה; להכין שאלות בטופס השאלות אם צריך.",
+  "quickLinks": [
+    { "labelHe": "משימות", "href": "tasks.html" },
+    { "labelHe": "מפת דרכים", "href": "roadmap.html" }
+  ]
+}

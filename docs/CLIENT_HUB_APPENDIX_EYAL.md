@@ -68,3 +68,48 @@
 4. **החרגת נתיב ה־Hub מ־Varnish (מומלץ לקביעות):** לפי [מאמר Varnish של uPress](https://support.upress.co.il/performance/%d7%94%d7%a4%d7%a2%d7%9c%d7%aa-%d7%95%d7%94%d7%92%d7%93%d7%a8%d7%aa-%d7%9e%d7%98%d7%9e%d7%95%d7%9f-varnish-cache/) ניתן להגדיר **החרגות URL**; יש להחריג את קידומת נתיב ה־Hub בפועל (`/<UPRESS_EYAL_HUB_PATH>/`, למשל `/ea-eyal-hub/`) כדי שלא יישמר עותק סטטי של דפי ה־Hub אחרי כל עדכון FTP. לאחר שינוי הגדרות Varnish — לבצע ניקוי מטמון כמופיע באותו מאמר וב־EzCache.
 5. **אימות:** `curl -I` על קובץ Hub או גלישה עם `?nocache=$(date +%s)` — לעקוף מטמון דפדפן/פרוקסי בעת בדיקה.
 6. **סימניה לאייל:** **`index.html`** או **`tasks.html`** — ב־v1.1 **`pending.html`** הוא רק הפניה ל־`tasks.html`.
+
+---
+
+## Hub V2 — אפיון LOD400 ונתונים (2026-04-15)
+
+מקור מחייב לביצוע UI/בילד: [`EYAL-CLIENT-HUB-V2-LOD400-2026-04-15.md`](../_communication/team_100/EYAL-CLIENT-HUB-V2-LOD400-2026-04-15.md) (**גרסה 1.1** — תהליך קצה־לקצה §13, AC-01…AC-15). מנדטים: [`MANDATE-TEAM190-…`](../_communication/team_100/MANDATE-TEAM190-EYAL-HUB-V2-L-GATE-SPEC-2026-04-15.md) · [`MANDATE-TEAM10-…`](../_communication/team_100/MANDATE-TEAM10-EYAL-HUB-V2-IMPLEMENTATION-2026-04-15.md) · [`MANDATE-TEAM50-…`](../_communication/team_100/MANDATE-TEAM50-EYAL-HUB-V2-QA-2026-04-15.md) (**QA מקיף ומלא**) · [`MANDATE-TEAM90-…`](../_communication/team_100/MANDATE-TEAM90-EYAL-HUB-V2-POST-DEV-VALIDATION-2026-04-15.md).
+
+**תוצאת L-GATE_SPEC (צוות 190):** [`L-GATE_SPEC_result.md`](../_communication/team_190/EYAL-HUB-V2/L-GATE_SPEC_result.md) — PASS WITH FINDINGS (2026-04-15).
+
+**פרומטי אקטיבציה (זהות + קונטקסט) לכל הצוותים:** [`EYAL-HUB-V2-ACTIVATION-PROMPTS-ALL-TEAMS-2026-04-15.md`](../_communication/team_100/EYAL-HUB-V2-ACTIVATION-PROMPTS-ALL-TEAMS-2026-04-15.md) — צוותים 100 / 190 / 10 / 50 / 90.
+
+### קבצי נתונים נוספים (אחרי מימוש צוות 10)
+
+| קובץ | תיאור |
+|------|--------|
+| `hub/data/links.json` | קישורים מהירים לפי קטגוריות (מסמכים, מוקאפים, סטייג'ינג, כלים) |
+| `hub/data/questions-prompts.json` | מטא־טופס + שדות לסקשן «שאלות» ב־`tasks.html` |
+| `hub/data/meeting-brief.json` | תדריך פגישה ל־`meeting.html` |
+
+### שדה `documentStatus` ב־`deliverables.json`
+
+- ערכים מותרים: `draft` | `final` | `superseded` (אופציונלי; ברירת מחדל במימוש: `final` אם חסר).
+- רמזור ויזואלי בדף בית — ראו LOD400 §4.2.
+
+### הרחבות `roadmap.json` (אופציונליות)
+
+- `currentGateLabelHe` — תווית שלב/שער לדשבורד.
+- `milestoneProgress` — אובייקט עם מספרים לכרטיסי סטטיסטיקה.
+
+### ייצואי JSON נוספים
+
+| `exportType` | עמוד | הערה |
+|--------------|------|------|
+| `eyal-questions` | `tasks.html` (סקשן שאלות) | קליטה ידנית / ingest עתידי |
+| `eyal-drive-intake` | `tasks.html` או קליטה | שם קובץ בדרייב + הקשר |
+| `eyal-meeting-snapshot` | `meeting.html` | סנאפשוט סוף פגישה |
+
+ייצואי קיימים (`eyal-feedback`, `eyal-site-tree-feedback`, `eyal-page-content-intake`) — נשמרים; אין לשבור.
+
+### אוטומציה מקומית
+
+- `scripts/hub_validate_hub_data.py` — ולידציית מבנה ל־`hub/data`.
+- `scripts/hub_check_dist_links.py` — אחרי `build`; לקישורי `files/` יש להריץ בנייה עם `--mirror-docs` כדי שקבצי `dist/files/` יתאימו ל־`href`.
+- `hub/canon-map.example.yaml` — דוגמה למיפוי קאנון→Hub (dev-time בלבד).
+- פלייבוק עדכון: [`hub/HUB-CANONICAL-UPDATE-PLAYBOOK.md`](../hub/HUB-CANONICAL-UPDATE-PLAYBOOK.md).

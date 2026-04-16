@@ -11,6 +11,8 @@
 
 תכנון — **צוות 100**, אפיון סופי / חבילת v2. אין מעבר מלא ל-Build והשקה עד **אישור אייל** (תקציר, מפת אתר, מדיניות QR).
 
+**ADR034 / סמכות נתונים ל-AOS:** כאשר זרימות AOS פועלות במצב DB-online, מצב AOS מובנה (WP/gates/lod) מתעדכן דרך API + `deploy_cascade()` ולא בעריכה ידנית של שדות קנוניים.
+
 **תפקיד ברירת־מחדל של סוכן AI במאגר זה:** **צוות 100** (אדריכלות) — [`.cursor/rules/eyalamit-team-100-architect-role.mdc`](.cursor/rules/eyalamit-team-100-architect-role.mdc) · אונבורד: [`_communication/team_100/onboard_team100.md`](_communication/team_100/onboard_team100.md). **צוות אחר (10 / 20 / 30 / 50 / 90):** לקרוא **במלואו** את קובץ `onboard_teamXX.md` מהטבלה ב־[`_communication/README.md#onboarding-prompts`](_communication/README.md#onboarding-prompts), או שהמשתמש מגדיר במפורש בתחילת הסשן / מדביק את תוכן האונבורד.
 
 **תאריך קלנדרי:** (א) **`hub/data/calendar-anchor.txt`** — שורת ISO אחרונה (לא הערה); (ב) **`python3 scripts/check_hub_calendar.py`** — אימות מול היום ב־`Asia/Jerusalem`; (ג) בילד האב מריץ את הבדיקה. הנחיות מודל בלבד לא מספיקות — ראו [`.cursor/rules/eyalamit-calendar-date.mdc`](.cursor/rules/eyalamit-calendar-date.mdc).

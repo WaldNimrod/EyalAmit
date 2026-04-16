@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
+  "currentGateLabelHe": "שער M4 — אינטגרציות ו־Wave1 (תבנית ספר → סטייג'ינג)",
   "currentFocusId": "MILESTONE-M4",
+  "milestoneProgress": {
+    "completedCount": 3,
+    "totalCount": 7,
+    "percent": null
+  },
   "summaryHe": "M3 טכני הושלם (2026-04-07). מיקוד M4: אינטגרציות (מקביל) + Wave1 — נעילת תבנית ספר (צוות 80) → עמוד ספר ייחוס פיקסל־פרפקט בסטייג’ינג → שכפול לספרים + עמוד הוצאה (st-books) → רטרו חוקים → עמוד טיפולים → פריסה/פרזנטציה/משוב Hub. קליטת 6 חבילות CONTENT (2026-04-09) רשומה ב־updates + deliverables; שאר חבילות תוכן deferred לסוף Wave1.",
   "eyalNarrative": {
     "titleHe": "נטיב אייל — תוכן, אישורים ושיווק",
@@ -211,7 +217,7 @@
             "id": "M4-WAVE1-T5-TREATMENT",
             "titleHe": "שלב 5 — מימוש עמוד טיפולים + עמוד השיטה (st-svc-treatment + st-method)",
             "status": "completed",
-            "stateHe": "הושלם 2026-04-12. /treatment/ ו-/method/ חיים בסטייג׳ינג. תוכן מחבילות 2026-04-09 ו-2026-04-10. L-GATE_V PASS (Team 190)."
+            "stateHe": "הושלם 2026-04-12. עמודי טיפול והשיטה חיים בסטייג׳ינג; תוכן מחבילות אפריל 2026."
           },
           {
             "id": "M4-WAVE1-T6-DEPLOY-PRESENT-FEEDBACK",

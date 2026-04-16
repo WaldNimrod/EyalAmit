@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "hub",
+      "titleHe": "ממשק Hub",
+      "items": [
+        {
+          "labelHe": "משימות והחלטות",
+          "href": "tasks.html",
+          "openInNewTab": false,
+          "noteHe": "מעקב משימות, החלטות ממתינות וייצוא JSON"
+        },
+        {
+          "labelHe": "מפת דרכים ויומן עדכונים",
+          "href": "roadmap.html",
+          "openInNewTab": false,
+          "noteHe": "אבני דרך ולוג עדכונים"
+        },
+        {
+          "labelHe": "תדריך פגישה",
+          "href": "meeting.html",
+          "openInNewTab": false
+        }
+      ]
+    },
+    {
+      "id": "docs",
+      "titleHe": "מסמכים ועזר",
+      "items": [
+        {
+          "labelHe": "דלטה מפתח — GEO/AEO/SEO מול SSOT",
+          "href": "files/reference/DELTA-EYAL-DEV-BRIEF-GEO-AEO-SEO-VS-SSOT-2026-04-10.md",
+          "openInNewTab": true,
+          "noteHe": "מועתק ל־dist/files/reference/ בבנייה"
+        },
+        {
+          "labelHe": "גלריית מדיה לגסי (צוות 40)",
+          "href": "files/team40/ea-legacy-curated/gallery.html",
+          "openInNewTab": false
+        }
+      ]
+    },
+    {
+      "id": "external",
+      "titleHe": "אתר חי",
+      "items": [
+        {
+          "labelHe": "אתר Eyal Amit (פרודקשן)",
+          "href": "https://www.eyalamit.co.il",
+          "openInNewTab": true,
+          "noteHe": "לפי נספח — HTTPS בפרודקשן"
+        }
+      ]
+    }
+  ]
+}

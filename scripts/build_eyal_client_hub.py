@@ -7,7 +7,7 @@ Usage (repo root):
     python3 scripts/build_eyal_client_hub.py --mirror-docs
     python3 scripts/build_eyal_client_hub.py --mirror-docx   # alias for --mirror-docs
 
-Output: hub/dist/ (index, roadmap, site-tree, content-intake, tasks, pending redirect, assets/, files/team40/…)
+Output: hub/dist/ (index, roadmap, site-tree, content-intake, meeting, tasks, pending redirect, assets/, files/…)
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ import json
 import shutil
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from html import escape
 from pathlib import Path
 from typing import Optional
@@ -35,6 +35,9 @@ BRAND_TEXT = "Agents OS @ nimrod.bio"
 EXPORT_TYPE = "eyal-feedback"
 EXPORT_TYPE_SITE_TREE = "eyal-site-tree-feedback"
 EXPORT_TYPE_CONTENT_INTAKE = "eyal-page-content-intake"
+EXPORT_TYPE_QUESTIONS = "eyal-questions"
+EXPORT_TYPE_DRIVE_INTAKE = "eyal-drive-intake"
+EXPORT_TYPE_MEETING_SNAPSHOT = "eyal-meeting-snapshot"
 DEFAULT_RESPONDENT = "Eyal Amit"
 PROJECT_META = "EyalAmit2026"
 DEFAULT_HUB_VIEW_VERSION = "1.1.0"
@@ -235,29 +238,6 @@ MOCKUP_INDEX_SECTIONS: list[dict] = [
 ]
 
 
-def html_mockup_index_sections() -> str:
-    parts: list[str] = ['<h2 id="mockups">מוקאפים</h2>\n']
-    for sec in MOCKUP_INDEX_SECTIONS:
-        parts.append('<div class="mockup-round">\n')
-        parts.append(f'<h3 class="mockup-round__title">{escape(sec["titleHe"])}</h3>\n')
-        if sec.get("subtitleHe"):
-            parts.append(f'<p class="mockup-round__sub">{escape(sec["subtitleHe"])}</p>\n')
-        parts.append("<ul>\n")
-        for it in sec["items"]:
-            href = it["href"]
-            label = it["labelHe"]
-            ids = it.get("decisionIds") or []
-            dec_part = ""
-            if ids:
-                dec_links = " · ".join(
-                    f'<a href="tasks.html" class="mockup-decision-link">{escape(x)}</a>' for x in ids
-                )
-                dec_part = f' <span class="mockup-decisions">({dec_links})</span>'
-            parts.append(f'<li><a href="{escape(href)}">{escape(label)}</a>{dec_part}</li>\n')
-        parts.append("</ul>\n</div>\n")
-    return "".join(parts)
-
-
 STATUS_BADGE = {
     "approved": '<span class="badge badge-done">אושר · נעול</span>',
     "completed": '<span class="badge badge-done">הושלם</span>',
@@ -327,6 +307,7 @@ def nav(active: str) -> str:
         ("roadmap.html", "מפת דרכים"),
         ("site-tree.html", "עץ אתר"),
         ("content-intake.html", "קליטת תוכן"),
+        ("meeting.html", "תדריך פגישה"),
         ("purchase-links.html", "קישורי רכישה"),
         ("content-index.html", "אינדקס תוכן"),
         ("meeting-checklist.html", "צ׳קליסט פגישה"),
@@ -354,6 +335,193 @@ def foot(generated_iso: str) -> str:
 </div>
 </body>
 </html>"""
+
+
+def hub_acc_section(section_id: str, title: str, body_html: str, *, open_default: bool = False) -> str:
+    op = " open" if open_default else ""
+    return (
+        f'<details class="hub-acc" id="{escape(section_id)}"{op}>\n'
+        f'<summary class="hub-acc__summary">{escape(title)}</summary>\n'
+        f'<div class="hub-acc__body">\n{body_html}</div>\n'
+        f"</details>\n"
+    )
+
+
+def updates_recent_count(updates: dict, days: int = 30) -> int:
+    today = date.today()
+    cutoff = today - timedelta(days=days)
+    n = 0
+    for item in updates.get("items", []):
+        dstr = str(item.get("date", ""))[:10]
+        try:
+            parts = [int(x) for x in dstr.split("-")]
+            if len(parts) == 3:
+                y, m, d = parts
+                if date(y, m, d) >= cutoff:
+                    n += 1
+        except (ValueError, TypeError):
+            continue
+    return n
+
+
+def index_gate_text(roadmap: dict) -> str:
+    g = (roadmap.get("currentGateLabelHe") or "").strip()
+    if g:
+        return g
+    summary = roadmap.get("summaryHe") or ""
+    if "\n" in summary:
+        line = summary.split("\n", 1)[0].strip()
+        return line[:160] + ("…" if len(line) > 160 else "")
+    if len(summary) > 160:
+        return summary[:160] + "…"
+    return summary
+
+
+def html_links_from_json(links_data: dict) -> str:
+    cats = links_data.get("categories") or []
+    if not cats:
+        return '<p class="subtitle">אין קישורים בקובץ הנתונים.</p>\n'
+    parts: list[str] = []
+    for cat in cats:
+        title = escape(cat.get("titleHe", cat.get("id", "")))
+        parts.append(f'<div class="hub-links-cat"><h3 class="hub-links-cat__title">{title}</h3>\n<ul class="hub-links-list">\n')
+        for it in cat.get("items", []):
+            href = it.get("href") or "#"
+            label = escape(it.get("labelHe", ""))
+            target = ' target="_blank" rel="noopener"' if it.get("openInNewTab") else ""
+            note = ""
+            if it.get("noteHe"):
+                note = f' <span class="subtitle">({escape(it["noteHe"])})</span>'
+            parts.append(f'<li><a href="{escape(href)}"{target}>{label}</a>{note}</li>\n')
+        parts.append("</ul></div>\n")
+    return "".join(parts)
+
+
+def deliverable_document_status_badge(raw: Optional[str]) -> str:
+    ds = (raw or "final").strip().lower()
+    if ds not in ("draft", "final", "superseded"):
+        ds = "final"
+    labels = {"draft": "טיוטה", "final": "סופי", "superseded": "הוחלף"}
+    return (
+        f'<span class="deliverable-status deliverable-status--{escape(ds)}">'
+        f'{escape(labels[ds])}</span>'
+    )
+
+
+def html_site_tree_teaser(nodes: list, max_nodes: int = 12) -> str:
+    roots = [n for n in nodes if not n.get("parentId")]
+    roots.sort(
+        key=lambda x: (
+            x.get("treeOrder") if isinstance(x.get("treeOrder"), int) else 999,
+            x.get("titleHe") or "",
+            x.get("id") or "",
+        )
+    )
+    lines: list[str] = []
+    for n in roots[:max_nodes]:
+        ref = escape(str(n.get("pageRef", "")).strip())
+        title = escape(str(n.get("titleHe", "")))
+        lines.append(f"<li><span class=\"d-id\">{ref}</span> — {title}</li>")
+    more = ""
+    if len(roots) > max_nodes:
+        more = f'<p class="subtitle">ועוד {len(roots) - max_nodes} ענפים ברמה הראשונה — ראו עץ מלא.</p>\n'
+    return (
+        '<div class="hub-site-tree-teaser"><p><a href="site-tree.html">עץ אתר מלא</a></p><ul>\n'
+        + "".join(lines)
+        + f"</ul>{more}</div>\n"
+    )
+
+
+def html_mockup_index_accordion_inner() -> str:
+    parts: list[str] = []
+    for sec in MOCKUP_INDEX_SECTIONS:
+        parts.append('<div class="mockup-round">\n')
+        parts.append(f'<h3 class="mockup-round__title">{escape(sec["titleHe"])}</h3>\n')
+        if sec.get("subtitleHe"):
+            parts.append(f'<p class="mockup-round__sub">{escape(sec["subtitleHe"])}</p>\n')
+        parts.append("<ul>\n")
+        for it in sec["items"]:
+            href = it["href"]
+            label = it["labelHe"]
+            ids = it.get("decisionIds") or []
+            dec_part = ""
+            if ids:
+                dec_links = " · ".join(
+                    f'<a href="tasks.html" class="mockup-decision-link">{escape(x)}</a>' for x in ids
+                )
+                dec_part = f' <span class="mockup-decisions">({dec_links})</span>'
+            parts.append(f'<li><a href="{escape(href)}">{escape(label)}</a>{dec_part}</li>\n')
+        parts.append("</ul>\n</div>\n")
+    return "".join(parts)
+
+
+def html_updates_log_section(updates: dict) -> str:
+    items = updates_items_newest_first(updates)
+    if not items:
+        return '<p class="subtitle">אין פריטים בלוג.</p>\n'
+    parts: list[str] = []
+    for item in items:
+        parts.append('<div class="card">\n')
+        parts.append(f'<div class="card-date">{escape(item["date"])}</div>\n')
+        parts.append(f'<div class="card-title">{escape(item["titleHe"])}</div>\n')
+        parts.append(f'<div class="card-body">{escape(item["bodyHe"])}</div>\n')
+        parts.append("</div>\n")
+    return "".join(parts)
+
+
+def html_questions_form(questions_data: dict) -> str:
+    parts: list[str] = []
+    intro = questions_data.get("introHe", "")
+    if intro:
+        parts.append(f'<p class="subtitle">{escape(intro)}</p>\n')
+    parts.append('<div class="form-grid-dynamic">\n')
+    for f in questions_data.get("formFields", []):
+        if not isinstance(f, dict):
+            continue
+        fid = str(f.get("id", "")).strip()
+        if not fid:
+            continue
+        label = escape(f.get("labelHe", fid))
+        t = f.get("type", "text")
+        if t == "textarea":
+            parts.append(f'<div class="feedback-field"><label for="q-field-{escape(fid)}">{label}</label>\n')
+            parts.append(f'<textarea id="q-field-{escape(fid)}" rows="4"></textarea></div>\n')
+        elif t == "select":
+            opts = f.get("optionsHe") or []
+            parts.append(f'<div class="feedback-field"><label for="q-field-{escape(fid)}">{label}</label>\n')
+            parts.append(f'<select id="q-field-{escape(fid)}"><option value="">—</option>\n')
+            for o in opts:
+                if isinstance(o, str) and o.strip():
+                    parts.append(f'<option value="{escape(o)}">{escape(o)}</option>\n')
+            parts.append("</select></div>\n")
+        elif t == "checkbox":
+            parts.append(
+                f'<div class="feedback-field"><label><input type="checkbox" id="q-field-{escape(fid)}"> '
+                f"{label}</label></div>\n"
+            )
+        else:
+            parts.append(f'<div class="feedback-field"><label for="q-field-{escape(fid)}">{label}</label>\n')
+            parts.append(f'<input type="text" id="q-field-{escape(fid)}" autocomplete="off" /></div>\n')
+    parts.append("</div>\n")
+    parts.append(
+        '<p><button type="button" class="btn-export" id="btn-export-questions">ייצוא שאלות (JSON)</button></p>\n'
+    )
+    return "".join(parts)
+
+
+def html_drive_intake_form_static() -> str:
+    return (
+        '<div class="form-grid-dynamic">\n'
+        '<p class="subtitle">לאחר העלאת קובץ לדרייב — ייצאו JSON עם שם הקובץ וההקשר לצוות.</p>\n'
+        '<div class="feedback-field"><label for="drive-field-name">שם קובץ בדרייב</label>\n'
+        '<input type="text" id="drive-field-name" autocomplete="off" placeholder="שם הקובץ כפי שמופיע בדרייב" /></div>\n'
+        '<div class="feedback-field"><label for="drive-field-context">הקשר (עמוד / חבילה)</label>\n'
+        '<textarea id="drive-field-context" rows="3" placeholder="למשל: st-method · חבילת תוכן"></textarea></div>\n'
+        '<div class="feedback-field"><label for="drive-field-date">תאריך (אופציונלי, ISO)</label>\n'
+        '<input type="text" id="drive-field-date" placeholder="2026-04-16" autocomplete="off" /></div>\n'
+        '<p><button type="button" class="btn-export" id="btn-export-drive-intake">ייצוא קליטת Drive (JSON)</button></p>\n'
+        "</div>\n"
+    )
 
 
 def status_html(status: str) -> str:
@@ -743,28 +911,28 @@ def page_site_tree(
         "לכל צומת ניתן להוסיף הערות; בעמודי legacy ניתן לסמן KMD. ייצוא JSON — ל־<code>from-eyal</code> / צוות לפי הנוהל.</p>\n"
     )
 
-    html += _render_site_tree_overview(roots, by_parent, ref_by_id)
-    html += _render_site_tree_deliverables_panel(nodes)
+    overview_block = _render_site_tree_overview(roots, by_parent, ref_by_id)
+    overview_block += _render_site_tree_deliverables_panel(nodes)
+    overview_block += f'<script type="application/json" id="hub-site-tree-meta">{meta_json}</script>\n'
+    overview_block += (
+        '<div class="feedback-field"><label for="site-tree-general-notes">הערות כלליות על העץ</label>\n'
+        '<textarea id="site-tree-general-notes" rows="3" placeholder="הערות כלליות, סטיות מבוקשות, אישורים…"></textarea></div>\n'
+    )
 
-    html += f'<script type="application/json" id="hub-site-tree-meta">{meta_json}</script>\n'
-
-    html += '<div class="feedback-field"><label for="site-tree-general-notes">הערות כלליות על העץ</label>\n'
-    html += '<textarea id="site-tree-general-notes" rows="3" placeholder="הערות כלליות, סטיות מבוקשות, אישורים…"></textarea></div>\n'
-
-    html += "<h2>מבנה מפורט</h2>\n"
-    html += _render_site_tree_lifecycle_legend()
-    html += '<p class="subtitle">ברירת מחדל: כל הסעיפים סגורים — לחצו לפתיחה.</p>\n'
-    html += '<ul class="site-tree">\n'
+    tree_block = _render_site_tree_lifecycle_legend()
+    tree_block += '<p class="subtitle">ברירת מחדל: כל הסעיפים סגורים — לחצו לפתיחה.</p>\n'
+    tree_block += '<ul class="site-tree">\n'
     for r in roots:
-        html += _render_site_tree_node(r, by_parent, tpl_names, mockup_by_tpl, ref_by_id)
-    html += "</ul>\n"
+        tree_block += _render_site_tree_node(r, by_parent, tpl_names, mockup_by_tpl, ref_by_id)
+    tree_block += "</ul>\n"
 
     legacy_rows_meta: list[dict] = []
+    legacy_block = ""
     if legacy_unmapped and legacy_unmapped.get("items"):
-        html += "<h2>עמודי legacy שלא ממופים ל־legacyUrl בעץ (publish)</h2>\n"
-        html += f'<p class="subtitle">{escape(legacy_unmapped.get("generatedNoteHe", ""))}</p>\n'
-        html += '<div class="table-wrap"><table class="unmapped-table">\n'
-        html += (
+        legacy_block += "<h2>עמודי legacy שלא ממופים ל־legacyUrl בעץ (publish)</h2>\n"
+        legacy_block += f'<p class="subtitle">{escape(legacy_unmapped.get("generatedNoteHe", ""))}</p>\n'
+        legacy_block += '<div class="table-wrap"><table class="unmapped-table">\n'
+        legacy_block += (
             "<thead><tr><th>כותרת</th><th>wp id</th><th>קישור</th>"
             "<th>KMD</th><th>הערות KMD</th></tr></thead><tbody>\n"
         )
@@ -774,36 +942,42 @@ def page_site_tree(
             legacy_rows_meta.append({"wpId": wpid, "domKey": row_key})
             wid_esc = escape(wpid)
             lu = it.get("legacyUrl", "")
-            html += "<tr>"
-            html += f'<td class="unmapped-title-cell">{escape(it.get("titleHe", ""))}</td>'
-            html += f"<td>{wid_esc}</td>"
-            html += (
+            legacy_block += "<tr>"
+            legacy_block += f'<td class="unmapped-title-cell">{escape(it.get("titleHe", ""))}</td>'
+            legacy_block += f"<td>{wid_esc}</td>"
+            legacy_block += (
                 f'<td class="unmapped-link-cell">'
                 f'<a href="{escape(lu)}" target="_blank" rel="noopener" title="{escape(lu)}">'
                 f"פתח בעמוד הישן</a></td>"
             )
-            html += (
+            legacy_block += (
                 f'<td class="unmapped-kmd-cell">'
                 f'<label class="kmd-check"><input type="checkbox" id="legacy-kmd-wp-{escape(row_key)}"> סמן</label></td>'
             )
-            html += (
+            legacy_block += (
                 f'<td class="unmapped-notes-cell">'
                 f'<textarea id="legacy-kmd-notes-wp-{escape(row_key)}" rows="2" '
                 f'placeholder="הערות KMD…"></textarea></td>'
             )
-            html += "</tr>\n"
-        html += "</tbody></table></div>\n"
+            legacy_block += "</tr>\n"
+        legacy_block += "</tbody></table></div>\n"
         if len(legacy_unmapped["items"]) > 200:
-            html += f'<p class="subtitle">מוצגות 200 ראשונות מתוך {len(legacy_unmapped["items"])}.</p>\n'
+            legacy_block += f'<p class="subtitle">מוצגות 200 ראשונות מתוך {len(legacy_unmapped["items"])}.</p>\n'
 
-    html += '<div class="respondent-field feedback-field">\n'
-    html += '<label for="respondent">שם המשיב</label>\n'
-    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
-    html += "</div>\n"
-    html += '<div class="export-section">\n'
-    html += '<p>ייצוא JSON — <code>eyal-site-tree-feedback</code></p>\n'
-    html += '<button class="btn-export" type="button" id="btn-export-site-tree">ייצוא הערות עץ</button>\n'
-    html += "</div>\n"
+    export_block = '<div class="respondent-field feedback-field">\n'
+    export_block += '<label for="respondent">שם המשיב</label>\n'
+    export_block += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    export_block += "</div>\n"
+    export_block += '<div class="export-section">\n'
+    export_block += '<p>ייצוא JSON — <code>eyal-site-tree-feedback</code></p>\n'
+    export_block += '<button class="btn-export" type="button" id="btn-export-site-tree">ייצוא הערות עץ</button>\n'
+    export_block += "</div>\n"
+
+    html += hub_acc_section("st-overview", "סקירה, מטא־דאטה ודליברבלס", overview_block, open_default=True)
+    html += hub_acc_section("st-detail", "מבנה מפורט (עץ)", tree_block)
+    if legacy_block.strip():
+        html += hub_acc_section("st-legacy", "עמודי legacy שלא ממופים", legacy_block)
+    html += hub_acc_section("st-export", "ייצוא JSON", export_block)
 
     html += "</div>\n"
     node_ids = [n["id"] for n in nodes]
@@ -850,30 +1024,30 @@ def page_content_intake(
     tree_json = json.dumps(site_tree, ensure_ascii=False)
     tpl_json = json.dumps(page_templates, ensure_ascii=False)
 
+    intake_body = "<p>בחרו עמוד מהעץ. השדות משתנים לפי <strong>תבנית העמוד</strong>. קבצים גדולים — העלו ל־Drive ורשמו כאן <strong>שם קובץ או קישור</strong> בלבד.</p>\n"
+    intake_body += f'<script type="application/json" id="hub-data-site-tree">{tree_json}</script>\n'
+    intake_body += f'<script type="application/json" id="hub-data-page-templates">{tpl_json}</script>\n'
+    intake_body += '<div class="feedback-field"><label for="page-select">עמוד</label>\n'
+    intake_body += '<select id="page-select"></select></div>\n'
+    intake_body += '<div id="intake-fields"></div>\n'
+    intake_body += (
+        '<div class="feedback-field"><label for="drive-refs">קישור / שם קובץ ב־Drive (שורה לכל פריט)</label>\n'
+        '<textarea id="drive-refs" rows="3" placeholder="לדוגמה: 2026-03-29--home-copy--from-eyal.docx או קישור Google Drive"></textarea></div>\n'
+    )
+    intake_body += '<div class="respondent-field feedback-field">\n'
+    intake_body += '<label for="respondent">שם המשיב</label>\n'
+    intake_body += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    intake_body += "</div>\n"
+    intake_body += '<div class="export-section">\n'
+    intake_body += '<p>ייצוא JSON — <code>eyal-page-content-intake</code></p>\n'
+    intake_body += '<button class="btn-export" type="button" id="btn-export-content-intake">ייצוא קליטת תוכן</button>\n'
+    intake_body += "</div>\n"
+
     html = head("קליטת תוכן לעמוד — אייל עמית")
     html += nav("content-intake")
     html += '<div class="wrap">\n'
     html += "<h1>קליטת תוכן לעמוד</h1>\n"
-    html += "<p>בחרו עמוד מהעץ. השדות משתנים לפי <strong>תבנית העמוד</strong>. קבצים גדולים — העלו ל־Drive ורשמו כאן <strong>שם קובץ או קישור</strong> בלבד.</p>\n"
-
-    html += f'<script type="application/json" id="hub-data-site-tree">{tree_json}</script>\n'
-    html += f'<script type="application/json" id="hub-data-page-templates">{tpl_json}</script>\n'
-
-    html += '<div class="feedback-field"><label for="page-select">עמוד</label>\n'
-    html += '<select id="page-select"></select></div>\n'
-    html += '<div id="intake-fields"></div>\n'
-
-    html += '<div class="feedback-field"><label for="drive-refs">קישור / שם קובץ ב־Drive (שורה לכל פריט)</label>\n'
-    html += '<textarea id="drive-refs" rows="3" placeholder="לדוגמה: 2026-03-29--home-copy--from-eyal.docx או קישור Google Drive"></textarea></div>\n'
-
-    html += '<div class="respondent-field feedback-field">\n'
-    html += '<label for="respondent">שם המשיב</label>\n'
-    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
-    html += "</div>\n"
-    html += '<div class="export-section">\n'
-    html += '<p>ייצוא JSON — <code>eyal-page-content-intake</code></p>\n'
-    html += '<button class="btn-export" type="button" id="btn-export-content-intake">ייצוא קליטת תוכן</button>\n'
-    html += "</div>\n"
+    html += hub_acc_section("ci-main", "טופס קליטה לפי עמוד ותבנית", intake_body, open_default=True)
     html += "</div>\n"
 
     html += '<script src="assets/content-intake.js"></script>\n'
@@ -1288,20 +1462,84 @@ def page_index(
     roadmap: dict,
     tasks: dict,
     deliverables: Optional[dict],
+    links_data: dict,
+    site_tree: dict,
     generated_iso: str,
     hub_version: str = DEFAULT_HUB_VIEW_VERSION,
 ) -> str:
     milestones = roadmap.get("milestones", [])
-    done_count = sum(1 for m in milestones if m["status"] == "completed")
-    total_count = len(milestones)
-
-    all_tasks = []
+    all_tasks: list = []
     for sec in tasks.get("sections", []):
         all_tasks.extend(sec.get("tasks", []))
-    tasks_done = sum(1 for t in all_tasks if t.get("status") == "completed")
-    tasks_total = len(all_tasks)
+    open_count = sum(1 for t in all_tasks if t.get("status") != "completed")
+    done_count_tasks = sum(1 for t in all_tasks if t.get("status") == "completed")
+    recent_n = updates_recent_count(updates, 30)
+
+    current = roadmap.get("currentFocusId", "")
+    current_ms = next((m for m in milestones if m["id"] == current), None)
+    current_label = escape(current_ms["titleHe"]) if current_ms else "\u2014"
 
     time_il, time_utc = format_build_time_displays(generated_iso)
+    gate_text = index_gate_text(roadmap)
+
+    stats_html = '<div class="stats-row">\n'
+    stats_html += (
+        f'<div class="stat-card"><div class="stat-number">{open_count} · {done_count_tasks}</div>'
+        f'<div class="stat-label">משימות פתוחות · סגורות</div></div>\n'
+    )
+    stats_html += (
+        f'<div class="stat-card"><div class="stat-number">{recent_n}</div>'
+        f'<div class="stat-label">עדכונים ב־30 הימים האחרונים</div></div>\n'
+    )
+    stats_html += (
+        f'<div class="stat-card"><div class="stat-number" style="font-size:1.15rem">{escape(current)}</div>'
+        f'<div class="stat-label">מוקד נוכחי: {current_label}</div></div>\n'
+    )
+    stats_html += "</div>\n"
+    mp = roadmap.get("milestoneProgress") or {}
+    if mp.get("completedCount") is not None and mp.get("totalCount") is not None:
+        stats_html += (
+            f'<p class="subtitle">אבני דרך (מקובץ roadmap): '
+            f'{int(mp["completedCount"])}/{int(mp["totalCount"])} הושלמו.</p>\n'
+        )
+
+    gate_body = f'<p class="index-gate-text">{escape(gate_text)}</p>\n'
+    gate_body += (
+        f'<p class="subtitle"><a href="meeting-checklist.html">צ׳קליסט פגישה</a> · '
+        f'<a href="meeting.html">תדריך פגישה</a> · <a href="tasks.html">משימות, ייצוא JSON</a> · '
+        f'<a href="roadmap.html">לוג עדכונים (ביומן)</a> · '
+        f'<a href="site-tree.html">עץ אתר</a> · <a href="content-intake.html">קליטת תוכן</a> · '
+        f'<a href="files/team40/ea-legacy-curated/gallery.html">גלריית מדיה לגסי</a></p>\n'
+    )
+    gate_body += _intake_workflow_button_and_modal()
+    gate_body += (
+        '<p class="subtitle index-scope-note">תמונת מצב בכניסה. '
+        '<strong>משימות והחלטות</strong> — ב־<a href="tasks.html">משימות והחלטות</a>.</p>\n'
+    )
+
+    deliv_body = ""
+    if deliverables and deliverables.get("items"):
+        if deliverables.get("noteHe"):
+            deliv_body += f'<p class="subtitle">{escape(deliverables["noteHe"])}</p>\n'
+        deliv_body += '<ul class="deliverables-list">\n'
+        for it in deliverables_items_newest_first(deliverables):
+            href = it.get("href") or "#"
+            badge = deliverable_document_status_badge(it.get("documentStatus"))
+            deliv_body += "<li>\n"
+            deliv_body += (
+                f'<a href="{escape(href)}">{escape(it.get("titleHe", ""))}</a> {badge} — '
+                f'{escape(it.get("date", ""))} <span class="d-id">{escape(it.get("id", ""))}</span>\n'
+            )
+            if it.get("noteHe"):
+                deliv_body += f'<div class="deliverable-note">{escape(it["noteHe"])}</div>\n'
+            deliv_body += "</li>\n"
+        deliv_body += "</ul>\n"
+    else:
+        deliv_body = '<p class="subtitle">אין דליברבלס ברשימה.</p>\n'
+
+    links_body = html_links_from_json(links_data)
+    mock_body = html_mockup_index_accordion_inner()
+    tree_body = html_site_tree_teaser(site_tree.get("nodes", []))
 
     html = head("אייל עמית — ממשק מצב עבודה")
     html += nav("index")
@@ -1315,60 +1553,12 @@ def page_index(
     html += "</time></p>\n"
     html += "</div>\n"
     html += "<h1>אייל עמית — ממשק מצב עבודה</h1>\n"
-    html += f'<p class="subtitle">{escape(roadmap.get("summaryHe", ""))}</p>\n'
-    html += (
-        f'<p class="subtitle"><a href="meeting-checklist.html">צ׳קליסט פגישה (החלטות לפי סדר)</a>'
-        f' · <a href="tasks.html">משימות, ייצוא JSON</a>'
-        f' · <a href="site-tree.html">עץ אתר</a>'
-        f' · <a href="content-intake.html">קליטת תוכן</a>'
-        f' · <a href="files/team40/ea-legacy-curated/gallery.html">גלריית מדיה לגסי</a></p>\n'
-    )
-
-    html += _intake_workflow_button_and_modal()
-
-    html += '<div class="stats-row">\n'
-    html += f'<div class="stat-card"><div class="stat-number">{done_count}/{total_count}</div><div class="stat-label">אבני דרך הושלמו</div></div>\n'
-    html += f'<div class="stat-card"><div class="stat-number">{tasks_done}/{tasks_total}</div><div class="stat-label">משימות הושלמו</div></div>\n'
-
-    current = roadmap.get("currentFocusId", "")
-    current_ms = next((m for m in milestones if m["id"] == current), None)
-    current_label = escape(current_ms["titleHe"]) if current_ms else "\u2014"
-    html += f'<div class="stat-card"><div class="stat-number" style="font-size:1.2rem">{escape(current)}</div><div class="stat-label">מוקד נוכחי: {current_label}</div></div>\n'
-    html += "</div>\n"
-
-    html += (
-        '<p class="subtitle index-scope-note">תמונת מצב כללית בכניסה. '
-        '<strong>מסלול עבודה, מידע חסר והחלטות</strong> — ב־'
-        '<a href="tasks.html">משימות והחלטות</a>.</p>\n'
-    )
-
-    html += "<h2>עדכונים אחרונים</h2>\n"
-    for item in updates_items_newest_first(updates)[:5]:
-        html += '<div class="card">\n'
-        html += f'<div class="card-date">{escape(item["date"])}</div>\n'
-        html += f'<div class="card-title">{escape(item["titleHe"])}</div>\n'
-        html += f'<div class="card-body">{escape(item["bodyHe"])}</div>\n'
-        html += "</div>\n"
-
-    if deliverables and deliverables.get("items"):
-        html += "<h2>חומרים (קבצים)</h2>\n"
-        if deliverables.get("noteHe"):
-            html += f'<p class="subtitle">{escape(deliverables["noteHe"])}</p>\n'
-        html += "<ul class=\"deliverables-list\">\n"
-        for it in deliverables_items_newest_first(deliverables):
-            href = it.get("href") or "#"
-            html += "<li>\n"
-            html += (
-                f'<a href="{escape(href)}">{escape(it.get("titleHe", ""))}</a> — '
-                f'{escape(it.get("date", ""))} <span class="d-id">{escape(it.get("id", ""))}</span>\n'
-            )
-            if it.get("noteHe"):
-                html += f'<div class="deliverable-note">{escape(it["noteHe"])}</div>\n'
-            html += "</li>\n"
-        html += "</ul>\n"
-
-    html += html_mockup_index_sections()
-
+    html += hub_acc_section("idx-gate", "מצב ושער נוכחי", gate_body, open_default=True)
+    html += hub_acc_section("idx-stats", "סטטיסטיקה", stats_html)
+    html += hub_acc_section("idx-deliverables", "חומרים (דליברבלס)", deliv_body)
+    html += hub_acc_section("idx-links", "קישורים מהירים", links_body)
+    html += hub_acc_section("idx-mockups", "מוקאפים", f'<div id="mockups">\n{mock_body}</div>\n')
+    html += hub_acc_section("idx-sitetree", "עץ אתר (תקציר)", tree_body)
     html += "</div>\n"
     html += foot(generated_iso)
     return html
@@ -1450,57 +1640,53 @@ def _render_focus_section_table(section: dict) -> str:
     return html
 
 
-def page_roadmap(roadmap: dict, generated_iso: str) -> str:
+def page_roadmap(roadmap: dict, updates: dict, generated_iso: str) -> str:
     milestones = roadmap.get("milestones", [])
     current_id = roadmap.get("currentFocusId", "")
 
-    html = head("מפת דרכים — אייל עמית")
-    html += nav("roadmap")
-    html += '<div class="wrap">\n'
-    html += "<h1>מפת דרכים</h1>\n"
-    html += f'<p class="subtitle">{escape(roadmap.get("summaryHe", ""))}</p>\n'
-    html += (
+    rm_body = f'<p class="subtitle">{escape(roadmap.get("summaryHe", ""))}</p>\n'
+    rm_body += (
         '<p class="roadmap-dual-hint">שני מסלולים: <strong>נטיב אייל</strong> (תוכן ואישורים) '
         "ולמטה <strong>נטיב צוות</strong> (ביצוע טכני עם מזהי משימה).</p>\n"
     )
 
-    html += "<h2>אבני דרך (סקירה)</h2>\n"
-    html += '<div class="table-wrap"><table class="data">\n'
-    html += "<thead><tr><th>קוד</th><th>אבן דרך</th><th>סטטוס</th><th>פרטים</th></tr></thead>\n"
-    html += "<tbody>\n"
+    rm_body += "<h2>אבני דרך (סקירה)</h2>\n"
+    rm_body += '<div class="table-wrap"><table class="data">\n'
+    rm_body += "<thead><tr><th>קוד</th><th>אבן דרך</th><th>סטטוס</th><th>פרטים</th></tr></thead>\n"
+    rm_body += "<tbody>\n"
     for m in milestones:
         row_class = ' class="current"' if m["id"] == current_id else ""
-        html += f"<tr{row_class}>"
-        html += f"<td><strong>{escape(m['code'])}</strong></td>"
-        html += f"<td>{escape(m['titleHe'])}</td>"
-        html += f"<td>{status_html(m['status'])}</td>"
-        html += f"<td>{escape(m.get('detailHe', ''))}</td>"
-        html += "</tr>\n"
-    html += "</tbody></table></div>\n"
+        rm_body += f"<tr{row_class}>"
+        rm_body += f"<td><strong>{escape(m['code'])}</strong></td>"
+        rm_body += f"<td>{escape(m['titleHe'])}</td>"
+        rm_body += f"<td>{status_html(m['status'])}</td>"
+        rm_body += f"<td>{escape(m.get('detailHe', ''))}</td>"
+        rm_body += "</tr>\n"
+    rm_body += "</tbody></table></div>\n"
 
-    html += html_roadmap_eyal_narrative(roadmap.get("eyalNarrative") or {})
+    rm_body += html_roadmap_eyal_narrative(roadmap.get("eyalNarrative") or {})
 
     cob = roadmap.get("clientObligationsHe")
     if cob and isinstance(cob, list):
-        html += '<details class="roadmap-obligations-more">\n'
-        html += "<summary>תזכורת נוספת — רשימה קצרה (מסונכרנת למאגר)</summary>\n<ul>\n"
+        rm_body += '<details class="roadmap-obligations-more">\n'
+        rm_body += "<summary>תזכורת נוספת — רשימה קצרה (מסונכרנת למאגר)</summary>\n<ul>\n"
         for line in cob:
             if isinstance(line, str) and line.strip():
-                html += f"<li>{escape(line.strip())}</li>\n"
-        html += "</ul>\n"
-        html += (
+                rm_body += f"<li>{escape(line.strip())}</li>\n"
+        rm_body += "</ul>\n"
+        rm_body += (
             "<p class=\"subtitle\">פירוט מלא: "
             "<code>docs/project/EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md</code></p>\n"
         )
-        html += "</details>\n"
+        rm_body += "</details>\n"
 
     breakdown = roadmap.get("currentFocusBreakdown")
     if breakdown and breakdown.get("milestoneId") == current_id:
-        html += '<section class="roadmap-technical-track" aria-labelledby="roadmap-tech-h">\n'
-        html += '<h2 id="roadmap-tech-h">נטיב צוות — ביצוע טכני (פנימי)</h2>\n'
-        html += f"<h3 class=\"roadmap-tech-milestone\">{escape(breakdown['titleHe'])}</h3>\n"
-        html += f'<p class="roadmap-tech-intro">{escape(breakdown.get("introHe", ""))}</p>\n'
-        html += (
+        rm_body += '<section class="roadmap-technical-track" aria-labelledby="roadmap-tech-h">\n'
+        rm_body += '<h2 id="roadmap-tech-h">נטיב צוות — ביצוע טכני (פנימי)</h2>\n'
+        rm_body += f"<h3 class=\"roadmap-tech-milestone\">{escape(breakdown['titleHe'])}</h3>\n"
+        rm_body += f'<p class="roadmap-tech-intro">{escape(breakdown.get("introHe", ""))}</p>\n'
+        rm_body += (
             "<p class=\"subtitle\">מזהי <span class=\"d-id\">M2-T-*</span> למעקב צוות; "
             'לאייל: העיקר ב<a href="#roadmap-eyal-h">נטיב אייל</a> למעלה.</p>\n'
         )
@@ -1516,21 +1702,29 @@ def page_roadmap(roadmap: dict, generated_iso: str) -> str:
             secs = by_group.get(group_title)
             if not secs:
                 continue
-            html += f'<div class="roadmap-tech-group">\n<h3 class="roadmap-tech-group__title">{escape(group_title)}</h3>\n'
+            rm_body += f'<div class="roadmap-tech-group">\n<h3 class="roadmap-tech-group__title">{escape(group_title)}</h3>\n'
             for section in secs:
-                html += _render_focus_section_table(section)
-            html += "</div>\n"
+                rm_body += _render_focus_section_table(section)
+            rm_body += "</div>\n"
 
         for g_title, secs in by_group.items():
             if g_title in M2_ROADMAP_TECHNICAL_GROUP_ORDER:
                 continue
-            html += f'<div class="roadmap-tech-group">\n<h3 class="roadmap-tech-group__title">{escape(g_title)}</h3>\n'
+            rm_body += f'<div class="roadmap-tech-group">\n<h3 class="roadmap-tech-group__title">{escape(g_title)}</h3>\n'
             for section in secs:
-                html += _render_focus_section_table(section)
-            html += "</div>\n"
+                rm_body += _render_focus_section_table(section)
+            rm_body += "</div>\n"
 
-        html += "</section>\n"
+        rm_body += "</section>\n"
 
+    updates_body = html_updates_log_section(updates)
+
+    html = head("מפת דרכים — אייל עמית")
+    html += nav("roadmap")
+    html += '<div class="wrap">\n'
+    html += "<h1>מפת דרכים</h1>\n"
+    html += hub_acc_section("roadmap-main", "מפת דרכים, נטיבים והתקדמות", rm_body, open_default=True)
+    html += hub_acc_section("roadmap-updates", "לוג עדכונים", updates_body)
     html += "</div>\n"
     html += foot(generated_iso)
     return html
@@ -1699,6 +1893,76 @@ def _html_meeting_supplement_section(it: dict, step_i: int, step_total: int) -> 
     return html
 
 
+def page_meeting(brief: dict, generated_iso: str) -> str:
+    brief_json = json.dumps(brief, ensure_ascii=False)
+    date_s = escape(str(brief.get("meetingDate", "")))
+    title_s = escape(str(brief.get("titleHe", "")))
+
+    brief_body = f'<p class="subtitle"><strong>תאריך:</strong> <time datetime="{date_s}">{date_s}</time></p>\n'
+    brief_body += f"<h2>{title_s}</h2>\n"
+    goals = brief.get("goalsHe") or []
+    if goals:
+        brief_body += "<h3>מטרות</h3><ul>\n"
+        for g in goals:
+            if isinstance(g, str) and g.strip():
+                brief_body += f"<li>{escape(g.strip())}</li>\n"
+        brief_body += "</ul>\n"
+    agenda = brief.get("agendaHe") or []
+    if agenda:
+        brief_body += "<h3>סדר יום</h3><ol>\n"
+        for a in agenda:
+            if isinstance(a, str) and a.strip():
+                brief_body += f"<li>{escape(a.strip())}</li>\n"
+        brief_body += "</ol>\n"
+    odr = brief.get("openDecisionsRefs") or []
+    if odr:
+        brief_body += "<h3>החלטות פתוחות (ייחוס)</h3><ul>\n"
+        for r in odr:
+            brief_body += (
+                f'<li><span class="d-id">{escape(str(r))}</span> — '
+                f'<a href="tasks.html">משימות והחלטות</a></li>\n'
+            )
+        brief_body += "</ul>\n"
+    if brief.get("prepHe"):
+        brief_body += f'<h3>הכנה</h3><p>{escape(str(brief["prepHe"]))}</p>\n'
+    qlinks = brief.get("quickLinks") or []
+    if qlinks:
+        brief_body += "<h3>קישורים מהירים</h3><ul>\n"
+        for ql in qlinks:
+            if not isinstance(ql, dict):
+                continue
+            href = ql.get("href") or "#"
+            brief_body += f'<li><a href="{escape(href)}">{escape(ql.get("labelHe", ""))}</a></li>\n'
+        brief_body += "</ul>\n"
+
+    snap_body = (
+        '<p class="subtitle">לאחר הפגישה — ייצאו סיכום כ־<code>eyal-meeting-snapshot</code>.</p>\n'
+        '<div class="feedback-field"><label for="meeting-snapshot-body">סיכום הפגישה</label>\n'
+        '<textarea id="meeting-snapshot-body" rows="8" placeholder="מה הוחלט / מה נשאר פתוח"></textarea></div>\n'
+        '<p><button type="button" class="btn-export" id="btn-export-meeting-snapshot">'
+        "ייצוא סנאפשוט פגישה (JSON)</button></p>\n"
+    )
+
+    html = head("תדריך פגישה — אייל עמית")
+    html += nav("meeting")
+    html += '<div class="wrap">\n'
+    html += "<h1>תדריך פגישה</h1>\n"
+    html += '<div class="respondent-field feedback-field">\n'
+    html += '<label for="respondent">שם מייצא (בקובץ JSON)</label>\n'
+    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    html += "</div>\n"
+    html += f'<script type="application/json" id="hub-meeting-brief-data">{brief_json}</script>\n'
+    html += hub_acc_section("meeting-brief", "תדריך פגישה", brief_body, open_default=True)
+    html += hub_acc_section("meeting-snap", "ייצוא סנאפשוט", snap_body)
+    html += "</div>\n"
+    html += '<script src="assets/hub-form-exports.js"></script>\n'
+    html += f"""<script>
+HubFormExports.initMeetingSnapshot({{ exportType: {json.dumps(EXPORT_TYPE_MEETING_SNAPSHOT)} }});
+</script>\n"""
+    html += foot(generated_iso)
+    return html
+
+
 def page_meeting_checklist(
     decisions_data: dict,
     generated_iso: str,
@@ -1842,6 +2106,7 @@ def _html_task_page_decision_block(d: dict, ssot_answers: dict[str, dict]) -> st
 def page_tasks(
     tasks_data: dict,
     decisions_data: dict,
+    questions_data: dict,
     ssot_answers: dict[str, dict],
     generated_iso: str,
     eyal_pending: Optional[dict] = None,
@@ -1852,69 +2117,82 @@ def page_tasks(
     deferred_decisions = [d for d in decisions if d.get("status") == "deferred"]
     locked_decisions = [d for d in decisions if d.get("status") == "approved"]
 
-    scripts = '<script src="assets/feedback.js"></script>'
-    html = head("משימות והחלטות — אייל עמית")
-    html += nav("tasks")
-    html += '<div class="wrap">\n'
-    html += "<h1>משימות והחלטות</h1>\n"
-    html += html_eyal_pending_block(eyal_pending)
-
+    tasks_body = html_eyal_pending_block(eyal_pending)
     for section in tasks_data.get("sections", []):
-        html += f"<h2>{escape(section['titleHe'])}</h2>\n"
+        tasks_body += f"<h2>{escape(section['titleHe'])}</h2>\n"
         for task in section.get("tasks", []):
             priority = task.get("priorityHe", "")
             priority_html = PRIORITY_BADGE.get(priority, "")
-            html += '<div class="task-row">\n'
-            html += f'<div class="task-title">{status_html(task.get("status", "not_started"))} {escape(task["titleHe"])} {priority_html}</div>\n'
-            html += f'<div class="task-state">{escape(task.get("stateHe", ""))}</div>\n'
-            html += "</div>\n"
+            tasks_body += '<div class="task-row">\n'
+            tasks_body += (
+                f'<div class="task-title">{status_html(task.get("status", "not_started"))} '
+                f'{escape(task["titleHe"])} {priority_html}</div>\n'
+            )
+            tasks_body += f'<div class="task-state">{escape(task.get("stateHe", ""))}</div>\n'
+            tasks_body += "</div>\n"
 
-    html += "<h2>החלטות — דורשות קלט או אישור נוסף</h2>\n"
+    decisions_body = ""
     if decisions_data.get("introHe"):
-        html += f'<p class="subtitle">{escape(decisions_data["introHe"])}</p>\n'
+        decisions_body += f'<p class="subtitle">{escape(decisions_data["introHe"])}</p>\n'
+    decisions_body += "<h2>החלטות — דורשות קלט או אישור נוסף</h2>\n"
     if not pending_decisions:
-        html += (
+        decisions_body += (
             '<p class="subtitle">אין כרגע החלטות בסטטוס «ממתין» בקובץ הנתונים — '
             "ראו מקטעים למטה (נדחו / נעול).</p>\n"
         )
     for d in pending_decisions:
-        html += _html_task_page_decision_block(d, ssot_answers)
+        decisions_body += _html_task_page_decision_block(d, ssot_answers)
 
     if deferred_decisions:
-        html += "<h2>החלטות — נדחו לשלב מאוחר</h2>\n"
-        html += (
-            '<p class="subtitle">לא דורשות קלט כעת; רזולוציה למטה בכל פריט.</p>\n'
-        )
+        decisions_body += "<h2>החלטות — נדחו לשלב מאוחר</h2>\n"
+        decisions_body += '<p class="subtitle">לא דורשות קלט כעת; רזולוציה למטה בכל פריט.</p>\n'
         for d in deferred_decisions:
-            html += _html_task_page_decision_block(d, ssot_answers)
+            decisions_body += _html_task_page_decision_block(d, ssot_answers)
 
-    html += "<h2>החלטות נעולות (ייחוס)</h2>\n"
-    html += (
+    decisions_body += "<h2>החלטות נעולות (ייחוס)</h2>\n"
+    decisions_body += (
         '<p class="subtitle">אושרו ונסגרו; השדות למטה לייצוא היסטוריית תשובות אם נדרש.</p>\n'
     )
     for d in locked_decisions:
-        html += _html_task_page_decision_block(d, ssot_answers)
+        decisions_body += _html_task_page_decision_block(d, ssot_answers)
 
+    decisions_body += '<div class="export-section">\n'
+    decisions_body += "<p>ייצוא תשובות החלטות — <code>eyal-feedback</code></p>\n"
+    decisions_body += '<button class="btn-export" id="btn-export-json">ייצוא תשובות (החלטות)</button>\n'
+    decisions_body += "</div>\n"
+
+    questions_body = html_questions_form(questions_data)
+    drive_body = html_drive_intake_form_static()
+
+    scripts = '<script src="assets/feedback.js"></script>\n<script src="assets/hub-form-exports.js"></script>'
+    html = head("משימות והחלטות — אייל עמית")
+    html += nav("tasks")
+    html += '<div class="wrap">\n'
+    html += "<h1>משימות והחלטות</h1>\n"
     html += '<div class="respondent-field feedback-field">\n'
-    html += '<label for="respondent">שם המשיב</label>\n'
+    html += '<label for="respondent">שם למסמכי ייצוא JSON</label>\n'
     html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
     html += "</div>\n"
-
-    html += '<div class="export-section">\n'
-    html += '<p>ייצוא כל התשובות לקובץ JSON להעברה לצוות</p>\n'
-    html += '<button class="btn-export" id="btn-export-json">ייצוא תשובות</button>\n'
-    html += "</div>\n"
-
+    html += hub_acc_section("tasks-sec-tasks", "משימות", tasks_body, open_default=True)
+    html += hub_acc_section("tasks-sec-decisions", "החלטות (ייצוא eyal-feedback)", decisions_body)
+    html += hub_acc_section("tasks-sec-questions", "שאלות (ייצוא eyal-questions)", questions_body)
+    html += hub_acc_section("tasks-sec-drive", "קליטת קבצים — Drive (ייצוא eyal-drive-intake)", drive_body)
     html += "</div>\n"
 
     html += f"{scripts}\n"
     ids_json = json.dumps(decision_ids, ensure_ascii=False)
+    q_fields_json = json.dumps(questions_data.get("formFields", []), ensure_ascii=False)
     html += f"""<script>
 HubFeedback.init({{
   exportType: {json.dumps(EXPORT_TYPE)},
   defaultRespondent: {json.dumps(DEFAULT_RESPONDENT)},
   decisionIds: {ids_json}
 }});
+HubFormExports.initQuestions({{
+  exportType: {json.dumps(EXPORT_TYPE_QUESTIONS)},
+  formFields: {q_fields_json}
+}});
+HubFormExports.initDriveIntake({{ exportType: {json.dumps(EXPORT_TYPE_DRIVE_INTAKE)} }});
 </script>\n"""
 
     html += foot(generated_iso)
@@ -2047,6 +2325,9 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     updates = load_json(DATA_DIR / "updates.json")
     tasks = load_json(DATA_DIR / "tasks.json")
     decisions = load_json(DATA_DIR / "decisions.json")
+    links_data = load_json(DATA_DIR / "links.json")
+    questions_data = load_json(DATA_DIR / "questions-prompts.json")
+    meeting_brief = load_json(DATA_DIR / "meeting-brief.json")
     deliverables = load_json_optional(DATA_DIR / "deliverables.json")
     eyal_pending = load_json_optional(DATA_DIR / "eyal-pending.json")
     hub_ver = hub_view_version(DATA_DIR / "hub-version.json")
@@ -2073,6 +2354,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         "hub-base.css",
         "hub.css",
         "feedback.js",
+        "hub-form-exports.js",
         "site-tree-export.js",
         "content-intake.js",
     ):
@@ -2099,12 +2381,19 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
             roadmap,
             tasks,
             deliverables,
+            links_data,
+            site_tree,
             generated_iso,
             hub_ver,
         ),
         encoding="utf-8",
     )
-    (dist_dir / "roadmap.html").write_text(page_roadmap(roadmap, generated_iso), encoding="utf-8")
+    (dist_dir / "roadmap.html").write_text(
+        page_roadmap(roadmap, updates, generated_iso), encoding="utf-8"
+    )
+    (dist_dir / "meeting.html").write_text(
+        page_meeting(meeting_brief, generated_iso), encoding="utf-8"
+    )
     (dist_dir / "meeting-checklist.html").write_text(
         page_meeting_checklist(decisions, generated_iso, eyal_pending), encoding="utf-8"
     )
@@ -2122,7 +2411,15 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
             page_content_index(content_index, generated_iso), encoding="utf-8"
         )
     (dist_dir / "tasks.html").write_text(
-        page_tasks(tasks, decisions, ssot_answers, generated_iso, eyal_pending), encoding="utf-8"
+        page_tasks(
+            tasks,
+            decisions,
+            questions_data,
+            ssot_answers,
+            generated_iso,
+            eyal_pending,
+        ),
+        encoding="utf-8",
     )
     (dist_dir / "pending.html").write_text(page_pending_redirect(), encoding="utf-8")
 
@@ -2147,6 +2444,9 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         "tasks.json",
         "decisions.json",
         "deliverables.json",
+        "links.json",
+        "questions-prompts.json",
+        "meeting-brief.json",
         "page-templates.json",
         "legacy-unmapped.json",
         "content-index.json",

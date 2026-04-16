@@ -68,11 +68,12 @@
 | **תקשורת ודוחות צוותים** | [`_communication/`](../_communication/README.md) — כל צוות כותב רק לתיקיית `team_XX` שלו · **פרומט הקמה לפי צוות:** [אונבורד ופרומט ראשון](../_communication/README.md#onboarding-prompts) |
 | **WordPress Agent Skills (Cursor)** | [`.cursor/skills/`](../.cursor/skills/README.md) — סקילים ממאגר WordPress הרשמי + בלוקים/FSE |
 | **תקן סביבת סוכן (מחייב)** | [`docs/sop/AGENT-WORKSPACE-STANDARD.md`](sop/AGENT-WORKSPACE-STANDARD.md) — הרחבות, MCP דפדפן, סקילים, זרימת עבודה |
+| **MCP דפדפן — פיצול workspace ב-Cursor** | [`docs/sop/CURSOR-MCP-BROWSER-WORKSPACE.md`](sop/CURSOR-MCP-BROWSER-WORKSPACE.md) — למה `cursor-ide-browser` לעיתים חסר; symlink + [`scripts/ensure_cursor_mcp_ide_browser_symlink.sh`](../scripts/ensure_cursor_mcp_ide_browser_symlink.sh) |
 | **הרחבות Cursor מומלצות** | [`.vscode/extensions.json`](../.vscode/extensions.json) (Intelephense, EditorConfig, PHP Debug, GitLens); **מול ~8 המלצות ב-Cursor:** [§3.4](sop/AGENT-WORKSPACE-STANDARD.md); **איך להתקין:** [§3.1–3.2](sop/AGENT-WORKSPACE-STANDARD.md) (⌘⇧P → `Extensions: Show Recommended Extensions`); דיבוג PHP: [`.vscode/launch.json`](../.vscode/launch.json) + Xdebug בסביבה |
 
 ### 3.1 שורש workspace ב-Cursor (חשוב)
 
-כללי **`.cursor/rules`** נטענים לפי **שורש ה-workspace**. **מומלץ** לפתוח ב-Cursor את התיקייה **`EyalAmit.co.il-2026`** כ־Open Folder. אם ה-workspace הוא רק תיקיית האב **`Eyal Amit`**, הכללים תחת `.cursor/rules/` **לא** יופעלו — פתחו את תת־התיקייה כפרויקט או קראו [`WORKSPACE-POINTER.md`](WORKSPACE-POINTER.md).
+כללי **`.cursor/rules`** נטענים לפי **שורש ה-workspace**. **מומלץ** לפתוח ב-Cursor את התיקייה **`EyalAmit.co.il-2026`** כ־Open Folder. אם ה-workspace הוא רק תיקיית האב **`Eyal Amit`**, הכללים תחת `.cursor/rules/` **לא** יופעלו — פתחו את תת־התיקייה כפרויקט או קראו [`WORKSPACE-POINTER.md`](WORKSPACE-POINTER.md). **Eyal Client Hub V2:** סשני Cursor לצוותים 100 / 10 / 50 חייבים אותו שורש; פרומטים: [`EYAL-HUB-V2-ACTIVATION-PROMPTS-ALL-TEAMS-2026-04-15.md`](../_COMMUNICATION/team_100/EYAL-HUB-V2-ACTIVATION-PROMPTS-ALL-TEAMS-2026-04-15.md).
 
 ## 4. מצב שלב נוכחי (מתעדכן ב-SSOT)
 

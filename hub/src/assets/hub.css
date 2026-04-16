@@ -854,3 +854,118 @@ body {
     min-height: 2.5rem;
   }
 }
+
+/* LOD400 §3 — אקורדיון אחיד */
+.hub-acc {
+  margin: 0 0 0.85rem;
+  border: 1px solid rgba(var(--eyal-accent-rgb), 0.28);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  overflow: hidden;
+}
+.hub-acc > .hub-acc__summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.65rem 0.85rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--eyal-chocolate);
+  background: color-mix(in srgb, var(--eyal-sand) 22%, white);
+}
+.hub-acc > .hub-acc__summary::-webkit-details-marker {
+  display: none;
+}
+.hub-acc > .hub-acc__summary::before {
+  content: "▸ ";
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform 0.15s ease;
+}
+.hub-acc[open] > .hub-acc__summary::before {
+  transform: rotate(-90deg);
+}
+.hub-acc > .hub-acc__summary:focus {
+  outline: none;
+}
+.hub-acc > .hub-acc__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.hub-acc__body {
+  padding: 0.75rem 0.9rem 1rem;
+  border-top: 1px solid rgba(var(--eyal-accent-rgb), 0.15);
+}
+
+/* §4.2 — רמזור דליברבלס */
+.deliverable-status {
+  display: inline-block;
+  margin-inline-start: 0.35rem;
+  padding: 0.12rem 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.deliverable-status--draft {
+  background: rgba(var(--eyal-olive-rgb), 0.18);
+  color: var(--eyal-olive);
+}
+.deliverable-status--final {
+  background: rgba(var(--eyal-accent-rgb), 0.16);
+  color: var(--eyal-chocolate);
+}
+.deliverable-status--superseded {
+  background: rgba(120, 120, 120, 0.2);
+  color: #555;
+}
+
+.hub-links-cat {
+  margin: 0 0 0.75rem;
+}
+.hub-links-cat__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.hub-links-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hub-links-list li {
+  margin-bottom: 0.4rem;
+}
+
+.hub-site-tree-teaser {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.hub-site-tree-teaser ul {
+  margin: 0.4rem 0 0;
+  padding-inline-start: 1.1rem;
+}
+
+.form-grid-dynamic .feedback-field {
+  margin-bottom: 0.65rem;
+}
+.form-grid-dynamic label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.form-grid-dynamic input[type="text"],
+.form-grid-dynamic textarea,
+.form-grid-dynamic select {
+  width: 100%;
+  max-width: 42rem;
+  box-sizing: border-box;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--eyal-accent-rgb), 0.35);
+  font: inherit;
+}
+.form-grid-dynamic textarea {
+  min-height: 5rem;
+  resize: vertical;
+}

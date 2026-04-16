@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "introHe": "שאלות לצוות — מלאו וייצאו JSON להעלאה לדרייב או משלוח במייל. השדות נשמרים במבנה eyal-questions.",
+  "formFields": [
+    {
+      "id": "topic",
+      "labelHe": "נושא",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "urgency",
+      "labelHe": "דחיפות",
+      "type": "select",
+      "optionsHe": ["נמוכה", "בינונית", "גבוהה"]
+    },
+    {
+      "id": "relatedPageId",
+      "labelHe": "עמוד/צומת (אופציונלי)",
+      "type": "text"
+    },
+    {
+      "id": "body",
+      "labelHe": "תיאור השאלה",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "driveFileName",
+      "labelHe": "שם קובץ בדרייב (לזיהוי)",
+      "type": "text"
+    },
+    {
+      "id": "attachmentDeclared",
+      "labelHe": "צורף קובץ בדרייב",
+      "type": "checkbox"
+    }
+  ],
+  "exportType": "eyal-questions"
+}

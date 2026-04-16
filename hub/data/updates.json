@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "UPD-2026-04-15-HUB-V2-LOD400-MANDATES",
+      "date": "2026-04-15",
+      "titleHe": "Hub — אפיון V2 (LOD400) + מנדטים לצוותים 10 / 50 / 90",
+      "bodyHe": "פורסמו מסמכי ארכיטקטורה: EYAL-CLIENT-HUB-V2-LOD400-2026-04-15.md (אקורדיון, דשבורד, שאלות, פגישה, אוטומציה מקומית), מנדטי יישום/QA/ולידציה, נספח Eyal מעודכן, פלייבוק HUB-CANONICAL-UPDATE-PLAYBOOK.md, סקריפטים hub_validate_hub_data.py ו-hub_check_dist_links.py. מימוש HTML/בילד — לפי מנדט צוות 10; עד אז הממשק הקיים נשאר."
+    },
+    {
       "id": "UPD-2026-04-12-S002-WP003-SERVICES-LIVE",
       "date": "2026-04-12",
       "titleHe": "עמודי שירותים חיים בסטייג׳ינג — טיפול בדיג׳רידו + השיטה (cbDIDG)",

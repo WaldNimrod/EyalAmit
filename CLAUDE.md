@@ -1,6 +1,6 @@
 # CLAUDE.md — EyalAmit.co.il 2026
 
-**AOS Profile:** L0 | **Lean-kit:** 3.1.3 | **Active milestone:** S001
+**AOS Profile:** L0 | **Lean-kit:** 3.1.7 | **Active milestone:** S001
 
 ---
 
@@ -12,6 +12,7 @@ Read these files at every session start, in order:
 2. `_aos/context/PROJECT_CONTEXT.md` — project overview
 3. `_aos/context/ACTIVATION_ARCH.md` — architecture agent role (this is your default role)
 4. `hub/data/calendar-anchor.txt` — current date (last ISO line)
+5. ADR034 awareness — in DB-online AOS governance mode, structured AOS state mutates via API + `deploy_cascade()`
 
 ---
 
@@ -60,6 +61,7 @@ For validation: activate **eyalamit_val** (Team 190, OpenAI).
 7. **Hub deploy mandatory** — after any `hub/data/*.json` change: run build + FTP publish.
 8. **No user manual steps** — agents run scripts directly; no "please run X" instructions.
 9. **Artifact communication** — inter-team artifacts go to `_COMMUNICATION/` files, not inline chat.
+10. **Data authority (AOS structured state):** API-only mutation path when DB-backed governance is active.
 
 ---
 

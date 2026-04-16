@@ -1,0 +1,27 @@
+# דוגמה — מיפוי קאנון (dev-time) → שדות ב-hub/data
+# העתיקו ל-hub/canon-map.yaml וערכו; אל תחייבו קומיט אם לא בשימוש.
+# קריאה רק ע"י סקריפטים מקומיים — לא מהדפדפן.
+
+version: 1
+project: EyalAmit2026
+
+# דוגמאות (שמות שדות לפי הצורך — לממש בסקריפט sync עתידי)
+mappings:
+  - id: roadmap_summary
+    description: "תקציר מיקוד מ-PROJECT-ENTRY או מקטע ב-SSOT"
+    source:
+      type: markdown_section
+      path: docs/PROJECT-ENTRY.md
+      heading_contains: "מצב שלב נוכחי"
+    target:
+      file: hub/data/roadmap.json
+      json_pointer: /summaryHe
+    transform: strip_and_truncate
+    max_chars: 500
+
+  - id: hub_version_bump
+    description: "רמז לעדכון ידני של hub-version.json אחרי שינוי מהותי"
+    source: manual
+    target:
+      file: hub/data/hub-version.json
+      json_pointer: /hubVersion

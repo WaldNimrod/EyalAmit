@@ -3,6 +3,8 @@
 **תאריך עדכון:** 2026-04-03 (Hub Standard v1.1 — מקור יחיד `hub/`)  
 **נוהל ארגוני קנוני:** [`docs/CLIENT_HUB_STANDARD_v1.md`](../docs/CLIENT_HUB_STANDARD_v1.md) · **נספח Eyal:** [`docs/CLIENT_HUB_APPENDIX_EYAL.md`](../docs/CLIENT_HUB_APPENDIX_EYAL.md)
 
+**פלייבוק עדכון קצר (חסכון בטוקנים):** [`hub/HUB-CANONICAL-UPDATE-PLAYBOOK.md`](HUB-CANONICAL-UPDATE-PLAYBOOK.md) — רצעדים קבועים לפני כל פריסה.
+
 **מיקום ממשק (מקור בנייה):** **`hub/`** בשורש המאגר — `hub/data/`, `hub/src/`, פלט `hub/dist/`.  
 **SSOT:** **`hub/ssot/`** — `manifest.json`, `responses/*.json`.
 
