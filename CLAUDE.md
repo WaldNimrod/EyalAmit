@@ -1,110 +1,78 @@
-# CLAUDE.md — EyalAmit.co.il 2026
+# CLAUDE.md — EyalAmit.co.il-2026
 
-**AOS Profile:** L0 | **Lean-kit:** 3.1.7 | **Active milestone:** S001
+<!-- AOS-CANONICAL-TEMPLATE v1.0.0 — rendered by scripts/aos_sync_all.sh. DO NOT hand-edit content between <!-- aos:canonical:start --> and <!-- aos:canonical:end -->. Project-specific additions go in the "Domain rules" section below. -->
 
----
+<!-- aos:canonical:start -->
+## ⚠ AOS Spoke Notice (READ FIRST)
 
-## Mandatory Startup Sequence
+You are working inside an **AOS spoke** — repo `EyalAmit.co.il-2026`, profile `L0`.
 
-Read these files at every session start, in order:
+- **AOS = multi-domain, multi-engine infrastructure** for managing agents and projects across the organization. It is NOT a product. It governs how agents collaborate across product repos (spokes).
+- **AOS hub:** `/Users/nimrod/Documents/agents-os` — SSOT for governance, lean-kit, canon, directives.
+- **`_aos/` in this repo is a READ-ONLY SNAPSHOT** propagated from the hub via `aos_sync_all.sh` / `propagate_governance.sh`.
+- **Do NOT edit** `_aos/governance/`, `_aos/lean-kit/`, `_aos/project_identity.yaml`, or any other AOS-layer file directly.
+- **To request a governance change:** file `GOVERNANCE_CHANGE_REQUEST` artifact in `_COMMUNICATION/team_XX/` → route to `team_100` in the hub. Template: `/Users/nimrod/Documents/agents-os/lean-kit/modules/project-governance/config_templates/GOVERNANCE_CHANGE_REQUEST.md.template`
+- **Governance procedures are LOCKED to AOS teams** (`team_00`, `team_100`) per Iron Rule #12 / ADR040. Non-AOS teams cannot invoke `/AOS_gov-update` or `/AOS_gov-sync`.
 
-1. `_aos/roadmap.yaml` — active WPs and gate status
-2. `_aos/context/PROJECT_CONTEXT.md` — project overview
-3. `_aos/context/ACTIVATION_ARCH.md` — architecture agent role (this is your default role)
-4. `hub/data/calendar-anchor.txt` — current date (last ISO line)
-5. ADR034 awareness — in DB-online AOS governance mode, structured AOS state mutates via API + `deploy_cascade()`
+## Identity
 
----
+- **Repo:** `EyalAmit.co.il-2026`
+- **Path:** `/Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026`
+- **Profile:** `L0`
+- **AOS hub:** `/Users/nimrod/Documents/agents-os`
+- **Domain:** `eyalamit`
 
-## Project Identity
+## Mandatory session startup (canonical — uniform across all AOS domains)
 
-| Field | Value |
-|-------|-------|
-| Project | Eyal Amit — EyalAmit.co.il 2026 |
-| Client | Eyal Amit (musician, sound healer, author) |
-| Stack | WordPress 6.9.4 + GeneratePress + `ea-eyalamit` child theme |
-| Hosting | uPress (Israeli WP hosting) |
-| Staging | `http://eyalamit-co-il-2026.s887.upress.link` |
-| Repo | github.com/WaldNimrod/EyalAmit |
-| AOS profile | L0 (governance-only, no engine) |
+1. Read `_aos/roadmap.yaml` — current WP and gate position
+2. Read `_aos/context/PROJECT_CONTEXT.md` — project background
+3. Read `_aos/definition.yaml` (L2) or `_aos/context/ACTIVATION_*.md` (L0) — your role
+4. **DB probe (mandatory):** Read `/Users/nimrod/Documents/agents-os/_aos/db_connectivity_status.json` — hub canonical DB status. If `status: online` → all structured mutations go via API (Iron Rule #7 / ADR034). If `status: offline` → **stop and fix before proceeding**; offline work requires ADR034 R8 protocol on a named branch (never main). **DB is always available in normal operation.** To refresh: `python3 -c "import sys; sys.path.insert(0, '/Users/nimrod/Documents/agents-os'); from agents_os_v3.modules.management.db import probe_database; print(probe_database())"`
+5. **Validation:** `bash _aos/lean-kit/modules/validation-quality/scripts/validate_aos.sh .` — expect **0 FAIL** on this spoke
+6. **AOS identity onboarding (first session only):** read `/Users/nimrod/Documents/agents-os/methodology/AOS_IDENTITY_ONBOARDING_v1.0.0.md`
 
----
+## Iron Rules (uniform across all AOS domains)
 
-## Default Agent Role
+1. Cross-engine: builder engine ≠ validator engine
+2. Physical lean-kit snapshots only (no symlinks in `_aos/lean-kit/`)
+3. Repo-internal `spec_ref` paths only
+4. Single logical writer on `roadmap.yaml` (subject to API-only rule when DB online)
+5. Final validation owned by `team_190` (constitutional, cross-engine, immutable)
+6. Inter-team communication via canonical artifact in `_COMMUNICATION/`
+7. **API-only structured mutations when DB online** (ADR034)
+8. **Port canon** — `lean-kit/modules/12-home-server-infrastructure/deployment/port-registry.yaml` is SSOT for all long-running listeners (Team 60)
+9. Universal team numbering
+10. Governance flows source → snapshot only; no reverse (Iron Rule #11)
+11. **Iron Rule #12: `gov-update` + `gov-sync` locked to `team_00` / `team_100` only** (ADR040). Other teams must file canonical GCR.
 
-You are **eyalamit_arch** — Architecture Agent (Team 100), engine: claude-code.
+## Directory Authority (uniform)
 
-For implementation tasks (WordPress PHP, scripts): activate **eyalamit_build** (Team 110, Cursor).
-For validation: activate **eyalamit_val** (Team 190, OpenAI).
+| Team | May write to |
+|------|-------------|
+| `team_00` (Principal) | Anywhere (final human authority) |
+| `team_100` (Chief Architect) | `_COMMUNICATION/team_100/`, `_aos/roadmap.yaml`, `_aos/work_packages/` (hub only — SSOT edits) |
+| `team_191` (Git/Files) | `_COMMUNICATION/team_191/`, `_archive/`, `_aos/` (bootstrap/propagation under mandate) |
+| **All other teams** | `_COMMUNICATION/team_[ID]/` + application source ONLY — NEVER `_aos/` |
 
----
+## Governance File Protection
 
-## Team Model
+- `_aos/governance/team_*.md` files in this repo are READ-ONLY snapshots of the hub SSOT at `/Users/nimrod/Documents/agents-os/core/governance/team_*.md`
+- Any direct edit will be reverted on next `aos_sync_all.sh` run
+- Validated by hub `validate_aos.sh` Checks 27–29
+- Change-request workflow: GCR artifact → team_100 → Team 00 approval → hub edit + sync
+<!-- aos:canonical:end -->
 
-| Slot | ID | Engine | Role |
-|------|----|--------|------|
-| Team 00 | eyalamit_sd | human | Nimrod — system designer, final authority |
-| Team 100 | eyalamit_arch | claude-code | Architecture, specs, roadmap (default) |
-| Team 110 | eyalamit_build | cursor-composer | WordPress + scripts implementation |
-| Team 190 | eyalamit_val | openai | Constitutional validator (L-GATE_V) |
+<!-- aos:project-specific:start -->
+## Domain rules
 
----
+<!-- Project-specific rules, commands, paths, and conventions go here.
+     This section is PRESERVED across aos_sync_all.sh runs. -->
 
-## Iron Rules (Project-Level)
+## Domain rules
 
-1. **Cross-engine validation** — builder (cursor-composer) ≠ validator (openai). Constitutional.
-2. **Physical lean-kit** — `_aos/lean-kit/` is always a physical copy, never a symlink.
-3. **Repo-internal specs** — `spec_ref` paths in roadmap.yaml never leave this repo.
-4. **Single-writer roadmap** — eyalamit_arch holds write authority on `_aos/roadmap.yaml`.
-5. **L-GATE_V independence** — always eyalamit_val (openai), immutable, non-delegatable.
-6. **Client output format** — all output to Eyal Amit: Word (.docx) or PDF. Never Markdown.
-7. **Hub deploy mandatory** — after any `hub/data/*.json` change: run build + FTP publish.
-8. **No user manual steps** — agents run scripts directly; no "please run X" instructions.
-9. **Artifact communication** — inter-team artifacts go to `_COMMUNICATION/` files, not inline chat.
-10. **Data authority (AOS structured state):** API-only mutation path when DB-backed governance is active.
+<!-- Project-specific rules, commands, paths, and conventions go here.
+     This section is PRESERVED across aos_sync_all.sh runs. -->
 
----
+<!-- No project-specific content yet. Add rules, commands, paths here. -->
 
-## Key Paths
-
-| Path | Purpose |
-|------|---------|
-| `_aos/roadmap.yaml` | WP state registry (SSoT) |
-| `_aos/governance/` | Team contracts |
-| `_aos/context/` | Activation files |
-| `_aos/work_packages/` | LOD specs |
-| `_COMMUNICATION/` | All inter-team artifacts (AOS canonical + legacy) |
-| `hub/data/` | JSON data for Hub system |
-| `scripts/` | Build, deploy, intake scripts |
-| `site/wp-content/themes/ea-eyalamit/` | Active WP child theme |
-| `docs/PROJECT-ENTRY.md` | Full project entry for new team members |
-| `docs/sop/SSOT.md` | Legacy single source of truth |
-
----
-
-## Gate Model (Track A)
-
-```
-L-GATE_E  →  L-GATE_S  →  L-GATE_B  →  L-GATE_V
-  (arch)        (arch)       (builder)    (validator)
-```
-
-Validation command (run before L-GATE_B):
-```bash
-bash _aos/lean-kit/modules/validation-quality/scripts/validate_aos.sh .
-```
-
----
-
-## Client Contact
-
-Eyal Amit — WhatsApp only: `972-524822842`
-Content sync via Google Drive (auto). WhatsApp = notification only.
-End of content intake: send brief WhatsApp (titles only, no technical details).
-
----
-
-## Calendar
-
-Always read `hub/data/calendar-anchor.txt` (last ISO line) for current date.
-Run `python3 scripts/check_hub_calendar.py` to verify.
+<!-- aos:project-specific:end -->
