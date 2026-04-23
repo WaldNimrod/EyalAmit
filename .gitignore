@@ -33,3 +33,5 @@ _COMMUNICATION/**/*.mp4
 _COMMUNICATION/**/*.mov
 _COMMUNICATION/**/*.psd
 _COMMUNICATION/**/*.pdf
+# Exception: NotebookLM PDF packages are tracked (source documents, not media)
+!_COMMUNICATION/team_100/**/*.pdf
