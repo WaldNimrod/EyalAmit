@@ -8,7 +8,7 @@ to_team: team_100 (Architect)
 parent_handoff: ./HANDOFF_SELF_100_WP-W2-01-STAGE-A_2026-05-26_v1.md
 parent_decision: ../team_00/DECISION_EYAL_MEETING_CLOSURE_2026-05-26_v1.md (§7)
 lod: 200 (this mandate); produces LOD400 deliverable
-profile: L2
+profile: L0
 ---
 
 # מנדט team_100 — Stage A (Atoms-First LOD400)

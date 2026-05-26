@@ -41,12 +41,13 @@
       --ea-accent-strong: var(--ea-brick);
       --ea-text:          var(--ea-ink);
       --ea-text-muted:    var(--ea-earth);
+      --ea-text-body:     #5A3826;
 
       /* UI backgrounds */
       --ea-bg:     #FAF8F5;
       --ea-bg-alt: #F3EEE8;
       --ea-line:   rgba(216,199,181,0.35);
-      --ea-muted:  #A8A19B;
+      --ea-muted:  #6F635A;  /* darkened from #A8A19B for WCAG AA on cream backgrounds */
 
       /* Typography */
       --ea-font: 'Heebo', -apple-system, Arial, sans-serif;
@@ -124,20 +125,22 @@
       66%       { transform: translateX(-6px) translateY(6px); }
     }
 
-    /* Entrance animations */
+    /* Entrance animations — transform-only (no opacity ramp) to keep text
+       contrast WCAG-conformant during animation; prefers-reduced-motion
+       still disables transforms entirely via §2.4 below. */
     @keyframes ea-fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { transform: translateY(20px); }
+      to   { transform: translateY(0); }
     }
 
     @keyframes ea-breathReveal {
-      from { opacity: 0; transform: scale(0.995) translateY(10px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
+      from { transform: scale(0.995) translateY(10px); }
+      to   { transform: scale(1) translateY(0); }
     }
 
     @keyframes ea-slideIn-rtl {
-      from { opacity: 0; transform: translateX(32px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from { transform: translateX(32px); }
+      to   { transform: translateX(0); }
     }
 
     /* Entrance utility classes */
@@ -544,15 +547,6 @@
       animation-delay: 0.7s;
     }
 
-    .ea-hero__controls {
-      position: absolute;
-      top: calc(var(--ea-nav-height) + 16px);
-      inset-inline-start: var(--ea-space-4);
-      display: flex;
-      gap: var(--ea-space-2);
-      z-index: 3;
-    }
-
     @media (max-width: 1023px) {
       .ea-hero__title { font-size: 2.4rem; }
     }
@@ -658,7 +652,7 @@
       font-weight: 300;
       font-size: 1.05rem;
       line-height: 1.9;
-      color: var(--ea-earth);
+      color: var(--ea-text-body);
       max-width: 65ch;
     }
     .ea-section-intro__body p {
@@ -1180,7 +1174,7 @@
       font-weight: 300;
       font-size: 1.05rem;
       line-height: 1.9;
-      color: var(--ea-earth);
+      color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-5) 0;
     }
 
@@ -1193,19 +1187,19 @@
       display: inline-flex;
       align-items: center;
       gap: var(--ea-space-1);
-      background: #25D366;
+      background: #0F7A3F;
       color: #fff;
       border-radius: var(--ea-radius-pill);
       padding: 12px 20px;
       text-decoration: none;
       font-family: var(--ea-font);
-      font-size: 0.78rem;
-      font-weight: 400;
+      font-size: 0.95rem;
+      font-weight: 700;
       animation: breathe-fast 8s ease-in-out infinite;
       transition: box-shadow var(--ea-dur-fast), background var(--ea-dur-fast);
     }
     .ea-whatsapp-float:hover {
-      background: #1ebe5d;
+      background: #0C6A37;
       box-shadow: 0 4px 16px rgba(37,211,102,0.3);
     }
     .ea-whatsapp-float:focus-visible {
@@ -1279,7 +1273,7 @@
     .ea-contact-form__note {
       font-family: var(--ea-font);
       font-size: 0.78rem;
-      color: var(--ea-muted);
+      color: var(--ea-text-body);
       margin-top: var(--ea-space-3);
     }
 
@@ -1326,7 +1320,7 @@
       font-weight: 300;
       font-size: 0.9rem;
       line-height: 1.85;
-      color: var(--ea-earth);
+      color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-4) 0;
     }
 
@@ -1358,11 +1352,11 @@
     }
     .ea-footer__location {
       font-family: var(--ea-font);
-      font-weight: 200;
-      font-size: 0.58rem;
+      font-weight: 400;
+      font-size: 0.72rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--ea-muted);
+      color: rgba(255,255,255,0.85);
       margin: 0 0 var(--ea-space-6) 0;
     }
     .ea-footer__social {
@@ -1417,8 +1411,8 @@
     .ea-footer__copy {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.3);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.78);
       margin: 0;
     }
     .ea-footer__divider {
@@ -1584,10 +1578,6 @@
         </div>
       </div>
 
-      <!-- Controls (sound toggle positioned top-left in RTL = top-right visually) -->
-      <div class="ea-hero__controls" aria-label="פקדי שמע">
-        <!-- Sound toggle composited here too for hero context -->
-      </div>
     </section>
 
     <!-- ============================================================
@@ -2069,7 +2059,7 @@
         </div>
         <figure class="ea-bio-block__figure">
           <!-- Portrait image placeholder — real webp to be added in WP -->
-          <span class="ea-bio-block__portrait-placeholder" aria-label="תמונת אייל עמית"></span>
+          <span class="ea-bio-block__portrait-placeholder" role="img" aria-label="תמונת אייל עמית"></span>
         </figure>
       </div>
     </section>

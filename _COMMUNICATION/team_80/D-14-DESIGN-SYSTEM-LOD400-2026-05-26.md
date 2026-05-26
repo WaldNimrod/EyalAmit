@@ -1,13 +1,17 @@
 ---
 id: D-14-DESIGN-SYSTEM-LOD400-2026-05-26
 title: D-14 Design System — LOD400 Spec (Atoms-First, Wave2 SSOT)
-status: DRAFT — pending QA Gate 2
+status: FINAL
 date: 2026-05-26
 authored_by: team_100 (Opus orchestrator) + Sonnet build subagent
 owners: team_100 (architecture) + team_80 (design)
 parent_mandate: _COMMUNICATION/team_100/MANDATE-TEAM100-STAGE-A-ATOMS-FIRST-2026-05-26.md
 inventory_source: _COMMUNICATION/team_80/ATOM-INVENTORY-2026-05-26.md
-profile: L2
+qa_artifact: _COMMUNICATION/team_50/QA-A2-LOD400-2026-05-26.md
+qa_gate_2_verdict: PASS_WITH_FINDINGS
+finalized_at: '2026-05-27'
+finalized_by: team_100 (Opus orchestrator)
+profile: L0
 supersedes_partially: D-EYAL-DESIGN-STYLE-13 (extends; does NOT replace)
 ---
 

@@ -271,7 +271,7 @@ work_packages:
     with parallel B-prep track. Stage A internal-close 2026-05-26; awaiting POC sign-off + cross-engine validation.
 - id: WP-W2-01-STAGE-A
   label: Stage A — Atoms-First LOD400 (Atom Inventory + Design System Spec + POC)
-  status: AWAITING_CROSS_ENGINE_VALIDATION_AND_POC_SIGNOFF
+  status: PATCHED_AWAITING_TEAM190_RERUN
   track: A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -302,7 +302,31 @@ work_packages:
     next_gates:
     - POC_SIGN_OFF by team_00 (nimrod) — manual browser-based Lighthouse + axe + reduced-motion
     - L-GATE_V_FINAL by team_190 on a non-Claude engine (Codex/Cursor/etc.) per Iron Rule #1
-  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3919 lines, 0 TBD), self-contained POC HTML (89,887 bytes). Three internal QA gates PASS_WITH_FINDINGS. Cross-engine validation mandate emitted for team_190 dispatch.'
+  - gate: L-GATE_SPEC_CROSS_ENGINE_V1
+    result: FAIL
+    date: '2026-05-27'
+    validator: team_190
+    validator_engine: gpt-5.5 (Cursor Composer, non-Claude)
+    verdict_artifact: _COMMUNICATION/team_190/VERDICT_WP-W2-01_STAGE_A_L-GATE-SPEC_v1.0.0.md
+    findings_critical: 1
+    findings_major: 2
+    findings_minor: 0
+    notes: 'A1/A2 still DRAFT status (Critical V6); profile L2 in L0 spoke (Major V4); POC browser evidence pending (Major V3+V5). Patches applied 2026-05-27 — see below.'
+  - gate: PATCH_CYCLE_2026-05-27
+    result: COMPLETE
+    date: '2026-05-27'
+    patcher: team_100 (Opus orchestrator + Sonnet a11y subagent)
+    patches_applied: 8
+    patches_summary: 'A1/A2 status → FINAL; all artifacts profile L2 → L0; POC HTML 8 surgical a11y fixes (aria-prohibited-attr ×2, body-text color contrast, WhatsApp button contrast, footer copy, entrance animations transform-only, muted color, footer location).'
+    measured_evidence: _COMMUNICATION/team_50/POC-BROWSER-EVIDENCE-2026-05-27.md
+    lighthouse_mobile:
+      performance: 89
+      accessibility: 100
+      best_practices: 96
+      seo: 100
+    axe_core: 0 violations (0 critical / 0 serious / 0 moderate / 0 minor)
+    awaits: team_190 re-run of V1–V8
+  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3919 lines, 0 TBD), self-contained POC HTML (89,887 bytes). Three internal QA gates PASS_WITH_FINDINGS. First cross-engine verdict 2026-05-27 FAIL on 3 findings; patches applied 2026-05-27 in 8 surgical steps; Lighthouse a11y 93→100, axe-core 17→0. Awaiting team_190 re-run.'
 - id: WP-W2-01-STAGE-B-PREP
   label: Stage B Parallel Infrastructure Prep — plugins, MX, analytics, staging health, media inventory, FTPS, theme audit
   status: COMPLETE_WITH_FINDINGS

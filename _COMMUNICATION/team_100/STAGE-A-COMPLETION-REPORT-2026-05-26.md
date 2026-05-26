@@ -1,13 +1,30 @@
 ---
 id: STAGE-A-COMPLETION-REPORT-2026-05-26
 title: Stage A Completion Report — WP-W2-01 (Atoms-First LOD400)
-status: COMPLETE — pending POC sign-off + cross-engine validation
+status: PATCHED — re-submitted for team_190 cross-engine validation
 date: 2026-05-26
+last_patched: 2026-05-27
 authored_by: team_100 (Opus orchestrator)
 parent_mandate: _COMMUNICATION/team_100/MANDATE-TEAM100-STAGE-A-ATOMS-FIRST-2026-05-26.md
-profile: L2
+prior_verdict: _COMMUNICATION/team_190/VERDICT_WP-W2-01_STAGE_A_L-GATE-SPEC_v1.0.0.md (FAIL — addressed below)
+browser_evidence: _COMMUNICATION/team_50/POC-BROWSER-EVIDENCE-2026-05-27.md
+profile: L0
 wp: WP-W2-01 — Stage A
 combo: C (X3 Wave parallel + Y3 Atoms-first LOD400)
+---
+
+## 0a. team_190 verdict patch log (2026-05-27)
+
+team_190 first verdict was FAIL with three findings:
+
+| Finding | Severity | Resolution |
+|---------|----------|------------|
+| V6 — A1/A2 still say DRAFT instead of FINAL | CRITICAL | A1 + A2 frontmatter patched: `status: FINAL`, added `qa_artifact`, `qa_gate_X_verdict`, `finalized_at`, `finalized_by` |
+| V4 — `profile: L2` inside L0 spoke | MAJOR | A1, A2, this report, MANDATE-TEAM100-STAGE-A-ATOMS-FIRST all patched: `profile: L0` |
+| V3 + V5 — POC browser evidence still pending | MAJOR | Lighthouse mobile + axe-core CLI runs captured; full evidence in `_COMMUNICATION/team_50/POC-BROWSER-EVIDENCE-2026-05-27.md`. Final results: Lighthouse a11y **100**, perf **89**, BP 96, SEO 100; axe-core **0 violations**. POC patched in 8 surgical steps (P1–P8) to address contrast + ARIA findings discovered during the audit. |
+
+Re-submission status: ready for team_190 re-run of V1–V8.
+
 ---
 
 # Stage A Completion Report — WP-W2-01
