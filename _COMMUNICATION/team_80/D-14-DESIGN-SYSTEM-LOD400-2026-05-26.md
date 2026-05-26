@@ -2,6 +2,7 @@
 id: D-14-DESIGN-SYSTEM-LOD400-2026-05-26
 title: D-14 Design System — LOD400 Spec (Atoms-First, Wave2 SSOT)
 status: FINAL
+document_version: v1.1.0
 date: 2026-05-26
 authored_by: team_100 (Opus orchestrator) + Sonnet build subagent
 owners: team_100 (architecture) + team_80 (design)
@@ -88,7 +89,7 @@ Source canonical: `docs/project/EYAL-SITE-COLOR-PALETTE.md` (LOCKED — do not a
 | `--ea-type-h3` | H3 sub-heads | 400 | 0.92rem | 1.4 | 0 | text-align: right |
 | `--ea-type-h4` | H4 labels | 300 | 0.78rem | 1.4 | 0.2px | uppercase optional |
 | `--ea-type-body-lg` | Lead paragraphs | 300 | 1.05rem | 1.9 | 0 | max-width 65ch |
-| `--ea-type-body` | Body text | 300 | 0.9rem (15px) | 1.85 | 0 | color: var(--ea-earth); max-width 75ch |
+| `--ea-type-body` | Body text | 300 | 0.9rem (15px) | 1.85 | 0 | color: var(--ea-text-body); max-width 75ch |
 | `--ea-type-body-sm` | Captions, meta | 300 | 0.78rem | 1.6 | 0 | color: var(--ea-muted) |
 | `--ea-type-caption` | Labels, overlines | 200 | 0.58rem | 1.4 | 3.5px | UPPERCASE; color: var(--ea-muted) |
 
@@ -255,7 +256,7 @@ Copy-paste ready for `site/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.cs
 
 ## §2. Motion System
 
-> **Philosophy (D-14):** "Breathing everywhere, not just Hero." All keyframes simulate organic breath — varying durations, randomised delays per instance — never a metronome. Motion is CSS-only (transform + opacity). No JS-tied scroll animations except scroll-progress.
+> **Philosophy (D-14):** "Breathing everywhere, not just Hero." All keyframes simulate organic breath — varying durations, randomised delays per instance — never a metronome. Motion is CSS-only; entrance motion is transform-only (no opacity ramp on readable text). No JS-tied scroll animations except scroll-progress.
 
 ### 2.1 Breathing Keyframes (CSS `@keyframes`)
 
@@ -340,6 +341,8 @@ Copy-paste ready for `site/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.cs
 ```
 
 **Scroll trigger:** Use `IntersectionObserver` with threshold `0.15` to add `.ea-entrance` class when element enters viewport. Animation plays once (not looped).
+
+**Contrast rule (binding):** Animated readable text MUST NOT cross an opacity threshold during reveal. Keep text at full opacity throughout entrance animations; use transform-only reveals.
 
 ---
 
@@ -523,7 +526,7 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
   </div>
 
   <!-- Controls (top-right in LTR terms = top-left in RTL layout) -->
-  <div class="ea-hero__controls" aria-label="פקדי וידאו">
+  <div class="ea-hero__controls">
     <button class="ea-hero__pause" type="button"
             aria-label="השהה וידאו" aria-pressed="false">
       <span class="ea-hero__pause-ico" aria-hidden="true">⏸</span>
@@ -619,7 +622,7 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
 .ea-section-intro__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
 .ea-section-intro__heading { font: var(--ea-type-h2); color: var(--ea-ink);
                               margin-bottom: var(--ea-space-3); }
-.ea-section-intro__body { font: var(--ea-type-body-lg); color: var(--ea-earth);
+.ea-section-intro__body { font: var(--ea-type-body-lg); color: var(--ea-text-body);
                            max-width: 65ch; }
 
 /* variant_text-image */
@@ -672,9 +675,9 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
 .ea-content-section__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
 .ea-content-section__heading { font: var(--ea-type-h2); color: var(--ea-ink);
                                 margin-bottom: var(--ea-space-5); }
-.ea-content-section__body p  { font: var(--ea-type-body); color: var(--ea-earth); }
+.ea-content-section__body p  { font: var(--ea-type-body); color: var(--ea-text-body); }
 .ea-content-section__body ul,
-.ea-content-section__body ol { padding-inline-start: var(--ea-space-3); color: var(--ea-earth); }
+.ea-content-section__body ol { padding-inline-start: var(--ea-space-3); color: var(--ea-text-body); }
 
 /* variant_two-col */
 .ea-content-section--two-col .ea-content-section__body {
@@ -1340,10 +1343,10 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
 .ea-bio-block__portrait { width: 100%; border-radius: var(--ea-radius-img); display: block;
                            animation: breathe-medium 5.5s ease-in-out infinite; }
 .ea-bio-block__heading { font: var(--ea-type-h2); color: var(--ea-ink); margin: 0 0 var(--ea-space-3); }
-.ea-bio-block__text { font: var(--ea-type-body); color: var(--ea-earth); }
+.ea-bio-block__text { font: var(--ea-type-body); color: var(--ea-text-body); }
 ```
 
-**ARIA:** Portrait alt = "אייל עמית". Decorative separators `aria-hidden`. Internal links descriptive.
+**ARIA:** Portrait `img` uses meaningful `alt` (default: "אייל עמית"). If image is unavailable and a placeholder `<span class="ea-bio-block__portrait-placeholder">` is rendered, it MUST include `role="img"` and `aria-label` (default: "תמונת אייל עמית"). Decorative separators `aria-hidden`. Internal links descriptive.
 
 **Reduced-motion:** Portrait `breathe-medium` animation removed; opacity fixed at 1.
 
@@ -1544,20 +1547,20 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
   position: fixed; bottom: var(--ea-space-5); inset-inline-start: var(--ea-space-5);
   z-index: var(--ea-z-toast);
   display: inline-flex; align-items: center; gap: var(--ea-space-1);
-  background: #25D366; color: #fff;
+  background: #0F7A3F; color: #fff;
   border-radius: var(--ea-radius-pill); padding: 12px 20px;
-  text-decoration: none; font: var(--ea-type-body-sm); font-weight: 400;
+  text-decoration: none; font-size: 0.95rem; line-height: 1.6; font-weight: 700; font-family: var(--ea-font);
   animation: breathe-fast 8s ease-in-out infinite;
   transition: box-shadow var(--ea-dur-fast), background var(--ea-dur-fast);
 }
-.ea-whatsapp-float:hover { background: #1ebe5d; box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+.ea-whatsapp-float:hover { background: #0C6A37; box-shadow: 0 4px 16px rgba(15,122,63,0.3); }
 .ea-whatsapp-float:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
 /* variant_A: hidden entirely (no WhatsApp) */
 .ea-whatsapp-float[data-variant="A"] { display: none !important; }
 ```
 
-**ARIA:** `aria-label` includes "(נפתח בחלון חדש)". White on #25D366 = 3.95:1 — passes AA for large text; acceptable at this size (≥ 14px bold equivalent). Per accessibility review: acceptable (default; revisit at Stage B for AAA).
+**ARIA:** `aria-label` includes "(נפתח בחלון חדש)". Contrast baseline in Wave2 uses `#0F7A3F` (default) and `#0C6A37` on hover with white text for stronger readability.
 
 **GA4 event:** `click` → `{event: 'whatsapp_cta_click', variant_label: 'B'}`.
 
@@ -1614,6 +1617,7 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
     </div>
 
     <button class="ea-cta-pill ea-contact-form__submit" type="submit">שלח הודעה</button>
+    <p class="ea-contact-form__note"><!-- טקסט עזר קצר, למשל זמן מענה --></p>
 
     <div class="ea-contact-form__status" aria-live="polite" aria-atomic="true"></div>
   </form>
@@ -1645,6 +1649,7 @@ Noted here for completeness. Deferred to Stage B (default; revisit at Stage B). 
 .ea-contact-form__field { margin-bottom: var(--ea-space-4); }
 .ea-contact-form__error { display: block; font: var(--ea-type-body-sm);
                            color: var(--ea-brick); margin-top: var(--ea-space-1); }
+.ea-contact-form__note { font: var(--ea-type-body-sm); color: var(--ea-text-body); margin: 0 0 var(--ea-space-2); }
 .ea-contact-form__status[data-state="success"] { color: var(--ea-olive); }
 .ea-contact-form__status[data-state="error"] { color: var(--ea-brick); }
 ```
@@ -2305,7 +2310,7 @@ if (bar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     display: flex; flex-direction: column; align-items: center;
                     gap: var(--ea-space-5); text-align: center; }
 .ea-footer__brand { color: #fff; font-weight: 200; font-size: 1.2rem; text-decoration: none; }
-.ea-footer__location { font: var(--ea-type-body-sm); color: var(--ea-muted); margin: 0; }
+.ea-footer__location { font-size: 0.72rem; line-height: 1.6; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin: 0; }
 .ea-footer__social-list { display: flex; list-style: none; padding: 0; margin: 0;
                            gap: var(--ea-space-4); }
 .ea-footer__social-link { display: flex; color: var(--ea-muted);
@@ -2317,6 +2322,7 @@ if (bar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                    font: var(--ea-type-caption); flex-wrap: wrap; justify-content: center; }
 .ea-footer__link { color: var(--ea-muted); }
 .ea-footer__link:hover { color: var(--ea-terracotta); }
+.ea-footer__rights { color: rgba(255,255,255,0.78); font-size: 0.78rem; font-weight: 300; }
 ```
 
 **ARIA:** `<footer role="contentinfo">`. Each social link: `aria-label="[Platform] של אייל עמית (נפתח בחלון חדש)"`. SVG icons `aria-hidden`.
@@ -2792,7 +2798,7 @@ Never place two consecutive same-background sections without a breath divider be
 
 **HTML additions to hero `__controls` area:**
 ```html
-<div class="ea-hero__controls" aria-label="פקדי וידאו">
+<div class="ea-hero__controls">
   <button class="ea-hero__pause js-hero-pause"
           type="button"
           aria-label="השהה וידאו"
@@ -3057,14 +3063,14 @@ All pairs verified against WCAG 2.2 §1.4.3 (AA = 4.5:1 normal, 3:1 large) and �
 | Earth `#8A5A44` | Bg-alt `#F3EEE8` | 4.7:1 | ✅ | ✅ | ❌ |
 | Earth `#8A5A44` | Sand `#D8C7B5` | 3.7:1 | ❌ | ✅ | ❌ |
 | Terracotta `#A44E2B` | Bg `#FAF8F5` | 4.8:1 | ✅ | ✅ | ❌ |
-| Muted `#A8A19B` | Ink `#2E2B28` | 4.2:1 | ❌ large ctx | ✅ | ❌ |
+| Muted `#6F635A` | Ink `#2E2B28` | 2.6:1 | ❌ | ❌ | ❌ |
 | Olive `#6E6F4A` | Bg `#FAF8F5` | 6.2:1 | ✅ | ✅ | ✅ |
 | Chocolate `#5C3A2E` | Bg `#FAF8F5` | 8.7:1 | ✅ | ✅ | ✅ |
 
 **Notes:**
-- Muted on Bg: 4.2:1 — used only for footer small text (large text context — ≥18px or ≥14px bold). Acceptable.
+- Muted `#6F635A` is for secondary/meta text on light backgrounds (`--ea-bg`, `--ea-bg-alt`) and should not be used for body prose.
 - Earth on Sand: 3.7:1 — used only as decorative label / large-text context. Acceptable.
-- WhatsApp button (white on #25D366): 3.95:1 — acceptable for large interactive element (default; revisit at Stage B).
+- WhatsApp button defaults to `#0F7A3F` (hover `#0C6A37`) with white text for improved readability.
 
 ---
 
@@ -3793,8 +3799,7 @@ done
 ```
 
 **Accepted minor violations (documented):**
-- Muted text (`#A8A19B`) in footer at small size — pre-approved as large-text-equivalent context.
-- WhatsApp button contrast 3.95:1 — accepted at this interactive element size (default; revisit at Stage B).
+- None. P1–P8 backport (2026-05-27) removed prior muted/footer and WhatsApp contrast exceptions from this spec baseline.
 
 ---
 
@@ -3867,7 +3872,7 @@ Each atom carries a version: `atom-v<MAJOR>.<MINOR>.<PATCH>`
 | **MINOR** (additive) | New variant added, new optional ARIA, CSS-only enhancement |
 | **PATCH** (fix) | Bug fix, typo in label, contrast correction |
 
-**Current version of all atoms at spec publication:** `atom-v1.0.0`
+**Current version of all atoms at spec publication:** `atom-v1.1.0` (Patch backport P1–P8 aligned to canonical POC values)
 
 ---
 
@@ -3912,6 +3917,7 @@ approved_by: (pending team_100)
 
 | Date | Version | Change | Author |
 |---|---|---|---|
+| 2026-05-27 | v1.1.0 | D-14 token backport from POC patches P1–P8 (cross-engine validation finding closure) | team_80 (design patch), authorized by team_100/team_00 track-A decision |
 | 2026-05-26 | v1.0.0 | Initial LOD400 spec — 32 atoms, 12 chapters | team_100 + Sonnet build subagent |
 
 **Next expected update:** Post QA Gate 2 sign-off — `status: APPROVED` replaces `DRAFT`.

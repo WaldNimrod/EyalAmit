@@ -2,6 +2,7 @@
 id: ATOM-INVENTORY-2026-05-26
 title: Atom Inventory — Wave2 LOD400 design system source list
 status: FINAL
+document_version: v1.1.0
 date: 2026-05-26
 authored_by: team_100 (Opus orchestrator) + Sonnet build subagent
 owners: team_100 (architecture) + team_80 (design)
@@ -19,6 +20,7 @@ profile: L0
 
 - **Total atoms:** 32
 - **Categories:** structure (7), content (9), interaction (6), feedback (4), nav (3), data-display (3)
+- **Patch sync:** 2026-05-27 P1–P8 backport aligned with D-14 v1.1.0 (no atom count change)
 - **Sources scanned:** 15 content .md + 1 .docx (referenced by filename only — ומה היום.docx) + 9 Wave2 WPs + hero-c-fbw-sketch.html + QR-URL-INVENTORY.csv (49 rows) + social-channels.json + EYAL-SITE-COLOR-PALETTE.md + D-EYAL-DESIGN-DIRECTION-FBW-DEEP-2026-05-26.md + DECISION_EYAL_MEETING_CLOSURE_2026-05-26_v1.md
 
 ---
@@ -36,7 +38,7 @@ profile: L0
 - **Usage count:** 6 (homepage, treatment, method, sound-healing, lessons, FAQ — each service page uses a fullscreen hero)
 - **Source files:** `homepage1-3 v2.md §SECTION 01`, `treatment.md §SECTION 01`, `method.md §SECTION 01`, `sound_healing_final.md §SECTION 01`, `lesons.md §SECTION 01`, `FAQ FINAL.md §SECTION 01`, `hero-c-fbw-sketch.html §.hero`
 - **Variants:** `variant_video` (video loop + breathing-lines overlay, desktop), `variant_still` (static image fallback, mobile), `variant_placeholder` (CSS gradient + breathing lines, pre-video delivery)
-- **Accessibility flags:** autoplay must be muted (browser policy); pause button required per ת"י 5568; H1 overlay must pass WCAG AA contrast (≥4.5:1) against video; `prefers-reduced-motion` disables all animation overlays; `alt` on fallback image required
+- **Accessibility flags:** autoplay must be muted (browser policy); pause button required per ת"י 5568; keep `.ea-hero__controls` wrapper without `aria-label` (labels belong on interactive buttons only); H1 overlay must pass WCAG AA contrast (≥4.5:1) against video; `prefers-reduced-motion` disables all animation overlays; `alt` on fallback image required
 - **D-14 motion:** yes — breathing-lines overlay (`breathe-x` keyframe, ~7s loop, opacity 0.35↔0.55); video loop autoplay muted; `breathe-pulse` on CTA pill (scale 1.0↔1.005, 8s); entrance fade-up on H1/H2
 - **Responsive notes:** desktop = full 100vh video; mobile = static image fallback (max 800 KB); RTL: H1 text-align right, CTA pill right-aligned; sound-toggle and pause button top-right corner in LTR terms = top-left in RTL layout
 - **Composes into:** tpl-home, tpl-service, tpl-method
@@ -222,7 +224,7 @@ profile: L0
 - **Usage count:** 5 (homepage §11, method §08, treatment §11, lessons §07, MUZZA §03.5)
 - **Source files:** `homepage1-3 v2.md §SECTION 11`, `method.md §SECTION 08`, `treatment.md §SECTION 11`, `lesons.md §SECTION 07`, `MUZZA.md §SECTION 03.5`
 - **Variants:** `variant_brief` (2–4 lines + portrait image), `variant_extended` (full biography with internal links to moksha, method, treatment)
-- **Accessibility flags:** portrait image `alt` = "אייל עמית"; decorative separators `aria-hidden`; internal links have descriptive anchor text
+- **Accessibility flags:** portrait image `alt` = "אייל עמית"; if a placeholder is used instead of image, require `<span class="ea-bio-block__portrait-placeholder" role="img" aria-label="תמונת אייל עמית">`; decorative separators `aria-hidden`; internal links have descriptive anchor text
 - **D-14 motion:** portrait image breathe-fade (opacity 0.94↔1, 5.5s loop — same as nav brand); section entrance fade-up
 - **Responsive notes:** image + text side-by-side on desktop; stacked on mobile; RTL: image on right, text on left on desktop
 - **Composes into:** tpl-home, tpl-service, tpl-method, tpl-books-catalog
@@ -282,7 +284,7 @@ profile: L0
 - **Usage count:** varies (A/B test across all pages — per-session random assignment; floats on every page)
 - **Source files:** `WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md §WP-W2-01 B Scope §4`, `DECISION_EYAL_MEETING_CLOSURE_2026-05-26_v1.md §B3–B4`
 - **Variants:** `variant_A` (contact form only — no WhatsApp), `variant_B` (form + WhatsApp button together), `variant_C` (WhatsApp only — no form)
-- **Accessibility flags:** WhatsApp link must include `aria-label="שלח הודעה בוואטסאפ"` + external link hint; button contrast: white text on green (#25D366) = verify AA; keyboard-focusable; GA4 event on click with `variant_label`
+- **Accessibility flags:** WhatsApp link must include `aria-label="שלח הודעה בוואטסאפ"` + external link hint; button contrast baseline uses white text on `#0F7A3F` (hover `#0C6A37`); keyboard-focusable; GA4 event on click with `variant_label`
 - **D-14 motion:** floating pill has `breathe-pulse` (scale 1.0↔1.005, 8s loop — same as CTA pill); hover: slight shadow deepen + color lighten
 - **Responsive notes:** floating variant: fixed bottom-left (RTL natural) on mobile; inline variant: full-width button on mobile; WhatsApp number: 052-4822842
 - **Composes into:** every page template as floating element; tpl-contact as inline variant
@@ -462,7 +464,7 @@ profile: L0
 - **Usage count:** 15 (site-wide footer on every page)
 - **Source files:** `hub/data/social-channels.json` (FB: didgeridoo.studio.eyal.amit; IG: didgeridoo.therapy.center; YT: @איילעמית; TT: pending), `WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md §WP-W2-01 B §5`, `DECISION_EYAL_MEETING_CLOSURE_2026-05-26_v1.md §D4`
 - **Variants:** `variant_with-tiktok` (4 icons — when TikTok URL received from Eyal), `variant_without-tiktok` (3 icons — current state per canonical data)
-- **Accessibility flags:** each social link: `<a>` with `aria-label="[Platform] של אייל עמית"` (e.g., "פייסבוק של אייל עמית"); SVG icons `aria-hidden="true"`; external links new tab + `rel="noopener noreferrer"`; contrast: icon color on footer background >= 3:1
+- **Accessibility flags:** each social link: `<a>` with `aria-label="[Platform] של אייל עמית"` (e.g., "פייסבוק של אייל עמית"); SVG icons `aria-hidden="true"`; external links new tab + `rel="noopener noreferrer"`; footer location text uses `rgba(255,255,255,0.85)` and rights copy uses `rgba(255,255,255,0.78)` for readable contrast on Ink background
 - **D-14 motion:** icon hover: subtle opacity 0.7→1 (150ms); no breathing loop
 - **Responsive notes:** horizontal row on desktop; same row (smaller gap) on mobile; RTL: icons read right-to-left (FB, IG, YT, TT order from right); footer also includes: logo, studio location (פרדס חנה), rights, /faq link per WP-W2-01
 - **Composes into:** `atom-structure-footer` (site footer partial)
