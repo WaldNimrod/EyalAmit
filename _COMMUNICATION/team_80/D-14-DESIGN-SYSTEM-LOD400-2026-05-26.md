@@ -67,7 +67,8 @@ Source canonical: `docs/project/EYAL-SITE-COLOR-PALETTE.md` (LOCKED — do not a
 | `--ea-bg` | `#FAF8F5` | Main page background (warm off-white) |
 | `--ea-bg-alt` | `#F3EEE8` | Alternate section background (method, FAQ) |
 | `--ea-line` | `rgba(216,199,181,0.35)` | Divider lines, grid gaps |
-| `--ea-muted` | `#A8A19B` | Nav links, footer text, labels |
+| `--ea-muted` | `#6F635A` | Visible muted text (nav links secondary, labels, captions). On `--ea-bg` 5.55:1 ✅ AA; on `--ea-bg-alt` 5.04:1 ✅ AA. *Updated 2026-05-27 from `#A8A19B` per POC audit (team_190 verdict v1 → v2).* |
+| `--ea-text-body` | `#5A3826` | **Canonical body-text color** for prose paragraphs. On `--ea-bg` 7.8:1 ✅ AAA; on `--ea-bg-alt` ≈ 6.0:1 ✅ AAA. Use this in preference to `--ea-earth` for any text rendered as readable copy. *Added 2026-05-27 per POC audit.* |
 
 ---
 
@@ -183,13 +184,14 @@ Copy-paste ready for `site/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.cs
   --ea-accent:       var(--ea-terracotta);
   --ea-accent-strong:var(--ea-brick);
   --ea-text:         var(--ea-ink);
-  --ea-text-muted:   var(--ea-earth);
+  --ea-text-body:    #5A3826;  /* Canonical body-text color (was --ea-earth; darker for AA contrast on cream bgs). Added 2026-05-27 per POC audit. */
+  --ea-text-muted:   var(--ea-text-body);  /* Body-muted now aliases to text-body; --ea-earth retained for decorative/motion accents only. */
 
   /* --- UI backgrounds --- */
   --ea-bg:          #FAF8F5;
   --ea-bg-alt:      #F3EEE8;
   --ea-line:        rgba(216,199,181,0.35);
-  --ea-muted:       #A8A19B;
+  --ea-muted:       #6F635A;  /* Visible muted text. Updated 2026-05-27 from #A8A19B for AA contrast. */
 
   /* --- Typography --- */
   --ea-font:        'Heebo', -apple-system, Arial, sans-serif;
@@ -304,23 +306,25 @@ Copy-paste ready for `site/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.cs
 
 ### 2.2 Entrance Animations
 
+> **Canonical 2026-05-27 update (POC audit):** Entrance keyframes are **transform-only** — no `opacity` ramp. Reason: opacity ramps cause accessibility scanners (Lighthouse / axe-core) to read text at partial opacity mid-animation, producing false contrast failures. Elements appear instantly at full opacity but still slide/scale in via transform. `prefers-reduced-motion: reduce` still disables transforms entirely via §2.4 media block.
+
 ```css
-/* Fade up — standard scroll entrance for all atoms */
+/* Fade up — standard scroll entrance for all atoms (transform-only) */
 @keyframes ea-fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(20px); }
+  to   { transform: translateY(0); }
 }
 
-/* Breath reveal — for section headings, section intros */
+/* Breath reveal — for section headings, section intros (transform-only) */
 @keyframes ea-breathReveal {
-  from { opacity: 0; transform: scale(0.995) translateY(10px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  from { transform: scale(0.995) translateY(10px); }
+  to   { transform: scale(1) translateY(0); }
 }
 
-/* Slide in RTL — for panels/drawers entering from the right */
+/* Slide in RTL — for panels/drawers entering from the right (transform-only) */
 @keyframes ea-slideIn-rtl {
-  from { opacity: 0; transform: translateX(32px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from { transform: translateX(32px); }
+  to   { transform: translateX(0); }
 }
 
 /* Utility classes */

@@ -1,17 +1,18 @@
+<!DOCTYPE html>
 <!--
   atoms-poc-2026-05-26.html
   POC for WP-W2-01 Stage A LOD400 Design System
   Source: _COMMUNICATION/team_80/D-14-DESIGN-SYSTEM-LOD400-2026-05-26.md
   Inventory: _COMMUNICATION/team_80/ATOM-INVENTORY-2026-05-26.md
   Authored 2026-05-26 by team_100 (Opus) + Sonnet build subagent
-  Manual review checklist:
+  Patched 2026-05-27 (P1-P8 a11y patches per team_190 verdict v1).
+  Final measured evidence: Lighthouse mobile a11y 100, perf 89; axe-core 0 violations.
+  Cross-engine verdict: PASS_WITH_FINDINGS (team_190 v2, 2026-05-27).
+  Manual review checklist (design layer, separate from measurable gate):
     1. Open in browser; visual review homepage.
     2. DevTools → Rendering → prefers-reduced-motion=reduce → all animations stop.
     3. Tab through page; focus rings visible; RTL focus order logical.
-    4. axe DevTools: 0 critical, 0 serious.
-    5. Lighthouse mobile: perf ≥ 85, a11y ≥ 95.
 -->
-<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">

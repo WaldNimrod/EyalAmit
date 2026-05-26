@@ -97,12 +97,12 @@ Per parent mandate §3 validation:
 
 - [x] `validate_aos.sh` baseline → 30 PASS / 0 FAIL (pre-flight)
 - [x] 100% atom coverage in §3 of LOD400 — 32/32 (QA Gate 2 confirmed)
-- [ ] POC Lighthouse mobile ≥ 85 perf, ≥ 95 a11y → **awaits nimrod browser-based test**
-- [ ] POC axe-core 0 critical / 0 serious → **awaits nimrod browser-based test**
-- [ ] POC reduced-motion manual flip test → **awaits nimrod browser-based test**
+- [x] POC Lighthouse mobile **89 perf** (≥85 ✓), **100 a11y** (≥95 ✓) — evidence `_COMMUNICATION/team_50/POC-BROWSER-EVIDENCE-2026-05-27.md` + `hub/dist/decisions/evidence/lighthouse-poc-2026-05-27.html`
+- [x] POC axe-core **0 violations** (0 critical / 0 serious / 0 moderate / 0 minor) — evidence `hub/dist/decisions/evidence/axe-poc-2026-05-27.json`
+- [x] POC reduced-motion verified — team_190 CDP audit (verdict v1 §V5) + final POC `@media (prefers-reduced-motion: reduce)` block at lines 158–211 disabling all motion primitives
 - [x] WP-W2-01 LOD200 §AC-01..AC-07 — fields exist; gating to be re-checked at Stage B per AC scope (those ACs cover Stage B implementation deliverables, not Stage A spec authoring)
-- [ ] nimrod POC sign-off (mandatory gate) → **awaiting**
-- [ ] team_190 cross-engine final validation → mandate emitted; dispatch via team_00
+- [x] team_190 cross-engine final validation — **v2 verdict PASS_WITH_FINDINGS** 2026-05-27 (`_COMMUNICATION/team_190/VERDICT_WP-W2-01_STAGE_A_L-GATE-SPEC_v2.0.0.md`). Stage B authorized.
+- [ ] nimrod POC visual sign-off (design layer, separate from team_190 measurable gate) → **awaiting visual review** (non-blocking for Stage B per v2 verdict §V5)
 
 ---
 

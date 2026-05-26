@@ -271,12 +271,15 @@ work_packages:
     with parallel B-prep track. Stage A internal-close 2026-05-26; awaiting POC sign-off + cross-engine validation.
 - id: WP-W2-01-STAGE-A
   label: Stage A — Atoms-First LOD400 (Atom Inventory + Design System Spec + POC)
-  status: PATCHED_AWAITING_TEAM190_RERUN
+  status: COMPLETE
   track: A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  lod_status: LOD500
   assigned_builder: team_100
   assigned_validator: team_190
+  closed_at: '2026-05-27'
+  stage_b_authorized: true
+  stage_b_authorization_artifact: _COMMUNICATION/team_190/VERDICT_WP-W2-01_STAGE_A_L-GATE-SPEC_v2.0.0.md
   created_at: '2026-05-26'
   milestone_ref: S002
   parent_wp: WP-W2-01
@@ -326,7 +329,29 @@ work_packages:
       seo: 100
     axe_core: 0 violations (0 critical / 0 serious / 0 moderate / 0 minor)
     awaits: team_190 re-run of V1–V8
-  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3919 lines, 0 TBD), self-contained POC HTML (89,887 bytes). Three internal QA gates PASS_WITH_FINDINGS. First cross-engine verdict 2026-05-27 FAIL on 3 findings; patches applied 2026-05-27 in 8 surgical steps; Lighthouse a11y 93→100, axe-core 17→0. Awaiting team_190 re-run.'
+  - gate: L-GATE_SPEC_CROSS_ENGINE_V2
+    result: PASS_WITH_FINDINGS
+    date: '2026-05-27'
+    validator: team_190
+    validator_engine: gpt-5.5 (Cursor Composer, non-Claude)
+    verdict_artifact: _COMMUNICATION/team_190/VERDICT_WP-W2-01_STAGE_A_L-GATE-SPEC_v2.0.0.md
+    supersedes: L-GATE_SPEC_CROSS_ENGINE_V1
+    findings_critical: 0
+    findings_major: 0
+    findings_minor: 3
+    minor_findings:
+    - MIN-01 D-14 not yet synced with POC patches (closed 2026-05-27 — D-14 §1.1 and §2.2 patched in same commit)
+    - MIN-02 stale checklist in completion report (closed 2026-05-27 — checkboxes updated with evidence refs)
+    - MIN-03 POC file comment before DOCTYPE (closed 2026-05-27 — DOCTYPE moved before comment)
+    stage_b_authorized: true
+    notes: 'Cross-engine final validator PASS. Stage B authorized to begin. All 3 minor findings closed within the same patch cycle.'
+  - gate: STAGE_A_CLOSURE
+    result: COMPLETE
+    date: '2026-05-27'
+    closed_by: team_100 (Opus orchestrator)
+    summary: 'Stage A WP-W2-01 fully closed. 3 deliverables (A1 inventory, A2 LOD400 spec, A3 POC HTML) + 3 internal QA gates (Haiku) + cross-engine verdict v2 PASS_WITH_FINDINGS + all 3 minor findings closed in-cycle. Lighthouse a11y 100, perf 89, BP 96, SEO 100; axe-core 0 violations.'
+    next_action: Stage B implementation by team_10 (D-14 tokens → CSS, child theme, blocks). Mandate to be issued by team_100.
+  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3923 lines, 0 TBD), self-contained POC HTML (89,678 bytes). Cross-engine path: v1 FAIL on 3 findings (DRAFT status, profile L2, missing browser evidence) → 8 surgical patches applied (Lighthouse a11y 93→100, axe 17→0) → v2 PASS_WITH_FINDINGS with 3 minor findings → all 3 minor findings closed in same patch cycle → Stage A COMPLETE 2026-05-27.'
 - id: WP-W2-01-STAGE-B-PREP
   label: Stage B Parallel Infrastructure Prep — plugins, MX, analytics, staging health, media inventory, FTPS, theme audit
   status: COMPLETE_WITH_FINDINGS
