@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "EYAL-SOCIAL-CHANNELS-CANONICAL",
+  "lastUpdated": "2026-05-26",
+  "source": "Provided directly by Eyal in nimrod meeting 2026-05-26; verified live HTTP 200.",
+  "channels": [
+    {
+      "platform": "facebook",
+      "labelHe": "פייסבוק",
+      "url": "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+      "handle": "didgeridoo.studio.eyal.amit",
+      "status": "active",
+      "verifiedLive": "2026-05-26",
+      "showInFooter": true
+    },
+    {
+      "platform": "instagram",
+      "labelHe": "אינסטגרם",
+      "url": "https://www.instagram.com/didgeridoo.therapy.center",
+      "handle": "didgeridoo.therapy.center",
+      "status": "active",
+      "verifiedLive": "2026-05-26",
+      "showInFooter": true
+    },
+    {
+      "platform": "youtube",
+      "labelHe": "יוטיוב",
+      "url": "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA",
+      "displayUrl": "https://www.youtube.com/@איילעמית",
+      "handle": "@איילעמית",
+      "status": "active",
+      "verifiedLive": "2026-05-26",
+      "showInFooter": true
+    },
+    {
+      "platform": "tiktok",
+      "labelHe": "טיקטוק",
+      "url": null,
+      "handle": null,
+      "status": "pending_url_from_eyal",
+      "verifiedLive": null,
+      "showInFooter": false,
+      "noteHe": "אייל אישר לכלול בפוטר (Q-D4) — URL עוד לא סופק. עד שיגיע — לא מציגים אייקון ריק."
+    }
+  ]
+}
