@@ -257,9 +257,52 @@ work_packages:
   - WP-W2-01-STAGE-A
   - WP-W2-01-STAGE-B-PREP
   - WP-W2-01-STAGE-B-IMPL
-  gate_history: []
+  gate_history:
+  - gate: STAGE_A_SPEC
+    result: PASS_WITH_FINDINGS
+    date: '2026-05-26'
+    timestamp: '2026-05-26T22:55:00Z'
+    builder: team_100 (Opus) + Sonnet subagents
+    qa: team_50 surrogate (Haiku subagents)
+    notes: 'Stage A internal close. A1 atom inventory (32), A2 LOD400 spec (3,919 lines, 12 chapters, 0 TBD), A3 POC HTML (89,887 B, 12 blocks). 3 internal QA gates PASS_WITH_FINDINGS. Awaiting nimrod POC sign-off + team_190 cross-engine validation (non-Claude engine per Iron Rule #1).'
+    completion_artifact: _COMMUNICATION/team_100/STAGE-A-COMPLETION-REPORT-2026-05-26.md
+    cross_engine_mandate_artifact: _COMMUNICATION/team_100/MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md
   notes: Per Combo C (Atoms-first LOD400). Split into Stage A (team_100 LOD400 spec + POC) and Stage B (team_10 implementation),
-    with parallel B-prep track.
+    with parallel B-prep track. Stage A internal-close 2026-05-26; awaiting POC sign-off + cross-engine validation.
+- id: WP-W2-01-STAGE-A
+  label: Stage A — Atoms-First LOD400 (Atom Inventory + Design System Spec + POC)
+  status: AWAITING_CROSS_ENGINE_VALIDATION_AND_POC_SIGNOFF
+  track: A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_100
+  assigned_validator: team_190
+  created_at: '2026-05-26'
+  milestone_ref: S002
+  parent_wp: WP-W2-01
+  spec_ref: _COMMUNICATION/team_100/MANDATE-TEAM100-STAGE-A-ATOMS-FIRST-2026-05-26.md
+  profile: L0
+  gate_history:
+  - gate: STAGE_A_INTERNAL_BUILD
+    result: PASS_WITH_FINDINGS
+    date: '2026-05-26'
+    timestamp: '2026-05-26T22:55:00Z'
+    builder_engine: claude-code (Opus orchestrator + Sonnet subagents)
+    qa_engine: claude-code (Haiku subagents)
+    deliverables:
+    - _COMMUNICATION/team_80/ATOM-INVENTORY-2026-05-26.md
+    - _COMMUNICATION/team_80/D-14-DESIGN-SYSTEM-LOD400-2026-05-26.md
+    - hub/dist/decisions/atoms-poc-2026-05-26.html
+    qa_artifacts:
+    - _COMMUNICATION/team_50/QA-A1-INVENTORY-2026-05-26.md
+    - _COMMUNICATION/team_50/QA-A2-LOD400-2026-05-26.md
+    - _COMMUNICATION/team_50/QA-A3-POC-2026-05-26.md
+    completion_artifact: _COMMUNICATION/team_100/STAGE-A-COMPLETION-REPORT-2026-05-26.md
+    cross_engine_mandate_artifact: _COMMUNICATION/team_100/MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md
+    next_gates:
+    - POC_SIGN_OFF by team_00 (nimrod) — manual browser-based Lighthouse + axe + reduced-motion
+    - L-GATE_V_FINAL by team_190 on a non-Claude engine (Codex/Cursor/etc.) per Iron Rule #1
+  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3919 lines, 0 TBD), self-contained POC HTML (89,887 bytes). Three internal QA gates PASS_WITH_FINDINGS. Cross-engine validation mandate emitted for team_190 dispatch.'
 - id: WP-W2-01-STAGE-B-PREP
   label: Stage B Parallel Infrastructure Prep — plugins, MX, analytics, staging health, media inventory, FTPS, theme audit
   status: COMPLETE_WITH_FINDINGS

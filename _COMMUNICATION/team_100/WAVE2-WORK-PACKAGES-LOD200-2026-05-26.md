@@ -46,9 +46,9 @@ total_estimate: 36-50 ימי עבודה (תלוי בקיבולת)
 ### Scope — IN
 
 **A. שלב Atoms-First LOD400 (חוסם — לפי Combo C):**
-1. **Atom Inventory Scan** — סריקת 16 עמודים + 54 פוסטי בלוג → רשימה ממוצה של ~25-30 atoms ייחודיים: Hero variants, intro blocks, content sections, gallery, faq-filtered, testimonials (text+image+link), cta-pill, breath-divider, video-frame, sound-toggle, social-footer, blog-card, blog-archive, product-card, price-display, green-invoice-cta, whatsapp-cta, contact-form-cf7, breadcrumb, ועוד. (1-2 ימים)
-2. **LOD400 Design System Spec** — מסמך 25-30 עמודים: tokens (colors/typography/spacing), כל atom (HTML structure + CSS + states + a11y + responsive + reduced-motion), composition rules. תוצר: `_COMMUNICATION/team_80/D-14-DESIGN-SYSTEM-LOD400-2026-XX-XX.md`. (2-3 ימים)
-3. **POC validation** — דמו עמוד 1 שמורכב מ-atoms (מומלץ: דף הבית או טיפול). אישור nimrod. (0.5-1 יום)
+1. ✅ **DONE 2026-05-26** — **Atom Inventory Scan** — סריקת 16 עמודים + 54 פוסטי בלוג → רשימה ממוצה של ~25-30 atoms ייחודיים. **תוצר בפועל: 32 atoms** ב-`_COMMUNICATION/team_80/ATOM-INVENTORY-2026-05-26.md`. QA Gate 1 PASS_WITH_FINDINGS.
+2. ✅ **DONE 2026-05-26** — **LOD400 Design System Spec** — מסמך 12 פרקים, 3,919 שורות, כל 32 ה-atoms. תוצר: `_COMMUNICATION/team_80/D-14-DESIGN-SYSTEM-LOD400-2026-05-26.md`. QA Gate 2 PASS_WITH_FINDINGS (14/14).
+3. ✅ **DONE 2026-05-26** — **POC validation** — דמו דף הבית self-contained. תוצר: `hub/dist/decisions/atoms-poc-2026-05-26.html` (89,887 בייט, 12 בלוקים). QA Gate 3 PASS_WITH_FINDINGS (14/15). **ממתין:** אישור POC של nimrod + ולידציה cross-engine של team_190.
 
 **B. שלב יישום (אחרי A מאושר):**
 
