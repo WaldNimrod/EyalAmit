@@ -101,6 +101,8 @@ Y3 (Atoms-first LOD400) מסגיר את הסקופ שלכם כ-**הרכבה וי
 team_190 v2 verdict זיהה **finding לא-חוסם**:
 > POC accessibility patches introduce updated token/motion values that are not fully backported into D-14. team_10 must implement from the patched POC + browser-evidence patch log for those values, or team_100/team_80 should issue an atom/spec patch before code hardening.
 
+### 🟢 nimrod בחר מסלול A (2026-05-27) — Block 1 בהמתנה ל-team_80 patch
+
 ### 2 מסלולים — לבחור אחד לפני שמתחילים Block 1:
 
 **מסלול A (מומלץ — חזק):** team_80 מנפיק patch ל-D-14 LOD400 שמגלם את 8 ה-POC patches.
@@ -114,6 +116,8 @@ team_190 v2 verdict זיהה **finding לא-חוסם**:
 - **פעולה:** team_10 מתעד explicitly את כל ה-deltas שיישם מ-POC ב-`_COMMUNICATION/team_10/D-14-DELTA-IMPLEMENTED-FROM-POC-2026-XX-XX.md`.
 
 **ברירת מחדל — אם nimrod לא מאשר**: **מסלול A** (cleaner audit trail).
+
+**🟢 ביצוע בפועל:** נבחר **מסלול A** ב-2026-05-27. team_80 מנדט: `_COMMUNICATION/team_80/MANDATE-TEAM80-D-14-PATCH-FROM-POC-2026-05-27.md`. **טריגר ל-Block 1:** קיום `D-14-PATCH-NOTE-2026-05-27.md` עם status COMPLETE + commit ב-D-14 LOD400 v1.1.
 
 ---
 
