@@ -12,6 +12,12 @@ constitutional_authority: Iron Rule #5 (CLAUDE.md) — "Final validation owned b
 profile: L2
 ---
 
+> **🟡 SUPERSEDED 2026-05-27**
+> This pre-emptive mandate was authored in parallel by team_100 while the team_80/team_100 parallel session was still active and unaware. The canonical mandate that was actually executed by team_190 is:
+> [`MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md`](../team_100/MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md) (created by the parallel session, dispatched, executed → verdict v1.0.0 FAIL → 8 patches → v2.0.0 PASS_WITH_FINDINGS).
+> Kept here as duplicate-effort record for audit trail; **do not execute**.
+
+
 # מנדט team_190 — Cross-Engine Final Validation עבור Stage A
 
 ## 0. הקשר ופרוטוקול
