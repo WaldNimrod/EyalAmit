@@ -1,259 +1,304 @@
-# roadmap.yaml — EyalAmit WP State Registry (Schema v1.1)
-# SSoT for WHAT/WHEN. Iron Rule #4: single-writer — exactly one agent holds write authority.
-# Current write authority: eyalamit_arch (Team 100 / Claude Code)
-
-schema_version: "1.1"
-
+schema_version: '1.1'
 project:
   id: eyalamit
-  name: "Eyal Amit — EyalAmit.co.il 2026"
+  name: Eyal Amit — EyalAmit.co.il 2026
   profile: L0
-  lean_kit_version: "3.1.3"
-  created: "2026-03-29"
+  lean_kit_version: 3.1.3
+  created: '2026-03-29'
   owner: eyalamit_sd
-  active_milestone: "S002"
-  notes: >
-    WordPress 6.x refresh of eyalamit.co.il (uPress staging).
-    Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub + books v2) COMPLETE as of
-    2026-04-11.
-    S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190
-    L-GATE_V PASS.
-    S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off
-    APPROVED 2026-04-12.
-    S002 WPs initialized 2026-04-12.
-    EYAL-HUB-V2 (Client Hub LOD400): L-GATE_SPEC PASS WITH FINDINGS 2026-04-15 — eyalamit_val
-    (Team 190);
-    artifact _COMMUNICATION/team_190/EYAL-HUB-V2/L-GATE_SPEC_result.md. LOD400 v1.1
-    (2026-04-15) — §13 E2E + AC-15 F-08–F-10; mandate Team10 v1.1 delivery package
-    for QA.
+  active_milestone: S002
+  notes: 'WordPress 6.x refresh of eyalamit.co.il (uPress staging). Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub +
+    books v2) COMPLETE as of 2026-04-11. S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V
+    PASS. S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12. S002 WPs initialized
+    2026-04-12. EYAL-HUB-V2 (Client Hub LOD400): L-GATE_SPEC PASS WITH FINDINGS 2026-04-15 — eyalamit_val (Team 190); artifact
+    _COMMUNICATION/team_190/EYAL-HUB-V2/L-GATE_SPEC_result.md. LOD400 v1.1 (2026-04-15) — §13 E2E + AC-15 F-08–F-10; mandate
+    Team10 v1.1 delivery package for QA.
 
+    2026-05-26: Wave2 began. WP-W2-01 + WP-W2-01-STAGE-B-PREP registered in roadmap.
+
+    WP-W2-01-STAGE-B-PREP advanced to L-GATE_BUILD PASS_WITH_FINDINGS by team_100 per team_10 gate-advance request and team_50
+    verdict 11/11 VCs PASS.
+
+    2026-05-26: Manual DB backup confirmed by team_00 — Stage B-PREP minor finding RESOLVED.
+
+    Stage A in progress: team_80 delivered ATOM-INVENTORY + D-14 LOD400 DRAFT; team_50 QA-A1 + QA-A2 underway.
+
+    '
 work_packages:
 - id: S001-P001-WP001
-  label: "_aos/ Foundation — governance structure + lean-kit snapshot"
+  label: _aos/ Foundation — governance structure + lean-kit snapshot
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_arch
   assigned_validator: eyalamit_val
-  created_at: "2026-04-11"
-  milestone_ref: "S001"
-  spec_ref: "_aos/work_packages/S001/S001-P001-WP001/LOD400_spec.md"
+  created_at: '2026-04-11'
+  milestone_ref: S001
+  spec_ref: _aos/work_packages/S001/S001-P001-WP001/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-11"
-    notes: "Eligibility confirmed. AOS migration approved by Team 00."
+    date: '2026-04-11'
+    notes: Eligibility confirmed. AOS migration approved by Team 00.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-11"
-    notes: "LOD400 spec authored. Team 110+190 review submitted."
+    date: '2026-04-11'
+    notes: LOD400 spec authored. Team 110+190 review submitted.
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-11"
-    notes: "validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete."
+    date: '2026-04-11'
+    notes: validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-11"
-    notes: "eyalamit_val (openai) — constitutional review PASS. No blocking issues."
-
+    date: '2026-04-11'
+    notes: eyalamit_val (openai) — constitutional review PASS. No blocking issues.
 - id: S001-P001-WP002
-  label: "Root context files — CLAUDE.md + .cursorrules"
+  label: Root context files — CLAUDE.md + .cursorrules
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_arch
   assigned_validator: eyalamit_val
-  created_at: "2026-04-11"
-  milestone_ref: "S001"
-  spec_ref: "_aos/work_packages/S001/S001-P001-WP002/LOD400_spec.md"
+  created_at: '2026-04-11'
+  milestone_ref: S001
+  spec_ref: _aos/work_packages/S001/S001-P001-WP002/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-11"
-    notes: "Eligibility confirmed."
+    date: '2026-04-11'
+    notes: Eligibility confirmed.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-11"
-    notes: "LOD400 approved."
+    date: '2026-04-11'
+    notes: LOD400 approved.
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-11"
-    notes: "CLAUDE.md + .cursorrules created. No forbidden pattern triggers. LOD500
-      complete."
+    date: '2026-04-11'
+    notes: CLAUDE.md + .cursorrules created. No forbidden pattern triggers. LOD500 complete.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-11"
-    notes: "eyalamit_val (openai) — PASS."
-
+    date: '2026-04-11'
+    notes: eyalamit_val (openai) — PASS.
   profile: L0
 - id: S001-P001-WP003
-  label: "Governance contracts + context activation files"
+  label: Governance contracts + context activation files
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_arch
   assigned_validator: eyalamit_val
-  created_at: "2026-04-11"
-  milestone_ref: "S001"
-  spec_ref: "_aos/work_packages/S001/S001-P001-WP003/LOD400_spec.md"
+  created_at: '2026-04-11'
+  milestone_ref: S001
+  spec_ref: _aos/work_packages/S001/S001-P001-WP003/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-11"
-    notes: "Eligibility confirmed."
+    date: '2026-04-11'
+    notes: Eligibility confirmed.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-11"
-    notes: "LOD400 approved."
+    date: '2026-04-11'
+    notes: LOD400 approved.
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-11"
-    notes: "4 governance contracts + 4 context files created. LOD500 complete."
+    date: '2026-04-11'
+    notes: 4 governance contracts + 4 context files created. LOD500 complete.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-11"
-    notes: "eyalamit_val (openai) — PASS."
-
+    date: '2026-04-11'
+    notes: eyalamit_val (openai) — PASS.
   profile: L0
 - id: S001-P001-WP004
-  label: "_COMMUNICATION/ canonical structure + AOS onboarding files"
+  label: _COMMUNICATION/ canonical structure + AOS onboarding files
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_arch
   assigned_validator: eyalamit_val
-  created_at: "2026-04-11"
-  milestone_ref: "S001"
-  spec_ref: "_aos/work_packages/S001/S001-P001-WP004/LOD400_spec.md"
+  created_at: '2026-04-11'
+  milestone_ref: S001
+  spec_ref: _aos/work_packages/S001/S001-P001-WP004/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-11"
-    notes: "Eligibility confirmed."
+    date: '2026-04-11'
+    notes: Eligibility confirmed.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-11"
-    notes: "LOD400 approved."
+    date: '2026-04-11'
+    notes: LOD400 approved.
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-11"
-    notes: "_COMMUNICATION/ created alongside _communication/ (lowercase). LOD500
-      complete."
+    date: '2026-04-11'
+    notes: _COMMUNICATION/ created alongside _communication/ (lowercase). LOD500 complete.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-11"
-    notes: "eyalamit_val (openai) — PASS."
-
+    date: '2026-04-11'
+    notes: eyalamit_val (openai) — PASS.
   profile: L0
 - id: S001-P001-WP005
-  label: "AOS hub registration — projects/eyalamit.yaml + _aos/projects.yaml entry"
+  label: AOS hub registration — projects/eyalamit.yaml + _aos/projects.yaml entry
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_arch
   assigned_validator: eyalamit_val
-  created_at: "2026-04-11"
-  milestone_ref: "S001"
-  spec_ref: "_aos/work_packages/S001/S001-P001-WP005/LOD400_spec.md"
+  created_at: '2026-04-11'
+  milestone_ref: S001
+  spec_ref: _aos/work_packages/S001/S001-P001-WP005/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-11"
-    notes: "Eligibility confirmed."
+    date: '2026-04-11'
+    notes: Eligibility confirmed.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-11"
-    notes: "LOD400 approved."
+    date: '2026-04-11'
+    notes: LOD400 approved.
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-11"
-    notes: "Hub registration complete. Migration specs submitted to teams 110+190.
-      LOD500 complete."
+    date: '2026-04-11'
+    notes: Hub registration complete. Migration specs submitted to teams 110+190. LOD500 complete.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-11"
-    notes: "eyalamit_val (openai) — PASS. S001 milestone closed."
-
+    date: '2026-04-11'
+    notes: eyalamit_val (openai) — PASS. S001 milestone closed.
   profile: L0
 - id: S002-P001-WP001
-  label: "About page — content completion + Hebrew copy"
+  label: About page — content completion + Hebrew copy
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_E
   lod_status: LOD100
   assigned_builder: eyalamit_build
   assigned_validator: eyalamit_val
-  created_at: "2026-04-12"
-  milestone_ref: "S002"
-  spec_ref: "_aos/work_packages/S002/S002-P001-WP001/LOD400_spec.md"
+  created_at: '2026-04-12'
+  milestone_ref: S002
+  spec_ref: _aos/work_packages/S002/S002-P001-WP001/LOD400_spec.md
   gate_history: []
   profile: L0
-
 - id: S002-P001-WP002
-  label: "Home page — hero copy + section content completion"
+  label: Home page — hero copy + section content completion
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_E
   lod_status: LOD100
   assigned_builder: eyalamit_build
   assigned_validator: eyalamit_val
-  created_at: "2026-04-12"
-  milestone_ref: "S002"
-  spec_ref: "_aos/work_packages/S002/S002-P001-WP002/LOD400_spec.md"
+  created_at: '2026-04-12'
+  milestone_ref: S002
+  spec_ref: _aos/work_packages/S002/S002-P001-WP002/LOD400_spec.md
   gate_history: []
   profile: L0
-
 - id: S002-P001-WP003
-  label: "Services page — offerings content + pricing"
+  label: Services page — offerings content + pricing
   status: COMPLETE
   track: A
   current_lean_gate: L-GATE_V
   lod_status: LOD500
   assigned_builder: eyalamit_build
   assigned_validator: eyalamit_val
-  created_at: "2026-04-12"
-  milestone_ref: "S002"
-  spec_ref: "_aos/work_packages/S002/S002-P001-WP003/LOD400_spec.md"
+  created_at: '2026-04-12'
+  milestone_ref: S002
+  spec_ref: _aos/work_packages/S002/S002-P001-WP003/LOD400_spec.md
   gate_history:
   - gate: L-GATE_E
     result: PASS
-    date: "2026-04-12"
-    notes: "Eligibility confirmed. Content packages received from Eyal (2026-04-09,
-      2026-04-10). Builder eyalamit_build assigned."
+    date: '2026-04-12'
+    notes: Eligibility confirmed. Content packages received from Eyal (2026-04-09, 2026-04-10). Builder eyalamit_build assigned.
   - gate: L-GATE_S
     result: PASS
-    date: "2026-04-12"
-    notes: "LOD400 spec confirmed. eyalamit_sd (Nimrod) authorized build in S002 Session
-      1. Services list sourced from Eyal content packages — pricing via CTA-to-contact
-      (Eyal-approved approach, explicit pricing not provided in packages)."
+    date: '2026-04-12'
+    notes: LOD400 spec confirmed. eyalamit_sd (Nimrod) authorized build in S002 Session 1. Services list sourced from Eyal
+      content packages — pricing via CTA-to-contact (Eyal-approved approach, explicit pricing not provided in packages).
   - gate: L-GATE_B
     result: PASS
-    date: "2026-04-12"
-    notes: "validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete. /treatment
-      (ID=54) + /method (ID=55) live on staging (HTTP 200). FTP deploy complete (23
-      theme files). Templates set via REST API. scripts/wp_rest_client.py created."
+    date: '2026-04-12'
+    notes: validate_aos.sh 12 PASS / 0 SKIP / 0 FAIL. LOD500 complete. /treatment (ID=54) + /method (ID=55) live on staging
+      (HTTP 200). FTP deploy complete (23 theme files). Templates set via REST API. scripts/wp_rest_client.py created.
   - gate: L-GATE_V
     result: PASS
-    date: "2026-04-12"
-    notes: "eyalamit_val (openai) — constitutional review PASS. AC trace complete,
-      checklist 7/7, live /treatment and /method verified HTTP 200."
-
+    date: '2026-04-12'
+    notes: eyalamit_val (openai) — constitutional review PASS. AC trace complete, checklist 7/7, live /treatment and /method
+      verified HTTP 200.
   profile: L0
 - id: S002-P001-WP004
-  label: "SEO — meta titles, descriptions, and OG tags for all pages"
+  label: SEO — meta titles, descriptions, and OG tags for all pages
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_E
   lod_status: LOD100
   assigned_builder: eyalamit_build
   assigned_validator: eyalamit_val
-  created_at: "2026-04-12"
-  milestone_ref: "S002"
-  spec_ref: "_aos/work_packages/S002/S002-P001-WP004/LOD400_spec.md"
+  created_at: '2026-04-12'
+  milestone_ref: S002
+  spec_ref: _aos/work_packages/S002/S002-P001-WP004/LOD400_spec.md
   gate_history: []
   profile: L0
+- id: WP-W2-01
+  label: Wave2 WP-01 — Infrastructure (D-14 design system + form + footer + analytics)
+  status: IN_PROGRESS
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-05-26'
+  milestone_ref: S002
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  profile: L0
+  parent_decision: _COMMUNICATION/team_00/DECISION_EYAL_MEETING_CLOSURE_2026-05-26_v1.md
+  children:
+  - WP-W2-01-STAGE-A
+  - WP-W2-01-STAGE-B-PREP
+  - WP-W2-01-STAGE-B-IMPL
+  gate_history: []
+  notes: Per Combo C (Atoms-first LOD400). Split into Stage A (team_100 LOD400 spec + POC) and Stage B (team_10 implementation),
+    with parallel B-prep track.
+- id: WP-W2-01-STAGE-B-PREP
+  label: Stage B Parallel Infrastructure Prep — plugins, MX, analytics, staging health, media inventory, FTPS, theme audit
+  status: COMPLETE_WITH_FINDINGS
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  lod_status: LOD500
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-05-26'
+  milestone_ref: S002
+  parent_wp: WP-W2-01
+  spec_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-STAGE-B-PREP-PARALLEL-2026-05-26.md
+  profile: L0
+  gate_history:
+  - gate: L-GATE_BUILD
+    result: PASS_WITH_FINDINGS
+    date: '2026-05-26'
+    timestamp: '2026-05-26T22:33:00Z'
+    validator: team_50
+    builder_engine: claude-code
+    validator_engine: cursor-composer
+    criteria_total: 11
+    criteria_pass: 11
+    criteria_fail: 0
+    findings_blocker: 0
+    findings_major: 0
+    findings_minor: 1
+    validate_aos_result: 30 PASS / 18 SKIP / 0 FAIL
+    verdict_artifact: _COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-PREP_L-GATE_BUILD_v1.0.0.md
+    disposition_artifact: _COMMUNICATION/team_00/DISPOSITION_WP-W2-01-STAGE-B-PREP_L-GATE_BUILD_2026-05-26.md
+    minor_finding: Pending manual DB backup before Wave2 Stage B implementation (uPress panel) — non-blocking carry-forward
+    advanced_by: team_100
+    advancement_artifact: _COMMUNICATION/team_100/GATE-ADVANCE-REQUEST_WP-W2-01-STAGE-B-PREP_2026-05-26.md
+  notes: 'Parallel infrastructure track to team_100 Stage A. 11/11 VCs PASS. Human gates remain open for Eyal: SMTP App Password,
+    GA4 Measurement ID, Clarity Project ID.'
+  finding_resolutions:
+  - finding: Pending manual DB backup before Wave2 Stage B implementation
+    severity: minor
+    resolved_at: '2026-05-26'
+    resolved_by: team_00 (nimrod)
+    evidence: 'User confirmed manual backup created (chat: 2026-05-26)'
+    status: RESOLVED

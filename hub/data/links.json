@@ -52,6 +52,36 @@
           "noteHe": "לפי נספח — HTTPS בפרודקשן"
         }
       ]
+    },
+    {
+      "id": "social",
+      "titleHe": "רשתות חברתיות אייל עמית",
+      "items": [
+        {
+          "labelHe": "פייסבוק — Didgeridoo Studio Eyal Amit",
+          "href": "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+          "openInNewTab": true,
+          "noteHe": "אומת live 2026-05-26"
+        },
+        {
+          "labelHe": "אינסטגרם — didgeridoo.therapy.center",
+          "href": "https://www.instagram.com/didgeridoo.therapy.center",
+          "openInNewTab": true,
+          "noteHe": "אומת live 2026-05-26"
+        },
+        {
+          "labelHe": "יוטיוב — @איילעמית",
+          "href": "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA",
+          "openInNewTab": true,
+          "noteHe": "אומת live 2026-05-26"
+        },
+        {
+          "labelHe": "טיקטוק — URL ממתין מאייל",
+          "href": "#",
+          "openInNewTab": false,
+          "noteHe": "URL לא סופק עדיין; ראו hub/data/social-channels.json"
+        }
+      ]
     }
   ]
 }

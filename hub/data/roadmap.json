@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "currentGateLabelHe": "שער M4 — אינטגרציות ו־Wave1 (תבנית ספר → סטייג'ינג)",
-  "currentFocusId": "MILESTONE-M4",
+  "currentGateLabelHe": "שער M4 → Wave2 (9 חבילות עבודה LOD200) — אחרי סגירת 21 שאלות אייל",
+  "currentFocusId": "MILESTONE-M4-WAVE2",
   "milestoneProgress": {
     "completedCount": 3,
     "totalCount": 7,
     "percent": null
   },
-  "summaryHe": "M3 טכני הושלם (2026-04-07). מיקוד M4: אינטגרציות (מקביל) + Wave1 — נעילת תבנית ספר (צוות 80) → עמוד ספר ייחוס פיקסל־פרפקט בסטייג’ינג → שכפול לספרים + עמוד הוצאה (st-books) → רטרו חוקים → עמוד טיפולים → פריסה/פרזנטציה/משוב Hub. קליטת 6 חבילות CONTENT (2026-04-09) רשומה ב־updates + deliverables; שאר חבילות תוכן deferred לסוף Wave1.",
+  "summaryHe": "Wave1 הושלם (book-detail v2, book-tsva/vekatavta/kushi FINAL, treatment FINAL).\n2026-05-26: סבב אייל סגר 21 פערים פתוחים. Wave2 פעיל עם 9 חבילות עבודה LOD200 מלאות\n(WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md). מסלול: ליבה (W2-01,02) [Stage B prep ✓ L-GATE_BUILD PASS_WITH_FINDINGS] → ספרים/שיעורים/שופ\nבמקביל → בלוג+כתבות → EN+cutover.\nהמתנה: וידאו Hero מאייל (תוך ימים, placeholder עד אז).\n301 ב-Drive אצל אייל לעבודה אסינכרונית.",
   "eyalNarrative": {
     "titleHe": "נטיב אייל — תוכן, אישורים ושיווק",
     "introHe": "החלק הזה מתאר בשפה של בעלים: מה נדרש ממך בכל נושא ומה מתקבל בסוף. למטה מופיע נפרד נטיב טכני לצוות (משימות מזוהות M2-T).",
@@ -156,7 +156,7 @@
       "code": "M4",
       "titleHe": "אינטגרציות והמרות",
       "status": "in_progress",
-      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; יישום DEFERRED מתיק governance (G1,G2,G8,G9); 301 ראשוני; מקביל — תוכן CEO."
+      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; יישום DEFERRED מתיק governance (G1,G2,G8,G9); 301 ראשוני; מקביל — תוכן CEO.\n\nWave1 → COMPLETED (book-detail v2 + 3 ספרים + טיפול FINAL).\nWave2 → ACTIVE (9 חבילות LOD200, ראו WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md)."
     },
     {
       "id": "MILESTONE-M5",
@@ -182,9 +182,122 @@
   ],
   "currentFocusBreakdown": {
     "milestoneId": "MILESTONE-M4",
-    "titleHe": "פירוט אבן הדרך הנוכחית — M4 אינטגרציות והמרות",
+    "titleHe": "M4 — Wave2 פעיל (9 חבילות LOD200)",
     "introHe": "לאחר סגירת M3 הטכנית (2026-04-07): ליבת M4 — אינטגרציות וטפסים בפרודקשן. במקביל — Wave1: מימוש תוכן מאויש (ספרים + טיפולים) לפי מסלול משלבים; מדיה תחת ea-wave1-media. קליטת zip CONTENT (6 חבילות) הושלמה — המשך עבודה ב־Hub tasks + מסמך M4-CONTENT-IMPLEMENTATION-ROUND.",
     "sections": [
+      {
+        "id": "M4-WAVE2-WPS",
+        "titleHe": "M4 → Wave2: 9 חבילות עבודה LOD200 (אושר 2026-05-26)",
+        "introHe": "תוכן 25.5.26 = SSOT; כל מה שאין → מיגרציה 1:1 מהאתר הישן (אומת לייב). LOD200 ראו WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md",
+        "items": [
+          {
+            "id": "WP-W2-01",
+            "titleHe": "תשתית D-14 + טופס + פוטר + Analytics",
+            "status": "in_progress",
+            "estDays": "5-7",
+            "dependsOn": [],
+            "owner": "team_10",
+            "notes": " · Stage B prep COMPLETE 2026-05-26 (L-GATE_BUILD PASS_WITH_FINDINGS, 11/11 VCs); Stage A LOD400 in progress; Stage B implementation awaits Stage A completion.",
+            "stages": {
+              "A_atoms_first": {
+                "status": "in_progress",
+                "owner": "team_100"
+              },
+              "B_prep_parallel": {
+                "status": "complete_with_findings",
+                "owner": "team_10",
+                "gate": "L-GATE_BUILD",
+                "verdict_artifact": "_COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-PREP_L-GATE_BUILD_v1.0.0.md"
+              },
+              "B_impl": {
+                "status": "blocked",
+                "owner": "team_10",
+                "blocked_by": "A_atoms_first"
+              }
+            }
+          },
+          {
+            "id": "WP-W2-02",
+            "titleHe": "ליבת תוכן: בית+שיטה+טיפול+אודות+FAQ+צור קשר",
+            "status": "pending",
+            "estDays": "7-10",
+            "dependsOn": [
+              "WP-W2-01"
+            ],
+            "owner": "team_10+30"
+          },
+          {
+            "id": "WP-W2-03",
+            "titleHe": "מוזה + 3 ספרים (וכתבת/כושי/צבע)",
+            "status": "pending",
+            "estDays": "4-6",
+            "dependsOn": [
+              "WP-W2-02"
+            ],
+            "owner": "team_10"
+          },
+          {
+            "id": "WP-W2-04",
+            "titleHe": "סאונד הילינג + שיעורי נגינה",
+            "status": "pending",
+            "estDays": "3-4",
+            "dependsOn": [
+              "WP-W2-02"
+            ],
+            "owner": "team_10+30"
+          },
+          {
+            "id": "WP-W2-05",
+            "titleHe": "שופ: 4 מוצרים + תיקון + /shop",
+            "status": "pending",
+            "estDays": "4-5",
+            "dependsOn": [
+              "WP-W2-02"
+            ],
+            "owner": "team_10+30"
+          },
+          {
+            "id": "WP-W2-06",
+            "titleHe": "מיגרציית בלוג — 54 פוסטים + 6 קטגוריות + 126 תגיות",
+            "status": "pending",
+            "estDays": "5-7",
+            "dependsOn": [
+              "WP-W2-01"
+            ],
+            "owner": "team_10+40"
+          },
+          {
+            "id": "WP-W2-07",
+            "titleHe": "כתבות + מוקש + 49 QR + עדויות FB",
+            "status": "pending",
+            "estDays": "3-4",
+            "dependsOn": [
+              "WP-W2-02"
+            ],
+            "owner": "team_10+30+40"
+          },
+          {
+            "id": "WP-W2-08",
+            "titleHe": "עמוד EN — תמצית האתר באנגלית",
+            "status": "pending",
+            "estDays": "2-3",
+            "dependsOn": [
+              "WP-W2-02"
+            ],
+            "owner": "team_30"
+          },
+          {
+            "id": "WP-W2-09",
+            "titleHe": "סינון מדיה + 301 + cutover prep",
+            "status": "pending",
+            "estDays": "3-4",
+            "dependsOn": [
+              "WP-W2-01..08"
+            ],
+            "owner": "team_20+50+90"
+          }
+        ]
+      },
       {
         "id": "M4-SEC-WAVE1-BOOKS-TREATMENT",
         "titleHe": "M4 — Wave1: תבנית ספר → ספרים → טיפולים (מסלול פעיל)",
