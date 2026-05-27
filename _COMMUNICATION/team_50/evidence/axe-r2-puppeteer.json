@@ -1,0 +1,72 @@
+{
+  "url": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/",
+  "httpStatus": 200,
+  "dataBlockCount": 12,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT",
+        "RGAAv4",
+        "RGAA-3.2.1"
+      ],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#d2d1d1",
+                "bgColor": "#696664",
+                "contrastRatio": 3.73,
+                "fontSize": "8.2pt (10.88px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<nav class=\"ea-topnav\" aria-label=\"ניווט ראשי\">",
+                  "target": [
+                    ".ea-topnav"
+                  ]
+                },
+                {
+                  "html": "<header class=\"site-header has-inline-mobile-toggle\" id=\"masthead\" aria-label=\"Site\" itemtype=\"https://schema.org/WPHeader\" itemscope=\"\">",
+                  "target": [
+                    "#masthead"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.73 (foreground color: #d2d1d1, background color: #696664, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span class=\"ea-sound-toggle__label\">שמע</span>",
+          "target": [
+            ".ea-sound-toggle__label"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.73 (foreground color: #d2d1d1, background color: #696664, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "violationCount": 1,
+  "critical": 0,
+  "serious": 1,
+  "timestamp": "2026-05-27T17:36:22.821Z"
+}

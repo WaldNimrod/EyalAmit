@@ -1,0 +1,38 @@
+{
+  "desktop": {
+    "htmlDir": "rtl",
+    "bodyDirection": "rtl",
+    "pTextAlign": "right"
+  },
+  "mobile": {
+    "htmlDir": "rtl",
+    "bodyDirection": "rtl",
+    "pTextAlign": "left"
+  },
+  "trials": [
+    {
+      "trial": 1,
+      "variant": "wa_only"
+    },
+    {
+      "trial": 2,
+      "variant": "wa_only"
+    },
+    {
+      "trial": 3,
+      "variant": "dual"
+    },
+    {
+      "trial": 4,
+      "variant": "wa_only"
+    },
+    {
+      "trial": 5,
+      "variant": "wa_only"
+    },
+    {
+      "trial": 6,
+      "variant": "dual"
+    }
+  ]
+}

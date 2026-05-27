@@ -1,0 +1,313 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+      "windowWidth": 756,
+      "windowHeight": 413,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-05-27T17:36:09.517Z",
+    "url": "chrome-error://chromewebdata/",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": [
+          "wcag2aa"
+        ]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=webdriverjs",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": null,
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#9aa0a6",
+                  "bgColor": "#202124",
+                  "contrastRatio": 6.09,
+                  "fontSize": "16.9pt (22.5px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h1>Your connection is not private</h1>",
+            "target": [
+              "h1"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#9aa0a6",
+                  "bgColor": "#202124",
+                  "contrastRatio": 6.09,
+                  "fontSize": "10.7pt (14.25px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>Attackers might be trying to steal your information from <strong>eyalamit-co-il-2026.s887.upress.link</strong> (for example, passwords, messages, or credit cards). <a href=\"#\" id=\"learn-more-link\">Learn more about this warning</a></p>",
+            "target": [
+              "#main-message > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#9aa0a6",
+                  "bgColor": "#202124",
+                  "contrastRatio": 6.09,
+                  "fontSize": "10.7pt (14.25px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<strong>eyalamit-co-il-2026.s887.upress.link</strong>",
+            "target": [
+              "#main-message > p > strong"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8ab4f8",
+                  "bgColor": "#202124",
+                  "contrastRatio": 7.63,
+                  "fontSize": "10.7pt (14.25px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.63"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"#\" id=\"learn-more-link\">Learn more about this warning</a>",
+            "target": [
+              "#learn-more-link"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#9aa0a6",
+                  "bgColor": "#202124",
+                  "contrastRatio": 6.09,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div><a href=\"#\" id=\"enhanced-protection-link\">Turn on enhanced protection</a> to get Chrome's highest level of security</div>",
+            "target": [
+              "label > div:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#9aa0a6",
+                  "bgColor": "#202124",
+                  "contrastRatio": 6.09,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"#\" id=\"enhanced-protection-link\">Turn on enhanced protection</a>",
+            "target": [
+              "#enhanced-protection-link"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#202124",
+                  "bgColor": "#8ab4f8",
+                  "contrastRatio": 7.63,
+                  "fontSize": "10.5pt (13.995px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.63"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button id=\"primary-button\">Back to safety</button>",
+            "target": [
+              "#primary-button"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8ab4f8",
+                  "bgColor": "#202124",
+                  "contrastRatio": 7.63,
+                  "fontSize": "10.5pt (13.995px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.63"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button id=\"details-button\" class=\"secondary-button small-link\" aria-expanded=\"false\">\n        Advanced\n      </button>",
+            "target": [
+              "#details-button"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"initial-scale=1, minimum-scale=1, width=device-width\">",
+            "target": [
+              "meta[name=\"viewport\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "violations": []
+  }
+]
