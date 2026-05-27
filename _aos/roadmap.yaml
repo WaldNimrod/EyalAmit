@@ -25,6 +25,8 @@ project:
 
     2026-05-27: Stage B implementation delivered by team_10 (cursor-composer). Cross-engine QA mandate dispatched to team_50.
 
+    2026-05-27: Stage B impl FAIL Phase 1 Round 1 — deploy gap + cross-engine violation. Remediation plan filed.
+
     '
 work_packages:
 - id: S001-P001-WP001
@@ -410,9 +412,9 @@ work_packages:
     status: RESOLVED
 - id: WP-W2-01-STAGE-B-IMPL
   label: Stage B Implementation — D-14 v1.1 → child theme code (tokens, atoms, blocks, templates, CF7, footer, analytics)
-  status: COMPLETE_PENDING_QA
+  status: FAIL_REMEDIATION
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: L-GATE_BUILD-REMEDIATION
   lod_status: LOD500
   assigned_builder: team_10
   assigned_validator: team_50
@@ -430,6 +432,24 @@ work_packages:
     completion_report: _COMMUNICATION/team_10/STAGE-B-COMPLETION-REPORT-2026-05-27.md
     validate_aos: 30 PASS / 18 SKIP / 0 FAIL
     note: COMPLETE_PENDING_QA — awaits team_50 cross-engine 2-phase QA (Phase 1 immediate, Phase 2 after Eyal human gates)
+  - gate: L-GATE_BUILD
+    phase: Phase-1-Round-1
+    date: '2026-05-27'
+    verdict: FAIL
+    validator: team_50
+    validator_engine: cursor-composer (VIOLATION — same as builder; carry-forward only for 4 repo-side VCs)
+    criteria_pass: 4
+    criteria_fail: 10
+    blockers:
+    - Stage B not deployed to staging — theme assets 404
+    - Smoke page /wave2-test/ missing
+    - Cross-engine violation
+    majors:
+    - A/B contract drift (ea_wa_ab_variant vs mandate eyal_cta_variant)
+    - Staging TLS cert expired
+    verdict_artifact: _COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md
+    disposition_artifact: _COMMUNICATION/team_00/DISPOSITION_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_2026-05-27.md
+    remediation_plan: _COMMUNICATION/team_100/REMEDIATION-PLAN-STAGE-B-IMPL-FAIL-2026-05-27.md
   pending_human_gates:
   - SMTP App Password (WP Mail SMTP plugin in WP admin)
   - GA4 Measurement ID (analytics-config.json)
@@ -437,5 +457,7 @@ work_packages:
   next_validator: team_50
   cross_engine_required: true
   cross_engine_constraint: builder=cursor-composer; validator MUST NOT be cursor (Claude Code/Codex/GPT/Gemini)
-  notes: Stage B impl delivered. Cross-engine QA mandate filed at _COMMUNICATION/team_50/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md.
+  notes: 'Stage B impl delivered. Cross-engine QA mandate filed at _COMMUNICATION/team_50/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md.
     Phase 1 (axe/Lighthouse/render/RTL/A-B) non-blocking on Eyal. Phase 2 (CF7 mail/GA4 RealTime/Clarity) requires human gates.
+    R1 FAIL Phase 1: deploy gap + cross-engine + A/B drift. R2 sequenced: team_60 deploy → team_10 A/B patch → operator smoke
+    page → team_20 TLS (parallel) → team_50 re-QA non-Cursor.'
