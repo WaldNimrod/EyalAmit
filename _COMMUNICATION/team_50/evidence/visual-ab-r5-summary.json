@@ -1,0 +1,26 @@
+{
+  "vc9": {
+    "pass": true,
+    "desktopDir": {
+      "html": "rtl",
+      "body": "rtl"
+    },
+    "mobileDir": {
+      "html": "rtl",
+      "body": "rtl"
+    }
+  },
+  "vc10": {
+    "pass": true,
+    "variants": [
+      "form_only",
+      "dual",
+      "form_only",
+      "dual",
+      "form_only",
+      "wa_only"
+    ],
+    "distinct": 3
+  },
+  "timestamp": "2026-05-27T21:55:21.845Z"
+}
