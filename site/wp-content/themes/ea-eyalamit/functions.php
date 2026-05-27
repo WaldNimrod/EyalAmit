@@ -765,3 +765,8 @@ function ea_eyalamit_books_v2_hide_title( $show ) {
 	return $show;
 }
 add_filter( 'generate_show_title', 'ea_eyalamit_books_v2_hide_title', 21 );
+
+/**
+ * WP-W2-01 Stage B — D-14 implementation (tokens, blocks, templates, analytics).
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-stage-b.php';

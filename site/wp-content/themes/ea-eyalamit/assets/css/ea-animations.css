@@ -1,0 +1,115 @@
+/* EyalAmit D-14 §2 Motion — ea-animations.css */
+/* ================================================================
+   EyalAmit D-14 — Breathing Primitives
+   File: site/wp-content/themes/ea-eyalamit/assets/css/ea-animations.css
+   ================================================================ */
+
+/* Slow horizontal breath — dividers, accent lines */
+@keyframes breathe-slow {
+  0%, 100% { transform: scaleX(1);    opacity: 0.35; }
+  50%       { transform: scaleX(1.15); opacity: 0.55; }
+}
+
+/* Medium opacity pulse — logo brand, portrait images */
+@keyframes breathe-medium {
+  0%, 100% { opacity: 0.94; }
+  50%       { opacity: 1; }
+}
+
+/* Fast scale pulse — CTA pills, floating WhatsApp button */
+@keyframes breathe-fast {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.005); }
+}
+
+/* Drift — accent circles in Hero background overlay */
+@keyframes breathe-drift {
+  0%, 100% { transform: translateX(0)   translateY(0); }
+  33%       { transform: translateX(8px) translateY(-4px); }
+  66%       { transform: translateX(-6px) translateY(6px); }
+}
+
+/* Fade up — standard scroll entrance for all atoms (transform-only) */
+@keyframes ea-fadeUp {
+  from { transform: translateY(20px); }
+  to   { transform: translateY(0); }
+}
+
+/* Breath reveal — for section headings, section intros (transform-only) */
+@keyframes ea-breathReveal {
+  from { transform: scale(0.995) translateY(10px); }
+  to   { transform: scale(1) translateY(0); }
+}
+
+/* Slide in RTL — for panels/drawers entering from the right (transform-only) */
+@keyframes ea-slideIn-rtl {
+  from { transform: translateX(32px); }
+  to   { transform: translateX(0); }
+}
+
+/* Utility classes */
+.ea-entrance {
+  animation: ea-fadeUp var(--ea-dur-slow) var(--ea-ease-enter) both;
+}
+.ea-entrance--breath {
+  animation: ea-breathReveal 700ms var(--ea-ease-enter) both;
+}
+.ea-entrance--slide {
+  animation: ea-slideIn-rtl var(--ea-dur-mid) var(--ea-ease-enter) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill all continuous breathing loops */
+  *,
+  *::before,
+  *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count:1      !important;
+    transition-duration:      0.01ms !important;
+    animation-delay:          0ms    !important;
+  }
+
+  /* Remove decorative overlay elements entirely */
+  .ea-breath-line,
+  .ea-breath-circle,
+  .hero-video-bg::before,
+  .hero-video-bg::after {
+    display: none !important;
+  }
+
+  /* Keep entrance animations but instant */
+  .ea-entrance,
+  .ea-entrance--breath,
+  .ea-entrance--slide {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Scroll progress: remove dynamic width animation, keep static */
+  #ea-scroll-progress {
+    display: none !important;
+  }
+
+  /* CTA pill: remove pulse, keep visible */
+  .ea-cta-pill {
+    animation: none !important;
+  }
+
+  /* WhatsApp floating button: remove pulse */
+  .ea-whatsapp-float {
+    animation: none !important;
+  }
+
+  /* Link underline: show immediately, no transition */
+  .ea-link::after {
+    left: 0;
+    right: 0;
+    transition: none !important;
+  }
+
+  /* Testimonial carousel: auto-advance off in reduced-motion */
+  .ea-testimonials-carousel[data-autoplay] {
+    animation: none !important;
+  }
+}

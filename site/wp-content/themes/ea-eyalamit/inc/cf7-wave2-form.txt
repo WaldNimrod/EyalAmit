@@ -1,0 +1,27 @@
+Contact Form 7 — Wave2 Minimal-Balanced (B1)
+Create in WP Admin → Contact → Add New, then set filter:
+  add_filter( 'ea_wave2_cf7_form_id', fn() => YOUR_FORM_ID );
+
+Mail to: info@eyalamit.co.il
+SMTP: WP Mail SMTP (Eyal App Password pending)
+
+--- Form body (paste into CF7 editor) ---
+<div class="ea-contact-form__field">
+<label class="ea-contact-form__label" for="cf7-name">שם מלא *</label>
+[text* your-name id:cf7-name class:ea-contact-form__input autocomplete:name]
+</div>
+<div class="ea-contact-form__field">
+<label class="ea-contact-form__label" for="cf7-phone">טלפון / אימייל *</label>
+[text* your-phone id:cf7-phone class:ea-contact-form__input autocomplete:tel]
+</div>
+<div class="ea-contact-form__field">
+<label class="ea-contact-form__label" for="cf7-subject">נושא פניה</label>
+[select your-subject id:cf7-subject class:ea-contact-form__select "בחר נושא" "טיפול בדיג'רידו|treatment" "שיעורי נגינה|lessons" "סאונד הילינג|sound-healing" "רכישת כלי|instrument" "רכישת ספר|book" "תיקון כלי|repair" "אחר|other"]
+</div>
+<div class="ea-contact-form__field">
+<label class="ea-contact-form__label" for="cf7-message">הודעה</label>
+[textarea your-message id:cf7-message class:ea-contact-form__textarea]
+</div>
+[submit class:ea-cta-pill class:ea-cta-pill--primary class:ea-contact-form__submit "שלח הודעה"]
+
+Note: 7 subjects per Eyal B2 — NO "הופעה".

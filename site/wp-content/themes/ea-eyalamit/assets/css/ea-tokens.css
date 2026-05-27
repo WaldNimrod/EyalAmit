@@ -1,0 +1,84 @@
+/* =============================================================
+   EyalAmit.co.il — D-14 Design Tokens
+   Source: D-14-DESIGN-SYSTEM-LOD400-2026-05-26.md §1
+   DO NOT EDIT hex values without a brand round-trip
+   ============================================================= */
+:root {
+  /* --- Brand Colors --- */
+  --ea-sand:        #D8C7B5;
+  --ea-terracotta:  #A44E2B;
+  --ea-earth:       #8A5A44;
+  --ea-olive:       #6E6F4A;
+  --ea-ink:         #2E2B28;
+  --ea-chocolate:   #5C3A2E;
+  --ea-brick:       #AB3A2B;
+
+  /* --- Semantic aliases --- */
+  --ea-accent:       var(--ea-terracotta);
+  --ea-accent-strong:var(--ea-brick);
+  --ea-text:         var(--ea-ink);
+  --ea-text-body:    #5A3826;  /* Canonical body-text color (was --ea-earth; darker for AA contrast on cream bgs). Added 2026-05-27 per POC audit. */
+  --ea-text-muted:   var(--ea-text-body);  /* Body-muted now aliases to text-body; --ea-earth retained for decorative/motion accents only. */
+
+  /* --- UI backgrounds --- */
+  --ea-bg:          #FAF8F5;
+  --ea-bg-alt:      #F3EEE8;
+  --ea-line:        rgba(216,199,181,0.35);
+  --ea-muted:       #6F635A;  /* Visible muted text. Updated 2026-05-27 from #A8A19B for AA contrast. */
+
+  /* --- Typography --- */
+  --ea-font:        'Heebo', -apple-system, Arial, sans-serif;
+  --ea-type-h1-hero:   100 3.4rem/1.12 var(--ea-font);
+  --ea-type-h1:        200 2.8rem/1.12 var(--ea-font);
+  --ea-type-h2:        200 2.0rem/1.2  var(--ea-font);
+  --ea-type-h3:        400 0.92rem/1.4 var(--ea-font);
+  --ea-type-h4:        300 0.78rem/1.4 var(--ea-font);
+  --ea-type-body-lg:   300 1.05rem/1.9 var(--ea-font);
+  --ea-type-body:      300 0.9rem/1.85 var(--ea-font);
+  --ea-type-body-sm:   300 0.78rem/1.6 var(--ea-font);
+  --ea-type-caption:   200 0.58rem/1.4 var(--ea-font);
+
+  /* --- Spacing --- */
+  --ea-space-0:   0px;
+  --ea-space-1:   8px;
+  --ea-space-2:   16px;
+  --ea-space-3:   24px;
+  --ea-space-4:   32px;
+  --ea-space-5:   40px;
+  --ea-space-6:   48px;
+  --ea-space-8:   64px;
+  --ea-space-10:  80px;
+  --ea-space-12:  96px;
+  --ea-space-15:  120px;
+  --ea-space-18:  144px;
+  --ea-space-24:  192px;
+  --ea-space-36:  288px;
+
+  /* --- Layout --- */
+  --ea-content-width:  1200px;
+  --ea-prose-width:    960px;
+  --ea-gutter:         24px;
+  --ea-section-padding:var(--ea-space-15);
+  --ea-nav-height:     64px;
+  --ea-nav-height-mob: 56px;
+
+  /* --- Radii --- */
+  --ea-radius-pill:  100px;
+  --ea-radius-img:   4px;
+
+  /* --- Z-index --- */
+  --ea-z-base:            0;
+  --ea-z-dropdown:       10;
+  --ea-z-sticky:         20;
+  --ea-z-modal-backdrop: 40;
+  --ea-z-modal:          50;
+  --ea-z-toast:          60;
+  --ea-z-tooltip:        70;
+
+  /* --- Transitions --- */
+  --ea-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ea-ease-exit:  cubic-bezier(0.64, 0, 0.78, 0);
+  --ea-dur-fast:   150ms;
+  --ea-dur-mid:    300ms;
+  --ea-dur-slow:   600ms;
+}

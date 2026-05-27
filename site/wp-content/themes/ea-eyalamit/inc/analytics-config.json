@@ -1,0 +1,17 @@
+{
+  "ga4": {
+    "measurement_id": "__PENDING_EYAL__",
+    "stream_id": "__PENDING_EYAL__",
+    "ab_variant": "",
+    "gtag_snippet_template": ""
+  },
+  "clarity": {
+    "project_id": "__PENDING_EYAL__",
+    "ab_variant": "",
+    "clarity_snippet_template": ""
+  },
+  "status": "PENDING_CREDENTIALS",
+  "prepared": "2026-05-27",
+  "prepared_by": "team_10",
+  "note": "Mirror of hub/data/analytics-config.json — Eyal fills measurement_id + project_id."
+}
