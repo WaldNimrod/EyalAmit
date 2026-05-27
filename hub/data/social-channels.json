@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "EYAL-SOCIAL-CHANNELS-CANONICAL",
-  "lastUpdated": "2026-05-26",
+  "lastUpdated": "2026-05-27",
   "source": "Provided directly by Eyal in nimrod meeting 2026-05-26; verified live HTTP 200.",
   "channels": [
     {
@@ -35,12 +35,11 @@
     {
       "platform": "tiktok",
       "labelHe": "טיקטוק",
-      "url": null,
-      "handle": null,
-      "status": "pending_url_from_eyal",
-      "verifiedLive": null,
-      "showInFooter": false,
-      "noteHe": "אייל אישר לכלול בפוטר (Q-D4) — URL עוד לא סופק. עד שיגיע — לא מציגים אייקון ריק."
+      "url": "https://www.tiktok.com/@didgeridoo_therapy?_r=1&_t=ZS-96hl39iCAIG",
+      "handle": "@didgeridoo_therapy",
+      "status": "active",
+      "verifiedLive": "2026-05-27",
+      "showInFooter": true
     }
   ]
 }

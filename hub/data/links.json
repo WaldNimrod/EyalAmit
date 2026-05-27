@@ -76,10 +76,10 @@
           "noteHe": "אומת live 2026-05-26"
         },
         {
-          "labelHe": "טיקטוק — URL ממתין מאייל",
-          "href": "#",
-          "openInNewTab": false,
-          "noteHe": "URL לא סופק עדיין; ראו hub/data/social-channels.json"
+          "labelHe": "טיקטוק — @didgeridoo_therapy",
+          "href": "https://www.tiktok.com/@didgeridoo_therapy?_r=1&_t=ZS-96hl39iCAIG",
+          "openInNewTab": true,
+          "noteHe": "אומת live 2026-05-27 (התקבל מאייל)"
         }
       ]
     }

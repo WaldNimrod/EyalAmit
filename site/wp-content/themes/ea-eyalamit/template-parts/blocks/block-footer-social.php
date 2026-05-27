@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
         <p class="ea-footer__tagline">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>
         <p class="ea-footer__location">פרדס חנה &middot; ישראל</p>
 
-        <!-- Social links — variant_without-tiktok (TikTok pending) -->
+        <!-- Social links — 4 channels (TikTok added 2026-05-27) -->
         <div class="ea-footer__social" role="list" aria-label="רשתות חברתיות">
           <!-- Facebook -->
           <a class="ea-footer__social-link"
@@ -44,8 +44,17 @@ defined( 'ABSPATH' ) || exit;
               <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
-          <!-- TikTok: hidden per variant_without-tiktok (pending URL from Eyal) -->
-          <!-- <a class="ea-footer__social-link" hidden ...>TikTok</a> -->
+          <!-- TikTok — added 2026-05-27 per Eyal -->
+          <a class="ea-footer__social-link"
+             href="https://www.tiktok.com/@didgeridoo_therapy?_r=1&amp;_t=ZS-96hl39iCAIG"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="טיקטוק של אייל עמית (נפתח בחלון חדש)"
+             role="listitem">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18">
+              <path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.78a8.16 8.16 0 0 0 4.77 1.52V6.85a4.85 4.85 0 0 1-1.84-.16z"/>
+            </svg>
+          </a>
         </div>
 
         <!-- Footer navigation -->
