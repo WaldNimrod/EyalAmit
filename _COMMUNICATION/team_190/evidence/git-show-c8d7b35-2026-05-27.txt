@@ -1,0 +1,38 @@
+c8d7b35 WP-W2-01-STAGE-B-IMPL: R3 fix — .ea-sound-toggle contrast (VC-6) + theme v1.3.7
+ .../evidence/axe-r3-contrast-fix-2026-05-27.json   | 3291 ++++++++++++++++++++
+ .../evidence/axe-r3-contrast-fix-2026-05-27.md     |   50 +
+ .../themes/ea-eyalamit/assets/css/ea-atoms.css     |    4 +-
+ site/wp-content/themes/ea-eyalamit/style.css       |    2 +-
+ 4 files changed, 3344 insertions(+), 3 deletions(-)
+commit c8d7b354a1e8d8d0cf2963bf04291cc210a0d913
+Author:     WaldNimrod <nimrod@mezoo.co>
+AuthorDate: Wed May 27 20:42:25 2026 +0300
+Commit:     WaldNimrod <nimrod@mezoo.co>
+CommitDate: Wed May 27 20:42:25 2026 +0300
+
+    WP-W2-01-STAGE-B-IMPL: R3 fix — .ea-sound-toggle contrast (VC-6) + theme v1.3.7
+    
+    team_50 R2 cross-engine verdict surfaced 1 serious WCAG-AA color-contrast violation
+    on .ea-sound-toggle__label (3.73:1 measured via Puppeteer-injected axe). Root cause:
+    .ea-sound-toggle color rgba(255,255,255,0.7) on topnav rgba(46,43,40,0.72) failed
+    the 4.5:1 normal-text threshold.
+    
+    Fix:
+    - .ea-sound-toggle color: rgba(255,255,255,0.7) → rgba(255,255,255,0.92)
+    - .ea-sound-toggle border: rgba(255,255,255,0.25) → rgba(255,255,255,0.45)
+      (border alpha bumped for consistent muted-on-dark hierarchy)
+    - style.css Version: 1.3.6 → 1.3.7 (cache-bust enqueue $ver via wp_get_theme())
+    
+    Deploy:
+    - 2 files delta-uploaded via FTPS (scripts/upress_ftp_env helpers) to uPress staging
+    - Verified live: curl shows updated CSS values + Version 1.3.7
+    
+    In-process re-verification (Puppeteer axe — same method team_50 used to catch bug):
+    - 0 serious / 0 critical (down from 1 in R2)
+    - .ea-sound-toggle absent from any serious/critical violation
+    - Evidence: _COMMUNICATION/team_100/evidence/axe-r3-contrast-fix-2026-05-27.{md,json}
+
+_COMMUNICATION/team_100/evidence/axe-r3-contrast-fix-2026-05-27.json
+_COMMUNICATION/team_100/evidence/axe-r3-contrast-fix-2026-05-27.md
+site/wp-content/themes/ea-eyalamit/assets/css/ea-atoms.css
+site/wp-content/themes/ea-eyalamit/style.css

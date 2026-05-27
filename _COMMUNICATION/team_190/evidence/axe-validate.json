@@ -1,0 +1,2894 @@
+{
+  "generatedAt": "2026-05-27T18:13:24.593Z",
+  "method": "puppeteer-core + injected axe-core, Chrome cert bypass",
+  "url": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/",
+  "pageChecks": {
+    "title": "Wave2 Stage B Smoke Test - eyal amit",
+    "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/",
+    "htmlLang": "he-IL",
+    "htmlDir": "rtl",
+    "bodyDirection": "rtl",
+    "dataBlocks": [
+      "topnav",
+      "hero",
+      "breath-divider-1",
+      "intro",
+      "method-pillars",
+      "treatment-overview",
+      "testimonials-row",
+      "books-row",
+      "services-row",
+      "faq-mini",
+      "contact-cta",
+      "footer-social"
+    ],
+    "css": {
+      "tokens": true,
+      "animations": true,
+      "atoms": true
+    },
+    "footerExists": true,
+    "whatsappExists": true,
+    "hebrewProbe": true,
+    "soundLabel": {
+      "text": "שמע",
+      "color": "rgba(255, 255, 255, 0.92)",
+      "backgroundColor": "rgba(46, 43, 40, 0.72)",
+      "fontSize": "10.88px",
+      "fontWeight": "300",
+      "contrastRatio": 14.07,
+      "wcagAA": true
+    }
+  },
+  "axeSummary": {
+    "violations": 0,
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+  },
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "orientationAngle": 0,
+      "orientationType": "portrait-primary"
+    },
+    "timestamp": "2026-05-27T18:13:24.589Z",
+    "url": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": [
+          "wcag2aa"
+        ]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=axeAPI",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 14.07,
+                  "fontSize": "18.8pt (25px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 14.07"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/\" rel=\"home\">eyal amit</a>",
+            "target": [
+              "a[rel=\"home\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f7f7f7",
+                  "bgColor": "#696664",
+                  "contrastRatio": 5.31,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.31"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-topnav__brand\" href=\"https://eyalamit-co-il-2026.s887.upress.link/\" aria-label=\"אייל עמית — דף הבית\">\n        אייל עמית\n      </a>",
+            "target": [
+              ".ea-topnav__brand"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f3f3f3",
+                  "bgColor": "#696664",
+                  "contrastRatio": 5.13,
+                  "fontSize": "8.2pt (10.88px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"ea-sound-toggle__label\">שמע</span>",
+            "target": [
+              ".ea-sound-toggle__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-section-intro__heading\">\n          מה זה טיפול בנשימה באמצעות דיג׳רידו\n        </h2>",
+            "target": [
+              ".ea-section-intro__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 9.76,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.76"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>בטיפול בנשימה באמצעות דיג׳רידו, הדיג׳רידו הוא כלי עבודה על הנשימה — לא המטרה עצמה.</p>",
+            "target": [
+              ".ea-section-intro__body > p:nth-child(1)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 9.76,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.76"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>יש הבדל בין טכניקת הנשימה המעגלית, המשמשת בזמן נגינה בדיג׳רידו, לבין הנשימה היומיומית הרגילה של האדם. העבודה עם הדיג׳רידו משפיעה על שתיהן, אך הכוונה היא להשפיע על הנשימה ביומיום — זו שמלווה את האדם לאורך כל היום וגם בזמן השינה.</p>",
+            "target": [
+              ".ea-section-intro__body > p:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 9.76,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.76"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>בטיפול נוצר קשר הדוק ומודע עם הנשימה היומיומית. אנו לומדים לשלוט בה, לחזק ולווסת אותה, והכל דרך תרגול מעשי של נגינה בדיג׳רידו.</p>",
+            "target": [
+              ".ea-section-intro__body > p:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 9.76,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.76"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>המטרה היא לא רק להבין את הנשימה היומיומית, אלא ליצור בה שינוי שנמשך גם מחוץ למפגש. שינוי שמשפיע על איכות החיים לטווח הארוך, ועשוי להפחית סימפטומים ולשפר מדדים בריאותיים.</p>",
+            "target": [
+              "p:nth-child(4)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 9.76,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.76"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>יש דרכים שונות לעבוד עם הנשימה, והדיג׳רידו מציע דרך אחרת, חווייתית, חיה ומעניינת, שמשלבת תרגול עם צליל ונגינה והופכת את העבודה עם הנשימה למשהו שקל יותר להתמיד בו.</p>",
+            "target": [
+              ".ea-section-intro__body > p:nth-child(5)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 12.19,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 12.19"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-content-section__heading ea-entrance--breath\">שיטת cbDIDG — העקרונות</h2>",
+            "target": [
+              ".ea-content-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 5.02,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.02"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>שיטת cbDIDG (Circular Breathing Didgeridoo) היא גישה טיפולית שפותחה על ידי אייל עמית לאורך למעלה מעשרים שנה של עבודה, לימוד ותרגול. הרקע ההנדסי של אייל איפשר לו לפרק תהליכים מורכבים לשיטה ברורה וישימה.</p>",
+            "target": [
+              ".ea-content-section__body > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__label\">01</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(1) > .ea-pillar__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-pillar__title\">נשימה מעגלית</h3>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(1) > .ea-pillar__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__text\">לימוד טכניקת הנשימה המעגלית כבסיס לעבודה מתמשכת עם הנשימה היומיומית.</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(1) > .ea-pillar__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__label\">02</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(2) > .ea-pillar__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-pillar__title\">ליווי אישי</h3>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(2) > .ea-pillar__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__text\">תהליך אישי מותאם, בקצב שמתאים לכל אחד, עם דגש על תרגול מעשי ועצמאי.</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(2) > .ea-pillar__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__label\">03</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(3) > .ea-pillar__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-pillar__title\">חיבור לגוף</h3>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(3) > .ea-pillar__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__text\">פיתוח מודעות לנשימה ולגוף, הקשבה לסימנים והבנת הקשר בין נשימה לבריאות.</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(3) > .ea-pillar__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__label\">04</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(4) > .ea-pillar__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-pillar__title\">שינוי לטווח ארוך</h3>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(4) > .ea-pillar__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-pillar__text\">המטרה היא שינוי שנמשך מחוץ למפגש ומשפיע על איכות החיים לאורך זמן.</p>",
+            "target": [
+              ".ea-pillar.ea-entrance:nth-child(4) > .ea-pillar__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 4.91,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--ghost\" href=\"https://eyalamit-co-il-2026.s887.upress.link/method\">\n            למידע נוסף על השיטה\n          </a>",
+            "target": [
+              ".ea-content-section__inner > div:nth-child(4) > .ea-cta-pill--ghost.ea-cta-pill"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 12.19,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 12.19"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-service-comparison__heading ea-entrance--breath\">\n          טיפול בדיג׳רידו או סאונד הילינג — מה ההבדל?\n        </h2>",
+            "target": [
+              ".ea-service-comparison__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-service-comparison__col-title\">טיפול בדיג׳רידו</h3>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > .ea-service-comparison__col-title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>עבודה אקטיבית ותהליכית עם הנשימה</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > .ea-service-comparison__list > li:nth-child(1)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>המטופל לומד לחזק ולווסת את מערכת הנשימה</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > .ea-service-comparison__list > li:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>האפקט הוא לאורך זמן ולטווח הארוך</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > .ea-service-comparison__list > li:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>תוך כדי, לומדים לנגן בדיג׳רידו</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > .ea-service-comparison__list > li:nth-child(4)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6f635a",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.49,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.49"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p style=\"font-family: var(--ea-font); font-size: 0.78rem; font-weight: 200; color: var(--ea-muted); margin: 0 0 var(--ea-space-4);\">\n              למי שסובל מסימפטומים בריאותיים, מוכן להקדיש זמן לתהליך עמוק ורוצה לעבוד עם הנשימה בצורה מעשית.\n            </p>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(1) > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#a44e2b",
+                  "contrastRatio": 5.67,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.67"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--primary\" href=\"https://eyalamit-co-il-2026.s887.upress.link/treatment\">למידע נוסף על טיפול</a>",
+            "target": [
+              ".ea-service-comparison__cta > .ea-cta-pill--primary.ea-cta-pill"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-service-comparison__col-title\">סאונד הילינג</h3>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > .ea-service-comparison__col-title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>חוויה פאסיבית של הקשבה לצליל</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > .ea-service-comparison__list > li:nth-child(1)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>מטרה: הרפיה ואיזון באמצעות תדרים</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > .ea-service-comparison__list > li:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>האפקט הוא מיידי וקצר מועד</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > .ea-service-comparison__list > li:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li>חוויה אינטימית ומיוחדת, בדרך כלל חד-פעמית</li>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > .ea-service-comparison__list > li:nth-child(4)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6f635a",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.49,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.49"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p style=\"font-family: var(--ea-font); font-size: 0.78rem; font-weight: 200; color: var(--ea-muted); margin: 0 0 var(--ea-space-4);\">\n              למי שמחפש חוויה עמוקה ומיידית של הרפיה ורוצה לשמוע ולחוש בגוף את הדיג׳רידו.\n            </p>",
+            "target": [
+              ".ea-service-comparison__col.ea-entrance[role=\"listitem\"]:nth-child(2) > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--ghost\" href=\"https://eyalamit-co-il-2026.s887.upress.link/sound-healing\">למידע נוסף על סאונד הילינג</a>",
+            "target": [
+              ".ea-service-comparison__cta > .ea-cta-pill--ghost.ea-cta-pill"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 12.19,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 12.19"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-testimonials-section__heading ea-entrance--breath\">מה אומרים המגיעים</h2>",
+            "target": [
+              ".ea-testimonials-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-testimonial-card__text\">\n                אייל עמית הציל אותנו ובזכותו חזרנו כולנו לנשום…<br>\n                נשימה היא הבסיס להכל<br>\n                אפשר ללמוד לנשום מחדש\n              </p>",
+            "target": [
+              ".ea-testimonial-card:nth-child(1) > blockquote > .ea-testimonial-card__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/v/18Ua5NoWv4/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"המלצת חיה עזריה בפייסבוק (נפתח בחלון חדש)\">\n                  חיה עזריה\n                </a>",
+            "target": [
+              ".ea-testimonial-card:nth-child(1) > blockquote > .ea-testimonial-card__footer > .ea-testimonial-card__name.ea-link[target=\"_blank\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-testimonial-card__text\">\n                גיליתי מסע עוצמתי של נשימה, שקט וחיבור לעצמי<br>\n                מעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש<br>\n                זו מתנה לחיים\n              </p>",
+            "target": [
+              ".ea-testimonial-card:nth-child(2) > blockquote > .ea-testimonial-card__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1E7ndvYyrp/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"המלצת שירי אלקבץ בפייסבוק (נפתח בחלון חדש)\">\n                  שירי אלקבץ\n                </a>",
+            "target": [
+              ".ea-testimonial-card:nth-child(2) > blockquote > .ea-testimonial-card__footer > .ea-testimonial-card__name.ea-link[target=\"_blank\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-testimonial-card__text\">\n                אני לומדת לנשום מחדש<br>\n                להיות בנוכחות בנשימה זה להיות בנוכחות בחיים<br>\n                זה משהו שמחלחל לכל תחום ביום יום\n              </p>",
+            "target": [
+              ".ea-testimonial-card:nth-child(3) > blockquote > .ea-testimonial-card__text"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1AdaytsL6w/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"המלצת נוית צוף שטראוס בפייסבוק (נפתח בחלון חדש)\">\n                  נוית צוף שטראוס\n                </a>",
+            "target": [
+              ".ea-testimonial-card:nth-child(3) > blockquote > .ea-testimonial-card__footer > .ea-testimonial-card__name.ea-link[target=\"_blank\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 4.91,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/media\">לכל ההמלצות</a>",
+            "target": [
+              ".ea-testimonials-section__footer > .ea-link"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-books-section__heading ea-entrance--breath\">מוזה הוצאה לאור</h2>",
+            "target": [
+              ".ea-books-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-books-section__intro\">\n          הוצאת ספרים עצמית שהוקמה בשנת 2004. ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה — כתובים מתוך החיים עצמם.\n        </p>",
+            "target": [
+              ".ea-books-section__intro"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6f635a",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 5.04,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.04"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"ea-book-card__cover-placeholder\" aria-hidden=\"true\">\n                [כריכת וכתבת]\n              </div>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: וכתבת\"] > .ea-book-card__cover-placeholder[aria-hidden=\"true\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-book-card__title\">וכתבת</h3>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: וכתבת\"] > .ea-book-card__body > .ea-book-card__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-book-card__teaser\">ספר עם 49 קודי QR — כל קוד פותח דלת לסיפור נסתר, וידאו או תמונה.</p>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: וכתבת\"] > .ea-book-card__body > .ea-book-card__teaser"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6f635a",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 5.04,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.04"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"ea-book-card__cover-placeholder\" aria-hidden=\"true\">\n                [כריכת כושי בלאנטיס]\n              </div>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: כושי בלאנטיס\"] > .ea-book-card__cover-placeholder[aria-hidden=\"true\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-book-card__title\">כושי בלאנטיס</h3>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: כושי בלאנטיס\"] > .ea-book-card__body > .ea-book-card__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-book-card__teaser\">ספר פנטסיה ומסע — עולם שלם של הרפתקאות, חופש והתבוננות.</p>",
+            "target": [
+              "a[aria-label=\"פרטים על הספר: כושי בלאנטיס\"] > .ea-book-card__body > .ea-book-card__teaser"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6f635a",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 5.04,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.04"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"ea-book-card__cover-placeholder\" aria-hidden=\"true\">\n                [כריכת צבע בכחול]\n              </div>",
+            "target": [
+              ".ea-book-card:nth-child(3) > .ea-book-card__link > .ea-book-card__cover-placeholder[aria-hidden=\"true\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-book-card__title\">צבע בכחול וזרוק לים</h3>",
+            "target": [
+              ".ea-book-card:nth-child(3) > .ea-book-card__link > .ea-book-card__body > .ea-book-card__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-book-card__teaser\">ספר מסעות אישי — קול חי, כתיבה נובעת מתוך החיים, מבט שלא ממהר.</p>",
+            "target": [
+              ".ea-book-card:nth-child(3) > .ea-book-card__link > .ea-book-card__body > .ea-book-card__teaser"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--ghost\" href=\"https://eyalamit-co-il-2026.s887.upress.link/books\">לכל הספרים</a>",
+            "target": [
+              ".ea-books-section__inner > div:nth-child(4) > .ea-cta-pill--ghost.ea-cta-pill"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 12.19,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 12.19"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-services-section__heading ea-entrance--breath\">שירותים נוספים</h2>",
+            "target": [
+              ".ea-services-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-service-tile__label\">חוויה</p>",
+            "target": [
+              "a[aria-label=\"סאונד הילינג — למידע נוסף\"] > .ea-service-tile__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-service-tile__title\">סאונד הילינג</h3>",
+            "target": [
+              "a[aria-label=\"סאונד הילינג — למידע נוסף\"] > .ea-service-tile__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-service-tile__desc\">\n              חוויה פאסיבית ועמוקה של הקשבה לצליל הדיג׳רידו. הרפיה, איזון ותדרים בחלל מותאם אקוסטית. בדרך כלל מפגש אחד, אינטימי ומיוחד.\n            </p>",
+            "target": [
+              "a[aria-label=\"סאונד הילינג — למידע נוסף\"] > .ea-service-tile__desc"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "7.0pt (9.28px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-service-tile__label\">לימוד</p>",
+            "target": [
+              "a[aria-label=\"שיעורי נגינה — למידע נוסף\"] > .ea-service-tile__label"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-service-tile__title\">שיעורי נגינה בדיג׳רידו</h3>",
+            "target": [
+              "a[aria-label=\"שיעורי נגינה — למידע נוסף\"] > .ea-service-tile__title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#8a5a44",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.46,
+                  "fontSize": "10.8pt (14.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.46"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-service-tile__desc\">\n              לימוד נגינה בדיג׳רידו לכל הרמות. שיעורים פרטיים מותאמים אישית, מפתחים יכולת עצמאית ובונים בסיס נשימתי יציב.\n            </p>",
+            "target": [
+              "a[aria-label=\"שיעורי נגינה — למידע נוסף\"] > .ea-service-tile__desc"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-faq-mini-section__heading ea-entrance--breath\">שאלות נפוצות</h2>",
+            "target": [
+              ".ea-faq-mini-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-faq-item__question\">האם טיפול בדיג׳רידו מתאים גם למי שאין לו ידע מוזיקלי?</h3>",
+            "target": [
+              ".ea-faq-item:nth-child(1) > details > summary > .ea-faq-item__question"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-faq-item__question\">כמה מפגשים נדרשים כדי לראות שינוי?</h3>",
+            "target": [
+              ".ea-faq-item:nth-child(2) > details > summary > .ea-faq-item__question"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-faq-item__question\">מה ההבדל בין טיפול בדיג׳רידו לסאונד הילינג?</h3>",
+            "target": [
+              ".ea-faq-item:nth-child(3) > details > summary > .ea-faq-item__question"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 13.27,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.27"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"ea-faq-item__question\">איפה מתקיימים המפגשים?</h3>",
+            "target": [
+              ".ea-faq-item:nth-child(4) > details > summary > .ea-faq-item__question"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#faf8f5",
+                  "contrastRatio": 5.34,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.34"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/faq\">לכל השאלות הנפוצות</a>",
+            "target": [
+              ".ea-faq-mini-section__footer > .ea-link"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 12.19,
+                  "fontSize": "16.8pt (22.4px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 12.19"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"ea-contact-section__heading\">מתחילים בצעד פשוט</h2>",
+            "target": [
+              ".ea-contact-section__heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 8.97,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.97"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-contact-section__body\">\n            אם אתם מרגישים שהגיע הזמן להתחבר לנשימה שלכם, לחזק אותה, לווסת אותה ולהיכנס לתהליך הדרגתי, חווייתי ומהנה — אפשר להתחיל בשיחת היכרות קצרה.\n          </p>",
+            "target": [
+              ".ea-contact-section__body:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 8.97,
+                  "fontSize": "12.6pt (16.8px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.97"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-contact-section__body\">\n            השיחה מאפשרת לשאול שאלות ולקבל כיוון ראשוני. אין צורך להתחייב מראש לתהליך.\n          </p>",
+            "target": [
+              ".ea-contact-section__body:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#a44e2b",
+                  "contrastRatio": 5.67,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.67"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--primary\" href=\"https://eyalamit-co-il-2026.s887.upress.link/contact\">\n            לתיאום שיחת היכרות\n          </a>",
+            "target": [
+              ".ea-contact-section__cta-side > .ea-cta-pill--primary.ea-cta-pill"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 8.97,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.97"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-contact-form__note\" style=\"margin-top: var(--ea-space-4);\">\n            אפשר גם לשלוח הודעה ישירה בוואטסאפ <img draggable=\"false\" role=\"img\" class=\"emoji\" alt=\"↙\" src=\"https://s.w.org/images/core/emoji/17.0.2/svg/2199.svg\">\n          </p>",
+            "target": [
+              ".ea-contact-section__cta-side > .ea-contact-form__note"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#5a3826",
+                  "bgColor": "#f3eee8",
+                  "contrastRatio": 8.97,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.97"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-contact-form__note\" role=\"status\">טופס צור קשר — יוגדר לאחר יצירת טופס CF7 ב־wp-admin (ראה inc/cf7-wave2-form.txt).</p>",
+            "target": [
+              "p[role=\"status\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#eaeaea",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 11.69,
+                  "fontSize": "14.4pt (19.2px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 11.69"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-footer__brand\">אייל עמית</p>",
+            "target": [
+              ".ea-footer__brand"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#979594",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 4.71,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.71"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-footer__tagline\">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>",
+            "target": [
+              ".ea-footer__tagline"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#e0dfdf",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 10.58,
+                  "fontSize": "8.6pt (11.52px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 10.58"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-footer__location\">פרדס חנה · ישראל</p>",
+            "target": [
+              ".ea-footer__location"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/method\">השיטה</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(1)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/treatment\">טיפול</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/sound-healing\">סאונד הילינג</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/lessons\">שיעורים</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(4)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/books\">ספרים</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(5)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/faq\">שאלות נפוצות</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(6)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#abaaa9",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 6.06,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.06"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a class=\"ea-footer__nav-link\" href=\"https://eyalamit-co-il-2026.s887.upress.link/contact\">צור קשר</a>",
+            "target": [
+              ".ea-footer__nav-link:nth-child(7)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#d1d0d0",
+                  "bgColor": "#2e2b28",
+                  "contrastRatio": 9.14,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 9.14"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"ea-footer__copy\">\n          © 2026 אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו. כל הזכויות שמורות.\n        </p>",
+            "target": [
+              ".ea-footer__copy"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 14.07,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 14.07"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"copyright-bar\">\n\t\t\t\t\t<span class=\"copyright\">© 2026 eyal amit</span> • נבנה על ידי <a href=\"https://generatepress.com\" itemprop=\"url\">GeneratePress</a>\t\t\t\t</div>",
+            "target": [
+              ".copyright-bar"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#2e2b28",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 14.07,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 14.07"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"copyright\">© 2026 eyal amit</span>",
+            "target": [
+              ".copyright"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a44e2b",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 5.67,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.67"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"https://generatepress.com\" itemprop=\"url\">GeneratePress</a>",
+            "target": [
+              "a[href$=\"generatepress.com\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#0f7a3f",
+                  "contrastRatio": 5.41,
+                  "fontSize": "11.4pt (15.2px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.41"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"ea-whatsapp-float__label\">שלח הודעה</span>",
+            "target": [
+              ".ea-whatsapp-float__label"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "target": [
+              "meta[name=\"viewport\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"ea-sound-toggle__ico ea-sound-toggle__ico--off\" aria-hidden=\"true\">♪</span>",
+            "target": [
+              ".ea-sound-toggle__ico"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<button class=\"ea-topnav__burger\" type=\"button\" aria-label=\"פתח תפריט\" aria-expanded=\"false\">\n          ☰\n        </button>",
+            "target": [
+              ".ea-topnav__burger"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "21.6pt (28.8px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"ea-hero__overlay\" aria-hidden=\"true\"></div>",
+                    "target": [
+                      ".ea-hero__overlay"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"ea-hero__gradient-bg\"></div>",
+                    "target": [
+                      ".ea-hero__gradient-bg"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h1 class=\"ea-hero__title\">\n          המרכז לטיפול בנשימה באמצעות דיג׳רידו<br>שיטת cbDIDG של אייל עמית\n        </h1>",
+            "target": [
+              "h1"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.0pt (14.72px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"ea-hero__overlay\" aria-hidden=\"true\"></div>",
+                    "target": [
+                      ".ea-hero__overlay"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"ea-hero__gradient-bg\"></div>",
+                    "target": [
+                      ".ea-hero__gradient-bg"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"ea-hero__subtitle\">\n          להחזיר שליטה על הנשימה דרך עבודה עם דיג׳רידו, תרגול נשימה וליווי אישי<br>\n          בגישה טיפולית מבוססת דיג׳רידו ובהשראת חניכה אישית אצל מוקש דהימן\n        </p>",
+            "target": [
+              ".ea-hero__subtitle"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"ea-hero__overlay\" aria-hidden=\"true\"></div>",
+                    "target": [
+                      ".ea-hero__overlay"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"ea-hero__gradient-bg\"></div>",
+                    "target": [
+                      ".ea-hero__gradient-bg"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"ea-hero__trust\">\n          אייל עמית · פועל מאז 1999 · מהוותיקים בארץ בתחום · מטפל ומלמד בשיטה שפותחה לאורך השנים · בונה כלים בעבודת יד\n        </p>",
+            "target": [
+              ".ea-hero__trust"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.4pt (12.48px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"ea-hero__overlay\" aria-hidden=\"true\"></div>",
+                    "target": [
+                      ".ea-hero__overlay"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"ea-hero__gradient-bg\"></div>",
+                    "target": [
+                      ".ea-hero__gradient-bg"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a class=\"ea-cta-pill ea-cta-pill--ghost-white\" href=\"https://eyalamit-co-il-2026.s887.upress.link/contact\">\n            לתיאום שיחת היכרות\n          </a>",
+            "target": [
+              ".ea-cta-pill--ghost-white"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/faq/\">שאלות נפוצות (FAQ)</a>",
+            "target": [
+              "#menu-item-147 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/galleries/\">גלריות — קטלוג מרכזי</a>",
+            "target": [
+              "#menu-item-148 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/media/\">המלצות — קטלוג מרכזי (ומדיה)</a>",
+            "target": [
+              "#menu-item-149 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/privacy/\">מדיניות פרטיות</a>",
+            "target": [
+              "#menu-item-150 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/accessibility/\">הצהרת נגישות</a>",
+            "target": [
+              "#menu-item-151 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.2pt (13.6px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<nav class=\"ea-footer-legal-nav\" aria-label=\"קישורי פוטר — קטלוגים ומסמכים משפטיים\">",
+                    "target": [
+                      ".ea-footer-legal-nav"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"https://eyalamit-co-il-2026.s887.upress.link/terms/\">תקנון</a>",
+            "target": [
+              "#menu-item-152 > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          }
+        ]
+      }
+    ],
+    "violations": []
+  }
+}

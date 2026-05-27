@@ -1,0 +1,21 @@
+URL status evidence - 2026-05-27
+
+/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.css
+HTTP/2 200 
+content-type: text/css
+
+/wp-content/themes/ea-eyalamit/assets/css/ea-animations.css
+HTTP/2 200 
+content-type: text/css
+
+/wp-content/themes/ea-eyalamit/assets/css/ea-atoms.css
+HTTP/2 200 
+content-type: text/css
+
+/wp-content/themes/ea-eyalamit/assets/css/books-wave1.css
+HTTP/2 404 
+content-type: text/html
+
+/assets/audio/didgeridoo-ambient.mp3
+HTTP/2 404 
+content-type: text/html; charset=UTF-8
