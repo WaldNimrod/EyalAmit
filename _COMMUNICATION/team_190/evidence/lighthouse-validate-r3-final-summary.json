@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-05-27T22:14:32.538845+00:00",
+  "criterion": "avg performance >=85, each-run performance >=80, accessibility always 100",
+  "runs": [
+    {
+      "run": 1,
+      "file": "_COMMUNICATION/team_190/evidence/lighthouse-validate-r3-final-1.json",
+      "performance": 87,
+      "accessibility": 100,
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/?cb=1779919976835092000",
+      "fcp": "3.1 s",
+      "lcp": "3.1 s",
+      "tbt": "0 ms",
+      "tti": "3.1 s"
+    },
+    {
+      "run": 2,
+      "file": "_COMMUNICATION/team_190/evidence/lighthouse-validate-r3-final-2.json",
+      "performance": 87,
+      "accessibility": 100,
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/?cb=1779919988851052000",
+      "fcp": "3.1 s",
+      "lcp": "3.1 s",
+      "tbt": "0 ms",
+      "tti": "3.1 s"
+    },
+    {
+      "run": 3,
+      "file": "_COMMUNICATION/team_190/evidence/lighthouse-validate-r3-final-3.json",
+      "performance": 87,
+      "accessibility": 100,
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/?cb=1779920000382991000",
+      "fcp": "3.1 s",
+      "lcp": "3.1 s",
+      "tbt": "0 ms",
+      "tti": "3.1 s"
+    }
+  ],
+  "avgPerformance": 87.0,
+  "minPerformance": 87,
+  "a11yAll100": true,
+  "pass": true
+}

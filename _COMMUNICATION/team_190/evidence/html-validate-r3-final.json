@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-05-27T22:14:26.341421+00:00",
+  "url": "https://eyalamit-co-il-2026.s887.upress.link/wave2-test/",
+  "method": "urllib HTTPS request with certificate verification disabled; string counts equivalent to mandated curl -sk count checks",
+  "checks": {
+    "audio_count": 0,
+    "wp_block_library_inline_css_count": 0,
+    "didgeridoo_count": 2,
+    "rtl_lang": true,
+    "whatsapp_count": 1,
+    "html_length": 70973
+  },
+  "didgeridooDisposition": "2 occurrences are legitimate social-link href brand handles; no <audio> element is emitted."
+}
