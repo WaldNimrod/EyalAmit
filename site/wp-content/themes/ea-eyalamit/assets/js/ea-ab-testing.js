@@ -1,11 +1,13 @@
 /**
- * B3 WhatsApp CTA A/B — variants A (form-only), B (dual), C (WA-only).
+ * B3 WhatsApp CTA A/B — variants form_only (form visible, WA hidden),
+ * dual (both WA and form visible), wa_only (WA visible, form hidden).
  * Per-session assignment; GA4 event when gtag available.
+ * Canonical key: eyal_cta_variant (MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0)
  */
 (function () {
   'use strict';
-  var KEY = 'ea_wa_ab_variant';
-  var variants = ['A', 'B', 'C'];
+  var KEY = 'eyal_cta_variant';
+  var variants = ['form_only', 'dual', 'wa_only'];
   var stored = sessionStorage.getItem(KEY);
   if (!stored || variants.indexOf(stored) === -1) {
     stored = variants[Math.floor(Math.random() * variants.length)];
@@ -23,7 +25,7 @@
   var wa = document.querySelector('.ea-whatsapp-float[data-ea-ab]');
   if (wa) {
     wa.setAttribute('data-variant', stored);
-    if (stored === 'A') {
+    if (stored === 'form_only') {
       wa.style.display = 'none';
     }
     wa.addEventListener('click', function () {
@@ -34,7 +36,7 @@
   var formWrap = document.querySelector('.ea-contact-form--cf7, .ea-contact-section .ea-contact-form');
   if (formWrap) {
     formWrap.setAttribute('data-wa-variant', stored);
-    if (stored === 'C') {
+    if (stored === 'wa_only') {
       formWrap.style.display = 'none';
     }
   }
