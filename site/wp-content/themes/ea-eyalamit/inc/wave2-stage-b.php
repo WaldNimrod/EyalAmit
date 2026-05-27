@@ -100,6 +100,66 @@ function ea_wave2_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'ea_wave2_enqueue_assets', 28 );
 
 /**
+ * Perf: dequeue WordPress / plugin styles that are never used on Wave2
+ * templates. Cuts render-blocking inline + linked CSS on /wave2-test/
+ * and future Wave2 content pages. Runs late so other plugins finish
+ * registering first.
+ *
+ * Targets (none of these are referenced by Wave2 markup):
+ *   - wp-block-library  / wp-block-library-theme  (Gutenberg block CSS)
+ *   - classic-theme-styles (legacy classic-editor styles)
+ *   - wp-emoji-styles-inline-css (inline; handle is 'wp-emoji-styles')
+ *   - global-styles (FSE global styles when block theme unused)
+ *   - contact-form-7  (only Wave2 contact CTA uses CF7 — keep on contact pages
+ *     by checking the block-contact-cta marker via has_block / template name)
+ */
+function ea_wave2_dequeue_unused_styles() {
+	if ( is_admin() || ! ea_wave2_is_active_view() ) {
+		return;
+	}
+
+	// Gutenberg block library is not used by Wave2 markup.
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'classic-theme-styles' );
+	wp_dequeue_style( 'global-styles' );
+	wp_deregister_style( 'global-styles' );
+
+	// CF7 only renders on templates that actually print [contact-form-7].
+	$tpl = is_page() ? get_page_template_slug() : '';
+	if ( $tpl !== 'page-templates/tpl-contact.php' ) {
+		wp_dequeue_style( 'contact-form-7' );
+		wp_dequeue_script( 'contact-form-7' );
+		wp_dequeue_script( 'google-recaptcha' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'ea_wave2_dequeue_unused_styles', 999 );
+
+/**
+ * Perf: suppress wp-emoji detection script + inline styles on Wave2 templates.
+ * Must run at init (before WP hooks print_emoji_detection_script onto wp_head).
+ */
+function ea_wave2_disable_emojis() {
+	if ( is_admin() ) {
+		return;
+	}
+	// Defer the check until 'wp' (when query is resolved) so ea_wave2_is_active_view works.
+	add_action( 'wp', function () {
+		if ( ! ea_wave2_is_active_view() ) {
+			return;
+		}
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		remove_action( 'admin_print_styles', 'print_emoji_styles' );
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	} );
+}
+add_action( 'init', 'ea_wave2_disable_emojis' );
+
+/**
  * Render all 12 homepage blocks in POC order.
  *
  * @param bool $include_chrome If true, renders topnav before and footer after inner blocks.

@@ -26,8 +26,21 @@ defined( 'ABSPATH' ) || exit;
                 data-on="false">
           <span class="ea-sound-toggle__ico ea-sound-toggle__ico--off" aria-hidden="true">♪</span>
           <span class="ea-sound-toggle__label">שמע</span>
+          <?php
+          /**
+           * Sound-toggle audio source — emitted only when the asset is
+           * actually present in the theme media dir, and built from a
+           * theme-relative URI (not site-absolute). Avoids a live 404
+           * reference until Eyal supplies the canonical didgeridoo file.
+           * ea-hero.js already no-ops gracefully when this <audio> is absent.
+           */
+          $ea_audio_rel  = '/assets/audio/didgeridoo-ambient.mp3';
+          $ea_audio_path = get_stylesheet_directory() . $ea_audio_rel;
+          if ( is_readable( $ea_audio_path ) ) :
+          ?>
           <audio class="ea-sound-toggle__audio" preload="none"
-                 src="/assets/audio/didgeridoo-ambient.mp3"></audio>
+                 src="<?php echo esc_url( get_stylesheet_directory_uri() . $ea_audio_rel ); ?>"></audio>
+          <?php endif; ?>
         </button>
         <button class="ea-topnav__burger"
                 type="button"
