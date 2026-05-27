@@ -23,6 +23,8 @@ project:
 
     Stage A in progress: team_80 delivered ATOM-INVENTORY + D-14 LOD400 DRAFT; team_50 QA-A1 + QA-A2 underway.
 
+    2026-05-27: Stage B implementation delivered by team_10 (cursor-composer). Cross-engine QA mandate dispatched to team_50.
+
     '
 work_packages:
 - id: S001-P001-WP001
@@ -242,7 +244,7 @@ work_packages:
   profile: L0
 - id: WP-W2-01
   label: Wave2 WP-01 — Infrastructure (D-14 design system + form + footer + analytics)
-  status: IN_PROGRESS
+  status: IN_PROGRESS_PENDING_QA
   track: A
   current_lean_gate: L-GATE_BUILD
   lod_status: LOD200
@@ -264,11 +266,14 @@ work_packages:
     timestamp: '2026-05-26T22:55:00Z'
     builder: team_100 (Opus) + Sonnet subagents
     qa: team_50 surrogate (Haiku subagents)
-    notes: 'Stage A internal close. A1 atom inventory (32), A2 LOD400 spec (3,919 lines, 12 chapters, 0 TBD), A3 POC HTML (89,887 B, 12 blocks). 3 internal QA gates PASS_WITH_FINDINGS. Awaiting nimrod POC sign-off + team_190 cross-engine validation (non-Claude engine per Iron Rule #1).'
+    notes: 'Stage A internal close. A1 atom inventory (32), A2 LOD400 spec (3,919 lines, 12 chapters, 0 TBD), A3 POC HTML
+      (89,887 B, 12 blocks). 3 internal QA gates PASS_WITH_FINDINGS. Awaiting nimrod POC sign-off + team_190 cross-engine
+      validation (non-Claude engine per Iron Rule #1).'
     completion_artifact: _COMMUNICATION/team_100/STAGE-A-COMPLETION-REPORT-2026-05-26.md
     cross_engine_mandate_artifact: _COMMUNICATION/team_100/MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md
   notes: Per Combo C (Atoms-first LOD400). Split into Stage A (team_100 LOD400 spec + POC) and Stage B (team_10 implementation),
-    with parallel B-prep track. Stage A internal-close 2026-05-26; awaiting POC sign-off + cross-engine validation.
+    with parallel B-prep track. Stage A internal-close 2026-05-26; awaiting POC sign-off + cross-engine validation. Stage
+    B impl COMPLETE_PENDING_QA 2026-05-27 (commit e165218); cross-engine QA pending team_50.
 - id: WP-W2-01-STAGE-A
   label: Stage A — Atoms-First LOD400 (Atom Inventory + Design System Spec + POC)
   status: COMPLETE
@@ -304,7 +309,7 @@ work_packages:
     cross_engine_mandate_artifact: _COMMUNICATION/team_100/MANDATE-TEAM190-STAGE-A-VALIDATION-2026-05-26.md
     next_gates:
     - POC_SIGN_OFF by team_00 (nimrod) — manual browser-based Lighthouse + axe + reduced-motion
-    - L-GATE_V_FINAL by team_190 on a non-Claude engine (Codex/Cursor/etc.) per Iron Rule #1
+    - L-GATE_V_FINAL by team_190 on a non-Claude engine (Codex/Cursor/etc.) per Iron Rule
   - gate: L-GATE_SPEC_CROSS_ENGINE_V1
     result: FAIL
     date: '2026-05-27'
@@ -314,13 +319,16 @@ work_packages:
     findings_critical: 1
     findings_major: 2
     findings_minor: 0
-    notes: 'A1/A2 still DRAFT status (Critical V6); profile L2 in L0 spoke (Major V4); POC browser evidence pending (Major V3+V5). Patches applied 2026-05-27 — see below.'
+    notes: A1/A2 still DRAFT status (Critical V6); profile L2 in L0 spoke (Major V4); POC browser evidence pending (Major
+      V3+V5). Patches applied 2026-05-27 — see below.
   - gate: PATCH_CYCLE_2026-05-27
     result: COMPLETE
     date: '2026-05-27'
     patcher: team_100 (Opus orchestrator + Sonnet a11y subagent)
     patches_applied: 8
-    patches_summary: 'A1/A2 status → FINAL; all artifacts profile L2 → L0; POC HTML 8 surgical a11y fixes (aria-prohibited-attr ×2, body-text color contrast, WhatsApp button contrast, footer copy, entrance animations transform-only, muted color, footer location).'
+    patches_summary: A1/A2 status → FINAL; all artifacts profile L2 → L0; POC HTML 8 surgical a11y fixes (aria-prohibited-attr
+      ×2, body-text color contrast, WhatsApp button contrast, footer copy, entrance animations transform-only, muted color,
+      footer location).
     measured_evidence: _COMMUNICATION/team_50/POC-BROWSER-EVIDENCE-2026-05-27.md
     lighthouse_mobile:
       performance: 89
@@ -344,14 +352,20 @@ work_packages:
     - MIN-02 stale checklist in completion report (closed 2026-05-27 — checkboxes updated with evidence refs)
     - MIN-03 POC file comment before DOCTYPE (closed 2026-05-27 — DOCTYPE moved before comment)
     stage_b_authorized: true
-    notes: 'Cross-engine final validator PASS. Stage B authorized to begin. All 3 minor findings closed within the same patch cycle.'
+    notes: Cross-engine final validator PASS. Stage B authorized to begin. All 3 minor findings closed within the same patch
+      cycle.
   - gate: STAGE_A_CLOSURE
     result: COMPLETE
     date: '2026-05-27'
     closed_by: team_100 (Opus orchestrator)
-    summary: 'Stage A WP-W2-01 fully closed. 3 deliverables (A1 inventory, A2 LOD400 spec, A3 POC HTML) + 3 internal QA gates (Haiku) + cross-engine verdict v2 PASS_WITH_FINDINGS + all 3 minor findings closed in-cycle. Lighthouse a11y 100, perf 89, BP 96, SEO 100; axe-core 0 violations.'
+    summary: Stage A WP-W2-01 fully closed. 3 deliverables (A1 inventory, A2 LOD400 spec, A3 POC HTML) + 3 internal QA gates
+      (Haiku) + cross-engine verdict v2 PASS_WITH_FINDINGS + all 3 minor findings closed in-cycle. Lighthouse a11y 100, perf
+      89, BP 96, SEO 100; axe-core 0 violations.
     next_action: Stage B implementation by team_10 (D-14 tokens → CSS, child theme, blocks). Mandate to be issued by team_100.
-  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3923 lines, 0 TBD), self-contained POC HTML (89,678 bytes). Cross-engine path: v1 FAIL on 3 findings (DRAFT status, profile L2, missing browser evidence) → 8 surgical patches applied (Lighthouse a11y 93→100, axe 17→0) → v2 PASS_WITH_FINDINGS with 3 minor findings → all 3 minor findings closed in same patch cycle → Stage A COMPLETE 2026-05-27.'
+  notes: 'Stage A internal close 2026-05-26. 32 atoms, 12-chapter LOD400 spec (3923 lines, 0 TBD), self-contained POC HTML
+    (89,678 bytes). Cross-engine path: v1 FAIL on 3 findings (DRAFT status, profile L2, missing browser evidence) → 8 surgical
+    patches applied (Lighthouse a11y 93→100, axe 17→0) → v2 PASS_WITH_FINDINGS with 3 minor findings → all 3 minor findings
+    closed in same patch cycle → Stage A COMPLETE 2026-05-27.'
 - id: WP-W2-01-STAGE-B-PREP
   label: Stage B Parallel Infrastructure Prep — plugins, MX, analytics, staging health, media inventory, FTPS, theme audit
   status: COMPLETE_WITH_FINDINGS
@@ -394,3 +408,34 @@ work_packages:
     resolved_by: team_00 (nimrod)
     evidence: 'User confirmed manual backup created (chat: 2026-05-26)'
     status: RESOLVED
+- id: WP-W2-01-STAGE-B-IMPL
+  label: Stage B Implementation — D-14 v1.1 → child theme code (tokens, atoms, blocks, templates, CF7, footer, analytics)
+  status: COMPLETE_PENDING_QA
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  lod_status: LOD500
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-05-27'
+  milestone_ref: S002
+  parent_wp: WP-W2-01
+  spec_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-STAGE-B-IMPLEMENTATION-2026-05-27.md
+  profile: L0
+  gate_history:
+  - gate: L-GATE_BUILD
+    phase: implementation-delivered
+    date: '2026-05-27'
+    builder_engine: cursor-composer
+    commit: e165218
+    completion_report: _COMMUNICATION/team_10/STAGE-B-COMPLETION-REPORT-2026-05-27.md
+    validate_aos: 30 PASS / 18 SKIP / 0 FAIL
+    note: COMPLETE_PENDING_QA — awaits team_50 cross-engine 2-phase QA (Phase 1 immediate, Phase 2 after Eyal human gates)
+  pending_human_gates:
+  - SMTP App Password (WP Mail SMTP plugin in WP admin)
+  - GA4 Measurement ID (analytics-config.json)
+  - Clarity Project ID (analytics-config.json)
+  next_validator: team_50
+  cross_engine_required: true
+  cross_engine_constraint: builder=cursor-composer; validator MUST NOT be cursor (Claude Code/Codex/GPT/Gemini)
+  notes: Stage B impl delivered. Cross-engine QA mandate filed at _COMMUNICATION/team_50/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md.
+    Phase 1 (axe/Lighthouse/render/RTL/A-B) non-blocking on Eyal. Phase 2 (CF7 mail/GA4 RealTime/Clarity) requires human gates.
