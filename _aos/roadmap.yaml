@@ -246,10 +246,12 @@ work_packages:
   profile: L0
 - id: WP-W2-01
   label: Wave2 WP-01 — Infrastructure (D-14 design system + form + footer + analytics)
-  status: IN_PROGRESS_PENDING_QA
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD200
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
+  closure_summary: All 3 child WPs COMPLETE. Stage A (LOD400 + POC) PASS team_190 v2 2026-05-27. Stage B PREP PASS team_50 11/11 2026-05-26. Stage B IMPL PASS team_190 v4 2026-05-28 (commit 9182870) after 5 build rounds + 3 validate rounds. Phase 2 (CF7 mail + GA4 + Clarity) still gated on 2 remaining Eyal inputs (GA4 Measurement ID + Clarity Project ID); SMTP plugin credentials updated 2026-05-27 per nimrod (Phase 2 verification deferred to next session).
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-26'
@@ -412,10 +414,11 @@ work_packages:
     status: RESOLVED
 - id: WP-W2-01-STAGE-B-IMPL
   label: Stage B Implementation — D-14 v1.1 → child theme code (tokens, atoms, blocks, templates, CF7, footer, analytics)
-  status: IN_VALIDATION
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_VALIDATE-REMEDIATION
-  lod_status: LOD500
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-27'
@@ -517,13 +520,50 @@ work_packages:
     perf_result: 3 runs avg 87/100 (run-min 87) — VC-7 stable above ≥85 threshold; variance eliminated from prior 83-90 spread
     next_validator: team_50 (Round-5 dispatch — mandate v2.3.0)
     next_constitutional: team_190 (re-routed Round-3 — mandate v1.2.0, ARMED until team_50 R5 PASS)
+  - gate: L-GATE_BUILD
+    phase: Phase-1-Round-5
+    date: '2026-05-28'
+    verdict: PASS_WITH_FINDINGS
+    validator: team_50
+    validator_engine: claude-sonnet-4-6 (sub-agent under team_100 — authorized by team_00 disposition d761422)
+    commit: 7eddbf5
+    criteria_pass: 15
+    criteria_fail: 1
+    findings:
+    - F-R5-01 MINOR — mandate-criterion error (grep 'didgeridoo' captured legit IG/FB brand handles; correct criterion grep '<audio' PASSES; audio guard works)
+    - F-R2-01 TLS MAJOR carry-forward to M7
+    - F-R2-02 mobile <p> text-align MINOR carry-forward
+    lighthouse_triple_run: 87 / 87 / 87 (avg 87, threshold 85, variance 0)
+    axe: 0 critical / 0 serious / 0 violations
+    verdict_artifact: _COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v4.0.0.md
+    disposition_artifact: _COMMUNICATION/team_00/DISPOSITION_IR1_WAIVER_WP-W2-01-STAGE-B-IMPL_2026-05-27.md
+  - gate: L-GATE_VALIDATE
+    phase: Round-3-final
+    date: '2026-05-28'
+    verdict: PASS
+    validator: team_190
+    validator_engine: GPT-5.5 (OpenAI native; not cursor-*, not claude-*)
+    commit: 9182870
+    notes: Final constitutional gate PASSED. All 8 constitutional checks satisfied. F-R5-01 dispositioned as mandate-criterion error (not code defect). Audio guard verified ('<audio' grep = 0). Block-library dequeue verified.
+    verdict_artifact: _COMMUNICATION/team_190/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_VALIDATE_v4.0.0.md
+    notice_artifact: _COMMUNICATION/team_190/NOTICE_TO_TEAM_00_WP-W2-01-STAGE-B-IMPL_L-GATE_VALIDATE_PASS_R4_2026-05-28.md
+  - gate: WP-CLOSURE
+    phase: Closure-Protocol-team_100
+    date: '2026-05-28'
+    actor: team_100
+    actions:
+    - Step 2 DB state transition (ADR034 R9 L2 spoke) — status COMPLETE, lod_status LOD500_LOCKED
+    - Step 1 Team 191 archival mandate filed
+    - Step 3 multi-engine propagation SKIPPED — core/governance/ not modified during this WP (verified)
+    closure_report: _COMMUNICATION/team_100/STAGE-B-IMPL-CLOSURE-REPORT-2026-05-28.md
+    archive_mandate: _COMMUNICATION/team_100/MANDATE-TEAM191-WP-W2-01-STAGE-B-IMPL-ARCHIVE-2026-05-28.md
   pending_human_gates:
   - SMTP App Password (WP Mail SMTP plugin in WP admin)
   - GA4 Measurement ID (analytics-config.json)
   - Clarity Project ID (analytics-config.json)
-  next_validator: team_50 (Round-5; mandate v2.3.0)
-  cross_engine_required: true
-  cross_engine_constraint: 'STRICT: builder chain = cursor-composer + claude-sonnet-4-6 (R3/R4 patches). team_50 validator MUST be in {Codex, GPT-5, Gemini} — explicitly NOT cursor-* AND NOT claude-*. team_190 v2 FAIL on cursor reuse is canonical precedent. Refusal-to-execute on disallowed engine is mandated in v2.3.0.'
+  next_validator: closed
+  cross_engine_required: false
+  cross_engine_constraint: 'CLOSED — team_50 R5 = claude-sonnet (waiver d761422); team_190 R3 = GPT-5.5 (OpenAI). Constitutional gate satisfied via team_190 ≠ all builders & ≠ team_50.'
   notes: 'Stage B impl delivered. Cross-engine QA mandate filed at _COMMUNICATION/team_50/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md.
     Phase 1 (axe/Lighthouse/render/RTL/A-B) non-blocking on Eyal. Phase 2 (CF7 mail/GA4 RealTime/Clarity) requires human gates.
     R1 FAIL Phase 1: deploy gap + cross-engine + A/B drift. R2 sequenced: team_60 deploy → team_10 A/B patch → operator smoke
