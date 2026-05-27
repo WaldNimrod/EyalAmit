@@ -200,8 +200,10 @@
             "notes": " · Stage B prep COMPLETE 2026-05-26 (L-GATE_BUILD PASS_WITH_FINDINGS, 11/11 VCs); Stage A LOD400 in progress; Stage B implementation awaits Stage A completion.",
             "stages": {
               "A_atoms_first": {
-                "status": "in_progress",
-                "owner": "team_100"
+                "status": "complete",
+                "owner": "team_100+team_80",
+                "closure_verdict": "team_190 v2.0.0 PASS_WITH_FINDINGS",
+                "closure_commit": "d376dda"
               },
               "B_prep_parallel": {
                 "status": "complete_with_findings",
@@ -210,9 +212,11 @@
                 "verdict_artifact": "_COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-PREP_L-GATE_BUILD_v1.0.0.md"
               },
               "B_impl": {
-                "status": "blocked",
+                "status": "fail_remediation",
                 "owner": "team_10",
-                "blocked_by": "A_atoms_first"
+                "verdict_round_1": "FAIL (deploy gap + cross-engine violation)",
+                "remediation_plan": "_COMMUNICATION/team_100/REMEDIATION-PLAN-STAGE-B-IMPL-FAIL-2026-05-27.md",
+                "current_step": "team_99 deploy in progress"
               }
             }
           },
