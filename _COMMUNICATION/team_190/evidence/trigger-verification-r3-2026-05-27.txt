@@ -1,0 +1,33 @@
+Team 190 Round 3 trigger verification evidence
+Date: 2026-05-27
+WP: WP-W2-01-STAGE-B-IMPL
+Gate: L-GATE_VALIDATE
+Mandate: _COMMUNICATION/team_190/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_VALIDATE_v1.2.0.md
+
+Required trigger checks:
+- _COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v4.0.0.md exists.
+- Verdict §0 shows PASS or PASS_WITH_FINDINGS.
+- Verdict §1 declares engine in {Codex, GPT-5, Gemini}; not cursor-* and not claude-*.
+- git status clean on main.
+- validate_aos.sh returns 0 FAIL only after trigger eligibility permits execution.
+
+Observed:
+- ReadFile on _COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v4.0.0.md returned: File not found.
+- Glob _COMMUNICATION/team_50/*WP-W2-01-STAGE-B-IMPL*L-GATE_BUILD*.md returned no v4.0.0 verdict file. It did return:
+  - NOTICE_TO_TEAM_00_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_R5_REFUSED_2026-05-27.md
+  - REFUSAL_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_R5_composer_2026-05-27.md
+  - MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v2.3.0.md
+  - VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v3.0.0.md
+  - older v1/v2 mandates and verdicts
+- git log --oneline --grep='qa(WP-W2-01-STAGE-B-IMPL' -n 12 returned:
+  ebb9be8 qa(WP-W2-01-STAGE-B-IMPL/L-GATE_BUILD): REFUSED — Team 50 R5 — disallowed engine
+  38cc345 qa(WP-W2-01-STAGE-B-IMPL/L-GATE_BUILD): PASS v3 — Team 50 cross-engine
+  56a159f qa(WP-W2-01-STAGE-B-IMPL/L-GATE_BUILD): FAIL v2 — Team 50 cross-engine
+  e773e5a qa(WP-W2-01-STAGE-B-IMPL/L-GATE_BUILD): FAIL — Team 50
+- git status --short --branch returned clean main at trigger-verification start:
+  ## main...origin/main
+
+Conclusion:
+- The Team 50 R5 PASS/PASS_WITH_FINDINGS trigger is absent.
+- The latest Team 50 R5 commit is a REFUSED state due to disallowed engine.
+- Per mandate v1.2.0 §4 and user activation instruction, Team 190 must return BLOCKED and must not proceed to axe, Lighthouse, validate_aos, code-surface review, or supporting-context reasoning.
