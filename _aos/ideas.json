@@ -5,8 +5,8 @@
   "owner": "team_100",
   "fate_authority": "team_00 + nimrod",
   "project_id": "eyalamit",
-  "next_id": 1,
-  "last_updated": "2026-04-12T00:00:00Z",
+  "next_id": 5,
+  "last_updated": "2026-05-28T00:00:00Z",
   "status_legend": {
     "open": "No fate decision yet — requires Team 00 + Nimrod review",
     "closed": "Fate decided and actioned. From pipeline perspective: done. Delivery_ref = canonical WP ID or artifact."
@@ -32,5 +32,91 @@
     "medium": "Within current stage timeline",
     "low": "Backlog — S+ or whenever"
   },
-  "ideas": []
+  "ideas": [
+    {
+      "id": "IDEA-001",
+      "title": "M7 — Staging TLS cert renewal (uPress wildcard limitation)",
+      "source": "F-R2-01 (team_50 R2 verdict) + team_190 R2 BLOCKER carry-forward",
+      "raised_by": "team_50",
+      "raised_at": "2026-05-27",
+      "raised_artifact": "_COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md",
+      "severity": "MAJOR",
+      "urgency": "high",
+      "blocks_cutover": true,
+      "description": "uPress staging TLS cert is expired. Wildcard plan limitation discovered during R1 remediation. Workaround during Wave2 dev: --ignore-certificate-errors for Chrome tooling, HTTPS URL direct. MUST be resolved before M7 production cutover (cannot serve real users with HTTP-only or expired-cert redirect chain).",
+      "options": [
+        "uPress panel SSL renewal (Eyal upgrades plan or buys add-on)",
+        "Let's Encrypt manual cert + cron renewal",
+        "Cloudflare Flexible SSL (if domain routed via Cloudflare)"
+      ],
+      "owner": "team_20 (DevOps/infra) + team_00 (purchase decision)",
+      "status": "open",
+      "fate": null,
+      "delivery_ref": null,
+      "notes": "Documented in roadmap.yaml WP-W2-01-STAGE-B-IMPL gate_history (now closed/archived). Re-open trigger: M7 milestone activation OR earlier cutover sequencing requirement."
+    },
+    {
+      "id": "IDEA-002",
+      "title": "Mobile <p> text-align override cleanup (one non-systemic rule)",
+      "source": "F-R2-02 (team_50 R2 + team_100 R4 confirmed)",
+      "raised_by": "team_50",
+      "raised_at": "2026-05-27",
+      "raised_artifact": "_COMMUNICATION/team_100/PREVERDICT_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_2026-05-27.md (§3 F-R2-02)",
+      "severity": "MINOR",
+      "urgency": "low",
+      "description": "On mobile viewport (390x844), a sampled <p> resolved to text-align: left from a single override rule, while <body> direction is rtl and other paragraphs are right-aligned. Single non-systemic override; visual RTL works (team_190 v4 PASS confirms).",
+      "owner": "team_10 — natural fix during W2-02 content build when these paragraph styles will be exercised on real content pages",
+      "status": "open",
+      "fate": null,
+      "delivery_ref": "backlog (merge into W2-02)",
+      "notes": "Check site/wp-content/themes/ea-eyalamit/assets/css/ea-atoms.css mobile breakpoint for any 'p { text-align: left }' override."
+    },
+    {
+      "id": "IDEA-003",
+      "title": "Phase 2 QA cycle — CF7 mail delivery + GA4 RealTime + Clarity session",
+      "source": "Stage B mandate v1.0.0 Phase 2 + WP-W2-01-STAGE-B-IMPL pending_human_gates",
+      "raised_by": "team_100",
+      "raised_at": "2026-05-27",
+      "raised_artifact": "_COMMUNICATION/team_50/MANDATE_WP-W2-01-STAGE-B-IMPL_L-GATE_BUILD_v1.0.0.md §1",
+      "severity": "non-blocking P1",
+      "urgency": "medium",
+      "description": "Phase-2 VCs (VC-15..VC-18) require live integrations: VC-15 CF7 mail to info@eyalamit.co.il, VC-16 GA4 RealTime event with variant_label, VC-17 Clarity session+heatmap, VC-18 A/B distribution over 10+ sessions in GA4.",
+      "pending_inputs": [
+        {"key": "SMTP App Password (WP Mail SMTP plugin)", "status": "DONE 2026-05-27 per nimrod — mailbox-arrival confirmation pending 2026-05-28+"},
+        {"key": "GA4 Measurement ID", "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"},
+        {"key": "Clarity Project ID", "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"}
+      ],
+      "owner": "team_00 + Eyal (inputs) → team_10 (apply to analytics-config.json) → team_50 (Phase 2 QA)",
+      "status": "open",
+      "fate": null,
+      "delivery_ref": "backlog (provisional WP-W2-01-PHASE-2-QA)",
+      "notes": "Trigger to spawn Phase-2 WP: GA4 + Clarity IDs arrive from Eyal. SMTP delivery confirmation is independent half-day check (IDEA-004)."
+    },
+    {
+      "id": "IDEA-004",
+      "title": "SMTP delivery verification — WP Mail SMTP plugin smoke test",
+      "source": "nimrod in-session 2026-05-28: 'עודכנו פרטי smtp באתר ביופרס - אנא בדיקתכם'",
+      "raised_by": "team_00",
+      "raised_at": "2026-05-28",
+      "raised_artifact": "in-session directive (this idea formalizes it)",
+      "severity": "non-blocking P1",
+      "urgency": "high",
+      "description": "uPress-side SMTP credentials updated 2026-05-27 by nimrod. Verify: (a) WP Mail SMTP plugin present + active on staging; (b) attempt programmatic CF7 form submit to trigger outgoing mail; (c) tomorrow 2026-05-28+ confirm actual delivery at info@eyalamit.co.il.",
+      "actions_in_session": [
+        "Check WP Mail SMTP plugin file presence on staging (FTPS or HTTP probe of wp-content/plugins path)",
+        "Inspect WP plugin list endpoint if reachable",
+        "Attempt CF7 form submission via curl POST (if nonce-bypassable on staging or if test form is on /wave2-test/)"
+      ],
+      "actions_tomorrow": [
+        "Eyal checks info@eyalamit.co.il inbox + spam folder",
+        "If arrived → close IDEA-004, partially advance IDEA-003 (VC-15)",
+        "If not arrived → re-open WP Mail SMTP config review (WP-Admin dive)"
+      ],
+      "owner": "team_100 today + Eyal tomorrow",
+      "status": "open",
+      "fate": null,
+      "delivery_ref": null,
+      "notes": "Independent of GA4/Clarity gating (different items)."
+    }
+  ]
 }
