@@ -627,8 +627,9 @@ work_packages:
   label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
   status: PLANNED
   track: A
-  current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  spec_gate: 'PASS_WITH_FINDINGS (team_190 Codex L-GATE_SPEC 2026-05-28)'
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false

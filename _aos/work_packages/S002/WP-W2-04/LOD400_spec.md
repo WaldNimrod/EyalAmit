@@ -20,6 +20,12 @@ hero · what-it-is · how-it-works/benefits · who-it's-for · **FAQ (view-only,
 ## Cross-cutting (reuse W2-02 infra)
 Route via slug in a `template_include` router (extend the W2-02 pattern or add `inc/wave2-w2-04.php`), set `ea_wave2_shell`; D-14 tokens; `ea-wave2-shell` body class; coordinate `style.css` version slot.
 
+## A/B CTA contract (F01 — canonical, from WP-W2-01 ea-ab-testing)
+Each page's CTA uses the W2-01 A/B mechanism (`assets/js/ea-ab-testing.js`, per-session random variant + GA4 event): **variant_A** = contact form only; **variant_B** = form + WhatsApp; **variant_C** = WhatsApp only. Targets: form → `/contact?subject=<page-slug>`; WhatsApp → `https://wa.me/972524822842` (default text per WP-W2-01). GA4 event: `cta_click` with `variant_label` (A/B/C) + `page`. Build-time expected: all three variants wired; random assignment live.
+
+## Testimonial dependency (F02)
+Testimonial **text** is in scope now; **images** depend on WP-W2-07. Placeholder images are acceptable for **L-GATE_BUILD**. For **L-GATE_VALIDATE**: placeholders acceptable ONLY if W2-07 is still open at that time (declared carry-forward); if W2-07 is closed, final images are required.
+
 ## Acceptance Criteria
 - AC-01: `/sound-healing`, `/lessons` → 200.
 - AC-02: H1 + body match 25.5.26 source 1:1.

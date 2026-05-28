@@ -31,7 +31,7 @@ Per LOD200 §WP-W2-03 / AC-02, each book page MUST render: summary (תקציר) 
 ## Acceptance Criteria
 - AC-01: 4 URLs (`/books`, `/books/vekatavta`, `/books/kushi-blantis`, `/books/tsva-bekahol`) return HTTP 200.
 - AC-02: each book page renders all required blocks (block contract above).
-- AC-03: purchase button opens Green Invoice in new tab + fires GA4 event.
+- AC-03: purchase button opens Green Invoice in new tab + fires GA4 event `book_purchase_click` (with `book_slug`). **Fallback (links absent):** button MUST route to the approved contact/form URL `/contact?subject=book-<slug>` (NOT `#`), open same tab, and still fire the GA4 event.
 - AC-04: `/books` shows 3 book cards + bundle block; each card links to its `/books/<slug>`.
 - AC-05: H1 + body copy match 25.5.26 source 1:1.
 - AC-06: `validate_aos.sh` 0 FAIL; mobile responsive (cards 3-up desktop / stacked mobile).

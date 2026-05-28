@@ -9,23 +9,25 @@
 One English landing page summarizing the whole site, designed, with media and correct hreflang. Measurable: `/en` 200, 6 sections in English, hreflang EN↔HE reciprocal.
 
 ## Page
-| URL | Template | Content |
-|-----|----------|---------|
-| `/en` (or `/en/landing`) | `tpl-en-landing.php` (already in `ea_wave2_is_active_view` list) | English summary authored from 25.5.26 essence (NOT literal translation) |
+| URL (canonical) | Template | Content source |
+|-----------------|----------|----------------|
+| `/en` (single canonical URL — `/en/landing` NOT used; if any legacy `/en/landing` exists, 301 → `/en`) | `tpl-en-landing.php` (already in `ea_wave2_is_active_view` list) | **Input dependency** (B01): final EN copy at `_COMMUNICATION/team_30/W2-08-EN-CONTENT-2026-05-28.md`, authored+approved by team_30 BEFORE build. The builder MUST NOT author/translate marketing copy during implementation. |
 
-## Section contract (6)
-1. Hero (image + EN tagline) · 2. About Eyal · 3. Method (cbDIDG) · 4. Services overview · 5. Books · 6. Testimonials (5-10 translated) + CTA.
+## Section contract (6) — each maps to an approved EN block in the team_30 artifact, summarizing these HE sources (F04)
+1. Hero (image + EN tagline) ← `/` homepage hero · 2. About Eyal ← `/about` · 3. Method (cbDIDG) ← `/method` · 4. Services overview ← `/treatment` + `/sound-healing` + `/lessons` · 5. Books ← `/books` · 6. Testimonials (5-10, EN) + CTA ← `ea-legacy-curated-2026-04-11/catalog.json`.
 
 ## Cross-cutting / SEO
-- `lang="en"`, `hreflang="en"` + reciprocal `hreflang="he"` from the Hebrew homepage.
+- `lang="en"`. **hreflang contract (B03):** on `/en` emit `<link rel="alternate" hreflang="en" href="…/en/">` and `<link rel="alternate" hreflang="he" href="…/">` (HE counterpart = homepage `/`, `page_on_front=16`); add the reciprocal `hreflang="en"` alternate on the HE homepage. `x-default` → `/`.
 - CTA → `/contact?lang=en` (subject auto-set).
-- Relevant media (portrait, studio). D-14 tokens; `ea-wave2-shell`.
-- 301 from any legacy EN page if applicable.
+- Relevant media (portrait, studio) from new-site uploads (relative). D-14 tokens; `ea-wave2-shell`.
+
+## Input dependency (HARD — blocks L-GATE_ELIGIBILITY)
+`_COMMUNICATION/team_30/W2-08-EN-CONTENT-2026-05-28.md` (6 approved EN sections). Build does not start until present.
 
 ## Acceptance Criteria
 - AC-01: `/en` → 200.
-- AC-02: 6 sections present with English content.
-- AC-03: hreflang EN↔HE linked correctly (reciprocal).
+- AC-02: 6 sections present, each matching the approved `_COMMUNICATION/team_30/W2-08-EN-CONTENT-2026-05-28.md` content verbatim (no builder-authored copy).
+- AC-03: hreflang per B03 — `/en` emits en + he(→`/`) + x-default alternates; HE homepage emits reciprocal `hreflang="en"` → `/en`.
 - AC-04: CTA → `/contact?lang=en`.
 - AC-05: `validate_aos.sh` 0 FAIL; mobile responsive.
 
