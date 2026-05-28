@@ -36,3 +36,30 @@ function ea_w2_06_body_classes( $classes ) {
 	}
 	return $classes;
 }
+
+/**
+ * Route the blog Posts page (/blog/ = page_for_posts, is_home) and single posts
+ * to their Wave2 templates. WP ignores page templates on the posts page, and
+ * single posts have no page-template meta, so route via template_include.
+ * set_query_var('ea_wave2_shell', true) makes ea_wave2_is_active_view() treat
+ * these as Wave2 views (enables ea-blog asset enqueue + Stage-B dequeue). The
+ * filter runs before wp_enqueue_scripts.
+ */
+add_filter( 'template_include', 'ea_w2_06_template_include', 100 );
+function ea_w2_06_template_include( $tpl ) {
+	if ( is_home() && ! is_front_page() ) {
+		$t = locate_template( 'page-templates/tpl-blog-archive.php' );
+		if ( $t ) {
+			set_query_var( 'ea_wave2_shell', true );
+			return $t;
+		}
+	}
+	if ( is_singular( 'post' ) ) {
+		$t = locate_template( 'page-templates/tpl-blog-single.php' );
+		if ( $t ) {
+			set_query_var( 'ea_wave2_shell', true );
+			return $t;
+		}
+	}
+	return $tpl;
+}
