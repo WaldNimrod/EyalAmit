@@ -103,9 +103,9 @@
       "urgency": "high",
       "description": "uPress-side SMTP credentials updated 2026-05-27 by nimrod. Verify: (a) WP Mail SMTP plugin present + active on staging; (b) attempt programmatic CF7 form submit to trigger outgoing mail; (c) tomorrow 2026-05-28+ confirm actual delivery at info@eyalamit.co.il.",
       "actions_in_session": [
-        "Check WP Mail SMTP plugin file presence on staging (FTPS or HTTP probe of wp-content/plugins path)",
-        "Inspect WP plugin list endpoint if reachable",
-        "Attempt CF7 form submission via curl POST (if nonce-bypassable on staging or if test form is on /wave2-test/)"
+        "DONE: WP Mail SMTP plugin presence confirmed (HTTP 200 readme)",
+        "DONE 2026-05-28: real Fluent Forms submission fired via Puppeteer on /contact/ — XHR 200, success:true, insert_id:4, success message shown. WP wp_mail() → WP Mail SMTP triggered. Sender field set to nimrod@mezoo.co. Evidence: _COMMUNICATION/team_100/evidence/smtp-test-submit-2026-05-28.png",
+        "Form/WP side fully GREEN — only mailbox delivery confirmation remains (Eyal, tomorrow)"
       ],
       "actions_tomorrow": [
         "Eyal checks info@eyalamit.co.il inbox + spam folder",
