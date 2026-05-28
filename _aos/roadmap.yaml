@@ -645,11 +645,11 @@ work_packages:
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  spec_ref: _aos/work_packages/S002/WP-W2-04/LOD400_spec.md
   profile: L0
   estimate_days: '3-4'
   assigned_builder: team_10
@@ -662,11 +662,11 @@ work_packages:
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  spec_ref: _aos/work_packages/S002/WP-W2-05/LOD400_spec.md
   profile: L0
   estimate_days: '4-5'
   assigned_builder: team_10
@@ -679,11 +679,11 @@ work_packages:
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  spec_ref: _aos/work_packages/S002/WP-W2-07/LOD400_spec.md
   profile: L0
   estimate_days: '3-4'
   assigned_builder: team_10
@@ -696,11 +696,11 @@ work_packages:
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  spec_ref: _aos/work_packages/S002/WP-W2-08/LOD400_spec.md
   profile: L0
   estimate_days: '2-3'
   assigned_builder: team_10
@@ -713,12 +713,12 @@ work_packages:
   status: PLANNED
   track: A
   current_lean_gate: L-GATE_ELIGIBILITY
-  lod_status: LOD200
+  lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-01, WP-W2-02, WP-W2-03, WP-W2-04, WP-W2-05, WP-W2-06, WP-W2-07, WP-W2-08]
   blocked: true
   block_reason: 'Depends on all Wave2 content WPs + external (Eyal returns 301 JSON). Final pre-cutover WP.'
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
+  spec_ref: _aos/work_packages/S002/WP-W2-09/LOD400_spec.md
   profile: L0
   estimate_days: '3-4'
   assigned_builder: team_20
