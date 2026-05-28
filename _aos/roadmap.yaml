@@ -602,7 +602,7 @@ work_packages:
   label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 126 tags + 54 301s)
   status: IN_PROGRESS
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: L-GATE_VALIDATE
   lod_status: LOD400
   assigned_builder: team_10
   assigned_validator: team_50
@@ -623,6 +623,9 @@ work_packages:
   gate_history:
     - {gate: L-GATE_BUILD, action: build-complete, by: team_10, date: '2026-05-28', note: 'Code + WXR + 301 rules delivered.'}
     - {gate: L-GATE_BUILD, action: manual-steps-done, by: team_100, date: '2026-05-28', note: 'REST import + media localization + corrected 301 deploy. GO-SIGNAL issued to team_50; awaiting QA.'}
+    - {gate: L-GATE_BUILD, verdict: FAIL, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'AC-04 P1 — /blog/ archive not routed (posts page page_for_posts=18, is_home; page template ignored).'}
+    - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: 78edf9d, note: 'Added ea_w2_06_template_include routing is_home->tpl-blog-archive + is_singular(post)->tpl-blog-single + ea_wave2_shell. Deployed after FTP recovery.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'Re-QA: 8/8 ACs PASS (AC-04 resolved). Findings P3 only: F-W2-06-03 [vc_row] in archive excerpts; F-W2-06-05 2 orphaned 404 upload refs in REST content (not rendered). No P0/P1. -> route team_190 L-GATE_VALIDATE.'}
 - id: WP-W2-03
   label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
   status: PLANNED
