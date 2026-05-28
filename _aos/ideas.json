@@ -5,7 +5,7 @@
   "owner": "team_100",
   "fate_authority": "team_00 + nimrod",
   "project_id": "eyalamit",
-  "next_id": 5,
+  "next_id": 6,
   "last_updated": "2026-05-28T00:00:00Z",
   "status_legend": {
     "open": "No fate decision yet — requires Team 00 + Nimrod review",
@@ -82,9 +82,18 @@
       "urgency": "medium",
       "description": "Phase-2 VCs (VC-15..VC-18) require live integrations: VC-15 CF7 mail to info@eyalamit.co.il, VC-16 GA4 RealTime event with variant_label, VC-17 Clarity session+heatmap, VC-18 A/B distribution over 10+ sessions in GA4.",
       "pending_inputs": [
-        {"key": "SMTP App Password (WP Mail SMTP plugin)", "status": "DONE 2026-05-27 per nimrod — mailbox-arrival confirmation pending 2026-05-28+"},
-        {"key": "GA4 Measurement ID", "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"},
-        {"key": "Clarity Project ID", "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"}
+        {
+          "key": "SMTP App Password (WP Mail SMTP plugin)",
+          "status": "DONE 2026-05-27 per nimrod — mailbox-arrival confirmation pending 2026-05-28+"
+        },
+        {
+          "key": "GA4 Measurement ID",
+          "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"
+        },
+        {
+          "key": "Clarity Project ID",
+          "status": "PENDING — analytics-config.json placeholder __PENDING_EYAL__"
+        }
       ],
       "owner": "team_00 + Eyal (inputs) → team_10 (apply to analytics-config.json) → team_50 (Phase 2 QA)",
       "status": "open",
@@ -117,6 +126,27 @@
       "fate": null,
       "delivery_ref": null,
       "notes": "Independent of GA4/Clarity gating (different items)."
+    },
+    {
+      "id": "IDEA-005",
+      "title": "W2-02 homepage hero H1 separator format (<br> vs source dash)",
+      "source": "team_50 L-GATE_BUILD v2 P3 finding (AC-02)",
+      "raised_by": "team_50 (cursor-composer)",
+      "raised_at": "2026-05-28",
+      "raised_artifact": "_COMMUNICATION/team_50/QA-VERDICT-WP-W2-02-L-GATE-BUILD-2026-05-28.md",
+      "severity": "MINOR",
+      "urgency": "low",
+      "blocks_cutover": false,
+      "description": "Homepage hero H1 renders a <br> line break where the 25.5.26 source uses a dash separator. Cosmetic; non-blocking. Align to source formatting in a polish pass.",
+      "options": [
+        "Edit block-intro/home hero markup to use dash separator",
+        "Confirm with Eyal whether <br> is acceptable"
+      ],
+      "owner": "team_10",
+      "status": "open",
+      "fate": null,
+      "delivery_ref": null,
+      "notes": "P3 carry-forward from W2-02 L-GATE_BUILD PASS_WITH_FINDINGS. Also noted: FAQ mandate count doc-drift (42 vs actual 50) — trivial mandate text fix, no IDEA."
     }
   ]
 }
