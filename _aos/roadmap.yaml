@@ -607,3 +607,140 @@ work_packages:
   estimate_days: '5-7'
   cross_engine_constraint: 'Same as W2-02 — fresh IR#1 chain.'
   notes: 'Dispatched 2026-05-28 in parallel with W2-02. Migration only (no new content). Coordinate style.css Version bump + functions.php require_once with W2-02 session.'
+- id: WP-W2-10
+  label: UI Precision (umbrella) — per-cluster hi-fi mockups (team_35) → Eyal sign-off → refine → validate
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 (mockups) + team_10 (refinement)
+  assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE)
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  phase_plan: _COMMUNICATION/team_100/UI-PRECISION-PHASE-PLAN-2026-05-28.md
+  profile: L0
+  activation_rule: 'team_35 on-demand by team_00 ONLY, AFTER content-migration content-complete on staging (governance team_35 §invocation)'
+  blocked_by: [WP-W2-02, WP-W2-06]
+  children: [WP-W2-10-A, WP-W2-10-B, WP-W2-10-C, WP-W2-10-D, WP-W2-10-E, WP-W2-10-F, WP-W2-10-G]
+  notes: 'Closes the gap: only the homepage has a reviewed visual composition; all other routes are atoms-by-assumption. 5-stage flow per child: team_35 mockup → Eyal sign-off → team_10 refine → team_80 token-compliance → team_50/190 QA. Content scope verified complete (CONTENT-SCOPE-GAP-ANALYSIS-2026-05-28 — 16/16, 0 gaps).'
+- id: WP-W2-10-A
+  label: UI Precision — Service cluster (treatment / method / sound-healing / lessons, tpl-service)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-W2-02, WP-W2-04]
+  estimate_days: '5'
+  notes: '4 routes, one tpl-service template with 7 unwired D-14 slots. Biggest coverage win — sequence first.'
+- id: WP-W2-10-B
+  label: UI Precision — Editorial cluster (about / press / about-moksha, tpl-content)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-W2-02, WP-W2-07]
+  estimate_days: '4.5'
+  notes: 'Long-form editorial archetype; bio/portrait block currently placeholder avatar.'
+- id: WP-W2-10-C
+  label: UI Precision — Conversion cluster (contact / faq)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: MED
+  blocked_by: [WP-W2-02]
+  estimate_days: '3'
+  notes: 'Templates already REAL — fast win. Resolves CF7 form_id=0 wiring as part of refinement.'
+- id: WP-W2-10-D
+  label: UI Precision — Blog cluster (archive / single, tpl-blog-*)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: MED
+  blocked_by: [WP-W2-06]
+  estimate_days: '4'
+  notes: 'Refine on top of W2-06 first build. Reading typography for long Hebrew posts.'
+- id: WP-W2-10-E
+  label: UI Precision — Commerce cluster (books + 3 details + shop + 5 items)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-W2-03, WP-W2-05]
+  asset_gated: 'Eyal cover/product images + Green Invoice per-product links'
+  estimate_days: '5.5'
+  notes: 'Mock with placeholders; swap to real assets on Eyal delivery. Verify swap path.'
+- id: WP-W2-10-F
+  label: UI Precision — EN landing (tpl-en-landing, LTR mirror)
+  status: PLANNED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-W2-08]
+  estimate_days: '4.5'
+  notes: 'RTL→LTR direction flip — isolate the risk; validate logical-property mirroring + EN typography.'
+- id: WP-W2-10-G
+  label: UI Precision — Hero video finalization (Hero=C)
+  status: BLOCKED
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_35 + team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-05-28'
+  milestone_ref: S003
+  parent_wp: WP-W2-10
+  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  profile: L0
+  priority: HIGH
+  blocked_by: ['Eyal hero video asset (external)']
+  estimate_days: '2.5'
+  notes: 'Replace CSS-gradient placeholder in block-hero.php with real video treatment + poster + reduced-motion fallback. BLOCKED until Eyal provides video.'
