@@ -570,10 +570,13 @@ work_packages:
     page → team_20 TLS (parallel) → team_50 re-QA non-Cursor.'
 - id: WP-W2-02
   label: Wave2 WP-02 — Core Content (Home + Method + Treatment + About + FAQ + Contact)
-  status: IN_PROGRESS
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_VALIDATE
-  lod_status: LOD400
+  current_lean_gate: CLOSED
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
+  merge_to_main: 'DEFERRED — shared branch feature/w2-06-blog; merge to main after WP-W2-06 co-closes (single branch carries both WPs)'
+  propagation: 'SKIP — core/governance/ not modified (verified)'
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-28'
@@ -592,6 +595,9 @@ work_packages:
     - {gate: L-GATE_BUILD, verdict: FAIL, by: team_50, date: '2026-05-28', note: '9/10 ACs pass; AC-05 P1 — CF7 dequeue inert (is_active_view relied on page-template meta absent under W2-02 force-routing).'}
     - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: ebb6101, note: 'Set ea_wave2_shell query var on force-routed pages + wpcf7_load_css/js filters. Verified live: /method CF7 assets=0, /contact=5, wp-block-library=0. Awaiting team_50 re-QA.'}
     - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'Re-QA v2: 10/10 ACs PASS, AC-05 resolved. v1 FAIL was stale (pre-ebb6101). Remaining findings P3 only (hero H1 separator, FAQ count doc-drift, staging timeouts). No P0/P1. -> route team_190 L-GATE_VALIDATE.'}
+    - {gate: L-GATE_VALIDATE, verdict: BLOCKED, by: 'team_190 (Codex)', date: '2026-05-28', note: 'R1: live functionality PASS but LOD400 precision gate failed — spec stale/home-only + lod_status LOD200. Resolved by team_100 authoring consolidated LOD400 spec + lod_status->LOD400.'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5.5)', date: '2026-05-28', round: v2.0.0, note: 'R2: all 8 checks PASS + LOD400 precision gate PASS. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-02-L-GATE-VALIDATE-2026-05-28.md. P3 carry-forwards non-blocking.'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge to main DEFERRED until W2-06 co-closes (shared branch).'}
 - id: WP-W2-06
   label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 126 tags + 54 301s)
   status: IN_PROGRESS
