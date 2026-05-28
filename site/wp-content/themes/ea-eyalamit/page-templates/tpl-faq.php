@@ -12,8 +12,8 @@ get_header();
 get_template_part( 'template-parts/blocks/block', 'topnav' );
 ?>
 <main id="main" class="ea-wave2-faq">
-	<h1 class="ea-page-title"><?php esc_html_e( 'שאלות נפוצות', 'ea-eyalamit' ); ?></h1>
-	<?php get_template_part( 'template-parts/blocks/block', 'faq-mini' ); ?>
+	<?php the_title( '<h1 class="ea-page-title">', '</h1>' ); ?>
+	<?php get_template_part( 'template-parts/blocks/block', 'faq-list' ); ?>
 </main>
 <?php
 get_template_part( 'template-parts/blocks/block', 'footer-social' );

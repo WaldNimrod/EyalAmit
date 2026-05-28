@@ -1299,4 +1299,11 @@
       .ea-service-comparison__heading {
         font-size: 1.4rem;
       }
+      /* F-R2-02: RTL paragraph alignment on wave2 service/content pages (IDEA-002). */
+      .ea-wave2-service p,
+      .ea-wave2-content p,
+      .ea-service-section p,
+      .ea-content-section p {
+        text-align: start;
+      }
     }

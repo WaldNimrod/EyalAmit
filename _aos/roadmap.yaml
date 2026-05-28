@@ -570,43 +570,178 @@ work_packages:
     page → team_20 TLS (parallel) → team_50 re-QA non-Cursor.'
 - id: WP-W2-02
   label: Wave2 WP-02 — Core Content (Home + Method + Treatment + About + FAQ + Contact)
-  status: IN_PROGRESS
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD200
+  current_lean_gate: CLOSED
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
+  merge_to_main: 'DEFERRED — shared branch feature/w2-06-blog; merge to main after WP-W2-06 co-closes (single branch carries both WPs)'
+  propagation: 'SKIP — core/governance/ not modified (verified)'
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-28'
   dispatched_at: '2026-05-28'
   milestone_ref: S002
   parent_wp: WP-W2-01 (infra dependency — CLOSED)
-  spec_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-W2-02-CORE-CONTENT-2026-05-28.md
+  spec_ref: _aos/work_packages/S002/WP-W2-02/LOD400_spec.md
+  spec_mandate_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-W2-02-CORE-CONTENT-2026-05-28.md
   profile: L0
-  feature_branch: feature/w2-02-content
+  feature_branch: feature/w2-06-blog
   parallel_with: WP-W2-06
   estimate_days: '7-10'
-  cross_engine_constraint: 'Fresh IR#1 chain — builder cursor-composer; validator (team_50) MUST differ (claude-sonnet sub-agent acceptable); team_190 = non-cursor/non-claude. No waiver carryover from Stage B.'
-  notes: 'Dispatched 2026-05-28 in parallel with W2-06. 6 core pages from 25.5.26 content sources. Phase 2 (mail/GA4/Clarity) deferred — see ideas.json IDEA-003.'
+  cross_engine_constraint: 'IR#1 (team_00 strict disposition 2026-05-28): builder=claude-sonnet-4-6 -> validator team_50 MUST be non-Claude (cursor/codex); team_190 L-GATE_VALIDATE=native Codex.'
+  notes: 'Built by team_10 (claude-sonnet). 6 core pages live on staging. Both W2-02 + W2-06 share branch feature/w2-06-blog (single working tree; isolation by file-domain split). 25.5.26 content sources.'
+  gate_history:
+    - {gate: L-GATE_BUILD, verdict: FAIL, by: team_50, date: '2026-05-28', note: '9/10 ACs pass; AC-05 P1 — CF7 dequeue inert (is_active_view relied on page-template meta absent under W2-02 force-routing).'}
+    - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: ebb6101, note: 'Set ea_wave2_shell query var on force-routed pages + wpcf7_load_css/js filters. Verified live: /method CF7 assets=0, /contact=5, wp-block-library=0. Awaiting team_50 re-QA.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'Re-QA v2: 10/10 ACs PASS, AC-05 resolved. v1 FAIL was stale (pre-ebb6101). Remaining findings P3 only (hero H1 separator, FAQ count doc-drift, staging timeouts). No P0/P1. -> route team_190 L-GATE_VALIDATE.'}
+    - {gate: L-GATE_VALIDATE, verdict: BLOCKED, by: 'team_190 (Codex)', date: '2026-05-28', note: 'R1: live functionality PASS but LOD400 precision gate failed — spec stale/home-only + lod_status LOD200. Resolved by team_100 authoring consolidated LOD400 spec + lod_status->LOD400.'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5.5)', date: '2026-05-28', round: v2.0.0, note: 'R2: all 8 checks PASS + LOD400 precision gate PASS. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-02-L-GATE-VALIDATE-2026-05-28.md. P3 carry-forwards non-blocking.'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge to main DEFERRED until W2-06 co-closes (shared branch).'}
 - id: WP-W2-06
-  label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 126 tags + 54 301s)
-  status: IN_PROGRESS
+  label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 47 tags + 135-rule 301 set)
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD200
+  current_lean_gate: CLOSED
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
+  merge_to_main: 'READY — co-merge with WP-W2-02 (shared branch feature/w2-06-blog); pending team_00 go'
+  propagation: 'SKIP — core/governance/ not modified (verified)'
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-28'
   dispatched_at: '2026-05-28'
   milestone_ref: S002
   parent_wp: WP-W2-01 (infra dependency — CLOSED)
-  spec_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-W2-06-BLOG-MIGRATION-2026-05-28.md
+  spec_ref: _aos/work_packages/S002/WP-W2-06/LOD400_spec.md
+  spec_mandate_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-W2-06-BLOG-MIGRATION-2026-05-28.md
   profile: L0
   feature_branch: feature/w2-06-blog
   parallel_with: WP-W2-02
   collaborators: [team_40]
   estimate_days: '5-7'
-  cross_engine_constraint: 'Same as W2-02 — fresh IR#1 chain.'
-  notes: 'Dispatched 2026-05-28 in parallel with W2-02. Migration only (no new content). Coordinate style.css Version bump + functions.php require_once with W2-02 session.'
+  cross_engine_constraint: 'IR#1 (team_00 strict 2026-05-28): builder=claude-sonnet-4-6 -> validator team_50 non-Claude; team_190=Codex.'
+  url_structure: 'Posts at root /%postname%/ (M2 standard); legacy /Blog/<slug>/ -> 301 -> /<slug>/; /blog/ = archive page.'
+  notes: 'Tag count corrected: 47 (not 126). 54 posts + 6 cats imported via REST (team_100, App Password). Media fully localized to new site with relative links (158/164; 6 dead-at-source non-blocking). 301 .htaccess deployed (backup taken). hello-world demoted to draft.'
+  gate_history:
+    - {gate: L-GATE_BUILD, action: build-complete, by: team_10, date: '2026-05-28', note: 'Code + WXR + 301 rules delivered.'}
+    - {gate: L-GATE_BUILD, action: manual-steps-done, by: team_100, date: '2026-05-28', note: 'REST import + media localization + corrected 301 deploy. GO-SIGNAL issued to team_50; awaiting QA.'}
+    - {gate: L-GATE_BUILD, verdict: FAIL, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'AC-04 P1 — /blog/ archive not routed (posts page page_for_posts=18, is_home; page template ignored).'}
+    - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: 78edf9d, note: 'Added ea_w2_06_template_include routing is_home->tpl-blog-archive + is_singular(post)->tpl-blog-single + ea_wave2_shell. Deployed after FTP recovery.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'Re-QA: 8/8 ACs PASS (AC-04 resolved). Findings P3 only: F-W2-06-03 [vc_row] in archive excerpts; F-W2-06-05 2 orphaned 404 upload refs in REST content (not rendered). No P0/P1. -> route team_190 L-GATE_VALIDATE.'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5)', date: '2026-05-28', note: 'All 8 checks + LOD400 precision PASS. Independent cache-busted: 12/12 root posts 200 + Wave2 single; /blog/ Wave2 archive (grid+filter+pagination); 6/6 /Blog/->301->root; images from new-site uploads. P3 (IDEA-006/007) + 6 dead-source media carried forward. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-06-L-GATE-VALIDATE-2026-05-28.md.'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP. Merge to main READY (co-merge with W2-02, shared branch) pending team_00 go.'}
+- id: WP-W2-03
+  label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS_WITH_FINDINGS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _aos/work_packages/S002/WP-W2-03/LOD400_spec.md
+  profile: L0
+  estimate_days: '4-6'
+  assigned_builder: team_10
+  assigned_validator: team_50
+  owner: team_10
+  collaborators: [team_30, team_40, team_80, team_50]
+  notes: 'Catalog /books + 3 book detail pages via shared tpl-book-detail. Green Invoice external buy links (per-book, from Eyal). Content sources: MUZZA.md, vekatavta.md, kushi_full.md, eyal_tsva_FINAL.md (25.5.26). Dependency W2-02 now COMPLETE -> eligible.'
+- id: WP-W2-04
+  label: Wave2 WP-04 — Sound Healing + Lessons (/sound-healing + /lessons)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS_WITH_FINDINGS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _aos/work_packages/S002/WP-W2-04/LOD400_spec.md
+  profile: L0
+  estimate_days: '3-4'
+  assigned_builder: team_10
+  assigned_validator: team_50
+  owner: team_10
+  collaborators: [team_30, team_50]
+  notes: '2 service pages on tpl-service. FAQ filtered view-only per category + testimonials block. Sources: sound_healing_final.md, lesons.md. Soft-dep on W2-07 for final testimonial template (non-blocking).'
+- id: WP-W2-05
+  label: Wave2 WP-05 — Shop (4 products + repair + unified /shop)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _aos/work_packages/S002/WP-W2-05/LOD400_spec.md
+  profile: L0
+  estimate_days: '4-5'
+  assigned_builder: team_10
+  assigned_validator: team_50
+  owner: team_10
+  collaborators: [team_30, team_40, team_50]
+  notes: '5 product/service pages (/didgeridoos /bags /stands-storage /stand-floor /repair) + unified /shop on shared tpl-shop-item. Prices entered by Eyal via WP admin (C3). Green Invoice external. No WooCommerce.'
+- id: WP-W2-07
+  label: Wave2 WP-07 — Press + Moksha page + 49 QR pages + FB testimonials (live)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: true
+  block_reason: 'pending hard inputs: team_40 W2-07-PRESS-EXPORT + W2-07-QR-CONTENT-EXPORT'
+  spec_ref: _aos/work_packages/S002/WP-W2-07/LOD400_spec.md
+  profile: L0
+  estimate_days: '3-4'
+  assigned_builder: team_10
+  assigned_validator: team_50
+  owner: team_10
+  collaborators: [team_30, team_40, team_50]
+  notes: '/press, /about/moksha (note: /about/moksha already created in W2-02 as ID 181 — W2-07 fills final content), 49 QR pages (/qr/qrN/ 1:1 migration), FB Top-5 testimonials (text + image-fetch). Publication consent for 30+ collected by nimrod.'
+- id: WP-W2-08
+  label: Wave2 WP-08 — English landing page (/en)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: true
+  block_reason: 'pending hard input: team_30 W2-08-EN-CONTENT'
+  spec_ref: _aos/work_packages/S002/WP-W2-08/LOD400_spec.md
+  profile: L0
+  estimate_days: '2-3'
+  assigned_builder: team_10
+  assigned_validator: team_50
+  owner: team_10
+  collaborators: [team_30, team_50]
+  notes: 'Single EN landing page (uses tpl-en-landing.php, already present in is_active_view list). 6 sections, hreflang EN<->HE reciprocal. Content = English summary (not literal translation).'
+- id: WP-W2-09
+  label: Wave2 WP-09 — Media filter + 301 application + cutover preparation
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_BUILD
+  spec_gate: 'PASS_WITH_FINDINGS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
+  lod_status: LOD400
+  milestone_ref: S002
+  depends_on: [WP-W2-01, WP-W2-02, WP-W2-03, WP-W2-04, WP-W2-05, WP-W2-06, WP-W2-07, WP-W2-08]
+  blocked: true
+  block_reason: 'Depends on all Wave2 content WPs + external (Eyal returns 301 JSON). Final pre-cutover WP.'
+  spec_ref: _aos/work_packages/S002/WP-W2-09/LOD400_spec.md
+  profile: L0
+  estimate_days: '3-4'
+  assigned_builder: team_20
+  assigned_validator: team_50
+  owner: team_20
+  collaborators: [team_40, team_50, team_90]
+  notes: 'Media-in-use filtering, full 301 map application (.htaccess/Redirection), cutover checklist. Blocked until W2-01..08 complete. NOTE: media localization + a /Blog 301 base already done in W2-06 — W2-09 consolidates the full 135-rule map.'
 - id: WP-W2-10
   label: UI Precision (umbrella) — per-cluster hi-fi mockups (team_35) → Eyal sign-off → refine → validate
   status: PLANNED

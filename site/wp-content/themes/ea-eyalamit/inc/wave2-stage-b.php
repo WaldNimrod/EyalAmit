@@ -125,15 +125,24 @@ function ea_wave2_dequeue_unused_styles() {
 	wp_dequeue_style( 'global-styles' );
 	wp_deregister_style( 'global-styles' );
 
-	// CF7 only renders on templates that actually print [contact-form-7].
-	$tpl = is_page() ? get_page_template_slug() : '';
-	if ( $tpl !== 'page-templates/tpl-contact.php' ) {
+	// CF7 is only needed on the contact page. Detect by page slug because
+	// W2-02 force-routes templates without assigning template meta.
+	if ( ! is_page( 'contact' ) ) {
 		wp_dequeue_style( 'contact-form-7' );
 		wp_dequeue_script( 'contact-form-7' );
 		wp_dequeue_script( 'google-recaptcha' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ea_wave2_dequeue_unused_styles', 999 );
+
+/**
+ * Stop Contact Form 7 from enqueuing its CSS/JS anywhere except the contact
+ * page. wp_dequeue can lose to dependency chains / global enqueue, so use CF7's
+ * own native load filters to block the assets at the source. Safe: no page
+ * other than /contact/ renders a CF7 form (form ID is contact-only).
+ */
+add_filter( 'wpcf7_load_css', function ( $load ) { return is_page( 'contact' ) ? $load : false; } );
+add_filter( 'wpcf7_load_js', function ( $load ) { return is_page( 'contact' ) ? $load : false; } );
 
 /**
  * Perf: suppress wp-emoji detection script + inline styles on Wave2 templates.
