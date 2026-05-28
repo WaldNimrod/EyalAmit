@@ -70,6 +70,18 @@ function ea_w2_02_template_include( $tpl ) {
 add_filter( 'template_include', 'ea_w2_02_template_include', 100 );
 
 /**
+ * Mark W2-02 force-routed pages as a Wave2 active view so Stage-B asset
+ * dequeue (ea_wave2_is_active_view) recognizes them. These pages are routed
+ * via template_include without assigning template meta, so is_page_template()
+ * cannot detect them. Runs before wp_enqueue_scripts.
+ */
+add_action( 'template_redirect', function () {
+	if ( ea_w2_02_is_wave2_page() ) {
+		set_query_var( 'ea_wave2_shell', true );
+	}
+} );
+
+/**
  * Add ea-wave2-shell body class on all 6 core pages.
  *
  * @param string[] $classes
