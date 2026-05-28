@@ -582,11 +582,14 @@ work_packages:
   parent_wp: WP-W2-01 (infra dependency — CLOSED)
   spec_ref: _COMMUNICATION/team_10/MANDATE-TEAM10-W2-02-CORE-CONTENT-2026-05-28.md
   profile: L0
-  feature_branch: feature/w2-02-content
+  feature_branch: feature/w2-06-blog
   parallel_with: WP-W2-06
   estimate_days: '7-10'
-  cross_engine_constraint: 'Fresh IR#1 chain — builder cursor-composer; validator (team_50) MUST differ (claude-sonnet sub-agent acceptable); team_190 = non-cursor/non-claude. No waiver carryover from Stage B.'
-  notes: 'Dispatched 2026-05-28 in parallel with W2-06. 6 core pages from 25.5.26 content sources. Phase 2 (mail/GA4/Clarity) deferred — see ideas.json IDEA-003.'
+  cross_engine_constraint: 'IR#1 (team_00 strict disposition 2026-05-28): builder=claude-sonnet-4-6 -> validator team_50 MUST be non-Claude (cursor/codex); team_190 L-GATE_VALIDATE=native Codex.'
+  notes: 'Built by team_10 (claude-sonnet). 6 core pages live on staging. Both W2-02 + W2-06 share branch feature/w2-06-blog (single working tree; isolation by file-domain split). 25.5.26 content sources.'
+  gate_history:
+    - {gate: L-GATE_BUILD, verdict: FAIL, by: team_50, date: '2026-05-28', note: '9/10 ACs pass; AC-05 P1 — CF7 dequeue inert (is_active_view relied on page-template meta absent under W2-02 force-routing).'}
+    - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: ebb6101, note: 'Set ea_wave2_shell query var on force-routed pages + wpcf7_load_css/js filters. Verified live: /method CF7 assets=0, /contact=5, wp-block-library=0. Awaiting team_50 re-QA.'}
 - id: WP-W2-06
   label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 126 tags + 54 301s)
   status: IN_PROGRESS
@@ -605,5 +608,9 @@ work_packages:
   parallel_with: WP-W2-02
   collaborators: [team_40]
   estimate_days: '5-7'
-  cross_engine_constraint: 'Same as W2-02 — fresh IR#1 chain.'
-  notes: 'Dispatched 2026-05-28 in parallel with W2-02. Migration only (no new content). Coordinate style.css Version bump + functions.php require_once with W2-02 session.'
+  cross_engine_constraint: 'IR#1 (team_00 strict 2026-05-28): builder=claude-sonnet-4-6 -> validator team_50 non-Claude; team_190=Codex.'
+  url_structure: 'Posts at root /%postname%/ (M2 standard); legacy /Blog/<slug>/ -> 301 -> /<slug>/; /blog/ = archive page.'
+  notes: 'Tag count corrected: 47 (not 126). 54 posts + 6 cats imported via REST (team_100, App Password). Media fully localized to new site with relative links (158/164; 6 dead-at-source non-blocking). 301 .htaccess deployed (backup taken). hello-world demoted to draft.'
+  gate_history:
+    - {gate: L-GATE_BUILD, action: build-complete, by: team_10, date: '2026-05-28', note: 'Code + WXR + 301 rules delivered.'}
+    - {gate: L-GATE_BUILD, action: manual-steps-done, by: team_100, date: '2026-05-28', note: 'REST import + media localization + corrected 301 deploy. GO-SIGNAL issued to team_50; awaiting QA.'}

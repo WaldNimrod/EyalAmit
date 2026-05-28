@@ -1,0 +1,87 @@
+Scanning 108 items (posts+pages)
+Unique remote media URLs: 57
+  [1/57] DL-FAIL http://blog.muzza.co.il/wp-content/uploads/2014/06/2.jpg (<urlopen error [Errno 8] nodename nor servname provided, or not known>)
+  [2/57] DL-FAIL http://blog.muzza.co.il/wp-content/uploads/2014/06/31.jpg (<urlopen error [Errno 8] nodename nor servname provided, or not known>)
+  [3/57] DL-FAIL http://www.namaste.co.il/oshotarot/images/addModule.jpg (HTTP Error 404: Not Found)
+  [4/57] DL-FAIL https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/9137f706-23f6-458 (HTTP Error 403: Forbidden)
+  [5/57] DL-FAIL https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/a16f5b3e-3e1a-4c0 (HTTP Error 403: Forbidden)
+  [6/57] OK 99779B -> /wp-content/uploads/2009/08/רוני-דלומי.jpg
+  [7/57] OK 85301B -> /wp-content/uploads/2009/09/סליחות-כותל.jpg
+  [8/57] OK 69977B -> /wp-content/uploads/2010/12/סיני-יוני-09-285.jpg
+  [9/57] OK 312078B -> /wp-content/uploads/2013/11/אייל-עמית-מופע-סיפורים-במועדון-האזור-תל-אביב.jpg
+  [10/57] OK 7102B -> /wp-content/uploads/2014/04/אייל-עמית-120-300x200.jpg
+  [11/57] OK 359571B -> /wp-content/uploads/2014/04/אייל-עמית-120.jpg
+  [12/57] OK 6522B -> /wp-content/uploads/2014/04/אייל-עמית-123-300x200.jpg
+  [13/57] OK 279656B -> /wp-content/uploads/2014/04/אייל-עמית-123.jpg
+  [14/57] OK 7177B -> /wp-content/uploads/2014/04/אייל-עמית-173-300x200.jpg
+  [15/57] OK 364019B -> /wp-content/uploads/2014/04/אייל-עמית-173.jpg
+  [16/57] OK 9277B -> /wp-content/uploads/2014/04/אייל-עמית-174-300x280.jpg
+  [17/57] OK 455670B -> /wp-content/uploads/2014/04/אייל-עמית-174.jpg
+  [18/57] OK 11188B -> /wp-content/uploads/2014/04/אייל-עמית-33-200x300.jpg
+  [19/57] OK 776127B -> /wp-content/uploads/2014/04/אייל-עמית-33.jpg
+  [20/57] OK 5871B -> /wp-content/uploads/2014/04/אייל-עמית-63-300x200.jpg
+  [21/57] OK 6098B -> /wp-content/uploads/2014/04/אייל-עמית-65-300x200.jpg
+  [22/57] OK 230384B -> /wp-content/uploads/2014/04/אייל-עמית-65.jpg
+  [23/57] OK 6273B -> /wp-content/uploads/2014/04/אייל-עמית-89-300x200.jpg
+  [24/57] OK 318612B -> /wp-content/uploads/2014/04/אייל-עמית-89.jpg
+  [25/57] OK 6409B -> /wp-content/uploads/2014/04/אייל-עמית-92-300x200.jpg
+  [26/57] OK 317823B -> /wp-content/uploads/2014/04/אייל-עמית-92.jpg
+  [27/57] OK 5783B -> /wp-content/uploads/2014/04/אייל-עמית-93-300x200.jpg
+  [28/57] OK 308923B -> /wp-content/uploads/2014/04/אייל-עמית-93.jpg
+  [29/57] OK 10152B -> /wp-content/uploads/2014/04/אייל-עמית11-212x300.jpg
+  [30/57] OK 614359B -> /wp-content/uploads/2014/04/אייל-עמית11.jpg
+  [31/57] OK 6257B -> /wp-content/uploads/2014/04/אייל-עמית3-300x200.jpg
+  [32/57] OK 307416B -> /wp-content/uploads/2014/04/אייל-עמית3.jpg
+  [33/57] OK 29756B -> /wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים-על-המופע-300x289.jpg
+  [34/57] OK 3451489B -> /wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים-על-המופע.jpg
+  [35/57] OK 22150B -> /wp-content/uploads/2014/06/כל-הפרדס-אייל-עמית-257x300.jpg
+  [36/57] OK 12638B -> /wp-content/uploads/2014/07/צוותא-אייל-עמית-300x296.jpg
+  [37/57] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית.jpg (HTTP Error 404: Not Found)
+  [38/57] OK 33760B -> /wp-content/uploads/2014/09/פרדס-חפלה-אייל-עמית.jpg
+  [39/57] OK 19004B -> /wp-content/uploads/2015/02/שי-אביבי-290x300.jpg
+  [40/57] OK 45653B -> /wp-content/uploads/2015/02/שי-אביבי.jpg
+  [41/57] OK 389380B -> /wp-content/uploads/2016/11/בוטאן.jpg
+  [42/57] OK 641245B -> /wp-content/uploads/2016/11/רותם-כהן-צבע-בכחול-וזרוק-לים-הודו-1.jpg
+  [43/57] OK 5666B -> /wp-content/uploads/2017/02/אייל-עמית3-300x200.jpg
+  [44/57] OK 305155B -> /wp-content/uploads/2017/02/אייל-עמית3.jpg
+  [45/57] OK 6868B -> /wp-content/uploads/2017/02/אייל-עמית5-300x200.jpg
+  [46/57] OK 335507B -> /wp-content/uploads/2017/02/אייל-עמית5.jpg
+  [47/57] OK 541172B -> /wp-content/uploads/2017/06/כושי-בלאנטיס-הגדלה.jpg
+  [48/57] OK 288578B -> /wp-content/uploads/2017/06/כושי-בלאנטיס-עטיפה-מלאה.jpg
+  [49/57] OK 152178B -> /wp-content/uploads/2017/07/מוקטן.jpg
+  [50/57] OK 58043B -> /wp-content/uploads/2023/09/כתבה-אייל-עמית-המרכז-לטיפול-בדיגרידו-סטודיו-נשימה-מעגלית-פרדס-חנה-331x450.jpg
+  [51/57] OK 50399B -> /wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-1-312x450.jpg
+  [52/57] OK 31324B -> /wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-2-256x450.jpg
+  [53/57] OK 25227B -> /wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-4-253x450.jpg
+  [54/57] OK 25013B -> /wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-5-253x450.jpg
+  [55/57] OK 136674B -> /wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-7-1024x792.jpg
+  [56/57] OK 66954B -> /wp-content/uploads/2024/08/דביר-576x1024.jpg
+  [57/57] OK 44564B -> /wp-content/uploads/2025/07/סופר-450x338.jpg
+  rewrote posts 236 (%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95)
+  rewrote posts 229 (%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0)
+  rewrote posts 228 (%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97)
+  rewrote posts 227 (%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99)
+  rewrote posts 226 (%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e)
+  rewrote posts 215 (%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90)
+  rewrote posts 211 (%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94)
+    .. REST retry 1/6 (<urlopen error [Errno 60] Operation timed out>); sleep 2s
+  rewrote posts 210 (2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9)
+  rewrote posts 209 (%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4)
+    .. REST retry 1/6 (<urlopen error [Errno 60] Operation timed out>); sleep 2s
+    .. REST retry 2/6 (<urlopen error [Errno 60] Operation timed out>); sleep 4s
+  rewrote posts 208 (%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95)
+  rewrote posts 207 (%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4)
+  rewrote posts 205 (%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99)
+  rewrote posts 202 (60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7)
+  rewrote posts 197 (43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa)
+  rewrote posts 194 (40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95)
+  rewrote posts 192 (34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91)
+
+SUMMARY: migrated=51 failed=6 content_updated=16
+FAILED URLS:
+  - http://blog.muzza.co.il/wp-content/uploads/2014/06/2.jpg  [download: <urlopen error [Errno 8] nodename nor servname provided, or not known>]
+  - http://blog.muzza.co.il/wp-content/uploads/2014/06/31.jpg  [download: <urlopen error [Errno 8] nodename nor servname provided, or not known>]
+  - http://www.namaste.co.il/oshotarot/images/addModule.jpg  [download: HTTP Error 404: Not Found]
+  - https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/9137f706-23f6-4587-a46e-3ab8cafaf495.png  [download: HTTP Error 403: Forbidden]
+  - https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/a16f5b3e-3e1a-4c08-a36c-2c1bc8105ec3.png  [download: HTTP Error 403: Forbidden]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית.jpg  [download: HTTP Error 404: Not Found]

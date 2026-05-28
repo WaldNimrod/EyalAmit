@@ -1,0 +1,261 @@
+Scanning 108 items (posts+pages)
+Unique remote media URLs: 164
+  [1/164] DL-FAIL http://blog.muzza.co.il/wp-content/uploads/2014/06/2.jpg (<urlopen error [Errno 8] nodename nor servname provided, or not known>)
+  [2/164] DL-FAIL http://blog.muzza.co.il/wp-content/uploads/2014/06/31.jpg (<urlopen error [Errno 8] nodename nor servname provided, or not known>)
+  [3/164] OK 337065B -> /wp-content/uploads/2026/04/kushi-gallery-01-1.jpg
+  [4/164] OK 50409B -> /wp-content/uploads/2026/04/kushi-gallery-02-1.jpg
+  [5/164] OK 352817B -> /wp-content/uploads/2026/04/kushi-gallery-03.png
+  [6/164] OK 266882B -> /wp-content/uploads/2026/04/kushi-gallery-04-1.jpg
+  [7/164] OK 180887B -> /wp-content/uploads/ea-legacy/farm3.static.flickr.com/0f5487b08e-3568100626_ece7eaf0c2_o.jpg
+  [8/164] OK 266475B -> /wp-content/uploads/ea-legacy/farm4.static.flickr.com/5df501af46-3568101912_7ec98a5e73_o.jpg
+  [9/164] OK 47838B -> /wp-content/uploads/ea-legacy/farm6.static.flickr.com/5698451841-5290649872_90dd7d560e.jpg
+  [10/164] OK 58355B -> /wp-content/uploads/ea-legacy/farm6.static.flickr.com/fee1c61fc0-5290651174_7d2347d4f2.jpg
+  [11/164] OK 86528B -> /wp-content/uploads/ea-legacy/farm6.static.flickr.com/ddb9112e68-5290047863_af9af11ba4.jpg
+  [12/164] OK 55291B -> /wp-content/uploads/ea-legacy/farm6.static.flickr.com/264c320783-5290699266_1317f4591a.jpg
+  [13/164] OK 110974B -> /wp-content/uploads/ea-legacy/farm6.static.flickr.com/813b27a657-5290047111_13cc55a381.jpg
+  [14/164] OK 499458B -> /wp-content/uploads/ea-legacy/www.flickr.com/fe29710e4d-5290047111
+  [15/164] OK 500723B -> /wp-content/uploads/ea-legacy/www.flickr.com/f05550c6db-5290047863
+  [16/164] OK 499471B -> /wp-content/uploads/ea-legacy/www.flickr.com/83e6f7f86f-5290649872
+  [17/164] OK 500615B -> /wp-content/uploads/ea-legacy/www.flickr.com/6f73568c88-5290651174
+  [18/164] OK 500625B -> /wp-content/uploads/ea-legacy/www.flickr.com/5c570d8013-5290699266
+  [19/164] OK 498169B -> /wp-content/uploads/ea-legacy/www.flickr.com/a4c531c835-3568100626
+  [20/164] OK 499386B -> /wp-content/uploads/ea-legacy/www.flickr.com/6c2c02c6a3-3568101912
+  [21/164] DL-FAIL http://www.namaste.co.il/oshotarot/images/addModule.jpg (HTTP Error 404: Not Found)
+  [22/164] DL-FAIL https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/9137f706-23f6-458 (HTTP Error 403: Forbidden)
+  [23/164] DL-FAIL https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/a16f5b3e-3e1a-4c0 (HTTP Error 403: Forbidden)
+  [24/164] OK 60452B -> /wp-content/uploads/ea-legacy/lh3.googleusercontent.com/a6294a12b9-_25D7_2599_25D7_2595_25D7_25A8_25D7_259D_2520_25D7_25A1_25D7_2599_25D7_2595_25D7_259F_2520_25D7_2595_25D7_2599_25D7_2590_25D7_2599_25D7_25A8_2520_25D7_2592_25D7_25A4_25D7_25A0_25D7_2599.jpg
+  [25/164] OK 36968B -> /wp-content/uploads/ea-legacy/lh4.googleusercontent.com/552bc17e8d-IMG_1366.jpg
+  [26/164] OK 52698B -> /wp-content/uploads/ea-legacy/lh5.googleusercontent.com/db3f17081d-DSC05940.jpg
+  [27/164] OK 70474B -> /wp-content/uploads/ea-legacy/lh5.googleusercontent.com/3d071e7fd0-DSC00869.jpg
+  [28/164] OK 41097B -> /wp-content/uploads/ea-legacy/lh5.googleusercontent.com/37826df9b5-DSC00864.jpg
+  [29/164] OK 54641B -> /wp-content/uploads/ea-legacy/lh6.googleusercontent.com/207900a3c7-DSC00872.jpg
+  [30/164] OK 51585B -> /wp-content/uploads/ea-legacy/lh6.googleusercontent.com/f6f1eb83d1-DSC00871.jpg
+  [31/164] OK 48186B -> /wp-content/uploads/ea-legacy/lh6.googleusercontent.com/45d0419b61-DSC00231.jpg
+  [32/164] OK 45919B -> /wp-content/uploads/ea-legacy/lh6.googleusercontent.com/e681621f8f-_25D7_2599_25D7_2595_25D7_2590_25D7_2591_2520_25D7_25A7_25D7_259C_25D7_2599_25D7_2599_25D7_259E_25D7_259F.jpg
+  [33/164] OK 529B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/99a7086400-1f33f.png
+  [34/164] OK 537B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/e5310d6515-1f9da_200d_2640.png
+  [35/164] OK 482B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/d7544973bc-1f642.png
+  [36/164] OK 586B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/8ff60d9855-1f605.png
+  [37/164] OK 520B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/673a90b24a-1f609.png
+  [38/164] OK 577B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/ef3ead4408-1f4aa.png
+  [39/164] OK 440B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/7c3d45ad82-2764.png
+  [40/164] OK 509B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/608f1f6c87-1f60a.png
+  [41/164] OK 445B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/65db6735f7-1f64f.png
+  [42/164] OK 400B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/c49fccf34d-1f49c.png
+  [43/164] OK 446B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/ac2133ed90-1fa75.png
+  [44/164] OK 395B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/6364557819-2b50.png
+  [45/164] OK 568B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/24ce565475-1f496.png
+  [46/164] OK 420B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/72789c9ca7-2728.png
+  [47/164] OK 701B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/8e73dd4b96-1f32c.png
+  [48/164] OK 442B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/2bc7ae5e43-1f64c.png
+  [49/164] OK 567B -> /wp-content/uploads/ea-legacy/static.xx.fbcdn.net/57c43a994f-1f44f.png
+  [50/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2009/08/רוני-דלומי.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [51/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2009/09/סליחות-כותל.jpg ('ascii' codec can't encode characters in position 32-37: ordinal not in range(128))
+  [52/164] OK 337065B -> /wp-content/uploads/2010/12/2020-.jpg
+  [53/164] OK 555423B -> /wp-content/uploads/2010/12/20201.jpg
+  [54/164] OK 50394B -> /wp-content/uploads/2010/12/202020-2020202.jpg
+  [55/164] OK 50409B -> /wp-content/uploads/2010/12/202020-2020203.jpg
+  [56/164] OK 69782B -> /wp-content/uploads/2010/12/202020-2020204.jpg
+  [57/164] OK 63511B -> /wp-content/uploads/2010/12/P1010474.jpg
+  [58/164] OK 352817B -> /wp-content/uploads/2010/12/Screen20Shot202013-03-1220at208.png
+  [59/164] OK 81721B -> /wp-content/uploads/2010/12/eyal-amit-seocollege.jpg
+  [60/164] OK 84045B -> /wp-content/uploads/2010/12/mukesh.jpg
+  [61/164] OK 57585B -> /wp-content/uploads/2010/12/niv.jpg
+  [62/164] OK 126312B -> /wp-content/uploads/2010/12/oren-agiyon-small.jpg
+  [63/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2010/12/סיני-יוני-09-285.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [64/164] OK 19603B -> /wp-content/uploads/2012/11/970453_264942990317884_875324089_n-300x224.jpg
+  [65/164] OK 59691B -> /wp-content/uploads/2012/11/970453_264942990317884_875324089_n.jpg
+  [66/164] OK 19860B -> /wp-content/uploads/2012/11/DSC03481-300x225.jpg
+  [67/164] OK 376933B -> /wp-content/uploads/2012/11/DSC03481.jpg
+  [68/164] OK 16965B -> /wp-content/uploads/2012/11/DSC03492-300x225.jpg
+  [69/164] OK 307648B -> /wp-content/uploads/2012/11/DSC03492.jpg
+  [70/164] OK 22826B -> /wp-content/uploads/2012/11/DSC03539-300x225.jpg
+  [71/164] OK 3532440B -> /wp-content/uploads/2012/11/DSC03539.jpg
+  [72/164] OK 179620B -> /wp-content/uploads/2013/10/AAA.jpg
+  [73/164] OK 47514B -> /wp-content/uploads/2013/10/headstart.jpg
+  [74/164] OK 125453B -> /wp-content/uploads/2013/11/1.jpg
+  [75/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2013/11/אייל-עמית-מופע-סיפורים-במו ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [76/164] OK 431424B -> /wp-content/uploads/2013/12/thanks.jpg
+  [77/164] OK 530141B -> /wp-content/uploads/2014/01/event10april14.jpg
+  [78/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-120-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [79/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-120.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [80/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-123-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [81/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-123.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [82/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-173-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [83/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-173.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [84/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-174-300x280.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [85/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-174.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [86/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-33-200x300.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [87/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-33.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [88/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-63-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [89/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-65-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [90/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-65.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [91/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-89-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [92/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-89.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [93/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-92-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [94/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-92.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [95/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-93-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [96/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-93.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [97/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית11-212x300.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [98/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית11.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [99/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית3-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [100/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית3.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [101/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [102/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [103/164] OK 1830641B -> /wp-content/uploads/2014/06/2.jpg
+  [104/164] OK 1851924B -> /wp-content/uploads/2014/06/31.jpg
+  [105/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/06/כל-הפרדס-אייל-עמית-257x300 ('ascii' codec can't encode characters in position 32-33: ordinal not in range(128))
+  [106/164] OK 31984B -> /wp-content/uploads/2014/07/tzavta.jpg
+  [107/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית-300x296.jp ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [108/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית.jpg ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [109/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2014/09/פרדס-חפלה-אייל-עמית.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [110/164] OK 717041B -> /wp-content/uploads/2014/10/Screen-Shot-2014-10-28-at-10.06.19-PM.png
+  [111/164] OK 841956B -> /wp-content/uploads/2014/10/Screen-Shot-2014-10-28-at-11.59.23-PM.png
+  [112/164] OK 11949B -> /wp-content/uploads/2014/12/DSC_0785-199x300.jpg
+  [113/164] OK 5423621B -> /wp-content/uploads/2014/12/DSC_0785.jpg
+  [114/164] OK 66704B -> /wp-content/uploads/2015/01/books-214x300.png
+  [115/164] OK 188340B -> /wp-content/uploads/2015/01/books.png
+  [116/164] OK 62502B -> /wp-content/uploads/2015/02/ALON.jpg
+  [117/164] OK 100249B -> /wp-content/uploads/2015/02/AVRAHAM.jpg
+  [118/164] OK 65132B -> /wp-content/uploads/2015/02/dorit1.jpg
+  [119/164] OK 47550B -> /wp-content/uploads/2015/02/eran.jpg
+  [120/164] OK 276433B -> /wp-content/uploads/2015/02/eyaleyal.jpg
+  [121/164] OK 47595B -> /wp-content/uploads/2015/02/michal1.jpg
+  [122/164] OK 69961B -> /wp-content/uploads/2015/02/ruti.jpg
+  [123/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2015/02/שי-אביבי-290x300.jpg ('ascii' codec can't encode characters in position 32-33: ordinal not in range(128))
+  [124/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2015/02/שי-אביבי.jpg ('ascii' codec can't encode characters in position 32-33: ordinal not in range(128))
+  [125/164] OK 22681B -> /wp-content/uploads/2015/07/GIVATAIM-300x227.jpg
+  [126/164] OK 1211795B -> /wp-content/uploads/2015/07/GIVATAIM.jpg
+  [127/164] OK 173624B -> /wp-content/uploads/2015/07/eyal-amit1-566x1024.jpg
+  [128/164] OK 3246402B -> /wp-content/uploads/2015/07/eyal-amit1.jpg
+  [129/164] OK 20450B -> /wp-content/uploads/2015/07/katava1-225x300.jpg
+  [130/164] OK 11502B -> /wp-content/uploads/2015/07/katava2-125x300.jpg
+  [131/164] OK 322346B -> /wp-content/uploads/2015/07/yediot.jpg
+  [132/164] OK 334969B -> /wp-content/uploads/2015/10/arm2.jpg
+  [133/164] OK 19016B -> /wp-content/uploads/2016/08/11406568_10156001449435206_6177482397757732265_o-300x225.jpg
+  [134/164] OK 302425B -> /wp-content/uploads/2016/08/11406568_10156001449435206_6177482397757732265_o.jpg
+  [135/164] OK 21527B -> /wp-content/uploads/2016/08/eyal.amit_-300x300.jpg
+  [136/164] OK 856938B -> /wp-content/uploads/2016/08/eyal.amit_.jpg
+  [137/164] OK 357238B -> /wp-content/uploads/2016/11/adi.jpg
+  [138/164] OK 76181B -> /wp-content/uploads/2016/11/idan.jpg
+  [139/164] OK 376150B -> /wp-content/uploads/2016/11/keren-a.jpg
+  [140/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2016/11/בוטאן.jpg ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [141/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2016/11/רותם-כהן-צבע-בכחול-וזרוק-ל ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [142/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית3-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [143/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית3.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [144/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית5-300x200.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [145/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית5.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [146/164] OK 570463B -> /wp-content/uploads/2017/05/book.jpg
+  [147/164] OK 43063B -> /wp-content/uploads/2017/05/uni.jpg
+  [148/164] OK 38164B -> /wp-content/uploads/2017/06/hashaka.jpg
+  [149/164] OK 128198B -> /wp-content/uploads/2017/06/mifgashim.jpg
+  [150/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/06/כושי-בלאנטיס-הגדלה.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [151/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/06/כושי-בלאנטיס-עטיפה-מלאה.jp ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [152/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2017/07/מוקטן.jpg ('ascii' codec can't encode characters in position 32-36: ordinal not in range(128))
+  [153/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2023/09/כתבה-אייל-עמית-המרכז-לטיפו ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [154/164] OK 39400B -> /wp-content/uploads/2024/08/371822714_781671903965228_7156812037328721336_n-412x450.jpg
+  [155/164] OK 42046B -> /wp-content/uploads/2024/08/377997335_789649919834093_2093968922390110774_n-450x343.jpg
+  [156/164] OK 32975B -> /wp-content/uploads/2024/08/449633618_10171106140875206_1091675749536197018_n-700x1243-1-253x450.jpg
+  [157/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-1 ('ascii' codec can't encode characters in position 46-49: ordinal not in range(128))
+  [158/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-2 ('ascii' codec can't encode characters in position 46-49: ordinal not in range(128))
+  [159/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-4 ('ascii' codec can't encode characters in position 46-49: ordinal not in range(128))
+  [160/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-5 ('ascii' codec can't encode characters in position 46-49: ordinal not in range(128))
+  [161/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-7 ('ascii' codec can't encode characters in position 46-49: ordinal not in range(128))
+  [162/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2024/08/דביר-576x1024.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  [163/164] OK 23256B -> /wp-content/uploads/2025/02/275378307_10168180167535206_4402963065122076034_n-219x450.jpg
+  [164/164] DL-FAIL https://www.eyalamit.co.il/wp-content/uploads/2025/07/סופר-450x338.jpg ('ascii' codec can't encode characters in position 32-35: ordinal not in range(128))
+  rewrote posts 239 (%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2)
+  rewrote posts 238 (%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98)
+  rewrote posts 237 (%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa)
+  rewrote posts 235 (%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c)
+  rewrote posts 232 (%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92)
+  rewrote posts 230 (%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99)
+  rewrote posts 229 (%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0)
+    .. REST retry 1/6 (<urlopen error [Errno 60] Operation timed out>); sleep 2s
+  rewrote posts 228 (%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97)
+  rewrote posts 224 (%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa)
+  rewrote posts 223 (%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e)
+  rewrote posts 222 (%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8)
+  rewrote posts 220 (%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15)
+  rewrote posts 219 (%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2)
+  rewrote posts 218 (%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90)
+    .. REST retry 1/6 (<urlopen error [Errno 60] Operation timed out>); sleep 2s
+  rewrote posts 217 (%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95)
+  rewrote posts 216 (2228-2)
+  rewrote posts 215 (%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90)
+    .. REST retry 1/6 ([Errno 60] Operation timed out); sleep 2s
+  rewrote posts 214 (%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4)
+  rewrote posts 213 (%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99)
+  rewrote posts 212 (%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa)
+  rewrote posts 211 (%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94)
+  rewrote posts 209 (%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4)
+  rewrote posts 206 (%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99)
+  rewrote posts 221 (100-100-100-%d7%aa%d7%95%d7%93%d7%94)
+    .. REST retry 1/6 (<urlopen error [Errno 60] Operation timed out>); sleep 2s
+    .. REST retry 2/6 (<urlopen error [Errno 60] Operation timed out>); sleep 4s
+  rewrote posts 205 (%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99)
+  rewrote posts 204 (%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c)
+  rewrote posts 203 (%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0)
+  rewrote posts 202 (60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7)
+  rewrote posts 189 (27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3)
+  rewrote pages 125 (kushi-blantis)
+
+SUMMARY: migrated=107 failed=57 content_updated=30
+FAILED URLS:
+  - http://blog.muzza.co.il/wp-content/uploads/2014/06/2.jpg  [download: <urlopen error [Errno 8] nodename nor servname provided, or not known>]
+  - http://blog.muzza.co.il/wp-content/uploads/2014/06/31.jpg  [download: <urlopen error [Errno 8] nodename nor servname provided, or not known>]
+  - http://www.namaste.co.il/oshotarot/images/addModule.jpg  [download: HTTP Error 404: Not Found]
+  - https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/9137f706-23f6-4587-a46e-3ab8cafaf495.png  [download: HTTP Error 403: Forbidden]
+  - https://gallery.mailchimp.com/3bc8f4e8b7e07cc163bc98417/images/a16f5b3e-3e1a-4c08-a36c-2c1bc8105ec3.png  [download: HTTP Error 403: Forbidden]
+  - https://www.eyalamit.co.il/wp-content/uploads/2009/08/רוני-דלומי.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2009/09/סליחות-כותל.jpg  [download: 'ascii' codec can't encode characters in position 32-37: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2010/12/סיני-יוני-09-285.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2013/11/אייל-עמית-מופע-סיפורים-במועדון-האזור-תל-אביב.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-120-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-120.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-123-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-123.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-173-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-173.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-174-300x280.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-174.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-33-200x300.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-33.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-63-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-65-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-65.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-89-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-89.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-92-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-92.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-93-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית-93.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית11-212x300.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית11.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית3-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/אייל-עמית3.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים-על-המופע-300x289.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים-על-המופע.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/06/כל-הפרדס-אייל-עמית-257x300.jpg  [download: 'ascii' codec can't encode characters in position 32-33: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית-300x296.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2014/09/פרדס-חפלה-אייל-עמית.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2015/02/שי-אביבי-290x300.jpg  [download: 'ascii' codec can't encode characters in position 32-33: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2015/02/שי-אביבי.jpg  [download: 'ascii' codec can't encode characters in position 32-33: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2016/11/בוטאן.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2016/11/רותם-כהן-צבע-בכחול-וזרוק-לים-הודו-1.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית3-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית3.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית5-300x200.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/02/אייל-עמית5.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/06/כושי-בלאנטיס-הגדלה.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/06/כושי-בלאנטיס-עטיפה-מלאה.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2017/07/מוקטן.jpg  [download: 'ascii' codec can't encode characters in position 32-36: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2023/09/כתבה-אייל-עמית-המרכז-לטיפול-בדיגרידו-סטודיו-נשימה-מעגלית-פרדס-חנה-331x450.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-1-312x450.jpg  [download: 'ascii' codec can't encode characters in position 46-49: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-2-256x450.jpg  [download: 'ascii' codec can't encode characters in position 46-49: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-4-253x450.jpg  [download: 'ascii' codec can't encode characters in position 46-49: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-5-253x450.jpg  [download: 'ascii' codec can't encode characters in position 46-49: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-7-1024x792.jpg  [download: 'ascii' codec can't encode characters in position 46-49: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2024/08/דביר-576x1024.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
+  - https://www.eyalamit.co.il/wp-content/uploads/2025/07/סופר-450x338.jpg  [download: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)]
