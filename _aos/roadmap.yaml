@@ -599,11 +599,14 @@ work_packages:
     - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5.5)', date: '2026-05-28', round: v2.0.0, note: 'R2: all 8 checks PASS + LOD400 precision gate PASS. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-02-L-GATE-VALIDATE-2026-05-28.md. P3 carry-forwards non-blocking.'}
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge to main DEFERRED until W2-06 co-closes (shared branch).'}
 - id: WP-W2-06
-  label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 126 tags + 54 301s)
-  status: IN_PROGRESS
+  label: Wave2 WP-06 — Blog Migration (54 posts + 6 categories + 47 tags + 135-rule 301 set)
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_VALIDATE
-  lod_status: LOD400
+  current_lean_gate: CLOSED
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-28'
+  merge_to_main: 'READY — co-merge with WP-W2-02 (shared branch feature/w2-06-blog); pending team_00 go'
+  propagation: 'SKIP — core/governance/ not modified (verified)'
   assigned_builder: team_10
   assigned_validator: team_50
   created_at: '2026-05-28'
@@ -626,6 +629,8 @@ work_packages:
     - {gate: L-GATE_BUILD, verdict: FAIL, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'AC-04 P1 — /blog/ archive not routed (posts page page_for_posts=18, is_home; page template ignored).'}
     - {gate: L-GATE_BUILD, action: remediation-done, by: 'team_10 sub-agent + team_100', date: '2026-05-28', commit: 78edf9d, note: 'Added ea_w2_06_template_include routing is_home->tpl-blog-archive + is_singular(post)->tpl-blog-single + ea_wave2_shell. Deployed after FTP recovery.'}
     - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer)', date: '2026-05-28', note: 'Re-QA: 8/8 ACs PASS (AC-04 resolved). Findings P3 only: F-W2-06-03 [vc_row] in archive excerpts; F-W2-06-05 2 orphaned 404 upload refs in REST content (not rendered). No P0/P1. -> route team_190 L-GATE_VALIDATE.'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5)', date: '2026-05-28', note: 'All 8 checks + LOD400 precision PASS. Independent cache-busted: 12/12 root posts 200 + Wave2 single; /blog/ Wave2 archive (grid+filter+pagination); 6/6 /Blog/->301->root; images from new-site uploads. P3 (IDEA-006/007) + 6 dead-source media carried forward. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-06-L-GATE-VALIDATE-2026-05-28.md.'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP. Merge to main READY (co-merge with W2-02, shared branch) pending team_00 go.'}
 - id: WP-W2-03
   label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
   status: PLANNED
