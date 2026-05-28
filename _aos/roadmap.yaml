@@ -747,12 +747,12 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 (mockups) + team_10 (refinement)
   assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE)
   created_at: '2026-05-28'
   milestone_ref: S003
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10/LOD400_spec.md
   phase_plan: _COMMUNICATION/team_100/UI-PRECISION-PHASE-PLAN-2026-05-28.md
   profile: L0
   activation_rule: 'team_35 on-demand by team_00 ONLY, AFTER content-migration content-complete on staging (governance team_35 §invocation)'
@@ -764,13 +764,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-A/LOD400_spec.md
   profile: L0
   priority: HIGH
   blocked_by: [WP-W2-02, WP-W2-04]
@@ -781,13 +781,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-B/LOD400_spec.md
   profile: L0
   priority: HIGH
   blocked_by: [WP-W2-02, WP-W2-07]
@@ -798,13 +798,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-C/LOD400_spec.md
   profile: L0
   priority: MED
   blocked_by: [WP-W2-02]
@@ -815,13 +815,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-D/LOD400_spec.md
   profile: L0
   priority: MED
   blocked_by: [WP-W2-06]
@@ -832,13 +832,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-E/LOD400_spec.md
   profile: L0
   priority: HIGH
   blocked_by: [WP-W2-03, WP-W2-05]
@@ -850,13 +850,13 @@ work_packages:
   status: PLANNED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-F/LOD400_spec.md
   profile: L0
   priority: HIGH
   blocked_by: [WP-W2-08]
@@ -867,13 +867,13 @@ work_packages:
   status: BLOCKED
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
-  lod_status: LOD200
+  lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
   milestone_ref: S003
   parent_wp: WP-W2-10
-  spec_ref: _COMMUNICATION/team_100/UI-PRECISION-WORK-PACKAGES-LOD200-2026-05-28.md
+  spec_ref: _aos/work_packages/S003/WP-W2-10-G/LOD400_spec.md
   profile: L0
   priority: HIGH
   blocked_by: ['Eyal hero video asset (external)']
