@@ -632,9 +632,11 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-03
+  spec_ref: _aos/work_packages/S002/WP-W2-03/LOD400_spec.md
   profile: L0
   estimate_days: '4-6'
+  assigned_builder: team_10
+  assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_80, team_50]
   notes: 'Catalog /books + 3 book detail pages via shared tpl-book-detail. Green Invoice external buy links (per-book, from Eyal). Content sources: MUZZA.md, vekatavta.md, kushi_full.md, eyal_tsva_FINAL.md (25.5.26). Dependency W2-02 now COMPLETE -> eligible.'
@@ -647,9 +649,11 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-04
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
   profile: L0
   estimate_days: '3-4'
+  assigned_builder: team_10
+  assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_50]
   notes: '2 service pages on tpl-service. FAQ filtered view-only per category + testimonials block. Sources: sound_healing_final.md, lesons.md. Soft-dep on W2-07 for final testimonial template (non-blocking).'
@@ -662,9 +666,11 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-05
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
   profile: L0
   estimate_days: '4-5'
+  assigned_builder: team_10
+  assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_50]
   notes: '5 product/service pages (/didgeridoos /bags /stands-storage /stand-floor /repair) + unified /shop on shared tpl-shop-item. Prices entered by Eyal via WP admin (C3). Green Invoice external. No WooCommerce.'
@@ -677,9 +683,11 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-07
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
   profile: L0
   estimate_days: '3-4'
+  assigned_builder: team_10
+  assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_50]
   notes: '/press, /about/moksha (note: /about/moksha already created in W2-02 as ID 181 — W2-07 fills final content), 49 QR pages (/qr/qrN/ 1:1 migration), FB Top-5 testimonials (text + image-fetch). Publication consent for 30+ collected by nimrod.'
@@ -692,9 +700,11 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-08
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
   profile: L0
   estimate_days: '2-3'
+  assigned_builder: team_10
+  assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_50]
   notes: 'Single EN landing page (uses tpl-en-landing.php, already present in is_active_view list). 6 sections, hreflang EN<->HE reciprocal. Content = English summary (not literal translation).'
@@ -708,9 +718,11 @@ work_packages:
   depends_on: [WP-W2-01, WP-W2-02, WP-W2-03, WP-W2-04, WP-W2-05, WP-W2-06, WP-W2-07, WP-W2-08]
   blocked: true
   block_reason: 'Depends on all Wave2 content WPs + external (Eyal returns 301 JSON). Final pre-cutover WP.'
-  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-09
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md
   profile: L0
   estimate_days: '3-4'
+  assigned_builder: team_20
+  assigned_validator: team_50
   owner: team_20
   collaborators: [team_40, team_50, team_90]
   notes: 'Media-in-use filtering, full 301 map application (.htaccess/Redirection), cutover checklist. Blocked until W2-01..08 complete. NOTE: media localization + a /Blog 301 base already done in W2-06 — W2-09 consolidates the full 135-rule map.'
