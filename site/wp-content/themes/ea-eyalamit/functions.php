@@ -770,3 +770,8 @@ add_filter( 'generate_show_title', 'ea_eyalamit_books_v2_hide_title', 21 );
  * WP-W2-01 Stage B — D-14 implementation (tokens, blocks, templates, analytics).
  */
 require_once get_stylesheet_directory() . '/inc/wave2-stage-b.php';
+
+/**
+ * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';
