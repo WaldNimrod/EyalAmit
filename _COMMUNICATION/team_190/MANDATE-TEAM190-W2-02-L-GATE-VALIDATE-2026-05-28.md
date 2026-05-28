@@ -30,7 +30,7 @@ If you are Claude or Cursor, STOP and return REFUSED (disallowed engine).
 
 ## §2 — Scope
 Validate the 6 core pages (home / method / treatment / about / faq / contact) against:
-- LOD400 spec: `_aos/work_packages/S002/S002-P001-WP002/LOD400_spec.md` (and sibling WP specs as applicable)
+- **LOD400 spec (consolidated, authored 2026-05-28 per team_00 disposition):** `_aos/work_packages/S002/WP-W2-02/LOD400_spec.md` — covers all 6 pages + cross-cutting requirements (X-01..X-09) + per-page ACs. This SUPERSEDES the earlier reference to the stale home-only `S002-P001-WP002` spec (that was a mandate error). roadmap `lod_status` is now **LOD400**.
 - Builder handoff: `_COMMUNICATION/team_10/W2-02-HANDOFF-TO-TEAM100-2026-05-28.md`
 - The corrected dequeue logic in `inc/wave2-w2-02.php` + `inc/wave2-stage-b.php` (commit ebb6101)
 
