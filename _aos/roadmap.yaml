@@ -623,3 +623,94 @@ work_packages:
   gate_history:
     - {gate: L-GATE_BUILD, action: build-complete, by: team_10, date: '2026-05-28', note: 'Code + WXR + 301 rules delivered.'}
     - {gate: L-GATE_BUILD, action: manual-steps-done, by: team_100, date: '2026-05-28', note: 'REST import + media localization + corrected 301 deploy. GO-SIGNAL issued to team_50; awaiting QA.'}
+- id: WP-W2-03
+  label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-03
+  profile: L0
+  estimate_days: '4-6'
+  owner: team_10
+  collaborators: [team_30, team_40, team_80, team_50]
+  notes: 'Catalog /books + 3 book detail pages via shared tpl-book-detail. Green Invoice external buy links (per-book, from Eyal). Content sources: MUZZA.md, vekatavta.md, kushi_full.md, eyal_tsva_FINAL.md (25.5.26). Dependency W2-02 now COMPLETE -> eligible.'
+- id: WP-W2-04
+  label: Wave2 WP-04 — Sound Healing + Lessons (/sound-healing + /lessons)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-04
+  profile: L0
+  estimate_days: '3-4'
+  owner: team_10
+  collaborators: [team_30, team_50]
+  notes: '2 service pages on tpl-service. FAQ filtered view-only per category + testimonials block. Sources: sound_healing_final.md, lesons.md. Soft-dep on W2-07 for final testimonial template (non-blocking).'
+- id: WP-W2-05
+  label: Wave2 WP-05 — Shop (4 products + repair + unified /shop)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-05
+  profile: L0
+  estimate_days: '4-5'
+  owner: team_10
+  collaborators: [team_30, team_40, team_50]
+  notes: '5 product/service pages (/didgeridoos /bags /stands-storage /stand-floor /repair) + unified /shop on shared tpl-shop-item. Prices entered by Eyal via WP admin (C3). Green Invoice external. No WooCommerce.'
+- id: WP-W2-07
+  label: Wave2 WP-07 — Press + Moksha page + 49 QR pages + FB testimonials (live)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-07
+  profile: L0
+  estimate_days: '3-4'
+  owner: team_10
+  collaborators: [team_30, team_40, team_50]
+  notes: '/press, /about/moksha (note: /about/moksha already created in W2-02 as ID 181 — W2-07 fills final content), 49 QR pages (/qr/qrN/ 1:1 migration), FB Top-5 testimonials (text + image-fetch). Publication consent for 30+ collected by nimrod.'
+- id: WP-W2-08
+  label: Wave2 WP-08 — English landing page (/en)
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-02]
+  blocked: false
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-08
+  profile: L0
+  estimate_days: '2-3'
+  owner: team_10
+  collaborators: [team_30, team_50]
+  notes: 'Single EN landing page (uses tpl-en-landing.php, already present in is_active_view list). 6 sections, hreflang EN<->HE reciprocal. Content = English summary (not literal translation).'
+- id: WP-W2-09
+  label: Wave2 WP-09 — Media filter + 301 application + cutover preparation
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_ELIGIBILITY
+  lod_status: LOD200
+  milestone_ref: S002
+  depends_on: [WP-W2-01, WP-W2-02, WP-W2-03, WP-W2-04, WP-W2-05, WP-W2-06, WP-W2-07, WP-W2-08]
+  blocked: true
+  block_reason: 'Depends on all Wave2 content WPs + external (Eyal returns 301 JSON). Final pre-cutover WP.'
+  spec_ref: _COMMUNICATION/team_100/WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md#wp-w2-09
+  profile: L0
+  estimate_days: '3-4'
+  owner: team_20
+  collaborators: [team_40, team_50, team_90]
+  notes: 'Media-in-use filtering, full 301 map application (.htaccess/Redirection), cutover checklist. Blocked until W2-01..08 complete. NOTE: media localization + a /Blog 301 base already done in W2-06 — W2-09 consolidates the full 135-rule map.'
