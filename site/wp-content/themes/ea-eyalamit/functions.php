@@ -795,3 +795,8 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-05.php';
  * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';
+
+/**
+ * WP-W2-07 Heritage — /press, 48 QR pages, FB Top-5 testimonials routing + render.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-07.php';

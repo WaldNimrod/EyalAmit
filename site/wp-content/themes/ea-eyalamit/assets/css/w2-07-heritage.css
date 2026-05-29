@@ -1,0 +1,107 @@
+/*
+ * WP-W2-07 Heritage — /press list + QR article + FB testimonials.
+ * D-14 tokens only (no raw hex). Loaded on W2-07 views by wave2-w2-07.php.
+ */
+
+/* ── QR article ───────────────────────────────────────────────── */
+.ea-wave2-qr .ea-qr-article {
+	padding: var(--ea-section-padding) 0;
+}
+.ea-qr-article__inner {
+	max-width: var(--ea-prose-width);
+	margin-inline: auto;
+	padding-inline: var(--ea-gutter);
+}
+.ea-qr-article__title {
+	font: var(--ea-type-h1);
+	color: var(--ea-ink);
+	margin-bottom: var(--ea-space-6);
+}
+.ea-qr-article__body {
+	color: var(--ea-text-body);
+	font: var(--ea-type-body);
+}
+.ea-qr-article__body p {
+	margin-bottom: var(--ea-space-4);
+}
+.ea-qr-img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--ea-radius-img);
+	margin: var(--ea-space-5) auto;
+}
+.ea-qr-embed--video {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	margin: var(--ea-space-6) 0;
+	border-radius: var(--ea-radius-img);
+	overflow: hidden;
+}
+.ea-qr-embed--video iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.ea-qr-embed--link {
+	margin: var(--ea-space-5) 0;
+}
+.ea-qr-article__foot {
+	margin-top: var(--ea-space-10);
+	padding-top: var(--ea-space-5);
+	border-top: 1px solid var(--ea-line);
+}
+
+/* ── /press list ──────────────────────────────────────────────── */
+.ea-press__intro {
+	color: var(--ea-text-muted);
+	font: var(--ea-type-body);
+	margin-bottom: var(--ea-space-8);
+}
+.ea-press__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.ea-press__item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--ea-space-3);
+	padding: var(--ea-space-4) 0;
+	border-bottom: 1px solid var(--ea-line);
+}
+.ea-press__date {
+	flex: 0 0 auto;
+	min-width: 3.5em;
+	color: var(--ea-accent-strong);
+	font: var(--ea-type-caption);
+	font-variant-numeric: tabular-nums;
+}
+.ea-press__link {
+	flex: 1 1 60%;
+	color: var(--ea-ink);
+	font: var(--ea-type-body-lg);
+	text-decoration: none;
+}
+.ea-press__link:hover,
+.ea-press__link:focus {
+	color: var(--ea-accent-strong);
+	text-decoration: underline;
+}
+.ea-press__source {
+	flex: 0 0 auto;
+	color: var(--ea-text-muted);
+	font: var(--ea-type-caption);
+}
+
+/* ── FB testimonials avatar (rehosted image when present) ───────── */
+.ea-fb-testimonials .ea-testimonial-card__avatar {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
