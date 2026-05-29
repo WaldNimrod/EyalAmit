@@ -782,6 +782,11 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-02.php';
 require_once get_stylesheet_directory() . '/inc/wave2-w2-03.php';
 
 /**
+ * WP-W2-04 — Sound Healing + Lessons service pages routing + content injection.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-04.php';
+
+/**
  * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';

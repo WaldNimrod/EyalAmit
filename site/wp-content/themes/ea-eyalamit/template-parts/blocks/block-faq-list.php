@@ -3,9 +3,19 @@
  * Block: faq-list — WP-W2-02 full FAQ accordion with category filter.
  * Content source: docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/דף FAQ/FAQ FINAL.md
  *
+ * Optional arg (WP-W2-04, passed via get_template_part $args):
+ *   $args['ea_faq_only_category'] — when set to a category slug, the block
+ *   renders VIEW-ONLY: only that category's questions, no filter chips/select,
+ *   no category heading. Default /faq behavior (full filterable list) is
+ *   unchanged when the arg is absent. The single FAQ dataset is NOT duplicated.
+ *
  * @package ea_eyalamit
  */
 defined( 'ABSPATH' ) || exit;
+
+$ea_faq_only_category = ( isset( $args['ea_faq_only_category'] ) && '' !== $args['ea_faq_only_category'] )
+	? (string) $args['ea_faq_only_category']
+	: '';
 
 $faq_categories = array(
 	'treatment'    => "טיפול בדיג'רידו",
@@ -278,6 +288,26 @@ $faq_data = array(
 	),
 );
 ?>
+<?php if ( '' !== $ea_faq_only_category ) :
+	// WP-W2-04 — view-only single-category render (no chips/select/JS, no heading).
+	$ea_only_items = array_filter(
+		$faq_data,
+		static function ( $item ) use ( $ea_faq_only_category ) {
+			return $item['category'] === $ea_faq_only_category;
+		}
+	);
+	?>
+	<div class="ea-faq-list ea-faq-list--view-only" data-block="faq-list" data-faq-category="<?php echo esc_attr( $ea_faq_only_category ); ?>">
+		<div class="ea-faq-category" data-category="<?php echo esc_attr( $ea_faq_only_category ); ?>">
+			<?php foreach ( $ea_only_items as $item ) : ?>
+				<details class="ea-faq-item ea-entrance" data-category="<?php echo esc_attr( $item['category'] ); ?>">
+					<summary class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></summary>
+					<div class="ea-faq-item__answer"><?php echo wp_kses_post( $item['a'] ); ?></div>
+				</details>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<?php return; endif; ?>
 <section class="ea-faq-list" data-block="faq-list" aria-label="<?php esc_attr_e( 'שאלות נפוצות', 'ea-eyalamit' ); ?>">
 	<div class="ea-faq-list__inner">
 

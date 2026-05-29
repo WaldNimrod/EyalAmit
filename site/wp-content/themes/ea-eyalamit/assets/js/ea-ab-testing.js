@@ -41,6 +41,37 @@
     }
   }
 
+  // WP-W2-04 — in-page A/B CTA block(s) on service pages.
+  // Reuses the SAME canonical variant (stored). Maps:
+  //   form_only → A (form only), dual → B (form + WhatsApp), wa_only → C (WhatsApp only).
+  (function () {
+    var LABELS = { form_only: 'A', dual: 'B', wa_only: 'C' };
+    var variantLabel = LABELS[stored] || 'A';
+    document.querySelectorAll('[data-ea-ab]').forEach(function (cta) {
+      cta.setAttribute('data-variant', stored);
+      cta.setAttribute('data-variant-label', variantLabel);
+      var page = cta.getAttribute('data-ea-page') || '';
+      var formBtn = cta.querySelector('[data-ea-ab-form]');
+      var waBtn = cta.querySelector('[data-ea-ab-wa]');
+      if (formBtn && stored === 'wa_only') {
+        formBtn.style.display = 'none';
+      }
+      if (waBtn && stored === 'form_only') {
+        waBtn.style.display = 'none';
+      }
+      if (formBtn) {
+        formBtn.addEventListener('click', function () {
+          track('cta_click', { variant_label: variantLabel, page: page, cta_type: 'form' });
+        });
+      }
+      if (waBtn) {
+        waBtn.addEventListener('click', function () {
+          track('cta_click', { variant_label: variantLabel, page: page, cta_type: 'whatsapp' });
+        });
+      }
+    });
+  })();
+
   document.querySelectorAll('.ea-footer__social-link').forEach(function (link) {
     link.addEventListener('click', function () {
       var platform = 'social';
