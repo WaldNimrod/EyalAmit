@@ -1328,7 +1328,7 @@
     /* Secondary CTA pill (olive) */
     .ea-cta-pill--secondary {
       background: var(--ea-olive);
-      color: #fff;
+      color: var(--ea-on-dark);
     }
 
     /* Generic prose section wrapper */
@@ -1436,14 +1436,14 @@
       text-decoration: none;
       margin-bottom: var(--ea-space-2);
     }
-    .ea-book-hero__back:hover { color: #fff; }
+    .ea-book-hero__back:hover { color: var(--ea-on-dark); }
     .ea-book-hero__title {
       font-family: var(--ea-font);
       font-weight: 200;
       font-size: 3rem;
       line-height: 1.12;
       letter-spacing: -0.5px;
-      color: #fff;
+      color: var(--ea-on-dark);
       margin: 0 0 var(--ea-space-3) 0;
     }
     .ea-book-hero__subtitle {
