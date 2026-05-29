@@ -755,15 +755,19 @@ work_packages:
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: COMPLETE/LOD500_LOCKED via ADR034 offline-fallback (API now 200 but DB source stale/missing Wave2 -> file remains SSoT; flagged to hub). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP. Merge feature/w2-07-heritage -> main PENDING team_00 go.'}
 - id: WP-W2-08
   label: Wave2 WP-08 — English landing page (/en)
-  status: PLANNED
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: CLOSED
   spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
-  lod_status: LOD400
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-30'
+  feature_branch: feature/w2-08-en
+  merge_to_main: 'PENDING team_00 go — dedicated branch feature/w2-08-en (isolated worktree); validated build tip 5ac435b.'
+  propagation: 'SKIP — core/governance/ not modified (branch touches site/ theme + _COMMUNICATION + _aos/roadmap.yaml only).'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch feature/w2-08-en, never main). API at 100.125.98.56:8090 reachable (200) but l0_roadmap_source=database holds only 6 stale early WPs and ZERO WP-W2-* (re-probed 2026-05-30 at closure; WP-W2-08 NOT in DB) — file roadmap.yaml remains live SSoT; roadmap->DB load still pending (PRECONDITION#1 disposition-A follow-up flagged to hub). No PENDING_DB_SYNC.yaml. Same mechanism as W2-02..07.'
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  block_reason: 'UNBLOCKED 2026-05-29 (team_100): hard input team_30 W2-08-EN-CONTENT present + verified — _COMMUNICATION/team_30/W2-08-EN-CONTENT-2026-05-28.md (6 approved EN sections, FINAL). Ready for team_10 build.'
   spec_ref: _aos/work_packages/S002/WP-W2-08/LOD400_spec.md
   profile: L0
   estimate_days: '2-3'
@@ -771,7 +775,15 @@ work_packages:
   assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_50]
-  notes: 'Single EN landing page (uses tpl-en-landing.php, already present in is_active_view list). 6 sections, hreflang EN<->HE reciprocal. Content = English summary (not literal translation).'
+  cross_engine_constraint: 'IR#1: builder=Claude/team_10 -> L-GATE_BUILD team_50 cursor-composer (non-Claude) -> L-GATE_VALIDATE team_190 native Codex/GPT-5. Chain honored.'
+  notes: 'Single EN landing /en (extended existing tpl-en-landing.php + page) — 6 sections (hero·about·method·services·books·testimonials) VERBATIM from team_30 W2-08-EN-CONTENT (AC-02, no builder copy; 8 named testimonials); the_content injection via inc/wave2-w2-08.php (mirror W2-04). hreflang B03 reciprocal both directions (/en: en+he(->/)+x-default; HE homepage page_on_front=16: en->/en/) extended in functions.php. CTA -> /contact?lang=en (3). lang=en dir=ltr, D-14, style.css 1.4.6. Content = EN summary, not literal translation.'
+  gate_history:
+    - {gate: L-GATE_SPEC, verdict: PASS, by: 'team_190 (Codex)', date: '2026-05-28', round: v2, commit: 1306e51, note: 'Spec PASS.'}
+    - {gate: INPUTS, action: hard-input-produced, by: 'team_100 (orchestration) + team_30', date: '2026-05-29', note: 'W2-08-EN-CONTENT (6 approved EN sections, FINAL) produced + verified. W2-08 unblocked (commit d2c3231).'}
+    - {gate: L-GATE_BUILD, action: build-complete, by: 'team_10 (Claude sub-agent)', date: '2026-05-29', commit: 5ac435b, note: '/en built (the_content injection + hreflang extend + CTA). /en 200, 6 sections verbatim, hreflang reciprocal both directions, CTA /contact?lang=en (team_100 verified). validate 30 PASS/0 FAIL. Report: _COMMUNICATION/team_100/W2-08-BUILD-REPORT-2026-05-29.md.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer, non-Claude)', date: '2026-05-29', note: '5/5 AC PASS, no P0/P1. F-W2-08-01 (P3): residual ea-blog-archive-view body class on page-id-25 from another WP filter — cosmetic only. Verdict: _COMMUNICATION/team_50/VERDICT-W2-08-L-GATE-BUILD-2026-05-29.md'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (native Codex/GPT-5)', date: '2026-05-29', commit: 5ac435b, note: 'Cross-engine final (IR#5). 8/8 + AC-01..05 live re-verify (cache-busted). 6 sections + 12/12 verbatim phrase checks vs team_30 SSOT; hreflang reciprocal both directions confirmed. F-W2-08-01 cosmetic non-blocking. Verdict: _COMMUNICATION/team_190/VERDICT-W2-08-L-GATE-VALIDATE-2026-05-29.md'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-30', note: 'WP Closure Protocol: COMPLETE/LOD500_LOCKED via ADR034 offline-fallback (API 200 but DB lacks WP-W2-08 -> file SSoT; hub DB-sync follow-up). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP. Merge feature/w2-08-en -> main PENDING team_00 go. F-W2-08-01 cosmetic -> cross-WP body_class follow-up.'}
 - id: WP-W2-09
   label: Wave2 WP-09 — Media filter + 301 application + cutover preparation
   status: PLANNED
