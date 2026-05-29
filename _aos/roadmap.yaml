@@ -762,8 +762,8 @@ work_packages:
   lod_status: LOD400
   milestone_ref: S002
   depends_on: [WP-W2-02]
-  blocked: true
-  block_reason: 'pending hard input: team_30 W2-08-EN-CONTENT'
+  blocked: false
+  block_reason: 'UNBLOCKED 2026-05-29 (team_100): hard input team_30 W2-08-EN-CONTENT present + verified — _COMMUNICATION/team_30/W2-08-EN-CONTENT-2026-05-28.md (6 approved EN sections, FINAL). Ready for team_10 build.'
   spec_ref: _aos/work_packages/S002/WP-W2-08/LOD400_spec.md
   profile: L0
   estimate_days: '2-3'
