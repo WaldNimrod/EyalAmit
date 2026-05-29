@@ -15,6 +15,7 @@ Uploads:
   - site/wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php -> wp-content/mu-plugins/
   - site/wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php -> wp-content/mu-plugins/
   - site/wp-content/mu-plugins/ea-m4-g2348-governance-once.php -> wp-content/mu-plugins/
+  - site/wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php -> wp-content/mu-plugins/
   Optional (--upload-wxr):
   - site/exports/m2-pages-seed.wxr -> wp-content/uploads/ea-m2-seed/m2-pages-seed.wxr
 
@@ -63,6 +64,7 @@ def main() -> None:
     mu_m3_g5g7 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-g5g7-q16-rest-dedupe-once.php"
     mu_m3_r2 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-r2-featured-sample-once.php"
     mu_m4_g2348 = root / "site" / "wp-content" / "mu-plugins" / "ea-m4-g2348-governance-once.php"
+    mu_w2_05_shop = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-05-shop-pages-seed-once.php"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
     if not mu_noindex.is_file():
@@ -104,6 +106,7 @@ def main() -> None:
     files.append((mu_m3_g5g7, "wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php"))
     files.append((mu_m3_r2, "wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php"))
     files.append((mu_m4_g2348, "wp-content/mu-plugins/ea-m4-g2348-governance-once.php"))
+    files.append((mu_w2_05_shop, "wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

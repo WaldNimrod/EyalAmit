@@ -400,7 +400,9 @@ function ea_m2_st_canonical_path_redirects() {
 	$internal = array(
 		'/courses-external/'                      => home_url( '/learning/courses-external/' ),
 		'/accessibility-statement/'               => home_url( '/accessibility/' ),
-		'/shop/'                                  => home_url( '/tools-and-accessories/' ),
+		// WP-W2-05: /shop is now the canonical unified catalog route (tpl-shop-archive,
+		// site-tree node st-shop-archive). The legacy /shop → /tools-and-accessories/
+		// redirect is removed so the catalog page resolves.
 		'/courses-soon/'                          => $courses_landing,
 		// WP-W2-03: /books is now the canonical Muzza catalog (tpl-books) — do NOT redirect it away.
 		'/muzeh/'                                 => home_url( '/muzza/' ),

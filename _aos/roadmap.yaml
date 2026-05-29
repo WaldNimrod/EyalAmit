@@ -693,12 +693,17 @@ work_packages:
     - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (native Codex/GPT-5)', date: '2026-05-29', commit: c2c59fc, note: 'Cross-engine final (IR#5). 8/8 checks + 6/6 AC live re-verify cache-busted. W2-07 OPEN -> placeholder images accepted (spec F02). Verdict: _COMMUNICATION/team_190/VERDICT-W2-04-L-GATE-VALIDATE-2026-05-29.md'}
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP (no core/governance modified). Merge feature/w2-04-services -> main PENDING team_00 go.'}
 - id: WP-W2-05
-  label: Wave2 WP-05 — Shop (4 products + repair + unified /shop)
-  status: PLANNED
+  label: Wave2 WP-05 — Shop (5 product pages + unified /shop catalog)
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: CLOSED
   spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
-  lod_status: LOD400
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-29'
+  feature_branch: feature/w2-05-shop
+  merge_to_main: 'PENDING team_00 go — dedicated branch feature/w2-05-shop (isolated worktree); validated build tip 112b341.'
+  propagation: 'SKIP — core/governance/ not modified (branch touches site/ theme + mu-plugins + hub/data/site-tree.json + scripts/ + _COMMUNICATION + _aos/roadmap.yaml only).'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch feature/w2-05-shop, never main): hub DB-as-SSoT API at 100.125.98.56:8090 still returns 404 on /api/l0/eyalamit/roadmap (re-probed 2026-05-29 at closure). PRECONDITION#1 DECIDED 2026-05-29 = disposition A (server-side checkout) per hub ruling MSG-HUB-20260529-001-RESPONSE; offline-fallback APPROVED as INTERIM until team_60 provisions /data/projects/eyalamit + hub fixes l0_project_io._resolve_local_path(). No PENDING_DB_SYNC.yaml (no DB row for L0-spoke WPs). Same mechanism as W2-02/W2-06/W2-03/W2-04.'
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
@@ -709,7 +714,14 @@ work_packages:
   assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_50]
-  notes: '5 product/service pages (/didgeridoos /bags /stands-storage /stand-floor /repair) + unified /shop on shared tpl-shop-item. Prices entered by Eyal via WP admin (C3). Green Invoice external. No WooCommerce.'
+  cross_engine_constraint: 'IR#1: builder=Claude/team_10 -> L-GATE_BUILD team_50 composer-2.5-fast (non-Claude) -> L-GATE_VALIDATE team_190 native Codex/GPT-5. Chain honored.'
+  notes: '5 product/service pages (/didgeridoos /bags /stands-storage /stand-floor /repair) on tpl-shop-item + unified /shop catalog on tpl-shop-archive. the_content injection (wave2-w2-05.php router + wave2-w2-05-content.php provider, mirror W2-04). Price via ea_product_price post meta + "מחיר לפי התאמה" fallback (all empty -> fallback, no hardcoded prices). CTA matrix B02: GI URLs Eyal-pending -> /contact?subject=product-<slug> + GA4 product_cta_click {product_slug,cta_type}; green_invoice branch coded but dormant. A/B reuses canonical eyal_cta_variant. FAQ view-only category-filtered (5 new product categories, Q/A 1:1 from sources). Testimonials+gallery placeholders (W2-07 carry-forward). /shop grid 4-up desktop/2-up mobile. style.css 1.4.4. New once-only seeder mu-plugin (ea-w2-05-shop-pages-seed-once.php) creates 6 top-level pages (FTP cannot). AC-05: clear typos normalized, voice preserved.'
+  gate_history:
+    - {gate: L-GATE_SPEC, verdict: PASS, by: 'team_190 (Codex)', date: '2026-05-28', round: v2, commit: 1306e51, note: 'Spec PASS.'}
+    - {gate: L-GATE_BUILD, action: build-complete, by: 'team_10 (Claude sub-agent)', date: '2026-05-29', commit: 112b341, note: '5 product pages + /shop catalog built + deployed (FTP). validate_aos 30 PASS/0 FAIL. 6 URLs 200 (team_100 verified cache-busted). 0 raw hex. Scope-additions: once-only seeder mu-plugin + stale /shop redirect removal + deploy-list entry (all reviewed safe). Report: _COMMUNICATION/team_100/W2-05-BUILD-REPORT-2026-05-29.md.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (composer-2.5-fast, non-Claude)', date: '2026-05-29', note: '6/6 AC PASS, no P0/P1. F-W2-05-01 (ADVISORY: primary nav still exposes legacy /tools-and-accessories/repair/ vs canonical /repair — C3 menu follow-up, no AC failure). F-W2-05-02/03 (INFO: scope-additions accepted; stand-floor closing synthesized). Verdict: _COMMUNICATION/team_50/VERDICT-W2-05-L-GATE-BUILD-2026-05-29.md'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (native Codex/GPT-5)', date: '2026-05-29', commit: 112b341, note: 'Cross-engine final (IR#5). 8/8 checks + 6/6 AC live re-verify (cache-busted) at build tip 112b341. No blocking findings. Scope-addition mu-plugins safe/idempotent. GI-pending + W2-07 placeholders accepted (spec). Verdict: _COMMUNICATION/team_190/VERDICT-W2-05-L-GATE-VALIDATE-2026-05-29.md'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED via ADR034 offline-fallback (PRECONDITION#1 disposition A interim; API re-probed 404 at closure). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge feature/w2-05-shop -> main PENDING team_00 go. F-W2-05-01 nav cleanup carried forward as C3 follow-up.'}
 - id: WP-W2-07
   label: Wave2 WP-07 — Press + Moksha page + 49 QR pages + FB testimonials (live)
   status: PLANNED

@@ -1,7 +1,9 @@
 <?php
 /**
  * Template Name: tpl-shop-archive (Wave2)
- * D-14 §5 tpl-shop-archive — /shop product grid.
+ * WP-W2-05 /shop catalog — responsive product grid (5 linked cards). Thin shell:
+ * renders the_content() only; the catalog-grid HTML (including the page H1) is
+ * injected by wave2-w2-05.php (the_content filter).
  *
  * @package ea_eyalamit
  */
@@ -12,8 +14,12 @@ get_header();
 get_template_part( 'template-parts/blocks/block', 'topnav' );
 ?>
 <main id="main" class="ea-wave2-shop-archive">
-	<h1 class="ea-page-title"><?php esc_html_e( 'חנות', 'ea-eyalamit' ); ?></h1>
-	<!-- SLOT: product-card tiles (CPT ea_product — WP-W2-05) -->
+	<?php
+	while ( have_posts() ) {
+		the_post();
+		the_content();
+	}
+	?>
 </main>
 <?php
 get_template_part( 'template-parts/blocks/block', 'footer-social' );

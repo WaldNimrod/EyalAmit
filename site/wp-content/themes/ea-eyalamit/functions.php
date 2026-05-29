@@ -787,6 +787,11 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-03.php';
 require_once get_stylesheet_directory() . '/inc/wave2-w2-04.php';
 
 /**
+ * WP-W2-05 — Shop (5 product pages + /shop catalog) routing + content injection.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-05.php';
+
+/**
  * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';
