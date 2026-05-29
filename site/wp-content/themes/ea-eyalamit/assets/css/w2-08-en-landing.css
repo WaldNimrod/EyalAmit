@@ -1,0 +1,193 @@
+/**
+ * WP-W2-08 — English Landing (/en) styles.
+ * LTR-only; D-14 tokens (assets/css/ea-tokens.css) — no raw hex.
+ * Scoped to body.ea-en-landing so it never leaks onto RTL pages.
+ */
+
+body.ea-en-landing .ea-en {
+	direction: ltr;
+	text-align: left;
+	font: var(--ea-type-body);
+	color: var(--ea-text-body);
+	background: var(--ea-bg);
+}
+
+/* ── Hero ── */
+body.ea-en-landing .ea-en-hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: var(--ea-space-12) var(--ea-gutter);
+	background-color: var(--ea-ink);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-align: center;
+	overflow: hidden;
+}
+
+body.ea-en-landing .ea-en-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient( to bottom, rgba(46, 43, 40, 0.55), rgba(46, 43, 40, 0.72) );
+	z-index: var(--ea-z-base);
+}
+
+body.ea-en-landing .ea-en-hero__content {
+	position: relative;
+	z-index: var(--ea-z-dropdown);
+	max-width: var(--ea-prose-width);
+	margin: 0 auto;
+	color: var(--ea-on-dark);
+}
+
+body.ea-en-landing .ea-en-hero__title {
+	font: var(--ea-type-h1);
+	color: var(--ea-on-dark);
+	margin: 0 0 var(--ea-space-4);
+}
+
+body.ea-en-landing .ea-en-hero__subhead {
+	font: var(--ea-type-body-lg);
+	color: var(--ea-on-dark);
+	max-width: 48rem;
+	margin: 0 auto var(--ea-space-4);
+}
+
+body.ea-en-landing .ea-en-hero__trust {
+	font: var(--ea-type-body-sm);
+	color: var(--ea-on-dark);
+	opacity: 0.9;
+	max-width: 44rem;
+	margin: 0 auto var(--ea-space-6);
+}
+
+body.ea-en-landing .ea-en-hero__cta-wrap {
+	margin-top: var(--ea-space-4);
+}
+
+/* ── Content sections ── */
+body.ea-en-landing .ea-en-section {
+	padding: var(--ea-space-12) var(--ea-gutter);
+	background: var(--ea-bg);
+}
+
+body.ea-en-landing .ea-en-section--alt {
+	background: var(--ea-bg-alt);
+}
+
+body.ea-en-landing .ea-en-section__inner {
+	max-width: var(--ea-prose-width);
+	margin: 0 auto;
+}
+
+body.ea-en-landing .ea-en-section__heading {
+	font: var(--ea-type-h2);
+	color: var(--ea-text);
+	margin: 0 0 var(--ea-space-5);
+}
+
+body.ea-en-landing .ea-en-prose p {
+	font: var(--ea-type-body-lg);
+	color: var(--ea-text-body);
+	margin: 0 0 var(--ea-space-4);
+}
+
+body.ea-en-landing .ea-en-prose p:last-child {
+	margin-bottom: 0;
+}
+
+body.ea-en-landing .ea-en-prose strong {
+	color: var(--ea-text);
+	font-weight: 500;
+}
+
+body.ea-en-landing .ea-en-list {
+	list-style: disc;
+	padding-inline-start: 1.4em;
+	margin: 0 0 var(--ea-space-4);
+}
+
+body.ea-en-landing .ea-en-list li {
+	font: var(--ea-type-body-lg);
+	color: var(--ea-text-body);
+	margin: 0 0 var(--ea-space-2);
+}
+
+body.ea-en-landing .ea-en-section__cta-wrap {
+	margin-top: var(--ea-space-6);
+}
+
+/* ── Testimonials ── */
+body.ea-en-landing .ea-en-section--testimonials {
+	background: var(--ea-bg-alt);
+}
+
+body.ea-en-landing .ea-en-testimonials__note {
+	font: var(--ea-type-body-sm);
+	color: var(--ea-muted);
+	margin: 0 0 var(--ea-space-6);
+}
+
+body.ea-en-landing .ea-en-testimonials {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--ea-space-5);
+	margin: 0 0 var(--ea-space-10);
+}
+
+body.ea-en-landing .ea-en-testimonial {
+	margin: 0;
+	padding: var(--ea-space-5);
+	background: var(--ea-bg);
+	border: 1px solid var(--ea-line);
+	border-radius: var(--ea-radius-img);
+}
+
+body.ea-en-landing .ea-en-testimonial__quote {
+	margin: 0 0 var(--ea-space-3);
+}
+
+body.ea-en-landing .ea-en-testimonial__quote p {
+	font: var(--ea-type-body);
+	color: var(--ea-text-body);
+	margin: 0;
+}
+
+body.ea-en-landing .ea-en-testimonial__name {
+	font: var(--ea-type-body-sm);
+	font-weight: 500;
+	color: var(--ea-accent);
+}
+
+/* ── Closing CTA ── */
+body.ea-en-landing .ea-en-closing {
+	max-width: 44rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+body.ea-en-landing .ea-en-closing__text {
+	font: var(--ea-type-body-lg);
+	color: var(--ea-text-body);
+	margin: 0 0 var(--ea-space-5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+	body.ea-en-landing .ea-en-hero {
+		min-height: 88vh;
+		padding: var(--ea-space-10) var(--ea-gutter);
+	}
+	body.ea-en-landing .ea-en-hero__title {
+		font: var(--ea-type-h2);
+	}
+	body.ea-en-landing .ea-en-section {
+		padding: var(--ea-space-10) var(--ea-gutter);
+	}
+	body.ea-en-landing .ea-en-testimonials {
+		grid-template-columns: 1fr;
+	}
+}
