@@ -51,14 +51,10 @@ build (team_10 Claude sub-agent) → deploy via `scripts/ftp_deploy_site_wp_cont
 (c) formally ratify the offline-fallback (named-branch file edit) as the canonical path for this Mac-only spoke and update CLAUDE.md/ADR034 accordingly.
 Until decided, continue the offline-fallback for W2-04 closure (precedent W2-02/06/03) — but **must be closed at session start**.
 
-## ⛔ PRECONDITION #2 — Close the AC-05 source-spelling decision BEFORE building W2-04
-**What it is:** AC-05 requires page copy to match Eyal's 25.5.26 source `.md` files **1:1 verbatim**. Those sources contain inconsistent/likely-erroneous spellings, now reproduced LIVE on the W2-03 book pages (closed verbatim). Concrete flagged items in `inc/wave2-w2-03-content.php`:
-- **היקוקומורי vs היקוקמורי** (line ~59) — same word (hikikomori), spelled two ways in one paragraph.
-- **"השארו עמי"** (line ~54) — likely typo for **"הישארו עמי"**.
-- (Varanasi "וראנסי" is consistent — no issue.)
-**What the approval means:** editing an author's published text is editorially sensitive — that's why the spec says *flag, don't fix without approval*. The decision (logged as aos_decide):
-- **A) Keep strictly verbatim** — preserve Eyal's exact text incl. inconsistencies; matches source 1:1; lowest risk; any typo stays live. (Current state; both gates PASSED this way.)
-- **B) Normalize obvious typos** — team corrects clear errors (e.g. הישארו עמי; unify היקוקומורי), deviating from strict 1:1 to improve quality; ideally confirm each item with Eyal.
-**Action for next session:** this decision must be **resolved at session start** and applied retroactively to W2-03 pages if B is chosen (redeploy + re-verify), and prospectively to W2-04 copy. Carry team_00's aos_decide verdict into the W2-04 build mandate. team_00 was presented this as an aos_decide on 2026-05-29 — record the answer here before building.
+## ✅ PRECONDITION #2 — RESOLVED (AC-05 source-spelling aos_decide)
+**team_00 aos_decide (2026-05-29) = Option B — normalize obvious typos.** No longer open.
+- **Applied retroactively to W2-03** (commit on `fix/w2-03-ac05-spelling` → merged `953e91b`): `"השארו עמי"→"הישארו עמי"`; unified `היקוקמורי→היקוקומורי`. Redeployed (FTP) + verified live (HTTP 200, 0 typos). Logged in roadmap gate_history (POST-CLOSURE entry).
+- **Prospective rule for W2-04 (and onward):** AC-05's "1:1 with source" now means *normalize clear/obvious typos while preserving Eyal's voice & deliberate spoken-style slang*. Build the W2-04 copy under this rule; carry it into the W2-04 team_10 mandate. Genuine ambiguity (is it a typo or intentional voice?) → flag to team_00, don't guess.
+- Varanasi "וראנסי" was consistent — not a typo, untouched.
 
 *team_100 (W2-03 session) — 2026-05-29*
