@@ -770,7 +770,7 @@ work_packages:
   milestone_ref: S002
   depends_on: [WP-W2-01, WP-W2-02, WP-W2-03, WP-W2-04, WP-W2-05, WP-W2-06, WP-W2-07, WP-W2-08]
   blocked: true
-  block_reason: 'Depends on all Wave2 content WPs + external (Eyal returns 301 JSON). Final pre-cutover WP.'
+  block_reason: 'Depends on all Wave2 content WPs (W2-01..08) closing. Final pre-cutover WP. Eyal 301 input NO LONGER pending — JSON already landed: hub/data/decisions/redirects-301-eyal-final-2026-05-27.json (D-EYAL-301-MIGRATION-2026-05-26, 135 decisions); corrected stale clause per LOD400 spec (team_190 L-GATE_SPEC v2) 2026-05-29.'
   spec_ref: _aos/work_packages/S002/WP-W2-09/LOD400_spec.md
   profile: L0
   estimate_days: '3-4'
