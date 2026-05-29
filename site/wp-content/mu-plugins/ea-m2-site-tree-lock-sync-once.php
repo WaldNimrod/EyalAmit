@@ -402,7 +402,7 @@ function ea_m2_st_canonical_path_redirects() {
 		'/accessibility-statement/'               => home_url( '/accessibility/' ),
 		'/shop/'                                  => home_url( '/tools-and-accessories/' ),
 		'/courses-soon/'                          => $courses_landing,
-		'/books/'                                 => home_url( '/muzza/' ),
+		// WP-W2-03: /books is now the canonical Muzza catalog (tpl-books) — do NOT redirect it away.
 		'/muzeh/'                                 => home_url( '/muzza/' ),
 		'/hashita/'                               => home_url( '/method/' ),
 		'/testimonials-media/'                    => home_url( '/media/' ),
