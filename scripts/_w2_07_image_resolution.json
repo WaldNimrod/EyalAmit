@@ -1,0 +1,289 @@
+[
+  {
+    "qr": 1,
+    "src": "http://localhost:9090/wp-content/uploads/2016/08/eyal.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/brazil1.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בוליביה.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בוליביה1.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בוליביה2.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בוליביה3.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בוליביה4.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/צבע-בכחול-וזרוק-לים-אייל-עמית.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/brazil-anat2.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 2,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/brazil-anat.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 4,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/הרצוג-23-גבעתיים.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 12,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מכרה5.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 12,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מכרה3.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 12,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מכרה2.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 12,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מכרה1-1.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 13,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/עורב.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 14,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/פדרו.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 14,
+    "src": "http://photos.mongabay.com/06/braz_defor_88-05-lrg.jpg",
+    "kind": "external",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/mongabay_braz_defor_88-05.jpg"
+  },
+  {
+    "qr": 17,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/וראנסי.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 17,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/יוגי-לודג-וראנסי.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 21,
+    "src": "http://farm3.static.flickr.com/2493/4030994475_0e448a9a2a_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4030994475.jpg"
+  },
+  {
+    "qr": 21,
+    "src": "http://farm3.static.flickr.com/2802/4030995601_b810dc2be2_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4030995601.jpg"
+  },
+  {
+    "qr": 21,
+    "src": "http://farm3.static.flickr.com/2489/4030994831_f2580f6cd5_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4030994831.jpg"
+  },
+  {
+    "qr": 21,
+    "src": "http://farm4.static.flickr.com/3269/4030995255_41e95c43d0_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4030995255.jpg"
+  },
+  {
+    "qr": 21,
+    "src": "http://farm3.static.flickr.com/2656/4030995031_e867ff2aec_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4030995031.jpg"
+  },
+  {
+    "qr": 21,
+    "src": "http://farm3.static.flickr.com/2738/4031748522_e19ab1e48e_o.jpg",
+    "kind": "external-flash",
+    "disposition": "rehosted (downloaded)",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/flickr_4031748522.jpg"
+  },
+  {
+    "qr": 28,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/eat2-450x297.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "rehosted",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/eat2-450x297.jpg"
+  },
+  {
+    "qr": 28,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/eat1-450x297.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "rehosted",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/eat1-450x297.jpg"
+  },
+  {
+    "qr": 30,
+    "src": "http://localhost:9090/wp-content/uploads/2017/05/uni.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 31,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/CR-7.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/יואב-קליימן.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/אדם-ניוזילנד.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/יורם-סיון-ויאיר-גפני.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מוקש.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/מוקש1.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/אייל-עמית-דיגרידו-רישיקש-1.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 32,
+    "src": "http://localhost:9090/wp-content/uploads/2024/08/378172116_789649869834098_921032953608050382_n-450x448.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "rehosted",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/378172116_789649869834098_921032953608050382_n-450x448.jpg"
+  },
+  {
+    "qr": 33,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/color-1024x437.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "rehosted",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/color-1024x437.jpg"
+  },
+  {
+    "qr": 41,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/בר-מצווה.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  },
+  {
+    "qr": 42,
+    "src": "http://localhost:9090/wp-content/uploads/2016/12/IMG_7784-1024x943.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "rehosted",
+    "rehost": "/wp-content/uploads/ea-legacy/qr/IMG_7784-1024x943.jpg"
+  },
+  {
+    "qr": 48,
+    "src": "http://localhost:9090/wp-content/uploads/2016/08/eyal.jpg",
+    "kind": "legacy-uploads",
+    "disposition": "OMITTED (source absent)",
+    "rehost": ""
+  }
+]

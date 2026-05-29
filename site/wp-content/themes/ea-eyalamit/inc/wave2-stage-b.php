@@ -50,6 +50,7 @@ function ea_wave2_is_active_view() {
 		'page-templates/tpl-book-detail.php',
 		'page-templates/tpl-shop-archive.php',
 		'page-templates/tpl-shop-item.php',
+		'page-templates/tpl-qr.php',
 		'page-templates/tpl-blog-archive.php',
 		'page-templates/tpl-blog-single.php',
 		'page-templates/tpl-en-landing.php',
