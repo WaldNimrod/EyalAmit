@@ -1,11 +1,16 @@
 ---
 id: DECISION-REQUEST-PRECONDITION1-DB-SSOT-INFRA-2026-05-29
-from_team: team_100 (Chief System Architect — eyalamit spoke)
-to_team: team_00 (Principal) + team_60 (Infra/Home-Server)
+from_team: team_100 (Chief System Architect — eyalamit SPOKE)
+to_team: team_100 (AOS HUB — governance/canon authority over roadmap mutation)
+cc: team_00 (Principal), team_60 (Infra/Home-Server)
 re: PRECONDITION #1 — DB-as-SSoT roadmap-mutation infra gap (blocks W2-04 CLOSURE)
 date: 2026-05-29
-status: OPEN — decision required at W2-04 session start (per W2-03→W2-04 handoff)
+status: OPEN — decision request routed to hub per team_00 disposition 2026-05-29
 blocks: W2-04 CLOSURE (NOT build) — Iron Rule #7 / ADR034 API-only structured mutations
+routing_note: team_00 directs this be examined at the AOS-environment level (governance + canon
+  for the roadmap), not decided locally by the spoke. Spoke implements a TEMPORARY BYPASS
+  (offline-fallback, named-branch roadmap.yaml edit) to keep progressing until the hub decision
+  is returned. Options below are the spoke's analysis for the hub to rule on — NOT a local choice.
 ---
 
 # Decision Request — PRECONDITION #1 (DB-as-SSoT infra gap)
