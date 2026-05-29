@@ -777,6 +777,11 @@ require_once get_stylesheet_directory() . '/inc/wave2-stage-b.php';
 require_once get_stylesheet_directory() . '/inc/wave2-w2-02.php';
 
 /**
+ * WP-W2-03 — Muzza Publishing catalog + 3 book-detail pages routing.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-03.php';
+
+/**
  * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';

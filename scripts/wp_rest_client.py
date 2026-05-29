@@ -152,6 +152,39 @@ def ensure_page(slug: str, title: str, status: str = "publish") -> int:
     return post_id
 
 
+def ensure_child_page(slug: str, title: str, parent_id: int, status: str = "publish") -> int:
+    """
+    Create (or update) a page as a child of parent_id with the given slug/title.
+    If a page with the slug exists, update its parent/status. Returns the post ID.
+    """
+    slug = slug.strip("/")
+    existing = get_page_by_slug(slug)
+    if existing:
+        post_id = existing["id"]
+        patch = {}
+        if int(existing.get("parent", 0)) != int(parent_id):
+            patch["parent"] = int(parent_id)
+        if existing.get("status") != status:
+            patch["status"] = status
+        if patch:
+            _request("POST", f"/wp/v2/pages/{post_id}", patch)
+            print(f"✅ Updated child page /{slug} (ID {post_id}) parent={parent_id} {patch}")
+        else:
+            print(f"ℹ️  Child page /{slug} already correct (ID {post_id})")
+        return post_id
+
+    data = _request("POST", "/wp/v2/pages", {
+        "slug": slug,
+        "title": title,
+        "status": status,
+        "parent": int(parent_id),
+        "content": "",
+    })
+    post_id = data["id"]
+    print(f"✅ Created child page /{slug} — '{title}' (ID {post_id}) under parent {parent_id}")
+    return post_id
+
+
 def set_page_template(post_id: int, template_filename: str) -> None:
     """
     Set the page template for a post via the REST API.
