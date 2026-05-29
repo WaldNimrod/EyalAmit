@@ -724,15 +724,19 @@ work_packages:
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED via ADR034 offline-fallback (PRECONDITION#1 disposition A interim; API re-probed 404 at closure). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge feature/w2-05-shop -> main PENDING team_00 go. F-W2-05-01 nav cleanup carried forward as C3 follow-up.'}
 - id: WP-W2-07
   label: Wave2 WP-07 — Press + Moksha page + 48 QR pages + FB testimonials (live)
-  status: PLANNED
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: CLOSED
   spec_gate: 'PASS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
-  lod_status: LOD400
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-29'
+  feature_branch: feature/w2-07-heritage
+  merge_to_main: 'PENDING team_00 go — dedicated branch feature/w2-07-heritage (isolated worktree); validated build tip c7dc34a.'
+  propagation: 'SKIP — core/governance/ not modified (branch touches site/ theme + mu-plugins + scripts/ + _COMMUNICATION + _aos/roadmap.yaml only).'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch feature/w2-07-heritage, never main). NOTE: hub roadmap API at 100.125.98.56:8090 began returning 200 at this closure (was 404 all prior Wave2 closures) — disposition A partially landed (resolver/checkout fixed). BUT GET returns l0_roadmap_source=database with only 6 stale early WPs (S001-*/S002-P001-*) and ZERO WP-W2-* Wave2 entries — the file roadmap.yaml remains the live SSoT; the roadmap->DB load/sync has NOT happened, so API-only mutation is not yet viable for Wave2 WPs (cannot address WP-W2-07). Flagged to team_00/hub as PRECONDITION#1 follow-up (DB content sync). No PENDING_DB_SYNC.yaml. Same mechanism as W2-02..06.'
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
-  block_reason: 'INPUTS PRODUCED 2026-05-29 (team_100 orchestration): W2-07-QR-CONTENT-EXPORT (48 pages, 1:1, verified) + W2-07-PRESS-EXPORT (26 real external links, verified) both present in _COMMUNICATION/team_40/. Ready for team_10 build. Open (non-blocking): (a) spec count corrected 49->48 — needs team_190 re-confirm at next gate; (b) FB testimonials text source = legacy post_type=testimonials (NOT catalog.json, which is image-only).'
   spec_ref: _aos/work_packages/S002/WP-W2-07/LOD400_spec.md
   profile: L0
   estimate_days: '3-4'
@@ -740,7 +744,15 @@ work_packages:
   assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_50]
-  notes: '/press, /about/moksha (note: /about/moksha already created in W2-02 as ID 181 — W2-07 fills final content), 48 QR pages (/qr/qr1..qr48/ 1:1 migration — corrected from 49: legacy site has EXACTLY 48 QR content pages, verified 2026-05-29 against wp_posts dump + QR-URL-INVENTORY.csv; the 49th inventory row is the parent /qr/, not a QR page), FB Top-5 testimonials (text + image-fetch). Publication consent for 30+ collected by nimrod.'
+  cross_engine_constraint: 'IR#1: builder=Claude/team_10 -> L-GATE_BUILD team_50 cursor-composer (non-Claude) -> L-GATE_VALIDATE team_190 native Codex/GPT-5. Chain honored.'
+  notes: '/press (26 legacy press links, external new-tab) + /about/moksha (updated existing page ID 181 via REST from docx) + 48 QR pages (/qr/qr1..qr48/ 1:1 migration via once-only seeder ea-w2-07-qr-seed-once.php + ea-w2-07-qr-content-data.php, tpl-qr.php, real post_content; KSES removed/restored in finally to preserve YouTube iframes) + FB Top-5 testimonials (text from wave2-w2-04-content.php, grey-placeholder avatars per F05). QR count corrected 49->48 (team_190 re-confirmed at L-GATE_VALIDATE: 48 = inventory CSV + dump + live). Images: 12 rehosted to wp-content/uploads/ea-legacy/qr/ (5 legacy + 7 external), 28 omitted (legacy localhost:9090 source permanently offline, absent from catalogs+backup) -> team_40 image-recovery carry-forward; 0 broken URLs live. style.css 1.4.5. D-14 tokens.'
+  gate_history:
+    - {gate: L-GATE_SPEC, verdict: PASS, by: 'team_190 (Codex)', date: '2026-05-28', round: v2, commit: 1306e51, note: 'Spec PASS (count later corrected 49->48).'}
+    - {gate: INPUTS, action: hard-inputs-produced, by: 'team_100 (orchestration)', date: '2026-05-29', note: '48 QR + 26 press exports produced + verified (S002 content-inputs session). W2-07 unblocked.'}
+    - {gate: L-GATE_BUILD, action: build-complete, by: 'team_10 (Claude sub-agent)', date: '2026-05-29', commit: c7dc34a, note: '48 QR + /press + /about/moksha + FB Top-5 built + deployed. 48/48 QR 200, 0 localhost leak (team_100 verified). validate_aos 30 PASS/0 FAIL. Scope-additions (2 seeder mu-plugins, KSES finally-restore, moksha REST, deploy entry) reviewed safe. 28 QR images omitted (source gone) -> team_40 carry-forward. Report: _COMMUNICATION/team_100/W2-07-BUILD-REPORT-2026-05-29.md.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (cursor-composer, non-Claude)', date: '2026-05-29', note: '5/5 AC PASS, scope-additions all PASS, no P0/P1. F-W2-07-01 (28 omitted QR images -> team_40), F-W2-07-02 (FB avatar placeholders, F05), F-W2-07-03 (QR 49->48 re-confirm deferred to team_190). Verdict: _COMMUNICATION/team_50/VERDICT-W2-07-L-GATE-BUILD-2026-05-29.md'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (native Codex/GPT-5)', date: '2026-05-29', commit: c7dc34a, note: 'Cross-engine final (IR#5). 8/8 + AC-01..05 live re-verify (cache-busted). QR count re-confirmed = 48 (inventory+dump+live 48/48 200; not a defect). 0 localhost leaks. Carry-forwards accepted (28 images, placeholders). Verdict: _COMMUNICATION/team_190/VERDICT-W2-07-L-GATE-VALIDATE-2026-05-29.md'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: COMPLETE/LOD500_LOCKED via ADR034 offline-fallback (API now 200 but DB source stale/missing Wave2 -> file remains SSoT; flagged to hub). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP. Merge feature/w2-07-heritage -> main PENDING team_00 go.'}
 - id: WP-W2-08
   label: Wave2 WP-08 — English landing page (/en)
   status: PLANNED
