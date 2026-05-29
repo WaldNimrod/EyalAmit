@@ -1,0 +1,339 @@
+/*
+ * WP-W2-05 — Shop product pages + /shop catalog.
+ * D-14 design tokens only (--ea-*). No raw hex.
+ * Mirrors the W2-04 service patterns (.ea-service-hero, .ea-service-prose,
+ * .ea-service-steps, view-only FAQ, testimonials accordion, A/B CTA) and adds
+ * only W2-05-specific blocks: price, purchase CTA, gallery, catalog grid.
+ */
+
+/* ============================================================
+   Shop hero (shared with service hero pattern)
+============================================================ */
+.ea-service-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72vh;
+  padding: var(--ea-space-12) var(--ea-gutter);
+  background: linear-gradient(160deg, var(--ea-earth), var(--ea-chocolate));
+  text-align: center;
+  overflow: hidden;
+}
+.ea-service-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--ea-chocolate);
+  opacity: 0.28;
+  pointer-events: none;
+}
+.ea-service-hero__content {
+  position: relative;
+  z-index: var(--ea-z-base);
+  max-width: var(--ea-prose-width);
+  margin: 0 auto;
+}
+.ea-service-hero__title {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  color: var(--ea-on-dark);
+  margin: 0 0 var(--ea-space-4) 0;
+}
+.ea-service-hero__subtitle {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--ea-on-dark);
+  opacity: 0.94;
+  margin: 0 auto var(--ea-space-6) auto;
+  max-width: 56ch;
+}
+.ea-service-hero__cta-wrap {
+  margin-top: var(--ea-space-2);
+}
+
+/* ============================================================
+   Shop prose
+============================================================ */
+.ea-service-prose {
+  max-width: var(--ea-prose-width);
+  margin: 0 auto;
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: var(--ea-text-body);
+}
+.ea-service-prose p {
+  margin: 0 0 var(--ea-space-3) 0;
+}
+.ea-service-prose p:last-child {
+  margin-bottom: 0;
+}
+.ea-service-prose ul {
+  margin: 0 0 var(--ea-space-3) 0;
+  padding-inline-start: 1.4em;
+}
+.ea-service-prose li {
+  margin: 0 0 var(--ea-space-2) 0;
+}
+.ea-service-prose--center {
+  text-align: center;
+}
+.ea-prose-subheading {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--ea-ink);
+  margin: var(--ea-space-6) 0 var(--ea-space-3) 0;
+}
+
+/* ============================================================
+   Steps accordion (shared)
+============================================================ */
+.ea-service-steps__intro {
+  max-width: var(--ea-prose-width);
+  margin: 0 auto var(--ea-space-5) auto;
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: var(--ea-text-body);
+}
+.ea-service-steps {
+  max-width: var(--ea-prose-width);
+  margin: 0 auto;
+}
+.ea-service-step {
+  border-bottom: 1px solid var(--ea-line);
+}
+
+/* ============================================================
+   View-only FAQ (single category, no chips)
+============================================================ */
+.ea-faq-list--view-only {
+  max-width: var(--ea-prose-width);
+  margin: 0 auto;
+}
+.ea-section--faq .ea-faq-category {
+  margin: 0;
+}
+.ea-service-faq__more {
+  max-width: var(--ea-prose-width);
+  margin: var(--ea-space-5) auto 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Testimonials accordion (placeholder; grey avatars until W2-07)
+============================================================ */
+.ea-testimonials-accordion {
+  max-width: var(--ea-prose-width);
+  margin: 0 auto;
+}
+.ea-testimonial-acc {
+  border: 1px solid var(--ea-line);
+  border-radius: var(--ea-radius-img);
+  margin-bottom: var(--ea-space-3);
+  background: var(--ea-bg);
+  overflow: hidden;
+}
+.ea-testimonial-acc__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--ea-space-2);
+  padding: var(--ea-space-3);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--ea-font);
+}
+.ea-testimonial-acc__summary::-webkit-details-marker {
+  display: none;
+}
+.ea-testimonial-acc__figure {
+  flex: 0 0 auto;
+}
+.ea-testimonial-acc__figure .ea-testimonial-card__avatar-placeholder {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ea-sand);
+}
+.ea-testimonial-acc__name {
+  flex: 1 1 auto;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ea-ink);
+}
+.ea-testimonial-acc__chevron {
+  flex: 0 0 auto;
+  color: var(--ea-accent);
+  transition: transform var(--ea-dur-mid) var(--ea-ease-enter);
+}
+.ea-testimonial-acc[open] .ea-testimonial-acc__chevron {
+  transform: rotate(180deg);
+}
+.ea-testimonial-acc__body {
+  padding: 0 var(--ea-space-3) var(--ea-space-3) var(--ea-space-3);
+}
+.ea-testimonial-acc__body .ea-testimonial-card__text {
+  margin: 0 0 var(--ea-space-2) 0;
+  white-space: normal;
+}
+
+/* ============================================================
+   Price block
+============================================================ */
+.ea-section--price .ea-section__inner {
+  text-align: center;
+}
+.ea-product-price {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--ea-ink);
+  margin: 0 auto var(--ea-space-2) auto;
+}
+.ea-product-price__note {
+  max-width: 48ch;
+  margin: 0 auto;
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ea-text-muted);
+}
+
+/* ============================================================
+   Purchase / contact CTA block (B02)
+============================================================ */
+.ea-cta-ab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ea-space-3);
+  justify-content: center;
+  margin-top: var(--ea-space-5);
+}
+.ea-cta-pill--whatsapp {
+  background: var(--ea-olive);
+  color: var(--ea-on-dark);
+}
+.ea-cta-pill--whatsapp:hover {
+  background: var(--ea-earth);
+}
+
+/* ============================================================
+   Gallery (placeholder grey tiles; real images W2-07-era)
+============================================================ */
+.ea-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ea-space-3);
+  max-width: var(--ea-content-width);
+  margin: 0 auto;
+}
+.ea-gallery-tile {
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--ea-radius-img);
+}
+.ea-gallery-tile--placeholder {
+  background: var(--ea-sand);
+}
+
+/* ============================================================
+   /shop catalog grid — 4-up desktop / 2-up mobile
+============================================================ */
+.ea-shop-archive .ea-section__inner {
+  text-align: center;
+}
+.ea-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--ea-space-5);
+  max-width: var(--ea-content-width);
+  margin: var(--ea-space-6) auto 0 auto;
+  text-align: start;
+}
+.ea-shop-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ea-line);
+  border-radius: var(--ea-radius-img);
+  background: var(--ea-bg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--ea-dur-mid) var(--ea-ease-enter),
+    box-shadow var(--ea-dur-mid) var(--ea-ease-enter);
+}
+.ea-shop-card:hover,
+.ea-shop-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.ea-shop-card__media {
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+.ea-shop-card__media--placeholder {
+  background: var(--ea-sand);
+}
+.ea-shop-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ea-space-2);
+  padding: var(--ea-space-4);
+}
+.ea-shop-card__title {
+  font-family: var(--ea-font);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--ea-ink);
+}
+.ea-shop-card__excerpt {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ea-text-body);
+}
+.ea-shop-card__price {
+  margin-top: auto;
+  font-family: var(--ea-font);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ea-accent-strong);
+}
+
+/* ============================================================
+   Responsive
+============================================================ */
+@media (max-width: 900px) {
+  .ea-shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .ea-cta-ab {
+    flex-direction: column;
+  }
+  .ea-cta-ab .ea-cta-pill {
+    width: 100%;
+  }
+  .ea-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ea-shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--ea-space-3);
+  }
+}

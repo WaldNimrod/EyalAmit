@@ -136,9 +136,59 @@
       "treeOrder": 2,
       "titleHe": "תיקון וחידוש כלים",
       "slug": "repair",
-      "templateId": "tpl-service",
+      "templateId": "tpl-shop-item",
       "menuHint": "רמה 2 · תחת כלים ואביזרים",
       "legacyUrl": "https://www.eyalamit.co.il/%d7%aa%d7%99%d7%a7%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/"
+    },
+    {
+      "id": "st-shop-didgeridoos",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 3,
+      "titleHe": "כלי דיג'רידו למכירה",
+      "slug": "didgeridoos",
+      "templateId": "tpl-shop-item",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "treeNoteHe": "WP-W2-05 — דף מוצר; כלים בעבודת יד."
+    },
+    {
+      "id": "st-shop-bags",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 4,
+      "titleHe": "תיקים לדיג'רידו",
+      "slug": "bags",
+      "templateId": "tpl-shop-item",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "treeNoteHe": "WP-W2-05 — דף מוצר; תיקים."
+    },
+    {
+      "id": "st-shop-stands-storage",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 5,
+      "titleHe": "סטנדים לאחסון דיג'רידו",
+      "slug": "stands-storage",
+      "templateId": "tpl-shop-item",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "treeNoteHe": "WP-W2-05 — דף מוצר; סטנדים לאחסון."
+    },
+    {
+      "id": "st-shop-stand-floor",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 6,
+      "titleHe": "סטנד רצפתי לנגינה בישיבה נמוכה",
+      "slug": "stand-floor",
+      "templateId": "tpl-shop-item",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "treeNoteHe": "WP-W2-05 — דף מוצר; סטנד רצפתי."
+    },
+    {
+      "id": "st-shop-archive",
+      "parentId": "st-didg-gear-hub",
+      "treeOrder": 7,
+      "titleHe": "חנות",
+      "slug": "shop",
+      "templateId": "tpl-shop-archive",
+      "menuHint": "רמה 2 · תחת כלים ואביזרים",
+      "treeNoteHe": "WP-W2-05 — קטלוג מאוחד; 5 כרטיסי מוצר."
     },
     {
       "id": "st-books",
