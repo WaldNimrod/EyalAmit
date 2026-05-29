@@ -21,7 +21,7 @@ S1 mockup (archive + single on real posts) → S2 Eyal sign-off → S3 team_10 r
 - AC-D1: mockups approved by Eyal.
 - AC-D2: archive + single match approved composition.
 - AC-D3: reading typography validated for long Hebrew posts (line-length, leading, RTL).
-- AC-D4: QA + validate PASS — Lighthouse ≥85/a11y100; axe 0 critical/serious. (Bonus: IDEA-006 excerpt [vc_row] cleared.)
+- AC-D4: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious. (Bonus: IDEA-006 excerpt [vc_row] cleared.)
 
 ## Dependencies
 W2-06 COMPLETE (✓). team_35 activated by team_00.

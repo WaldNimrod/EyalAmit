@@ -22,7 +22,7 @@ S1 mockup (card + detail archetypes, placeholders) → S2 Eyal sign-off → S3 t
 - AC-E2: catalogue (`/books`, `/shop`) + detail routes render the archetypes.
 - AC-E3: placeholder→real-asset swap path verified (documented + tested with a sample).
 - AC-E4: Green Invoice CTA wired per the W2-03/W2-05 CTA matrix (when links arrive; fallback `/contact?subject=...` until then).
-- AC-E5: QA + validate PASS — Lighthouse ≥85/a11y100; axe 0 critical/serious.
+- AC-E5: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious.
 
 ## Dependencies
 **W2-03 (books) + W2-05 (shop)** content-complete; Eyal media + Green Invoice links for final assets. team_35 activated by team_00.

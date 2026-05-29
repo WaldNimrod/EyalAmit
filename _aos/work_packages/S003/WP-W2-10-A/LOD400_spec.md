@@ -21,7 +21,7 @@ S1 team_35 mockup (service archetype on real treatment/method content) → S2 Ey
 - AC-A1: mockup approved by Eyal (S2 gate recorded).
 - AC-A2: all 4 routes render the full slot set (no bare `the_content()`).
 - AC-A3: team_80 token-compliance PASS (zero D-14 drift).
-- AC-A4: team_50 QA + team_190 validate PASS — Lighthouse mobile perf ≥85 / a11y 100 (triple-run); axe 0 critical/serious on all 4 routes.
+- AC-A4: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious (all 4 routes).
 
 ## Dependencies
 W2-02 (treatment, method) + **W2-04 (sound-healing, lessons)** content-complete on staging. team_35 activated by team_00.

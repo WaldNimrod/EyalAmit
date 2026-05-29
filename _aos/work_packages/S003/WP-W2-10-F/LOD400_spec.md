@@ -21,7 +21,7 @@ S1 mockup (LTR `/en` on real W2-08 EN content) → S2 Eyal sign-off → S3 team_
 - AC-F1: mockup approved by Eyal.
 - AC-F2: LTR layout correct — no RTL bleed (logical-property mirroring verified).
 - AC-F3: a11y + RTL/LTR mirror QA PASS.
-- AC-F4: QA + validate PASS — Lighthouse ≥85/a11y100; axe 0 critical/serious.
+- AC-F4: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious.
 
 ## Dependencies
 **W2-08 (EN landing)** content-complete (itself gated on team_30 EN content). team_35 activated by team_00.

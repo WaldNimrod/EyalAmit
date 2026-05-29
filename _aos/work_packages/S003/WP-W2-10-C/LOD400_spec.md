@@ -21,7 +21,7 @@ S1 mockup (contact + faq) → S2 Eyal sign-off → S3 team_10 refine + CF7 wirin
 - AC-C1: mockups approved by Eyal.
 - AC-C2: CF7 form renders (form_id ≠ 0) on `/contact` (depends on Eyal creating the form — Phase-2-adjacent; if not yet created, AC-C2 carries forward with documented dependency).
 - AC-C3: FAQ filter UX validated (category select filters; URL state).
-- AC-C4: QA + validate PASS — Lighthouse ≥85/a11y100; axe 0 critical/serious.
+- AC-C4: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious.
 
 ## Dependencies
 W2-02 content-complete (✓) + CF7 form configured by Eyal (for AC-C2). team_35 activated by team_00.

@@ -21,7 +21,7 @@ S1 team_35 mockup (editorial archetype on real about content) → S2 Eyal sign-o
 - AC-B1: mockup approved by Eyal.
 - AC-B2: bio/portrait block is REAL (Eyal portrait, not placeholder avatar).
 - AC-B3: team_80 token-compliance PASS.
-- AC-B4: QA + validate PASS — Lighthouse ≥85/a11y100; axe 0 critical/serious on all 3 routes.
+- AC-B4: team_50 QA + team_190 L-GATE_VALIDATE PASS — Lighthouse mobile perf ≥ 85 / a11y 100 (triple-run median); axe 0 critical / 0 serious (all 3 routes).
 
 ## Dependencies
 W2-02 (about) + **W2-07 (press, moksha)** content-complete. team_35 activated by team_00. (Note: `/about/moksha` page exists from W2-02 as ID 181; W2-07 fills final content.)
