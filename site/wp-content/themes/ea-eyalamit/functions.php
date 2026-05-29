@@ -800,3 +800,8 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';
  * WP-W2-07 Heritage — /press, 48 QR pages, FB Top-5 testimonials routing + render.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-07.php';
+
+/**
+ * WP-W2-08 — English Landing (/en) content injection, hreflang, assets.
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-08.php';
