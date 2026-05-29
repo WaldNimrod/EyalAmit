@@ -128,7 +128,7 @@ $faq_data = array(
 	array(
 		'category' => 'lessons',
 		'q'        => 'האם אפשר בזמן הריון?',
-		'a'        => "<p>לא מומלץ.</p>",
+		'a'        => "<p>לא מומלץ. <a href=\"/blog/pregnancy-didgeridoo\">קראו עוד</a></p>",
 	),
 	array(
 		'category' => 'lessons',
