@@ -633,11 +633,16 @@ work_packages:
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-28', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. team_191 archive mandate issued. Propagation SKIP. Merge to main READY (co-merge with W2-02, shared branch) pending team_00 go.'}
 - id: WP-W2-03
   label: Wave2 WP-03 — Muzza Publishing + 3 Book Pages (/books + vekatavta + kushi-blantis + tsva-bekahol)
-  status: PLANNED
+  status: COMPLETE
   track: A
-  current_lean_gate: L-GATE_BUILD
+  current_lean_gate: CLOSED
   spec_gate: 'PASS_WITH_FINDINGS (team_190 Codex L-GATE_SPEC v2 2026-05-28; commit 1306e51)'
-  lod_status: LOD400
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-05-29'
+  feature_branch: feature/w2-03-books
+  merge_to_main: 'PENDING team_00 go — dedicated branch feature/w2-03-books (isolated worktree); build tip 528fa3d.'
+  propagation: 'SKIP — core/governance/ not modified (verified: branch touches site/ theme + _COMMUNICATION + _aos/roadmap.yaml only).'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch, never main): DB-as-SSoT API at 100.125.98.56:8090 cannot resolve spoke project root (files Mac-only; server lacks them; local 127.0.0.1:8090 = retired 410 stub). Same mechanism as W2-02/W2-06 closure (commit adfa1a0). Flagged to team_00.'
   milestone_ref: S002
   depends_on: [WP-W2-02]
   blocked: false
@@ -648,7 +653,14 @@ work_packages:
   assigned_validator: team_50
   owner: team_10
   collaborators: [team_30, team_40, team_80, team_50]
-  notes: 'Catalog /books + 3 book detail pages via shared tpl-book-detail. Green Invoice external buy links (per-book, from Eyal). Content sources: MUZZA.md, vekatavta.md, kushi_full.md, eyal_tsva_FINAL.md (25.5.26). Dependency W2-02 now COMPLETE -> eligible.'
+  cross_engine_constraint: 'IR#1: builder=claude-sonnet (team_10/team_100) -> L-GATE_BUILD team_50 NON-Claude -> L-GATE_VALIDATE team_190 native Codex/GPT-5. Chain honored.'
+  notes: 'Catalog /books + 3 book detail pages via shared tpl-book-detail. Green Invoice external buy links (per-book, from Eyal) — absent -> /contact?subject=book-<slug> fallback + GA4 (spec-sanctioned). Content sources: MUZZA.md, vekatavta.md, kushi_full.md, eyal_tsva_FINAL.md (25.5.26); source spelling preserved verbatim per AC-05. Dependency W2-02 COMPLETE.'
+  gate_history:
+    - {gate: L-GATE_SPEC, verdict: PASS_WITH_FINDINGS, by: 'team_190 (Codex)', date: '2026-05-28', round: v2, commit: 1306e51, note: 'Spec corrections applied.'}
+    - {gate: L-GATE_BUILD, verdict: PASS_WITH_FINDINGS, by: 'team_50 (non-Claude)', date: '2026-05-29', note: '6/6 ACs PASS, no P0/P1. P3: F-W2-03-01 (3x raw #fff D-14 drift), F-W2-03-02 (unused purchase_url keys — intentional fallback), F-W2-03-03 (verbatim source spelling — informational), F-W2-03-04 (gallery/press/cover placeholders — Eyal-dependent). Verdict: _COMMUNICATION/team_50/QA-VERDICT-WP-W2-03-L-GATE-BUILD-2026-05-29.md'}
+    - {gate: L-GATE_BUILD, action: remediation-done, by: team_100, date: '2026-05-29', commit: 528fa3d, note: 'F-W2-03-01 fixed: added --ea-on-dark semantic token (ea-tokens.css), retired 3x raw #fff in ea-atoms.css. Redeployed + re-verified live (token present, 4 URLs 200, validate 0 FAIL).'}
+    - {gate: L-GATE_VALIDATE, verdict: PASS, by: 'team_190 (Codex/GPT-5)', date: '2026-05-29', note: 'Cross-engine final (IR#5). 8/8 checks PASS + 6/6 AC live re-verify (cache-busted). Build validated at 528fa3d. F-W2-03-01 confirmed remediated. P3 carry-forwards non-blocking. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-03-L-GATE-VALIDATE-2026-05-29.md'}
+    - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-29', note: 'WP Closure Protocol: status COMPLETE / LOD500_LOCKED. validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP (no core/governance). Merge feature/w2-03-books -> main PENDING team_00 go.'}
 - id: WP-W2-04
   label: Wave2 WP-04 — Sound Healing + Lessons (/sound-healing + /lessons)
   status: PLANNED

@@ -23,6 +23,7 @@
   /* --- UI backgrounds --- */
   --ea-bg:          #FAF8F5;
   --ea-bg-alt:      #F3EEE8;
+  --ea-on-dark:     #FFFFFF;  /* Text/icon color on dark or saturated-accent backgrounds. Added 2026-05-29 (WP-W2-03) to retire raw #fff. */
   --ea-line:        rgba(216,199,181,0.35);
   --ea-muted:       #6F635A;  /* Visible muted text. Updated 2026-05-27 from #A8A19B for AA contrast. */
 
