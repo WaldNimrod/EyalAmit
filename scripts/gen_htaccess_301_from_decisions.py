@@ -57,8 +57,8 @@ EMPTY_TARGET_MAP = {
     "%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa": "/shows/",
     # מוזה הוצאה לאור
     "%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8": "/muzza/",
-    # כושי בלאנטיס אוטוביוגרפיה (muzeh book page)
-    "%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/muzeh/kushi-blantis/",
+    # כושי בלאנטיס אוטוביוגרפיה (book page) — DIRECT canonical (team_100 correction 2026-05-30, LIVE+verified)
+    "%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/books/kushi-blantis/",
     # שיעורי נגינה בדיגרידו
     "%d7%a9%d7%99%d7%a2%d7%95%d7%a8%d7%99-%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95": "/lessons/",
     # סדנה עצמית לבניית דיגרידו
@@ -73,8 +73,8 @@ EMPTY_TARGET_MAP = {
 
 # __CUSTOM__ targets whose decided_custom_url points at the OLD domain -> map to new-site page.
 CUSTOM_NEWSITE_MAP = {
-    # מוקש דהימן (master didgeridoo memorial)
-    "%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%93%d7%a3-%d7%9c%d7%94%d7%a0%d7%a6%d7%97%d7%aa-%d7%96%d7%9b": "/eyal-amit/mokesh-dahiman/",
+    # מוקש דהימן (master didgeridoo memorial) — DIRECT canonical (team_100 correction 2026-05-30, LIVE+verified)
+    "%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%93%d7%a3-%d7%9c%d7%94%d7%a0%d7%a6%d7%97%d7%aa-%d7%96%d7%9b": "/about/moksha/",
 }
 
 # manual items -> explicit handling keyed by legacy path.
