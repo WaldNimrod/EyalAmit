@@ -1,34 +1,37 @@
-# BEGIN EA-W2-06 301  (blog migration -> /%postname%/ root, per M2 permalink standard; team_100 2026-05-28)
+# BEGIN EA-W2-06 301  (regenerated from 135-decision JSON SSoT; approach B; team_20 2026-05-30)
 <IfModule mod_rewrite.c>
 RewriteEngine On
-# Legacy /Blog/<slug>/ -> new root /<slug>/  (slugs preserved during migration)
+# W2-06 blog catch-all: legacy /Blog/<slug>/ -> new root /<slug>/
 RewriteRule ^Blog/(.+)$ /$1 [R=301,L,NC]
+# --- page-level 301/410 redirects (generated from decisions JSON SSoT) ---
+# Bare RewriteRule on the per-directory relative path (same mechanism as the
+# working ^Blog/ rule): the relative path keeps the percent-encoding verbatim.
+RewriteRule ^%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/$ /contact/ [R=301,L]
+RewriteRule ^%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/$ /shows/ [R=301,L]
+RewriteRule ^%d7%aa%d7%92%d7%95%d7%91%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%b4%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c/$ /shows/ [R=301,L]
+RewriteRule ^%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d/$ /books/vekatavta/ [R=301,L]
+RewriteRule ^%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa/$ /shows/ [R=301,L]
+RewriteRule ^%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/$ /muzza/ [R=301,L]
+RewriteRule ^%d7%91%d7%9c%d7%95%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90/$ /blog/ [R=301,L]
+RewriteRule ^qr/%d7%a4%d7%a8%d7%a7-%d7%90/$ - [G,L]
+RewriteRule ^%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d/$ /muzeh/kushi-blantis/ [R=301,L]
+RewriteRule ^%d7%95%d7%94%d7%95%d7%93%d7%99%d7%aa/$ /shows/ [R=301,L]
+RewriteRule ^thankyou/$ - [G,L]
+RewriteRule ^%d7%9e%d7%a4%d7%aa-%d7%90%d7%aa%d7%a8-site-map/$ /sitemap_index.xml [R=301,L]
+RewriteRule ^%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%93%d7%a3-%d7%9e%d7%91%d7%a6%d7%a2%d7%99%d7%9d-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%9b%d7%99%d7%a9%d7%94-%d7%99%d7%a9/$ /books/ [R=301,L]
+RewriteRule ^shop/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/$ / [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a9%d7%99%d7%a2%d7%95%d7%a8%d7%99-%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/$ /lessons/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%93%d7%a0%d7%90%d7%95%d7%aa-%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/$ /lessons/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99-%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/$ /sound-healing/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%aa%d7%99%d7%a7%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/$ /repair/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%aa%d7%99%d7%a7%d7%99%d7%9d-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/$ /bags/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9e%d7%9b%d7%99%d7%a8%d7%94-%d7%9b%d7%9c%d7%99%d7%9d-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%aa-%d7%99%d7%93/$ /didgeridoos/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%93%d7%99%d7%98%d7%a6%d7%99%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93/$ /sound-healing/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%94%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9b%d7%9b%d7%9c%d7%99-%d7%9c%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6%d7%9e%d7%99/$ /treatment/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%93%d7%a3-%d7%9c%d7%94%d7%a0%d7%a6%d7%97%d7%aa-%d7%96%d7%9b/$ /eyal-amit/mokesh-dahiman/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%98%d7%a0%d7%93-%d7%a8%d7%a6%d7%a4%d7%aa%d7%99-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%99%d7%a9%d7%99%d7%91%d7%94-%d7%a0%d7%9e%d7%95/$ /stand-floor/ [R=301,L]
+RewriteRule ^%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%98%d7%a0%d7%93%d7%99%d7%9d-%d7%9c%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%91%d7%aa%d7%9c%d7%99%d7%99%d7%94-%d7%90%d7%95-%d7%91%d7%a2%d7%9e%d7%99%d7%93/$ /stands-storage/ [R=301,L]
+RewriteRule ^%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/$ /books/vekatavta/ [R=301,L]
+RewriteRule ^%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa/$ /about/ [R=301,L]
 </IfModule>
-# --- page-level legacy redirects (kept from builder, unchanged) ---
-Redirect 301 /%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/ /
-Redirect 301 /%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/ /shows/
-Redirect 301 /%d7%aa%d7%92%d7%95%d7%91%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%b4%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c/ /shows/
-Redirect 301 /%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d/ /
-Redirect 301 /shop/ /books/
-Redirect 301 /shop/cart/ /books/
-Redirect 301 /shop/checkout/ /books/
-Redirect 301 /shop/my-account/ /books/
-Redirect 301 /%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa/ /
-Redirect 301 /%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/ /
-Redirect 301 /%d7%91%d7%9c%d7%95%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90/ /blog/
-Redirect 301 /%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d/ /
-Redirect 301 /%d7%95%d7%94%d7%95%d7%93%d7%99%d7%aa/ /shows/
-Redirect 301 /%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/%d7%93%d7%a3-%d7%9e%d7%91%d7%a6%d7%a2%d7%99%d7%9d-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%9b%d7%99%d7%a9%d7%94-%d7%99%d7%a9/ /books/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a9%d7%99%d7%a2%d7%95%d7%a8%d7%99-%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/ /
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%93%d7%a0%d7%90%d7%95%d7%aa-%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/ /
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99-%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/ /sound-healing/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%aa%d7%99%d7%a7%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/ /
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%aa%d7%99%d7%a7%d7%99%d7%9d-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/ /bags/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9e%d7%9b%d7%99%d7%a8%d7%94-%d7%9b%d7%9c%d7%99%d7%9d-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%aa-%d7%99%d7%93/ /didgeridoos/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%90%d7%95%d7%a0%d7%93-%d7%94%d7%99%d7%9c%d7%99%d7%a0%d7%92-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%93%d7%99%d7%98%d7%a6%d7%99%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93/ /
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%94%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9b%d7%9b%d7%9c%d7%99-%d7%9c%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6%d7%9e%d7%99/ /treatment/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%98%d7%a0%d7%93-%d7%a8%d7%a6%d7%a4%d7%aa%d7%99-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%a0%d7%92%d7%99%d7%a0%d7%94-%d7%91%d7%99%d7%a9%d7%99%d7%91%d7%94-%d7%a0%d7%9e%d7%95/ /stand-floor/
-Redirect 301 /%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a1%d7%98%d7%95%d7%93%d7%99/%d7%a1%d7%98%d7%a0%d7%93%d7%99%d7%9d-%d7%9c%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%91%d7%aa%d7%9c%d7%99%d7%99%d7%94-%d7%90%d7%95-%d7%91%d7%a2%d7%9e%d7%99%d7%93/ /stands-storage/
-Redirect 301 /%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/ /books/vekatavta/
-Redirect 301 /%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%95%d7%93%d7%95%d7%aa/ /
 # END EA-W2-06 301
