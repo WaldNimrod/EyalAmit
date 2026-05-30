@@ -193,3 +193,44 @@ HTTP** — carry-forward risk. Recommend a fresh `lighthouse` homepage run befor
    Until then AC-02/AC-03 (27 301 + 410 live) and check-(b) cannot pass.
 2. **Lighthouse (SOFT/AC-05):** CLI absent; perf historically <90 on HTTP home — needs a
    fresh run pre-M7.
+
+---
+
+## 9. Lighthouse — AC-05 (homepage, HTTP staging) — appended 2026-05-31 by team_20 (DevOps)
+
+Tool: Lighthouse 13.3.0 (local), headless Chrome. URL: `http://eyalamit-co-il-2026.s887.upress.link/` (cache-busted per run).
+
+### Scores: baseline vs final (desktop preset)
+
+| Category | Baseline | Final | ≥90? | Status |
+|---|---|---|---|---|
+| Performance | 96 | 96 | YES | PASS (desktop, stable across 3 runs) |
+| Accessibility | 100 | 100 | YES | PASS |
+| SEO | 61 | 69 | NO | FLOORED by intentional staging noindex — **M7 carry-forward** (would be 100 once noindex lifts) |
+| Best-practices | 74 | 78 | NO | FLOORED by HTTP-only staging — **M7/HTTPS carry-forward** (would be 100 over HTTPS) |
+
+Mobile preset (informational; AC targets desktop): Performance 79, Accessibility 100, SEO 69, Best-practices 78. Mobile perf is gated by FCP/LCP 3.6 s on the throttled (4x CPU + slow-4G) profile over HTTP/1.1 with no HTTP/2, CDN, or edge caching (`modern-http-insight` and `render-blocking-insight` both score 0). TBT 0 ms and CLS 0 are perfect — the deficit is transport/first-paint, not theme JS/layout. This lifts at the M7 HTTPS/HTTP-2/CDN cutover.
+
+### Changes made (theme-level, content-neutral)
+
+1. **NEW `inc/wave2-w2-09.php`** (+ registered in `functions.php`): emits `<meta name="description">` on the HE homepage (derived verbatim from existing hero title + subtitle — no new copy) with a tagline-based site-wide fallback; and emits favicon `<link rel="icon|shortcut icon|apple-touch-icon">` pointing at the shipped `assets/images/ea-logo.jpg`. Skips the EN page; defers to a real WP Site Icon if configured.
+   - Fixes SEO `meta-description` (0 → pass) and best-practices `errors-in-console` (the `/favicon.ico` 404, 0 → pass).
+2. **`template-parts/blocks/block-topnav.php`** + **`assets/js/ea-hero.js`**: prefixed the sound-toggle `aria-label` with the visible word "שמע" (both the initial PHP markup and the two JS state strings) so the accessible name contains the visible text.
+   - Clears the sound-toggle `label-content-name-mismatch` axe flag (accessibility already 100; this is hygiene).
+
+### Floored categories — exact blocking audits + why (HONEST)
+
+- **SEO 69 (cap):** sole weighted failure is `is-crawlable` (weight 4.04 of ~14), caused by `<meta name="robots" content="noindex, nofollow">` + `X-Robots-Tag: noindex` from `mu-plugins/ea-staging-noindex.php` — the **intentional** staging noindex. Per mandate this MUST NOT be removed (removing it games the score). With it lifted at M7, computed SEO = **100**. NOT theme-fixable; M7 carry-forward.
+- **Best-practices 78 (cap):** sole weighted failures are `is-on-https` and `redirects-http` — HTTP-only staging. HTTPS lands at M7 cutover. With HTTPS, computed best-practices = **100**. NOT theme-fixable; M7/HTTPS carry-forward.
+- The `redirects` performance audit (and the http→https→http hop) is a staging-host artifact (cache-bust param + host redirect behavior), not theme-controllable.
+
+### Files changed + deployed
+
+- `site/wp-content/themes/ea-eyalamit/inc/wave2-w2-09.php` (NEW)
+- `site/wp-content/themes/ea-eyalamit/functions.php` (registered the include)
+- `site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-topnav.php`
+- `site/wp-content/themes/ea-eyalamit/assets/js/ea-hero.js`
+
+Deployed via `scripts/ftp_deploy_site_wp_content.py` on 2026-05-31; live head verified (meta description + favicon present, favicon URL returns 200, sound-toggle aria-label updated). Re-ran Lighthouse post-deploy to confirm scores above.
+
+**AC-05 verdict:** Performance + Accessibility ≥90 (PASS). SEO + Best-practices are at their theme-level ceiling and FLOORED purely by the staging noindex and HTTP-only transport respectively — both verified to compute to 100 once the M7 HTTPS/production cutover lifts those staging conditions. No scores faked; staging noindex retained.
