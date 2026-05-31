@@ -119,6 +119,9 @@ def main() -> None:
     files.append((mu_w2_07_qr, "wp-content/mu-plugins/ea-w2-07-qr-seed-once.php"))
     files.append((mu_w2_07_qr_data, "wp-content/mu-plugins/ea-w2-07-qr-content-data.php"))
     files.append((mu_w2_09_redirects, "wp-content/mu-plugins/ea-w209-legacy-301-redirects.php"))
+    # Blog shortcode cleanup (strips legacy [vc_*] from content + excerpts) + author display-name fix.
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-blog-shortcode-cleanup.php", "wp-content/mu-plugins/ea-blog-shortcode-cleanup.php"))
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-author-displayname-once.php", "wp-content/mu-plugins/ea-w2-10-author-displayname-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

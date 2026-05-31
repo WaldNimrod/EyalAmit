@@ -191,3 +191,16 @@ body.ea-en-landing .ea-en-closing__text {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* ── LTR mirror fixes (F-W2-10-F M4/M5/M6) ──
+   Shared atoms use physical props tuned for RTL that do NOT auto-flip under dir=ltr.
+   Re-orient them for the LTR /en page only (scoped to body.ea-en-landing). */
+body.ea-en-landing .ea-footer__social {
+	flex-direction: row;           /* RTL atom uses row-reverse → FB/IG/YT now left-to-right on /en */
+	justify-content: flex-start;
+}
+body.ea-en-landing .ea-skiplink,
+body.ea-en-landing .ea-skiplink:focus {
+	right: auto;                   /* RTL atom pins right:0 → move to the left for LTR */
+	left: 0;
+}

@@ -28,7 +28,10 @@ function ea_w2_06_enqueue_blog_assets() {
  */
 add_filter( 'body_class', 'ea_w2_06_body_classes' );
 function ea_w2_06_body_classes( $classes ) {
-	if ( ea_wave2_is_active_view( 'tpl-blog-archive' ) ) {
+	// ea_wave2_is_active_view() takes NO argument — it returns true for ANY Wave2 template,
+	// so the prior call leaked 'ea-blog-archive-view' onto /en and every Wave2 page (F-W2-08-01).
+	// Scope strictly to the actual blog archive: the posts page (is_home) or tpl-blog-archive.
+	if ( is_home() || is_page_template( 'page-templates/tpl-blog-archive.php' ) ) {
 		$classes[] = 'ea-blog-archive-view';
 	}
 	if ( is_singular( 'post' ) ) {
