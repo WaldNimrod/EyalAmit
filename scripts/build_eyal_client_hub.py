@@ -1017,16 +1017,100 @@ SiteTreeFeedback.init({{
     return html
 
 
+MATERIALS_INTAKE_STYLE = """<style>
+.mat-progress{position:sticky;top:0;z-index:5;background:#fff;border:1px solid #d9d2c4;border-radius:10px;padding:.7rem 1rem;margin:1rem 0;font-weight:600;line-height:1.7}
+.mat-progress .done{color:#1b7a3d}.mat-progress .miss{color:#b23b3b}
+.mat-card{border:1px solid #d9d2c4;border-right:6px solid #c9bfa8;border-radius:12px;padding:1rem 1.1rem;margin:.9rem 0;background:#fff}
+.mat-card[data-status="submitted"]{border-right-color:#1b7a3d;background:#f3faf4}
+.mat-card[data-status="na"]{border-right-color:#9aa0a6;background:#f6f6f6;opacity:.8}
+.mat-card[data-status="missing"]{border-right-color:#d98b3b;background:#fffdf8}
+.mat-card__head{display:flex;gap:.7rem;align-items:baseline;flex-wrap:wrap}
+.mat-code{font-family:monospace;font-weight:700;background:#efe9dc;border-radius:6px;padding:.1rem .5rem}
+.mat-need{font-weight:700;font-size:1.05rem;flex:1;min-width:14rem}
+.mat-prio{font-size:.8rem;border-radius:999px;padding:.1rem .6rem;white-space:nowrap}
+.mat-prio--block{background:#fde3e3;color:#a01b1b}.mat-prio--high{background:#fde7d3;color:#9a5a00}
+.mat-prio--med{background:#eef3da;color:#5a6a00}.mat-prio--opt{background:#eef0f2;color:#555}
+.mat-pill{font-size:.82rem;font-weight:700;border-radius:999px;padding:.1rem .6rem;white-space:nowrap;background:#efe9dc;color:#555}
+.mat-card[data-status="submitted"] .mat-pill{background:#d6efdc;color:#1b7a3d}
+.mat-card[data-status="missing"] .mat-pill{background:#fbe3cb;color:#9a5a00}
+.mat-card__meta{margin:.5rem 0;color:#333;font-size:.95rem;line-height:1.65}
+.mat-card__meta b{color:#000}
+.mat-card__inputs{display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-top:.6rem;border-top:1px dashed #e2dccd;padding-top:.7rem}
+.mat-card__inputs label{display:flex;flex-direction:column;font-size:.85rem;font-weight:600;gap:.25rem}
+.mat-card__inputs .f-file{flex:1;min-width:16rem}
+.mat-card__inputs select,.mat-card__inputs input{padding:.45rem .6rem;border:1px solid #cfc8b8;border-radius:8px;font-size:.95rem;font-family:inherit}
+.mat-card__inputs input{width:100%}
+@media(max-width:640px){.mat-card__inputs{flex-direction:column;align-items:stretch}.mat-card__inputs .f-file{min-width:0}}
+</style>"""
+
+MATERIALS_INTAKE_JS = """<script>
+(function(){
+  var LS='ea-materials-v1';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return {}}}
+  function save(s){try{localStorage.setItem(LS,JSON.stringify(s))}catch(e){}}
+  var PILL={missing:'חסר',submitted:'\\u2713 הוגש',na:'לא רלוונטי'};
+  var state=load();
+  var cards=[].slice.call(document.querySelectorAll('.mat-card'));
+  function refresh(){
+    var tot=0,done=0,miss=0;
+    cards.forEach(function(c){
+      var code=c.getAttribute('data-code');
+      var st=(state[code]&&state[code].status)||'missing';
+      c.setAttribute('data-status',st);
+      var pill=c.querySelector('[data-pill]'); if(pill) pill.textContent=PILL[st]||'';
+      if(st!=='na') tot++;
+      if(st==='submitted') done++; else if(st==='missing') miss++;
+    });
+    var p=document.getElementById('mat-progress');
+    if(p) p.innerHTML='התקדמות: <span class="done">'+done+' הוגשו</span> · <span class="miss">'+miss+' חסרים</span> · מתוך '+tot+' פריטים נדרשים (לא כולל "לא רלוונטי"). נשמר אוטומטית במכשיר שלך.';
+  }
+  cards.forEach(function(c){
+    var code=c.getAttribute('data-code');
+    var sel=c.querySelector('.mat-status'), inp=c.querySelector('.mat-file');
+    if(state[code]){ if(sel)sel.value=state[code].status||'missing'; if(inp)inp.value=state[code].file||''; }
+    function upd(){ state[code]={status:sel?sel.value:'missing',file:inp?inp.value:''}; save(state); refresh(); }
+    if(sel) sel.addEventListener('change',upd);
+    if(inp) inp.addEventListener('input',upd);
+  });
+  refresh();
+  var btn=document.getElementById('btn-export-materials');
+  if(btn) btn.addEventListener('click',function(){
+    var resp=(document.getElementById('respondent')||{}).value||'';
+    var items=cards.map(function(c){var code=c.getAttribute('data-code');var s=state[code]||{};return {code:code,status:s.status||'missing',file:s.file||''};});
+    var out={type:'eyal-materials-status',respondent:resp,generated:new Date().toISOString(),items:items};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='eyal-materials-status-'+(new Date().toISOString().slice(0,10))+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>
+"""
+
+_MATERIALS_PRIO_CLS = {"חוסם": "block", "גבוה": "high", "בינוני-גבוה": "high", "בינוני": "med", "נמוך": "opt", "אופציונלי": "opt"}
+
+
 def page_materials_intake(materials: dict, generated_iso: str) -> str:
-    """S003 UI-Precision — assets/decisions still needed from Eyal, with a Drive-intake submission widget."""
+    """S003 UI-Precision — Eyal asset/decision intake as an interactive WORK DOCUMENT.
+
+    Each item is a wide, readable card with a per-row status (חסר/הוגש/לא רלוונטי) + a
+    file-name/link field. State auto-saves to localStorage so Eyal can fill it over time;
+    a progress bar shows filled-vs-missing; export emits an `eyal-materials-status` JSON.
+    """
     groups = materials.get("groups", [])
     confirmations = materials.get("confirmations", [])
 
-    html = head("השלמות נדרשות מאייל — אייל עמית")
+    html = head("השלמות נדרשות מאייל — אייל עמית", extra_scripts=MATERIALS_INTAKE_STYLE)
     html += nav("materials-intake")
     html += '<div class="wrap">\n'
     html += f'<h1>{escape(materials.get("title", "השלמות נדרשות מאייל"))}</h1>\n'
     html += f'<p>{escape(materials.get("intro", ""))}</p>\n'
+    html += '<div class="mat-progress" id="mat-progress">טוען מצב…</div>\n'
+
+    html += '<div class="respondent-field feedback-field">\n'
+    html += '<label for="respondent">שם המגיש</label>\n'
+    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    html += "</div>\n"
 
     if confirmations:
         conf = "<ul>\n"
@@ -1041,31 +1125,42 @@ def page_materials_intake(materials: dict, generated_iso: str) -> str:
             for p in g.get("pages", [])
         )
         sec = f'<p class="subtitle">עמודים: {page_links}</p>\n'
-        sec += '<table class="hub-table"><thead><tr><th>קוד</th><th>מה צריך</th><th>הקשר</th><th>פורמט</th><th>עדיפות</th></tr></thead><tbody>\n'
         for it in g.get("items", []):
+            code = it.get("code", "")
+            pcls = _MATERIALS_PRIO_CLS.get(it.get("priority", ""), "opt")
+            sec += f'<div class="mat-card" data-code="{escape(code)}" data-status="missing">\n'
+            sec += '<div class="mat-card__head">\n'
+            sec += f'<span class="mat-code">{escape(code)}</span>\n'
+            sec += f'<span class="mat-need">{escape(it.get("need", ""))}</span>\n'
+            sec += f'<span class="mat-prio mat-prio--{pcls}">{escape(it.get("priority", ""))}</span>\n'
+            sec += '<span class="mat-pill" data-pill></span>\n'
+            sec += "</div>\n"
+            sec += '<div class="mat-card__meta">\n'
+            sec += f'<div><b>הקשר:</b> {escape(it.get("why", ""))}</div>\n'
+            sec += f'<div><b>פורמט:</b> {escape(it.get("format", ""))}</div>\n'
+            sec += "</div>\n"
+            sec += '<div class="mat-card__inputs">\n'
             sec += (
-                f'<tr><td><code>{escape(it.get("code", ""))}</code></td>'
-                f'<td>{escape(it.get("need", ""))}</td>'
-                f'<td>{escape(it.get("why", ""))}</td>'
-                f'<td>{escape(it.get("format", ""))}</td>'
-                f'<td>{escape(it.get("priority", ""))}</td></tr>\n'
+                '<label>סטטוס\n<select class="mat-status">'
+                '<option value="missing">חסר</option>'
+                '<option value="submitted">הוגש</option>'
+                '<option value="na">לא רלוונטי</option></select></label>\n'
             )
-        sec += "</tbody></table>\n"
+            sec += (
+                '<label class="f-file">שם קובץ / קישור / תשובה\n'
+                '<input type="text" class="mat-file" placeholder="שם הקובץ שהעלית לדרייב, קישור, או תשובה"></label>\n'
+            )
+            sec += "</div>\n"
+            sec += "</div>\n"
         html += hub_acc_section(f"mat-{i}", g.get("cluster", ""), sec, open_default=(i == 0))
 
-    html += '<div class="respondent-field feedback-field">\n'
-    html += '<label for="respondent">שם המגיש</label>\n'
-    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    html += '<div class="export-section">\n'
+    html += "<p>הטופס נשמר אוטומטית בדפדפן שלך — אפשר לחזור ולהמשיך בכל עת. בסיום: ייצאו JSON ושלחו אלינו, או שלחו בוואטסאפ.</p>\n"
+    html += '<button class="btn-export" type="button" id="btn-export-materials">ייצוא טבלת מעקב (JSON)</button>\n'
     html += "</div>\n"
-    html += hub_acc_section(
-        "mat-submit",
-        "הגשת קבצים — Drive (ציינו את קוד הפריט בשדה ההקשר; ייצוא eyal-drive-intake)",
-        html_drive_intake_form_static(),
-    )
     html += "</div>\n"
 
-    html += '<script src="assets/feedback.js"></script>\n<script src="assets/hub-form-exports.js"></script>\n'
-    html += f"<script>HubFormExports.initDriveIntake({{ exportType: {json.dumps(EXPORT_TYPE_DRIVE_INTAKE)} }});</script>\n"
+    html += MATERIALS_INTAKE_JS
     html += foot(generated_iso)
     return html
 
