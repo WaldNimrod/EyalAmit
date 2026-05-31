@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>שאלות נפוצות (FAQ) — אייל עמית | S1 hi-fi mockup (WP-W2-10-C)</title>
+<!--
+  team_35 Design Studio — S1 hi-fi composition mockup
+  WP-W2-10-C Conversion cluster · route /faq · tpl-faq.php
+  COMPOSITION-ONLY. Real D-14 tokens inlined verbatim from ea-tokens.css.
+  Atoms reused verbatim from ea-atoms.css (atom-content-faq-item + faq-filter).
+  Content REAL, fetched http://eyalamit-co-il-2026.s887.upress.link/faq/ (HTTP 200).
+  Accordion is button + aria-expanded + region (a11y), NOT <details>, so aria-expanded
+  state is explicit for the audit. Category filter mirrors the live <select> (slugs verbatim).
+-->
+<style>
+:root {
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-text:var(--ea-ink); --ea-text-body:#5A3826;
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px; --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15); --ea-nav-height:64px; --ea-nav-height-mob:56px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased;}
+
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);}
+.ea-skiplink:focus{top:0;}
+
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.92);}
+.ea-topnav__brand{font-weight:200;font-size:.9rem;color:#fff;text-decoration:none;letter-spacing:.5px;}
+.ea-topnav__brand:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center;}
+.ea-topnav__link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.8);text-decoration:none;}
+.ea-topnav__link[aria-current="page"]{color:#fff;border-bottom:1px solid var(--ea-sand);}
+.ea-topnav__link:hover{color:#fff;}
+.ea-topnav__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px;}
+@media (max-width:767px){.ea-topnav__links{display:none;}}
+
+.ea-faq-page-intro{padding:calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-gutter) var(--ea-space-4);background:var(--ea-bg);}
+.ea-faq-page-intro__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-page-title{font-weight:200;font-size:2.8rem;line-height:1.12;letter-spacing:-.3px;color:var(--ea-ink);margin:0;}
+
+/* faq-filter (atom-control-select) */
+.ea-faq-filter{background:var(--ea-bg);padding:0 var(--ea-gutter) var(--ea-space-3);position:sticky;top:var(--ea-nav-height);z-index:var(--ea-z-sticky);}
+.ea-faq-filter__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:flex;align-items:center;gap:var(--ea-space-2);background:var(--ea-bg);padding:var(--ea-space-2) 0;}
+.ea-faq-filter__label{font-weight:300;font-size:.78rem;color:var(--ea-ink);white-space:nowrap;}
+.ea-faq-filter__select{padding:10px 16px;border:1px solid var(--ea-line);border-radius:var(--ea-radius-img);background:var(--ea-bg);font-family:var(--ea-font);font-weight:300;font-size:.9rem;color:var(--ea-ink);direction:rtl;min-width:240px;}
+.ea-faq-filter__select:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;border-color:var(--ea-terracotta);}
+.ea-faq-filter__count{font-size:.78rem;color:var(--ea-muted);margin-inline-start:auto;}
+
+/* atom-content-faq-item (faq-list) */
+.ea-faq-mini-section{padding:var(--ea-space-5) var(--ea-gutter) var(--ea-section-padding);background:var(--ea-bg);}
+.ea-faq-mini-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-faq-group{margin:0 0 var(--ea-space-6);}
+.ea-faq-group__heading{font-weight:200;font-size:1.4rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-2);padding-bottom:var(--ea-space-1);}
+.ea-faq-group[hidden]{display:none;}
+.ea-faq-list{margin:0;}
+.ea-faq-item{border-top:1px solid var(--ea-line);}
+.ea-faq-item__trigger{display:flex;justify-content:space-between;align-items:center;gap:var(--ea-space-3);width:100%;padding:var(--ea-space-4) 0;background:transparent;border:0;cursor:pointer;font-family:var(--ea-font);text-align:right;}
+.ea-faq-item__trigger:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+.ea-faq-item__question{font-size:1rem;font-weight:400;color:var(--ea-ink);margin:0;text-align:right;}
+.ea-faq-item__icon{flex-shrink:0;color:var(--ea-terracotta);transition:transform var(--ea-dur-mid) var(--ea-ease-enter);font-size:.9rem;}
+.ea-faq-item__trigger[aria-expanded="true"] .ea-faq-item__icon{transform:rotate(180deg);}
+.ea-faq-item__answer{padding-bottom:var(--ea-space-4);}
+.ea-faq-item__answer[hidden]{display:none;}
+.ea-faq-item__answer p{font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-text-body);margin:0;}
+.ea-faq-item__answer a{color:var(--ea-terracotta);}
+.ea-faq-empty{font-weight:300;font-size:.9rem;color:var(--ea-muted);padding:var(--ea-space-4) 0;border-top:1px solid var(--ea-line);}
+
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8);}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2);}
+.ea-footer__tagline{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5);}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5);justify-content:flex-end;}
+.ea-footer__nav-link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.ea-footer__nav-link:hover{color:#fff;}
+.ea-footer__nav-link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0;}
+.ea-footer__copy{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.78);margin:0;}
+
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+@media (max-width:639px){
+  .ea-page-title{font-size:1.8rem;}
+  .ea-topnav{height:var(--ea-nav-height-mob);padding:0 var(--ea-space-3);}
+  .ea-faq-filter{top:var(--ea-nav-height-mob);}
+  .ea-faq-filter__inner{flex-wrap:wrap;}
+  .ea-faq-filter__count{margin-inline-start:0;width:100%;}
+}
+</style>
+</head>
+<body>
+<a class="ea-skiplink" href="#main">דלג לתוכן הראשי</a>
+
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="#">אייל עמית</a>
+  <ul class="ea-topnav__links">
+    <li><a class="ea-topnav__link" href="#">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="#">השיטה</a></li>
+    <li><a class="ea-topnav__link" href="#">שיעורים</a></li>
+    <li><a class="ea-topnav__link" href="#" aria-current="page">שאלות נפוצות</a></li>
+    <li><a class="ea-topnav__link" href="#">צור קשר</a></li>
+  </ul>
+</nav>
+
+<main id="main" class="ea-wave2-faq">
+
+  <section class="ea-faq-page-intro" aria-labelledby="faq-title">
+    <div class="ea-faq-page-intro__inner">
+      <h1 class="ea-page-title" id="faq-title">שאלות נפוצות (FAQ)</h1>
+    </div>
+  </section>
+
+  <!-- faq-filter — category select; slugs verbatim from live <select> -->
+  <div class="ea-faq-filter">
+    <div class="ea-faq-filter__inner">
+      <label class="ea-faq-filter__label" for="faq-topic">נושא:</label>
+      <select class="ea-faq-filter__select" id="faq-topic" aria-controls="faq-list">
+        <option value="all">הכל</option>
+        <option value="treatment">טיפול בדיג'רידו</option>
+        <option value="lessons">שיעורי נגינה בדיג'רידו</option>
+        <option value="sound-healing">סאונד הילינג בדיג'רידו</option>
+        <option value="method">השיטה — cbDIDG</option>
+        <option value="didgeridoos">רכישת דיג'רידו</option>
+        <option value="bags">תיקים לדיג'רידו</option>
+        <option value="stands-storage">סטנדים לאחסון דיג'רידו</option>
+        <option value="stand-floor">סטנד רצפתי לנגינה</option>
+        <option value="repair">תיקון וחידוש דיג'רידו</option>
+        <option value="general">שאלות כלליות</option>
+      </select>
+      <span class="ea-faq-filter__count" id="faq-count" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <section class="ea-faq-mini-section" aria-label="רשימת שאלות ותשובות">
+    <div class="ea-faq-mini-section__inner">
+      <div id="faq-list">
+
+        <!-- GROUP: treatment -->
+        <div class="ea-faq-group" data-category="treatment">
+          <h2 class="ea-faq-group__heading">טיפול בדיג'רידו</h2>
+          <div class="ea-faq-list">
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-t1" id="q-t1">
+                <span class="ea-faq-item__question">מה זה בעצם טיפול בדיג'רידו?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-t1" role="region" aria-labelledby="q-t1" hidden>
+                <p>טיפול בדיג'רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הנשימה, באמצעות נגינה בדיג'רידו ככלי עבודה. הדיג'רידו לא עומד במרכז כנגינה או כמטרה, אלא משמש ככלי שמאפשר להבין, להרגיש ולשנות את דפוסי הנשימה היומיומית.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-t2" id="q-t2">
+                <span class="ea-faq-item__question">איך נראה מפגש טיפולי?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-t2" role="region" aria-labelledby="q-t2" hidden>
+                <p>המפגש הוא אישי, אחד על אחד. במהלך המפגש לומדים בהדרגה איך לעבוד עם הנשימה דרך הכלי, תוך תשומת לב לפרטים קטנים — אופן הנשיפה, תנועת הגוף, מתח, הרגלים קיימים ועוד. זה לא שיעור נגינה רגיל, אלא תהליך שמכוון להשפעה על הנשימה עצמה.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-t3" id="q-t3">
+                <span class="ea-faq-item__question">האם צריך ניסיון קודם בנגינה?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-t3" role="region" aria-labelledby="q-t3" hidden>
+                <p>לא. אין צורך בניסיון קודם, לא בנגינה ולא בעבודה עם נשימה. העבודה מתחילה מהבסיס, ומותאמת לכל אדם לפי הקצב והיכולת שלו.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-t4" id="q-t4">
+                <span class="ea-faq-item__question">מה ההבדל בין טיפול בדיג'רידו לסאונד הילינג?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-t4" role="region" aria-labelledby="q-t4" hidden>
+                <p>בטיפול בדיג'רידו יש עבודה אקטיבית — המשתתף לומד לנגן ועובד בפועל עם הנשימה שלו. לעומת זאת, בסאונד הילינג החוויה היא פאסיבית, ובשיעורי נגינה הדגש הוא על לימוד הכלי.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP: lessons -->
+        <div class="ea-faq-group" data-category="lessons">
+          <h2 class="ea-faq-group__heading">שיעורי נגינה בדיג'רידו</h2>
+          <div class="ea-faq-list">
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-l1" id="q-l1">
+                <span class="ea-faq-item__question">האם אפשר ללמוד לבד מיוטיוב?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-l1" role="region" aria-labelledby="q-l1" hidden>
+                <p>אפשר, אך ללא משוב טעויות מתקבעות, התסכול גדל ורבים פורשים. ליווי אישי מאפשר תיקון בזמן אמת והתקדמות מדויקת.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-l2" id="q-l2">
+                <span class="ea-faq-item__question">האם עדיף ללמוד בקבוצה או פרטי?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-l2" role="region" aria-labelledby="q-l2" hidden>
+                <p>לימוד בקבוצה מתקדם בקצב אחיד ולא מאפשר התאמה אישית. בשיעור פרטי ההתקדמות מהירה ומדויקת יותר בעשרות אחוזים.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-l3" id="q-l3">
+                <span class="ea-faq-item__question">האם יש שיעור ניסיון?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-l3" role="region" aria-labelledby="q-l3" hidden>
+                <p>כן. ניתן להגיע ללא התחייבות.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP: sound-healing -->
+        <div class="ea-faq-group" data-category="sound-healing">
+          <h2 class="ea-faq-group__heading">סאונד הילינג בדיג'רידו</h2>
+          <div class="ea-faq-list">
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-s1" id="q-s1">
+                <span class="ea-faq-item__question">האם צריך ניסיון קודם או היכרות עם סאונד הילינג?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-s1" role="region" aria-labelledby="q-s1" hidden>
+                <p>לא. המפגש מתאים גם למי שמגיע בפעם הראשונה, מתוך סקרנות או רצון להיחשף לחוויה.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-s2" id="q-s2">
+                <span class="ea-faq-item__question">האם יש מגע במהלך המפגש?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-s2" role="region" aria-labelledby="q-s2" hidden>
+                <p>ברוב המקרים העבודה נעשית ללא מגע, דרך צליל ותדר בלבד. במקרים מסוימים עשוי להיות מגע עדין ותומך.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-s3" id="q-s3">
+                <span class="ea-faq-item__question">כמה זמן נמשך המפגש?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-s3" role="region" aria-labelledby="q-s3" hidden>
+                <p>המפגש נמשך בדרך כלל כשעתיים.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP: method -->
+        <div class="ea-faq-group" data-category="method">
+          <h2 class="ea-faq-group__heading">השיטה — cbDIDG</h2>
+          <div class="ea-faq-list">
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-m1" id="q-m1">
+                <span class="ea-faq-item__question">מה ההבדל בין שיטת cbDIDG לבין שיטות נשימה אחרות כמו ריברסינג או בוטייקו?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-m1" role="region" aria-labelledby="q-m1" hidden>
+                <p>בשיטת cbDIDG העבודה מתבצעת דרך נגינה בדיג'רידו, כך שהנשימה הופכת לפעולה מוחשית עם משוב מיידי של צליל. הנגינה יוצרת עניין, מיקוד ורצף תרגול, ומאפשרת להתמיד לאורך זמן.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-m2" id="q-m2">
+                <span class="ea-faq-item__question">האם השיטה יכולה לעזור לנחירות או דום נשימה?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-m2" role="region" aria-labelledby="q-m2" hidden>
+                <p>יש מקרים שבהם כן, אך כל מקרה נבחן באופן אישי. לקריאה על המחקר ב‑BMJ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP: didgeridoos -->
+        <div class="ea-faq-group" data-category="didgeridoos">
+          <h2 class="ea-faq-group__heading">רכישת דיג'רידו</h2>
+          <div class="ea-faq-list">
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-d1" id="q-d1">
+                <span class="ea-faq-item__question">האם צריך ניסיון קודם כדי לרכוש דיג'רידו?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-d1" role="region" aria-labelledby="q-d1" hidden>
+                <p>לא. אפשר להתחיל גם בלי ניסיון, והכלי יכול ללוות אותך מהשלבים הראשונים. אבל כדי לדייק את הבחירה וההתאמה של הכלי, מומלץ מאוד לדעת לנשום מעגלית בדיג'רידו. אם עדיין לא למדת, אפשר להתחיל דרך שיעורי נגינה בדיג'רידו.</p>
+              </div>
+            </div>
+            <div class="ea-faq-item">
+              <h3 style="margin:0;"><button class="ea-faq-item__trigger" type="button" aria-expanded="false" aria-controls="a-d2" id="q-d2">
+                <span class="ea-faq-item__question">איך יודעים איזה כלי מתאים לי?</span>
+                <span class="ea-faq-item__icon" aria-hidden="true">▾</span></button></h3>
+              <div class="ea-faq-item__answer" id="a-d2" role="region" aria-labelledby="q-d2" hidden>
+                <p>ההתאמה נעשית לפי הנשימה, התחושה בגוף והמטרה שלך. לכן מומלץ להגיע ולהתנסות לפני בחירה.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUPS with no published Q&A on staging — kept as empty categories (filter parity) -->
+        <div class="ea-faq-group" data-category="bags" hidden>
+          <h2 class="ea-faq-group__heading">תיקים לדיג'רידו</h2>
+          <p class="ea-faq-empty">תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.</p>
+        </div>
+        <div class="ea-faq-group" data-category="stands-storage" hidden>
+          <h2 class="ea-faq-group__heading">סטנדים לאחסון דיג'רידו</h2>
+          <p class="ea-faq-empty">תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.</p>
+        </div>
+        <div class="ea-faq-group" data-category="stand-floor" hidden>
+          <h2 class="ea-faq-group__heading">סטנד רצפתי לנגינה</h2>
+          <p class="ea-faq-empty">תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.</p>
+        </div>
+        <div class="ea-faq-group" data-category="repair" hidden>
+          <h2 class="ea-faq-group__heading">תיקון וחידוש דיג'רידו</h2>
+          <p class="ea-faq-empty">תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.</p>
+        </div>
+        <div class="ea-faq-group" data-category="general" hidden>
+          <h2 class="ea-faq-group__heading">שאלות כלליות</h2>
+          <p class="ea-faq-empty">תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">טיפול, שיעורים וסאונד הילינג בדיג'רידו</p>
+    <nav class="ea-footer__nav" aria-label="ניווט תחתון">
+      <a class="ea-footer__nav-link" href="#">טיפול בדיג'רידו</a>
+      <a class="ea-footer__nav-link" href="#">השיטה — cbDIDG</a>
+      <a class="ea-footer__nav-link" href="#" aria-current="page">שאלות נפוצות</a>
+      <a class="ea-footer__nav-link" href="#">צור קשר</a>
+    </nav>
+    <hr class="ea-footer__divider">
+    <p class="ea-footer__copy">© אייל עמית. כל הזכויות שמורות.</p>
+  </div>
+</footer>
+
+<script>
+/* Composition demo only — accordion (aria-expanded) + category filter (URL state).
+   Final behavior is S3/team_10 (this is a layout sign-off artifact). */
+(function () {
+  // Accordion
+  document.querySelectorAll('.ea-faq-item__trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+    });
+  });
+  // Category filter + URL state (?topic=slug)
+  var sel = document.getElementById('faq-topic');
+  var count = document.getElementById('faq-count');
+  function apply(slug) {
+    var shown = 0;
+    document.querySelectorAll('.ea-faq-group').forEach(function (g) {
+      var match = slug === 'all' || g.getAttribute('data-category') === slug;
+      var hasItems = g.querySelector('.ea-faq-item') !== null;
+      g.hidden = !(match && hasItems);
+      if (!g.hidden) shown += g.querySelectorAll('.ea-faq-item').length;
+    });
+    count.textContent = shown + ' שאלות מוצגות';
+  }
+  function setURL(slug) {
+    var u = new URL(window.location);
+    if (slug === 'all') u.searchParams.delete('topic'); else u.searchParams.set('topic', slug);
+    history.replaceState(null, '', u);
+  }
+  sel.addEventListener('change', function () { apply(sel.value); setURL(sel.value); });
+  var initial = new URL(window.location).searchParams.get('topic') || 'all';
+  if ([].some.call(sel.options, function (o) { return o.value === initial; })) sel.value = initial;
+  apply(sel.value);
+})();
+</script>
+</body>
+</html>

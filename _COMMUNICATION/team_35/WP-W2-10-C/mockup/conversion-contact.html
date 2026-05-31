@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>צור קשר — אייל עמית | S1 hi-fi mockup (WP-W2-10-C)</title>
+<!--
+  team_35 Design Studio — S1 hi-fi composition mockup
+  WP-W2-10-C Conversion cluster · route /contact · tpl-contact.php
+  COMPOSITION-ONLY. Real D-14 tokens inlined verbatim from ea-tokens.css.
+  Atoms reused verbatim from ea-atoms.css (no new atoms / no new token values).
+  Content is REAL, fetched http://eyalamit-co-il-2026.s887.upress.link/contact/ (HTTP 200).
+  NOTE: live /contact renders NO CF7 form (form_id=0) — placeholder text on staging.
+        This mockup composes the *intended* accessible form so Eyal can sign off layout.
+-->
+<style>
+/* ============================================================
+   D-14 DESIGN TOKENS — inlined verbatim from ea-tokens.css (SSoT). DO NOT EDIT values.
+   ============================================================ */
+:root {
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15); --ea-nav-height:64px; --ea-nav-height-mob:56px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+/* prefers-reduced-motion respected; mockup ships motion OFF for clean a11y/perf audit */
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+
+/* atom: skip link */
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);}
+.ea-skiplink:focus{top:0;}
+
+/* atom-nav-topnav */
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.92);}
+.ea-topnav__brand{font-weight:200;font-size:.9rem;color:#fff;text-decoration:none;letter-spacing:.5px;}
+.ea-topnav__brand:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center;}
+.ea-topnav__link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.8);text-decoration:none;}
+.ea-topnav__link[aria-current="page"]{color:#fff;border-bottom:1px solid var(--ea-sand);}
+.ea-topnav__link:hover{color:#fff;}
+.ea-topnav__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px;}
+@media (max-width:767px){.ea-topnav__links{display:none;}}
+
+/* page intro (template part ea-contact-page-intro) */
+.ea-contact-page-intro{padding:calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-gutter) var(--ea-space-5);background:var(--ea-bg);}
+.ea-contact-page-intro__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-page-title{font-weight:200;font-size:2.8rem;line-height:1.12;letter-spacing:-.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-2);}
+.ea-contact-page-intro__sub{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);margin:0;max-width:65ch;}
+
+/* atom-interaction-contact-form + atom-interaction-whatsapp-cta (ea-contact-section) */
+.ea-contact-section{padding:var(--ea-space-10) var(--ea-gutter) var(--ea-section-padding);background:var(--ea-bg-alt);}
+.ea-contact-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--ea-space-8);align-items:start;}
+@media (max-width:767px){.ea-contact-section__inner{grid-template-columns:1fr;}}
+.ea-contact-section__cta-side{padding-top:var(--ea-space-3);}
+.ea-contact-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3);}
+.ea-contact-section__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);margin:0 0 var(--ea-space-5);}
+
+/* contact form atoms */
+.ea-contact-form{max-width:560px;}
+.ea-contact-form__label{display:block;font-weight:300;font-size:.78rem;color:var(--ea-ink);margin-bottom:var(--ea-space-1);text-align:right;}
+.ea-contact-form__req{color:var(--ea-brick);}
+.ea-contact-form__input,.ea-contact-form__select,.ea-contact-form__textarea{width:100%;padding:12px 16px;border:1px solid var(--ea-line);border-radius:var(--ea-radius-img);background:var(--ea-bg);font-family:var(--ea-font);font-weight:300;font-size:.9rem;color:var(--ea-ink);direction:rtl;text-align:right;transition:border-color var(--ea-dur-fast);appearance:none;}
+.ea-contact-form__input:focus-visible,.ea-contact-form__select:focus-visible,.ea-contact-form__textarea:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;border-color:var(--ea-terracotta);}
+.ea-contact-form__field{margin-bottom:var(--ea-space-4);}
+.ea-contact-form__input[aria-invalid="true"],.ea-contact-form__textarea[aria-invalid="true"]{border-color:var(--ea-brick);border-bottom-width:2px;}
+.ea-contact-form__error{display:block;font-size:.78rem;color:var(--ea-brick);margin-top:var(--ea-space-1);}
+.ea-contact-form__note{font-size:.78rem;color:var(--ea-text-body);margin-top:var(--ea-space-3);}
+.ea-contact-form__cf7note{font-size:.72rem;color:var(--ea-muted);margin-top:var(--ea-space-3);border-top:1px dashed var(--ea-line);padding-top:var(--ea-space-2);}
+
+/* atom-feedback-cta-pill */
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-family:var(--ea-font);font-size:.78rem;font-weight:300;letter-spacing:.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast);}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff;}
+.ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta);}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25);}
+.ea-cta-pill:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+@media (max-width:639px){.ea-cta-pill{width:100%;min-width:0;}}
+
+/* WhatsApp A/B variants — atom-interaction-whatsapp-cta (inline pair in cta-side) */
+.ea-wa-variants{display:flex;flex-direction:column;gap:var(--ea-space-3);margin-bottom:var(--ea-space-5);}
+.ea-wa-cta{display:inline-flex;align-items:center;justify-content:center;gap:var(--ea-space-1);background:#0F7A3F;color:#fff;border-radius:var(--ea-radius-pill);padding:14px 24px;text-decoration:none;font-family:var(--ea-font);font-size:.95rem;font-weight:700;transition:background var(--ea-dur-fast),box-shadow var(--ea-dur-fast);}
+.ea-wa-cta:hover{background:#0C6A37;box-shadow:0 4px 16px rgba(15,122,63,0.3);}
+.ea-wa-cta:focus-visible{outline:2px solid var(--ea-ink);outline-offset:3px;}
+.ea-wa-variant__tag{display:block;font-size:.58rem;font-weight:200;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-muted);margin-bottom:var(--ea-space-1);}
+
+/* trust signals */
+.ea-trust{border-top:1px solid var(--ea-line);padding-top:var(--ea-space-4);}
+.ea-trust__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--ea-space-2);}
+.ea-trust__item{font-weight:300;font-size:.9rem;line-height:1.6;color:var(--ea-text-body);display:flex;gap:var(--ea-space-1);align-items:flex-start;}
+.ea-trust__mark{color:var(--ea-olive);flex-shrink:0;font-weight:500;}
+
+/* WhatsApp floating button — atom-interaction-whatsapp-cta (float variant) */
+.ea-whatsapp-float{position:fixed;bottom:var(--ea-space-5);inset-inline-start:var(--ea-space-5);z-index:var(--ea-z-toast);display:inline-flex;align-items:center;gap:var(--ea-space-1);background:#0F7A3F;color:#fff;border-radius:var(--ea-radius-pill);padding:12px 20px;text-decoration:none;font-size:.95rem;font-weight:700;transition:background var(--ea-dur-fast);}
+.ea-whatsapp-float:hover{background:#0C6A37;}
+.ea-whatsapp-float:focus-visible{outline:2px solid var(--ea-ink);outline-offset:3px;}
+
+/* atom-data-display-footer-social */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8);}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2);}
+.ea-footer__tagline{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5);}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5);justify-content:flex-end;}
+.ea-footer__nav-link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.ea-footer__nav-link:hover{color:#fff;}
+.ea-footer__nav-link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0;}
+.ea-footer__copy{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.78);margin:0;}
+
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+@media (max-width:639px){
+  .ea-page-title{font-size:1.8rem;}
+  .ea-contact-section__heading{font-size:1.4rem;}
+  .ea-topnav{height:var(--ea-nav-height-mob);padding:0 var(--ea-space-3);}
+}
+</style>
+</head>
+<body>
+<a class="ea-skiplink" href="#main">דלג לתוכן הראשי</a>
+
+<!-- atom-nav-topnav (block-topnav) -->
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="#">אייל עמית</a>
+  <ul class="ea-topnav__links">
+    <li><a class="ea-topnav__link" href="#">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="#">השיטה</a></li>
+    <li><a class="ea-topnav__link" href="#">שיעורים</a></li>
+    <li><a class="ea-topnav__link" href="#">שאלות נפוצות</a></li>
+    <li><a class="ea-topnav__link" href="#" aria-current="page">צור קשר</a></li>
+  </ul>
+</nav>
+
+<main id="main" class="ea-wave2-contact">
+
+  <!-- ea-contact-page-intro (verbatim from tpl-contact.php) -->
+  <section class="ea-contact-page-intro" aria-labelledby="contact-title">
+    <div class="ea-contact-page-intro__inner">
+      <h1 class="ea-page-title" id="contact-title">צור קשר</h1>
+      <p class="ea-contact-page-intro__sub">ניתן ליצור קשר לתיאום שיחת היכרות, שאלות כלליות או כל פנייה אחרת.</p>
+    </div>
+  </section>
+
+  <!-- ea-contact-section: form (right) + cta-side WhatsApp A/B + trust (left) -->
+  <section class="ea-contact-section" aria-label="טופס צור קשר ודרכי התקשרות">
+    <div class="ea-contact-section__inner">
+
+      <!-- COLUMN 1: contact form (mock of intended CF7 form — form_id currently 0 on staging) -->
+      <div>
+        <h2 class="ea-contact-section__heading">השאירו פנייה</h2>
+        <form class="ea-contact-form" action="#" method="post" novalidate aria-describedby="form-intro">
+          <p class="ea-sr-only" id="form-intro">כל השדות המסומנים בכוכבית הם שדות חובה.</p>
+
+          <div class="ea-contact-form__field">
+            <label class="ea-contact-form__label" for="cf-name">שם מלא <span class="ea-contact-form__req" aria-hidden="true">*</span></label>
+            <input class="ea-contact-form__input" id="cf-name" name="name" type="text" autocomplete="name"
+                   required aria-required="true" aria-describedby="cf-name-err">
+            <span class="ea-contact-form__error" id="cf-name-err" hidden>נא להזין שם מלא.</span>
+          </div>
+
+          <div class="ea-contact-form__field">
+            <label class="ea-contact-form__label" for="cf-phone">טלפון <span class="ea-contact-form__req" aria-hidden="true">*</span></label>
+            <input class="ea-contact-form__input" id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                   required aria-required="true" aria-describedby="cf-phone-err">
+            <span class="ea-contact-form__error" id="cf-phone-err" hidden>נא להזין מספר טלפון תקין.</span>
+          </div>
+
+          <div class="ea-contact-form__field">
+            <label class="ea-contact-form__label" for="cf-email">דוא״ל</label>
+            <input class="ea-contact-form__input" id="cf-email" name="email" type="email" autocomplete="email"
+                   aria-describedby="cf-email-err">
+            <span class="ea-contact-form__error" id="cf-email-err" hidden>כתובת הדוא״ל אינה תקינה.</span>
+          </div>
+
+          <div class="ea-contact-form__field">
+            <label class="ea-contact-form__label" for="cf-topic">נושא הפנייה</label>
+            <select class="ea-contact-form__select" id="cf-topic" name="topic">
+              <option value="intro">תיאום שיחת היכרות</option>
+              <option value="treatment">טיפול בדיג'רידו</option>
+              <option value="lessons">שיעורי נגינה</option>
+              <option value="sound-healing">סאונד הילינג</option>
+              <option value="purchase">רכישת דיג'רידו</option>
+              <option value="general">שאלה כללית</option>
+            </select>
+          </div>
+
+          <div class="ea-contact-form__field">
+            <label class="ea-contact-form__label" for="cf-message">הודעה <span class="ea-contact-form__req" aria-hidden="true">*</span></label>
+            <textarea class="ea-contact-form__textarea" id="cf-message" name="message" rows="5"
+                      required aria-required="true" aria-describedby="cf-message-err"></textarea>
+            <span class="ea-contact-form__error" id="cf-message-err" hidden>נא להזין את תוכן הפנייה.</span>
+          </div>
+
+          <button class="ea-cta-pill ea-cta-pill--primary" type="submit">שליחת פנייה</button>
+
+          <p class="ea-contact-form__note">פנייתך תיענה בדרך כלל תוך יום עסקים אחד.</p>
+          <p class="ea-contact-form__cf7note" role="note">
+            הערת מימוש (לא לתצוגה ללקוח): הטופס כאן הוא הדמיה של ה‑CF7 המיועד.
+            בסטייג׳ינג <code>form_id=0</code> — הטופס האמיתי ייווצר ב‑wp-admin וירותם דרך
+            <code>add_filter('ea_wave2_cf7_form_id', fn()=&gt;&lt;ID&gt;)</code> (S3 / team_10).
+          </p>
+        </form>
+      </div>
+
+      <!-- COLUMN 2: WhatsApp A/B variants + trust signals -->
+      <aside class="ea-contact-section__cta-side" aria-label="דרכי התקשרות מהירות">
+        <h2 class="ea-contact-section__heading">מעדיפים לכתוב ישירות?</h2>
+        <p class="ea-contact-section__body">אפשר לפנות בוואטסאפ ולקבל מענה אישי, גם לתיאום שיחת היכרות וגם לשאלות.</p>
+
+        <!-- WhatsApp A/B variants (WP-W2-01 ea-ab-testing) — variant A vs B copy -->
+        <div class="ea-wa-variants" data-ab-experiment="contact_whatsapp_cta">
+          <div data-ab-variant="A">
+            <span class="ea-wa-variant__tag">וריאנט A</span>
+            <a class="ea-wa-cta" href="https://wa.me/0000000000?text=%D7%94%D7%99%D7%99" rel="noopener"
+               aria-label="פתיחת שיחת וואטסאפ — וריאנט א׳: דברו איתי בוואטסאפ">
+              <span aria-hidden="true">⟢</span> דברו איתי בוואטסאפ
+            </a>
+          </div>
+          <div data-ab-variant="B" hidden>
+            <span class="ea-wa-variant__tag">וריאנט B</span>
+            <a class="ea-wa-cta" href="https://wa.me/0000000000?text=%D7%94%D7%99%D7%99" rel="noopener"
+               aria-label="פתיחת שיחת וואטסאפ — וריאנט ב׳: לתיאום שיחת היכרות בוואטסאפ">
+              <span aria-hidden="true">⟢</span> לתיאום שיחת היכרות בוואטסאפ
+            </a>
+          </div>
+        </div>
+
+        <!-- trust signals -->
+        <div class="ea-trust">
+          <ul class="ea-trust__list">
+            <li class="ea-trust__item"><span class="ea-trust__mark" aria-hidden="true">✓</span> שיחת היכרות ראשונית ללא התחייבות</li>
+            <li class="ea-trust__item"><span class="ea-trust__mark" aria-hidden="true">✓</span> ליווי אישי, אחד על אחד</li>
+            <li class="ea-trust__item"><span class="ea-trust__mark" aria-hidden="true">✓</span> מענה אישי תוך יום עסקים אחד</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</main>
+
+<!-- atom-interaction-whatsapp-cta (float variant, block-contact-cta) -->
+<a class="ea-whatsapp-float" href="https://wa.me/0000000000" rel="noopener" aria-label="פתיחת שיחת וואטסאפ">
+  <span aria-hidden="true">⟢</span> וואטסאפ
+</a>
+
+<!-- atom-data-display-footer-social (block-footer-social) -->
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">טיפול, שיעורים וסאונד הילינג בדיג'רידו</p>
+    <nav class="ea-footer__nav" aria-label="ניווט תחתון">
+      <a class="ea-footer__nav-link" href="#">טיפול בדיג'רידו</a>
+      <a class="ea-footer__nav-link" href="#">השיטה — cbDIDG</a>
+      <a class="ea-footer__nav-link" href="#">שאלות נפוצות</a>
+      <a class="ea-footer__nav-link" href="#" aria-current="page">צור קשר</a>
+    </nav>
+    <hr class="ea-footer__divider">
+    <p class="ea-footer__copy">© אייל עמית. כל הזכויות שמורות.</p>
+  </div>
+</footer>
+
+</body>
+</html>

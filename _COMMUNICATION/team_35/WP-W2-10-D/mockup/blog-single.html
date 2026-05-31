@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>מוקש דהימן – מאסטר דיג'רידו | אייל עמית — S1 mockup (WP-W2-10-D)</title>
+<style>
+/* =============================================================
+   D-14 TOKENS — inlined verbatim from ea-tokens.css
+   ============================================================= */
+:root {
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-type-h1:200 2.8rem/1.12 var(--ea-font);
+  --ea-type-h2:200 2.0rem/1.2 var(--ea-font);
+  --ea-type-h3:400 0.92rem/1.4 var(--ea-font);
+  --ea-type-body-lg:300 1.05rem/1.9 var(--ea-font);
+  --ea-type-body:300 0.9rem/1.85 var(--ea-font);
+  --ea-type-body-sm:300 0.78rem/1.6 var(--ea-font);
+  --ea-type-caption:200 0.58rem/1.4 var(--ea-font);
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px; --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15);
+  --ea-nav-height:64px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1);
+  --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:0.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast);}
+.ea-skiplink:focus{top:0;}
+
+/* atom-nav-topnav */
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.ea-topnav__brand{font-weight:200;font-size:0.9rem;color:#fff;text-decoration:none;letter-spacing:0.5px;}
+.ea-topnav__brand:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center;}
+.ea-topnav__link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.8);text-decoration:none;}
+.ea-topnav__link:hover{color:#fff;}
+.ea-topnav__link[aria-current="page"]{color:#fff;}
+.ea-topnav__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px;}
+
+/* atom-feedback-cta-pill */
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:0.78rem;font-weight:300;letter-spacing:0.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast);}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff;}
+.ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta);}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25);}
+.ea-cta-pill:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+
+/* contact-cta block (ea-atoms.css .ea-contact-section subset) */
+.ea-contact-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt);text-align:center;}
+.ea-contact-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-contact-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0;}
+.ea-contact-section__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);margin:0 0 var(--ea-space-5) 0;}
+
+/* atom-data-display-footer-social */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8);}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2) 0;}
+.ea-footer__tagline{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5) 0;}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5) 0;justify-content:flex-end;}
+.ea-footer__nav-link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.ea-footer__nav-link:hover{color:#fff;}
+.ea-footer__nav-link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+.ea-footer__copy{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.78);margin:0;}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0;}
+
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+
+/* =============================================================
+   SINGLE (W2-06) — inlined verbatim from ea-blog.css
+   ============================================================= */
+.ea-wave2-blog-single{max-width:var(--ea-prose-width);margin:0 auto;padding:var(--ea-space-8) var(--ea-space-4);direction:rtl;}
+.ea-post-featured{margin-block-end:var(--ea-space-6);border-radius:2px;overflow:hidden;}
+.ea-post-featured img{width:100%;height:auto;display:block;}
+.ea-post-featured__placeholder{width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,var(--ea-earth) 0%,var(--ea-chocolate) 55%,var(--ea-ink) 100%);}
+.ea-wave2-blog-single .ea-page-title{font:var(--ea-type-h1);color:var(--ea-text);margin-block-end:var(--ea-space-3);}
+.ea-post-meta{display:flex;flex-wrap:wrap;gap:var(--ea-space-3);font:var(--ea-type-body-sm);color:var(--ea-muted);margin-block-end:var(--ea-space-6);padding-block-end:var(--ea-space-3);border-block-end:1px solid var(--ea-line);}
+.ea-post-meta a{color:var(--ea-accent);text-decoration:none;}
+.ea-post-meta a:hover{text-decoration:underline;}
+
+/* reading column — D-14 AC-D3: validated long-Hebrew typography */
+.ea-post-content{font:var(--ea-type-body-lg);color:var(--ea-text-body);line-height:1.9;max-width:66ch;}
+.ea-post-content h2{font:var(--ea-type-h2);color:var(--ea-text);margin-block:var(--ea-space-5) var(--ea-space-2);}
+.ea-post-content h3{font:var(--ea-type-h3);color:var(--ea-text);margin-block:var(--ea-space-4) var(--ea-space-2);}
+.ea-post-content p{margin-block-end:var(--ea-space-3);}
+.ea-post-content img{max-width:100%;height:auto;border-radius:2px;}
+.ea-post-content a{color:var(--ea-accent);}
+.ea-post-content blockquote{margin:var(--ea-space-4) 0;padding-inline-start:var(--ea-space-3);border-inline-start:2px solid var(--ea-terracotta);color:var(--ea-text);font-style:italic;}
+
+.ea-post-tags{margin-block-start:var(--ea-space-6);display:flex;flex-wrap:wrap;gap:var(--ea-space-1);align-items:center;}
+.ea-post-tags__label{font:var(--ea-type-body-sm);color:var(--ea-muted);}
+.ea-post-tags a{font:var(--ea-type-body-sm);color:var(--ea-text);text-decoration:none;padding:2px var(--ea-space-2);border:1px solid var(--ea-line);border-radius:2px;}
+.ea-post-tags a:hover{color:var(--ea-accent);border-color:var(--ea-accent);}
+.ea-post-tags a:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+
+/* === COMPOSITION PROPOSALS (flagged as open questions — not yet in W2-06 build) === */
+/* share row */
+.ea-post-share{display:flex;align-items:center;gap:var(--ea-space-2);margin-block-start:var(--ea-space-6);padding-block-start:var(--ea-space-4);border-block-start:1px solid var(--ea-line);}
+.ea-post-share__label{font:var(--ea-type-body-sm);color:var(--ea-muted);}
+.ea-post-share__link{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--ea-line);border-radius:50%;color:var(--ea-text-body);text-decoration:none;font-size:0.9rem;transition:color var(--ea-dur-fast),border-color var(--ea-dur-fast);}
+.ea-post-share__link:hover{color:var(--ea-accent);border-color:var(--ea-accent);}
+.ea-post-share__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+/* related posts — reuses .ea-blog-grid/.ea-blog-card pattern at 2-up */
+.ea-related{max-width:var(--ea-prose-width);margin:0 auto;padding:var(--ea-space-8) var(--ea-space-4) 0;direction:rtl;}
+.ea-related__heading{font:var(--ea-type-h2);color:var(--ea-text);margin:0 0 var(--ea-space-5) 0;}
+.ea-related__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--ea-space-5);}
+@media (max-width:560px){.ea-related__grid{grid-template-columns:1fr;}}
+.ea-blog-card{display:flex;flex-direction:column;background:var(--ea-bg);border:1px solid var(--ea-line);border-radius:2px;overflow:hidden;text-decoration:none;transition:box-shadow 0.25s;}
+.ea-blog-card:hover{box-shadow:0 4px 18px rgba(46,43,40,0.10);}
+.ea-blog-card__thumb{aspect-ratio:16/9;background:var(--ea-bg-alt);}
+.ea-blog-card__thumb-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--ea-sand) 0%,var(--ea-bg-alt) 100%);}
+.ea-blog-card__body{padding:var(--ea-space-3);display:flex;flex-direction:column;gap:var(--ea-space-1);}
+.ea-blog-card__cat{font:var(--ea-type-caption);color:var(--ea-accent);text-transform:uppercase;letter-spacing:0.08em;}
+.ea-blog-card__title{font:var(--ea-type-h3);color:var(--ea-text);margin:0;line-height:1.45;}
+.ea-blog-card__title a{color:inherit;text-decoration:none;}
+.ea-blog-card__title a:hover{color:var(--ea-accent);}
+.ea-blog-card__title a:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px;}
+
+.mock-banner{background:var(--ea-ink);color:var(--ea-sand);font:var(--ea-type-body-sm);text-align:center;padding:6px var(--ea-gutter);margin-top:var(--ea-nav-height);}
+.mock-flag{display:inline-block;font:var(--ea-type-caption);color:var(--ea-on-dark);background:var(--ea-olive);padding:2px 8px;border-radius:2px;letter-spacing:0.06em;vertical-align:middle;margin-inline-start:var(--ea-space-1);}
+
+@media (max-width:639px){
+  .ea-wave2-blog-single .ea-page-title{font-size:1.6rem;}
+  .ea-post-content{font-size:1rem;}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="ea-skiplink">דלג לתוכן</a>
+
+<header>
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a href="#" class="ea-topnav__brand">אייל עמית</a>
+  <ul class="ea-topnav__links">
+    <li><a class="ea-topnav__link" href="#">בית</a></li>
+    <li><a class="ea-topnav__link" href="#">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="#">שיטה</a></li>
+    <li><a class="ea-topnav__link" href="#">ספרים</a></li>
+    <li><a class="ea-topnav__link" href="blog-archive.html" aria-current="page">בלוג</a></li>
+    <li><a class="ea-topnav__link" href="#">צור קשר</a></li>
+  </ul>
+</nav>
+</header>
+
+<p class="mock-banner">S1 hi-fi mockup · WP-W2-10-D single · composition-only · תוכן אמיתי מ-staging</p>
+
+<main id="main" class="ea-wave2-blog-single">
+
+  <!-- featured image — placeholder gradient (no real featured image on staging post) -->
+  <div class="ea-post-featured">
+    <div class="ea-post-featured__placeholder" role="img" aria-label="תמונה ראשית — ציור שמן על קנבס של מוקש דהימן (להחלפה בתמונה אמיתית מאייל)"></div>
+  </div>
+
+  <h1 class="ea-page-title">מוקש דהימן – מאסטר דיג'רידו – ציור מקורי חדש בסטודיו נשימה מעגלית (שמן על קנבס)</h1>
+
+  <div class="ea-post-meta">
+    <span class="ea-post-meta__author">מאת: אייל עמית</span>
+    <time class="ea-post-meta__date" datetime="2024-08-05">05.08.2024</time>
+    <span class="ea-post-meta__cats"><a href="blog-archive.html">כללי</a></span>
+  </div>
+
+  <div class="ea-post-content">
+    <p>שלושה שבועות ראשונים למלחמת חרבות ברזל. כולם בחרדה ובהיסטריה. תעוקה בכל הגוף. הכאב והעצב בלתי נתפסים. גם לי קשה לנשום. למי לא. פתאום דפיקה בדלת. איש גבוה עם תלתלים שחורים ועיניים מחייכות נותן לי חיבוק חזק ומסובב לכיווני את הקנבס. חשבתי שאני מתעלף!!!</p>
+
+    <p>מי שאחראי על יצירת האמנות המדהימה והמרגשת הזו (שמן על קנבס) הוא האמן סלבה ויינבלט שהוא גם חבר וגם תלמיד שלי. חיכיתי בסבלנות רבה לקבל אותה. כמעט שנה. סלבה ביקש קודם לצפות בסרט הדוקומנטרי שעשיתי על מוקש. הוא רצה גם לראות תמונות ולשמוע סיפורים אודותיו. הוא רצה קודם ללמוד, להבין ויותר מהכל להרגיש את האיש שאותו הוא הולך לצייר. המבט, הזווית, הרגש שהעיניים מעבירות, בחירת הצבעים, הווייב הכללי של היצירה כולה.</p>
+
+    <p>סלבה סיפר לי שהציור הזה עבר כמה גלגולים. אי אפשר לראות את זה היום, אבל מתחתיו יש כמה שכבות נוספות. סקיצות ונסיונות קודמים שלא סיפקו את האמן, אז הוא החליט לכסות הכל ולהתחיל מחדש. שוב ושוב. עד שנחה דעתו. בין השכבות סלבה נשם מעגלית בדיג'רידו, מדט והתחבר למוקש ברובדים עמוקים יותר.</p>
+
+    <p>עוד לא החלטתי מה מרגש אותי יותר, הגרסה הסופית שנמצאת היום על הקנבס, או הידיעה שמתחתיה יש עוד כמה שכבות נוספות, ניסתרות, עמוקות, ממש כמו האיש עצמו. צמרמורת! כל מי שהיה אצלי בסטודיו בשנים האחרונות, או שמע את ההרצאה שלי אודות הנשימה והדיג'רידו, מבין גם למה. למנח הידיים (מודרה) הספציפי הזה שסלבה הצליח ללכוד בציור יש משמעות רבה, ובטיימינג המטורף הזה שהציור הגיע אלי, זו היתה גם תזכורת סופר חשובה.</p>
+
+    <p>הנשימה שלי מיד התרחבה והלב נפתח. זו היתה שעת ערב, אבל הסלון התמלא פתאום באור גדול. עמדתי שם דקות ארוכות, לא מצליח לדבר ולא מצליח להוריד את העיניים מהציור. צללתי לתוך זוג עיניו הטובות של מוקש וכמילותיו של זוהר ארגוב – המוח רץ!!! מה זה רץ.. עף!!!</p>
+
+    <p>סלבה לוקח טוש לורד ורושם לי הקדשה בגב הקנבס. הדופק שלי נוסק לשמיים, כולי כבר שלולית של התרגשות על הרצפה. אפשר להספיג את הנשמה שלי עם מטלית. כל כולי הודייה. סלבה, האמן המחונן, לגמרי הצליח להבין את האיש, להרגיש אותו, להביא אותו בדיוק בתדר הנכון. תדר שרק מילה אחת יכולה לתאר אותו – אהבה מעומק הלב. תודה סלבה!!!!</p>
+
+    <p>ואתם חברים יקרים, כשאתם מגיעים אלי לסטודיו, תרשו לעצמכם רגע לשהות מול הציור המיוחד הזה, לנשום לתוכו, לנוח לתוכו, להיזכר אולי באיש שמעולם לא הכרתם. המורה שלנצח ימשיך לחיות ולהדהד בתוכי ודרך העשייה שלי.</p>
+
+    <p>אום מוקש דהימן – מאסטר דיג'רידו עם ציור מקורי כזה בסטודיו, שאנטי דפנטלי קאמינג הום!</p>
+  </div>
+
+  <!-- tags — tpl-blog-single .ea-post-tags -->
+  <div class="ea-post-tags">
+    <span class="ea-post-tags__label">תגיות:</span>
+    <a href="#">דיג'רידו</a>
+    <a href="#">נשימה מעגלית</a>
+    <a href="#">מוקש דהימן</a>
+    <a href="#">סטודיו</a>
+  </div>
+
+  <!-- COMPOSITION PROPOSAL: share row (per spec: single = ...+ share). Not yet in W2-06 build -->
+  <div class="ea-post-share">
+    <span class="ea-post-share__label">שיתוף:<span class="mock-flag">הצעת קומפוזיציה</span></span>
+    <a class="ea-post-share__link" href="#" aria-label="שיתוף ב-WhatsApp">WA</a>
+    <a class="ea-post-share__link" href="#" aria-label="שיתוף ב-Facebook">f</a>
+    <a class="ea-post-share__link" href="#" aria-label="העתקת קישור">↗</a>
+  </div>
+
+</main>
+
+<!-- COMPOSITION PROPOSAL: related posts (per spec: single = ...+ related posts). Reuses .ea-blog-card -->
+<section class="ea-related" aria-labelledby="related-h">
+  <h2 class="ea-related__heading" id="related-h">פוסטים נוספים<span class="mock-flag">הצעת קומפוזיציה</span></h2>
+  <div class="ea-related__grid">
+    <article class="ea-blog-card">
+      <div class="ea-blog-card__thumb"><div class="ea-blog-card__thumb-placeholder" aria-hidden="true"></div></div>
+      <div class="ea-blog-card__body">
+        <span class="ea-blog-card__cat">כללי</span>
+        <h3 class="ea-blog-card__title"><a href="#">נגינה ונשימה מעגלית בדיג'רידו – ריפוי הנשימה והנשמה</a></h3>
+      </div>
+    </article>
+    <article class="ea-blog-card">
+      <div class="ea-blog-card__thumb"><div class="ea-blog-card__thumb-placeholder" aria-hidden="true"></div></div>
+      <div class="ea-blog-card__body">
+        <span class="ea-blog-card__cat">כללי</span>
+        <h3 class="ea-blog-card__title"><a href="#">טיפול בנשימה באמצעות דיג'רידו – ללמוד לנשום נכון ביומיום וגם בלילה</a></h3>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- contact-cta block (tpl-blog-single appends this) -->
+<section class="ea-contact-section">
+  <div class="ea-contact-section__inner">
+    <h2 class="ea-contact-section__heading">רוצים לחוות בעצמכם?</h2>
+    <p class="ea-contact-section__body">המרכז לטיפול בנשימה באמצעות דיג'רידו מזמין אתכם לפגישת היכרות בסטודיו.</p>
+    <a class="ea-cta-pill ea-cta-pill--primary" href="#">לתיאום פגישה</a>
+  </div>
+</section>
+
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">המרכז לטיפול בנשימה באמצעות דיג'רידו</p>
+    <nav class="ea-footer__nav" aria-label="ניווט תחתון">
+      <a class="ea-footer__nav-link" href="#">בית</a>
+      <a class="ea-footer__nav-link" href="#">טיפול</a>
+      <a class="ea-footer__nav-link" href="blog-archive.html">בלוג</a>
+      <a class="ea-footer__nav-link" href="#">צור קשר</a>
+    </nav>
+    <hr class="ea-footer__divider">
+    <p class="ea-footer__copy">© 2026 אייל עמית · כל הזכויות שמורות</p>
+  </div>
+</footer>
+
+</body>
+</html>

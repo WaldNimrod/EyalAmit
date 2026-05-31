@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>אודות אייל עמית — מוקאפ S1 (WP-W2-10-B)</title>
+<!--
+  team_35 (Design Studio / claude-design) — S1 hi-fi mockup
+  WP-W2-10-B Editorial cluster · PRIMARY route /about · 2026-05-31 v1
+  Composition-only. All values below are verbatim D-14 token + atom values
+  (ea-tokens.css + ea-atoms.css). NO new atoms or token values introduced.
+  Real Hebrew content sourced from staging /about (HTTP 200).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== D-14 tokens (ea-tokens.css §:root — verbatim) ===== */
+:root{
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-12:96px; --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15); --ea-nav-height:64px; --ea-nav-height-mob:56px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+/* ===== base (ea-atoms.css verbatim) ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:0.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast)}
+.ea-skiplink:focus{top:0}
+.ea-link{position:relative;text-decoration:none;color:var(--ea-terracotta)}
+.ea-link::after{content:'';position:absolute;bottom:-1px;left:50%;right:50%;height:1px;background:currentColor;transition:left var(--ea-dur-mid) var(--ea-ease-enter),right var(--ea-dur-mid) var(--ea-ease-enter)}
+.ea-link:hover::after,.ea-link:focus-visible::after{left:0;right:0}
+/* atom-nav-topnav */
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ea-topnav__brand{font-weight:200;font-size:0.9rem;color:#fff;text-decoration:none;letter-spacing:0.5px}
+.ea-topnav__brand:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center}
+.ea-topnav__link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.8);text-decoration:none;position:relative;transition:color var(--ea-dur-fast)}
+.ea-topnav__link::after{content:'';position:absolute;bottom:-2px;left:50%;right:50%;height:1px;background:var(--ea-sand);transition:left var(--ea-dur-mid) var(--ea-ease-enter),right var(--ea-dur-mid) var(--ea-ease-enter)}
+.ea-topnav__link:hover{color:#fff}
+.ea-topnav__link:hover::after,.ea-topnav__link:focus-visible::after,.ea-topnav__link[aria-current="page"]::after{left:0;right:0}
+.ea-topnav__link[aria-current="page"]{color:#fff}
+.ea-topnav__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px}
+.ea-topnav__burger{display:none;background:transparent;border:1px solid rgba(255,255,255,0.3);border-radius:var(--ea-radius-img);padding:6px 10px;color:rgba(255,255,255,0.8);cursor:pointer;font-size:1rem}
+.ea-topnav__burger:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px}
+@media (max-width:767px){.ea-topnav__links{display:none}.ea-topnav__burger{display:block}}
+/* atom-feedback-cta-pill */
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:0.78rem;font-weight:300;letter-spacing:0.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast);touch-action:manipulation}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff}
+.ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta)}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25)}
+.ea-cta-pill:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px}
+.ea-cta-pill:active{transform:scale(0.98)}
+@media (max-width:639px){.ea-cta-pill{width:100%;min-width:0}}
+/* atom-structure-section-intro (page header) */
+.ea-section-intro{padding:var(--ea-section-padding) var(--ea-gutter)}
+.ea-section-intro__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-section-intro__heading{font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-0.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+.ea-section-intro__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);max-width:65ch}
+.ea-section-intro__body p{margin:0 0 var(--ea-space-3) 0}
+/* atom-structure-breath-divider */
+.ea-breath-divider{display:flex;align-items:center;justify-content:center;padding:var(--ea-space-5) 0}
+.ea-breath-divider__line{display:block;width:100%;max-width:var(--ea-prose-width);height:1px;background:var(--ea-line)}
+/* atom-content-bio-block */
+.ea-bio-block{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+.ea-bio-block__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:grid;grid-template-columns:1fr 320px;gap:var(--ea-space-8);align-items:start}
+.ea-bio-block__content{order:1}
+.ea-bio-block__figure{order:2;margin:0}
+@media (max-width:767px){.ea-bio-block__inner{grid-template-columns:1fr}.ea-bio-block__figure{order:1}.ea-bio-block__content{order:2}}
+.ea-bio-block__portrait-placeholder{width:100%;aspect-ratio:4/5;background:var(--ea-sand);border-radius:var(--ea-radius-img);display:block}
+.ea-bio-block__portrait{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--ea-radius-img);display:block}
+.ea-bio-block__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+.ea-bio-block__text{font-weight:300;font-size:0.9rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-4) 0}
+.ea-bio-block__caption{font-weight:200;font-size:0.58rem;line-height:1.4;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-muted);margin:var(--ea-space-2) 0 0 0}
+/* atom-structure-content-section */
+.ea-content-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+.ea-content-section--alt{background:var(--ea-bg-alt)}
+.ea-content-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-content-section__heading{font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-0.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-5) 0}
+.ea-content-section__body p{font-weight:300;font-size:0.9rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0;max-width:75ch}
+/* pullquote — composed from D-14 type tokens + breath-divider accent (no new atom) */
+.ea-pullquote{max-width:var(--ea-prose-width);margin:var(--ea-space-6) auto 0;padding:0 var(--ea-gutter)}
+.ea-pullquote blockquote{margin:0;border-inline-start:1px solid var(--ea-terracotta);padding-inline-start:var(--ea-space-4);font-weight:200;font-size:1.4rem;line-height:1.6;color:var(--ea-chocolate)}
+/* media gallery — reuse ea-book-gallery atom pattern */
+.ea-book-gallery{margin:var(--ea-space-2) 0;max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-book-gallery__label{display:block;font-size:0.58rem;font-weight:200;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-muted);margin-bottom:var(--ea-space-2)}
+.ea-book-gallery__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ea-line)}
+.ea-book-gallery__item{aspect-ratio:4/3;background:var(--ea-bg-alt);display:flex;align-items:center;justify-content:center}
+.ea-book-gallery__item:first-child{grid-column:1 / -1;aspect-ratio:16/7}
+.ea-book-gallery__text{font-size:0.72rem;font-weight:300;color:var(--ea-muted)}
+.ea-book-gallery__note{font-size:0.72rem;font-weight:300;color:var(--ea-muted);margin:var(--ea-space-2) 0 0 0}
+@media (max-width:799px){.ea-book-gallery__grid{grid-template-columns:repeat(2,1fr)}}
+/* related routes — reuse services-grid / service-tile atom */
+.ea-services-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+.ea-services-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-services-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-6) 0}
+.ea-services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ea-line)}
+@media (max-width:639px){.ea-services-grid{grid-template-columns:1fr}}
+.ea-service-tile{background:var(--ea-bg);padding:var(--ea-space-8);text-decoration:none;display:block;transition:background var(--ea-dur-fast)}
+.ea-service-tile:hover{background:var(--ea-bg-alt)}
+.ea-service-tile:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:-2px}
+.ea-service-tile__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-service-tile__title{font-weight:400;font-size:0.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-2) 0}
+.ea-service-tile__desc{font-weight:300;font-size:0.9rem;line-height:1.85;color:var(--ea-text-body);margin:0}
+/* atom-interaction-contact-cta (cta side only) */
+.ea-contact-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+.ea-contact-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;text-align:center}
+.ea-contact-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+.ea-contact-section__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);margin:0 0 var(--ea-space-5) 0}
+/* atom-interaction-whatsapp-cta */
+.ea-whatsapp-float{position:fixed;bottom:var(--ea-space-5);inset-inline-start:var(--ea-space-5);z-index:var(--ea-z-toast);display:inline-flex;align-items:center;gap:var(--ea-space-1);background:#0F7A3F;color:#fff;border-radius:var(--ea-radius-pill);padding:12px 20px;text-decoration:none;font-size:0.95rem;font-weight:700;transition:box-shadow var(--ea-dur-fast),background var(--ea-dur-fast)}
+.ea-whatsapp-float:hover{background:#0C6A37;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
+.ea-whatsapp-float:focus-visible{outline:2px solid #fff;outline-offset:3px}
+/* atom-data-display-footer-social */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8)}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2) 0}
+.ea-footer__tagline{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5) 0}
+.ea-footer__location{font-weight:400;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin:0 0 var(--ea-space-6) 0}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5) 0;justify-content:flex-end}
+.ea-footer__nav-link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.6);text-decoration:none;transition:color var(--ea-dur-fast)}
+.ea-footer__nav-link:hover{color:#fff}
+.ea-footer__nav-link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:2px}
+.ea-footer__copy{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.78);margin:0}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0}
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+@media (max-width:639px){
+  .ea-topnav{height:var(--ea-nav-height-mob);padding:0 var(--ea-space-3)}
+  .ea-section-intro,.ea-content-section,.ea-bio-block,.ea-services-section,.ea-contact-section{padding:var(--ea-space-10) var(--ea-space-3)}
+  .ea-section-intro__heading,.ea-content-section__heading,.ea-bio-block__heading,.ea-services-section__heading,.ea-contact-section__heading{font-size:1.4rem}
+  .ea-wave2-content p{text-align:start}
+}
+</style>
+</head>
+<body class="ea-wave2-content">
+<a class="ea-skiplink" href="#main">דלג לתוכן</a>
+
+<!-- atom-nav-topnav -->
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="/">אייל עמית</a>
+  <ul class="ea-topnav__links">
+    <li><a class="ea-topnav__link" href="/treatment/">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="/method/">השיטה</a></li>
+    <li><a class="ea-topnav__link" href="/about/" aria-current="page">אודות</a></li>
+    <li><a class="ea-topnav__link" href="/press/">עיתונות</a></li>
+    <li><a class="ea-topnav__link" href="/contact/">צור קשר</a></li>
+  </ul>
+  <button class="ea-topnav__burger" type="button" aria-label="פתח תפריט" aria-expanded="false">☰</button>
+</nav>
+
+<main id="main">
+  <!-- SCREEN 1 · Page header — atom-structure-section-intro -->
+  <header class="ea-section-intro" style="padding-top:calc(var(--ea-nav-height) + var(--ea-space-10))">
+    <div class="ea-section-intro__inner">
+      <h1 class="ea-section-intro__heading">אודות אייל עמית</h1>
+      <div class="ea-section-intro__body">
+        <p>אייל עמית עוסק בעבודה עם דיג׳רידו מאז 1999, והוא מהוותיקים בארץ בתחום.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCREEN 2 · Bio + portrait — atom-content-bio-block (AC-B2: REAL portrait) -->
+  <section class="ea-bio-block" aria-labelledby="bio-h">
+    <div class="ea-bio-block__inner">
+      <div class="ea-bio-block__content">
+        <h2 class="ea-bio-block__heading" id="bio-h">המרכז לטיפול בדיג׳רידו</h2>
+        <p class="ea-bio-block__text">את המרכז לטיפול בדיג׳רידו — סטודיו נשימה מעגלית בפרדס חנה — הקים מתוך רצון להנגיש וללמד את העבודה עם הדיג׳רידו ככלי להשפעה תרפויטית על הגוף, הנשימה והתודעה.</p>
+        <p class="ea-bio-block__text">לאורך השנים ליווה מאות אנשים בתהליכים אישיים, ופיתח את שיטת cbDIDG לטיפול באמצעות דיג׳רידו, מתוך שילוב של ניסיון מעשי וחקירה מתמשכת.</p>
+      </div>
+      <figure class="ea-bio-block__figure">
+        <!-- ASSET GAP: real Eyal portrait required (AC-B2). Placeholder shown until delivered. -->
+        <div class="ea-bio-block__portrait-placeholder" role="img" aria-label="דיוקן של אייל עמית (תמונה תוטמע לאחר מסירת הנכס)"></div>
+        <figcaption class="ea-bio-block__caption">אייל עמית · פרדס חנה</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- breath-divider -->
+  <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+  <!-- SCREEN 3 · The journey — atom-structure-content-section -->
+  <section class="ea-content-section" aria-labelledby="derech-h">
+    <div class="ea-content-section__inner">
+      <h2 class="ea-content-section__heading" id="derech-h">הדרך</h2>
+      <div class="ea-content-section__body">
+        <p>הדרך שלו עם הדיג׳רידו החלה מתוך מסע אישי של חקירה ורצון להתמודד עם קשיים בריאותיים — אסטמה ואלרגיות קשות.</p>
+        <p>אחד המקורות המשמעותיים ביותר בדרך היה הקשר המתמשך עם המאסטר ההודי לדיג׳רידו מוקש דהימן, שהחל בשנת 2000. אייל הפך לאחד מתלמידיו הקרובים, ולמד ממנו את יסודות העבודה התרפויטית עם הדיג׳רידו.</p>
+      </div>
+    </div>
+    <!-- pullquote — composed from D-14 type tokens + terracotta accent rule -->
+    <div class="ea-pullquote">
+      <blockquote>״הקשר עם מוקש דהימן הוא הציר שעליו נשענת כל הדרך התרפויטית שלי.״</blockquote>
+    </div>
+  </section>
+
+  <!-- breath-divider -->
+  <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+  <!-- SCREEN 4 · The studio + media gallery — content-section + ea-book-gallery atom -->
+  <section class="ea-content-section ea-content-section--alt" aria-labelledby="studio-h">
+    <div class="ea-content-section__inner">
+      <h2 class="ea-content-section__heading" id="studio-h">הסטודיו</h2>
+      <div class="ea-content-section__body">
+        <p>הסטודיו ממוקם בפרדס חנה, בתוך מרחב ירוק ושקט עם חצר פתוחה, עצי פרי ושבילי עץ.</p>
+      </div>
+    </div>
+    <!-- media gallery — reuses atom-content-book-gallery pattern. ASSET GAP: studio photos. -->
+    <div class="ea-book-gallery" role="group" aria-label="גלריית תמונות הסטודיו">
+      <span class="ea-book-gallery__label">הסטודיו בפרדס חנה</span>
+      <div class="ea-book-gallery__grid">
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">חצר פתוחה</span></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">מרחב הטיפול</span></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">עצי פרי</span></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">שבילי עץ</span></div>
+      </div>
+      <p class="ea-book-gallery__note">תמונות הסטודיו יוטמעו לאחר מסירת הנכסים מאייל.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 5 · Related editorial routes — reuse services-grid / service-tile atom -->
+  <section class="ea-services-section" aria-labelledby="related-h">
+    <div class="ea-services-section__inner">
+      <h2 class="ea-services-section__heading" id="related-h">להמשך הקריאה</h2>
+      <div class="ea-services-grid">
+        <a class="ea-service-tile" href="/about/moksha/">
+          <p class="ea-service-tile__label">סיפור</p>
+          <h3 class="ea-service-tile__title">על מוקש דהימן</h3>
+          <p class="ea-service-tile__desc">המאסטר ההודי לדיג׳רידו, מורו של אייל, והמורשת הממשיכה מרישיקש לפרדס חנה.</p>
+        </a>
+        <a class="ea-service-tile" href="/press/">
+          <p class="ea-service-tile__label">עיתונות</p>
+          <h3 class="ea-service-tile__title">אזכורים וכתבות</h3>
+          <p class="ea-service-tile__desc">אזכורים, כתבות וראיונות לאורך השנים — וגם המלצות אישיות ממשתתפים.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 6 · Closing CTA — atom-feedback-cta-pill in contact-section -->
+  <section class="ea-contact-section" aria-labelledby="cta-h">
+    <div class="ea-contact-section__inner">
+      <h2 class="ea-contact-section__heading" id="cta-h">רוצים להכיר?</h2>
+      <p class="ea-contact-section__body">לתיאום שיחת היכרות, ללא התחייבות.</p>
+      <a class="ea-cta-pill ea-cta-pill--primary" href="/contact/">לתיאום שיחת היכרות</a>
+    </div>
+  </section>
+</main>
+
+<!-- atom-data-display-footer-social -->
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">המרכז לטיפול בדיג׳רידו · סטודיו נשימה מעגלית</p>
+    <p class="ea-footer__location">פרדס חנה</p>
+    <nav class="ea-footer__nav" aria-label="ניווט תחתון">
+      <a class="ea-footer__nav-link" href="/treatment/">טיפול</a>
+      <a class="ea-footer__nav-link" href="/method/">השיטה</a>
+      <a class="ea-footer__nav-link" href="/about/">אודות</a>
+      <a class="ea-footer__nav-link" href="/press/">עיתונות</a>
+      <a class="ea-footer__nav-link" href="/contact/">צור קשר</a>
+    </nav>
+    <hr class="ea-footer__divider">
+    <p class="ea-footer__copy">© אייל עמית · כל הזכויות שמורות</p>
+  </div>
+</footer>
+
+<!-- atom-interaction-whatsapp-cta -->
+<a class="ea-whatsapp-float" href="https://wa.me/" aria-label="פתיחת שיחת וואטסאפ">
+  <span class="ea-whatsapp-float__icon" aria-hidden="true">✆</span>
+  <span>וואטסאפ</span>
+</a>
+</body>
+</html>

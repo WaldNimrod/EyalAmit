@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>טיפול בדיג׳רידו — אייל עמית | S1 mockup WP-W2-10-A</title>
+  <!--
+    S1 hi-fi mockup — WP-W2-10-A (Service cluster), PRIMARY route /treatment.
+    team_35 (Design Studio, claude-design). 2026-05-31. COMPOSITION-ONLY.
+    Content: REAL Hebrew copy fetched from staging /treatment/ (HTTP 200).
+    Tokens: D-14 ea-tokens.css values copied verbatim into :root below.
+    Atoms: class names/patterns reused verbatim from D-14 ea-atoms.css.
+    NO new atoms, NO new token values invented (AC-U1).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ====== D-14 TOKENS — copied verbatim from ea-tokens.css (DO NOT redefine) ====== */
+    :root {
+      --ea-sand:        #D8C7B5;
+      --ea-terracotta:  #A44E2B;
+      --ea-earth:       #8A5A44;
+      --ea-olive:       #6E6F4A;
+      --ea-ink:         #2E2B28;
+      --ea-chocolate:   #5C3A2E;
+      --ea-brick:       #AB3A2B;
+      --ea-accent:       var(--ea-terracotta);
+      --ea-accent-strong:var(--ea-brick);
+      --ea-text:         var(--ea-ink);
+      --ea-text-body:    #5A3826;
+      --ea-text-muted:   var(--ea-text-body);
+      --ea-bg:          #FAF8F5;
+      --ea-bg-alt:      #F3EEE8;
+      --ea-on-dark:     #FFFFFF;
+      --ea-line:        rgba(216,199,181,0.35);
+      --ea-muted:       #6F635A;
+      --ea-font:        'Heebo', -apple-system, Arial, sans-serif;
+      --ea-space-1:   8px;  --ea-space-2:  16px; --ea-space-3: 24px;
+      --ea-space-4:  32px;  --ea-space-5:  40px; --ea-space-6: 48px;
+      --ea-space-8:  64px;  --ea-space-10: 80px; --ea-space-12: 96px;
+      --ea-space-15: 120px;
+      --ea-content-width:  1200px;
+      --ea-prose-width:    960px;
+      --ea-gutter:         24px;
+      --ea-section-padding:var(--ea-space-15);
+      --ea-nav-height:     64px;
+      --ea-nav-height-mob: 56px;
+      --ea-radius-pill:  100px;
+      --ea-radius-img:   4px;
+      --ea-z-sticky:         20;
+      --ea-z-toast:          60;
+      --ea-z-tooltip:        70;
+      --ea-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+      --ea-dur-fast:   150ms;
+      --ea-dur-mid:    300ms;
+      --ea-dur-slow:   600ms;
+    }
+
+    /* ====== Base reset & body — from ea-atoms.css ====== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--ea-font);
+      font-weight: 300;
+      background: var(--ea-bg);
+      color: var(--ea-ink);
+      direction: rtl;
+      text-align: right;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .ea-skiplink {
+      position: absolute; top: -40px; right: 0;
+      background: var(--ea-terracotta); color: #fff;
+      padding: 8px 16px; font-family: var(--ea-font); font-size: 0.9rem;
+      text-decoration: none; z-index: calc(var(--ea-z-tooltip) + 10);
+      border-radius: 0 0 var(--ea-radius-img) var(--ea-radius-img);
+      transition: top var(--ea-dur-fast);
+    }
+    .ea-skiplink:focus { top: 0; }
+
+    .ea-link { position: relative; text-decoration: none; color: var(--ea-terracotta); }
+
+    /* ====== atom-nav-topnav ====== */
+    .ea-topnav {
+      position: fixed; top: 0; right: 0; left: 0; height: var(--ea-nav-height);
+      z-index: var(--ea-z-sticky); display: flex; align-items: center;
+      justify-content: space-between; padding: 0 var(--ea-space-4);
+      background: rgba(46,43,40,0.72); backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .ea-topnav__brand { font-family: var(--ea-font); font-weight: 200; font-size: 0.9rem; color: #fff; text-decoration: none; letter-spacing: 0.5px; }
+    .ea-topnav__brand:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 4px; }
+    .ea-topnav__links { display: flex; gap: var(--ea-space-4); list-style: none; margin: 0; padding: 0; align-items: center; }
+    .ea-topnav__link {
+      font-family: var(--ea-font); font-weight: 300; font-size: 0.78rem;
+      color: rgba(255,255,255,0.8); text-decoration: none; position: relative;
+      transition: color var(--ea-dur-fast);
+    }
+    .ea-topnav__link::after {
+      content: ''; position: absolute; bottom: -2px; left: 50%; right: 50%; height: 1px;
+      background: var(--ea-sand);
+      transition: left var(--ea-dur-mid) var(--ea-ease-enter), right var(--ea-dur-mid) var(--ea-ease-enter);
+    }
+    .ea-topnav__link:hover { color: #fff; }
+    .ea-topnav__link:hover::after, .ea-topnav__link:focus-visible::after,
+    .ea-topnav__link[aria-current="page"]::after { left: 0; right: 0; }
+    .ea-topnav__link[aria-current="page"] { color: #fff; }
+    .ea-topnav__link:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 3px; }
+    .ea-topnav__controls { display: flex; gap: var(--ea-space-2); align-items: center; }
+    .ea-sound-toggle {
+      background: transparent; border: 1px solid rgba(255,255,255,0.45);
+      border-radius: var(--ea-radius-pill); padding: 6px 14px; font-family: var(--ea-font);
+      font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.92); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .ea-sound-toggle:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 3px; }
+    .ea-topnav__burger {
+      display: none; background: transparent; border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--ea-radius-img); padding: 6px 10px; color: rgba(255,255,255,0.8);
+      cursor: pointer; font-size: 1rem;
+    }
+    .ea-topnav__burger:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 3px; }
+    @media (max-width: 767px) {
+      .ea-topnav__links { display: none; }
+      .ea-topnav__burger { display: block; }
+    }
+
+    /* ====== atom-structure-hero-video (variant_placeholder gradient) ====== */
+    .ea-hero {
+      position: relative; width: 100%; min-height: 640px; height: 86vh; overflow: hidden;
+      background: var(--ea-ink); color: #fff; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .ea-hero__bg { position: absolute; inset: 0; }
+    .ea-hero__gradient-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #1a1714 0%, #2E2B28 30%, #3d2e26 60%, #1a1714 100%);
+    }
+    .ea-hero__overlay { position: absolute; inset: 0; background: rgba(46,43,40,0.35); pointer-events: none; }
+    .ea-hero__breath-line {
+      position: absolute; inset-inline-start: 10%; inset-inline-end: 10%; height: 1px;
+      background: rgba(216,199,181,0.4);
+    }
+    .ea-hero__breath-line--1 { top: 38%; } .ea-hero__breath-line--2 { top: 62%; } .ea-hero__breath-line--3 { top: 22%; }
+    .ea-hero__content { position: relative; z-index: 2; text-align: center; padding: 0 var(--ea-space-4); max-width: var(--ea-prose-width); }
+    .ea-hero__title {
+      font-family: var(--ea-font); font-weight: 100; font-size: 3.4rem; line-height: 1.12;
+      letter-spacing: -0.5px; color: #fff; text-shadow: 0 1px 12px rgba(46,43,40,0.5);
+      margin: 0 0 var(--ea-space-2) 0; text-align: right;
+    }
+    .ea-hero__subtitle { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 300; line-height: 1.9; margin: 0 0 var(--ea-space-2) 0; text-align: right; }
+    .ea-hero__trust { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 200; letter-spacing: 0.2px; margin: 0 0 var(--ea-space-5) 0; text-align: right; }
+    .ea-hero__cta-wrap { text-align: right; }
+    @media (max-width: 1023px) { .ea-hero__title { font-size: 2.4rem; } }
+    @media (max-width: 639px) {
+      .ea-hero__title { font-size: 1.8rem; text-shadow: 0 1px 8px rgba(46,43,40,0.7); }
+      .ea-hero__subtitle { font-size: 0.92rem; }
+    }
+
+    /* ====== atom-feedback-cta-pill ====== */
+    .ea-cta-pill {
+      display: inline-flex; align-items: center; justify-content: center; min-width: 200px;
+      padding: 14px 32px; border-radius: var(--ea-radius-pill); border: 1px solid transparent;
+      font-family: var(--ea-font); font-size: 0.78rem; font-weight: 300; letter-spacing: 0.2px;
+      text-decoration: none; cursor: pointer; text-align: center;
+      transition: transform var(--ea-dur-fast), box-shadow var(--ea-dur-fast); touch-action: manipulation;
+    }
+    .ea-cta-pill--primary { background: var(--ea-terracotta); color: #fff; }
+    .ea-cta-pill--ghost { background: transparent; color: var(--ea-terracotta); border-color: var(--ea-terracotta); }
+    .ea-cta-pill--ghost-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
+    .ea-cta-pill:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(164,78,43,0.25); }
+    .ea-cta-pill:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 4px; }
+    .ea-cta-pill:active { transform: scale(0.98); }
+    @media (max-width: 639px) { .ea-cta-pill { width: 100%; min-width: 0; } }
+
+    /* ====== atom-structure-breath-divider ====== */
+    .ea-breath-divider { display: flex; align-items: center; justify-content: center; padding: var(--ea-space-5) 0; }
+    .ea-breath-divider__line { display: block; width: 100%; max-width: var(--ea-prose-width); height: 1px; background: var(--ea-line); }
+
+    /* ====== atom-structure-section-intro + atom-content-bio-block ====== */
+    .ea-section-intro { padding: var(--ea-section-padding) var(--ea-gutter); }
+    .ea-section-intro__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-section-intro__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; letter-spacing: -0.3px; color: var(--ea-ink); margin: 0 0 var(--ea-space-3) 0; }
+    .ea-section-intro__body { font-family: var(--ea-font); font-weight: 300; font-size: 1.05rem; line-height: 1.9; color: var(--ea-text-body); max-width: 65ch; }
+    .ea-section-intro__body p { margin: 0 0 var(--ea-space-3) 0; }
+
+    .ea-bio-block { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg-alt); }
+    .ea-bio-block__inner { max-width: var(--ea-prose-width); margin-inline: auto; display: grid; grid-template-columns: 1fr 320px; gap: var(--ea-space-8); align-items: start; }
+    .ea-bio-block__content { order: 1; } .ea-bio-block__figure { order: 2; margin: 0; }
+    @media (max-width: 767px) { .ea-bio-block__inner { grid-template-columns: 1fr; } .ea-bio-block__figure { order: 1; } .ea-bio-block__content { order: 2; } }
+    .ea-bio-block__portrait-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--ea-sand); border-radius: var(--ea-radius-img); display: block; }
+    .ea-bio-block__portrait { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: var(--ea-radius-img); display: block; }
+    .ea-bio-block__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; color: var(--ea-ink); margin: 0 0 var(--ea-space-3) 0; }
+    .ea-bio-block__text { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-text-body); margin: 0 0 var(--ea-space-4) 0; }
+
+    /* ====== atom-structure-content-section + pillars ====== */
+    .ea-content-section { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg); }
+    .ea-content-section--alt { background: var(--ea-bg-alt); }
+    .ea-content-section__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-content-section__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; letter-spacing: -0.3px; color: var(--ea-ink); margin: 0 0 var(--ea-space-5) 0; }
+    .ea-content-section__body p { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-earth); margin: 0 0 var(--ea-space-3) 0; max-width: 75ch; }
+    .ea-content-section__body ul { padding-inline-start: var(--ea-space-3); color: var(--ea-earth); margin: 0 0 var(--ea-space-4) 0; }
+    .ea-content-section__body li { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; margin-bottom: var(--ea-space-1); }
+    .ea-pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ea-space-5); margin-top: var(--ea-space-5); }
+    @media (max-width: 639px) { .ea-pillars-grid { grid-template-columns: 1fr; } }
+    .ea-pillar { background: var(--ea-bg); border-top: 1px solid var(--ea-line); padding: var(--ea-space-4); }
+    .ea-pillar__label { font-family: var(--ea-font); font-weight: 200; font-size: 0.58rem; line-height: 1.4; letter-spacing: 3.5px; text-transform: uppercase; color: var(--ea-terracotta); margin: 0 0 var(--ea-space-2) 0; }
+    .ea-pillar__title { font-family: var(--ea-font); font-weight: 400; font-size: 0.92rem; line-height: 1.4; color: var(--ea-ink); margin: 0 0 var(--ea-space-2) 0; }
+    .ea-pillar__text { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-earth); margin: 0; }
+
+    /* ====== Service comparison (treatment-overview) ====== */
+    .ea-service-comparison { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg-alt); }
+    .ea-service-comparison__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-service-comparison__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; color: var(--ea-ink); margin: 0 0 var(--ea-space-6) 0; }
+    .ea-service-comparison__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--ea-line); }
+    @media (max-width: 639px) { .ea-service-comparison__grid { grid-template-columns: 1fr; } }
+    .ea-service-comparison__col { background: var(--ea-bg); padding: var(--ea-space-8); }
+    .ea-service-comparison__col-title { font-family: var(--ea-font); font-weight: 400; font-size: 0.92rem; line-height: 1.4; color: var(--ea-ink); margin: 0 0 var(--ea-space-4) 0; }
+    .ea-service-comparison__col p { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-earth); margin: 0; }
+
+    /* ====== atom-content-testimonial-card ====== */
+    .ea-testimonials-section { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg-alt); }
+    .ea-testimonials-section__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-testimonials-section__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; color: var(--ea-ink); margin: 0 0 var(--ea-space-6) 0; }
+    .ea-testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ea-space-4); }
+    @media (max-width: 1023px) { .ea-testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 639px) { .ea-testimonials-grid { grid-template-columns: 1fr; } }
+    .ea-testimonial-card { background: var(--ea-bg); border-top: 1px solid var(--ea-line); padding: var(--ea-space-5); display: flex; gap: var(--ea-space-3); align-items: flex-start; }
+    .ea-testimonial-card__figure { flex-shrink: 0; margin: 0; }
+    .ea-testimonial-card__avatar-placeholder { width: 48px; height: 48px; border-radius: 50%; background: var(--ea-sand); display: block; flex-shrink: 0; }
+    .ea-testimonial-card__quote { margin: 0; flex: 1; }
+    .ea-testimonial-card__text { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-earth); margin: 0 0 var(--ea-space-2) 0; font-style: italic; }
+    .ea-testimonial-card__footer { display: flex; align-items: center; gap: 4px; }
+    .ea-testimonial-card__name { font-size: 0.78rem; font-weight: 300; color: var(--ea-terracotta); font-style: normal; }
+    .ea-testimonials-section__footer { margin-top: var(--ea-space-6); text-align: center; }
+
+    /* ====== atom-content-faq-item (faq-mini) ====== */
+    .ea-faq-mini-section { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg); }
+    .ea-faq-mini-section__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-faq-mini-section__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; color: var(--ea-ink); margin: 0 0 var(--ea-space-5) 0; }
+    .ea-faq-list { margin: 0 0 var(--ea-space-6) 0; }
+    .ea-faq-item { border-top: 1px solid var(--ea-line); }
+    .ea-faq-item__details { width: 100%; }
+    .ea-faq-item__summary { display: flex; justify-content: space-between; align-items: center; padding: var(--ea-space-4) 0; cursor: pointer; list-style: none; gap: var(--ea-space-3); }
+    .ea-faq-item__summary::-webkit-details-marker { display: none; }
+    .ea-faq-item__summary:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 2px; }
+    .ea-faq-item__question { font-family: var(--ea-font); font-size: 1rem; font-weight: 400; color: var(--ea-ink); margin: 0; text-align: right; }
+    .ea-faq-item__icon { flex-shrink: 0; color: var(--ea-terracotta); transition: transform var(--ea-dur-mid) var(--ea-ease-enter); }
+    .ea-faq-item__details[open] .ea-faq-item__icon { transform: rotate(180deg); }
+    .ea-faq-item__answer p { font-family: var(--ea-font); font-weight: 300; font-size: 0.9rem; line-height: 1.85; color: var(--ea-earth); padding-bottom: var(--ea-space-4); margin: 0; }
+    .ea-faq-mini-section__footer { text-align: right; }
+
+    /* ====== Disclaimer note (verbatim copy from staging) ====== */
+    .ea-disclaimer { padding: var(--ea-space-6) var(--ea-gutter); background: var(--ea-bg-alt); }
+    .ea-disclaimer__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-disclaimer__text { font-family: var(--ea-font); font-weight: 300; font-size: 0.78rem; line-height: 1.6; color: var(--ea-muted); margin: 0; text-align: start; }
+
+    /* ====== CTA closing band (atom-feedback-cta-pill on bg-alt) ====== */
+    .ea-section--cta { padding: var(--ea-section-padding) var(--ea-gutter); background: var(--ea-bg-alt); text-align: center; }
+    .ea-section--cta .ea-section__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-section__heading { font-family: var(--ea-font); font-weight: 200; font-size: 2rem; line-height: 1.2; color: var(--ea-ink); margin: 0 0 var(--ea-space-4) 0; }
+    .ea-section__body { font-family: var(--ea-font); font-weight: 300; font-size: 1.05rem; line-height: 1.9; color: var(--ea-text-body); margin: 0 auto var(--ea-space-5); max-width: 60ch; }
+
+    /* ====== atom-interaction-whatsapp-cta (float) ====== */
+    .ea-whatsapp-float {
+      position: fixed; bottom: var(--ea-space-5); inset-inline-start: var(--ea-space-5); z-index: var(--ea-z-toast);
+      display: inline-flex; align-items: center; gap: var(--ea-space-1); background: #0F7A3F; color: #fff;
+      border-radius: var(--ea-radius-pill); padding: 12px 20px; text-decoration: none; font-family: var(--ea-font);
+      font-size: 0.95rem; font-weight: 700;
+    }
+    .ea-whatsapp-float:hover { background: #0C6A37; box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+    .ea-whatsapp-float:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    /* ====== atom-data-display-footer-social ====== */
+    .ea-footer { background: var(--ea-ink); color: rgba(255,255,255,0.7); padding: var(--ea-space-10) var(--ea-gutter) var(--ea-space-8); }
+    .ea-footer__inner { max-width: var(--ea-prose-width); margin-inline: auto; }
+    .ea-footer__brand { font-family: var(--ea-font); font-weight: 200; font-size: 1.2rem; color: rgba(255,255,255,0.9); margin: 0 0 var(--ea-space-2) 0; }
+    .ea-footer__tagline { font-family: var(--ea-font); font-weight: 300; font-size: 0.78rem; color: rgba(255,255,255,0.5); margin: 0 0 var(--ea-space-5) 0; }
+    .ea-footer__location { font-family: var(--ea-font); font-weight: 400; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin: 0 0 var(--ea-space-6) 0; }
+    .ea-footer__social { display: flex; gap: var(--ea-space-3); align-items: center; flex-direction: row-reverse; justify-content: flex-end; margin: 0 0 var(--ea-space-6) 0; }
+    .ea-footer__social-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: rgba(255,255,255,0.7); text-decoration: none; }
+    .ea-footer__social-link:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+    .ea-footer__social-link:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 3px; }
+    .ea-footer__nav { display: flex; gap: var(--ea-space-4); flex-wrap: wrap; margin: 0 0 var(--ea-space-5) 0; justify-content: flex-end; }
+    .ea-footer__nav-link { font-family: var(--ea-font); font-weight: 300; font-size: 0.78rem; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .ea-footer__nav-link:hover { color: #fff; }
+    .ea-footer__nav-link:focus-visible { outline: 2px solid var(--ea-terracotta); outline-offset: 2px; }
+    .ea-footer__copy { font-family: var(--ea-font); font-weight: 300; font-size: 0.78rem; color: rgba(255,255,255,0.78); margin: 0; }
+    .ea-footer__divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: var(--ea-space-5) 0; }
+
+    .ea-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+
+    /* mobile section padding parity with ea-atoms.css */
+    @media (max-width: 639px) {
+      .ea-topnav { height: var(--ea-nav-height-mob); padding: 0 var(--ea-space-3); }
+      .ea-section-intro, .ea-content-section, .ea-bio-block, .ea-testimonials-section,
+      .ea-faq-mini-section, .ea-service-comparison, .ea-section--cta {
+        padding: var(--ea-space-10) var(--ea-space-3);
+      }
+      .ea-section-intro__heading, .ea-content-section__heading, .ea-bio-block__heading,
+      .ea-testimonials-section__heading, .ea-faq-mini-section__heading,
+      .ea-service-comparison__heading, .ea-section__heading { font-size: 1.4rem; }
+      .ea-wave2-service p, .ea-content-section p { text-align: start; }
+    }
+  </style>
+</head>
+<body class="ea-wave2-service">
+  <a class="ea-skiplink" href="#main">דלג לתוכן הראשי</a>
+
+  <!-- ===== atom-nav-topnav ===== -->
+  <header data-block="topnav">
+    <nav class="ea-topnav" aria-label="ניווט ראשי">
+      <a class="ea-topnav__brand" href="/" aria-label="אייל עמית — דף הבית">אייל עמית</a>
+      <ul class="ea-topnav__links" role="list">
+        <li><a class="ea-topnav__link" href="/">בית</a></li>
+        <li><a class="ea-topnav__link" href="/method">השיטה</a></li>
+        <li><a class="ea-topnav__link" href="/treatment" aria-current="page">טיפול</a></li>
+        <li><a class="ea-topnav__link" href="/sound-healing">סאונד הילינג</a></li>
+        <li><a class="ea-topnav__link" href="/lessons">שיעורים</a></li>
+        <li><a class="ea-topnav__link" href="/books">ספרים</a></li>
+        <li><a class="ea-topnav__link" href="/faq">שאלות נפוצות</a></li>
+        <li><a class="ea-topnav__link" href="/contact">צור קשר</a></li>
+      </ul>
+      <div class="ea-topnav__controls">
+        <button class="ea-sound-toggle" type="button" aria-label="שמע — הפעל צליל דיג'רידו" aria-pressed="false" data-on="false">
+          <span class="ea-sound-toggle__ico" aria-hidden="true">♪</span>
+          <span class="ea-sound-toggle__label">שמע</span>
+        </button>
+        <button class="ea-topnav__burger" type="button" aria-label="פתח תפריט" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- SLOT: hero-content — atom-structure-hero-video / variant_placeholder gradient -->
+    <section class="ea-hero" data-block="hero">
+      <div class="ea-hero__bg" aria-hidden="true">
+        <div class="ea-hero__gradient-bg"></div>
+      </div>
+      <div class="ea-hero__overlay" aria-hidden="true"></div>
+      <span class="ea-hero__breath-line ea-hero__breath-line--1" aria-hidden="true"></span>
+      <span class="ea-hero__breath-line ea-hero__breath-line--2" aria-hidden="true"></span>
+      <span class="ea-hero__breath-line ea-hero__breath-line--3" aria-hidden="true"></span>
+      <div class="ea-hero__content">
+        <h1 class="ea-hero__title">טיפול בדיג׳רידו</h1>
+        <p class="ea-hero__subtitle">להחזיר שליטה על הנשימה דרך עבודה אקטיבית עם דיג׳רידו, תרגול נשימה וליווי אישי</p>
+        <p class="ea-hero__trust">סטודיו בפרדס חנה · ליווי אישי אחד-על-אחד · שיטת cbDIDG</p>
+        <div class="ea-hero__cta-wrap">
+          <a class="ea-cta-pill ea-cta-pill--primary" href="/contact">לתיאום שיחת היכרות</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLOT: intro-text — atom-structure-section-intro -->
+    <section class="ea-section-intro" aria-labelledby="intro-h" data-block="intro">
+      <div class="ea-section-intro__inner">
+        <h2 id="intro-h" class="ea-section-intro__heading">משהו בנשימה שלך מבקש תשומת לב</h2>
+        <div class="ea-section-intro__body">
+          <p>הנשימה היא לא פעולה אוטומטית לחלוטין. רוב הזמן היא מתרחשת לבד, בלי שנשים לב.</p>
+          <p>אבל ברגע שמפנים אליה תשומת לב, יש לנו יכולת להשפיע עליה — לשנות עומק, קצב, איכות. לבחור איך לנשום.</p>
+          <p>העבודה במרכז מבוססת על שיטת cbDIDG שפותחה לאורך השנים מתוך ניסיון מעשי, ובהשראת חניכה אישית אצל המאסטר לדיג׳רידו מוקש דהימן.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+    <!-- SLOT: body-sections [1/3] — "מה זה" content-section -->
+    <section class="ea-content-section" aria-labelledby="what-h" data-block="body-section">
+      <div class="ea-content-section__inner">
+        <h2 id="what-h" class="ea-content-section__heading">מה זה טיפול בדיג׳רידו</h2>
+        <div class="ea-content-section__body">
+          <p>טיפול בדיג׳רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הנשימה היומיומית.</p>
+          <p>הדיג׳רידו משמש ככלי עבודה, לא כמטרה. העבודה אינה על הנגינה עצמה, אלא על הדרך שבה אנחנו נושמים.</p>
+          <p>במהלך המפגשים לומדים: איך מערכת הנשימה פועלת בפועל, לזהות דפוסים אוטומטיים, לפתח שליטה ויכולת ויסות.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLOT: body-sections [2/3] — "למי זה מתאים" pillars-grid -->
+    <section class="ea-content-section ea-content-section--alt" aria-labelledby="who-h" data-block="body-section">
+      <div class="ea-content-section__inner">
+        <h2 id="who-h" class="ea-content-section__heading">למי זה מתאים</h2>
+        <ul class="ea-pillars-grid" role="list">
+          <li class="ea-pillar">
+            <p class="ea-pillar__label">מתח כרוני</p>
+            <p class="ea-pillar__text">מי שמתמודד עם סטרס כרוני.</p>
+          </li>
+          <li class="ea-pillar">
+            <p class="ea-pillar__label">עומס רגשי</p>
+            <p class="ea-pillar__text">מי שחווה מתח, חרדה או עומס רגשי מתמשך.</p>
+          </li>
+          <li class="ea-pillar">
+            <p class="ea-pillar__label">נשימה בשינה</p>
+            <p class="ea-pillar__text">מי שסובל מנחירות או דום נשימה בשינה.</p>
+          </li>
+          <li class="ea-pillar">
+            <p class="ea-pillar__label">נשימה מדויקת</p>
+            <p class="ea-pillar__text">מי שרוצה ללמוד לנשום בצורה מדויקת ומטיבה יותר.</p>
+          </li>
+          <li class="ea-pillar">
+            <p class="ea-pillar__label">שקט ומיקוד</p>
+            <p class="ea-pillar__text">מי שרוצה להכניס יותר שקט, מודעות ומיקוד לחיים.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SLOT: body-sections [3/3] — "איך נראה מפגש" bio-block (real portrait asset) -->
+    <section class="ea-bio-block" aria-labelledby="session-h" data-block="body-section">
+      <div class="ea-bio-block__inner">
+        <div class="ea-bio-block__content">
+          <h2 id="session-h" class="ea-bio-block__heading">איך נראה מפגש</h2>
+          <p class="ea-bio-block__text">המפגשים מתקיימים אחד על אחד, בסטודיו בפרדס חנה. זהו מרחב שקט ונעים, הממוקם בלב חצר ירוקה עם עצי פרי ושבילי עץ.</p>
+          <p class="ea-bio-block__text">במהלך המפגש עובדים בצורה הדרגתית, בקצב שמתאים לאדם שמגיע. המפגש הראשון כולל אבחון ולכן הוא לרוב מעט ארוך יותר.</p>
+          <p class="ea-bio-block__text">אין צורך בניסיון קודם. העבודה מתחילה מהבסיס.</p>
+        </div>
+        <figure class="ea-bio-block__figure">
+          <!-- REAL asset: assets/home/eyal-portrait-hero.jpg (theme). Path here is a stand-in for the mockup. -->
+          <img class="ea-bio-block__portrait"
+               src="https://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/home/eyal-portrait-hero.jpg"
+               alt="אייל עמית במהלך עבודה עם דיג׳רידו בסטודיו בפרדס חנה"
+               width="320" height="400" loading="lazy">
+          <figcaption class="ea-sr-only">אייל עמית, סטודיו פרדס חנה</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SLOT: body-sections — service-comparison (treatment-overview): 3-way disambiguation -->
+    <section class="ea-service-comparison" aria-labelledby="diff-h" data-block="comparison">
+      <div class="ea-service-comparison__inner">
+        <h2 id="diff-h" class="ea-service-comparison__heading">מה ההבדל בין טיפול, סאונד הילינג ושיעורים</h2>
+        <div class="ea-service-comparison__grid">
+          <article class="ea-service-comparison__col">
+            <h3 class="ea-service-comparison__col-title">טיפול בדיג׳רידו</h3>
+            <p>עבודה אקטיבית עם הנשימה היומיומית, דרך תרגול בדיג׳רידו, למידה וליווי אישי. תהליך מתמשך.</p>
+          </article>
+          <article class="ea-service-comparison__col">
+            <h3 class="ea-service-comparison__col-title">סאונד הילינג בדיג׳רידו</h3>
+            <p>עבודה פאסיבית של הקשבה לצליל דרך הגוף. לרוב מפגש נקודתי.</p>
+          </article>
+          <article class="ea-service-comparison__col">
+            <h3 class="ea-service-comparison__col-title">שיעורי נגינה בדיג׳רידו</h3>
+            <p>לימוד נגינה והתפתחות מוזיקלית.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLOT: testimonials — atom-content-testimonial-card row -->
+    <section class="ea-testimonials-section" aria-labelledby="testi-h" data-block="testimonials">
+      <div class="ea-testimonials-section__inner">
+        <h2 id="testi-h" class="ea-testimonials-section__heading">אנשים מספרים</h2>
+        <div class="ea-testimonials-grid">
+          <figure class="ea-testimonial-card">
+            <div class="ea-testimonial-card__figure"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span></div>
+            <blockquote class="ea-testimonial-card__quote">
+              <p class="ea-testimonial-card__text">כמו רבים אחרים גם אני חשבתי שאני באה ללמוד דיג׳רידו, ולא היה לי מושג איזה מסע עוצמתי מחכה לי.</p>
+              <figcaption class="ea-testimonial-card__footer"><span class="ea-testimonial-card__name">שירי אלקבץ</span></figcaption>
+            </blockquote>
+          </figure>
+          <figure class="ea-testimonial-card">
+            <div class="ea-testimonial-card__figure"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span></div>
+            <blockquote class="ea-testimonial-card__quote">
+              <p class="ea-testimonial-card__text">מה שאני לומדת מאייל זה לנשום מחדש… להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים.</p>
+              <figcaption class="ea-testimonial-card__footer"><span class="ea-testimonial-card__name">נוית צוף שטראוס</span></figcaption>
+            </blockquote>
+          </figure>
+          <figure class="ea-testimonial-card">
+            <div class="ea-testimonial-card__figure"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span></div>
+            <blockquote class="ea-testimonial-card__quote">
+              <p class="ea-testimonial-card__text">פעם ראשונה בחיים שלמדתי לנשום נכון… תרגול הנשימה בדידג׳ פשוט מרגיע אותי.</p>
+              <figcaption class="ea-testimonial-card__footer"><span class="ea-testimonial-card__name">אלון גרזון רז</span></figcaption>
+            </blockquote>
+          </figure>
+        </div>
+        <div class="ea-testimonials-section__footer">
+          <a class="ea-cta-pill ea-cta-pill--ghost" href="/about#testimonials">לעוד המלצות ועדויות</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLOT: faq-filter — atom-content-faq-item (mini list). /treatment had no inline FAQ;
+         composed a 3-item mini-FAQ from verbatim disambiguation + session copy on the page.
+         OPEN QUESTION Q3: confirm these items with Eyal or pull canonical FAQ from /faq. -->
+    <section class="ea-faq-mini-section" aria-labelledby="faq-h" data-block="faq-mini">
+      <div class="ea-faq-mini-section__inner">
+        <h2 id="faq-h" class="ea-faq-mini-section__heading">שאלות נפוצות</h2>
+        <div class="ea-faq-list">
+          <div class="ea-faq-item">
+            <details class="ea-faq-item__details">
+              <summary class="ea-faq-item__summary">
+                <h3 class="ea-faq-item__question">האם צריך ניסיון קודם?</h3>
+                <span class="ea-faq-item__icon" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="ea-faq-item__answer"><p>אין צורך בניסיון קודם. העבודה מתחילה מהבסיס.</p></div>
+            </details>
+          </div>
+          <div class="ea-faq-item">
+            <details class="ea-faq-item__details">
+              <summary class="ea-faq-item__summary">
+                <h3 class="ea-faq-item__question">כמה זמן נמשך המפגש הראשון?</h3>
+                <span class="ea-faq-item__icon" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="ea-faq-item__answer"><p>המפגש הראשון כולל אבחון ולכן הוא לרוב מעט ארוך יותר. בהמשך עובדים בצורה הדרגתית, בקצב שמתאים לאדם שמגיע.</p></div>
+            </details>
+          </div>
+          <div class="ea-faq-item">
+            <details class="ea-faq-item__details">
+              <summary class="ea-faq-item__summary">
+                <h3 class="ea-faq-item__question">מה ההבדל בין טיפול לסאונד הילינג?</h3>
+                <span class="ea-faq-item__icon" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="ea-faq-item__answer"><p>בטיפול עובדים באופן אקטיבי עם הנשימה היומיומית כתהליך מתמשך. בסאונד הילינג מדובר בעבודה פאסיבית של הקשבה לצליל דרך הגוף, לרוב מפגש נקודתי.</p></div>
+            </details>
+          </div>
+        </div>
+        <div class="ea-faq-mini-section__footer">
+          <a class="ea-link" href="/faq">לדף השאלות הנפוצות המלא</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical disclaimer — verbatim copy from staging -->
+    <section class="ea-disclaimer" aria-label="הבהרה" data-block="disclaimer">
+      <div class="ea-disclaimer__inner">
+        <p class="ea-disclaimer__text">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>
+      </div>
+    </section>
+
+    <!-- SLOT: cta-pill — closing CTA band -->
+    <section class="ea-section--cta" aria-labelledby="cta-h" data-block="contact-cta">
+      <div class="ea-section__inner">
+        <h2 id="cta-h" class="ea-section__heading">לתיאום שיחת היכרות</h2>
+        <p class="ea-section__body">לא כל אחד מגיע לכאן מאותה סיבה — אבל אצל כולם עולה אותה תחושה: משהו בנשימה מבקש תשומת לב. אם זה מדבר אליך, אפשר להתחיל.</p>
+        <a class="ea-cta-pill ea-cta-pill--primary" href="/contact">לתיאום שיחת היכרות</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- atom-interaction-whatsapp-cta (float) -->
+  <a class="ea-whatsapp-float" href="https://wa.me/972000000000" target="_blank" rel="noopener noreferrer" aria-label="שליחת הודעה ב‑WhatsApp (נפתח בחלון חדש)">
+    <svg class="ea-whatsapp-float__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.748-.985z"/>
+    </svg>
+    <span>שליחת הודעה ב‑WhatsApp</span>
+  </a>
+
+  <!-- atom-data-display-footer-social -->
+  <section data-block="footer-social">
+    <footer class="ea-footer" aria-label="פוטר האתר">
+      <div class="ea-footer__inner">
+        <p class="ea-footer__brand">אייל עמית</p>
+        <p class="ea-footer__tagline">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>
+        <p class="ea-footer__location">פרדס חנה · ישראל</p>
+        <div class="ea-footer__social" role="list" aria-label="רשתות חברתיות">
+          <a class="ea-footer__social-link" href="https://www.facebook.com/didgeridoo.studio.eyal.amit" target="_blank" rel="noopener noreferrer" aria-label="פייסבוק של אייל עמית (נפתח בחלון חדש)" role="listitem">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="ea-footer__social-link" href="https://www.instagram.com/didgeridoo.therapy.center" target="_blank" rel="noopener noreferrer" aria-label="אינסטגרם של אייל עמית (נפתח בחלון חדש)" role="listitem">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a class="ea-footer__social-link" href="https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA" target="_blank" rel="noopener noreferrer" aria-label="יוטיוב של אייל עמית (נפתח בחלון חדש)" role="listitem">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a class="ea-footer__social-link" href="https://www.tiktok.com/@didgeridoo_therapy" target="_blank" rel="noopener noreferrer" aria-label="טיקטוק של אייל עמית (נפתח בחלון חדש)" role="listitem">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.78a8.16 8.16 0 0 0 4.77 1.52V6.85a4.85 4.85 0 0 1-1.84-.16z"/></svg>
+          </a>
+        </div>
+        <nav class="ea-footer__nav" aria-label="ניווט פוטר">
+          <a class="ea-footer__nav-link" href="/method">השיטה</a>
+          <a class="ea-footer__nav-link" href="/treatment">טיפול</a>
+          <a class="ea-footer__nav-link" href="/sound-healing">סאונד הילינג</a>
+          <a class="ea-footer__nav-link" href="/lessons">שיעורים</a>
+          <a class="ea-footer__nav-link" href="/books">ספרים</a>
+          <a class="ea-footer__nav-link" href="/faq">שאלות נפוצות</a>
+          <a class="ea-footer__nav-link" href="/contact">צור קשר</a>
+        </nav>
+        <hr class="ea-footer__divider" aria-hidden="true">
+        <p class="ea-footer__copy">&copy; 2026 אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו. כל הזכויות שמורות.</p>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>

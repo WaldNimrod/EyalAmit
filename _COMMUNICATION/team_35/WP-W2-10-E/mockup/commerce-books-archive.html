@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>מוזה הוצאה לאור — קטלוג ספרים | S1 mockup WP-W2-10-E</title>
+<!--
+  S1 hi-fi composition mockup — team_35 (Design Studio, claude-design)
+  WP-W2-10-E Commerce cluster · card-archive archetype
+  Routes covered: /books (tpl-books.php) + /shop (tpl-shop-archive.php) DNA reuse demo.
+  Composition-only. D-14 tokens inlined verbatim from ea-tokens.css; atoms reused from ea-atoms.css.
+  REAL content from staging http://eyalamit-co-il-2026.s887.upress.link/books/ + /shop/
+  Placeholders used for missing cover art / product photos (see asset-manifest.md).
+-->
+<style>
+/* ===== D-14 tokens — inlined VERBATIM from ea-tokens.css (SSoT; not redefined) ===== */
+:root {
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-12:96px; --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15); --ea-nav-height:64px; --ea-nav-height-mob:56px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+/* ===== Atoms — reused from ea-atoms.css (motion stripped for static mockup) ===== */
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast);}
+.ea-skiplink:focus{top:0;}
+/* atom-nav-topnav */
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.ea-topnav__brand{font-weight:200;font-size:.9rem;color:#fff;text-decoration:none;letter-spacing:.5px;}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center;}
+.ea-topnav__link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.8);text-decoration:none;}
+.ea-topnav__link[aria-current="page"]{color:#fff;}
+.ea-topnav__link:hover,.ea-topnav__link:focus-visible{color:#fff;}
+.ea-topnav__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:3px;}
+@media(max-width:767px){.ea-topnav__links{display:none;}}
+main{padding-top:var(--ea-nav-height);}
+/* atom-feedback-cta-pill */
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:.78rem;font-weight:300;letter-spacing:.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast);}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff;}
+.ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta);}
+.ea-cta-pill--ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,0.6);}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25);}
+.ea-cta-pill:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+@media(max-width:639px){.ea-cta-pill{width:100%;min-width:0;}}
+/* atom-structure-book-hero (gradient banner) */
+.ea-book-hero{position:relative;min-height:48vh;display:flex;align-items:flex-end;background:linear-gradient(135deg,var(--ea-earth) 0%,var(--ea-chocolate) 55%,var(--ea-ink) 100%);overflow:hidden;}
+.ea-book-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(46,43,40,0.78) 0%,rgba(46,43,40,0.30) 60%,rgba(46,43,40,0.10) 100%);}
+.ea-book-hero__content{position:relative;z-index:1;width:100%;max-width:var(--ea-prose-width);margin-inline:auto;padding:var(--ea-space-6) var(--ea-gutter) var(--ea-space-10);text-align:start;}
+.ea-book-hero__title{font-weight:200;font-size:3rem;line-height:1.12;letter-spacing:-.5px;color:var(--ea-on-dark);margin:0 0 var(--ea-space-3) 0;}
+.ea-book-hero__subtitle{font-weight:300;font-size:1.05rem;line-height:1.7;color:rgba(250,248,245,0.88);margin:0 0 var(--ea-space-2) 0;max-width:60ch;}
+.ea-book-hero__cta-wrap{margin-top:var(--ea-space-4);}
+/* generic prose section (atom .ea-section) */
+.ea-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg);}
+.ea-section--alt{background:var(--ea-bg-alt);}
+.ea-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-4) 0;}
+.ea-section--prose .ea-section__inner>p{font-weight:300;font-size:.95rem;line-height:1.9;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0;text-align:start;}
+.ea-text-link{color:var(--ea-terracotta);text-decoration:none;border-bottom:1px solid var(--ea-line);}
+.ea-text-link:hover,.ea-text-link:focus-visible{color:var(--ea-accent-strong);border-color:var(--ea-accent-strong);}
+.ea-section__list{font-weight:300;font-size:.95rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0;padding-inline-start:var(--ea-space-3);}
+/* atom-content-book-card + books grid */
+.ea-books-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg);}
+.ea-books-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-books-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0;}
+.ea-books-section__intro{font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-6) 0;max-width:65ch;}
+.ea-books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ea-space-5);}
+@media(max-width:1023px){.ea-books-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:639px){.ea-books-grid{grid-template-columns:1fr;}}
+.ea-book-card{transition:transform var(--ea-dur-fast) var(--ea-ease-enter),box-shadow var(--ea-dur-fast);border-radius:var(--ea-radius-img);}
+.ea-book-card:hover{transform:scale(1.02);box-shadow:0 8px 24px rgba(46,43,40,0.08);}
+.ea-book-card__link{display:flex;gap:var(--ea-space-3);text-decoration:none;align-items:flex-start;flex-direction:column;}
+.ea-book-card__link:focus-visible{outline:2px solid var(--ea-terracotta);outline-offset:4px;}
+.ea-book-card__cover-placeholder{width:100%;aspect-ratio:5/7;background:var(--ea-bg-alt);border-radius:var(--ea-radius-img);border:1px solid var(--ea-line);display:flex;align-items:center;justify-content:center;color:var(--ea-muted);font-size:.78rem;text-align:center;padding:var(--ea-space-2);}
+.ea-book-card__body{padding:var(--ea-space-2) 0;}
+.ea-book-card__title{font-weight:400;font-size:.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-1) 0;}
+.ea-book-card__teaser{font-weight:300;font-size:.78rem;line-height:1.6;color:var(--ea-text-body);margin:0;}
+/* atom .ea-bundle */
+.ea-bundle{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt);text-align:center;}
+.ea-bundle__inner{max-width:640px;margin-inline:auto;}
+.ea-bundle__accent{display:block;width:24px;height:1px;background:var(--ea-terracotta);margin:0 auto var(--ea-space-4);}
+.ea-bundle__title{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-2) 0;}
+.ea-bundle__price{font-weight:300;font-size:1.1rem;line-height:1.7;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0;}
+.ea-bundle__price strong{font-weight:500;font-size:1.4rem;color:var(--ea-terracotta);}
+.ea-bundle__price del{color:var(--ea-muted);}
+.ea-bundle__desc{font-weight:300;font-size:.95rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-5) 0;}
+.ea-bundle__note{font-weight:300;font-size:.82rem;line-height:1.6;color:var(--ea-muted);margin:var(--ea-space-4) 0 0 0;}
+/* SHOP reuse: shop card grid = books-grid DNA, image aspect 4/3 (product, not 5/7 book) */
+.ea-shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ea-space-5);}
+@media(max-width:1023px){.ea-shop-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:639px){.ea-shop-grid{grid-template-columns:1fr;}}
+.ea-shop-card__cover-placeholder{width:100%;aspect-ratio:4/3;background:var(--ea-bg-alt);border-radius:var(--ea-radius-img);border:1px solid var(--ea-line);display:flex;align-items:center;justify-content:center;color:var(--ea-muted);font-size:.78rem;text-align:center;padding:var(--ea-space-2);}
+.ea-shop-card__price{font-weight:300;font-size:.78rem;color:var(--ea-terracotta);margin:var(--ea-space-1) 0 0 0;}
+/* atom-data-display-footer-social */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8);}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto;}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2) 0;}
+.ea-footer__tagline{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5) 0;}
+.ea-footer__copy{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.78);margin:0;}
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+@media(max-width:639px){
+  .ea-section,.ea-books-section,.ea-bundle{padding:var(--ea-space-10) var(--ea-space-3);}
+  .ea-section__heading,.ea-books-section__heading,.ea-bundle__title{font-size:1.4rem;}
+  .ea-book-hero__title{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+<a class="ea-skiplink" href="#main">דלג לתוכן</a>
+
+<!-- atom-nav-topnav (composition stub; real nav injected by block-topnav.php) -->
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="#">אייל עמית</a>
+  <ul class="ea-topnav__links">
+    <li><a class="ea-topnav__link" href="#">בית</a></li>
+    <li><a class="ea-topnav__link" href="#">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="#" aria-current="page">ספרים</a></li>
+    <li><a class="ea-topnav__link" href="#">חנות</a></li>
+    <li><a class="ea-topnav__link" href="#">צור קשר</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+  <!-- BLOCK 02 — Hero (atom .ea-book-hero, gradient placeholder, single H1) -->
+  <section class="ea-book-hero" aria-label="מוזה הוצאה לאור">
+    <div class="ea-book-hero__overlay" aria-hidden="true"></div>
+    <div class="ea-book-hero__content">
+      <h1 class="ea-book-hero__title">מוזה הוצאה לאור</h1>
+      <p class="ea-book-hero__subtitle">הוצאת ספרים עצמית שהוקמה בשנת 2004 על ידי הסופר ומספר הסיפורים אייל עמית — ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה.</p>
+      <div class="ea-book-hero__cta-wrap">
+        <a class="ea-cta-pill ea-cta-pill--ghost-white" href="#books-bundle">לרכישת חבילת הספרים</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 03 — Intro (atom .ea-section--prose) -->
+  <section class="ea-section ea-section--prose" aria-label="פתיח">
+    <div class="ea-section__inner">
+      <p>בהוצאת מוזה רואים אור ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה - ספרים שנכתבו בתקופות שונות בחיים, וכל אחד מהם פותח דלת אחרת אל מסע, שינוי, חופש והתבוננות.</p>
+      <p>הספרים שראו כאן אור שונים מאוד זה מזה, אבל מחוברים באותו חוט פנימי: קול חי, כתיבה שנובעת מתוך החיים עצמם, ומבט שלא ממהר להתיישר לפי תבניות מקובלות.</p>
+    </div>
+  </section>
+
+  <!-- BLOCK 04 — Why-here (atom .ea-section--prose --alt) -->
+  <section class="ea-section ea-section--prose ea-section--alt" aria-label="למה כאן">
+    <div class="ea-section__inner">
+      <h2 class="ea-section__heading">למה את הספרים של מוזה תמצאו כאן</h2>
+      <p>ברכישת ספר דרך רשתות הספרים, רוב הכסף לא מגיע לסופר אלא נשאר בדרך - אצל הרשת ואצל המפיצים. ברכישה ישירה מהיוצר, ממש בדומה ל"חקלאות ישירה", התמיכה מגיעה כמעט נטו למי שכתב את הספר. לכן כאן הספרים נמכרים במחיר מוזל ומשתלם יותר.</p>
+    </div>
+  </section>
+
+  <!-- BLOCKS 06–08 — CARD-ARCHIVE ARCHETYPE: book cards (atom-content-book-card x3) -->
+  <section class="ea-books-section" aria-labelledby="books-grid-heading">
+    <div class="ea-books-section__inner">
+      <h2 id="books-grid-heading" class="ea-books-section__heading">ספרי מוזה</h2>
+      <p class="ea-books-section__intro">שלושה ספרים, שלושה עולמות. כל ספר עומד בפני עצמו — בחרו את הדלת שמדברת אליכם.</p>
+      <div class="ea-books-grid">
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="commerce-book-detail.html" aria-label="לעמוד הספר צבע בכחול וזרוק לים">
+            <div class="ea-book-card__cover-placeholder" aria-hidden="true">[כריכת צבע בכחול וזרוק לים — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">צבע בכחול וזרוק לים</h3>
+              <p class="ea-book-card__teaser">38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. יצא לראשונה ב-2001, כיום במהדורה העשירית.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="commerce-book-detail.html" aria-label="לעמוד הספר כושי בלאנטיס">
+            <div class="ea-book-card__cover-placeholder" aria-hidden="true">[כריכת כושי בלאנטיס — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">כושי בלאנטיס</h3>
+              <p class="ea-book-card__teaser">רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. יצא ב-2004, במהדורה השישית.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="commerce-book-detail.html" aria-label="לעמוד הספר וכתבת">
+            <div class="ea-book-card__cover-placeholder" aria-hidden="true">[כריכת וכתבת — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">וכתבת</h3>
+              <p class="ea-book-card__teaser">46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי וצמיחה. ראה אור ב-2017, עם 49 קודי QR שמרחיבים את חוויית הקריאה.</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 09 — Bundle (atom .ea-bundle) — purchase CTA via external Morning link -->
+  <section id="books-bundle" class="ea-bundle" aria-label="חבילת 3 הספרים">
+    <div class="ea-bundle__inner">
+      <span class="ea-bundle__accent" aria-hidden="true"></span>
+      <h2 class="ea-bundle__title">חבילת 3 הספרים של אייל עמית</h2>
+      <p class="ea-bundle__price">שלושת הספרים יחד במחיר מיוחד<br>
+        <strong>150 ש"ח</strong> במקום <del>207 ש"ח</del></p>
+      <p class="ea-bundle__desc">זו הזדמנות להיכנס לעולם הכתיבה של אייל עמית דרך שלושה ספרים שונים מאוד באופי שלהם, אבל מחוברים באותו קול חי, אישי ולא שגרתי.</p>
+      <div class="ea-bundle__cta">
+        <!-- Purchase CTA: external Morning/Green-Invoice link (live link confirmed on staging) -->
+        <a class="ea-cta-pill ea-cta-pill--primary" href="https://mrng.to/MTUiO3vkIg" rel="noopener noreferrer" target="_blank">לרכישת חבילת 3 הספרים</a>
+      </div>
+      <p class="ea-bundle__note">הרכישה מתבצעת דרך קישור חיצוני (Morning / חשבונית ירוקה).<br>פרטי משלוח ותשלום מופיעים בעמוד הרכישה.</p>
+    </div>
+  </section>
+
+  <!-- ===== SHOP-ARCHIVE DNA REUSE DEMO (tpl-shop-archive.php) ===== -->
+  <!-- Same card-grid archetype as /books; product image 4/3 instead of 5/7 book cover; -->
+  <!-- price line added; CTA = contact (no fixed price → B02 matrix fallback). -->
+  <section class="ea-books-section ea-section--alt" aria-labelledby="shop-grid-heading">
+    <div class="ea-books-section__inner">
+      <h2 id="shop-grid-heading" class="ea-books-section__heading">החנות — דיג'רידו ואביזרים</h2>
+      <p class="ea-books-section__intro">כלים ואביזרים בעבודת יד. הקטלוג חולק את אותו DNA של רשת-הכרטיסים כמו עמוד הספרים — תמונה, כותרת, תיאור קצר ו-CTA.</p>
+      <div class="ea-shop-grid">
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="#" aria-label="לעמוד המוצר כלי דיג'רידו למכירה">
+            <div class="ea-shop-card__cover-placeholder" aria-hidden="true">[תמונת דיג'רידו — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">כלי דיג'רידו למכירה - כלים בעבודת יד</h3>
+              <p class="ea-book-card__teaser">כלים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר לנשימה.</p>
+              <p class="ea-shop-card__price">מחיר לפי התאמה אישית · לתיאום</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="#" aria-label="לעמוד המוצר תיקים לדיג'רידו">
+            <div class="ea-shop-card__cover-placeholder" aria-hidden="true">[תמונת תיק — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">תיקים לדיג'רידו</h3>
+              <p class="ea-book-card__teaser">תיק שמגן על הכלי בדרך, באחסון ובשימוש היומיומי — נתפר בעבודת יד.</p>
+              <p class="ea-shop-card__price">טווח מחירים לפי גודל · לפרטים</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="#" aria-label="לעמוד המוצר סטנדים לאחסון דיג'רידו">
+            <div class="ea-shop-card__cover-placeholder" aria-hidden="true">[תמונת סטנד אחסון — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">סטנדים לאחסון דיג'רידו</h3>
+              <p class="ea-book-card__teaser">סטנדים מעץ בעבודת יד לאחסון נוח, יציב ואסתטי — בבית או בסטודיו.</p>
+              <p class="ea-shop-card__price">הצעת מחיר לפי סוג · ללא התחייבות</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="#" aria-label="לעמוד המוצר סטנד רצפתי">
+            <div class="ea-shop-card__cover-placeholder" aria-hidden="true">[תמונת סטנד רצפתי — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">סטנד רצפתי לנגינה בישיבה נמוכה</h3>
+              <p class="ea-book-card__teaser">סטנד יציב ונמוך לנגינה בישיבה על הרצפה — מתאים אוניברסלית לכל הכלים.</p>
+              <p class="ea-shop-card__price">בשלל עיצובים · לפרטים</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="ea-book-card">
+          <a class="ea-book-card__link" href="#" aria-label="לעמוד המוצר תיקון וחידוש דיג'רידו">
+            <div class="ea-shop-card__cover-placeholder" aria-hidden="true">[תמונת תיקון — נדרש מאייל]</div>
+            <div class="ea-book-card__body">
+              <h3 class="ea-book-card__title">תיקון וחידוש דיג'רידו</h3>
+              <p class="ea-book-card__teaser">שירות תיקון מקצועי - סדקים, שברים, עיוותים, שחיקה והתאמות מבנה.</p>
+              <p class="ea-shop-card__price">מחיר לאחר בדיקה · ללא התחייבות</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- atom-data-display-footer-social (composition stub) -->
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">מוזה הוצאה לאור · דיג'רידו ונשימה · פרדס חנה</p>
+    <p class="ea-footer__copy">© אייל עמית. כל הזכויות שמורות. — S1 mockup, לא לפרסום.</p>
+  </div>
+</footer>
+
+</body>
+</html>
