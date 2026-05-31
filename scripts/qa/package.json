@@ -1,0 +1,10 @@
+{
+  "name": "ea-http-qa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HTTP-based QA runner (axe-core a11y) for the eyalamit uPress staging site (HTTP-only by design — EYAL_ENV_VARS_REFERENCE §44).",
+  "dependencies": {
+    "axe-core": "^4.10.0",
+    "puppeteer-core": "^23.0.0"
+  }
+}
