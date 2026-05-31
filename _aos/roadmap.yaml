@@ -830,7 +830,7 @@ work_packages:
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-31', note: 'WP Closure Protocol: COMPLETE/LOD500_LOCKED via ADR034 offline-fallback (API 200 but DB lacks WP-W2-09 -> file SSoT). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP. Merge feature/w2-09-cutover -> main PENDING team_00 go. **CLOSES S002 Wave2 build — W2-01..09 all COMPLETE.**'}
 - id: WP-W2-10
   label: UI Precision (umbrella) — per-cluster hi-fi mockups (team_35) → Eyal sign-off → refine → validate
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -844,10 +844,17 @@ work_packages:
   activation_rule: 'team_35 on-demand by team_00 ONLY, AFTER content-migration content-complete on staging (governance team_35 §invocation)'
   blocked_by: [WP-W2-02, WP-W2-06]
   children: [WP-W2-10-A, WP-W2-10-B, WP-W2-10-C, WP-W2-10-D, WP-W2-10-E, WP-W2-10-F, WP-W2-10-G]
-  notes: 'Closes the gap: only the homepage has a reviewed visual composition; all other routes are atoms-by-assumption. 5-stage flow per child: team_35 mockup → Eyal sign-off → team_10 refine → team_80 token-compliance → team_50/190 QA. Content scope verified complete (CONTENT-SCOPE-GAP-ANALYSIS-2026-05-28 — 16/16, 0 gaps).'
+  notes: 'Closes the gap: only the homepage has a reviewed visual composition; all other routes are atoms-by-assumption. 5-stage flow per child: team_35 mockup → Eyal sign-off → team_10 refine → team_80 token-compliance → team_50/190 QA. Content scope verified complete (CONTENT-SCOPE-GAP-ANALYSIS-2026-05-28 — 16/16, 0 gaps).
+    ACTIVATED 2026-05-31 by team_00 (all 7 clusters; mandate _COMMUNICATION/team_35/MANDATE-TEAM35-W2-10-CLUSTERS-A-G-2026-05-31.md).
+    S1 team_35 hi-fi mockups DELIVERED for A-F (9 mockups on real staging content, composition-only, cite D-14 atoms) →
+    HANDOFF_PACKAGEs in _COMMUNICATION/team_35/WP-W2-10-{A..F}/; G BLOCKED (Eyal hero video asset). Next gate = S2 Eyal
+    sign-off (external/human) per cluster, then S3 team_10 refine → S4 team_80 tokens → S5 team_50+190. Activation note:
+    _COMMUNICATION/team_100/S003-ACTIVATION-NOTE-2026-05-31.md. CARRY-FORWARD: staging TLS cert EXPIRED (s887.upress.link) —
+    HTTPS-forced fetchers fail; team_50/190 automated S5 gates must use plain HTTP or a fixed cert. ADR034 offline-fallback
+    (branch feature/w2-10-activation, never main): live roadmap API re-probe 2026-05-31 hangs; file SSoT. Merge PENDING team_00.'
 - id: WP-W2-10-A
   label: UI Precision — Service cluster (treatment / method / sound-healing / lessons, tpl-service)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -864,7 +871,7 @@ work_packages:
   notes: '4 routes, one tpl-service template with 7 unwired D-14 slots. Biggest coverage win — sequence first.'
 - id: WP-W2-10-B
   label: UI Precision — Editorial cluster (about / press / about-moksha, tpl-content)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -881,7 +888,7 @@ work_packages:
   notes: 'Long-form editorial archetype; bio/portrait block currently placeholder avatar.'
 - id: WP-W2-10-C
   label: UI Precision — Conversion cluster (contact / faq)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -898,7 +905,7 @@ work_packages:
   notes: 'Templates already REAL — fast win. Resolves CF7 form_id=0 wiring as part of refinement.'
 - id: WP-W2-10-D
   label: UI Precision — Blog cluster (archive / single, tpl-blog-*)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -915,7 +922,7 @@ work_packages:
   notes: 'Refine on top of W2-06 first build. Reading typography for long Hebrew posts.'
 - id: WP-W2-10-E
   label: UI Precision — Commerce cluster (books + 3 details + shop + 5 items)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -933,7 +940,7 @@ work_packages:
   notes: 'Mock with placeholders; swap to real assets on Eyal delivery. Verify swap path.'
 - id: WP-W2-10-F
   label: UI Precision — EN landing (tpl-en-landing, LTR mirror)
-  status: PLANNED
+  status: IN_PROGRESS
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
