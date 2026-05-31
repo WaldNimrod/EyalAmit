@@ -307,6 +307,7 @@ def nav(active: str) -> str:
         ("roadmap.html", "מפת דרכים"),
         ("site-tree.html", "עץ אתר"),
         ("content-intake.html", "קליטת תוכן"),
+        ("materials-intake.html", "השלמות מאייל"),
         ("meeting.html", "תדריך פגישה"),
         ("purchase-links.html", "קישורי רכישה"),
         ("content-index.html", "אינדקס תוכן"),
@@ -1012,6 +1013,59 @@ SiteTreeFeedback.init({{
   legacyRows: {legacy_rows_json}
 }});
 </script>\n"""
+    html += foot(generated_iso)
+    return html
+
+
+def page_materials_intake(materials: dict, generated_iso: str) -> str:
+    """S003 UI-Precision — assets/decisions still needed from Eyal, with a Drive-intake submission widget."""
+    groups = materials.get("groups", [])
+    confirmations = materials.get("confirmations", [])
+
+    html = head("השלמות נדרשות מאייל — אייל עמית")
+    html += nav("materials-intake")
+    html += '<div class="wrap">\n'
+    html += f'<h1>{escape(materials.get("title", "השלמות נדרשות מאייל"))}</h1>\n'
+    html += f'<p>{escape(materials.get("intro", ""))}</p>\n'
+
+    if confirmations:
+        conf = "<ul>\n"
+        for c in confirmations:
+            conf += f'<li><strong>{escape(c.get("label", ""))}:</strong> {escape(c.get("detail", ""))}</li>\n'
+        conf += "</ul>\n"
+        html += hub_acc_section("mat-confirm", "לאישור", conf, open_default=True)
+
+    for i, g in enumerate(groups):
+        page_links = " · ".join(
+            f'<a href="{escape(p.get("url", "#"))}" target="_blank" rel="noopener">{escape(p.get("label", ""))}</a>'
+            for p in g.get("pages", [])
+        )
+        sec = f'<p class="subtitle">עמודים: {page_links}</p>\n'
+        sec += '<table class="hub-table"><thead><tr><th>קוד</th><th>מה צריך</th><th>הקשר</th><th>פורמט</th><th>עדיפות</th></tr></thead><tbody>\n'
+        for it in g.get("items", []):
+            sec += (
+                f'<tr><td><code>{escape(it.get("code", ""))}</code></td>'
+                f'<td>{escape(it.get("need", ""))}</td>'
+                f'<td>{escape(it.get("why", ""))}</td>'
+                f'<td>{escape(it.get("format", ""))}</td>'
+                f'<td>{escape(it.get("priority", ""))}</td></tr>\n'
+            )
+        sec += "</tbody></table>\n"
+        html += hub_acc_section(f"mat-{i}", g.get("cluster", ""), sec, open_default=(i == 0))
+
+    html += '<div class="respondent-field feedback-field">\n'
+    html += '<label for="respondent">שם המגיש</label>\n'
+    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n'
+    html += "</div>\n"
+    html += hub_acc_section(
+        "mat-submit",
+        "הגשת קבצים — Drive (ציינו את קוד הפריט בשדה ההקשר; ייצוא eyal-drive-intake)",
+        html_drive_intake_form_static(),
+    )
+    html += "</div>\n"
+
+    html += '<script src="assets/feedback.js"></script>\n<script src="assets/hub-form-exports.js"></script>\n'
+    html += f"<script>HubFormExports.initDriveIntake({{ exportType: {json.dumps(EXPORT_TYPE_DRIVE_INTAKE)} }});</script>\n"
     html += foot(generated_iso)
     return html
 
@@ -2335,6 +2389,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     page_templates = load_json(DATA_DIR / "page-templates.json")
     legacy_unmapped = load_json_optional(DATA_DIR / "legacy-unmapped.json")
     content_index = load_json_optional(DATA_DIR / "content-index.json")
+    materials_needed = load_json_optional(DATA_DIR / "materials-needed.json")
     ssot_answers = load_ssot_answers()
 
     if ssot_answers:
@@ -2403,6 +2458,10 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     (dist_dir / "content-intake.html").write_text(
         page_content_intake(site_tree, page_templates, generated_iso), encoding="utf-8"
     )
+    if materials_needed:
+        (dist_dir / "materials-intake.html").write_text(
+            page_materials_intake(materials_needed, generated_iso), encoding="utf-8"
+        )
     (dist_dir / "purchase-links.html").write_text(
         page_purchase_links(site_tree, generated_iso), encoding="utf-8"
     )
