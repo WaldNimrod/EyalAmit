@@ -805,3 +805,8 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-07.php';
  * WP-W2-08 — English Landing (/en) content injection, hreflang, assets.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-08.php';
+
+/**
+ * WP-W2-09 — Cutover SEO/best-practices head hygiene (meta description, favicon).
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-09.php';

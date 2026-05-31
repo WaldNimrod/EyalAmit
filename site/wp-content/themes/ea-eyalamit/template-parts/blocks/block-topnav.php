@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
         <!-- atom-interaction-sound-toggle -->
         <button class="ea-sound-toggle"
                 type="button"
-                aria-label="הפעל צליל דיג'רידו"
+                aria-label="שמע — הפעל צליל דיג'רידו"
                 aria-pressed="false"
                 data-on="false">
           <span class="ea-sound-toggle__ico ea-sound-toggle__ico--off" aria-hidden="true">♪</span>

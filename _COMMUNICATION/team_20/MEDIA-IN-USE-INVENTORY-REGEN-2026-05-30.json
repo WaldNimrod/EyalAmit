@@ -1,0 +1,464 @@
+{
+  "generated": "2026-05-30T23:22:21",
+  "generated_by": "scripts/gen_media_in_use_inventory.py (W2-09 regen)",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "method": "crawl live pages/posts (REST link list) ∪ W2-06 repo uploads; keep in-use only",
+  "crawled_pages": 158,
+  "in_use_count": 74,
+  "referenced_from_html": 33,
+  "repo_uploads_union": 51,
+  "all_200": true,
+  "non_200": [],
+  "external_references_count": 3,
+  "external_references": [
+    "http://blog.muzza.co.il/wp-content/uploads/2014/06/2.jpg",
+    "http://blog.muzza.co.il/wp-content/uploads/2014/06/31.jpg",
+    "https://www.eyalamit.co.il/wp-content/uploads/2014/07/צוותא-אייל-עמית.jpg"
+  ],
+  "items": [
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/books-v2.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/ea-animations.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/ea-atoms.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/home-front.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/services.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/w2-04-service.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/w2-05-shop.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/w2-07-heritage.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/w2-08-en-landing.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/home/eyal-portrait-hero.jpg",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/books-reveal.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-ab-testing.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-book-purchase.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-entrance.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-faq-filter.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-hero.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/js/ea-scroll.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/style.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/generatepress/assets/css/components/comments.min.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/generatepress/assets/css/main-rtl.min.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/generatepress/assets/css/main.min.css",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/generatepress/assets/js/menu.min.js",
+      "kind": "theme",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-1-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-1-300x183.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-1.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-2-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-2-300x183.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/ea-m3-r2-sample-2.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover-1024x768.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover-1536x1152.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover-300x225.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover-768x576.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1-1024x768.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1-1536x1152.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1-300x225.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1-768x576.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1024x768.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-1536x1152.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-300x225.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01-768x576.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-01.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02-1-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02-1-300x225.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02-1.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02-300x225.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-02.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03-150x150.png",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03-300x223.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03-300x223.png",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-03.png",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04-1-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04-1-293x300.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04-1.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04-293x300.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-gallery-04.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/tsva-bechol-cover-1152x1536.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/tsva-bechol-cover-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/tsva-bechol-cover-225x300.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/tsva-bechol-cover-768x1024.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/tsva-bechol-cover.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/vekatavt-cover-150x150.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/vekatavt-cover-300x226.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/vekatavt-cover-768x578.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    },
+    {
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/vekatavt-cover.jpg",
+      "kind": "uploads",
+      "http_status": 200,
+      "status": "in_use"
+    }
+  ]
+}

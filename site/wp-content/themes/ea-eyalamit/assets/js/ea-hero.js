@@ -12,12 +12,12 @@
         audio.pause();
         btn.setAttribute('data-on', 'false');
         btn.setAttribute('aria-pressed', 'false');
-        btn.setAttribute('aria-label', "הפעל צליל דיג'רידו");
+        btn.setAttribute('aria-label', "שמע — הפעל צליל דיג'רידו");
       } else if (audio) {
         audio.play().catch(function () {});
         btn.setAttribute('data-on', 'true');
         btn.setAttribute('aria-pressed', 'true');
-        btn.setAttribute('aria-label', 'השתק צליל');
+        btn.setAttribute('aria-label', 'שמע — השתק צליל');
       }
     });
   }

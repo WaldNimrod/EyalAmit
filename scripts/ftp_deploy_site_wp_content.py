@@ -67,6 +67,7 @@ def main() -> None:
     mu_w2_05_shop = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-05-shop-pages-seed-once.php"
     mu_w2_07_qr = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-seed-once.php"
     mu_w2_07_qr_data = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-content-data.php"
+    mu_w2_09_redirects = root / "site" / "wp-content" / "mu-plugins" / "ea-w209-legacy-301-redirects.php"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
     if not mu_noindex.is_file():
@@ -95,6 +96,8 @@ def main() -> None:
         raise SystemExit(f"Missing mu-plugin: {mu_w2_07_qr}")
     if not mu_w2_07_qr_data.is_file():
         raise SystemExit(f"Missing mu-plugin: {mu_w2_07_qr_data}")
+    if not mu_w2_09_redirects.is_file():
+        raise SystemExit(f"Missing mu-plugin: {mu_w2_09_redirects}")
 
     files: list[tuple[Path, str]] = []
     for f in sorted(theme_src.rglob("*")):
@@ -115,6 +118,7 @@ def main() -> None:
     files.append((mu_w2_05_shop, "wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php"))
     files.append((mu_w2_07_qr, "wp-content/mu-plugins/ea-w2-07-qr-seed-once.php"))
     files.append((mu_w2_07_qr_data, "wp-content/mu-plugins/ea-w2-07-qr-content-data.php"))
+    files.append((mu_w2_09_redirects, "wp-content/mu-plugins/ea-w209-legacy-301-redirects.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:
