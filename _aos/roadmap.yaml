@@ -6,7 +6,7 @@ project:
   lean_kit_version: 3.1.3
   created: '2026-03-29'
   owner: eyalamit_sd
-  active_milestone: S002
+  active_milestone: S003
   notes: 'WordPress 6.x refresh of eyalamit.co.il (uPress staging). Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub +
     books v2) COMPLETE as of 2026-04-11. S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V
     PASS. S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12. S002 WPs initialized
@@ -26,6 +26,15 @@ project:
     2026-05-27: Stage B implementation delivered by team_10 (cursor-composer). Cross-engine QA mandate dispatched to team_50.
 
     2026-05-27: Stage B impl FAIL Phase 1 Round 1 — deploy gap + cross-engine violation. Remediation plan filed.
+
+    2026-05-31: **S002 (Wave2) milestone CLOSED — 9/9 WPs COMPLETE/LOD500_LOCKED (W2-01..09), dual-gate PASS
+    (team_50 build + team_190 validate, cross-engine IR#5).** Formal acceptance: _COMMUNICATION/team_100/S002-MILESTONE-CLOSEOUT-2026-05-31.md.
+    Archival gap remediated — W2-01/02/03/06 archived (team_191 mandate MANDATE-TEAM191-S002-ARCHIVE-COMPLETION-2026-05-31);
+    all 9 now under _archive/ with ARCHIVE_MANIFEST.md (W2-01/02/03/06). active_milestone advanced S002 -> S003 (UI-Precision).
+    ADR034 offline-fallback (branch chore/s002-closeout, never main): canonical db_connectivity_status.json reads online
+    (stamped 2026-05-30) but live GET /api/l0/eyalamit/roadmap re-probe 2026-05-31 HANGS (http 000, 20s) and DB never held
+    Wave2 WPs — file roadmap.yaml remains live SSoT; same mechanism as all W2-0N closures. Merge -> main PENDING team_00 go.
+    NOTE: _aos/MILESTONE_MAP.md is stale (S003 labeled "Launch") — flagged to team_00, not edited (AOS-layer protection).
 
     '
 work_packages:
