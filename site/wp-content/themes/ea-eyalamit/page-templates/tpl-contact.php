@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$ea_wa_url = 'https://wa.me/' . ( defined( 'EA_WAVE2_WHATSAPP_E164' ) ? EA_WAVE2_WHATSAPP_E164 : '0000000000' );
+$ea_wa_url = 'https://wa.me/' . ( defined( 'EA_WAVE2_WHATSAPP_E164' ) ? EA_WAVE2_WHATSAPP_E164 : '972524822842' );
 
 get_header();
 get_template_part( 'template-parts/blocks/block', 'topnav' );
