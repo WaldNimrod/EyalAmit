@@ -974,7 +974,7 @@ work_packages:
   notes: 'Replace CSS-gradient placeholder in block-hero.php with real video treatment + poster + reduced-motion fallback. BLOCKED until Eyal provides video.'
 - id: WP-W2-11
   label: S003 Base Implementation (Hybrid Track-1) — Home refine + Conversion + Blog → deployed templates
-  status: PLANNED
+  status: IN_PROGRESS
   track: A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -990,3 +990,4 @@ work_packages:
   estimate_days: '4'
   roadmap_mutation: 'ADR034 offline-fallback (named branch feature/s003-base-implementation-prep, never main): live roadmap API re-probe 2026-06-01 still hangs (item #1 closed per DISPOSITION-MSG-HUB-20260530-001-CLOSE-2026-05-31); file roadmap.yaml = live SSoT. Merge -> main per team_00 go.'
   notes: 'Option C (hybrid) Track-1. Implement the SETTLED/low-visual-risk clusters now (Home POC-reviewed refine; Conversion + Blog REAL templates) via S3 team_10 -> S4 team_80 -> S5 team_50/190 (axe+Lighthouse over HTTP). High-visual A/B/E/F stay on the WP-W2-10 team_35 elevation track (Track-2); G blocked. Eyal content (CF7 form, blog featured images, WhatsApp #) parallel/non-blocking — placeholders bridge (AC-05). Next session orchestrates per the aos_handoff full 100.'
+  progress: 'IN_PROGRESS 2026-06-01 (team_100): Cluster sequence Conversion -> Blog -> Home. Cluster 1 (Conversion /contact,/faq) S3 mandate ISSUED to team_10 (_COMMUNICATION/team_100/MANDATE-TEAM10-WP-W2-11-S3-CONVERSION-2026-06-01.md) with embedded S4 (team_80) + paste-ready S5 (team_50 build-gate, team_190 validate) prompts. team_00 confirmed: Conversion first; proceed now, placeholders bridge the 4 open Eyal Qs (no S2 hold). Blog template state INVESTIGATED + CLEARED: direct inspection shows tpl-blog-archive.php (WP_Query loop + block-blog-card) and tpl-blog-single.php (standard loop + thumbnail + related/contact-cta) are REAL/built per spec — an earlier STUB report was wrong; Blog Cluster 2 clear to proceed (_COMMUNICATION/team_100/DEVIATION-WP-W2-11-BLOG-TEMPLATE-STATE-2026-06-01.md). team_10 begins Cluster 1 S3 on team_00 go.'
