@@ -11,9 +11,20 @@ defined( 'ABSPATH' ) || exit;
 $cats = get_the_category();
 $cat  = $cats ? $cats[0] : null;
 
-// IDEA-006: strip Visual-Composer shortcodes + tags so cards never render raw [vc_row …].
+// IDEA-006: strip Visual-Composer/legacy shortcodes + tags so cards never render raw [vc_row …].
+// strip_shortcodes() only removes REGISTERED shortcodes; VC/Elementor are not registered on this
+// site, so we also run a registration-independent pass (reusing the mu-plugin cleaner when present,
+// else a self-contained regex) before trimming.
 $ea_raw_excerpt   = has_excerpt() ? get_the_excerpt() : get_the_content();
-$ea_clean_excerpt = wp_strip_all_tags( strip_shortcodes( $ea_raw_excerpt ) );
+$ea_clean_excerpt = strip_shortcodes( $ea_raw_excerpt );
+if ( function_exists( 'ea_strip_legacy_blog_shortcodes' ) ) {
+	$ea_clean_excerpt = ea_strip_legacy_blog_shortcodes( $ea_clean_excerpt );
+} else {
+	// Fallback: strip any remaining [shortcode …] / [/shortcode] tokens, keep inner text.
+	$ea_clean_excerpt = preg_replace( '/\[([a-z_-]+)[^\]]*\](.*?)\[\/\1\]/s', '$2', $ea_clean_excerpt );
+	$ea_clean_excerpt = preg_replace( '/\[[a-z_-]+[^\]]*\/?\]|\[\/[a-z_-]+\]/', '', $ea_clean_excerpt );
+}
+$ea_clean_excerpt = wp_strip_all_tags( $ea_clean_excerpt );
 $ea_clean_excerpt = wp_trim_words( $ea_clean_excerpt, 20, '…' );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'ea-blog-card' ); ?>>
