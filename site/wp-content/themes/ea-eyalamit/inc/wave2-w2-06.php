@@ -21,6 +21,16 @@ function ea_w2_06_enqueue_blog_assets() {
 			$ver
 		);
 	}
+	// WP-W2-11 S3 — copy-link share button on single posts only.
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_script(
+			'ea-blog-share',
+			get_stylesheet_directory_uri() . '/assets/js/ea-blog-share.js',
+			[],
+			$ver,
+			true
+		);
+	}
 }
 
 /**
@@ -65,4 +75,23 @@ function ea_w2_06_template_include( $tpl ) {
 		}
 	}
 	return $tpl;
+}
+
+/**
+ * WP-W2-11 S3 (Blog D) — display-only author byline.
+ * The WP user is 'eyaladmin'; the public byline must read 'אייל עמית'.
+ * This filters the DISPLAYED name only on single-post views — it does NOT
+ * touch the WP user, the Yoast nicename, or add an /author/ 301 (deferred to
+ * the production-cutover SEO pass per the S3 mandate).
+ *
+ * @param string $display_name The author's display name.
+ * @return string
+ */
+add_filter( 'the_author', 'ea_w2_11_blog_author_display' );
+add_filter( 'get_the_author_display_name', 'ea_w2_11_blog_author_display' );
+function ea_w2_11_blog_author_display( $display_name ) {
+	if ( is_singular( 'post' ) ) {
+		return 'אייל עמית';
+	}
+	return $display_name;
 }
