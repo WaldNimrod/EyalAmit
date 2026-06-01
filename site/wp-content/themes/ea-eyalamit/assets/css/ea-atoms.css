@@ -1613,3 +1613,104 @@
       .ea-section__heading,
       .ea-bundle__title { font-size: 1.6rem; }
     }
+
+    /* =============================================================
+       WP-W2-11 Conversion — D-14 rules-only addition, team_00-approved 2026-06-02
+       Closes the S4 gap (TOKEN-COMPLIANCE-WP-W2-11-CONVERSION-2026-06-02.md):
+       four selectors that rendered structurally but had no live styling on the
+       Conversion routes (/contact, /faq). Existing tokens ONLY — zero new tokens,
+       zero raw hex, no new @keyframes. Intent ported from team_35 mockups
+       (conversion-contact.html / conversion-faq.html). RTL: logical properties only.
+    ============================================================= */
+
+    /* 1. Contact page intro band (tpl-contact.php) */
+    .ea-contact-page-intro {
+      padding: calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-gutter) var(--ea-space-5);
+      background: var(--ea-bg);
+    }
+    .ea-contact-page-intro__inner {
+      max-width: var(--ea-prose-width);
+      margin-inline: auto;
+    }
+    .ea-contact-page-intro__sub {
+      font-family: var(--ea-font);
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--ea-text-body);
+      margin: 0;
+      max-width: 65ch;
+    }
+
+    /* 2. Page title on Conversion routes (NOT blog scope — existing blog rules untouched) */
+    .ea-wave2-contact .ea-page-title,
+    .ea-wave2-faq .ea-page-title {
+      font: var(--ea-type-h1);
+      color: var(--ea-text);
+      margin: 0 0 var(--ea-space-2) 0;
+    }
+
+    /* 3. FAQ category filter — sticky under the nav (tpl-faq.php / block-faq-list.php) */
+    .ea-faq-list__filter {
+      position: sticky;
+      top: var(--ea-nav-height);
+      z-index: var(--ea-z-sticky);
+      background: var(--ea-bg);
+      padding: 0 var(--ea-gutter) var(--ea-space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--ea-space-2);
+    }
+    .ea-faq-list__filter-label {
+      font-family: var(--ea-font);
+      font-weight: 300;
+      font-size: 0.78rem;
+      color: var(--ea-ink);
+      white-space: nowrap;
+    }
+    .ea-faq-list__filter-select {
+      padding: 10px 16px;
+      border: 1px solid var(--ea-line);
+      border-radius: var(--ea-radius-img);
+      background: var(--ea-bg);
+      font-family: var(--ea-font);
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--ea-ink);
+      direction: rtl;
+      min-width: 240px;
+      appearance: none;
+    }
+    .ea-faq-list__filter-select:focus-visible {
+      outline: 2px solid var(--ea-terracotta);
+      outline-offset: 2px;
+      border-color: var(--ea-terracotta);
+    }
+    .ea-faq-list__filter-count {
+      font-family: var(--ea-font);
+      font-size: 0.78rem;
+      color: var(--ea-muted);
+      margin-inline-start: auto;
+    }
+
+    /* 4. FAQ category heading <h2> (block-faq-list.php) */
+    .ea-faq-category__heading {
+      font-family: var(--ea-font);
+      font-weight: 200;
+      font-size: 1.4rem;
+      line-height: 1.2;
+      color: var(--ea-ink);
+      margin: 0 0 var(--ea-space-2) 0;
+      padding-bottom: var(--ea-space-1);
+    }
+
+    @media (max-width: 639px) {
+      .ea-faq-list__filter {
+        top: var(--ea-nav-height-mob);
+        flex-wrap: wrap;
+      }
+      .ea-faq-list__filter-count {
+        margin-inline-start: 0;
+        width: 100%;
+      }
+    }
