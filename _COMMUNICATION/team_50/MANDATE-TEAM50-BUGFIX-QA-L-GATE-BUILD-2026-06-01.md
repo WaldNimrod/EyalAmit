@@ -1,20 +1,27 @@
 ---
 id: MANDATE-TEAM50-BUGFIX-QA-L-GATE-BUILD-2026-06-01
 title: team_50 mandate — L-GATE_BUILD for the bug-fix sweep + HTTP QA
-status: ACTIVE — awaiting team_50 verdict
+status: ACTIVE — ROUND 2 (re-validate after F-W2-05-01 fix)
 date: 2026-06-01
 from_team: team_100 (Chief System Architect)
 to_team: team_50 (L-GATE_BUILD Validator — NON-Claude)
-deliverable: known-bug fix sweep (4 fixes) + reusable HTTP QA tooling
-branch: chore/bugfix-qa-http
-head_commit: 016de33
-fixes_commit: 90cf695
+deliverable: known-bug fix sweep (NOW 5 fixes) + reusable HTTP QA tooling
+branch: fix/f-w2-05-01-nav-repair
+head_commit: 3d57422
+fixes_commit: 90cf695, 3d57422
 base_main: d359850
 staging: http://eyalamit-co-il-2026.s887.upress.link
 report_ref: _COMMUNICATION/team_100/BUGFIX-SWEEP-AND-HTTP-QA-2026-06-01.md
 ---
 
 # מנדט team_50 — L-GATE_BUILD / Bug-fix sweep + HTTP QA
+
+## ⟳ ROUND 2 (2026-06-01) — מה השתנה
+round-1 BUILD עבר (PASS, cursor-composer); אך **team_190 L-GATE_VALIDATE נכשל** על שלמות-triage:
+**F-W2-05-01** (פריט ניווט "תיקון וחידוש" שהצביע ל-`/tools-and-accessories/repair/` הlegacy במקום ל-`/repair/` הקנוני)
+הושמט. **תוקן** ב-HEAD `3d57422` (mu-plugin חדש `ea-w2-10-nav-repair-canonical-once.php` שמפנה כל
+`nav_menu_item` מדף ה-legacy (id 65) לדף הקנוני (id 293)). פורס ואומת חי: ה-menu → `/repair/`; legacy = 0 הופעות.
+**הוסף AC-08 בבדיקה זו** + ודא שאר 7 ה-AC ללא רגרסיה. (B1-B4 כבר אומתו ב-round 1.)
 
 ## 0. הקשר + Cross-engine (IR#1) — חובה
 התיקונים וה-QA נבנו והורצו ע"י **Claude (builder)**. לכן **validator team_50 חייב מנוע שאינו Claude**
@@ -68,6 +75,7 @@ curl -s "$BASE/wp-content/themes/ea-eyalamit/assets/css/w2-08-en-landing.css" | 
 | AC-05 | axe HTTP: 14/14 routes 200 + 0 critical / 0 serious | [ ] PASS/FAIL |
 | AC-06 | Lighthouse HTTP: a11y ≥97; perf כמדווח (/en 84=F2 hero JPG); SEO/BP staging-capped | [ ] PASS/FAIL |
 | AC-07 | אין רגרסיה: `validate_aos.sh` 0 FAIL + `final_pre_cutover_check.sh` exit 0 + 3× php -l נקי | [ ] PASS/FAIL |
+| **AC-08 (round 2)** | F-W2-05-01: פריט הניווט "תיקון וחידוש" → `/repair/` הקנוני; `/tools-and-accessories/repair` = **0 הופעות** ב-/shop,/repair,/contact,/faq; `php -l` נקי על `ea-w2-10-nav-repair-canonical-once.php`. בדיקה: `for p in shop repair contact faq; do curl -s "$BASE/$p/?cb=$RANDOM" \| grep -oc 'tools-and-accessories/repair'; done` → הכול 0 | [ ] PASS/FAIL |
 
 תוצר הוורדיקט: `_COMMUNICATION/team_50/VERDICT-BUGFIX-QA-L-GATE-BUILD-2026-06-01.md` (הצהר מנוע; PASS/FAIL לכל AC).
 

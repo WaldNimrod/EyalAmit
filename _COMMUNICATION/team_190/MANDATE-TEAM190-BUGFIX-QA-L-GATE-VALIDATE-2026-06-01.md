@@ -1,13 +1,13 @@
 ---
 id: MANDATE-TEAM190-BUGFIX-QA-L-GATE-VALIDATE-2026-06-01
 title: team_190 mandate — L-GATE_VALIDATE (constitutional, cross-engine) for the bug-fix sweep + HTTP QA
-status: ACTIVE — awaiting team_190 verdict (runs AFTER team_50 L-GATE_BUILD PASS)
+status: ACTIVE — ROUND 2 (re-validate; round-1 FAILed on triage completeness, now remediated)
 date: 2026-06-01
 from_team: team_100 (Chief System Architect)
 to_team: team_190 (L-GATE_VALIDATE — native Codex / non-Claude)
-deliverable: known-bug fix sweep (4 fixes) + reusable HTTP QA tooling
-branch: chore/bugfix-qa-http
-head_commit: 016de33
+deliverable: known-bug fix sweep (NOW 5 fixes) + reusable HTTP QA tooling
+branch: fix/f-w2-05-01-nav-repair
+head_commit: 3d57422
 base_main: d359850
 staging: http://eyalamit-co-il-2026.s887.upress.link
 report_ref: _COMMUNICATION/team_100/BUGFIX-SWEEP-AND-HTTP-QA-2026-06-01.md
@@ -15,6 +15,13 @@ build_gate_ref: _COMMUNICATION/team_50/VERDICT-BUGFIX-QA-L-GATE-BUILD-2026-06-01
 ---
 
 # מנדט team_190 — L-GATE_VALIDATE (חוקתי, cross-engine) / Bug-fix sweep + HTTP QA
+
+## ⟳ ROUND 2 (2026-06-01) — מה תוקן מאז ה-FAIL שלך
+ה-VALIDATE שלך ב-round 1 **נכשל בצדק** על שלמות-triage: **F-W2-05-01** (פריט ניווט→`/tools-and-accessories/repair/`
+legacy במקום `/repair/` קנוני) הושמט מהדוח. תוקן ב-HEAD `3d57422`: mu-plugin חדש מפנה את ה-menu לדף הקנוני
+(אומת חי: menu→`/repair/`, legacy=0), והדוח עודכן (F-W2-05-01 נוסף לתיקונים; §6 דף-כפול legacy + Yoast author-slug
+כ-P3; §7 הערת-תהליך על ההחמצה). אמת ש**team_50 round-2 = PASS** (כולל AC-08) לפני שתתחיל, ואז אמת מחדש כולל
+שלמות-triage (הפעם השלמה).
 
 ## 0. Cross-engine chain (IR#1 + IR#5) — חובה
 builder = **Claude** ≠ L-GATE_BUILD = **team_50 (non-Claude)** ≠ L-GATE_VALIDATE = **team_190 (native Codex)**.
