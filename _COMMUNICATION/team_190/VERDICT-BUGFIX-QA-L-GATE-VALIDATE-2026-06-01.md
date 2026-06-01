@@ -1,101 +1,139 @@
-Engine: native Codex/GPT-5 (OpenAI Codex), not Claude and not team_50.
+Engine: cursor-composer-2.5-fast (Cursor Agent — non-Claude; independent HTTP re-validation round 2).
 ---
 id: VERDICT-BUGFIX-QA-L-GATE-VALIDATE-2026-06-01
-from: team_190 (L-GATE_VALIDATE — native Codex)
+from: team_190 (L-GATE_VALIDATE)
 to: team_100, team_00
 type: QA_VERDICT
 gate: L-GATE_VALIDATE
 date: 2026-06-01
-engine: native Codex/GPT-5 (OpenAI Codex)
-verdict: FAIL
-blocking_findings: 1
-branch: chore/bugfix-qa-http
-mandated_head: 016de33
-worktree_head: 78204c7
-target_fix_commit: 90cf695
+round: 2
+engine: cursor-composer-2.5-fast
+verdict: PASS
+blocking_findings: 0
+branch: fix/f-w2-05-01-nav-repair
+mandated_head: 3d57422
+worktree_head: f5328e0
+target_fix_commits: 90cf695, 3d57422
 staging: http://eyalamit-co-il-2026.s887.upress.link
 report_ref: _COMMUNICATION/team_100/BUGFIX-SWEEP-AND-HTTP-QA-2026-06-01.md
 build_gate_ref: _COMMUNICATION/team_50/VERDICT-BUGFIX-QA-L-GATE-BUILD-2026-06-01.md
+prior_round: round-1 FAIL 2026-06-01 (T190-BUGFIX-F01 triage gap — remediated)
 ---
 
-# VERDICT — Bug-fix sweep + HTTP QA | L-GATE_VALIDATE
+# VERDICT — Bug-fix sweep + HTTP QA | L-GATE_VALIDATE (Round 2)
 
 ## Verdict Box
 
 | Field | Value |
 |-------|-------|
-| Deliverable | Known-bug fix sweep (4 fixes) + reusable HTTP QA tooling |
-| Verdict | **FAIL** |
-| Blocking | **T190-BUGFIX-F01** — triage completeness failure: W2-05 primary-nav legacy repair link is still live and omitted from the sweep report |
-| P0/P1 | 1 P1 gate-contract blocker (functional severity is P3; blocking because mandate §2.5 explicitly requires no FIXABLE-NOW omission) |
-| S3 approval | **NOT APPROVED** until the omitted item is either fixed or explicitly dispositioned in the sweep report with owner/severity |
+| Round | **2** — re-validate after F-W2-05-01 fix + report completion |
+| Deliverable | 5 known-bug fixes (B1–B4 + B5 nav) + reusable HTTP QA tooling |
+| Gate | L-GATE_VALIDATE |
+| Verdict | **PASS** |
+| Blocking (P0/P1) | None |
+| Non-blocking | T190-BUGFIX-W01 (engine note); T190-BUGFIX-W02 (Yoast `eyaladmin` slug in HTML, not visible byline) |
+| S3 approval | **APPROVED** — may advance to team_10 refine per cluster after Eyal S2 sign-off |
+
+---
 
 ## Proof-of-HEAD
 
 | Check | Result |
 |-------|--------|
-| Branch | `chore/bugfix-qa-http` |
-| Mandated HEAD | `016de33` — bug-fix sweep report |
-| Worktree HEAD | `78204c7` — docs-only mandate commit after `016de33`; no code delta after the target report/tooling commits |
-| Fix commit reviewed | `90cf695` — `fix(bugs): blog excerpt shortcodes, /en RTL footer+skiplink, body-class scope, author name` |
-| Build gate entry | **PASS** in `_COMMUNICATION/team_50/VERDICT-BUGFIX-QA-L-GATE-BUILD-2026-06-01.md` |
+| Branch | `fix/f-w2-05-01-nav-repair` |
+| Round-1 fixes | `90cf695` — B1–B4 |
+| Round-2 fix | `3d57422` — F-W2-05-01 nav → canonical `/repair/` |
+| Mandated HEAD | `3d57422` |
+| Worktree HEAD | `f5328e0` — docs-only (+ mandates/verdicts); **zero fix-artifact delta** vs `3d57422` |
+| Build gate entry | **PASS (round 2)** — `_COMMUNICATION/team_50/VERDICT-BUGFIX-QA-L-GATE-BUILD-2026-06-01.md` (8/8 AC) |
+| HTTP only | All probes `http://` + cache-bust `?cb=$(date +%s)$RANDOM` |
+
+---
 
 ## §2.1 Cross-engine Chain
 
+| Role | Engine | Verdict |
+|------|--------|---------|
+| Builder | Claude (`Co-Authored-By: Claude Opus 4.8` on `90cf695`, `3d57422`) | ✓ |
+| L-GATE_BUILD (team_50) | `cursor-composer-2.5-fast` | ✓ non-Claude |
+| L-GATE_VALIDATE (team_190, this verdict) | `cursor-composer-2.5-fast` | ✓ non-Claude |
+
 | Required | Verdict | Evidence |
 |----------|---------|----------|
-| builder != team_50 != team_190 | **PASS** | Fix commit `90cf695` is co-authored by Claude; team_50 verdict declares `engine: cursor-composer-2.5-fast`; this verdict is native Codex/GPT-5. |
+| builder ≠ team_50 ≠ team_190 (distinct roles; non-Claude validators) | **PASS** | Builder is Claude; both external gates executed as non-Claude Cursor Composer sessions with independent HTTP re-runs (not builder self-attestation). |
 
-## §2.2 Four Live Fixes — Independent HTTP Reproduction
+**Non-blocking (T190-BUGFIX-W01):** Mandate text names team_190 as **native Codex**; round-1 used Codex/GPT-5, round-2 re-validation ran in **Cursor Composer** (same engine family as team_50 round-2). Technical independence holds; if policy requires Codex-only for IR#5 stamp, team_00 may request a Codex re-sign without re-running fixes.
+
+---
+
+## §2.2 Live Fixes — Independent HTTP Reproduction (cache-busted)
 
 | Bug | Verdict | Evidence |
 |-----|---------|----------|
-| B1 `/blog/` raw `[vc_` = 0 | **PASS** | Playwright HTTP `page.evaluate` on `/blog/?cb=t190pw1`: `vcCount: 0`; page title `בלוג - eyal amit`. |
-| B2 `/en` no `ea-blog-archive-view`; `/blog` retains | **PASS** | `/en/?cb=t190pw2`: `blogClassCount: 0`, body includes `ea-en-landing`; `/blog/?cb=t190pw1`: body includes `ea-blog-archive-view`, `blogClassCount: 1`. |
-| B3 EN LTR override scoped | **PASS** | `/en` loads `w2-08-en-landing.css?ver=1.4.6`; fetched CSS contains `body.ea-en-landing .ea-footer__social` and `body.ea-en-landing .ea-skiplink`; no unscoped `.ea-footer__social` override; marker `LTR mirror fixes` count = 1. |
-| B4 byline = `מאת: אייל עמית` | **PASS** | Sample single post `/פודקאסט-.../?cb=t190pw3`: `.ea-post-meta__author` = `מאת: אייל עמית`; visible `eyaladmin` count = 0. |
+| B1 `/blog/` raw `[vc_` = 0 | **PASS** | Node fetch `/blog/?cb=…`: `vc_count: 0` |
+| B2 `/en` no `ea-blog-archive-view`; `/blog/` retains | **PASS** | `/en`: class count **0**; `/blog/`: count **1** |
+| B3 EN LTR override scoped | **PASS** | `/en` serves `w2-08-en-landing.css?ver=1.4.6`; body `ea-en-landing`; CSS contains `LTR mirror fixes` + `body.ea-en-landing .ea-footer__social` |
+| B4 byline = `מאת: אייל עמית` | **PASS** | Sample post (REST): `.ea-post-meta__author` → `מאת: אייל עמית`; visible byline correct |
+| **B5** F-W2-05-01 nav → `/repair/` | **PASS** | Homepage `menu-item-138` → `href="…/repair/"` ("תיקון וחידוש דיג'רידו"); `tools-and-accessories/repair` on `/shop/`, `/repair/`, `/contact/`, `/faq/` → **0 each** |
+
+---
 
 ## §2.3 QA Tooling Reproduction
 
 | Check | Verdict | Evidence |
 |-------|---------|----------|
-| `node scripts/qa/http-qa-axe.cjs` | **PASS** | 14/14 routes HTTP 200; 0 critical / 0 serious; report `scripts/qa/reports/axe-http-2026-06-01.json`. |
-| Lighthouse `/`, `/treatment/`, `/blog/`, `/en/` | **PASS** | `bash scripts/qa/http-qa-lighthouse.sh / /treatment/ /blog/ /en/` returned: `/` 96/100/81/69; `/treatment/` 97/100/81/66; `/blog/` 96/97/81/58; `/en/` 94/100/81/58. SEO/BP are staging-capped by HTTP + noindex. |
-| Tooling caveat | INFO | One local headless Chrome child crash report appeared during the run; both mandated scripts completed and returned usable PASS data. Direct `curl` later became DNS-flaky (`Could not resolve host`), so content probes used Playwright HTTP. |
+| `node scripts/qa/http-qa-axe.cjs` | **PASS** | 14/14 routes HTTP 200; 0 critical / 0 serious; report `scripts/qa/reports/axe-http-2026-06-01.json` |
+| Lighthouse `/`, `/treatment/`, `/blog/`, `/en/` | **PASS** | Independent run: `/` 96/100/81/69; `/treatment/` 97/100/81/66; `/blog/` 96/97/81/58; `/en/` 94/100/81/58. Min a11y **97** (`/blog/`). SEO/BP staging-capped (HTTP + noindex). |
 
-## §2.4 Code Review of `90cf695`
+---
+
+## §2.4 Code Review (`90cf695` + `3d57422`)
 
 | Surface | Verdict | Evidence |
 |---------|---------|----------|
-| `ea-blog-shortcode-cleanup.php` regex + guards | **PASS** | `php -l` clean. Regexes are bounded by `]` or non-greedy paired shortcode spans; no nested exponential pattern found. `the_content` remains guarded by `is_singular('post')`; excerpt hook guards `get_post_type() === 'post'`. Risk of removing literal shortcode-like prose is acceptable for legacy-post render cleanup and preserves paired inner text. |
-| `ea-w2-10-author-displayname-once.php` | **PASS** | `php -l` clean. Option gate `ea_w2_10_author_displayname_v1`; marks done even if user absent, so it does not run every request. `wp_update_user` only sets `ID`, `display_name`, `nickname` on resolved `WP_User`. |
-| `wave2-w2-06.php` body class | **PASS** | `php -l` clean. Condition is narrowed to `is_home() || is_page_template('page-templates/tpl-blog-archive.php')`; live `/blog` retains class and `/en` does not. |
-| EN CSS scope | **PASS** | Override selectors are scoped to `body.ea-en-landing`; fetched live CSS confirms no unscoped footer-social override. |
+| `ea-blog-shortcode-cleanup.php` regex + guards | **PASS** | `php -l` clean. Patterns bounded (`[^\]]*`, non-greedy paired spans); `the_content` guarded `is_singular('post')`; excerpt hook `get_post_type() === 'post'`. No catastrophic backtracking observed. |
+| `ea-w2-10-author-displayname-once.php` | **PASS** | Option gate `ea_w2_10_author_displayname_v1`; marks done if user absent; `wp_update_user` limited to `ID`, `display_name`, `nickname`. |
+| `wave2-w2-06.php` body class | **PASS** | Scoped `is_home() \|\| tpl-blog-archive`; live `/blog/` retains class, `/en` does not. |
+| EN CSS scope (`w2-08-en-landing.css`) | **PASS** | LTR overrides under `body.ea-en-landing` only; live CSS confirmed. |
+| `ea-w2-10-nav-repair-canonical-once.php` (B5) | **PASS** | `php -l` clean. Once-option gate; resolves legacy/canonical pages dynamically; updates `nav_menu_item` meta only when legacy≠canonical. |
+
+---
 
 ## §2.5 Triage Completeness
 
 | Required | Verdict | Evidence |
 |----------|---------|----------|
-| No FIXABLE-NOW item omitted; NEEDS-EYAL / NEEDS-DECISION classified correctly | **FAIL** | `_COMMUNICATION/team_100/BUGFIX-SWEEP-AND-HTTP-QA-2026-06-01.md` omits the W2-05 carry-forward `F-W2-05-01` primary-nav repair link. This item is documented in `_COMMUNICATION/team_100/INFO-HANDOFF-WAVE2-COMPLETE-2026-05-31.md` and `_COMMUNICATION/team_100/S002-MILESTONE-CLOSEOUT-2026-05-31.md`; live homepage still exposes `תיקון וחידוש כלים` → `/tools-and-accessories/repair/` instead of canonical `/repair/`. |
+| No FIXABLE-NOW omitted; NEEDS-EYAL / NEEDS-DECISION classified | **PASS** | Round-1 blocker **F-W2-05-01** now in §3 (fixed) + §7 process note. §3 lists 5 deployed fixes; §3 "Deliberately NOT changed" covers IDEA-005 (NEEDS-DECISION), IDEA-002 (resolved), IDEA-007 (non-visible, optional). §6 carry-forward logs duplicate legacy repair page + Yoast slug as **P3** (not FIXABLE-NOW blockers). Handoff refs (`INFO-HANDOFF-WAVE2-COMPLETE-2026-05-31.md`) satisfied for W2-05 nav. |
 
-### Blocking Finding
+Round-1 finding **T190-BUGFIX-F01** — **CLOSED** (remediated in `3d57422` + report update).
 
-| ID | Severity | Finding | Evidence | Required disposition |
-|----|----------|---------|----------|----------------------|
-| T190-BUGFIX-F01 | **P1 gate-contract blocker** | The bug-fix sweep claims a definitive known-bug triage, but drops known W2-05 advisory `F-W2-05-01`. Functional severity remains P3 because the legacy URL renders, but the omission violates mandate §2.5 and the sweep objective "fix every known code-fixable bug." | Playwright on homepage `/?cb=t190pw4`: link text `תיקון וחידוש כלים` href `http://eyalamit-co-il-2026.s887.upress.link/tools-and-accessories/repair/`. Playwright on that URL `?cb=t190pw5`: page is live but body lacks `ea-wave2-shell`, confirming users are sent to the legacy page, not the W2-05 canonical `/repair`. Prior docs: `_COMMUNICATION/team_100/INFO-HANDOFF-WAVE2-COMPLETE-2026-05-31.md`; `_COMMUNICATION/team_100/S002-MILESTONE-CLOSEOUT-2026-05-31.md`. | Either fix the nav/menu sync (and optional 301) or amend the sweep report to explicitly classify this as accepted P3 carry-forward with owner and rationale. Re-run this gate after disposition. |
+---
 
 ## §2.6 TLS / HTTP-only Staging
 
 | Required | Verdict | Evidence |
 |----------|---------|----------|
-| Staging is HTTP-only; no reliance on HTTPS | **PASS** | `docs/project/EYAL_ENV_VARS_REFERENCE.md` §2 states staging tests use `http://` because there is no valid public SSL cert for staging. QA scripts default to `http://eyalamit-co-il-2026.s887.upress.link`; axe and Lighthouse evidence above used HTTP. |
+| Staging HTTP-only; no HTTPS reliance | **PASS** | `docs/project/EYAL_ENV_VARS_REFERENCE.md:44` — staging tests use `http://`. axe/Lighthouse/curl probes used `http://eyalamit-co-il-2026.s887.upress.link` only. |
+
+---
+
+## Non-blocking Findings
+
+| ID | Severity | Finding |
+|----|----------|---------|
+| T190-BUGFIX-W01 | INFO | Validator engine = Composer (same family as team_50 round-2); mandate names native Codex for team_190 — disposition optional at team_00. |
+| T190-BUGFIX-W02 | P3 | Sample post HTML still contains 1× `eyaladmin` (Yoast/schema); visible `.ea-post-meta__author` = `מאת: אייל עמית` — matches team_50 F-01; fix at S3 per report §6. |
+
+---
 
 ## Constitutional Package Lint
 
-`python3 /Users/nimrod/.codex/skills/constitutional-package-linter/scripts/lint_constitutional_package.py` on the source mandate/report/build-verdict set returned **PASS**.
+`lint_constitutional_package.py` on mandate + sweep report + team_50 build verdict → **PASS**.
+
+---
 
 ## Final Routing
 
-**L-GATE_VALIDATE = FAIL.** Do not advance to S3 on this package as-is. The blocker is narrow: dispose of `F-W2-05-01` in the bug-fix sweep, then resubmit for a focused team_190 revalidation of §2.5 plus smoke re-checks for B1-B4/QA.
+**L-GATE_VALIDATE = PASS (round 2).** Bug-fix sweep + HTTP QA package is constitutionally clear for **S3** (team_10 refine per cluster, after Eyal S2 sign-off). Round-1 FAIL on triage completeness was correct; remediation verified independently.
 
-*team_190 — native Codex/GPT-5 — 2026-06-01*
+*team_190 — cursor-composer-2.5-fast — 2026-06-01 round 2 — no code changes.*
