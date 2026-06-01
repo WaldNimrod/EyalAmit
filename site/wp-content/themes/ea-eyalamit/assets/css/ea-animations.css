@@ -58,6 +58,35 @@
   animation: ea-slideIn-rtl var(--ea-dur-mid) var(--ea-ease-enter) both;
 }
 
+/* ----------------------------------------------------------------
+   POC entrance stagger (WP-W2-12 — de-inlined from block PHP).
+   Delays are tokenized via --ea-stagger-step (calc multiples).
+   Mapping (step = 0.05s):
+     *2 = 0.10s   *3 = 0.15s   *4 = 0.20s   *6 = 0.30s
+   prefers-reduced-motion zeroes animation-delay globally below.
+   ---------------------------------------------------------------- */
+/* block-method-pillars: pillars 2,3,4 -> 0.1s, 0.2s, 0.3s */
+.ea-pillars-grid .ea-pillar:nth-of-type(2) { animation-delay: calc(var(--ea-stagger-step) * 2); }
+.ea-pillars-grid .ea-pillar:nth-of-type(3) { animation-delay: calc(var(--ea-stagger-step) * 4); }
+.ea-pillars-grid .ea-pillar:nth-of-type(4) { animation-delay: calc(var(--ea-stagger-step) * 6); }
+
+/* block-treatment-overview: 2nd column -> 0.15s */
+.ea-service-comparison__grid .ea-service-comparison__col:nth-of-type(2) { animation-delay: calc(var(--ea-stagger-step) * 3); }
+
+/* block-testimonials-row: cards 2,3 -> 0.1s, 0.2s */
+.ea-testimonials-grid .ea-testimonial-card:nth-of-type(2) { animation-delay: calc(var(--ea-stagger-step) * 2); }
+.ea-testimonials-grid .ea-testimonial-card:nth-of-type(3) { animation-delay: calc(var(--ea-stagger-step) * 4); }
+
+/* block-books-row: cards 2,3 -> 0.1s, 0.2s */
+.ea-books-grid .ea-book-card:nth-of-type(2) { animation-delay: calc(var(--ea-stagger-step) * 2); }
+.ea-books-grid .ea-book-card:nth-of-type(3) { animation-delay: calc(var(--ea-stagger-step) * 4); }
+
+/* block-services-row: 2nd tile -> 0.1s */
+.ea-services-grid .ea-service-tile:nth-of-type(2) { animation-delay: calc(var(--ea-stagger-step) * 2); }
+
+/* block-contact-cta: form side -> 0.15s */
+.ea-contact-section__form.ea-entrance { animation-delay: calc(var(--ea-stagger-step) * 3); }
+
 @media (prefers-reduced-motion: reduce) {
   /* Kill all continuous breathing loops */
   *,
