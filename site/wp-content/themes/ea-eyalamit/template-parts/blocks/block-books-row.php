@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
           </article>
 
           <!-- Book 2: כושי בלאנטיס -->
-          <article class="ea-book-card ea-entrance" style="animation-delay:0.1s">
+          <article class="ea-book-card ea-entrance">
             <a class="ea-book-card__link"
                href="<?php echo esc_url( home_url( '/books/kushi-atlantis' ) ); ?>"
                aria-label="פרטים על הספר: כושי בלאנטיס">
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
           </article>
 
           <!-- Book 3: צבע בכחול וזרוק לים -->
-          <article class="ea-book-card ea-entrance" style="animation-delay:0.2s">
+          <article class="ea-book-card ea-entrance">
             <a class="ea-book-card__link"
                href="<?php echo esc_url( home_url( '/books/tsva-bekahol' ) ); ?>"
                aria-label="פרטים על הספר: צבע בכחול וזרוק לים">
@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
           </article>
 
         </div>
-        <div style="margin-top: var(--ea-space-6); text-align: right;">
+        <div class="ea-block-cta-end">
           <a class="ea-cta-pill ea-cta-pill--ghost" href="<?php echo esc_url( home_url( '/books' ) ); ?>">לכל הספרים</a>
         </div>
       </div>
