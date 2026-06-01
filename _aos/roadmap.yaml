@@ -972,3 +972,21 @@ work_packages:
   blocked_by: ['Eyal hero video asset (external)']
   estimate_days: '2.5'
   notes: 'Replace CSS-gradient placeholder in block-hero.php with real video treatment + poster + reduced-motion fallback. BLOCKED until Eyal provides video.'
+- id: WP-W2-11
+  label: S003 Base Implementation (Hybrid Track-1) — Home refine + Conversion + Blog → deployed templates
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE)
+  created_at: '2026-06-01'
+  milestone_ref: S003
+  spec_ref: _aos/work_packages/S003/WP-W2-11/LOD400_spec.md
+  decision_ref: _COMMUNICATION/team_00/DECISION_DESIGN-ELEVATION-SEQUENCING_2026-06-01_v1.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  estimate_days: '4'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch feature/s003-base-implementation-prep, never main): live roadmap API re-probe 2026-06-01 still hangs (item #1 closed per DISPOSITION-MSG-HUB-20260530-001-CLOSE-2026-05-31); file roadmap.yaml = live SSoT. Merge -> main per team_00 go.'
+  notes: 'Option C (hybrid) Track-1. Implement the SETTLED/low-visual-risk clusters now (Home POC-reviewed refine; Conversion + Blog REAL templates) via S3 team_10 -> S4 team_80 -> S5 team_50/190 (axe+Lighthouse over HTTP). High-visual A/B/E/F stay on the WP-W2-10 team_35 elevation track (Track-2); G blocked. Eyal content (CF7 form, blog featured images, WhatsApp #) parallel/non-blocking — placeholders bridge (AC-05). Next session orchestrates per the aos_handoff full 100.'
