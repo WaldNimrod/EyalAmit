@@ -122,6 +122,7 @@ def main() -> None:
     # Blog shortcode cleanup (strips legacy [vc_*] from content + excerpts) + author display-name fix.
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-blog-shortcode-cleanup.php", "wp-content/mu-plugins/ea-blog-shortcode-cleanup.php"))
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-author-displayname-once.php", "wp-content/mu-plugins/ea-w2-10-author-displayname-once.php"))
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-nav-repair-canonical-once.php", "wp-content/mu-plugins/ea-w2-10-nav-repair-canonical-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

@@ -33,6 +33,7 @@ NEEDS-DECISION, plus already-fixed/carry-forward. The NEEDS-EYAL items are exact
 | **F-W2-08-01** — stray `ea-blog-archive-view` body class on `/en` (+ every Wave2 page) | Root cause: `ea_wave2_is_active_view()` takes **no arg** → true for all Wave2 templates. Scoped the class to `is_home() \|\| tpl-blog-archive` | `site/wp-content/themes/ea-eyalamit/inc/wave2-w2-06.php` | `/en` class **gone**; `/blog/` **retains** it |
 | **F-W2-10-F (M4/M5/M6)** — `/en` footer social + skip-link use physical RTL props that don't flip under `dir=ltr` | Added LTR overrides scoped to `body.ea-en-landing` (footer `row`/`flex-start`; skip-link `left:0`) | `site/wp-content/themes/ea-eyalamit/assets/css/w2-08-en-landing.css` | override CSS served on `/en` |
 | **WP-W2-10-D Q1** — blog byline shows login `eyaladmin` not `אייל עמית` | Idempotent `-once` mu-plugin sets the user's `display_name`/`nickname` | `site/wp-content/mu-plugins/ea-w2-10-author-displayname-once.php` (new) | post byline now **"מאת: אייל עמית"** |
+| **F-W2-05-01** — primary-nav item linked the LEGACY page `/tools-and-accessories/repair/` (id 65) instead of canonical `/repair/` (id 293) ⟵ *added in round-2 after team_190 flagged the triage-completeness gap* | `-once` mu-plugin repoints any `nav_menu_item` from the legacy page → canonical page (resolved dynamically) | `site/wp-content/mu-plugins/ea-w2-10-nav-repair-canonical-once.php` (new) | menu item now → `/repair/`; legacy link **0 occurrences** sitewide |
 
 **Deliberately NOT changed (flagged, not bugs):**
 - **F-W2-02-02 / IDEA-005** — homepage hero H1 uses `<br>` vs source dash. The homepage is the one
@@ -62,9 +63,24 @@ New reusable HTTP QA tooling under `scripts/qa/` (self-contained; `node_modules`
 `scripts/ftp_deploy_site_wp_content.py` did not include `ea-blog-shortcode-cleanup.php` in its canonical
 mu-plugin list (so prod/staging deploys could miss it). Added it + the new author-display once-plugin.
 
-## §6 Carry-forward (still needs Eyal / decision — unchanged)
+## §6 Carry-forward (still needs Eyal / decision)
 NEEDS-EYAL items are tracked in the live `materials-intake` hub page. NEEDS-DECISION (for team_00):
 homepage hero `<br>`, `--3col` comparison modifier, `/shop` legacy cart 404s, interim `/תקנון` & build-workshops
 redirect targets, `/method` testimonials scope, blog share/related atoms (team_80 GCR).
+
+**New P3 carry-forwards surfaced during the external gates (round 2):**
+- **Duplicate legacy `repair` page** — page id 65 `/tools-and-accessories/repair/` still resolves 200 alongside
+  canonical id 293 `/repair/`. The nav no longer links it (fixed above), but it remains crawlable. Recommend a
+  301 `/tools-and-accessories/repair/ → /repair/` in the W2-09 redirect layer (regen from the 135-JSON) or trash
+  page 65, at M7/S3. (team_50 + team_190 round-1 didn't flag this; surfaced while fixing F-W2-05-01.)
+- **Yoast author schema slug** (team_50 P3) — Yoast still emits `/author/eyaladmin/` (the `user_nicename`).
+  Display byline is fixed; the slug is cosmetic/SEO-minor and unindexed on staging. Fix at S3: set
+  `user_nicename = eyal-amit` + add a `/author/eyaladmin/ → /author/eyal-amit/` 301.
+
+## §7 Process note — triage-completeness miss (round 1 → round 2)
+team_190 L-GATE_VALIDATE **FAILed round 1** correctly: F-W2-05-01 (nav repair link) was mis-triaged as
+NEEDS-DECISION and omitted from this report's fix scope, while the canonical `/repair/` was already live —
+making it a clear FIXABLE-NOW. Remediated in round 2 (nav repointed + report completed). Lesson: a "live
+legacy link with a canonical target already shipped" is a bug, not a decision.
 
 *team_100 | bug-fix sweep + HTTP QA complete 2026-06-01. Branch chore/bugfix-qa-http; merge PENDING team_00.*
