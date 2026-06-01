@@ -10,8 +10,8 @@ branch: feature/s003-base-implementation-prep
 builder_ref: team_10 S3 (commits 6172d0b tpl-contact, a925582 block-faq-list, 5a90419 ea-faq-filter.js)
 spec_ref: _aos/work_packages/S003/WP-W2-11/LOD400_spec.md
 mandate_ref: _COMMUNICATION/team_100/MANDATE-TEAM10-WP-W2-11-S3-CONVERSION-2026-06-01.md §6
-verdict: PASS_WITH_FINDINGS
-gcr_needed: YES (recommended before AC-01 can pass at S5)
+verdict: PASS
+gcr_needed: RESOLVED (team_00-approved rules-only addition authored 2026-06-02)
 ---
 
 # S4 Token-Compliance Verdict — WP-W2-11 Conversion (`/contact`, `/faq`)
@@ -151,3 +151,45 @@ File the GCR in `_COMMUNICATION/team_XX/` → route to team_100 → team_00 appr
 external axe/Lighthouse S5 QA remains team_50 → team_190.*
 
 — team_80
+
+---
+
+## 5. GCR RESOLVED — rules-only D-14 addition (team_00-approved 2026-06-02)
+
+**team_00 APPROVED** (2026-06-02) the rules-only addition recommended in §3, authorized to
+team_80 as D-14 owner. The rules were authored into `assets/css/ea-atoms.css` (the live D-14
+SSoT for this spoke) under the comment banner
+`/* WP-W2-11 Conversion — D-14 rules-only addition, team_00-approved 2026-06-02 */`.
+
+**Constraint honored: zero new token values.** Only existing custom properties from
+`ea-tokens.css` were used. Verified:
+- `git diff main -- assets/css/ea-tokens.css` → **EMPTY** (token SSoT unchanged).
+- grep of the additions for raw hex `#[0-9A-Fa-f]{3,6}` → **NONE**.
+- grep for new `--ea-*` property declarations → **NONE**.
+- grep for new `@keyframes` → **NONE**.
+
+### Rules added (selectors → tokens used)
+
+1. **`.ea-contact-page-intro`** — `padding: calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-gutter) var(--ea-space-5); background: var(--ea-bg);`
+   - **`__inner`** — `max-width: var(--ea-prose-width); margin-inline: auto;`
+   - **`__sub`** — `var(--ea-font)`, `var(--ea-text-body)`; literal `1.05rem`/`1.9`/`65ch` per existing house style (no token exists for these — same as `.ea-section-intro__body`).
+2. **`.ea-wave2-contact .ea-page-title, .ea-wave2-faq .ea-page-title`** — `font: var(--ea-type-h1); color: var(--ea-text); margin: 0 0 var(--ea-space-2) 0;`. **Existing blog rules (`.ea-wave2-blog-archive`/`.ea-wave2-blog-single .ea-page-title` in `ea-blog.css`) left untouched.**
+3. **`.ea-faq-list__filter`** (sticky) — `position: sticky; top: var(--ea-nav-height); z-index: var(--ea-z-sticky); background: var(--ea-bg); padding: 0 var(--ea-gutter) var(--ea-space-3);` + flex layout with `gap: var(--ea-space-2)`. Plus `__filter-label` (`var(--ea-font)`/`var(--ea-ink)`), `__filter-select` (`var(--ea-line)`/`var(--ea-radius-img)`/`var(--ea-bg)`/`var(--ea-ink)`/`var(--ea-terracotta)` focus), `__filter-count` (`var(--ea-muted)`, `margin-inline-start: auto`). Mobile: `top: var(--ea-nav-height-mob)`.
+4. **`.ea-faq-category__heading`** — `var(--ea-font)`, `font-weight: 200`, `color: var(--ea-ink)`, `margin: 0 0 var(--ea-space-2) 0; padding-bottom: var(--ea-space-1);` (literal `1.4rem`/`1.2` per existing house style — matches `.ea-faq-group__heading` in the mockup; no font-size token at this step).
+
+RTL handled with logical properties (`margin-inline`, `margin-inline-start`). No transitions
+added, so no `prefers-reduced-motion` block required.
+
+### Verdict flip
+
+- **AC-01 (composition match): now CLOSEABLE.** The four selectors are now styled in D-14 to
+  the team_35 mockup intent; S5 can assert AC-01 fidelity for the sticky filter, styled category
+  headings, styled (non-blog) page title, and contact intro band.
+- **AC-02 (zero D-14 token drift): PASS** — re-confirmed; the addition introduced zero new tokens
+  and zero raw hex.
+- **OVERALL VERDICT: PASS.**
+
+team_80 authored `ea-atoms.css` only. **Not deployed** — team_10 will redeploy the updated CSS
+to staging next. Not pushed/merged (stays on `feature/s003-base-implementation-prep`).
+
+— team_80 (2026-06-02, GCR-resolved)
