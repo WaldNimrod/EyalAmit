@@ -466,14 +466,16 @@ $faq_data = array(
 			<label for="ea-faq-cat" class="ea-faq-list__filter-label">
 				<?php esc_html_e( 'נושא:', 'ea-eyalamit' ); ?>
 			</label>
-			<select id="ea-faq-cat" class="ea-faq-list__filter-select" aria-label="<?php esc_attr_e( 'בחר נושא', 'ea-eyalamit' ); ?>">
+			<select id="ea-faq-cat" class="ea-faq-list__filter-select" aria-controls="faq-list" aria-label="<?php esc_attr_e( 'בחר נושא', 'ea-eyalamit' ); ?>">
 				<option value="all"><?php esc_html_e( 'הכל', 'ea-eyalamit' ); ?></option>
 				<?php foreach ( $faq_categories as $slug => $label ) : ?>
 					<option value="<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
+			<span class="ea-faq-list__filter-count" id="faq-count" aria-live="polite"></span>
 		</div>
 
+		<div id="faq-list">
 		<?php foreach ( $faq_categories as $cat_slug => $cat_label ) :
 			$cat_items = array_filter(
 				$faq_data,
@@ -481,27 +483,30 @@ $faq_data = array(
 					return $item['category'] === $cat_slug;
 				}
 			);
-			if ( empty( $cat_items ) ) {
-				continue;
-			}
 			?>
-			<div class="ea-faq-category" data-category="<?php echo esc_attr( $cat_slug ); ?>">
+			<div class="ea-faq-category" data-category="<?php echo esc_attr( $cat_slug ); ?>"<?php echo empty( $cat_items ) ? ' hidden' : ''; ?>>
 				<h2 class="ea-faq-category__heading"><?php echo esc_html( $cat_label ); ?></h2>
-				<?php foreach ( $cat_items as $item ) : ?>
-					<details
-						class="ea-faq-item ea-entrance"
-						data-category="<?php echo esc_attr( $item['category'] ); ?>"
-					>
-						<summary class="ea-faq-item__question">
-							<?php echo esc_html( $item['q'] ); ?>
-						</summary>
-						<div class="ea-faq-item__answer">
-							<?php echo wp_kses_post( $item['a'] ); ?>
-						</div>
-					</details>
-				<?php endforeach; ?>
+				<?php if ( empty( $cat_items ) ) : ?>
+					<p class="ea-faq-item__answer"><?php esc_html_e( 'תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.', 'ea-eyalamit' ); ?></p>
+				<?php else : ?>
+					<?php foreach ( $cat_items as $item ) : ?>
+						<details
+							class="ea-faq-item ea-entrance"
+							data-category="<?php echo esc_attr( $item['category'] ); ?>"
+						>
+							<summary class="ea-faq-item__summary">
+								<h3 class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></h3>
+								<span class="ea-faq-item__icon" aria-hidden="true">&#9662;</span>
+							</summary>
+							<div class="ea-faq-item__answer">
+								<?php echo wp_kses_post( $item['a'] ); ?>
+							</div>
+						</details>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 		<?php endforeach; ?>
+		</div>
 
 	</div>
 </section>
