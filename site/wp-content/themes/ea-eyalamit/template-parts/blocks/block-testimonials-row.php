@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
           </article>
 
           <!-- Testimonial 2 -->
-          <article class="ea-testimonial-card ea-entrance" style="animation-delay:0.1s">
+          <article class="ea-testimonial-card ea-entrance">
             <div class="ea-testimonial-card__figure" aria-hidden="true">
               <span class="ea-testimonial-card__avatar-placeholder"></span>
             </div>
@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
           </article>
 
           <!-- Testimonial 3 -->
-          <article class="ea-testimonial-card ea-entrance" style="animation-delay:0.2s">
+          <article class="ea-testimonial-card ea-entrance">
             <div class="ea-testimonial-card__figure" aria-hidden="true">
               <span class="ea-testimonial-card__avatar-placeholder"></span>
             </div>
