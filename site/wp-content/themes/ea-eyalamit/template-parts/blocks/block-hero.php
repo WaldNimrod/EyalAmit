@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
         <span class="ea-hero__breath-line ea-hero__breath-line--1" aria-hidden="true"></span>
         <span class="ea-hero__breath-line ea-hero__breath-line--2" aria-hidden="true"></span>
         <span class="ea-hero__breath-line ea-hero__breath-line--3" aria-hidden="true"></span>
+        <?php /* TEMP placeholder image from the net (Lorem Picsum, grayscale+blur) — pre-video stand-in; swap for Eyal's real hero video/asset. Sits above the gradient, below the dark contrast overlay. */ ?>
+        <img class="ea-hero__placeholder" src="https://picsum.photos/seed/eyalamit-hero/1920/1080?grayscale&amp;blur=2" alt="" aria-hidden="true" loading="eager" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" />
       </div>
 
       <!-- Dark overlay for contrast -->
