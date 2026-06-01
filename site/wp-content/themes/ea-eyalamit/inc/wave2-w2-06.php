@@ -78,11 +78,33 @@ function ea_w2_06_template_include( $tpl ) {
 }
 
 /**
+ * S003 loose-ends — 301 the legacy author slug to the canonical one.
+ *
+ * The author user (id 1) was renamed: user_nicename 'eyaladmin' → 'eyal-amit',
+ * so the canonical archive is now /author/eyal-amit/. The stray duplicate user
+ * that previously held the 'eyal-amit' slug (0 posts) was deleted to free it.
+ * Any inbound links to the old /author/eyaladmin/ archive must 301 to the new
+ * canonical URL. Because the slug was renamed, /author/eyaladmin/ no longer
+ * resolves to a user (WP would 404), so we match on the raw 'author_name'
+ * query var rather than the queried object. Scoped strictly to the old slug so
+ * it fires for nothing else.
+ */
+add_action( 'template_redirect', 'ea_s003_author_slug_redirect' );
+function ea_s003_author_slug_redirect() {
+	if ( 'eyaladmin' === get_query_var( 'author_name' ) ) {
+		wp_safe_redirect( home_url( '/author/eyal-amit/' ), 301 );
+		exit;
+	}
+}
+
+/**
  * WP-W2-11 S3 (Blog D) — display-only author byline.
- * The WP user is 'eyaladmin'; the public byline must read 'אייל עמית'.
- * This filters the DISPLAYED name only on single-post views — it does NOT
- * touch the WP user, the Yoast nicename, or add an /author/ 301 (deferred to
- * the production-cutover SEO pass per the S3 mandate).
+ * The WP user's display name is already 'אייל עמית' and, since the S003
+ * loose-ends pass, its user_nicename is 'eyal-amit' (the canonical author
+ * slug). This filter is a belt-and-suspenders guarantee that the public byline
+ * on single posts always renders 'אייל עמית' regardless of any plugin that
+ * might swap the displayed name — it touches the DISPLAYED string only, never
+ * the WP user record or the slug.
  *
  * @param string $display_name The author's display name.
  * @return string
