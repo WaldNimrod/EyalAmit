@@ -14,23 +14,23 @@ defined( 'ABSPATH' ) || exit;
             <h3 class="ea-pillar__title">נשימה מעגלית</h3>
             <p class="ea-pillar__text">לימוד טכניקת הנשימה המעגלית כבסיס לעבודה מתמשכת עם הנשימה היומיומית.</p>
           </div>
-          <div class="ea-pillar ea-entrance" style="animation-delay:0.1s">
+          <div class="ea-pillar ea-entrance">
             <p class="ea-pillar__label">02</p>
             <h3 class="ea-pillar__title">ליווי אישי</h3>
             <p class="ea-pillar__text">תהליך אישי מותאם, בקצב שמתאים לכל אחד, עם דגש על תרגול מעשי ועצמאי.</p>
           </div>
-          <div class="ea-pillar ea-entrance" style="animation-delay:0.2s">
+          <div class="ea-pillar ea-entrance">
             <p class="ea-pillar__label">03</p>
             <h3 class="ea-pillar__title">חיבור לגוף</h3>
             <p class="ea-pillar__text">פיתוח מודעות לנשימה ולגוף, הקשבה לסימנים והבנת הקשר בין נשימה לבריאות.</p>
           </div>
-          <div class="ea-pillar ea-entrance" style="animation-delay:0.3s">
+          <div class="ea-pillar ea-entrance">
             <p class="ea-pillar__label">04</p>
             <h3 class="ea-pillar__title">שינוי לטווח ארוך</h3>
             <p class="ea-pillar__text">המטרה היא שינוי שנמשך מחוץ למפגש ומשפיע על איכות החיים לאורך זמן.</p>
           </div>
         </div>
-        <div style="margin-top: var(--ea-space-6); text-align: right;">
+        <div class="ea-block-cta-end">
           <a class="ea-cta-pill ea-cta-pill--ghost" href="<?php echo esc_url( home_url( '/method' ) ); ?>">
             למידע נוסף על השיטה
           </a>
