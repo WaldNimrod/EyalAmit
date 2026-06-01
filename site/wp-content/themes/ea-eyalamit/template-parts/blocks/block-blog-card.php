@@ -10,6 +10,11 @@ defined( 'ABSPATH' ) || exit;
 
 $cats = get_the_category();
 $cat  = $cats ? $cats[0] : null;
+
+// IDEA-006: strip Visual-Composer shortcodes + tags so cards never render raw [vc_row …].
+$ea_raw_excerpt   = has_excerpt() ? get_the_excerpt() : get_the_content();
+$ea_clean_excerpt = wp_strip_all_tags( strip_shortcodes( $ea_raw_excerpt ) );
+$ea_clean_excerpt = wp_trim_words( $ea_clean_excerpt, 20, '…' );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'ea-blog-card' ); ?>>
 	<a href="<?php the_permalink(); ?>" class="ea-blog-card__link" aria-label="<?php the_title_attribute(); ?>" tabindex="-1">
@@ -17,7 +22,7 @@ $cat  = $cats ? $cats[0] : null;
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail( 'medium_large', [ 'loading' => 'lazy', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 			<?php else : ?>
-				<div class="ea-blog-card__thumb-placeholder" aria-hidden="true"></div>
+				<div class="ea-blog-card__thumb-placeholder" role="img" aria-label="<?php esc_attr_e( 'תמונת רקע מעוצבת — אין תמונה ראשית לפוסט זה', 'ea-eyalamit' ); ?>"></div>
 			<?php endif; ?>
 		</div>
 	</a>
@@ -30,7 +35,7 @@ $cat  = $cats ? $cats[0] : null;
 		<h2 class="ea-blog-card__title">
 			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		</h2>
-		<p class="ea-blog-card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20, '…' ) ); ?></p>
+		<p class="ea-blog-card__excerpt"><?php echo esc_html( $ea_clean_excerpt ); ?></p>
 		<time class="ea-blog-card__date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
 			<?php echo esc_html( get_the_date() ); ?>
 		</time>
