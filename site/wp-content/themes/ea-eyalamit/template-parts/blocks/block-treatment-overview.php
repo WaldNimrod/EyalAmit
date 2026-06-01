@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
               <li>האפקט הוא לאורך זמן ולטווח הארוך</li>
               <li>תוך כדי, לומדים לנגן בדיג׳רידו</li>
             </ul>
-            <p style="font-family: var(--ea-font); font-size: 0.78rem; font-weight: 200; color: var(--ea-muted); margin: 0 0 var(--ea-space-4);">
+            <p class="ea-service-comparison__note">
               למי שסובל מסימפטומים בריאותיים, מוכן להקדיש זמן לתהליך עמוק ורוצה לעבוד עם הנשימה בצורה מעשית.
             </p>
             <div class="ea-service-comparison__cta">
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
           </div>
 
           <!-- Sound healing column -->
-          <div class="ea-service-comparison__col ea-entrance" style="animation-delay:0.15s" role="listitem">
+          <div class="ea-service-comparison__col ea-entrance" role="listitem">
             <h3 class="ea-service-comparison__col-title">סאונד הילינג</h3>
             <ul class="ea-service-comparison__list">
               <li>חוויה פאסיבית של הקשבה לצליל</li>
@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit;
               <li>האפקט הוא מיידי וקצר מועד</li>
               <li>חוויה אינטימית ומיוחדת, בדרך כלל חד-פעמית</li>
             </ul>
-            <p style="font-family: var(--ea-font); font-size: 0.78rem; font-weight: 200; color: var(--ea-muted); margin: 0 0 var(--ea-space-4);">
+            <p class="ea-service-comparison__note">
               למי שמחפש חוויה עמוקה ומיידית של הרפיה ורוצה לשמוע ולחוש בגוף את הדיג׳רידו.
             </p>
             <div class="ea-service-comparison__cta">
