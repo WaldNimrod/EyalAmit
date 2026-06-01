@@ -9,7 +9,11 @@ ROUTES=("$@"); [ ${#ROUTES[@]} -eq 0 ] && ROUTES=("/" "/treatment/" "/blog/" "/e
 OUT="$(cd "$(dirname "$0")" && pwd)/reports"; mkdir -p "$OUT"
 printf "%-18s %5s %5s %5s %5s\n" "route" "perf" "a11y" "bp" "seo"
 for r in "${ROUTES[@]}"; do
-  url="${BASE%/}${r}"
+  # Measure perf over HTTPS (production-representative) to drop the http->https 301 redirect
+  # artifact that falsely capped Conversion mobile perf (DISPOSITION-WP-W2-11-CONVERSION-S5-CLOSE-2026-06-02.md).
+  # --ignore-certificate-errors stays (staging cert expired); axe stays over http (http-qa-axe.cjs).
+  https_base="https://${BASE#*://}"
+  url="${https_base%/}${r}"
   f="$OUT/lh$(echo "$r" | tr '/' '_').json"
   CHROME_PATH="$CHROME" npx --yes lighthouse "$url" --quiet --preset=desktop \
     --only-categories=performance,accessibility,best-practices,seo \
