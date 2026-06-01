@@ -17,7 +17,7 @@ function ea_w2_06_enqueue_blog_assets() {
 		wp_enqueue_style(
 			'ea-blog',
 			get_stylesheet_directory_uri() . '/assets/css/ea-blog.css',
-			[ 'ea-tokens' ],
+			[ 'ea-wave2-tokens' ],
 			$ver
 		);
 	}
