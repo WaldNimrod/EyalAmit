@@ -95,3 +95,39 @@ function ea_w2_11_blog_author_display( $display_name ) {
 	}
 	return $display_name;
 }
+
+/**
+ * AC-03 a11y fix — sanitize broken ARIA left over from pasted Facebook/Instagram
+ * embed HTML inside legacy post bodies (imported via blog-legacy.wxr).
+ *
+ * Two single posts carry copy-pasted Facebook React markup
+ * (`<div class="x1a2a7pz" role="article" aria-posinset="NaN"
+ *   aria-describedby="_r_…_" aria-labelledby="_r_…_">`). Facebook computes
+ * `aria-posinset` client-side from a virtualized feed index; pasted out of that
+ * context it serializes to the literal string "NaN" and its `aria-describedby`/
+ * `aria-labelledby` reference IDs that do not exist on our page. Both are invalid
+ * per the ARIA spec (axe: `aria-valid-attr-value`), producing the 2 critical
+ * violations on the SINGLE post. The /blog/ ARCHIVE is unaffected because cards
+ * render a stripped/trimmed excerpt (wp_strip_all_tags + wp_trim_words in
+ * block-blog-card.php), so the embed div never reaches the archive DOM.
+ *
+ * Render-time only: no DB mutation (the stored post_content is left intact, so
+ * this is composition-safe and reversible, and needs no API write). Scoped to
+ * single posts and to the exact orphaned set-semantics attributes — it does not
+ * touch valid ARIA anywhere else and does not affect the archive grid.
+ *
+ * @param string $content Post content HTML.
+ * @return string
+ */
+add_filter( 'the_content', 'ea_w2_11_strip_orphan_embed_aria', 20 );
+function ea_w2_11_strip_orphan_embed_aria( $content ) {
+	if ( ! is_singular( 'post' ) || strpos( $content, 'aria-posinset="NaN"' ) === false ) {
+		return $content;
+	}
+	// Remove the invalid set-position attribute (the gate blocker) plus the
+	// dangling aria-describedby/aria-labelledby that point at non-existent
+	// Facebook-generated IDs (_r_…_), which are themselves invalid references.
+	$content = preg_replace( '/\s+aria-posinset="NaN"/', '', $content );
+	$content = preg_replace( '/\s+aria-(?:describedby|labelledby)="(?:_r_[^"]*)"/', '', $content );
+	return $content;
+}
