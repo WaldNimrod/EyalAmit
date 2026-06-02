@@ -145,11 +145,27 @@ function ea_w2_05_hide_gp_title( $show ) {
 add_filter( 'generate_show_title', 'ea_w2_05_hide_gp_title', 103 );
 
 /**
+ * True when the elevated cluster-E sheet (w2-05-shop.css) should load: on the
+ * W2-05 shop routes (shop archive + 5 product pages) AND on the W2-10-E
+ * commerce-elevated /books routes (archive + 3 book details, routed by W2-03).
+ * The elevated /books + detail compositions share their atoms with this sheet.
+ *
+ * @return bool
+ */
+function ea_w2_05_is_commerce_view() {
+	if ( ea_w2_05_is_wave2_page() ) {
+		return true;
+	}
+	return function_exists( 'ea_w2_03_is_wave2_page' ) && ea_w2_03_is_wave2_page();
+}
+
+/**
  * Enqueue W2-05 assets: shared services.css, the W2-05 CSS partial, and the
  * canonical A/B CTA script (extended to wire the product-CTA buttons).
+ * Loads across all cluster-E commerce routes (shop + elevated /books + details).
  */
 function ea_w2_05_assets() {
-	if ( is_admin() || ! ea_w2_05_is_wave2_page() ) {
+	if ( is_admin() || ! ea_w2_05_is_commerce_view() ) {
 		return;
 	}
 	$uri = get_stylesheet_directory_uri();
@@ -685,4 +701,405 @@ function ea_w2_05_catalog_cards() {
 		);
 	}
 	return $cards;
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   WP-W2-10-E — Commerce ELEVATED /books archive + 3 book details.
+   Composition SSoT: _COMMUNICATION/team_35/WP-W2-10-E/elevation/mockup/
+   (commerce-books-archive.html + commerce-book-detail.html).
+
+   Books are routed by W2-03 (ea_w2_03_current_view → tpl-books / tpl-book-detail);
+   copy comes verbatim from ea_w2_03_book_content( $slug ). This block adds the
+   E-specific presentation maps (real covers, kicker, genre, price, meta strip,
+   external vendor links per asset-manifest) + the two render functions. One
+   data-driven path serves all 3 book details (clone = same code, per-slug data).
+
+   ALL purchase CTAs are EXTERNAL links (no checkout). Vendor URLs are the
+   asset-manifest SSoT (Morning / Mendele). Single H1 per page.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Per-book presentation map for the elevated /books composition.
+ * Order follows the archive mockup (tsva-bekahol, kushi-blantis, vekatavta).
+ *
+ * Keys per book:
+ *   cover    — real cover filename in assets/images/ (3:4 art).
+ *   genre    — archive-card eyebrow + detail-hero kicker prefix.
+ *   price    — display price string (numeric + ₪ handled in markup).
+ *   teaser   — short archive-card teaser.
+ *   kicker   — detail-hero eyebrow (genre · format · year).
+ *   subtitle — detail-hero subtitle (short; full copy stays in summary).
+ *   meta     — meta-strip rows [{k,v}] (מחבר / עמודים / סיפורים / שנה).
+ *   buy      — external purchase links {print, ebook} (asset-manifest SSoT).
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function ea_w2_05_book_map() {
+	return array(
+		'tsva-bekahol'  => array(
+			'cover'    => 'tsva-bechol-cover.jpg',
+			'genre'    => 'סיפורים קצרים · מסע',
+			'price'    => '59',
+			'teaser'   => '38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה. יצא לראשונה ב-2001, כיום במהדורה העשירית.',
+			'kicker'   => 'סיפורים קצרים · מסע · 2001',
+			'subtitle' => '38 סיפורים קצרים על הטיול הגדול לדרום אמריקה אחרי השירות הצבאי — שחרור, בריחה, חופש, וכל מה שקורה בדרך החוצה ובדרך חזרה.',
+			'meta'     => array(
+				array( 'k' => 'מחבר', 'v' => 'אייל עמית' ),
+				array( 'k' => 'עמודים', 'v' => '128' ),
+				array( 'k' => 'סיפורים', 'v' => '38' ),
+				array( 'k' => 'יצא לאור', 'v' => '2001' ),
+			),
+			'buy'      => array(
+				'print' => 'https://www.mendele.co.il/product/tzvabekahol/',
+				'ebook' => 'https://www.mendele.co.il/product/tzvabekahol/',
+			),
+			'faq_idx'  => array( 0, 1, 2, 4 ),
+		),
+		'kushi-blantis' => array(
+			'cover'    => 'kushi-blantis-cover.jpg',
+			'genre'    => 'רומן פנטזיה',
+			'price'    => '69',
+			'teaser'   => 'רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי. יצא ב-2004, במהדורה השישית.',
+			'kicker'   => 'רומן פנטזיה · 2004',
+			'subtitle' => 'רומן פנטזיה על התעוררות, בחירה, חופש, חיבור ללב, והאומץ לצאת מהחיים הנוחים מדי.',
+			'meta'     => array(
+				array( 'k' => 'מחבר', 'v' => 'אייל עמית' ),
+				array( 'k' => 'עמודים', 'v' => '236' ),
+				array( 'k' => 'ז׳אנר', 'v' => 'פנטזיה' ),
+				array( 'k' => 'יצא לאור', 'v' => '2004' ),
+			),
+			'buy'      => array(
+				'print' => 'https://mrng.to/MTUiO3vkIg',
+				'ebook' => 'https://www.mendele.co.il/product/kushibelantis/',
+			),
+			'faq_idx'  => array( 0, 1, 2, 3 ),
+		),
+		'vekatavta'     => array(
+			'cover'    => 'vekatavt-cover.jpg',
+			'genre'    => 'סיפורים אמיתיים · QR',
+			'price'    => '79',
+			'teaser'   => '46 סיפורים אמיתיים על אהבה, מסעות, אובדן, שינוי וצמיחה. ראה אור ב-2017, עם קודי QR שמרחיבים את הקריאה.',
+			'kicker'   => 'סיפורים אמיתיים · ספוקן סטוריז · 2017',
+			'subtitle' => '46 סיפורים אמיתיים מחייו של אייל עמית — אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.',
+			'meta'     => array(
+				array( 'k' => 'מחבר', 'v' => 'אייל עמית' ),
+				array( 'k' => 'עמודים', 'v' => '252' ),
+				array( 'k' => 'סיפורים', 'v' => '46' ),
+				array( 'k' => 'יצא לאור', 'v' => '2017' ),
+			),
+			'buy'      => array(
+				'print' => 'https://www.mendele.co.il/product/vekatavta/',
+				'ebook' => 'https://www.mendele.co.il/product/vekatavta/',
+			),
+			// Curated verbatim subset matching the detail mockup (dataset idx 0,2,5,6).
+			'faq_idx'  => array( 0, 2, 5, 6 ),
+		),
+	);
+}
+
+/**
+ * Three-book bundle definition (stacked-cover visual + external Morning CTA).
+ *
+ * @return array<string,mixed>
+ */
+function ea_w2_05_book_bundle() {
+	return array(
+		'covers' => array( 'tsva-bechol-cover.jpg', 'kushi-blantis-cover.jpg', 'vekatavt-cover.jpg' ),
+		'price'  => '150',
+		'strike' => '207',
+		'url'    => 'https://mrng.to/MTUiO3vkIg',
+	);
+}
+
+/**
+ * Resolve a real cover image URL from a filename in the theme media dir.
+ *
+ * @param string $file
+ * @return string
+ */
+function ea_w2_05_cover_url( $file ) {
+	return get_template_directory_uri() . '/assets/images/' . $file;
+}
+
+/**
+ * Render the elevated /books archive (hero + why-here + 3 book cards + bundle +
+ * shop grid). Mirrors commerce-books-archive.html. Single H1 in the hero.
+ *
+ * @return string
+ */
+function ea_w2_05_render_books_archive() {
+	$books  = ea_w2_05_book_map();
+	$bundle = ea_w2_05_book_bundle();
+	ob_start();
+	?>
+	<section class="ea-book-hero" data-block="hero" aria-label="מוזה הוצאה לאור">
+		<div class="ea-book-hero__overlay" aria-hidden="true"></div>
+		<div class="ea-book-hero__content">
+			<p class="ea-book-hero__kicker">הוצאה לאור · עצמאית מאז 2004</p>
+			<h1 class="ea-book-hero__title">מוזה הוצאה לאור</h1>
+			<p class="ea-book-hero__subtitle">הוצאת ספרים עצמית של הסופר ומספר הסיפורים אייל עמית — ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה.</p>
+			<div class="ea-book-hero__cta-wrap">
+				<a class="ea-cta-pill ea-cta-pill--ghost-white" href="#books-bundle">לחבילת 3 הספרים</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="ea-section ea-section--prose ea-section--alt" data-block="why-here" aria-label="למה כאן">
+		<div class="ea-section__inner ea-entrance--breath">
+			<p class="ea-section__label">רכישה ישירה</p>
+			<h2 class="ea-section__heading">למה את הספרים של מוזה תמצאו כאן</h2>
+			<p>ברכישת ספר דרך רשתות הספרים, רוב הכסף לא מגיע לסופר אלא נשאר בדרך — אצל הרשת ואצל המפיצים. ברכישה ישירה מהיוצר, ממש בדומה ל״חקלאות ישירה״, התמיכה מגיעה כמעט נטו למי שכתב את הספר. לכן כאן הספרים נמכרים במחיר מוזל ומשתלם יותר — כזה שטוב גם לקוראים וגם ליוצר.</p>
+		</div>
+	</section>
+
+	<section class="ea-books-section" data-block="book-cards" aria-labelledby="books-grid-heading">
+		<div class="ea-books-section__inner">
+			<p class="ea-books-section__label">שלושה ספרים</p>
+			<h2 id="books-grid-heading" class="ea-books-section__heading">ספרי מוזה</h2>
+			<p class="ea-books-section__intro">שלושה ספרים, שלושה עולמות. כל ספר עומד בפני עצמו — בחרו את הדלת שמדברת אליכם.</p>
+			<div class="ea-books-grid">
+				<?php
+				foreach ( $books as $slug => $b ) :
+					$book  = function_exists( 'ea_w2_03_book_content' ) ? ea_w2_03_book_content( $slug ) : null;
+					$title = is_array( $book ) && isset( $book['title'] ) ? (string) $book['title'] : '';
+					?>
+					<article class="ea-book-card ea-entrance">
+						<a class="ea-book-card__link"
+							href="<?php echo esc_url( home_url( '/books/' . $slug ) ); ?>"
+							aria-label="<?php echo esc_attr( 'לעמוד הספר ' . $title ); ?>">
+							<img class="ea-book-card__cover"
+								src="<?php echo esc_url( ea_w2_05_cover_url( $b['cover'] ) ); ?>"
+								alt="<?php echo esc_attr( 'כריכת ' . $title ); ?>"
+								loading="lazy" decoding="async">
+							<div class="ea-book-card__body">
+								<p class="ea-book-card__genre"><?php echo esc_html( $b['genre'] ); ?></p>
+								<h3 class="ea-book-card__title"><?php echo esc_html( $title ); ?></h3>
+								<p class="ea-book-card__teaser"><?php echo esc_html( $b['teaser'] ); ?></p>
+								<div class="ea-book-card__foot">
+									<span class="ea-book-card__price"><?php echo esc_html( $b['price'] ); ?><small> ₪</small></span>
+									<span class="ea-book-card__more">לעמוד הספר ←</span>
+								</div>
+							</div>
+						</a>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+
+	<section id="books-bundle" class="ea-bundle" data-block="bundle" aria-label="חבילת 3 הספרים">
+		<div class="ea-bundle__inner ea-entrance--breath">
+			<span class="ea-bundle__accent" aria-hidden="true"></span>
+			<p class="ea-bundle__label">הצעה מיוחדת</p>
+			<h2 class="ea-bundle__title">חבילת 3 הספרים של אייל עמית</h2>
+			<div class="ea-bundle__covers" aria-hidden="true">
+				<?php foreach ( $bundle['covers'] as $cover ) : ?>
+					<img src="<?php echo esc_url( ea_w2_05_cover_url( $cover ) ); ?>" alt="" loading="lazy" decoding="async">
+				<?php endforeach; ?>
+			</div>
+			<p class="ea-bundle__price">שלושת הספרים יחד — <strong><?php echo esc_html( $bundle['price'] ); ?> ש״ח</strong> במקום <del><?php echo esc_html( $bundle['strike'] ); ?> ש״ח</del></p>
+			<p class="ea-bundle__desc">הזדמנות להיכנס לעולם הכתיבה של אייל עמית דרך שלושה ספרים שונים מאוד באופי שלהם, אבל מחוברים באותו קול חי, אישי ולא שגרתי.</p>
+			<a class="ea-cta-pill ea-cta-pill--primary"
+				href="<?php echo esc_url( $bundle['url'] ); ?>"
+				target="_blank" rel="noopener noreferrer"
+				data-ea-book-purchase data-ea-book-slug="bundle"
+				aria-label="לרכישת חבילת 3 הספרים (נפתח בלשונית חדשה)">לרכישת חבילת 3 הספרים</a>
+			<p class="ea-bundle__note">הרכישה מתבצעת דרך קישור חיצוני (Morning / חשבונית ירוקה).</p>
+		</div>
+	</section>
+
+	<section class="ea-books-section ea-section--alt" data-block="shop-grid" aria-labelledby="shop-grid-heading">
+		<div class="ea-books-section__inner">
+			<p class="ea-books-section__label">החנות</p>
+			<h2 id="shop-grid-heading" class="ea-books-section__heading">דיג׳רידו ואביזרים בעבודת יד</h2>
+			<p class="ea-books-section__intro">כלים ואביזרים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר לנשימה.</p>
+			<div class="ea-shop-grid">
+				<?php foreach ( ea_w2_05_catalog_cards() as $card ) :
+					$price = '' !== $card['price'] ? $card['price'] : 'מחיר לפי התאמה';
+					?>
+					<a class="ea-shop-card ea-entrance" href="<?php echo esc_url( home_url( '/' . $card['slug'] ) ); ?>">
+						<span class="ea-shop-card__media ea-shop-card__media--placeholder" aria-hidden="true"></span>
+						<span class="ea-shop-card__body">
+							<span class="ea-shop-card__title"><?php echo esc_html( $card['title'] ); ?></span>
+							<span class="ea-shop-card__excerpt"><?php echo esc_html( $card['excerpt'] ); ?></span>
+							<span class="ea-shop-card__price"><?php echo esc_html( $price ); ?></span>
+						</span>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+	return ob_get_clean();
+}
+
+/**
+ * Render the elevated single book-detail composition for one of the 3 books.
+ * Mirrors commerce-book-detail.html (vekatavta archetype, cloned per slug).
+ * Copy is verbatim from $book (ea_w2_03_book_content); presentation/vendor from
+ * the E book map. Single H1 = the book title in the hero.
+ *
+ * @param string              $slug  One of: vekatavta, kushi-blantis, tsva-bekahol.
+ * @param array<string,mixed> $book  ea_w2_03_book_content( $slug ).
+ * @return string
+ */
+function ea_w2_05_render_book_detail( $slug, $book ) {
+	$map = ea_w2_05_book_map();
+	$m   = isset( $map[ $slug ] ) ? $map[ $slug ] : null;
+	if ( ! is_array( $m ) ) {
+		return '';
+	}
+	$title     = isset( $book['title'] ) ? (string) $book['title'] : '';
+	$subtitle  = '' !== (string) $m['subtitle'] ? (string) $m['subtitle'] : ( isset( $book['hero_sub'][0] ) ? (string) $book['hero_sub'][0] : '' );
+	$price     = (string) $m['price'];
+	$print_url = (string) $m['buy']['print'];
+	$ebook_url = (string) $m['buy']['ebook'];
+
+	// FAQ ×4 verbatim — explicit per-book index selection from the content SSoT
+	// (vekatavta matches the detail mockup's curated 4; clones default first-4).
+	$all_faq = isset( $book['faq'] ) ? array_values( (array) $book['faq'] ) : array();
+	$faq_idx = isset( $m['faq_idx'] ) ? (array) $m['faq_idx'] : array( 0, 1, 2, 3 );
+	$faq     = array();
+	foreach ( $faq_idx as $i ) {
+		if ( isset( $all_faq[ $i ] ) ) {
+			$faq[] = $all_faq[ $i ];
+		}
+	}
+
+	$gallery_lead = get_template_directory_uri() . '/assets/images/kushi-02-eyal-italy.jpg';
+
+	ob_start();
+	?>
+	<section class="ea-book-hero" data-block="hero" aria-label="<?php echo esc_attr( $title ); ?>">
+		<div class="ea-book-hero__overlay" aria-hidden="true"></div>
+		<div class="ea-book-hero__content">
+			<div>
+				<a class="ea-book-hero__back" href="<?php echo esc_url( home_url( '/books' ) ); ?>">← מוזה הוצאה לאור</a>
+				<p class="ea-book-hero__kicker"><?php echo esc_html( $m['kicker'] ); ?></p>
+				<h1 class="ea-book-hero__title"><?php echo esc_html( $title ); ?></h1>
+				<p class="ea-book-hero__subtitle"><?php echo esc_html( $subtitle ); ?></p>
+				<div class="ea-book-hero__cta-wrap">
+					<a class="ea-cta-pill ea-cta-pill--primary"
+						href="<?php echo esc_url( $print_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( $slug ); ?>"
+						aria-label="<?php echo esc_attr( 'לרכישת הספר ' . $title . ' (נפתח בלשונית חדשה)' ); ?>">לרכישת הספר · <?php echo esc_html( $price ); ?> ₪</a>
+				</div>
+			</div>
+			<img class="ea-book-hero__cover"
+				src="<?php echo esc_url( ea_w2_05_cover_url( $m['cover'] ) ); ?>"
+				alt="<?php echo esc_attr( 'כריכת הספר ' . $title ); ?>"
+				decoding="async">
+		</div>
+	</section>
+
+	<div class="ea-metastrip" data-block="meta">
+		<div class="ea-metastrip__inner">
+			<?php foreach ( (array) $m['meta'] as $row ) : ?>
+				<div>
+					<p class="ea-metastrip__k"><?php echo esc_html( $row['k'] ); ?></p>
+					<p class="ea-metastrip__v"><?php echo esc_html( $row['v'] ); ?></p>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+	<section class="ea-section" data-block="summary" aria-label="תקציר הספר">
+		<div class="ea-section__inner ea-entrance--breath">
+			<p class="ea-section__label">תקציר</p>
+			<h2 class="ea-section__heading">על מה הספר</h2>
+			<div class="ea-book-prose"><?php echo wp_kses_post( (string) $book['summary'] ); ?></div>
+		</div>
+	</section>
+
+	<section class="ea-section ea-section--alt" data-block="excerpt" aria-label="קטע מתוך הספר">
+		<div class="ea-section__inner">
+			<details class="ea-book-excerpt" open>
+				<summary class="ea-book-excerpt__toggle"><?php echo esc_html( isset( $book['excerpt_label'] ) ? $book['excerpt_label'] : 'קטע מתוך הספר — לקריאה' ); ?></summary>
+				<div class="ea-book-excerpt__body ea-book-prose ea-book-prose--preserve">
+					<?php echo wp_kses_post( (string) $book['excerpt_html'] ); ?>
+				</div>
+			</details>
+		</div>
+	</section>
+
+	<section class="ea-section" data-block="about-book" aria-label="על הספר">
+		<div class="ea-section__inner">
+			<p class="ea-section__label">רקע</p>
+			<h2 class="ea-section__heading">איך נולד הספר</h2>
+			<div class="ea-book-prose"><?php echo wp_kses_post( (string) $book['about'] ); ?></div>
+		</div>
+	</section>
+
+	<section class="ea-section ea-section--alt" data-block="gallery" aria-label="גלריה">
+		<div class="ea-section__inner">
+			<p class="ea-section__label">גלריה</p>
+			<h2 class="ea-section__heading">מהעולם של הספר</h2>
+			<div class="ea-book-gallery">
+				<div class="ea-book-gallery__grid">
+					<div class="ea-book-gallery__item">
+						<img src="<?php echo esc_url( $gallery_lead ); ?>" alt="<?php echo esc_attr( 'מהעולם של הספר ' . $title ); ?>" loading="lazy" decoding="async">
+					</div>
+					<div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+					<div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+					<div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+				</div>
+				<p class="ea-book-gallery__note">תמונות פנים וכריכה אחורית יתווספו עם מסירת הנכסים מאייל. הפלייסהולדרים נשמרים ביחס תצוגה זהה ל-swap ישיר.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="ea-section" data-block="who-for" aria-label="למי הספר מתאים">
+		<div class="ea-section__inner">
+			<p class="ea-section__label">למי זה מתאים</p>
+			<h2 class="ea-section__heading">למי הספר מדבר</h2>
+			<div class="ea-book-prose"><?php echo wp_kses_post( (string) $book['who'] ); ?></div>
+		</div>
+	</section>
+
+	<section class="ea-section ea-section--cta" data-block="mid-cta" aria-label="קריאה לפעולה">
+		<div class="ea-section__inner ea-section__inner--center">
+			<p class="ea-book-midcta__text">רוצה להתחיל לקרוא כבר עכשיו?</p>
+			<div class="ea-book-purchase-cta">
+				<a class="ea-cta-pill ea-cta-pill--primary"
+					href="<?php echo esc_url( $print_url ); ?>"
+					target="_blank" rel="noopener noreferrer"
+					data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( $slug ); ?>"
+					aria-label="<?php echo esc_attr( 'לרכישת הספר המודפס ' . $title . ' (נפתח בלשונית חדשה)' ); ?>">לרכישת הספר המודפס</a>
+				<a class="ea-cta-pill ea-cta-pill--secondary"
+					href="<?php echo esc_url( $ebook_url ); ?>"
+					target="_blank" rel="noopener noreferrer"
+					data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( $slug ); ?>"
+					aria-label="<?php echo esc_attr( 'ספר אלקטרוני ' . $title . ' (נפתח בלשונית חדשה)' ); ?>">ספר אלקטרוני</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="ea-section" data-block="faq" aria-label="שאלות ותשובות">
+		<div class="ea-section__inner">
+			<p class="ea-section__label">שאלות ותשובות</p>
+			<h2 class="ea-section__heading">לפני שקונים</h2>
+			<?php foreach ( $faq as $qa ) : ?>
+				<details class="ea-faq-item">
+					<summary class="ea-faq-item__question"><?php echo esc_html( $qa['q'] ); ?></summary>
+					<div class="ea-faq-item__answer"><?php echo wp_kses_post( $qa['a'] ); ?></div>
+				</details>
+			<?php endforeach; ?>
+		</div>
+	</section>
+
+	<section class="ea-section ea-section--alt" data-block="closing" aria-label="סגירה">
+		<div class="ea-section__inner ea-section__inner--center">
+			<div class="ea-book-prose"><?php echo wp_kses_post( (string) $book['closing'] ); ?></div>
+			<div class="ea-book-purchase-cta">
+				<a class="ea-cta-pill ea-cta-pill--primary"
+					href="<?php echo esc_url( $print_url ); ?>"
+					target="_blank" rel="noopener noreferrer"
+					data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( $slug ); ?>"
+					aria-label="<?php echo esc_attr( 'לרכישת הספר ' . $title . ' (נפתח בלשונית חדשה)' ); ?>">לרכישת הספר</a>
+			</div>
+		</div>
+	</section>
+	<?php
+	return ob_get_clean();
 }

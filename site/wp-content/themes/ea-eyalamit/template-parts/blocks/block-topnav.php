@@ -1,21 +1,54 @@
 <?php
-/** Block: topnav — D-14/POC Wave2 */
+/**
+ * Block: topnav — D-14/POC Wave2.
+ *
+ * Generic / data-driven (WP-W2-10-A Phase 0b).
+ *
+ * Context (optional):
+ *   ea_topnav_active : string  — route key of the active nav item; one of the
+ *                                $ea_topnav_items keys ('home','method','treatment',
+ *                                'sound-healing','lessons','books','faq','contact').
+ *                                Default 'home' (original behavior).
+ *   ea_nav_dir       : string  — 'rtl' (default) | 'ltr'. LTR hint for a future
+ *                                EN caller; emits dir="ltr" on the <nav>.
+ *
+ * Backward compatible: with no context set, 'home' is active and dir is rtl,
+ * matching the original hardcoded markup.
+ *
+ * @package ea_eyalamit
+ */
 defined( 'ABSPATH' ) || exit;
+
+$ea_topnav_active = (string) get_query_var( 'ea_topnav_active' );
+if ( '' === $ea_topnav_active ) {
+	$ea_topnav_active = 'home';
+}
+
+$ea_nav_dir = (string) get_query_var( 'ea_nav_dir' );
+if ( 'ltr' !== $ea_nav_dir ) {
+	$ea_nav_dir = 'rtl';
+}
+
+$ea_topnav_items = array(
+	'home'          => array( 'href' => home_url( '/' ),               'label' => 'בית' ),
+	'method'        => array( 'href' => home_url( '/method' ),         'label' => 'השיטה' ),
+	'treatment'     => array( 'href' => home_url( '/treatment' ),      'label' => 'טיפול' ),
+	'sound-healing' => array( 'href' => home_url( '/sound-healing' ),  'label' => 'סאונד הילינג' ),
+	'lessons'       => array( 'href' => home_url( '/lessons' ),        'label' => 'שיעורים' ),
+	'books'         => array( 'href' => home_url( '/books' ),          'label' => 'ספרים' ),
+	'faq'           => array( 'href' => home_url( '/faq' ),            'label' => 'שאלות נפוצות' ),
+	'contact'       => array( 'href' => home_url( '/contact' ),        'label' => 'צור קשר' ),
+);
 ?>
 <header data-block="topnav">
-    <nav class="ea-topnav" aria-label="ניווט ראשי">
+    <nav class="ea-topnav" aria-label="ניווט ראשי"<?php echo 'ltr' === $ea_nav_dir ? ' dir="ltr"' : ''; ?>>
       <a class="ea-topnav__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="אייל עמית — דף הבית">
         אייל עמית
       </a>
       <ul class="ea-topnav__links" role="list">
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-current="page">בית</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/method' ) ); ?>">השיטה</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/treatment' ) ); ?>">טיפול</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/sound-healing' ) ); ?>">סאונד הילינג</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/lessons' ) ); ?>">שיעורים</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/books' ) ); ?>">ספרים</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/faq' ) ); ?>">שאלות נפוצות</a></li>
-        <li><a class="ea-topnav__link" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">צור קשר</a></li>
+        <?php foreach ( $ea_topnav_items as $ea_nav_key => $ea_nav_item ) : ?>
+        <li><a class="ea-topnav__link" href="<?php echo esc_url( $ea_nav_item['href'] ); ?>"<?php echo ( $ea_nav_key === $ea_topnav_active ) ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $ea_nav_item['label'] ); ?></a></li>
+        <?php endforeach; ?>
       </ul>
       <div class="ea-topnav__controls">
         <!-- atom-interaction-sound-toggle -->
