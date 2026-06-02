@@ -1,18 +1,46 @@
 /**
- * WP-W2-08 — English Landing (/en) styles.
- * LTR-only; D-14 tokens (assets/css/ea-tokens.css) — no raw hex.
+ * WP-W2-08 / WP-W2-10-F — English Landing (/en) styles.
+ * LTR-only; D-14 tokens (assets/css/ea-tokens.css) — no raw hex, no inline style.
  * Scoped to body.ea-en-landing so it never leaks onto RTL pages.
+ *
+ * WP-W2-10-F elevation (2026-06-02): kicker + layered gradient hero with breath
+ * lines, section labels, scannable principles list, real book-cover row, 4-up
+ * testimonials grid. LTR mirror via logical properties only (AC-F3):
+ * inset-inline / padding-inline-start / justify-content:flex-start / text-align:start.
  */
 
 body.ea-en-landing .ea-en {
 	direction: ltr;
-	text-align: left;
+	text-align: start;
 	font: var(--ea-type-body);
 	color: var(--ea-text-body);
 	background: var(--ea-bg);
 }
 
-/* ── Hero ── */
+/* ── Language pill (EN nav → Hebrew /) — F-specific; not in shared atoms ── */
+body.ea-en-landing .ea-lang-pill {
+	display: inline-flex;
+	align-items: center;
+	background: transparent;
+	border: 1px solid var(--ea-on-dark);
+	border-radius: var(--ea-radius-pill);
+	padding-block: 6px;
+	padding-inline: 14px;
+	font-family: var(--ea-font);
+	font-size: 0.68rem;
+	font-weight: 300;
+	color: var(--ea-on-dark);
+	opacity: 0.85;
+	text-decoration: none;
+	transition: opacity var(--ea-dur-fast);
+}
+
+body.ea-en-landing .ea-lang-pill:hover,
+body.ea-en-landing .ea-lang-pill:focus-visible {
+	opacity: 1;
+}
+
+/* ── Hero — elevation: kicker + layered gradient + breath lines ── */
 body.ea-en-landing .ea-en-hero {
 	position: relative;
 	display: flex;
@@ -20,19 +48,30 @@ body.ea-en-landing .ea-en-hero {
 	justify-content: center;
 	min-height: 100vh;
 	padding: var(--ea-space-12) var(--ea-gutter);
-	background-color: var(--ea-ink);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	background: linear-gradient(
+		160deg,
+		var(--ea-ink) 0%,
+		var(--ea-ink) 32%,
+		var(--ea-chocolate) 64%,
+		var(--ea-ink) 100%
+	);
 	text-align: center;
 	overflow: hidden;
 }
 
-body.ea-en-landing .ea-en-hero__overlay {
+body.ea-en-landing .ea-en-hero__line {
 	position: absolute;
-	inset: 0;
-	background: linear-gradient( to bottom, rgba(46, 43, 40, 0.55), rgba(46, 43, 40, 0.72) );
-	z-index: var(--ea-z-base);
+	inset-inline: 10%;
+	height: 1px;
+	background: var(--ea-line);
+}
+
+body.ea-en-landing .ea-en-hero__line--1 {
+	inset-block-start: 30%;
+}
+
+body.ea-en-landing .ea-en-hero__line--2 {
+	inset-block-start: 70%;
 }
 
 body.ea-en-landing .ea-en-hero__content {
@@ -43,8 +82,17 @@ body.ea-en-landing .ea-en-hero__content {
 	color: var(--ea-on-dark);
 }
 
+body.ea-en-landing .ea-en-hero__kicker {
+	font-weight: 200;
+	font-size: 0.58rem;
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var(--ea-sand);
+	margin: 0 0 var(--ea-space-4);
+}
+
 body.ea-en-landing .ea-en-hero__title {
-	font: var(--ea-type-h1);
+	font: var(--ea-type-h1-hero);
 	color: var(--ea-on-dark);
 	margin: 0 0 var(--ea-space-4);
 }
@@ -59,7 +107,7 @@ body.ea-en-landing .ea-en-hero__subhead {
 body.ea-en-landing .ea-en-hero__trust {
 	font: var(--ea-type-body-sm);
 	color: var(--ea-on-dark);
-	opacity: 0.9;
+	opacity: 0.7;
 	max-width: 44rem;
 	margin: 0 auto var(--ea-space-6);
 }
@@ -81,6 +129,15 @@ body.ea-en-landing .ea-en-section--alt {
 body.ea-en-landing .ea-en-section__inner {
 	max-width: var(--ea-prose-width);
 	margin: 0 auto;
+}
+
+body.ea-en-landing .ea-en-section__label {
+	font-weight: 200;
+	font-size: 0.58rem;
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var(--ea-terracotta);
+	margin: 0 0 var(--ea-space-2);
 }
 
 body.ea-en-landing .ea-en-section__heading {
@@ -118,6 +175,22 @@ body.ea-en-landing .ea-en-list li {
 
 body.ea-en-landing .ea-en-section__cta-wrap {
 	margin-top: var(--ea-space-6);
+}
+
+/* ── Books — elevation: real cover row ── */
+body.ea-en-landing .ea-en-books-row {
+	display: flex;
+	gap: var(--ea-space-2);
+	margin: 0 0 var(--ea-space-5);
+	flex-wrap: wrap;
+}
+
+body.ea-en-landing .ea-en-books-row img {
+	width: 128px;
+	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	border-radius: var(--ea-radius-img);
+	border: 1px solid var(--ea-line);
 }
 
 /* ── Testimonials ── */
@@ -175,7 +248,20 @@ body.ea-en-landing .ea-en-closing__text {
 	margin: 0 0 var(--ea-space-5);
 }
 
+/* ── LTR mirror: shared nav/footer atoms re-oriented for /en (dir=ltr) ──
+   The shared atoms are tuned for the RTL system; on the LTR /en page the
+   footer nav should read start-aligned. Logical properties only. */
+body.ea-en-landing .ea-footer__nav {
+	justify-content: flex-start;
+}
+
 /* ── Responsive ── */
+@media (max-width: 1023px) {
+	body.ea-en-landing .ea-en-hero__title {
+		font: var(--ea-type-h1);
+	}
+}
+
 @media (max-width: 768px) {
 	body.ea-en-landing .ea-en-hero {
 		min-height: 88vh;
@@ -183,6 +269,7 @@ body.ea-en-landing .ea-en-closing__text {
 	}
 	body.ea-en-landing .ea-en-hero__title {
 		font: var(--ea-type-h2);
+		color: var(--ea-on-dark);
 	}
 	body.ea-en-landing .ea-en-section {
 		padding: var(--ea-space-10) var(--ea-gutter);
@@ -190,17 +277,4 @@ body.ea-en-landing .ea-en-closing__text {
 	body.ea-en-landing .ea-en-testimonials {
 		grid-template-columns: 1fr;
 	}
-}
-
-/* ── LTR mirror fixes (F-W2-10-F M4/M5/M6) ──
-   Shared atoms use physical props tuned for RTL that do NOT auto-flip under dir=ltr.
-   Re-orient them for the LTR /en page only (scoped to body.ea-en-landing). */
-body.ea-en-landing .ea-footer__social {
-	flex-direction: row;           /* RTL atom uses row-reverse → FB/IG/YT now left-to-right on /en */
-	justify-content: flex-start;
-}
-body.ea-en-landing .ea-skiplink,
-body.ea-en-landing .ea-skiplink:focus {
-	right: auto;                   /* RTL atom pins right:0 → move to the left for LTR */
-	left: 0;
 }
