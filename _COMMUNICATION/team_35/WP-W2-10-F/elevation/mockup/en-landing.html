@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Center for Breath Therapy through the Didgeridoo — Eyal Amit</title>
+<!--
+  S1.5 ELEVATION — WP-W2-10-F (EN landing), route /en (LTR mirror).
+  team_35. 2026-06-02. Precision pass on S1 en-landing.html.
+  D-14 tokens + .ea-* atoms verbatim. AC-E2: zero new tokens/atoms. AC-E3: LTR via logical props.
+  Elevation vs S1: hero kicker + gradient treatment, real book covers in Books section
+  (credibility), method principles promoted to scannable list, deliberate pacing.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-type-h1-hero:100 3.4rem/1.12 var(--ea-font);
+  --ea-type-h1:200 2.8rem/1.12 var(--ea-font);
+  --ea-type-h2:200 2.0rem/1.2 var(--ea-font);
+  --ea-type-body-lg:300 1.05rem/1.9 var(--ea-font);
+  --ea-type-body:300 0.9rem/1.85 var(--ea-font);
+  --ea-type-body-sm:300 0.78rem/1.6 var(--ea-font);
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-12:96px; --ea-space-15:120px;
+  --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-nav-height:64px; --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-base:0; --ea-z-dropdown:10; --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:ltr;text-align:left;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.ea-skiplink{position:absolute;top:-40px;inset-inline-start:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:0.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast)}
+.ea-skiplink:focus{top:0}
+.ea-topnav{position:fixed;top:0;inset-inline:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ea-topnav__brand{font-weight:200;font-size:0.9rem;color:#fff;text-decoration:none;letter-spacing:0.5px}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center}
+.ea-topnav__link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.8);text-decoration:none}
+.ea-topnav__link[aria-current="page"]{color:#fff}.ea-topnav__link:hover{color:#fff}
+.ea-topnav__controls{display:flex;gap:var(--ea-space-2);align-items:center}
+.ea-lang-pill{background:transparent;border:1px solid rgba(255,255,255,0.45);border-radius:var(--ea-radius-pill);padding:6px 14px;font-size:0.68rem;font-weight:300;color:rgba(255,255,255,0.92);text-decoration:none}
+.ea-lang-pill:hover{color:#fff;border-color:rgba(255,255,255,0.6)}
+@media (max-width:767px){.ea-topnav__links{display:none}}
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:0.78rem;font-weight:300;letter-spacing:0.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast)}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff}
+.ea-cta-pill--ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,0.6)}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25)}
+@media (max-width:639px){.ea-cta-pill{width:100%;min-width:0}}
+.ea-en{direction:ltr;text-align:left;background:var(--ea-bg)}
+/* hero — elevation: kicker + layered gradient */
+.ea-en-hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:var(--ea-space-12) var(--ea-gutter);background:linear-gradient(160deg,#1a1714 0%,#2E2B28 32%,#3d2e26 64%,#1a1714 100%);text-align:center;overflow:hidden}
+.ea-en-hero__line{position:absolute;inset-inline:10%;height:1px;background:rgba(216,199,181,0.32)}
+.ea-en-hero__line--1{top:30%}.ea-en-hero__line--2{top:70%}
+.ea-en-hero__content{position:relative;z-index:var(--ea-z-dropdown);max-width:var(--ea-prose-width);margin:0 auto;color:var(--ea-on-dark)}
+.ea-en-hero__kicker{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-sand);margin:0 0 var(--ea-space-4) 0}
+.ea-en-hero__title{font:var(--ea-type-h1-hero);color:var(--ea-on-dark);margin:0 0 var(--ea-space-4)}
+.ea-en-hero__subhead{font:var(--ea-type-body-lg);color:rgba(255,255,255,0.88);max-width:48rem;margin:0 auto var(--ea-space-4)}
+.ea-en-hero__trust{font:var(--ea-type-body-sm);color:rgba(255,255,255,0.66);max-width:44rem;margin:0 auto var(--ea-space-6)}
+@media (max-width:1023px){.ea-en-hero__title{font:var(--ea-type-h1)}}
+@media (max-width:768px){.ea-en-hero{min-height:88vh;padding:var(--ea-space-10) var(--ea-gutter)}.ea-en-hero__title{font:var(--ea-type-h2);color:#fff}}
+.ea-en-section{padding:var(--ea-space-12) var(--ea-gutter);background:var(--ea-bg)}
+.ea-en-section--alt{background:var(--ea-bg-alt)}
+.ea-en-section__inner{max-width:var(--ea-prose-width);margin:0 auto}
+.ea-en-section__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-en-section__heading{font:var(--ea-type-h2);color:var(--ea-text);margin:0 0 var(--ea-space-5)}
+.ea-en-prose p{font:var(--ea-type-body-lg);color:var(--ea-text-body);margin:0 0 var(--ea-space-4)}
+.ea-en-prose p:last-child{margin-bottom:0}
+.ea-en-prose strong{color:var(--ea-text);font-weight:500}
+.ea-en-list{list-style:disc;padding-inline-start:1.4em;margin:0 0 var(--ea-space-4)}
+.ea-en-list li{font:var(--ea-type-body-lg);color:var(--ea-text-body);margin:0 0 var(--ea-space-2)}
+.ea-en-section__cta-wrap{margin-top:var(--ea-space-6)}
+/* book covers row — real covers for credibility */
+.ea-en-books-row{display:flex;gap:var(--ea-space-2);margin:0 0 var(--ea-space-5);flex-wrap:wrap}
+.ea-en-books-row img{width:128px;aspect-ratio:3/4;object-fit:cover;border-radius:var(--ea-radius-img);border:1px solid var(--ea-line)}
+/* testimonials */
+.ea-en-section--testimonials{background:var(--ea-bg-alt)}
+.ea-en-testimonials__note{font:var(--ea-type-body-sm);color:var(--ea-muted);margin:0 0 var(--ea-space-6)}
+.ea-en-testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--ea-space-5);margin:0 0 var(--ea-space-10)}
+@media (max-width:768px){.ea-en-testimonials{grid-template-columns:1fr}}
+.ea-en-testimonial{margin:0;padding:var(--ea-space-5);background:var(--ea-bg);border:1px solid var(--ea-line);border-radius:var(--ea-radius-img)}
+.ea-en-testimonial__quote{margin:0 0 var(--ea-space-3)}
+.ea-en-testimonial__quote p{font:var(--ea-type-body);color:var(--ea-text-body);margin:0}
+.ea-en-testimonial__name{font:var(--ea-type-body-sm);font-weight:500;color:var(--ea-accent)}
+.ea-en-closing{max-width:44rem;margin:0 auto;text-align:center}
+.ea-en-closing__text{font:var(--ea-type-body-lg);color:var(--ea-text-body);margin:0 0 var(--ea-space-5)}
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8)}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin:0 auto}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2)}
+.ea-footer__tagline{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5)}
+.ea-footer__location{font-weight:400;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin:0 0 var(--ea-space-6)}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5);justify-content:flex-start}
+.ea-footer__nav-link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.6);text-decoration:none}
+.ea-footer__nav-link:hover{color:#fff}
+.ea-footer__copy{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.78);margin:0}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="ea-en-landing">
+<a class="ea-skiplink" href="#main">Skip to content</a>
+
+<header>
+  <nav class="ea-topnav" aria-label="Primary navigation">
+    <a class="ea-topnav__brand" href="/" aria-label="Eyal Amit — Home">Eyal Amit</a>
+    <ul class="ea-topnav__links" role="list">
+      <li><a class="ea-topnav__link" href="#hero" aria-current="page">Home</a></li>
+      <li><a class="ea-topnav__link" href="#method">The Method</a></li>
+      <li><a class="ea-topnav__link" href="#services">Services</a></li>
+      <li><a class="ea-topnav__link" href="#books">Books</a></li>
+      <li><a class="ea-topnav__link" href="#testimonials">Testimonials</a></li>
+    </ul>
+    <div class="ea-topnav__controls">
+      <a class="ea-lang-pill" href="/" hreflang="he" lang="he" aria-label="עברית — switch to Hebrew">עברית</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main" lang="en" dir="ltr">
+<div class="ea-en">
+
+  <!-- HERO — elevation: kicker + gradient + breath lines -->
+  <section id="hero" class="ea-en-hero" aria-label="The Center for Breath Therapy through the Didgeridoo">
+    <span class="ea-en-hero__line ea-en-hero__line--1" aria-hidden="true"></span>
+    <span class="ea-en-hero__line ea-en-hero__line--2" aria-hidden="true"></span>
+    <div class="ea-en-hero__content">
+      <p class="ea-en-hero__kicker">The Center for Breath Therapy · Pardes Hanna, Israel</p>
+      <h1 class="ea-en-hero__title">Breath therapy through the didgeridoo — the cbDIDG method</h1>
+      <p class="ea-en-hero__subhead">Regaining control of your breath through active work with the didgeridoo, breathing practice, and personal guidance — a method built over two decades and inspired by an apprenticeship with master Mookesh Dhiman.</p>
+      <p class="ea-en-hero__trust">Eyal Amit · Active since 1999 · One of Israel's most experienced practitioners · Teaches, treats, and builds instruments by hand.</p>
+      <a class="ea-cta-pill ea-cta-pill--ghost-white" href="#contact">Schedule an introductory call</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="ea-en-section" aria-labelledby="h-about">
+    <div class="ea-en-section__inner">
+      <p class="ea-en-section__label">About</p>
+      <h2 id="h-about" class="ea-en-section__heading">About Eyal</h2>
+      <div class="ea-en-prose">
+        <p>Eyal Amit has worked with the didgeridoo since 1999 and is one of the most experienced practitioners of the instrument in Israel.</p>
+        <p>He founded the Center for Breath Therapy — a circular-breathing studio in Pardes Hanna — to teach the didgeridoo as a tool with a real therapeutic effect on the body, the breath, and the mind. Over the years he has guided hundreds of people and developed the cbDIDG method, combining hands-on experience with ongoing inquiry.</p>
+        <p>Eyal is also an author and independent publisher. A former electronics engineer and stage performer, he created the long-running storytelling show &ldquo;One-Man Phenomenon,&rdquo; and for more than two decades has worked with the didgeridoo as a teacher, instrument builder, and breath therapist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="ea-en-section ea-en-section--alt" aria-labelledby="h-method">
+    <div class="ea-en-section__inner">
+      <p class="ea-en-section__label">cbDIDG</p>
+      <h2 id="h-method" class="ea-en-section__heading">The Method</h2>
+      <div class="ea-en-prose">
+        <p><strong>cbDIDG</strong> is a structured method for working with the breath through playing the didgeridoo, guided one-on-one. The didgeridoo is not the goal — it is the tool through which you learn to work with your everyday breathing: to strengthen it, regulate it, and regain control over it.</p>
+        <p><strong>Three principles guide the method:</strong></p>
+        <ul class="ea-en-list">
+          <li><strong>Active work.</strong> Unlike the passive experience of sound healing, you actively build control over your own breath through playing and consistent practice.</li>
+          <li><strong>A clear distinction</strong> between the circular-breathing technique used while playing and everyday breathing. Playing is the practice tool; the aim is lasting change.</li>
+          <li><strong>Process, not a moment.</strong> Gradual work built on practice, persistence, and depth — working toward the long term.</li>
+        </ul>
+        <p>The method grew from a personal journey — a deep study of the breath while coping with severe asthma — and from a long relationship with the Indian didgeridoo master <strong>Mookesh Dhiman</strong>, which began in 2000.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="ea-en-section" aria-labelledby="h-services">
+    <div class="ea-en-section__inner">
+      <p class="ea-en-section__label">Services</p>
+      <h2 id="h-services" class="ea-en-section__heading">Three paths through one instrument</h2>
+      <div class="ea-en-prose">
+        <p><strong>Didgeridoo Therapy.</strong> Active, process-based work with the breath, in which you learn to strengthen and regulate your own breathing system — with a lasting effect. Sessions are private and one-on-one, in a quiet studio.</p>
+        <p><strong>Sound Healing.</strong> A private journey in sound and frequency for individuals or couples, without touch. You rest comfortably while Eyal holds the space with the didgeridoo and additional frequency instruments — the vibration moving through the body like a gentle inner massage.</p>
+        <p><strong>Didgeridoo Lessons.</strong> A focused learning path: developing playing skill, mastering the circular-breathing technique, and refining sound — fully private, structured for individual progress.</p>
+      </div>
+      <div class="ea-en-section__cta-wrap"><a class="ea-cta-pill ea-cta-pill--primary" href="#contact">Schedule an introductory call</a></div>
+    </div>
+  </section>
+
+  <!-- BOOKS — elevation: real covers -->
+  <section id="books" class="ea-en-section ea-en-section--alt" aria-labelledby="h-books">
+    <div class="ea-en-section__inner">
+      <p class="ea-en-section__label">Muzza Publishing</p>
+      <h2 id="h-books" class="ea-en-section__heading">Books</h2>
+      <div class="ea-en-books-row">
+        <img src="assets/covers/tsva-bechol-cover.jpg" alt="Paint It Blue and Throw It to the Sea — cover">
+        <img src="assets/covers/kushi-blantis-cover.jpg" alt="Kushi Blantis — cover">
+        <img src="assets/covers/vekatavt-cover.jpg" alt="And You Shall Write — cover">
+      </div>
+      <div class="ea-en-prose">
+        <p><strong>Muzza Publishing</strong> is an independent press founded in 2004 by author and storyteller Eyal Amit — home to his travel writing, fantasy, and inspiring personal stories. Buying directly from the creator means the support reaches the author almost in full, so the books are offered here at a lower, fairer price.</p>
+        <ul class="ea-en-list">
+          <li><strong>Paint It Blue and Throw It to the Sea</strong> — 38 short, kicking stories from a journey through South America. First published 2001, now in its tenth edition.</li>
+          <li><strong>Kushi Blantis</strong> — a fantasy novel about awakening, choice, and stepping out of a life grown too comfortable. Published 2004, sixth edition.</li>
+          <li><strong>And You Shall Write</strong> — 46 true stories about love, journeys, loss, change, and growth. Published 2017, with a QR element extending the reading beyond the page.</li>
+        </ul>
+        <p><strong>The three-book bundle</strong> brings all three together at a special price — a great way to get to know Eyal's writing, and an original gift.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="ea-en-section ea-en-section--testimonials" aria-labelledby="h-testi">
+    <div class="ea-en-section__inner">
+      <p class="ea-en-section__label">Testimonials</p>
+      <h2 id="h-testi" class="ea-en-section__heading">What people say about the work</h2>
+      <p class="ea-en-testimonials__note">(translated from the original Hebrew testimonials)</p>
+      <div class="ea-en-testimonials">
+        <figure class="ea-en-testimonial"><blockquote class="ea-en-testimonial__quote"><p>Like many others, I thought I was coming to learn the didgeridoo. I had no idea what a powerful journey I was about to go through — a quieting of an overloaded mind, and an embrace for the heart.</p></blockquote><figcaption class="ea-en-testimonial__name">Shiri Elkabetz</figcaption></figure>
+        <figure class="ea-en-testimonial"><blockquote class="ea-en-testimonial__quote"><p>What I've been learning from Eyal this past year is how to breathe anew — to be present in the breath is to be present in life.</p></blockquote><figcaption class="ea-en-testimonial__name">Navit Tzuf Strauss</figcaption></figure>
+        <figure class="ea-en-testimonial"><blockquote class="ea-en-testimonial__quote"><p>Eyal broke down the art of breathing with the didgeridoo into the smallest, clearest components. It is so much more than learning a breathing instrument.</p></blockquote><figcaption class="ea-en-testimonial__name">Anat Kremner Weinstein</figcaption></figure>
+        <figure class="ea-en-testimonial"><blockquote class="ea-en-testimonial__quote"><p>For the first time in my life I learned to breathe correctly — practicing breath through the didge simply calms me.</p></blockquote><figcaption class="ea-en-testimonial__name">Alon Garzon Raz</figcaption></figure>
+      </div>
+      <div class="ea-en-closing" id="contact">
+        <p class="ea-en-closing__text">If you've read this far, something in this path probably speaks to you. An introductory call lets us understand together whether the method is right for you, and how to begin a personal process that fits exactly who you are.</p>
+        <div class="ea-en-section__cta-wrap"><a class="ea-cta-pill ea-cta-pill--primary" href="#contact">Schedule an introductory call</a></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="ea-footer" aria-label="Site footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">Eyal Amit</p>
+    <p class="ea-footer__tagline">The Center for Breath Therapy through the Didgeridoo</p>
+    <p class="ea-footer__location">Pardes Hanna · Israel</p>
+    <nav class="ea-footer__nav" aria-label="Footer navigation">
+      <a class="ea-footer__nav-link" href="#method">The Method</a>
+      <a class="ea-footer__nav-link" href="#services">Services</a>
+      <a class="ea-footer__nav-link" href="#books">Books</a>
+      <a class="ea-footer__nav-link" href="#testimonials">Testimonials</a>
+      <a class="ea-footer__nav-link" href="#contact">Contact</a>
+    </nav>
+    <hr class="ea-footer__divider" aria-hidden="true">
+    <p class="ea-footer__copy">&copy; 2026 Eyal Amit — The Center for Breath Therapy through the Didgeridoo. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

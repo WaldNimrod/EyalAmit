@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>אודות אייל עמית — WP-W2-10-B elevation</title>
+<!--
+  S1.5 ELEVATION — WP-W2-10-B (Editorial cluster), PRIMARY route /about.
+  team_35. 2026-06-02. Precision pass on S1 editorial-about.html.
+  D-14 tokens + .ea-* atoms verbatim. AC-E2: zero new tokens/atoms.
+  Elevation vs S1: long-form reading rhythm, hero kicker, journey timeline
+  (reuses .ea-pillar atom as dated steps), Mokesh memorial promoted to a
+  content-section--alt with pullquote, real portrait swapped in, three-books
+  cross-link via services-grid. Graceful Eyal-gap placeholders kept + flagged.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-12:96px; --ea-space-15:120px;
+  --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+  --ea-section-padding:var(--ea-space-15); --ea-nav-height:64px; --ea-nav-height-mob:56px;
+  --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:0.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast)}
+.ea-skiplink:focus{top:0}
+.ea-link{position:relative;text-decoration:none;color:var(--ea-terracotta)}
+/* topnav */
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ea-topnav__brand{font-weight:200;font-size:0.9rem;color:#fff;text-decoration:none;letter-spacing:0.5px}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center}
+.ea-topnav__link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.8);text-decoration:none;position:relative;transition:color var(--ea-dur-fast)}
+.ea-topnav__link::after{content:'';position:absolute;bottom:-2px;left:50%;right:50%;height:1px;background:var(--ea-sand);transition:left var(--ea-dur-mid) var(--ea-ease-enter),right var(--ea-dur-mid) var(--ea-ease-enter)}
+.ea-topnav__link:hover{color:#fff}
+.ea-topnav__link:hover::after,.ea-topnav__link[aria-current="page"]::after{left:0;right:0}
+.ea-topnav__link[aria-current="page"]{color:#fff}
+.ea-topnav__burger{display:none;background:transparent;border:1px solid rgba(255,255,255,0.3);border-radius:var(--ea-radius-img);padding:6px 10px;color:rgba(255,255,255,0.8);cursor:pointer;font-size:1rem}
+@media (max-width:767px){.ea-topnav__links{display:none}.ea-topnav__burger{display:block}}
+/* cta pill */
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:0.78rem;font-weight:300;letter-spacing:0.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast)}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff}
+.ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta)}
+.ea-cta-pill--ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,0.6)}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25)}
+@media (max-width:639px){.ea-cta-pill{width:100%;min-width:0}}
+/* editorial hero — elevation: kicker + portrait split, reuses bio-block grid logic */
+.ea-edhero{position:relative;background:var(--ea-ink);color:#fff;padding:calc(var(--ea-nav-height) + var(--ea-space-12)) var(--ea-gutter) var(--ea-space-12)}
+.ea-edhero__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:grid;grid-template-columns:1fr 300px;gap:var(--ea-space-8);align-items:center}
+@media (max-width:767px){.ea-edhero__inner{grid-template-columns:1fr;gap:var(--ea-space-6)}}
+.ea-edhero__kicker{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-sand);margin:0 0 var(--ea-space-3) 0}
+.ea-edhero__title{font-weight:100;font-size:3rem;line-height:1.14;letter-spacing:-0.5px;color:#fff;margin:0 0 var(--ea-space-3) 0}
+.ea-edhero__lead{font-weight:300;font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,0.85);margin:0;max-width:52ch}
+.ea-edhero__portrait{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--ea-radius-img);background:var(--ea-sand)}
+@media (max-width:1023px){.ea-edhero__title{font-size:2.2rem}}
+@media (max-width:639px){.ea-edhero__title{font-size:1.7rem}}
+/* meta strip */
+.ea-metastrip{background:var(--ea-bg-alt);border-bottom:1px solid var(--ea-line)}
+.ea-metastrip__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:flex;flex-wrap:wrap;gap:var(--ea-space-8);padding:var(--ea-space-5) var(--ea-gutter)}
+.ea-metastrip__k{font-weight:200;font-size:0.56rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ea-muted);margin:0 0 4px 0}
+.ea-metastrip__v{font-weight:300;font-size:1rem;color:var(--ea-ink);margin:0}
+/* section intro */
+.ea-section-intro{padding:var(--ea-section-padding) var(--ea-gutter)}
+.ea-section-intro__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-section-intro__heading{font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-0.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+.ea-section-intro__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);max-width:65ch}
+.ea-section-intro__body p{margin:0 0 var(--ea-space-3) 0}
+/* breath divider */
+.ea-breath-divider{display:flex;align-items:center;justify-content:center;padding:var(--ea-space-5) 0}
+.ea-breath-divider__line{display:block;width:100%;max-width:var(--ea-prose-width);height:1px;background:var(--ea-line)}
+/* content section */
+.ea-content-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+.ea-content-section--alt{background:var(--ea-bg-alt)}
+.ea-content-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-content-section__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-content-section__heading{font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-0.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-5) 0}
+.ea-content-section__body p{font-weight:300;font-size:0.95rem;line-height:1.95;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0;max-width:72ch}
+.ea-content-section__body p.lead{font-size:1.15rem;color:var(--ea-ink)}
+/* pullquote */
+.ea-pullquote{max-width:var(--ea-prose-width);margin:var(--ea-space-6) auto 0;padding:0 var(--ea-gutter)}
+.ea-pullquote blockquote{margin:0;border-inline-start:1px solid var(--ea-terracotta);padding-inline-start:var(--ea-space-4);font-weight:200;font-size:1.4rem;line-height:1.6;color:var(--ea-chocolate)}
+/* journey timeline — reuses ea-pillar atom as dated rows */
+.ea-pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ea-line);margin-top:var(--ea-space-5)}
+@media (max-width:639px){.ea-pillars-grid{grid-template-columns:1fr}}
+.ea-pillar{background:var(--ea-bg);padding:var(--ea-space-5)}
+.ea-content-section--alt .ea-pillar{background:var(--ea-bg-alt)}
+.ea-pillar__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-pillar__title{font-weight:400;font-size:0.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-2) 0}
+.ea-pillar__text{font-weight:300;font-size:0.9rem;line-height:1.85;color:var(--ea-earth);margin:0}
+/* mokesh memorial disc */
+.ea-mokesh-grid{max-width:var(--ea-prose-width);margin-inline:auto;display:grid;grid-template-columns:1fr 220px;gap:var(--ea-space-8);align-items:center}
+@media (max-width:767px){.ea-mokesh-grid{grid-template-columns:1fr;gap:var(--ea-space-5)}}
+.ea-mokesh-disc{aspect-ratio:1;border-radius:50%;border:1px solid var(--ea-line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--ea-bg)}
+.ea-mokesh-disc__nm{font-weight:200;font-size:1.1rem;color:var(--ea-ink);margin:0}
+.ea-mokesh-disc__yr{font-weight:300;font-size:0.72rem;letter-spacing:1px;color:var(--ea-muted);margin:6px 0 0 0}
+/* book gallery (studio) */
+.ea-book-gallery{margin:var(--ea-space-2) auto 0;max-width:var(--ea-prose-width)}
+.ea-book-gallery__label{display:block;font-size:0.58rem;font-weight:200;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-muted);margin-bottom:var(--ea-space-2)}
+.ea-book-gallery__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ea-line)}
+.ea-book-gallery__item{aspect-ratio:4/3;background:var(--ea-bg-alt);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ea-book-gallery__item img{width:100%;height:100%;object-fit:cover}
+.ea-book-gallery__item:first-child{grid-column:1 / -1;aspect-ratio:16/7}
+.ea-book-gallery__text{font-size:0.72rem;font-weight:300;color:var(--ea-muted)}
+.ea-book-gallery__note{font-size:0.72rem;font-weight:300;color:var(--ea-muted);margin:var(--ea-space-2) 0 0 0}
+@media (max-width:799px){.ea-book-gallery__grid{grid-template-columns:repeat(2,1fr)}}
+/* books crosslink — services-grid atom w/ real covers */
+.ea-services-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+.ea-services-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-services-section__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0;text-align:center}
+.ea-services-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-6) 0;text-align:center}
+.ea-books-row{display:flex;justify-content:center;gap:var(--ea-space-2);margin:0 0 var(--ea-space-6) 0;flex-wrap:wrap}
+.ea-books-row img{width:120px;aspect-ratio:3/4;object-fit:cover;border-radius:var(--ea-radius-img);border:1px solid var(--ea-line)}
+.ea-services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ea-line)}
+@media (max-width:639px){.ea-services-grid{grid-template-columns:1fr}}
+.ea-service-tile{background:var(--ea-bg);padding:var(--ea-space-8);text-decoration:none;display:block;transition:background var(--ea-dur-fast)}
+.ea-service-tile:hover{background:var(--ea-bg-alt)}
+.ea-service-tile__label{font-weight:200;font-size:0.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-service-tile__title{font-weight:400;font-size:0.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-2) 0}
+.ea-service-tile__desc{font-weight:300;font-size:0.9rem;line-height:1.85;color:var(--ea-text-body);margin:0}
+/* contact */
+.ea-contact-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-ink)}
+.ea-contact-section__inner{max-width:var(--ea-prose-width);margin-inline:auto;text-align:center}
+.ea-contact-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:#fff;margin:0 0 var(--ea-space-3) 0}
+.ea-contact-section__body{font-weight:300;font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,0.8);margin:0 0 var(--ea-space-5) 0}
+/* footer */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8);border-top:1px solid rgba(255,255,255,0.1)}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2) 0}
+.ea-footer__tagline{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5) 0}
+.ea-footer__location{font-weight:400;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin:0 0 var(--ea-space-6) 0}
+.ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5) 0;justify-content:flex-end}
+.ea-footer__nav-link{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.6);text-decoration:none}
+.ea-footer__nav-link:hover{color:#fff}
+.ea-footer__copy{font-weight:300;font-size:0.78rem;color:rgba(255,255,255,0.78);margin:0}
+.ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:var(--ea-space-5) 0}
+.ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+@media (max-width:639px){
+  .ea-topnav{height:var(--ea-nav-height-mob);padding:0 var(--ea-space-3)}
+  .ea-section-intro,.ea-content-section,.ea-services-section,.ea-contact-section{padding:var(--ea-space-10) var(--ea-space-3)}
+  .ea-section-intro__heading,.ea-content-section__heading,.ea-services-section__heading,.ea-contact-section__heading{font-size:1.4rem}
+}
+</style>
+</head>
+<body class="ea-wave2-content">
+<a class="ea-skiplink" href="#main">דלג לתוכן</a>
+
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="/">אייל עמית</a>
+  <ul class="ea-topnav__links" role="list">
+    <li><a class="ea-topnav__link" href="/treatment/">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="/method/">השיטה</a></li>
+    <li><a class="ea-topnav__link" href="/about/" aria-current="page">אודות</a></li>
+    <li><a class="ea-topnav__link" href="/press/">עיתונות</a></li>
+    <li><a class="ea-topnav__link" href="/books/">ספרים</a></li>
+    <li><a class="ea-topnav__link" href="/contact/">צור קשר</a></li>
+  </ul>
+  <button class="ea-topnav__burger" type="button" aria-label="פתח תפריט" aria-expanded="false">☰</button>
+</nav>
+
+<main id="main">
+
+  <!-- HERO — elevation: dark editorial hero with real portrait + kicker -->
+  <header class="ea-edhero">
+    <div class="ea-edhero__inner">
+      <div>
+        <p class="ea-edhero__kicter ea-edhero__kicker">אודות · המרכז לטיפול בדיג׳רידו</p>
+        <h1 class="ea-edhero__title">אייל עמית</h1>
+        <p class="ea-edhero__lead">עוסק בעבודה עם דיג׳רידו מאז 1999, ומהוותיקים בארץ בתחום. מורה, מטפל בנשימה, סופר — ומייסד המרכז לטיפול בדיג׳רידו בפרדס חנה.</p>
+      </div>
+      <img class="ea-edhero__portrait" src="assets/eyal-portrait-hero.jpg" alt="דיוקן של אייל עמית" width="300" height="375">
+    </div>
+  </header>
+
+  <!-- meta strip -->
+  <div class="ea-metastrip">
+    <div class="ea-metastrip__inner">
+      <div><p class="ea-metastrip__k">פועל מאז</p><p class="ea-metastrip__v">1999</p></div>
+      <div><p class="ea-metastrip__k">שיטה</p><p class="ea-metastrip__v">cbDIDG</p></div>
+      <div><p class="ea-metastrip__k">סטודיו</p><p class="ea-metastrip__v">פרדס חנה</p></div>
+      <div><p class="ea-metastrip__k">ספרים</p><p class="ea-metastrip__v">שלושה</p></div>
+    </div>
+  </div>
+
+  <!-- INTRO — long-form opening -->
+  <section class="ea-section-intro" aria-labelledby="intro-h">
+    <div class="ea-section-intro__inner">
+      <h2 id="intro-h" class="ea-section-intro__heading">משהו בנשימה התחיל את הכל</h2>
+      <div class="ea-section-intro__body">
+        <p>הדרך של אייל עם הדיג׳רידו לא התחילה מתוך מוזיקה, אלא מתוך מסע אישי של חקירה ורצון להתמודד עם קשיים בריאותיים — אסטמה ואלרגיות קשות שליוו אותו שנים.</p>
+        <p>מה שהתחיל כסקרנות הפך לתהליך ריפוי עמוק, ובהמשך לשיטה שלמה שמלווה היום מאות אנשים.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+  <!-- THE CENTER -->
+  <section class="ea-content-section" aria-labelledby="center-h">
+    <div class="ea-content-section__inner">
+      <p class="ea-content-section__label">המרכז</p>
+      <h2 id="center-h" class="ea-content-section__heading">המרכז לטיפול בדיג׳רידו</h2>
+      <div class="ea-content-section__body">
+        <p class="lead">סטודיו נשימה מעגלית בפרדס חנה — מקום שהוקם מתוך רצון להנגיש וללמד את העבודה עם הדיג׳רידו ככלי להשפעה תרפויטית על הגוף, הנשימה והתודעה.</p>
+        <p>לאורך השנים ליווה אייל מאות אנשים בתהליכים אישיים, ופיתח את שיטת cbDIDG לטיפול באמצעות דיג׳רידו — מתוך שילוב של ניסיון מעשי, חקירה מתמשכת, וחשיבה שיטתית שהביא איתו מהרקע שלו כמהנדס אלקטרוניקה.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY timeline — reuse .ea-pillar atom as dated rows -->
+  <section class="ea-content-section ea-content-section--alt" aria-labelledby="journey-h">
+    <div class="ea-content-section__inner">
+      <p class="ea-content-section__label">ציר זמן</p>
+      <h2 id="journey-h" class="ea-content-section__heading">כמה תחנות בדרך</h2>
+      <ul class="ea-pillars-grid" role="list">
+        <li class="ea-pillar"><p class="ea-pillar__label">1999—2000</p><p class="ea-pillar__title">המפגש עם הדיג׳רידו ועם מוקש</p><p class="ea-pillar__text">תחילת הקשר המתמשך עם המאסטר ההודי מוקש דהימן — שיהפוך לציר המרכזי של הדרך התרפויטית.</p></li>
+        <li class="ea-pillar"><p class="ea-pillar__label">2001</p><p class="ea-pillar__title">צבע בכחול וזרוק לים</p><p class="ea-pillar__text">הספר הראשון — 38 סיפורים מהטיול הגדול בדרום אמריקה. כיום במהדורה עשירית.</p></li>
+        <li class="ea-pillar"><p class="ea-pillar__label">2004</p><p class="ea-pillar__title">כושי בלאנטיס</p><p class="ea-pillar__text">רומן פנטזיה על התעוררות, בחירה ויציאה מהחיים הנוחים מדי.</p></li>
+        <li class="ea-pillar"><p class="ea-pillar__label">2017</p><p class="ea-pillar__title">וכתבת</p><p class="ea-pillar__text">קובץ של 46 סיפורים אמיתיים בסגנון ״ספוקן סטוריז״, עם קודי QR שמרחיבים כל סיפור.</p></li>
+        <li class="ea-pillar"><p class="ea-pillar__label">מאז</p><p class="ea-pillar__title">שיטת cbDIDG</p><p class="ea-pillar__text">מתודולוגיה סדורה לעבודה עם הנשימה, שמלווה מאות מטופלים מכל הארץ.</p></li>
+        <li class="ea-pillar"><p class="ea-pillar__label">היום</p><p class="ea-pillar__title">המרכז בפרדס חנה</p><p class="ea-pillar__text">סטודיו שתוכנן אקוסטית, טבול בירוק — מפגשים אישיים, סדנאות, וכתיבה חדשה.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+  <!-- MOKESH memorial — elevation: promoted to dedicated section + pullquote + disc -->
+  <section class="ea-content-section" aria-labelledby="mokesh-h">
+    <div class="ea-mokesh-grid">
+      <div>
+        <p class="ea-content-section__label">המורה</p>
+        <h2 id="mokesh-h" class="ea-content-section__heading">מוקש דהימן</h2>
+        <div class="ea-content-section__body">
+          <p>אחד המקורות המשמעותיים ביותר בדרך היה הקשר המתמשך עם המאסטר ההודי לדיג׳רידו מוקש דהימן, שהחל בשנת 2000. אייל הפך לאחד מתלמידיו הקרובים, ולמד ממנו את יסודות העבודה התרפויטית עם הדיג׳רידו — גישה שמעמידה במרכז את הנשימה והמודעות, ולא רק את הצד המוזיקלי של הכלי.</p>
+        </div>
+      </div>
+      <div class="ea-mokesh-disc">
+        <p class="ea-mokesh-disc__nm">מוקש דהימן</p>
+        <p class="ea-mokesh-disc__yr">1950 — 2020</p>
+      </div>
+    </div>
+    <div class="ea-pullquote">
+      <blockquote>״הקשר עם מוקש דהימן הוא הציר שעליו נשענת כל הדרך התרפויטית שלי.״</blockquote>
+    </div>
+  </section>
+
+  <!-- STUDIO + gallery -->
+  <section class="ea-content-section ea-content-section--alt" aria-labelledby="studio-h">
+    <div class="ea-content-section__inner">
+      <p class="ea-content-section__label">המרחב</p>
+      <h2 id="studio-h" class="ea-content-section__heading">הסטודיו בפרדס חנה</h2>
+      <div class="ea-content-section__body">
+        <p>הסטודיו ממוקם בפרדס חנה, בתוך מרחב ירוק ושקט עם חצר פתוחה, עצי פרי ושבילי עץ — מקום שנבנה ותוכנן מתוך הבנה אקוסטית של צליל ותדר.</p>
+      </div>
+    </div>
+    <div class="ea-book-gallery" role="group" aria-label="גלריית תמונות הסטודיו">
+      <span class="ea-book-gallery__label">הסטודיו בפרדס חנה</span>
+      <div class="ea-book-gallery__grid">
+        <div class="ea-book-gallery__item"><img src="assets/hero-wide-studio.jpg" alt="הסטודיו בפרדס חנה"></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">מרחב הטיפול</span></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">עצי פרי</span></div>
+        <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">שבילי עץ</span></div>
+      </div>
+      <p class="ea-book-gallery__note">תמונות סטודיו נוספות יוטמעו לאחר מסירת הנכסים מאייל.</p>
+    </div>
+  </section>
+
+  <!-- BOOKS crosslink — services-grid atom w/ real covers -->
+  <section class="ea-services-section" aria-labelledby="books-h">
+    <div class="ea-services-section__inner">
+      <p class="ea-services-section__label">גם סופר</p>
+      <h2 id="books-h" class="ea-services-section__heading">שלושה ספרים, אותה נשימה</h2>
+      <div class="ea-books-row">
+        <img src="assets/covers/tsva-bechol-cover.jpg" alt="צבע בכחול וזרוק לים">
+        <img src="assets/covers/kushi-blantis-cover.jpg" alt="כושי בלאנטיס">
+        <img src="assets/covers/vekatavt-cover.jpg" alt="וכתבת">
+      </div>
+      <div class="ea-services-grid">
+        <a class="ea-service-tile" href="/about/moksha/">
+          <p class="ea-service-tile__label">סיפור</p>
+          <h3 class="ea-service-tile__title">על מוקש דהימן</h3>
+          <p class="ea-service-tile__desc">המאסטר ההודי לדיג׳רידו, מורו של אייל, והמורשת הממשיכה מרישיקש לפרדס חנה.</p>
+        </a>
+        <a class="ea-service-tile" href="/books/">
+          <p class="ea-service-tile__label">מוזה הוצאה לאור</p>
+          <h3 class="ea-service-tile__title">לעמוד הספרים</h3>
+          <p class="ea-service-tile__desc">ספר מסע, רומן פנטזיה, וקובץ סיפורים אוטוביוגרפי — לרכישה ישירה מהיוצר.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ea-contact-section" aria-labelledby="cta-h">
+    <div class="ea-contact-section__inner">
+      <h2 id="cta-h" class="ea-contact-section__heading">רוצים להכיר?</h2>
+      <p class="ea-contact-section__body">לתיאום שיחת היכרות, ללא התחייבות.</p>
+      <a class="ea-cta-pill ea-cta-pill--primary" href="/contact/">לתיאום שיחת היכרות</a>
+    </div>
+  </section>
+</main>
+
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">המרכז לטיפול בדיג׳רידו · סטודיו נשימה מעגלית</p>
+    <p class="ea-footer__location">פרדס חנה</p>
+    <nav class="ea-footer__nav" aria-label="ניווט תחתון">
+      <a class="ea-footer__nav-link" href="/treatment/">טיפול</a>
+      <a class="ea-footer__nav-link" href="/method/">השיטה</a>
+      <a class="ea-footer__nav-link" href="/about/">אודות</a>
+      <a class="ea-footer__nav-link" href="/press/">עיתונות</a>
+      <a class="ea-footer__nav-link" href="/books/">ספרים</a>
+      <a class="ea-footer__nav-link" href="/contact/">צור קשר</a>
+    </nav>
+    <hr class="ea-footer__divider" aria-hidden="true">
+    <p class="ea-footer__copy">&copy; 2026 אייל עמית · כל הזכויות שמורות</p>
+  </div>
+</footer>
+</body>
+</html>
