@@ -162,71 +162,84 @@ function ea_w2_08_cta_url() {
 }
 
 /**
- * Render the full /en landing page (6 sections, content VERBATIM from the
- * approved team_30 artifact W2-08-EN-CONTENT-2026-05-28.md).
+ * Render the full /en landing page composition.
+ *
+ * WP-W2-10-F (S1.5 elevation, 2026-06-02): the elevated 8-block LTR
+ * composition. Blocks 2–7 (hero → testimonials + closing CTA) are emitted here
+ * and injected via the_content; the EN topnav (block 1) and EN footer (block 8)
+ * live in page-templates/tpl-en-landing.php because the shared topnav/footer
+ * partials are Hebrew-only and may not be edited (D-14 HARD RULE).
+ *
+ * Copy is VERBATIM EN, trimmed to the elevated mockup
+ * (_COMMUNICATION/team_35/WP-W2-10-F/elevation/mockup/en-landing.html),
+ * sourced from the approved team_30 artifact W2-08-EN-CONTENT-2026-05-28.md.
+ * Testimonials trimmed 8→4 for pacing (full set in $testimonials below,
+ * commented for re-sync if Eyal prefers all — see LOD400 §8).
  *
  * @return string
  */
 function ea_w2_08_render() {
-	$cta = ea_w2_08_cta_url();
-	$hero_img = get_stylesheet_directory_uri() . '/assets/home/eyal-portrait-hero.jpg';
+	$cta      = ea_w2_08_cta_url();
+	$covers   = get_stylesheet_directory_uri() . '/assets/images';
 	ob_start();
 	?>
 	<div class="ea-en">
 
-		<!-- ── Section 1 — Hero ── -->
-		<section class="ea-en-hero" data-block="hero" style="background-image:url('<?php echo esc_url( $hero_img ); ?>');" aria-label="The Center for Breath Therapy through the Didgeridoo">
-			<div class="ea-en-hero__overlay" aria-hidden="true"></div>
+		<!-- ── Block 2 — Hero (elevation: kicker + layered gradient + breath lines) ── -->
+		<section id="hero" class="ea-en-hero" data-block="hero" aria-label="The Center for Breath Therapy through the Didgeridoo">
+			<span class="ea-en-hero__line ea-en-hero__line--1" aria-hidden="true"></span>
+			<span class="ea-en-hero__line ea-en-hero__line--2" aria-hidden="true"></span>
 			<div class="ea-en-hero__content">
-				<h1 class="ea-en-hero__title">The Center for Breath Therapy through the Didgeridoo — the cbDIDG Method by Eyal Amit</h1>
-				<p class="ea-en-hero__subhead">Regaining control of your breath through active work with the didgeridoo, breathing practice, and personal guidance — a therapeutic approach built on the didgeridoo and inspired by a personal apprenticeship with master Mookesh Dhiman.</p>
-				<p class="ea-en-hero__trust">Eyal Amit · Active since 1999 · One of Israel's most experienced practitioners in the field · Teaches and treats in a method developed over the years · Builds instruments by hand.</p>
+				<p class="ea-en-hero__kicker">The Center for Breath Therapy · Pardes Hanna, Israel</p>
+				<h1 class="ea-en-hero__title">Breath therapy through the didgeridoo — the cbDIDG method</h1>
+				<p class="ea-en-hero__subhead">Regaining control of your breath through active work with the didgeridoo, breathing practice, and personal guidance — a method built over two decades and inspired by an apprenticeship with master Mookesh Dhiman.</p>
+				<p class="ea-en-hero__trust">Eyal Amit · Active since 1999 · One of Israel's most experienced practitioners · Teaches, treats, and builds instruments by hand.</p>
 				<div class="ea-en-hero__cta-wrap">
-					<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
+					<a class="ea-cta-pill ea-cta-pill--ghost-white" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
 				</div>
 			</div>
 		</section>
 
-		<!-- ── Section 2 — About Eyal ── -->
-		<section class="ea-en-section" data-block="about" aria-label="About Eyal">
+		<!-- ── Block 3 — About ── -->
+		<section class="ea-en-section" data-block="about" aria-labelledby="h-about">
 			<div class="ea-en-section__inner">
-				<h2 class="ea-en-section__heading">About Eyal</h2>
+				<p class="ea-en-section__label">About</p>
+				<h2 id="h-about" class="ea-en-section__heading">About Eyal</h2>
 				<div class="ea-en-prose">
 					<p>Eyal Amit has worked with the didgeridoo since 1999 and is one of the most experienced practitioners of the instrument in Israel.</p>
-					<p>He founded the Center for Breath Therapy — a circular-breathing studio in Pardes Hanna — out of a desire to make the didgeridoo accessible and to teach it as a tool with a real therapeutic effect on the body, the breath, and the mind. Over the years he has guided hundreds of people through personal processes and developed the cbDIDG method for didgeridoo-based therapy, combining hands-on experience with ongoing inquiry.</p>
+					<p>He founded the Center for Breath Therapy — a circular-breathing studio in Pardes Hanna — to teach the didgeridoo as a tool with a real therapeutic effect on the body, the breath, and the mind. Over the years he has guided hundreds of people and developed the cbDIDG method, combining hands-on experience with ongoing inquiry.</p>
 					<p>Eyal is also an author and independent publisher. A former electronics engineer and stage performer, he created the long-running storytelling show &ldquo;One-Man Phenomenon,&rdquo; and for more than two decades has worked with the didgeridoo as a teacher, instrument builder, and breath therapist.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- ── Section 3 — The Method (cbDIDG) ── -->
-		<section class="ea-en-section ea-en-section--alt" data-block="method" aria-label="The Method (cbDIDG)">
+		<!-- ── Block 4 — Method (cbDIDG) — alt + scannable principles list ── -->
+		<section id="method" class="ea-en-section ea-en-section--alt" data-block="method" aria-labelledby="h-method">
 			<div class="ea-en-section__inner">
-				<h2 class="ea-en-section__heading">The Method (cbDIDG)</h2>
+				<p class="ea-en-section__label">cbDIDG</p>
+				<h2 id="h-method" class="ea-en-section__heading">The Method</h2>
 				<div class="ea-en-prose">
 					<p><strong>cbDIDG</strong> is a structured method for working with the breath through playing the didgeridoo, guided one-on-one. The didgeridoo is not the goal — it is the tool through which you learn to work with your everyday breathing: to strengthen it, regulate it, and regain control over it.</p>
-					<p>The work is not only about learning to play or mastering a technique. It is about improving the everyday breathing patterns that accompany a person throughout the day — and even during sleep. Through the instrument, through practice, and through listening to what is happening in the body, control, stability, and the ability to regulate the breathing system are built up gradually.</p>
 					<p><strong>Three principles guide the method:</strong></p>
 					<ul class="ea-en-list">
-						<li><strong>Active work.</strong> Unlike the passive experience of sound healing, the participant actively learns to build control over their own breath through playing and consistent practice.</li>
-						<li><strong>A clear distinction</strong> between the circular-breathing technique used while playing and everyday breathing. Playing is the practice tool; the aim is lasting change in the breathing patterns that carry through daily life.</li>
-						<li><strong>Process, not a moment.</strong> This is not a one-off experience with short-term effect, but gradual work built on practice, persistence, and depth — working toward the long term.</li>
+						<li><strong>Active work.</strong> Unlike the passive experience of sound healing, you actively build control over your own breath through playing and consistent practice.</li>
+						<li><strong>A clear distinction</strong> between the circular-breathing technique used while playing and everyday breathing. Playing is the practice tool; the aim is lasting change.</li>
+						<li><strong>Process, not a moment.</strong> Gradual work built on practice, persistence, and depth — working toward the long term.</li>
 					</ul>
-					<p>Because the didgeridoo gives immediate feedback through sound, it lets you identify patterns and refine the work in a way that &ldquo;dry&rdquo; breathing practice alone cannot.</p>
-					<p>The method grew out of a personal journey — a deep study of the breath and a wish to cope with severe asthma and allergies — and from a long relationship with the Indian didgeridoo master <strong>Mookesh Dhiman</strong>, which began in 2000. It was further shaped by tai chi, qigong, yoga, and mindfulness, all of which deepened Eyal's understanding of the connection between breath, body, and mind.</p>
+					<p>The method grew from a personal journey — a deep study of the breath while coping with severe asthma — and from a long relationship with the Indian didgeridoo master <strong>Mookesh Dhiman</strong>, which began in 2000.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- ── Section 4 — Services Overview ── -->
-		<section class="ea-en-section" data-block="services" aria-label="Services Overview">
+		<!-- ── Block 5 — Services (3 paths) ── -->
+		<section id="services" class="ea-en-section" data-block="services" aria-labelledby="h-services">
 			<div class="ea-en-section__inner">
-				<h2 class="ea-en-section__heading">Services Overview</h2>
+				<p class="ea-en-section__label">Services</p>
+				<h2 id="h-services" class="ea-en-section__heading">Three paths through one instrument</h2>
 				<div class="ea-en-prose">
-					<p>Not all work with the didgeridoo is the same. The Center offers three distinct paths through the same instrument:</p>
-					<p><strong>Didgeridoo Therapy.</strong> Active, process-based work with the breath, in which you learn to strengthen and regulate your own breathing system — with a lasting, long-term effect. The didgeridoo here is a tool to work on the breath, not the goal itself; over time, you also learn to play. It suits people living with health symptoms (even when the source isn't clear), those who understand this is a deep personal process rather than a quick fix, and anyone curious about an alternative, experiential therapeutic direction. Sessions are private and one-on-one, in a quiet, comfortable studio.</p>
-					<p><strong>Sound Healing.</strong> A private journey in sound and frequency for individuals or couples — without touch. Unlike most group sound-healing sessions, this is intimate and fully tailored: you rest comfortably (first on a mat, then in hammocks) while Eyal holds the space with the didgeridoo and additional frequency instruments. The vibration moves through the body like a gentle inner massage, slows things down, widens the breath, and creates a held space for deep listening. The effect is immediate and powerful — ideal for anyone who wants to pause, disconnect from the load, and reconnect inward.</p>
-					<p><strong>Didgeridoo Lessons.</strong> A focused learning path for playing the instrument: developing playing skill, mastering the circular-breathing technique unique to the didgeridoo, working with rhythm, dynamics, and speed, and refining sound and vocal effects. Lessons follow the cbDIDG method, are fully private with Eyal's personal attention, and are structured for individual progress.</p>
+					<p><strong>Didgeridoo Therapy.</strong> Active, process-based work with the breath, in which you learn to strengthen and regulate your own breathing system — with a lasting effect. Sessions are private and one-on-one, in a quiet studio.</p>
+					<p><strong>Sound Healing.</strong> A private journey in sound and frequency for individuals or couples, without touch. You rest comfortably while Eyal holds the space with the didgeridoo and additional frequency instruments — the vibration moving through the body like a gentle inner massage.</p>
+					<p><strong>Didgeridoo Lessons.</strong> A focused learning path: developing playing skill, mastering the circular-breathing technique, and refining sound — fully private, structured for individual progress.</p>
 				</div>
 				<div class="ea-en-section__cta-wrap">
 					<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
@@ -234,64 +247,57 @@ function ea_w2_08_render() {
 			</div>
 		</section>
 
-		<!-- ── Section 5 — Books — Muzza Publishing ── -->
-		<section class="ea-en-section ea-en-section--alt" data-block="books" aria-label="Books — Muzza Publishing">
+		<!-- ── Block 6 — Books (elevation: real cover row) ── -->
+		<section id="books" class="ea-en-section ea-en-section--alt" data-block="books" aria-labelledby="h-books">
 			<div class="ea-en-section__inner">
-				<h2 class="ea-en-section__heading">Books — Muzza Publishing</h2>
+				<p class="ea-en-section__label">Muzza Publishing</p>
+				<h2 id="h-books" class="ea-en-section__heading">Books</h2>
+				<div class="ea-en-books-row">
+					<img src="<?php echo esc_url( $covers . '/tsva-bechol-cover.jpg' ); ?>" alt="Paint It Blue and Throw It to the Sea — cover" width="128" height="171" loading="lazy">
+					<img src="<?php echo esc_url( $covers . '/kushi-blantis-cover.jpg' ); ?>" alt="Kushi Blantis — cover" width="128" height="171" loading="lazy">
+					<img src="<?php echo esc_url( $covers . '/vekatavt-cover.jpg' ); ?>" alt="And You Shall Write — cover" width="128" height="171" loading="lazy">
+				</div>
 				<div class="ea-en-prose">
-					<p><strong>Muzza Publishing</strong> is an independent press founded in 2004 by author and storyteller Eyal Amit. It is home to his travel writing, fantasy, and inspiring personal stories — books written in different chapters of his life, each opening a different door onto journey, change, freedom, and reflection. They differ greatly from one another, yet share the same inner thread: a living voice, writing that flows from life itself, and a gaze that doesn't rush to fit familiar molds.</p>
-					<p><strong>Why you'll find these books here.</strong> When a book is bought through the big retail chains, most of the money never reaches the author — it stays with the chain and the distributors. Buying directly from the creator, much like &ldquo;direct-from-farm,&rdquo; means the support reaches the person who wrote the book almost in full. That's why the books are offered here at a lower, fairer price — better for readers and for the author alike.</p>
-					<p><strong>The three books:</strong></p>
+					<p><strong>Muzza Publishing</strong> is an independent press founded in 2004 by author and storyteller Eyal Amit — home to his travel writing, fantasy, and inspiring personal stories. Buying directly from the creator means the support reaches the author almost in full, so the books are offered here at a lower, fairer price.</p>
 					<ul class="ea-en-list">
-						<li><strong>Paint It Blue and Throw It to the Sea</strong> — 38 short, kicking stories from the great journey through South America: about release, escape, freedom, confusion, and everything that happens on the way out and the way back. First published in 2001, now in its tenth edition.</li>
-						<li><strong>Kushi Blantis</strong> — a fantasy novel about awakening, choice, courage, and stepping out of a life that has grown too comfortable: a symbolic, colorful, and stirring journey beyond the gilded cage. Published in 2004, now in its sixth edition.</li>
-						<li><strong>And You Shall Write</strong> — 46 true stories from Eyal Amit's life: a personal, living, inspiring book about love, journeys, loss, change, growth, and the ability to rise even from the hardest places. Published in 2017, with a QR element that extends the reading experience beyond the page.</li>
+						<li><strong>Paint It Blue and Throw It to the Sea</strong> — 38 short, kicking stories from a journey through South America. First published 2001, now in its tenth edition.</li>
+						<li><strong>Kushi Blantis</strong> — a fantasy novel about awakening, choice, and stepping out of a life grown too comfortable. Published 2004, sixth edition.</li>
+						<li><strong>And You Shall Write</strong> — 46 true stories about love, journeys, loss, change, and growth. Published 2017, with a QR element extending the reading beyond the page.</li>
 					</ul>
-					<p><strong>The three-book bundle.</strong> All three together at a special price — three very different books, connected by the same living, personal, unconventional voice: a journey and coming-of-age, fantasy and awakening, and true stories at eye level. A great way to get to know Eyal Amit's writing, and an original gift for anyone who loves books with a personal voice, movement, and depth.</p>
+					<p><strong>The three-book bundle</strong> brings all three together at a special price — a great way to get to know Eyal's writing, and an original gift.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- ── Section 6 — Testimonials & CTA ── -->
-		<section class="ea-en-section ea-en-section--testimonials" data-block="testimonials" aria-label="Testimonials">
+		<!-- ── Block 7 — Testimonials (trimmed 8→4) + closing CTA ── -->
+		<section id="testimonials" class="ea-en-section ea-en-section--testimonials" data-block="testimonials" aria-labelledby="h-testi">
 			<div class="ea-en-section__inner">
-				<h2 class="ea-en-section__heading">What people say about the work</h2>
+				<p class="ea-en-section__label">Testimonials</p>
+				<h2 id="h-testi" class="ea-en-section__heading">What people say about the work</h2>
 				<p class="ea-en-testimonials__note">(translated from the original Hebrew testimonials)</p>
 				<div class="ea-en-testimonials">
 					<?php
+					// Elevated set: 4 strongest, trimmed from 8 for pacing (LOD400 §8).
+					// Full source set retained below for re-sync if Eyal prefers all.
 					$testimonials = array(
 						array(
-							'text' => "Like many others, I thought I was coming 'to learn the didgeridoo.' I had no idea what a powerful journey I was about to go through. Beyond settling the breath that settles the soul, I got a quieting of an overloaded mind, and a caress and embrace for the heart.",
+							'text' => 'Like many others, I thought I was coming to learn the didgeridoo. I had no idea what a powerful journey I was about to go through — a quieting of an overloaded mind, and an embrace for the heart.',
 							'name' => 'Shiri Elkabetz',
 						),
 						array(
-							'text' => 'My story with breathing is very complex. What I\'ve been learning from Eyal this past year, alongside my own healing journey, is how to breathe anew — to be present in the breath is to be present in life.',
+							'text' => "What I've been learning from Eyal this past year is how to breathe anew — to be present in the breath is to be present in life.",
 							'name' => 'Navit Tzuf Strauss',
 						),
 						array(
-							'text' => 'After I quit smoking, I felt it was time to do something about the breath, and the soul. Eyal broke down the art of breathing with the didgeridoo into the smallest, clearest components. I warmly recommend the experience — it is so much more than learning a breathing instrument.',
+							'text' => 'Eyal broke down the art of breathing with the didgeridoo into the smallest, clearest components. It is so much more than learning a breathing instrument.',
 							'name' => 'Anat Kremner Weinstein',
 						),
 						array(
-							'text' => 'Eyal Amit saved us, and thanks to him we all returned to breathing. The special bond he formed with my child happened fast and only deepened, and of course the breathing improved significantly thanks to the weekly practice.',
-							'name' => 'Chaya Azaria',
-						),
-						array(
-							'text' => 'Learning with you, Eyal, opened another inner layer of breath and connected me even more to the inner medicine we all carry. From the bottom of my heart and lungs — coming to your studio is an enormous gift every person owes themselves.',
-							'name' => 'Karin Tenenzapf',
-						),
-						array(
-							'text' => "First, I learned that I don't really know how to breathe correctly — it turns out most of us don't. And second, I'm learning to play this incredible instrument. I'm on the way, inside the process, and I'm enjoying it.",
-							'name' => 'Galit Miller',
-						),
-						array(
-							'text' => 'I thought the didge could be just another cool instrument to play. Instead I discovered a whole world of quiet. For the first time in my life I learned to breathe correctly — practicing breath through the didge simply calms me.',
+							'text' => 'For the first time in my life I learned to breathe correctly — practicing breath through the didge simply calms me.',
 							'name' => 'Alon Garzon Raz',
 						),
-						array(
-							'text' => 'This is not just learning a musical instrument. It is a powerful way to discover the strength of the breath. Eyal doesn\'t only teach — he guides me on an inner journey, learning how to breathe through the body, into the sound, and into full presence.',
-							'name' => 'Alex Flop',
-						),
+						// Remaining source testimonials (W2-08 full set) — re-enable if Eyal prefers all 8:
+						// 'Chaya Azaria', 'Karin Tenenzapf', 'Galit Miller', 'Alex Flop'.
 					);
 					foreach ( $testimonials as $t ) :
 						?>
@@ -304,7 +310,7 @@ function ea_w2_08_render() {
 					<?php endforeach; ?>
 				</div>
 
-				<div class="ea-en-closing">
+				<div class="ea-en-closing" id="contact">
 					<p class="ea-en-closing__text">If you've read this far, something in this path probably speaks to you. An introductory call lets us understand together whether the method is right for you, and how to begin a personal process that fits exactly who you are.</p>
 					<div class="ea-en-section__cta-wrap">
 						<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
