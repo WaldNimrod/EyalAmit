@@ -337,3 +337,230 @@
     gap: var(--ea-space-3);
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   WP-W2-10-E — Commerce ELEVATED /books archive + book detail.
+   Deltas only: the elevated commerce composition reuses the shared atoms
+   (.ea-book-hero, .ea-book-card, .ea-bundle, .ea-book-excerpt, .ea-faq-item,
+   .ea-book-gallery, .ea-book-prose, .ea-cta-pill — all in ea-atoms.css).
+   This block adds the cluster-specific recompositions the mockups introduced:
+   hero kicker + cover-split, real cover-card art, genre/price/footer rows,
+   stacked-cover bundle on --ea-chocolate, and the meta strip.
+   Tokens only — no new --ea-*, no raw hex, no inline style, no @keyframes.
+============================================================ */
+
+/* Eyebrow labels (archive + detail sections) */
+.ea-section__label,
+.ea-books-section__label {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin: 0 0 var(--ea-space-2) 0;
+}
+
+/* Hero kicker (archive + detail) */
+.ea-book-hero__kicker {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-sand);
+  margin: 0 0 var(--ea-space-3) 0;
+}
+
+/* Detail hero — real cover floated into a 1fr / 220px split */
+.ea-book-page .ea-book-hero__content {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: var(--ea-space-8);
+  align-items: end;
+}
+.ea-book-hero__cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--ea-radius-img);
+  border: 1px solid var(--ea-sand);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 767px) {
+  .ea-book-page .ea-book-hero__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Books section eyebrow + intro spacing */
+.ea-books-section__label {
+  color: var(--ea-terracotta);
+}
+
+/* Book cards — real cover art + genre + price + footer */
+.ea-book-card {
+  border-radius: var(--ea-radius-img);
+  transition: transform var(--ea-dur-fast) var(--ea-ease-enter),
+    box-shadow var(--ea-dur-fast) var(--ea-ease-enter);
+}
+.ea-book-card:hover,
+.ea-book-card:focus-within {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.ea-book-card__cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--ea-radius-img);
+  border: 1px solid var(--ea-line);
+  background: var(--ea-bg-alt);
+}
+.ea-book-card__genre {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.56rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin: 0 0 var(--ea-space-1) 0;
+}
+.ea-book-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--ea-line);
+  padding-top: var(--ea-space-2);
+  margin-top: var(--ea-space-2);
+}
+.ea-book-card__price {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--ea-ink);
+}
+.ea-book-card__price small {
+  font-size: 0.72rem;
+  color: var(--ea-muted);
+}
+.ea-book-card__more {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: var(--ea-terracotta);
+}
+
+/* Bundle — stacked-cover visual on chocolate (existing token, OK per D-14) */
+.ea-bundle {
+  background: var(--ea-chocolate);
+}
+.ea-bundle__inner {
+  max-width: 680px;
+}
+.ea-bundle__label {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-sand);
+  margin: 0 0 var(--ea-space-2) 0;
+}
+.ea-bundle__title {
+  color: var(--ea-on-dark);
+}
+.ea-bundle__covers {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 var(--ea-space-5) 0;
+}
+.ea-bundle__covers img {
+  width: 108px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--ea-sand);
+  border-radius: var(--ea-radius-img);
+  margin-inline: -12px;
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
+}
+.ea-bundle__covers img:nth-child(1) {
+  transform: rotate(-6deg);
+}
+.ea-bundle__covers img:nth-child(2) {
+  transform: translateY(-10px);
+  z-index: var(--ea-z-base);
+}
+.ea-bundle__covers img:nth-child(3) {
+  transform: rotate(6deg);
+}
+.ea-bundle__price {
+  color: var(--ea-sand);
+}
+.ea-bundle__price strong {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--ea-on-dark);
+}
+.ea-bundle__price del {
+  color: var(--ea-sand);
+  opacity: 0.7;
+}
+.ea-bundle__desc {
+  color: var(--ea-sand);
+}
+.ea-bundle__note {
+  color: var(--ea-sand);
+  opacity: 0.8;
+}
+.ea-bundle .ea-cta-pill--primary {
+  background: var(--ea-brick);
+  border-color: var(--ea-brick);
+}
+
+/* Meta strip (מחבר / עמודים / סיפורים / שנה) */
+.ea-metastrip {
+  background: var(--ea-bg-alt);
+  border-bottom: 1px solid var(--ea-line);
+}
+.ea-metastrip__inner {
+  max-width: var(--ea-prose-width);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ea-space-8);
+  padding: var(--ea-space-4) var(--ea-gutter);
+}
+.ea-metastrip__k {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.56rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ea-muted);
+  margin: 0 0 var(--ea-space-1) 0;
+}
+.ea-metastrip__v {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--ea-ink);
+  margin: 0;
+}
+
+/* Books-page shop grid — 3-up to match the archive mockup (the standalone
+   /shop archive keeps its own 4-up grid via .ea-shop-archive scope). */
+.ea-books-section .ea-shop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: var(--ea-prose-width);
+}
+@media (max-width: 1023px) {
+  .ea-books-section .ea-shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 639px) {
+  .ea-books-section .ea-shop-grid {
+    grid-template-columns: 1fr;
+  }
+}
