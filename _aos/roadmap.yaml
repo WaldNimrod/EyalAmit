@@ -851,13 +851,14 @@ work_packages:
     sign-off (external/human) per cluster, then S3 team_10 refine → S4 team_80 tokens → S5 team_50+190. Activation note:
     _COMMUNICATION/team_100/S003-ACTIVATION-NOTE-2026-05-31.md. CARRY-FORWARD: staging TLS cert EXPIRED (s887.upress.link) —
     HTTPS-forced fetchers fail; team_50/190 automated S5 gates must use plain HTTP or a fixed cert. ADR034 offline-fallback
-    (branch feature/w2-10-activation, never main): live roadmap API re-probe 2026-05-31 hangs; file SSoT. Merge PENDING team_00.'
+    (branch feature/w2-10-activation, never main): live roadmap API re-probe 2026-05-31 hangs; file SSoT. Merge PENDING team_00.
+    ROLLUP 2026-06-03: Track-2 clusters A/B/E/F COMPLETE — dual-gate PASS (team_50 L-GATE_BUILD + team_190 L-GATE_VALIDATE, Cursor), LOD500_LOCKED, archived (_archive/WP-W2-10-{A,B,E,F}/ARCHIVE_MANIFEST.md); built on feature/w2-10-track2 → merged + pushed to main. C + D SUPERSEDED by WP-W2-11 (Conversion/Blog delivered+validated there). G still BLOCKED (Eyal hero video). Umbrella remains IN_PROGRESS pending G only; all non-blocked deliverable clusters done. 2 P0s found+fixed at validate (portrait child-theme URI; /en template route) + E cover/LCP perf.'
 - id: WP-W2-10-A
   label: UI Precision — Service cluster (treatment / method / sound-healing / lessons, tpl-service)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
@@ -872,10 +873,10 @@ work_packages:
   progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02: team_35 S1.5 elevated package extracted to _COMMUNICATION/team_35/WP-W2-10-A/elevation/ (+ real assets in handoff-WP-W2-10-Track2/shared-assets/: eyal portrait, 3 book covers, gallery, logo, hero-wide). Status READY_FOR_S2 (0 new tokens/atoms, 0 GCR). Elevated mockup = 14-block flagship (hero+CTA pair, cbDIDG 4-step grid, who-its-for 5-tile, bio-block w/ real portrait, comparison, testimonials, faq-mini, disclaimer, CTA). team_100 authored implementation-grade LOD400: _aos/work_packages/S003/WP-W2-10-A/LOD400_IMPL_spec.md (supersedes S3 of the 2026-05-29 spec) — route-aware render fn mirroring home, 14-block wiring, route fan-out (treatment/method/sound-healing/lessons), real-portrait wiring, ACs incl https-perf. S2 SIGN-OFF RECORDED 2026-06-02 (team_00 proxy for Eyal): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-10-A_2026-06-02.md -> S3 (team_10) UNBLOCKED per LOD400_IMPL_spec.md. B/E/F IMPL LOD400s authored (WP-W2-10-{B,E,F}/LOD400_IMPL_spec.md). S3 BUILT + S4 PASS + team_100 pre-flight PASS 2026-06-02 (4 routes HTTP 200, axe 0/0, LH perf 97 / a11y 100, single H1, real portrait, 0 D-14 drift; on branch feature/w2-10-track2, deployed to staging). current_lean_gate=L-GATE_BUILD; routed to S5 (team_50 -> team_190 Cursor) per _COMMUNICATION/team_100/MANDATE-S5-WP-W2-10-ABEF-2026-06-02.md. NOT merged to main (await team_00 go).'
 - id: WP-W2-10-B
   label: UI Precision — Editorial cluster (about / press / about-moksha, tpl-content)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
@@ -890,7 +891,7 @@ work_packages:
   progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): 13-block editorial flagship (Ink hero+real portrait, meta strip, journey timeline .ea-pillar x6, dedicated Mokesh memorial disc, studio+gallery, book-cover cross-link row). IMPL LOD400 authored: _aos/work_packages/S003/WP-W2-10-B/LOD400_IMPL_spec.md (tpl-content 3 routes /about,/press,/about/moksha; memorial copy sensitive/verbatim). S2 SIGN-OFF RECORDED 2026-06-02 (team_00 proxy for Eyal): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-10-B_2026-06-02.md -> S3 (team_10) UNBLOCKED per LOD400_IMPL_spec.md. S3 BUILT (worktree w2-10-track2-B, merged) + S4 PASS + team_100 pre-flight PASS 2026-06-02 (/about /press /about/moksha HTTP 200, axe 0/0, LH perf 98 / a11y 100, single H1, memorial verbatim, 0 D-14 drift; deployed to staging). current_lean_gate=L-GATE_BUILD; routed to S5 (team_50 -> team_190 Cursor) per MANDATE-S5-WP-W2-10-ABEF. NOT merged to main (await team_00 go).'
 - id: WP-W2-10-C
   label: UI Precision — Conversion cluster (contact / faq)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -904,10 +905,10 @@ work_packages:
   priority: MED
   blocked_by: [WP-W2-02]
   estimate_days: '3'
-  notes: 'Templates already REAL — fast win. Resolves CF7 form_id=0 wiring as part of refinement.'
+  notes: 'Templates already REAL — fast win. Resolves CF7 form_id=0 wiring as part of refinement. SUPERSEDED 2026-06-03 by WP-W2-11 (Track-1): the Conversion cluster (/contact, /faq) was delivered + constitutionally PASSED L-GATE_VALIDATE under WP-W2-11 (see _archive/WP-W2-11/ARCHIVE_MANIFEST.md, cluster "Conversion (C)"); no separate Track-2 elevation (low-visual-risk per DECISION Option C). Routes live (HTTP 200).'
 - id: WP-W2-10-D
   label: UI Precision — Blog cluster (archive / single, tpl-blog-*)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -921,13 +922,13 @@ work_packages:
   priority: MED
   blocked_by: [WP-W2-06]
   estimate_days: '4'
-  notes: 'Refine on top of W2-06 first build. Reading typography for long Hebrew posts.'
+  notes: 'Refine on top of W2-06 first build. Reading typography for long Hebrew posts. SUPERSEDED 2026-06-03 by WP-W2-11 (Track-1): the Blog cluster (/blog, /blog/<slug>) was delivered + constitutionally PASSED L-GATE_VALIDATE under WP-W2-11 (see _archive/WP-W2-11/ARCHIVE_MANIFEST.md, cluster "Blog (D)"); no separate Track-2 elevation. Routes live (HTTP 200).'
 - id: WP-W2-10-E
   label: UI Precision — Commerce cluster (books + 3 details + shop + 5 items)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
@@ -943,10 +944,10 @@ work_packages:
   progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): archive (real covers + price + book-page footer, stacked-cover bundle on chocolate) + detail (real cover hero split, open excerpt, ext purchase CTAs) + shop DNA. Real covers delivered (vekatavt/kushi-blantis/tsva-bechol). IMPL LOD400: _aos/work_packages/S003/WP-W2-10-E/LOD400_IMPL_spec.md (/books +3 details +/shop; external links only; clone detail x3). S2 SIGN-OFF RECORDED 2026-06-02 (team_00 proxy for Eyal): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-10-E_2026-06-02.md -> S3 (team_10) UNBLOCKED per LOD400_IMPL_spec.md. S3 BUILT (worktree w2-10-track2-E, merged) + S4 PASS + team_100 pre-flight PASS 2026-06-02 (/books +3 details +/shop HTTP 200, axe 0/0 [bundle strike-price contrast fixed pre-flight], LH perf 97 / a11y 100, single H1, real covers, external CTAs only, FAQ verbatim, 0 D-14 drift; deployed to staging). FLAG: tsva vendor URL = manifest SSoT (tzvabekahol) vs legacy. current_lean_gate=L-GATE_BUILD; routed to S5 (team_50 -> team_190 Cursor) per MANDATE-S5-WP-W2-10-ABEF. NOT merged to main (await team_00 go).'
 - id: WP-W2-10-F
   label: UI Precision — EN landing (tpl-en-landing, LTR mirror)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-05-28'
