@@ -504,7 +504,6 @@
 }
 .ea-bundle__price del {
   color: var(--ea-sand);
-  opacity: 0.7;
 }
 .ea-bundle__desc {
   color: var(--ea-sand);
