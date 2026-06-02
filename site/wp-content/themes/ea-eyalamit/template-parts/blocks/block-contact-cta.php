@@ -40,7 +40,7 @@ if ( 'band' === $ea_cta_variant ) :
 	$ea_cta_label   = isset( $ea_cta_btn['label'] ) ? (string) $ea_cta_btn['label'] : 'לתיאום שיחת היכרות';
 	$ea_cta_href    = isset( $ea_cta_btn['href'] ) ? (string) $ea_cta_btn['href'] : home_url( '/contact' );
 	?>
-<section class="ea-section ea-section--cta ea-section--closing" data-block="contact-cta" aria-label="<?php echo esc_attr( $ea_cta_aria ); ?>">
+<section class="ea-section ea-section--cta ea-section--cta--ink ea-section--closing" data-block="contact-cta" aria-label="<?php echo esc_attr( $ea_cta_aria ); ?>">
       <div class="ea-section__inner ea-section__inner--center ea-entrance--breath">
         <h2 class="ea-section__heading"><?php echo esc_html( $ea_cta_heading ); ?></h2>
         <?php foreach ( $ea_cta_body as $ea_cta_p ) : ?>
