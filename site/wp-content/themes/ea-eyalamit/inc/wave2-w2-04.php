@@ -442,3 +442,185 @@ function ea_w2_04_render_cta( $slug, $b ) {
 	</section>
 	<?php
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * WP-W2-10-A — elevated service template (Track-2 pattern-setter).
+ *
+ * Mirrors ea_wave2_render_home_blocks() (inc/wave2-stage-b.php). Resolves the
+ * current page slug into a route context (ea_wave2_service_ctx) and renders the
+ * 14-block elevated composition (ea_wave2_render_service_blocks) by
+ * set_query_var()-ing each generic block's context then get_template_part().
+ *
+ * Route context comes from ea_wave2_service_route_content() in the content file.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Service routes handled by the elevated tpl-service composition.
+ *
+ * @return string[]
+ */
+function ea_wave2_service_slugs() {
+	return array( 'treatment', 'method', 'sound-healing', 'lessons' );
+}
+
+/**
+ * Resolve the current request into a service route context array, or null when
+ * the current page is not one of the 4 service routes.
+ *
+ * Shape: array( 'slug' => string, 'content' => array<string,mixed> ).
+ *
+ * @return array<string,mixed>|null
+ */
+function ea_wave2_service_ctx() {
+	if ( ! is_page() ) {
+		return null;
+	}
+	$post = get_queried_object();
+	if ( ! ( $post instanceof WP_Post ) ) {
+		return null;
+	}
+	$slug = $post->post_name;
+	if ( ! in_array( $slug, ea_wave2_service_slugs(), true ) || 0 !== (int) $post->post_parent ) {
+		return null;
+	}
+	$content = function_exists( 'ea_wave2_service_route_content' ) ? ea_wave2_service_route_content( $slug ) : null;
+	if ( ! is_array( $content ) ) {
+		return null;
+	}
+	return array(
+		'slug'    => $slug,
+		'content' => $content,
+	);
+}
+
+/**
+ * Render the 14-block elevated service composition for a resolved route.
+ *
+ * Order (spec §3): hero, section-intro, breath-divider, content-section,
+ * cbDIDG 4-step pillars, "who" 5-tile pillars, bio (real portrait),
+ * service-comparison (active route), testimonials, faq-mini (+ /faq link),
+ * disclaimer, CTA band. footer-social is rendered by the template chrome.
+ *
+ * @param array<string,mixed>|null $route_ctx From ea_wave2_service_ctx().
+ */
+function ea_wave2_render_service_blocks( $route_ctx ) {
+	if ( ! is_array( $route_ctx ) || empty( $route_ctx['content'] ) ) {
+		return;
+	}
+	$slug = isset( $route_ctx['slug'] ) ? (string) $route_ctx['slug'] : '';
+	$c    = $route_ctx['content'];
+
+	$portrait_url = get_template_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
+
+	/* 1 — HERO (gradient + kicker + CTA pair + 3 breath-lines). */
+	$hero         = isset( $c['hero'] ) ? (array) $c['hero'] : array();
+	$hero_title   = isset( $hero['title'] ) ? (string) $hero['title'] : '';
+	$hero['ctas'] = array(
+		array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ), 'variant' => 'primary' ),
+		array( 'label' => 'מה זה ' . $hero_title, 'href' => '#what', 'variant' => 'ghost-white' ),
+	);
+	set_query_var( 'ea_hero_ctx', $hero );
+	get_template_part( 'template-parts/blocks/block', 'hero' );
+
+	/* 2 — SECTION-INTRO. */
+	set_query_var( 'ea_intro_ctx', isset( $c['intro'] ) ? (array) $c['intro'] : array() );
+	get_template_part( 'template-parts/blocks/block', 'intro' );
+
+	/* 3 — BREATH-DIVIDER. */
+	get_template_part( 'template-parts/blocks/block', 'breath-divider-1' );
+
+	/* 4 — CONTENT-SECTION ("מה זה …"), anchored #what for the hero ghost CTA. */
+	$what       = isset( $c['what'] ) ? (array) $c['what'] : array();
+	$what['id'] = 'what';
+	set_query_var( 'ea_content_ctx', $what );
+	get_template_part( 'template-parts/blocks/block', 'content-section' );
+
+	/* 5 — cbDIDG 4-STEP method (.ea-pillar ×4 in --steps grid, --alt bg). */
+	$steps = isset( $c['steps'] ) ? (array) $c['steps'] : array();
+	set_query_var( 'ea_pillars_ctx', array(
+		'label'         => isset( $steps['label'] ) ? $steps['label'] : '',
+		'heading'       => isset( $steps['heading'] ) ? $steps['heading'] : '',
+		'items'         => isset( $steps['items'] ) ? $steps['items'] : array(),
+		'grid_modifier' => 'steps',
+		'alt'           => true,
+		'show_titles'   => true,
+		'cta'           => null,
+	) );
+	get_template_part( 'template-parts/blocks/block', 'method-pillars' );
+
+	/* 6 — "WHO IT'S FOR" 5-tile pillar grid (base grid, light bg, no titles). */
+	$who = isset( $c['who'] ) ? (array) $c['who'] : array();
+	set_query_var( 'ea_pillars_ctx', array(
+		'label'         => isset( $who['label'] ) ? $who['label'] : '',
+		'heading'       => isset( $who['heading'] ) ? $who['heading'] : '',
+		'items'         => isset( $who['items'] ) ? $who['items'] : array(),
+		'grid_modifier' => '',
+		'alt'           => false,
+		'show_titles'   => false,
+		'cta'           => null,
+	) );
+	get_template_part( 'template-parts/blocks/block', 'method-pillars' );
+
+	/* 7 — BIO-BLOCK with the real portrait. */
+	$bio          = isset( $c['bio'] ) ? (array) $c['bio'] : array();
+	$bio['image'] = $portrait_url;
+	set_query_var( 'ea_bio_ctx', $bio );
+	get_template_part( 'template-parts/blocks/block', 'bio' );
+
+	/* 8 — SERVICE-COMPARISON (current route active). */
+	set_query_var( 'ea_comparison_ctx', array(
+		'heading' => 'מה ההבדל בין טיפול, סאונד הילינג ושיעורים',
+		'cols'    => function_exists( 'ea_wave2_service_comparison_cols' ) ? ea_wave2_service_comparison_cols( $slug ) : array(),
+	) );
+	get_template_part( 'template-parts/blocks/block', 'service-comparison' );
+
+	/* 9 — TESTIMONIALS ×3 (sand-circle avatars) + ghost CTA. */
+	$testi = isset( $c['testimonials'] ) ? (array) $c['testimonials'] : array();
+	set_query_var( 'ea_testimonials_ctx', array(
+		'heading'   => isset( $testi['heading'] ) ? $testi['heading'] : 'אנשים מספרים',
+		'items'     => function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array(),
+		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/about#testimonials' ) ),
+	) );
+	get_template_part( 'template-parts/blocks/block', 'testimonials-row' );
+
+	/* 10 — FAQ-MINI ×3 + link to /faq. */
+	$faq = isset( $c['faq'] ) ? (array) $c['faq'] : array();
+	set_query_var( 'ea_faq_mini_ctx', array(
+		'heading' => isset( $faq['heading'] ) ? $faq['heading'] : 'שאלות נפוצות',
+		'items'   => isset( $faq['items'] ) ? $faq['items'] : array(),
+		'footer'  => array( 'label' => 'לדף השאלות הנפוצות המלא', 'href' => home_url( '/faq' ) ),
+	) );
+	get_template_part( 'template-parts/blocks/block', 'faq-mini' );
+
+	/* 11 — DISCLAIMER (verbatim). */
+	set_query_var( 'ea_disclaimer_ctx', array(
+		'text' => function_exists( 'ea_wave2_service_disclaimer_text' ) ? ea_wave2_service_disclaimer_text() : '',
+	) );
+	get_template_part( 'template-parts/blocks/block', 'disclaimer' );
+
+	/* 12 — CTA BAND (ink). */
+	$cta = isset( $c['cta'] ) ? (array) $c['cta'] : array();
+	set_query_var( 'ea_cta_ctx', array(
+		'variant' => 'band',
+		'heading' => isset( $cta['heading'] ) ? $cta['heading'] : 'לתיאום שיחת היכרות',
+		'body'    => isset( $cta['body'] ) ? $cta['body'] : array(),
+		'cta'     => array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ) ),
+	) );
+	get_template_part( 'template-parts/blocks/block', 'contact-cta' );
+}
+
+/**
+ * Disable the legacy W2-04 the_content block injection for service routes now
+ * handled by the elevated tpl-service render function. tpl-service no longer
+ * calls the_content(), but this guards against residual loop output.
+ *
+ * @param string $content
+ * @return string
+ */
+function ea_wave2_suppress_legacy_service_content( $content ) {
+	if ( null !== ea_wave2_service_ctx() ) {
+		return '';
+	}
+	return $content;
+}
+add_filter( 'the_content', 'ea_wave2_suppress_legacy_service_content', 8 );
