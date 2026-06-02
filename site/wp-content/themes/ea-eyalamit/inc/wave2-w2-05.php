@@ -818,7 +818,7 @@ function ea_w2_05_book_bundle() {
  * @return string
  */
 function ea_w2_05_cover_url( $file ) {
-	return get_template_directory_uri() . '/assets/images/' . $file;
+	return get_stylesheet_directory_uri() . '/assets/images/' . $file;
 }
 
 /**
@@ -966,7 +966,7 @@ function ea_w2_05_render_book_detail( $slug, $book ) {
 		}
 	}
 
-	$gallery_lead = get_template_directory_uri() . '/assets/images/kushi-02-eyal-italy.jpg';
+	$gallery_lead = get_stylesheet_directory_uri() . '/assets/images/kushi-02-eyal-italy.jpg';
 
 	ob_start();
 	?>

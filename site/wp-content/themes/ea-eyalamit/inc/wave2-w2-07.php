@@ -616,7 +616,7 @@ function ea_wave2_render_editorial_blocks( $ctx ) {
 
 /**
  * Ink editorial hero — kicker + H1 + lead + real portrait in a 1fr/300px split.
- * Composed from cluster atoms (.ea-edhero*); portrait via get_template_directory_uri().
+ * Composed from cluster atoms (.ea-edhero*); portrait via get_stylesheet_directory_uri().
  *
  * @param array<string,mixed> $h
  */
@@ -861,7 +861,7 @@ function ea_wave2_editorial_render_books( $b ) {
  * @return array<int,array<string,string>>
  */
 function ea_wave2_editorial_covers() {
-	$base = get_template_directory_uri() . '/assets/images/';
+	$base = get_stylesheet_directory_uri() . '/assets/images/';
 	return array(
 		array( 'image' => $base . 'tsva-bechol-cover.jpg', 'alt' => 'צבע בכחול וזרוק לים' ),
 		array( 'image' => $base . 'kushi-blantis-cover.jpg', 'alt' => 'כושי בלאנטיס' ),
@@ -896,8 +896,8 @@ function ea_wave2_editorial_memorial() {
  * @return array<string,mixed>|null
  */
 function ea_wave2_editorial_route_content( $route ) {
-	$portrait = get_template_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
-	$studio   = get_template_directory_uri() . '/assets/images/hero-wide-studio.jpg';
+	$portrait = get_stylesheet_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
+	$studio   = get_stylesheet_directory_uri() . '/assets/images/hero-wide-studio.jpg';
 
 	$books = array(
 		'label'   => 'גם סופר',

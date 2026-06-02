@@ -510,7 +510,7 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	$slug = isset( $route_ctx['slug'] ) ? (string) $route_ctx['slug'] : '';
 	$c    = $route_ctx['content'];
 
-	$portrait_url = get_template_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
+	$portrait_url = get_stylesheet_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
 
 	/* 1 — HERO (gradient + kicker + CTA pair + 3 breath-lines). */
 	$hero         = isset( $c['hero'] ) ? (array) $c['hero'] : array();
