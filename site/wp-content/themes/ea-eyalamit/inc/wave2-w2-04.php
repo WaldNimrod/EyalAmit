@@ -464,6 +464,26 @@ function ea_wave2_service_slugs() {
 }
 
 /**
+ * Enqueue the WP-W2-10-A service composition sheet on all 4 service routes.
+ *
+ * Relocated 2026-06-03 from the shared ea-atoms.css into assets/css/w2-10-service.css
+ * (loaded only here), matching the B/E/F cluster-sheet convention. team_00 DECISION
+ * 2026-06-03 (DECISION 2). Dep on ea-wave2-atoms keeps the load order after the atoms.
+ */
+function ea_wave2_service_composition_assets() {
+	if ( is_admin() || ! is_page( ea_wave2_service_slugs() ) ) {
+		return;
+	}
+	wp_enqueue_style(
+		'ea-w2-10-service',
+		get_stylesheet_directory_uri() . '/assets/css/w2-10-service.css',
+		array( 'ea-wave2-atoms' ),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_wave2_service_composition_assets', 29 );
+
+/**
  * Resolve the current request into a service route context array, or null when
  * the current page is not one of the 4 service routes.
  *

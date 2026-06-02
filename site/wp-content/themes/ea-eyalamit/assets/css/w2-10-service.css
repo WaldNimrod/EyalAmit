@@ -1,0 +1,99 @@
+/*
+ * WP-W2-10-A — Service template composition CSS.
+ *
+ * Relocated 2026-06-03 from the shared ea-atoms.css into this dedicated cluster
+ * sheet (loaded only on the 4 service routes), matching the B/E/F cluster-sheet
+ * convention. team_00 DECISION 2026-06-03 (DECISION 2). Composition-only: BEM
+ * modifiers / sub-elements of EXISTING atoms, authored with EXISTING tokens only
+ * (zero new --ea-* tokens, zero raw hex, zero inline style, zero @keyframes).
+ * Covers selectors the elevated /treatment mockup uses that had no base rule:
+ * hero kicker, pillars --steps (4-col) grid, service-comparison active/tag,
+ * bio portrait <img>, disclaimer, ink CTA band.
+ */
+
+/* Hero eyebrow (kicker) — sand, letterspaced, above the H1 on the dark hero. */
+.ea-hero__kicker {
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-sand);
+  margin: 0 0 var(--ea-space-3) 0;
+  text-align: right;
+  animation: ea-fadeUp var(--ea-dur-slow) var(--ea-ease-enter) both;
+  animation-delay: 0.1s;
+}
+
+/* Pillars grid — 4-step variant (cbDIDG). Column-count variation only. */
+.ea-pillars-grid--steps {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1023px) {
+  .ea-pillars-grid--steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 639px) {
+  .ea-pillars-grid--steps { grid-template-columns: 1fr; }
+}
+
+/* Service-comparison — active column + eyebrow tag (current route). */
+.ea-service-comparison__col--active {
+  background: var(--ea-bg-alt);
+}
+.ea-service-comparison__tag {
+  display: inline-block;
+  font-family: var(--ea-font);
+  font-weight: 200;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin: 0 0 var(--ea-space-2) 0;
+}
+
+/* Bio-block real portrait <img> (base rule; reduced-motion override exists). */
+.ea-bio-block__portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--ea-radius-img);
+  display: block;
+  background: var(--ea-sand);
+}
+
+/* Disclaimer (legally-required note). */
+.ea-disclaimer {
+  padding: var(--ea-space-6) var(--ea-gutter);
+  background: var(--ea-bg-alt);
+}
+.ea-disclaimer__inner {
+  max-width: var(--ea-prose-width);
+  margin-inline: auto;
+}
+.ea-disclaimer__text {
+  font-family: var(--ea-font);
+  font-weight: 300;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ea-muted);
+  margin: 0;
+  text-align: start;
+}
+
+/* Ink CTA band (closing) — dark variant of the generic CTA section. */
+.ea-section--cta--ink {
+  background: var(--ea-ink);
+}
+.ea-section--cta--ink .ea-section__heading {
+  color: var(--ea-on-dark);
+}
+.ea-section--cta--ink .ea-section__list {
+  color: var(--ea-on-dark);
+  list-style: none;
+  padding-inline-start: 0;
+  max-width: 60ch;
+  margin-inline: auto;
+  text-align: center;
+}

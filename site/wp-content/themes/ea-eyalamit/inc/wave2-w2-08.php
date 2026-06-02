@@ -176,12 +176,14 @@ function ea_w2_08_inject_content( $content ) {
 add_filter( 'the_content', 'ea_w2_08_inject_content', 9 );
 
 /**
- * Primary CTA URL — /contact?lang=en (subject auto-set on the contact page).
+ * Primary CTA URL — WhatsApp (wa.me). English visitors contact via WhatsApp
+ * directly (no Hebrew contact form barrier); reuses the canonical site number
+ * EA_WAVE2_WHATSAPP_E164. team_00 DECISION 2026-06-03 (closes F-W2-10-F-01).
  *
  * @return string
  */
 function ea_w2_08_cta_url() {
-	return home_url( '/contact?lang=en' );
+	return 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164;
 }
 
 /**
@@ -218,7 +220,7 @@ function ea_w2_08_render() {
 				<p class="ea-en-hero__subhead">Regaining control of your breath through active work with the didgeridoo, breathing practice, and personal guidance — a method built over two decades and inspired by an apprenticeship with master Mookesh Dhiman.</p>
 				<p class="ea-en-hero__trust">Eyal Amit · Active since 1999 · One of Israel's most experienced practitioners · Teaches, treats, and builds instruments by hand.</p>
 				<div class="ea-en-hero__cta-wrap">
-					<a class="ea-cta-pill ea-cta-pill--ghost-white" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
+					<a class="ea-cta-pill ea-cta-pill--ghost-white" href="<?php echo esc_url( $cta ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Schedule an introductory call on WhatsApp (opens in a new tab)">Schedule an introductory call</a>
 				</div>
 			</div>
 		</section>
@@ -265,7 +267,7 @@ function ea_w2_08_render() {
 					<p><strong>Didgeridoo Lessons.</strong> A focused learning path: developing playing skill, mastering the circular-breathing technique, and refining sound — fully private, structured for individual progress.</p>
 				</div>
 				<div class="ea-en-section__cta-wrap">
-					<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
+					<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Schedule an introductory call on WhatsApp (opens in a new tab)">Schedule an introductory call</a>
 				</div>
 			</div>
 		</section>
@@ -336,7 +338,7 @@ function ea_w2_08_render() {
 				<div class="ea-en-closing" id="contact">
 					<p class="ea-en-closing__text">If you've read this far, something in this path probably speaks to you. An introductory call lets us understand together whether the method is right for you, and how to begin a personal process that fits exactly who you are.</p>
 					<div class="ea-en-section__cta-wrap">
-						<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>">Schedule an introductory call</a>
+						<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $cta ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Schedule an introductory call on WhatsApp (opens in a new tab)">Schedule an introductory call</a>
 					</div>
 				</div>
 			</div>
