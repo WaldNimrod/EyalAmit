@@ -989,7 +989,7 @@ function ea_w2_05_render_book_detail( $slug, $book ) {
 			<img class="ea-book-hero__cover"
 				src="<?php echo esc_url( ea_w2_05_cover_url( $m['cover'] ) ); ?>"
 				alt="<?php echo esc_attr( 'כריכת הספר ' . $title ); ?>"
-				decoding="async">
+				width="600" height="800" fetchpriority="high" decoding="async">
 		</div>
 	</section>
 
