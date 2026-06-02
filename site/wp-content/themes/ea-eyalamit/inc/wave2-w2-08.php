@@ -47,6 +47,29 @@ add_action( 'template_redirect', function () {
 } );
 
 /**
+ * Route /en to the elevated LTR landing template (WP-W2-10-F).
+ *
+ * Mirrors the W2-02 template_include pattern; child-theme-aware via locate_template().
+ * Without this, /en falls through to the GeneratePress default template and the EN
+ * topnav (block 1), <main dir="ltr" lang="en">, and EN footer (block 8) that live in
+ * page-templates/tpl-en-landing.php never render — only the the_content-injected
+ * blocks 2–7 appear inside the GP wrapper. (Closes team_190 F L-GATE_VALIDATE P0.)
+ *
+ * @param string $tpl
+ * @return string
+ */
+function ea_w2_08_template_include( $tpl ) {
+	if ( ea_w2_08_is_en_page() ) {
+		$t = locate_template( 'page-templates/tpl-en-landing.php' );
+		if ( $t ) {
+			return $t;
+		}
+	}
+	return $tpl;
+}
+add_filter( 'template_include', 'ea_w2_08_template_include', 101 );
+
+/**
  * Body classes: ea-wave2-shell + ea-en-landing.
  *
  * @param string[] $classes
