@@ -17,7 +17,6 @@ defined( 'ABSPATH' ) || exit;
           </a>
           <a class="ea-service-tile ea-entrance"
              href="<?php echo esc_url( home_url( '/lessons' ) ); ?>"
-             style="animation-delay:0.1s"
              aria-label="שיעורי נגינה — למידע נוסף">
             <p class="ea-service-tile__label">לימוד</p>
             <h3 class="ea-service-tile__title">שיעורי נגינה בדיג׳רידו</h3>

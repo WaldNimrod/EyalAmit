@@ -581,6 +581,13 @@
       color: var(--ea-earth);
       margin: 0;
     }
+    /* De-inlined block-end CTA wrapper (WP-W2-12): shared by method-pillars
+       and books-row. text-align:right kept literal = original physical value
+       (start-aligned in this RTL doc) to stay pixel-identical. */
+    .ea-block-cta-end {
+      margin-top: var(--ea-space-6);
+      text-align: right;
+    }
 
     /* Service comparison — treatment-overview */
     .ea-service-comparison {
@@ -636,6 +643,14 @@
     }
     .ea-service-comparison__cta {
       margin-top: var(--ea-space-3);
+    }
+    /* De-inlined audience note (WP-W2-12). margin 0 0 space-4 = original shorthand. */
+    .ea-service-comparison__note {
+      font-family: var(--ea-font);
+      font-size: 0.78rem;
+      font-weight: 200;
+      color: var(--ea-muted);
+      margin: 0 0 var(--ea-space-4);
     }
 
     /* =============================================================
@@ -1101,6 +1116,11 @@
       font-size: 0.78rem;
       color: var(--ea-text-body);
       margin-top: var(--ea-space-3);
+    }
+    /* De-inlined CTA-side note margin (WP-W2-12): preserves the original
+       inline override of margin-top:var(--ea-space-4) on the contact CTA. */
+    .ea-contact-form__note--cta {
+      margin-top: var(--ea-space-4);
     }
 
     /* =============================================================

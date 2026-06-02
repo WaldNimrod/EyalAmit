@@ -82,4 +82,10 @@
   --ea-dur-fast:   150ms;
   --ea-dur-mid:    300ms;
   --ea-dur-slow:   600ms;
+
+  /* --- Entrance-animation stagger (D-14, added WP-W2-12) --- */
+  /* Single base step; per-element delays = calc(step * n). Chosen so the
+     POC stagger delays map exactly: 0.1s=step*2, 0.15s=step*3, 0.2s=step*4,
+     0.3s=step*6. Honored only outside prefers-reduced-motion (see ea-animations.css). */
+  --ea-stagger-step: 0.05s;
 }

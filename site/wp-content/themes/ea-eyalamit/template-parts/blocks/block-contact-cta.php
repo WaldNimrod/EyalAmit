@@ -17,13 +17,13 @@ defined( 'ABSPATH' ) || exit;
           <a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
             לתיאום שיחת היכרות
           </a>
-          <p class="ea-contact-form__note" style="margin-top: var(--ea-space-4);">
+          <p class="ea-contact-form__note ea-contact-form__note--cta">
             אפשר גם לשלוח הודעה ישירה בוואטסאפ ↙
           </p>
         </div>
 
         <!-- SLOT: cf7-form-id — atom-interaction-contact-form -->
-        <div class="ea-entrance" style="animation-delay:0.15s">
+        <div class="ea-contact-section__form ea-entrance">
           <?php ea_wave2_render_contact_form(); ?>
         </div>
 
