@@ -869,7 +869,7 @@ work_packages:
   blocked_by: [WP-W2-02, WP-W2-04]
   estimate_days: '5'
   notes: '4 routes, one tpl-service template with 7 unwired D-14 slots. Biggest coverage win — sequence first.'
-  progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02: team_35 S1.5 elevated package extracted to _COMMUNICATION/team_35/WP-W2-10-A/elevation/ (+ real assets in handoff-WP-W2-10-Track2/shared-assets/: eyal portrait, 3 book covers, gallery, logo, hero-wide). Status READY_FOR_S2 (0 new tokens/atoms, 0 GCR). Elevated mockup = 14-block flagship (hero+CTA pair, cbDIDG 4-step grid, who-its-for 5-tile, bio-block w/ real portrait, comparison, testimonials, faq-mini, disclaimer, CTA). team_100 authored implementation-grade LOD400: _aos/work_packages/S003/WP-W2-10-A/LOD400_IMPL_spec.md (supersedes S3 of the 2026-05-29 spec) — route-aware render fn mirroring home, 14-block wiring, route fan-out (treatment/method/sound-healing/lessons), real-portrait wiring, ACs incl https-perf. GATE: S2 Eyal sign-off required before S3 (team_10). B/E/F packages also received (sibling LOD400s to follow).'
+  progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02: team_35 S1.5 elevated package extracted to _COMMUNICATION/team_35/WP-W2-10-A/elevation/ (+ real assets in handoff-WP-W2-10-Track2/shared-assets/: eyal portrait, 3 book covers, gallery, logo, hero-wide). Status READY_FOR_S2 (0 new tokens/atoms, 0 GCR). Elevated mockup = 14-block flagship (hero+CTA pair, cbDIDG 4-step grid, who-its-for 5-tile, bio-block w/ real portrait, comparison, testimonials, faq-mini, disclaimer, CTA). team_100 authored implementation-grade LOD400: _aos/work_packages/S003/WP-W2-10-A/LOD400_IMPL_spec.md (supersedes S3 of the 2026-05-29 spec) — route-aware render fn mirroring home, 14-block wiring, route fan-out (treatment/method/sound-healing/lessons), real-portrait wiring, ACs incl https-perf. S2 SIGN-OFF RECORDED 2026-06-02 (team_00 proxy for Eyal): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-10-A_2026-06-02.md -> S3 (team_10) UNBLOCKED per LOD400_IMPL_spec.md. B/E/F IMPL LOD400s authored (WP-W2-10-{B,E,F}/LOD400_IMPL_spec.md), READY_FOR_S2 (await sign-off).'
 - id: WP-W2-10-B
   label: UI Precision — Editorial cluster (about / press / about-moksha, tpl-content)
   status: IN_PROGRESS
@@ -887,6 +887,7 @@ work_packages:
   blocked_by: [WP-W2-02, WP-W2-07]
   estimate_days: '4.5'
   notes: 'Long-form editorial archetype; bio/portrait block currently placeholder avatar.'
+  progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): 13-block editorial flagship (Ink hero+real portrait, meta strip, journey timeline .ea-pillar x6, dedicated Mokesh memorial disc, studio+gallery, book-cover cross-link row). IMPL LOD400 authored: _aos/work_packages/S003/WP-W2-10-B/LOD400_IMPL_spec.md (tpl-content 3 routes /about,/press,/about/moksha; memorial copy sensitive/verbatim). Awaiting S2 sign-off before S3.'
 - id: WP-W2-10-C
   label: UI Precision — Conversion cluster (contact / faq)
   status: IN_PROGRESS
@@ -939,6 +940,7 @@ work_packages:
   asset_gated: 'Eyal cover/product images + Green Invoice per-product links'
   estimate_days: '5.5'
   notes: 'Mock with placeholders; swap to real assets on Eyal delivery. Verify swap path.'
+  progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): archive (real covers + price + book-page footer, stacked-cover bundle on chocolate) + detail (real cover hero split, open excerpt, ext purchase CTAs) + shop DNA. Real covers delivered (vekatavt/kushi-blantis/tsva-bechol). IMPL LOD400: _aos/work_packages/S003/WP-W2-10-E/LOD400_IMPL_spec.md (/books +3 details +/shop; external links only; clone detail x3). Awaiting S2 sign-off.'
 - id: WP-W2-10-F
   label: UI Precision — EN landing (tpl-en-landing, LTR mirror)
   status: IN_PROGRESS
@@ -956,6 +958,7 @@ work_packages:
   blocked_by: [WP-W2-08]
   estimate_days: '4.5'
   notes: 'RTL→LTR direction flip — isolate the risk; validate logical-property mirroring + EN typography.'
+  progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): elevated LTR landing (gradient hero+kicker+breath-lines, about/method/services/books-cover-row/testimonials x4). IMPL LOD400: _aos/work_packages/S003/WP-W2-10-F/LOD400_IMPL_spec.md (/en LTR mirror, EN copy verbatim from wave2-w2-08.php, logical-prop mirror checklist). Awaiting S2 sign-off.'
 - id: WP-W2-10-G
   label: UI Precision — Hero video finalization (Hero=C)
   status: BLOCKED
