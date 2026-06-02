@@ -349,3 +349,200 @@
 .ea-related .ea-blog-card__cat {
 	display: none;
 }
+
+/* =============================================================
+   WP-W2-10-B — Editorial cluster (tpl-content: /about, /press,
+   /about/moksha). Composition-only on D-14: reuses ea-tokens.css
+   tokens + existing ea-atoms.css atoms. No new --ea-* tokens, no
+   raw hex, no @keyframes (reuse ea-animations.css). All sections
+   are scoped under .ea-wave2-editorial so they never leak.
+   ============================================================= */
+
+/* Reading-measure caps for the editorial body (65–72ch). */
+.ea-wave2-editorial .ea-section-intro__body { max-width: 65ch; }
+.ea-wave2-editorial .ea-content-section__body p { max-width: 72ch; }
+
+/* Eyebrow labels — the content-section / services-section partials emit a
+   __label element that the shared atoms do not style; give it the same
+   terracotta caption treatment as .ea-pillar__label (token-only). */
+.ea-wave2-editorial .ea-content-section__label,
+.ea-wave2-editorial .ea-services-section__label {
+	font: var(--ea-type-caption);
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var(--ea-terracotta);
+	margin: 0 0 var(--ea-space-2) 0;
+}
+.ea-wave2-editorial .ea-services-section__label { text-align: center; }
+
+/* Promoted lead paragraph (first para of the centre section). */
+.ea-wave2-editorial .ea-content-section__body p.lead {
+	font-size: 1.15rem;
+	color: var(--ea-ink);
+}
+
+/* ── 1. Ink editorial hero — kicker + H1 + lead + portrait split ──────────── */
+.ea-edhero {
+	position: relative;
+	background: var(--ea-ink);
+	color: var(--ea-on-dark);
+	padding: calc(var(--ea-nav-height) + var(--ea-space-12)) var(--ea-gutter) var(--ea-space-12);
+}
+.ea-edhero__inner {
+	max-width: var(--ea-prose-width);
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: var(--ea-space-8);
+	align-items: center;
+}
+.ea-edhero__kicker {
+	font: var(--ea-type-caption);
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: var(--ea-sand);
+	margin: 0 0 var(--ea-space-3) 0;
+}
+.ea-edhero__title {
+	font-weight: 100;
+	font-size: 3rem;
+	line-height: 1.14;
+	letter-spacing: -0.5px;
+	color: var(--ea-on-dark);
+	margin: 0 0 var(--ea-space-3) 0;
+}
+.ea-edhero__lead {
+	font: var(--ea-type-body-lg);
+	color: var(--ea-on-dark);
+	margin: 0;
+	max-width: 52ch;
+}
+.ea-edhero__portrait {
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: var(--ea-radius-img);
+	background: var(--ea-sand);
+}
+@media (max-width: 1023px) {
+	.ea-edhero__title { font-size: 2.2rem; }
+}
+@media (max-width: 767px) {
+	.ea-edhero__inner { grid-template-columns: 1fr; gap: var(--ea-space-6); }
+}
+@media (max-width: 639px) {
+	.ea-edhero { padding-inline: var(--ea-space-3); }
+	.ea-edhero__title { font-size: 1.7rem; }
+}
+
+/* ── 2. Meta strip — scannable key/value row ──────────────────────────────── */
+.ea-metastrip {
+	background: var(--ea-bg-alt);
+	border-block-end: 1px solid var(--ea-line);
+}
+.ea-metastrip__inner {
+	max-width: var(--ea-prose-width);
+	margin-inline: auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--ea-space-8);
+	padding: var(--ea-space-5) var(--ea-gutter);
+}
+.ea-metastrip__k {
+	font: var(--ea-type-caption);
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	color: var(--ea-muted);
+	margin: 0 0 var(--ea-space-1) 0;
+}
+.ea-metastrip__v {
+	font-weight: 300;
+	font-size: 1rem;
+	color: var(--ea-ink);
+	margin: 0;
+}
+
+/* ── 6. Journey timeline — .ea-pillar ×6 as a hairline-separated grid ─────── */
+.ea-wave2-editorial .ea-pillars-grid--timeline {
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1px;
+	background: var(--ea-line);
+	margin-top: var(--ea-space-5);
+}
+.ea-wave2-editorial .ea-pillars-grid--timeline .ea-pillar {
+	border-top: 0;
+	padding: var(--ea-space-5);
+}
+.ea-wave2-editorial .ea-content-section--alt .ea-pillars-grid--timeline .ea-pillar {
+	background: var(--ea-bg-alt);
+}
+@media (max-width: 639px) {
+	.ea-wave2-editorial .ea-pillars-grid--timeline { grid-template-columns: 1fr; }
+}
+
+/* ── 8. Mokesh memorial — text + circular memorial disc + pullquote ───────── */
+.ea-mokesh-grid {
+	max-width: var(--ea-prose-width);
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: 1fr 220px;
+	gap: var(--ea-space-8);
+	align-items: center;
+}
+.ea-mokesh-disc {
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 1px solid var(--ea-line);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: var(--ea-bg);
+}
+.ea-mokesh-disc__nm {
+	font-weight: 200;
+	font-size: 1.1rem;
+	color: var(--ea-ink);
+	margin: 0;
+}
+.ea-mokesh-disc__yr {
+	font-weight: 300;
+	font-size: 0.72rem;
+	letter-spacing: 1px;
+	color: var(--ea-muted);
+	margin: var(--ea-space-1) 0 0 0;
+}
+@media (max-width: 767px) {
+	.ea-mokesh-grid { grid-template-columns: 1fr; gap: var(--ea-space-5); }
+}
+.ea-pullquote {
+	max-width: var(--ea-prose-width);
+	margin: var(--ea-space-6) auto 0;
+	padding: 0 var(--ea-gutter);
+}
+.ea-pullquote blockquote {
+	margin: 0;
+	border-inline-start: 1px solid var(--ea-terracotta);
+	padding-inline-start: var(--ea-space-4);
+	font-weight: 200;
+	font-size: 1.4rem;
+	line-height: 1.6;
+	color: var(--ea-chocolate);
+}
+
+/* ── 10. Book-cover cross-link row (real covers above the service tiles) ──── */
+.ea-books-row {
+	display: flex;
+	justify-content: center;
+	gap: var(--ea-space-2);
+	margin: 0 0 var(--ea-space-6) 0;
+	flex-wrap: wrap;
+}
+.ea-books-row img {
+	width: 120px;
+	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	border-radius: var(--ea-radius-img);
+	border: 1px solid var(--ea-line);
+}
