@@ -1,4 +1,5 @@
 /* EyalAmit Wave2 — atom layout/styles from atoms-poc-2026-05-26.html (D-14 v1.1). Tokens: ea-tokens.css; motion: ea-animations.css */
+@media (prefers-reduced-motion: reduce) {
 .ea-entrance,
       .ea-entrance--breath,
       .ea-entrance--slide {
