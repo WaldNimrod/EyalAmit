@@ -1,9 +1,24 @@
 <?php
-/** Block: footer-social — D-14/POC Wave2 */
+/**
+ * Block: footer-social — D-14/POC Wave2.
+ *
+ * Generic / data-driven (WP-W2-10-A Phase 0b).
+ * Context (optional):
+ *   ea_nav_dir : string — 'rtl' (default) | 'ltr'. LTR hint for a future EN
+ *                caller; emits dir="ltr" on the <footer>. Backward compatible:
+ *                with no context set, behaves exactly as the original.
+ *
+ * @package ea_eyalamit
+ */
 defined( 'ABSPATH' ) || exit;
+
+$ea_nav_dir = (string) get_query_var( 'ea_nav_dir' );
+if ( 'ltr' !== $ea_nav_dir ) {
+	$ea_nav_dir = 'rtl';
+}
 ?>
 <section data-block="footer-social">
-    <footer class="ea-footer" aria-label="פוטר האתר">
+    <footer class="ea-footer" aria-label="פוטר האתר"<?php echo 'ltr' === $ea_nav_dir ? ' dir="ltr"' : ''; ?>>
       <div class="ea-footer__inner">
         <p class="ea-footer__brand">אייל עמית</p>
         <p class="ea-footer__tagline">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>
