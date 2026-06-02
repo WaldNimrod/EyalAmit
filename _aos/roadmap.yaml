@@ -1009,4 +1009,23 @@ work_packages:
   estimate_days: '1'
   roadmap_mutation: 'ADR034 offline-fallback (named branch feature/s003-ds-hygiene, never main); file roadmap.yaml = SSoT; merge -> main per team_00 go.'
   notes: 'Carry-forward from WP-W2-11 (team_80 Home S4 finding). team_00 APPROVED opening this dedicated WP 2026-06-02. Tokenize the POC entrance-animation stagger-delays + move pre-existing inline style="" from 6 POC blocks (method-pillars, treatment-overview, testimonials-row, books-row, services-row, contact-cta) into CSS class/nth-child rules. RENDERING MUST BE PIXEL-IDENTICAL (hygiene refactor of signed-off POC, not a visual change). New stagger tokens are a gated D-14 change authored under this WP. Owner team_80 (DS); validate team_190 in Cursor (no Codex).'
-  progress: 'REGISTERED 2026-06-02 (team_100): LOD400 spec authored; team_80 S3 mandate prepared. S3 BUILD-COMPLETE + PRE-FLIGHT PASS 2026-06-02 (team_80, branch feature/s003-ds-hygiene, 9 commits 8f35906..192c922): added --ea-stagger-step:0.05s token; moved all inline style="" from 6 POC blocks into ea-animations.css nth-of-type + ea-atoms.css classes (exact delay arithmetic x2/x3/x4/x6); deployed. Pre-flight: axe 0 crit/serious on /; 0 inline animation-delay in served HTML; LH mobile https / median 97 a100 (no regression vs Home). Pixel-identical (text-align:right literal retained for RTL). Remaining: external L-GATE_VALIDATE (team_190/Cursor) + merge to main per team_00 go.'
+  progress: 'REGISTERED 2026-06-02 (team_100): LOD400 spec authored; team_80 S3 mandate prepared. S3 BUILD-COMPLETE + PRE-FLIGHT PASS 2026-06-02 (team_80, branch feature/s003-ds-hygiene, 9 commits 8f35906..192c922): added --ea-stagger-step:0.05s token; moved all inline style="" from 6 POC blocks into ea-animations.css nth-of-type + ea-atoms.css classes (exact delay arithmetic x2/x3/x4/x6); deployed. Pre-flight: axe 0 crit/serious on /; 0 inline animation-delay in served HTML; LH mobile https / median 97 a100 (no regression vs Home). Pixel-identical (text-align:right literal retained for RTL). S5 2026-06-02: team_190/Cursor L-GATE_VALIDATE returned FAIL on AC-01 (computed stagger delays show animation:none). team_100 ROOT-CAUSED (puppeteer trace): a PRE-EXISTING top-level .ea-entrance{animation:none!important} in ea-atoms.css globally disables all entrance animations (matchMedia reduce=false yet name=none) -- W2-12 added NO animation rules; only relocated inert delays + token-based spacing (computed-equivalence proven: .ea-block-cta-end 48px/right, note 12.48px/200/#6F635A/32px, cta-note 32px). => pixel-identical, AC-01 satisfied by equivalence; FAIL is a proof-method artifact. Disposition: _COMMUNICATION/team_100/DISPOSITION-WP-W2-12-AC01-2026-06-02.md. team_00 chose RE-VALIDATE with corrected proof -> corrected prompt issued (_COMMUNICATION/team_100/PROMPT-TEAM190-WP-W2-12-REVALIDATE-CORRECTED-CURSOR-2026-06-02.md). Discovery spun out to WP-W2-13. PENDING: team_190 REV2 PASS -> merge per team_00 go.'
+- id: WP-W2-13
+  label: S003 — Investigate & (conditionally) re-enable D-14 entrance-animation layer
+  status: PLANNED
+  track: A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_80
+  assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE)
+  created_at: '2026-06-02'
+  milestone_ref: S003
+  spec_ref: _aos/work_packages/S003/WP-W2-13/LOD400_spec.md
+  decision_ref: _COMMUNICATION/team_100/DISPOSITION-WP-W2-12-AC01-2026-06-02.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  estimate_days: '1'
+  roadmap_mutation: 'ADR034 offline-fallback (named branch, never main); file roadmap.yaml = SSoT; merge -> main per team_00 go.'
+  notes: 'Discovery during WP-W2-12 validate: a PRE-EXISTING top-level .ea-entrance{animation:none!important} in ea-atoms.css globally disables the entire D-14 entrance-animation layer (ea-fadeUp/breath/slide) site-wide (confirmed not reduced-motion: matchMedia reduce=false yet computed name=none). team_00 (2026-06-02) chose to OPEN this WP to investigate whether intentional and, if accidental, re-enable entrances (motion-OK users) while preserving the reduced-motion suppression. Re-enabling is a VISUAL CHANGE requiring team_00 sign-off; would also make the WP-W2-12 stagger observable.'
+  progress: 'REGISTERED 2026-06-02 (team_100): LOD400 spec authored. Ready to execute (investigate git-blame on the ea-atoms.css override, then S3) on team_00 go.'
