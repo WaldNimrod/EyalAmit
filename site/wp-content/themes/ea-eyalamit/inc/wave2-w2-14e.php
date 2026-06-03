@@ -97,7 +97,11 @@ function ea_w2_14e_template_include( $tpl ) {
 	}
 	return $tpl;
 }
-add_filter( 'template_include', 'ea_w2_14e_template_include', 100 );
+// Priority 102 so WP-W2-14-E's elevated compositions win over the prior
+// W2-07 editorial router (priority 101), which also claimed /mokesh-dahiman.
+// The team_35 memorial mockup (dignified sand-ring + verbatim copy) supersedes
+// the generic editorial elevation there; galleries/media are unaffected.
+add_filter( 'template_include', 'ea_w2_14e_template_include', 102 );
 
 /**
  * Mark 14-E force-routed pages as a Wave2 active view for Stage-B asset hygiene.
