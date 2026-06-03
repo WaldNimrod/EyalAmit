@@ -60,11 +60,20 @@ if ( empty( $ea_test_items ) ) {
 
 $ea_test_footer    = ( isset( $ea_test_ctx['footer'] ) && is_array( $ea_test_ctx['footer'] ) ) ? $ea_test_ctx['footer'] : null;
 $ea_test_ghost_cta = ( isset( $ea_test_ctx['ghost_cta'] ) && is_array( $ea_test_ctx['ghost_cta'] ) ) ? $ea_test_ctx['ghost_cta'] : null;
+
+// Optional 1-up auto-advancing rotator (WP-W2-14-C Home review fix). When off
+// (default) the block renders the original responsive testimonials grid. When on,
+// the same card list becomes a transform-based rotator track; ea-testimonials.js
+// builds dots + autoplay, and CSS shows a static first slide if JS / motion is off.
+$ea_test_rotator = ! empty( $ea_test_ctx['rotator'] );
+$ea_test_sect_cls = 'ea-testimonials-section' . ( $ea_test_rotator ? ' ea-testimonials-section--rotator' : '' );
+$ea_test_grid_cls = $ea_test_rotator ? 'ea-testimonials-grid ea-testimonials-track' : 'ea-testimonials-grid';
 ?>
-<section class="ea-testimonials-section" data-block="testimonials-row" aria-label="<?php echo esc_attr( $ea_test_aria ); ?>">
+<section class="<?php echo esc_attr( $ea_test_sect_cls ); ?>" data-block="testimonials-row" aria-label="<?php echo esc_attr( $ea_test_aria ); ?>"<?php echo $ea_test_rotator ? ' data-testi-rotator' : ''; ?>>
       <div class="ea-testimonials-section__inner">
         <h2 class="ea-testimonials-section__heading ea-entrance--breath"><?php echo esc_html( $ea_test_heading ); ?></h2>
-        <div class="ea-testimonials-grid">
+        <?php if ( $ea_test_rotator ) : ?><div class="ea-testimonials-viewport"><?php endif; ?>
+        <div class="<?php echo esc_attr( $ea_test_grid_cls ); ?>"<?php echo $ea_test_rotator ? ' role="list" tabindex="0" aria-label="' . esc_attr( $ea_test_aria ) . ' — גלילה הצידה"' : ''; ?>>
           <?php foreach ( $ea_test_items as $ea_test_item ) :
             $ea_t_text   = isset( $ea_test_item['text'] ) ? (string) $ea_test_item['text'] : '';
             $ea_t_name   = isset( $ea_test_item['name'] ) ? (string) $ea_test_item['name'] : '';
@@ -101,6 +110,10 @@ $ea_test_ghost_cta = ( isset( $ea_test_ctx['ghost_cta'] ) && is_array( $ea_test_
           </article>
           <?php endforeach; ?>
         </div>
+        <?php if ( $ea_test_rotator ) : ?>
+        </div><!-- /.ea-testimonials-viewport -->
+        <div class="ea-testimonials-dots" role="tablist" aria-label="ניווט המלצות"></div>
+        <?php endif; ?>
         <?php if ( is_array( $ea_test_ghost_cta ) && ! empty( $ea_test_ghost_cta['label'] ) && ! empty( $ea_test_ghost_cta['href'] ) ) : ?>
         <div class="ea-testimonials-section__footer">
           <a class="ea-cta-pill ea-cta-pill--ghost" href="<?php echo esc_url( (string) $ea_test_ghost_cta['href'] ); ?>">
