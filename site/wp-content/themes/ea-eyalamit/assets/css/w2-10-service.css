@@ -97,3 +97,48 @@
   margin-inline: auto;
   text-align: center;
 }
+
+/* ============================================================
+   WP-W2-14-B — Service cluster mobile pass (/treatment /method
+   /sound-healing /lessons). Cluster-specific ≤639/≤767 deltas that
+   complement the shared ea-mobile-variants.css (14-A) defaults and the
+   ea-atoms.css base grids. Tokens only (no new --ea-*), logical props,
+   no raw hex, no @keyframes, never width>100vw.
+============================================================ */
+@media (max-width: 767px) {
+  /* Service comparison cards (14-A flips the grid to flex-column cards):
+     the active option keeps the terracotta border + bg-alt the mockup shows.
+     Cluster sheet pins the border-color so the active card reads as selected
+     even where the 14-A frame is overridden by route padding. */
+  .ea-service-comparison__col--active {
+    border-color: var(--ea-terracotta);
+    background: var(--ea-bg-alt);
+  }
+  /* Stacked cards: prevent the eyebrow tag / long titles from forcing overflow
+     on a 360–390px column. */
+  .ea-service-comparison__col {
+    max-inline-size: 100%;
+  }
+  .ea-service-comparison__col-title,
+  .ea-service-comparison__col p {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 639px) {
+  /* Hero kicker tightens its lead with the H1 that steps down at ≤639. */
+  .ea-hero__kicker {
+    margin-block-end: var(--ea-space-2);
+  }
+  /* cbDIDG 4-step + "who it's for" 5-tile both collapse to 1-col via the
+     atoms base; pin overflow-safety on the step bodies at the 360px floor. */
+  .ea-pillars-grid--steps .ea-pillar,
+  .ea-pillars-grid .ea-pillar {
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+  }
+  /* Bio prose: portrait-first stack is handled by the atoms (≤767);
+     cap the prose measure so it doesn't run edge-to-edge at 390px. */
+  .ea-bio-block__text {
+    max-inline-size: 100%;
+  }
+}
