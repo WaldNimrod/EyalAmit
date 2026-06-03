@@ -39,4 +39,38 @@
       }
     });
   }
+
+  /* Dropdown groups (approved menu): click/touch + keyboard toggle of
+     aria-expanded. Desktop hover/focus-within is handled in CSS; this adds
+     explicit click support, outside-click + Escape close, for mobile and
+     pointer users. */
+  var toggles = document.querySelectorAll('.ea-topnav__dropdown-toggle');
+  if (toggles.length) {
+    var closeAll = function (except) {
+      for (var i = 0; i < toggles.length; i++) {
+        if (toggles[i] !== except) {
+          toggles[i].setAttribute('aria-expanded', 'false');
+        }
+      }
+    };
+    for (var t = 0; t < toggles.length; t++) {
+      (function (toggle) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          closeAll(toggle);
+          toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+        });
+      })(toggles[t]);
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        closeAll(null);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.ea-topnav__item--has-submenu')) {
+        closeAll(null);
+      }
+    });
+  }
 })();
