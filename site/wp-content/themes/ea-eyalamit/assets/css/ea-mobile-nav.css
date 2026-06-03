@@ -23,6 +23,13 @@
 .ea-mnav-scrim{display:none}
 .ea-mnav-drawer{display:none}
 
+/* Closed-drawer slide sign, correct per direction WITHOUT JS so the off-canvas
+   drawer is hidden off the inline-END edge on first paint (no horizontal
+   overflow before the deferred ea-mobile-nav.js runs). JS may override this via
+   an inline style on <html> when the anchor side is switched dynamically. */
+html[dir="rtl"]{--ea-mnav-tx:-100%}
+html[dir="ltr"]{--ea-mnav-tx:100%}
+
 /* ---- focus visibility (a11y, all widths) ---- */
 .ea-mnav-controls :focus-visible,
 .ea-mnav-drawer :focus-visible{
