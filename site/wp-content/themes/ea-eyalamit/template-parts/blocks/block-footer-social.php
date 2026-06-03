@@ -72,15 +72,15 @@ if ( 'ltr' !== $ea_nav_dir ) {
           </a>
         </div>
 
-        <!-- Footer navigation -->
+        <!-- Footer navigation — approved footer-only links (SSoT site-tree,
+             Eyal 2026-04-06). These are NOT in the primary nav. -->
         <nav class="ea-footer__nav" aria-label="ניווט פוטר">
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/method' ) ); ?>">השיטה</a>
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/treatment' ) ); ?>">טיפול</a>
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/sound-healing' ) ); ?>">סאונד הילינג</a>
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/lessons' ) ); ?>">שיעורים</a>
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/books' ) ); ?>">ספרים</a>
           <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/faq' ) ); ?>">שאלות נפוצות</a>
-          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">צור קשר</a>
+          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/galleries' ) ); ?>">גלריות</a>
+          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/media' ) ); ?>">המלצות</a>
+          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/privacy' ) ); ?>">מדיניות פרטיות</a>
+          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/accessibility' ) ); ?>">הצהרת נגישות</a>
+          <a class="ea-footer__nav-link" href="<?php echo esc_url( home_url( '/terms' ) ); ?>">תקנון</a>
         </nav>
 
         <hr class="ea-footer__divider" aria-hidden="true">
