@@ -49,7 +49,11 @@ function ea_w2_14e_current_slug() {
 		return '';
 	}
 	$slugs = ea_w2_14e_slugs();
-	if ( isset( $slugs[ $post->post_name ] ) && 0 === (int) $post->post_parent ) {
+	// Match by exact (unique) slug — NOT top-level-only: /mokesh-dahiman is a
+	// child of /eyal-amit (post_parent != 0) yet must route to 14-E. The three
+	// 14-E slugs are unique, so a parent check is unnecessary and was wrongly
+	// excluding the memorial page.
+	if ( isset( $slugs[ $post->post_name ] ) ) {
 		return $post->post_name;
 	}
 	return '';
