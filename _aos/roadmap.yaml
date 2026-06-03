@@ -1034,3 +1034,100 @@ work_packages:
   roadmap_mutation: 'ADR034 offline-fallback (named branch, never main); file roadmap.yaml = SSoT; merge -> main per team_00 go.'
   notes: 'Discovery during WP-W2-12 validate: a PRE-EXISTING top-level .ea-entrance{animation:none!important} in ea-atoms.css globally disables the entire D-14 entrance-animation layer (ea-fadeUp/breath/slide) site-wide (confirmed not reduced-motion: matchMedia reduce=false yet computed name=none). team_00 (2026-06-02) chose to OPEN this WP to investigate whether intentional and, if accidental, re-enable entrances (motion-OK users) while preserving the reduced-motion suppression. Re-enabling is a VISUAL CHANGE requiring team_00 sign-off; would also make the WP-W2-12 stagger observable.'
   progress: 'REGISTERED 2026-06-02 (team_100): LOD400 spec authored. INVESTIGATION COMPLETE 2026-06-02 (team_00 go): root cause = ACCIDENTAL orphaned reduced-motion block at top of ea-atoms.css -- the @media (prefers-reduced-motion: reduce) opener was lost (0 @media opens, stray } at line 40), leaking animation:none!important to global scope so entrances are killed for ALL users (matchMedia reduce=false yet name=none). Introduced 2026-05-27 commit e165218 (WP-W2-01 Stage B). FIX = add the missing @media opener (1 line; entrances play for motion-OK, suppressed under reduce; makes W2-12 stagger observable). This is a VISUAL CHANGE -> AC-04 needs team_00 sign-off (A=approve fix / B=keep off). Findings: _COMMUNICATION/team_100/FINDINGS-WP-W2-13-ENTRANCE-ANIM-2026-06-02.md. team_00 APPROVED Option A 2026-06-02 (DECISION_WP-W2-13-ENTRANCE-ANIM_2026-06-02_v1.md). S3 BUILD-COMPLETE + PRE-FLIGHT PASS (branch feature/s003-entrance-fix): team_80 added the @media opener (e2fce1d, braces 291/291); deployed. Computed self-smoke: no-preference -> pillar2 ea-fadeUp/0.1s, pillar3 0.2s, breath heading ea-breathReveal; reduce -> all none. Pre-flight: axe 0 crit/serious; LH mobile https / median 97 a100 (no regression). Disposition: _COMMUNICATION/team_100/DISPOSITION-WP-W2-13-S5-CLOSE-2026-06-02.md. L-GATE_VALIDATE 2026-06-02: team_190/Cursor PASS — no-preference pillar2 ea-fadeUp/0.1s (3->0.2s,4->0.3s), breath heading ea-breathReveal; reduce -> all none; W2-12 stagger observable; AC-03 only +1 line, braces 291/291; axe 0/0; LH a11y 100, mobile perf median 88; validate 0 FAIL; / 200. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-13-L-GATE-VALIDATE-2026-06-02.md. STATUS -> DONE. PENDING ONLY: merge feature/s003-entrance-fix -> main per team_00 go.'
+- id: WP-W2-14
+  label: Mobile UI + responsive lock + remaining elevated pages (team_35 mobile package)
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_35 (mockups) + team_10 (impl)
+  assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE, incl. VISUAL+mobile)
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  spec_ref: _aos/work_packages/S003/WP-W2-14-A/LOD400_spec.md
+  profile: L0
+  priority: HIGH
+  children: [WP-W2-14-A, WP-W2-14-B, WP-W2-14-C, WP-W2-14-D, WP-W2-14-E]
+  blocked_by: []
+  notes: 'Umbrella for the team_35 FINAL mobile package (_COMMUNICATION/team_35/handoff-WP-W2-10-MOBILE/, READY_FOR_S2, 0 new tokens/atoms): side-sheet mobile drawer + canonical server-rendered nav+footer from site-tree.json (fixes the non-uniform-nav review blocker), §4 mobile decisions, Home review-fixes, + 4 new elevated pages (Method, Memorial, Galleries, Media). 3 additive files (ea-mobile-nav.css/js, ea-mobile-variants.css) + 10 mockups. Orchestration: PHASED — 14-A foundation SOLO (pattern-setter, blocks all) -> 14-B/C/D/E PARALLEL (worktrees) -> serialize integration (deploy one-at-a-time, roadmap single-writer, team_100 pre-flight incl. mockup-vs-live screenshot + 0-overflow probe, route Cursor gate-order team_50->team_190 incl. VISUAL+mobile+RTL/LTR). VISUAL fidelity is now a gate (lesson: structural QA missed the chrome defects). Program plan: _COMMUNICATION/team_100/WP-W2-14-MOBILE-PROGRAM-PLAN-2026-06-03.md.'
+  progress: 'REGISTERED 2026-06-03 (team_100): package extracted + studied; 5 sub-WP LOD400 specs authored; awaiting external (Cursor) spec validation + S2 sign-off, then team_100 orchestration handoff.'
+- id: WP-W2-14-A
+  label: Mobile Chrome Foundation — canonical nav + footer + drawer (pattern-setter)
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  parent_wp: WP-W2-14
+  spec_ref: _aos/work_packages/S003/WP-W2-14-A/LOD400_spec.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'FIRST/SOLO. Server-render canonical nav (block-topnav from site-tree, delete per-template lists) + canonical footer partial + port ea-mobile-nav.css + drawer-behaviour JS (NOT client menu-builder, NOT harness postMessage) + ea-mobile-variants.css + enqueues. Supersedes the interim block-topnav from WP-W2-10 chrome remediation. BLOCKS 14-B/C/D/E.'
+- id: WP-W2-14-B
+  label: Existing elevated clusters — mobile pass (A/B/E/F §4 decisions)
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  parent_wp: WP-W2-14
+  spec_ref: _aos/work_packages/S003/WP-W2-14-B/LOD400_spec.md
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-W2-14-A]
+  notes: 'Apply §4 per-component mobile decisions to existing A/B/E/F (comparison->3 cards, shop->2col, timeline->vertical, testimonials->stack, EN LTR). Inherits chrome from 14-A. Parallel with C/D/E (worktree; owns cluster page-CSS sheets only).'
+- id: WP-W2-14-C
+  label: Home elevation review-fixes (media rows + testimonial rotator)
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  parent_wp: WP-W2-14
+  spec_ref: _aos/work_packages/S003/WP-W2-14-C/LOD400_spec.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [WP-W2-14-A]
+  notes: 'team_00 Home review fixes (DELTA-AND-FIXES §B): "what is treatment" + about -> two-column media rows; testimonials -> auto-advancing rotator; memorial subtitle nowrap. Parallel with B/D/E (worktree; owns tpl-home + home blocks/CSS + rotator JS).'
+- id: WP-W2-14-D
+  label: Method page — elevated build (new)
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  parent_wp: WP-W2-14
+  spec_ref: _aos/work_packages/S003/WP-W2-14-D/LOD400_spec.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [WP-W2-14-A]
+  notes: 'Build elevated /method from mockup (4-step->2->1 col). Parallel with B/C/E (worktree; owns method composition + CSS).'
+- id: WP-W2-14-E
+  label: Remaining new elevated pages — Memorial + Galleries + Media
+  status: IN_PROGRESS
+  track: CONTENT+A
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-03'
+  milestone_ref: S003
+  parent_wp: WP-W2-14
+  spec_ref: _aos/work_packages/S003/WP-W2-14-E/LOD400_spec.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [WP-W2-14-A]
+  notes: 'Build 3 new elevated pages: /mokesh-dahiman (sensitive, verbatim, sand avatar, nowrap subtitle), /galleries (3->2->1 grid), /media (.ea-tgrid->1col). Parallel with B/C/D (worktree; owns the 3 compositions + catalog CSS).'
