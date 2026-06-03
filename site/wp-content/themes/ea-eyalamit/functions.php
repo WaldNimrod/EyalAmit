@@ -810,3 +810,9 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-08.php';
  * WP-W2-09 — Cutover SEO/best-practices head hygiene (meta description, favicon).
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-09.php';
+
+/**
+ * WP-W2-14-E — Memorial + Galleries + Media: 3 new elevated pages (force-route
+ * + compose + scoped catalog CSS).
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-14e.php';
