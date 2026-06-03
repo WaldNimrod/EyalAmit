@@ -54,7 +54,6 @@
 			var dot = document.createElement( 'button' );
 			dot.className = 'ea-testimonials-dot';
 			dot.type = 'button';
-			dot.setAttribute( 'role', 'tab' );
 			dot.setAttribute( 'aria-label', 'המלצה ' + ( n + 1 ) );
 			dot.addEventListener( 'click', function () {
 				go( n, true );
@@ -65,7 +64,6 @@
 
 		function setDots() {
 			dots.forEach( function ( dot, n ) {
-				dot.setAttribute( 'aria-selected', n === index ? 'true' : 'false' );
 				dot.setAttribute( 'aria-current', n === index ? 'true' : 'false' );
 			} );
 		}

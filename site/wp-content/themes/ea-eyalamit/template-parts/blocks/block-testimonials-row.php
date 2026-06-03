@@ -73,7 +73,7 @@ $ea_test_grid_cls = $ea_test_rotator ? 'ea-testimonials-grid ea-testimonials-tra
       <div class="ea-testimonials-section__inner">
         <h2 class="ea-testimonials-section__heading ea-entrance--breath"><?php echo esc_html( $ea_test_heading ); ?></h2>
         <?php if ( $ea_test_rotator ) : ?><div class="ea-testimonials-viewport"><?php endif; ?>
-        <div class="<?php echo esc_attr( $ea_test_grid_cls ); ?>"<?php echo $ea_test_rotator ? ' role="list" tabindex="0" aria-label="' . esc_attr( $ea_test_aria ) . ' — גלילה הצידה"' : ''; ?>>
+        <div class="<?php echo esc_attr( $ea_test_grid_cls ); ?>"<?php echo $ea_test_rotator ? ' role="group" tabindex="0" aria-label="' . esc_attr( $ea_test_aria ) . ' — גלילה הצידה"' : ''; ?>>
           <?php foreach ( $ea_test_items as $ea_test_item ) :
             $ea_t_text   = isset( $ea_test_item['text'] ) ? (string) $ea_test_item['text'] : '';
             $ea_t_name   = isset( $ea_test_item['name'] ) ? (string) $ea_test_item['name'] : '';
@@ -112,7 +112,7 @@ $ea_test_grid_cls = $ea_test_rotator ? 'ea-testimonials-grid ea-testimonials-tra
         </div>
         <?php if ( $ea_test_rotator ) : ?>
         </div><!-- /.ea-testimonials-viewport -->
-        <div class="ea-testimonials-dots" role="tablist" aria-label="ניווט המלצות"></div>
+        <div class="ea-testimonials-dots" role="group" aria-label="ניווט המלצות"></div>
         <?php endif; ?>
         <?php if ( is_array( $ea_test_ghost_cta ) && ! empty( $ea_test_ghost_cta['label'] ) && ! empty( $ea_test_ghost_cta['href'] ) ) : ?>
         <div class="ea-testimonials-section__footer">
