@@ -1,0 +1,18 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 1024 },
+    { "name": "desktop", "w": 1440, "h": 900 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "method", "path": "/method/" },
+    { "name": "privacy", "path": "/privacy/" }
+  ],
+  "absent": [],
+  "shots": true
+}
