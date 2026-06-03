@@ -570,6 +570,13 @@
       align-items: center;
       justify-content: center;
       padding: var(--ea-space-5) 0;
+      /* Clip the line's breathe-slow scaleX(1.15): at <960px the line is
+         width:100% of the viewport, so the scale bled ~29px past each edge and
+         caused page-wide horizontal overflow (caught by the WP-W2-14 mobile
+         overflow gate). Pre-existing atom defect; remediated under 14-A so the
+         responsive lock holds. team_80 to ratify at S4. Desktop unaffected
+         (line is capped at max-width 960px there). */
+      overflow: hidden;
     }
     .ea-breath-divider__line {
       display: block;

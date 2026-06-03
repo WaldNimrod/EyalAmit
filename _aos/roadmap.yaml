@@ -1053,10 +1053,10 @@ work_packages:
   progress: 'REGISTERED 2026-06-03 (team_100): package extracted + studied; 5 sub-WP LOD400 specs authored. L-GATE_SPEC cross-engine validation (team_190/Cursor): R1 PASS_WITH_FINDINGS (0 blocking) -> remediation 6/6 FIXED (REMEDIATION-MATRIX-WP-W2-14-SPEC-2026-06-03.md) -> R2 PASS CLEAN (VERDICT-WP-W2-14-SPEC-VALIDATION-rev2-2026-06-03.md). S2 SIGN-OFF RECORDED 2026-06-03 (team_00 proxy): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-14_2026-06-03.md. Breakpoint DECIDED <=1023px. S3 (team_10) UNBLOCKED -> activate HANDOFF-TEAM100-WP-W2-14-ORCHESTRATION-2026-06-03.md (Phase 1 = 14-A SOLO).'
 - id: WP-W2-14-A
   label: Mobile Chrome Foundation — canonical nav + footer + drawer (pattern-setter)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-06-03'
@@ -1067,6 +1067,7 @@ work_packages:
   priority: HIGH
   blocked_by: []
   notes: 'FIRST/SOLO. Server-render canonical nav (block-topnav from site-tree, delete per-template lists) + canonical footer partial + port ea-mobile-nav.css + drawer-behaviour JS (NOT client menu-builder, NOT harness postMessage) + ea-mobile-variants.css + enqueues. Supersedes the interim block-topnav from WP-W2-10 chrome remediation. BLOCKS 14-B/C/D/E.'
+  progress: 'S3 BUILT + S4 PASS + team_100 pre-flight CLEAN 2026-06-04 (branch wp-w2-14-a-mobile-chrome; deployed uPress staging). Built: canonical server-rendered nav + .ea-mnav-* mobile bar + side-sheet drawer (block-topnav); canonical .ea-cfoot footer (block-footer-social); 3 ported assets (ea-mobile-nav.css/.js drawer-behaviour-only + ea-mobile-variants.css); enqueues (14-A-owned block). Pre-flight: php -l clean; validate_aos 0 FAIL; 0 new tokens/keyframes; axe 0 crit/0 serious; 0 horizontal overflow @360/390/414/768 (15/15); drawer focus-trap/Esc/scrim/accordion/aria-current; VISUAL mockup-vs-live PASS. Two defects fixed during pre-flight: pre-JS off-canvas drawer slide-sign (introduced + fixed); pre-existing .ea-breath-divider scaleX overflow (ea-atoms.css overflow:hidden -> team_80 to ratify @S4). Report: _COMMUNICATION/team_100/PREFLIGHT-WP-W2-14-A-2026-06-04.md. S5 team_50 L-GATE_BUILD PASS 2026-06-04 (_COMMUNICATION/team_50/QA-VERDICT-WP-W2-14-A-L-GATE-BUILD-2026-06-04.md). team_190 L-GATE_VALIDATE PASS round-1 0 P0/P1 2026-06-04 (_COMMUNICATION/team_190/VERDICT-WP-W2-14-A-L-GATE-VALIDATE-2026-06-04.md, commit 4092116). Deviations APPROVED by team_190: footer carries 4 real social incl. TikTok = 20 links (Eyal 2026-05-27); breath-divider atom fix (team_80 S4 ratify); /en full chrome wiring deferred to WP-W2-14-B; LH perf measured on production only (dev artifact). STATUS -> DONE / LOD500_LOCKED. PENDING ONLY: team_191 ARCHIVE_MANIFEST + merge wp-w2-14-a-mobile-chrome -> main per team_00 go. On close, Phase 2 (14-B/C/D/E parallel worktrees) unblocks.'
 - id: WP-W2-14-B
   label: Existing elevated clusters — mobile pass (A/B/E/F §4 decisions)
   status: IN_PROGRESS

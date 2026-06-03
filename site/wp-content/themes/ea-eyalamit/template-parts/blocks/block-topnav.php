@@ -2,8 +2,19 @@
 /**
  * Block: topnav — D-14/POC Wave2.
  *
- * Generic / data-driven (WP-W2-10-A Phase 0b; menu rebuilt to approved
- * site-tree SSoT — team_10 post-closure remediation 2026-06-03).
+ * Generic / data-driven. Single canonical site chrome:
+ *   - Desktop (>=1024px): the approved 10-link bar + 3 hover/focus dropdowns,
+ *     rendered server-side from the locked site-tree SSoT (uniform on every
+ *     template — resolves the "התפריט לא אחיד" review blocker).
+ *   - Mobile (<=1023px): the desktop links + legacy controls hide; the
+ *     injected .ea-mnav-controls bar (burger · sound · EN) shows and opens the
+ *     server-rendered side-sheet drawer below. Drawer behaviour is driven by
+ *     assets/js/ea-mobile-nav.js (open/close, accordion, focus-trap, Esc,
+ *     scrim, body-lock, dir-aware slide sign) — no client-side menu builder.
+ *
+ * WP-W2-14-A (Mobile Chrome Foundation, team_35 package): pattern-setter for
+ * the WP-W2-14 mobile tier. The drawer + canonical footer + the 3 mobile
+ * assets are this WP's; child WPs inherit them and must NOT edit this block.
  *
  * Context (optional):
  *   ea_topnav_active : string  — route key of the active nav item; one of the
@@ -42,7 +53,9 @@ if ( 'ltr' !== $ea_nav_dir ) {
  * Each top-level item: 'href','label', optional 'children' (submenu) and
  * 'external' (true => link as-is, opens in new tab).
  * The logo/brand IS "home" (position 1, no text label) and is rendered
- * separately as .ea-topnav__brand — it is intentionally NOT in this list.
+ * separately as .ea-topnav__brand on desktop — it is intentionally NOT in this
+ * list. The mobile drawer DOES carry an explicit "בית" link as item #1
+ * (NAV-DRAWER-SPEC §3); that asymmetry is intentional (LOD400 §6 P3 guard).
  */
 $ea_topnav_items = array(
 	'treatment'             => array(
@@ -77,7 +90,7 @@ $ea_topnav_items = array(
 				 * external courses URL — pending team_00/Eyal
 				 */
 				'href'     => '#',
-				'label'    => 'קורסים (חיצוני)',
+				'label'    => 'קורסים',
 				'external' => true,
 			),
 			'lectures'           => array(
@@ -126,6 +139,20 @@ $ea_topnav_items = array(
 		'href'  => home_url( '/contact' ),
 		'label' => 'צור קשר',
 	),
+);
+
+/*
+ * Secondary (footer-only) catalog/legal links repeated in the drawer foot
+ * (NAV-DRAWER-SPEC §3). Mirrors block-footer-social.php's "מידע ותקנון"
+ * column so the drawer offers the same reachable set.
+ */
+$ea_mnav_foot_links = array(
+	array( 'href' => home_url( '/faq' ),           'label' => 'שאלות נפוצות' ),
+	array( 'href' => home_url( '/galleries' ),     'label' => 'גלריות' ),
+	array( 'href' => home_url( '/media' ),         'label' => 'המלצות' ),
+	array( 'href' => home_url( '/privacy' ),       'label' => 'מדיניות פרטיות' ),
+	array( 'href' => home_url( '/accessibility' ), 'label' => 'הצהרת נגישות' ),
+	array( 'href' => home_url( '/terms' ),         'label' => 'תקנון' ),
 );
 
 /**
@@ -224,5 +251,134 @@ $ea_nav_is_active = static function ( $key, $item, $active ) {
           ☰
         </button>
       </div>
+
+      <?php
+      /*
+       * Mobile closed-bar control cluster (<=1023px). Internal flow is LTR so
+       * the burger · sound · EN order is deterministic regardless of page dir.
+       * Hidden >=1024px by ea-mobile-nav.css; the drawer below is driven by
+       * ea-mobile-nav.js. Sound is visual-only until the audio asset arrives.
+       */
+      ?>
+      <div class="ea-mnav-controls">
+        <button class="ea-mnav-tap ea-mnav-burger"
+                type="button"
+                aria-label="פתיחת תפריט"
+                aria-expanded="false"
+                aria-controls="ea-mnav-drawer"
+                aria-haspopup="true">
+          <span class="ea-mnav-burger__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button class="ea-mnav-tap ea-mnav-pill ea-mnav-sound"
+                type="button"
+                aria-pressed="false"
+                aria-label="הפעלת צליל דיג׳רידו">
+          <span aria-hidden="true">♪</span><span>שמע</span>
+        </button>
+        <a class="ea-mnav-tap ea-mnav-pill ea-mnav-lang"
+           href="<?php echo esc_url( home_url( '/en' ) ); ?>"
+           lang="en"
+           aria-label="English — switch to English">EN</a>
+      </div>
     </nav>
   </header>
+
+  <?php
+  /*
+   * Side-sheet drawer + scrim (<=1023px). Server-rendered from the same locked
+   * menu model above so every template is identical. ea-mobile-nav.js wires the
+   * open/close, accordion, focus-trap, Esc, scrim and dir-aware slide sign.
+   */
+  ?>
+  <div class="ea-mnav-scrim" aria-hidden="true"></div>
+  <aside class="ea-mnav-drawer"
+         id="ea-mnav-drawer"
+         role="dialog"
+         aria-modal="true"
+         aria-label="תפריט"
+         data-side="end"
+         tabindex="-1">
+    <div class="ea-mnav-drawer__head">
+      <a class="ea-mnav-drawer__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">אייל עמית</a>
+      <button class="ea-mnav-close" type="button" aria-label="סגירת תפריט">&times;</button>
+    </div>
+
+    <ul class="ea-mnav-list" role="list">
+      <li class="ea-mnav-list__item">
+        <a class="ea-mnav-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"<?php echo 'home' === $ea_topnav_active ? ' aria-current="page"' : ''; ?>>
+          <span>בית</span>
+        </a>
+      </li>
+      <?php foreach ( $ea_topnav_items as $ea_nav_key => $ea_nav_item ) : ?>
+        <?php $ea_children = isset( $ea_nav_item['children'] ) ? $ea_nav_item['children'] : array(); ?>
+        <?php if ( $ea_children ) : ?>
+          <?php
+          $ea_acc_id    = 'ea-mnav-acc-' . $ea_nav_key;
+          $ea_acc_open  = $ea_nav_is_active( $ea_nav_key, $ea_nav_item, $ea_topnav_active );
+          ?>
+      <li class="ea-mnav-list__item">
+        <button class="ea-mnav-acc__btn"
+                type="button"
+                aria-expanded="<?php echo $ea_acc_open ? 'true' : 'false'; ?>"
+                aria-controls="<?php echo esc_attr( $ea_acc_id ); ?>">
+          <span><?php echo esc_html( $ea_nav_item['label'] ); ?></span>
+          <span class="ea-mnav-acc__caret" aria-hidden="true">⌄</span>
+        </button>
+        <div class="ea-mnav-acc__panel" id="<?php echo esc_attr( $ea_acc_id ); ?>">
+          <div class="ea-mnav-acc__panel-inner">
+            <ul class="ea-mnav-sublist" role="list">
+              <li>
+                <a class="ea-mnav-sublink" href="<?php echo esc_url( $ea_nav_item['href'] ); ?>">
+                  <span><?php echo esc_html( $ea_nav_item['label'] ); ?> — עמוד ראשי</span>
+                </a>
+              </li>
+              <?php foreach ( $ea_children as $ea_sub_key => $ea_sub_item ) : ?>
+                <?php $ea_sub_active = ( $ea_sub_key === $ea_topnav_active ); ?>
+              <li>
+                <a class="ea-mnav-sublink"
+                   href="<?php echo esc_url( $ea_sub_item['href'] ); ?>"<?php
+                    echo $ea_sub_active ? ' aria-current="page"' : '';
+                    echo ! empty( $ea_sub_item['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : '';
+                    ?>>
+                  <span><?php echo esc_html( $ea_sub_item['label'] ); ?></span>
+                  <?php if ( ! empty( $ea_sub_item['external'] ) ) : ?>
+                  <span class="ea-mnav-link__ext">חיצוני ↗</span>
+                  <?php endif; ?>
+                </a>
+              </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+      </li>
+        <?php else : ?>
+          <?php $ea_leaf_active = ( $ea_nav_key === $ea_topnav_active ); ?>
+      <li class="ea-mnav-list__item">
+        <a class="ea-mnav-link" href="<?php echo esc_url( $ea_nav_item['href'] ); ?>"<?php echo $ea_leaf_active ? ' aria-current="page"' : ''; ?>>
+          <span><?php echo esc_html( $ea_nav_item['label'] ); ?></span>
+        </a>
+      </li>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </ul>
+
+    <div class="ea-mnav-foot">
+      <div class="ea-mnav-foot__utils">
+        <button class="ea-mnav-tap ea-mnav-pill ea-mnav-sound"
+                type="button"
+                aria-pressed="false"
+                aria-label="הפעלת צליל דיג׳רידו">
+          <span aria-hidden="true">♪</span><span>שמע</span>
+        </button>
+        <a class="ea-mnav-tap ea-mnav-pill ea-mnav-lang"
+           href="<?php echo esc_url( home_url( '/en' ) ); ?>"
+           lang="en"
+           aria-label="English — switch to English">EN</a>
+      </div>
+      <div class="ea-mnav-foot__links">
+        <?php foreach ( $ea_mnav_foot_links as $ea_fl ) : ?>
+        <a href="<?php echo esc_url( $ea_fl['href'] ); ?>"><?php echo esc_html( $ea_fl['label'] ); ?></a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </aside>

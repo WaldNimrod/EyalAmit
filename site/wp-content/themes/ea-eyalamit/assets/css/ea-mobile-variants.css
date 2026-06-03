@@ -1,0 +1,85 @@
+/* =============================================================
+   ea-mobile-variants — locked mobile decisions for WP-W2-14 §4
+   team_35. D-14 tokens/atoms only. Mobile-scoped (<=767px).
+   Ported from _COMMUNICATION/team_35/handoff-WP-W2-10-MOBILE/mockups/assets/
+   ea-mobile-variants.css. Defaults = the RECOMMENDED, signed-off rendering.
+   The data-attribute alternates are kept for review parity; pages ship with
+   the defaults below.
+     · Service comparison (3-col) → 3 full-width stacked cards
+     · Shop grid (4-up)           → 2 columns
+     · Testimonials (×3/×4)       → 1-column stack
+   ============================================================= */
+
+@media (max-width:767px){
+
+  /* ---------- SERVICE COMPARISON ----------
+     default: each option becomes a full-width card with a hairline
+     frame (clearer than a fused 1px-gap table on a 390px column). */
+  .ea-service-comparison__grid{
+    display:flex;flex-direction:column;
+    gap:var(--ea-space-2);
+    background:transparent;
+  }
+  .ea-service-comparison__col{
+    border:1px solid var(--ea-line);
+    border-radius:var(--ea-radius-img);
+    padding:var(--ea-space-4);
+  }
+  .ea-service-comparison__col--active{
+    border-color:var(--ea-terracotta);
+    background:var(--ea-bg-alt);
+  }
+
+  /* alternate: horizontal swipe row (peek + snap) */
+  html[data-compare="scroll"] .ea-service-comparison__grid{
+    flex-direction:row;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-block-end:var(--ea-space-2);
+    scroll-padding-inline:var(--ea-gutter);
+  }
+  html[data-compare="scroll"] .ea-service-comparison__col{
+    flex:0 0 78%;
+    scroll-snap-align:start;
+  }
+
+  /* ---------- SHOP GRID (4-up desktop) ----------
+     default: 2 columns — keeps it shoppable/scannable at 390px. */
+  .ea-shop-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:var(--ea-space-3) !important;
+  }
+  .ea-shop-grid .ea-book-card__title{font-size:0.86rem}
+  .ea-shop-grid .ea-book-card__teaser{font-size:0.74rem}
+  .ea-shop-grid .ea-book-card__cover-placeholder{font-size:0.66rem;padding:var(--ea-space-1)}
+
+  html[data-shop="1col"] .ea-shop-grid{
+    grid-template-columns:1fr !important;
+  }
+  html[data-shop="1col"] .ea-shop-grid .ea-book-card__title{font-size:0.92rem}
+  html[data-shop="1col"] .ea-shop-grid .ea-book-card__teaser{font-size:0.78rem}
+
+  /* ---------- TESTIMONIALS ----------
+     default: 1-column stack (best readability + a11y). The page CSS
+     already collapses to 1fr at <=639; we make it explicit and add
+     the optional carousel alternate. */
+  .ea-testimonials-grid,.ea-tgrid{grid-template-columns:1fr !important}
+
+  html[data-testi="carousel"] .ea-testimonials-grid,
+  html[data-testi="carousel"] .ea-tgrid{
+    display:flex !important;
+    grid-template-columns:none !important;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:var(--ea-space-3);
+    padding-block-end:var(--ea-space-2);
+    scroll-padding-inline:var(--ea-gutter);
+  }
+  html[data-testi="carousel"] .ea-testimonial-card,
+  html[data-testi="carousel"] .ea-tcard{
+    flex:0 0 86%;
+    scroll-snap-align:start;
+  }
+}

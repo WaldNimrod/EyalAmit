@@ -83,11 +83,22 @@ function ea_wave2_enqueue_assets() {
 	wp_enqueue_style( 'ea-wave2-animations', $uri . '/assets/css/ea-animations.css', array( 'ea-wave2-tokens' ), $ver );
 	wp_enqueue_style( 'ea-wave2-atoms', $uri . '/assets/css/ea-atoms.css', array( 'ea-wave2-tokens', 'ea-wave2-animations' ), $ver );
 
+	/*
+	 * Mobile chrome foundation (WP-W2-14-A). The drawer/canonical-footer sheet
+	 * loads AFTER ea-atoms so the <=1023px bar-normalisation wins specificity
+	 * ties; the §4 variants sheet loads after it. The drawer behaviour JS is
+	 * deferred and self-degrades when the chrome is absent. THIS ENQUEUE BLOCK
+	 * IS OWNED BY WP-W2-14-A — child WPs (B/C/D/E) must not edit these lines.
+	 */
+	wp_enqueue_style( 'ea-mobile-nav', $uri . '/assets/css/ea-mobile-nav.css', array( 'ea-wave2-atoms' ), $ver );
+	wp_enqueue_style( 'ea-mobile-variants', $uri . '/assets/css/ea-mobile-variants.css', array( 'ea-mobile-nav' ), $ver );
+
 	$js_deps = array();
 	wp_enqueue_script( 'ea-wave2-entrance', $uri . '/assets/js/ea-entrance.js', $js_deps, $ver, true );
 	wp_enqueue_script( 'ea-wave2-scroll', $uri . '/assets/js/ea-scroll.js', $js_deps, $ver, true );
 	wp_enqueue_script( 'ea-wave2-ab-testing', $uri . '/assets/js/ea-ab-testing.js', $js_deps, $ver, true );
 	wp_enqueue_script( 'ea-wave2-hero', $uri . '/assets/js/ea-hero.js', $js_deps, $ver, true );
+	wp_enqueue_script( 'ea-mobile-nav', $uri . '/assets/js/ea-mobile-nav.js', $js_deps, $ver, true );
 
 	wp_localize_script(
 		'ea-wave2-ab-testing',
