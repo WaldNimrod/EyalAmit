@@ -24,3 +24,6 @@ S3 → S4 → deploy → team_100 pre-flight → S5 team_50 → team_190 (Cursor
 
 ## 4. Orchestration
 **Blocked by WP-W2-14-A.** Parallel with B/C/D (worktree; owns the 3 page compositions + catalog CSS only). Build order within: Galleries + Media (shared catalog DNA) then Memorial (sensitive, own care).
+
+## 5. Spec-validation remediations (2026-06-03)
+- **P3 — Harmonized QA AC (uniform):** `validate_aos .` 0 FAIL · `php -l` clean · HTTP 200 (`/mokesh-dahiman`, `/galleries`, `/media`) · axe 0 crit/0 serious (mobile+desktop) · LH mobile triple-run median ≥85 + a11y 100 · 0 overflow @360/390/414/768 · single H1 · RTL logical props · D-14 zero new tokens/atoms (team_80 S4) · visual mockup-vs-live screenshot (desktop+390px) = gate. Memorial copy verbatim + dignified.

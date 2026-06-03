@@ -24,3 +24,7 @@ S3 → S4 → deploy → team_100 pre-flight → S5 team_50 → team_190 (Cursor
 
 ## 4. Orchestration
 **Blocked by WP-W2-14-A.** Parallel with B/C/E (worktree; owns the method composition + its CSS only).
+
+## 5. Spec-validation remediations (2026-06-03)
+- **P3 — Method routing PINNED (remove OR-ambiguity):** `/method` is routed to **`tpl-service.php` via the existing `wave2-w2-02.php` template_include** (already live). 14-D does **not** create a new dedicated template; it elevates the method composition within the service render path (route ctx `method`). Build the method block sequence per the mockup inside that path; do NOT fork a new template.
+- **P3 — Harmonized QA AC:** `validate_aos .` 0 FAIL · `php -l` clean · HTTP 200 · axe 0 crit/0 serious (mobile+desktop) · LH mobile triple-run median ≥85 + a11y 100 · 0 overflow @360/390/414/768 · single H1 · RTL · D-14 zero-drift (team_80 S4) · visual screenshot (desktop+390px) = gate.

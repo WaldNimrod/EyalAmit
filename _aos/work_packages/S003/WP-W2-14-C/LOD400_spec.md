@@ -24,3 +24,7 @@ S3 → S4 → deploy → team_100 pre-flight (incl. mobile + rotator behaviour) 
 
 ## 4. Orchestration
 **Blocked by WP-W2-14-A.** Parallel with B/D/E (worktree; owns tpl-home + home blocks/CSS + rotator JS only).
+
+## 5. Spec-validation remediations (2026-06-03)
+- **P3 — `wave2-stage-b.php` merge rule:** 14-C edits `wave2-stage-b.php` ONLY for the home render fn/blocks. The 3 mobile **enqueue lines are owned by 14-A** — 14-C MUST NOT add/edit/remove them (avoid the Phase-2 enqueue collision). At integration, 14-C's home-block changes merge cleanly because the enqueue block is untouched.
+- **P3 — Harmonized QA AC:** `validate_aos .` 0 FAIL · `php -l` clean · HTTP 200 · axe 0 crit/0 serious (mobile+desktop) · LH mobile triple-run median ≥85 + a11y 100 · 0 overflow @360/390/414/768 · single H1 · RTL · D-14 zero-drift (team_80 S4) · visual screenshot (desktop+390px) = gate. Rotator must not regress LCP.

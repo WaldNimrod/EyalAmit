@@ -40,4 +40,4 @@ ADR034 offline-fallback (named branches, never main; merge on team_00 go); cross
 ## 8. Open items (carry into build)
 - **קורסים external URL** — placeholder `#`; needs canonical Scholar/external URL (team_00/Eyal).
 - **Eyal-gaps:** studio/treatment photo, didgeridoo sound asset, social URLs — graceful placeholders kept.
-- **Drawer breakpoint** = ≤1023px (drawer through tablet) — confirm vs ≤767 before build (DELTA §C.7).
+- **Drawer breakpoint — DECIDED `≤1023px`** (package default; drawer through tablet) 2026-06-03, team_00-default-approved during the final design round. A switch to `≤767` remains a one-line change if team_00 directs before Phase 1. (Resolves spec-validation P2.)

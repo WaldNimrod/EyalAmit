@@ -26,3 +26,14 @@ S3 → S4 → deploy → team_100 pre-flight (incl. mobile screenshots) → S5 t
 
 ## 4. Orchestration
 **Blocked by WP-W2-14-A.** Parallel with C/D/E (isolated worktree; owns only the cluster page-CSS sheets + minimal markup hooks — does NOT touch block-topnav/footer/ea-mobile-nav.* which are 14-A's).
+
+## 5. Spec-validation remediations (2026-06-03)
+- **P3 — explicit route ↔ CSS-sheet ownership table** (the only files 14-B may edit):
+  | Cluster | Routes | CSS sheet (owned by 14-B) |
+  |---|---|---|
+  | A Service | /treatment /method* /sound-healing /lessons | `assets/css/w2-10-service.css` |
+  | B Editorial | /about /press /about/moksha | `assets/css/ea-blog.css` (editorial section) |
+  | E Commerce | /books +details /shop | `assets/css/w2-05-shop.css` |
+  | F EN | /en | `assets/css/w2-08-en-landing.css` (LTR; mostly inherits 14-A drawer) |
+  (*`/method` desktop+mobile elevation is WP-W2-14-D; 14-B only ensures the service-template mobile variants also apply to it.)
+- **P3 — Harmonized QA AC (uniform across 14-B/C/D/E):** `validate_aos .` 0 FAIL · `php -l` clean · per-route HTTP 200 · axe 0 crit/0 serious (mobile+desktop) · LH **mobile triple-run median ≥85** + a11y 100 (https) · 0 horizontal overflow @360/390/414/768 · single H1 · RTL logical props (F=LTR) · D-14 zero new tokens/atoms (team_80 S4) · **visual mockup-vs-live screenshot (desktop+390px) = gate**.

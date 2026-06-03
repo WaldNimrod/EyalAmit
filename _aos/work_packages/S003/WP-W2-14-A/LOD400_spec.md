@@ -31,3 +31,8 @@ S3 (team_10) → S4 (team_80 tokens) → deploy (FTP) → team_100 pre-flight (a
 
 ## 5. Orchestration
 **FIRST / SOLO pattern-setter. BLOCKS WP-W2-14-B/C/D/E.** They inherit this chrome by dropping the 3 enqueues; do not start their builds until 14-A's pattern is deployed + pre-flight-clean.
+
+## 6. Spec-validation remediations (2026-06-03 — team_190 findings resolved)
+- **P2 — Drawer breakpoint DECIDED = `≤1023px`** (package default; drawer through tablet, full 10-item desktop nav only ≥1024 where it fits). team_00-default-approved; a switch to `≤767` is a one-line change if team_00 directs before build. Pin this value in `ea-mobile-nav.css` media scope.
+- **P3 — Enqueue ownership:** the 3 enqueues (`ea-mobile-nav.css`/`.js` + `ea-mobile-variants.css`) are added in `inc/wave2-stage-b.php` **by 14-A only**. Phase-2 children (esp. 14-C, which also touches `wave2-stage-b.php` for home blocks) **MUST NOT edit the enqueue lines** — merge rule: 14-A owns the enqueue block; children touch only their own functions/blocks.
+- **P3 — Desktop "בית" vs drawer home (implementation guard):** desktop nav = **logo-only home** (no "בית" text item) per the locked menu; the **drawer** carries an explicit "בית" link as item #1 (NAV-DRAWER-SPEC §3). This asymmetry is intentional — render the desktop home as the brand/logo and the drawer home as a labelled link; do not add a "בית" text item to the desktop bar.
