@@ -230,9 +230,137 @@
       outline-offset: 3px;
     }
 
+    /* --- Top-level list items + dropdown groups (approved menu) --- */
+    .ea-topnav__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    /* The dropdown parent is a <button> styled exactly like a nav link. */
+    .ea-topnav__dropdown-toggle {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ea-topnav__caret {
+      font-size: 0.7em;
+      line-height: 1;
+      transition: transform var(--ea-dur-fast);
+    }
+
+    /* Submenu panel — elevated dark surface, RTL-aligned to its parent. */
+    .ea-topnav__submenu {
+      position: absolute;
+      top: calc(100% + var(--ea-space-1));
+      right: 0;
+      min-width: 220px;
+      list-style: none;
+      margin: 0;
+      padding: var(--ea-space-1) 0;
+      background: rgba(46,43,40,0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--ea-radius-img);
+      z-index: var(--ea-z-dropdown);
+      display: none;
+    }
+    nav[dir="ltr"] .ea-topnav__submenu {
+      right: auto;
+      left: 0;
+    }
+
+    /* Open on hover (desktop), keyboard focus-within, and JS aria-expanded. */
+    .ea-topnav__item--has-submenu:hover .ea-topnav__submenu,
+    .ea-topnav__item--has-submenu:focus-within .ea-topnav__submenu,
+    .ea-topnav__dropdown-toggle[aria-expanded="true"] + .ea-topnav__submenu {
+      display: block;
+    }
+    .ea-topnav__item--has-submenu:hover .ea-topnav__caret,
+    .ea-topnav__dropdown-toggle[aria-expanded="true"] .ea-topnav__caret {
+      transform: rotate(180deg);
+    }
+
+    .ea-topnav__subitem {
+      display: block;
+    }
+    .ea-topnav__sublink {
+      display: block;
+      font-family: var(--ea-font);
+      font-weight: 300;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: var(--ea-space-1) var(--ea-space-3);
+      white-space: nowrap;
+      transition: color var(--ea-dur-fast), background var(--ea-dur-fast);
+    }
+    .ea-topnav__sublink:hover {
+      color: var(--ea-on-dark);
+      background: rgba(255,255,255,0.08);
+    }
+    .ea-topnav__sublink[aria-current="page"] {
+      color: var(--ea-sand);
+    }
+    .ea-topnav__sublink:focus-visible {
+      outline: 2px solid var(--ea-terracotta);
+      outline-offset: -2px;
+    }
+
+    /* EN language pill — mirrors sound-toggle styling, compact. */
+    .ea-topnav__lang {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: var(--ea-radius-pill);
+      padding: 6px 12px;
+      font-family: var(--ea-font);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      transition: border-color var(--ea-dur-fast), color var(--ea-dur-fast);
+    }
+    .ea-topnav__lang:hover {
+      color: var(--ea-on-dark);
+      border-color: rgba(255,255,255,0.6);
+    }
+    .ea-topnav__lang:focus-visible {
+      outline: 2px solid var(--ea-terracotta);
+      outline-offset: 3px;
+    }
+
     @media (max-width: 767px) {
       .ea-topnav__links { display: none; }
       .ea-topnav__burger { display: block; }
+
+      /* Mobile: list stacks (via JS-applied flex-direction), submenus flow
+         inline beneath their parent rather than as floating panels. */
+      .ea-topnav__item {
+        display: block;
+        width: 100%;
+      }
+      .ea-topnav__submenu {
+        position: static;
+        min-width: 0;
+        background: transparent;
+        border: 0;
+        padding: 0 var(--ea-space-3) 0 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      /* On narrow viewports the dropdown stays open when its toggle is
+         expanded, or when its parent group is the active route. */
+      .ea-topnav__item--has-submenu.is-active .ea-topnav__submenu {
+        display: block;
+      }
     }
 
     /* =============================================================
