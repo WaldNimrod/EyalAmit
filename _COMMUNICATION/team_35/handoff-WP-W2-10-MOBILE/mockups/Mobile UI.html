@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Mobile UI — EyalAmit.co.il · WP-W2-10 (team_35)</title>
+<!--
+  Mobile mockup harness — team_35 · WP-W2-10 mobile deliverable.
+  A 390px phone frame loads each ELEVATED page (real files) inside a true
+  mobile viewport (iframe → media queries fire at <=767/<=639). The mobile
+  nav drawer lives inside each page via assets/ea-mobile-nav.{css,js}. The
+  control rail flips the §4 open-question variants over postMessage.
+  Chrome vocabulary is local (ui-*); brand tokens used for the device tint.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ea-terracotta:#A44E2B; --ea-sand:#D8C7B5; --ea-ink:#2E2B28;
+    --ui-bg:#211d1a; --ui-bg-2:#2b2521;
+    --ui-panel:#f4efe9; --ui-panel-line:#e0d6ca;
+    --ui-ink:#2E2B28; --ui-muted:#8a7f74; --ui-faint:#b6a99c;
+    --ui-accent:#A44E2B;
+    --ui-font:'Heebo',-apple-system,Arial,sans-serif;
+    --phone-w:390px;
+    --bezel:14px;
+    --radius:13px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;font-family:var(--ui-font);font-weight:300;
+    background:radial-gradient(120% 90% at 50% 0%, var(--ui-bg-2) 0%, var(--ui-bg) 70%);
+    color:#efe7dd;overflow:hidden;
+  }
+  .app{display:grid;grid-template-columns:1fr 360px;height:100vh}
+
+  /* ---------- stage ---------- */
+  .stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;padding:22px 16px 8px}
+  .stage__bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;max-width:100%}
+  .brandmark{display:flex;align-items:center;gap:9px;margin-inline-end:6px}
+  .brandmark__dot{inline-size:8px;block-size:8px;border-radius:50%;background:var(--ui-accent)}
+  .brandmark__t{font-weight:300;font-size:.82rem;letter-spacing:.3px;color:#efe7dd}
+  .brandmark__t b{font-weight:500}
+  .picker{display:flex;gap:4px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);padding:4px;border-radius:100px;flex-wrap:wrap;justify-content:center}
+  .picker__btn{
+    appearance:none;border:0;background:transparent;color:#cdbfb1;
+    font-family:var(--ui-font);font-size:.76rem;font-weight:300;
+    padding:7px 13px;border-radius:100px;cursor:pointer;white-space:nowrap;
+    transition:background .15s,color .15s;
+  }
+  .picker__btn:hover{color:#fff}
+  .picker__btn[aria-pressed="true"]{background:var(--ui-accent);color:#fff;font-weight:400}
+
+  .stagewrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;min-height:0;width:100%}
+
+  /* ---------- phone ---------- */
+  .phone{
+    position:relative;
+    inline-size:calc(var(--phone-w) + var(--bezel)*2);
+    background:#0d0b0a;
+    border-radius:46px;
+    padding:var(--bezel);
+    box-shadow:0 2px 0 1px #312a25 inset, 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 2px #463c34;
+  }
+  .phone__screen{
+    position:relative;
+    inline-size:var(--phone-w);
+    block-size:min(812px, calc(100vh - 196px));
+    background:#FAF8F5;
+    border-radius:32px;
+    overflow:hidden;
+  }
+  .phone__frame{display:block;border:0;inline-size:var(--phone-w);block-size:100%;background:#FAF8F5}
+  /* status bar overlay (sits over the page's translucent dark nav) */
+  .statusbar{
+    position:absolute;inset-block-start:0;inset-inline:0;block-size:46px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 26px;pointer-events:none;z-index:5;color:#fff;
+    font-size:.82rem;font-weight:400;letter-spacing:.3px;
+    text-shadow:0 1px 2px rgba(0,0,0,.35);
+  }
+  .statusbar__icons{display:flex;align-items:center;gap:6px;font-size:.74rem}
+  .statusbar__bat{inline-size:22px;block-size:11px;border:1px solid rgba(255,255,255,.9);border-radius:3px;position:relative;display:inline-block}
+  .statusbar__bat::after{content:"";position:absolute;inset-block:2px;inset-inline-start:2px;inline-size:14px;background:#fff;border-radius:1px}
+  .statusbar__bat::before{content:"";position:absolute;inset-inline-end:-3px;inset-block-start:3px;inline-size:2px;block-size:5px;background:rgba(255,255,255,.9);border-radius:0 1px 1px 0}
+  .homeind{
+    position:absolute;inset-block-end:7px;inset-inline:0;margin-inline:auto;
+    inline-size:130px;block-size:5px;border-radius:3px;background:rgba(120,110,100,.65);
+    pointer-events:none;z-index:5;
+  }
+  .stage__hint{margin-top:10px;font-size:.72rem;color:#9a8d80;text-align:center}
+  .stage__hint b{color:#c9bcaf;font-weight:400}
+
+  /* ---------- control rail ---------- */
+  .rail{
+    background:var(--ui-panel);color:var(--ui-ink);
+    border-inline-start:1px solid #0d0b0a;
+    overflow-y:auto;padding:22px 22px 60px;
+  }
+  .rail__title{font-weight:500;font-size:.95rem;margin:0 0 2px}
+  .rail__sub{font-weight:300;font-size:.76rem;color:var(--ui-muted);margin:0 0 18px;line-height:1.5}
+  .group{border-top:1px solid var(--ui-panel-line);padding:16px 0}
+  .group:first-of-type{border-top:0;padding-top:0}
+  .group__h{font-weight:500;font-size:.7rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--ui-accent);margin:0 0 4px}
+  .group__note{font-weight:300;font-size:.74rem;color:var(--ui-muted);margin:0 0 11px;line-height:1.55}
+  .seg{display:flex;gap:4px;background:#e7ddd1;border-radius:9px;padding:3px}
+  .seg__btn{
+    flex:1;appearance:none;border:0;background:transparent;cursor:pointer;
+    font-family:var(--ui-font);font-size:.76rem;font-weight:300;color:#6a5f54;
+    padding:8px 6px;border-radius:7px;transition:background .15s,color .15s;white-space:nowrap;
+  }
+  .seg__btn[aria-pressed="true"]{background:#fff;color:var(--ui-ink);font-weight:400;box-shadow:0 1px 3px rgba(46,43,40,.12)}
+  .seg__btn .rec{font-size:.6rem;color:var(--ui-accent);font-weight:400}
+  .openbtn{
+    inline-size:100%;margin-top:4px;appearance:none;cursor:pointer;
+    background:var(--ui-accent);color:#fff;border:0;border-radius:100px;
+    font-family:var(--ui-font);font-size:.82rem;font-weight:400;padding:12px;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .openbtn:hover{transform:scale(1.02);box-shadow:0 6px 18px -8px rgba(164,78,43,.7)}
+
+  .notes{font-weight:300;font-size:.77rem;line-height:1.6;color:#5a5048}
+  .notes details{border-top:1px solid var(--ui-panel-line);padding:9px 0}
+  .notes summary{cursor:pointer;list-style:none;font-weight:400;font-size:.8rem;color:var(--ui-ink);display:flex;justify-content:space-between;gap:10px;align-items:center}
+  .notes summary::-webkit-details-marker{display:none}
+  .notes summary::after{content:"+";color:var(--ui-accent);font-size:1rem}
+  .notes details[open] summary::after{content:"–"}
+  .notes ul{margin:9px 0 2px;padding-inline-start:1.1em}
+  .notes li{margin:0 0 6px}
+  .notes b{font-weight:500;color:var(--ui-ink)}
+  .tag{display:inline-block;font-size:.64rem;letter-spacing:.4px;color:var(--ui-accent);border:1px solid #e2cfc2;border-radius:100px;padding:2px 9px;margin-inline-start:6px}
+
+  @media (max-width:1080px){
+    .app{grid-template-columns:1fr 320px}
+  }
+  @media (max-width:860px){
+    body{overflow:auto}
+    .app{grid-template-columns:1fr;height:auto}
+    .stage{height:auto;padding-bottom:24px}
+    .rail{border-inline-start:0;border-top:1px solid #0d0b0a}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ STAGE ============ -->
+  <section class="stage" data-screen-label="harness-stage">
+    <div class="stage__bar">
+      <div class="brandmark">
+        <span class="brandmark__dot" aria-hidden="true"></span>
+        <span class="brandmark__t">Mobile UI · <b>EyalAmit.co.il</b></span>
+      </div>
+      <div class="picker" role="group" aria-label="בחירת עמוד">
+        <button class="picker__btn" data-screen="home" aria-pressed="true">בית</button>
+        <button class="picker__btn" data-screen="method">השיטה</button>
+        <button class="picker__btn" data-screen="treatment">טיפול</button>
+        <button class="picker__btn" data-screen="about">אודות</button>
+        <button class="picker__btn" data-screen="mokesh">מוקש</button>
+        <button class="picker__btn" data-screen="books">מוזה</button>
+        <button class="picker__btn" data-screen="book">עמוד ספר</button>
+        <button class="picker__btn" data-screen="galleries">גלריות</button>
+        <button class="picker__btn" data-screen="media">המלצות</button>
+        <button class="picker__btn" data-screen="en">EN</button>
+      </div>
+    </div>
+
+    <div class="stagewrap">
+      <div class="phonescaler" id="scaler">
+        <div class="phone" data-screen-label="iphone-390">
+          <div class="phone__screen">
+            <div class="statusbar">
+              <span id="sbtime">9:41</span>
+              <span class="statusbar__icons">
+                <span aria-hidden="true">▮▮▮</span>
+                <span aria-hidden="true">⌃</span>
+                <span class="statusbar__bat" aria-hidden="true"></span>
+              </span>
+            </div>
+            <iframe class="phone__frame" id="frame" title="תצוגת נייד 390px" src="Home - Dashboard (elevated).html"></iframe>
+            <span class="homeind" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="stage__hint">תצוגה אמיתית ב־<b>390px</b> · געו ב־☰ בתוך המכשיר כדי לפתוח את המגירה · או השתמשו בלוח מימין</p>
+  </section>
+
+  <!-- ============ CONTROL RAIL ============ -->
+  <aside class="rail" aria-label="בקרות ומפרט">
+    <h1 class="rail__title">מוקאפ נייד — ניווט ומפרט</h1>
+    <p class="rail__sub">WP-W2-10 · team_35. כל ההחלטות מ־§4 מוגדרות כברירת מחדל; אפשר להשוות חלופות בלייב. אפס טוקנים חדשים.</p>
+
+    <div class="group">
+      <button class="openbtn" id="openmenu" type="button">פתיחת תפריט הניווט ☰</button>
+    </div>
+
+    <div class="group">
+      <p class="group__h">כיוון פתיחת המגירה</p>
+      <p class="group__note">Side-sheet עם scrim. ברירת מחדל: נפתח מצד הכפתור (☰ משמאל ב־RTL).</p>
+      <div class="seg" data-tweak="side">
+        <button class="seg__btn" data-val="end" aria-pressed="true">מצד הכפתור <span class="rec">✓ מומלץ</span></button>
+        <button class="seg__btn" data-val="start" aria-pressed="false">מצד הקריאה</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group__h">טבלת השוואה (3 טורים) · עמוד טיפול</p>
+      <p class="group__note">איך 3 הטורים נפרסים ב־390px.</p>
+      <div class="seg" data-tweak="compare" data-attr="compare">
+        <button class="seg__btn" data-val="" aria-pressed="true">3 כרטיסים <span class="rec">✓ מומלץ</span></button>
+        <button class="seg__btn" data-val="scroll" aria-pressed="false">גלילה אופקית</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group__h">גריד החנות (4 טורים) · עמוד מוזה</p>
+      <p class="group__note">4→? ב־390px. גלול בעמוד מוזה אל מקטע «החנות».</p>
+      <div class="seg" data-tweak="shop" data-attr="shop">
+        <button class="seg__btn" data-val="" aria-pressed="true">2 טורים <span class="rec">✓ מומלץ</span></button>
+        <button class="seg__btn" data-val="1col" aria-pressed="false">טור אחד</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group__h">המלצות · עמודי טיפול/בית</p>
+      <p class="group__note">סטאק קריא מול קרוסלת swipe.</p>
+      <div class="seg" data-tweak="testi" data-attr="testi">
+        <button class="seg__btn" data-val="" aria-pressed="true">סטאק טור אחד <span class="rec">✓ מומלץ</span></button>
+        <button class="seg__btn" data-val="carousel" aria-pressed="false">קרוסלה</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group__h" style="margin-bottom:8px">החלטות ומפרט<span class="tag">§3–§5</span></p>
+      <div class="notes">
+        <details open>
+          <summary>החלטות פתוחות (§4)</summary>
+          <ul>
+            <li><b>השוואת שירותים:</b> 3 כרטיסים ברוחב מלא, אקטיבי עם מסגרת טרהקוטה. גלילה אופקית כחלופה.</li>
+            <li><b>גריד חנות:</b> 2 טורים — שומר על «קניוּת» וסריקה מהירה.</li>
+            <li><b>המלצות:</b> סטאק טור אחד (קריאוּת + נגישות).</li>
+            <li><b>ציר זמן (אודות):</b> אנכי, תא מתחת תא.</li>
+            <li><b>זיכרון מוקש:</b> דיסקה עגולה + ציטוט, ריווח מכבד.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>תבנית הניווט (§3)</summary>
+          <ul>
+            <li><b>סגור:</b> מותג מימין; משמאל ☰ · שמע · EN — כולם ≥44px.</li>
+            <li><b>פתוח:</b> side-sheet ‎min(86vw,360px), scrim, X, מלכודת פוקוס, Esc, הקשה בחוץ.</li>
+            <li><b>תתי־תפריט:</b> אקורדיון inline, caret מסתובב, <code>aria-expanded</code>.</li>
+            <li><b>EN:</b> אותה מגירה ב־LTR, תפריט אנגלי + פיל «עברית».</li>
+          </ul>
+        </details>
+        <details>
+          <summary>נקודות שבירה (§2)</summary>
+          <ul>
+            <li><b>≤1023:</b> פריסות תוכן מתכווצות (גרידים 4→2).</li>
+            <li><b>≤767:</b> המגירה נכנסת; הבר מציג ☰·שמע·EN, קישורי דסקטופ מוסתרים.</li>
+            <li><b>≤639:</b> ריווח מקטעים מתהדק, כותרות 1.4rem, CTA ברוחב מלא.</li>
+            <li>ללא גלילה אופקית בעמוד בכל רוחב (logical props, max-inline 100%).</li>
+          </ul>
+        </details>
+        <details>
+          <summary>טוקנים (§5)</summary>
+          <ul><li>אפס טוקנים/אטומים חדשים. כל הכללים = הרכבות של <code>--ea-*</code> קיימים (כולל <code>--ea-nav-height-mob</code>, <code>--ea-z-modal*</code>).</li></ul>
+        </details>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function(){
+  var SCREENS = {
+    home:      "Home - Dashboard (elevated).html",
+    method:    "Method (elevated).html",
+    treatment: "Service - Treatment (elevated).html",
+    about:     "Editorial - About (elevated).html",
+    mokesh:    "Memorial - Mokesh (elevated).html",
+    books:     "Commerce - Books Archive (elevated).html",
+    book:      "Commerce - Book Detail (elevated).html",
+    galleries: "Galleries Catalog (elevated).html",
+    media:     "Media Catalog (elevated).html",
+    en:        "EN - Landing (elevated).html"
+  };
+  var frame = document.getElementById("frame");
+  var LS = "ea-mobile-harness-v1";
+  var state = { screen:"home", side:"end", compare:"", shop:"", testi:"" };
+  try { Object.assign(state, JSON.parse(localStorage.getItem(LS) || "{}")); } catch(e){}
+
+  function save(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
+  function post(msg){ try{ frame.contentWindow.postMessage(Object.assign({ns:"ea-mnav"}, msg), "*"); }catch(e){} }
+
+  function pushAll(){
+    post({cmd:"side", value:state.side});
+    post({cmd:"variant", key:"compare", value:state.compare || null});
+    post({cmd:"variant", key:"shop",    value:state.shop || null});
+    post({cmd:"variant", key:"testi",   value:state.testi || null});
+  }
+
+  // replay settings once the page signals ready (and on load as fallback)
+  window.addEventListener("message", function(e){
+    if(e.data && e.data.ns==="ea-mnav" && e.data.evt==="ready") pushAll();
+  });
+  frame.addEventListener("load", function(){ setTimeout(pushAll, 80); });
+
+  // ---- screen picker ----
+  var pickBtns = Array.prototype.slice.call(document.querySelectorAll(".picker__btn"));
+  function setScreen(s){
+    state.screen = s; save();
+    pickBtns.forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.screen===s)); });
+    if(frame.getAttribute("src") !== SCREENS[s]) frame.setAttribute("src", SCREENS[s]);
+  }
+  pickBtns.forEach(function(b){ b.addEventListener("click", function(){ setScreen(b.dataset.screen); }); });
+
+  // ---- segmented tweaks ----
+  Array.prototype.slice.call(document.querySelectorAll(".seg")).forEach(function(seg){
+    var key = seg.dataset.tweak;
+    seg.querySelectorAll(".seg__btn").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var val = btn.dataset.val;
+        state[key] = val; save();
+        seg.querySelectorAll(".seg__btn").forEach(function(x){ x.setAttribute("aria-pressed", String(x===btn)); });
+        if(key==="side") post({cmd:"side", value:val});
+        else post({cmd:"variant", key:key, value: val || null});
+      });
+    });
+  });
+
+  // ---- open-menu button ----
+  document.getElementById("openmenu").addEventListener("click", function(){ post({cmd:"open"}); });
+
+  // ---- reflect persisted state into the UI ----
+  function syncUI(){
+    pickBtns.forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.screen===state.screen)); });
+    Array.prototype.slice.call(document.querySelectorAll(".seg")).forEach(function(seg){
+      var key = seg.dataset.tweak;
+      seg.querySelectorAll(".seg__btn").forEach(function(x){ x.setAttribute("aria-pressed", String((x.dataset.val||"")===(state[key]||""))); });
+    });
+  }
+
+  // ---- clock ----
+  function tick(){
+    var d = new Date();
+    document.getElementById("sbtime").textContent =
+      d.getHours().toString().padStart(2,"0") + ":" + d.getMinutes().toString().padStart(2,"0");
+  }
+
+  // boot
+  syncUI();
+  if(SCREENS[state.screen]) frame.setAttribute("src", SCREENS[state.screen]);
+  tick(); setInterval(tick, 30000);
+})();
+</script>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#211d1a"/>
+  <rect x="38" y="22" width="24" height="56" rx="6" fill="none" stroke="#A44E2B" stroke-width="2.5"/>
+  <line x1="44" y1="31" x2="56" y2="31" stroke="#D8C7B5" stroke-width="2"/>
+  <circle cx="50" cy="70" r="2" fill="#D8C7B5"/>
+</svg>
+</template>
+</body>
+</html>

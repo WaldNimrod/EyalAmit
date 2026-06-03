@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>וכתבת — מוזה הוצאה לאור | WP-W2-10-E elevation</title>
+<!--
+  S1.5 ELEVATION — WP-W2-10-E (Commerce), DETAIL archetype, route /books/vekatavta.
+  team_35. 2026-06-02. Precision pass on S1 commerce-book-detail.html.
+  D-14 tokens + .ea-* atoms verbatim. AC-E2: zero new tokens/atoms.
+  Elevation vs S1: real cover image floated into hero (was gradient-only), meta row
+  (pages/edition/year), excerpt open by default for taste, gallery keeps graceful gap.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+  --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+  --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+  --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+  --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+  --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+  --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+  --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+  --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+  --ea-space-12:96px; --ea-space-15:120px;
+  --ea-prose-width:960px; --ea-gutter:24px; --ea-section-padding:var(--ea-space-15);
+  --ea-nav-height:64px; --ea-radius-pill:100px; --ea-radius-img:4px;
+  --ea-z-sticky:20; --ea-z-tooltip:70;
+  --ea-ease-enter:cubic-bezier(0.22,1,0.36,1); --ea-dur-fast:150ms; --ea-dur-mid:300ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-size:.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img)}
+.ea-skiplink:focus{top:0}
+.ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ea-topnav__brand{font-weight:200;font-size:.9rem;color:#fff;text-decoration:none;letter-spacing:.5px}
+.ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center}
+.ea-topnav__link{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.8);text-decoration:none}
+.ea-topnav__link[aria-current="page"]{color:#fff}.ea-topnav__link:hover{color:#fff}
+@media(max-width:767px){.ea-topnav__links{display:none}}
+.ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-size:.78rem;font-weight:300;letter-spacing:.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast)}
+.ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff}
+.ea-cta-pill--ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,0.6)}
+.ea-cta-pill--secondary{background:var(--ea-olive);color:var(--ea-on-dark)}
+.ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,0.25)}
+@media(max-width:639px){.ea-cta-pill{width:100%;min-width:0}}
+/* book hero — elevation: real cover floated in */
+.ea-book-hero{position:relative;min-height:60vh;display:flex;align-items:flex-end;background:linear-gradient(135deg,var(--ea-earth) 0%,var(--ea-chocolate) 55%,var(--ea-ink) 100%);overflow:hidden}
+.ea-book-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(46,43,40,0.78) 0%,rgba(46,43,40,0.30) 60%,rgba(46,43,40,0.10) 100%)}
+.ea-book-hero__content{position:relative;z-index:1;width:100%;max-width:var(--ea-prose-width);margin-inline:auto;padding:var(--ea-space-6) var(--ea-gutter) var(--ea-space-10);display:grid;grid-template-columns:1fr 220px;gap:var(--ea-space-8);align-items:end}
+@media(max-width:767px){.ea-book-hero__content{grid-template-columns:1fr}}
+.ea-book-hero__back{display:inline-block;color:rgba(250,248,245,0.65);font-size:.78rem;font-weight:300;text-decoration:none;margin-bottom:var(--ea-space-2)}
+.ea-book-hero__back:hover{color:var(--ea-on-dark)}
+.ea-book-hero__kicker{font-weight:200;font-size:.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-sand);margin:0 0 var(--ea-space-2) 0}
+.ea-book-hero__title{font-weight:200;font-size:3rem;line-height:1.12;letter-spacing:-.5px;color:var(--ea-on-dark);margin:0 0 var(--ea-space-3) 0}
+.ea-book-hero__subtitle{font-weight:300;font-size:1.05rem;line-height:1.7;color:rgba(250,248,245,0.88);margin:0 0 var(--ea-space-2) 0;max-width:48ch}
+.ea-book-hero__cta-wrap{margin-top:var(--ea-space-4);display:flex;gap:var(--ea-space-2);flex-wrap:wrap}
+.ea-book-hero__cover{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--ea-radius-img);border:1px solid rgba(255,255,255,0.2);box-shadow:0 24px 48px -24px rgba(0,0,0,0.6)}
+/* meta strip */
+.ea-metastrip{background:var(--ea-bg-alt);border-bottom:1px solid var(--ea-line)}
+.ea-metastrip__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:flex;flex-wrap:wrap;gap:var(--ea-space-8);padding:var(--ea-space-4) var(--ea-gutter)}
+.ea-metastrip__k{font-weight:200;font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ea-muted);margin:0 0 4px 0}
+.ea-metastrip__v{font-weight:300;font-size:1rem;color:var(--ea-ink);margin:0}
+/* sections */
+.ea-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+.ea-section--alt{background:var(--ea-bg-alt)}
+.ea-section--cta{background:var(--ea-bg-alt);text-align:center}
+.ea-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-section__inner--center{text-align:center}
+.ea-section__label{font-weight:200;font-size:.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+.ea-section__heading{font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-4) 0}
+.ea-book-prose p{font-weight:300;font-size:.95rem;line-height:1.9;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0}
+.ea-book-prose>*:last-child{margin-bottom:0}
+.ea-book-prose strong{font-weight:500;color:var(--ea-chocolate)}
+.ea-book-prose--preserve{max-width:60ch}
+.ea-book-prose--preserve p{white-space:normal}
+/* excerpt */
+.ea-book-excerpt{border:1px solid var(--ea-line);border-radius:var(--ea-radius-img);background:var(--ea-bg)}
+.ea-book-excerpt__toggle{display:block;padding:var(--ea-space-3);cursor:pointer;font-weight:400;font-size:.92rem;color:var(--ea-terracotta);list-style:none}
+.ea-book-excerpt__toggle::-webkit-details-marker{display:none}
+.ea-book-excerpt[open] .ea-book-excerpt__toggle{border-bottom:1px solid var(--ea-line)}
+.ea-book-excerpt__body{padding:var(--ea-space-4) var(--ea-space-3)}
+/* faq */
+.ea-faq-item{border-top:1px solid var(--ea-line)}
+.ea-faq-item__question{padding:var(--ea-space-4) 0;cursor:pointer;list-style:none;font-size:1rem;font-weight:400;color:var(--ea-ink)}
+.ea-faq-item__question::-webkit-details-marker{display:none}
+.ea-faq-item__answer p{font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-text-body);padding-bottom:var(--ea-space-4);margin:0}
+/* gallery */
+.ea-book-gallery__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ea-line)}
+.ea-book-gallery__item{aspect-ratio:4/3;background:var(--ea-bg-alt);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ea-book-gallery__item img{width:100%;height:100%;object-fit:cover}
+.ea-book-gallery__item:first-child{grid-column:1 / -1;aspect-ratio:16/7}
+.ea-book-gallery__text{font-size:.72rem;font-weight:300;color:var(--ea-muted);text-align:center;padding:var(--ea-space-2)}
+.ea-book-gallery__note{font-size:.72rem;font-weight:300;color:var(--ea-muted);margin:var(--ea-space-2) 0 0 0}
+@media(max-width:799px){.ea-book-gallery__grid{grid-template-columns:repeat(2,1fr)}}
+.ea-book-midcta__text{font-weight:300;font-size:1.05rem;color:var(--ea-text-body);margin:0 0 var(--ea-space-3) 0}
+.ea-book-purchase-cta{margin-top:var(--ea-space-4);display:flex;gap:var(--ea-space-2);flex-wrap:wrap}
+.ea-section--cta .ea-book-purchase-cta{justify-content:center}
+/* footer */
+.ea-footer{background:var(--ea-ink);color:rgba(255,255,255,0.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8)}
+.ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+.ea-footer__brand{font-weight:200;font-size:1.2rem;color:rgba(255,255,255,0.9);margin:0 0 var(--ea-space-2) 0}
+.ea-footer__tagline{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.5);margin:0 0 var(--ea-space-5) 0}
+.ea-footer__copy{font-weight:300;font-size:.78rem;color:rgba(255,255,255,0.78);margin:0}
+@media(max-width:799px){.ea-book-hero__title{font-size:2.1rem}.ea-book-hero{min-height:46vh}.ea-section__heading{font-size:1.6rem}}
+@media(max-width:639px){.ea-section{padding:var(--ea-space-10) var(--ea-space-3)}}
+</style>
+<!-- WP-W2-10 mobile drawer (team_35) — additive; desktop (>767px) unchanged -->
+<link rel="stylesheet" href="assets/ea-mobile-nav.css">
+<link rel="stylesheet" href="assets/ea-mobile-variants.css">
+<script src="assets/ea-mobile-nav.js" defer></script>
+</head>
+<body>
+<a class="ea-skiplink" href="#main">דלג לתוכן</a>
+
+<nav class="ea-topnav" aria-label="ניווט ראשי">
+  <a class="ea-topnav__brand" href="/">אייל עמית</a>
+  <ul class="ea-topnav__links" role="list">
+    <li><a class="ea-topnav__link" href="/treatment/">טיפול</a></li>
+    <li><a class="ea-topnav__link" href="/method/">השיטה</a></li>
+    <li><a class="ea-topnav__link" href="Commerce - Books Archive (elevated).html" aria-current="page">ספרים</a></li>
+    <li><a class="ea-topnav__link" href="/shop/">חנות</a></li>
+    <li><a class="ea-topnav__link" href="/contact/">צור קשר</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+  <!-- HERO — elevation: real cover floated in + kicker -->
+  <section class="ea-book-hero" aria-label="וכתבת">
+    <div class="ea-book-hero__overlay" aria-hidden="true"></div>
+    <div class="ea-book-hero__content">
+      <div>
+        <a class="ea-book-hero__back" href="Commerce - Books Archive (elevated).html">← מוזה הוצאה לאור</a>
+        <p class="ea-book-hero__kicker">סיפורים אמיתיים · ספוקן סטוריז · 2017</p>
+        <h1 class="ea-book-hero__title">וכתבת</h1>
+        <p class="ea-book-hero__subtitle">46 סיפורים אמיתיים מחייו של אייל עמית — אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.</p>
+        <div class="ea-book-hero__cta-wrap">
+          <a class="ea-cta-pill ea-cta-pill--primary" href="https://www.mendele.co.il/product/vekatavta/" rel="noopener noreferrer" target="_blank">לרכישת הספר · 79 ₪</a>
+        </div>
+      </div>
+      <img class="ea-book-hero__cover" src="assets/covers/vekatavt-cover.jpg" alt="כריכת הספר וכתבת">
+    </div>
+  </section>
+
+  <!-- meta -->
+  <div class="ea-metastrip">
+    <div class="ea-metastrip__inner">
+      <div><p class="ea-metastrip__k">מחבר</p><p class="ea-metastrip__v">אייל עמית</p></div>
+      <div><p class="ea-metastrip__k">עמודים</p><p class="ea-metastrip__v">252</p></div>
+      <div><p class="ea-metastrip__k">סיפורים</p><p class="ea-metastrip__v">46</p></div>
+      <div><p class="ea-metastrip__k">יצא לאור</p><p class="ea-metastrip__v">2017</p></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <section class="ea-section" aria-label="תקציר הספר">
+    <div class="ea-section__inner">
+      <p class="ea-section__label">תקציר</p>
+      <h2 class="ea-section__heading">על מה הספר</h2>
+      <div class="ea-book-prose">
+        <p><strong>ספר אישי מאוד, חי מאוד, ומלא קול.</strong></p>
+        <p><strong>וכתבת</strong> מאגד 46 סיפורים אמיתיים מחייו של אייל עמית — על אהבה, זוגיות, הורות, קריירה, מסעות, בריאות, כסף, אומץ, אובדן, שינוי וצמיחה. הספר נע בין רגעים מצחיקים, מפתיעים, כואבים ומעוררי השראה.</p>
+        <p>מה שמייחד אותו הוא לא רק מה מסופר בו, אלא איך. זהו ספר בסגנון <strong>ספוקן סטוריז</strong> — ז׳אנר שאייל פיתח. הקול כאן ישיר, אנושי, חד, ותמיד כזה שמרגיש קרוב.</p>
+        <p>ייחודי במיוחד הוא אלמנט <strong>סריקת ה-QR</strong>: בסיום כל סיפור יש קוד ייחודי, שמוביל לעמוד נסתר באתר עם המשך לסיפור, וידאו או תמונה.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXCERPT — elevation: open by default for taste -->
+  <section class="ea-section ea-section--alt" aria-label="קטע מתוך הספר">
+    <div class="ea-section__inner">
+      <details class="ea-book-excerpt" open>
+        <summary class="ea-book-excerpt__toggle">קטע מתוך הספר — לקריאה</summary>
+        <div class="ea-book-excerpt__body ea-book-prose ea-book-prose--preserve">
+          <p>10 דברים שלא ידעתם עלי: 1. את ענת הכרתי על החוף בסיני. היא סטודנטית בטכניון ואני חייל בצבא קבע. כן, ב-1998 זה היה עוד אפשרי. בילינו מלא על החוף, אבל רק אחרי שהקאתי עליה, על כל הגוף שלה, ורק אחרי שסיפרתי לה את הסוד הגדול והנורא בחיי, הבנתי שאני מאוהב בה עד העצמות ושהיא האישה של חיי.</p>
+          <p>2. הפעם הראשונה בחיי שעליתי על מטוס היתה בגיל 24. הטיול הגדול אחרי הצבא לדרום אמריקה. כששאלתי את הדיילת של בריטיש איירווייס כמה עולה קולה, היא חייכה אלי כמו אל סתום ואמרה לי שזה בסדר. סתום אכן הייתי.</p>
+          <p>3. בברזיל, ריו דה ג׳נירו, חוף קופה קבאנה, באוטובוס ציבורי מלא באנשים, כנופיית שודדים הצמידה לי אקדח לתוך הראש. זו היתה הפעם הראשונה אך בהחלט לא האחרונה שפגשתי את המוות ממרחק כזה.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ABOUT BOOK -->
+  <section class="ea-section" aria-label="על הספר">
+    <div class="ea-section__inner">
+      <p class="ea-section__label">רקע</p>
+      <h2 class="ea-section__heading">איך נולד הספר</h2>
+      <div class="ea-book-prose">
+        <p>אייל עמית הוא סופר, בלוגר, מוציא לאור ומספר סיפורים — ובמקביל מורה ומטפל לנשימה באמצעות דיג׳רידו, שחוקר למעלה משני עשורים את הקשר בין נשימה, גוף ותודעה.</p>
+        <p>״וכתבת״ הוא הספר השלישי שלו. אל הספר לוקטו הפוסטים החזקים ביותר מתוך הבלוג שאייל כתב במשך שנתיים, ומתוך אותם סיפורים גם נולד מופע הסיפורים ״עכשיו!!! תופעת יחיד״.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="ea-section ea-section--alt" aria-label="גלריה">
+    <div class="ea-section__inner">
+      <p class="ea-section__label">גלריה</p>
+      <h2 class="ea-section__heading">מהעולם של הספר</h2>
+      <div class="ea-book-gallery">
+        <div class="ea-book-gallery__grid">
+          <div class="ea-book-gallery__item"><img src="assets/gallery/kushi-02-eyal-italy.jpg" alt="אייל בדרכים"></div>
+          <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+          <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+          <div class="ea-book-gallery__item"><span class="ea-book-gallery__text">[תמונה — נדרש מאייל]</span></div>
+        </div>
+        <p class="ea-book-gallery__note">תמונות פנים וכריכה אחורית יתווספו עם מסירת הנכסים מאייל. הפלייסהולדרים נשמרים ביחס תצוגה זהה ל-swap ישיר.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="ea-section" aria-label="למי הספר מתאים">
+    <div class="ea-section__inner">
+      <p class="ea-section__label">למי זה מתאים</p>
+      <h2 class="ea-section__heading">למי הספר מדבר</h2>
+      <div class="ea-book-prose">
+        <p>למי שאוהב סיפורים אמיתיים. למי שמחפש משהו לקרוא שירגיש קרוב, אנושי, לא מתאמץ. למי שעובר תקופה של שינוי, או מחפש פרספקטיבה אחרת על החיים.</p>
+        <p>זה גם ספר מצוין לטיסות ולחופשות — כל סיפור עומד בפני עצמו, ואפשר לקרוא בקצב שלך.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- mid CTA -->
+  <section class="ea-section ea-section--cta" aria-label="קריאה לפעולה">
+    <div class="ea-section__inner ea-section__inner--center">
+      <p class="ea-book-midcta__text">רוצה להתחיל לקרוא כבר עכשיו?</p>
+      <div class="ea-book-purchase-cta">
+        <a class="ea-cta-pill ea-cta-pill--primary" href="https://www.mendele.co.il/product/vekatavta/" rel="noopener noreferrer" target="_blank">לרכישת הספר המודפס</a>
+        <a class="ea-cta-pill ea-cta-pill--secondary" href="https://www.mendele.co.il/product/vekatavta/" rel="noopener noreferrer" target="_blank">ספר אלקטרוני</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ea-section" aria-label="שאלות ותשובות">
+    <div class="ea-section__inner">
+      <p class="ea-section__label">שאלות ותשובות</p>
+      <h2 class="ea-section__heading">לפני שקונים</h2>
+      <details class="ea-faq-item"><summary class="ea-faq-item__question">האם צריך לקרוא את הספר ברצף?</summary><div class="ea-faq-item__answer"><p>לא. הספר בנוי מסיפורים קצרים, וכל סיפור עומד בפני עצמו. אפשר לפתוח בכל עמוד.</p></div></details>
+      <details class="ea-faq-item"><summary class="ea-faq-item__question">כמה סיפורים יש בספר?</summary><div class="ea-faq-item__answer"><p>46 סיפורים קצרים, על פני 252 עמודים.</p></div></details>
+      <details class="ea-faq-item"><summary class="ea-faq-item__question">מה זה ספוקן סטוריז?</summary><div class="ea-faq-item__answer"><p>סגנון כתיבה שבו הסיפור מרגיש כאילו הוא מסופר בעל פה. הקריאה זורמת, ישירה ואישית.</p></div></details>
+      <details class="ea-faq-item"><summary class="ea-faq-item__question">יש גם תוכן נוסף מעבר לספר?</summary><div class="ea-faq-item__answer"><p>כן. בסיום כל סיפור יש קוד QR שמוביל להמשך, וידאו או תוכן נוסף.</p></div></details>
+    </div>
+  </section>
+
+  <!-- closing -->
+  <section class="ea-section ea-section--alt" aria-label="סגירה">
+    <div class="ea-section__inner ea-section__inner--center">
+      <div class="ea-book-prose">
+        <p>אם הגעת עד כאן, כנראה שמשהו מתוך הסיפורים כבר נגע בך. ״וכתבת״ הוא לא ספר שקוראים ושוכחים, אלא כזה שנשאר איתך גם אחרי שסוגרים אותו.</p>
+      </div>
+      <div class="ea-book-purchase-cta" style="justify-content:center">
+        <a class="ea-cta-pill ea-cta-pill--primary" href="https://www.mendele.co.il/product/vekatavta/" rel="noopener noreferrer" target="_blank">לרכישת הספר</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ea-footer">
+  <div class="ea-footer__inner">
+    <p class="ea-footer__brand">אייל עמית</p>
+    <p class="ea-footer__tagline">מוזה הוצאה לאור · דיג׳רידו ונשימה · פרדס חנה</p>
+    <p class="ea-footer__copy">&copy; 2026 אייל עמית · כל הזכויות שמורות</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>טיפול בדיג׳רידו — אייל עמית | WP-W2-10-A elevation</title>
+  <!--
+    S1.5 ELEVATION — WP-W2-10-A (Service cluster), PRIMARY route /treatment.
+    team_35 (Design Studio). 2026-06-02. Precision pass on S1 service-treatment.html.
+    Tokens: D-14 ea-tokens.css verbatim. Atoms: .ea-* reused verbatim. AC-E2: zero new tokens/atoms.
+    Elevation moves vs S1 (see elevation-notes): hero kicker + breath rhythm, cbDIDG method
+    steps (reusing .ea-pillar atoms), "who it's for" promoted above the fold flow, proof band,
+    deliberate section pacing via --ea-space scale. No new atoms/tokens invented.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ====== D-14 TOKENS — verbatim from ea-tokens.css ====== */
+    :root{
+      --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+      --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+      --ea-accent:var(--ea-terracotta); --ea-accent-strong:var(--ea-brick);
+      --ea-text:var(--ea-ink); --ea-text-body:#5A3826; --ea-text-muted:var(--ea-text-body);
+      --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-on-dark:#FFFFFF;
+      --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+      --ea-font:'Heebo',-apple-system,Arial,sans-serif;
+      --ea-space-1:8px; --ea-space-2:16px; --ea-space-3:24px; --ea-space-4:32px;
+      --ea-space-5:40px; --ea-space-6:48px; --ea-space-8:64px; --ea-space-10:80px;
+      --ea-space-12:96px; --ea-space-15:120px;
+      --ea-content-width:1200px; --ea-prose-width:960px; --ea-gutter:24px;
+      --ea-section-padding:var(--ea-space-15);
+      --ea-nav-height:64px; --ea-nav-height-mob:56px;
+      --ea-radius-pill:100px; --ea-radius-img:4px;
+      --ea-z-sticky:20; --ea-z-toast:60; --ea-z-tooltip:70;
+      --ea-ease-enter:cubic-bezier(0.22,1,0.36,1);
+      --ea-dur-fast:150ms; --ea-dur-mid:300ms; --ea-dur-slow:600ms;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--ea-font);font-weight:300;background:var(--ea-bg);color:var(--ea-ink);direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+
+    .ea-skiplink{position:absolute;top:-40px;right:0;background:var(--ea-terracotta);color:#fff;padding:8px 16px;font-family:var(--ea-font);font-size:.9rem;text-decoration:none;z-index:calc(var(--ea-z-tooltip) + 10);border-radius:0 0 var(--ea-radius-img) var(--ea-radius-img);transition:top var(--ea-dur-fast)}
+    .ea-skiplink:focus{top:0}
+    .ea-link{position:relative;text-decoration:none;color:var(--ea-terracotta)}
+
+    /* atom-nav-topnav */
+    .ea-topnav{position:fixed;top:0;right:0;left:0;height:var(--ea-nav-height);z-index:var(--ea-z-sticky);display:flex;align-items:center;justify-content:space-between;padding:0 var(--ea-space-4);background:rgba(46,43,40,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    .ea-topnav__brand{font-family:var(--ea-font);font-weight:200;font-size:.9rem;color:#fff;text-decoration:none;letter-spacing:.5px}
+    .ea-topnav__links{display:flex;gap:var(--ea-space-4);list-style:none;margin:0;padding:0;align-items:center}
+    .ea-topnav__link{font-family:var(--ea-font);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.8);text-decoration:none;position:relative;transition:color var(--ea-dur-fast)}
+    .ea-topnav__link::after{content:'';position:absolute;bottom:-2px;left:50%;right:50%;height:1px;background:var(--ea-sand);transition:left var(--ea-dur-mid) var(--ea-ease-enter),right var(--ea-dur-mid) var(--ea-ease-enter)}
+    .ea-topnav__link:hover{color:#fff}
+    .ea-topnav__link:hover::after,.ea-topnav__link[aria-current="page"]::after{left:0;right:0}
+    .ea-topnav__link[aria-current="page"]{color:#fff}
+    .ea-topnav__controls{display:flex;gap:var(--ea-space-2);align-items:center}
+    .ea-sound-toggle{background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:var(--ea-radius-pill);padding:6px 14px;font-family:var(--ea-font);font-size:.68rem;font-weight:300;color:rgba(255,255,255,.92);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+    .ea-topnav__burger{display:none;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:var(--ea-radius-img);padding:6px 10px;color:rgba(255,255,255,.8);cursor:pointer;font-size:1rem}
+    @media (max-width:767px){.ea-topnav__links{display:none}.ea-topnav__burger{display:block}}
+
+    /* atom-structure-hero-video (placeholder gradient) — elevation: kicker + tighter content rhythm */
+    .ea-hero{position:relative;width:100%;min-height:640px;height:88vh;overflow:hidden;background:var(--ea-ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .ea-hero__bg{position:absolute;inset:0}
+    .ea-hero__gradient-bg{width:100%;height:100%;background:linear-gradient(160deg,#1a1714 0%,#2E2B28 30%,#3d2e26 60%,#1a1714 100%)}
+    .ea-hero__overlay{position:absolute;inset:0;background:rgba(46,43,40,.35);pointer-events:none}
+    .ea-hero__breath-line{position:absolute;inset-inline-start:10%;inset-inline-end:10%;height:1px;background:rgba(216,199,181,.4)}
+    .ea-hero__breath-line--1{top:38%}.ea-hero__breath-line--2{top:62%}.ea-hero__breath-line--3{top:22%}
+    .ea-hero__content{position:relative;z-index:2;text-align:right;padding:0 var(--ea-space-4);max-width:var(--ea-prose-width);width:100%}
+    .ea-hero__kicker{font-family:var(--ea-font);font-weight:200;font-size:.58rem;line-height:1.4;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-sand);margin:0 0 var(--ea-space-3) 0}
+    .ea-hero__title{font-family:var(--ea-font);font-weight:100;font-size:3.4rem;line-height:1.12;letter-spacing:-.5px;color:#fff;text-shadow:0 1px 12px rgba(46,43,40,.5);margin:0 0 var(--ea-space-3) 0}
+    .ea-hero__subtitle{color:rgba(255,255,255,.85);font-size:1.05rem;font-weight:300;line-height:1.9;margin:0 0 var(--ea-space-3) 0;max-width:54ch}
+    .ea-hero__trust{color:rgba(255,255,255,.6);font-size:.78rem;font-weight:200;letter-spacing:.2px;margin:0 0 var(--ea-space-6) 0}
+    .ea-hero__cta-wrap{display:flex;gap:var(--ea-space-2);flex-wrap:wrap}
+    @media (max-width:1023px){.ea-hero__title{font-size:2.4rem}}
+    @media (max-width:639px){.ea-hero__title{font-size:1.8rem;text-shadow:0 1px 8px rgba(46,43,40,.7)}.ea-hero__subtitle{font-size:.92rem}}
+
+    /* atom-feedback-cta-pill */
+    .ea-cta-pill{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:14px 32px;border-radius:var(--ea-radius-pill);border:1px solid transparent;font-family:var(--ea-font);font-size:.78rem;font-weight:300;letter-spacing:.2px;text-decoration:none;cursor:pointer;text-align:center;transition:transform var(--ea-dur-fast),box-shadow var(--ea-dur-fast)}
+    .ea-cta-pill--primary{background:var(--ea-terracotta);color:#fff}
+    .ea-cta-pill--ghost{background:transparent;color:var(--ea-terracotta);border-color:var(--ea-terracotta)}
+    .ea-cta-pill--ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+    .ea-cta-pill:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(164,78,43,.25)}
+    @media (max-width:639px){.ea-cta-pill{width:100%;min-width:0}}
+
+    /* atom-structure-breath-divider */
+    .ea-breath-divider{display:flex;align-items:center;justify-content:center;padding:var(--ea-space-5) 0}
+    .ea-breath-divider__line{display:block;width:100%;max-width:var(--ea-prose-width);height:1px;background:var(--ea-line)}
+
+    /* atom-structure-section-intro */
+    .ea-section-intro{padding:var(--ea-section-padding) var(--ea-gutter)}
+    .ea-section-intro__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-section-intro__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+    .ea-section-intro__body{font-family:var(--ea-font);font-weight:300;font-size:1.05rem;line-height:1.9;color:var(--ea-text-body);max-width:65ch}
+    .ea-section-intro__body p{margin:0 0 var(--ea-space-3) 0}
+
+    /* atom-structure-content-section + pillars (reused for cbDIDG steps + who) */
+    .ea-content-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+    .ea-content-section--alt{background:var(--ea-bg-alt)}
+    .ea-content-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-content-section__label{font-family:var(--ea-font);font-weight:200;font-size:.58rem;line-height:1.4;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+    .ea-content-section__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;letter-spacing:-.3px;color:var(--ea-ink);margin:0 0 var(--ea-space-5) 0}
+    .ea-content-section__body p{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-earth);margin:0 0 var(--ea-space-3) 0;max-width:75ch}
+    .ea-pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--ea-space-5);margin-top:var(--ea-space-5)}
+    @media (max-width:639px){.ea-pillars-grid{grid-template-columns:1fr}}
+    .ea-pillars-grid--steps{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:1023px){.ea-pillars-grid--steps{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:639px){.ea-pillars-grid--steps{grid-template-columns:1fr}}
+    .ea-pillar{background:var(--ea-bg);border-top:1px solid var(--ea-line);padding:var(--ea-space-4)}
+    .ea-content-section--alt .ea-pillar{background:var(--ea-bg-alt)}
+    .ea-pillar__label{font-family:var(--ea-font);font-weight:200;font-size:.58rem;line-height:1.4;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin:0 0 var(--ea-space-2) 0}
+    .ea-pillar__title{font-family:var(--ea-font);font-weight:400;font-size:.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-2) 0}
+    .ea-pillar__text{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-earth);margin:0}
+
+    /* atom-content-bio-block */
+    .ea-bio-block{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+    .ea-bio-block__inner{max-width:var(--ea-prose-width);margin-inline:auto;display:grid;grid-template-columns:1fr 320px;gap:var(--ea-space-8);align-items:start}
+    .ea-bio-block__content{order:1}.ea-bio-block__figure{order:2;margin:0}
+    @media (max-width:767px){.ea-bio-block__inner{grid-template-columns:1fr}.ea-bio-block__figure{order:1}.ea-bio-block__content{order:2}}
+    .ea-bio-block__portrait{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--ea-radius-img);display:block;background:var(--ea-sand)}
+    .ea-bio-block__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-3) 0}
+    .ea-bio-block__text{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-text-body);margin:0 0 var(--ea-space-4) 0}
+
+    /* service-comparison */
+    .ea-service-comparison{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+    .ea-service-comparison__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-service-comparison__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-6) 0}
+    .ea-service-comparison__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--ea-line)}
+    @media (max-width:639px){.ea-service-comparison__grid{grid-template-columns:1fr}}
+    .ea-service-comparison__col{background:var(--ea-bg);padding:var(--ea-space-8)}
+    .ea-service-comparison__col--active{background:var(--ea-bg-alt)}
+    .ea-service-comparison__col-title{font-family:var(--ea-font);font-weight:400;font-size:.92rem;line-height:1.4;color:var(--ea-ink);margin:0 0 var(--ea-space-4) 0}
+    .ea-service-comparison__col p{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-earth);margin:0}
+    .ea-service-comparison__tag{display:inline-block;font-family:var(--ea-font);font-weight:200;font-size:.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--ea-terracotta);margin-bottom:var(--ea-space-2)}
+
+    /* testimonials */
+    .ea-testimonials-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg-alt)}
+    .ea-testimonials-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-testimonials-section__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-6) 0}
+    .ea-testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ea-space-4)}
+    @media (max-width:1023px){.ea-testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:639px){.ea-testimonials-grid{grid-template-columns:1fr}}
+    .ea-testimonial-card{background:var(--ea-bg);border-top:1px solid var(--ea-line);padding:var(--ea-space-5);display:flex;gap:var(--ea-space-3);align-items:flex-start}
+    .ea-testimonial-card__avatar-placeholder{width:48px;height:48px;border-radius:50%;background:var(--ea-sand);display:block;flex-shrink:0}
+    .ea-testimonial-card__quote{margin:0;flex:1}
+    .ea-testimonial-card__text{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-earth);margin:0 0 var(--ea-space-2) 0;font-style:italic}
+    .ea-testimonial-card__name{font-size:.78rem;font-weight:300;color:var(--ea-terracotta);font-style:normal}
+    .ea-testimonials-section__footer{margin-top:var(--ea-space-6);text-align:center}
+
+    /* faq-mini */
+    .ea-faq-mini-section{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-bg)}
+    .ea-faq-mini-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-faq-mini-section__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;color:var(--ea-ink);margin:0 0 var(--ea-space-5) 0}
+    .ea-faq-item{border-top:1px solid var(--ea-line)}
+    .ea-faq-item__summary{display:flex;justify-content:space-between;align-items:center;padding:var(--ea-space-4) 0;cursor:pointer;list-style:none;gap:var(--ea-space-3)}
+    .ea-faq-item__summary::-webkit-details-marker{display:none}
+    .ea-faq-item__question{font-family:var(--ea-font);font-size:1rem;font-weight:400;color:var(--ea-ink);margin:0;text-align:right}
+    .ea-faq-item__icon{flex-shrink:0;color:var(--ea-terracotta);transition:transform var(--ea-dur-mid) var(--ea-ease-enter)}
+    .ea-faq-item__details[open] .ea-faq-item__icon{transform:rotate(180deg)}
+    .ea-faq-item__answer p{font-family:var(--ea-font);font-weight:300;font-size:.9rem;line-height:1.85;color:var(--ea-earth);padding-bottom:var(--ea-space-4);margin:0}
+    .ea-faq-mini-section__footer{text-align:right;margin-top:var(--ea-space-4)}
+
+    /* disclaimer */
+    .ea-disclaimer{padding:var(--ea-space-6) var(--ea-gutter);background:var(--ea-bg-alt)}
+    .ea-disclaimer__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-disclaimer__text{font-family:var(--ea-font);font-weight:300;font-size:.78rem;line-height:1.6;color:var(--ea-muted);margin:0;text-align:start}
+
+    /* cta band */
+    .ea-section--cta{padding:var(--ea-section-padding) var(--ea-gutter);background:var(--ea-ink);text-align:center}
+    .ea-section--cta .ea-section__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-section--cta .ea-section__heading{font-family:var(--ea-font);font-weight:200;font-size:2rem;line-height:1.2;color:#fff;margin:0 0 var(--ea-space-4) 0}
+    .ea-section--cta .ea-section__body{font-family:var(--ea-font);font-weight:300;font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,.8);margin:0 auto var(--ea-space-6);max-width:60ch}
+
+    /* footer */
+    .ea-footer{background:var(--ea-ink);color:rgba(255,255,255,.7);padding:var(--ea-space-10) var(--ea-gutter) var(--ea-space-8)}
+    .ea-footer__inner{max-width:var(--ea-prose-width);margin-inline:auto}
+    .ea-footer__brand{font-family:var(--ea-font);font-weight:200;font-size:1.2rem;color:rgba(255,255,255,.9);margin:0 0 var(--ea-space-2) 0}
+    .ea-footer__tagline{font-family:var(--ea-font);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.5);margin:0 0 var(--ea-space-5) 0}
+    .ea-footer__location{font-family:var(--ea-font);font-weight:400;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.85);margin:0 0 var(--ea-space-6) 0}
+    .ea-footer__nav{display:flex;gap:var(--ea-space-4);flex-wrap:wrap;margin:0 0 var(--ea-space-5) 0;justify-content:flex-end}
+    .ea-footer__nav-link{font-family:var(--ea-font);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.6);text-decoration:none}
+    .ea-footer__nav-link:hover{color:#fff}
+    .ea-footer__copy{font-family:var(--ea-font);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.78);margin:0}
+    .ea-footer__divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:var(--ea-space-5) 0}
+    .ea-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+
+    @media (max-width:639px){
+      .ea-topnav{height:var(--ea-nav-height-mob);padding:0 var(--ea-space-3)}
+      .ea-section-intro,.ea-content-section,.ea-bio-block,.ea-testimonials-section,
+      .ea-faq-mini-section,.ea-service-comparison,.ea-section--cta{padding:var(--ea-space-10) var(--ea-space-3)}
+      .ea-section-intro__heading,.ea-content-section__heading,.ea-bio-block__heading,
+      .ea-testimonials-section__heading,.ea-faq-mini-section__heading,
+      .ea-service-comparison__heading,.ea-section--cta .ea-section__heading{font-size:1.4rem}
+    }
+  </style>
+<!-- WP-W2-10 mobile drawer (team_35) — additive; desktop (>767px) unchanged -->
+<link rel="stylesheet" href="assets/ea-mobile-nav.css">
+<link rel="stylesheet" href="assets/ea-mobile-variants.css">
+<script src="assets/ea-mobile-nav.js" defer></script>
+</head>
+<body class="ea-wave2-service">
+  <a class="ea-skiplink" href="#main">דלג לתוכן הראשי</a>
+
+  <header data-block="topnav">
+    <nav class="ea-topnav" aria-label="ניווט ראשי">
+      <a class="ea-topnav__brand" href="/" aria-label="אייל עמית — דף הבית">אייל עמית</a>
+      <ul class="ea-topnav__links" role="list">
+        <li><a class="ea-topnav__link" href="/">בית</a></li>
+        <li><a class="ea-topnav__link" href="/method">השיטה</a></li>
+        <li><a class="ea-topnav__link" href="/treatment" aria-current="page">טיפול</a></li>
+        <li><a class="ea-topnav__link" href="/sound-healing">סאונד הילינג</a></li>
+        <li><a class="ea-topnav__link" href="/lessons">שיעורים</a></li>
+        <li><a class="ea-topnav__link" href="/books">ספרים</a></li>
+        <li><a class="ea-topnav__link" href="/contact">צור קשר</a></li>
+      </ul>
+      <div class="ea-topnav__controls">
+        <button class="ea-sound-toggle" type="button" aria-label="שמע — הפעל צליל דיג'רידו" aria-pressed="false"><span aria-hidden="true">♪</span><span>שמע</span></button>
+        <button class="ea-topnav__burger" type="button" aria-label="פתח תפריט" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO — elevation: kicker added, CTA pair, breath rhythm -->
+    <section class="ea-hero" data-block="hero">
+      <div class="ea-hero__bg" aria-hidden="true"><div class="ea-hero__gradient-bg"></div></div>
+      <div class="ea-hero__overlay" aria-hidden="true"></div>
+      <span class="ea-hero__breath-line ea-hero__breath-line--1" aria-hidden="true"></span>
+      <span class="ea-hero__breath-line ea-hero__breath-line--2" aria-hidden="true"></span>
+      <span class="ea-hero__breath-line ea-hero__breath-line--3" aria-hidden="true"></span>
+      <div class="ea-hero__content">
+        <p class="ea-hero__kicker">המרכז לטיפול בדיג׳רידו · פרדס חנה</p>
+        <h1 class="ea-hero__title">טיפול בדיג׳רידו</h1>
+        <p class="ea-hero__subtitle">להחזיר שליטה על הנשימה — דרך עבודה אקטיבית עם דיג׳רידו, תרגול נשימה וליווי אישי, בשיטת cbDIDG שפותחה לאורך למעלה משני עשורים.</p>
+        <p class="ea-hero__trust">ליווי אישי אחד-על-אחד · אין צורך בניסיון קודם · שיטה שצמחה מחניכה אצל מוקש דהימן</p>
+        <div class="ea-hero__cta-wrap">
+          <a class="ea-cta-pill ea-cta-pill--primary" href="/contact">לתיאום שיחת היכרות</a>
+          <a class="ea-cta-pill ea-cta-pill--ghost-white" href="#what">מה זה טיפול בדיג׳רידו</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="ea-section-intro" aria-labelledby="intro-h" data-block="intro">
+      <div class="ea-section-intro__inner">
+        <h2 id="intro-h" class="ea-section-intro__heading">משהו בנשימה שלך מבקש תשומת לב</h2>
+        <div class="ea-section-intro__body">
+          <p>הנשימה היא לא פעולה אוטומטית לחלוטין. רוב הזמן היא מתרחשת לבד, בלי שנשים לב.</p>
+          <p>אבל ברגע שמפנים אליה תשומת לב, יש לנו יכולת להשפיע עליה — לשנות עומק, קצב, איכות. לבחור איך לנשום.</p>
+          <p>העבודה במרכז מבוססת על שיטת cbDIDG שפותחה לאורך השנים מתוך ניסיון מעשי, ובהשראת חניכה אישית אצל המאסטר לדיג׳רידו מוקש דהימן.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ea-breath-divider" aria-hidden="true"><span class="ea-breath-divider__line"></span></div>
+
+    <!-- WHAT -->
+    <section class="ea-content-section" id="what" aria-labelledby="what-h" data-block="body-section">
+      <div class="ea-content-section__inner">
+        <p class="ea-content-section__label">מה זה</p>
+        <h2 id="what-h" class="ea-content-section__heading">מה זה טיפול בדיג׳רידו</h2>
+        <div class="ea-content-section__body">
+          <p>טיפול בדיג׳רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הנשימה היומיומית.</p>
+          <p>הדיג׳רידו משמש ככלי עבודה, לא כמטרה. העבודה אינה על הנגינה עצמה, אלא על הדרך שבה אנחנו נושמים.</p>
+          <p>במהלך המפגשים לומדים: איך מערכת הנשימה פועלת בפועל, לזהות דפוסים אוטומטיים, ולפתח שליטה ויכולת ויסות.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD — elevation: cbDIDG as 4 steps using .ea-pillar atoms -->
+    <section class="ea-content-section ea-content-section--alt" aria-labelledby="method-h" data-block="body-section">
+      <div class="ea-content-section__inner">
+        <p class="ea-content-section__label">שיטת cbDIDG</p>
+        <h2 id="method-h" class="ea-content-section__heading">איך עובד התהליך — ארבעה שלבים</h2>
+        <ul class="ea-pillars-grid ea-pillars-grid--steps" role="list">
+          <li class="ea-pillar"><p class="ea-pillar__label">שלב 01</p><p class="ea-pillar__title">אבחון והיכרות</p><p class="ea-pillar__text">מיפוי דפוסי הנשימה הקיימים והבנת נקודת הפתיחה האישית.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">שלב 02</p><p class="ea-pillar__title">תרגול בסיס</p><p class="ea-pillar__text">לימוד עבודה אקטיבית עם הדיג׳רידו ככלי לעבודה עם הנשימה.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">שלב 03</p><p class="ea-pillar__title">שליטה וויסות</p><p class="ea-pillar__text">פיתוח יכולת לזהות דפוסים אוטומטיים ולווסת אותם במודע.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">שלב 04</p><p class="ea-pillar__title">הטמעה בחיים</p><p class="ea-pillar__text">העברת הכלים מהמפגש אל הנשימה היומיומית, מעבר לסטודיו.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHO -->
+    <section class="ea-content-section" aria-labelledby="who-h" data-block="body-section">
+      <div class="ea-content-section__inner">
+        <p class="ea-content-section__label">למי זה מתאים</p>
+        <h2 id="who-h" class="ea-content-section__heading">למי מתאים הטיפול</h2>
+        <ul class="ea-pillars-grid" role="list">
+          <li class="ea-pillar"><p class="ea-pillar__label">מתח כרוני</p><p class="ea-pillar__text">מי שמתמודד עם סטרס כרוני ומחפש דרך מעשית להירגע.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">עומס רגשי</p><p class="ea-pillar__text">מי שחווה מתח, חרדה או עומס רגשי מתמשך.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">נשימה בשינה</p><p class="ea-pillar__text">מי שסובל מנחירות או דום נשימה בשינה.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">נשימה מדויקת</p><p class="ea-pillar__text">מי שרוצה ללמוד לנשום בצורה מדויקת ומטיבה יותר.</p></li>
+          <li class="ea-pillar"><p class="ea-pillar__label">שקט ומיקוד</p><p class="ea-pillar__text">מי שרוצה להכניס יותר שקט, מודעות ומיקוד לחיים.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SESSION (bio-block w/ real portrait) -->
+    <section class="ea-bio-block" aria-labelledby="session-h" data-block="body-section">
+      <div class="ea-bio-block__inner">
+        <div class="ea-bio-block__content">
+          <h2 id="session-h" class="ea-bio-block__heading">איך נראה מפגש</h2>
+          <p class="ea-bio-block__text">המפגשים מתקיימים אחד על אחד, בסטודיו בפרדס חנה. זהו מרחב שקט ונעים, הממוקם בלב חצר ירוקה עם עצי פרי ושבילי עץ.</p>
+          <p class="ea-bio-block__text">במהלך המפגש עובדים בצורה הדרגתית, בקצב שמתאים לאדם שמגיע. המפגש הראשון כולל אבחון ולכן הוא לרוב מעט ארוך יותר.</p>
+          <p class="ea-bio-block__text">אין צורך בניסיון קודם. העבודה מתחילה מהבסיס.</p>
+        </div>
+        <figure class="ea-bio-block__figure">
+          <img class="ea-bio-block__portrait" src="assets/eyal-portrait-hero.jpg" alt="אייל עמית במהלך עבודה עם דיג׳רידו בסטודיו בפרדס חנה" width="320" height="400" loading="lazy">
+          <figcaption class="ea-sr-only">אייל עמית, סטודיו פרדס חנה</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="ea-service-comparison" aria-labelledby="diff-h" data-block="comparison">
+      <div class="ea-service-comparison__inner">
+        <h2 id="diff-h" class="ea-service-comparison__heading">מה ההבדל בין טיפול, סאונד הילינג ושיעורים</h2>
+        <div class="ea-service-comparison__grid">
+          <article class="ea-service-comparison__col ea-service-comparison__col--active">
+            <span class="ea-service-comparison__tag">הדף הזה</span>
+            <h3 class="ea-service-comparison__col-title">טיפול בדיג׳רידו</h3>
+            <p>עבודה אקטיבית עם הנשימה היומיומית, דרך תרגול בדיג׳רידו, למידה וליווי אישי. תהליך מתמשך.</p>
+          </article>
+          <article class="ea-service-comparison__col">
+            <h3 class="ea-service-comparison__col-title">סאונד הילינג בדיג׳רידו</h3>
+            <p>עבודה פאסיבית של הקשבה לצליל דרך הגוף. לרוב מפגש נקודתי.</p>
+          </article>
+          <article class="ea-service-comparison__col">
+            <h3 class="ea-service-comparison__col-title">שיעורי נגינה בדיג׳רידו</h3>
+            <p>לימוד נגינה והתפתחות מוזיקלית.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (proof) -->
+    <section class="ea-testimonials-section" aria-labelledby="testi-h" data-block="testimonials">
+      <div class="ea-testimonials-section__inner">
+        <h2 id="testi-h" class="ea-testimonials-section__heading">אנשים מספרים</h2>
+        <div class="ea-testimonials-grid">
+          <figure class="ea-testimonial-card"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span><blockquote class="ea-testimonial-card__quote"><p class="ea-testimonial-card__text">כמו רבים אחרים גם אני חשבתי שאני באה ללמוד דיג׳רידו, ולא היה לי מושג איזה מסע עוצמתי מחכה לי.</p><figcaption><span class="ea-testimonial-card__name">שירי אלקבץ</span></figcaption></blockquote></figure>
+          <figure class="ea-testimonial-card"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span><blockquote class="ea-testimonial-card__quote"><p class="ea-testimonial-card__text">מה שאני לומדת מאייל זה לנשום מחדש… להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים.</p><figcaption><span class="ea-testimonial-card__name">נוית צוף שטראוס</span></figcaption></blockquote></figure>
+          <figure class="ea-testimonial-card"><span class="ea-testimonial-card__avatar-placeholder" aria-hidden="true"></span><blockquote class="ea-testimonial-card__quote"><p class="ea-testimonial-card__text">פעם ראשונה בחיים שלמדתי לנשום נכון… תרגול הנשימה בדידג׳ פשוט מרגיע אותי.</p><figcaption><span class="ea-testimonial-card__name">אלון גרזון רז</span></figcaption></blockquote></figure>
+        </div>
+        <div class="ea-testimonials-section__footer"><a class="ea-cta-pill ea-cta-pill--ghost" href="/about#testimonials">לעוד המלצות ועדויות</a></div>
+      </div>
+    </section>
+
+    <!-- FAQ mini -->
+    <section class="ea-faq-mini-section" aria-labelledby="faq-h" data-block="faq-mini">
+      <div class="ea-faq-mini-section__inner">
+        <h2 id="faq-h" class="ea-faq-mini-section__heading">שאלות נפוצות</h2>
+        <div class="ea-faq-list">
+          <div class="ea-faq-item"><details class="ea-faq-item__details"><summary class="ea-faq-item__summary"><h3 class="ea-faq-item__question">האם צריך ניסיון קודם?</h3><span class="ea-faq-item__icon" aria-hidden="true">⌄</span></summary><div class="ea-faq-item__answer"><p>אין צורך בניסיון קודם. העבודה מתחילה מהבסיס.</p></div></details></div>
+          <div class="ea-faq-item"><details class="ea-faq-item__details"><summary class="ea-faq-item__summary"><h3 class="ea-faq-item__question">כמה זמן נמשך המפגש הראשון?</h3><span class="ea-faq-item__icon" aria-hidden="true">⌄</span></summary><div class="ea-faq-item__answer"><p>המפגש הראשון כולל אבחון ולכן הוא לרוב מעט ארוך יותר. בהמשך עובדים בצורה הדרגתית, בקצב שמתאים לאדם שמגיע.</p></div></details></div>
+          <div class="ea-faq-item"><details class="ea-faq-item__details"><summary class="ea-faq-item__summary"><h3 class="ea-faq-item__question">מה ההבדל בין טיפול לסאונד הילינג?</h3><span class="ea-faq-item__icon" aria-hidden="true">⌄</span></summary><div class="ea-faq-item__answer"><p>בטיפול עובדים באופן אקטיבי עם הנשימה היומיומית כתהליך מתמשך. בסאונד הילינג מדובר בעבודה פאסיבית של הקשבה לצליל דרך הגוף, לרוב מפגש נקודתי.</p></div></details></div>
+        </div>
+        <div class="ea-faq-mini-section__footer"><a class="ea-link" href="/faq">לדף השאלות הנפוצות המלא</a></div>
+      </div>
+    </section>
+
+    <!-- disclaimer -->
+    <section class="ea-disclaimer" aria-label="הבהרה" data-block="disclaimer">
+      <div class="ea-disclaimer__inner">
+        <p class="ea-disclaimer__text">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ea-section--cta" aria-labelledby="cta-h" data-block="contact-cta">
+      <div class="ea-section__inner">
+        <h2 id="cta-h" class="ea-section__heading">לתיאום שיחת היכרות</h2>
+        <p class="ea-section__body">לא כל אחד מגיע לכאן מאותה סיבה — אבל אצל כולם עולה אותה תחושה: משהו בנשימה מבקש תשומת לב. אם זה מדבר אליך, אפשר להתחיל.</p>
+        <a class="ea-cta-pill ea-cta-pill--primary" href="/contact">לתיאום שיחת היכרות</a>
+      </div>
+    </section>
+
+  </main>
+
+  <section data-block="footer-social">
+    <footer class="ea-footer" aria-label="פוטר האתר">
+      <div class="ea-footer__inner">
+        <p class="ea-footer__brand">אייל עמית</p>
+        <p class="ea-footer__tagline">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>
+        <p class="ea-footer__location">פרדס חנה · ישראל</p>
+        <nav class="ea-footer__nav" aria-label="ניווט פוטר">
+          <a class="ea-footer__nav-link" href="/method">השיטה</a>
+          <a class="ea-footer__nav-link" href="/treatment">טיפול</a>
+          <a class="ea-footer__nav-link" href="/sound-healing">סאונד הילינג</a>
+          <a class="ea-footer__nav-link" href="/lessons">שיעורים</a>
+          <a class="ea-footer__nav-link" href="/books">ספרים</a>
+          <a class="ea-footer__nav-link" href="/contact">צור קשר</a>
+        </nav>
+        <hr class="ea-footer__divider" aria-hidden="true">
+        <p class="ea-footer__copy">&copy; 2026 אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו. כל הזכויות שמורות.</p>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>
