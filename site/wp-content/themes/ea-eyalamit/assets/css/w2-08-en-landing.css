@@ -278,3 +278,36 @@ body.ea-en-landing .ea-footer__nav {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   WP-W2-14-F — EN landing mobile pass (/en, LTR). Inherits the 14-A drawer
+   (LTR) + the canonical chrome; this block adds the cluster-specific small-tier
+   (≤639) refinements: testimonials 1-col stack (also covered at 768 above),
+   real-cover row wraps, and LTR-correct overflow-safety. Logical properties
+   only so the mirror stays automatic. Tokens only, no raw hex, no @keyframes.
+======================================================================== */
+@media (max-width: 639px) {
+	body.ea-en-landing .ea-en-section {
+		padding-inline: var(--ea-space-3);
+	}
+	/* Testimonials: explicit 1-col stack at the canonical small tier. */
+	body.ea-en-landing .ea-en-testimonials {
+		grid-template-columns: 1fr;
+	}
+	body.ea-en-landing .ea-en-testimonial__quote p {
+		overflow-wrap: anywhere;
+	}
+	/* Real-cover row: wrap and keep covers inside the column at 360–390px. */
+	body.ea-en-landing .ea-en-books-row {
+		max-inline-size: 100%;
+	}
+	body.ea-en-landing .ea-en-books-row img {
+		width: 104px;
+	}
+	/* Prose + heading overflow-safety on the LTR column. */
+	body.ea-en-landing .ea-en-prose p,
+	body.ea-en-landing .ea-en-list li,
+	body.ea-en-landing .ea-en-section__heading {
+		overflow-wrap: anywhere;
+	}
+}

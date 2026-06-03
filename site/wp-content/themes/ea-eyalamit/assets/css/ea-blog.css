@@ -546,3 +546,42 @@
 	border-radius: var(--ea-radius-img);
 	border: 1px solid var(--ea-line);
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   WP-W2-14-B — Editorial cluster mobile pass (/about /press /about/moksha).
+   Cluster-specific ≤639/≤767 deltas. The atoms base already collapses the
+   journey timeline (handled above) and the studio gallery to 2-col @799 and
+   the services grid to 1-col @639; this block adds the §4 / BREAKPOINT-NOTES
+   refinements: studio gallery → 1-col @639 with the lead image at 4/3, and
+   overflow-safety on the meta strip + pullquote at the 360–390 floor.
+   Tokens only, logical props, no raw hex, no @keyframes, never width>100vw.
+======================================================================== */
+@media (max-width: 767px) {
+	/* Meta strip: the wide token gap can crowd a 390px row — tighten and keep
+	   each key/value pair from overflowing. */
+	.ea-wave2-editorial .ea-metastrip__inner {
+		gap: var(--ea-space-4);
+	}
+	.ea-wave2-editorial .ea-metastrip__v {
+		overflow-wrap: anywhere;
+	}
+}
+@media (max-width: 639px) {
+	/* Studio gallery → single column (BREAKPOINT-NOTES: "1-col; lead image 4/3").
+	   The atoms stop at 2-col @799; this is the cluster delta for the small tier. */
+	.ea-wave2-editorial .ea-book-gallery__grid {
+		grid-template-columns: 1fr;
+	}
+	.ea-wave2-editorial .ea-book-gallery__item:first-child {
+		grid-column: auto;
+		aspect-ratio: 4 / 3;
+	}
+	/* Pullquote: keep the quotation inside the column at 360px. */
+	.ea-pullquote blockquote {
+		overflow-wrap: anywhere;
+	}
+	/* Memorial disc keeps generous spacing once stacked (atoms stack it @767). */
+	.ea-mokesh-grid {
+		gap: var(--ea-space-6);
+	}
+}
