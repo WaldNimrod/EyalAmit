@@ -563,3 +563,56 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   WP-W2-14-B — Commerce cluster mobile pass (/books + book details + /shop).
+   Cluster-specific ≤639/≤767 deltas. The atoms base already collapses
+   .ea-books-grid → 1-col @639, .ea-book-gallery__grid → 2-col @799, and makes
+   .ea-cta-pill width:100% @639; the 14-A variants sheet makes .ea-shop-grid
+   2-col @767. This block adds the elevated-composition deltas the mockups show:
+   book-detail cover-hero → cover-first stack + FULL-WIDTH purchase CTAs, bundle
+   stacked-cover band on mobile, and long-excerpt overflow handling.
+   Tokens only, logical props, no raw hex, no @keyframes, never width>100vw.
+======================================================================== */
+@media (max-width: 767px) {
+  /* Book-detail cover-hero: cover first, then title/excerpt (the atoms collapse
+     .ea-book-hero__content to 1fr @767; pin the source order so the cover leads). */
+  .ea-book-page .ea-book-hero__cover {
+    order: -1;
+    max-inline-size: 220px;
+    margin-inline: auto;
+  }
+  /* Bundle: the three overlapping covers stay centered above the price; cap the
+     band so the rotated covers never push past the column. */
+  .ea-bundle__inner {
+    max-inline-size: 100%;
+  }
+  .ea-bundle__covers {
+    max-inline-size: 100%;
+  }
+  /* Long excerpt: preserve-formatted book excerpt must wrap, not scroll. */
+  .ea-book-excerpt__body {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 639px) {
+  /* Full-width external-purchase CTAs: stack the hero CTA pair so each pill
+     spans the column (atoms set the pills to width:100% at this tier). */
+  .ea-book-hero__cta-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  /* Books-archive cards: keep genre/title/teaser inside the 360px column. */
+  .ea-book-card__title,
+  .ea-book-card__teaser {
+    overflow-wrap: anywhere;
+  }
+  /* Book-detail studio gallery → 1-col (atoms stop at 2-col @799). */
+  .ea-book-page .ea-book-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .ea-book-page .ea-book-gallery__item:first-child {
+    grid-column: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
