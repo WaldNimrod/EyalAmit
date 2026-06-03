@@ -30,8 +30,10 @@ $ea_bio_body    = ( isset( $ea_bio_ctx['body'] ) && is_array( $ea_bio_ctx['body'
 $ea_bio_img     = isset( $ea_bio_ctx['image'] ) ? (string) $ea_bio_ctx['image'] : '';
 $ea_bio_img_alt = isset( $ea_bio_ctx['image_alt'] ) ? (string) $ea_bio_ctx['image_alt'] : '';
 $ea_bio_img_cap = isset( $ea_bio_ctx['image_cap'] ) ? (string) $ea_bio_ctx['image_cap'] : '';
+$ea_bio_wrap    = isset( $ea_bio_ctx['wrap_class'] ) ? sanitize_html_class( (string) $ea_bio_ctx['wrap_class'] ) : '';
+$ea_bio_sect_cls = 'ea-bio-block' . ( '' !== $ea_bio_wrap ? ' ' . $ea_bio_wrap : '' );
 ?>
-<section class="ea-bio-block" data-block="bio" aria-label="<?php echo esc_attr( $ea_bio_aria ); ?>">
+<section class="<?php echo esc_attr( $ea_bio_sect_cls ); ?>" data-block="bio" aria-label="<?php echo esc_attr( $ea_bio_aria ); ?>">
       <div class="ea-bio-block__inner">
         <div class="ea-bio-block__content ea-entrance--breath">
           <h2 class="ea-bio-block__heading"><?php echo esc_html( $ea_bio_heading ); ?></h2>
