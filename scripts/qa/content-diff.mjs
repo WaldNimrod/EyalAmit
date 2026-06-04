@@ -14,7 +14,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../..');
 
 const DEFAULT_BASE = 'http://eyalamit-co-il-2026.s887.upress.link';
-const DEFAULT_CONTENT_ROOT = path.join(
+export const DEFAULT_CONTENT_ROOT = path.join(
   REPO_ROOT,
   'docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26'
 );
@@ -24,7 +24,7 @@ const SECTION_WEIGHT = 0.4;
 const SENTENCE_WEIGHT = 0.6;
 
 /** @type {Array<{path:string, source:string|null, label?:string, na?:boolean, sourceType?:'md'|'docx'}>} */
-const PAGE_MAP = [
+export const PAGE_MAP = [
   { path: '/', source: 'דף הבית/homepage1-3 v2.md', label: '/' },
   { path: '/method/', source: 'השיטה/method.md' },
   { path: '/treatment/', source: "טיפול בדיג'רידו/treatment.md" },
@@ -82,7 +82,7 @@ function hebrewCharCount(s) {
   return (s.match(/[\u0590-\u05FF]/g) || []).length;
 }
 
-function normalize(text) {
+export function normalize(text) {
   let t = text;
   t = t.replace(/<script[\s\S]*?<\/script>/gi, ' ');
   t = t.replace(/<style[\s\S]*?<\/style>/gi, ' ');
@@ -154,7 +154,7 @@ function isDevOrCtaHeader(line) {
   return isSkippableHeader(line);
 }
 
-function parseMarkdownSource(md) {
+export function parseMarkdownSource(md) {
   const sections = [];
   const lines = md.split('\n');
   let current = null;
@@ -224,7 +224,7 @@ function parseMarkdownSource(md) {
   return sections;
 }
 
-async function readSource(relPath, sourceType, contentRoot) {
+export async function readSource(relPath, sourceType, contentRoot) {
   const full = path.join(contentRoot, relPath);
   if (!fs.existsSync(full)) {
     return { error: `SOURCE_MISSING: ${full}`, text: null };
@@ -245,7 +245,7 @@ async function readSource(relPath, sourceType, contentRoot) {
   return { error: null, text: fs.readFileSync(full, 'utf8'), format: 'md' };
 }
 
-function parseDocxSections(text) {
+export function parseDocxSections(text) {
   // Docx has no SECTION markers — treat whole doc as one pseudo-section + paragraph sentences
   const sentences = splitContentSentences(text);
   return [
@@ -258,7 +258,7 @@ function parseDocxSections(text) {
   ];
 }
 
-function htmlToText(html) {
+export function htmlToText(html) {
   return normalize(html);
 }
 
@@ -327,7 +327,7 @@ function gatePass(sectionCov, sentenceCov, inventedSectionCount) {
   return sectionCov >= 95 && sentenceCov >= 90 && inventedSectionCount === 0;
 }
 
-function analyzePage({ sections, live, htmlMain }) {
+export function analyzePage({ sections, live, htmlMain }) {
   const liveNorm = live.text;
   const allSourceSentences = sections.flatMap((s) => s.sentences);
   const missingSections = [];
@@ -506,7 +506,12 @@ async function main() {
   console.log(JSON.stringify(summary, null, 2));
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+const __isMain =
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (__isMain) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
