@@ -1,0 +1,65 @@
+{
+  "validator": "team_190",
+  "gate": "L-GATE_SPEC",
+  "wp": "WP-W2-15",
+  "staging": "http://eyalamit-co-il-2026.s887.upress.link",
+  "verified_at": "2026-06-04",
+  "engine": "cursor-composer",
+  "blog_pagination": {
+    "wp_total_posts": 54,
+    "posts_per_archive_page": 12,
+    "page1_post_ids": [239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228],
+    "page2_post_ids": [239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228],
+    "page5_post_ids": [239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228],
+    "verdict": "CONFIRMED — paged archive repeats page-1 set; 42 posts never surface in archive UI"
+  },
+  "eyal_point_9_shop_pages": {
+    "routes_200": ["/didgeridoos/", "/bags/", "/stands-storage/", "/stand-floor/", "/repair/"],
+    "verdict": "PARTIAL — routes exist with partial/stub copy; work is verbatim reconciliation not greenfield build"
+  },
+  "eyal_point_1_faq_three": {
+    "treatment_faq_questions": 3,
+    "method_faq_questions": 3,
+    "verdict": "CONFIRMED on service pages"
+  },
+  "eyel_point_2_testimonials_three": {
+    "treatment_unique_quotes": 3,
+    "home_unique_quotes": 5,
+    "verdict": "CONFIRMED on service pages (3); home rotator shows 5 mockup quotes"
+  },
+  "content_mismatch_samples": {
+    "method": {
+      "source_h1": "שיטת cbDIDG של אייל עמית",
+      "live_h1": "שיטת cbDIDG — עבודה עם הנשימה דרך הדיג׳רידו",
+      "source_phrase_missing": "לא כל עבודה עם דיג'רידו היא אותו דבר",
+      "verdict": "CONFIRMED ~0% verbatim (mockup body)"
+    },
+    "home": {
+      "source_h1_prefix": "המרכז לטיפול בנשימה באמצעות דיג'רידו - שיטת cbDIDG",
+      "live_present": false,
+      "trust_line_1999": true,
+      "verdict": "CONFIRMED partial / invented blocks (~66% class per audit band)"
+    },
+    "bags": {
+      "eyal_opening_phrase_present": true,
+      "verdict": "shop routes have some Eyal lines but need full SECTION rebuild"
+    }
+  },
+  "about_15f": {
+    "source_in_repo": "docs/.../from-eyal/תוכן לאתר 25.5.26/אודות - אייל עמית/אודות - אייל עמית.md",
+    "live_h1": "אייל עמית",
+    "eyal_section2_present": false,
+    "verdict": "About body still placeholder/mockup; source file NOW in repo (plan §15-F note stale)"
+  },
+  "faq_toc_eyal_3": {
+    "ea_faq_toc_present": false,
+    "verdict": "CONFIRMED missing section TOC/jump-nav on /faq/"
+  },
+  "source_currency": {
+    "ssot_folder": "תוכן לאתר 25.5.26",
+    "index_date": "2026-05-25",
+    "supersedes_april_packages": "INDEX-CONTENT-2026-05-25.md §2",
+    "drive_shared_with_me_flag": "program plan §0.1",
+    "verdict": "CONFIRMED"
+  }
+}
