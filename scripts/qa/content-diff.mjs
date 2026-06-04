@@ -118,28 +118,59 @@ function normalizeSectionTitle(title) {
   return normalize(title)
     .replace(/^section\s*\d+\s*[-–—]\s*/i, '')
     .replace(/^סקשן\s*\d+\s*[-–—]\s*/i, '')
+    // "FAQ Category:" is a dev annotation prefixing the real category title in
+    // the FAQ source; strip it so the rendered category heading title-matches.
+    .replace(/^faq\s+category\s*:\s*/i, '')
+    // "(חלק 2)" / "(part 2)" mark a category split across two source blocks for
+    // length; the published heading is the base name (the blocks render as one
+    // category). Strip the part annotation so the section title-matches.
+    .replace(/\s*\(\s*(?:חלק|part)\s+[^)]*\)\s*$/i, '')
     .trim();
 }
 
+/**
+ * True when a SECTION's title marks it as pure authoring scaffolding (a global
+ * DEV-NOTES block or a QA checklist) rather than published content. Such sections
+ * are excluded from coverage entirely — they carry no reader-facing copy and the
+ * source author never intended them to render. (team_100 fix 2026-06-05.)
+ */
+function isDevSectionTitle(title) {
+  const h = normalizeSectionTitle(title).toLowerCase();
+  // Also exclude sections the author explicitly marked incomplete — "(להשלמה)"
+  // ("to be completed"): their body is a note to gather material later (e.g.
+  // testimonials still to collect), not published content.
+  return (
+    /^dev\s+notes\b/.test(h) ||
+    /^qa\b/.test(h) ||
+    /checklist/.test(h) ||
+    /להשלמה/.test(title)
+  );
+}
+
 function splitContentSentences(raw) {
-  // Split on hard line breaks FIRST, then sentence punctuation. normalize() collapses
-  // all whitespace (incl. newlines) to single spaces, so normalizing the whole blob
-  // before splitting defeated the `\n+` boundary: any punctuation-less line (an H1, a
-  // link label, a quote without a trailing period) fused with the next line into one
-  // synthetic "sentence" that no correctly-rendered page can contain contiguously.
-  // Splitting per source line first removes those artifacts. (team_100 fix 2026-06-05.)
+  // PRIMARY: per source line, split on sentence punctuation, keep parts that reach
+  // the Hebrew threshold. This matches data-provider renders that emit each sentence
+  // as its own <p>/array entry, and normalizing each line first avoids fusing a
+  // punctuation-less line (an H1, a link label) with the next. (team_100 2026-06-05.)
   const out = [];
   for (const line of String(raw).split(/\n+/)) {
     const norm = normalize(line);
     if (!norm) continue;
     const parts = norm.split(/(?<=[.!?׃])\s+/).map((p) => p.trim()).filter(Boolean);
-    for (const p of (parts.length ? parts : [norm])) {
+    for (const p of parts.length ? parts : [norm]) {
       if (hebrewCharCount(p) >= MIN_HEBREW_CHARS) out.push(p);
     }
   }
+  // FALLBACK: a section whose lines are all short poetic hard-breaks (e.g. the
+  // treatment intro) yields nothing above. Instead of fusing the whole blob into one
+  // synthetic sentence, keep each blank-line-separated PARAGRAPH as a unit — that is
+  // exactly the contiguous run such content renders into as one <p>. The '' blank
+  // sentinels the parser preserves make \n{2,} paragraph boundaries available here.
   if (out.length === 0) {
-    const normAll = normalize(raw);
-    if (hebrewCharCount(normAll) >= MIN_HEBREW_CHARS) out.push(normAll);
+    for (const para of String(raw).split(/\n{2,}/)) {
+      const norm = normalize(para);
+      if (hebrewCharCount(norm) >= MIN_HEBREW_CHARS) out.push(norm);
+    }
   }
   return [...new Set(out)];
 }
@@ -165,10 +196,14 @@ function parseSectionHeader(line) {
 }
 
 function isDevOrCtaHeader(line) {
-  const t = line.trim();
+  // Strip surrounding markdown emphasis first: several sources write the dev-note
+  // header in bold (**DEV NOTES:**, **DEV NOTES (גלובליים):**, **CTA:**) rather
+  // than as a `### DEV NOTES` ATX heading. Both forms are authoring scaffolding,
+  // not content, and must be skipped identically. (team_100 fix 2026-06-05.)
+  const t = line.trim().replace(/\*\*/g, '').replace(/__/g, '').trim();
   if (/^#{1,3}\s+DEV\s+NOTES/i.test(t)) return true;
   if (/^#{1,3}\s+CTA\s*:?\s*$/i.test(t)) return true;
-  if (/^DEV\s+NOTES\s*:?\s*$/i.test(t)) return true;
+  if (/^DEV\s+NOTES\b/i.test(t)) return true;
   if (/^CTA\s*:?\s*$/i.test(t)) return true;
   return isSkippableHeader(line);
 }
@@ -182,6 +217,11 @@ export function parseMarkdownSource(md) {
 
   function flush() {
     if (!current) return;
+    // Drop whole dev-scaffolding sections (global DEV NOTES / QA Checklist).
+    if (isDevSectionTitle(current.title)) {
+      contentLines.length = 0;
+      return;
+    }
     const blob = contentLines.join('\n');
     sections.push({
       num: current.num,
@@ -232,7 +272,19 @@ export function parseMarkdownSource(md) {
     if (inDevOrCta) continue;
     if (/^#{1,3}\s/.test(line)) continue;
     const t = line.trim();
-    if (!t || t === '---') continue;
+    // Preserve paragraph breaks (blank line / ---) as a sentinel so sentence
+    // splitting can use them as boundaries. Consecutive non-blank source lines
+    // (hard-break poetic lines, list items) stay in one paragraph — which mirrors
+    // how they render into a single <p>/<ul> block the gate flattens to one run.
+    if (!t || t === '---') {
+      if (contentLines.length && contentLines[contentLines.length - 1] !== '') {
+        contentLines.push('');
+      }
+      continue;
+    }
+    // Blockquote DEV-NOTE image/asset instructions (> DEV NOTE: …, with their
+    // > https://… continuation refs) are authoring scaffolding, not content.
+    if (/^>\s*DEV\s+NOTE/i.test(t) || /^>\s*https?:\/\//i.test(t)) continue;
     if (/^[-*]\s/.test(t)) {
       contentLines.push(t.replace(/^[-*]\s+/, ''));
     } else if (!/^layout:|^UX:|^behavior:|^קישורים:|^הערות/.test(t)) {
