@@ -1219,7 +1219,7 @@ work_packages:
   priority: MEDIUM
   blocked_by:
   - WP-W2-15-A
-  notes: 'Eyal #9: sources exist (buy didgeridoo.md, bags for didg.md, stend for hanging.md, stend for playing.md, build didg.md) but pages never wired. Build from source + add to nav/IA.'
+  notes: 'Eyal #9: the 5 pages EXIST (200) with partial/mockup content (team_190 F01) — verbatim RECONCILE from source (buy didgeridoo.md, bags for didg.md, stend for hanging.md, stend for playing.md, build didg.md) + verify IA/nav, NOT build-from-scratch.'
 - id: WP-W2-15-E
   label: FAQ overhaul (show-all + section TOC) + testimonials carousel
   status: IN_PROGRESS
