@@ -1136,3 +1136,121 @@ work_packages:
   blocked_by: [WP-W2-14-A]
   notes: 'Build 3 new elevated pages: /mokesh-dahiman (sensitive, verbatim, sand avatar, nowrap subtitle), /galleries (3->2->1 grid), /media (.ea-tgrid->1col). Parallel with B/C/D (worktree; owns the 3 compositions + catalog CSS).'
   progress: 'BUILT (parallel worktree) + integrated (branch wp-w2-14-phase2) + deployed 2026-06-04. team_100 pre-flight CLEAN (0-overflow, axe 0/0, HTTP 200/H1=1). team_50 full-site E2E PASS_WITH_FINDINGS 0 P0 + team_190 L-GATE_VALIDATE PASS 0 P0/P1 (cross-engine) 2026-06-04. Merged wp-w2-14-phase2 -> main on team_00 go. STATUS -> DONE / LOD500_LOCKED. Memorial /mokesh-dahiman + /about/moksha (Eyal va-ma-hayom narrative + team_35 mockup design; 14-E owns moksha id181 via priority 102) + Galleries + Media. CONTENT follow-up (Eyal-deferred, NON-BLOCKING): memorial source/intent/lead/dates/edits + galleries/media real content (H1-H7/F1-F7), client-hub group H.'
+
+- id: WP-W2-15
+  label: Content reconciliation + Eyal-feedback fixes (live text vs Eyal 25.5.26)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Umbrella. Eyal review 2026-06-04 (9 points) + CONTENT-INTEGRITY-AUDIT-2026-06-04.md: most content pages run team_35 MOCKUP placeholder copy, not Eyal source. Rebuild page bodies verbatim from from-eyal/תוכן לאתר 25.5.26/ (INDEX-CONTENT-2026-05-25.md). Structure locked (WP-W2-14 DONE) - content-fill only, no structural rework. NEW gate: CONTENT-ACCURACY (verbatim live-vs-source diff). Program plan: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md. Triage: EYAL-FEEDBACK-TRIAGE-2026-06-04.md. PREREQ: Eyal Drive folder is Shared-with-me (NOT syncing locally) - add shortcut to My Drive.'
+- id: WP-W2-15-A
+  label: Blog pagination fix (P0) — archive only ever shows page 1
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Eyal #6 CONFIRMED: /blog/page/2..5 render page-1 posts only (~12 of 54 posts ever shown); force-routed archive ignores paged query var. Code fix (blog WP). First/unblocked.'
+- id: WP-W2-15-B
+  label: Content reconcile — service/content pages (method/treatment/sound-healing/lessons + home)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - WP-W2-15-A
+  notes: Rebuild bodies verbatim from method.md (live 0%), treatment.md (~25%), sound_healing_final.md (~25%), lesons.md (~25%), homepage1-3 v2.md (fix invented blocks, ~66%). 11/14 method sections currently missing.
+- id: WP-W2-15-C
+  label: Content reconcile — commerce (muzza + 3 book-detail pages)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - WP-W2-15-A
+  notes: 'Eyal #4/#5. Rebuild from MUZZA.md (live 0%) + eyal_tsva_FINAL.md / kushi_full.md / vekatavta.md.'
+- id: WP-W2-15-D
+  label: Build 5 unbuilt pages (tools-for-sale, bags, stands-storage, floor-stand, repair)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - WP-W2-15-A
+  notes: 'Eyal #9: sources exist (buy didgeridoo.md, bags for didg.md, stend for hanging.md, stend for playing.md, build didg.md) but pages never wired. Build from source + add to nav/IA.'
+- id: WP-W2-15-E
+  label: FAQ overhaul (show-all + section TOC) + testimonials carousel
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - WP-W2-15-A
+  notes: 'Eyal #1 (per-page FAQ shows only 3 -> show all), #3 (full FAQ page: section dividers + top TOC jump-nav), #2 (testimonials: more items + L<->R moving carousel). Carousel item list TBD with Eyal.'
+- id: WP-W2-15-F
+  label: 'Eyal-blocked: About page + Mokesh source + galleries/media real content'
+  status: BLOCKED
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - WP-W2-15-A
+  notes: 'Eyal #7 (About /eyal-amit renders placeholder; source doc NOT in folder - Eyal adding), #8 (Mokesh: which source is the real page copy - H1), galleries/media real content + real testimonials list. Await Eyal uploads/decisions.'
