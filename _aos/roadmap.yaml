@@ -1270,3 +1270,99 @@ work_packages:
   priority: LOW
   blocked_by: []
   notes: 'Eyal upload 2026-06-04 ''דפים שלא אונדקסו'' (GSC not-indexed export): 9 category files, 406 legacy eyalamit.co.il URLs (~174 after stripping feed/tag/category/qr+attachments). Triage real-content (preserve/301) vs junk; verify 301 coverage vs WP-W2-09 map; confirm new pages indexable (no stray noindex); cross-check #9 so no real legacy content dropped. SEO completeness, not content-rewrite.'
+- id: WP-W2-15-CR1
+  label: Content reconcile batch 1 (worst)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Content reconcile batch 1 (worst) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /muzza 3.3% · /method 8.6% · /eyal-amit 12.3% · / home 18.6%'
+- id: WP-W2-15-CR2
+  label: Content reconcile batch 2 (services)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Content reconcile batch 2 (services) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /treatment · /sound-healing · /lessons · /faq (~20-25%; FAQ show-all #1 + TOC #3 here)'
+- id: WP-W2-15-CR3
+  label: Content reconcile batch 3 (commerce)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  notes: 'Content reconcile batch 3 (commerce) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /books/tsva 63.6% · /books/kushi · /books/vekatavt · /muzza bundle'
+- id: WP-W2-15-CR4
+  label: Content reconcile batch 4 (shop)
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  notes: 'Content reconcile batch 4 (shop) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /didgeridoos · /bags · /stands-storage · /stand-floor 63.5% · /repair 4%'
+- id: WP-W2-15-CR5
+  label: Content reconcile batch 5 (Eyal-blocked)
+  status: BLOCKED
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  notes: 'Content reconcile batch 5 (Eyal-blocked) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /mokesh (source H1) · /galleries · /media — real content/decisions from Eyal'
+- id: WP-W2-15-CR-FINAL
+  label: Final full-site content validation + sign-off gate
+  status: IN_PROGRESS
+  track: CONTENT
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10 (∥ page sub-agents)
+  assigned_validator: team_50 + team_190 (+ team_90 final audit)
+  created_at: '2026-06-04'
+  milestone_ref: S003
+  parent_wp: WP-W2-15
+  spec_ref: _COMMUNICATION/team_100/WP-W2-15-CONTENT-COMPLETION-PROGRAM-2026-06-04.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Final full-site content validation + sign-off gate — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: ALL sourced pages re-audited by team_90 (target ≈100% / all ≥gate) + team_190 full-site L-GATE_VALIDATE + team_50 full E2E. ONLY on triple-PASS -> ''ready'' to team_00/Eyal. HARD: no ''ready'' message before this.'
