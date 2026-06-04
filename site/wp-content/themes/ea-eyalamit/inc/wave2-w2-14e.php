@@ -28,7 +28,12 @@ defined( 'ABSPATH' ) || exit;
  */
 function ea_w2_14e_slugs() {
 	return array(
+		// Memorial canonical slug (site-tree) + the legacy 'moksha' page
+		// (/about/moksha, id 181) that all memorial URLs currently resolve to —
+		// both render the elevated memorial so the dignified page is what users
+		// reach regardless of which URL the nav/redirects land on.
 		'mokesh-dahiman' => 'tpl-catalog-14e',
+		'moksha'         => 'tpl-catalog-14e',
 		'galleries'      => 'tpl-catalog-14e',
 		'media'          => 'tpl-catalog-14e',
 	);
@@ -194,6 +199,7 @@ function ea_w2_14e_render( $ctx ) {
 	$slug = is_array( $ctx ) && isset( $ctx['slug'] ) ? (string) $ctx['slug'] : '';
 	switch ( $slug ) {
 		case 'mokesh-dahiman':
+		case 'moksha':
 			ea_w2_14e_render_memorial();
 			break;
 		case 'galleries':
@@ -225,52 +231,66 @@ function ea_w2_14e_img( $file ) {
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /**
- * Memorial page composition. All copy is verbatim from
- * `Memorial - Mokesh (elevated).html`. Subtitle nowrap ≥768px via a token-clean
- * class (.ea-mem-hero__sub--desk-nowrap) — no brittle inline width.
+ * Memorial page composition. DESIGN per the team_35 mockup
+ * (`Memorial - Mokesh (elevated).html`); COPY is Eyal's authentic narrative from
+ * from-eyal/תוכן לאתר 25.5.26/מוקש דהימן/ומה היום.docx (team_00 directive
+ * 2026-06-04: content = Eyal's files, design = mockup). Subtitle nowrap ≥768px
+ * via a token-clean class (.ea-mem-hero__sub--desk-nowrap) — no inline width.
  */
 function ea_w2_14e_render_memorial() {
 	?>
-	<section class="ea-mem-hero">
-		<div class="ea-mem-hero__inner">
-			<div class="ea-mem-hero__disc" aria-hidden="true"><span class="ea-mem-hero__yr">1950 — 2020</span></div>
-			<p class="ea-mem-hero__kicker">לזכרו</p>
-			<h1 class="ea-mem-hero__title">מוקש דהימן</h1>
-			<p class="ea-mem-hero__sub ea-mem-hero__sub--desk-nowrap">מאסטר הדיג׳רידו, מורו של אייל עמית, והמקור שממנו צמחה הדרך התרפויטית.</p>
-		</div>
-	</section>
+		<section class="ea-mem-hero">
+			<div class="ea-mem-hero__inner">
+				<div class="ea-mem-hero__disc" aria-hidden="true"><span class="ea-mem-hero__yr">1950 — 2020</span></div>
+				<p class="ea-mem-hero__kicker">לזכרו</p>
+				<h1 class="ea-mem-hero__title">מוקש דהימן</h1>
+				<p class="ea-mem-hero__sub ea-mem-hero__sub--desk-nowrap">מאסטר הדיג׳רידו, מורו של אייל עמית, והמקור שממנו צמחה הדרך התרפויטית.</p>
+			</div>
+		</section>
 
-	<section class="ea-14e-section" aria-labelledby="ea-mem-a">
-		<div class="ea-14e-inner">
-			<p class="ea-14e-label">המורה</p>
-			<h2 id="ea-mem-a" class="ea-14e-heading">המורה הגדול של חיי</h2>
-			<div class="ea-14e-prose">
-				<p>בשנת 2000 הגעתי להודו, ושם פגשתי את מוקש — מי שהפך ברבות השנים למורה הגדול של חיי. המפגש איתו והלימוד לצידו פתחו עבורי שער לעבודה עמוקה עם נשימה, גוף ותודעה.</p>
-				<p>העבודה שלי עם הדיג׳רידו התפתחה מתוך הסתכלות שמגיעה מהעולם היוגי שממנו מוקש הגיע — גישה שמעמידה במרכז את הנשימה, המודעות ותשומת הלב הפנימית, ולא רק את הצד המוזיקלי של הכלי.</p>
+		<section class="ea-14e-section" aria-labelledby="ea-mem-a">
+			<div class="ea-14e-inner">
+				<p class="ea-14e-label">מורשת חיה</p>
+				<h2 id="ea-mem-a" class="ea-14e-heading">ומה היום</h2>
+				<div class="ea-14e-prose">
+					<p>בשנת 2026, שש שנים לאחר פטירתו של מוקש, טסתי להודו לבקר את המשפחה ולסגור מעגל שנשאר פתוח מאז פטירתו.</p>
+					<p>בהקשר של הדיג׳רידו, נכון להיום וככל הידוע לי, ארבעת בניו של מוקש ועבדכם הנאמן הם היחידים בעולם הממשיכים כרגע את דרכו, משנתו ומורשתו. ארבעת בניו בבית המלאכה ברישיקש עוסקים בעיקר במלאכת בניית הכלים, ואנוכי בסטודיו — המרכז לטיפול שהקמתי בחצר ביתנו בפרדס חנה — מלמד, בונה, ובעיקר מטפל ומלווה תהליכי ריפוי.</p>
+				</div>
+				<div class="ea-14e-pullquote">
+					<blockquote>״ארבעת בניו ועבדכם הנאמן — היחידים בעולם הממשיכים כרגע את דרכו, משנתו ומורשתו.״</blockquote>
+				</div>
 			</div>
-			<div class="ea-14e-pullquote">
-				<blockquote>״הקשר עם מוקש דהימן הוא הציר שעליו נשענת כל הדרך התרפויטית שלי.״</blockquote>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="ea-14e-section ea-14e-section--alt" aria-labelledby="ea-mem-l">
-		<div class="ea-14e-inner">
-			<p class="ea-14e-label">המורשת</p>
-			<h2 id="ea-mem-l" class="ea-14e-heading">דרך שממשיכה</h2>
-			<div class="ea-14e-prose">
-				<p>שיטת cbDIDG שפיתחתי צמחה מתוך המסורת הזו, ומתוך כבוד עמוק לדרך שמוקש העביר לי. כל מפגש בסטודיו בפרדס חנה נושא בתוכו משהו מהחניכה הזו — מההקשבה, מהדיוק, ומההבנה שהנשימה היא הרבה מעבר לאוויר שנכנס ויוצא.</p>
-				<p>הדף הזה הוא מחווה קטנה לאדם גדול, ולמורשת שממשיכה לנשום דרך כל מי שלומד כאן.</p>
+		<section class="ea-14e-section ea-14e-section--alt" aria-labelledby="ea-mem-l">
+			<div class="ea-14e-inner">
+				<p class="ea-14e-label">המשפחה ברישיקש</p>
+				<h2 id="ea-mem-l" class="ea-14e-heading">השנים שאחרי</h2>
+				<div class="ea-14e-prose">
+					<p>פטירתו הפתאומית של מוקש גדעה לצערי את פעילותו ופועלו ברישיקש. שנים קשות ומורכבות עברו על אשתו וארבעת בניו בניסיון לשרוד במציאות מורכבת. בנוסף לכל הצרות, בשנת 2004 נהר הגנגס עלה על גדותיו ולקח להם את הבית. במשך שנתיים וחצי הצטופפו כולם בבית המלאכה — היחיד שנשאר על תילו. ההחלטה היתה קשה, אך בסופו של דבר החליטו למכור את בית המלאכה המיתולוגי של מוקש, ועם הכסף לבנות לעצמם בית חדש.</p>
+					<p>לילדים חלום משל עצמם. תם עידן מוקש.</p>
+					<p>המרכז לטיפול בדיג׳רידו שהקמתי בחצר ביתנו בפרדס חנה קיבל את ברכתו של מוקש בעודו בחיים, והוכרז כסניף הישראלי הרשמי של Jungle Vibes.</p>
+				</div>
 			</div>
-			<div class="ea-mem-gal" role="group" aria-label="גלריה לזכרו">
-				<div class="ea-mem-gal__item">[תמונת מוקש — בכפוף לאישור]</div>
-				<div class="ea-mem-gal__item">[מהלימוד בהודו — נדרש מאייל]</div>
-				<div class="ea-mem-gal__item">[רישיקש — נדרש מאייל]</div>
+		</section>
+
+		<section class="ea-14e-section" aria-labelledby="ea-mem-r">
+			<div class="ea-14e-inner">
+				<p class="ea-14e-label">המורשת</p>
+				<h2 id="ea-mem-r" class="ea-14e-heading">מי שזכרו ממשיך</h2>
+				<div class="ea-14e-prose">
+					<p>כמובן שיש עוד מורים, בנאים ומטפלים רבים אחרים בדיג׳רידו, בארץ ובכל רחבי העולם, שיצאו מבית מלאכתו של מוקש. את חלקם אני מכיר באופן אישי, אך לצערי זיקתם למוקש והקשר אליו אבדו מזמן. מורשתו ומשנתו של מוקש כלל אינה באה לידי ביטוי בעשייתם, בהווייתם או בהוראתם. בודדים ומעטים מאוד האנשים שזכו להכיר את מוקש מקרוב, והצליחו לראות ולהכיר באמת גם את האיש שמעבר ל״בונה הדיג׳ים ההודי מרישיקש״.</p>
+					<p>בתחומים אחרים, לא של דיג׳רידו, אני מכיר באופן אישי גם לא מעט מטפלים הוליסטיים ובעלי מקצוע אחרים ההולכים בדרכו של מוקש — מדברים את שפת הלב ומיישמים את משנתו ותורתו בעשייתם.</p>
+				</div>
+				<div class="ea-mem-gal" role="group" aria-label="גלריה לזכרו">
+					<div class="ea-mem-gal__item">[תמונת מוקש — בכפוף לאישור]</div>
+					<div class="ea-mem-gal__item">[מהלימוד בהודו — נדרש מאייל]</div>
+					<div class="ea-mem-gal__item">[רישיקש — נדרש מאייל]</div>
+				</div>
+				<p class="ea-14e-note">תמונות לדף ההנצחה יוטמעו בכפוף לאישור אייל ולרגישות התוכן.</p>
 			</div>
-			<p class="ea-14e-note">תמונות לדף ההנצחה יוטמעו בכפוף לאישור אייל ולרגישות התוכן.</p>
-		</div>
-	</section>
-	<?php
+		</section>
+		<?php
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
