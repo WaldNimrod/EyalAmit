@@ -1,0 +1,46 @@
+{
+  "generated": "2026-06-04T01:08:00Z",
+  "tool": "MCP cursor-ide-browser",
+  "viewport": "default (mobile-width session)",
+  "tests": {
+    "openToggle": {
+      "action": "click e3 (פתיחת תפריט)",
+      "result": "PASS — button becomes סגירת תפריט, states [expanded, focused]"
+    },
+    "bodyScrollLock": {
+      "cdp": "bodyOverflow=hidden while open",
+      "result": "PASS"
+    },
+    "horizontalOverflowAt390": {
+      "cdp": "scrollWidth=390 clientWidth=390",
+      "result": "PASS"
+    },
+    "ariaCurrent": {
+      "cdp": "ariaCurrent includes בית on home",
+      "result": "PASS"
+    },
+    "focusOnOpen": {
+      "snapshot": "focus on close button e7",
+      "result": "PASS"
+    },
+    "escClose": {
+      "action": "Escape",
+      "cdp": "drawerOpen=false menuBtn expanded=false bodyOverflow=visible",
+      "result": "PASS"
+    },
+    "drawerSubLinksVisible": {
+      "note": "Learning/tools/about sub-links visible in drawer snapshot when accordions marked collapsed — verify accordion toggle UX",
+      "result": "OBSERVE — sub-links pre-rendered in DOM; accordion click stale-ref on e13 (page repaint)"
+    },
+    "coursesExternalInDrawer": {
+      "link": "קורסים חיצוני ref e16",
+      "result": "LINK EXISTS — separate check: mobile footer drawer קורסים → href=# (see QA-50-F011)"
+    }
+  },
+  "enPage": {
+    "url": "/en/",
+    "h1": "Breath therapy through the didgeridoo — the cbDIDG method",
+    "footerLegalHebrew": true,
+    "generatePressCredit": true
+  }
+}

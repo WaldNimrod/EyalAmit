@@ -30,6 +30,7 @@ function ea_wave2_home_block_slugs() {
 		'books-row',
 		'services-row',
 		'faq-mini',
+		'bio',
 		'contact-cta',
 		'footer-social',
 	);
@@ -108,6 +109,17 @@ function ea_wave2_enqueue_assets() {
 			'cf7FormId'    => (int) apply_filters( 'ea_wave2_cf7_form_id', EA_WAVE2_CF7_FORM_ID ),
 		)
 	);
+
+	/*
+	 * WP-W2-14-C — Home elevation review-fixes. Home-scoped layout sheet
+	 * (media rows + testimonials rotator) + the rotator behaviour JS. These
+	 * load only on the Home template and are independent of the 14-A
+	 * mobile-asset enqueues above. Do not move them into that block.
+	 */
+	if ( is_page_template( 'page-templates/tpl-home.php' ) ) {
+		wp_enqueue_style( 'ea-wave2-home-front', $uri . '/assets/css/home-front.css', array( 'ea-wave2-atoms' ), $ver );
+		wp_enqueue_script( 'ea-wave2-testimonials', $uri . '/assets/js/ea-testimonials.js', $js_deps, $ver, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ea_wave2_enqueue_assets', 28 );
 
@@ -181,11 +193,80 @@ function ea_wave2_disable_emojis() {
 add_action( 'init', 'ea_wave2_disable_emojis' );
 
 /**
- * Render all 12 homepage blocks in POC order.
+ * Set the per-block context that drives the Home review-fix elevations
+ * (WP-W2-14-C). Each block already reads an optional `*_ctx` query var and
+ * falls back to its hardcoded defaults when absent, so these additions are
+ * backward-compatible — only the Home render opts in to the elevated shapes.
+ *
+ * Review fixes (DELTA §B):
+ *   1. intro  → two-column media row (text + labelled placeholder figure).
+ *   2. bio    → portrait media row using eyal-portrait-hero.jpg.
+ *   3. testimonials → auto-advancing 1-up rotator (5 named real quotes).
+ */
+function ea_wave2_set_home_block_context() {
+	$uri = get_stylesheet_directory_uri();
+
+	// 1. "מה זה טיפול" intro → media row with a labelled graceful placeholder.
+	//    (No real studio photo yet — the placeholder must NOT be labelled as the
+	//    portrait-painting asset.)
+	set_query_var( 'ea_intro_ctx', array(
+		'wrap_class'    => 'ea-mediarow ea-home-mediarow',
+		'figure_label'  => 'תמונת מפגש טיפול · תוטמע ממסירת הנכסים מאייל',
+	) );
+
+	// 2. About → portrait media row using the supplied content asset.
+	set_query_var( 'ea_bio_ctx', array(
+		'wrap_class' => 'ea-home-mediarow--portrait',
+		'heading'    => 'אייל עמית',
+		'body'       => array(
+			'מורה לדיג׳רידו, מטפל בנשימה וסופר, הפועל מאז 1999 ומייסד המרכז לטיפול בדיג׳רידו בפרדס חנה.',
+			'דרכו צמחה משילוב של חקירה אישית, ניסיון מעשי וחניכה אצל המאסטר מוקש דהימן.',
+		),
+		'image'      => $uri . '/assets/images/eyal-portrait-hero.jpg',
+		'image_alt'  => 'אייל עמית',
+		'image_cap'  => 'דיוקן אייל עמית',
+	) );
+
+	// 3. Testimonials → 1-up auto-advancing rotator (5 named real quotes).
+	//    The rotator behaviour is layered on by ea-testimonials.js, keyed off
+	//    the `rotator` wrapper flag; markup stays the backward-compatible list.
+	set_query_var( 'ea_testimonials_ctx', array(
+		'heading'    => 'מילים שנשארו אחרי המפגש',
+		'aria_label' => 'המלצות',
+		'rotator'    => true,
+		'items'      => array(
+			array(
+				'text' => 'כמו רבים אחרים גם אני חשבתי שאני באה ללמוד דיג׳רידו, ולא היה לי מושג איזה מסע עוצמתי מחכה לי.',
+				'name' => 'שירי אלקבץ',
+			),
+			array(
+				'text' => 'מה שאני לומדת מאייל זה לנשום מחדש — להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים.',
+				'name' => 'נוית צוף שטראוס',
+			),
+			array(
+				'text' => 'אייל פירק את אומנות הנשימה עם הדיג׳רידו למרכיבים הקטנים והברורים ביותר. זה הרבה יותר מללמוד כלי נשיפה.',
+				'name' => 'ענת קרמנר וינשטיין',
+			),
+			array(
+				'text' => 'פעם ראשונה בחיים שלמדתי לנשום נכון — תרגול הנשימה בדידג׳ פשוט מרגיע אותי.',
+				'name' => 'אלון גרזון רז',
+			),
+			array(
+				'text' => 'המפגש היה פשוט, נעים ומדויק, ויצאתי ממנו עם תחושת שקט וקרבה לגוף שלא חוויתי מזמן.',
+				'name' => 'חיה עזריה',
+			),
+		),
+		'footer'     => array( 'label' => 'המלצות — קטלוג מרכזי', 'href' => home_url( '/media' ) ),
+	) );
+}
+
+/**
+ * Render all homepage blocks in POC order.
  *
  * @param bool $include_chrome If true, renders topnav before and footer after inner blocks.
  */
 function ea_wave2_render_home_blocks( $include_chrome = true ) {
+	ea_wave2_set_home_block_context();
 	$slugs = ea_wave2_home_block_slugs();
 	if ( $include_chrome ) {
 		get_template_part( 'template-parts/blocks/block', 'topnav' );

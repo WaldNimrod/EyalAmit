@@ -1,0 +1,310 @@
+[
+  {
+    "route": "/",
+    "h1": 1,
+    "h1text": [
+      "המרכז לטיפול בנשימה באמצעות דיג׳רידושיטת cbDIDG של אייל עמית"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/treatment/",
+    "h1": 1,
+    "h1text": [
+      "טיפול בדיג׳רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/method/",
+    "h1": 1,
+    "h1text": [
+      "שיטת cbDIDG — עבודה עם הנשימה דרך הדיג׳רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/lessons/",
+    "h1": 1,
+    "h1text": [
+      "שיעורי נגינה בדיג'רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/sound-healing/",
+    "h1": 1,
+    "h1text": [
+      "סאונד הילינג בדיג'רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/learning/",
+    "h1": 1,
+    "h1text": [
+      "לימוד והכשרה"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/therapist-training/",
+    "h1": 1,
+    "h1text": [
+      "הכשרות למטפלים"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/courses-external/",
+    "h1": 1,
+    "h1text": [
+      "קורסים (סקולר / חיצוני)"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/lectures/",
+    "h1": 1,
+    "h1text": [
+      "הרצאות"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/workshops/",
+    "h1": 1,
+    "h1text": [
+      "סדנאות"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/tools-and-accessories/",
+    "h1": 1,
+    "h1text": [
+      "כלים ואביזרים"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/instruments/",
+    "h1": 1,
+    "h1text": [
+      "כלים בעבודת יד ואביזרים"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/repair/",
+    "h1": 1,
+    "h1text": [
+      "תיקון וחידוש דיג'רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/muzza/",
+    "h1": 1,
+    "h1text": [
+      "מוזה הוצאה לאור"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/muzza/kushi-blantis/",
+    "h1": 1,
+    "h1text": [
+      "כושי בלאנטיס"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/blog/",
+    "h1": 1,
+    "h1text": [
+      "בלוג"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/eyal-amit/",
+    "h1": 1,
+    "h1text": [
+      "אייל עמית"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/contact/",
+    "h1": 1,
+    "h1text": [
+      "צור קשר"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/faq/",
+    "h1": 1,
+    "h1text": [
+      "שאלות נפוצות (FAQ)"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/galleries/",
+    "h1": 1,
+    "h1text": [
+      "רגעים מהמרחב ומהדרך"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/media/",
+    "h1": 1,
+    "h1text": [
+      "מילים שנשארו אחרי המפגש"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/privacy/",
+    "h1": 1,
+    "h1text": [
+      "מדיניות פרטיות"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/accessibility/",
+    "h1": 1,
+    "h1text": [
+      "הצהרת נגישות"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/terms/",
+    "h1": 1,
+    "h1text": [
+      "תקנון"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/mokesh-dahiman/",
+    "h1": 1,
+    "h1text": [
+      "מוקש דהימן"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/about/moksha/",
+    "h1": 1,
+    "h1text": [
+      "מוקש דהימן"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/shop/",
+    "h1": 1,
+    "h1text": [
+      "כלים ואביזרים לדיג'רידו"
+    ],
+    "dir": "rtl",
+    "lang": "he-IL",
+    "consoleErrors": [],
+    "asset404": []
+  },
+  {
+    "route": "/en/",
+    "h1": 1,
+    "h1text": [
+      "Breath therapy through the didgeridoo — the cbDIDG method"
+    ],
+    "dir": "ltr",
+    "lang": "en",
+    "consoleErrors": [],
+    "asset404": []
+  }
+]

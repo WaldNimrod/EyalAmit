@@ -1,0 +1,383 @@
+/* =============================================================
+   WP-W2-14-E — Memorial + Galleries + Media (3 elevated pages)
+   Scoped catalog sheet. Enqueued ONLY on /mokesh-dahiman, /galleries,
+   /media (inc/wave2-w2-14e.php), dep on ea-wave2-atoms.
+
+   D-14: zero new tokens / atoms / keyframe rules. Every rule composes existing
+   --ea-* tokens. RTL logical properties throughout. Translucent dark surfaces
+   reuse the established ink-rgba convention (cf. ea-atoms.css); the memorial
+   hero gradient reuses the token-driven dark-hero approach (chocolate → ink).
+   Visual targets: team_35 handoff-WP-W2-10-MOBILE mockups (desktop + 390px).
+   ============================================================= */
+
+/* ---- Shared section scaffold (memorial + catalogs) ---- */
+.ea-wave2-14e .ea-14e-section {
+  padding-block: var(--ea-space-10);
+  padding-inline: var(--ea-gutter);
+  background: var(--ea-bg);
+}
+.ea-wave2-14e .ea-14e-section--alt {
+  background: var(--ea-bg-alt);
+}
+.ea-wave2-14e .ea-14e-inner {
+  max-width: var(--ea-prose-width);
+  margin-inline: auto;
+}
+.ea-wave2-14e .ea-14e-label {
+  font: var(--ea-type-caption);
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin-block: 0 var(--ea-space-2);
+}
+.ea-wave2-14e .ea-14e-heading {
+  font: var(--ea-type-h2);
+  margin-block: 0 var(--ea-space-4);
+}
+.ea-wave2-14e .ea-14e-heading--sm {
+  font-size: 1.6rem;
+  margin-block-end: var(--ea-space-5);
+}
+.ea-wave2-14e .ea-14e-prose p {
+  font: var(--ea-type-body-lg);
+  font-size: 1rem;
+  line-height: 1.95;
+  color: var(--ea-text-body);
+  margin-block: 0 var(--ea-space-3);
+  max-width: 65ch;
+}
+.ea-wave2-14e .ea-14e-note {
+  font: var(--ea-type-body-sm);
+  color: var(--ea-muted);
+  margin-block-start: var(--ea-space-6);
+}
+
+/* ---- Page-head (galleries + media) ---- */
+.ea-wave2-14e .ea-14e-pagehead {
+  padding-block: calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-space-8);
+  padding-inline: var(--ea-gutter);
+  background: var(--ea-bg-alt);
+  border-block-end: 1px solid var(--ea-line);
+}
+.ea-wave2-14e .ea-14e-pagehead__inner {
+  max-width: var(--ea-prose-width);
+  margin-inline: auto;
+}
+.ea-wave2-14e .ea-14e-pagehead__label {
+  font: var(--ea-type-caption);
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin-block: 0 var(--ea-space-2);
+}
+.ea-wave2-14e .ea-14e-pagehead__title {
+  font: var(--ea-type-h1);
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin-block: 0 var(--ea-space-3);
+}
+.ea-wave2-14e .ea-14e-pagehead__lead {
+  font: var(--ea-type-body-lg);
+  color: var(--ea-text-body);
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* =============================================================
+   MEMORIAL — /mokesh-dahiman (sensitive, generous spacing)
+   ============================================================= */
+.ea-wave2-14e .ea-mem-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--ea-chocolate) 0%, var(--ea-ink) 100%);
+  padding-block: calc(var(--ea-nav-height) + var(--ea-space-10)) var(--ea-space-10);
+  padding-inline: var(--ea-gutter);
+}
+.ea-wave2-14e .ea-mem-hero__inner {
+  max-width: var(--ea-prose-width);
+}
+.ea-wave2-14e .ea-mem-hero__disc {
+  inline-size: 160px;
+  block-size: 160px;
+  border-radius: 50%;
+  border: 1px solid var(--ea-sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-block: 0 var(--ea-space-6);
+  margin-inline: auto;
+  color: var(--ea-on-dark);
+}
+.ea-wave2-14e .ea-mem-hero__yr {
+  font-weight: 200;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  color: var(--ea-sand);
+}
+.ea-wave2-14e .ea-mem-hero__kicker {
+  font: var(--ea-type-caption);
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--ea-sand);
+  margin-block: 0 var(--ea-space-3);
+}
+.ea-wave2-14e .ea-mem-hero__title {
+  font-weight: 100;
+  font-size: 3rem;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  color: var(--ea-on-dark);
+  margin-block: 0 var(--ea-space-3);
+}
+.ea-wave2-14e .ea-mem-hero__sub {
+  font: var(--ea-type-body-lg);
+  color: var(--ea-on-dark);
+  max-width: 48ch;
+  margin-inline: auto;
+  margin-block: 0;
+}
+/* Subtitle: nowrap ≥768px (token-clean class replaces brittle inline width),
+   wraps on mobile. (team_35 DELTA §B) */
+@media (min-width: 768px) {
+  .ea-wave2-14e .ea-mem-hero__sub--desk-nowrap {
+    white-space: nowrap;
+    max-width: none;
+  }
+}
+@media (max-width: 639px) {
+  .ea-wave2-14e .ea-mem-hero__title { font-size: 1.9rem; }
+}
+
+/* Memorial pullquote */
+.ea-wave2-14e .ea-14e-pullquote {
+  max-width: var(--ea-prose-width);
+  margin-block: var(--ea-space-6) 0;
+  margin-inline: auto;
+}
+.ea-wave2-14e .ea-14e-pullquote blockquote {
+  margin: 0;
+  border-inline-start: 1px solid var(--ea-terracotta);
+  padding-inline-start: var(--ea-space-4);
+  font-weight: 200;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--ea-chocolate);
+}
+
+/* Memorial in-page gallery (placeholders until Eyal approves) */
+.ea-wave2-14e .ea-mem-gal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ea-line);
+  margin-block-start: var(--ea-space-5);
+}
+.ea-wave2-14e .ea-mem-gal__item {
+  aspect-ratio: 4 / 3;
+  background: var(--ea-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ea-muted);
+  font-size: 0.74rem;
+  text-align: center;
+  padding: var(--ea-space-2);
+}
+@media (max-width: 639px) {
+  .ea-wave2-14e .ea-mem-gal { grid-template-columns: 1fr; }
+}
+
+/* =============================================================
+   GALLERIES — /galleries (catalog grid 3 → 2 → 1)
+   ============================================================= */
+.ea-wave2-14e .ea-gal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ea-space-4);
+}
+@media (max-width: 1023px) {
+  .ea-wave2-14e .ea-gal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 639px) {
+  .ea-wave2-14e .ea-gal-grid { grid-template-columns: 1fr; }
+}
+.ea-wave2-14e .ea-gal {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.ea-wave2-14e .ea-gal__cover {
+  aspect-ratio: 4 / 3;
+  background: var(--ea-bg-alt);
+  border: 1px solid var(--ea-line);
+  border-radius: var(--ea-radius-img);
+  overflow: hidden;
+  position: relative;
+  transition: transform var(--ea-dur-fast) var(--ea-ease-enter);
+}
+.ea-wave2-14e .ea-gal:hover .ea-gal__cover,
+.ea-wave2-14e .ea-gal:focus-visible .ea-gal__cover {
+  transform: scale(1.02);
+}
+.ea-wave2-14e .ea-gal__cover img {
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: 100%;
+  object-fit: cover;
+}
+.ea-wave2-14e .ea-gal__ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ea-muted);
+  font-size: 0.78rem;
+  text-align: center;
+  padding: var(--ea-space-2);
+}
+.ea-wave2-14e .ea-gal__count {
+  position: absolute;
+  inset-block-end: var(--ea-space-2);
+  inset-inline-start: var(--ea-space-2);
+  background: rgba(46, 43, 40, 0.78); /* ink @ 78% — established translucent-dark convention */
+  color: var(--ea-on-dark);
+  font-size: 0.68rem;
+  padding-block: 4px;
+  padding-inline: 10px;
+  border-radius: var(--ea-radius-pill);
+}
+.ea-wave2-14e .ea-gal__t {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ea-ink);
+  margin-block: var(--ea-space-3) var(--ea-space-1);
+}
+.ea-wave2-14e .ea-gal__d {
+  font-weight: 300;
+  font-size: 0.82rem;
+  color: var(--ea-earth);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =============================================================
+   MEDIA / TESTIMONIALS — /media (.ea-tgrid → 1-col on mobile)
+   ============================================================= */
+.ea-wave2-14e .ea-filter {
+  display: flex;
+  gap: var(--ea-space-1);
+  flex-wrap: wrap;
+  margin-block-end: var(--ea-space-6);
+}
+.ea-wave2-14e .ea-filter button {
+  padding-block: 8px;
+  padding-inline: 18px;
+  border: 1px solid var(--ea-line);
+  background: transparent;
+  border-radius: var(--ea-radius-pill);
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--ea-earth);
+  cursor: pointer;
+}
+.ea-wave2-14e .ea-filter button[aria-pressed="true"] {
+  background: var(--ea-ink);
+  color: var(--ea-on-dark);
+  border-color: var(--ea-ink);
+}
+.ea-wave2-14e .ea-tgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ea-space-4);
+}
+@media (max-width: 1023px) {
+  .ea-wave2-14e .ea-tgrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 639px) {
+  .ea-wave2-14e .ea-tgrid { grid-template-columns: 1fr; }
+}
+.ea-wave2-14e .ea-tcard {
+  background: var(--ea-bg);
+  border-block-start: 1px solid var(--ea-line);
+  padding: var(--ea-space-5);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ea-space-3);
+}
+.ea-wave2-14e .ea-14e-section--alt .ea-tcard {
+  background: var(--ea-bg-alt);
+}
+.ea-wave2-14e .ea-tcard__q {
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--ea-earth);
+  font-style: italic;
+  margin: 0;
+}
+.ea-wave2-14e .ea-tcard__n {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--ea-terracotta);
+  margin: 0;
+}
+
+/* Press / media grid */
+.ea-wave2-14e .ea-press {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--ea-line);
+}
+@media (max-width: 639px) {
+  .ea-wave2-14e .ea-press { grid-template-columns: 1fr; }
+}
+.ea-wave2-14e .ea-press a {
+  background: var(--ea-bg);
+  padding: var(--ea-space-5);
+  text-decoration: none;
+  display: block;
+  transition: background var(--ea-dur-fast) var(--ea-ease-enter);
+}
+.ea-wave2-14e .ea-press a:hover,
+.ea-wave2-14e .ea-press a:focus-visible {
+  background: var(--ea-bg-alt);
+}
+.ea-wave2-14e .ea-press__src {
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ea-terracotta);
+  margin-block: 0 var(--ea-space-2);
+}
+.ea-wave2-14e .ea-press__h {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ea-ink);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Closing CTA band (reuses .ea-cta-pill atom) */
+.ea-wave2-14e .ea-cta-band {
+  background: var(--ea-ink);
+  color: var(--ea-on-dark);
+  text-align: center;
+  padding-block: var(--ea-space-12);
+  padding-inline: var(--ea-gutter);
+}
+.ea-wave2-14e .ea-cta-band__heading {
+  font-weight: 200;
+  font-size: 2rem;
+  color: var(--ea-on-dark);
+  margin-block: 0 var(--ea-space-5);
+}

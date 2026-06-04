@@ -533,11 +533,16 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	$portrait_url = get_stylesheet_directory_uri() . '/assets/images/eyal-portrait-hero.jpg';
 
 	/* 1 — HERO (gradient + kicker + CTA pair + 3 breath-lines). */
-	$hero         = isset( $c['hero'] ) ? (array) $c['hero'] : array();
-	$hero_title   = isset( $hero['title'] ) ? (string) $hero['title'] : '';
+	$hero       = isset( $c['hero'] ) ? (array) $c['hero'] : array();
+	$hero_title = isset( $hero['title'] ) ? (string) $hero['title'] : '';
+	// Ghost-CTA label: routes may override (hero.ghost_cta_label) when the long
+	// H1 makes "מה זה <title>" unwieldy; default keeps all other routes identical.
+	$hero_ghost_label = ( isset( $hero['ghost_cta_label'] ) && '' !== $hero['ghost_cta_label'] )
+		? (string) $hero['ghost_cta_label']
+		: 'מה זה ' . $hero_title;
 	$hero['ctas'] = array(
 		array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ), 'variant' => 'primary' ),
-		array( 'label' => 'מה זה ' . $hero_title, 'href' => '#what', 'variant' => 'ghost-white' ),
+		array( 'label' => $hero_ghost_label, 'href' => '#what', 'variant' => 'ghost-white' ),
 	);
 	set_query_var( 'ea_hero_ctx', $hero );
 	get_template_part( 'template-parts/blocks/block', 'hero' );

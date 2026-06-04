@@ -445,3 +445,195 @@ body.ea-home-dashboard .ea-home-front .ea-home-cta-row--center {
 body.ea-home-dashboard .entry-header {
 	display: none;
 }
+
+/* =================================================================
+   WP-W2-14-C — Home elevation review-fixes (Wave2 home, tpl-home.php)
+   Home-scoped layout only. Composes existing --ea-* tokens; no new
+   tokens, atoms, or keyframes; RTL via logical props; no raw layout hex.
+   Targets the elevated Wave2 home blocks (ea-section-intro / ea-bio-block /
+   ea-testimonials-section), which carry the opt-in classes set only by the
+   Home render — other pages reusing the same blocks are unaffected.
+   ================================================================= */
+
+/* --- Review fix 1 + 2: two-column media rows (text + figure) --------------
+   Releases the narrow lead width and seats imagery beside the prose.        */
+.ea-section-intro__inner.ea-mediarow,
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--ea-space-8);
+	align-items: center;
+}
+
+/* Release the 65ch lead cap so the prose fills its media-row column. */
+.ea-section-intro__inner.ea-mediarow .ea-section-intro__body {
+	max-width: none;
+}
+.ea-section-intro__inner.ea-mediarow .ea-section-intro__text {
+	min-width: 0;
+}
+
+/* Figure cells never overflow their grid track. */
+.ea-mediarow__fig {
+	margin: 0;
+	min-width: 0;
+}
+.ea-mediarow__fig > * {
+	max-inline-size: 100%;
+}
+
+/* Labelled graceful placeholder (intro "מה זה טיפול" — no real studio photo
+   yet; the label states the gap, it is NOT the portrait-painting asset). */
+.ea-mediarow__ph {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	inline-size: 100%;
+	aspect-ratio: 4 / 3;
+	padding: var(--ea-space-4);
+	border: 1px solid var(--ea-line);
+	border-radius: var(--ea-radius-img);
+	background:
+		repeating-linear-gradient(
+			135deg,
+			var(--ea-bg-alt),
+			var(--ea-bg-alt) 13px,
+			var(--ea-sand) 13px,
+			var(--ea-sand) 26px
+		);
+}
+.ea-mediarow__ph span {
+	display: inline-block;
+	max-inline-size: 22ch;
+	padding: var(--ea-space-1) var(--ea-space-2);
+	border-radius: var(--ea-radius-pill);
+	background: var(--ea-bg);
+	color: var(--ea-muted);
+	font-size: 0.74rem;
+	font-weight: 300;
+	line-height: 1.5;
+	letter-spacing: 0.3px;
+}
+
+/* About portrait media row: portrait at the inline-start, prose after it. */
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__inner {
+	grid-template-columns: 360px 1fr;
+	align-items: center;
+}
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__figure {
+	order: 1;
+}
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__content {
+	order: 2;
+	min-width: 0;
+}
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__portrait,
+.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__portrait-placeholder {
+	inline-size: 100%;
+	block-size: auto;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: var(--ea-radius-img);
+}
+
+/* Media-row responsive collapse: stack, figure first, no horizontal overflow. */
+@media (max-width: 767px) {
+	.ea-section-intro__inner.ea-mediarow,
+	.ea-bio-block.ea-home-mediarow--portrait .ea-bio-block__inner {
+		grid-template-columns: 1fr;
+		gap: var(--ea-space-5);
+	}
+	.ea-section-intro__inner.ea-mediarow .ea-mediarow__fig {
+		order: -1;
+	}
+}
+
+/* --- Review fix 3: testimonials 1-up auto-advancing rotator ---------------
+   The viewport clips; the track lays the cards side-by-side and the JS slides
+   it via transform. RTL-correct: the slide sign is computed in JS from the
+   element direction, so no LTR/RTL-specific CSS is required here.            */
+.ea-testimonials-section--rotator .ea-testimonials-viewport {
+	overflow: hidden;
+}
+.ea-testimonials-section--rotator .ea-testimonials-track {
+	display: flex;
+	gap: 0;
+	will-change: transform;
+	transition: transform var(--ea-dur-slow) var(--ea-ease-enter);
+}
+.ea-testimonials-section--rotator .ea-testimonial-card {
+	flex: 0 0 100%;
+	min-width: 0;
+	border-top: 0;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: var(--ea-space-3);
+	padding-block: var(--ea-space-6);
+	padding-inline: var(--ea-space-4);
+}
+.ea-testimonials-section--rotator .ea-testimonial-card__figure {
+	display: none;
+}
+.ea-testimonials-section--rotator .ea-testimonial-card__quote {
+	flex: none;
+	max-inline-size: 56ch;
+}
+.ea-testimonials-section--rotator .ea-testimonial-card__text {
+	font-size: 1.2rem;
+	font-weight: 200;
+	line-height: 1.7;
+	color: var(--ea-chocolate);
+}
+.ea-testimonials-section--rotator .ea-testimonial-card__footer {
+	justify-content: center;
+}
+
+/* Dots */
+.ea-testimonials-dots {
+	display: flex;
+	gap: var(--ea-space-1);
+	justify-content: center;
+	margin-top: var(--ea-space-4);
+}
+.ea-testimonials-dot {
+	inline-size: 8px;
+	block-size: 8px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--ea-line);
+	cursor: pointer;
+	transition: background var(--ea-dur-fast), transform var(--ea-dur-fast);
+}
+.ea-testimonials-dot[aria-current="true"] {
+	background: var(--ea-terracotta);
+	transform: scale(1.35);
+}
+
+/* No-JS / pre-init fallback: show only the first card (static), hide the rest,
+   so the section never collapses and reduced-motion users get a clean static
+   first slide. Once JS upgrades the rotator it adds .is-rotator-ready. */
+.ea-testimonials-section--rotator:not(.is-rotator-ready) .ea-testimonials-track {
+	display: block;
+}
+.ea-testimonials-section--rotator:not(.is-rotator-ready) .ea-testimonial-card:not(:first-child) {
+	display: none;
+}
+.ea-testimonials-section--rotator:not(.is-rotator-ready) .ea-testimonials-dots {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ea-testimonials-section--rotator .ea-testimonials-track {
+		transition: none;
+	}
+}
+@media (max-width: 639px) {
+	.ea-testimonials-section--rotator .ea-testimonial-card__text {
+		font-size: 1.05rem;
+	}
+}

@@ -1,0 +1,28 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 1024 },
+    { "name": "w1280", "w": 1280, "h": 900 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "method", "path": "/method/" },
+    { "name": "sound-healing", "path": "/sound-healing/" },
+    { "name": "lessons", "path": "/lessons/" },
+    { "name": "eyal-amit", "path": "/eyal-amit/" },
+    { "name": "muzza", "path": "/muzza/" },
+    { "name": "book-kushi", "path": "/muzza/kushi-blantis/" },
+    { "name": "shop", "path": "/shop/" },
+    { "name": "en", "path": "/en/" },
+    { "name": "galleries", "path": "/galleries/" },
+    { "name": "media", "path": "/media/" },
+    { "name": "mokesh-dahiman", "path": "/mokesh-dahiman/" },
+    { "name": "about-moksha", "path": "/about/moksha/" }
+  ],
+  "absent": ["TBD", "CDIP", "lorem ipsum"],
+  "shots": true
+}

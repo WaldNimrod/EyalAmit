@@ -93,6 +93,12 @@ function ea_eyalamit_render_footer_legal_nav() {
 	if ( ! has_nav_menu( 'ea_footer_legal' ) ) {
 		return;
 	}
+	// The /en landing renders its own English footer nav inline (tpl-en-landing.php).
+	// Suppress this Hebrew catalogs/legal menu there so the EN page footer stays
+	// fully English (WP-W2-14-B EN chrome consistency; QA F-EN-footer).
+	if ( is_page( 'en' ) ) {
+		return;
+	}
 	echo '<nav class="ea-footer-legal-nav" aria-label="' . esc_attr__( 'קישורי פוטר — קטלוגים ומסמכים משפטיים', 'ea-eyalamit' ) . '">';
 	wp_nav_menu(
 		array(
@@ -810,3 +816,9 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-08.php';
  * WP-W2-09 — Cutover SEO/best-practices head hygiene (meta description, favicon).
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-09.php';
+
+/**
+ * WP-W2-14-E — Memorial + Galleries + Media: 3 new elevated pages (force-route
+ * + compose + scoped catalog CSS).
+ */
+require_once get_stylesheet_directory() . '/inc/wave2-w2-14e.php';

@@ -8,10 +8,17 @@
  *
  * Context shape (all keys optional):
  *   array(
- *     'heading'    => string,        // H2
- *     'body'       => string[],      // array of paragraph strings (each wrapped in <p>)
- *     'aria_label' => string,        // section aria-label
+ *     'heading'      => string,        // H2
+ *     'body'         => string[],      // array of paragraph strings (each wrapped in <p>)
+ *     'aria_label'   => string,        // section aria-label
+ *     'wrap_class'   => string,        // extra class on the inner wrapper (e.g. media-row layout)
+ *     'figure_label' => string,        // when set → renders a labelled graceful placeholder figure
+ *                                      //   beside the prose (two-column media row). The label must
+ *                                      //   describe the gap honestly — never a real-asset caption.
  *   )
+ *
+ * Backward compatible: with no context (or without wrap_class/figure_label) the
+ * block renders the original single-column HOME intro unchanged.
  *
  * @package ea_eyalamit
  */
@@ -43,16 +50,29 @@ if ( isset( $ea_intro_ctx['body'] ) && is_array( $ea_intro_ctx['body'] ) && ! em
 		'יש דרכים שונות לעבוד עם הנשימה, והדיג׳רידו מציע דרך אחרת, חווייתית, חיה ומעניינת, שמשלבת תרגול עם צליל ונגינה והופכת את העבודה עם הנשימה למשהו שקל יותר להתמיד בו.',
 	);
 }
+
+$ea_intro_wrap_class = isset( $ea_intro_ctx['wrap_class'] ) ? trim( (string) $ea_intro_ctx['wrap_class'] ) : '';
+$ea_intro_fig_label  = isset( $ea_intro_ctx['figure_label'] ) ? (string) $ea_intro_ctx['figure_label'] : '';
+$ea_intro_inner_cls  = 'ea-section-intro__inner ea-entrance--breath' . ( '' !== $ea_intro_wrap_class ? ' ' . esc_attr( $ea_intro_wrap_class ) : '' );
 ?>
 <section class="ea-section-intro" data-block="intro" aria-label="<?php echo esc_attr( $ea_intro_aria ); ?>">
-      <div class="ea-section-intro__inner ea-entrance--breath">
-        <h2 class="ea-section-intro__heading">
-          <?php echo esc_html( $ea_intro_heading ); ?>
-        </h2>
-        <div class="ea-section-intro__body">
-          <?php foreach ( $ea_intro_body as $ea_intro_p ) : ?>
-          <p><?php echo esc_html( (string) $ea_intro_p ); ?></p>
-          <?php endforeach; ?>
+      <div class="<?php echo $ea_intro_inner_cls; // phpcs:ignore WordPress.Security.EscapeOutput — class list escaped above ?>">
+        <div class="ea-section-intro__text">
+          <h2 class="ea-section-intro__heading">
+            <?php echo esc_html( $ea_intro_heading ); ?>
+          </h2>
+          <div class="ea-section-intro__body">
+            <?php foreach ( $ea_intro_body as $ea_intro_p ) : ?>
+            <p><?php echo esc_html( (string) $ea_intro_p ); ?></p>
+            <?php endforeach; ?>
+          </div>
         </div>
+        <?php if ( '' !== $ea_intro_fig_label ) : ?>
+        <figure class="ea-mediarow__fig">
+          <div class="ea-mediarow__ph" role="img" aria-label="<?php echo esc_attr( $ea_intro_fig_label ); ?>">
+            <span><?php echo esc_html( $ea_intro_fig_label ); ?></span>
+          </div>
+        </figure>
+        <?php endif; ?>
       </div>
     </section>
