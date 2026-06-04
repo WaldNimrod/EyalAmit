@@ -569,6 +569,29 @@ function ea_eyalamit_books_hub_template( $template ) {
 add_filter( 'template_include', 'ea_eyalamit_books_hub_template', 95 );
 
 /**
+ * WP-W2-15-CR1: consolidate the two duplicate "מוזה הוצאה לאור" pages.
+ *
+ * Eyal's verbatim MUZZA.md content is carried by the elevated /books archive
+ * (page-templates/tpl-books.php -> ea_w2_05_render_books_archive()). The /muzza
+ * books-hub page renders the_content() straight from the DB post_content, which
+ * the FTP theme deploy cannot write — so it could not carry the source content.
+ * Until the IA is consolidated (Principal decision: which slug is canonical),
+ * send /muzza (and the /muzeh alias) to /books with a TEMPORARY 302 so visitors
+ * — and the content-accuracy gate, which follows redirects — see the real page.
+ * 302 (not 301) keeps this reversible without poisoning browser redirect caches.
+ */
+function ea_eyalamit_muzza_to_books_redirect() {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( is_page( 'muzza' ) || is_page( 'muzeh' ) ) {
+		wp_safe_redirect( home_url( '/books/' ), 302 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'ea_eyalamit_muzza_to_books_redirect', 1 );
+
+/**
  * תבנית דף ספר — Wave1.
  *
  * @param string $template Path to template file.
