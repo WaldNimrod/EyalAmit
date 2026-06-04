@@ -1,0 +1,21 @@
+{
+  "generated": "2026-06-04T01:10:00Z",
+  "engine": "bash scripts/qa/http-qa-lighthouse.sh",
+  "exitCode": 0,
+  "note": "Staging perf is artifact; a11y authoritative via axe. SEO capped (noindex).",
+  "routes": [
+    { "route": "/", "perf": 97, "a11y": 100, "bp": 100, "seo": 69 },
+    { "route": "/treatment/", "perf": 98, "a11y": 100, "bp": 100, "seo": 69 },
+    { "route": "/method/", "perf": 97, "a11y": 100, "bp": 100, "seo": 61 },
+    { "route": "/lessons/", "perf": 98, "a11y": 100, "bp": 100, "seo": 69 },
+    { "route": "/muzza/", "perf": 95, "a11y": 98, "bp": 100, "seo": 61 },
+    { "route": "/blog/", "perf": 97, "a11y": 97, "bp": 100, "seo": 58 },
+    { "route": "/eyal-amit/", "perf": 97, "a11y": 100, "bp": 100, "seo": 61 },
+    { "route": "/contact/", "perf": 97, "a11y": 97, "bp": 100, "seo": 58 },
+    { "route": "/galleries/", "perf": 96, "a11y": 100, "bp": 100, "seo": 61 },
+    { "route": "/media/", "perf": 98, "a11y": 100, "bp": 100, "seo": 58 },
+    { "route": "/mokesh-dahiman/", "perf": 94, "a11y": 100, "bp": 100, "seo": 58 },
+    { "route": "/en/", "perf": 98, "a11y": 100, "bp": 100, "seo": 61 },
+    { "route": "/shop/", "perf": 98, "a11y": 100, "bp": 100, "seo": 58 }
+  ]
+}
