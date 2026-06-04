@@ -1036,10 +1036,10 @@ work_packages:
   progress: 'REGISTERED 2026-06-02 (team_100): LOD400 spec authored. INVESTIGATION COMPLETE 2026-06-02 (team_00 go): root cause = ACCIDENTAL orphaned reduced-motion block at top of ea-atoms.css -- the @media (prefers-reduced-motion: reduce) opener was lost (0 @media opens, stray } at line 40), leaking animation:none!important to global scope so entrances are killed for ALL users (matchMedia reduce=false yet name=none). Introduced 2026-05-27 commit e165218 (WP-W2-01 Stage B). FIX = add the missing @media opener (1 line; entrances play for motion-OK, suppressed under reduce; makes W2-12 stagger observable). This is a VISUAL CHANGE -> AC-04 needs team_00 sign-off (A=approve fix / B=keep off). Findings: _COMMUNICATION/team_100/FINDINGS-WP-W2-13-ENTRANCE-ANIM-2026-06-02.md. team_00 APPROVED Option A 2026-06-02 (DECISION_WP-W2-13-ENTRANCE-ANIM_2026-06-02_v1.md). S3 BUILD-COMPLETE + PRE-FLIGHT PASS (branch feature/s003-entrance-fix): team_80 added the @media opener (e2fce1d, braces 291/291); deployed. Computed self-smoke: no-preference -> pillar2 ea-fadeUp/0.1s, pillar3 0.2s, breath heading ea-breathReveal; reduce -> all none. Pre-flight: axe 0 crit/serious; LH mobile https / median 97 a100 (no regression). Disposition: _COMMUNICATION/team_100/DISPOSITION-WP-W2-13-S5-CLOSE-2026-06-02.md. L-GATE_VALIDATE 2026-06-02: team_190/Cursor PASS — no-preference pillar2 ea-fadeUp/0.1s (3->0.2s,4->0.3s), breath heading ea-breathReveal; reduce -> all none; W2-12 stagger observable; AC-03 only +1 line, braces 291/291; axe 0/0; LH a11y 100, mobile perf median 88; validate 0 FAIL; / 200. Verdict: _COMMUNICATION/team_190/VERDICT-WP-W2-13-L-GATE-VALIDATE-2026-06-02.md. STATUS -> DONE. PENDING ONLY: merge feature/s003-entrance-fix -> main per team_00 go.'
 - id: WP-W2-14
   label: Mobile UI + responsive lock + remaining elevated pages (team_35 mobile package)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_35 (mockups) + team_10 (impl)
   assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE, incl. VISUAL+mobile)
   created_at: '2026-06-03'
@@ -1070,10 +1070,10 @@ work_packages:
   progress: 'S3 BUILT + S4 PASS + team_100 pre-flight CLEAN 2026-06-04 (branch wp-w2-14-a-mobile-chrome; deployed uPress staging). Built: canonical server-rendered nav + .ea-mnav-* mobile bar + side-sheet drawer (block-topnav); canonical .ea-cfoot footer (block-footer-social); 3 ported assets (ea-mobile-nav.css/.js drawer-behaviour-only + ea-mobile-variants.css); enqueues (14-A-owned block). Pre-flight: php -l clean; validate_aos 0 FAIL; 0 new tokens/keyframes; axe 0 crit/0 serious; 0 horizontal overflow @360/390/414/768 (15/15); drawer focus-trap/Esc/scrim/accordion/aria-current; VISUAL mockup-vs-live PASS. Two defects fixed during pre-flight: pre-JS off-canvas drawer slide-sign (introduced + fixed); pre-existing .ea-breath-divider scaleX overflow (ea-atoms.css overflow:hidden -> team_80 to ratify @S4). Report: _COMMUNICATION/team_100/PREFLIGHT-WP-W2-14-A-2026-06-04.md. S5 team_50 L-GATE_BUILD PASS 2026-06-04 (_COMMUNICATION/team_50/QA-VERDICT-WP-W2-14-A-L-GATE-BUILD-2026-06-04.md). team_190 L-GATE_VALIDATE PASS round-1 0 P0/P1 2026-06-04 (_COMMUNICATION/team_190/VERDICT-WP-W2-14-A-L-GATE-VALIDATE-2026-06-04.md, commit 4092116). Deviations APPROVED by team_190: footer carries 4 real social incl. TikTok = 20 links (Eyal 2026-05-27); breath-divider atom fix (team_80 S4 ratify); /en full chrome wiring deferred to WP-W2-14-B; LH perf measured on production only (dev artifact). STATUS -> DONE / LOD500_LOCKED. PENDING ONLY: team_191 ARCHIVE_MANIFEST + merge wp-w2-14-a-mobile-chrome -> main per team_00 go. On close, Phase 2 (14-B/C/D/E parallel worktrees) unblocks.'
 - id: WP-W2-14-B
   label: Existing elevated clusters — mobile pass (A/B/E/F §4 decisions)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-06-03'
@@ -1084,12 +1084,13 @@ work_packages:
   priority: HIGH
   blocked_by: [WP-W2-14-A]
   notes: 'Apply §4 per-component mobile decisions to existing A/B/E/F (comparison->3 cards, shop->2col, timeline->vertical, testimonials->stack, EN LTR). Inherits chrome from 14-A. Parallel with C/D/E (worktree; owns cluster page-CSS sheets only).'
+  progress: 'BUILT (parallel worktree) + integrated (branch wp-w2-14-phase2) + deployed 2026-06-04. team_100 pre-flight CLEAN (0-overflow, axe 0/0, HTTP 200/H1=1). team_50 full-site E2E PASS_WITH_FINDINGS 0 P0 + team_190 L-GATE_VALIDATE PASS 0 P0/P1 (cross-engine) 2026-06-04. Merged wp-w2-14-phase2 -> main on team_00 go. STATUS -> DONE / LOD500_LOCKED. Cluster mobile CSS (service/editorial/commerce/EN); 0-overflow 360-1280; mockup-faithful.'
 - id: WP-W2-14-C
   label: Home elevation review-fixes (media rows + testimonial rotator)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-06-03'
@@ -1100,12 +1101,13 @@ work_packages:
   priority: MEDIUM
   blocked_by: [WP-W2-14-A]
   notes: 'team_00 Home review fixes (DELTA-AND-FIXES §B): "what is treatment" + about -> two-column media rows; testimonials -> auto-advancing rotator; memorial subtitle nowrap. Parallel with B/D/E (worktree; owns tpl-home + home blocks/CSS + rotator JS).'
+  progress: 'BUILT (parallel worktree) + integrated (branch wp-w2-14-phase2) + deployed 2026-06-04. team_100 pre-flight CLEAN (0-overflow, axe 0/0, HTTP 200/H1=1). team_50 full-site E2E PASS_WITH_FINDINGS 0 P0 + team_190 L-GATE_VALIDATE PASS 0 P0/P1 (cross-engine) 2026-06-04. Merged wp-w2-14-phase2 -> main on team_00 go. STATUS -> DONE / LOD500_LOCKED. Home media rows + portrait + auto-rotator (home rotator aria-required-children critical FIXED).'
 - id: WP-W2-14-D
   label: Method page — elevated build (new)
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-06-03'
@@ -1116,12 +1118,13 @@ work_packages:
   priority: MEDIUM
   blocked_by: [WP-W2-14-A]
   notes: 'Build elevated /method from mockup (4-step->2->1 col). Parallel with B/C/E (worktree; owns method composition + CSS).'
+  progress: 'BUILT (parallel worktree) + integrated (branch wp-w2-14-phase2) + deployed 2026-06-04. team_100 pre-flight CLEAN (0-overflow, axe 0/0, HTTP 200/H1=1). team_50 full-site E2E PASS_WITH_FINDINGS 0 P0 + team_190 L-GATE_VALIDATE PASS 0 P0/P1 (cross-engine) 2026-06-04. Merged wp-w2-14-phase2 -> main on team_00 go. STATUS -> DONE / LOD500_LOCKED. /method elevated composition rendered. CONTENT follow-up (Eyal-deferred, NON-BLOCKING): reconcile /method copy vs method.md (H8/F8).'
 - id: WP-W2-14-E
   label: Remaining new elevated pages — Memorial + Galleries + Media
-  status: IN_PROGRESS
+  status: DONE
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
   created_at: '2026-06-03'
@@ -1132,3 +1135,4 @@ work_packages:
   priority: MEDIUM
   blocked_by: [WP-W2-14-A]
   notes: 'Build 3 new elevated pages: /mokesh-dahiman (sensitive, verbatim, sand avatar, nowrap subtitle), /galleries (3->2->1 grid), /media (.ea-tgrid->1col). Parallel with B/C/D (worktree; owns the 3 compositions + catalog CSS).'
+  progress: 'BUILT (parallel worktree) + integrated (branch wp-w2-14-phase2) + deployed 2026-06-04. team_100 pre-flight CLEAN (0-overflow, axe 0/0, HTTP 200/H1=1). team_50 full-site E2E PASS_WITH_FINDINGS 0 P0 + team_190 L-GATE_VALIDATE PASS 0 P0/P1 (cross-engine) 2026-06-04. Merged wp-w2-14-phase2 -> main on team_00 go. STATUS -> DONE / LOD500_LOCKED. Memorial /mokesh-dahiman + /about/moksha (Eyal va-ma-hayom narrative + team_35 mockup design; 14-E owns moksha id181 via priority 102) + Galleries + Media. CONTENT follow-up (Eyal-deferred, NON-BLOCKING): memorial source/intent/lead/dates/edits + galleries/media real content (H1-H7/F1-F7), client-hub group H.'
