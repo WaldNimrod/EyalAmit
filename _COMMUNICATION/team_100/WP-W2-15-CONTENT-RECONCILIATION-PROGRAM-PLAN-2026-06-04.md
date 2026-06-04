@@ -40,3 +40,18 @@ Same as WP-W2-14: ADR034 named branch; surgical per-file commits (`Co-Authored-B
 
 ## 6. Priority order
 15-A (blog P0) → 15-B method (0%) → 15-C muzza+books (0%) → 15-B treatment/sound-healing/lessons (~25%) → 15-E FAQ (#1+#3) → 15-D 5 shop pages (#9) → 15-E testimonials carousel (#2) → 15-F about/mokesh/galleries (await Eyal).
+
+---
+
+## ADDENDUM 2026-06-04 (Eyal — 2 uploads, fold into the package)
+
+Both arrived in `from-eyal/תוכן לאתר 25.5.26/` (synced today).
+
+### (i) About page content — UNBLOCKS #7
+`אודות - אייל עמית/אודות - אייל עמית.md` — a complete **13-section FINAL** doc (Hero · journey · meeting the didgeridoo · teachers · the stolen didg & new path · cbDIDG · the center/studio · breath/research/recognition · books/stage/media · next generation · today · CTA · disclaimer).
+- **Action:** move About out of 15-F (blocked) into the **Phase-1 build set** — full elevated `/eyal-amit` page from this source, verbatim. Folded into **15-B**. (15-F retains only the still-blocked: Mokesh source/H1, galleries/media real content, real testimonials list.)
+
+### (ii) "דפים שלא אונדקסו" (non-indexed legacy pages) — NEW child 15-G
+A Google Search Console "not indexed" export — 9 category files (soft-404 · noindex · alternate-with-canonical · redirect · 404 · crawled-not-indexed · duplicate-no-canonical · server-error), **406 legacy `eyalamit.co.il` URLs** (~174 after stripping `/feed//tag//category//qr/`+attachments; real-content subset smaller).
+- **Scope (15-G — SEO/migration, route team_40 + team_20):** triage the 406 → (a) real content to preserve/redirect, (b) junk (feeds/dupes/attachments) to let 404/canonicalize; verify **301 coverage** vs the WP-W2-09 redirect map; confirm **new-site pages are indexable** (no stray `noindex`). Cross-check with #9 (unbuilt pages) so no real legacy content is dropped.
+- Largely an SEO completeness pass; not content-rewrite. Lower urgency than 15-A–E but in-package.
