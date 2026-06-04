@@ -1,0 +1,12 @@
+PASS / h1=1 dir=rtl err=0 main#=0
+  labels: [כריכת וכתבת] | [כריכת כושי בלאנטיס] | [כריכת צבע בכחול]
+PASS /treatment/ h1=1 dir=rtl err=0 main#=0
+  labels: אייל עמית, סטודיו פרדס חנה
+PASS /method/ h1=1 dir=rtl err=0 main#=0
+  labels: אייל עמית, סטודיו פרדס חנה
+PASS /en/ h1=1 dir=ltr err=0 main#=0
+  labels: Shiri Elkabetz | Navit Tzuf Strauss | Anat Kremner Weinstein
+PASS /galleries/ h1=1 dir=rtl err=0 main#=6
+PASS /media/ h1=1 dir=rtl err=0 main#=4
+  labels: שירי אלקבץ | נוית צוף שטראוס | אלון גרזון רז
+PASS /about/moksha/ h1=1 dir=rtl err=0 main#=0
