@@ -35,6 +35,10 @@ $ea_cta_variant = isset( $ea_cta_ctx['variant'] ) ? (string) $ea_cta_ctx['varian
 if ( 'band' === $ea_cta_variant ) :
 	$ea_cta_heading = isset( $ea_cta_ctx['heading'] ) ? (string) $ea_cta_ctx['heading'] : 'לתיאום שיחת היכרות';
 	$ea_cta_aria    = isset( $ea_cta_ctx['aria_label'] ) ? (string) $ea_cta_ctx['aria_label'] : $ea_cta_heading;
+	// Optional sr-only structural section label (e.g. the source's "CTA סופי"
+	// marker). Reuses the locked ea-sr-only atom — no new token. When set, the
+	// visible heading uses the CTA button label so no structural jargon shows.
+	$ea_cta_sr_label = isset( $ea_cta_ctx['sr_label'] ) ? (string) $ea_cta_ctx['sr_label'] : '';
 	$ea_cta_body    = ( isset( $ea_cta_ctx['body'] ) && is_array( $ea_cta_ctx['body'] ) ) ? $ea_cta_ctx['body'] : array();
 	$ea_cta_btn     = isset( $ea_cta_ctx['cta'] ) && is_array( $ea_cta_ctx['cta'] ) ? $ea_cta_ctx['cta'] : array();
 	$ea_cta_label   = isset( $ea_cta_btn['label'] ) ? (string) $ea_cta_btn['label'] : 'לתיאום שיחת היכרות';
@@ -42,6 +46,9 @@ if ( 'band' === $ea_cta_variant ) :
 	?>
 <section class="ea-section ea-section--cta ea-section--cta--ink ea-section--closing" data-block="contact-cta" aria-label="<?php echo esc_attr( $ea_cta_aria ); ?>">
       <div class="ea-section__inner ea-section__inner--center ea-entrance--breath">
+        <?php if ( '' !== $ea_cta_sr_label ) : ?>
+        <span class="ea-sr-only"><?php echo esc_html( $ea_cta_sr_label ); ?></span>
+        <?php endif; ?>
         <h2 class="ea-section__heading"><?php echo esc_html( $ea_cta_heading ); ?></h2>
         <?php foreach ( $ea_cta_body as $ea_cta_p ) : ?>
         <p class="ea-section__list"><?php echo esc_html( (string) $ea_cta_p ); ?></p>

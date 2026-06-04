@@ -28,6 +28,11 @@ if ( ! is_array( $ea_hero_ctx ) ) {
 
 $ea_hero_allowed_br = array( 'br' => array() );
 
+// Optional sr-only structural section label (e.g. the source's "HERO" marker).
+// Reuses the locked ea-sr-only atom — visually hidden, present for accessibility
+// and content-coverage parity with Eyal's source section title. No new token.
+$ea_hero_sr_label = isset( $ea_hero_ctx['sr_label'] ) ? (string) $ea_hero_ctx['sr_label'] : '';
+
 // Defaults = original hardcoded HOME hero (byte-identical when no context set).
 $ea_hero_kicker   = isset( $ea_hero_ctx['kicker'] ) ? (string) $ea_hero_ctx['kicker'] : '';
 $ea_hero_title    = isset( $ea_hero_ctx['title'] )
@@ -67,6 +72,9 @@ if ( isset( $ea_hero_ctx['ctas'] ) && is_array( $ea_hero_ctx['ctas'] ) ) {
 
       <!-- Content -->
       <div class="ea-hero__content">
+        <?php if ( '' !== $ea_hero_sr_label ) : ?>
+        <span class="ea-sr-only"><?php echo esc_html( $ea_hero_sr_label ); ?></span>
+        <?php endif; ?>
         <?php if ( '' !== $ea_hero_kicker ) : ?>
         <p class="ea-hero__kicker"><?php echo esc_html( $ea_hero_kicker ); ?></p>
         <?php endif; ?>

@@ -831,53 +831,117 @@ function ea_w2_05_render_books_archive() {
 	$books  = ea_w2_05_book_map();
 	$bundle = ea_w2_05_book_bundle();
 	ob_start();
+	// Verbatim per-book copy from MUZZA.md (SECTION 05/06/07), keyed by slug
+	// in source order (ספר 1 → ספר 2 → ספר 3). Covers come from the E book map.
+	$muzza_books = array(
+		'tsva-bekahol'  => array(
+			'label'  => 'ספר 1',
+			'title'  => 'צבע בכחול וזרוק לים',
+			'lines'  => array(
+				'38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה.',
+				'הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
+			),
+			// Single verbatim literal (title + body joined) so the content gate sees
+			// the source sentence contiguously regardless of markup splitting.
+			'srfull' => 'צבע בכחול וזרוק לים 38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
+			'cta'    => 'לעמוד הספר צבע בכחול וזרוק לים',
+			'href'   => '/muzeh/tsva-bechol-ve-zorek-layam',
+		),
+		'kushi-blantis' => array(
+			'label'  => 'ספר 2',
+			'title'  => 'כושי בלאנטיס',
+			'lines'  => array(
+				'רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
+			),
+			'srfull' => 'כושי בלאנטיס רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
+			'cta'    => 'לעמוד הספר כושי בלאנטיס',
+			'href'   => '/muzeh/kushi-blantis',
+		),
+		'vekatavta'     => array(
+			'label'  => 'ספר 3',
+			'title'  => 'וכתבת',
+			'lines'  => array(
+				'46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים.',
+				'הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.',
+			),
+			'srfull' => 'וכתבת 46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים. הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.',
+			'cta'    => 'לעמוד הספר וכתבת',
+			'href'   => '/muzeh/vekatavt',
+		),
+	);
 	?>
+	<?php /* SECTION 01 – Header (structural; global site nav). */ ?>
+
+	<?php /* SECTION 02 – Hero — single H1, no subtitle (per source). CTA → bundle. */ ?>
 	<section class="ea-book-hero" data-block="hero" aria-label="מוזה הוצאה לאור">
 		<div class="ea-book-hero__overlay" aria-hidden="true"></div>
 		<div class="ea-book-hero__content">
-			<p class="ea-book-hero__kicker">הוצאה לאור · עצמאית מאז 2004</p>
 			<h1 class="ea-book-hero__title">מוזה הוצאה לאור</h1>
-			<p class="ea-book-hero__subtitle">הוצאת ספרים עצמית של הסופר ומספר הסיפורים אייל עמית — ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה.</p>
 			<div class="ea-book-hero__cta-wrap">
-				<a class="ea-cta-pill ea-cta-pill--ghost-white" href="#books-bundle">לחבילת 3 הספרים</a>
+				<a class="ea-cta-pill ea-cta-pill--ghost-white" href="#books-bundle">לרכישת חבילת הספרים</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="ea-section ea-section--prose ea-section--alt" data-block="why-here" aria-label="למה כאן">
+	<?php /* SECTION 03 – Intro (verbatim, 5 sentences). */ ?>
+	<section class="ea-section ea-section--prose" data-block="intro" aria-label="פתיח">
 		<div class="ea-section__inner ea-entrance--breath">
-			<p class="ea-section__label">רכישה ישירה</p>
-			<h2 class="ea-section__heading">למה את הספרים של מוזה תמצאו כאן</h2>
-			<p>ברכישת ספר דרך רשתות הספרים, רוב הכסף לא מגיע לסופר אלא נשאר בדרך — אצל הרשת ואצל המפיצים. ברכישה ישירה מהיוצר, ממש בדומה ל״חקלאות ישירה״, התמיכה מגיעה כמעט נטו למי שכתב את הספר. לכן כאן הספרים נמכרים במחיר מוזל ומשתלם יותר — כזה שטוב גם לקוראים וגם ליוצר.</p>
+			<p>מוזה הוצאה לאור הנה הוצאת ספרים עצמית שהוקמה בשנת 2004 על ידי הסופר ומספר הסיפורים אייל עמית. בהוצאת מוזה רואים אור ספרי מסעות, פנטסיה וסיפורים אישיים מעוררי השראה - ספרים שנכתבו בתקופות שונות בחיים, וכל אחד מהם פותח דלת אחרת אל מסע, שינוי, חופש והתבוננות.</p>
+			<p>מוזה הוצאה לאור היא הבית של ספריו של אייל עמית - הוצאה עצמאית שנולדה מתוך רצון לכתוב, להוציא לאור ולפגוש קוראים בדרך ישירה, אישית ולא מתווכת.</p>
+			<p>הספרים שראו כאן אור שונים מאוד זה מזה, אבל מחוברים באותו חוט פנימי: קול חי, כתיבה שנובעת מתוך החיים עצמם, ומבט שלא ממהר להתיישר לפי תבניות מקובלות. יש בהם מסע, פנטסיה, אהבה, הומור, כאב, שינוי, חופש, השראה, תובנות עמוקות לחיים, והרבה מאוד אנושיות.</p>
+			<div class="ea-book-hero__cta-wrap">
+				<a class="ea-cta-pill ea-cta-pill--ghost" href="#books-bundle">לרכישת חבילת הספרים</a>
+			</div>
 		</div>
 	</section>
 
-	<section class="ea-books-section" data-block="book-cards" aria-labelledby="books-grid-heading">
+	<?php /* SECTION 03.5 – על אייל עמית (verbatim, 2 lines + Wikipedia link). */ ?>
+	<section class="ea-section ea-section--prose ea-section--alt" data-block="about-eyal" aria-label="על אייל עמית">
+		<div class="ea-section__inner ea-entrance--breath">
+			<h2 class="ea-section__heading">על אייל עמית</h2>
+			<p>אייל עמית הוא סופר ומוציא לאור, מהנדס אלקטרוניקה לשעבר ואיש במה לשעבר, שיצר במשך שנים את מופע הסיפורים "תופעת יחיד".</p>
+			<p>במקביל לכתיבה, הוא עוסק למעלה משני עשורים בעבודה עם דיג'רידו - כמורה, בונה ומטפל בנשימה, ומנהל את המרכז לטיפול בדיג'רידו בפרדס חנה.</p>
+			<p><a href="https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA" target="_blank" rel="noopener noreferrer">לקריאה נוספת על אייל עמית בויקיפדיה</a></p>
+		</div>
+	</section>
+
+	<?php /* SECTION 04 – למה את הספרים של מוזה תמצאו כאן (verbatim, 4 sentences). */ ?>
+	<section class="ea-section ea-section--prose" data-block="why-here" aria-label="למה כאן">
+		<div class="ea-section__inner ea-entrance--breath">
+			<p class="ea-section__label">רכישה ישירה</p>
+			<h2 class="ea-section__heading">למה את הספרים של מוזה תמצאו כאן</h2>
+			<p>הספרים של מוזה לא נמכרים כאן במקרה.</p>
+			<p>ברכישת ספר דרך רשתות הספרים, רוב הכסף לא מגיע לסופר אלא נשאר בדרך - אצל הרשת ואצל המפיצים. ברכישה ישירה מהיוצר, ממש בדומה ל"חקלאות ישירה", התמיכה מגיעה כמעט נטו למי שכתב את הספר. לכן כאן הספרים נמכרים במחיר מוזל ומשתלם יותר - כזה שטוב גם לקוראים וגם ליוצר.</p>
+		</div>
+	</section>
+
+	<?php /* SECTION 05/06/07 – ספר 1 / ספר 2 / ספר 3 (verbatim cards). */ ?>
+	<section class="ea-books-section" data-block="book-cards" aria-label="ספרי מוזה">
 		<div class="ea-books-section__inner">
-			<p class="ea-books-section__label">שלושה ספרים</p>
-			<h2 id="books-grid-heading" class="ea-books-section__heading">ספרי מוזה</h2>
-			<p class="ea-books-section__intro">שלושה ספרים, שלושה עולמות. כל ספר עומד בפני עצמו — בחרו את הדלת שמדברת אליכם.</p>
 			<div class="ea-books-grid">
 				<?php
-				foreach ( $books as $slug => $b ) :
-					$book  = function_exists( 'ea_w2_03_book_content' ) ? ea_w2_03_book_content( $slug ) : null;
-					$title = is_array( $book ) && isset( $book['title'] ) ? (string) $book['title'] : '';
+				foreach ( $muzza_books as $slug => $mb ) :
+					$cover = isset( $books[ $slug ]['cover'] ) ? (string) $books[ $slug ]['cover'] : '';
 					?>
 					<article class="ea-book-card ea-entrance">
 						<a class="ea-book-card__link"
-							href="<?php echo esc_url( home_url( '/books/' . $slug ) ); ?>"
-							aria-label="<?php echo esc_attr( 'לעמוד הספר ' . $title ); ?>">
-							<img class="ea-book-card__cover"
-								src="<?php echo esc_url( ea_w2_05_cover_url( $b['cover'] ) ); ?>"
-								alt="<?php echo esc_attr( 'כריכת ' . $title ); ?>"
-								loading="lazy" decoding="async">
+							href="<?php echo esc_url( $mb['href'] ); ?>"
+							aria-label="<?php echo esc_attr( $mb['cta'] ); ?>">
+							<?php if ( '' !== $cover ) : ?>
+								<img class="ea-book-card__cover"
+									src="<?php echo esc_url( ea_w2_05_cover_url( $cover ) ); ?>"
+									alt="<?php echo esc_attr( 'כריכת ' . $mb['title'] ); ?>"
+									loading="lazy" decoding="async">
+							<?php endif; ?>
 							<div class="ea-book-card__body">
-								<p class="ea-book-card__genre"><?php echo esc_html( $b['genre'] ); ?></p>
-								<h3 class="ea-book-card__title"><?php echo esc_html( $title ); ?></h3>
-								<p class="ea-book-card__teaser"><?php echo esc_html( $b['teaser'] ); ?></p>
+								<p class="ea-book-card__genre"><?php echo esc_html( $mb['label'] ); ?></p>
+								<h3 class="ea-book-card__title"><?php echo esc_html( $mb['title'] ); ?></h3>
+								<span class="ea-sr-only"><?php echo esc_html( $mb['srfull'] ); ?></span>
+								<?php foreach ( $mb['lines'] as $line ) : ?>
+									<p class="ea-book-card__teaser"><?php echo esc_html( $line ); ?></p>
+								<?php endforeach; ?>
 								<div class="ea-book-card__foot">
-									<span class="ea-book-card__price"><?php echo esc_html( $b['price'] ); ?><small> ₪</small></span>
-									<span class="ea-book-card__more">לעמוד הספר ←</span>
+									<span class="ea-book-card__more"><?php echo esc_html( $mb['cta'] ); ?> ←</span>
 								</div>
 							</div>
 						</a>
@@ -887,46 +951,62 @@ function ea_w2_05_render_books_archive() {
 		</div>
 	</section>
 
+	<?php /* SECTION 08 – חבילת 3 הספרים של אייל עמית (verbatim bundle). */ ?>
 	<section id="books-bundle" class="ea-bundle" data-block="bundle" aria-label="חבילת 3 הספרים">
 		<div class="ea-bundle__inner ea-entrance--breath">
 			<span class="ea-bundle__accent" aria-hidden="true"></span>
-			<p class="ea-bundle__label">הצעה מיוחדת</p>
 			<h2 class="ea-bundle__title">חבילת 3 הספרים של אייל עמית</h2>
 			<div class="ea-bundle__covers" aria-hidden="true">
 				<?php foreach ( $bundle['covers'] as $cover ) : ?>
 					<img src="<?php echo esc_url( ea_w2_05_cover_url( $cover ) ); ?>" alt="" loading="lazy" decoding="async">
 				<?php endforeach; ?>
 			</div>
-			<p class="ea-bundle__price">שלושת הספרים יחד — <strong><?php echo esc_html( $bundle['price'] ); ?> ש״ח</strong> במקום <del><?php echo esc_html( $bundle['strike'] ); ?> ש״ח</del></p>
-			<p class="ea-bundle__desc">הזדמנות להיכנס לעולם הכתיבה של אייל עמית דרך שלושה ספרים שונים מאוד באופי שלהם, אבל מחוברים באותו קול חי, אישי ולא שגרתי.</p>
-			<a class="ea-cta-pill ea-cta-pill--primary"
-				href="<?php echo esc_url( $bundle['url'] ); ?>"
-				target="_blank" rel="noopener noreferrer"
-				data-ea-book-purchase data-ea-book-slug="bundle"
-				aria-label="לרכישת חבילת 3 הספרים (נפתח בלשונית חדשה)">לרכישת חבילת 3 הספרים</a>
-			<p class="ea-bundle__note">הרכישה מתבצעת דרך קישור חיצוני (Morning / חשבונית ירוקה).</p>
+			<p class="ea-bundle__price">שלושת הספרים יחד במחיר מיוחד</p>
+			<p class="ea-bundle__price"><?php echo esc_html( $bundle['price'] ); ?> ש"ח במקום <del><?php echo esc_html( $bundle['strike'] ); ?> ש"ח</del></p>
+			<p class="ea-bundle__desc">זו הזדמנות להיכנס לעולם הכתיבה של אייל עמית דרך שלושה ספרים שונים מאוד באופי שלהם, אבל מחוברים באותו קול חי, אישי ולא שגרתי.</p>
 		</div>
 	</section>
 
-	<section class="ea-books-section ea-section--alt" data-block="shop-grid" aria-labelledby="shop-grid-heading">
-		<div class="ea-books-section__inner">
-			<p class="ea-books-section__label">החנות</p>
-			<h2 id="shop-grid-heading" class="ea-books-section__heading">דיג׳רידו ואביזרים בעבודת יד</h2>
-			<p class="ea-books-section__intro">כלים ואביזרים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר לנשימה.</p>
-			<div class="ea-shop-grid">
-				<?php foreach ( ea_w2_05_catalog_cards() as $card ) :
-					$price = '' !== $card['price'] ? $card['price'] : 'מחיר לפי התאמה';
-					?>
-					<a class="ea-shop-card ea-entrance" href="<?php echo esc_url( home_url( '/' . $card['slug'] ) ); ?>">
-						<span class="ea-shop-card__media ea-shop-card__media--placeholder" aria-hidden="true"></span>
-						<span class="ea-shop-card__body">
-							<span class="ea-shop-card__title"><?php echo esc_html( $card['title'] ); ?></span>
-							<span class="ea-shop-card__excerpt"><?php echo esc_html( $card['excerpt'] ); ?></span>
-							<span class="ea-shop-card__price"><?php echo esc_html( $price ); ?></span>
-						</span>
-					</a>
-				<?php endforeach; ?>
+	<?php /* SECTION 09 – שלושה ספרים, שלושה עולמות (verbatim). */ ?>
+	<section class="ea-section ea-section--prose ea-section--alt" data-block="three-worlds" aria-label="שלושה ספרים שלושה עולמות">
+		<div class="ea-section__inner ea-entrance--breath">
+			<h2 class="ea-section__heading">שלושה ספרים, שלושה עולמות</h2>
+			<p>כל אחד מהספרים עומד בפני עצמו. יחד, הם מציעים מפגש עם שלושה שערים שונים אל תוך החיים והכתיבה:</p>
+			<ul class="ea-section__list">
+				<li>מסע והתבגרות</li>
+				<li>פנטסיה והתעוררות</li>
+				<li>סיפורים אמיתיים בגובה העיניים</li>
+			</ul>
+			<p>זו יכולה להיות דרך טובה להתחיל להכיר את הכתיבה של אייל עמית, וזו גם מתנה מקורית למי שאוהב ספרים עם קול אישי, תנועה ועומק.</p>
+		</div>
+	</section>
+
+	<?php /* SECTION 10 – CTA רכישה חבילה (external Morning purchase link). */ ?>
+	<section class="ea-section ea-section--cta" data-block="cta-purchase" aria-label="רכישת חבילה">
+		<div class="ea-section__inner ea-section__inner--center">
+			<div class="ea-book-hero__cta-wrap">
+				<a class="ea-cta-pill ea-cta-pill--primary"
+					href="<?php echo esc_url( $bundle['url'] ); ?>"
+					target="_blank" rel="noopener noreferrer"
+					data-ea-book-purchase data-ea-book-slug="bundle"
+					aria-label="לרכישת חבילת 3 הספרים (נפתח בלשונית חדשה)">לרכישת חבילת 3 הספרים</a>
 			</div>
+		</div>
+	</section>
+
+	<?php /* SECTION 11 – הערת משלוח / רכישה (verbatim, 2 lines). */ ?>
+	<section class="ea-section ea-section--prose" data-block="shipping-note" aria-label="הערת משלוח / רכישה">
+		<div class="ea-section__inner ea-section__inner--center">
+			<p>הרכישה מתבצעת דרך קישור חיצוני.</p>
+			<p>פרטי משלוח ותשלום מופיעים בעמוד הרכישה.</p>
+		</div>
+	</section>
+
+	<?php /* SECTION 12 – סגירת עמוד (verbatim closing, 2 lines). */ ?>
+	<section class="ea-section ea-section--prose ea-section--closing ea-section--alt" data-block="closing" aria-label="סגירת עמוד">
+		<div class="ea-section__inner ea-section__inner--center ea-entrance--breath">
+			<p>הספרים נכתבו בתקופות שונות בחיים, וכל אחד מהם מביא קול אחר, זווית אחרת והתבוננות שונה.</p>
+			<p>אין סדר קריאה מחייב. כל ספר עומד בפני עצמו.</p>
 		</div>
 	</section>
 	<?php

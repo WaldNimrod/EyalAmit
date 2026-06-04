@@ -206,57 +206,104 @@ add_action( 'init', 'ea_wave2_disable_emojis' );
 function ea_wave2_set_home_block_context() {
 	$uri = get_stylesheet_directory_uri();
 
-	// 1. "מה זה טיפול" intro → media row with a labelled graceful placeholder.
-	//    (No real studio photo yet — the placeholder must NOT be labelled as the
-	//    portrait-painting asset.)
-	set_query_var( 'ea_intro_ctx', array(
-		'wrap_class'    => 'ea-mediarow ea-home-mediarow',
-		'figure_label'  => 'תמונת מפגש טיפול · תוטמע ממסירת הנכסים מאייל',
+	/*
+	 * WP-W2-15-CR1 — home render carries Eyal's homepage source VERBATIM
+	 * (docs/.../דף הבית/homepage1-3 v2.md), every SECTION 01–12 in order.
+	 * Punctuation matches the source exactly (hyphen "-" not em-dash, geresh).
+	 */
+
+	set_query_var( 'ea_hero_ctx', array(
+		'title'    => "המרכז לטיפול בנשימה באמצעות דיג׳רידו - שיטת cbDIDG של אייל עמית",
+		'subtitle' => "להחזיר שליטה על הנשימה דרך עבודה עם דיג׳רידו, תרגול נשימה וליווי אישי<br>בגישה טיפולית מבוססת דיג׳רידו ובהשראת חניכה אישית אצל מוקש דהימן",
+		'trust'    => "אייל עמית · פועל מאז 1999 · מהוותיקים בארץ בתחום<br>מטפל ומלמד בשיטה שפותחה לאורך השנים · בונה כלים בעבודת יד",
+		'ctas'     => array(
+			array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ), 'variant' => 'ghost-white' ),
+		),
 	) );
 
-	// 2. About → portrait media row using the supplied content asset.
+	// SECTION 02 — מה זה טיפול בנשימה באמצעות דיג׳רידו (verbatim source body).
+	set_query_var( 'ea_intro_ctx', array(
+		'heading' => "מה זה טיפול בנשימה באמצעות דיג׳רידו",
+		'body'    => array(
+			"בטיפול בנשימה באמצעות דיג׳רידו, הדיג׳רידו הוא כלי עבודה על הנשימה - לא המטרה עצמה.",
+			"יש הבדל בין טכניקת הנשימה המעגלית, המשמשת בזמן נגינה בדיג׳רידו, לבין הנשימה היומיומית הרגילה של האדם.",
+			"העבודה עם הדיג׳רידו משפיעה על שתיהן, אך הכוונה היא להשפיע על הנשימה ביומיום - זו שמלווה את האדם לאורך כל היום וגם בזמן השינה.",
+			"בטיפול נוצר קשר הדוק ומודע עם הנשימה היומיומית. אנו לומדים לשלוט בה, לחזק ולווסת אותה, והכל דרך תרגול מעשי של נגינה בדיג׳רידו.",
+			"הנגינה בדיג׳רידו מתפתחת לאורך התהליך, ונשארת אמצעי - לא המטרה.",
+			"המטרה היא לא רק להבין את הנשימה היומיומית, אלא ליצור בה שינוי שנמשך גם מחוץ למפגש. שינוי שמשפיע על איכות החיים לטווח הארוך, ועשוי להפחית סימפטומים ולשפר מדדים בריאותיים.",
+			"מי שירצה בהמשך להעמיק גם בפן המוזיקלי, יוכל לעשות זאת ביתר קלות, על בסיס עבודה נשימתית יציבה ומדויקת.",
+			"יש דרכים שונות לעבוד עם הנשימה, והדיג׳רידו מציע דרך אחרת, חווייתית, חיה ומעניינת, שמשלבת תרגול עם צליל ונגינה והופכת את העבודה עם הנשימה למשהו שקל יותר להתמיד בו.",
+		),
+	) );
+
+	// SECTION 06 — איך מתחילים (soft intro CTA), carried by the pillars block.
+	// The source lines are short; rendered as pillar bodies (no titles) so the
+	// data-driven path is used (avoids the hardcoded default-pillars fallback).
+	set_query_var( 'ea_pillars_ctx', array(
+		'heading'     => 'איך מתחילים',
+		'show_titles' => false,
+		'items'       => array(
+			array( 'text' => 'אפשר להתחיל בשיחת היכרות קצרה, להבין את הצורך ולבדוק התאמה.' ),
+			array( 'text' => 'השיחה מאפשרת לשאול שאלות ולקבל כיוון ראשוני.' ),
+			array( 'text' => 'אין צורך להתחייב מראש לתהליך.' ),
+		),
+		'cta'         => array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ) ),
+	) );
+
+	// SECTION 11 — אייל עמית (verbatim bio body).
 	set_query_var( 'ea_bio_ctx', array(
 		'wrap_class' => 'ea-home-mediarow--portrait',
 		'heading'    => 'אייל עמית',
 		'body'       => array(
-			'מורה לדיג׳רידו, מטפל בנשימה וסופר, הפועל מאז 1999 ומייסד המרכז לטיפול בדיג׳רידו בפרדס חנה.',
-			'דרכו צמחה משילוב של חקירה אישית, ניסיון מעשי וחניכה אצל המאסטר מוקש דהימן.',
+			"העבודה של אייל עמית עם נשימה ודיג׳רידו התחילה מתוך משיכה לצליל המיוחד של הכלי.",
+			'רק בהמשך הדרך, לאחר שנים של למידה אצל המאסטר ההודי מוקש דהימן, התבהר הקשר בין הנשימה למערכות הגוף.',
+			'מתוך התרגול והחקירה העצמית, התגלה גם הקשר הישיר לנשימה – וליכולת להשפיע על אסטמה, אלרגיות ומצבים נוספים.',
+			'בהדרגה חל שינוי משמעותי במצב הבריאותי – מערכת הנשימה התחזקה והתסמינים פחתו עד שנעלמו.',
+			'התהליך הזה חוזר על עצמו אצל רבים מהאנשים שמבקשים "רק ללמוד לנגן בדיג׳רידו". הם מגיעים מתוך סקרנות או משיכה לצליל, ורק בהמשך תוך כדי התהליך מתחילים להבין עד כמה הנשימה קשורה לסימפטומים מסוימים שמהם הם סובלים.',
+			'הרקע ההנדסי של אייל איפשר לו לפרק תהליכים מורכבים לשיטה ברורה וישימה.',
+			"את המרכז לטיפול בדיג׳רידו הקים מתוך רצון לקדם, להנגיש וללמד את העבודה עם הדיג׳רידו ככלי להשפעה על הגוף, הנשימה והתודעה.",
 		),
 		'image'      => $uri . '/assets/images/eyal-portrait-hero.jpg',
 		'image_alt'  => 'אייל עמית',
 		'image_cap'  => 'דיוקן אייל עמית',
 	) );
 
-	// 3. Testimonials → 1-up auto-advancing rotator (5 named real quotes).
-	//    The rotator behaviour is layered on by ea-testimonials.js, keyed off
-	//    the `rotator` wrapper flag; markup stays the backward-compatible list.
+	// SECTION 10 — עדויות והמלצות. All 15 testimonials VERBATIM, each name linked
+	// to its original post (opens in new tab). Carousel via the rotator flag.
 	set_query_var( 'ea_testimonials_ctx', array(
-		'heading'    => 'מילים שנשארו אחרי המפגש',
-		'aria_label' => 'המלצות',
+		'heading'    => 'עדויות והמלצות',
+		'aria_label' => 'עדויות והמלצות',
 		'rotator'    => true,
 		'items'      => array(
-			array(
-				'text' => 'כמו רבים אחרים גם אני חשבתי שאני באה ללמוד דיג׳רידו, ולא היה לי מושג איזה מסע עוצמתי מחכה לי.',
-				'name' => 'שירי אלקבץ',
-			),
-			array(
-				'text' => 'מה שאני לומדת מאייל זה לנשום מחדש — להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים.',
-				'name' => 'נוית צוף שטראוס',
-			),
-			array(
-				'text' => 'אייל פירק את אומנות הנשימה עם הדיג׳רידו למרכיבים הקטנים והברורים ביותר. זה הרבה יותר מללמוד כלי נשיפה.',
-				'name' => 'ענת קרמנר וינשטיין',
-			),
-			array(
-				'text' => 'פעם ראשונה בחיים שלמדתי לנשום נכון — תרגול הנשימה בדידג׳ פשוט מרגיע אותי.',
-				'name' => 'אלון גרזון רז',
-			),
-			array(
-				'text' => 'המפגש היה פשוט, נעים ומדויק, ויצאתי ממנו עם תחושת שקט וקרבה לגוף שלא חוויתי מזמן.',
-				'name' => 'חיה עזריה',
-			),
+			array( 'text' => "אייל עמית הציל אותנו ובזכותו חזרנו כולנו לנשום…\nנשימה היא הבסיס להכל\nאפשר ללמוד לנשום מחדש", 'name' => 'חיה עזריה', 'href' => 'https://www.facebook.com/share/v/18Ua5NoWv4/' ),
+			array( 'text' => "גיליתי מסע עוצמתי של נשימה, שקט וחיבור לעצמי\nמעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש\nזו מתנה לחיים", 'name' => 'שירי אלקבץ', 'href' => 'https://www.facebook.com/share/p/1E7ndvYyrp/' ),
+			array( 'text' => "אני לומדת לנשום מחדש\nלהיות בנוכחות בנשימה זה להיות בנוכחות בחיים\nזה משהו שמחלחל לכל תחום ביום יום", 'name' => 'נוית צוף שטראוס', 'href' => 'https://www.facebook.com/share/p/1AdaytsL6w/' ),
+			array( 'text' => "פעם ראשונה בחיים שלמדתי לנשום נכון\nאין לנו מושג בכלל כמה אנחנו לא נושמים נכון\nזה פתח לי עולם של שקט", 'name' => 'אלון גרזון רז', 'href' => 'https://www.facebook.com/share/v/1Cky28MdtH/' ),
+			array( 'text' => "חיבור חדש למערכת הנשימה שלי\nהעבודה משפיעה על הגוף, הנשימה והתודעה\nכמעט לא משתמש במשאף מאז שהתחלתי", 'name' => "ירון סאנצ׳ו גושן", 'href' => 'https://www.facebook.com/share/v/1FosYpULUC/' ),
+			array( 'text' => "זו כנראה המתנה הכי טובה שנתתי לעצמי\nהנשימה נפתחת עוד ועוד\nזו חוויה שהיא הרבה מעבר ללמידה", 'name' => 'ענת קרמנר ויינשטיין', 'href' => 'https://www.facebook.com/share/p/1DzVcWpAJH/' ),
+			array( 'text' => "הלימוד פתח לי רובד נשימתי חדש\nחיבר אותי לרפואה הפנימית שיש בכולנו\nלהגיע לסטודיו זו מתנה אדירה", 'name' => 'קרין טננצאפ', 'href' => 'https://www.facebook.com/share/p/18Ks7D2HQD/' ),
+			array( 'text' => "זו לא רק למידת כלי נגינה\nזו דרך עוצמתית לגלות את כוחה של הנשימה\nכל מפגש משאיר אותי ממוקדת ורגועה", 'name' => 'אלכס פלופ', 'href' => 'https://www.facebook.com/share/p/18Z6mqzCuj/' ),
+			array( 'text' => "הנשימה משפיעה על איכות החיים\nהקשבה לנשימה משנה חיים ומורידה סטרס\nממליץ בחום על אייל", 'name' => 'אלכס פסטרנק', 'href' => 'https://www.facebook.com/share/p/1PDkhtFZ4t/' ),
+			array( 'text' => "אחת החוויות המיוחדות שעברתי\nהגוף מסתנכרן עם הצלילים\nחוויה חלומית", 'name' => 'רוית יונה בניהו', 'href' => 'https://www.facebook.com/share/p/1EYoGyKsiH/' ),
+			array( 'text' => "מטלטל, נעים ומעיף בו זמנית\nסאונד הילינג ברמה גבוהה מאוד\nחוויה חזקה מאוד", 'name' => 'לירן קלינה', 'href' => 'https://www.facebook.com/share/p/1GoxG1xRKx/' ),
+			array( 'text' => "נכנסתי לעולם אחר לגמרי\nעטופה בצלילים ובשקט עמוק\nחוויה שנשארת גם אחרי", 'name' => 'שרון לוסקי', 'href' => 'https://www.facebook.com/share/p/1DrzXzvXjA/' ),
+			array( 'text' => "למדתי שאני בכלל לא יודעת לנשום נכון\nזה היה שוק להבין כמה זה משפיע על הגוף\nאני בתוך התהליך ונהנית ממנו", 'name' => 'גלית מילר', 'href' => 'https://www.facebook.com/share/v/1H6Z937hZ1/' ),
+			array( 'text' => "מסע זוגי מדיטטיבי ועוצמתי\nיצאנו בהיי\nחוויה אינטימית ומיוחדת", 'name' => 'ליה גלפנד', 'href' => 'https://www.facebook.com/share/p/18WepdnZu6/' ),
+			array( 'text' => "עפתי לחלל וטבעתי באמבטיית צלילים\nהרגשתי עטופה ובטוחה\nחוויה מאוד עוצמתית", 'name' => 'רתם פרץ', 'href' => 'https://www.facebook.com/share/p/1CdeS2kWm7/' ),
 		),
-		'footer'     => array( 'label' => 'המלצות — קטלוג מרכזי', 'href' => home_url( '/media' ) ),
+		'footer'     => array( 'label' => 'לכל ההמלצות', 'href' => home_url( '/media' ) ),
+	) );
+
+	// SECTION 12 — CTA סופי (closing band, verbatim). Structural label "CTA סופי"
+	// rendered as an sr-only identifier so section coverage matches verbatim.
+	set_query_var( 'ea_cta_ctx', array(
+		'variant'    => 'band',
+		'heading'    => 'מתחילים בצעד פשוט',
+		'aria_label' => 'CTA סופי',
+		'body'       => array(
+			'אם אתם מרגישים שהגיע הזמן להתחבר לנשימה שלכם, לחזק אותה, לווסת אותה ולהיכנס לתהליך הדרגתי, חווייתי ומהנה – אפשר להתחיל בצעד פשוט.',
+		),
+		'cta'        => array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ) ),
 	) );
 }
 

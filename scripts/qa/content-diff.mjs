@@ -87,12 +87,20 @@ export function normalize(text) {
   t = t.replace(/<script[\s\S]*?<\/script>/gi, ' ');
   t = t.replace(/<style[\s\S]*?<\/style>/gi, ' ');
   t = t.replace(/<[^>]+>/g, ' ');
+  // Decode HTML entities BEFORE the markdown-# strip. WordPress esc_html() emits
+  // an apostrophe as &#039; and a quote as &#034;/&quot;; the later `#{1,6}` rule
+  // would eat the `#` out of &#039; (-> &039;) so the char never matched and any
+  // sentence containing ' or " failed the live gate. (team_100 fix 2026-06-05.)
+  t = t.replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+  t = t.replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)));
+  t = t.replace(/&quot;/gi, '"').replace(/&apos;/gi, "'").replace(/&amp;/gi, '&');
   t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   t = t.replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1');
   t = t.replace(/\[([^\]]+)\]/g, '$1');
   t = t.replace(/#{1,6}\s*/g, '');
   t = t.replace(/\*\*([^*]+)\*\*/g, '$1');
   t = t.replace(/\*([^*]+)\*/g, '$1');
+  t = t.replace(/~~([^~]+)~~/g, '$1');
   t = t.replace(/`([^`]+)`/g, '$1');
   t = t.replace(/&nbsp;/g, ' ');
   t = t.replace(/&[a-z]+;/gi, ' ');
@@ -114,14 +122,25 @@ function normalizeSectionTitle(title) {
 }
 
 function splitContentSentences(raw) {
-  const norm = normalize(raw);
-  if (!norm) return [];
-  const parts = norm.split(/(?<=[.!?׃])\s+|\n+/).map((p) => p.trim()).filter(Boolean);
+  // Split on hard line breaks FIRST, then sentence punctuation. normalize() collapses
+  // all whitespace (incl. newlines) to single spaces, so normalizing the whole blob
+  // before splitting defeated the `\n+` boundary: any punctuation-less line (an H1, a
+  // link label, a quote without a trailing period) fused with the next line into one
+  // synthetic "sentence" that no correctly-rendered page can contain contiguously.
+  // Splitting per source line first removes those artifacts. (team_100 fix 2026-06-05.)
   const out = [];
-  for (const p of parts) {
-    if (hebrewCharCount(p) >= MIN_HEBREW_CHARS) out.push(p);
+  for (const line of String(raw).split(/\n+/)) {
+    const norm = normalize(line);
+    if (!norm) continue;
+    const parts = norm.split(/(?<=[.!?׃])\s+/).map((p) => p.trim()).filter(Boolean);
+    for (const p of (parts.length ? parts : [norm])) {
+      if (hebrewCharCount(p) >= MIN_HEBREW_CHARS) out.push(p);
+    }
   }
-  if (out.length === 0 && hebrewCharCount(norm) >= MIN_HEBREW_CHARS) out.push(norm);
+  if (out.length === 0) {
+    const normAll = normalize(raw);
+    if (hebrewCharCount(normAll) >= MIN_HEBREW_CHARS) out.push(normAll);
+  }
   return [...new Set(out)];
 }
 
@@ -333,7 +352,18 @@ export function analyzePage({ sections, live, htmlMain }) {
   const missingSections = [];
   let sectionsFound = 0;
   for (const sec of sections) {
-    const ok = sectionFound(sec.titleNorm, liveNorm);
+    // Calibrated section coverage (team_100 2026-06-05, Principal-approved): judge
+    // a section by whether its CONTENT is present, not only by whether its title —
+    // which may be pure structural scaffolding ("Hero"/"Intro"/"Header"/"CTA"/
+    // "וידאו") never meant to render as visible text — literally appears. A section
+    // is covered if its title matches, OR it carries no measurable content sentences
+    // (pure structural label, nothing to verify), OR all its content sentences are
+    // present in the render. This removes the brittle English-label penalty without
+    // resorting to invisible sr-only label text.
+    let ok = sectionFound(sec.titleNorm, liveNorm);
+    if (!ok) {
+      ok = sec.sentences.length === 0 || sec.sentences.every((s) => sentenceFound(s, liveNorm));
+    }
     if (ok) sectionsFound++;
     else missingSections.push({ num: sec.num, title: sec.title });
   }
@@ -409,7 +439,8 @@ async function main() {
     contentRoot: opts.contentRoot,
     formula: {
       pageAccuracyPct: `${SECTION_WEIGHT * 100}% * sectionCoverage + ${SENTENCE_WEIGHT * 100}% * sentenceCoverage`,
-      sectionCoveragePct: 'sectionsFound / sectionsTotal * 100',
+      sectionCoveragePct:
+        'sectionsFound / sectionsTotal * 100 (calibrated: section covered if title matches OR has no content sentences OR all its sentences present)',
       sentenceCoveragePct: 'sentencesFound / sentencesTotal * 100 (verbatim substring after normalize)',
       verdict: { ACCURATE: '>=90', PARTIAL: '40-89', INVENTED: '<40', NA: 'no source' },
       gatePass: 'section>=95 AND sentence>=90 AND inventedSections=0',
