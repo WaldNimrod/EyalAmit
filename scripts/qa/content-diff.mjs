@@ -109,6 +109,18 @@ export function normalize(text) {
   t = t.replace(/\[תמונ[^\]]*\]/g, ' ');
   t = t.replace(/\[וידאו[^\]]*\]/g, ' ');
   t = t.replace(/[\u201C\u201D\u05F4\u00AB\u00BB]/g, '"');
+  // Unify hyphen/dash variants to an ASCII hyphen. WordPress wptexturize() rewrites
+  // a source " - " to an en-dash " \u2013 " (and "--" to "\u2014") on output, so a verbatim
+  // source hyphen otherwise fails to substring-match the rendered text. This is a
+  // display transform, not a content difference. (team_100 fix 2026-06-05.)
+  t = t.replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, '-');
+  // wptexturize() also rewrites "..." to a single ellipsis glyph "\u2026"; unify both.
+  t = t.replace(/\u2026/g, '...');
+  // A Hebrew maqaf (\u05be) is a tight word connector. When the word after it is a link
+  // (e.g. source "\u05d1\u05be\u05d1\u05dc\u05d5\u05d2" rendered as \u05d1\u05be<a>\u05d1\u05dc\u05d5\u05d2</a>), stripping the <a> tag inserts a
+  // space, yielding "\u05d1\u05be \u05d1\u05dc\u05d5\u05d2". Drop a space directly after a maqaf so the verbatim
+  // connected form matches. (team_100 fix 2026-06-05.)
+  t = t.replace(/\u05be\s+/g, '\u05be');
   t = t.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
   t = t.replace(/\s+/g, ' ');
   return t.trim();
