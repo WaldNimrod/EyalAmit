@@ -578,14 +578,18 @@ add_filter( 'template_include', 'ea_eyalamit_books_hub_template', 95 );
  * Until the IA is consolidated (Principal decision: which slug is canonical),
  * send /muzza (and the /muzeh alias) to /books with a TEMPORARY 302 so visitors
  * — and the content-accuracy gate, which follows redirects — see the real page.
- * 302 (not 301) keeps this reversible without poisoning browser redirect caches.
+ * Resolved (WP-W2-15-CR, team_50 finding F-W2-15-CA-01): /books is the canonical
+ * Muzza archive — the 3 book pages nest under /books/<slug>, so the catalog belongs
+ * at /books for URL hierarchy. /muzza (and the /muzeh alias) is a PERMANENT 301 to it;
+ * the nav now points directly at /books. Flip target here if the Principal prefers the
+ * /muzza brand URL as canonical instead.
  */
 function ea_eyalamit_muzza_to_books_redirect() {
 	if ( is_admin() ) {
 		return;
 	}
 	if ( is_page( 'muzza' ) || is_page( 'muzeh' ) ) {
-		wp_safe_redirect( home_url( '/books/' ), 302 );
+		wp_safe_redirect( home_url( '/books/' ), 301 );
 		exit;
 	}
 }

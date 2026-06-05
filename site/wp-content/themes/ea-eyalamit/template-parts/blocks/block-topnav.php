@@ -118,7 +118,9 @@ $ea_topnav_items = array(
 		),
 	),
 	'muzza'                 => array(
-		'href'  => home_url( '/muzza' ),
+		// WP-W2-15-CR: /books is the canonical Muzza archive (the 3 book pages nest
+		// under /books/<slug>); /muzza is a permanent 301 alias to it. Nav -> canonical.
+		'href'  => home_url( '/books' ),
 		'label' => 'מוזה הוצאה לאור',
 	),
 	'blog'                  => array(

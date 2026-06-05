@@ -845,7 +845,7 @@ function ea_w2_05_render_books_archive() {
 			// the source sentence contiguously regardless of markup splitting.
 			'srfull' => 'צבע בכחול וזרוק לים 38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
 			'cta'    => 'לעמוד הספר צבע בכחול וזרוק לים',
-			'href'   => '/muzeh/tsva-bechol-ve-zorek-layam',
+			'href'   => '/books/tsva-bekahol',
 		),
 		'kushi-blantis' => array(
 			'label'  => 'ספר 2',
@@ -855,7 +855,7 @@ function ea_w2_05_render_books_archive() {
 			),
 			'srfull' => 'כושי בלאנטיס רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
 			'cta'    => 'לעמוד הספר כושי בלאנטיס',
-			'href'   => '/muzeh/kushi-blantis',
+			'href'   => '/books/kushi-blantis',
 		),
 		'vekatavta'     => array(
 			'label'  => 'ספר 3',
@@ -866,7 +866,7 @@ function ea_w2_05_render_books_archive() {
 			),
 			'srfull' => 'וכתבת 46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים. הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.',
 			'cta'    => 'לעמוד הספר וכתבת',
-			'href'   => '/muzeh/vekatavt',
+			'href'   => '/books/vekatavta',
 		),
 	);
 	?>
