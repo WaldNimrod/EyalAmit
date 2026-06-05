@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-06-05T16:49:01.441Z",
+  "results": [
+    {
+      "route": "/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/"
+    },
+    {
+      "route": "/method/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/method/"
+    },
+    {
+      "route": "/treatment/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/treatment/"
+    },
+    {
+      "route": "/sound-healing/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/"
+    },
+    {
+      "route": "/lessons/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/lessons/"
+    },
+    {
+      "route": "/faq/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/faq/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/faq/"
+    },
+    {
+      "route": "/muzza/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/"
+    },
+    {
+      "route": "/books/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/"
+    },
+    {
+      "route": "/about/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/about/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/about/"
+    },
+    {
+      "route": "/books/vekatavta/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/"
+    },
+    {
+      "route": "/books/kushi-blantis/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/"
+    },
+    {
+      "route": "/books/tsva-bekahol/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/"
+    },
+    {
+      "route": "/didgeridoos/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/"
+    },
+    {
+      "route": "/bags/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/bags/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/bags/"
+    },
+    {
+      "route": "/stands-storage/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/"
+    },
+    {
+      "route": "/stand-floor/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/"
+    },
+    {
+      "route": "/repair/",
+      "http": 200,
+      "redirect": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/repair/"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-06-05T16:48:29.648Z",
+  "validator": "team_190",
+  "results": [
+    {
+      "route": "/treatment/",
+      "source": "טיפול בדיג'רידו/treatment.md",
+      "allPass": true,
+      "phrases": [
+        {
+          "phrase": "משהו בנשימה שלך מבקש תשומת לב",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "טיפול בדיג'רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הנשימה היומיומית",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "משהו בנשימה היומיומית מתחיל להשתנות",
+          "live": true,
+          "source": true
+        }
+      ]
+    },
+    {
+      "route": "/repair/",
+      "source": "תיקון כלי דיג'רידו/build didg.md",
+      "allPass": true,
+      "phrases": [
+        {
+          "phrase": "מעל שני עשורים",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "כל תיקון מתחיל בבדיקה",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "בהתאם לסטנדרט העבודה ולרמת הדיוק הנדרשת בכל תיקון",
+          "live": true,
+          "source": true
+        }
+      ]
+    },
+    {
+      "route": "/books/vekatavta/",
+      "source": "וכתבת/vekatavta.md",
+      "allPass": true,
+      "phrases": [
+        {
+          "phrase": "46 סיפורים אמיתיים",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "ספר אישי מאוד, חי מאוד",
+          "live": true,
+          "source": true
+        },
+        {
+          "phrase": "QR",
+          "live": true,
+          "source": true
+        }
+      ]
+    }
+  ]
+}

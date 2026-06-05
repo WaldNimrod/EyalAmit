@@ -1,0 +1,35 @@
+{
+  "page": "/books/tsva-bekahol/",
+  "path": "/books/tsva-bekahol/",
+  "source": "צבע בכחול וזרוק לים/eyal_tsva_FINAL.md",
+  "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/",
+  "liveStatus": 200,
+  "sectionCoveragePct": 100,
+  "sentenceCoveragePct": 96.67,
+  "pageAccuracyPct": 98,
+  "sectionsTotal": 13,
+  "sectionsFound": 13,
+  "sentencesTotal": 60,
+  "sentencesFound": 58,
+  "missingSections": [],
+  "missingSentences": [
+    {
+      "section": "רכישת הספר",
+      "sentence": "ספר מודפס (עותק פיזי) לרכישה דרך פנייה ישירה לרכישת עותק מודפס - צרו קשר"
+    },
+    {
+      "section": "רכישת הספר",
+      "sentence": "ספר דיגיטלי (קריאה אונליין / הורדה) לרכישת הספר הדיגיטלי במנדלי"
+    }
+  ],
+  "inventedSections": [],
+  "inventedBlocks": [
+    "← מוזה הוצאה לאור סיפורים קצרים · מסע · 2001 צבע בכחול וזרוק לים 38 סיפורים קצרים על הטיול הגדול לדרום אמריקה אחרי השירות הצבאי - שחרור, בריחה, חופש, וכל מה שקורה בדרך החוצה ובדרך חזרה.",
+    "כל לילה עוצם ת'עיניים ונזכר בזוועה: \"530\" \"530\" כמו אקו שלא עוזב אותך, מהדהד בראש וקודח לך בנשמה.",
+    "רקע איך נולד הספר על הספר זהו ספרו הראשון של אייל עמית.",
+    "לרכישת הספר המודפס ספר אלקטרוני שאלות ותשובות לפני שקונים האם זה ספר למוצ'ילרים בלבד?"
+  ],
+  "gatePass": true,
+  "verdict": "ACCURATE",
+  "sourceCharWeight": 5498
+}
