@@ -588,12 +588,33 @@ function ea_eyalamit_muzza_to_books_redirect() {
 	if ( is_admin() ) {
 		return;
 	}
-	if ( is_page( 'muzza' ) || is_page( 'muzeh' ) ) {
-		wp_safe_redirect( home_url( '/books/' ), 301 );
+	// PATH-based map so EVERY legacy Muzza URL — the hub, the book children, AND the
+	// old /muzza/<book> slugs WP would otherwise 2-hop via wp_old_slug_redirect —
+	// lands on the canonical /books equivalent in a SINGLE 301. Runs at priority 0,
+	// ahead of the mu-plugin /muzeh rule (F-CRF-02) and old-slug redirect (F-CRF-03).
+	$req = isset( $_SERVER['REQUEST_URI'] )
+		? (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH )
+		: '';
+	if ( '' === $req ) {
+		return;
+	}
+	$req    = trailingslashit( $req );
+	$legacy = array(
+		'/muzza/' => '/books/',
+		'/muzeh/' => '/books/',
+		'/muzza/tsva-bechol-ve-zorek-layam/' => '/books/tsva-bekahol/',
+		'/muzeh/tsva-bechol-ve-zorek-layam/' => '/books/tsva-bekahol/',
+		'/muzza/kushi-blantis/'              => '/books/kushi-blantis/',
+		'/muzeh/kushi-blantis/'              => '/books/kushi-blantis/',
+		'/muzza/vekatavt/'                   => '/books/vekatavta/',
+		'/muzeh/vekatavt/'                   => '/books/vekatavta/',
+	);
+	if ( isset( $legacy[ $req ] ) ) {
+		wp_safe_redirect( home_url( $legacy[ $req ] ), 301 );
 		exit;
 	}
 }
-add_action( 'template_redirect', 'ea_eyalamit_muzza_to_books_redirect', 1 );
+add_action( 'template_redirect', 'ea_eyalamit_muzza_to_books_redirect', 0 );
 
 /**
  * תבנית דף ספר — Wave1.

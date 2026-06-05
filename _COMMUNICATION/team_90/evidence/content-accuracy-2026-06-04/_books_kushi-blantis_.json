@@ -5,19 +5,14 @@
   "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
   "liveStatus": 200,
   "sectionCoveragePct": 100,
-  "sentenceCoveragePct": 95.24,
-  "pageAccuracyPct": 97.14,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
   "sectionsTotal": 13,
   "sectionsFound": 13,
-  "sentencesTotal": 21,
+  "sentencesTotal": 20,
   "sentencesFound": 20,
   "missingSections": [],
-  "missingSentences": [
-    {
-      "section": "גלריה",
-      "sentence": "> כולל: > - תמונת כריכה > - תמונות פנים הספר > - תמונות אווירה (אם קיימות)"
-    }
-  ],
+  "missingSentences": [],
   "inventedSections": [],
   "inventedBlocks": [
     "← מוזה הוצאה לאור רומן פנטזיה · 2004 כושי בלאנטיס רומן פנטזיה על התעוררות, בחירה, חופש, חיבור ללב, והאומץ לצאת מהחיים הנוחים מדי.",
@@ -53,5 +48,5 @@
   ],
   "gatePass": true,
   "verdict": "ACCURATE",
-  "sourceCharWeight": 2085
+  "sourceCharWeight": 2011
 }

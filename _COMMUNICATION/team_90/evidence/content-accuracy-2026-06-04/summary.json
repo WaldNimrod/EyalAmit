@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T09:19:20.736Z",
+  "generatedAt": "2026-06-05T20:54:38.381Z",
   "base": "http://eyalamit-co-il-2026.s887.upress.link",
   "contentRoot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26",
   "formula": {
@@ -23,8 +23,8 @@
   "pagesTotal": 19,
   "pagesMeasured": 17,
   "pagesNA": 2,
-  "siteAccuracySimpleAvgPct": 96.51,
-  "siteAccuracyWeightedBySourceCharsPct": 98.21,
+  "siteAccuracySimpleAvgPct": 96.74,
+  "siteAccuracyWeightedBySourceCharsPct": 98.39,
   "pagesUnder90Pct": 1,
   "gateWouldPassCount": 16,
   "results": [
@@ -370,22 +370,16 @@
       "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
       "liveStatus": 200,
       "sectionCoveragePct": 100,
-      "sentenceCoveragePct": 98.28,
-      "pageAccuracyPct": 98.97,
+      "sentenceCoveragePct": 100,
+      "pageAccuracyPct": 100,
       "sectionsTotal": 13,
       "sectionsFound": 13,
       "sentencesTotal": 58,
-      "sentencesFound": 57,
+      "sentencesFound": 58,
       "missingSections": [],
-      "missingSentences": [
-        {
-          "section": "Hero",
-          "sentence": "ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה."
-        }
-      ],
+      "missingSentences": [],
       "inventedSections": [],
       "inventedBlocks": [
-        "← מוזה הוצאה לאור סיפורים אמיתיים · ספוקן סטוריז · 2017 וכתבת 46 סיפורים אמיתיים מחייו של אייל עמית - אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.",
         "לרכישת הספר · 79 ₪ מחבר אייל עמית עמודים 252 סיפורים 46 יצא לאור 2017 תקציר על מה הספר תקציר הספר ספר אישי מאוד, חי מאוד, ומלא קול.",
         "וכתבת הוא ספר שמאגד 46 סיפורים אמיתיים מחייו של אייל עמית - סיפורים על אהבה, זוגיות, הורות, קריירה, מסעות, בריאות, כסף, אומץ, אובדן, שינוי וצמיחה.",
         "הספר נע בין רגעים מצחיקים, מפתיעים, כואבים ומעוררי השראה, ונוגע בשאלות של חיים, בחירה, משמעות והיכולת להמשיך לנוע גם דרך תקופות קשות.",
@@ -426,19 +420,14 @@
       "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
       "liveStatus": 200,
       "sectionCoveragePct": 100,
-      "sentenceCoveragePct": 95.24,
-      "pageAccuracyPct": 97.14,
+      "sentenceCoveragePct": 100,
+      "pageAccuracyPct": 100,
       "sectionsTotal": 13,
       "sectionsFound": 13,
-      "sentencesTotal": 21,
+      "sentencesTotal": 20,
       "sentencesFound": 20,
       "missingSections": [],
-      "missingSentences": [
-        {
-          "section": "גלריה",
-          "sentence": "> כולל: > - תמונת כריכה > - תמונות פנים הספר > - תמונות אווירה (אם קיימות)"
-        }
-      ],
+      "missingSentences": [],
       "inventedSections": [],
       "inventedBlocks": [
         "← מוזה הוצאה לאור רומן פנטזיה · 2004 כושי בלאנטיס רומן פנטזיה על התעוררות, בחירה, חופש, חיבור ללב, והאומץ לצאת מהחיים הנוחים מדי.",
@@ -474,7 +463,7 @@
       ],
       "gatePass": true,
       "verdict": "ACCURATE",
-      "sourceCharWeight": 2085
+      "sourceCharWeight": 2011
     },
     {
       "page": "/books/tsva-bekahol/",

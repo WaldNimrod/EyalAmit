@@ -22,7 +22,7 @@ while ( have_posts() ) {
 
 	// Parent page (מוזה hub) URL + title
 	$parent_id    = (int) get_post()->post_parent;
-	$parent_url   = $parent_id ? get_permalink( $parent_id ) : home_url( '/muzza/' );
+	$parent_url   = $parent_id ? get_permalink( $parent_id ) : home_url( '/books/' );
 	$parent_title = $parent_id ? get_the_title( $parent_id ) : 'מוזה הוצאה לאור';
 
 	// Cover alt text

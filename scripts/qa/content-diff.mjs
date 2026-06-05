@@ -298,9 +298,11 @@ export function parseMarkdownSource(md) {
       }
       continue;
     }
-    // Blockquote DEV-NOTE image/asset instructions (> DEV NOTE: …, with their
-    // > https://… continuation refs) are authoring scaffolding, not content.
-    if (/^>\s*DEV\s+NOTE/i.test(t) || /^>\s*https?:\/\//i.test(t)) continue;
+    // Blockquote lines are authoring scaffolding in this corpus — DEV-NOTE image/
+    // asset instructions and their continuation specs (> DEV NOTE:, > https://…,
+    // > כולל:, > - תמונת כריכה …). Real published prose/quotes never use `>` here
+    // (testimonials are ### name + text), so skip the whole blockquote. (team_100 fix.)
+    if (/^>/.test(t)) continue;
     if (/^[-*]\s/.test(t)) {
       contentLines.push(t.replace(/^[-*]\s+/, ''));
     } else if (!/^layout:|^UX:|^behavior:|^קישורים:|^הערות/.test(t)) {

@@ -405,7 +405,8 @@ function ea_m2_st_canonical_path_redirects() {
 		// redirect is removed so the catalog page resolves.
 		'/courses-soon/'                          => $courses_landing,
 		// WP-W2-03: /books is now the canonical Muzza catalog (tpl-books) — do NOT redirect it away.
-		'/muzeh/'                                 => home_url( '/muzza/' ),
+		// WP-W2-15-CR-FINAL (F-CRF-02): /muzeh -> /books direct (was /muzza, a 2-hop).
+		'/muzeh/'                                 => home_url( '/books/' ),
 		'/hashita/'                               => home_url( '/method/' ),
 		'/testimonials-media/'                    => home_url( '/media/' ),
 		'/didgeridoo-treatment-breath/'           => home_url( '/treatment/' ),

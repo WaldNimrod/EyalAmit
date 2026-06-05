@@ -34,7 +34,7 @@ $ea_cfoot_nav = array(
 	array( 'href' => home_url( '/sound-healing' ),         'label' => 'סאונד הילינג' ),
 	array( 'href' => home_url( '/learning' ),              'label' => 'לימוד והכשרה' ),
 	array( 'href' => home_url( '/tools-and-accessories' ), 'label' => 'כלים ואביזרים' ),
-	array( 'href' => home_url( '/muzza' ),                 'label' => 'מוזה הוצאה לאור' ),
+	array( 'href' => home_url( '/books' ),                 'label' => 'מוזה הוצאה לאור' ),
 	array( 'href' => home_url( '/blog' ),                  'label' => 'בלוג דיג׳רידו' ),
 	array( 'href' => home_url( '/eyal-amit' ),             'label' => 'אייל עמית' ),
 	array( 'href' => home_url( '/contact' ),               'label' => 'צור קשר' ),
