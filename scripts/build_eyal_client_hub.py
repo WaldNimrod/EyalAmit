@@ -1037,6 +1037,8 @@ MATERIALS_INTAKE_STYLE = """<style>
 .mat-card__meta b{color:#000}
 .mat-done{margin-top:.45rem;padding:.4rem .6rem;background:#eaf6ee;border:1px solid #bfe3cb;border-radius:8px;color:#155f31;font-size:.92rem;line-height:1.6}
 .mat-done b{color:#0f4a25}
+.mat-internal{margin-top:.45rem;padding:.4rem .6rem;background:#eef2f8;border:1px solid #c5d2e6;border-radius:8px;color:#2b4a73;font-size:.92rem;line-height:1.6}
+.mat-internal b{color:#1c3354}
 .mat-card__inputs{display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-top:.6rem;border-top:1px dashed #e2dccd;padding-top:.7rem}
 .mat-card__inputs label{display:flex;flex-direction:column;font-size:.85rem;font-weight:600;gap:.25rem}
 .mat-card__inputs .f-file{flex:1;min-width:16rem}
@@ -1150,7 +1152,10 @@ def page_materials_intake(materials: dict, generated_iso: str) -> str:
             sec += f'<div><b>הקשר:</b> {escape(it.get("why", ""))}</div>\n'
             sec += f'<div><b>פורמט:</b> {escape(it.get("format", ""))}</div>\n'
             if done_note:
-                sec += f'<div class="mat-done"><b>✓ הושלם:</b> {escape(done_note)}</div>\n'
+                if status == "na":
+                    sec += f'<div class="mat-internal"><b>🛠 משימה פנימית — לא נדרש ממך:</b> {escape(done_note)}</div>\n'
+                else:
+                    sec += f'<div class="mat-done"><b>✓ הושלם:</b> {escape(done_note)}</div>\n'
             sec += "</div>\n"
             sec += '<div class="mat-card__inputs">\n'
             _sel = lambda v: " selected" if v == status else ""
