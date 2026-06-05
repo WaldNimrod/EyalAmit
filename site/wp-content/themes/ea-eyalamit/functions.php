@@ -617,6 +617,37 @@ function ea_eyalamit_muzza_to_books_redirect() {
 add_action( 'template_redirect', 'ea_eyalamit_muzza_to_books_redirect', 0 );
 
 /**
+ * Rewrite any WP nav-menu item that still points at a legacy Muzza URL to its
+ * canonical /books equivalent — at output, so the rendered DOM carries no
+ * /muzza|/muzeh hrefs even if the stored GeneratePress menu items (legacy
+ * #primary-menu, menu-item-139…142) were never re-pointed in the DB.
+ * (WP-W2-15-CR-FINAL F-CRF-01 P3 — FTP-deployable, no DB/API edit needed.)
+ */
+function ea_eyalamit_rewrite_legacy_muzza_menu_urls( $items ) {
+	$map = array(
+		'/muzza/tsva-bechol-ve-zorek-layam/' => '/books/tsva-bekahol/',
+		'/muzeh/tsva-bechol-ve-zorek-layam/' => '/books/tsva-bekahol/',
+		'/muzza/kushi-blantis/'              => '/books/kushi-blantis/',
+		'/muzeh/kushi-blantis/'              => '/books/kushi-blantis/',
+		'/muzza/vekatavt/'                   => '/books/vekatavta/',
+		'/muzeh/vekatavt/'                   => '/books/vekatavta/',
+		'/muzza/'                            => '/books/',
+		'/muzeh/'                            => '/books/',
+	);
+	foreach ( $items as $item ) {
+		if ( empty( $item->url ) ) {
+			continue;
+		}
+		$path = trailingslashit( (string) wp_parse_url( $item->url, PHP_URL_PATH ) );
+		if ( isset( $map[ $path ] ) ) {
+			$item->url = home_url( $map[ $path ] );
+		}
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'ea_eyalamit_rewrite_legacy_muzza_menu_urls', 20 );
+
+/**
  * תבנית דף ספר — Wave1.
  *
  * @param string $template Path to template file.
