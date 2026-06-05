@@ -14,7 +14,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../..');
 
 const DEFAULT_BASE = 'http://eyalamit-co-il-2026.s887.upress.link';
-const DEFAULT_CONTENT_ROOT = path.join(
+export const DEFAULT_CONTENT_ROOT = path.join(
   REPO_ROOT,
   'docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26'
 );
@@ -24,7 +24,7 @@ const SECTION_WEIGHT = 0.4;
 const SENTENCE_WEIGHT = 0.6;
 
 /** @type {Array<{path:string, source:string|null, label?:string, na?:boolean, sourceType?:'md'|'docx'}>} */
-const PAGE_MAP = [
+export const PAGE_MAP = [
   { path: '/', source: 'דף הבית/homepage1-3 v2.md', label: '/' },
   { path: '/method/', source: 'השיטה/method.md' },
   { path: '/treatment/', source: "טיפול בדיג'רידו/treatment.md" },
@@ -82,17 +82,25 @@ function hebrewCharCount(s) {
   return (s.match(/[\u0590-\u05FF]/g) || []).length;
 }
 
-function normalize(text) {
+export function normalize(text) {
   let t = text;
   t = t.replace(/<script[\s\S]*?<\/script>/gi, ' ');
   t = t.replace(/<style[\s\S]*?<\/style>/gi, ' ');
   t = t.replace(/<[^>]+>/g, ' ');
+  // Decode HTML entities BEFORE the markdown-# strip. WordPress esc_html() emits
+  // an apostrophe as &#039; and a quote as &#034;/&quot;; the later `#{1,6}` rule
+  // would eat the `#` out of &#039; (-> &039;) so the char never matched and any
+  // sentence containing ' or " failed the live gate. (team_100 fix 2026-06-05.)
+  t = t.replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+  t = t.replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)));
+  t = t.replace(/&quot;/gi, '"').replace(/&apos;/gi, "'").replace(/&amp;/gi, '&');
   t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   t = t.replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1');
   t = t.replace(/\[([^\]]+)\]/g, '$1');
   t = t.replace(/#{1,6}\s*/g, '');
   t = t.replace(/\*\*([^*]+)\*\*/g, '$1');
   t = t.replace(/\*([^*]+)\*/g, '$1');
+  t = t.replace(/~~([^~]+)~~/g, '$1');
   t = t.replace(/`([^`]+)`/g, '$1');
   t = t.replace(/&nbsp;/g, ' ');
   t = t.replace(/&[a-z]+;/gi, ' ');
@@ -101,8 +109,24 @@ function normalize(text) {
   t = t.replace(/\[תמונ[^\]]*\]/g, ' ');
   t = t.replace(/\[וידאו[^\]]*\]/g, ' ');
   t = t.replace(/[\u201C\u201D\u05F4\u00AB\u00BB]/g, '"');
+  // Unify hyphen/dash variants to an ASCII hyphen. WordPress wptexturize() rewrites
+  // a source " - " to an en-dash " \u2013 " (and "--" to "\u2014") on output, so a verbatim
+  // source hyphen otherwise fails to substring-match the rendered text. This is a
+  // display transform, not a content difference. (team_100 fix 2026-06-05.)
+  t = t.replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, '-');
+  // wptexturize() also rewrites "..." to a single ellipsis glyph "\u2026"; unify both.
+  t = t.replace(/\u2026/g, '...');
+  // A Hebrew maqaf (\u05be) is a tight word connector. When the word after it is a link
+  // (e.g. source "\u05d1\u05be\u05d1\u05dc\u05d5\u05d2" rendered as \u05d1\u05be<a>\u05d1\u05dc\u05d5\u05d2</a>), stripping the <a> tag inserts a
+  // space, yielding "\u05d1\u05be \u05d1\u05dc\u05d5\u05d2". Drop a space directly after a maqaf so the verbatim
+  // connected form matches. (team_100 fix 2026-06-05.)
+  t = t.replace(/\u05be\s+/g, '\u05be');
   t = t.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
   t = t.replace(/\s+/g, ' ');
+  // Drop a space before sentence punctuation \u2014 never content; it is a tag-strip
+  // artifact of inline markup ending right before the mark, e.g. <a>\u2026\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5</a>.
+  // becomes "\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5 ." (team_100 fix 2026-06-05).
+  t = t.replace(/ +([.,;:!?])/g, '$1');
   return t.trim();
 }
 
@@ -110,18 +134,60 @@ function normalizeSectionTitle(title) {
   return normalize(title)
     .replace(/^section\s*\d+\s*[-–—]\s*/i, '')
     .replace(/^סקשן\s*\d+\s*[-–—]\s*/i, '')
+    // "FAQ Category:" is a dev annotation prefixing the real category title in
+    // the FAQ source; strip it so the rendered category heading title-matches.
+    .replace(/^faq\s+category\s*:\s*/i, '')
+    // "(חלק 2)" / "(part 2)" mark a category split across two source blocks for
+    // length; the published heading is the base name (the blocks render as one
+    // category). Strip the part annotation so the section title-matches.
+    .replace(/\s*\(\s*(?:חלק|part)\s+[^)]*\)\s*$/i, '')
     .trim();
 }
 
+/**
+ * True when a SECTION's title marks it as pure authoring scaffolding (a global
+ * DEV-NOTES block or a QA checklist) rather than published content. Such sections
+ * are excluded from coverage entirely — they carry no reader-facing copy and the
+ * source author never intended them to render. (team_100 fix 2026-06-05.)
+ */
+function isDevSectionTitle(title) {
+  const h = normalizeSectionTitle(title).toLowerCase();
+  // Also exclude sections the author explicitly marked incomplete — "(להשלמה)"
+  // ("to be completed"): their body is a note to gather material later (e.g.
+  // testimonials still to collect), not published content.
+  return (
+    /^dev\s+notes\b/.test(h) ||
+    /^qa\b/.test(h) ||
+    /checklist/.test(h) ||
+    /להשלמה/.test(title)
+  );
+}
+
 function splitContentSentences(raw) {
-  const norm = normalize(raw);
-  if (!norm) return [];
-  const parts = norm.split(/(?<=[.!?׃])\s+|\n+/).map((p) => p.trim()).filter(Boolean);
+  // PRIMARY: per source line, split on sentence punctuation, keep parts that reach
+  // the Hebrew threshold. This matches data-provider renders that emit each sentence
+  // as its own <p>/array entry, and normalizing each line first avoids fusing a
+  // punctuation-less line (an H1, a link label) with the next. (team_100 2026-06-05.)
   const out = [];
-  for (const p of parts) {
-    if (hebrewCharCount(p) >= MIN_HEBREW_CHARS) out.push(p);
+  for (const line of String(raw).split(/\n+/)) {
+    const norm = normalize(line);
+    if (!norm) continue;
+    const parts = norm.split(/(?<=[.!?׃])\s+/).map((p) => p.trim()).filter(Boolean);
+    for (const p of parts.length ? parts : [norm]) {
+      if (hebrewCharCount(p) >= MIN_HEBREW_CHARS) out.push(p);
+    }
   }
-  if (out.length === 0 && hebrewCharCount(norm) >= MIN_HEBREW_CHARS) out.push(norm);
+  // FALLBACK: a section whose lines are all short poetic hard-breaks (e.g. the
+  // treatment intro) yields nothing above. Instead of fusing the whole blob into one
+  // synthetic sentence, keep each blank-line-separated PARAGRAPH as a unit — that is
+  // exactly the contiguous run such content renders into as one <p>. The '' blank
+  // sentinels the parser preserves make \n{2,} paragraph boundaries available here.
+  if (out.length === 0) {
+    for (const para of String(raw).split(/\n{2,}/)) {
+      const norm = normalize(para);
+      if (hebrewCharCount(norm) >= MIN_HEBREW_CHARS) out.push(norm);
+    }
+  }
   return [...new Set(out)];
 }
 
@@ -146,15 +212,19 @@ function parseSectionHeader(line) {
 }
 
 function isDevOrCtaHeader(line) {
-  const t = line.trim();
+  // Strip surrounding markdown emphasis first: several sources write the dev-note
+  // header in bold (**DEV NOTES:**, **DEV NOTES (גלובליים):**, **CTA:**) rather
+  // than as a `### DEV NOTES` ATX heading. Both forms are authoring scaffolding,
+  // not content, and must be skipped identically. (team_100 fix 2026-06-05.)
+  const t = line.trim().replace(/\*\*/g, '').replace(/__/g, '').trim();
   if (/^#{1,3}\s+DEV\s+NOTES/i.test(t)) return true;
   if (/^#{1,3}\s+CTA\s*:?\s*$/i.test(t)) return true;
-  if (/^DEV\s+NOTES\s*:?\s*$/i.test(t)) return true;
+  if (/^DEV\s+NOTES\b/i.test(t)) return true;
   if (/^CTA\s*:?\s*$/i.test(t)) return true;
   return isSkippableHeader(line);
 }
 
-function parseMarkdownSource(md) {
+export function parseMarkdownSource(md) {
   const sections = [];
   const lines = md.split('\n');
   let current = null;
@@ -163,6 +233,11 @@ function parseMarkdownSource(md) {
 
   function flush() {
     if (!current) return;
+    // Drop whole dev-scaffolding sections (global DEV NOTES / QA Checklist).
+    if (isDevSectionTitle(current.title)) {
+      contentLines.length = 0;
+      return;
+    }
     const blob = contentLines.join('\n');
     sections.push({
       num: current.num,
@@ -213,7 +288,19 @@ function parseMarkdownSource(md) {
     if (inDevOrCta) continue;
     if (/^#{1,3}\s/.test(line)) continue;
     const t = line.trim();
-    if (!t || t === '---') continue;
+    // Preserve paragraph breaks (blank line / ---) as a sentinel so sentence
+    // splitting can use them as boundaries. Consecutive non-blank source lines
+    // (hard-break poetic lines, list items) stay in one paragraph — which mirrors
+    // how they render into a single <p>/<ul> block the gate flattens to one run.
+    if (!t || t === '---') {
+      if (contentLines.length && contentLines[contentLines.length - 1] !== '') {
+        contentLines.push('');
+      }
+      continue;
+    }
+    // Blockquote DEV-NOTE image/asset instructions (> DEV NOTE: …, with their
+    // > https://… continuation refs) are authoring scaffolding, not content.
+    if (/^>\s*DEV\s+NOTE/i.test(t) || /^>\s*https?:\/\//i.test(t)) continue;
     if (/^[-*]\s/.test(t)) {
       contentLines.push(t.replace(/^[-*]\s+/, ''));
     } else if (!/^layout:|^UX:|^behavior:|^קישורים:|^הערות/.test(t)) {
@@ -224,7 +311,7 @@ function parseMarkdownSource(md) {
   return sections;
 }
 
-async function readSource(relPath, sourceType, contentRoot) {
+export async function readSource(relPath, sourceType, contentRoot) {
   const full = path.join(contentRoot, relPath);
   if (!fs.existsSync(full)) {
     return { error: `SOURCE_MISSING: ${full}`, text: null };
@@ -245,7 +332,7 @@ async function readSource(relPath, sourceType, contentRoot) {
   return { error: null, text: fs.readFileSync(full, 'utf8'), format: 'md' };
 }
 
-function parseDocxSections(text) {
+export function parseDocxSections(text) {
   // Docx has no SECTION markers — treat whole doc as one pseudo-section + paragraph sentences
   const sentences = splitContentSentences(text);
   return [
@@ -258,7 +345,7 @@ function parseDocxSections(text) {
   ];
 }
 
-function htmlToText(html) {
+export function htmlToText(html) {
   return normalize(html);
 }
 
@@ -327,13 +414,24 @@ function gatePass(sectionCov, sentenceCov, inventedSectionCount) {
   return sectionCov >= 95 && sentenceCov >= 90 && inventedSectionCount === 0;
 }
 
-function analyzePage({ sections, live, htmlMain }) {
+export function analyzePage({ sections, live, htmlMain }) {
   const liveNorm = live.text;
   const allSourceSentences = sections.flatMap((s) => s.sentences);
   const missingSections = [];
   let sectionsFound = 0;
   for (const sec of sections) {
-    const ok = sectionFound(sec.titleNorm, liveNorm);
+    // Calibrated section coverage (team_100 2026-06-05, Principal-approved): judge
+    // a section by whether its CONTENT is present, not only by whether its title —
+    // which may be pure structural scaffolding ("Hero"/"Intro"/"Header"/"CTA"/
+    // "וידאו") never meant to render as visible text — literally appears. A section
+    // is covered if its title matches, OR it carries no measurable content sentences
+    // (pure structural label, nothing to verify), OR all its content sentences are
+    // present in the render. This removes the brittle English-label penalty without
+    // resorting to invisible sr-only label text.
+    let ok = sectionFound(sec.titleNorm, liveNorm);
+    if (!ok) {
+      ok = sec.sentences.length === 0 || sec.sentences.every((s) => sentenceFound(s, liveNorm));
+    }
     if (ok) sectionsFound++;
     else missingSections.push({ num: sec.num, title: sec.title });
   }
@@ -409,7 +507,8 @@ async function main() {
     contentRoot: opts.contentRoot,
     formula: {
       pageAccuracyPct: `${SECTION_WEIGHT * 100}% * sectionCoverage + ${SENTENCE_WEIGHT * 100}% * sentenceCoverage`,
-      sectionCoveragePct: 'sectionsFound / sectionsTotal * 100',
+      sectionCoveragePct:
+        'sectionsFound / sectionsTotal * 100 (calibrated: section covered if title matches OR has no content sentences OR all its sentences present)',
       sentenceCoveragePct: 'sentencesFound / sentencesTotal * 100 (verbatim substring after normalize)',
       verdict: { ACCURATE: '>=90', PARTIAL: '40-89', INVENTED: '<40', NA: 'no source' },
       gatePass: 'section>=95 AND sentence>=90 AND inventedSections=0',
@@ -506,7 +605,12 @@ async function main() {
   console.log(JSON.stringify(summary, null, 2));
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+const __isMain =
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (__isMain) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

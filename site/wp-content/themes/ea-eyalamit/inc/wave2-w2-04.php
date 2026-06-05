@@ -565,6 +565,10 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	set_query_var( 'ea_pillars_ctx', array(
 		'label'         => isset( $steps['label'] ) ? $steps['label'] : '',
 		'heading'       => isset( $steps['heading'] ) ? $steps['heading'] : '',
+		// Pass steps.intro through so block-method-pillars renders it (it supports
+		// string|string[]). Was dropped before -> sound-healing's 4 intro paragraphs
+		// never reached the page. (WP-W2-15 F-W2-15-CA-03 fix.)
+		'intro'         => isset( $steps['intro'] ) ? $steps['intro'] : '',
 		'items'         => isset( $steps['items'] ) ? $steps['items'] : array(),
 		'grid_modifier' => 'steps',
 		'alt'           => true,
