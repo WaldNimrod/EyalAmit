@@ -160,8 +160,12 @@ function ea_w2_02_legacy_redirects() {
 		trailingslashit( (string) wp_parse_url( home_url( '/אייל-עמית-אודות/' ), PHP_URL_PATH ) ) => home_url( '/about/' ),
 		// Site-tree eyal-amit page → canonical /about/.
 		trailingslashit( (string) wp_parse_url( home_url( '/eyal-amit/' ), PHP_URL_PATH ) )         => home_url( '/about/' ),
-		// Mokesh sub-page redirect.
+		// Mokesh memorial — canonical is /about/moksha (where it renders + the content
+		// gate measures). Both the nested site-tree slug AND the top-level slug 301 to
+		// it in ONE hop (priority 2 beats WP's canonical redirect, which otherwise made
+		// /mokesh-dahiman a 2-hop via /eyal-amit/mokesh-dahiman). WP-W2-15 F-W2-15-CA H5.
 		trailingslashit( (string) wp_parse_url( home_url( '/eyal-amit/mokesh-dahiman/' ), PHP_URL_PATH ) ) => home_url( '/about/moksha/' ),
+		trailingslashit( (string) wp_parse_url( home_url( '/mokesh-dahiman/' ), PHP_URL_PATH ) ) => home_url( '/about/moksha/' ),
 	);
 
 	foreach ( $redirects as $from => $to ) {

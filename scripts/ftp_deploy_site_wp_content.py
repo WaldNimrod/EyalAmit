@@ -68,6 +68,7 @@ def main() -> None:
     mu_w2_07_qr = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-seed-once.php"
     mu_w2_07_qr_data = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-content-data.php"
     mu_w2_09_redirects = root / "site" / "wp-content" / "mu-plugins" / "ea-w209-legacy-301-redirects.php"
+    mu_w2_15_cf7 = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-15-cf7-contact-form-once.php"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
     if not mu_noindex.is_file():
@@ -119,6 +120,7 @@ def main() -> None:
     files.append((mu_w2_07_qr, "wp-content/mu-plugins/ea-w2-07-qr-seed-once.php"))
     files.append((mu_w2_07_qr_data, "wp-content/mu-plugins/ea-w2-07-qr-content-data.php"))
     files.append((mu_w2_09_redirects, "wp-content/mu-plugins/ea-w209-legacy-301-redirects.php"))
+    files.append((mu_w2_15_cf7, "wp-content/mu-plugins/ea-w2-15-cf7-contact-form-once.php"))
     # Blog shortcode cleanup (strips legacy [vc_*] from content + excerpts) + author display-name fix.
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-blog-shortcode-cleanup.php", "wp-content/mu-plugins/ea-blog-shortcode-cleanup.php"))
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-author-displayname-once.php", "wp-content/mu-plugins/ea-w2-10-author-displayname-once.php"))
