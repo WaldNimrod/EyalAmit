@@ -5,31 +5,14 @@
   "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
   "liveStatus": 200,
   "sectionCoveragePct": 100,
-  "sentenceCoveragePct": 92.73,
-  "pageAccuracyPct": 95.64,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
   "sectionsTotal": 10,
   "sectionsFound": 10,
   "sentencesTotal": 55,
-  "sentencesFound": 51,
+  "sentencesFound": 55,
   "missingSections": [],
-  "missingSentences": [
-    {
-      "section": "איך זה עובד",
-      "sentence": "המפגש מתקיים במרחב שקט ופסטורלי בלב גינה ירוקה, מוקפת עצי פרי, שבילי עץ, שדרת במבוק וקני סוכר, המאפשרים כבר בכניסה למקום"
-    },
-    {
-      "section": "איך זה עובד",
-      "sentence": "המפגש בנוי כתהליך הדרגתי שנמשך כשעתיים, ומאפשר כניסה איטית ומעמיקה אל תוך המרחב שנוצר."
-    },
-    {
-      "section": "איך זה עובד",
-      "sentence": "הוא נע בין שכבות, עוצמות ומקצבים שונים, ויוצר מרחב דינמי שנבנה בזמן אמת ובהתאמה אישית, ומשולב בעבודה עם שרפים וקטורות."
-    },
-    {
-      "section": "איך זה עובד",
-      "sentence": "העבודה מתרחשת דרך הצלילים והתדרים, והאופן שבו הם פוגשים את הגוף, הנשימה והתודעה."
-    }
-  ],
+  "missingSentences": [],
   "inventedSections": [],
   "inventedBlocks": [
     "בניגוד לרוב מפגשי הסאונד הילינג המתקיימים בקבוצות, כאן מדובר במפגש אישי ואינטימי, המאפשר התאמה מלאה של המרחב, הקצב והעומק לאדם שמגיע.",

@@ -123,6 +123,10 @@ export function normalize(text) {
   t = t.replace(/\u05be\s+/g, '\u05be');
   t = t.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
   t = t.replace(/\s+/g, ' ');
+  // Drop a space before sentence punctuation \u2014 never content; it is a tag-strip
+  // artifact of inline markup ending right before the mark, e.g. <a>\u2026\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5</a>.
+  // becomes "\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5 ." (team_100 fix 2026-06-05).
+  t = t.replace(/ +([.,;:!?])/g, '$1');
   return t.trim();
 }
 
