@@ -1,0 +1,29 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 1024 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "method", "path": "/method/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "sound-healing", "path": "/sound-healing/" },
+    { "name": "lessons", "path": "/lessons/" },
+    { "name": "faq", "path": "/faq/" },
+    { "name": "muzza", "path": "/muzza/" },
+    { "name": "books", "path": "/books/" },
+    { "name": "about", "path": "/about/" },
+    { "name": "vekatavta", "path": "/books/vekatavta/" },
+    { "name": "kushi-blantis", "path": "/books/kushi-blantis/" },
+    { "name": "tsva-bekahol", "path": "/books/tsva-bekahol/" },
+    { "name": "didgeridoos", "path": "/didgeridoos/" },
+    { "name": "bags", "path": "/bags/" },
+    { "name": "stands-storage", "path": "/stands-storage/" },
+    { "name": "stand-floor", "path": "/stand-floor/" },
+    { "name": "repair", "path": "/repair/" }
+  ],
+  "absent": []
+}
