@@ -9,7 +9,16 @@
 defined( 'ABSPATH' ) || exit;
 
 $active_cat = isset( $_GET['cat'] ) ? absint( $_GET['cat'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
-$paged      = isset( $_GET['paged'] ) ? max( 1, absint( $_GET['paged'] ) ) : 1;
+// Pagination (Eyal #6 fix): read the WP `paged` query var — set by the pretty
+// /blog/page/N/ URL that WordPress canonical-redirects pagination to — BEFORE
+// falling back to ?paged. Previously only $_GET['paged'] was read, so every
+// /blog/page/N/ fell through to page 1 (only page-1 posts ever showed).
+$paged = max(
+	1,
+	(int) get_query_var( 'paged' ),
+	(int) get_query_var( 'page' ),
+	isset( $_GET['paged'] ) ? absint( $_GET['paged'] ) : 0
+);
 
 $query_args = [
 	'post_type'      => 'post',
@@ -58,7 +67,7 @@ get_template_part( 'template-parts/blocks/block', 'topnav' );
 
 		<?php
 		$pagination = paginate_links( [
-			'base'      => add_query_arg( 'paged', '%#%', get_permalink() ),
+			'base'      => trailingslashit( get_permalink() ) . 'page/%#%/',
 			'format'    => '',
 			'current'   => $paged,
 			'total'     => $blog_query->max_num_pages,
