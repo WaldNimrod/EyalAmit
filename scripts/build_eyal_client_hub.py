@@ -1035,6 +1035,8 @@ MATERIALS_INTAKE_STYLE = """<style>
 .mat-card[data-status="missing"] .mat-pill{background:#fbe3cb;color:#9a5a00}
 .mat-card__meta{margin:.5rem 0;color:#333;font-size:.95rem;line-height:1.65}
 .mat-card__meta b{color:#000}
+.mat-done{margin-top:.45rem;padding:.4rem .6rem;background:#eaf6ee;border:1px solid #bfe3cb;border-radius:8px;color:#155f31;font-size:.92rem;line-height:1.6}
+.mat-done b{color:#0f4a25}
 .mat-card__inputs{display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-top:.6rem;border-top:1px dashed #e2dccd;padding-top:.7rem}
 .mat-card__inputs label{display:flex;flex-direction:column;font-size:.85rem;font-weight:600;gap:.25rem}
 .mat-card__inputs .f-file{flex:1;min-width:16rem}
@@ -1055,7 +1057,7 @@ MATERIALS_INTAKE_JS = """<script>
     var tot=0,done=0,miss=0;
     cards.forEach(function(c){
       var code=c.getAttribute('data-code');
-      var st=(state[code]&&state[code].status)||'missing';
+      var st=(state[code]&&state[code].status)||c.getAttribute('data-default-status')||'missing';
       c.setAttribute('data-status',st);
       var pill=c.querySelector('[data-pill]'); if(pill) pill.textContent=PILL[st]||'';
       if(st!=='na') tot++;
@@ -1128,7 +1130,16 @@ def page_materials_intake(materials: dict, generated_iso: str) -> str:
         for it in g.get("items", []):
             code = it.get("code", "")
             pcls = _MATERIALS_PRIO_CLS.get(it.get("priority", ""), "opt")
-            sec += f'<div class="mat-card" data-code="{escape(code)}" data-status="missing">\n'
+            # Server-side pre-marked status (team_100). Default "missing"; the page
+            # JS honours a visitor's own saved choice over this default.
+            status = it.get("status", "missing")
+            if status not in ("missing", "submitted", "na"):
+                status = "missing"
+            done_note = it.get("done_note", "")
+            sec += (
+                f'<div class="mat-card" data-code="{escape(code)}" '
+                f'data-status="{escape(status)}" data-default-status="{escape(status)}">\n'
+            )
             sec += '<div class="mat-card__head">\n'
             sec += f'<span class="mat-code">{escape(code)}</span>\n'
             sec += f'<span class="mat-need">{escape(it.get("need", ""))}</span>\n'
@@ -1138,13 +1149,16 @@ def page_materials_intake(materials: dict, generated_iso: str) -> str:
             sec += '<div class="mat-card__meta">\n'
             sec += f'<div><b>הקשר:</b> {escape(it.get("why", ""))}</div>\n'
             sec += f'<div><b>פורמט:</b> {escape(it.get("format", ""))}</div>\n'
+            if done_note:
+                sec += f'<div class="mat-done"><b>✓ הושלם:</b> {escape(done_note)}</div>\n'
             sec += "</div>\n"
             sec += '<div class="mat-card__inputs">\n'
+            _sel = lambda v: " selected" if v == status else ""
             sec += (
                 '<label>סטטוס\n<select class="mat-status">'
-                '<option value="missing">חסר</option>'
-                '<option value="submitted">הוגש</option>'
-                '<option value="na">לא רלוונטי</option></select></label>\n'
+                f'<option value="missing"{_sel("missing")}>חסר</option>'
+                f'<option value="submitted"{_sel("submitted")}>הוגש / הושלם</option>'
+                f'<option value="na"{_sel("na")}>לא רלוונטי</option></select></label>\n'
             )
             sec += (
                 '<label class="f-file">שם קובץ / קישור / תשובה\n'
