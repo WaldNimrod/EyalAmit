@@ -1,0 +1,27 @@
+{
+  "page": "/eyal-amit",
+  "path": "/about/",
+  "source": "אודות - אייל עמית/אודות - אייל עמית.md",
+  "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/about/",
+  "liveStatus": 200,
+  "sectionCoveragePct": 100,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
+  "sectionsTotal": 13,
+  "sectionsFound": 13,
+  "sentencesTotal": 48,
+  "sentencesFound": 48,
+  "missingSections": [],
+  "missingSentences": [],
+  "inventedSections": [],
+  "inventedBlocks": [
+    "המסע שלי התחיל הרבה לפני הדיג'רידו נולדתי וגדלתי בגבעתיים.",
+    "המפגש עם הדיג'רידו בשנת 1999 פגשתי לראשונה את הדיג'רידו.",
+    "הדיג' שנגנב והדרך החדשה שנפתחה בשנת 2003 נסעתי שוב להודו.",
+    "בלב השיטה עומדת הבחנה פשוטה אך חשובה: הדיג'רידו אינו המטרה.",
+    "לתיאום שיחת היכרות אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם."
+  ],
+  "gatePass": true,
+  "verdict": "ACCURATE",
+  "sourceCharWeight": 5122
+}

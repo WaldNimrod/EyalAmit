@@ -1,0 +1,374 @@
+{
+  "generated": "2026-06-05T20:34:15.209Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "branch": "main @ 9c48714",
+  "gate": "CR-FINAL_FULL_E2E",
+  "wp": "WP-W2-15-CR-FINAL",
+  "checks": [
+    {
+      "id": "redirect_muzza_to_books",
+      "pass": true,
+      "detail": "{\"chain\":[{\"url\":\"http://eyalamit-co-il-2026.s887.upress.link/muzza\",\"status\":301,\"location\":\"http://eyalamit-co-il-2026.s887.upress.link/books/\"},{\"url\":\"http://eyalamit-co-il-2026.s887.upress.link/books/\",\"status\":200,\"location\":null}],\"final\":{\"url\":\"http://eyalamit-co-il-2026.s887.upress.link/books/\",\"status\":200,\"location\":null}}"
+    },
+    {
+      "id": "nav_/treatment",
+      "pass": true,
+      "detail": "{\"text\":\"טיפול בדיג׳רידו\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/treatment\"}"
+    },
+    {
+      "id": "nav_/method",
+      "pass": true,
+      "detail": "{\"text\":\"השיטה\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/method\"}"
+    },
+    {
+      "id": "nav_/lessons",
+      "pass": true,
+      "detail": "{\"text\":\"שיעורי דיג׳רידו\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/lessons\"}"
+    },
+    {
+      "id": "nav_/sound-healing",
+      "pass": true,
+      "detail": "{\"text\":\"סאונד הילינג\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/sound-healing\"}"
+    },
+    {
+      "id": "nav_/books",
+      "pass": true,
+      "detail": "{\"text\":\"מוזה הוצאה לאור\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/books\"}"
+    },
+    {
+      "id": "nav_/blog",
+      "pass": true,
+      "detail": "{\"text\":\"בלוג דיג׳רידו\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/blog\"}"
+    },
+    {
+      "id": "nav_/contact",
+      "pass": true,
+      "detail": "{\"text\":\"צור קשר\",\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/contact\"}"
+    },
+    {
+      "id": "nav_muzza_href_books",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books"
+    },
+    {
+      "id": "journey_nav_/treatment",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/treatment/\",\"title\":\"טיפול בדיג'רידו - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/method",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/method/\",\"title\":\"השיטה - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/lessons",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/lessons/\",\"title\":\"שיעורי דיג'רידו - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/sound-healing",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/sound-healing/\",\"title\":\"סאונד הילינג - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/books",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/books/\",\"title\":\"ספרים - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/blog",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/blog/\",\"title\":\"בלוג - eyal amit\"}"
+    },
+    {
+      "id": "journey_nav_/contact",
+      "pass": true,
+      "detail": "{\"status\":200,\"url\":\"https://eyalamit-co-il-2026.s887.upress.link/contact/\",\"title\":\"צור קשר - eyal amit\"}"
+    },
+    {
+      "id": "journey_service/treatment/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/treatment/"
+    },
+    {
+      "id": "journey_service/faq/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/faq/"
+    },
+    {
+      "id": "journey_service/contact/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/contact/"
+    },
+    {
+      "id": "journey_book_vekatavta",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/"
+    },
+    {
+      "id": "backlink_book_vekatavta",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books"
+    },
+    {
+      "id": "journey_book_kushi-blantis",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/"
+    },
+    {
+      "id": "backlink_book_kushi-blantis",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books"
+    },
+    {
+      "id": "journey_book_tsva-bekahol",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/"
+    },
+    {
+      "id": "backlink_book_tsva-bekahol",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/books"
+    },
+    {
+      "id": "cta_contact_/treatment/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/contact"
+    },
+    {
+      "id": "cta_contact_/method/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/contact"
+    },
+    {
+      "id": "cta_contact_/sound-healing/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/contact"
+    },
+    {
+      "id": "cta_contact_/lessons/",
+      "pass": true,
+      "detail": "https://eyalamit-co-il-2026.s887.upress.link/contact"
+    },
+    {
+      "id": "purchase_/books/tsva-bekahol/",
+      "pass": true,
+      "detail": "{\"present\":true,\"status\":200,\"hrefs\":[\"https://www.mendele.co.il/product/tzvabekahol/\",\"https://www.mendele.co.il/product/tzvabekahol/\",\"https://www.mendele.co.il/product/tzvabekahol/\",\"https://www.mendele.co.il/product/tzvabekahol/\"]}"
+    },
+    {
+      "id": "purchase_/books/kushi-blantis/",
+      "pass": true,
+      "detail": "{\"present\":true,\"status\":302,\"hrefs\":[\"https://mrng.to/MTUiO3vkIg\",\"https://mrng.to/MTUiO3vkIg\",\"https://www.mendele.co.il/product/kushibelantis/\",\"https://mrng.to/MTUiO3vkIg\"]}"
+    },
+    {
+      "id": "purchase_/books/vekatavta/",
+      "pass": true,
+      "detail": "{\"present\":true,\"status\":200,\"hrefs\":[\"https://www.mendele.co.il/product/vekatavta/\",\"https://www.mendele.co.il/product/vekatavta/\",\"https://www.mendele.co.il/product/vekatavta/\",\"https://www.mendele.co.il/product/vekatavta/\"]}"
+    },
+    {
+      "id": "verbatim_/treatment/",
+      "pass": true,
+      "detail": "{\"phraseHits\":[{\"phrase\":\"משהו בנשימה שלך מבקש תשומת לב\",\"found\":true},{\"phrase\":\"טיפול בדיג'רידו\",\"found\":true},{\"phrase\":\"לתיאום שיחת היכרות\",\"found\":true}],\"forbiddenHits\":[],\"hikikomoriCount\":0}"
+    },
+    {
+      "id": "verbatim_/repair/",
+      "pass": true,
+      "detail": "{\"phraseHits\":[{\"phrase\":\"מעל שני עשורים\",\"found\":true},{\"phrase\":\"כל תיקון מתחיל בבדיקה\",\"found\":true}],\"forbiddenHits\":[],\"hikikomoriCount\":0}"
+    },
+    {
+      "id": "verbatim_/books/vekatavta/",
+      "pass": true,
+      "detail": "{\"phraseHits\":[{\"phrase\":\"46 סיפורים אמיתיים\",\"found\":true},{\"phrase\":\"היקיקומורי\",\"found\":true},{\"phrase\":\"בקוסטה ריקה הכרתי וטיילתי שבוע עם היקיקומורי\",\"found\":true}],\"forbiddenHits\":[{\"phrase\":\"היקוקומורי\",\"found\":false},{\"phrase\":\"היקוקמורי\",\"found\":false}],\"hikikomoriCount\":6}"
+    },
+    {
+      "id": "structure__",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__treatment_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__method_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__sound-healing_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__lessons_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__faq_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__contact_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__books_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__books_vekatavta_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__books_kushi-blantis_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__books_tsva-bekahol_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__didgeridoos_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__bags_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__stands-storage_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__stand-floor_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "structure__repair_",
+      "pass": true,
+      "detail": "{\"overflow\":false,\"scrollWidth\":390,\"clientWidth\":390,\"brokenImages\":0,\"brokenSrcs\":[],\"h1\":1,\"dir\":\"rtl\"}"
+    },
+    {
+      "id": "mobile_drawer_burger_present",
+      "pass": true,
+      "detail": "found"
+    },
+    {
+      "id": "mobile_drawer_opens",
+      "pass": true,
+      "detail": "{\"open\":true,\"drawerLinks\":26,\"ariaExpanded\":\"true\"}"
+    },
+    {
+      "id": "mobile_drawer_muzza_books",
+      "pass": true,
+      "detail": "{\"href\":\"https://eyalamit-co-il-2026.s887.upress.link/books\",\"text\":\"מוזה הוצאה לאור\"}"
+    },
+    {
+      "id": "mobile_drawer_closes",
+      "pass": true,
+      "detail": "closed via Escape"
+    },
+    {
+      "id": "console_errors",
+      "pass": true,
+      "detail": "{\"total\":0,\"blocking\":[]}"
+    },
+    {
+      "id": "overflow_journey_routes",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "id": "broken_images",
+      "pass": true,
+      "detail": "[]"
+    }
+  ],
+  "pass": true,
+  "failCount": 0,
+  "verbatimResults": [
+    {
+      "route": "/treatment/",
+      "source": "טיפול בדיג'רידו/treatment.md",
+      "phraseHits": [
+        {
+          "phrase": "משהו בנשימה שלך מבקש תשומת לב",
+          "found": true
+        },
+        {
+          "phrase": "טיפול בדיג'רידו",
+          "found": true
+        },
+        {
+          "phrase": "לתיאום שיחת היכרות",
+          "found": true
+        }
+      ],
+      "forbiddenHits": [],
+      "hikikomoriCount": 0,
+      "pass": true
+    },
+    {
+      "route": "/repair/",
+      "source": "תיקון כלי דיג'רידו/build didg.md",
+      "phraseHits": [
+        {
+          "phrase": "מעל שני עשורים",
+          "found": true
+        },
+        {
+          "phrase": "כל תיקון מתחיל בבדיקה",
+          "found": true
+        }
+      ],
+      "forbiddenHits": [],
+      "hikikomoriCount": 0,
+      "pass": true
+    },
+    {
+      "route": "/books/vekatavta/",
+      "source": "וכתבת/vekatavta.md",
+      "phraseHits": [
+        {
+          "phrase": "46 סיפורים אמיתיים",
+          "found": true
+        },
+        {
+          "phrase": "היקיקומורי",
+          "found": true
+        },
+        {
+          "phrase": "בקוסטה ריקה הכרתי וטיילתי שבוע עם היקיקומורי",
+          "found": true
+        }
+      ],
+      "forbiddenHits": [
+        {
+          "phrase": "היקוקומורי",
+          "found": false
+        },
+        {
+          "phrase": "היקוקמורי",
+          "found": false
+        }
+      ],
+      "hikikomoriCount": 6,
+      "pass": true
+    }
+  ],
+  "overflowFails": [],
+  "imageFails": [],
+  "consoleErrors": []
+}

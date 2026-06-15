@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-06-05T20:38:13.430Z",
+  "muzehHrefsInMainNav": [],
+  "legacyPathProbe": [
+    {
+      "route": "/muzza/kushi-blantis/",
+      "http": 200,
+      "final": "https://eyalamit-co-il-2026.s887.upress.link/muzeh/kushi-blantis/"
+    },
+    {
+      "route": "/muzza/tsva-bechol-ve-zorek-layam/",
+      "http": 200,
+      "final": "https://eyalamit-co-il-2026.s887.upress.link/muzza/tsva-bechol-ve-zorek-layam/"
+    },
+    {
+      "route": "/muzza/vekatavt/",
+      "http": 200,
+      "final": "https://eyalamit-co-il-2026.s887.upress.link/muzza/vekatavt/"
+    },
+    {
+      "route": "/muzeh/kushi-blantis/",
+      "http": 200,
+      "final": "https://eyalamit-co-il-2026.s887.upress.link/muzeh/kushi-blantis/"
+    }
+  ]
+}
