@@ -26,7 +26,7 @@ function ea_wave2_home_block_slugs() {
 		'intro',
 		'method-pillars',
 		'treatment-overview',
-		'testimonials-row',
+		'testimonials-carousel',
 		'books-row',
 		'services-row',
 		'faq-mini',
@@ -83,6 +83,9 @@ function ea_wave2_enqueue_assets() {
 	wp_enqueue_style( 'ea-wave2-tokens', $uri . '/assets/css/ea-tokens.css', array(), $ver );
 	wp_enqueue_style( 'ea-wave2-animations', $uri . '/assets/css/ea-animations.css', array( 'ea-wave2-tokens' ), $ver );
 	wp_enqueue_style( 'ea-wave2-atoms', $uri . '/assets/css/ea-atoms.css', array( 'ea-wave2-tokens', 'ea-wave2-animations' ), $ver );
+
+	// WP-W2-16-B — testimonials carousel atom (D-EYAL-TESTIMONIALS-14 = א); Home + service routes.
+	wp_enqueue_style( 'ea-testimonials-carousel', $uri . '/assets/css/testimonials-carousel.css', array( 'ea-wave2-atoms' ), $ver );
 
 	/*
 	 * Mobile chrome foundation (WP-W2-14-A). The drawer/canonical-footer sheet

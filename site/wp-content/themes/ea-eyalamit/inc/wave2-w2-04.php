@@ -603,14 +603,15 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	) );
 	get_template_part( 'template-parts/blocks/block', 'service-comparison' );
 
-	/* 9 — TESTIMONIALS ×3 (sand-circle avatars) + ghost CTA. */
+	/* 9 — TESTIMONIALS — moving carousel from the canonical FB dataset (WP-W2-16-B). */
 	$testi = isset( $c['testimonials'] ) ? (array) $c['testimonials'] : array();
 	set_query_var( 'ea_testimonials_ctx', array(
 		'heading'   => isset( $testi['heading'] ) ? $testi['heading'] : 'אנשים מספרים',
-		'items'     => function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array(),
+		// WP-W2-16-B (D-EYAL-TESTIMONIALS-14 = א) — FB Top-5 fed into the moving carousel.
+		'items'     => function_exists( 'ea_w2_07_fb_testimonials' ) ? ea_w2_07_fb_testimonials() : array(),
 		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/eyal-amit#testimonials' ) ),
 	) );
-	get_template_part( 'template-parts/blocks/block', 'testimonials-row' );
+	get_template_part( 'template-parts/blocks/block', 'testimonials-carousel' );
 
 	/* 10 — FAQ-MINI ×3 + link to /faq. */
 	$faq = isset( $c['faq'] ) ? (array) $c['faq'] : array();
