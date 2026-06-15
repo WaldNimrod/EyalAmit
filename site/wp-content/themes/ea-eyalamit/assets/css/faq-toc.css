@@ -1,0 +1,120 @@
+/* ============================================================================
+   WP-W2-16-C — FAQ topic navigation (TOC).
+   Sticky topic menu at the top of /faq: anchor jump-to-section + scroll-spy
+   active state + clearer separation between topic groups. Eyal feedback #3.
+   Loads only on /faq (enqueued in inc/wave2-w2-02.php). Uses ea-tokens
+   variables only — NO new locked atom; ea-tokens.css / ea-atoms.css untouched.
+   ========================================================================== */
+
+/* Offset so a jumped-to heading clears the sticky top nav + the sticky TOC. */
+.ea-faq-category {
+	scroll-margin-top: 6rem;
+}
+
+.ea-faq-toc {
+	position: sticky;
+	top: var(--ea-nav-height-mob, 56px);
+	z-index: 5;
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: var(--ea-space-2);
+	margin-block-end: var(--ea-space-5);
+	padding: var(--ea-space-2) var(--ea-space-3);
+	background: var(--ea-bg);
+	border: 1px solid var(--ea-line);
+	border-radius: var(--ea-radius-img, 4px);
+	box-shadow: 0 2px 10px rgba(46, 43, 40, 0.06);
+}
+
+@media (min-width: 768px) {
+	.ea-faq-toc {
+		top: var(--ea-nav-height, 64px);
+	}
+}
+
+.ea-faq-toc__label {
+	font-size: 0.85rem;
+	font-weight: 500;
+	color: var(--ea-muted);
+	white-space: nowrap;
+}
+
+.ea-faq-toc__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--ea-space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ea-faq-toc__item {
+	margin: 0;
+	padding: 0;
+}
+
+.ea-faq-toc__link {
+	display: inline-block;
+	padding: 0.35rem 0.85rem;
+	font-size: 0.9rem;
+	line-height: 1.3;
+	color: var(--ea-ink);
+	text-decoration: none;
+	background: var(--ea-bg-alt);
+	border: 1px solid transparent;
+	border-radius: var(--ea-radius-pill, 100px);
+	white-space: nowrap;
+	transition:
+		background var(--ea-dur-fast, 0.18s) ease,
+		color var(--ea-dur-fast, 0.18s) ease,
+		border-color var(--ea-dur-fast, 0.18s) ease;
+}
+
+.ea-faq-toc__link:hover,
+.ea-faq-toc__link:focus-visible {
+	background: var(--ea-sand);
+	color: var(--ea-ink);
+}
+
+.ea-faq-toc__link.is-active {
+	background: var(--ea-terracotta);
+	color: #fff;
+	border-color: var(--ea-terracotta);
+}
+
+/* Clearer separation between consecutive topic groups. */
+.ea-faq-category + .ea-faq-category {
+	margin-block-start: var(--ea-space-6);
+	padding-block-start: var(--ea-space-5);
+	border-block-start: 1px solid var(--ea-line);
+}
+
+/* Narrow screens: the chip row scrolls horizontally inside the nav rather than
+   stacking tall; the inline label is visually hidden to reclaim width. The nav
+   scrolls — the page itself never gains horizontal overflow. */
+@media (max-width: 560px) {
+	.ea-faq-toc {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+	}
+	.ea-faq-toc__list {
+		flex-wrap: nowrap;
+	}
+	.ea-faq-toc__label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ea-faq-toc__link {
+		transition: none;
+	}
+}

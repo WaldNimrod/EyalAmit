@@ -127,21 +127,35 @@ function ea_w2_02_hide_gp_title( $show ) {
 add_filter( 'generate_show_title', 'ea_w2_02_hide_gp_title', 103 );
 
 /**
- * Enqueue FAQ filter JS on /faq only.
+ * Enqueue the FAQ topic-navigation (TOC) assets on /faq only.
+ *
+ * WP-W2-16-C — replaces the old <select> topic filter (ea-faq-filter.js) with a
+ * sticky topic menu: anchor jump-to-section + scroll-spy. faq-toc.css depends on
+ * the atoms sheet (registered by ea_wave2_enqueue_assets at priority 28), so this
+ * runs at priority 30 to guarantee the dependency is already registered.
  */
 function ea_w2_02_faq_assets() {
 	if ( is_admin() || ! is_page( 'faq' ) ) {
 		return;
 	}
+	$ver = wp_get_theme()->get( 'Version' );
+	$uri = get_stylesheet_directory_uri();
+
+	wp_enqueue_style(
+		'ea-faq-toc',
+		$uri . '/assets/css/faq-toc.css',
+		array( 'ea-wave2-atoms' ),
+		$ver
+	);
 	wp_enqueue_script(
-		'ea-faq-filter',
-		get_stylesheet_directory_uri() . '/assets/js/ea-faq-filter.js',
+		'ea-faq-toc',
+		$uri . '/assets/js/ea-faq-toc.js',
 		array(),
-		wp_get_theme()->get( 'Version' ),
+		$ver,
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'ea_w2_02_faq_assets', 28 );
+add_action( 'wp_enqueue_scripts', 'ea_w2_02_faq_assets', 30 );
 
 /**
  * 301 redirects: legacy about slug + eyal-amit → /about/.

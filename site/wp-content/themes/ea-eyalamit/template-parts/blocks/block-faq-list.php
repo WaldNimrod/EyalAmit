@@ -476,18 +476,29 @@ $faq_data = array(
 <section class="ea-faq-list" data-block="faq-list" aria-label="<?php esc_attr_e( 'שאלות נפוצות', 'ea-eyalamit' ); ?>">
 	<div class="ea-faq-list__inner">
 
-		<div class="ea-faq-list__filter" role="search" aria-label="<?php esc_attr_e( 'סינון שאלות', 'ea-eyalamit' ); ?>">
-			<label for="ea-faq-cat" class="ea-faq-list__filter-label">
-				<?php esc_html_e( 'נושא:', 'ea-eyalamit' ); ?>
-			</label>
-			<select id="ea-faq-cat" class="ea-faq-list__filter-select" aria-controls="faq-list" aria-label="<?php esc_attr_e( 'בחר נושא', 'ea-eyalamit' ); ?>">
-				<option value="all"><?php esc_html_e( 'הכל', 'ea-eyalamit' ); ?></option>
-				<?php foreach ( $faq_categories as $slug => $label ) : ?>
-					<option value="<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $label ); ?></option>
+		<?php
+		// WP-W2-16-C — topic TOC source: only categories that actually have questions.
+		$ea_faq_toc = array();
+		foreach ( $faq_categories as $ea_toc_slug => $ea_toc_label ) {
+			foreach ( $faq_data as $ea_toc_fd ) {
+				if ( $ea_toc_fd['category'] === $ea_toc_slug ) {
+					$ea_faq_toc[ $ea_toc_slug ] = $ea_toc_label;
+					break;
+				}
+			}
+		}
+		?>
+		<?php // WP-W2-16-C — sticky topic navigation (TOC): anchor jump-to-section + scroll-spy (Eyal #3). ?>
+		<nav class="ea-faq-toc" aria-label="<?php esc_attr_e( 'ניווט נושאי שאלות נפוצות', 'ea-eyalamit' ); ?>" data-faq-toc>
+			<span class="ea-faq-toc__label"><?php esc_html_e( 'נושאים:', 'ea-eyalamit' ); ?></span>
+			<ul class="ea-faq-toc__list">
+				<?php foreach ( $ea_faq_toc as $ea_toc_slug => $ea_toc_label ) : ?>
+					<li class="ea-faq-toc__item">
+						<a class="ea-faq-toc__link" href="#faq-topic-<?php echo esc_attr( $ea_toc_slug ); ?>" data-faq-toc-link="<?php echo esc_attr( $ea_toc_slug ); ?>"><?php echo esc_html( $ea_toc_label ); ?></a>
+					</li>
 				<?php endforeach; ?>
-			</select>
-			<span class="ea-faq-list__filter-count" id="faq-count" aria-live="polite"></span>
-		</div>
+			</ul>
+		</nav>
 
 		<div id="faq-list">
 		<?php foreach ( $faq_categories as $cat_slug => $cat_label ) :
@@ -498,7 +509,7 @@ $faq_data = array(
 				}
 			);
 			?>
-			<div class="ea-faq-category" data-category="<?php echo esc_attr( $cat_slug ); ?>"<?php echo empty( $cat_items ) ? ' hidden' : ''; ?>>
+			<div class="ea-faq-category" id="faq-topic-<?php echo esc_attr( $cat_slug ); ?>" data-category="<?php echo esc_attr( $cat_slug ); ?>"<?php echo empty( $cat_items ) ? ' hidden' : ''; ?>>
 				<h2 class="ea-faq-category__heading"><?php echo esc_html( $cat_label ); ?></h2>
 				<?php if ( empty( $cat_items ) ) : ?>
 					<p class="ea-faq-item__answer"><?php esc_html_e( 'תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.', 'ea-eyalamit' ); ?></p>
