@@ -1366,3 +1366,116 @@ work_packages:
   priority: HIGH
   blocked_by: []
   notes: 'Final full-site content validation + sign-off gate — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: ALL sourced pages re-audited by team_90 (target ≈100% / all ≥gate) + team_190 full-site L-GATE_VALIDATE + team_50 full E2E. ONLY on triple-PASS -> ''ready'' to team_00/Eyal. HARD: no ''ready'' message before this.'
+
+- id: WP-W2-16
+  label: Post-content completion (media/features/IA/verification)
+  status: IN_PROGRESS
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: 
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Parent WP for the Eyal 2026-06-16 info round (video + 9 feedback points). Batches 16-A..16-F. Decisions D-EYAL-VIDEO-13 / TESTIMONIALS-14 / ABOUT-URL-15 / MOKESH-16 gate the respective batches. Most content complaints (4,5,7,9) already closed by WP-W2-15 CR1-4 - this WP is media/features/IA/verification.'
+- id: WP-W2-16-A
+  label: Homepage hero video (G1 unblocked)
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [D-EYAL-VIDEO-13]
+  notes: 'Integrate compressed hero video (local/video-work: 720p muted 6.1MB + poster) into the home hero; replace gradient. Eyal pt G1. Gated by D-EYAL-VIDEO-13 (treatment: muted loop / sound / trim).'
+- id: WP-W2-16-B
+  label: Testimonials carousel
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [D-EYAL-TESTIMONIALS-14]
+  notes: 'New moving carousel atom (RTL<->LTR) replacing the static 3-card band; populate >3. Eyal pt 2. Gated by D-EYAL-TESTIMONIALS-14 (source/count).'
+- id: WP-W2-16-C
+  label: FAQ topic navigation (TOC)
+  status: IN_PROGRESS
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Sticky topic menu on /faq with jump-to-section + clearer section separation. Eyal pt 3. READY - no decision dependency.'
+- id: WP-W2-16-D
+  label: Navigation & IA polish
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [D-EYAL-ABOUT-URL-15]
+  notes: 'Expose shop pages (didgeridoos/bags/stands-storage/stand-floor) in nav; resolve /eyal-amit URL. Eyal pts 7,9. Gated by D-EYAL-ABOUT-URL-15.'
+- id: WP-W2-16-E
+  label: Mokesh memorial content (ex 15-CR5)
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [D-EYAL-MOKESH-16]
+  notes: 'Rebuild /about/moksha from Eyal source (content currently non-source). Eyal pt 8. BLOCKED on Eyal decision D-EYAL-MOKESH-16 (docx-as-page + bio).'
+- id: WP-W2-16-F
+  label: Verification & re-publish
+  status: IN_PROGRESS
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_50 + team_190
+  created_at: '2026-06-16'
+  milestone_ref: S003
+  parent_wp: WP-W2-16
+  spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Bust staging cache; re-verify blog pagination (pt 6); confirm pts 1/4/5/7/9 closed live; route team_50+team_190 per batch; Eyal re-check note. Partial-now (cache+verify); full external validation after 16-A..D merge.'
