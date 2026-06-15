@@ -637,3 +637,24 @@ body.ea-home-dashboard .entry-header {
 		font-size: 1.05rem;
 	}
 }
+
+/* ============================================================================
+   WP-W2-16-A — Home hero background video (D-EYAL-VIDEO-13 = ב).
+   The <video> covers the gradient placeholder inside .ea-hero__bg; the gradient
+   stays as the fallback (pre-load / decode-fail / no-JS / reduced-motion). The
+   contrast overlay + content layer (locked atoms) sit above it, unchanged.
+   Home-scoped: this sheet loads only on tpl-home; markup is gated on the home
+   hero context (ea_hero_ctx['video']).
+   ========================================================================== */
+.ea-hero__video {
+	position: absolute;
+	inset: 0;
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+	object-position: center;
+	z-index: 0; /* above .ea-hero__gradient-bg, below .ea-hero__overlay + content */
+	border: 0;
+	background: transparent;
+	pointer-events: none;
+}

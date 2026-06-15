@@ -219,6 +219,14 @@ function ea_wave2_set_home_block_context() {
 		'ctas'     => array(
 			array( 'label' => 'לתיאום שיחת היכרות', 'href' => home_url( '/contact' ), 'variant' => 'ghost-white' ),
 		),
+		// WP-W2-16-A — muted full-length background loop + poster (D-EYAL-VIDEO-13 = ב).
+		// 720p H.264 (6.1MB) covers the gradient on Home only; reduced-motion → poster.
+		'video'    => array(
+			'poster'  => $uri . '/assets/video/ea-home-hero-poster.jpg',
+			'sources' => array(
+				array( 'src' => $uri . '/assets/video/ea-home-hero-720-muted.mp4', 'type' => 'video/mp4' ),
+			),
+		),
 	) );
 
 	// SECTION 02 — מה זה טיפול בנשימה באמצעות דיג׳רידו (verbatim source body).

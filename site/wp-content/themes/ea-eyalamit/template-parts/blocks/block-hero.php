@@ -33,6 +33,13 @@ $ea_hero_allowed_br = array( 'br' => array() );
 // and content-coverage parity with Eyal's source section title. No new token.
 $ea_hero_sr_label = isset( $ea_hero_ctx['sr_label'] ) ? (string) $ea_hero_ctx['sr_label'] : '';
 
+// WP-W2-16-A — optional hero background video (D-EYAL-VIDEO-13 = ב: muted, full
+// length, no sound control). Sources + poster are supplied by the HOME context
+// only; every other hero leaves these empty and keeps the gradient placeholder.
+$ea_hero_vsources = ( isset( $ea_hero_ctx['video']['sources'] ) && is_array( $ea_hero_ctx['video']['sources'] ) )
+	? $ea_hero_ctx['video']['sources'] : array();
+$ea_hero_vposter  = isset( $ea_hero_ctx['video']['poster'] ) ? (string) $ea_hero_ctx['video']['poster'] : '';
+
 // Defaults = original hardcoded HOME hero (byte-identical when no context set).
 $ea_hero_kicker   = isset( $ea_hero_ctx['kicker'] ) ? (string) $ea_hero_ctx['kicker'] : '';
 $ea_hero_title    = isset( $ea_hero_ctx['title'] )
@@ -58,9 +65,33 @@ if ( isset( $ea_hero_ctx['ctas'] ) && is_array( $ea_hero_ctx['ctas'] ) ) {
 }
 ?>
 <section class="ea-hero" data-block="hero" aria-label="גיבור ראשי">
-      <!-- Background: CSS gradient placeholder (variant_placeholder — pre-video delivery; zero external requests). Structure kept ready for a future <video> swap (Eyal asset blocked). -->
+      <!-- Background: CSS gradient placeholder. Stays as the fallback layer under the
+           optional hero video (pre-load / decode-fail / no-JS / reduced-motion). -->
       <div class="ea-hero__bg" aria-hidden="true">
         <div class="ea-hero__gradient-bg"></div>
+        <?php if ( ! empty( $ea_hero_vsources ) ) : ?>
+        <!-- WP-W2-16-A: muted full-length background loop (D-EYAL-VIDEO-13 = ב). No
+             `autoplay` attribute — ea-hero.js starts playback only when motion is allowed,
+             so reduced-motion users keep the static poster frame. Covers the gradient. -->
+        <video class="ea-hero__video" muted loop playsinline preload="metadata"
+               <?php if ( '' !== $ea_hero_vposter ) : ?>poster="<?php echo esc_url( $ea_hero_vposter ); ?>"<?php endif; ?>
+               aria-hidden="true" tabindex="-1">
+          <?php
+          foreach ( $ea_hero_vsources as $ea_hero_vsrc ) {
+            $ea_vsrc_src  = isset( $ea_hero_vsrc['src'] ) ? (string) $ea_hero_vsrc['src'] : '';
+            $ea_vsrc_type = isset( $ea_hero_vsrc['type'] ) ? (string) $ea_hero_vsrc['type'] : 'video/mp4';
+            if ( '' === $ea_vsrc_src ) {
+              continue;
+            }
+            printf(
+              '<source src="%1$s" type="%2$s">',
+              esc_url( $ea_vsrc_src ),
+              esc_attr( $ea_vsrc_type )
+            );
+          }
+          ?>
+        </video>
+        <?php endif; ?>
         <!-- Breathing overlay lines — decorative -->
         <span class="ea-hero__breath-line ea-hero__breath-line--1" aria-hidden="true"></span>
         <span class="ea-hero__breath-line ea-hero__breath-line--2" aria-hidden="true"></span>

@@ -73,4 +73,19 @@
       }
     });
   }
+
+  /* WP-W2-16-A — Home hero background video. The markup omits the `autoplay`
+     attribute on purpose: start the muted loop from JS only when the visitor has
+     not requested reduced motion, so reduced-motion users keep the static poster
+     frame. Autoplay policy rejections are swallowed — the poster remains. */
+  var heroVideo = document.querySelector('.ea-hero__video');
+  if (heroVideo) {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && typeof heroVideo.play === 'function') {
+      var heroPlay = heroVideo.play();
+      if (heroPlay && typeof heroPlay.catch === 'function') {
+        heroPlay.catch(function () {});
+      }
+    }
+  }
 })();
