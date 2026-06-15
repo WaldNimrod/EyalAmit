@@ -608,7 +608,7 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	set_query_var( 'ea_testimonials_ctx', array(
 		'heading'   => isset( $testi['heading'] ) ? $testi['heading'] : 'אנשים מספרים',
 		'items'     => function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array(),
-		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/about#testimonials' ) ),
+		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/eyal-amit#testimonials' ) ),
 	) );
 	get_template_part( 'template-parts/blocks/block', 'testimonials-row' );
 

@@ -115,6 +115,23 @@ $ea_topnav_items = array(
 				'href'  => home_url( '/repair' ),
 				'label' => 'תיקון וחידוש כלים',
 			),
+			// WP-W2-16-D — shop product pages exposed in nav (Eyal #9), in site-tree order.
+			'didgeridoos'    => array(
+				'href'  => home_url( '/didgeridoos' ),
+				'label' => 'כלי דיג׳רידו למכירה',
+			),
+			'bags'           => array(
+				'href'  => home_url( '/bags' ),
+				'label' => 'תיקים לדיג׳רידו',
+			),
+			'stands-storage' => array(
+				'href'  => home_url( '/stands-storage' ),
+				'label' => 'סטנדים לאחסון דיג׳רידו',
+			),
+			'stand-floor'    => array(
+				'href'  => home_url( '/stand-floor' ),
+				'label' => 'סטנד רצפתי לנגינה',
+			),
 		),
 	),
 	'muzza'                 => array(
