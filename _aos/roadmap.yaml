@@ -1385,7 +1385,7 @@ work_packages:
   notes: 'Parent WP for the Eyal 2026-06-16 info round (video + 9 feedback points). Batches 16-A..16-F. Decisions D-EYAL-VIDEO-13 / TESTIMONIALS-14 / ABOUT-URL-15 / MOKESH-16 gate the respective batches. Most content complaints (4,5,7,9) already closed by WP-W2-15 CR1-4 - this WP is media/features/IA/verification.'
 - id: WP-W2-16-A
   label: Homepage hero video (G1 unblocked)
-  status: BLOCKED
+  status: IN_PROGRESS
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD200
@@ -1396,12 +1396,12 @@ work_packages:
   parent_wp: WP-W2-16
   spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
   profile: L0
-  priority: MEDIUM
-  blocked_by: [D-EYAL-VIDEO-13]
+  priority: HIGH
+  blocked_by: []
   notes: 'Integrate compressed hero video (local/video-work: 720p muted 6.1MB + poster) into the home hero; replace gradient. Eyal pt G1. Gated by D-EYAL-VIDEO-13 (treatment: muted loop / sound / trim).'
 - id: WP-W2-16-B
   label: Testimonials carousel
-  status: BLOCKED
+  status: IN_PROGRESS
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD200
@@ -1412,8 +1412,8 @@ work_packages:
   parent_wp: WP-W2-16
   spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
   profile: L0
-  priority: MEDIUM
-  blocked_by: [D-EYAL-TESTIMONIALS-14]
+  priority: HIGH
+  blocked_by: []
   notes: 'New moving carousel atom (RTL<->LTR) replacing the static 3-card band; populate >3. Eyal pt 2. Gated by D-EYAL-TESTIMONIALS-14 (source/count).'
 - id: WP-W2-16-C
   label: FAQ topic navigation (TOC)
@@ -1433,7 +1433,7 @@ work_packages:
   notes: 'Sticky topic menu on /faq with jump-to-section + clearer section separation. Eyal pt 3. READY - no decision dependency.'
 - id: WP-W2-16-D
   label: Navigation & IA polish
-  status: BLOCKED
+  status: IN_PROGRESS
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD200
@@ -1444,12 +1444,12 @@ work_packages:
   parent_wp: WP-W2-16
   spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
   profile: L0
-  priority: MEDIUM
-  blocked_by: [D-EYAL-ABOUT-URL-15]
+  priority: HIGH
+  blocked_by: []
   notes: 'Expose shop pages (didgeridoos/bags/stands-storage/stand-floor) in nav; resolve /eyal-amit URL. Eyal pts 7,9. Gated by D-EYAL-ABOUT-URL-15.'
 - id: WP-W2-16-E
   label: Mokesh memorial content (ex 15-CR5)
-  status: BLOCKED
+  status: IN_PROGRESS
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD200
@@ -1460,8 +1460,8 @@ work_packages:
   parent_wp: WP-W2-16
   spec_ref: _COMMUNICATION/team_100/WP-W2-16-POST-CONTENT-COMPLETION-PROGRAM-2026-06-16.md
   profile: L0
-  priority: MEDIUM
-  blocked_by: [D-EYAL-MOKESH-16]
+  priority: HIGH
+  blocked_by: []
   notes: 'Rebuild /about/moksha from Eyal source (content currently non-source). Eyal pt 8. BLOCKED on Eyal decision D-EYAL-MOKESH-16 (docx-as-page + bio).'
 - id: WP-W2-16-F
   label: Verification & re-publish
