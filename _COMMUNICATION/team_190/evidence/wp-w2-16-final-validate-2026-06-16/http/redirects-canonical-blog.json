@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-06-16T16:55:58.343Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "redirects": {
+    "about": {
+      "chain": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/about/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "final": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+        "status": 200,
+        "location": null
+      },
+      "loop": false
+    },
+    "about_moksha": {
+      "chain": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/about/moksha/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "final": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+        "status": 200,
+        "location": null
+      },
+      "loop": false
+    },
+    "mokesh_dahiman": {
+      "chain": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/mokesh-dahiman/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "final": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+        "status": 200,
+        "location": null
+      },
+      "loop": false
+    },
+    "mokesh": {
+      "chain": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/mokesh/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "final": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+        "status": 200,
+        "location": null
+      },
+      "loop": false
+    }
+  },
+  "canonical": {
+    "eyal_amit": {
+      "status": 200,
+      "canonicalHref": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/"
+    }
+  },
+  "internalLinks": {
+    "home": {
+      "hrefCount": 143,
+      "eyalAmitHrefCount": 4,
+      "hasEyalAmit": true,
+      "sample": [
+        "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+        "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+        "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit",
+        "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit"
+      ]
+    }
+  },
+  "blogPage2": {
+    "status": 200,
+    "postLinksFound": 12,
+    "distinctPostLinks": 12,
+    "distinct": true,
+    "usedSelector": "ea-blog-card__link|wp-block-post-title__link",
+    "sample": [
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/",
+      "http://eyalamit-co-il-2026.s887.upress.link/2228-2/",
+      "http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/"
+    ]
+  },
+  "stagingVersion": {
+    "needle": "1.4.13",
+    "homeContains": true,
+    "eyalAmitContains": true
+  }
+}

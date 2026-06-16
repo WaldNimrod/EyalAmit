@@ -1,0 +1,35 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-06-15T23:00:59.377Z",
+  "total": 2,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_treatment_",
+      "url": "/treatment/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בדיג'רידו - eyal amit",
+      "screenshot": "_COMMUNICATION/team_100/evidence/wp-w2-16-b-2026-06-16/screenshots/_treatment__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_treatment_",
+      "url": "/treatment/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בדיג'רידו - eyal amit",
+      "screenshot": "_COMMUNICATION/team_100/evidence/wp-w2-16-b-2026-06-16/screenshots/_treatment__desktop.png",
+      "pass": true
+    }
+  ]
+}

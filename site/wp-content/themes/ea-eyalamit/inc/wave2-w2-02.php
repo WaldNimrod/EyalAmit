@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  * @return string[]
  */
 function ea_w2_02_wave2_slugs() {
-	return array( 'method', 'treatment', 'faq', 'contact', 'about' );
+	return array( 'method', 'treatment', 'faq', 'contact', 'eyal-amit' );
 }
 
 /**
@@ -57,7 +57,8 @@ function ea_w2_02_template_include( $tpl ) {
 		'treatment' => 'tpl-service',
 		'faq'       => 'tpl-faq',
 		'contact'   => 'tpl-contact',
-		'about'     => 'tpl-content',
+		// WP-W2-16-D — /eyal-amit is the canonical About hub (D-EYAL-ABOUT-URL-15 = ב).
+		'eyal-amit' => 'tpl-content',
 	);
 	if ( isset( $map[ $slug ] ) ) {
 		$t = locate_template( 'page-templates/' . $map[ $slug ] . '.php' );
@@ -127,24 +128,38 @@ function ea_w2_02_hide_gp_title( $show ) {
 add_filter( 'generate_show_title', 'ea_w2_02_hide_gp_title', 103 );
 
 /**
- * Enqueue FAQ filter JS on /faq only.
+ * Enqueue the FAQ topic-navigation (TOC) assets on /faq only.
+ *
+ * WP-W2-16-C — replaces the old <select> topic filter (ea-faq-filter.js) with a
+ * sticky topic menu: anchor jump-to-section + scroll-spy. faq-toc.css depends on
+ * the atoms sheet (registered by ea_wave2_enqueue_assets at priority 28), so this
+ * runs at priority 30 to guarantee the dependency is already registered.
  */
 function ea_w2_02_faq_assets() {
 	if ( is_admin() || ! is_page( 'faq' ) ) {
 		return;
 	}
+	$ver = wp_get_theme()->get( 'Version' );
+	$uri = get_stylesheet_directory_uri();
+
+	wp_enqueue_style(
+		'ea-faq-toc',
+		$uri . '/assets/css/faq-toc.css',
+		array( 'ea-wave2-atoms' ),
+		$ver
+	);
 	wp_enqueue_script(
-		'ea-faq-filter',
-		get_stylesheet_directory_uri() . '/assets/js/ea-faq-filter.js',
+		'ea-faq-toc',
+		$uri . '/assets/js/ea-faq-toc.js',
 		array(),
-		wp_get_theme()->get( 'Version' ),
+		$ver,
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'ea_w2_02_faq_assets', 28 );
+add_action( 'wp_enqueue_scripts', 'ea_w2_02_faq_assets', 30 );
 
 /**
- * 301 redirects: legacy about slug + eyal-amit → /about/.
+ * 301 redirects: legacy/about slugs → canonical /eyal-amit/ (+ its mokesh child).
  * Runs at priority 2 (before canonical redirect at priority 1 in site-tree mu-plugin).
  */
 function ea_w2_02_legacy_redirects() {
@@ -156,16 +171,16 @@ function ea_w2_02_legacy_redirects() {
 	$norm = trailingslashit( $path );
 
 	$redirects = array(
-		// Legacy Hebrew slug from old site → /about/.
-		trailingslashit( (string) wp_parse_url( home_url( '/אייל-עמית-אודות/' ), PHP_URL_PATH ) ) => home_url( '/about/' ),
-		// Site-tree eyal-amit page → canonical /about/.
-		trailingslashit( (string) wp_parse_url( home_url( '/eyal-amit/' ), PHP_URL_PATH ) )         => home_url( '/about/' ),
-		// Mokesh memorial — canonical is /about/moksha (where it renders + the content
-		// gate measures). Both the nested site-tree slug AND the top-level slug 301 to
-		// it in ONE hop (priority 2 beats WP's canonical redirect, which otherwise made
-		// /mokesh-dahiman a 2-hop via /eyal-amit/mokesh-dahiman). WP-W2-15 F-W2-15-CA H5.
-		trailingslashit( (string) wp_parse_url( home_url( '/eyal-amit/mokesh-dahiman/' ), PHP_URL_PATH ) ) => home_url( '/about/moksha/' ),
-		trailingslashit( (string) wp_parse_url( home_url( '/mokesh-dahiman/' ), PHP_URL_PATH ) ) => home_url( '/about/moksha/' ),
+		// WP-W2-16-D (D-EYAL-ABOUT-URL-15 = ב): /eyal-amit is canonical (approved
+		// site-tree). The legacy Hebrew slug AND the old /about page 301 to it.
+		trailingslashit( (string) wp_parse_url( home_url( '/אייל-עמית-אודות/' ), PHP_URL_PATH ) ) => home_url( '/eyal-amit/' ),
+		trailingslashit( (string) wp_parse_url( home_url( '/about/' ), PHP_URL_PATH ) )             => home_url( '/eyal-amit/' ),
+		// Mokesh memorial — canonical is /eyal-amit/mokesh-dahiman (approved site-tree
+		// child). The old /about/moksha page AND the top-level short slug 301 to it in
+		// ONE hop (priority 2 beats WP's canonical redirect, which would otherwise make
+		// these multi-hop). WP-W2-16-D flip of WP-W2-15 F-W2-15-CA H5.
+		trailingslashit( (string) wp_parse_url( home_url( '/about/moksha/' ), PHP_URL_PATH ) )        => home_url( '/eyal-amit/mokesh-dahiman/' ),
+		trailingslashit( (string) wp_parse_url( home_url( '/mokesh-dahiman/' ), PHP_URL_PATH ) )       => home_url( '/eyal-amit/mokesh-dahiman/' ),
 	);
 
 	foreach ( $redirects as $from => $to ) {

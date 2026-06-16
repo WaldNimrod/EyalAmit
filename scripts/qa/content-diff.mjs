@@ -32,7 +32,7 @@ export const PAGE_MAP = [
   { path: '/lessons/', source: 'שיעורי נגינה/lesons.md' },
   { path: '/faq/', source: 'דף FAQ/FAQ FINAL.md' },
   { path: '/muzza/', source: 'מוזה הוצאה לאור - ספרים/MUZZA.md', label: '/muzza' },
-  { path: '/about/', source: 'אודות - אייל עמית/אודות - אייל עמית.md', label: '/eyal-amit' },
+  { path: '/eyal-amit/', source: 'אודות - אייל עמית/אודות - אייל עמית.md', label: '/eyal-amit' },
   { path: '/books/vekatavta/', source: 'וכתבת/vekatavta.md' },
   { path: '/books/kushi-blantis/', source: 'כושי בלאנטיס/kushi_full.md' },
   { path: '/books/tsva-bekahol/', source: 'צבע בכחול וזרוק לים/eyal_tsva_FINAL.md' },
@@ -42,7 +42,7 @@ export const PAGE_MAP = [
   { path: '/stand-floor/', source: 'סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md' },
   { path: '/repair/', source: "תיקון כלי דיג'רידו/build didg.md" },
   {
-    path: '/about/moksha/',
+    path: '/eyal-amit/mokesh-dahiman/',
     source: 'מוקש דהימן/ומה היום.docx',
     label: '/mokesh-dahiman',
     sourceType: 'docx',

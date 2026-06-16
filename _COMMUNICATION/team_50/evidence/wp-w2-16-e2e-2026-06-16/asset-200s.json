@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-06-16T16:52:00.000Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "verdict": "PASS",
+  "assets": [
+    {
+      "path": "/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-720-muted.mp4",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "path": "/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg",
+      "status": 200,
+      "pass": true,
+      "note": "Live poster filename is ea-home-hero-poster.jpg (not …-720-muted-poster.jpg)"
+    }
+  ]
+}

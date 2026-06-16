@@ -1,0 +1,113 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-06-15T22:22:54.536Z",
+  "total": 8,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "w360",
+      "page": "home",
+      "url": "/",
+      "http_rendered": true,
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בית - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w360",
+      "page": "faq",
+      "url": "/faq/",
+      "http_rendered": true,
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שאלות נפוצות (FAQ) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w390",
+      "page": "home",
+      "url": "/",
+      "http_rendered": true,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בית - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w390",
+      "page": "faq",
+      "url": "/faq/",
+      "http_rendered": true,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שאלות נפוצות (FAQ) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w414",
+      "page": "home",
+      "url": "/",
+      "http_rendered": true,
+      "scrollWidth": 414,
+      "clientWidth": 414,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בית - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w414",
+      "page": "faq",
+      "url": "/faq/",
+      "http_rendered": true,
+      "scrollWidth": 414,
+      "clientWidth": 414,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שאלות נפוצות (FAQ) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w768",
+      "page": "home",
+      "url": "/",
+      "http_rendered": true,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בית - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "w768",
+      "page": "faq",
+      "url": "/faq/",
+      "http_rendered": true,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שאלות נפוצות (FAQ) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    }
+  ]
+}

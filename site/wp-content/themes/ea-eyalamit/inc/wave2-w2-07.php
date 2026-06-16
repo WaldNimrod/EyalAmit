@@ -360,10 +360,11 @@ function ea_wave2_is_moksha() {
 	if ( ! ( $post instanceof WP_Post ) || ! $post->post_parent ) {
 		return false;
 	}
-	if ( 'moksha' !== $post->post_name ) {
+	if ( 'mokesh-dahiman' !== $post->post_name ) {
 		return false;
 	}
-	return 'about' === get_post_field( 'post_name', (int) $post->post_parent );
+	// WP-W2-16-D — memorial is now the canonical /eyal-amit/mokesh-dahiman child (id 15).
+	return 'eyal-amit' === get_post_field( 'post_name', (int) $post->post_parent );
 }
 
 /**
@@ -381,7 +382,9 @@ function ea_wave2_editorial_route() {
 	}
 	if ( is_page() ) {
 		$post = get_queried_object();
-		if ( $post instanceof WP_Post && 'about' === $post->post_name && 0 === (int) $post->post_parent ) {
+		// WP-W2-16-D — the About editorial now lives on the canonical /eyal-amit page
+		// (id 14). Route key stays 'about' (the internal content identifier).
+		if ( $post instanceof WP_Post && 'eyal-amit' === $post->post_name && 0 === (int) $post->post_parent ) {
 			return 'about';
 		}
 	}
@@ -908,7 +911,7 @@ function ea_wave2_editorial_route_content( $route ) {
 				'label' => 'סיפור',
 				'title' => 'על מוקש דהימן',
 				'desc'  => 'המאסטר ההודי לדיג׳רידו, מורו של אייל, והמורשת הממשיכה מרישיקש לפרדס חנה.',
-				'href'  => home_url( '/about/moksha/' ),
+				'href'  => home_url( '/eyal-amit/mokesh-dahiman/' ),
 			),
 			array(
 				'label' => 'מוזה הוצאה לאור',
@@ -1136,7 +1139,7 @@ function ea_wave2_editorial_route_content( $route ) {
 						'label' => 'אודות',
 						'title' => 'חזרה לעמוד אודות אייל עמית',
 						'desc'  => 'הסיפור המלא של אייל עמית, המרכז לטיפול בדיג׳רידו, וציר הזמן של הדרך.',
-						'href'  => home_url( '/about/' ),
+						'href'  => home_url( '/eyal-amit/' ),
 					),
 					array(
 						'label' => 'מוזה הוצאה לאור',

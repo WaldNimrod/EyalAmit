@@ -1,0 +1,20 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 1024 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "faq", "path": "/faq/" },
+    { "name": "eyal-amit", "path": "/eyal-amit/" },
+    { "name": "mokesh", "path": "/eyal-amit/mokesh-dahiman/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "lessons", "path": "/lessons/" },
+    { "name": "sound-healing", "path": "/sound-healing/" }
+  ],
+  "absent": ["CDIP", "Lorem ipsum", "Fatal error", "Parse error"],
+  "shots": true
+}

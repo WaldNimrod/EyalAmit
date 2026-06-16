@@ -1,0 +1,69 @@
+/* ============================================================================
+   WP-W2-16-B — Testimonials carousel atom (D-EYAL-TESTIMONIALS-14 = א).
+   A continuous horizontal auto-scroll marquee of testimonial cards, fed from the
+   FB dataset (Eyal #2). Pure CSS — no new JS:
+     - seamless loop via a duplicated, aria-hidden card set + translateX(-50%);
+     - pauses on hover / keyboard focus;
+     - prefers-reduced-motion → a static, horizontally-scrollable row (dupe hidden).
+   Per-instance speed scales with card count via --ea-testi-duration (set inline).
+   Tokens only — ea-tokens.css and the locked atoms are untouched (this batch's
+   one sanctioned new atom).
+   ========================================================================== */
+
+.ea-testi-carousel__viewport {
+	position: relative;
+	overflow: hidden;
+	padding-block: var(--ea-space-2);
+	/* Soft edge fade so cards scroll in/out gracefully. */
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+	        mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.ea-testi-carousel__track {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	gap: var(--ea-space-4);
+	inline-size: max-content;
+	will-change: transform;
+	animation: ea-testi-scroll var(--ea-testi-duration, 60s) linear infinite;
+}
+
+/* Pause when the visitor hovers or tabs into the carousel. */
+.ea-testi-carousel__viewport:hover .ea-testi-carousel__track,
+.ea-testi-carousel__viewport:focus-within .ea-testi-carousel__track {
+	animation-play-state: paused;
+}
+
+.ea-testi-carousel__item {
+	flex: 0 0 auto;
+	inline-size: min(82vw, 340px);
+	display: flex;
+}
+
+/* The card fills its fixed-width slot and stretches to the row height. */
+.ea-testi-carousel__item > .ea-testimonial-card {
+	inline-size: 100%;
+}
+
+@keyframes ea-testi-scroll {
+	from { transform: translateX(0); }
+	to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ea-testi-carousel__viewport {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		-webkit-mask-image: none;
+		        mask-image: none;
+	}
+	.ea-testi-carousel__track {
+		animation: none;
+	}
+	/* No animation → don't show the duplicate set. */
+	.ea-testi-carousel__item[data-testi-dupe] {
+		display: none;
+	}
+}

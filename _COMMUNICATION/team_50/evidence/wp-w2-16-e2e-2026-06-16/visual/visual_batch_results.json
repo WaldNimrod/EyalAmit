@@ -1,0 +1,49 @@
+{
+  "ts": "2026-06-16T16:52:32.562Z",
+  "results": {
+    "16-A": {
+      "hero": {
+        "found": true,
+        "muted": true,
+        "loop": true,
+        "paused": false,
+        "currentTime": 2.871411,
+        "poster": "https://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg",
+        "src": "https://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-720-muted.mp4"
+      },
+      "pass": true
+    },
+    "16-C": {
+      "tocFound": true,
+      "selectRetired": true,
+      "chipCount": 10,
+      "anchorCount": 10,
+      "position": "sticky",
+      "activeChip": "סאונד הילינג בדיג'רידו",
+      "hasActive": true,
+      "pass": true
+    },
+    "16-B": {
+      "homeItems": 15,
+      "homeMoved": true,
+      "pausesOnHover": true,
+      "treatmentMoved": true,
+      "pass": true
+    },
+    "16-D": {
+      "shopInNav": 6,
+      "pass": true
+    },
+    "16-E": {
+      "markers": {
+        "ומה היום": true,
+        "גנגס": true,
+        "תם עידן מוקש": true,
+        "jungel vibes": true
+      },
+      "placeholderNote": true,
+      "pass": true
+    }
+  },
+  "allPass": true
+}

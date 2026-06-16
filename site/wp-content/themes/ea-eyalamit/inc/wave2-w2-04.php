@@ -603,14 +603,29 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 	) );
 	get_template_part( 'template-parts/blocks/block', 'service-comparison' );
 
-	/* 9 — TESTIMONIALS ×3 (sand-circle avatars) + ghost CTA. */
-	$testi = isset( $c['testimonials'] ) ? (array) $c['testimonials'] : array();
+	/* 9 — TESTIMONIALS — moving carousel (WP-W2-16-B, D-EYAL-TESTIMONIALS-14 = א).
+	   Service-specific testimonials FIRST — these are part of each page's source, so
+	   keeping them preserves content accuracy — then the canonical FB Top-5 appended
+	   for volume (Eyal #2). Deduped by name. */
+	$testi          = isset( $c['testimonials'] ) ? (array) $c['testimonials'] : array();
+	$ea_svc_testi   = function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array();
+	$ea_fb_testi    = function_exists( 'ea_w2_07_fb_testimonials' ) ? ea_w2_07_fb_testimonials() : array();
+	$ea_testi_seen  = array();
+	$ea_testi_items = array();
+	foreach ( array_merge( $ea_svc_testi, $ea_fb_testi ) as $ea_ti ) {
+		$ea_ti_nm = isset( $ea_ti['name'] ) ? (string) $ea_ti['name'] : '';
+		if ( '' !== $ea_ti_nm && isset( $ea_testi_seen[ $ea_ti_nm ] ) ) {
+			continue;
+		}
+		$ea_testi_seen[ $ea_ti_nm ] = true;
+		$ea_testi_items[]           = $ea_ti;
+	}
 	set_query_var( 'ea_testimonials_ctx', array(
 		'heading'   => isset( $testi['heading'] ) ? $testi['heading'] : 'אנשים מספרים',
-		'items'     => function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array(),
-		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/about#testimonials' ) ),
+		'items'     => $ea_testi_items,
+		'ghost_cta' => array( 'label' => 'לעוד המלצות ועדויות', 'href' => home_url( '/eyal-amit#testimonials' ) ),
 	) );
-	get_template_part( 'template-parts/blocks/block', 'testimonials-row' );
+	get_template_part( 'template-parts/blocks/block', 'testimonials-carousel' );
 
 	/* 10 — FAQ-MINI ×3 + link to /faq. */
 	$faq = isset( $c['faq'] ) ? (array) $c['faq'] : array();

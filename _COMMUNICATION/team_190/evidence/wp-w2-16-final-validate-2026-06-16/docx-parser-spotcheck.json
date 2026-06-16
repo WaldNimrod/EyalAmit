@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-16T16:57:08.634Z",
+  "page": "/eyal-amit/mokesh-dahiman/",
+  "httpStatus": 200,
+  "base": {
+    "sentenceCov": 100,
+    "gatePass": true,
+    "sentencesTotal": 14
+  },
+  "mutated": {
+    "sentenceCov": 92.86,
+    "gatePass": true
+  },
+  "note": "Perturbing one docx sentence reduces sentence coverage as expected (verbatim substring gate)."
+}
