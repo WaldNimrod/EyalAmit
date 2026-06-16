@@ -325,13 +325,13 @@ export async function readSource(relPath, sourceType, contentRoot) {
         encoding: 'utf8',
         maxBuffer: 10 * 1024 * 1024,
       });
-      // WP-W2-16-E fix: extract per <w:p> paragraph and join the <w:t> runs WITHIN a
-      // paragraph with NO separator — Word can split one word across runs (e.g.
-      // "להיום" → <w:t>להי</w:t><w:t>ום</w:t>). Paragraphs join with a newline so the
-      // sentence splitter (which splits on \n+) keeps them apart. The prior code
-      // joined ALL runs with ' ', producing spurious mid-word spaces ("ש ל", "להי ום")
-      // and fusing repeated headings ("ומה היום ומה היום ...") — both broke matching
-      // of byte-verbatim renders. Only the docx source (mokesh) is affected.
+      // Extract per <w:p> paragraph and join the <w:t> runs WITHIN a paragraph with
+      // NO separator — Word can split one word across runs (e.g. "להיום" →
+      // <w:t>להי</w:t><w:t>ום</w:t>). Paragraphs join with a newline so the sentence
+      // splitter (which splits on \n+) keeps them apart. The prior code joined ALL
+      // runs with ' ', producing spurious mid-word spaces ("ש ל", "להי ום") and fusing
+      // repeated headings ("ומה היום ומה היום ...") — both broke matching of a
+      // byte-verbatim render. Only the docx source (mokesh) is affected.
       const runText = (frag) =>
         [...frag.matchAll(/<w:t[^>]*>([^<]*)<\/w:t>/g)].map((m) => m[1]).join('');
       const paras = [...xml.matchAll(/<w:p(?:\s[^>]*)?>([\s\S]*?)<\/w:p>/g)].map((p) => runText(p[1]));
