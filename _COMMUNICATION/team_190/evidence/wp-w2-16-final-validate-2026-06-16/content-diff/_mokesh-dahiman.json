@@ -1,0 +1,24 @@
+{
+  "page": "/mokesh-dahiman",
+  "path": "/eyal-amit/mokesh-dahiman/",
+  "source": "מוקש דהימן/ומה היום.docx",
+  "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+  "liveStatus": 200,
+  "sectionCoveragePct": 100,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
+  "sectionsTotal": 1,
+  "sectionsFound": 1,
+  "sentencesTotal": 14,
+  "sentencesFound": 14,
+  "missingSections": [],
+  "missingSentences": [],
+  "inventedSections": [],
+  "inventedBlocks": [
+    "1950 - 2020 לזכרו מוקש דהימן מאסטר הדיג'רידו, מורו של אייל עמית, והמקור שממנו צמחה הדרך התרפויטית.",
+    "תמונת מוקש - בכפוף לאישור מהלימוד בהודו - נדרש מאייל רישיקש - נדרש מאייל פרטים ביוגרפיים על מוקש, תאריכי לידה-פטירה ותמונות לדף ההנצחה - יושלמו ויאומתו בכפוף לאישור אייל ולרגישות התוכן."
+  ],
+  "gatePass": true,
+  "verdict": "ACCURATE",
+  "sourceCharWeight": 1484
+}

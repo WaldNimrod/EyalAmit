@@ -1,0 +1,160 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated": "2026-06-16T16:51:54.428Z",
+  "results": [
+    {
+      "route": "/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/treatment/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/sound-healing/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/lessons/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/about/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/about/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/press/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/press/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/about/moksha/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/about/moksha/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/contact/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/faq/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/faq/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/books/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/shop/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/blog/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/en/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/en/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    }
+  ]
+}
