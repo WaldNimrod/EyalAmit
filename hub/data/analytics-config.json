@@ -1,6 +1,6 @@
 {
   "ga4": {
-    "measurement_id": "__PENDING_EYAL__",
+    "measurement_id": "G-MRXESK7QJF",
     "stream_id": "__PENDING_EYAL__",
     "ab_variant": "",
     "gtag_snippet_template": "<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=MEASUREMENT_ID\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'MEASUREMENT_ID');\n</script>"
@@ -10,8 +10,8 @@
     "ab_variant": "",
     "clarity_snippet_template": "<script type=\"text/javascript\">\n    (function(c,l,a,r,i,t,y){\n        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n        t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n    })(window, document, \"clarity\", \"script\", \"PROJECT_ID\");\n</script>"
   },
-  "status": "PENDING_CREDENTIALS",
+  "status": "PARTIAL — GA4 received 2026-06-16 (G-MRXESK7QJF); Clarity project_id still pending",
   "prepared": "2026-05-26",
   "prepared_by": "team_30",
-  "note": "Eyal must create GA4 property and Clarity project, then fill measurement_id and project_id. Implementation of snippets in theme awaits Stage A LOD400 spec from team_100."
+  "note": "GA4 measurement_id received from Eyal 2026-06-16 (G-MRXESK7QJF). Clarity project_id still PENDING. NB: theme ea_wave2_print_analytics_head() currently gates on BOTH GA4 AND Clarity being set — to fire GA4 independently before Clarity arrives, split that pending-check (M5 analytics/SEO WP). Analytics is measured on production (staging is noindex)."
 }
