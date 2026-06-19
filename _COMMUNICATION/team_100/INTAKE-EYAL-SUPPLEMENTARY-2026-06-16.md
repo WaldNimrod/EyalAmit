@@ -48,9 +48,9 @@ total (each = name + FB link + full quote). Includes everyone already in the car
 
 **🟡 STILL OPEN / pending from Eyal:**
 - **Clarity** project_id (only GA4 was sent).
-- **Mokesh page photos** — Eyal didn't attach files; sources exist (his footage + legacy-media mirror) but **which photos + approval** is his call (memorial sensitivity).
+- ~~**Mokesh page photos**~~ **RESOLVED 2026-06-16:** use the SAME 19 photos as the original page, SAME order; + add the 4 FB post embeds at the bottom → captured in `MOKESH-MEDIA-CAPTURE-2026-06-16.md`.
 - **The documentary video** — link PROVIDED 2026-06-16: `https://youtu.be/kf4NKSdYi9E` = *"MUKESH - The Art of Shanti Living | Official Trailer"* (channel Kuthli Studio), verified via oEmbed. NOTE: it is the **trailer/promo** (matches the doc's ¶41 "embed the promo clip"), not the full ~60-min film — open whether a full-film link also exists.
-- **Studio address + hours** (for `LocalBusiness` schema / SEO) — only WhatsApp confirmed.
+- ~~**Studio address + hours**~~ **RESOLVED 2026-06-16:** name + עמל 8 ב' פרדס חנה + Sun–Thu 09–19 / Fri 09–14 / by appointment → SSoT `BUSINESS-NAP-AND-HOURS-2026-06-16.md` (contact page address was MISSING — now a build task T8). *(Saturday/Shabbat still to confirm.)*
 
 **❓ UNCLEAR / decisions for team_00:**
 1. **Mokesh rebuild scope** — rebuild the page from the full memorial doc (much richer; a new 16-E-v2 build), verbatim? *(recommend yes)*

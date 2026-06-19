@@ -53,7 +53,9 @@ to Nimrod as part of the process** (his standing rule) — do not self-approve s
 - **Content:** rebuild to the **full** memorial — all ~10 sections of the doc, **verbatim**: *מי היה מוקש דהימן · היכרות עם הדיג'רידו (סיפור הביטלס/רישיקש) · בית המלאכה ברישיקש · Dream-Time · קוטלי (הסטודיו) · הגשמת החלום · תפנית חדה (קורונה 2020) · פרידה · ומה היום · דברי הספד*. Bio intro + dates **1950–2020** (death 11.10.2020) are now real content (no longer placeholders). Family: אשתו אניטה, 4 בנים, בת גיני, נכדה פריטי.
 - **Spelling (D-SPELLING):** render `Jungle Vibes` (fix the existing `jungel vibes`).
 - **Film (D-FILM):** embed at the bottom (responsive 16:9, lazy, `youtube-nocookie.com/embed/kf4NKSdYi9E`). **URL:** `https://youtu.be/kf4NKSdYi9E` — VERIFIED as *"MUKESH - The Art of Shanti Living | Official Trailer"* (Kuthli Studio). ⚠ It is the **trailer/promo**, not the full film — consistent with Eyal's doc (¶41 "embed the promo clip"). Pending Nimrod's confirm (trailer-only vs a separate full-film link). Add a `VideoObject` JSON-LD (name = verified title, embedUrl, thumbnailUrl `https://img.youtube.com/vi/kf4NKSdYi9E/maxresdefault.jpg`) — also feeds the SEO/GEO video schema.
-- **Photos:** sources = `_COMMUNICATION/team_40/legacy-media-index-50…/mirror/` (e.g. `2021/10/…rishikesh…`, `2024/08/mukesh-dhiman-…`) + Eyal's own footage — **selection/approval is Eyal's** (memorial sensitivity). Placeholders until approved.
+- **Photos (RESOLVED 2026-06-16):** use the **SAME photos as the original live page, in the SAME order** — the **19 images** are captured (URLs + order) in `MOKESH-MEDIA-CAPTURE-2026-06-16.md`. Prefer local copies from the legacy-media mirror; do NOT rename file paths (filenames carry the `jungel` typo — that's the filename only).
+- **Facebook embeds (NEW 2026-06-16):** Eyal wants **all the FB post embeds at the page BOTTOM** — the **4** post URLs are in `MOKESH-MEDIA-CAPTURE-2026-06-16.md`. Lazy-load the FB SDK / use `plugins/post.php` iframes (CWV).
+- **Page composition (bottom):** memorial text (verbatim, `Jungle Vibes`) → 19 photos (that order) → YouTube trailer (`kf4NKSdYi9E`) → 4 FB post embeds.
 - **Cache-bust:** bump `style.css` `Version:` (→ `1.4.14`).
 - **Gate:** re-point the content-diff source for mokesh from `ومه היום.docx` to the **full** memorial doc (see §E.3 for the verbatim↔spelling handling), then `node scripts/qa/content-diff.mjs` must clear (sectionCov≥95, sentenceCov≥90, inventedSections=0); plus overflow + axe on the route.
 
@@ -79,6 +81,12 @@ to Nimrod as part of the process** (his standing rule) — do not self-approve s
 ### T6 — DB reconciliation + roadmap lock · [BLOCKED on team_110 actor key]
 - Pending `REQUEST-TEAM110-HUB-API-KEY-AND-DB-MIGRATION-2026-06-16.md` returning the team_100 `X-Actor-Api-Key`. **Do NOT extract secrets from env/.env** (classifier-denied; do not work around — Nimrod's hard rule).
 - On key arrival: run the **50-WP DB reconciliation** to canonical IDs (mapping in the team_110 request: Wave2 launch → `S002-P001-WP005…016`; program → `S003-P001-WP001…038`, with **WP-W2-16 → `S003-P001-WP032`**), **lock WP-W2-16 COMPLETE/LOD500_LOCKED**, and register the 4 forward WPs under **S004** (the LOD200 specs are written). Hub API: `http://100.125.98.56:8090`, writes need `X-Actor-Api-Key`. DB schema accepts only `SNNN-PNNN-WPNNN` or `NB-Vn-WP-*` (the prior 422/400 were WP-W2-* being schema-invalid).
+
+### T8 — Contact page + LocalBusiness NAP/hours · [Eyal data received 2026-06-16] · BUILD
+- Eyal flagged the **business address is MISSING on the contact page today** + supplied NAP + hours. Canonical SSoT: `BUSINESS-NAP-AND-HOURS-2026-06-16.md` (incl. a drop-in `LocalBusiness` JSON-LD).
+- **Contact page:** add business name (המרכז לטיפול בנשימה באמצעות דיג'רידו), address (עמל 8 ב', פרדס חנה), hours (Sun–Thu 09–19 · Fri 09–14 · by appointment), WhatsApp (already wired).
+- **Schema:** add `LocalBusiness` JSON-LD (this is also a high-value local-SEO item — coordinate with the SEO/GEO plan for the `@type` subtype). Consider surfacing NAP in footer for consistency.
+- **CONFIRM before publishing hours:** Saturday/Shabbat unstated (see SSoT open-item #1).
 
 ### T7 — Forward WPs (S004) · after T1–T6
 - Advance the LOD200 specs (SEO/GEO, Design-QA+Responsive, Production-Cutover, Eyal-Dependent) to LOD400 → build → dual-PASS. SEO/GEO absorbs T3 analytics. Cutover is Track B (gated on Eyal launch-blockers: analytics, NAP, mokesh final edit).
