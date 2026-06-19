@@ -49,7 +49,7 @@ total (each = name + FB link + full quote). Includes everyone already in the car
 **🟡 STILL OPEN / pending from Eyal:**
 - **Clarity** project_id (only GA4 was sent).
 - **Mokesh page photos** — Eyal didn't attach files; sources exist (his footage + legacy-media mirror) but **which photos + approval** is his call (memorial sensitivity).
-- **The documentary promo video** to embed at the page bottom — referenced but no file/link supplied.
+- **The documentary video** — link PROVIDED 2026-06-16: `https://youtu.be/kf4NKSdYi9E` = *"MUKESH - The Art of Shanti Living | Official Trailer"* (channel Kuthli Studio), verified via oEmbed. NOTE: it is the **trailer/promo** (matches the doc's ¶41 "embed the promo clip"), not the full ~60-min film — open whether a full-film link also exists.
 - **Studio address + hours** (for `LocalBusiness` schema / SEO) — only WhatsApp confirmed.
 
 **❓ UNCLEAR / decisions for team_00:**
