@@ -47,10 +47,10 @@ total (each = name + FB link + full quote). Includes everyone already in the car
 - WhatsApp number; the "ומה היום" mokesh text (our 16-E verbatim == this doc's §ומה היום); the existing carousel names are a subset of the 48.
 
 **🟡 STILL OPEN / pending from Eyal:**
-- **Clarity** project_id (only GA4 was sent).
+- **Clarity** project_id (only GA4 was sent). Eyal struggles with the setup → a step-by-step **PDF guide** was prepared for him: `docs/.../to-eyal/2026-06-19--clarity-setup-guide/Clarity-Setup-Guide-Eyal-HE-2026-06-19.pdf` (team_00 to send).
 - ~~**Mokesh page photos**~~ **RESOLVED 2026-06-16:** use the SAME 19 photos as the original page, SAME order; + add the 4 FB post embeds at the bottom → captured in `MOKESH-MEDIA-CAPTURE-2026-06-16.md`.
 - **The documentary video** — link PROVIDED 2026-06-16: `https://youtu.be/kf4NKSdYi9E` = *"MUKESH - The Art of Shanti Living | Official Trailer"* (channel Kuthli Studio), verified via oEmbed. NOTE: it is the **trailer/promo** (matches the doc's ¶41 "embed the promo clip"), not the full ~60-min film — open whether a full-film link also exists.
-- ~~**Studio address + hours**~~ **RESOLVED 2026-06-16:** name + עמל 8 ב' פרדס חנה + Sun–Thu 09–19 / Fri 09–14 / by appointment → SSoT `BUSINESS-NAP-AND-HOURS-2026-06-16.md` (contact page address was MISSING — now a build task T8). *(Saturday/Shabbat still to confirm.)*
+- ~~**Studio address + hours**~~ **RESOLVED 2026-06-16:** name + עמל 8 ב' פרדס חנה + Sun–Thu 09–19 / Fri 09–14 / by appointment, **Sat closed** → SSoT `BUSINESS-NAP-AND-HOURS-2026-06-16.md` (contact page address was MISSING — now a build task T8). *(Saturday/Shabbat: confirmed closed 2026-06-19.)*
 
 **❓ UNCLEAR / decisions for team_00:**
 1. **Mokesh rebuild scope** — rebuild the page from the full memorial doc (much richer; a new 16-E-v2 build), verbatim? *(recommend yes)*

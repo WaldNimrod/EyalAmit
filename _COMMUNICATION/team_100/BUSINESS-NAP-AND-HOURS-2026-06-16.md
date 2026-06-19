@@ -15,7 +15,7 @@ Profile · the SEO/GEO plan (local-SEO pillar). This is the single source of tru
 | **City** | פרדס חנה (Pardes Hanna-Karkur) |
 | **Country** | IL |
 | **Phone / WhatsApp** | +972 52-482-2842 (== theme `EA_WAVE2_WHATSAPP_E164 = 972524822842`) |
-| **Hours** | Sun–Thu 09:00–19:00 · Fri 09:00–14:00 · **by appointment only** |
+| **Hours** | Sun–Thu 09:00–19:00 · Fri 09:00–14:00 · **Sat (Shabbat) CLOSED** · **by appointment only** |
 
 ## Ready LocalBusiness JSON-LD (drop-in; confirm @type + the two flags below)
 ```json
@@ -39,7 +39,7 @@ Profile · the SEO/GEO plan (local-SEO pillar). This is the single source of tru
 ```
 
 ## Open / confirm (do NOT invent — surfaced)
-1. **Saturday (Shabbat):** Eyal wrote "כל יום 9–19" then gave Friday separately. Interpreted as **Sun–Thu** (standard IL week); **Saturday unstated** — likely closed/by-appointment. Confirm before publishing hours.
+1. ~~**Saturday (Shabbat)**~~ **RESOLVED 2026-06-19 (Nimrod): closed on Saturday.** Hours are Sun–Thu 09:00–19:00, Fri 09:00–14:00, **Sat closed** (omit Saturday from `openingHoursSpecification` = closed; the JSON-LD above is correct as-is).
 2. **`@type` subtype:** the SEO/GEO local-SEO research (running) will recommend the best subtype (e.g. `HealthAndBeautyBusiness` vs a generic `LocalBusiness`/`Physician`-adjacent). Default to `LocalBusiness` until then.
 3. **"By appointment only":** not a schema field — surface in the contact-page copy and the GBP attributes; consider `OpeningHoursSpecification` notes / a visible note.
 4. **No postal code / geo lat-long** supplied — add for GBP + `geo` schema when available.
