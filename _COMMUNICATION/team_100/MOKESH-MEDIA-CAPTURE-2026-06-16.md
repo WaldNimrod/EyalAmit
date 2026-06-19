@@ -47,6 +47,8 @@ performance hit (Core-Web-Vitals — see the SEO/GEO plan); RTL/he locale; embed
 Related FB pages referenced on the page (not embeds): `didgeridoo.studio.eyal.amit`, `eyal.amit.show`,
 `mukesh.the.art.of.shanti.living.the.movie` (the film's page).
 
-## Page composition (bottom of mokesh memorial)
-… memorial text (full doc, verbatim, `Jungle Vibes`) → **19 photos in the order above** → **YouTube trailer**
-(`kf4NKSdYi9E`) → **4 Facebook post embeds**.
+## Video + page composition (DECIDED by Nimrod, 2026-06-19)
+- **HERO (top of page):** the **trailer** (`kf4NKSdYi9E`) as a hero video — **autoplays on load, muted by default, with an unmute control — exactly like the home-page hero** (the D-EYAL-VIDEO-13 pattern; reuse `block-hero.php` + `ea-hero.js`).
+- **Body order:** memorial text (full doc, verbatim, `Jungle Vibes`) → **19 photos in the order above** → **THE FULL FILM** (on-demand full viewing, further down the page) → **4 Facebook post embeds** (very bottom).
+- ⚠ **Full-film link is NOT public** — verified 2026-06-19: only the *trailer* is on YouTube; the **1-hour film** ("MUKESH – The Art of Shanti Living", by **Eyal & Guy Amit**) lives on the [FB movie page](https://www.facebook.com/mukesh.the.art.of.shanti.living.the.movie/) / screenings, not a public video URL. **Need the full-film link from Eyal** (likely an unlisted YouTube/Vimeo) — or embed the FB movie page. Until provided: ship the hero trailer + a clearly-marked full-film placeholder; page stays launch-valid.
+- **Schema:** `VideoObject` JSON-LD for both clips (name, embedUrl, thumbnailUrl) — feeds the SEO/GEO video surface (see LOD400 plan).
