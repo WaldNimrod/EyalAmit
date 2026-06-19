@@ -38,6 +38,7 @@ EXPORT_TYPE_CONTENT_INTAKE = "eyal-page-content-intake"
 EXPORT_TYPE_QUESTIONS = "eyal-questions"
 EXPORT_TYPE_DRIVE_INTAKE = "eyal-drive-intake"
 EXPORT_TYPE_MEETING_SNAPSHOT = "eyal-meeting-snapshot"
+EXPORT_TYPE_MEDIA_INTAKE = "eyal-media-intake"
 DEFAULT_RESPONDENT = "Eyal Amit"
 PROJECT_META = "EyalAmit2026"
 DEFAULT_HUB_VIEW_VERSION = "1.1.0"
@@ -308,6 +309,7 @@ def nav(active: str) -> str:
         ("site-tree.html", "עץ אתר"),
         ("content-intake.html", "קליטת תוכן"),
         ("materials-intake.html", "השלמות מאייל"),
+        ("media-intake.html", "מדיה ותמונות"),
         ("meeting.html", "תדריך פגישה"),
         ("purchase-links.html", "קישורי רכישה"),
         ("content-index.html", "אינדקס תוכן"),
@@ -1180,6 +1182,162 @@ def page_materials_intake(materials: dict, generated_iso: str) -> str:
     html += "</div>\n"
 
     html += MATERIALS_INTAKE_JS
+    html += foot(generated_iso)
+    return html
+
+
+MEDIA_INTAKE_STYLE = """<style>
+.med-progress{margin:.6rem 0 1rem;padding:.5rem .8rem;background:#f3f6ef;border:1px solid #d8e2c8;border-radius:8px;font-size:.95rem}
+.med-progress .done{color:#1b5e3f;font-weight:700}.med-progress .miss{color:#9a6a00;font-weight:700}
+.med-card{border:1px solid #e2dccd;border-radius:10px;padding:.7rem .9rem;margin:.6rem 0;background:#fff}
+.med-card[data-filled="1"]{border-color:#9cc4ad;background:#f7fbf8}
+.med-card__head{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.med-id{font-family:monospace;font-size:.8rem;background:#1b5e3f;color:#fff;padding:.1rem .45rem;border-radius:6px}
+.med-type{font-size:.85rem;color:#44564c;font-weight:600}
+.med-cur{font-size:.78rem;padding:.1rem .5rem;border-radius:20px;border:1px solid}
+.med-cur--has{background:#eef7f1;color:#1b5e3f;border-color:#bfe0cb}
+.med-cur--ph{background:#fff7e0;color:#8a6200;border-color:#f0d98a}
+.med-cur--new{background:#fdecea;color:#a3331f;border-color:#f3c4bb}
+.med-pill{margin-inline-start:auto;font-size:.8rem;color:#1b5e3f;font-weight:700}
+.med-desc{margin:.45rem 0 .2rem;color:#22302a;line-height:1.55}
+.med-loc{font-size:.82rem;color:#6b7d72;margin-bottom:.3rem}
+.med-card__inputs{display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end;border-top:1px dashed #e2dccd;padding-top:.6rem}
+.med-card__inputs label{display:flex;flex-direction:column;font-size:.82rem;font-weight:600;gap:.25rem}
+.med-linkwrap,.med-notewrap{flex:1;min-width:14rem}
+.med-card__inputs select,.med-card__inputs input[type=text],.med-card__inputs textarea{padding:.4rem .55rem;border:1px solid #cfc8b8;border-radius:8px;font-size:.92rem;font-family:inherit;width:100%}
+.med-filenames{font-size:.78rem;color:#1b5e3f;font-weight:400}
+@media(max-width:640px){.med-card__inputs{flex-direction:column;align-items:stretch}.med-linkwrap,.med-notewrap{min-width:0}}
+</style>"""
+
+MEDIA_INTAKE_JS = """<script>
+(function(){
+  var LS='ea-media-v1';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return {}}}
+  function save(s){try{localStorage.setItem(LS,JSON.stringify(s))}catch(e){}}
+  var state=load();
+  var cards=[].slice.call(document.querySelectorAll('.med-card'));
+  function addressed(o){ if(!o||!o.source) return false;
+    if(o.source==='upload') return !!(o.files&&o.files.length);
+    if(o.source==='note') return !!(o.notes&&o.notes.trim());
+    return !!(o.link&&o.link.trim()); }
+  function refresh(){
+    var tot=cards.length, done=0;
+    cards.forEach(function(c){ var id=c.getAttribute('data-id'); var ok=addressed(state[id]);
+      if(ok) done++; var pill=c.querySelector('[data-pill]'); if(pill) pill.textContent= ok ? '\\u2713 סופק' : '';
+      c.setAttribute('data-filled', ok?'1':'0'); });
+    var p=document.getElementById('med-progress');
+    if(p) p.innerHTML='התקדמות: <span class="done">'+done+' סופקו</span> · <span class="miss">'+(tot-done)+' נותרו</span> · מתוך '+tot+' פריטים. נשמר אוטומטית במכשיר שלך.';
+  }
+  cards.forEach(function(c){
+    var id=c.getAttribute('data-id');
+    var sel=c.querySelector('.med-source'), link=c.querySelector('.med-link'),
+        file=c.querySelector('.med-fileinput'), names=c.querySelector('[data-filenames]'),
+        note=c.querySelector('.med-note'), lw=c.querySelector('.med-linkwrap'), fw=c.querySelector('.med-filewrap');
+    var o=state[id]||{files:[]};
+    if(sel) sel.value=o.source||''; if(link) link.value=o.link||''; if(note) note.value=o.notes||'';
+    if(names && o.files && o.files.length) names.textContent='נבחר: '+o.files.join(', ');
+    function vis(){ var v=sel?sel.value:'';
+      if(lw) lw.style.display=(v==='oldsite'||v==='drive'||v==='link')?'':'none';
+      if(fw) fw.style.display=(v==='upload')?'':'none'; }
+    function upd(){ o.source=sel?sel.value:''; o.link=link?link.value:''; o.notes=note?note.value:'';
+      if(!o.files) o.files=[]; state[id]=o; save(state); refresh(); }
+    if(sel) sel.addEventListener('change',function(){vis();upd();});
+    if(link) link.addEventListener('input',upd);
+    if(note) note.addEventListener('input',upd);
+    if(file) file.addEventListener('change',function(){
+      o.files=[].slice.call(file.files).map(function(f){return f.name;});
+      if(names) names.textContent= o.files.length?('נבחר: '+o.files.join(', ')):'';
+      state[id]=o; save(state); refresh(); });
+    vis();
+  });
+  refresh();
+  var btn=document.getElementById('btn-export-media');
+  if(btn) btn.addEventListener('click',function(){
+    var resp=(document.getElementById('respondent')||{}).value||'';
+    var items=cards.map(function(c){var id=c.getAttribute('data-id');var o=state[id]||{};
+      return {id:id,page:c.getAttribute('data-page'),status:c.getAttribute('data-status'),
+              source_type:o.source||'',link:o.link||'',files:o.files||[],notes:o.notes||''};});
+    var out={type:'eyal-media-intake',respondent:resp,generated:new Date().toISOString(),items:items};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='eyal-media-intake-'+(new Date().toISOString().slice(0,10))+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>
+"""
+
+_MED_STATUS_HE = {"has-asset": "יש נכס (אפשר להחליף)", "placeholder": "ממתין לתמונה", "needs-new": "דרושה תמונה חדשה"}
+_MED_STATUS_CLS = {"has-asset": "has", "placeholder": "ph", "needs-new": "new"}
+
+
+def page_media_intake(media: dict, generated_iso: str) -> str:
+    """Eyal media-intake — every content/background image + video + gallery, by page,
+    numbered (MED-<PAGE>-NN). Per item: location + id + suggested description + an input
+    to supply the source (old-site link / Drive link / other link / upload-new / notes).
+    State auto-saves to localStorage; export emits an `eyal-media-intake` JSON.
+    """
+    pages = media.get("pages", [])
+    t = media.get("totals", {})
+    html = head("מדיה ותמונות — אייל עמית", extra_scripts=MEDIA_INTAKE_STYLE)
+    html += nav("media-intake")
+    html += '<div class="wrap">\n'
+    html += f'<h1>{escape(media.get("title", "מדיה ותמונות"))}</h1>\n'
+    html += f'<p>{escape(media.get("intro", ""))}</p>\n'
+    _needs_new = t.get("needs_new", t.get("needs-new", "?"))
+    html += (
+        f'<p class="subtitle">סה״כ {t.get("total_media", "?")} פריטי מדיה · '
+        f'{t.get("with_asset", "?")} עם נכס · {t.get("placeholders", "?")} ממתינים · '
+        f'{_needs_new} דרושים חדשים · {t.get("galleries", "?")} גלריות.</p>\n'
+    )
+    html += '<div class="med-progress" id="med-progress">טוען מצב…</div>\n'
+    html += '<div class="respondent-field feedback-field">\n<label for="respondent">שם המגיש</label>\n'
+    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n</div>\n'
+
+    for i, pg in enumerate(pages):
+        page_slug = pg.get("page", "")
+        sec = f'<p class="subtitle">{escape(pg.get("page_path", ""))}</p>\n'
+        for it in pg.get("items", []):
+            mid = it.get("id", "")
+            st = it.get("status", "")
+            stcls = _MED_STATUS_CLS.get(st, "new")
+            sthe = _MED_STATUS_HE.get(st, st)
+            gal = f' · גלריה ({it.get("gallery_count", 0)} פריטים)' if it.get("is_gallery") else ""
+            sec += (
+                f'<div class="med-card" data-id="{escape(mid)}" '
+                f'data-page="{escape(page_slug)}" data-status="{escape(st)}">\n'
+            )
+            sec += '<div class="med-card__head">\n'
+            sec += f'<span class="med-id">{escape(mid)}</span>\n'
+            sec += f'<span class="med-type">{escape(it.get("media_type_he", ""))}{escape(gal)}</span>\n'
+            sec += f'<span class="med-cur med-cur--{stcls}">{escape(sthe)}</span>\n'
+            sec += '<span class="med-pill" data-pill></span>\n'
+            sec += "</div>\n"
+            sec += f'<div class="med-desc">{escape(it.get("suggested_description", ""))}</div>\n'
+            sec += f'<div class="med-loc"><b>מיקום:</b> {escape(it.get("surface", ""))}</div>\n'
+            sec += '<div class="med-card__inputs">\n'
+            sec += (
+                '<label>איך תספק?\n<select class="med-source">'
+                '<option value="">— בחר —</option>'
+                '<option value="oldsite">קישור מהאתר הישן</option>'
+                '<option value="drive">קישור Google Drive</option>'
+                '<option value="link">קישור אחר</option>'
+                '<option value="upload">קובץ חדש מהמחשב</option>'
+                '<option value="note">הערה בלבד</option>'
+                "</select></label>\n"
+            )
+            sec += '<label class="med-linkwrap">קישור / שם\n<input type="text" class="med-link" placeholder="הדבק קישור או שם קובץ"></label>\n'
+            sec += '<label class="med-filewrap">בחר קובץ(ים)\n<input type="file" class="med-fileinput" accept="image/*,video/*" multiple><span class="med-filenames" data-filenames></span></label>\n'
+            sec += '<label class="med-notewrap">הערות\n<textarea class="med-note" rows="2" placeholder="הסבר / הערות"></textarea></label>\n'
+            sec += "</div>\n</div>\n"
+        title = f'{pg.get("label_he", "")} — {len(pg.get("items", []))} פריטים'
+        html += hub_acc_section(f"med-{i}", title, sec, open_default=(i == 0))
+
+    html += '<div class="export-section">\n'
+    html += "<p>הטופס נשמר אוטומטית בדפדפן — אפשר לחזור ולהמשיך בכל עת. בסיום: ייצאו JSON ושלחו אלינו (וואטסאפ / מייל). את הקבצים עצמם שלחו בתיקייה מסודרת בנפרד — כאן מספיק <strong>שם הקובץ</strong>.</p>\n"
+    html += '<button class="btn-export" type="button" id="btn-export-media">ייצוא קליטת מדיה (JSON)</button>\n'
+    html += "</div>\n</div>\n"
+    html += MEDIA_INTAKE_JS
     html += foot(generated_iso)
     return html
 
@@ -2504,6 +2662,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     legacy_unmapped = load_json_optional(DATA_DIR / "legacy-unmapped.json")
     content_index = load_json_optional(DATA_DIR / "content-index.json")
     materials_needed = load_json_optional(DATA_DIR / "materials-needed.json")
+    media_inventory = load_json_optional(DATA_DIR / "media-inventory.json")
     ssot_answers = load_ssot_answers()
 
     if ssot_answers:
@@ -2575,6 +2734,10 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     if materials_needed:
         (dist_dir / "materials-intake.html").write_text(
             page_materials_intake(materials_needed, generated_iso), encoding="utf-8"
+        )
+    if media_inventory:
+        (dist_dir / "media-intake.html").write_text(
+            page_media_intake(media_inventory, generated_iso), encoding="utf-8"
         )
     (dist_dir / "purchase-links.html").write_text(
         page_purchase_links(site_tree, generated_iso), encoding="utf-8"

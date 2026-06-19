@@ -1,0 +1,550 @@
+{
+  "title": "מדיה ותמונות — קליטה מאייל",
+  "intro": "לכל פריט: המיקום באתר, המזהה, ומה אמורה להיות התמונה/הסרטון. ספקו לנו את המקור — קישור מהאתר הישן, קישור Google Drive, קישור אחר, או העלאת קובץ חדש מהמחשב (שם הקובץ נשמר; את הקבצים עצמם נעביר בתיקייה מסודרת בנפרד). אפשר גם להשאיר הערה בלבד. הטופס נשמר אוטומטית במכשיר שלך — בסיום ייצאו JSON ושלחו אלינו.",
+  "generated": "2026-06-19",
+  "source": "team_100 media-inventory audit (workflow wf_ecb59c31-65d, 6 agents)",
+  "totals": {
+    "total_media": 38,
+    "with_asset": 18,
+    "placeholders": 11,
+    "needs_new": 9,
+    "galleries": 11,
+    "videos": 5,
+    "excluded_chrome": 15
+  },
+  "pages": [
+    {
+      "page": "home",
+      "page_path": "/",
+      "label_he": "דף הבית",
+      "items": [
+        {
+          "id": "MED-HOME-01",
+          "surface": "hero — background video (full-bleed, behind H1/CTA) + poster",
+          "media_type": "hero-video",
+          "media_type_he": "וידאו רקע (Hero)",
+          "current_source": "/site/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-720-muted.mp4 (+ poster assets/video/ea-home-hero-poster.jpg)",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "וידאו רקע מושתק בלולאה לראש הדף: אייל מנגן בדיג׳רידו בסטודיו / תקריב נשימה ותנועת הכלי, אווירה רגועה. כולל פריים פוסטר סטטי שמוצג למשתמשי reduced-motion.",
+          "notes": "Self-hosted muted loop (6.1MB) + poster (448KB) present on disk. Wired in inc/wave2-stage-b.php:226-233. Deduped with theme-wide video-sweep record."
+        },
+        {
+          "id": "MED-HOME-02",
+          "surface": "treatment-overview — SECTION 03 'וידאו' explainer slot (above טיפול/סאונד הילינג comparison)",
+          "media_type": "video-embed",
+          "media_type_he": "סרטון",
+          "current_source": "none / placeholder — slot documented but no embed rendered",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "סרטון הסבר קצר (SECTION 03 'וידאו') שמציג מה זה טיפול בנשימה באמצעות דיג׳רידו — אייל מסביר ומדגים. כרגע אין סרטון בפועל; יש לספק קובץ/קישור וידאו מאייל.",
+          "notes": "MISSING SLOT: docblock describes an sr-only 'וידאו' label + embed slot, but rendered markup has no <video>/<iframe>/youtube. Client video needed."
+        },
+        {
+          "id": "MED-HOME-03",
+          "surface": "bio — SECTION 11 אייל עמית, portrait beside prose (media row)",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "/site/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "דיוקן אייל עמית לצד טקסט הביוגרפיה — תמונה אנכית (4:5) של אייל, רצוי בהקשר של נגינה/סטודיו. alt='אייל עמית'.",
+          "notes": "Real asset present (eyal-portrait-hero.jpg, 173KB), two-column portrait media row. Image set in inc/wave2-stage-b.php:277-279. NOTE: service clusters flag this same file as a press-clipping scan needing replacement — verify asset quality."
+        }
+      ]
+    },
+    {
+      "page": "treatment",
+      "page_path": "/treatment",
+      "label_he": "טיפול בדיג'רידו",
+      "items": [
+        {
+          "id": "MED-TREAT-01",
+          "surface": "hero background (top of page)",
+          "media_type": "hero-bg",
+          "media_type_he": "רקע Hero",
+          "current_source": "none (CSS linear-gradient placeholder; block-hero video slot empty for service routes)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונת או וידאו רקע לראש עמוד הטיפול בנשימה באמצעות דיג׳רידו — אייל בסטודיו בפרדס חנה במהלך טיפול, אווירה רגועה ועוטפת. כרגע גרדיאנט CSS בלבד.",
+          "notes": "INFERRED slot: treatment is a service route (ea_wave2_render_service_blocks, inc/wave2-w2-04.php) mirroring sound-healing/lessons. No raw record submitted for /treatment hero, but the shared block-hero pattern applies; background video slot empty for all service routes."
+        },
+        {
+          "id": "MED-TREAT-02",
+          "surface": "bio block portrait (figure, prose+portrait two-column)",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg (WRONG ASSET — press-clipping scan, not a clean portrait)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "פורטרט אמיתי של אייל עמית מטפל בנשימה באמצעות דיג׳רידו בסטודיו — להחליף את גזיר העיתון הנוכחי בתצלום סטודיו נקי.",
+          "notes": "INFERRED slot: treatment service route uses the same forced eyal-portrait-hero.jpg as sound-healing/lessons (inc/wave2-w2-04.php). Current file is a magazine scan — needs a true studio portrait. No raw record submitted for /treatment specifically."
+        }
+      ]
+    },
+    {
+      "page": "sound-healing",
+      "page_path": "/sound-healing",
+      "label_he": "סאונד הילינג",
+      "items": [
+        {
+          "id": "MED-SOUND-01",
+          "surface": "hero background (top of page)",
+          "media_type": "hero-bg",
+          "media_type_he": "רקע Hero",
+          "current_source": "none (CSS linear-gradient placeholder; block-hero video slot empty for service routes)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונת או וידאו רקע לראש עמוד סאונד הילינג — חלל הסטודיו המוחשך באור נרות, ערסלים/מזרנים ואייל מנגן בדיג׳רידו, אווירה אינטימית ועוטפת.",
+          "notes": "Live hero is the elevated block-hero (ea_wave2_render_service_blocks, inc/wave2-w2-04.php). Background currently CSS gradient only; ea_hero_ctx['video'] empty for service routes."
+        },
+        {
+          "id": "MED-SOUND-02",
+          "surface": "bio block portrait (figure, prose+portrait two-column)",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg (WRONG ASSET — press-clipping scan, not a clean portrait)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "פורטרט אמיתי של אייל עמית מנגן בדיג׳רידו במהלך מפגש סאונד הילינג בסטודיו — להחליף את גזיר העיתון הנוכחי בתצלום סטודיו נקי. image_alt='אייל עמית מנגן בדיג׳רידו במהלך מפגש סאונד הילינג בסטודיו'.",
+          "notes": "Image forced in inc/wave2-w2-04.php ~L595; alt/cap in inc/wave2-w2-04-content.php ~L926-927. Current eyal-portrait-hero.jpg is a magazine article scan — needs true studio portrait."
+        }
+      ]
+    },
+    {
+      "page": "lessons",
+      "page_path": "/lessons",
+      "label_he": "שיעורי נגינה בדיג'רידו",
+      "items": [
+        {
+          "id": "MED-LESSON-01",
+          "surface": "hero background (top of page)",
+          "media_type": "hero-bg",
+          "media_type_he": "רקע Hero",
+          "current_source": "none (CSS linear-gradient placeholder; block-hero video slot empty for service routes)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונת או וידאו רקע לראש עמוד שיעורי נגינה — אייל מלמד תלמיד נגינה בדיג׳רידו אחד-על-אחד בסטודיו בפרדס חנה, דגש על נשימה וכלי הנגינה.",
+          "notes": "Live hero is the elevated block-hero (ea_wave2_render_service_blocks, inc/wave2-w2-04.php). Background CSS gradient only; video slot empty for service routes."
+        },
+        {
+          "id": "MED-LESSON-02",
+          "surface": "bio block portrait (figure, prose+portrait two-column)",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg (WRONG ASSET — press-clipping scan, not a clean portrait)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "פורטרט אמיתי של אייל עמית מלמד נגינה בדיג׳רידו בשיעור פרטי בסטודיו — להחליף את גזיר העיתון הנוכחי בתצלום סטודיו נקי. image_alt='אייל עמית מלמד נגינה בדיג׳רידו בשיעור פרטי בסטודיו'.",
+          "notes": "Image forced in inc/wave2-w2-04.php ~L595; alt/cap in inc/wave2-w2-04-content.php ~L1070-1071. Current eyal-portrait-hero.jpg is a magazine article scan — needs true studio portrait."
+        }
+      ]
+    },
+    {
+      "page": "about (/eyal-amit)",
+      "page_path": "/eyal-amit",
+      "label_he": "אודות — אייל עמית",
+      "items": [
+        {
+          "id": "MED-ABOUT-01",
+          "surface": "Editorial hero portrait (ea-edhero__portrait, 300x375, eager)",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "דיוקן ראשי של אייל עמית — תמונת פנים/חצי-גוף איכותית, אנכית, לכותרת עמוד האודות.",
+          "notes": "Rendered by ea_wave2_editorial_render_hero(); URL from ea_wave2_editorial_route_content('about'). File exists. NOTE: service clusters flag this same file as a press-clipping scan — quality check recommended."
+        },
+        {
+          "id": "MED-ABOUT-02",
+          "surface": "Book-cover cross-link row (ea-books-row) — cover 1 of 3",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/tsva-bechol-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר ״צבע בכחול וזרוק לים״ של אייל עמית.",
+          "notes": "From ea_wave2_editorial_covers(). File exists."
+        },
+        {
+          "id": "MED-ABOUT-03",
+          "surface": "Book-cover cross-link row (ea-books-row) — cover 2 of 3",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/kushi-blantis-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר ״כושי בלאנטיס״ של אייל עמית.",
+          "notes": "From ea_wave2_editorial_covers(). File exists."
+        },
+        {
+          "id": "MED-ABOUT-04",
+          "surface": "Book-cover cross-link row (ea-books-row) — cover 3 of 3",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/vekatavt-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר ״וכתבת״ של אייל עמית.",
+          "notes": "From ea_wave2_editorial_covers(). File exists."
+        },
+        {
+          "id": "MED-ABOUT-05",
+          "surface": "Studio wide photo (defined in route helper, NOT emitted on 'about' route)",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "site/wp-content/themes/ea-eyalamit/assets/images/hero-wide-studio.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "צילום רחב של הסטודיו בפרדס חנה — המרחב, החצר הירוקה ושבילי העץ.",
+          "notes": "URL set in ea_wave2_editorial_route_content() but 'about' content array has no 'studio' key, so slot is NOT currently rendered. File exists; latent slot."
+        },
+        {
+          "id": "MED-ABOUT-06",
+          "surface": "Generic bio block partial portrait (ea-bio-block__portrait, 320x400) — not wired into about route",
+          "media_type": "portrait",
+          "media_type_he": "דיוקן",
+          "current_source": "placeholder (sand fallback)",
+          "status": "placeholder",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "דיוקן/תמונת אווירה של אייל לבלוק ביוגרפיה — נופל לפלייסהולדר חול אם אין תמונה.",
+          "notes": "Reusable bio partial with sand placeholder fallback. NOT called by the about/mokesh editorial routes (they use ea-edhero). Template-only latent slot; included for completeness."
+        }
+      ]
+    },
+    {
+      "page": "mokesh",
+      "page_path": "/eyal-amit/mokesh-dahiman",
+      "label_he": "עמוד הנצחה — מוקש דהימן",
+      "items": [
+        {
+          "id": "MED-MOKESH-01",
+          "surface": "Hero video — trailer (autoplay muted + unmute, home-hero pattern)",
+          "media_type": "hero-video",
+          "media_type_he": "וידאו רקע (Hero)",
+          "current_source": "https://www.youtube.com/watch?v=kf4NKSdYi9E (trailer, embed)",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "טריילר הסרט ״MUKESH – The Art of Shanti Living״ — וידאו פתיחה בראש דף ההנצחה, מתנגן מושתק עם כפתור הפעלת קול.",
+          "notes": "DECIDED 2026-06-19 (Nimrod): trailer kf4NKSdYi9E as hero video reusing block-hero.php + ea-hero.js. Trailer is public on YouTube."
+        },
+        {
+          "id": "MED-MOKESH-02",
+          "surface": "Body gallery — 19 photos in fixed document order (same as legacy live page)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "wp-content/uploads/2021/10/ (18 photos) + 2025/08/ (#14); legacy-media mirror under _COMMUNICATION/team_40/legacy-media-index-50.../mirror/2021/10/",
+          "status": "has-asset",
+          "is_gallery": true,
+          "gallery_count": 19,
+          "suggested_description": "גלריית 19 תצלומים של מוקש דהימן ובית המלאכה ברישיקש (Jungle Vibes) — בסדר המקורי המדויק מהאתר הישן.",
+          "notes": "Single summary record (not 19 rows). Filenames carry 'jungel' typo — fix only visible brand text to 'Jungle Vibes' (D-SPELLING), never file paths. In-code 14-E memorial currently shows 3 placeholder cells; superseded by this capture."
+        },
+        {
+          "id": "MED-MOKESH-03",
+          "surface": "Full film — on-demand, further down the page",
+          "media_type": "video-embed",
+          "media_type_he": "סרטון",
+          "current_source": "none",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "הסרט המלא ״MUKESH – The Art of Shanti Living״ (כשעה, מאת אייל וגיא עמית) — לצפייה מלאה בהמשך הדף.",
+          "notes": "Full-film link NOT public (verified 2026-06-19) — only the trailer is on YouTube. Need full-film URL from Eyal (likely unlisted YouTube/Vimeo) or embed the FB movie page. Ship marked placeholder until provided."
+        },
+        {
+          "id": "MED-MOKESH-04",
+          "surface": "Facebook post embeds — 4, at the very bottom",
+          "media_type": "video-embed",
+          "media_type_he": "סרטון",
+          "current_source": "4 FB posts via facebook.com/plugins/post.php (IsraelDidgCenter + eyal.amit.muzza x2 + gemma.calaf)",
+          "status": "has-asset",
+          "is_gallery": true,
+          "gallery_count": 4,
+          "suggested_description": "ארבעה עמודי פייסבוק מוטמעים בתחתית הדף — פוסטים לזכר מוקש דהימן (תמונות/וידאו/טקסט מקוריים).",
+          "notes": "Embedded via plugins/post.php iframes (RTL/he locale), lazy-loaded, below the full film. External FB content, not a theme asset."
+        }
+      ]
+    },
+    {
+      "page": "shop",
+      "page_path": "/shop",
+      "label_he": "חנות / ספרים",
+      "items": [
+        {
+          "id": "MED-SHOP-01",
+          "surface": "Catalog grid — 5 product cards, card media tile each",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "placeholder (span.ea-shop-card__media--placeholder, grey, aria-hidden)",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 5,
+          "suggested_description": "5 תמונות כרטיס-מוצר לחנות — תמונה ראשית אחת לכל קטגוריה: כלים, תיקים, סטנדים לאחסון, סטנד רצפתי, תיקון וחידוש.",
+          "notes": "ea_w2_05_render_archive (L626): 5 catalog cards each render a grey placeholder tile. One thumbnail per category. No real assets."
+        },
+        {
+          "id": "MED-SHOP-02",
+          "surface": "Section 09 gallery block (הכלים בעבודת יד)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "placeholder (grey tiles; intro 'תמונות של הכלים יתווספו בהמשך.')",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 6,
+          "suggested_description": "גלריית 6 תמונות של כלי דיגרידו בעבודת יד למכירה — צילומי הכלים מזוויות שונות, פרטי גימור, פייה ומבנה.",
+          "notes": "Block 'gallery' count=6, grey placeholder tiles (ea_w2_05_render_gallery, wave2-w2-05.php L592). No real assets."
+        },
+        {
+          "id": "MED-SHOP-03",
+          "surface": "Section 09 gallery block (תמונות מהשטח)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "placeholder (grey tiles)",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 6,
+          "suggested_description": "גלריית 6 תמונות של תיקים לדיגרידו בשימוש יומיומי — בשטח, בדרך ובסטודיו, כולל איך הכלי יושב בתוך התיק.",
+          "notes": "Block 'gallery' count=6, placeholder tiles."
+        },
+        {
+          "id": "MED-SHOP-04",
+          "surface": "Section 09 gallery block (תמונות)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "placeholder (grey tiles; intro 'תמונות של הסטנדים בשימוש יתווספו בהמשך.')",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 6,
+          "suggested_description": "גלריית 6 תמונות של סטנדים מעץ בעבודת יד לאחסון דיגרידו — תלייה על הקיר ועמידה רצפתית, בשימוש בבית או בסטודיו.",
+          "notes": "Block 'gallery' count=6, placeholder tiles."
+        },
+        {
+          "id": "MED-SHOP-05",
+          "surface": "Section 09 gallery block (תמונות)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "placeholder (grey tiles; intro 'תמונות של הסטנד בשימוש יתווספו בהמשך.')",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 6,
+          "suggested_description": "גלריית 6 תמונות של סטנד רצפתי לנגינה בדיגרידו בישיבה נמוכה — הסטנד עם כלי משוחל בתוכו, מזוויות שונות ובשימוש.",
+          "notes": "Block 'gallery' count=6, placeholder tiles."
+        },
+        {
+          "id": "MED-SHOP-06",
+          "surface": "Section 09 gallery block (מבית המלאכה)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "placeholder (grey tiles; intro 'תמונות של כלים בתהליך תיקון ובית המלאכה יתווספו בהמשך.')",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 6,
+          "suggested_description": "גלריית 6 תמונות מבית המלאכה — כלי דיגרידו בתהליך תיקון וחידוש, סדקים ושברים לפני ואחרי, כלי עבודה ובית המלאכה.",
+          "notes": "Block 'gallery' count=6, placeholder tiles."
+        },
+        {
+          "id": "MED-SHOP-07",
+          "surface": "Sections 05-07 — 3 book cards, cover image each",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "theme: tsva-bechol-cover.jpg, kushi-blantis-cover.jpg, vekatavt-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": true,
+          "gallery_count": 3,
+          "suggested_description": "3 כריכות ספרים של אייל עמית בכרטיסי המוצר: צבע בכחול וזרוק לים, כושי בלאנטיס, וכתבת.",
+          "notes": "ea_w2_05_render_books_archive (L830): img.ea-book-card__cover via ea_w2_05_cover_url(). REAL covers present. 3 distinct product images."
+        },
+        {
+          "id": "MED-SHOP-08",
+          "surface": "Section 08 — bundle stacked-cover visual (#books-bundle)",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "theme: tsva-bechol-cover.jpg, kushi-blantis-cover.jpg, vekatavt-cover.jpg (same 3 reused)",
+          "status": "has-asset",
+          "is_gallery": true,
+          "gallery_count": 3,
+          "suggested_description": "ויזואל חבילת 3 הספרים — שלוש הכריכות בערימה משוכבת (אותן כריכות מהכרטיסים).",
+          "notes": "ea_w2_05_book_bundle (L805), render L959: 3 aria-hidden decorative imgs (empty alt). Reuses the 3 real covers; distinct display surface."
+        },
+        {
+          "id": "MED-SHOP-09",
+          "surface": "Hero — book cover (ea-book-hero__cover)",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "theme: assets/images/tsva-bechol-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר צבע בכחול וזרוק לים בגודל גדול בהירו של עמוד הספר.",
+          "notes": "ea_w2_05_render_book_detail (L1069) hero cover 600x800. Real asset."
+        },
+        {
+          "id": "MED-SHOP-10",
+          "surface": "Hero — book cover (ea-book-hero__cover)",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "theme: assets/images/kushi-blantis-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר כושי בלאנטיס בגודל גדול בהירו של עמוד הספר.",
+          "notes": "Same render path L1069. Real asset."
+        },
+        {
+          "id": "MED-SHOP-11",
+          "surface": "Hero — book cover (ea-book-hero__cover)",
+          "media_type": "product-image",
+          "media_type_he": "תמונת מוצר",
+          "current_source": "theme: assets/images/vekatavt-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "כריכת הספר וכתבת בגודל גדול בהירו של עמוד הספר.",
+          "notes": "Same render path L1069. Real asset."
+        },
+        {
+          "id": "MED-SHOP-12",
+          "surface": "Section מהעולם של הספר — studio gallery (4 items: 1 real + 3 placeholders)",
+          "media_type": "gallery",
+          "media_type_he": "גלריה",
+          "current_source": "theme: kushi-02-eyal-italy.jpg (lead, hardcoded for all 3); items 2-4 placeholder [תמונה — נדרש מאייל]",
+          "status": "placeholder",
+          "is_gallery": true,
+          "gallery_count": 4,
+          "suggested_description": "גלריית 'מהעולם של הספר' — תמונת פתיחה אחת קיימת (אייל באיטליה) ועוד 3 תמונות חסרות (פנים הספר, כריכה אחורית, ועוד) שיתקבלו מאייל.",
+          "notes": "render_book_detail L1049,L1114-1130: lead hardcoded kushi-02-eyal-italy.jpg + 3 placeholder text tiles per page. Same markup on all 3 detail pages — 3 of 4 slots still need real images."
+        },
+        {
+          "id": "MED-SHOP-13",
+          "surface": "Books hub hero background-image (.ea-books-hub-hero, legacy V2)",
+          "media_type": "section-bg",
+          "media_type_he": "רקע אזור",
+          "current_source": "theme CSS url(../images/books-hero.jpg)",
+          "status": "has-asset",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונת באנר רקע לראש מרכז הספרים (מוזה הוצאה לאור) — דיוקן שחור-לבן של אייל עמית כסופר ומספר סיפורים.",
+          "notes": "books-v2.css L1043: ONLY image url() in any CSS file. LEGACY V2 hub; live /books archive uses a CSS-gradient hero with no photo — likely superseded by W2-10-E. Deduped from legacy-hub and CSS-sweep records. books-hero-studio.jpg also in assets, unreferenced."
+        }
+      ]
+    },
+    {
+      "page": "blog",
+      "page_path": "/blog",
+      "label_he": "בלוג",
+      "items": [
+        {
+          "id": "MED-BLOG-01",
+          "surface": "Blog card thumbnail (ea-blog-card__thumb) per post",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "WP featured image (the_post_thumbnail medium_large); CSS gradient placeholder fallback",
+          "status": "placeholder",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונה ראשית 16:9 לכל כרטיס פוסט בבלוג — תמונה מייצגת לתוכן הפוסט; פוסט ללא תמונה מציג רקע גרדיאנט מעוצב.",
+          "notes": "block-blog-card.php L33-37: the_post_thumbnail else gradient placeholder (ea-blog.css L251). One thumbnail per post; CMS-owned via WP uploads. Status placeholder — depends on per-post featured image."
+        },
+        {
+          "id": "MED-BLOG-02",
+          "surface": "Featured image (ea-post-featured) top of single post",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "WP featured image (the_post_thumbnail large); CSS gradient placeholder fallback",
+          "status": "placeholder",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונה ראשית גדולה בראש כל פוסט — תמונת נושא לפוסט; פוסט ללא תמונה מציג רקע גרדיאנט מעוצב.",
+          "notes": "tpl-blog-single.php L21-27: the_post_thumbnail('large') else gradient placeholder (ea-blog.css L257). Per-post slot, CMS-owned."
+        },
+        {
+          "id": "MED-BLOG-03",
+          "surface": "Post body in-content images (.ea-post-content the_content)",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "WP post_content (uploads/CMS) — variable per post",
+          "status": "placeholder",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "תמונות בתוך גוף הפוסט (אם קיימות) — תלויות בתוכן שהוזן בכל פוסט; מנוהלות דרך עורך וורדפרס.",
+          "notes": "the_content() L58; ea-blog.css styles .ea-post-content img. Count/source per-post in DB, not theme. CMS-owned content slot."
+        }
+      ]
+    },
+    {
+      "page": "contact",
+      "page_path": "/contact",
+      "label_he": "צור קשר",
+      "items": [
+        {
+          "id": "MED-CONTACT-01",
+          "surface": "Whole page — optional ambience/background image slot (currently none)",
+          "media_type": "section-bg",
+          "media_type_he": "רקע אזור",
+          "current_source": "none (form + WhatsApp text-pill CTA only; no img/video/background-image)",
+          "status": "needs-new",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "עמוד צור קשר — אין בו כיום אף תמונת תוכן או רקע. סלוט אפשרי לתמונת אווירה (למשל הסטודיו בפרדס חנה), כרגע ריק לחלוטין.",
+          "notes": "Form plus WhatsApp text-pill CTA only. Optional ambience slot — flag to Eyal whether a studio photo is wanted here."
+        }
+      ]
+    },
+    {
+      "page": "faq",
+      "page_path": "/faq",
+      "label_he": "שאלות נפוצות",
+      "items": [
+        {
+          "id": "MED-FAQ-01",
+          "surface": "FAQ instance catalog list — thumbnail (explicitly disabled)",
+          "media_type": "other",
+          "media_type_he": "אחר",
+          "current_source": "none (show_thumb=false; thumbnails disabled)",
+          "status": "placeholder",
+          "is_gallery": false,
+          "gallery_count": 0,
+          "suggested_description": "קטלוג שאלות — תמונות ממוזערות מושבתות במפורש (show_thumb=false). אין סלוט תמונה פעיל; אופציונלי אם אייל ירצה תמונות.",
+          "notes": "ea_eyalamit_render_instance_catalog ea_faq with show_thumb=false. Whole /faq has no content/background images; accordion glyphs are chrome (excluded)."
+        }
+      ]
+    },
+    {
+      "page": "en",
+      "page_path": "/en",
+      "label_he": "דף נחיתה (אנגלית)",
+      "items": [
+        {
+          "id": "MED-EN-01",
+          "surface": "Books block — row of 3 book covers",
+          "media_type": "content-image",
+          "media_type_he": "תמונת תוכן",
+          "current_source": "theme: tsva-bechol-cover.jpg, kushi-blantis-cover.jpg, vekatavt-cover.jpg",
+          "status": "has-asset",
+          "is_gallery": true,
+          "gallery_count": 3,
+          "suggested_description": "שלוש כריכות הספרים של אייל עמית (הוצאת מוזה): צבע בכחול וזרוק לים, כושי בלאנטיס, וכתבת — תמונות כריכה אמיתיות.",
+          "notes": "img row in ea_w2_08_render L281-283, 128x171 lazy. Real shipped assets, shared with the Hebrew /books cluster (distinct surface on /en)."
+        }
+      ]
+    }
+  ]
+}
