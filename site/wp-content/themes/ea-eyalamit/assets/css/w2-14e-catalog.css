@@ -330,6 +330,22 @@
   margin: 0;
 }
 
+/* Media testimonials — category groups + name→FB link (D-TESTIMONIALS) */
+.ea-wave2-14e .ea-media-intro {
+  margin-block: 0 var(--ea-space-5);
+}
+.ea-wave2-14e .ea-media-cat {
+  margin-block-start: var(--ea-space-8);
+}
+.ea-wave2-14e .ea-tcard__n a {
+  color: inherit;
+  text-decoration: none;
+}
+.ea-wave2-14e .ea-tcard__n a:hover,
+.ea-wave2-14e .ea-tcard__n a:focus-visible {
+  text-decoration: underline;
+}
+
 /* Press / media grid */
 .ea-wave2-14e .ea-press {
   display: grid;

@@ -901,3 +901,9 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-09.php';
  * + compose + scoped catalog CSS).
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-14e.php';
+
+/**
+ * D-TESTIMONIALS (team_110) — 48 Facebook testimonials corpus + accessors
+ * (per-category for service pages, broad set for home, full set for /media).
+ */
+require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
