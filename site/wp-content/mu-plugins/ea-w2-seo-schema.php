@@ -104,6 +104,36 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 			}
 		}
 
+		// --- Product node on a product page (a page carrying ea_product_price meta; W1-08) ---
+		if ( is_page() ) {
+			$pid = (int) get_queried_object_id();
+			if ( $pid && metadata_exists( 'post', $pid, 'ea_product_price' ) ) {
+				$price   = (string) get_post_meta( $pid, 'ea_product_price', true );
+				$product = array(
+					'@type' => 'Product',
+					'@id'   => $site . '#/schema/product/' . $pid,
+					'name'  => get_the_title( $pid ),
+					'url'   => get_permalink( $pid ),
+					'brand' => array( '@id' => $biz_id ),
+				);
+				if ( has_post_thumbnail( $pid ) ) {
+					$product['image'] = get_the_post_thumbnail_url( $pid, 'full' );
+				}
+				// Offer only when the price is a real number — omit for "מחיר לפי התאמה" (no fake/zero price).
+				if ( is_numeric( $price ) ) {
+					$product['offers'] = array(
+						'@type'         => 'Offer',
+						'price'         => $price,
+						'priceCurrency' => 'ILS',
+						'availability'  => 'https://schema.org/InStock',
+						'url'           => get_permalink( $pid ),
+						'seller'        => array( '@id' => $biz_id ),
+					);
+				}
+				$graph[] = $product;
+			}
+		}
+
 		return $graph;
 	}
 	add_filter( 'wpseo_schema_graph', 'ea_w2_seo_schema_graph', 20, 2 );
