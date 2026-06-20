@@ -43,7 +43,9 @@ export const PAGE_MAP = [
   { path: '/repair/', source: "תיקון כלי דיג'רידו/build didg.md" },
   {
     path: '/eyal-amit/mokesh-dahiman/',
-    source: 'מוקש דהימן/ומה היום.docx',
+    // team_110 2026-06-21: re-pointed from the «ומה היום» fragment to Eyal's FULL
+    // memorial doc (11 sections) — the page now renders the complete memorial (D-MOKESH).
+    source: "מוקש דהימן/מוקש דהימן – מאסטר דיג'רידו – דף להנצחת זכרו ופועלו 1950-2020.docx",
     label: '/mokesh-dahiman',
     sourceType: 'docx',
   },
@@ -123,6 +125,12 @@ export function normalize(text) {
   t = t.replace(/\u05be\s+/g, '\u05be');
   t = t.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
   t = t.replace(/\s+/g, ' ');
+  // Brand normalization (team_110 2026-06-21): the mokesh source doc mixes "jungle
+  // vibes" (\u00B664) and the typo "jungel vibes" (\u00B675); the published page renders the
+  // correct "Jungle Vibes" everywhere (D-SPELLING \u2014 "always the correct spelling").
+  // Fold both spellings AND case to one token on both sides so the verbatim gate
+  // matches the corrected render (mirrors the geresh/dash display normalizations).
+  t = t.replace(/jung(?:le|el)\s+vibes/gi, 'jungle vibes');
   // Drop a space before sentence punctuation \u2014 never content; it is a tag-strip
   // artifact of inline markup ending right before the mark, e.g. <a>\u2026\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5</a>.
   // becomes "\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5 ." (team_100 fix 2026-06-05).

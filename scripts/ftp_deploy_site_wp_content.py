@@ -127,6 +127,8 @@ def main() -> None:
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-nav-repair-canonical-once.php", "wp-content/mu-plugins/ea-w2-10-nav-repair-canonical-once.php"))
     # W1-02: SEO entity schema (extends Yoast @graph with Person/ProfessionalService/Service).
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-seo-schema.php", "wp-content/mu-plugins/ea-w2-seo-schema.php"))
+    # W2-14-E (team_110): seed the 19 Mokesh memorial photos into the media library.
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-14e-mokesh-media-seed-once.php", "wp-content/mu-plugins/ea-w2-14e-mokesh-media-seed-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

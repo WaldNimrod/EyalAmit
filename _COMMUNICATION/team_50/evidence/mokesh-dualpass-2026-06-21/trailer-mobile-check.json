@@ -1,0 +1,26 @@
+{
+  "desktop": {
+    "trailerIsIframe": true,
+    "iframeSrc": "https://www.youtube-nocookie.com/embed/kf4NKSdYi9E?autoplay=1&mute=1&controls=0&loop=1&playlist=kf4NKSdYi9E&playsinline=1&rel=0&modestbranding=1&disablekb=1&fs=",
+    "heroClass": "ea-mem-hero ea-mem-hero--trailer ea-mem-hero--playing",
+    "yt": {
+      "muted": true,
+      "state": 1,
+      "url": "https://www.youtube.com/watch?list=TLGGyzZkN1NIFDAyMDA2MjAyNg&v=kf4NKSdYi9E"
+    }
+  },
+  "afterUnmute": {
+    "unmutePressed": "true",
+    "unmuteLabel": "השתקת קול",
+    "yt": {
+      "muted": false,
+      "state": 1
+    }
+  },
+  "mobile": {
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "overflow": false
+  },
+  "ts": "2026-06-20T23:05:10.447Z"
+}

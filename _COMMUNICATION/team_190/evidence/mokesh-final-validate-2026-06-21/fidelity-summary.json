@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-06-21T00:00:00.000Z",
+  "route": "/eyal-amit/mokesh-dahiman/",
+  "checks": {
+    "docProseSections": 9,
+    "eulogySection": true,
+    "omMukeshMantra": true,
+    "docSectionsTotal": 11,
+    "jungleVibesCount": 21,
+    "jungelMisspellingCount": 0,
+    "heroTrailerYtid": "kf4NKSdYi9E",
+    "heroUnmuteButton": true,
+    "eaMokeshJsLoaded": true,
+    "photosOrdered01to19": true,
+    "photoCount": 19,
+    "fullFilmPlaceholder": true,
+    "fbEmbedCount": 4,
+    "canonicalTag": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+    "videoObjectPresent": true,
+    "videoObjectUploadDateOmitted": true
+  },
+  "verdict": "PASS"
+}

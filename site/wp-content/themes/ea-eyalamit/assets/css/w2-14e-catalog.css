@@ -381,3 +381,175 @@
   color: var(--ea-on-dark);
   margin-block: 0 var(--ea-space-5);
 }
+
+/* =============================================================
+   MEMORIAL — trailer hero (WP-W2-14-E, team_110). YouTube IFrame API
+   plays the muted trailer as a hero background (assets/js/ea-mokesh.js);
+   reduced-motion / no-JS keeps the dignified chocolate→ink gradient.
+   ============================================================= */
+.ea-wave2-14e .ea-mem-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  /* matches the hero gradient so the pre-play / no-video state is seamless */
+  background: linear-gradient(180deg, var(--ea-chocolate) 0%, var(--ea-ink) 100%);
+}
+/* Cover-fit the 16:9 embed to the hero box (clipped by .ea-mem-hero overflow:hidden). */
+.ea-wave2-14e .ea-mem-hero__media iframe,
+.ea-wave2-14e .ea-mem-hero__media #ea-mokesh-trailer {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 56.25vw; /* 100vw * 9/16 */
+  min-width: 177.78vh; /* 100vh * 16/9 */
+  min-height: 100vh;
+  border: 0;
+  pointer-events: none;
+}
+.ea-wave2-14e .ea-mem-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(46, 43, 40, 0.58) 0%, rgba(46, 43, 40, 0.8) 100%);
+}
+.ea-wave2-14e .ea-mem-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+.ea-wave2-14e .ea-mem-hero__unmute {
+  position: absolute;
+  z-index: 3;
+  inset-block-end: var(--ea-space-4);
+  inset-inline-end: var(--ea-space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 8px;
+  padding-inline: 16px;
+  background: rgba(46, 43, 40, 0.6);
+  color: var(--ea-on-dark);
+  border: 1px solid var(--ea-sand);
+  border-radius: var(--ea-radius-pill);
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.ea-wave2-14e .ea-mem-hero__unmute:hover,
+.ea-wave2-14e .ea-mem-hero__unmute:focus-visible {
+  background: rgba(46, 43, 40, 0.85);
+}
+.ea-wave2-14e .ea-mem-hero__unmute-icon::before {
+  content: "\1F507"; /* muted speaker */
+}
+.ea-wave2-14e .ea-mem-hero__unmute.is-on .ea-mem-hero__unmute-icon::before {
+  content: "\1F50A"; /* speaker on */
+}
+
+/* Eulogy signature */
+.ea-wave2-14e .ea-mem-sign {
+  margin-block-start: var(--ea-space-5);
+}
+.ea-wave2-14e .ea-mem-sign p {
+  margin: 0;
+  font-weight: 300;
+  color: var(--ea-earth);
+  line-height: 1.9;
+}
+.ea-wave2-14e .ea-mem-sign__name {
+  font-weight: 400;
+  color: var(--ea-terracotta);
+  margin-block-start: var(--ea-space-2) !important;
+}
+
+/* Closing mantra band (dignified dark band, reuses ink/sand tokens) */
+.ea-wave2-14e .ea-mem-mantra {
+  background: var(--ea-ink);
+  color: var(--ea-on-dark);
+  text-align: center;
+  padding-block: var(--ea-space-10);
+  padding-inline: var(--ea-gutter);
+}
+.ea-wave2-14e .ea-mem-mantra__line {
+  font-weight: 200;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ea-sand);
+  margin-block: 0 var(--ea-space-3);
+}
+.ea-wave2-14e .ea-mem-mantra__om {
+  font-weight: 300;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: var(--ea-on-dark);
+  margin: 0;
+}
+
+/* 19-photo memorial gallery — CSS-columns masonry preserves each photo's native
+   aspect ratio (portraits + landscapes mixed) without cropping. */
+.ea-wave2-14e .ea-mem-photos {
+  columns: 3 240px;
+  column-gap: var(--ea-space-4);
+}
+.ea-wave2-14e .ea-mem-photo {
+  break-inside: avoid;
+  margin: 0 0 var(--ea-space-4);
+}
+.ea-wave2-14e .ea-mem-photo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--ea-radius-img);
+}
+
+/* Full-film placeholder slot */
+.ea-wave2-14e .ea-mem-film {
+  background: var(--ea-bg);
+  border: 1px solid var(--ea-line);
+  border-radius: var(--ea-radius-img);
+  padding: var(--ea-space-6);
+  text-align: center;
+}
+.ea-wave2-14e .ea-mem-film__ph {
+  color: var(--ea-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-block: 0 var(--ea-space-4);
+}
+.ea-wave2-14e .ea-mem-film__link {
+  display: inline-block;
+  padding-block: 10px;
+  padding-inline: 22px;
+  border: 1px solid var(--ea-ink);
+  border-radius: var(--ea-radius-pill);
+  color: var(--ea-ink);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+.ea-wave2-14e .ea-mem-film__link:hover,
+.ea-wave2-14e .ea-mem-film__link:focus-visible {
+  background: var(--ea-ink);
+  color: var(--ea-on-dark);
+}
+
+/* Facebook post embeds (very bottom) */
+.ea-wave2-14e .ea-mem-fb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ea-space-4);
+  justify-content: center;
+}
+.ea-wave2-14e .ea-mem-fb__item {
+  flex: 0 1 500px;
+  max-width: 100%;
+}
+.ea-wave2-14e .ea-mem-fb__frame {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: 640px;
+  border: 0;
+  margin-inline: auto;
+}

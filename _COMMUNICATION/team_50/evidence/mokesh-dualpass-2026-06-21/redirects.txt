@@ -1,0 +1,14 @@
+=== /about/moksha/ ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sat, 20 Jun 2026 23:01:49 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
