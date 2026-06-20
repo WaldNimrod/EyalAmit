@@ -55,8 +55,10 @@ EMPTY_TARGET_MAP = {
     "%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/books/vekatavta/",
     # הופעות
     "%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa": "/shows/",
-    # מוזה הוצאה לאור
-    "%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8": "/muzza/",
+    # מוזה הוצאה לאור — DIRECT to /books/ (WP-W2-15-CR-FINAL F-CRF-02, 2026-06-05): /muzza is a
+    # PERMANENT 301 to /books (functions.php ea_eyalamit_muzza_to_books_redirect, template_redirect
+    # prio 0), so targeting /muzza here would create a 2-hop. Target /books directly. Do NOT revert.
+    "%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8": "/books/",
     # כושי בלאנטיס אוטוביוגרפיה (book page) — DIRECT canonical (team_100 correction 2026-05-30, LIVE+verified)
     "%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/books/kushi-blantis/",
     # שיעורי נגינה בדיגרידו
