@@ -39,6 +39,7 @@ EXPORT_TYPE_QUESTIONS = "eyal-questions"
 EXPORT_TYPE_DRIVE_INTAKE = "eyal-drive-intake"
 EXPORT_TYPE_MEETING_SNAPSHOT = "eyal-meeting-snapshot"
 EXPORT_TYPE_MEDIA_INTAKE = "eyal-media-intake"
+EXPORT_TYPE_CONTENT_PROPOSALS = "eyal-content-proposals"
 DEFAULT_RESPONDENT = "Eyal Amit"
 PROJECT_META = "EyalAmit2026"
 DEFAULT_HUB_VIEW_VERSION = "1.1.0"
@@ -310,6 +311,7 @@ def nav(active: str) -> str:
         ("content-intake.html", "קליטת תוכן"),
         ("materials-intake.html", "השלמות מאייל"),
         ("media-intake.html", "מדיה ותמונות"),
+        ("content-proposals.html", "הצעות תוכן"),
         ("meeting.html", "תדריך פגישה"),
         ("purchase-links.html", "קישורי רכישה"),
         ("content-index.html", "אינדקס תוכן"),
@@ -1338,6 +1340,146 @@ def page_media_intake(media: dict, generated_iso: str) -> str:
     html += '<button class="btn-export" type="button" id="btn-export-media">ייצוא קליטת מדיה (JSON)</button>\n'
     html += "</div>\n</div>\n"
     html += MEDIA_INTAKE_JS
+    html += foot(generated_iso)
+    return html
+
+
+CONTENT_PROPOSALS_STYLE = """<style>
+.cp-progress{margin:.6rem 0 1rem;padding:.5rem .8rem;background:#f3f6ef;border:1px solid #d8e2c8;border-radius:8px;font-size:.95rem}
+.cp-progress .done{color:#1b5e3f;font-weight:700}.cp-progress .miss{color:#9a6a00;font-weight:700}
+.cp-card{border:1px solid #e2dccd;border-radius:10px;padding:.8rem 1rem;margin:.7rem 0;background:#fff}
+.cp-card[data-filled="1"]{border-color:#9cc4ad;background:#f7fbf8}
+.cp-head{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:.3rem}
+.cp-id{font-family:monospace;font-size:.78rem;background:#1b5e3f;color:#fff;padding:.1rem .45rem;border-radius:6px}
+.cp-type{font-size:.78rem;padding:.1rem .5rem;border-radius:20px;border:1px solid}
+.cp-type--add{background:#eef7f1;color:#1b5e3f;border-color:#bfe0cb}
+.cp-type--refine{background:#eef3f8;color:#1257a6;border-color:#cfe0f0}
+.cp-title{font-weight:700;font-size:1.02rem;color:#14402c}
+.cp-pill{margin-inline-start:auto;font-size:.8rem;color:#1b5e3f;font-weight:700}
+.cp-meta{font-size:.92rem;line-height:1.6;color:#2c3a32;margin:.2rem 0}
+.cp-meta b{color:#14402c}
+.cp-draft{background:#fafaf6;border:1px solid #e6e0d2;border-radius:8px;padding:.55rem .7rem;margin:.45rem 0;white-space:pre-wrap;font-size:.92rem;line-height:1.65;color:#33403a}
+.cp-ask{background:#fff7e0;border:1px solid #f0d98a;border-right:4px solid #e0a500;border-radius:8px;padding:.5rem .7rem;margin:.45rem 0;font-size:.9rem}
+.cp-inputs{display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end;border-top:1px dashed #e2dccd;padding-top:.6rem;margin-top:.5rem}
+.cp-inputs label{display:flex;flex-direction:column;font-size:.82rem;font-weight:600;gap:.25rem}
+.cp-editwrap,.cp-notewrap{flex:1;min-width:15rem}
+.cp-inputs select,.cp-inputs textarea{padding:.4rem .55rem;border:1px solid #cfc8b8;border-radius:8px;font-size:.92rem;font-family:inherit;width:100%}
+@media(max-width:640px){.cp-inputs{flex-direction:column;align-items:stretch}.cp-editwrap,.cp-notewrap{min-width:0}}
+</style>"""
+
+CONTENT_PROPOSALS_JS = """<script>
+(function(){
+  var LS='ea-content-proposals-v1';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return {}}}
+  function save(s){try{localStorage.setItem(LS,JSON.stringify(s))}catch(e){}}
+  var PILL={approve:'\\u2713 אושר',edit:'\\u270e עם עריכה',reject:'\\u2715 נדחה',discuss:'\\u2026 לדיון'};
+  var state=load();
+  var cards=[].slice.call(document.querySelectorAll('.cp-card'));
+  function refresh(){
+    var tot=cards.length,done=0;
+    cards.forEach(function(c){var id=c.getAttribute('data-id');var o=state[id];var ok=!!(o&&o.decision);
+      if(ok)done++;var pill=c.querySelector('[data-pill]');if(pill)pill.textContent=ok?(PILL[o.decision]||''):'';
+      c.setAttribute('data-filled',ok?'1':'0');});
+    var p=document.getElementById('cp-progress');
+    if(p)p.innerHTML='התקדמות: <span class="done">'+done+' הוכרעו</span> · <span class="miss">'+(tot-done)+' נותרו</span> · מתוך '+tot+' הצעות. נשמר אוטומטית במכשיר שלך.';
+  }
+  cards.forEach(function(c){
+    var id=c.getAttribute('data-id');
+    var sel=c.querySelector('.cp-decision'),ed=c.querySelector('.cp-edit'),nt=c.querySelector('.cp-note');
+    var o=state[id]||{};
+    if(sel)sel.value=o.decision||'';if(ed)ed.value=o.edit||'';if(nt)nt.value=o.notes||'';
+    function upd(){state[id]={decision:sel?sel.value:'',edit:ed?ed.value:'',notes:nt?nt.value:''};save(state);refresh();}
+    if(sel)sel.addEventListener('change',upd);if(ed)ed.addEventListener('input',upd);if(nt)nt.addEventListener('input',upd);
+  });
+  refresh();
+  var btn=document.getElementById('btn-export-content-proposals');
+  if(btn)btn.addEventListener('click',function(){
+    var resp=(document.getElementById('respondent')||{}).value||'';
+    var items=cards.map(function(c){var id=c.getAttribute('data-id');var o=state[id]||{};return {id:id,decision:o.decision||'',edit:o.edit||'',notes:o.notes||''};});
+    var out={type:'eyal-content-proposals',respondent:resp,generated:new Date().toISOString(),items:items};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='eyal-content-proposals-'+(new Date().toISOString().slice(0,10))+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>
+"""
+
+_CP_SECTIONS = [
+    ("CP", "🆕 עמוד עוגן חדש — דיג'רידו ונחירות / דום נשימה בשינה"),
+    ("AF", "✍️ תשובה-קודם בעמודי השירות"),
+    ("BN", "🏷️ מיתוג השם (cbDIDG)"),
+    ("FAQ", "❓ תוספות לשאלות נפוצות"),
+    ("BLOG", "📝 פוסטי בלוג (אשכולות)"),
+]
+_CP_TYPE_HE = {"add": "תוכן חדש", "refine": "דיוק/עריכה"}
+
+
+def _cp_card(it: dict) -> str:
+    pid = it.get("id", "")
+    pt = it.get("ptype", "")
+    s = f'<div class="cp-card" data-id="{escape(pid)}">\n<div class="cp-head">\n'
+    s += f'<span class="cp-id">{escape(pid)}</span>\n'
+    s += f'<span class="cp-type cp-type--{escape(pt)}">{escape(_CP_TYPE_HE.get(pt, pt))}</span>\n'
+    s += f'<span class="cp-title">{escape(it.get("title_he", ""))}</span>\n'
+    s += '<span class="cp-pill" data-pill></span>\n</div>\n'
+    s += f'<div class="cp-meta"><b>מה:</b> {escape(it.get("what", ""))}</div>\n'
+    s += f'<div class="cp-meta"><b>למה:</b> {escape(it.get("why", ""))}</div>\n'
+    if it.get("surface"):
+        s += f'<div class="cp-meta"><b>מיקום:</b> {escape(it.get("surface", ""))}</div>\n'
+    draft = it.get("draft_or_outline", "")
+    if draft:
+        s += f'<div class="cp-meta"><b>טיוטה / מתווה מוצע:</b></div>\n<div class="cp-draft">{escape(draft)}</div>\n'
+    s += f'<div class="cp-ask"><b>מה נדרש ממך:</b> {escape(it.get("eyal_decision", ""))}</div>\n'
+    s += '<div class="cp-inputs">\n'
+    s += (
+        '<label>הכרעה\n<select class="cp-decision">'
+        '<option value="">— בחר —</option>'
+        '<option value="approve">אשר</option>'
+        '<option value="edit">אשר עם עריכה</option>'
+        '<option value="reject">דחה</option>'
+        '<option value="discuss">לדיון</option>'
+        "</select></label>\n"
+    )
+    s += '<label class="cp-editwrap">נוסח מתוקן (אם «אשר עם עריכה»)\n<textarea class="cp-edit" rows="3" placeholder="הדביקו/כתבו את הנוסח שתרצו"></textarea></label>\n'
+    s += '<label class="cp-notewrap">הערות\n<textarea class="cp-note" rows="2" placeholder="הערות"></textarea></label>\n'
+    s += "</div>\n</div>\n"
+    return s
+
+
+def page_content_proposals(cp: dict, generated_iso: str) -> str:
+    """Eyal content-approval surface — proposed SEO/GEO content additions/refinements,
+    each with what/why/draft + a decision (approve / approve-with-edits / reject / discuss),
+    edit box, and notes. Auto-saves to localStorage; export emits `eyal-content-proposals`.
+    """
+    proposals = cp.get("proposals", [])
+    html = head("הצעות תוכן לאישור — אייל עמית", extra_scripts=CONTENT_PROPOSALS_STYLE)
+    html += nav("content-proposals")
+    html += '<div class="wrap">\n'
+    html += f'<h1>{escape(cp.get("title", "הצעות תוכן לאישור"))}</h1>\n'
+    html += '<p>אלה הצעות תוכן לקידום SEO/GEO. לכל הצעה: <b>מה</b> מוצע, <b>למה</b> (הנימוק), <b>טיוטה</b>, ו<b>מה נדרש ממך</b>. סמנו לכל אחת — אישור / אישור עם עריכה / דחייה / לדיון — וערכו את הנוסח אם תרצו. נשמר אוטומטית; בסיום ייצאו JSON ושלחו אלינו.</p>\n'
+    html += '<div class="cp-progress" id="cp-progress">טוען מצב…</div>\n'
+    html += '<div class="respondent-field feedback-field">\n<label for="respondent">שם המגיש</label>\n'
+    html += f'<input type="text" id="respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם...">\n</div>\n'
+    used = set()
+    idx = 0
+    for prefix, label in _CP_SECTIONS:
+        group = [p for p in proposals if str(p.get("id", "")).split("-")[0] == prefix]
+        if not group:
+            continue
+        sec = "".join(_cp_card(it) for it in group)
+        for it in group:
+            used.add(it.get("id"))
+        html += hub_acc_section(f"cp-{idx}", f"{label} — {len(group)}", sec, open_default=(idx == 0))
+        idx += 1
+    leftover = [p for p in proposals if p.get("id") not in used]
+    if leftover:
+        html += hub_acc_section(f"cp-{idx}", f"נוספות — {len(leftover)}", "".join(_cp_card(it) for it in leftover), open_default=False)
+    html += '<div class="export-section">\n'
+    html += "<p>הטופס נשמר אוטומטית בדפדפן — אפשר לחזור ולהמשיך בכל עת. בסיום: ייצאו JSON ושלחו אלינו (וואטסאפ / מייל).</p>\n"
+    html += '<button class="btn-export" type="button" id="btn-export-content-proposals">ייצוא הכרעות תוכן (JSON)</button>\n'
+    html += "</div>\n</div>\n"
+    html += CONTENT_PROPOSALS_JS
     html += foot(generated_iso)
     return html
 
@@ -2663,6 +2805,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     content_index = load_json_optional(DATA_DIR / "content-index.json")
     materials_needed = load_json_optional(DATA_DIR / "materials-needed.json")
     media_inventory = load_json_optional(DATA_DIR / "media-inventory.json")
+    content_proposals = load_json_optional(DATA_DIR / "content-proposals.json")
     ssot_answers = load_ssot_answers()
 
     if ssot_answers:
@@ -2738,6 +2881,10 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     if media_inventory:
         (dist_dir / "media-intake.html").write_text(
             page_media_intake(media_inventory, generated_iso), encoding="utf-8"
+        )
+    if content_proposals:
+        (dist_dir / "content-proposals.html").write_text(
+            page_content_proposals(content_proposals, generated_iso), encoding="utf-8"
         )
     (dist_dir / "purchase-links.html").write_text(
         page_purchase_links(site_tree, generated_iso), encoding="utf-8"

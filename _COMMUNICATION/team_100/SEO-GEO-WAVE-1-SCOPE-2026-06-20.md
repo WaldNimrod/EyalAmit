@@ -1,0 +1,30 @@
+<!-- team_100 SEO/GEO finalization — execution-prep workflow wf_2a85ad67-08d, 2026-06-20. Builds on LOD400 + exec plan + completion register. -->
+
+## WAVE 1 — buildable NOW (no Eyal decision, no question to Eyal)
+
+**Source of truth:** built on `SEO-GEO-EXECUTION-PLAN-2026-06-20.md` (WP-01…WP-13, decision-gates D1–D13, Appendix pre-build blockers) + `COMPLETION-ROUND-ROADMAP-2026-06-20.md` (§1 Eyal-deps, §3 SEO-B1…B5, §4 301-1/301-2). Every code claim below was re-verified against the live theme `site/wp-content/themes/ea-eyalamit/` and `site/wp-content/mu-plugins/` on 2026-06-20.
+
+### The gate logic for "Wave 1"
+An item is **IN Wave 1** iff it is buildable with what we already have — i.e. its blocking decision-gates are **already closed/confirmed in the plan** (D1, D2, D5, D6, D7, D8, D9 are all marked *confirmed/closed*; D11 GA4 id `G-MRXESK7QJF` is confirmed and present in `hub/data/analytics-config.json`; D3 allow-GPTBot is a recommend-and-log, not an Eyal question; D13 EN-out-of-scope is decided) **and** it needs no content approval, no new media, and no Eyal account access. It is **OUT/deferred** iff it is gated on EYL-1 (Clarity id), EYL-2 (full-film URL), EYL-3 (new media), D10 (Mukesh memorial facts — promoted to a day-one *owner ask* but still pending and unknown-latency), or anything requiring GBP/Wikidata/YouTube account access, new prose Eyal must approve, or D12 keyword-volume verification.
+
+### What Wave 1 delivers (and why it is the launch-critical core)
+1. **Stops the lead leak + lights up measurement (WP-01a/b/c/d + WP-13a)** — the single highest-ROI work. Confirmed live: the joint analytics gate at `inc/wave2-stage-b.php:420` is dark because it requires **both** GA4 *and* Clarity to be non-pending; the A/B JS (`assets/js/ea-ab-testing.js:28-30`) sets `display:none` on `.ea-whatsapp-float` for the `form_only` variant (≈⅓ of sessions); every lead-path `wa.me` link is bare (no `?text=` — only the blog *share* link at `tpl-blog-single.php:78` has a prefill); the hero ships a single ghost-white CTA (`block-hero.php:58-64`), no WhatsApp pill; the contact-form fallback renders a "TBD" note with no `tel:`/WhatsApp fallback (`wave2-stage-b.php:354`).
+2. **Crawl-policy + machine-readable head (WP-04)** — zero canonical/OG/Twitter exist in the theme; hreflang exists only for /en↔home; robots.txt exists only as the **block-all artifact** `hub/dist/robots.txt` (`User-agent: * / Disallow: /`).
+3. **JSON-LD @graph for no-new-content entities (WP-02-core)** — zero JSON-LD today; all gating decisions (D1/D2/D5/D6) are closed, NAP SSoT + `EA_WAVE2_WHATSAPP_E164='972524822842'` are in-repo.
+4. **Image hygiene / WebP / LCP on EXISTING assets (WP-05)** — zero `.webp` in the theme; all-JPG; hero poster present.
+5. **Honest Product/Offer schema on existing meta (WP-08-schema-half)** — `ea_product_price` meta exists and returns a string; needs an `is_numeric()` guard to omit the Offer node on the "מחיר לפי התאמה" fallback.
+6. **Pure-code SEO-B blockers** — the sleep-apnea pillar **URL mechanism** (SEO-B1, top-level injector path; *content of the pillar is deferred*), the **sitemap-URL reconciliation** (SEO-B2/B5: WP core emits `/wp-sitemap.xml`, the live 301 maps the old sitemap to `/sitemap_index.xml` which 404s), and the **/Blog/ 301 generator fix** (301-1: the PHP emit uses exact `isset($map[$norm])` with no regex prefix; the .htaccess RewriteRule is inert on nginx, so 54 `/Blog/<slug>/` URLs have no live 301).
+7. **Route-enumeration audit (SEO-B5)** — list the real 200 routes that currently get only the tagline-fallback meta and zero OG/canonical, so Wave-1 head/schema work covers them (this is an inventory + code task, no Eyal input).
+8. **GSC baseline prep + funnel-event instrumentation (WP-13)** — the GSC property connect/verify and the `generate_lead` event wiring are buildable now (the *baseline numbers* are captured at cutover; the harness is built now).
+
+### Hard boundary — what is explicitly DEFERRED out of Wave 1
+- **Clarity** (EYL-1): keep GA4 firing independently; do NOT wait for Clarity.
+- **Full Mukesh film** (EYL-2) and **D10 Mukesh memorial facts**: no VideoObject/heritage embed, no `/about/moksha/` 301-target freeze that needs confirmed facts.
+- **New media** (EYL-3): no new hero backgrounds, no real studio portrait — Wave 1 only optimizes assets already in the repo.
+- **Business-name decision is closed (D1) → NOT a blocker** for the *footer brand-string fix* and NAP lock (those are Wave 1). But **GBP/Wikidata/YouTube/niche-directory** work (WP-09) needs Eyal **account access** → deferred.
+- **Sleep-apnea pillar prose, blog cluster (WP-10), digital-PR/reviews (WP-11)**: content/approval/owner-action → deferred. Only the *URL mechanism* and *answer-first H2 code scaffolding hooks* are Wave 1.
+- **The full WP-12 cutover**: the one irreversible Track-B op → deferred (its prerequisites — robots/meta, analytics, the /Blog/ generator fix, sitemap reconciliation — are Wave 1).
+- **CF7 live-form activation**: SEO-B4 is a **server/ops** dependency (CF7 must be active on prod for `form_id` to resolve; `class_exists('WPCF7_ContactForm')`-gated). The *deliverability/SMTP/spam-protection + end-to-end lead-receipt test* is OPS, not a theme commit → the field-trim sub-task is Wave 1, but the live activation + receipt test is deferred to the ops/cutover track.
+
+### Sequencing inside Wave 1
+`W1-01` (CRO+GA4 un-gate) and `W1-13` (event harness) ship first and together — they are the funnel. `W1-04` (robots/meta/head) is independent and parallel. `W1-02` (JSON-LD core) is the dependency root for `W1-08` (Product/Offer). `W1-05` (images) feeds the ImageObject nodes in `W1-02`. The three pure-code blockers (`W1-06` /Blog/, `W1-07` sitemap, `W1-09` route audit) are independent and can land any time. `W1-03` (pillar URL mechanism) is independent code.
