@@ -36,6 +36,7 @@
     }
     wa.addEventListener('click', function () {
       track('whatsapp_cta_click', { variant_label: stored });
+      track('generate_lead', { method: 'whatsapp', variant_label: stored });
     });
   }
 
@@ -116,5 +117,10 @@
       }
       track('outbound_click', { link_url: href, link_platform: platform });
     });
+  });
+
+  // W1-13: GA4 conversion event on a successful CF7 contact-form submission.
+  document.addEventListener('wpcf7mailsent', function () {
+    track('generate_lead', { method: 'form' });
   });
 })();
