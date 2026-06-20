@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "currentGateLabelHe": "שער M4 → Wave2 (9 חבילות עבודה LOD200) — אחרי סגירת 21 שאלות אייל",
-  "currentFocusId": "MILESTONE-M4-WAVE2",
+  "currentGateLabelHe": "M4 (בנייה) הושלם ואומת — עוברים ל‑M5: סבב איכות, אופטימיזציה ועיצוב לקראת מסירה (M7)",
+  "currentFocusId": "MILESTONE-M5",
   "milestoneProgress": {
-    "completedCount": 3,
+    "completedCount": 4,
     "totalCount": 7,
-    "percent": null
+    "percent": 57
   },
-  "summaryHe": "Wave1 הושלם (book-detail v2, book-tsva/vekatavta/kushi FINAL, treatment FINAL).\n2026-05-26: סבב אייל סגר 21 פערים פתוחים. Wave2 פעיל עם 9 חבילות עבודה LOD200 מלאות\n(WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md). מסלול: ליבה (W2-01,02) [Stage B prep ✓ L-GATE_BUILD PASS_WITH_FINDINGS] → ספרים/שיעורים/שופ\nבמקביל → בלוג+כתבות → EN+cutover.\nהמתנה: וידאו Hero מאייל (תוך ימים, placeholder עד אז).\n301 ב-Drive אצל אייל לעבודה אסינכרונית.",
+  "summaryHe": "האתר נבנה במלואו ואומת. כל התוכן לפי הקבצים שלך (מילה‑במילה), בלוג (54 פוסטים), שלושת הספרים, החנות ועמודי השירות. סבב הפיצ'רים האחרון (WP‑W2‑16) הושלם ועבר בדיקת איכות חוצת‑מנועים (דואל‑PASS): וידאו רקע בדף הבית, קרוסלת ממליצים נעה, ניווט נושאים בעמוד השאלות הנפוצות, עמוד «אייל עמית» (/eyal‑amit) כעמוד האודות הקנוני, ועמוד ההנצחה למוקש דהימן (מילה‑במילה מהמסמך «ומה היום»). דיוק תוכן 16/17 עמודים, נגישות 0/0, רספונסיב נקי. כעת ב‑M5 — סבב איכות: אופטימיזציית SEO/GEO, בדיקת עיצוב וממשק סופית, ורספונסיב מלא; ואז M7 — מסירה ועלייה לאוויר.",
   "eyalNarrative": {
     "titleHe": "נטיב אייל — תוכן, אישורים ושיווק",
     "introHe": "החלק הזה מתאר בשפה של בעלים: מה נדרש ממך בכל נושא ומה מתקבל בסוף. למטה מופיע נפרד נטיב טכני לצוות (משימות מזוהות M2-T).",
@@ -123,11 +123,11 @@
     ]
   },
   "clientObligationsHe": [
-    "מסמך מפתח: eyal_amit_dev_brief_GEO_AEO_SEO.md (from-eyal) — מגדיר תפריט §6.1, 12 בלוקי בית, Hero §8.2, FAQ. להשתמש ב־Hub: החלטות (tasks.html), עץ (site-tree.html), קליטת תוכן (content-intake.html).",
-    "נעילה (2026-04-06): עץ האתר ומוקאף דף הבית אושרו על ידי אייל — ראו כניסת Hub «נעול ליישום» ו־treeApprovedDocRef ב־site-tree.json. שינוי מבנה — רק בסבב חדש.",
-    "לסנכרן SSOT / מסמכי sitemap רשמיים מול העץ הנעול (משימת צוות M2-T-EYAL-SITEMAP).",
-    "תוכן לעמודים: content-intake.html — קבצים גדולים ב־Drive; בטופס רק שם קובץ או קישור.",
-    "פירוט מלא לפי שלב: EYAL-CLIENT-OBLIGATIONS-BY-PHASE.md במאגר."
+    "עמוד מוקש דהימן: הקדמה ביוגרפית קצרה («מי היה מוקש»), אישור תאריכי לידה‑פטירה (כרגע 1950–2020), ו‑3 תמונות לעמוד ההנצחה — ראו materials‑intake (I3–I5).",
+    "ממליצים נוספים לקרוסלה (ציטוט + שם, 5–10 מומלץ) — materials‑intake (I1).",
+    "מזהי אנליטיקס: Google Analytics (GA4) + Microsoft Clarity — לחיבור מדידה לפני העלייה לאוויר.",
+    "פרטי קשר ומיקום לאישור: וואטסאפ +972 52‑482‑2842, וכתובת/שעות הסטודיו בפרדס חנה (לסכמת LocalBusiness ול‑SEO).",
+    "אישור התוכן החי לאחר רענון מטמון (פריטים 4/5/7/9 כבר מומשו ואומתו) — materials‑intake (I2)."
   ],
   "milestones": [
     {
@@ -155,15 +155,15 @@
       "id": "MILESTONE-M4",
       "code": "M4",
       "titleHe": "אינטגרציות והמרות",
-      "status": "in_progress",
-      "detailHe": "ירוקה, קורסים, טפסים — השלמה תפעולית סופית בפרודקשן; יישום DEFERRED מתיק governance (G1,G2,G8,G9); 301 ראשוני; מקביל — תוכן CEO.\n\nWave1 → COMPLETED (book-detail v2 + 3 ספרים + טיפול FINAL).\nWave2 → ACTIVE (9 חבילות LOD200, ראו WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md)."
+      "status": "completed",
+      "detailHe": "הושלם ואומת (דואל‑PASS חוצת‑מנועים: צוות 50 + צוות 190). Wave1 + Wave2 (9 חבילות) + סבב פוסט‑תוכן WP‑W2‑16 — וידאו hero, קרוסלת ממליצים, ניווט FAQ, /eyal‑amit קנוני, עמוד ההנצחה למוקש. דיוק תוכן 16/17, נגישות 0/0, 0 גלישה אופקית, הפניות 301 בקפיצה אחת."
     },
     {
       "id": "MILESTONE-M5",
       "code": "M5",
       "titleHe": "איכות לפני מסירה",
-      "status": "not_started",
-      "detailHe": "בדיקות, SEO בסיסי, נגישות, הכנת 301; תוכנית והכנה למעבר מלא ל‑HTTPS בפרודקשן (כל ענפי הפרויקט — ראו ROADMAP-2026)"
+      "status": "in_progress",
+      "detailHe": "סבב איכות לפני מסירה: (1) אופטימיזציית SEO + GEO — מטא ונתונים מובְנים (JSON‑LD), סייטמאפ/robots, אופטימיזציה למנועי תשובות מבוססי‑AI; (2) בדיקת עיצוב סופית + ממשק משתמש + רספונסיב מלא (360→1920) חוצת‑דפדפנים; (3) הכנת מפת 301 ו‑HTTPS לפרודקשן. כל חבילות העבודה תועדו ברמת LOD200."
     },
     {
       "id": "MILESTONE-M6",
@@ -177,208 +177,31 @@
       "code": "M7",
       "titleHe": "מסירה לאייל",
       "status": "not_started",
-      "detailHe": "גישה, חבילת מסירה, הדרכה; אימות סופי טופס צור קשר; cutover; מעבר מלא ל‑HTTPS/SSL בפרודקשן — אתר, Hub, REST, FTPS, תיעוד (ROADMAP-2026 + LAUNCH-CHECKLIST)"
+      "detailHe": "מסירה ועלייה לאוויר: cutover לפרודקשן (eyalamit.co.il), HTTPS/SSL מלא, אינדוקס, אנליטיקס, אימות סופי, וחבילת מסירה. תלוי בהשלמת M5 ובחומרים/אישורים ממך (ראו «מה נדרש ממך»)."
     }
   ],
   "currentFocusBreakdown": {
-    "milestoneId": "MILESTONE-M4",
-    "titleHe": "M4 — Wave2 פעיל (9 חבילות LOD200)",
-    "introHe": "לאחר סגירת M3 הטכנית (2026-04-07): ליבת M4 — אינטגרציות וטפסים בפרודקשן. במקביל — Wave1: מימוש תוכן מאויש (ספרים + טיפולים) לפי מסלול משלבים; מדיה תחת ea-wave1-media. קליטת zip CONTENT (6 חבילות) הושלמה — המשך עבודה ב־Hub tasks + מסמך M4-CONTENT-IMPLEMENTATION-ROUND.",
+    "milestoneId": "MILESTONE-M5",
+    "titleHe": "M5 — איכות לפני מסירה",
+    "introHe": "לאחר שהאתר נבנה ואומת (M4), אנו בסבב האיכות לקראת המסירה. שלושה ראשי‑פרקים, כולם מתועדים ברמת LOD200:",
     "sections": [
       {
-        "id": "M4-WAVE2-WPS",
-        "titleHe": "M4 → Wave2: 9 חבילות עבודה LOD200 (אושר 2026-05-26)",
-        "introHe": "תוכן 25.5.26 = SSOT; כל מה שאין → מיגרציה 1:1 מהאתר הישן (אומת לייב). LOD200 ראו WAVE2-WORK-PACKAGES-LOD200-2026-05-26.md",
-        "items": [
-          {
-            "id": "WP-W2-01",
-            "titleHe": "תשתית D-14 + טופס + פוטר + Analytics",
-            "status": "in_progress",
-            "estDays": "5-7",
-            "dependsOn": [],
-            "owner": "team_10",
-            "notes": " · Stage B prep COMPLETE 2026-05-26 (L-GATE_BUILD PASS_WITH_FINDINGS, 11/11 VCs); Stage A LOD400 in progress; Stage B implementation awaits Stage A completion.",
-            "stages": {
-              "A_atoms_first": {
-                "status": "complete",
-                "owner": "team_100+team_80",
-                "closure_verdict": "team_190 v2.0.0 PASS_WITH_FINDINGS",
-                "closure_commit": "d376dda"
-              },
-              "B_prep_parallel": {
-                "status": "complete_with_findings",
-                "owner": "team_10",
-                "gate": "L-GATE_BUILD",
-                "verdict_artifact": "_COMMUNICATION/team_50/VERDICT_WP-W2-01-STAGE-B-PREP_L-GATE_BUILD_v1.0.0.md"
-              },
-              "B_impl": {
-                "status": "fail_remediation",
-                "owner": "team_10",
-                "verdict_round_1": "FAIL (deploy gap + cross-engine violation)",
-                "remediation_plan": "_COMMUNICATION/team_100/REMEDIATION-PLAN-STAGE-B-IMPL-FAIL-2026-05-27.md",
-                "current_step": "team_99 deploy in progress"
-              }
-            }
-          },
-          {
-            "id": "WP-W2-02",
-            "titleHe": "ליבת תוכן: בית+שיטה+טיפול+אודות+FAQ+צור קשר",
-            "status": "pending",
-            "estDays": "7-10",
-            "dependsOn": [
-              "WP-W2-01"
-            ],
-            "owner": "team_10+30"
-          },
-          {
-            "id": "WP-W2-03",
-            "titleHe": "מוזה + 3 ספרים (וכתבת/כושי/צבע)",
-            "status": "pending",
-            "estDays": "4-6",
-            "dependsOn": [
-              "WP-W2-02"
-            ],
-            "owner": "team_10"
-          },
-          {
-            "id": "WP-W2-04",
-            "titleHe": "סאונד הילינג + שיעורי נגינה",
-            "status": "pending",
-            "estDays": "3-4",
-            "dependsOn": [
-              "WP-W2-02"
-            ],
-            "owner": "team_10+30"
-          },
-          {
-            "id": "WP-W2-05",
-            "titleHe": "שופ: 4 מוצרים + תיקון + /shop",
-            "status": "pending",
-            "estDays": "4-5",
-            "dependsOn": [
-              "WP-W2-02"
-            ],
-            "owner": "team_10+30"
-          },
-          {
-            "id": "WP-W2-06",
-            "titleHe": "מיגרציית בלוג — 54 פוסטים + 6 קטגוריות + 126 תגיות",
-            "status": "pending",
-            "estDays": "5-7",
-            "dependsOn": [
-              "WP-W2-01"
-            ],
-            "owner": "team_10+40"
-          },
-          {
-            "id": "WP-W2-07",
-            "titleHe": "כתבות + מוקש + 49 QR + עדויות FB",
-            "status": "pending",
-            "estDays": "3-4",
-            "dependsOn": [
-              "WP-W2-02"
-            ],
-            "owner": "team_10+30+40"
-          },
-          {
-            "id": "WP-W2-08",
-            "titleHe": "עמוד EN — תמצית האתר באנגלית",
-            "status": "pending",
-            "estDays": "2-3",
-            "dependsOn": [
-              "WP-W2-02"
-            ],
-            "owner": "team_30"
-          },
-          {
-            "id": "WP-W2-09",
-            "titleHe": "סינון מדיה + 301 + cutover prep",
-            "status": "pending",
-            "estDays": "3-4",
-            "dependsOn": [
-              "WP-W2-01..08"
-            ],
-            "owner": "team_20+50+90"
-          }
-        ]
+        "id": "M5-SEO-GEO",
+        "titleHe": "אופטימיזציית SEO + GEO",
+        "status": "in_progress",
+        "introHe": "מטא לכל עמוד, נתונים מובְנים (JSON‑LD: עסק מקומי, אדם, מוצר, שאלות נפוצות, מאמר), סייטמאפ/robots, וקישוריות פנימית — וגם אופטימיזציה למנועי תשובות מבוססי‑AI (GEO)."
       },
       {
-        "id": "M4-SEC-WAVE1-BOOKS-TREATMENT",
-        "titleHe": "M4 — Wave1: תבנית ספר → ספרים → טיפולים (מסלול פעיל)",
-        "tasks": [
-          {
-            "id": "M4-WAVE1-T1-DESIGN-LOCK-80",
-            "titleHe": "שלב 1 — נעילת תבנית: רפרנס מצוות 80 + חוקי עיצוב מפורטים",
-            "status": "in_progress",
-            "stateHe": "ממתין קליטת קונטקסט/רפרנס מחייב מ־80; עד אז אין pixel-perfect סופי. תלות: פלטה + רשת טיפוגרפיה + מובייל."
-          },
-          {
-            "id": "M4-WAVE1-T2-BOOK-REF-STAGING",
-            "titleHe": "שלב 2 — עמוד ספר ייחוס אחד בסטייג’ינג (פיקסלים) + אישור נימרוד",
-            "status": "not_started",
-            "stateHe": "בסיס: st-book-kushi + POC Hub; השלמת מדיה ודיוק תבנית child. יעד: staging בלבד."
-          },
-          {
-            "id": "M4-WAVE1-T3-BOOKS-ST-BOOKS",
-            "titleHe": "שלב 3 — שכפול תבנית לשאר הספרים + עמוד הוצאה (st-books)",
-            "status": "not_started",
-            "stateHe": "tpl-book-detail / tpl-books לפי עץ נעול."
-          },
-          {
-            "id": "M4-WAVE1-T4-RETRO-RULES",
-            "titleHe": "שלב 4 — בחינת תהליך וחידוד/הרחבת חוקים עיצוביים",
-            "status": "not_started",
-            "stateHe": "לאחר 2+ עמודים באותה תבנית."
-          },
-          {
-            "id": "M4-WAVE1-T5-TREATMENT",
-            "titleHe": "שלב 5 — מימוש עמוד טיפולים + עמוד השיטה (st-svc-treatment + st-method)",
-            "status": "completed",
-            "stateHe": "הושלם 2026-04-12. עמודי טיפול והשיטה חיים בסטייג׳ינג; תוכן מחבילות אפריל 2026."
-          },
-          {
-            "id": "M4-WAVE1-T6-DEPLOY-PRESENT-FEEDBACK",
-            "titleHe": "שלב 6 — פרזנטציה לאייל + קבלת תוכן עמודים נותרים",
-            "status": "in_progress",
-            "stateHe": "פגישה עם אייל 2026-04-13. ממתין לתוכן: About, Home, כיוון SEO."
-          }
-        ]
+        "id": "M5-DESIGN-QA",
+        "titleHe": "בדיקת עיצוב, ממשק ורספונסיב",
+        "status": "planned",
+        "introHe": "השוואת עיצוב מול ההדמיות בכל עמוד, אחידות ממשק, ורספונסיב מלא 360→1920 חוצת‑דפדפנים."
       },
       {
-        "id": "M4-SEC-INTEGRATIONS",
-        "titleHe": "אינטגרציות ותפעול (ליבת M4)",
-        "tasks": [
-          {
-            "id": "M4-T-INTEGRATIONS-CORE",
-            "titleHe": "ירוקה, קורסים (רב מסר), טפסים — השלמה בפרודקשן",
-            "status": "not_started",
-            "stateHe": "ר׳ ROADMAP-2026 אבן M4; runbook צוות 20."
-          },
-          {
-            "id": "M4-T-GOV-DEFERRED",
-            "titleHe": "יישום governance — G2, G3, G8 (+ G1 deferred, G4 שלד)",
-            "status": "completed",
-            "stateHe": "מאגר (2026-04-07): MU ea-m4-g2348-governance-once.php; ea-m2-site-tree-lock-sync-once v1.2 + v3; תמה ea-eyalamit (ea_testimonial_cat, template-media-catalog). פריסה: ftp_deploy_site_wp_content.py. קליטת 100: M3-EXECUTION-PLAN §§8 G2348 + M3-GOVERNANCE §9."
-          }
-        ]
-      },
-      {
-        "id": "M4-SEC-CONTENT-PARALLEL",
-        "titleHe": "מקביל — תוכן CEO (לא נעצר)",
-        "tasks": [
-          {
-            "id": "M4-T-CEO-INTAKE",
-            "titleHe": "קליטת חבילות zip מ־from-eyal/CONTENT (מזהים EYAL-CONTENT-PKG-*)",
-            "status": "completed",
-            "stateHe": "הושלם (2026-04-09): 6 חבילות בתיקיות קנוניות + PACKAGE-MANIFEST + deliverables.json + M4-CONTENT-IMPLEMENTATION-ROUND. המשך מילוי שדות לפי עמוד — בתוך Wave1; מיקוד מימוש: מקטע Wave1 למעלה."
-          },
-          {
-            "id": "M4-T-MEDIA-FAQ",
-            "titleHe": "מדיה, FAQ, טקסטים — השלמה הדרגתית",
-            "status": "in_progress",
-            "stateHe": "מדיה Wave1: site/wp-content/uploads/ea-wave1-media/ (README) — תיוג והעלאה ל־WP; FAQ/Open copy — צוות 10; Envira legacy — DEFERRED ל־100 במסגרת M3-GOVERNANCE §3."
-          }
-        ]
+        "id": "M7-CUTOVER",
+        "titleHe": "הכנה למסירה (M7)",
+        "status": "planned",
+        "introHe": "הכנת מפת 301, HTTPS/SSL ואינדוקס לפרודקשן — לקראת cutover ועלייה לאוויר."
       }
     ]
   }

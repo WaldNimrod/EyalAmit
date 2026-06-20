@@ -26,6 +26,14 @@ function ea_w209_legacy_redirects() {
 		exit;
 	}
 
+	// W2-06 blog migration: legacy /Blog/<slug> (capital B) -> /blog/<slug> (regex prefix;
+	// the exact-match $map below cannot express a prefix). Lowercase /blog/ won't match -> no loop.
+	if ( preg_match( '#^/Blog/(.+)$#', $path, $m ) ) {
+		header( 'X-EA-Redirect: w209-blog' );
+		wp_redirect( home_url( '/blog/' . $m[1] ), 301 );
+		exit;
+	}
+
 	// 301 legacy -> new
 	$map = array(
 		'/צור-קשר/' => '/contact/',

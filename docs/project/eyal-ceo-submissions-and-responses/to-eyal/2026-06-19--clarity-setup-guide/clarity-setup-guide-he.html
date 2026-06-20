@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>מדריך הגדרת Microsoft Clarity</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 14mm 15mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Arial", "Arial Hebrew", sans-serif; color: #1f2a24; line-height: 1.55; font-size: 11.5pt; margin: 0; }
+  .brand { font-size: 9.5pt; color: #6b7d72; letter-spacing: .04em; }
+  h1 { font-size: 20pt; color: #1b5e3f; margin: 2px 0 2px; }
+  .sub { font-size: 11pt; color: #44564c; margin: 0 0 14px; }
+  .rule { height: 3px; background: linear-gradient(90deg,#1b5e3f,#7bb89a); border: 0; border-radius: 3px; margin: 0 0 16px; }
+  .intro { background: #f1f7f3; border: 1px solid #d6e7dd; border-radius: 8px; padding: 12px 14px; margin: 0 0 18px; }
+  .intro b { color: #1b5e3f; }
+  ol.steps { padding: 0; margin: 0; list-style: none; counter-reset: s; }
+  ol.steps > li { position: relative; padding: 0 46px 16px 4px; margin: 0; min-height: 40px; }
+  ol.steps > li { break-inside: avoid; }
+  ol.steps > li::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; right: 0; top: 0;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #1b5e3f; color: #fff; font-weight: bold; font-size: 14pt;
+    display: inline-block; text-align: center; line-height: 32px;
+  }
+  .st-title { font-weight: bold; font-size: 12.5pt; color: #14402c; margin: 4px 0 3px; }
+  .st-body { margin: 0; color: #2c3a32; }
+  a { color: #1257a6; text-decoration: none; word-break: break-all; }
+  .pill { background:#eef4f0; border:1px solid #d6e7dd; border-radius:6px; padding:1px 7px; font-family:"Courier New",monospace; font-size:10.5pt; }
+  .codebox { background:#0f1d16; color:#dff0e6; border-radius:8px; padding:10px 12px; font-family:"Courier New",monospace; font-size:10pt; direction:ltr; text-align:left; margin:8px 0; white-space:pre-wrap; word-break:break-all; }
+  .codebox .hl { background:#ffd54a; color:#0f1d16; font-weight:bold; padding:0 3px; border-radius:3px; }
+  .highlight { background:#fff7e0; border:1px solid #f0d98a; border-right:5px solid #e0a500; border-radius:8px; padding:12px 14px; margin:16px 0; break-inside: avoid; }
+  .note, .intro, .codebox { break-inside: avoid; }
+  .highlight .h { font-weight:bold; color:#8a6200; font-size:12.5pt; margin:0 0 4px; }
+  .note { background:#eef3f8; border:1px solid #cfe0f0; border-right:5px solid #1257a6; border-radius:8px; padding:11px 14px; margin:14px 0; font-size:11pt; }
+  .links { margin-top:16px; border-top:1px dashed #c5d6cc; padding-top:10px; font-size:10.5pt; }
+  .links b { color:#1b5e3f; }
+  .footer { margin-top:18px; font-size:9pt; color:#8a988f; text-align:center; }
+</style>
+</head>
+<body>
+  <div class="brand">אייל עמית · cbDIDG — המרכז לטיפול בנשימה באמצעות דיג'רידו</div>
+  <h1>חיבור Microsoft Clarity לאתר — מדריך מהיר</h1>
+  <p class="sub">5 דקות · בלי לגעת בקוד · כל מה שצריך ממך זה מזהה אחד</p>
+  <hr class="rule">
+
+  <div class="intro">
+    <b>מה זה Clarity?</b> כלי חינמי של מיקרוסופט שמראה לנו איך גולשים מסתובבים באתר (מפות חום והקלטות מסך) — כדי שנוכל לשפר את חוויית המשתמש ואת ההמרות. <br>
+    <b>מה צריך ממך?</b> רק ליצור פרויקט ולשלוח לנו <b>מזהה אחד (Project ID)</b>. את הקוד באתר <b>אנחנו</b> נתקין — אתה לא נוגע ב‑WordPress.
+  </div>
+
+  <ol class="steps">
+    <li>
+      <div class="st-title">היכנס לאתר של Clarity והירשם</div>
+      <p class="st-body">גלוש אל <a href="https://clarity.microsoft.com">clarity.microsoft.com</a> ולחץ <b>Sign up</b> (הרשמה). אפשר להתחבר עם חשבון <b>Google</b>, <b>Microsoft</b>, או <b>אימייל</b> — מה שנוח לך.</p>
+    </li>
+    <li>
+      <div class="st-title">צור פרויקט חדש</div>
+      <p class="st-body">לחץ על הכפתור <b>+ New project</b> (פרויקט חדש).</p>
+    </li>
+    <li>
+      <div class="st-title">מלא את הפרטים</div>
+      <p class="st-body">
+        • <b>Name</b> (שם): <span class="pill">Eyal Amit</span><br>
+        • <b>Website URL</b>: <span class="pill">https://www.eyalamit.co.il</span><br>
+        • <b>Site category</b>: בחר מה שמתאים (לא קריטי — למשל «Lifestyle» או «Other»).<br>
+        ואז לחץ <b>Add new project</b>.
+      </p>
+    </li>
+    <li>
+      <div class="st-title">מצא את ה‑Project ID</div>
+      <p class="st-body">אחרי היצירה, Clarity יציג קטע קוד להתקנה (בחר «Install code manually» אם נשאל). בתוך הקוד תופיע שורה כזו — <b>עשרת התווים המודגשים הם ה‑Project ID</b>:</p>
+      <div class="codebox">https://www.clarity.ms/tag/<span class="hl">xxxxxxxxxx</span></div>
+      <p class="st-body">טיפ: ה‑Project ID מופיע גם בכתובת הדפדפן: <span class="pill" style="direction:ltr;display:inline-block">clarity.microsoft.com/projects/view/<b>xxxxxxxxxx</b></span></p>
+    </li>
+    <li>
+      <div class="st-title">העתק ושלח לנו</div>
+      <p class="st-body">העתק את ה‑<b>Project ID</b> (או פשוט את כל קטע הקוד) ושלח לנו ב‑<b>וואטסאפ</b> או דרך ה‑<b>Hub</b>. זהו מבחינתך! 🎉</p>
+    </li>
+    <li>
+      <div class="st-title">אנחנו מסיימים את החיבור</div>
+      <p class="st-body">נטמיע את הקוד באתר ונוודא שהמדידה עובדת. <b>אינך צריך להתקין שום דבר ב‑WordPress.</b></p>
+    </li>
+  </ol>
+
+  <div class="highlight">
+    <div class="h">📌 מה אנחנו צריכים ממך בסוף</div>
+    ה‑<b>Project ID</b> — רצף של כ‑10 תווים (אותיות וספרות), שמופיע אחרי <span class="pill" style="direction:ltr;display:inline-block">clarity.ms/tag/</span>. זה הכל.
+  </div>
+
+  <div class="note">
+    כבר שלחת לנו את <b>Google Analytics (GA4)</b> — תודה! ✅ &nbsp; Clarity הוא הפריט האחרון להשלמת המדידה.
+  </div>
+
+  <div class="links">
+    <b>קישורים:</b><br>
+    • אתר Clarity (כאן נרשמים): <a href="https://clarity.microsoft.com">https://clarity.microsoft.com</a><br>
+    • מדריך רשמי של מיקרוסופט (אנגלית): <a href="https://learn.microsoft.com/clarity/setup-and-installation/clarity-setup">learn.microsoft.com/clarity/setup-and-installation/clarity-setup</a>
+  </div>
+
+  <div class="footer">הוכן עבור אייל עמית · 2026-06-19 · אם משהו לא ברור — שלח לנו צילום מסך ונעזור.</div>
+</body>
+</html>

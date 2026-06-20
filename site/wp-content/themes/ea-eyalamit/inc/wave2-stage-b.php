@@ -14,6 +14,19 @@ define( 'EA_WAVE2_CF7_FORM_ID', 0 );
 define( 'EA_WAVE2_WHATSAPP_E164', '972524822842' );
 
 /**
+ * WhatsApp click-to-chat URL with a pre-filled message (W1-01 conversion).
+ *
+ * @param string $msg Optional message; a Hebrew default is used when empty.
+ * @return string
+ */
+if ( ! function_exists( 'ea_wave2_wa_url' ) ) {
+	function ea_wave2_wa_url( $msg = '' ) {
+		$msg = ( '' !== $msg ) ? $msg : 'היי אייל, הגעתי דרך האתר ואשמח לקבל פרטים';
+		return 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164 . '?text=' . rawurlencode( $msg );
+	}
+}
+
+/**
  * Ordered POC homepage blocks (12).
  *
  * @return string[]
@@ -358,7 +371,7 @@ function ea_wave2_render_contact_form() {
  * Floating WhatsApp CTA (variant controlled by ea-ab-testing.js).
  */
 function ea_wave2_render_whatsapp_float() {
-	$url = 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164;
+	$url = ea_wave2_wa_url();
 	?>
 	<a class="ea-whatsapp-float"
 	   href="<?php echo esc_url( $url ); ?>"
@@ -417,20 +430,28 @@ function ea_wave2_print_analytics_head() {
 	$ga4  = isset( $cfg['ga4']['measurement_id'] ) ? (string) $cfg['ga4']['measurement_id'] : '';
 	$clar = isset( $cfg['clarity']['project_id'] ) ? (string) $cfg['clarity']['project_id'] : '';
 
-	$pending = ( $ga4 === '' || $ga4 === '__PENDING_EYAL__' || $clar === '' || $clar === '__PENDING_EYAL__' );
-	if ( $pending ) {
+	// W1-01: GA4 and Clarity fire INDEPENDENTLY. GA4 must not wait on the still-pending
+	// Clarity id — decoupling the gate makes conversion measurement live now.
+	$ga4_ok  = ( $ga4 !== '' && $ga4 !== '__PENDING_EYAL__' );
+	$clar_ok = ( $clar !== '' && $clar !== '__PENDING_EYAL__' );
+	if ( $ga4_ok ) {
+		$ga4 = preg_replace( '/[^A-Z0-9-]/i', '', $ga4 );
+	}
+	if ( $clar_ok ) {
+		$clar = preg_replace( '/[^a-z0-9]/i', '', $clar );
+	}
+	$ga4_ok  = $ga4_ok && $ga4 !== '';
+	$clar_ok = $clar_ok && $clar !== '';
+
+	if ( ! $ga4_ok && ! $clar_ok ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log( 'ea_wave2 analytics: credentials missing — analytics inactive (hub/data/analytics-config.json)' );
+			error_log( 'ea_wave2 analytics: no valid GA4/Clarity id — analytics inactive (analytics-config.json)' );
 		}
 		return;
 	}
 
-	$ga4  = preg_replace( '/[^A-Z0-9-]/i', '', $ga4 );
-	$clar = preg_replace( '/[^a-z0-9]/i', '', $clar );
-	if ( $ga4 === '' || $clar === '' ) {
-		return;
-	}
-	?>
+	if ( $ga4_ok ) {
+		?>
 	<!-- EA Wave2 Analytics — GA4 -->
 	<script async src="<?php echo esc_url( 'https://www.googletagmanager.com/gtag/js?id=' . $ga4 ); ?>"></script>
 	<script>
@@ -439,6 +460,10 @@ function ea_wave2_print_analytics_head() {
 	gtag('js', new Date());
 	gtag('config', '<?php echo esc_js( $ga4 ); ?>');
 	</script>
+		<?php
+	}
+	if ( $clar_ok ) {
+		?>
 	<!-- EA Wave2 Analytics — Clarity -->
 	<script>
 	(function(c,l,a,r,i,t,y){
@@ -447,7 +472,8 @@ function ea_wave2_print_analytics_head() {
 		y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 	})(window, document, "clarity", "script", "<?php echo esc_js( $clar ); ?>");
 	</script>
-	<?php
+		<?php
+	}
 }
 add_action( 'wp_head', 'ea_wave2_print_analytics_head', 20 );
 

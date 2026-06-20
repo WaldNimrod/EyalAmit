@@ -55,8 +55,10 @@ EMPTY_TARGET_MAP = {
     "%d7%95%d7%9b%d7%aa%d7%91%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/books/vekatavta/",
     # הופעות
     "%d7%94%d7%95%d7%a4%d7%a2%d7%95%d7%aa": "/shows/",
-    # מוזה הוצאה לאור
-    "%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8": "/muzza/",
+    # מוזה הוצאה לאור — DIRECT to /books/ (WP-W2-15-CR-FINAL F-CRF-02, 2026-06-05): /muzza is a
+    # PERMANENT 301 to /books (functions.php ea_eyalamit_muzza_to_books_redirect, template_redirect
+    # prio 0), so targeting /muzza here would create a 2-hop. Target /books directly. Do NOT revert.
+    "%d7%9e%d7%95%d7%96%d7%94-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8": "/books/",
     # כושי בלאנטיס אוטוביוגרפיה (book page) — DIRECT canonical (team_100 correction 2026-05-30, LIVE+verified)
     "%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%99%d7%95%d7%92%d7%a8%d7%a4%d7%99%d7%94-%d7%91%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d": "/books/kushi-blantis/",
     # שיעורי נגינה בדיגרידו
@@ -221,8 +223,8 @@ def main() -> int:
     lines.append(f"{BEGIN}  (regenerated from 135-decision JSON SSoT; approach B; team_20 2026-05-30)")
     lines.append("<IfModule mod_rewrite.c>")
     lines.append("RewriteEngine On")
-    lines.append("# W2-06 blog catch-all: legacy /Blog/<slug>/ -> new root /<slug>/")
-    lines.append("RewriteRule ^Blog/(.+)$ /$1 [R=301,L,NC]")
+    lines.append("# W2-06 blog catch-all: legacy /Blog/<slug>/ -> /blog/<slug>/")
+    lines.append("RewriteRule ^Blog/(.+)$ /blog/$1 [R=301,L,NC]")
     lines.append("# --- page-level 301/410 redirects (generated from decisions JSON SSoT) ---")
     lines.append("# Bare RewriteRule on the per-directory relative path (same mechanism as the")
     lines.append("# working ^Blog/ rule): the relative path keeps the percent-encoding verbatim.")
@@ -296,6 +298,14 @@ def main() -> int:
     pl.append("\t);")
     pl.append("\tif ( in_array( $norm, $gone, true ) ) {")
     pl.append("\t\tstatus_header( 410 ); header( 'X-EA-Redirect: w209-410' ); nocache_headers();")
+    pl.append("\t\texit;")
+    pl.append("\t}")
+    pl.append("")
+    pl.append("\t// W2-06 blog migration: legacy /Blog/<slug> (capital B) -> /blog/<slug> (regex prefix;")
+    pl.append("\t// the exact-match $map below cannot express a prefix). Lowercase /blog/ won't match -> no loop.")
+    pl.append("\tif ( preg_match( '#^/Blog/(.+)$#', $path, $m ) ) {")
+    pl.append("\t\theader( 'X-EA-Redirect: w209-blog' );")
+    pl.append("\t\twp_redirect( home_url( '/blog/' . $m[1] ), 301 );")
     pl.append("\t\texit;")
     pl.append("\t}")
     pl.append("")

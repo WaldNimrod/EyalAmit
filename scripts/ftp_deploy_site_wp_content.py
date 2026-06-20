@@ -125,6 +125,8 @@ def main() -> None:
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-blog-shortcode-cleanup.php", "wp-content/mu-plugins/ea-blog-shortcode-cleanup.php"))
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-author-displayname-once.php", "wp-content/mu-plugins/ea-w2-10-author-displayname-once.php"))
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-nav-repair-canonical-once.php", "wp-content/mu-plugins/ea-w2-10-nav-repair-canonical-once.php"))
+    # W1-02: SEO entity schema (extends Yoast @graph with Person/ProfessionalService/Service).
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-seo-schema.php", "wp-content/mu-plugins/ea-w2-seo-schema.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

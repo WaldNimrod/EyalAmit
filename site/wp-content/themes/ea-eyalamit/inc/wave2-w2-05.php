@@ -534,7 +534,7 @@ function ea_w2_05_render_price( $b, $alt ) {
 function ea_w2_05_render_cta( $slug, $b ) {
 	$gi      = ea_w2_05_gi_url( $slug );
 	$contact = home_url( '/contact?subject=product-' . rawurlencode( $slug ) );
-	$wa      = 'https://wa.me/972524822842';
+	$wa      = ea_wave2_wa_url( 'היי אייל, מתעניין/ת במוצר מהאתר ואשמח לפרטים' );
 	$heading = isset( $b['heading'] ) ? $b['heading'] : 'לרכישה והתאמה';
 	?>
 	<section class="ea-section ea-section--cta ea-section--closing" data-block="cta" aria-label="<?php echo esc_attr( $heading ); ?>">

@@ -14,6 +14,12 @@
     sessionStorage.setItem(KEY, stored);
   }
 
+  // W1-01 (lead-leak fix): show BOTH contact channels to everyone. The variant is
+  // still assigned + tracked for GA4 labels, but the hide-logic uses `display`,
+  // forced to 'dual', so no channel is ever hidden (tiny-traffic site; the A/B never
+  // had live analytics). To re-enable real A/B hiding later: set `display = stored`.
+  var display = 'dual';
+
   function track(eventName, params) {
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, params || {});
@@ -25,18 +31,19 @@
   var wa = document.querySelector('.ea-whatsapp-float[data-ea-ab]');
   if (wa) {
     wa.setAttribute('data-variant', stored);
-    if (stored === 'form_only') {
+    if (display === 'form_only') {
       wa.style.display = 'none';
     }
     wa.addEventListener('click', function () {
       track('whatsapp_cta_click', { variant_label: stored });
+      track('generate_lead', { method: 'whatsapp', variant_label: stored });
     });
   }
 
   var formWrap = document.querySelector('.ea-contact-form--cf7, .ea-contact-section .ea-contact-form');
   if (formWrap) {
     formWrap.setAttribute('data-wa-variant', stored);
-    if (stored === 'wa_only') {
+    if (display === 'wa_only') {
       formWrap.style.display = 'none';
     }
   }
@@ -53,10 +60,10 @@
       var page = cta.getAttribute('data-ea-page') || '';
       var formBtn = cta.querySelector('[data-ea-ab-form]');
       var waBtn = cta.querySelector('[data-ea-ab-wa]');
-      if (formBtn && stored === 'wa_only') {
+      if (formBtn && display === 'wa_only') {
         formBtn.style.display = 'none';
       }
-      if (waBtn && stored === 'form_only') {
+      if (waBtn && display === 'form_only') {
         waBtn.style.display = 'none';
       }
       if (formBtn) {
@@ -83,10 +90,10 @@
     var waBtn = cta.querySelector('[data-ea-ab-wa]');
     // Contact path only: A/B toggles form vs WhatsApp.
     if (ctaType === 'contact') {
-      if (formBtn && stored === 'wa_only') {
+      if (formBtn && display === 'wa_only') {
         formBtn.style.display = 'none';
       }
-      if (waBtn && stored === 'form_only') {
+      if (waBtn && display === 'form_only') {
         waBtn.style.display = 'none';
       }
     }
@@ -110,5 +117,10 @@
       }
       track('outbound_click', { link_url: href, link_platform: platform });
     });
+  });
+
+  // W1-13: GA4 conversion event on a successful CF7 contact-form submission.
+  document.addEventListener('wpcf7mailsent', function () {
+    track('generate_lead', { method: 'form' });
   });
 })();
