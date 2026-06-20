@@ -45,7 +45,7 @@ Full plan: **`SEO-GEO-EXECUTION-PLAN-2026-06-20.md`** — 13 canonical WPs (P1 q
 ## §4 — 301 / redirect-map cutover gaps → M7 (Track B)
 | ID | Gap / remainder | Status | Source |
 |----|----|----|----|
-| 301-1 | **`/Blog/ → /blog/` migration is NOT live** (catch-all + 54 per-slug). **Generator-level gap:** the PHP emit uses exact-match `isset()` and can't express a regex prefix; the 54 decisions are `keep`. Must teach `gen_htaccess_301_from_decisions.py` to emit a PHP `preg_match('#^/Blog/(.+)#i')→301` (or per-slug). Re-running as-is won't help. | 🟠 | 301 doc §6; quarantine README |
+| 301-1 | ✅ **FIXED (W1-06):** `/Blog/<slug> → /blog/<slug>` now LIVE — taught the generator to emit a PHP `preg_match('#^/Blog/(.+)$#')→/blog/$1` block; verified on staging (301). `verify-301-blog.sh` now passes. | ✅ | W1-06 `48676f4` |
 | 301-2 | **Dead verification harness** — `final_pre_cutover_check.sh` skips pattern rules; `verify-301-blog.sh` probes `/Blog/` expecting a 301 inert on nginx. Fix when 301-1 closes. | 🟠 | 301 doc §6 |
 | 301-3 | **Stale exports quarantined** ✅ + **deploy-script fixed** ✅ + **`/מוזה-…/→/books/` drift fixed at source** ✅ — done this session; SSoT (mu-plugin) now faithful + idempotent | ✅ | 301-MAP-RECONCILIATION |
 
@@ -78,10 +78,13 @@ DB reconciliation is **blocked on the team_110 actor key** (hub-API writes 401 `
 - **wave1b — deployed to staging (pending Round-2 validation):** `/shop/cart|checkout|my-account → /shop/` 301; per-route meta descriptions on the 9 previously-bare routes.
 - **Earlier this session:** 301-map reconciliation (+/muzza fix, quarantine), media inventory (38) + hub intake page, 15 content proposals + hub page, SEO/GEO canonical WP `S004-P001-WP000` + validation/deploy plan + Wave-1 scope; Yoast-reality correction.
 
-### 🟡 NON-Eyal-gated — can still advance (queued)
-- **W1-05** image WebP/LCP pass (cwebp + Pillow confirmed available) — the one remaining non-gated build item (multi-template <picture>/dimensions). 
-- **Round-2 validation + merge** of the wave1b batch.
-- **Production cutover (Track B)** — prep is non-gated; the cutover itself is gated on launch-blockers (some below).
+### 🟡 NON-Eyal-gated
+**Completed in the wave1b pass (deployed to staging):** `/shop/cart|checkout|my-account → /shop/` 301 · per-route meta descriptions (9 bare routes) · **contact-page visible NAP/hours (BLD-4 — Eyal's flagged gap)** · LCP `fetchpriority` on /eyal-amit (W1-05a) · `/Blog/` 301 (W1-06 = 301-1).
+**Deferred — still non-blocked but low-priority / cutover-time / risk (not worth doing now):**
+- Full **WebP `<picture>`** image pass — marginal CWV gain + layout-regression risk; do as a dedicated QA'd perf pass (cwebp/Pillow ready).
+- **`final_pre_cutover_check.sh` QR assertion** — asserts all 49 `/qr/` → 200; correct to 48 `/qr/qr*/` + parent `/qr/` → 200 and legacy `/qr/פרק-א/` → 410 (+ reconcile QR-URL-INVENTORY.csv). Track-B cutover-time.
+- **Hub `materials-needed.json` refresh** — superseded by the live media-intake + content-proposals pages; low-urgency.
+- **Round-2 validation + merge** of wave1b — the next external-validation boundary.
 
 ### 🔴 BLOCKED on Eyal — cannot advance without his input (THE open list)
 1. **Microsoft Clarity `project_id`** (EYL-1) — PDF guide sent; Clarity tag stays dormant (GA4 already live).
