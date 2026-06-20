@@ -16,7 +16,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$ea_wa_url = 'https://wa.me/' . ( defined( 'EA_WAVE2_WHATSAPP_E164' ) ? EA_WAVE2_WHATSAPP_E164 : '972524822842' );
+$ea_wa_url = function_exists( 'ea_wave2_wa_url' )
+	? ea_wave2_wa_url( 'היי אייל, הגעתי דרך עמוד צור הקשר ואשמח לתאם שיחת היכרות' )
+	: 'https://wa.me/' . ( defined( 'EA_WAVE2_WHATSAPP_E164' ) ? EA_WAVE2_WHATSAPP_E164 : '972524822842' );
 
 get_header();
 get_template_part( 'template-parts/blocks/block', 'topnav' );
@@ -130,6 +132,13 @@ get_template_part( 'template-parts/blocks/block', 'topnav' );
 				<p class="ea-contact-section__body"><?php esc_html_e( 'שיחת היכרות ראשונית ללא התחייבות.', 'ea-eyalamit' ); ?></p>
 				<p class="ea-contact-section__body"><?php esc_html_e( 'ליווי אישי, אחד על אחד.', 'ea-eyalamit' ); ?></p>
 				<p class="ea-contact-section__body"><?php esc_html_e( 'מענה אישי תוך יום עסקים אחד.', 'ea-eyalamit' ); ?></p>
+
+				<div class="ea-contact-nap" aria-label="<?php esc_attr_e( 'פרטי המרכז וכתובת', 'ea-eyalamit' ); ?>" style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.1);">
+					<h3 class="ea-contact-section__heading" style="margin-bottom:.4rem;"><?php esc_html_e( "המרכז לטיפול בנשימה באמצעות דיג'רידו", 'ea-eyalamit' ); ?></h3>
+					<p class="ea-contact-section__body"><?php esc_html_e( "רח' עמל 8 ב', פרדס חנה‑כרכור", 'ea-eyalamit' ); ?></p>
+					<p class="ea-contact-section__body"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:+972524822842" dir="ltr">052‑4822842</a></p>
+					<p class="ea-contact-section__body"><?php esc_html_e( "שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש", 'ea-eyalamit' ); ?></p>
+				</div>
 			</aside>
 
 		</div>
