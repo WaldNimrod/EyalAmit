@@ -36,6 +36,35 @@ defined( 'ABSPATH' ) || exit;
  * Derived verbatim from the existing hero title + subtitle already rendered on
  * the front page, so no new copy is authored.
  */
+/**
+ * Per-route meta description for inner pages (W1-09: these routes shipped description-less).
+ * Keyed on the queried page slug; '' when no specific copy (caller falls back to the tagline).
+ *
+ * @return string
+ */
+function ea_w2_09_route_description() {
+	if ( ! is_page() ) {
+		return '';
+	}
+	$obj  = get_queried_object();
+	$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
+	$map  = array(
+		'eyal-amit'      => 'אייל עמית — מאסטר דיג׳רידו ומטפל בנשימה, מייסד המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה. הסיפור, שיטת cbDIDG וליווי אישי.',
+		'shop'           => 'חנות הדיג׳רידו של אייל עמית — כלים בעבודת יד, תיקים, סטנדים, אביזרים ותיקון דיג׳רידו, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה.',
+		'didgeridoos'    => 'דיג׳רידו למכירה — כלים בעבודת יד בבחירת אייל עמית, מאסטר דיג׳רידו. ייעוץ והתאמה אישית מהמרכז לטיפול בנשימה בפרדס חנה.',
+		'bags'           => 'תיקים לדיג׳רידו בעבודת יד — הגנה ונשיאה נוחה לכלי שלכם, מחנות אייל עמית.',
+		'stands-storage' => 'סטנדים לאחסון דיג׳רידו — בתלייה או בעמידה, בעבודת יד, מחנות אייל עמית.',
+		'stand-floor'    => 'סטנד רצפתי לדיג׳רידו — לנגינה בישיבה בגובה נמוך, מחנות אייל עמית.',
+		'repair'         => 'תיקון דיג׳רידו — שירות מקצועי לכלים מכל הסוגים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו של אייל עמית.',
+		'books'          => 'הספרים של אייל עמית בהוצאת מוזה — סיפורים אוטוביוגרפיים. כל הכותרים והרכישה במקום אחד.',
+		'muzza'          => 'מוזה הוצאה לאור — הספרים והסיפורים של אייל עמית. כל הכותרים והרכישה.',
+		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
+		'blog'           => 'הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה.',
+		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח׳ עמל 8 ב׳ פרדס חנה. וואטסאפ, טלפון וטופס.',
+	);
+	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+}
+
 function ea_w2_09_meta_description() {
 	// Skip the EN landing page; it carries its own context (W2-08) and we do not
 	// want the HE description leaking onto it.
@@ -49,9 +78,12 @@ function ea_w2_09_meta_description() {
 	if ( $is_front ) {
 		$description = 'המרכז לטיפול בנשימה באמצעות דיג׳רידו — שיטת cbDIDG של אייל עמית. להחזיר שליטה על הנשימה דרך עבודה עם דיג׳רידו, תרגול נשימה וליווי אישי.';
 	} else {
-		// Site-wide fallback so inner pages are not description-less.
-		$tagline     = trim( (string) get_bloginfo( 'description' ) );
-		$description = '' !== $tagline ? $tagline : '';
+		// W1-09: per-route description for inner pages (were description-less), then tagline fallback.
+		$description = ea_w2_09_route_description();
+		if ( '' === $description ) {
+			$tagline     = trim( (string) get_bloginfo( 'description' ) );
+			$description = '' !== $tagline ? $tagline : '';
+		}
 	}
 
 	$description = trim( wp_strip_all_tags( $description ) );
