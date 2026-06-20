@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-06-20T22:38:24.736Z",
+  "total": 5,
+  "passCount": 5,
+  "failCount": 0,
+  "results": [
+    {
+      "route": "/shop/cart/",
+      "firstStatus": 301,
+      "locations": [
+        "http://eyalamit-co-il-2026.s887.upress.link/shop/"
+      ],
+      "expectedLocationPath": "/shop/",
+      "pass": true
+    },
+    {
+      "route": "/shop/checkout/",
+      "firstStatus": 301,
+      "locations": [
+        "http://eyalamit-co-il-2026.s887.upress.link/shop/"
+      ],
+      "expectedLocationPath": "/shop/",
+      "pass": true
+    },
+    {
+      "route": "/shop/my-account/",
+      "firstStatus": 301,
+      "locations": [
+        "http://eyalamit-co-il-2026.s887.upress.link/shop/"
+      ],
+      "expectedLocationPath": "/shop/",
+      "pass": true
+    },
+    {
+      "route": "/Blog/test-slug/",
+      "firstStatus": 301,
+      "locations": [
+        "http://eyalamit-co-il-2026.s887.upress.link/blog/test-slug/"
+      ],
+      "expectedLocationPath": "/blog/test-slug/",
+      "pass": true
+    },
+    {
+      "route": "/מוזה-הוצאה-לאור/",
+      "firstStatus": 301,
+      "locations": [
+        "http://eyalamit-co-il-2026.s887.upress.link/books/"
+      ],
+      "expectedLocationPath": "/books/",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+======================================================
+W2-06 Blog 301 Redirect Verification
+Staging: http://eyalamit-co-il-2026.s887.upress.link
+team_50 re-run: 2026-06-20
+======================================================
+
+3/3 PASS — all legacy /Blog/<slug>/ URLs return 301 with Location containing /blog/
+
+Command: bash scripts/verify-301-blog.sh http://eyalamit-co-il-2026.s887.upress.link
+Exit: 0

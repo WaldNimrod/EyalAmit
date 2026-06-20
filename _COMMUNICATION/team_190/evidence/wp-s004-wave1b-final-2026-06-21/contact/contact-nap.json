@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-06-20T23:06:51.304Z",
+  "route": "/contact/",
+  "status": 200,
+  "visible": {
+    "centerName": true,
+    "addressAmal8": true,
+    "phoneText": true,
+    "phoneTextNote": "Visible as 052‑4822842 (U+2011 non-breaking hyphen); initial regex false negative corrected on manual curl verify",
+    "telHref": true,
+    "hours": true,
+    "waPrefill": true
+  },
+  "jsonLdBlocks": 1,
+  "businessNodes": [
+    {
+      "type": "ProfessionalService",
+      "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+      "telephone": "+972-52-482-2842",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "עמל 8 ב'",
+        "addressLocality": "פרדס חנה-כרכור",
+        "addressCountry": "IL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ]
+    }
+  ],
+  "pass": true
+}

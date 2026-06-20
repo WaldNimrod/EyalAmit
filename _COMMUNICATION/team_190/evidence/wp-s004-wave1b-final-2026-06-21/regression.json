@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-06-20T23:06:55.856Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "themeVerLive": "1.4.16",
+  "routesChecked": 13,
+  "allHttp200": true,
+  "phpErrorsFound": 0,
+  "routeResults": [
+    {
+      "route": "/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog/page/2/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/eyal-amit/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/shop/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/didgeridoos/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/bags/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/stands-storage/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/stand-floor/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/repair/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/books/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/faq/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "phpErrors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

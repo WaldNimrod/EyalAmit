@@ -1,0 +1,2 @@
+No syntax errors detected in site/wp-content/themes/ea-eyalamit/inc/wave2-w2-09.php
+No syntax errors detected in site/wp-content/themes/ea-eyalamit/style.css

@@ -1,0 +1,4 @@
+No syntax errors detected in site/wp-content/mu-plugins/ea-w209-legacy-301-redirects.php
+No syntax errors detected in site/wp-content/themes/ea-eyalamit/inc/wave2-w2-09.php
+No syntax errors detected in site/wp-content/themes/ea-eyalamit/page-templates/tpl-contact.php
+No syntax errors detected in site/wp-content/themes/ea-eyalamit/inc/wave2-w2-07.php

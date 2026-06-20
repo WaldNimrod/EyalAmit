@@ -1,0 +1,14 @@
+http://eyalamit-co-il-2026.s887.upress.link/shop/cart/
+HTTP/301 location=http://eyalamit-co-il-2026.s887.upress.link/shop/
+
+http://eyalamit-co-il-2026.s887.upress.link/shop/checkout/
+HTTP/301 location=http://eyalamit-co-il-2026.s887.upress.link/shop/
+
+http://eyalamit-co-il-2026.s887.upress.link/shop/my-account/
+HTTP/301 location=http://eyalamit-co-il-2026.s887.upress.link/shop/
+
+http://eyalamit-co-il-2026.s887.upress.link/Blog/test-slug/
+HTTP/301 location=http://eyalamit-co-il-2026.s887.upress.link/blog/test-slug/
+
+http://eyalamit-co-il-2026.s887.upress.link/%D7%9E%D7%95%D7%96%D7%94-%D7%94%D7%95%D7%A6%D7%90%D7%94-%D7%9C%D7%90%D7%95%D7%A8/
+HTTP/301 location=http://eyalamit-co-il-2026.s887.upress.link/books/

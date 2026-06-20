@@ -1,0 +1,203 @@
+{
+  "generatedAt": "2026-06-20T19:53:38.992Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "results": [
+    {
+      "from": "/Blog/test-slug/",
+      "expected": "/blog/test-slug/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/Blog/test-slug/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/blog/test-slug/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/test-slug/",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 404
+    },
+    {
+      "from": "/צור-קשר/",
+      "expected": "/contact/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/צור-קשר/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/contact/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/שיעורי-נגינה-בדיגרידו/",
+      "expected": "/lessons/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/שיעורי-נגינה-בדיגרידו/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/lessons/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקון-דיגרידו/",
+      "expected": "/repair/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקון-דיגרידו/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/repair/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגריד/",
+      "expected": "/sound-healing/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגריד/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/הופעות/",
+      "expected": "/shows/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/הופעות/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/shows/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/shows/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 2,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/אייל-עמית-אודות/",
+      "expected": "/about/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/אייל-עמית-אודות/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/about/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/about/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 2,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/מוזה-הוצאה-לאור/וכתבת-אוטוביוגרפיה-בסיפורים/",
+      "expected": "/books/vekatavta/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/מוזה-הוצאה-לאור/וכתבת-אוטוביוגרפיה-בסיפורים/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/מוזה-הוצאה-לאור/",
+      "expected": "/books/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/מוזה-הוצאה-לאור/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/books/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 1,
+      "pass": true,
+      "finalStatus": 200
+    },
+    {
+      "from": "/shop/",
+      "note": "no redirect — live page",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "hopCount": 0,
+      "pass": true,
+      "finalStatus": 200
+    }
+  ],
+  "passCount": 10,
+  "failCount": 0
+}

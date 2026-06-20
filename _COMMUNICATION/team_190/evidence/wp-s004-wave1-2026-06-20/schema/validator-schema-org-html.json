@@ -1,0 +1,20 @@
+{
+  "home": {
+    "totalNumErrors": 0,
+    "totalNumWarnings": 0,
+    "types": [],
+    "numObjects": 0
+  },
+  "treatment": {
+    "totalNumErrors": 0,
+    "totalNumWarnings": 0,
+    "types": [],
+    "numObjects": 0
+  },
+  "bags": {
+    "totalNumErrors": 0,
+    "totalNumWarnings": 0,
+    "types": [],
+    "numObjects": 0
+  }
+}

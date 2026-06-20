@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-06-20T22:38:24.751Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "total": 13,
+  "passCount": 13,
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/blog/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/blog/page/2/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/eyal-amit/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/shop/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/books/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/faq/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/repair/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/bags/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/didgeridoos/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/stands-storage/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    },
+    {
+      "route": "/stand-floor/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "assetVersions": [
+        "1.4.16"
+      ],
+      "hasThemeVersionAtLeast11415": true,
+      "hasThemeVersion11415": false,
+      "hasThemeVersion11416": true
+    }
+  ],
+  "failCount": 0
+}

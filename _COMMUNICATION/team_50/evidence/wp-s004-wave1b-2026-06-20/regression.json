@@ -1,0 +1,87 @@
+{
+  "generatedAt": "2026-06-20T21:17:22.733Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "total": 13,
+  "passCount": 13,
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/eyal-amit/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/shop/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/books/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/faq/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/blog/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/repair/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/bags/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/didgeridoos/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/stands-storage/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/stand-floor/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    },
+    {
+      "route": "/muzza/",
+      "status": 200,
+      "noPhpNoticesFatals": true,
+      "hasThemeVersion11414": true
+    }
+  ],
+  "failCount": 0
+}

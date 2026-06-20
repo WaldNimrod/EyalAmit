@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-06-20T19:50:00Z",
+  "engine": "team_50 cross-engine validator",
+  "staticChecks": {
+    "ga4ScriptInHead_curl": true,
+    "ga4Count": 1,
+    "clarityAbsent": true,
+    "displayDualInEaAbTestingJs": true,
+    "generateLeadWhatsappInJs": true,
+    "generateLeadFormWpcf7InJs": true,
+    "themeVer": "1.4.14"
+  },
+  "runtimeProbe": "analytics-probe.json",
+  "runtimeGenerateLeadWhatsapp": true,
+  "note": "hasFormListener false in puppeteer probe is a harness artifact (script fetch after gtag stub); static source at ea-ab-testing.js:123-125 confirms wpcf7mailsent listener. ga4InHead false in puppeteer is timing/async artifact; curl confirms gtag/js?id=G-MRXESK7QJF in <head>."
+}
