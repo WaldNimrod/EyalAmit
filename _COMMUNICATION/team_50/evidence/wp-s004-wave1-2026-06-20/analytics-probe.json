@@ -1,0 +1,28 @@
+{
+  "waVisible": {
+    "exists": true,
+    "display": "flex",
+    "href": "https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D",
+    "hasText": true
+  },
+  "events": [
+    {
+      "name": "whatsapp_cta_click",
+      "params": {
+        "variant_label": "wa_only"
+      }
+    },
+    {
+      "name": "generate_lead",
+      "params": {
+        "method": "whatsapp",
+        "variant_label": "wa_only"
+      }
+    }
+  ],
+  "hasGenerateLead": true,
+  "hasFormListener": false,
+  "ga4InHead": false,
+  "clarityInHead": false,
+  "pass": false
+}

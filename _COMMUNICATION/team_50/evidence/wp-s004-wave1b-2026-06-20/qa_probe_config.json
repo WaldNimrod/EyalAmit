@@ -1,0 +1,25 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 1024 }
+  ],
+  "pages": [
+    { "name": "contact", "path": "/contact/" },
+    { "name": "eyal-amit", "path": "/eyal-amit/" },
+    { "name": "shop", "path": "/shop/" },
+    { "name": "books", "path": "/books/" },
+    { "name": "faq", "path": "/faq/" },
+    { "name": "blog", "path": "/blog/" },
+    { "name": "repair", "path": "/repair/" },
+    { "name": "bags", "path": "/bags/" },
+    { "name": "didgeridoos", "path": "/didgeridoos/" },
+    { "name": "stands-storage", "path": "/stands-storage/" },
+    { "name": "stand-floor", "path": "/stand-floor/" },
+    { "name": "muzza", "path": "/muzza/" }
+  ],
+  "absent": ["Fatal error", "Parse error", "Warning:", "Notice:"],
+  "shots": true
+}

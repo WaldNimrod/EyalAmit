@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-20T22:38:24.741Z",
+  "route": "/eyal-amit/",
+  "status": 200,
+  "highPriorityImages": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "alt": "דיוקן של אייל עמית",
+      "width": "300",
+      "height": "375",
+      "class": "ea-edhero__portrait"
+    }
+  ],
+  "pass": true
+}

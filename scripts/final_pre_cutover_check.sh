@@ -6,7 +6,11 @@
 #   (a) every in-use media URL -> 200 (regenerated inventory)
 #   (b) all generated 301 rules resolve to a LIVE target (301 + Location -> 200)
 #       and all 410 rules -> 410
-#   (c) all 49 QR URLs -> 200 (vs docs/project/team-100-preplanning/QR-URL-INVENTORY.csv)
+#   (c) every QR-inventory URL (parent /qr/ + 48 /qr/qrN/ = 49) -> DIRECT 200, with
+#       NO redirect-follow, so a prod 30x on parent /qr/ is caught (not masked).
+#       Source: docs/project/team-100-preplanning/QR-URL-INVENTORY.csv.
+#       NOTE: legacy /qr/פרק-א/ -> 410 is NOT in this CSV; it is asserted by (b)
+#       from the 301/410 rule block.
 #   (d) validate_aos.sh -> 0 FAIL
 #   (e) Lighthouse homepage: GATE Performance & Accessibility >= 90; SEO + Best-Practices
 #       recorded as staging-capped (noindex + HTTP -> 100 at cutover) per AC-05 disposition
@@ -107,18 +111,24 @@ PY
   [ $? -ne 0 ] && fail "one or more 301/410 rules did not resolve"
 fi
 
-# ---------- (c) 49 QR ----------
-note "== (c) 49 QR URLs 200 =="
+# ---------- (c) QR inventory: parent /qr/ + 48 /qr/qrN/ = 49 URLs, DIRECT 200 ----------
+note "== (c) QR inventory URLs DIRECT 200 (49 = /qr/ + 48 /qr/qrN/; redirects fail) =="
 if [ ! -f "$QR_CSV" ]; then
   fail "QR CSV not found: $QR_CSV"
 else
   python3 - "$QR_CSV" "$BASE" <<'PY'
 import sys,csv,urllib.request,random,time
 rows=list(csv.DictReader(open(sys.argv[1],encoding="utf-8-sig"))); base=sys.argv[2]
+# No-follow opener: a parent /qr/ that 30x-redirects (documented prod behavior:
+# /qr/ -> /shop/books/וכתבת/) must be CAUGHT, not masked by following the redirect
+# to a final 200. So we assert a DIRECT 200 and treat any 30x as a failure.
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k): return None
 def code(path):
+    op=urllib.request.build_opener(_NoRedirect)
     for a in range(3):
         url=base+path+("?cb=%d"%random.randint(1,99999))
-        try: return urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"chk"}),timeout=25).status
+        try: return op.open(urllib.request.Request(url,headers={"User-Agent":"chk"}),timeout=25).status
         except urllib.error.HTTPError as e: return e.code
         except Exception: time.sleep(1+a)
     return 0
@@ -129,8 +139,8 @@ for r in rows:
     path="/"+sp+"/"; tot+=1
     c=code(path)
     if c!=200:
-        print(f"  QR NON-200 {c}: {path}"); bad+=1
-print(f"  QR checked={tot} non200={bad}")
+        print(f"  QR NON-200/REDIRECT {c}: {path}"); bad+=1
+print(f"  QR checked={tot} non200={bad} (DIRECT 200 required; any redirect is a failure)")
 sys.exit(1 if bad else 0)
 PY
   [ $? -ne 0 ] && fail "one or more QR URLs != 200"

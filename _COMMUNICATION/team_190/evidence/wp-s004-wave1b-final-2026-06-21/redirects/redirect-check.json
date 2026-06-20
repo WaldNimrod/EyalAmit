@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-06-20T23:06:57.209Z",
+  "passCount": 5,
+  "total": 5,
+  "results": [
+    {
+      "path": "/shop/cart/",
+      "expectStatus": 301,
+      "expectLocation": "/shop/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/cart/",
+      "status": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "locPath": "/shop/",
+      "pass": true
+    },
+    {
+      "path": "/shop/checkout/",
+      "expectStatus": 301,
+      "expectLocation": "/shop/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/checkout/",
+      "status": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "locPath": "/shop/",
+      "pass": true
+    },
+    {
+      "path": "/shop/my-account/",
+      "expectStatus": 301,
+      "expectLocation": "/shop/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/my-account/",
+      "status": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "locPath": "/shop/",
+      "pass": true
+    },
+    {
+      "path": "/Blog/test-slug/",
+      "expectStatus": 301,
+      "expectLocation": "/blog/test-slug/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/Blog/test-slug/",
+      "status": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/blog/test-slug/",
+      "locPath": "/blog/test-slug/",
+      "pass": true
+    },
+    {
+      "path": "/%D7%9E%D7%95%D7%96%D7%94-%D7%94%D7%95%D7%A6%D7%90%D7%94-%D7%9C%D7%90%D7%95%D7%A8/",
+      "expectStatus": 301,
+      "expectLocation": "/books/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/%D7%9E%D7%95%D7%96%D7%94-%D7%94%D7%95%D7%A6%D7%90%D7%94-%D7%9C%D7%90%D7%95%D7%A8/",
+      "status": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "locPath": "/books/",
+      "pass": true
+    }
+  ],
+  "pass": true
+}

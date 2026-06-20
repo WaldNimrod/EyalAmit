@@ -642,7 +642,7 @@ function ea_wave2_editorial_render_hero( $h ) {
 	          <?php endif; ?>
 	        </div>
 	        <?php if ( '' !== $img ) : ?>
-	        <img class="ea-edhero__portrait" src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" width="300" height="375" loading="eager" />
+	        <img class="ea-edhero__portrait" src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" width="300" height="375" loading="eager" fetchpriority="high" />
 	        <?php endif; ?>
 	      </div>
 	    </header>

@@ -88,6 +88,14 @@ MANUAL_MAP = {
     "/shop/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/": ("301", "/", "interim per mandate — FLAG Eyal: /terms/ live page exists"),
 }
 
+# Legacy WooCommerce sub-URLs (cart/checkout/account) — not in the decisions JSON, or dropped by the
+# /shop canonical guard. They 404 on the new site; redirect to the live /shop/ archive (cutover finding #3).
+EXTRA_301 = {
+    "/shop/cart/": "/shop/",
+    "/shop/checkout/": "/shop/",
+    "/shop/my-account/": "/shop/",
+}
+
 
 def legacy_path(old_url: str) -> str:
     """Path component, percent-encoding preserved exactly as stored."""
@@ -184,6 +192,10 @@ def main() -> int:
             continue
 
         dropped.append((src, f"unknown-status:{status}", ""))
+
+    # legacy WooCommerce sub-URLs -> live /shop/ (explicit; bypass the /shop canonical guard — safe: not live pages)
+    for _s, _t in EXTRA_301.items():
+        rules.append(("301", _s, _t, "legacy woo -> /shop/"))
 
     # de-dup identical sources (keep first)
     deduped: list[tuple[str, str, str | None, str]] = []

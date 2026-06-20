@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-06-20T23:06:57.209Z",
+  "gates": {
+    "meta": {
+      "pass": true,
+      "passCount": 13,
+      "total": 13
+    },
+    "contact": {
+      "pass": false
+    },
+    "lcp": {
+      "pass": true
+    },
+    "regression": {
+      "pass": true,
+      "themeVerLive": "1.4.16"
+    },
+    "redirects": {
+      "pass": true,
+      "passCount": 5,
+      "total": 5
+    }
+  }
+}

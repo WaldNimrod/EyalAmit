@@ -1,0 +1,42 @@
+{
+  "home": {
+    "ldjson_blocks": 1,
+    "types": [
+      [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite",
+        "Person",
+        "ProfessionalService"
+      ]
+    ],
+    "prohibitions": false
+  },
+  "treatment": {
+    "ldjson_blocks": 1,
+    "types": [
+      [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite",
+        "Person",
+        "ProfessionalService",
+        "Service"
+      ]
+    ],
+    "prohibitions": false
+  },
+  "bags": {
+    "ldjson_blocks": 1,
+    "types": [
+      [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite",
+        "Person",
+        "ProfessionalService"
+      ]
+    ],
+    "prohibitions": false
+  }
+}

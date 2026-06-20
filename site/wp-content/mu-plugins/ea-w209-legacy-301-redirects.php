@@ -61,6 +61,9 @@ function ea_w209_legacy_redirects() {
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנדים-לאחסון-דיגרידו-בתלייה-או-בעמיד/' => '/stands-storage/',
 		'/וכתבת-אייל-עמית/' => '/books/vekatavta/',
 		'/אייל-עמית-אודות/' => '/about/',
+		'/shop/cart/' => '/shop/',
+		'/shop/checkout/' => '/shop/',
+		'/shop/my-account/' => '/shop/',
 	);
 	if ( isset( $map[ $norm ] ) ) {
 		header( 'X-EA-Redirect: w209-301' );

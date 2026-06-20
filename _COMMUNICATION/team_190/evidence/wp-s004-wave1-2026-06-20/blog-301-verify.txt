@@ -1,0 +1,23 @@
+======================================================
+W2-06 Blog 301 Redirect Verification
+Staging: http://eyalamit-co-il-2026.s887.upress.link
+======================================================
+
+Testing: http://eyalamit-co-il-2026.s887.upress.link/Blog/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/
+  HTTP: 301
+  Location: Location: http://eyalamit-co-il-2026.s887.upress.link/blog/18-%D7%94%D7%98%D7%95%D7%A8-%D7%A9%D7%9C-%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA-%D7%9E%D7%A1%D7%9A-%D7%94%D7%91%D7%A8%D7%96%D7%9C/
+  PASS — 301 redirect to /blog/ confirmed
+
+Testing: http://eyalamit-co-il-2026.s887.upress.link/Blog/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/
+  HTTP: 301
+  Location: Location: http://eyalamit-co-il-2026.s887.upress.link/blog/%D7%A2%D7%9B%D7%A9%D7%99%D7%95-%D7%9E%D7%95%D7%A4%D7%A2-%D7%94%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%A9%D7%9C-%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA-15-11-14-%D7%91%D7%AA/
+  PASS — 301 redirect to /blog/ confirmed
+
+Testing: http://eyalamit-co-il-2026.s887.upress.link/Blog/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/
+  HTTP: 301
+  Location: Location: http://eyalamit-co-il-2026.s887.upress.link/blog/%D7%A4%D7%95%D7%93%D7%A7%D7%90%D7%A1%D7%98-%D7%93%D7%99%D7%92%D7%A8%D7%99%D7%93%D7%95-%D7%95-%D7%A0%D7%A9%D7%99%D7%9E%D7%94-%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA-2/
+  PASS — 301 redirect to /blog/ confirmed
+
+======================================================
+Results: 3 PASS / 0 FAIL
+======================================================

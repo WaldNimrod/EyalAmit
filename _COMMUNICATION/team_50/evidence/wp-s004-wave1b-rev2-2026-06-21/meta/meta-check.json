@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-06-20T22:33:12.919Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "decisiveRoutesTotal": 13,
+  "passCount": 13,
+  "failCount": 0,
+  "duplicateCount": 0,
+  "zeroCount": 0,
+  "results": [
+    {
+      "route": "/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "המרכז לטיפול בנשימה באמצעות דיג׳רידו — שיטת cbDIDG של אייל עמית. להחזיר שליטה על הנשימה דרך עבודה עם דיג׳רידו, תרגול נשימה וליווי אישי."
+      ],
+      "expectedNeedle": "המרכז לטיפול בנשימה",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/blog/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה."
+      ],
+      "expectedNeedle": "הבלוג של אייל עמית",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/blog/page/2/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/blog/page/2/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה."
+      ],
+      "expectedNeedle": "הבלוג של אייל עמית",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/eyal-amit/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "אייל עמית — מאסטר דיג׳רידו ומטפל בנשימה, מייסד המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה. הסיפור, שיטת cbDIDG וליווי אישי."
+      ],
+      "expectedNeedle": "אייל עמית",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/shop/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "חנות הדיג׳רידו של אייל עמית — כלים בעבודת יד, תיקים, סטנדים, אביזרים ותיקון דיג׳רידו, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה."
+      ],
+      "expectedNeedle": "חנות הדיג׳רידו",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/didgeridoos/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "דיג׳רידו למכירה — כלים בעבודת יד בבחירת אייל עמית, מאסטר דיג׳רידו. ייעוץ והתאמה אישית מהמרכז לטיפול בנשימה בפרדס חנה."
+      ],
+      "expectedNeedle": "דיג׳רידו למכירה",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/bags/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/bags/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "תיקים לדיג׳רידו בעבודת יד — הגנה ונשיאה נוחה לכלי שלכם, מחנות אייל עמית."
+      ],
+      "expectedNeedle": "תיקים לדיג׳רידו",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/stands-storage/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "סטנדים לאחסון דיג׳רידו — בתלייה או בעמידה, בעבודת יד, מחנות אייל עמית."
+      ],
+      "expectedNeedle": "סטנדים לאחסון דיג׳רידו",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/stand-floor/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "סטנד רצפתי לדיג׳רידו — לנגינה בישיבה בגובה נמוך, מחנות אייל עמית."
+      ],
+      "expectedNeedle": "סטנד רצפתי לדיג׳רידו",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/repair/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "תיקון דיג׳רידו — שירות מקצועי לכלים מכל הסוגים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו של אייל עמית."
+      ],
+      "expectedNeedle": "תיקון דיג׳רידו",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/books/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "הספרים של אייל עמית בהוצאת מוזה — סיפורים אוטוביוגרפיים. כל הכותרים והרכישה במקום אחד."
+      ],
+      "expectedNeedle": "הספרים של אייל עמית",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/faq/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/faq/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית."
+      ],
+      "expectedNeedle": "שאלות נפוצות",
+      "contentAccurate": true,
+      "pass": true
+    },
+    {
+      "route": "/contact/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+      "status": 200,
+      "count": 1,
+      "contents": [
+        "צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח׳ עמל 8 ב׳ פרדס חנה. וואטסאפ, טלפון וטופס."
+      ],
+      "expectedNeedle": "צרו קשר עם אייל עמית",
+      "contentAccurate": true,
+      "pass": true
+    }
+  ],
+  "knownNonBlockers": [
+    {
+      "route": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "status": 200,
+      "count": 0,
+      "contents": [],
+      "knownNonBlocker": true,
+      "note": "Single-post meta gap is explicitly non-blocking per mandate §3 / WP-04."
+    }
+  ],
+  "blogPostCandidates": [
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/"
+  ]
+}
