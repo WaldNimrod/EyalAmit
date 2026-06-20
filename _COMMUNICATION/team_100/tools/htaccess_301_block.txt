@@ -1,8 +1,8 @@
 # BEGIN EA-W2-06 301  (regenerated from 135-decision JSON SSoT; approach B; team_20 2026-05-30)
 <IfModule mod_rewrite.c>
 RewriteEngine On
-# W2-06 blog catch-all: legacy /Blog/<slug>/ -> new root /<slug>/
-RewriteRule ^Blog/(.+)$ /$1 [R=301,L,NC]
+# W2-06 blog catch-all: legacy /Blog/<slug>/ -> /blog/<slug>/
+RewriteRule ^Blog/(.+)$ /blog/$1 [R=301,L,NC]
 # --- page-level 301/410 redirects (generated from decisions JSON SSoT) ---
 # Bare RewriteRule on the per-directory relative path (same mechanism as the
 # working ^Blog/ rule): the relative path keeps the percent-encoding verbatim.
