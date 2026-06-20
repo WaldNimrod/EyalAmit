@@ -1,0 +1,17 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated": "2026-06-20T23:02:28.016Z",
+  "results": [
+    {
+      "route": "/eyal-amit/mokesh-dahiman/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    }
+  ]
+}

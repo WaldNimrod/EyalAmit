@@ -1,0 +1,33 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "canonical": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+  "checkedAt": "2026-06-21T02:05:00+03:00",
+  "method": "curl -sI first-hop only (no follow); canonical probed separately",
+  "results": [
+    {
+      "source": "/about/moksha/",
+      "firstHopStatus": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "redirectCount": 1,
+      "finalStatus": 200,
+      "single_hop_301_to_canonical_200": true
+    },
+    {
+      "source": "/mokesh/",
+      "firstHopStatus": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "redirectCount": 1,
+      "finalStatus": 200,
+      "single_hop_301_to_canonical_200": true
+    },
+    {
+      "source": "/mokesh-dahiman/",
+      "firstHopStatus": 301,
+      "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "redirectCount": 1,
+      "finalStatus": 200,
+      "single_hop_301_to_canonical_200": true
+    }
+  ],
+  "all_pass": true
+}

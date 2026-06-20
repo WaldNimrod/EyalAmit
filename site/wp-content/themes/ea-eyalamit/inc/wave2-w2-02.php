@@ -181,6 +181,10 @@ function ea_w2_02_legacy_redirects() {
 		// these multi-hop). WP-W2-16-D flip of WP-W2-15 F-W2-15-CA H5.
 		trailingslashit( (string) wp_parse_url( home_url( '/about/moksha/' ), PHP_URL_PATH ) )        => home_url( '/eyal-amit/mokesh-dahiman/' ),
 		trailingslashit( (string) wp_parse_url( home_url( '/mokesh-dahiman/' ), PHP_URL_PATH ) )       => home_url( '/eyal-amit/mokesh-dahiman/' ),
+		// team_110 2026-06-21: the short /mokesh/ variant also single-hops to canonical
+		// (WP-W2-16 validation mandate requires /about/moksha/, /mokesh-dahiman/ AND
+		// /mokesh/ → /eyal-amit/mokesh-dahiman/ in one hop; this completes the set).
+		trailingslashit( (string) wp_parse_url( home_url( '/mokesh/' ), PHP_URL_PATH ) )              => home_url( '/eyal-amit/mokesh-dahiman/' ),
 	);
 
 	foreach ( $redirects as $from => $to ) {

@@ -1,0 +1,32 @@
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sat, 20 Jun 2026 23:02:56 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 20 Jun 2026 23:02:57 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+Link: <http://eyalamit-co-il-2026.s887.upress.link/wp-json/>; rel="https://api.w.org/"
+Link: <http://eyalamit-co-il-2026.s887.upress.link/wp-json/wp/v2/pages/15>; rel="alternate"; title="JSON"; type="application/json"
+Link: <http://eyalamit-co-il-2026.s887.upress.link/?p=15>; rel=shortlink
+X-Robots-Tag: noindex, nofollow
+
+
+FINAL_URL=http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+FINAL_CODE=200
+REDIRECT_COUNT=1
