@@ -1,5 +1,7 @@
 # AOS HANDOFF — team_100 (Chief Architect) → fresh session · depth: FULL
 
+> **Finalization SSoT:** the consolidated gaps & remainders register for the completion round (M5→M7) is `COMPLETION-ROUND-ROADMAP-2026-06-20.md`; the tasks below (T1–T8) appear there as §2.
+
 **Engine:** team_100 (Claude Code) · **Generated:** 2026-06-16 · **Profile:** L0 spoke
 **Repo:** `/Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026` · **Hub:** `/Users/nimrod/Documents/agents-os`
 **git state:** `main @ ce99c80` (== origin/main; WP-W2-16 merged + pushed, dual-PASS) · planning branch

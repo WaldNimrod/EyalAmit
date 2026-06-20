@@ -2,6 +2,8 @@
 
 # team_100 — EyalAmit.co.il-2026 SEO/GEO/AEO Execution Plan (Work-Package Backlog)
 
+> **Part of the completion round.** The whole-project launch backlog (every gap & remainder, mapped to M5–M7) is the SSoT `COMPLETION-ROUND-ROADMAP-2026-06-20.md` (its §3 = this plan).
+
 **Project:** EyalAmit.co.il-2026 · **Owner:** team_100 (SEO/GEO delivery lead) · **Date:** 2026-06-20
 **Sources reconciled:** LOD400-SEO-GEO-OPTIMIZATION-2026-06-19.md (T1–T21) + BUSINESS-NAP-AND-HOURS-2026-06-16.md (NAP SSoT) + GAP RESEARCH (image, video, backlinks/digital-PR, migration+commerce, CRO).
 **Repo ground-truth re-verified 2026-06-20** against `site/wp-content/themes/ea-eyalamit/` and `site/wp-content/mu-plugins/`: zero JSON-LD; no `robots.txt`/sitemap in `site/` root; analytics `__PENDING_EYAL__`; `EA_WAVE2_CF7_FORM_ID = 0`; bare `wa.me` links; A/B test hides `.ea-whatsapp-float` via `display:none` for `form_only`; hero default = single `ghost-white` pill; live 301 mu-plugin sends `/צור-קשר/ → /contact/` while the two stale exports disagree; staging noindex gated on `upress.link`; `hub/dist/robots.txt` is a block-all artifact.
