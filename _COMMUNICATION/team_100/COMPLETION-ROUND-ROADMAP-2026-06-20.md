@@ -67,3 +67,31 @@ DB reconciliation is **blocked on the team_110 actor key** (hub-API writes 401 `
 - **Cross-cutting:** §1 Eyal-dependent (drives M5/M7 timing) · §7 governance/DB (team_110).
 
 **Critical path to launch:** team_110 key → register WPs · Eyal: Clarity + media (EYL-1/3) · build M5 (incl. WP-01 lead-leak fix + JSON-LD) → M6 design-QA → close 301-1 + harness → M7 cutover.
+
+
+---
+
+## Status snapshot — 2026-06-20 EOD (Wave-1 shipped · what remains)
+
+### ✅ DONE + LIVE
+- **Wave-1 SEO/GEO core — merged to `main` (817e05b) + live on staging + dual-PASS (team_50+team_190):** lead-leak fix (WhatsApp+form for all, GA4 `G-MRXESK7QJF` fires independently, `generate_lead`, wa.me pre-fill), entity schema via Yoast `wpseo_schema_graph` (Person/ProfessionalService/Service/Product, single graph), `/Blog/→/blog/` 301.
+- **wave1b — deployed to staging (pending Round-2 validation):** `/shop/cart|checkout|my-account → /shop/` 301; per-route meta descriptions on the 9 previously-bare routes.
+- **Earlier this session:** 301-map reconciliation (+/muzza fix, quarantine), media inventory (38) + hub intake page, 15 content proposals + hub page, SEO/GEO canonical WP `S004-P001-WP000` + validation/deploy plan + Wave-1 scope; Yoast-reality correction.
+
+### 🟡 NON-Eyal-gated — can still advance (queued)
+- **W1-05** image WebP/LCP pass (cwebp + Pillow confirmed available) — the one remaining non-gated build item (multi-template <picture>/dimensions). 
+- **Round-2 validation + merge** of the wave1b batch.
+- **Production cutover (Track B)** — prep is non-gated; the cutover itself is gated on launch-blockers (some below).
+
+### 🔴 BLOCKED on Eyal — cannot advance without his input (THE open list)
+1. **Microsoft Clarity `project_id`** (EYL-1) — PDF guide sent; Clarity tag stays dormant (GA4 already live).
+2. **Mokesh FULL-film link** (EYL-2) — only the trailer is public; needed for the lower-page embed in the mokesh rebuild.
+3. **Media — 38 items** (EYL-3) — 9 *needs-new* (service-page hero backgrounds; a real studio portrait to replace the press-clipping scan) + 11 placeholders (6 empty shop galleries, blog/product images). Eyal fills via `media-intake.html`.
+4. **Testimonials curation** (EYL-4) — 48 received; Eyal selects/edits via the hub.
+5. **Content proposals — 15** (CP/AF/BN/FAQ/BLOG) — Eyal approves via `content-proposals.html`. **Unblocks the #1 content lever** (the sleep-apnea/snoring pillar + answer-first + business-name reframe + FAQ + blog spokes). W1-03 (pillar URL mechanism) is buildable but pointless until the content is approved → effectively content-gated.
+6. **Product prices** — Eyal sets numeric `ea_product_price` in WP admin → the Product/Offer schema (already built) activates.
+7. **Courses ("קורסים") URL** (EYL-5); **`/shop/תקנון/` target** confirm (`/terms/` exists) (EYL-6).
+8. **GBP claim + Wikidata item** (D6/off-site) — need Eyal's Google/Wikidata account access; the on-site NAP + sameAs are already wired.
+9. **Mokesh page rebuild (16-E v2)** — bio/dates/photos resolved (same 19 + 4 FB embeds); still needs EYL-2 (full film) + content approval before the verbatim rebuild.
+
+> Net: the SEO/GEO **machine layer** (schema, analytics, redirects, meta, conversion) is essentially shipped; the **content + media + off-site** layers are the remaining value, and those are mostly gated on Eyal (hub approvals + media + accounts). The single highest-leverage unblock is Eyal approving the **content proposals** (sleep-apnea pillar).
