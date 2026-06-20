@@ -247,3 +247,22 @@ Stress-tested against the live repo. **Apply before/during build** — several o
 - The brief/WP/validation-plan repeatedly assert claims were 're-verified against the live repo on 2026-06-20', and most low-level claims DID verify (A/B display:none at ea-ab-testing.js:29; joint GA4+Clarity gate at wave2-stage-b.php:420; CF7 form id=0; bare lead-path wa.me; zero JSON-LD; block-all hub/dist/robots.txt; SEO-B1 post_parent===0 at wave2-w2-04.php:48). The credibility problem is concentrated in the higher-level CUTOVER/IDENTITY claims (the /about/moksha slug, the QR count, the brand-string file set) where the docs diverge from code — these are precisely the irreversible-cutover and entity-grounding areas where being wrong is most expensive.
 - Several 'OPEN' decision-gates (D10 slug, parts of SEO-B2/SEO-B3) are actually already resolved-in-code or already-reconciled in a newer artifact (301-MAP-RECONCILIATION-2026-06-20.md quarantined the stale exports and fixed the /מוזה->/books drift), but the canonical WP and validation plan were not updated to reflect that newer reconciliation pass — the governance docs lag the repo, so a reader following the WP could re-do or mis-do already-settled work.
 - The whole program's #1 KPI (AI-driven organic leads) is unmeasurable until AC-02 + AC-12 pass, and AC-12 depends on an ops dependency (CF7/SMTP/spam) that has no owner, no date, and no graceful-degradation AC — so the single most consequential gate is also the least-owned, creating a real risk the launch is declared 'done' on schema/CRO work while the lead funnel is still silently void.
+
+
+---
+
+## Appendix B — Yoast reality correction (2026-06-20, from the Wave-1 build)
+
+**The "0% schema / hand-roll a JSON-LD @graph" premise above is WRONG.** It came from reading the theme *source*
+(which has no JSON-LD) and missing the live *runtime*. Verified on staging:
+- **Yoast SEO v27.8 is the active SEO engine.** It already emits a JSON-LD @graph (WebPage/WebSite/BreadcrumbList/
+  SearchAction), OG + Twitter cards, `rel=canonical`, and the XML sitemap at **`/sitemap_index.xml`** (`/wp-sitemap.xml` 301s away).
+- Yoast's graph **lacks** Organization/Person/LocalBusiness/Service/FAQPage — exactly the entity nodes we want.
+- **No meta duplication:** inner pages have 1 `meta description` (the theme's service-specific copy) + 1 Yoast canonical; Yoast owns title/OG/Twitter/breadcrumb/sitemap, the theme owns the service descriptions — complementary.
+
+**Corrected approach (implemented in Wave-1):**
+- **W1-02 (built):** a mu-plugin (`ea-w2-seo-schema.php`) hooks Yoast's `wpseo_schema_graph` to ADD Person (+sameAs incl. the live he.wikipedia article), ProfessionalService (NAP), and Service-per-route — **one schema engine, no hand-rolled second @graph**.
+- **W1-04 (verified):** no meta surgery needed (no duplication); the production robots.txt allow-list defers to the cutover (staging is noindex-gated).
+- **W1-07 (resolved):** canonical sitemap = `/sitemap_index.xml` (Yoast) — the legacy 301 already targets it.
+
+Net: the SEO machine-grounding is **smaller + lower-risk** than the plan assumed — extend Yoast, don't rebuild it. The LOD400/exec-plan "0% schema, JSON-LD is the cheapest big win, build a hand-rolled @graph" framing should be read through this correction.
