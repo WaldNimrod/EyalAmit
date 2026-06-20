@@ -183,7 +183,7 @@ add_filter( 'the_content', 'ea_w2_08_inject_content', 9 );
  * @return string
  */
 function ea_w2_08_cta_url() {
-	return 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164;
+	return ea_wave2_wa_url( 'Hi Eyal, I found you via the website and would love some details' );
 }
 
 /**

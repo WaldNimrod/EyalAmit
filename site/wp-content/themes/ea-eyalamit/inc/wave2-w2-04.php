@@ -416,7 +416,7 @@ function ea_w2_04_render_testimonials( $b, $alt ) {
  */
 function ea_w2_04_render_cta( $slug, $b ) {
 	$contact = home_url( '/contact?subject=' . rawurlencode( $slug ) );
-	$wa      = 'https://wa.me/972524822842';
+	$wa      = ea_wave2_wa_url( 'היי אייל, הגעתי דרך עמוד השירות ואשמח לתאם' );
 	?>
 	<section class="ea-section ea-section--cta ea-section--closing" data-block="cta" aria-label="<?php echo esc_attr( $b['heading'] ); ?>">
 		<div class="ea-section__inner ea-section__inner--center">

@@ -14,6 +14,19 @@ define( 'EA_WAVE2_CF7_FORM_ID', 0 );
 define( 'EA_WAVE2_WHATSAPP_E164', '972524822842' );
 
 /**
+ * WhatsApp click-to-chat URL with a pre-filled message (W1-01 conversion).
+ *
+ * @param string $msg Optional message; a Hebrew default is used when empty.
+ * @return string
+ */
+if ( ! function_exists( 'ea_wave2_wa_url' ) ) {
+	function ea_wave2_wa_url( $msg = '' ) {
+		$msg = ( '' !== $msg ) ? $msg : 'היי אייל, הגעתי דרך האתר ואשמח לקבל פרטים';
+		return 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164 . '?text=' . rawurlencode( $msg );
+	}
+}
+
+/**
  * Ordered POC homepage blocks (12).
  *
  * @return string[]
@@ -358,7 +371,7 @@ function ea_wave2_render_contact_form() {
  * Floating WhatsApp CTA (variant controlled by ea-ab-testing.js).
  */
 function ea_wave2_render_whatsapp_float() {
-	$url = 'https://wa.me/' . EA_WAVE2_WHATSAPP_E164;
+	$url = ea_wave2_wa_url();
 	?>
 	<a class="ea-whatsapp-float"
 	   href="<?php echo esc_url( $url ); ?>"
