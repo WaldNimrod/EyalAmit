@@ -43,12 +43,7 @@ defined( 'ABSPATH' ) || exit;
  * @return string
  */
 function ea_w2_09_route_description() {
-	if ( ! is_page() ) {
-		return '';
-	}
-	$obj  = get_queried_object();
-	$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
-	$map  = array(
+	$map = array(
 		'eyal-amit'      => 'אייל עמית — מאסטר דיג׳רידו ומטפל בנשימה, מייסד המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה. הסיפור, שיטת cbDIDG וליווי אישי.',
 		'shop'           => 'חנות הדיג׳רידו של אייל עמית — כלים בעבודת יד, תיקים, סטנדים, אביזרים ותיקון דיג׳רידו, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה.',
 		'didgeridoos'    => 'דיג׳רידו למכירה — כלים בעבודת יד בבחירת אייל עמית, מאסטר דיג׳רידו. ייעוץ והתאמה אישית מהמרכז לטיפול בנשימה בפרדס חנה.',
@@ -57,11 +52,33 @@ function ea_w2_09_route_description() {
 		'stand-floor'    => 'סטנד רצפתי לדיג׳רידו — לנגינה בישיבה בגובה נמוך, מחנות אייל עמית.',
 		'repair'         => 'תיקון דיג׳רידו — שירות מקצועי לכלים מכל הסוגים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו של אייל עמית.',
 		'books'          => 'הספרים של אייל עמית בהוצאת מוזה — סיפורים אוטוביוגרפיים. כל הכותרים והרכישה במקום אחד.',
+		// 'muzza' is a DEAD entry: /muzza/ is a 301 SOURCE that redirects to canonical
+		// /books/ (redirects SSoT). It is never queried as a Page, so this copy never
+		// renders. Retained as documentation; F-W1B-META-02 dispositioned — accept the
+		// /books/ canonical, do not author a distinct /muzza/ landing.
 		'muzza'          => 'מוזה הוצאה לאור — הספרים והסיפורים של אייל עמית. כל הכותרים והרכישה.',
-		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
+		// 'blog' is served by the is_home() branch below (the posts archive is not a
+		// Page); the entry lives here so the copy has a single source of truth.
 		'blog'           => 'הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה.',
+		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
 		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח׳ עמל 8 ב׳ פרדס חנה. וואטסאפ, טלפון וטופס.',
 	);
+
+	// Blog posts archive: WordPress serves /blog/ via is_home() (the static front
+	// page is a separate Page), so is_page() is false here and the slug map below is
+	// never reached. Without this branch the archive shipped description-less
+	// (B-W1B-META-01). Guard on ! is_front_page() so this only applies to the
+	// dedicated posts page, not when the blog is configured as the site homepage
+	// (that case is handled by the is_front_page() branch in the caller).
+	if ( is_home() && ! is_front_page() ) {
+		return $map['blog'];
+	}
+
+	if ( ! is_page() ) {
+		return '';
+	}
+	$obj  = get_queried_object();
+	$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
 	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
 }
 
