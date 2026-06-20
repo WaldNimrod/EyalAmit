@@ -36,10 +36,10 @@ Full plan: **`SEO-GEO-EXECUTION-PLAN-2026-06-20.md`** — 13 canonical WPs (P1 q
 | ID | Blocker | Source |
 |----|----|----|
 | SEO-B1 | **Sleep-apnea pillar URL not buildable as a `/treatment` child** — `wave2-w2-04.php` matches top-level pages only (`post_parent==0`); make it top-level OR extend the injector | exec-plan critic |
-| SEO-B2 | **Sitemap URL contradiction** — plan/robots say `wp-sitemap.xml` but the live 301 maps `/מפת-אתר/ → /sitemap_index.xml` (Yoast convention); theme-native (D4) emits neither by default — pick ONE + make robots/GSC/301 agree | exec-plan critic; 301 doc; gen MANUAL_MAP |
-| SEO-B3 | **48 `/qr/qr*/` pages embed raw YouTube iframes** — real video footprint not covered by WP-07; assign facade/lazy/transcript | exec-plan critic |
+| SEO-B2 | ✅ **CLOSED (2026-06-21).** Sitemap reconciled at **`/sitemap_index.xml`** — live-verified: `/sitemap_index.xml` → 200 (Yoast), `/wp-sitemap.xml` → 301 → it, legacy `/מפת-אתר-site-map/` 301 already targets it. robots + GSC + 301 all name `/sitemap_index.xml`. The "404 / contradiction" critic claim was **stale** (no 404). | team_100 live verify; DEC-SEO-B2 |
+| SEO-B3 | **48 `/qr/qr*/` pages embed raw YouTube iframes** — real video footprint. ✅ **Ownership pinned to WP-07** (facade/lazy/transcript + CWV) in the umbrella WP (2026-06-21). | exec-plan critic; WP000 §3 |
 | SEO-B4 | **CF7 is wired but server-gated** — `form_id=0` because CF7 isn't active on the server; needs CF7 activation + SMTP/deliverability + spam protection + a real end-to-end lead-receipt test | exec-plan critic |
-| SEO-B5 | **Route enumeration gaps** — `/shows/ /repair/ /bags/ /stand-floor/ /stands-storage/ /books/* /about/moksha/ /press/ + 48 /qr/` get no schema/meta/title/OG → thin pages at cutover; enumerate or noindex | exec-plan critic |
+| SEO-B5 | **Route enumeration gaps** — `/shows/ /repair/ /bags/ /stand-floor/ /stands-storage/ /books/* /eyal-amit/mokesh-dahiman/ /press/ + 48 /qr/` get no schema/meta/title/OG → thin pages at cutover; enumerate or noindex. (Canonical memorial = `/eyal-amit/mokesh-dahiman/`; `/about/moksha/` is a 301 source → it, not a schema target.) | exec-plan critic; WP000 AC-11 |
 | SEO-D | **Open decisions (carry as gates):** D1 official business name (drop "סטודיו נשימה מעגלית"), D3 allow GPTBot, D5 ProfessionalService+Person, D7 therapy-lead conversion, D12 verify real keyword volumes, D13 EN out-of-scope | exec-plan §12 |
 
 ## §4 — 301 / redirect-map cutover gaps → M7 (Track B)
@@ -75,14 +75,14 @@ DB reconciliation is **blocked on the team_110 actor key** (hub-API writes 401 `
 
 ### ✅ DONE + LIVE
 - **Wave-1 SEO/GEO core — merged to `main` (817e05b) + live on staging + dual-PASS (team_50+team_190):** lead-leak fix (WhatsApp+form for all, GA4 `G-MRXESK7QJF` fires independently, `generate_lead`, wa.me pre-fill), entity schema via Yoast `wpseo_schema_graph` (Person/ProfessionalService/Service/Product, single graph), `/Blog/→/blog/` 301.
-- **wave1b — deployed to staging (pending Round-2 validation):** `/shop/cart|checkout|my-account → /shop/` 301; per-route meta descriptions on the 9 previously-bare routes.
+- **wave1b — FAILED Round-2 v1 → FIXED → PENDING rev2** (see the **2026-06-21 update** at the end): team_50 v1 = FAIL (`/blog/` emitted 0 meta); team_100 fixed the blog-archive meta branch (theme 1.4.15) + redeployed; awaiting team_50 v2 → team_190. Batch: `/shop/cart|checkout|my-account → /shop/` 301; per-route meta (now incl. the `/blog/` archive); contact NAP; LCP fetchpriority.
 - **Earlier this session:** 301-map reconciliation (+/muzza fix, quarantine), media inventory (38) + hub intake page, 15 content proposals + hub page, SEO/GEO canonical WP `S004-P001-WP000` + validation/deploy plan + Wave-1 scope; Yoast-reality correction.
 
 ### 🟡 NON-Eyal-gated
 **Completed in the wave1b pass (deployed to staging):** `/shop/cart|checkout|my-account → /shop/` 301 · per-route meta descriptions (9 bare routes) · **contact-page visible NAP/hours (BLD-4 — Eyal's flagged gap)** · LCP `fetchpriority` on /eyal-amit (W1-05a) · `/Blog/` 301 (W1-06 = 301-1).
 **Deferred — still non-blocked but low-priority / cutover-time / risk (not worth doing now):**
 - Full **WebP `<picture>`** image pass — marginal CWV gain + layout-regression risk; do as a dedicated QA'd perf pass (cwebp/Pillow ready).
-- **`final_pre_cutover_check.sh` QR assertion** — asserts all 49 `/qr/` → 200; correct to 48 `/qr/qr*/` + parent `/qr/` → 200 and legacy `/qr/פרק-א/` → 410 (+ reconcile QR-URL-INVENTORY.csv). Track-B cutover-time.
+- ✅ **`final_pre_cutover_check.sh` QR assertion — FIXED (2026-06-21).** Live verification corrected the critic's premise: the CSV's 49 rows (parent `/qr/` + 48 `/qr/qrN/`) are ALL correctly 200 on staging (it was **not** a 49→48 count error); `/qr/פרק-א/` → 410 is covered by section (b). Real fix applied: section (c) now asserts **DIRECT 200** (no redirect-follow) so the documented prod 302 on parent `/qr/` can't be masked. bash + embedded-python syntax-checked.
 - **Hub `materials-needed.json` refresh** — superseded by the live media-intake + content-proposals pages; low-urgency.
 - **Round-2 validation + merge** of wave1b — the next external-validation boundary.
 
@@ -98,3 +98,24 @@ DB reconciliation is **blocked on the team_110 actor key** (hub-API writes 401 `
 9. **Mokesh page rebuild (16-E v2)** — bio/dates/photos resolved (same 19 + 4 FB embeds); still needs EYL-2 (full film) + content approval before the verbatim rebuild.
 
 > Net: the SEO/GEO **machine layer** (schema, analytics, redirects, meta, conversion) is essentially shipped; the **content + media + off-site** layers are the remaining value, and those are mostly gated on Eyal (hub approvals + media + accounts). The single highest-leverage unblock is Eyal approving the **content proposals** (sleep-apnea pillar).
+
+---
+
+## Status update — 2026-06-21 (Wave-1b rev2 + spec reconciliation)
+
+**Trigger:** team_50 v1 cross-engine verdict on Wave-1b came back **FAIL** (not "pending" as the prior handoff stated) — single blocker `B-W1B-META-01`: `/blog/` emitted 0 `<meta name="description">`. 7/8 gates had passed.
+
+### ✅ Done + verified this session
+- **`B-W1B-META-01` fixed.** Root cause: `ea_w2_09_route_description()` early-returned unless `is_page()`, so the `/blog/` posts archive (`is_home()`) was skipped + the tagline fallback is empty. Added an `is_home() && ! is_front_page()` branch (single source of truth = `$map['blog']`). Self-QA GREEN: `/blog/` 0→1, `/blog/page/2/`=1, all 12 mandate routes=1 (no dup), single post=0 (no dup introduced). Theme 1.4.14→**1.4.15**, redeployed to staging. `php -l` clean.
+- **`F-W1B-META-02` (`/muzza/`) dispositioned** — `/books/` canonical accepted; dead map entry documented. Closed, not a re-validation item.
+- **Spec docs reconciled to live reality** (3 files): WP umbrella + exec-plan + validation-plan — Yoast = live schema engine (D4; WP-02 EXTENDS via `wpseo_schema_graph`, not hand-rolled); Moksha canonical = `/eyal-amit/mokesh-dahiman/` (D10 re-scoped content-only); **DEC-SEO-B2 CLOSED** at `/sitemap_index.xml`. New ACs: **AC-12b** (contact wa.me/tel always exposed), **AC-17** (Track-A rollback triggers), **AC-18** (in-content link canonicalization — no 301 sources), **AC-19** (per-post meta). Full brand-string enumeration (6 files/12 occ incl. 2 SEED files needing re-seed). WP-07 owns the 48 QR raw-iframes.
+- **Harness fix** — `final_pre_cutover_check.sh` QR check now asserts DIRECT 200 (see §4 deferred list above).
+- **Two critic claims disproved by live verification:** sitemap "404" (SEO-B2) and QR "49→48" — both were stale; docs corrected to truth, not propagated.
+- **Governance:** `validate_aos.sh` = 43 PASS / 0 FAIL.
+
+### ✅ Wave-1b DUAL-PASS achieved (2026-06-21) — merge pending Nimrod "מאשר"
+- **team_50 v2** = PASS_WITH_FINDINGS (`VERDICT_…WAVE1B_v2.md`) · **team_190 final** = PASS_WITH_FINDINGS, no blockers (`_COMMUNICATION/team_190/VERDICT_WP-S004-P001-WP000-WAVE1B_FINAL_v1.md`, evidence `…/wp-s004-wave1b-final-2026-06-21/`). All 8 gates green; meta 13/13 re-confirmed live; `B-W1B-META-01` resolved.
+- team_190 sole content-diff fail = `/eyal-amit/mokesh-dahiman/` — **out of Wave-1b scope** (concurrent team_110 mokesh workstream). Non-blockers: single-post meta (WP-04), version drift 1.4.16.
+- **Merge plan (on "מאשר"):** scope-commit ONLY `inc/wave2-w2-09.php` (concurrent catalog work + `style.css` 1.4.16 stay with `mokesh-content`); merge `wave1b-seo-geo` → `main` via an isolated worktree so the shared dirty tree is untouched; merge-commit style (like the Wave-1 merge). Origin push separate, on "פוש".
+- **New non-blocker logged:** single blog posts emit 0 meta (AC-19 → WP-04 head pack). Not a Wave-1b failure.
+- **Git posture:** fix is live on staging (validation surface) but **uncommitted** per commit-gating; working tree also holds the prior session's verdict/script/docx untracked files — to be committed in their own commit(s) at merge time, kept out of the code-fix commit. **Branch note:** HEAD is currently on `mokesh-content`, which points to the SAME commit (`91e2765`) as `wave1b-seo-geo` — at commit time the meta fix must land on `wave1b-seo-geo` (checkout there, or fast-forward it) so the `wave1b-seo-geo` → `main` merge includes it.
