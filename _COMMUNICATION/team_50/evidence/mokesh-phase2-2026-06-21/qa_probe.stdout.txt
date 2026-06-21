@@ -1,0 +1,87 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-06-21T00:05:22.356Z",
+  "total": 6,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_lessons_",
+      "url": "/lessons/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שיעורי דיג'רידו - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_eyal_amit_mokesh_dahiman_",
+      "url": "/eyal-amit/mokesh-dahiman/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מוקש דהימן — לזכרו - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_lessons_",
+      "url": "/lessons/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שיעורי דיג'רידו - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_eyal_amit_mokesh_dahiman_",
+      "url": "/eyal-amit/mokesh-dahiman/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מוקש דהימן — לזכרו - eyal amit",
+      "screenshot": null,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+=== /about/moksha/ ===
+REDIRECT_COUNT=1 FINAL=http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/ HTTP=200
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sun, 21 Jun 2026 00:05:45 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
+
+=== /mokesh/ ===
+REDIRECT_COUNT=1 FINAL=http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/ HTTP=200
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sun, 21 Jun 2026 00:05:46 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
+
+=== /mokesh-dahiman/ ===
+REDIRECT_COUNT=1 FINAL=http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/ HTTP=200
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sun, 21 Jun 2026 00:05:47 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
+
+=== /דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/מוקש-דהימן-מאסטר-דיגרידו-דף-להנצחת-זכ/ ===
+REDIRECT_COUNT=1 FINAL=http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/ HTTP=200
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sun, 21 Jun 2026 00:05:48 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-UA-Compatible: IE=edge
+Permissions-Policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+X-EA-Redirect: w209-301
+X-Redirect-By: WordPress
+Location: http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/
+X-Robots-Tag: noindex, nofollow
+
+
