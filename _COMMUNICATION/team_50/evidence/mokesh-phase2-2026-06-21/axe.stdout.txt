@@ -1,0 +1,9 @@
+PASS 200  /media/              crit=0 serious=0 mod=0 minor=0
+PASS 200  /lessons/            crit=0 serious=0 mod=0 minor=0
+PASS 200  /treatment/          crit=0 serious=0 mod=0 minor=0
+PASS 200  /sound-healing/      crit=0 serious=0 mod=0 minor=0
+
+============================================================
+Routes: 4 · clean(0 crit/serious): 4 · blocking: 0
+Report: /Users/nimrod/Documents/Eyal Amit/EyalAmit.co.il-2026/scripts/qa/reports/axe-http-2026-06-21.json
+RESULT: PASS — 0 critical / 0 serious across all routes (S5 a11y bar met).

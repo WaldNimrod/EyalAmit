@@ -1,0 +1,15 @@
+{
+  "legacy_hebrew_slug": {
+    "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/מוקש-דהימן-מאסטר-דיגרידו-דף-להנצחת-זכ/",
+    "hop1_status": 301,
+    "hop1_location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+    "hop2_status": 200,
+    "single_hop": true
+  },
+  "other_mokesh_redirects": {
+    "/about/moksha/": { "status": 301, "location": "/eyal-amit/mokesh-dahiman/" },
+    "/mokesh/": { "status": 301, "location": "/eyal-amit/mokesh-dahiman/" },
+    "/mokesh-dahiman/": { "status": 301, "location": "/eyal-amit/mokesh-dahiman/" }
+  },
+  "canonical": { "path": "/eyal-amit/mokesh-dahiman/", "status": 200 }
+}
