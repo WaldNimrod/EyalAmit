@@ -129,6 +129,10 @@ def main() -> None:
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-seo-schema.php", "wp-content/mu-plugins/ea-w2-seo-schema.php"))
     # W2-14-E (team_110): seed the 19 Mokesh memorial photos into the media library.
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-14e-mokesh-media-seed-once.php", "wp-content/mu-plugins/ea-w2-14e-mokesh-media-seed-once.php"))
+    # WP-04: default OG/Twitter image (extends Yoast when a page has none).
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-og-default.php", "wp-content/mu-plugins/ea-w2-og-default.php"))
+    # WP-06: one-time DB migration to scrub the seeded brand «סטודיו נשימה מעגלית».
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06-brand-migration-once.php", "wp-content/mu-plugins/ea-w2-06-brand-migration-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:
