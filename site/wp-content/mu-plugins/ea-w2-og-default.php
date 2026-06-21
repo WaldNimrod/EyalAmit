@@ -27,22 +27,50 @@ function ea_w2_og_default_image_url() {
 }
 
 /**
- * Fill in the OG image only when Yoast resolved none (empty), mirroring Yoast's own
- * "use the page image if it has one" behaviour — so pages WITH a featured image keep it
- * and we never emit two images.
+ * Yoast v27.8 emits NO og:image on this install (no per-page image + no Yoast default),
+ * and the wpseo_opengraph_image filter does not fire when Yoast has no base image to
+ * filter. So emit og:image + twitter:image directly on wp_head. Use the queried
+ * singular's featured image when present (with real dimensions), else the sitewide
+ * brand default. Yoast emits none here, so this is the single og:image (no duplicate).
  */
-add_filter(
-	'wpseo_opengraph_image',
-	function ( $image ) {
-		return ( empty( $image ) ) ? ea_w2_og_default_image_url() : $image;
-	},
-	20
-);
+add_action(
+	'wp_head',
+	function () {
+		$url = '';
+		$w   = 0;
+		$h   = 0;
 
-add_filter(
-	'wpseo_twitter_image',
-	function ( $image ) {
-		return ( empty( $image ) ) ? ea_w2_og_default_image_url() : $image;
+		if ( is_singular() && has_post_thumbnail() ) {
+			$src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+			if ( is_array( $src ) && ! empty( $src[0] ) ) {
+				$url = $src[0];
+				$w   = (int) $src[1];
+				$h   = (int) $src[2];
+			}
+		}
+
+		if ( '' === $url ) {
+			$url  = ea_w2_og_default_image_url();
+			$path = get_stylesheet_directory() . '/assets/images/eyal-portrait-hero.jpg';
+			if ( is_readable( $path ) ) {
+				$size = @getimagesize( $path );
+				if ( is_array( $size ) ) {
+					$w = (int) $size[0];
+					$h = (int) $size[1];
+				}
+			}
+		}
+
+		if ( '' === $url ) {
+			return;
+		}
+
+		printf( '<meta property="og:image" content="%s" />' . "\n", esc_url( $url ) );
+		if ( $w > 0 && $h > 0 ) {
+			printf( '<meta property="og:image:width" content="%d" />' . "\n", $w );
+			printf( '<meta property="og:image:height" content="%d" />' . "\n", $h );
+		}
+		printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $url ) );
 	},
-	20
+	5
 );
