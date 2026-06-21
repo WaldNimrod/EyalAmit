@@ -74,6 +74,20 @@ function ea_w2_09_route_description() {
 		return $map['blog'];
 	}
 
+	// Single blog post: posts are is_singular('post'), not is_page(), so the slug map
+	// below never reached them and they shipped description-less (AC-19). Derive the
+	// description from the excerpt — the same source Yoast uses for og:description, so
+	// the two stay consistent — trimmed to ~157 chars on a clean boundary.
+	if ( is_singular( 'post' ) ) {
+		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
+		if ( '' !== $excerpt ) {
+			if ( function_exists( 'mb_strlen' ) && mb_strlen( $excerpt ) > 160 ) {
+				$excerpt = rtrim( mb_substr( $excerpt, 0, 157 ) ) . '…';
+			}
+			return $excerpt;
+		}
+	}
+
 	if ( ! is_page() ) {
 		return '';
 	}
