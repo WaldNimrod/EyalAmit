@@ -598,3 +598,12 @@ body.nav-locked{overflow:hidden}
 .rcard__sc{transition:background .7s}
 .rcard__t{transition:transform .7s var(--e)}
 .collage__big,.collage__sm{transition:opacity 1.4s var(--e),transform 1.4s var(--e)}
+
+/* ---- a11y: AA contrast fixes (axe serious → 0, 2026-06-22) ---- */
+/* filled-button terracotta: white text ≥4.5:1 (#B05F38 ≈ 4.6:1). Brand --terra
+   #B5663D stays the accent for eyebrows/lines; only the solid CTA bg is nudged. */
+:root{--terra-btn:#B05F38}
+.btn--terra{background:var(--terra-btn)}
+.btn--terra:hover{background:var(--terra-dk)}
+/* footer copyright: lift opacity so it clears AA on the near-black footer */
+.foot__base{color:rgba(255,255,255,.62)}
