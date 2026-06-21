@@ -2,15 +2,18 @@
 /**
  * Chapters (פרקים) home — ACF field group (code-registered, version-controlled).
  *
- * Field NAMES match the keys in defaults/home-defaults.php and the accessors in
- * chapters-render.php, so an ACF value transparently overrides the seeded default.
- * Image fields return the attachment id (resolved by ea_chapters_img()).
+ * FREE-ACF compatible: the fixed-count sections (timeline / for-whom / session /
+ * testimonials / steps) are registered as flat fixed-slot fields named
+ * {base}_{i}_{sub} (no Pro Repeater needed). ea_chapters_assemble_rows() turns
+ * them back into repeater-shaped rows, so the section partials are unchanged.
+ * Slot counts + sub-fields come from ea_chapters_repeater_specs() (single source).
  *
- * Location: the static front page OR any page assigned the Chapters template —
- * so the front page (force-routed, no template meta) is still editable, and
- * duplicated pages on the template get the same fields.
+ * Field names match defaults/home-defaults.php + the accessors, so an ACF value
+ * transparently overrides the seeded default. Image fields return the attachment
+ * id (resolved by ea_chapters_img()/ea_chapters_resolve_img()).
  *
- * If ACF is inactive this file no-ops; the page renders from seeded defaults.
+ * Location: the static front page OR any page on the Chapters template. If ACF is
+ * inactive this file no-ops and the page renders from seeded defaults.
  *
  * @package ea_eyalamit
  */
@@ -30,24 +33,41 @@ function ea_chapters_register_home_fields() {
 	$txt = function ( $key, $name, $label, $type = 'text', $rows = 2 ) {
 		$f = array( 'key' => $key, 'name' => $name, 'label' => $label, 'type' => $type );
 		if ( 'textarea' === $type ) {
-			$f['rows'] = $rows;
+			$f['rows']      = $rows;
 			$f['new_lines'] = '';
 		}
 		if ( 'wysiwyg' === $type ) {
 			$f['media_upload'] = 0;
-			$f['tabs'] = 'visual';
+			$f['tabs']         = 'visual';
 		}
 		return $f;
 	};
 	$tab = function ( $key, $label ) {
 		return array( 'key' => $key, 'label' => $label, 'type' => 'tab', 'placement' => 'top' );
 	};
+	$acc = function ( $key, $label ) {
+		return array( 'key' => $key, 'label' => $label, 'type' => 'accordion', 'open' => 0, 'multi_expand' => 1, 'endpoint' => 0 );
+	};
+	// Build the flat fixed-slot fields for one repeater base.
+	$slots = function ( $base, $count, $subdefs, $slot_label ) use ( $img, $txt, $acc ) {
+		$out = array();
+		for ( $i = 1; $i <= $count; $i++ ) {
+			$out[] = $acc( "f_{$base}_{$i}_acc", "{$slot_label} {$i}" );
+			foreach ( $subdefs as $sd ) {
+				$k = "f_{$base}_{$i}_{$sd['name']}";
+				$n = "{$base}_{$i}_{$sd['name']}";
+				if ( 'image' === $sd['type'] ) {
+					$out[] = $img( $k, $n, $sd['label'] );
+				} else {
+					$out[] = $txt( $k, $n, $sd['label'], $sd['type'], isset( $sd['rows'] ) ? $sd['rows'] : 2 );
+				}
+			}
+		}
+		return $out;
+	};
 
-	acf_add_local_field_group( array(
-		'key'    => 'group_chapters_home',
-		'title'  => 'פרקים — דף הבית',
-		'fields' => array(
-
+	$fields = array_merge(
+		array(
 			$tab( 'tab_hero', 'Hero' ),
 			$txt( 'f_hero_title', 'hero_title', 'כותרת ראשית (H1) — מותר <em> ו־<br>', 'textarea', 2 ),
 			$txt( 'f_hero_sub', 'hero_subtitle', 'תת־כותרת', 'textarea', 3 ),
@@ -66,31 +86,37 @@ function ea_chapters_register_home_fields() {
 			$txt( 'f_about_img2a', 'about_img2_alt', 'תיאור תמונה 2 (alt)' ),
 			$img( 'f_about_img3', 'about_img3', 'תמונה 3' ),
 			$txt( 'f_about_img3a', 'about_img3_alt', 'תיאור תמונה 3 (alt)' ),
-			array( 'key' => 'f_about_tl', 'name' => 'about_timeline', 'label' => 'ציר זמן', 'type' => 'repeater', 'min' => 0, 'max' => 6, 'layout' => 'table', 'button_label' => 'הוסף שלב', 'sub_fields' => array(
-				$txt( 'f_tl_year', 'year', 'שנה' ),
-				$txt( 'f_tl_text', 'text', 'תיאור' ),
-			) ),
+		),
+		$slots( 'about_timeline', 4, array(
+			array( 'type' => 'text', 'name' => 'year', 'label' => 'שנה' ),
+			array( 'type' => 'text', 'name' => 'text', 'label' => 'תיאור' ),
+		), 'שלב' ),
 
+		array(
 			$tab( 'tab_whom', '02 למי מתאים' ),
 			$txt( 'f_whom_chap', 'whom_chap', 'תווית פרק' ),
 			$txt( 'f_whom_title', 'whom_title', 'כותרת' ),
 			$txt( 'f_whom_lead', 'whom_lead', 'משפט פתיחה', 'textarea', 2 ),
-			array( 'key' => 'f_whom_items', 'name' => 'whom_items', 'label' => 'פריטים', 'type' => 'repeater', 'min' => 0, 'max' => 4, 'layout' => 'block', 'button_label' => 'הוסף פריט', 'sub_fields' => array(
-				$img( 'f_whom_img', 'image', 'תמונה' ),
-				$txt( 'f_whom_txt', 'text', 'טקסט', 'textarea', 3 ),
-			) ),
+		),
+		$slots( 'whom_items', 4, array(
+			array( 'type' => 'image', 'name' => 'image', 'label' => 'תמונה' ),
+			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט', 'rows' => 3 ),
+		), 'פריט' ),
 
+		array(
 			$tab( 'tab_session', '03 מהלך המפגש' ),
 			$txt( 'f_sess_chap', 'session_chap', 'תווית פרק' ),
 			$txt( 'f_sess_title', 'session_title', 'כותרת' ),
 			$txt( 'f_sess_lead', 'session_lead', 'משפט פתיחה', 'textarea', 2 ),
-			array( 'key' => 'f_sess_cards', 'name' => 'session_cards', 'label' => 'כרטיסים', 'type' => 'repeater', 'min' => 0, 'max' => 4, 'layout' => 'block', 'button_label' => 'הוסף כרטיס', 'sub_fields' => array(
-				$img( 'f_sc_img', 'image', 'תמונה' ),
-				$txt( 'f_sc_title', 'title', 'כותרת' ),
-				$txt( 'f_sc_text', 'text', 'טקסט קצר', 'textarea', 2 ),
-				$txt( 'f_sc_reveal', 'reveal', 'טקסט שנחשף במעבר עכבר', 'textarea', 2 ),
-			) ),
+		),
+		$slots( 'session_cards', 4, array(
+			array( 'type' => 'image', 'name' => 'image', 'label' => 'תמונה' ),
+			array( 'type' => 'text', 'name' => 'title', 'label' => 'כותרת' ),
+			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט קצר', 'rows' => 2 ),
+			array( 'type' => 'textarea', 'name' => 'reveal', 'label' => 'טקסט שנחשף במעבר עכבר', 'rows' => 2 ),
+		), 'כרטיס' ),
 
+		array(
 			$tab( 'tab_band', 'תמונה + ציטוט' ),
 			$img( 'f_band_img', 'band_image', 'תמונה (רוחב מלא)' ),
 			$txt( 'f_band_alt', 'band_alt', 'תיאור תמונה (alt)' ),
@@ -109,13 +135,15 @@ function ea_chapters_register_home_fields() {
 			$tab( 'tab_testi', '05 המלצות' ),
 			$txt( 'f_testi_chap', 'testi_chap', 'תווית פרק' ),
 			$txt( 'f_testi_title', 'testi_title', 'כותרת' ),
-			array( 'key' => 'f_testi_items', 'name' => 'testi_items', 'label' => 'המלצות', 'type' => 'repeater', 'min' => 0, 'max' => 6, 'layout' => 'block', 'button_label' => 'הוסף המלצה', 'sub_fields' => array(
-				$txt( 'f_t_text', 'text', 'טקסט', 'textarea', 3 ),
-				$txt( 'f_t_name', 'name', 'שם' ),
-				$txt( 'f_t_initial', 'initial', 'אות (אם אין תמונה)' ),
-				$img( 'f_t_av', 'avatar', 'תמונת פרופיל (אופציונלי)' ),
-			) ),
+		),
+		$slots( 'testi_items', 4, array(
+			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט', 'rows' => 3 ),
+			array( 'type' => 'text', 'name' => 'name', 'label' => 'שם' ),
+			array( 'type' => 'text', 'name' => 'initial', 'label' => 'אות (אם אין תמונה)' ),
+			array( 'type' => 'image', 'name' => 'avatar', 'label' => 'תמונת פרופיל (אופציונלי)' ),
+		), 'המלצה' ),
 
+		array(
 			$tab( 'tab_cmp', '06 השוואה' ),
 			$txt( 'f_cmp_chap', 'cmp_chap', 'תווית פרק' ),
 			$txt( 'f_cmp_title', 'cmp_title', 'כותרת' ),
@@ -137,25 +165,33 @@ function ea_chapters_register_home_fields() {
 			$img( 'f_start_bg', 'start_bg', 'תמונת רקע' ),
 			$txt( 'f_start_cta_l', 'start_cta_label', 'טקסט כפתור' ),
 			$txt( 'f_start_cta_u', 'start_cta_url', 'קישור כפתור' ),
-			array( 'key' => 'f_start_steps', 'name' => 'start_steps', 'label' => 'שלבים', 'type' => 'repeater', 'min' => 0, 'max' => 4, 'layout' => 'block', 'button_label' => 'הוסף שלב', 'sub_fields' => array(
-				$txt( 'f_st_title', 'title', 'כותרת שלב' ),
-				$txt( 'f_st_text', 'text', 'תיאור', 'textarea', 2 ),
-			) ),
+		),
+		$slots( 'start_steps', 3, array(
+			array( 'type' => 'text', 'name' => 'title', 'label' => 'כותרת שלב' ),
+			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'תיאור', 'rows' => 2 ),
+		), 'שלב' ),
 
+		array(
 			$tab( 'tab_foot', 'פוטר' ),
 			$txt( 'f_foot_tag', 'foot_tagline', 'תיאור מותג', 'textarea', 2 ),
 			$txt( 'f_foot_cr', 'foot_copyright', 'זכויות יוצרים' ),
-		),
-		'location' => array(
+		)
+	);
+
+	acf_add_local_field_group( array(
+		'key'            => 'group_chapters_home',
+		'title'          => 'פרקים — דף הבית',
+		'fields'         => $fields,
+		'location'       => array(
 			array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/tpl-chapters-home.php' ) ),
 			array( array( 'param' => 'page_type', 'operator' => '==', 'value' => 'front_page' ) ),
 		),
-		'menu_order'            => 0,
-		'position'              => 'normal',
-		'style'                 => 'default',
-		'label_placement'       => 'top',
-		'active'                => true,
-		'description'           => 'תוכן דף הבית בעיצוב "פרקים". עריכת טקסטים ותמונות בלבד — המבנה והעיצוב נעולים.',
-		'hide_on_screen'        => array( 'the_content' ),
+		'menu_order'     => 0,
+		'position'       => 'normal',
+		'style'          => 'default',
+		'label_placement'=> 'top',
+		'active'         => true,
+		'description'    => 'תוכן דף הבית בעיצוב "פרקים". עריכת טקסטים ותמונות בלבד — המבנה והעיצוב נעולים. תואם ACF החינמי.',
+		'hide_on_screen' => array( 'the_content' ),
 	) );
 }

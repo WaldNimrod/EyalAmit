@@ -93,14 +93,74 @@ function ea_chapters_field( $name, $post_id = null ) {
  * @return array[]
  */
 function ea_chapters_rows( $name, $post_id = null ) {
-	if ( function_exists( 'get_field' ) ) {
+	// 1) ACF Pro repeater (if ever present) — use rows directly.
+	if ( function_exists( 'have_rows' ) && have_rows( $name, $post_id ) ) {
 		$rows = get_field( $name, $post_id );
 		if ( is_array( $rows ) && ! empty( $rows ) ) {
 			return $rows;
 		}
 	}
+	// 2) Free-ACF fixed slots — assemble rows from {name}_{i}_{sub} fields.
+	$assembled = ea_chapters_assemble_rows( $name, $post_id );
+	if ( ! empty( $assembled ) ) {
+		return $assembled;
+	}
+	// 3) Seeded defaults.
 	$d = ea_chapters_defaults();
 	return ( isset( $d[ $name ] ) && is_array( $d[ $name ] ) ) ? $d[ $name ] : array();
+}
+
+/**
+ * Fixed-slot specs: repeater name → max slots + ordered sub-field names.
+ * Single source for both the ACF field registration and the assembler, so the
+ * design's fixed-count sections work on FREE ACF (no Pro Repeater needed).
+ *
+ * @return array<string,array{count:int,subs:string[]}>
+ */
+function ea_chapters_repeater_specs() {
+	return array(
+		'about_timeline' => array( 'count' => 4, 'subs' => array( 'year', 'text' ) ),
+		'whom_items'     => array( 'count' => 4, 'subs' => array( 'image', 'text' ) ),
+		'session_cards'  => array( 'count' => 4, 'subs' => array( 'image', 'title', 'text', 'reveal' ) ),
+		'testi_items'    => array( 'count' => 4, 'subs' => array( 'text', 'name', 'initial', 'avatar' ) ),
+		'start_steps'    => array( 'count' => 3, 'subs' => array( 'title', 'text' ) ),
+	);
+}
+
+/**
+ * Assemble repeater-shaped rows from flat fixed-slot ACF fields. A slot is
+ * included only if at least one of its sub-fields has a value.
+ *
+ * @param string   $name
+ * @param int|null $post_id
+ * @return array[]
+ */
+function ea_chapters_assemble_rows( $name, $post_id = null ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return array();
+	}
+	$specs = ea_chapters_repeater_specs();
+	if ( ! isset( $specs[ $name ] ) ) {
+		return array();
+	}
+	$rows = array();
+	for ( $i = 1; $i <= $specs[ $name ]['count']; $i++ ) {
+		$row = array();
+		$has = false;
+		foreach ( $specs[ $name ]['subs'] as $sub ) {
+			$val = get_field( $name . '_' . $i . '_' . $sub, $post_id );
+			if ( null !== $val && '' !== $val && false !== $val ) {
+				$row[ $sub ] = $val;
+				$has         = true;
+			} else {
+				$row[ $sub ] = '';
+			}
+		}
+		if ( $has ) {
+			$rows[] = $row;
+		}
+	}
+	return $rows;
 }
 
 /**
