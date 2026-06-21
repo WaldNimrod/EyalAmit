@@ -460,6 +460,7 @@ function ea_w2_14e_render_memorial() {
 		'@type'        => 'VideoObject',
 		'name'         => 'MUKESH - The Art of Shanti Living | Official Trailer',
 		'description'  => 'הטריילר הרשמי לסרט התיעודי על מוקש דהימן, מאסטר הדיג׳רידו מרישיקש, מאת אייל וגיא עמית.',
+		'uploadDate'   => '2019-11-19T14:41:31-08:00', // verified from YouTube (team_110 2026-06-21)
 		'thumbnailUrl' => 'https://i.ytimg.com/vi/' . $yt . '/maxresdefault.jpg',
 		'embedUrl'     => 'https://www.youtube-nocookie.com/embed/' . $yt,
 		'contentUrl'   => 'https://youtu.be/' . $yt,
@@ -714,20 +715,44 @@ function ea_w2_14e_render_media() {
 	<section class="ea-14e-section" aria-labelledby="ea-media-t">
 		<div class="ea-14e-inner">
 			<h2 id="ea-media-t" class="ea-14e-heading ea-14e-heading--sm">עדויות משתתפים</h2>
-			<div class="ea-filter" role="group" aria-label="סינון">
-				<button type="button" aria-pressed="true">הכל</button>
-				<button type="button" aria-pressed="false">טיפול</button>
-				<button type="button" aria-pressed="false">שיעורים</button>
-				<button type="button" aria-pressed="false">סאונד הילינג</button>
-			</div>
-			<div class="ea-tgrid">
-				<?php foreach ( ea_w2_14e_media_testimonials() as $t ) : ?>
-					<figure class="ea-tcard">
-						<p class="ea-tcard__q"><?php echo esc_html( $t['q'] ); ?></p>
-						<figcaption class="ea-tcard__n"><?php echo esc_html( $t['n'] ); ?></figcaption>
-					</figure>
-				<?php endforeach; ?>
-			</div>
+			<p class="ea-14e-note ea-media-intro">המלצות מקוריות מהפייסבוק, לפי תחום — לחיצה על שם פותחת את הפוסט המקורי.</p>
+			<?php
+			// D-TESTIMONIALS (team_110): all 48 FB testimonials, grouped by category.
+			// Snippets are provisional (pending Eyal review in the hub); the name links
+			// to the original FB post for the full text + social proof.
+			$ea_media_cats = array(
+				'treatment'     => "טיפול בדיג'רידו",
+				'sound-healing' => 'סאונד הילינג',
+				'lessons'       => "שיעורי נגינה בדיג'רידו",
+			);
+			$ea_all_testi = function_exists( 'ea_fb_testimonials_all' ) ? ea_fb_testimonials_all() : array();
+			foreach ( $ea_media_cats as $ea_ck => $ea_clabel ) :
+				$ea_cat_items = array();
+				foreach ( $ea_all_testi as $ea_t ) {
+					if ( ( $ea_t['cat'] ?? '' ) === $ea_ck ) {
+						$ea_cat_items[] = $ea_t;
+					}
+				}
+				if ( empty( $ea_cat_items ) ) {
+					continue;
+				}
+				?>
+				<h3 class="ea-14e-heading ea-14e-heading--sm ea-media-cat"><?php echo esc_html( $ea_clabel ); ?></h3>
+				<div class="ea-tgrid">
+					<?php foreach ( $ea_cat_items as $ea_t ) : ?>
+						<figure class="ea-tcard">
+							<p class="ea-tcard__q"><?php echo esc_html( $ea_t['snippet'] ?? '' ); ?></p>
+							<figcaption class="ea-tcard__n">
+								<?php if ( ! empty( $ea_t['href'] ) ) : ?>
+									<a href="<?php echo esc_url( $ea_t['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $ea_t['name'] ?? '' ); ?></a>
+								<?php else : ?>
+									<?php echo esc_html( $ea_t['name'] ?? '' ); ?>
+								<?php endif; ?>
+							</figcaption>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+			<?php endforeach; ?>
 		</div>
 	</section>
 

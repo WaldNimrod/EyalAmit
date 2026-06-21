@@ -605,11 +605,16 @@ function ea_wave2_render_service_blocks( $route_ctx ) {
 
 	/* 9 — TESTIMONIALS — moving carousel (WP-W2-16-B, D-EYAL-TESTIMONIALS-14 = א).
 	   Service-specific testimonials FIRST — these are part of each page's source, so
-	   keeping them preserves content accuracy — then the canonical FB Top-5 appended
-	   for volume (Eyal #2). Deduped by name. */
+	   keeping them preserves content accuracy — then this page's CATEGORY of FB
+	   testimonials appended (D-TESTIMONIALS, team_110: per-category to matching
+	   service pages; provisional snippets pending Eyal review). Deduped by name;
+	   falls back to the FB Top-5 if a slug has no category. */
 	$testi          = isset( $c['testimonials'] ) ? (array) $c['testimonials'] : array();
 	$ea_svc_testi   = function_exists( 'ea_wave2_service_testimonials' ) ? ea_wave2_service_testimonials( $slug ) : array();
-	$ea_fb_testi    = function_exists( 'ea_w2_07_fb_testimonials' ) ? ea_w2_07_fb_testimonials() : array();
+	$ea_fb_testi    = function_exists( 'ea_fb_testimonials_by_cat' ) ? ea_fb_testimonials_by_cat( $slug ) : array();
+	if ( empty( $ea_fb_testi ) && function_exists( 'ea_w2_07_fb_testimonials' ) ) {
+		$ea_fb_testi = ea_w2_07_fb_testimonials();
+	}
 	$ea_testi_seen  = array();
 	$ea_testi_items = array();
 	foreach ( array_merge( $ea_svc_testi, $ea_fb_testi ) as $ea_ti ) {
