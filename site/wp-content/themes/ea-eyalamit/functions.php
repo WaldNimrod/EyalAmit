@@ -907,3 +907,9 @@ require_once get_stylesheet_directory() . '/inc/wave2-w2-14e.php';
  * (per-category for service pages, broad set for home, full set for /media).
  */
 require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
+
+/**
+ * Chapters (פרקים) design system — single bootstrap (render accessors, enqueue,
+ * duplicate-page action, ACF home field group). Self-guarding / ACF-absent safe.
+ */
+require_once get_stylesheet_directory() . '/inc/chapters/chapters-bootstrap.php';
