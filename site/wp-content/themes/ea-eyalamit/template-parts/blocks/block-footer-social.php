@@ -61,7 +61,7 @@ $ea_cfoot_info = array(
           <!-- brand + tagline + location -->
           <div class="ea-cfoot__brandcol">
             <p class="ea-cfoot__brand">אייל עמית</p>
-            <p class="ea-cfoot__tag">המרכז לטיפול בנשימה באמצעות דיג׳רידו · סטודיו נשימה מעגלית</p>
+            <p class="ea-cfoot__tag">המרכז לטיפול בנשימה באמצעות דיג׳רידו</p>
             <p class="ea-cfoot__loc">פרדס חנה · ישראל</p>
           </div>
 
