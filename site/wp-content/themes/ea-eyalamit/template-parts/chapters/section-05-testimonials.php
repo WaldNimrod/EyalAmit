@@ -1,38 +1,65 @@
 <?php
 /**
- * Chapters — 05 TESTIMONIALS (3 cards; avatar image or initial placeholder).
+ * Chapters — 05 TESTIMONIALS. Continuous side-scrolling marquee of many real
+ * testimonials from the curated FB corpus (inc/ea-testimonials-fb.php), pausing
+ * on hover/focus. The 5 quotes that still contain the retired brand
+ * «סטודיו נשימה מעגלית» are EXCLUDED here (not edited) per WP-06.
+ * Falls back to the ACF/seeded testi_items if the corpus isn't available.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$items = ea_chapters_rows( 'testi_items' );
+$brand = 'סטודיו נשימה מעגלית';
+$items = array();
+
+if ( function_exists( 'ea_fb_testimonials_all' ) ) {
+	foreach ( ea_fb_testimonials_all() as $t ) {
+		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' );
+		if ( false !== mb_strpos( $blob, $brand ) ) {
+			continue; // brand-compliance: exclude, do not edit customer quotes
+		}
+		$txt = trim( (string) ( $t['snippet'] ?? '' ) );
+		if ( '' === $txt ) {
+			continue;
+		}
+		$items[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ) );
+	}
+}
+if ( empty( $items ) ) {
+	foreach ( ea_chapters_rows( 'testi_items' ) as $r ) {
+		$items[] = array( 'text' => $r['text'] ?? '', 'name' => $r['name'] ?? '' );
+	}
+}
+
+if ( empty( $items ) ) {
+	return;
+}
+
+$render_cards = static function () use ( $items ) {
+	foreach ( $items as $it ) {
+		echo '<figure class="tmq">';
+		echo '<blockquote class="tmq__q">' . esc_html( $it['text'] ) . '</blockquote>';
+		if ( '' !== $it['name'] ) {
+			echo '<figcaption class="tmq__n">' . esc_html( $it['name'] ) . '</figcaption>';
+		}
+		echo '</figure>';
+	}
+};
 ?>
 <section class="sec sec--alt">
 	<div class="wrap center">
 		<span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'testi_chap' ) ); ?></span>
 		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'testi_title' ) ); ?></h2>
-		<div class="testi r">
-			<div class="testi__track">
-				<?php
-				foreach ( $items as $row ) :
-					$avatar  = ea_chapters_resolve_img( isset( $row['avatar'] ) ? $row['avatar'] : '', 'thumbnail' );
-					$initial = isset( $row['initial'] ) ? $row['initial'] : '';
-					?>
-					<figure class="tcard">
-						<span class="tcard__av">
-							<?php if ( $avatar ) : ?>
-								<img src="<?php echo esc_url( $avatar ); ?>" alt="<?php echo esc_attr( isset( $row['name'] ) ? $row['name'] : '' ); ?>" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-							<?php else : ?>
-								<span class="ph"><span><?php echo esc_html( $initial ); ?></span></span>
-							<?php endif; ?>
-						</span>
-						<p class="tcard__q"><?php echo esc_html( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
-						<figcaption class="tcard__n"><?php echo esc_html( isset( $row['name'] ) ? $row['name'] : '' ); ?></figcaption>
-					</figure>
-				<?php endforeach; ?>
-			</div>
+	</div>
+	<div class="testi-mq r" role="region" aria-label="<?php esc_attr_e( 'עדויות והמלצות', 'ea-eyalamit' ); ?>">
+		<div class="testi-mq__track">
+			<?php
+			// Rendered twice for a seamless -50% loop.
+			$render_cards();
+			$render_cards();
+			?>
 		</div>
 	</div>
 </section>

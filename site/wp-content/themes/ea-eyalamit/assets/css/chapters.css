@@ -607,3 +607,40 @@ body.nav-locked{overflow:hidden}
 .btn--terra:hover{background:var(--terra-dk)}
 /* footer copyright: lift opacity so it clears AA on the near-black footer */
 .foot__base{color:rgba(255,255,255,.62)}
+
+/* ============================================================
+   feedback round 2 (team_00, 2026-06-22) — fidelity pass
+   ============================================================ */
+
+/* 1) NAV — stronger subtle backdrop on load (was too faint over the bright hero) */
+.nav{background:linear-gradient(180deg,rgba(14,9,5,.82),rgba(14,9,5,.34) 52%,rgba(14,9,5,0))}
+
+/* 4+5) 03 SESSION cards — keep the photo CLEAR at rest (scrim only at the bottom for
+   the title); darken only on hover for the reveal text. Taller card to match mockup. */
+#session .rcard{aspect-ratio:4/5}
+#session .rcard__sc{background:linear-gradient(0deg,rgba(14,9,5,.82) 0%,rgba(14,9,5,.16) 40%,rgba(14,9,5,0) 64%)}
+#session .rcard:hover .rcard__sc,#session .rcard:focus-within .rcard__sc{background:linear-gradient(0deg,rgba(14,9,5,.95) 14%,rgba(14,9,5,.64) 55%,rgba(14,9,5,.30))}
+
+/* 3) WHATSAPP float — small, delicate, on-brand glass circle, icon-only, RTL side (left) */
+.ea-chapters .ea-whatsapp-float{right:auto;left:22px;bottom:22px;width:54px;height:54px;min-width:0;padding:0;gap:0;border-radius:50%;
+  background:rgba(14,9,5,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 10px 26px -12px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center}
+.ea-chapters .ea-whatsapp-float__label{display:none}
+.ea-chapters .ea-whatsapp-float__icon{width:25px;height:25px;margin:0;color:#25D366}
+.ea-chapters .ea-whatsapp-float:hover{transform:translateY(-2px);border-color:var(--terra-lt);background:rgba(14,9,5,.92)}
+
+/* 6) TESTIMONIALS — continuous side-scrolling marquee (many quotes from the corpus) */
+.testi-mq{margin-top:54px;position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.testi-mq__track{display:flex;gap:24px;width:max-content;direction:ltr;animation:testi-scroll 90s linear infinite}
+.testi-mq:hover .testi-mq__track,.testi-mq:focus-within .testi-mq__track{animation-play-state:paused}
+@keyframes testi-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.testi-mq{ -webkit-mask-image:none;mask-image:none}.testi-mq__track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
+.tmq{flex:0 0 330px;direction:rtl;text-align:right;background:var(--ivory);border:1px solid var(--line);border-radius:12px;
+  padding:30px 28px;display:flex;flex-direction:column;gap:14px;min-height:210px}
+.sec--alt .tmq{background:#fff}
+.tmq__q{font-family:var(--hf);font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.tmq__n{margin-top:auto;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
+.tmq__n::before{content:"";display:block;width:22px;height:1px;background:var(--terra);opacity:.5;margin-bottom:10px}
