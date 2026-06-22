@@ -29,6 +29,13 @@
       "owner": "team",
       "hubAction": "content-intake",
       "noteHe": "מבנה הבית נעול; גוון טקסט — צוות + קליטת תוכן."
+    },
+    {
+      "id": "OPEN-CHAPTERS-TESTIMONIALS",
+      "titleHe": "עיצוב Chapters — הצגת עדויות (החלטה)",
+      "owner": "eyal",
+      "hubAction": "content-intake",
+      "noteHe": "בעמודי Chapters (טיפול / שיעורים / סאונד הילינג) — להציג את עדויות המקור המלאות (verbatim) או את מרקיזת הקורפוס המקוצרת? כל שאר התוכן נלקח מילה-במילה מהמקור המאושר. פירוט ודוגמאות: docs/CHAPTERS-CONTENT-DECISIONS-EYAL.md"
     }
   ]
 }
