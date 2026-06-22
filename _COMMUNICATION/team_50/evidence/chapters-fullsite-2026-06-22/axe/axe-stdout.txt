@@ -1,0 +1,32 @@
+PASS 200  /                    crit=0 serious=0 mod=0 minor=0
+PASS 200  /method/             crit=0 serious=0 mod=0 minor=0
+PASS 200  /treatment/          crit=0 serious=0 mod=0 minor=0
+PASS 200  /sound-healing/      crit=0 serious=0 mod=0 minor=0
+PASS 200  /lessons/            crit=0 serious=0 mod=0 minor=0
+PASS 200  /eyal-amit/          crit=0 serious=0 mod=0 minor=0
+PASS 200  /faq/                crit=0 serious=0 mod=0 minor=0
+PASS 200  /didgeridoos/        crit=0 serious=0 mod=0 minor=0
+PASS 200  /bags/               crit=0 serious=0 mod=0 minor=0
+PASS 200  /stands-storage/     crit=0 serious=0 mod=0 minor=0
+PASS 200  /stand-floor/        crit=0 serious=0 mod=0 minor=0
+PASS 200  /repair/             crit=0 serious=0 mod=0 minor=0
+PASS 200  /books/              crit=0 serious=0 mod=0 minor=0
+PASS 200  /books/vekatavta/    crit=0 serious=0 mod=0 minor=0
+PASS 200  /books/kushi-blantis/ crit=0 serious=0 mod=0 minor=0
+PASS 200  /books/tsva-bekahol/ crit=0 serious=0 mod=0 minor=0
+PASS 200  /eyal-amit/mokesh-dahiman/ crit=0 serious=0 mod=0 minor=0
+PASS 200  /contact/            crit=0 serious=0 mod=0 minor=0
+PASS 200  /blog/               crit=0 serious=0 mod=0 minor=0
+PASS 200  /galleries/          crit=0 serious=0 mod=0 minor=0
+PASS 200  /media/              crit=0 serious=0 mod=0 minor=0
+PASS 200  /privacy/            crit=0 serious=0 mod=0 minor=0
+PASS 200  /accessibility/      crit=0 serious=0 mod=0 minor=0
+PASS 200  /terms/              crit=0 serious=0 mod=0 minor=0
+PASS 200  /en/                 crit=0 serious=0 mod=0 minor=0
+PASS 404  /%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/ crit=0 serious=0 mod=0 minor=0
+PASS 200  /%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/ crit=0 serious=0 mod=0 minor=0
+
+============================================================
+Routes: 27 · clean(0 crit/serious): 27 · blocking: 0
+Report: /Users/nimrod/Documents/Eyal Amit/EyalAmit-design/scripts/qa/reports/axe-http-2026-06-22.json
+RESULT: PASS — 0 critical / 0 serious across all routes (S5 a11y bar met).

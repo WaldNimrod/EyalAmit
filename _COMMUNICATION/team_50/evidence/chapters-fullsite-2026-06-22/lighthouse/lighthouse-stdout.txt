@@ -1,0 +1,10 @@
+route               perf  a11y    bp   seo
+/                     95    97   100    69
+/treatment/         (lighthouse failed)
+/method/              96    97   100    61
+/books/               90    97   100    69
+/blog/                95    97   100    69
+/contact/             94    99   100    69
+/en/                  97    98   100    61
+/eyal-amit/mokesh-dahiman/    90    97   100    61
+(SEO/BP are staging-capped: noindex + HTTP -> 100 at production cutover)

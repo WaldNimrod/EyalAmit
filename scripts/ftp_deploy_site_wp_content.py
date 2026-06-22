@@ -133,6 +133,7 @@ def main() -> None:
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-og-default.php", "wp-content/mu-plugins/ea-w2-og-default.php"))
     # WP-06: one-time DB migration to scrub the seeded brand «סטודיו נשימה מעגלית».
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06-brand-migration-once.php", "wp-content/mu-plugins/ea-w2-06-brand-migration-once.php"))
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06b-blog-title-brand-once.php", "wp-content/mu-plugins/ea-w2-06b-blog-title-brand-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

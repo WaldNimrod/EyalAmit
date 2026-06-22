@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-06-22T21:05:00.000Z",
+  "redirects": [
+    { "from": "/muzza/", "status": 301, "location": "http://eyalamit-co-il-2026.s887.upress.link/books/", "pass": true },
+    { "from": "/about/moksha/", "status": 301, "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/", "pass": true },
+    { "from": "/mokesh/", "status": 301, "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/", "pass": true }
+  ],
+  "seo_spot": [
+    { "route": "/", "ld_json": 1, "og_image": 1, "canonical": 1, "meta_desc": 1 },
+    { "route": "/treatment/", "ld_json": 1, "og_image": 1, "canonical": 1, "meta_desc": 1 },
+    { "route": "/books/vekatavta/", "ld_json": 1, "og_image": 1, "canonical": 1, "meta_desc": 1 },
+    { "route": "/blog/", "ld_json": 1, "og_image": 1, "canonical": 1, "meta_desc": 1 },
+    { "route": "/en/", "ld_json": 1, "og_image": 1, "canonical": 1, "meta_desc": 1 }
+  ],
+  "blog_pagination": { "page1_slugs": 12, "page2_slugs": 11, "shared": 0, "pass": true },
+  "contact_cf7_markers": 11,
+  "analytics_probe": {
+    "hasGenerateLead": true,
+    "waVisible": true,
+    "note": "generate_lead fires on WhatsApp float click; ga4InHead false on staging (expected artifact)"
+  }
+}
