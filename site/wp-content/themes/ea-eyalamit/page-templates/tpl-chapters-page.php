@@ -44,7 +44,7 @@ get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
 		}
 		$ea_args = isset( $ea_s['args'] ) && is_array( $ea_s['args'] ) ? $ea_s['args'] : array();
 		// Resolve any image-path args to URLs for image-bearing parts.
-		foreach ( array( 'image', 'media', 'poster' ) as $ea_k ) {
+		foreach ( array( 'image', 'media', 'poster', 'video' ) as $ea_k ) {
 			if ( ! empty( $ea_args[ $ea_k ] ) ) {
 				$ea_args[ $ea_k ] = ea_chapters_asset_url( $ea_args[ $ea_k ] );
 			}
