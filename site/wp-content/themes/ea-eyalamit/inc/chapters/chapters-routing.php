@@ -35,7 +35,10 @@ function ea_chapters_template_include( $tpl ) {
 	}
 	return $tpl;
 }
-add_filter( 'template_include', 'ea_chapters_template_include', 101 );
+// Priority 103 so a Chapters-mapped slug wins over the WP-W2-14e catalog router
+// (template_include @ 102) — e.g. /eyal-amit/mokesh-dahiman/. Unmapped 14e slugs
+// (/galleries, /media) are untouched: this filter returns $tpl unchanged for them.
+add_filter( 'template_include', 'ea_chapters_template_include', 103 );
 
 /**
  * Mark Chapters views as a Wave2 active view (so Stage-B asset/dequeue logic and
@@ -56,3 +59,34 @@ add_filter( 'generate_sidebar_layout', function ( $layout ) {
 add_filter( 'generate_show_title', function ( $show ) {
 	return ea_chapters_is_view() ? false : $show;
 }, 104 );
+
+/* ── Blog (archive + single) → Chapters chrome ───────────────────────────────
+ * The page router above only handles is_page(); the blog Posts page (is_home) and
+ * single posts (is_singular('post')) are routed here. Priority 105 wins over the
+ * WP-W2-06 router (template_include @ 100). chapters.css/js + the body class are
+ * enqueued for these views via chapters-enqueue (ea_chapters_is_blog_view). */
+function ea_chapters_is_blog_view() {
+	return ( is_home() && ! is_front_page() ) || is_singular( 'post' );
+}
+
+function ea_chapters_blog_template_include( $tpl ) {
+	if ( ! ea_chapters_enabled() ) {
+		return $tpl;
+	}
+	if ( is_home() && ! is_front_page() ) {
+		$t = locate_template( 'page-templates/tpl-chapters-blog-archive.php' );
+		if ( $t ) {
+			set_query_var( 'ea_wave2_shell', true );
+			return $t;
+		}
+	}
+	if ( is_singular( 'post' ) ) {
+		$t = locate_template( 'page-templates/tpl-chapters-blog-single.php' );
+		if ( $t ) {
+			set_query_var( 'ea_wave2_shell', true );
+			return $t;
+		}
+	}
+	return $tpl;
+}
+add_filter( 'template_include', 'ea_chapters_blog_template_include', 105 );

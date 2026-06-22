@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
  * Enqueue Chapters assets on Chapters views.
  */
 function ea_chapters_enqueue_assets() {
-	if ( is_admin() || ! ea_chapters_is_view() ) {
+	if ( is_admin() || ! ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) ) ) {
 		return;
 	}
 	$ver = wp_get_theme()->get( 'Version' );
@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'ea_chapters_enqueue_assets', 100 );
  * @return string[]
  */
 function ea_chapters_body_class( $classes ) {
-	if ( ea_chapters_is_view() && ! in_array( 'ea-chapters', $classes, true ) ) {
+	if ( ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) ) && ! in_array( 'ea-chapters', $classes, true ) ) {
 		$classes[] = 'ea-chapters';
 	}
 	return $classes;

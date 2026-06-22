@@ -1,14 +1,34 @@
 <?php
 /**
- * Chapters part — testimonials marquee (continuous side-scroll from the FB corpus,
- * brand-excluded, pause on hover). $args: chap, title, cat (optional category slug)
+ * Chapters part — testimonials marquee (continuous side-scroll, pause on hover).
+ *
+ * Renders verbatim $args['items'] ({text, name}) when provided — the approved
+ * source testimonials — otherwise falls back to the FB corpus (brand-excluded)
+ * via ea_chapters_testimonials($cat).
+ *
+ * $args: chap, title, cat (optional category slug), items (optional [{text,name}])
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 $a     = isset( $args ) && is_array( $args ) ? $args : array();
-$items = ea_chapters_testimonials( $a['cat'] ?? '' );
+$items = array();
+if ( ! empty( $a['items'] ) && is_array( $a['items'] ) ) {
+	foreach ( $a['items'] as $it ) {
+		$txt = isset( $it['text'] ) ? trim( (string) $it['text'] ) : '';
+		if ( '' === $txt ) {
+			continue;
+		}
+		$items[] = array(
+			'text' => $txt,
+			'name' => isset( $it['name'] ) ? (string) $it['name'] : '',
+		);
+	}
+}
+if ( empty( $items ) ) {
+	$items = ea_chapters_testimonials( $a['cat'] ?? '' );
+}
 if ( empty( $items ) ) {
 	return;
 }

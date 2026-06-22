@@ -31,7 +31,7 @@ export const PAGE_MAP = [
   { path: '/sound-healing/', source: 'סאונדהילינג/sound_healing_final.md' },
   { path: '/lessons/', source: 'שיעורי נגינה/lesons.md' },
   { path: '/faq/', source: 'דף FAQ/FAQ FINAL.md' },
-  { path: '/muzza/', source: 'מוזה הוצאה לאור - ספרים/MUZZA.md', label: '/muzza' },
+  { path: '/books/', source: 'מוזה הוצאה לאור - ספרים/MUZZA.md', label: '/books' },
   { path: '/eyal-amit/', source: 'אודות - אייל עמית/אודות - אייל עמית.md', label: '/eyal-amit' },
   { path: '/books/vekatavta/', source: 'וכתבת/vekatavta.md' },
   { path: '/books/kushi-blantis/', source: 'כושי בלאנטיס/kushi_full.md' },

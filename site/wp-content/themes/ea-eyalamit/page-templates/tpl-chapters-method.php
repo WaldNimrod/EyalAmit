@@ -6,6 +6,9 @@
  * analytics, WhatsApp). Sections assembled from shared Chapters parts; content
  * from ea_chapters_field()/rows()/img() (ACF-or-seeded-defaults, type=method).
  *
+ * The page hero (single H1 + intro subtitle) renders INSIDE <main> so it sits
+ * within the main landmark (a11y) and is part of the page's measured content.
+ *
  * @package ea_eyalamit
  */
 
@@ -24,20 +27,18 @@ $GLOBALS['ea_chapters_type'] = 'method';
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
-<?php
-get_template_part( 'template-parts/chapters/parts/phero', null, array(
-	'chap'      => ea_chapters_field( 'phero_chap' ),
-	'title'     => ea_chapters_field( 'phero_title' ),
-	'sub'       => ea_chapters_field( 'phero_sub' ),
-	'media'     => ea_chapters_img( 'phero_media' ),
-	'media_alt' => ea_chapters_field( 'phero_media_alt' ),
-	'cta_label' => ea_chapters_field( 'phero_cta_label' ),
-	'cta_url'   => ea_chapters_field( 'phero_cta_url' ),
-) );
-?>
-
 <main id="chapters-main">
 	<?php
+	get_template_part( 'template-parts/chapters/parts/phero', null, array(
+		'chap'      => ea_chapters_field( 'phero_chap' ),
+		'title'     => ea_chapters_field( 'phero_title' ),
+		'sub'       => ea_chapters_field( 'phero_sub' ),
+		'media'     => ea_chapters_img( 'phero_media' ),
+		'media_alt' => ea_chapters_field( 'phero_media_alt' ),
+		'cta_label' => ea_chapters_field( 'phero_cta_label' ),
+		'cta_url'   => ea_chapters_field( 'phero_cta_url' ),
+	) );
+
 	get_template_part( 'template-parts/chapters/parts/split', null, array(
 		'chap'  => ea_chapters_field( 'split_chap' ),
 		'title' => ea_chapters_field( 'split_title' ),

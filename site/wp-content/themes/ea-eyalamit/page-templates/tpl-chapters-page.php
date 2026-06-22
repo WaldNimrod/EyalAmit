@@ -8,6 +8,10 @@
  * Used by treatment / sound-healing / lessons / about. Self-contained doc → keeps
  * wp_head/wp_footer (SEO, analytics, WhatsApp).
  *
+ * The page hero (which carries the single H1 + intro subtitle) renders INSIDE
+ * <main> so it sits within the main landmark (a11y) and is part of the page's
+ * measured content.
+ *
  * @package ea_eyalamit
  */
 
@@ -32,11 +36,12 @@ $ea_phero = ( isset( $ea_d['phero'] ) && is_array( $ea_d['phero'] ) ) ? $ea_d['p
 if ( ! empty( $ea_phero['media'] ) ) {
 	$ea_phero['media'] = ea_chapters_asset_url( $ea_phero['media'] );
 }
-get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
 ?>
 
 <main id="chapters-main">
 	<?php
+	get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
+
 	$ea_sections = ( isset( $ea_d['sections'] ) && is_array( $ea_d['sections'] ) ) ? $ea_d['sections'] : array();
 	foreach ( $ea_sections as $ea_s ) {
 		if ( empty( $ea_s['part'] ) ) {

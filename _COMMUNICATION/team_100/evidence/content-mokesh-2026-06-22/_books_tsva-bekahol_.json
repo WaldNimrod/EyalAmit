@@ -1,0 +1,25 @@
+{
+  "page": "/books/tsva-bekahol/",
+  "path": "/books/tsva-bekahol/",
+  "source": "צבע בכחול וזרוק לים/eyal_tsva_FINAL.md",
+  "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/",
+  "liveStatus": 200,
+  "sectionCoveragePct": 100,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
+  "sectionsTotal": 13,
+  "sectionsFound": 13,
+  "sentencesTotal": 60,
+  "sentencesFound": 60,
+  "missingSections": [],
+  "missingSentences": [],
+  "inventedSections": [],
+  "inventedBlocks": [
+    "הספר צבע בכחול וזרוק לים ספר הביכורים של אייל עמית - 38 סיפורים קצרים על הטיול הגדול לדרום אמריקה לרכישת הספר הדיגיטלי צבע בכחול וזרוק לים ספר הביכורים של אייל עמית ספר הביכורים של אייל עמית.",
+    "כל לילה עוצם ת'עיניים ונזכר בזוועה: \"530\" \"530\" כמו אקו שלא עוזב אותך, מהדהד בראש וקודח לך בנשמה.",
+    "38 סיפורים קצרים, בועטים, מפתיעים ומצחיקים - לרכישה דיגיטלית מיידית במנדלי."
+  ],
+  "gatePass": true,
+  "verdict": "ACCURATE",
+  "sourceCharWeight": 5498
+}

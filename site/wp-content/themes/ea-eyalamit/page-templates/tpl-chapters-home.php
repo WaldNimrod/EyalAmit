@@ -10,6 +10,9 @@
  * Content comes from ea_chapters_field()/rows()/img(), which fall back to seeded
  * defaults — so the page renders fully even when ACF is inactive.
  *
+ * The cinematic hero (single H1 + intro subtitle) renders INSIDE <main> so it sits
+ * within the main landmark (a11y) and is part of the page's measured content.
+ *
  * @package ea_eyalamit
  */
 
@@ -25,13 +28,11 @@ defined( 'ABSPATH' ) || exit;
 <?php wp_body_open(); ?>
 <a class="ea-skip-link screen-reader-text" href="#chapters-main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 
-<?php
-get_template_part( 'template-parts/chapters/section', 'nav' );
-get_template_part( 'template-parts/chapters/section', 'hero' );
-?>
+<?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
 <main id="chapters-main">
 	<?php
+	get_template_part( 'template-parts/chapters/section', 'hero' );
 	get_template_part( 'template-parts/chapters/section', '01-about' );
 	get_template_part( 'template-parts/chapters/section', '02-for-whom' );
 	get_template_part( 'template-parts/chapters/section', '03-session' );

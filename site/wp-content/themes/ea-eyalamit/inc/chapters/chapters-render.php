@@ -36,6 +36,18 @@ function ea_chapters_route_map() {
 		'sound-healing' => array( 'template' => 'tpl-chapters-page',   'type' => 'sound-healing' ),
 		'lessons'       => array( 'template' => 'tpl-chapters-page',   'type' => 'lessons' ),
 		'eyal-amit'     => array( 'template' => 'tpl-chapters-page',   'type' => 'about' ),
+		'faq'           => array( 'template' => 'tpl-chapters-page',   'type' => 'faq' ),
+		'didgeridoos'   => array( 'template' => 'tpl-chapters-page',   'type' => 'didgeridoos' ),
+		'bags'          => array( 'template' => 'tpl-chapters-page',   'type' => 'bags' ),
+		'stands-storage' => array( 'template' => 'tpl-chapters-page',  'type' => 'stands-storage' ),
+		'stand-floor'   => array( 'template' => 'tpl-chapters-page',   'type' => 'stand-floor' ),
+		'repair'        => array( 'template' => 'tpl-chapters-page',   'type' => 'repair' ),
+		'books'         => array( 'template' => 'tpl-chapters-page',   'type' => 'muzza' ),
+		'vekatavta'     => array( 'template' => 'tpl-chapters-page',   'type' => 'vekatavta' ),
+		'kushi-blantis' => array( 'template' => 'tpl-chapters-page',   'type' => 'kushi-blantis' ),
+		'tsva-bekahol'  => array( 'template' => 'tpl-chapters-page',   'type' => 'tsva-bekahol' ),
+		'mokesh-dahiman' => array( 'template' => 'tpl-chapters-page',  'type' => 'mokesh' ),
+		'contact'       => array( 'template' => 'tpl-chapters-page',   'type' => 'contact' ),
 	) );
 }
 
