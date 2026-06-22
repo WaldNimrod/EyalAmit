@@ -663,3 +663,13 @@ body.nav-locked{overflow:hidden}
 .bookcard__blurb{font-family:var(--hf);font-size:.98rem;line-height:1.6;color:var(--body)}
 .bookcard__cta{margin-top:8px;font-family:var(--bf);font-size:.8rem;letter-spacing:.6px;color:var(--terra-dk);font-weight:500}
 .bookcard:hover .bookcard__cta,.bookcard:focus-visible .bookcard__cta{color:var(--terra)}
+
+/* ── image gallery (.gallery / .gfig) — galleries / media / book galleries ── */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}
+@media(max-width:880px){.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}}
+.gfig{margin:0;position:relative;border-radius:12px;overflow:hidden;background:var(--ivory-2)}
+.gfig img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s var(--e)}
+.gfig:hover img{transform:scale(1.05)}
+.gfig__cap{position:absolute;inset-inline:0;bottom:0;padding:14px 16px;font-family:var(--bf);font-size:.82rem;color:#fff;
+  background:linear-gradient(0deg,rgba(14,9,5,.72),transparent);text-align:right}

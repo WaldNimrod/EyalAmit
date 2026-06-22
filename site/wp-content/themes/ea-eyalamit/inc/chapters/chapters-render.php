@@ -48,6 +48,12 @@ function ea_chapters_route_map() {
 		'tsva-bekahol'  => array( 'template' => 'tpl-chapters-page',   'type' => 'tsva-bekahol' ),
 		'mokesh-dahiman' => array( 'template' => 'tpl-chapters-page',  'type' => 'mokesh' ),
 		'contact'       => array( 'template' => 'tpl-chapters-page',   'type' => 'contact' ),
+		'galleries'     => array( 'template' => 'tpl-chapters-page',   'type' => 'galleries' ),
+		'media'         => array( 'template' => 'tpl-chapters-page',   'type' => 'media' ),
+		'privacy'       => array( 'template' => 'tpl-chapters-page',   'type' => 'privacy' ),
+		'accessibility' => array( 'template' => 'tpl-chapters-page',   'type' => 'accessibility' ),
+		'terms'         => array( 'template' => 'tpl-chapters-page',   'type' => 'terms' ),
+		'en'            => array( 'template' => 'tpl-chapters-en',     'type' => 'en' ),
 	) );
 }
 
