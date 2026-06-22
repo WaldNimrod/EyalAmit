@@ -31,7 +31,7 @@ $h = static function ( $path ) {
 		</div>
 		<div class="foot__brand">
 			<b>אייל עמית</b>
-			<p><?php echo esc_html( ea_chapters_field( 'foot_tagline' ) ); ?></p>
+			<p>המרכז לטיפול בנשימה באמצעות דיג׳רידו · פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>
 			<div class="foot__soc">
 				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="פייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 h-2.5 a3 3 0 0 0-3 3 v3 H7 v3 h2.5 v7 h3 v-7 H15 l.5-3 h-3 V7 a1 1 0 0 1 1-1 H15 z"/></svg></a>
 				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,.7)" stroke="none"/></svg></a>
@@ -40,5 +40,5 @@ $h = static function ( $path ) {
 			</div>
 		</div>
 	</div>
-	<p class="foot__base"><?php echo esc_html( ea_chapters_field( 'foot_copyright' ) ); ?></p>
+	<p class="foot__base">&copy; 2026 אייל עמית · כל הזכויות שמורות</p>
 </footer>
