@@ -304,27 +304,44 @@ def head(title: str, extra_scripts: str = "") -> str:
 
 
 def nav(active: str) -> str:
-    items = [
+    # Main menu = pages relevant to the meeting + ongoing work on the system.
+    main_items = [
         ("index.html", "כניסה"),
-        ("roadmap.html", "מפת דרכים"),
-        ("site-tree.html", "עץ אתר"),
-        ("content-intake.html", "קליטת תוכן"),
-        ("materials-intake.html", "השלמות מאייל"),
-        ("media-intake.html", "מדיה ותמונות"),
-        ("content-proposals.html", "הצעות תוכן"),
         ("meeting.html", "תדריך פגישה"),
-        ("purchase-links.html", "קישורי רכישה"),
-        ("content-index.html", "אינדקס תוכן"),
         ("meeting-checklist.html", "צ׳קליסט פגישה"),
         ("tasks.html", "משימות והחלטות"),
+        ("materials-intake.html", "השלמות מאייל"),
+        ("content-intake.html", "קליטת תוכן"),
+        ("media-intake.html", "מדיה ותמונות"),
     ]
+    # Archive sub-menu = older / reference pages, not part of the active work.
+    archive_items = [
+        ("roadmap.html", "מפת דרכים"),
+        ("site-tree.html", "עץ אתר"),
+        ("content-proposals.html", "הצעות תוכן"),
+        ("purchase-links.html", "קישורי רכישה"),
+        ("content-index.html", "אינדקס תוכן"),
+    ]
+
+    def render(href: str, label: str) -> str:
+        if href.replace(".html", "") == active:
+            return f"<strong>{escape(label)}</strong>"
+        return f'<a href="{href}">{escape(label)}</a>'
+
     parts = ["<nav>"]
-    for href, label in items:
-        page_key = href.replace(".html", "")
-        if page_key == active:
-            parts.append(f"<strong>{escape(label)}</strong>")
-        else:
-            parts.append(f'<a href="{href}">{escape(label)}</a>')
+    for href, label in main_items:
+        parts.append(render(href, label))
+
+    archive_active = any(href.replace(".html", "") == active for href, _ in archive_items)
+    toggle_cls = "nav-archive__toggle" + (" is-active" if archive_active else "")
+    parts.append('<span class="nav-archive">')
+    parts.append(
+        f'<button type="button" class="{toggle_cls}" aria-haspopup="true" aria-expanded="false">ארכיון ▾</button>'
+    )
+    parts.append('<span class="nav-archive__menu">')
+    for href, label in archive_items:
+        parts.append(render(href, label))
+    parts.append("</span></span>")
     parts.append("</nav>")
     return "\n".join(parts)
 
