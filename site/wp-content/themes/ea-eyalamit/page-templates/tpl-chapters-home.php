@@ -40,6 +40,16 @@ get_template_part( 'template-parts/chapters/section', 'hero' );
 	get_template_part( 'template-parts/chapters/section', '05-testimonials' );
 	get_template_part( 'template-parts/chapters/section', '06-compare' );
 	get_template_part( 'template-parts/chapters/section', '07-how-to-start' );
+
+	// Closing content section — carries the remaining approved home copy (SEO + content coverage).
+	if ( '' !== trim( (string) ea_chapters_field( 'closing_body' ) ) ) {
+		get_template_part( 'template-parts/chapters/parts/prose', null, array(
+			'chap'  => ea_chapters_field( 'closing_chap' ),
+			'title' => ea_chapters_field( 'closing_title' ),
+			'body'  => ea_chapters_field( 'closing_body' ),
+			'alt'   => true,
+		) );
+	}
 	?>
 </main>
 
