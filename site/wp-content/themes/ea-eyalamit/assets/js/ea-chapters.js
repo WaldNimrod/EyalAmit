@@ -82,4 +82,21 @@
     /* no hero video on this page: keep the button inert but non-misleading */
     sndBtn.setAttribute('hidden', '');
   }
+
+  /* ---- dedicated video block: click to play ---- */
+  document.querySelectorAll('.videoblk__play').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var block = btn.closest('.videoblk');
+      if (!block) return;
+      var vid = block.querySelector('.videoblk__v');
+      var poster = block.querySelector('.videoblk__poster');
+      if (!vid) return;
+      vid.style.display = 'block';
+      if (poster) poster.style.display = 'none';
+      btn.style.display = 'none';
+      vid.muted = false;
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () { vid.muted = true; vid.play(); });
+    });
+  });
 })();

@@ -31,11 +31,11 @@ function ea_chapters_home_template() {
  */
 function ea_chapters_route_map() {
 	return (array) apply_filters( 'ea_chapters_route_map', array(
-		'method'        => array( 'template' => 'tpl-chapters-method',  'type' => 'method' ),
-		'treatment'     => array( 'template' => 'tpl-chapters-service', 'type' => 'treatment' ),
-		'sound-healing' => array( 'template' => 'tpl-chapters-service', 'type' => 'sound-healing' ),
-		'lessons'       => array( 'template' => 'tpl-chapters-service', 'type' => 'lessons' ),
-		'eyal-amit'     => array( 'template' => 'tpl-chapters-about',   'type' => 'about' ),
+		'method'        => array( 'template' => 'tpl-chapters-method', 'type' => 'method' ),
+		'treatment'     => array( 'template' => 'tpl-chapters-page',   'type' => 'treatment' ),
+		'sound-healing' => array( 'template' => 'tpl-chapters-page',   'type' => 'sound-healing' ),
+		'lessons'       => array( 'template' => 'tpl-chapters-page',   'type' => 'lessons' ),
+		'eyal-amit'     => array( 'template' => 'tpl-chapters-page',   'type' => 'about' ),
 	) );
 }
 
@@ -280,6 +280,37 @@ function ea_chapters_resolve_img( $value, $size = 'large' ) {
 		return ea_chapters_asset_url( $value );
 	}
 	return '';
+}
+
+/**
+ * Curated testimonials for the marquee, optionally by category, with the retired
+ * brand «סטודיו נשימה מעגלית» excluded (not edited). Returns [{text,name}].
+ *
+ * @param string $cat Optional FB-corpus category slug.
+ * @return array<int,array{text:string,name:string}>
+ */
+function ea_chapters_testimonials( $cat = '' ) {
+	$brand = 'סטודיו נשימה מעגלית';
+	$src   = array();
+	if ( '' !== $cat && function_exists( 'ea_fb_testimonials_by_cat' ) ) {
+		$src = ea_fb_testimonials_by_cat( $cat );
+	}
+	if ( empty( $src ) && function_exists( 'ea_fb_testimonials_all' ) ) {
+		$src = ea_fb_testimonials_all();
+	}
+	$out = array();
+	foreach ( (array) $src as $t ) {
+		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' ) . ' ' . ( $t['text'] ?? '' );
+		if ( false !== mb_strpos( $blob, $brand ) ) {
+			continue;
+		}
+		$txt = trim( (string) ( $t['snippet'] ?? ( $t['text'] ?? '' ) ) );
+		if ( '' === $txt ) {
+			continue;
+		}
+		$out[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ) );
+	}
+	return $out;
 }
 
 /**
