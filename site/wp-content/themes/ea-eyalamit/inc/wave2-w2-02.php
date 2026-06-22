@@ -43,15 +43,8 @@ function ea_w2_02_is_wave2_page() {
  */
 function ea_w2_02_template_include( $tpl ) {
 	if ( is_front_page() && is_page() ) {
-		// Chapters (פרקים) redesign: route the front page to the Chapters home when
-		// enabled; otherwise fall back to the legacy tpl-home — an instant rollback
-		// by defining EA_CHAPTERS_FRONT false or filtering 'ea_chapters_front_enabled'.
-		if ( function_exists( 'ea_chapters_front_enabled' ) && ea_chapters_front_enabled() ) {
-			$ch = locate_template( 'page-templates/tpl-chapters-home.php' );
-			if ( $ch ) {
-				return $ch;
-			}
-		}
+		// Chapters routing is handled centrally in inc/chapters/chapters-routing.php
+		// (template_include priority 101, which overrides this when enabled).
 		$t = locate_template( 'page-templates/tpl-home.php' );
 		if ( $t ) {
 			return $t;

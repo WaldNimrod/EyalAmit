@@ -24,47 +24,97 @@ function ea_chapters_home_template() {
 }
 
 /**
- * Is the Chapters front page active? Filterable so it can be flipped off for an
- * instant rollback to the legacy tpl-home (define EA_CHAPTERS_FRONT false, or
- * add_filter 'ea_chapters_front_enabled' '__return_false').
+ * Slug → Chapters template + content-type map for inner pages. The front page is
+ * handled separately. Filterable so the set can grow without touching the router.
+ *
+ * @return array<string,array{template:string,type:string}>
+ */
+function ea_chapters_route_map() {
+	return (array) apply_filters( 'ea_chapters_route_map', array(
+		'method'        => array( 'template' => 'tpl-chapters-method',  'type' => 'method' ),
+		'treatment'     => array( 'template' => 'tpl-chapters-service', 'type' => 'treatment' ),
+		'sound-healing' => array( 'template' => 'tpl-chapters-service', 'type' => 'sound-healing' ),
+		'lessons'       => array( 'template' => 'tpl-chapters-service', 'type' => 'lessons' ),
+		'eyal-amit'     => array( 'template' => 'tpl-chapters-about',   'type' => 'about' ),
+	) );
+}
+
+/**
+ * Is the Chapters redesign active? One flag for the whole system; filter/redefine
+ * EA_CHAPTERS_FRONT false for an instant rollback to the legacy templates.
  *
  * @return bool
  */
-function ea_chapters_front_enabled() {
+function ea_chapters_enabled() {
 	$default = defined( 'EA_CHAPTERS_FRONT' ) ? (bool) EA_CHAPTERS_FRONT : true;
 	return (bool) apply_filters( 'ea_chapters_front_enabled', $default );
 }
 
+/** Back-compat alias. */
+function ea_chapters_front_enabled() {
+	return ea_chapters_enabled();
+}
+
 /**
- * True on any view rendered by the Chapters system (front page when enabled, or
- * any page assigned the Chapters template).
+ * Current page slug (empty when not a page).
+ *
+ * @return string
+ */
+function ea_chapters_current_slug() {
+	if ( ! is_page() ) {
+		return '';
+	}
+	return (string) get_post_field( 'post_name', get_queried_object_id() );
+}
+
+/**
+ * True on any view the Chapters system renders (front page, or a mapped inner slug).
  *
  * @return bool
  */
 function ea_chapters_is_view() {
-	if ( is_page_template( ea_chapters_home_template() ) ) {
+	if ( ! ea_chapters_enabled() ) {
+		return false;
+	}
+	if ( is_front_page() && is_page() ) {
 		return true;
 	}
-	if ( is_front_page() && is_page() && ea_chapters_front_enabled() ) {
-		return true;
-	}
-	return false;
+	return isset( ea_chapters_route_map()[ ea_chapters_current_slug() ] );
 }
 
 /**
- * Load the seeded defaults for the current Chapters page type.
- * Cached per request. Home is the only type in this round.
+ * Content type for the current Chapters view ('home' | 'method' | 'treatment' |
+ * 'sound-healing' | 'lessons' | 'about'). Drives which defaults file loads.
+ * A template may override via $GLOBALS['ea_chapters_type'].
+ *
+ * @return string
+ */
+function ea_chapters_type() {
+	if ( isset( $GLOBALS['ea_chapters_type'] ) && '' !== $GLOBALS['ea_chapters_type'] ) {
+		return (string) $GLOBALS['ea_chapters_type'];
+	}
+	if ( is_front_page() && is_page() ) {
+		return 'home';
+	}
+	$map = ea_chapters_route_map();
+	$slug = ea_chapters_current_slug();
+	return isset( $map[ $slug ] ) ? $map[ $slug ]['type'] : 'home';
+}
+
+/**
+ * Load the seeded defaults for the current Chapters page type (cached per type).
  *
  * @return array
  */
 function ea_chapters_defaults() {
-	static $cache = null;
-	if ( null !== $cache ) {
-		return $cache;
+	static $cache = array();
+	$type = ea_chapters_type();
+	if ( isset( $cache[ $type ] ) ) {
+		return $cache[ $type ];
 	}
-	$file  = get_stylesheet_directory() . '/inc/chapters/defaults/home-defaults.php';
-	$cache = is_readable( $file ) ? (array) require $file : array();
-	return $cache;
+	$file           = get_stylesheet_directory() . '/inc/chapters/defaults/' . $type . '-defaults.php';
+	$cache[ $type ] = is_readable( $file ) ? (array) require $file : array();
+	return $cache[ $type ];
 }
 
 /**
