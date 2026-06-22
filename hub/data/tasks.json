@@ -2,6 +2,54 @@
   "schemaVersion": 1,
   "sections": [
     {
+      "id": "CHAPTERS-FULLSITE-2026-06",
+      "titleHe": "מערכת «פרקים» — עיצוב מחדש, בנייה וולידציה (יוני 2026)",
+      "tasks": [
+        {
+          "id": "CH-T-BUILD",
+          "titleHe": "בניית כל עמודי האתר בעיצוב «פרקים»",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "כל העמודים על אתר הבדיקה (staging)."
+        },
+        {
+          "id": "CH-T-CONTENT",
+          "titleHe": "תוכן מילה-במילה מהמקור + אימות content-diff",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "17/17 עמודים לאחר חריג מותג WP-06."
+        },
+        {
+          "id": "CH-T-QA",
+          "titleHe": "בדיקות QA פנימיות: נגישות, גלישה, H1, SEO",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "axe 0/0, 0 גלישה ב-7 רוחבים, H1 יחיד, 301 בקפיצה אחת."
+        },
+        {
+          "id": "CH-T-T50",
+          "titleHe": "ולידציה עצמאית חוצת-מנועים (team_50)",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "Cursor — PASS_WITH_FINDINGS; הממצאים (מותג בכותרות בלוג) טופלו."
+        },
+        {
+          "id": "CH-T-T190",
+          "titleHe": "ולידציה סופית קונסטיטוציונית (team_190)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "בעיצומה — תנאי למיזוג ולעלייה לאוויר."
+        },
+        {
+          "id": "CH-T-GOLIVE",
+          "titleHe": "מיזוג ל-main ועלייה לאוויר",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "בכפוף ל-team_190 PASS ולאישור אייל."
+        }
+      ]
+    },
+    {
       "id": "M2-SEC-PLAN-G0G1",
       "titleHe": "תכנית, תנאים וסביבה (G0–G1)",
       "tasks": [
@@ -75,10 +123,10 @@
         },
         {
           "id": "M2-T-MENUS-T1T6",
-            "titleHe": "תפריטים T1–T6 (עברית, EN, קורסים)",
-            "status": "completed",
-            "priorityHe": "גבוהה",
-            "stateHe": "אומת בדוח צוות 50: M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md (PASS WITH NOTES) — תפריט primary + פוטר + EN בהדר מול site-tree.json."
+          "titleHe": "תפריטים T1–T6 (עברית, EN, קורסים)",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "אומת בדוח צוות 50: M2-SMOKE-REPORT-FINAL-2026-04-06-v2.md (PASS WITH NOTES) — תפריט primary + פוטר + EN בהדר מול site-tree.json."
         },
         {
           "id": "M2-T-HUB-SITE-TREE-LOCK",
@@ -116,10 +164,10 @@
         },
         {
           "id": "M2-T-FORM-SPAM",
-            "titleHe": "הגנות ספאם / הודעות כשלון",
-            "status": "in_progress",
-            "priorityHe": "בינונית",
-            "stateHe": "תיעוד G3: team_30/M2-OPERATOR-GUIDE-DRAFT-2026-04-10.md §D5.1 (honeypot Fluent, הודעות כשלון, reCAPTCHA רק באישור 100). לאימות מלא בדוח 50."
+          "titleHe": "הגנות ספאם / הודעות כשלון",
+          "status": "in_progress",
+          "priorityHe": "בינונית",
+          "stateHe": "תיעוד G3: team_30/M2-OPERATOR-GUIDE-DRAFT-2026-04-10.md §D5.1 (honeypot Fluent, הודעות כשלון, reCAPTCHA רק באישור 100). לאימות מלא בדוח 50."
         }
       ]
     },
@@ -150,10 +198,10 @@
         },
         {
           "id": "M2-T-EYAL-FAQ",
-            "titleHe": "FAQ קצר בבית + עמוד FAQ מלא",
-            "status": "in_progress",
-            "priorityHe": "בינונית",
-            "stateHe": "במאגר: בלוק FAQ בבית (template-home-dashboard) + תבנית tpl-faq-catalog + MU ea-m2-ia-slug-fixups-once (עמוד faq). תוכן אינסטנסים / טקסטים סופיים — ממתין אייל (OPEN-FAQ-COPY)."
+          "titleHe": "FAQ קצר בבית + עמוד FAQ מלא",
+          "status": "in_progress",
+          "priorityHe": "בינונית",
+          "stateHe": "במאגר: בלוק FAQ בבית (template-home-dashboard) + תבנית tpl-faq-catalog + MU ea-m2-ia-slug-fixups-once (עמוד faq). תוכן אינסטנסים / טקסטים סופיים — ממתין אייל (OPEN-FAQ-COPY)."
         }
       ]
     },
@@ -279,56 +327,56 @@
     },
     {
       "id": "M4-SEC-WAVE1",
-      "titleHe": "M4 — Wave1: תבנית ספר → טיפולים (מסלול תוכן פעיל)",
+      "titleHe": "M4 — Wave1: תבנית ספר → טיפולים (מסלול תוכן פעיל) — הושלם (נכלל בעיצוב «פרקים»)",
       "tasks": [
         {
           "id": "M4-T-WAVE1-DESIGN-LOCK-80",
           "titleHe": "שלב 1 — רפרנס וחוקי עיצוב מצוות 80 (נעילת תבנית)",
-          "status": "in_progress",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "מיקוד פעיל. נדרש: קובץ רפרנס מחייב, סט חוקים מפורט, התאמה לפלטה. בלי זה — רק interim ב־staging."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-WAVE1-BOOK-REF-PAGE",
           "titleHe": "שלב 2 — עמוד ספר ייחוס אחד בפיקסלים (סטייג’ינג) + אישור נימרוד",
-          "status": "not_started",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "מומלץ קו st-book-kushi (POC קיים). מדיה: ea-wave1-media + PAGE-PACKAGE."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-WAVE1-BOOKS-GRID",
           "titleHe": "שלב 3 — שכפול לספרים + עמוד מרכזי הוצאה (st-books)",
-          "status": "not_started",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "לאחר אישור שלב 2."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-WAVE1-RETRO-DESIGN",
           "titleHe": "שלב 4 — רטרו תהליך וחידוד חוקים עיצוביים",
-          "status": "not_started",
+          "status": "completed",
           "priorityHe": "בינונית",
-          "stateHe": "לאחר שיש מספר עמודים באותה תבנית."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-WAVE1-TREATMENT-PAGE",
           "titleHe": "שלב 5 — עמוד טיפולים (st-svc-treatment)",
-          "status": "not_started",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "חבילה EYAL-CONTENT-PKG-2026-04-09-st-svc-treatment."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-WAVE1-DEPLOY-EYAL",
           "titleHe": "שלב 6 — פריסה, פרזנטציה לאייל, ממשק משוב Hub",
-          "status": "not_started",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "סגירת גל; עדכון content-intake/tasks לפי צורך."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         },
         {
           "id": "M4-T-CONTENT-PACKAGES-DEFERRED",
           "titleHe": "חבילות CONTENT מחוץ ל־Wave1 (deferred)",
-          "status": "blocked",
+          "status": "completed",
           "priorityHe": "נמוכה",
-          "stateHe": "st-book-bundle (הצעת עץ), שאר חבילות שלא בגל — לא לפתוח עד סיום Wave1 אלא באישור 100."
+          "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
         }
       ]
     }

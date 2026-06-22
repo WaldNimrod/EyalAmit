@@ -303,9 +303,20 @@ def head(title: str, extra_scripts: str = "") -> str:
 """
 
 
+# Older / reference pages, surfaced only via the Archive page (not the top nav).
+ARCHIVE_ITEMS = [
+    ("roadmap.html", "מפת דרכים", "מפת הדרכים ההיסטורית של גלי הפיתוח (Wave 1/2) — הושלמו."),
+    ("site-tree.html", "עץ אתר", "מבנה האתר המאושר (עץ העמודים) — לעיון."),
+    ("content-proposals.html", "הצעות תוכן", "הצעות תוכן מוקדמות — היסטורי."),
+    ("purchase-links.html", "קישורי רכישה", "קישורי רכישה חיצוניים (חשבונית ירוקה / מנדלי)."),
+    ("content-index.html", "אינדקס תוכן", "אינדקס מקורות התוכן מאייל (תוכן לאתר 25.5.26)."),
+]
+
+
 def nav(active: str) -> str:
-    # Main menu = pages relevant to the meeting + ongoing work on the system.
-    main_items = [
+    # Main menu = pages relevant to the meeting + ongoing work; older pages live
+    # behind a single «ארכיון» link → archive.html.
+    items = [
         ("index.html", "כניסה"),
         ("meeting.html", "תדריך פגישה"),
         ("meeting-checklist.html", "צ׳קליסט פגישה"),
@@ -313,37 +324,31 @@ def nav(active: str) -> str:
         ("materials-intake.html", "השלמות מאייל"),
         ("content-intake.html", "קליטת תוכן"),
         ("media-intake.html", "מדיה ותמונות"),
+        ("archive.html", "ארכיון"),
     ]
-    # Archive sub-menu = older / reference pages, not part of the active work.
-    archive_items = [
-        ("roadmap.html", "מפת דרכים"),
-        ("site-tree.html", "עץ אתר"),
-        ("content-proposals.html", "הצעות תוכן"),
-        ("purchase-links.html", "קישורי רכישה"),
-        ("content-index.html", "אינדקס תוכן"),
-    ]
-
-    def render(href: str, label: str) -> str:
-        if href.replace(".html", "") == active:
-            return f"<strong>{escape(label)}</strong>"
-        return f'<a href="{href}">{escape(label)}</a>'
-
     parts = ["<nav>"]
-    for href, label in main_items:
-        parts.append(render(href, label))
-
-    archive_active = any(href.replace(".html", "") == active for href, _ in archive_items)
-    toggle_cls = "nav-archive__toggle" + (" is-active" if archive_active else "")
-    parts.append('<span class="nav-archive">')
-    parts.append(
-        f'<button type="button" class="{toggle_cls}" aria-haspopup="true" aria-expanded="false">ארכיון ▾</button>'
-    )
-    parts.append('<span class="nav-archive__menu">')
-    for href, label in archive_items:
-        parts.append(render(href, label))
-    parts.append("</span></span>")
+    for href, label in items:
+        if href.replace(".html", "") == active:
+            parts.append(f"<strong>{escape(label)}</strong>")
+        else:
+            parts.append(f'<a href="{href}">{escape(label)}</a>')
     parts.append("</nav>")
     return "\n".join(parts)
+
+
+def page_archive(generated_iso: str) -> str:
+    html = head("ארכיון — אייל עמית")
+    html += nav("archive")
+    html += '<div class="wrap">\n'
+    html += "<h1>ארכיון</h1>\n"
+    html += '<p class="subtitle">עמודי עזר / היסטוריים שאינם חלק מהעבודה השוטפת על המערכת. נשמרו לעיון.</p>\n'
+    html += '<div class="card"><ul class="archive-list">\n'
+    for href, label, desc in ARCHIVE_ITEMS:
+        html += f'<li><a href="{href}">{escape(label)}</a> — {escape(desc)}</li>\n'
+    html += "</ul></div>\n"
+    html += "</div>\n"
+    html += foot(generated_iso)
+    return html
 
 
 def foot(generated_iso: str) -> str:
@@ -2922,6 +2927,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         encoding="utf-8",
     )
     (dist_dir / "pending.html").write_text(page_pending_redirect(), encoding="utf-8")
+    (dist_dir / "archive.html").write_text(page_archive(generated_iso), encoding="utf-8")
 
     (dist_dir / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
 
