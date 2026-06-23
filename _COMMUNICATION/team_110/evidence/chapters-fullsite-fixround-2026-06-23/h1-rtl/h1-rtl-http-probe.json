@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-06-22T22:41:50.539Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "results": [
+    {
+      "route": "/blog/",
+      "http": 200,
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "pass": true
+    },
+    {
+      "route": "/blog/page/2/",
+      "http": 200,
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/blog/page/2/",
+      "pass": true
+    },
+    {
+      "route": "/books/vekatavta/",
+      "http": 200,
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "pass": true
+    },
+    {
+      "route": "/eyal-amit/mokesh-dahiman/",
+      "http": 200,
+      "h1": 1,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "pass": true
+    },
+    {
+      "route": "/en/",
+      "http": 200,
+      "h1": 1,
+      "dir": "ltr",
+      "lang": "en",
+      "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/en/",
+      "pass": true
+    }
+  ],
+  "passCount": 5,
+  "failCount": 0
+}

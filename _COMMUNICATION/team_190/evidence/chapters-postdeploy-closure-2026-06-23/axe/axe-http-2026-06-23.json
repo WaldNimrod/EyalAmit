@@ -1,0 +1,292 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated": "2026-06-22T23:43:42.365Z",
+  "results": [
+    {
+      "route": "/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/treatment/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/sound-healing/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/lessons/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/eyal-amit/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/faq/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/faq/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/didgeridoos/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/bags/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/bags/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/stands-storage/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/stand-floor/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/repair/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/books/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/books/vekatavta/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/books/kushi-blantis/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/books/tsva-bekahol/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/eyal-amit/mokesh-dahiman/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/contact/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/blog/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/galleries/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/galleries/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/media/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/media/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/privacy/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/privacy/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/accessibility/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/accessibility/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/terms/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/terms/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/en/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/en/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/blog/page/2/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/page/2/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated": "2026-06-22T23:03:43.689Z",
+  "results": [
+    {
+      "route": "/books/vekatavta/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/eyal-amit/mokesh-dahiman/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/en/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/en/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/blog/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    },
+    {
+      "route": "/contact/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+      "http": 200,
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [],
+      "error": null
+    }
+  ]
+}

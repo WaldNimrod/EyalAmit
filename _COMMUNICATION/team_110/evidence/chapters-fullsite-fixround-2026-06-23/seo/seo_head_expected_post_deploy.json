@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-06-23T00:00:00.000Z",
+  "purpose": "Expected meta name=description after wave2-w2-09.php deploy (F110-01). Copy derived verbatim from existing hero sources — no new prose.",
+  "codeFile": "site/wp-content/themes/ea-eyalamit/inc/wave2-w2-09.php",
+  "routes": [
+    {
+      "path": "/books/vekatavta/",
+      "source": "inc/chapters/defaults/vekatavta-defaults.php phero.sub",
+      "expectedMetaDescription": "46 סיפורים אמיתיים מחייו של אייל עמית. ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה."
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "source": "inc/chapters/defaults/mokesh-defaults.php phero.sub (trimmed to ~157 chars if longer)",
+      "expectedMetaDescriptionPrefix": "מוקש דהימן היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו"
+    },
+    {
+      "path": "/en/",
+      "source": "tpl-chapters-en.php phero sub (line 52)",
+      "expectedMetaDescription": "Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel."
+    }
+  ],
+  "liveStagingNote": "Pre-deploy live probe: seo/seo_head_checks.json shows metaDescriptionCount=0 on vekatavta/mokesh/en; re-run seo-head-probe.mjs after team_00 deploy."
+}

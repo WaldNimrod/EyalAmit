@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-06-22T23:01:31.459Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "cacheBust": "team110-1782169289062",
+  "note": "F110-01 routes may show metaDescriptionCount=0 until wave2-w2-09.php is deployed to staging.",
+  "results": [
+    {
+      "name": "_books_vekatavta_",
+      "path": "/books/vekatavta/",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nc=team110-1782169289062",
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 0,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "_eyal-amit_mokesh-dahiman_",
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/?nc=team110-1782169289062",
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 0,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "_en_",
+      "path": "/en/",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/en/?nc=team110-1782169289062",
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/en/",
+      "yoastGraphPresent": true
+    }
+  ]
+}

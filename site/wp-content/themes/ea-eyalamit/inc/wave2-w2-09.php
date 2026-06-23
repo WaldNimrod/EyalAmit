@@ -31,6 +31,23 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Trim a meta description to ~157 chars on a clean boundary.
+ *
+ * @param string $text
+ * @return string
+ */
+function ea_w2_09_trim_description( $text ) {
+	$text = trim( wp_strip_all_tags( (string) $text ) );
+	if ( '' === $text ) {
+		return '';
+	}
+	if ( function_exists( 'mb_strlen' ) && mb_strlen( $text ) > 160 ) {
+		return rtrim( mb_substr( $text, 0, 157 ) ) . '…';
+	}
+	return $text;
+}
+
+/**
  * Meta description for the HE homepage (and a tagline-based site-wide fallback).
  *
  * Derived verbatim from the existing hero title + subtitle already rendered on
@@ -81,10 +98,17 @@ function ea_w2_09_route_description() {
 	if ( is_singular( 'post' ) ) {
 		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
 		if ( '' !== $excerpt ) {
-			if ( function_exists( 'mb_strlen' ) && mb_strlen( $excerpt ) > 160 ) {
-				$excerpt = rtrim( mb_substr( $excerpt, 0, 157 ) ) . '…';
-			}
-			return $excerpt;
+			return ea_w2_09_trim_description( $excerpt );
+		}
+	}
+
+	// Chapters child pages (e.g. /books/vekatavta/, /eyal-amit/mokesh-dahiman/): derive
+	// from seeded phero.sub — verbatim hero copy, no new prose (F110-01).
+	if ( function_exists( 'ea_chapters_is_view' ) && ea_chapters_is_view()
+		&& function_exists( 'ea_chapters_defaults' ) ) {
+		$d = ea_chapters_defaults();
+		if ( ! empty( $d['phero']['sub'] ) ) {
+			return ea_w2_09_trim_description( (string) $d['phero']['sub'] );
 		}
 	}
 
@@ -97,9 +121,10 @@ function ea_w2_09_route_description() {
 }
 
 function ea_w2_09_meta_description() {
-	// Skip the EN landing page; it carries its own context (W2-08) and we do not
-	// want the HE description leaking onto it.
+	// /en/ — mirror the hero subtitle already rendered in tpl-chapters-en.php (F110-01).
 	if ( function_exists( 'ea_w2_08_is_en_page' ) && ea_w2_08_is_en_page() ) {
+		$description = 'Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.';
+		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 		return;
 	}
 

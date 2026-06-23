@@ -1,0 +1,61 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-06-22T22:43:07.809Z",
+  "total": 4,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_blog_",
+      "url": "/blog/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בלוג - eyal amit",
+      "screenshot": "_COMMUNICATION/team_110/evidence/chapters-fullsite-fixround-2026-06-23/qa_probe/screenshots/_blog__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_blog_page_2_",
+      "url": "/blog/page/2/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בלוג - עמוד 2 מתוך 6 - eyal amit",
+      "screenshot": "_COMMUNICATION/team_110/evidence/chapters-fullsite-fixround-2026-06-23/qa_probe/screenshots/_blog_page_2__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_blog_",
+      "url": "/blog/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בלוג - eyal amit",
+      "screenshot": "_COMMUNICATION/team_110/evidence/chapters-fullsite-fixround-2026-06-23/qa_probe/screenshots/_blog__desktop.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_blog_page_2_",
+      "url": "/blog/page/2/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "בלוג - עמוד 2 מתוך 6 - eyal amit",
+      "screenshot": "_COMMUNICATION/team_110/evidence/chapters-fullsite-fixround-2026-06-23/qa_probe/screenshots/_blog_page_2__desktop.png",
+      "pass": true
+    }
+  ]
+}

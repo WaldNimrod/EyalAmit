@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-06-22T23:42:28.918Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "cacheBust": "team190-1782171746303",
+  "allPass": true,
+  "results": [
+    {
+      "path": "/books/vekatavta/",
+      "content": "46 סיפורים אמיתיים מחייו של אייל עמית. ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.",
+      "expected": "46 סיפורים אמיתיים מחייו של אייל עמית. ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.",
+      "matchType": "exact",
+      "pass": true
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "content": "מוקש דהימן היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו, שכבר בתחילת שנות השבעים הקדיש את חייו למלאכת בנייתו של הדיג'רידו ולהפצתו ככלי נשימה, ריפוי וחיבור…",
+      "expected": "מוקש דהימן היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו",
+      "matchType": "prefix",
+      "pass": true,
+      "note": "HTML entities decoded for compare"
+    },
+    {
+      "path": "/en/",
+      "content": "Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.",
+      "expected": "Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.",
+      "matchType": "exact",
+      "pass": true
+    }
+  ]
+}

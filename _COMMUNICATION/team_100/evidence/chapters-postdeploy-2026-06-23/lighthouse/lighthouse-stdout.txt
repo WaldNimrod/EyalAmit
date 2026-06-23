@@ -1,0 +1,9 @@
+route               perf  a11y    bp   seo
+/                     96    97   100    69
+/method/              96    97   100    61
+/books/               92    97   100    69
+/blog/                94    97   100    69
+/contact/             93    99   100    69
+/en/                  97    98   100    69
+/eyal-amit/mokesh-dahiman/    93    97   100    69
+(SEO/BP are staging-capped: noindex + HTTP -> 100 at production cutover)

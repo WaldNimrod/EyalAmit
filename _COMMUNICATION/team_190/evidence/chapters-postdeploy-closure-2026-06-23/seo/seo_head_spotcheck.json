@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-06-23T00:11:06.265Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "cacheBust": "team190-1782173462877",
+  "results": [
+    {
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "metaDescriptionCount": 1,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "yoastGraphPresent": true,
+      "pass": true
+    },
+    {
+      "name": "treatment",
+      "path": "/treatment/",
+      "status": 200,
+      "metaDescriptionCount": 2,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "yoastGraphPresent": true,
+      "pass": true
+    },
+    {
+      "name": "blog_single",
+      "path": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "status": 200,
+      "metaDescriptionCount": 1,
+      "ogImageCount": 1,
+      "canonicalPresent": true,
+      "yoastGraphPresent": true,
+      "pass": true
+    }
+  ]
+}

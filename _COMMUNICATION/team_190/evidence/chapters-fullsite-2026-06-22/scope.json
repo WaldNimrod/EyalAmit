@@ -1,0 +1,119 @@
+{
+  "runId": "chapters-fullsite-2026-06-22",
+  "role": "team_190_final_validation_owner",
+  "engine": "GPT-5.2",
+  "stagingBase": "http://eyalamit-co-il-2026.s887.upress.link",
+  "mandateRoutes26": [
+    "/",
+    "/method/",
+    "/treatment/",
+    "/sound-healing/",
+    "/lessons/",
+    "/eyal-amit/",
+    "/faq/",
+    "/didgeridoos/",
+    "/bags/",
+    "/stands-storage/",
+    "/stand-floor/",
+    "/repair/",
+    "/books/",
+    "/books/vekatavta/",
+    "/books/kushi-blantis/",
+    "/books/tsva-bekahol/",
+    "/eyal-amit/mokesh-dahiman/",
+    "/contact/",
+    "/blog/",
+    "/galleries/",
+    "/media/",
+    "/privacy/",
+    "/accessibility/",
+    "/terms/",
+    "/en/",
+    "/blog/page/2/"
+  ],
+  "contentGatedPages17": [
+    "/",
+    "/method/",
+    "/treatment/",
+    "/sound-healing/",
+    "/lessons/",
+    "/faq/",
+    "/books/",
+    "/eyal-amit/",
+    "/books/vekatavta/",
+    "/books/kushi-blantis/",
+    "/books/tsva-bekahol/",
+    "/didgeridoos/",
+    "/bags/",
+    "/stands-storage/",
+    "/stand-floor/",
+    "/repair/",
+    "/eyal-amit/mokesh-dahiman/"
+  ],
+  "contentNotGated": [
+    "/contact/",
+    "/blog/",
+    "/blog/page/2/",
+    "/galleries/",
+    "/media/",
+    "/privacy/",
+    "/accessibility/",
+    "/terms/",
+    "/en/"
+  ],
+  "ledgerApprovedNonBlocking": {
+    "a_retiredBrandRemoved": {
+      "term": "סטודיו נשימה מעגלית",
+      "scope": [
+        "/eyal-amit/",
+        "/method/"
+      ],
+      "note": "Source contains retired brand; live may be brand-stripped in specific sentence/title only."
+    },
+    "b_testimonialsProvisional": {
+      "scope": [
+        "/",
+        "/books/"
+      ],
+      "note": "FB-corpus testimonial snippets provisional pending Eyal; flag, do not fail."
+    },
+    "c_placeholderPages": {
+      "scope": [
+        "/galleries/",
+        "/media/",
+        "/privacy/",
+        "/accessibility/",
+        "/terms/",
+        "/en/"
+      ],
+      "note": "⟨…⟩ placeholder copy/imagery expected pending Eyal; must render cleanly; /en/ must be LTR."
+    },
+    "d_contactBlogNotContentGated": {
+      "scope": [
+        "/contact/",
+        "/blog/",
+        "/blog/page/2/"
+      ],
+      "note": "Validate function + SEO/meta; do not include in content verbatim gate."
+    }
+  },
+  "mandateSpecificOneHop301s": [
+    {
+      "from": "/muzza/",
+      "to": "/books/"
+    },
+    {
+      "from": "/about/moksha/",
+      "to": "/eyal-amit/mokesh-dahiman/"
+    },
+    {
+      "from": "/mokesh/",
+      "to": "/eyal-amit/mokesh-dahiman/"
+    }
+  ],
+  "notes": [
+    "This file freezes scope/ledger for the team_190 independent run; do not treat team_50 numbers as authoritative.",
+    "Blog single-post routes are validated separately (function + per-post meta/og), discovered at runtime from /blog/."
+  ]
+}
+

@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-06-22T22:48:49.684Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "forbidden": "סטודיו נשימה מעגלית",
+  "results": [
+    {
+      "path": "/blog/",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/blog/?nc=team190-focused",
+      "hitCount": 0
+    },
+    {
+      "path": "/blog/page/2/",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/blog/page/2/?nc=team190-focused",
+      "hitCount": 0
+    }
+  ],
+  "verdict": "PASS"
+}

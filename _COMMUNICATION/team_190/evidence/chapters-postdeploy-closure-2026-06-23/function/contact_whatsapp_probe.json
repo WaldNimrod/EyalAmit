@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-06-23T00:11:06.117Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "cacheBust": "team190-1782173462877",
+  "finalUrl": "https://eyalamit-co-il-2026.s887.upress.link/contact/?nc=team190-1782173462877",
+  "cf7": {
+    "hasWpcf7": true,
+    "formCount": 2,
+    "wpcf7FormCount": 1
+  },
+  "whatsapp": {
+    "exists": true,
+    "selector": ".ea-whatsapp-float",
+    "display": "flex",
+    "href": "https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D",
+    "hasTextParam": true
+  },
+  "gtagEvents": [
+    {
+      "name": "whatsapp_cta_click",
+      "params": {
+        "variant_label": "dual"
+      }
+    },
+    {
+      "name": "whatsapp_cta_click",
+      "params": {
+        "variant_label": "dual"
+      }
+    },
+    {
+      "name": "whatsapp_cta_click",
+      "params": {
+        "variant_label": "dual"
+      }
+    },
+    {
+      "name": "generate_lead",
+      "params": {
+        "method": "whatsapp",
+        "variant_label": "dual"
+      }
+    },
+    {
+      "name": "generate_lead",
+      "params": {
+        "method": "whatsapp",
+        "variant_label": "dual"
+      }
+    },
+    {
+      "name": "generate_lead",
+      "params": {
+        "method": "whatsapp",
+        "variant_label": "dual"
+      }
+    }
+  ],
+  "hasGenerateLead": true,
+  "clickError": null,
+  "pass": true
+}

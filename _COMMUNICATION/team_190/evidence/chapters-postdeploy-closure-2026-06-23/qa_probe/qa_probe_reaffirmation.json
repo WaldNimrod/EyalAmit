@@ -1,0 +1,15 @@
+{
+  "note": "qa_probe re-affirmed from team_100 post-deploy run (2026-06-22T23:17Z). Deploy was head-only (wave2-w2-09.php); overflow/forbidden-term results remain valid.",
+  "sourceEvidence": "_COMMUNICATION/team_100/evidence/chapters-postdeploy-2026-06-23/qa_probe/qa_probe_result.json",
+  "team190IndependentRuns": [
+    "axe 26 routes",
+    "h1 26 routes",
+    "design eyeball 7 pages",
+    "content-diff full",
+    "F110-01 seo-head-probe"
+  ],
+  "reaffirmedAt": "2026-06-23T00:12:00Z",
+  "verdict": "PASS",
+  "failures": 0,
+  "total": 182
+}

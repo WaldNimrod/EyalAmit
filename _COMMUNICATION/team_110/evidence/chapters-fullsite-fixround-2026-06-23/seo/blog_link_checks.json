@@ -1,0 +1,231 @@
+{
+  "generatedAt": "2026-06-22T22:44:26.222Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "checkedCount": 44,
+  "failures": [
+    {
+      "pathname": "//fonts.googleapis.com",
+      "status": 404,
+      "ok": false
+    },
+    {
+      "pathname": "/xmlrpc.php?rsd",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "pathname": "/stand-floor/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/category/%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8-%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    }
+  ],
+  "checks": [
+    {
+      "pathname": "//fonts.googleapis.com",
+      "status": 404,
+      "ok": false
+    },
+    {
+      "pathname": "/comments/feed/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/xmlrpc.php?rsd",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "pathname": "/sound-healing/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/didgeridoos/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/stands-storage/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/stand-floor/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/eyal-amit/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/eyal-amit/mokesh-dahiman/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/category/%d7%9b%d7%9c%d7%9c%d7%99/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/category/%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8-%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "status": null,
+      "ok": false,
+      "error": "fetch failed"
+    },
+    {
+      "pathname": "/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "pathname": "/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+      "status": 200,
+      "ok": true
+    }
+  ]
+}

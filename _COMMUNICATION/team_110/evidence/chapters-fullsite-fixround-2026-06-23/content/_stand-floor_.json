@@ -1,0 +1,23 @@
+{
+  "page": "/stand-floor/",
+  "path": "/stand-floor/",
+  "source": "סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md",
+  "liveUrl": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+  "liveStatus": 200,
+  "sectionCoveragePct": 100,
+  "sentenceCoveragePct": 100,
+  "pageAccuracyPct": 100,
+  "sectionsTotal": 10,
+  "sectionsFound": 10,
+  "sentencesTotal": 30,
+  "sentencesFound": 30,
+  "missingSections": [],
+  "missingSentences": [],
+  "inventedSections": [],
+  "inventedBlocks": [
+    "אם אתה מנגן בישיבה נמוכה ומרגיש שהכלי לא יציב, הסטנד הזה יכול לשנות את החוויה בצורה מאוד פשוטה."
+  ],
+  "gatePass": true,
+  "verdict": "ACCURATE",
+  "sourceCharWeight": 2389
+}

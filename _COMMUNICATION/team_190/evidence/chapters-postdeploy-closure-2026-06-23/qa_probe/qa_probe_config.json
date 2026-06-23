@@ -1,0 +1,48 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "out": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/qa_probe",
+  "shots": true,
+  "absent": [
+    "סטודיו נשימה מעגלית",
+    "TBD",
+    "LOREM",
+    "CDIP"
+  ],
+  "viewports": [
+    { "name": "w360", "w": 360, "h": 800 },
+    { "name": "w390", "w": 390, "h": 844 },
+    { "name": "w414", "w": 414, "h": 896 },
+    { "name": "w768", "w": 768, "h": 900 },
+    { "name": "w1024", "w": 1024, "h": 900 },
+    { "name": "w1440", "w": 1440, "h": 900 },
+    { "name": "w1920", "w": 1920, "h": 1080 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "method", "path": "/method/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "soundHealing", "path": "/sound-healing/" },
+    { "name": "lessons", "path": "/lessons/" },
+    { "name": "eyalAmit", "path": "/eyal-amit/" },
+    { "name": "faq", "path": "/faq/" },
+    { "name": "didgeridoos", "path": "/didgeridoos/" },
+    { "name": "bags", "path": "/bags/" },
+    { "name": "standsStorage", "path": "/stands-storage/" },
+    { "name": "standFloor", "path": "/stand-floor/" },
+    { "name": "repair", "path": "/repair/" },
+    { "name": "books", "path": "/books/" },
+    { "name": "bookVekatavta", "path": "/books/vekatavta/" },
+    { "name": "bookKushiBlantis", "path": "/books/kushi-blantis/" },
+    { "name": "bookTsvaBekahol", "path": "/books/tsva-bekahol/" },
+    { "name": "mokeshDahiman", "path": "/eyal-amit/mokesh-dahiman/" },
+    { "name": "contact", "path": "/contact/" },
+    { "name": "blog", "path": "/blog/" },
+    { "name": "blogPage2", "path": "/blog/page/2/" },
+    { "name": "galleries", "path": "/galleries/" },
+    { "name": "media", "path": "/media/" },
+    { "name": "privacy", "path": "/privacy/" },
+    { "name": "accessibility", "path": "/accessibility/" },
+    { "name": "terms", "path": "/terms/" },
+    { "name": "en", "path": "/en/" }
+  ]
+}

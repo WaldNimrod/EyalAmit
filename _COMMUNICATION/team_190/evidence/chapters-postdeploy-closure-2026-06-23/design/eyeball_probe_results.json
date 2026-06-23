@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-06-22T23:46:31.297Z",
+  "cacheBust": "team190-1782171966191",
+  "eyeballResults": [
+    {
+      "path": "/treatment/",
+      "source": "טיפול בדיג'רידו/treatment.md",
+      "snippet": "ובדיוק שם מתחילה העבודה.",
+      "snippetFound": true,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_treatment_full.png"
+    },
+    {
+      "path": "/books/vekatavta/",
+      "source": "וכתבת/vekatavta.md",
+      "snippet": "ייחודי במיוחד לוכתבת הוא גם האלמנט של סריקת ה-QR:",
+      "snippetFound": true,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_vekatavta_full.png"
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "source": "Mokesh memorial DOCX",
+      "snippet": "יום אחד, בתחילת שנות השבעים",
+      "snippetFound": true,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_mokesh_full.png"
+    }
+  ]
+}

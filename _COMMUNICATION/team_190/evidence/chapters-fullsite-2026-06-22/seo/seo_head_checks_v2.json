@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-06-22T22:15:30.071Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "results": [
+    {
+      "name": "home",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "treatment",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "book_vekatavta",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 0,
+      "ogDescriptionCount": 0,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "blog",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/blog/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "contact",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/contact/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "en",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/en/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/en/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 0,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "mokesh",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 0,
+      "ogDescriptionCount": 0,
+      "yoastGraphPresent": true
+    },
+    {
+      "name": "blog_single_sample",
+      "status": 200,
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/shop/?nc=team190",
+      "canonicalPresent": true,
+      "canonical": "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+      "ogImageCount": 1,
+      "metaDescriptionCount": 1,
+      "ogDescriptionCount": 1,
+      "yoastGraphPresent": true
+    }
+  ]
+}

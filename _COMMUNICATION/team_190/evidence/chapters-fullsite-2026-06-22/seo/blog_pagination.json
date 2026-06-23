@@ -1,0 +1,42 @@
+{
+  "page1Count": 19,
+  "page2Count": 20,
+  "sharedCount": 7,
+  "shared": [
+    "http://eyalamit-co-il-2026.s887.upress.link/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/comments/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/ea-logo.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-json/",
+    "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+    "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+    "http://eyalamit-co-il-2026.s887.upress.link/category/%d7%9b%d7%9c%d7%9c%d7%99/"
+  ],
+  "page1Sample": [
+    "http://eyalamit-co-il-2026.s887.upress.link/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/comments/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/ea-logo.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-json/",
+    "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+    "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+    "http://eyalamit-co-il-2026.s887.upress.link/category/%d7%9b%d7%9c%d7%9c%d7%99/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/"
+  ],
+  "page2Sample": [
+    "http://eyalamit-co-il-2026.s887.upress.link/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/comments/feed/",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/ea-logo.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-json/",
+    "http://eyalamit-co-il-2026.s887.upress.link/shop/",
+    "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/",
+    "http://eyalamit-co-il-2026.s887.upress.link/category/%d7%9b%d7%9c%d7%9c%d7%99/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+    "http://eyalamit-co-il-2026.s887.upress.link/category/%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8-%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+    "http://eyalamit-co-il-2026.s887.upress.link/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "generatedAt": "2026-06-22T23:46:31.298Z",
+  "cacheBust": "team190-1782171966191",
+  "designResults": [
+    {
+      "path": "/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 13,
+      "loadedImages": 9,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_home_w1440.png"
+    },
+    {
+      "path": "/method/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 7,
+      "loadedImages": 2,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_method_w1440.png"
+    },
+    {
+      "path": "/treatment/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 7,
+      "loadedImages": 4,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_treatment_w1440.png"
+    },
+    {
+      "path": "/books/vekatavta/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 6,
+      "loadedImages": 2,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_vekatavta_w1440.png"
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 6,
+      "loadedImages": 2,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_mokesh_w1440.png"
+    },
+    {
+      "path": "/books/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 3,
+      "loadedImages": 1,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_books_w1440.png"
+    },
+    {
+      "path": "/books/kushi-blantis/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 10,
+      "loadedImages": 1,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_kushi_w1440.png"
+    },
+    {
+      "path": "/books/tsva-bekahol/",
+      "dir": "rtl",
+      "lang": "he-IL",
+      "brokenImages": 1,
+      "loadedImages": 1,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_tsva_w1440.png"
+    },
+    {
+      "path": "/en/",
+      "dir": "ltr",
+      "lang": "en",
+      "brokenImages": 0,
+      "loadedImages": 1,
+      "mokeshPhotos": 0,
+      "screenshot": "/Users/nimrod/Documents/Eyal Amit/EyalAmit-design/_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/design_en_w1440.png"
+    }
+  ]
+}

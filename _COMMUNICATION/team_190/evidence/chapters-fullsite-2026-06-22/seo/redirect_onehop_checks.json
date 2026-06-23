@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-06-22T22:14:07.143Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "results": [
+    {
+      "from": "/muzza/",
+      "expectTo": "/books/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/muzza/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/books/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "oneHop": true,
+      "pass": true
+    },
+    {
+      "from": "/about/moksha/",
+      "expectTo": "/eyal-amit/mokesh-dahiman/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/about/moksha/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "oneHop": true,
+      "pass": true
+    },
+    {
+      "from": "/mokesh/",
+      "expectTo": "/eyal-amit/mokesh-dahiman/",
+      "hops": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/mokesh/",
+          "status": 301,
+          "location": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "oneHop": true,
+      "pass": true
+    }
+  ]
+}

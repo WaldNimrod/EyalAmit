@@ -1,0 +1,20 @@
+{
+  "runId": "chapters-postdeploy-closure-2026-06-23",
+  "role": "team_190_final_validation_owner",
+  "engine": "GPT-5.2",
+  "stagingBase": "http://eyalamit-co-il-2026.s887.upress.link",
+  "parentVerdict": "_COMMUNICATION/team_190/VERDICT_CHAPTERS-FULLSITE_2026-06-22.md",
+  "deployCloseout": "_COMMUNICATION/team_100/CLOSEOUT_CHAPTERS-FULLSITE_POSTFIX_DEPLOY_E2E_2026-06-23.md",
+  "mandateRoutes26": [
+    "/", "/method/", "/treatment/", "/sound-healing/", "/lessons/", "/eyal-amit/", "/faq/",
+    "/didgeridoos/", "/bags/", "/stands-storage/", "/stand-floor/", "/repair/", "/books/",
+    "/books/vekatavta/", "/books/kushi-blantis/", "/books/tsva-bekahol/", "/eyal-amit/mokesh-dahiman/",
+    "/contact/", "/blog/", "/galleries/", "/media/", "/privacy/", "/accessibility/", "/terms/",
+    "/en/", "/blog/page/2/"
+  ],
+  "findingClosure": {
+    "F110-01": "CLOSED_LIVE",
+    "F110-02": "CLOSED_LIVE_REAFFIRMED",
+    "F110-03": "CLOSED_LIVE_REAFFIRMED"
+  }
+}

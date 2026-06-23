@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-06-23T00:12:33.164Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "cacheBust": "team190-design-1782173537513",
+  "engine": "GPT-5.2 (team_190 post-deploy)",
+  "results": [
+    {
+      "page": "home",
+      "path": "/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 13,
+        "bookCovers": 0,
+        "mokeshPhotos": 0,
+        "ltr": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_home_w1440.png"
+    },
+    {
+      "page": "method",
+      "path": "/method/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 6,
+        "bookCovers": 0,
+        "mokeshPhotos": 0,
+        "ltr": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_method_w1440.png"
+    },
+    {
+      "page": "treatment",
+      "path": "/treatment/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 5,
+        "bookCovers": 0,
+        "mokeshPhotos": 0,
+        "ltr": true,
+        "verbatimSpot": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_treatment_w1440.png"
+    },
+    {
+      "page": "books",
+      "path": "/books/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 3,
+        "bookCovers": 4,
+        "mokeshPhotos": 0,
+        "ltr": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_books_w1440.png"
+    },
+    {
+      "page": "bookVekatavta",
+      "path": "/books/vekatavta/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 6,
+        "bookCovers": 1,
+        "mokeshPhotos": 0,
+        "ltr": true,
+        "verbatimSpot": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_bookVekatavta_w1440.png"
+    },
+    {
+      "page": "mokesh",
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "http": 200,
+      "dir": "rtl",
+      "lang": "he-IL",
+      "checks": {
+        "brokenImages": 6,
+        "bookCovers": 0,
+        "mokeshPhotos": 8,
+        "ltr": true,
+        "verbatimSpot": true
+      },
+      "pass": false,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_mokesh_w1440.png"
+    },
+    {
+      "page": "en",
+      "path": "/en/",
+      "http": 200,
+      "dir": "ltr",
+      "lang": "en",
+      "checks": {
+        "brokenImages": 0,
+        "bookCovers": 0,
+        "mokeshPhotos": 0,
+        "ltr": true
+      },
+      "pass": true,
+      "h1": 1,
+      "screenshot": "_COMMUNICATION/team_190/evidence/chapters-postdeploy-closure-2026-06-23/design/eyeball_en_w1440.png"
+    }
+  ],
+  "passCount": 1,
+  "failCount": 6,
+  "verdict": "FAIL"
+}
