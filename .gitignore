@@ -53,3 +53,6 @@ docs/qa/cdp/screenshots/
 
 # Chapters local preview artifacts (screenshots/HTML with local file:// paths)
 docs/chapters-preview/
+# Local IDE / transient CDP probe runs (regenerated; evidence lives under _COMMUNICATION/)
+.claude/
+docs/qa/probe-*/
