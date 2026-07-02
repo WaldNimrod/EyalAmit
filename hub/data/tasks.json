@@ -403,7 +403,7 @@
           "titleHe": "WP-01 — מעקב המרות (generate_lead + wa.me)",
           "status": "in_progress",
           "priorityHe": "גבוהה",
-          "stateHe": "Wave-1 shipped; אימות end-to-end ב-cutover."
+          "stateHe": "Wave-1 shipped; בעלים: team_100 · בדיקת קבלת ליד ב-staging עד 2026-07-09 (WP-W2-17) · חזרה מלאה בפרודקשן ב-cutover."
         },
         {
           "id": "M5-T-SCHEMA-GEO",
