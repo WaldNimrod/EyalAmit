@@ -1,0 +1,60 @@
+# robots-production.txt — PRODUCTION robots.txt for www.eyalamit.co.il
+#
+# STATUS: cutover-time-only artifact. This file is authored NOW but deployed
+# ONLY at production cutover (WP012 checklist step — see
+# docs/cutover/WP012-CUTOVER-CHECKLIST.md). It is NOT wired into any
+# deploy/publish script and must NOT be referenced by scripts/ftp_deploy_site_wp_content.py,
+# scripts/ftp_publish_eyal_client_hub.py, or scripts/build_eyal_client_hub.py.
+#
+# Ratified: DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md, decision D3
+# (t00 — Nimrod): "ALLOW ALL, EXPLICIT, LOGGED" — discovery-first posture;
+# training/answer-engine inclusion helps an unknown brand become known to
+# models; trivially reversible. Spec: WP-W2-17-CRFINAL-SEO-REMEDIATION-
+# PROGRAM-2026-07-03.md T6(a); WP-04 robots spec = SEO-GEO-EXECUTION-PLAN-
+# 2026-06-20.md:78. UA tokens must be re-verified against current vendor
+# documentation at build/cutover time (tokens drift over time).
+#
+# This is NOT the staging block-all file. Staging serves a separate
+# block-all robots.txt (hub/dist/robots.txt is the analogous hub-side
+# block-all artifact; do not confuse the two, do not deploy either of
+# them here at cutover, use this file instead).
+
+# --- Traditional web search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- OpenAI ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Anthropic / Claude ---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Catch-all: production, not staging — allow all other crawlers ---
+User-agent: *
+Allow: /
+
+Sitemap: https://www.eyalamit.co.il/sitemap_index.xml
