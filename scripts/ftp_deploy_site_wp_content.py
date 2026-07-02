@@ -134,6 +134,13 @@ def main() -> None:
     # WP-06: one-time DB migration to scrub the seeded brand «סטודיו נשימה מעגלית».
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06-brand-migration-once.php", "wp-content/mu-plugins/ea-w2-06-brand-migration-once.php"))
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06b-blog-title-brand-once.php", "wp-content/mu-plugins/ea-w2-06b-blog-title-brand-once.php"))
+    # WP-W2-17 T4 (D-2): sitemap hygiene — exclude redirect-source shells + test pages,
+    # disable noise child-sitemaps (Yoast filters).
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-17-sitemap-exclusions.php", "wp-content/mu-plugins/ea-w2-17-sitemap-exclusions.php"))
+    # WP-W2-17 T3 (D-1): one-time Yoast metadesc backfill for rollup routes with no value,
+    # so Yoast is the single source of truth (pairs with the Yoast-first guard in
+    # inc/wave2-w2-09.php's ea_w2_09_meta_description()).
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-17-metadesc-backfill-once.php", "wp-content/mu-plugins/ea-w2-17-metadesc-backfill-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:
