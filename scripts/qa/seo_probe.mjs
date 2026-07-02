@@ -396,7 +396,14 @@ function checkProhibitionLint(html) {
 }
 
 // Check 10 — hreflang: reciprocal en/he/x-default pairs on / and /en/; /en/ has lang="en" dir="ltr".
+// Per Appendix B (:324) this is scoped ONLY to / and /en/ — confirmed by design in
+// site/wp-content/themes/ea-eyalamit/inc/wave2-w2-08.php:16-17,140-159 (ea_w2_08_hreflang(),
+// wp_head priority 5), which deliberately emits hreflang alternates only on those two
+// routes. Every other in-manifest route correctly has none; do not fail them for it.
 function checkHreflang(html, routePath) {
+  if (routePath !== '/' && routePath !== '/en/') {
+    return { pass: true, details: 'not applicable — hreflang is scoped to / and /en/ only (by design)' };
+  }
   const links = [...html.matchAll(/<link[^>]+rel=["']alternate["'][^>]+hreflang=["']([^"']+)["'][^>]+href=["']([^"']+)["'][^>]*>/gi)];
   const altLinksRev = [...html.matchAll(/<link[^>]+rel=["']alternate["'][^>]+href=["']([^"']+)["'][^>]+hreflang=["']([^"']+)["'][^>]*>/gi)];
   const found = new Map();
