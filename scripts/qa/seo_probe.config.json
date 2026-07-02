@@ -1,0 +1,95 @@
+{
+  "_comment": "WP-W2-17 T7 — seo_probe.mjs route manifest. Route set = team_90's CR1-4 rollup ('the 16 in-scope routes'): CONTENT-ACCURACY-REPORT-CR-FINAL-2026-07-02.md §1 (table, lines 43-58) + evidence/content-accuracy-cr-final-2026-07-02/summary.json (pagesTotal=19, pagesMeasured=17, gateWouldPassCount=16). /eyal-amit/mokesh-dahiman/ is measured but explicitly OUT of the CR1-4 rollup ('out of rollup' / '* mokesh measured but excluded from CR1-4 rollup per §6') and is NOT included here; /galleries/ and /media/ are N/A (no source doc) and also excluded. This manifest is the AC-007 / T7 authored artifact (did not pre-exist).",
+  "_expectedTypesSource": "Per-route expected @type set for check #7 (Appendix B, SEO-GEO-RESEARCH-SYNTHESIS-2026-07-02.md :321): home = Person+ProfessionalService; service slugs (treatment/sound-healing/lessons) = +Service; posts = Article. C-2 (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9): /method/ is the methodology entity, NOT a bookable service -> must NOT expect a Service node. Verified against the live schema emitter site/wp-content/mu-plugins/ea-w2-seo-schema.php:98-117 (services map = treatment/sound-healing/lessons only; Person emitted globally; ProfessionalService emitted globally).",
+  "routes": [
+    {
+      "name": "home",
+      "path": "/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "method",
+      "path": "/method/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "C-2 ratified (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9): NOT a Service node — do not add Service here."
+    },
+    {
+      "name": "treatment",
+      "path": "/treatment/",
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "sound-healing",
+      "path": "/sound-healing/",
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "lessons",
+      "path": "/lessons/",
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "faq",
+      "path": "/faq/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "books",
+      "path": "/books/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "eyal-amit",
+      "path": "/eyal-amit/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "books-vekatavta",
+      "path": "/books/vekatavta/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "books-kushi-blantis",
+      "path": "/books/kushi-blantis/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "books-tsva-bekahol",
+      "path": "/books/tsva-bekahol/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "didgeridoos",
+      "path": "/didgeridoos/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "bags",
+      "path": "/bags/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "stands-storage",
+      "path": "/stands-storage/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "stand-floor",
+      "path": "/stand-floor/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "repair",
+      "path": "/repair/",
+      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    }
+  ],
+  "brandExemptRoutes": {
+    "_comment": "Check #12 (brand-string absence). AC-09 re-scope (SEO-GEO-ROUND2-COMPLETION-2026-06-21.md :35; ratified permanent+final in DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 4): the retired brand string legitimately persists in 6 verbatim customer-testimonial quotes carried in site/wp-content/themes/ea-eyalamit/inc/data/ea-testimonials-fb.json (grep-verified: 6 occurrences of the brand string in that file, matching the '6 verbatim testimonial quotes' language in both source docs). NO document enumerates a route-to-quote mapping; the exemption as ratified is FILE-scoped (the JSON data source), not ROUTE-scoped. This list is the builder's best-effort reconstruction of which of the 16 rollup routes can render that testimonial corpus (traced via PHASE2-TESTIMONIALS-FLAGS-COMPLETE-2026-06-21.md: service pages get per-category FB testimonials appended [treatment+method<-tipul, sound-healing<-sound_healing, lessons<-shiurim]; home shows 15 curated source-verbatim testimonials broad-set; /media/ and /faq/ are out of the 16-route rollup or not applicable). Flagged as an open question in the T7 handoff -- do NOT silently trust this list without team_90 ratifying it against the actual rendered HTML.",
+    "routes": ["/", "/method/", "/treatment/", "/sound-healing/", "/lessons/"]
+  },
+  "tagline": {
+    "_comment": "Check #4 compares meta description against the WordPress bloginfo tagline. The DB dump (local/eyalamit-staging-20260411.sql) shows option 'blogdescription' = '' (empty) as of that snapshot. seo_probe.mjs fetches the live tagline via the site's RSS feed (/feed/, <description> element) at runtime rather than trusting a possibly-stale hardcoded value here; this field is a fallback only if the live feed fetch fails.",
+    "fallback": ""
+  }
+}
