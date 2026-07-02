@@ -40,6 +40,12 @@ The 46-line drift vs the frozen 06-05 copy (`evidence/preflight-2026-07-02/conte
 ## 8. DEC-SEO-B1 — pillar URL (deferred, unchanged)
 Remains OPEN — RECORD AT BUILD (WP003), per the umbrella ledger `:183`. team_80's lean (top-level `/sleep-apnea-snoring`) noted; decision belongs to WP003 build time, not this bundle.
 
+## 9. C-2 — `/method/` schema typing (t100) — **NOT A Service NODE** (added post-validation-panel)
+«השיטה» (cbDIDG) is the methodology entity, not a bookable service — `/method/` deliberately carries NO `Service` schema node (the coded slug map treatment/sound-healing/lessons is correct as-is). Future entity wiring goes through the planned `knowsAbout`/description path (WP002 remainder), not a Service node. Recorded per team_80 flag C-2 so the omission is documented, not accidental; the WP-W2-17 T7 seo_probe manifest must NOT expect Service on `/method/`.
+
+## 10. T7 build routing (t100, deviation record — added post-validation-panel)
+team_80 §5.5 recommended the SEO-probe be built by team_90/team_50; under the team_00 fast-track directive (2026-07-03) it is built by team_110 within WP-W2-17, and **team_90 ratifies the implementation against Appendix B at the CR-FINAL re-audit** — preserving the QA-ownership intent while keeping the fast-track in one execution mandate.
+
 # Context
 Both mandated reports landed 2026-07-02 (team_90 CR-FINAL leg-1 FAIL; team_80 advisory synthesis). team_00 directed full orchestration 2026-07-03: canonical WP (WP-W2-17) covering all findings → external LOD400 validation → handoff to team_110 for implementation → full hub update. Options-per-gate analysis: team_80 report §3 (not duplicated here — Iron Rule: cite, don't copy).
 
