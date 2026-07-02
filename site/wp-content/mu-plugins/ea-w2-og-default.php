@@ -27,37 +27,35 @@ function ea_w2_og_default_image_url() {
 }
 
 /**
- * Yoast v27.8 emits NO og:image on this install (no per-page image + no Yoast default),
- * and the wpseo_opengraph_image filter does not fire when Yoast has no base image to
- * filter. So emit og:image + twitter:image directly on wp_head. Use the queried
- * singular's featured image when present (with real dimensions), else the sitewide
- * brand default. Yoast emits none here, so this is the single og:image (no duplicate).
+ * WP-W2-17 T7 live-verify correction (2026-07-03): the original premise here — "Yoast
+ * emits NO og:image on any route" — was only true for routes WITHOUT a featured image.
+ * seo_probe.mjs's og:image check caught a real duplicate on /books/kushi-blantis/ (which
+ * DOES have an uploaded featured image, kushi-blantis-cover.jpg): Yoast auto-detects and
+ * emits its own og:image (with width/height/type) whenever has_post_thumbnail() is true,
+ * and this mu-plugin ALSO printed the same URL again as a second tag.
+ *
+ * Fix: only emit here when there is NO featured image (the sitewide-default-image case,
+ * which is confirmed to be the one case Yoast has nothing to emit for). When a singular
+ * post has its own featured image, defer to Yoast entirely and print nothing.
  */
 add_action(
 	'wp_head',
 	function () {
-		$url = '';
-		$w   = 0;
-		$h   = 0;
-
 		if ( is_singular() && has_post_thumbnail() ) {
-			$src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-			if ( is_array( $src ) && ! empty( $src[0] ) ) {
-				$url = $src[0];
-				$w   = (int) $src[1];
-				$h   = (int) $src[2];
-			}
+			// Yoast already emits og:image from the post's own featured image in this
+			// case (confirmed live) — printing here too would duplicate the tag.
+			return;
 		}
 
-		if ( '' === $url ) {
-			$url  = ea_w2_og_default_image_url();
-			$path = get_stylesheet_directory() . '/assets/images/eyal-portrait-hero.jpg';
-			if ( is_readable( $path ) ) {
-				$size = @getimagesize( $path );
-				if ( is_array( $size ) ) {
-					$w = (int) $size[0];
-					$h = (int) $size[1];
-				}
+		$url  = ea_w2_og_default_image_url();
+		$w    = 0;
+		$h    = 0;
+		$path = get_stylesheet_directory() . '/assets/images/eyal-portrait-hero.jpg';
+		if ( is_readable( $path ) ) {
+			$size = @getimagesize( $path );
+			if ( is_array( $size ) ) {
+				$w = (int) $size[0];
+				$h = (int) $size[1];
 			}
 		}
 
