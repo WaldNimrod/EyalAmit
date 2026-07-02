@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import time
 from pathlib import Path
 
 from upress_ftp_env import (
@@ -30,6 +31,19 @@ from upress_ftp_env import (
     ftp_upload_file,
 )
 
+# Heavy binary assets (mostly the ~200 legacy JPGs under files/team40/ea-legacy-curated/media/)
+# that dominate transfer time and occasionally time out. Uploaded LAST so the core hub —
+# HTML pages + CSS/JS/JSON — is live even if a heavy transfer needs a retry (core-first order).
+_HEAVY_EXTS = frozenset(
+    {"jpg", "jpeg", "png", "gif", "webp", "svg", "mp4", "mov", "pdf", "zip", "tif", "tiff", "ico"}
+)
+
+
+def _is_heavy_media(rel_posix: str) -> bool:
+    p = rel_posix.lower()
+    ext = p.rsplit(".", 1)[-1] if "." in p else ""
+    return ext in _HEAVY_EXTS
+
 
 def collect_files(dist: Path) -> list[tuple[Path, str]]:
     out: list[tuple[Path, str]] = []
@@ -37,7 +51,21 @@ def collect_files(dist: Path) -> list[tuple[Path, str]]:
         if f.is_file():
             rel = f.relative_to(dist).as_posix()
             out.append((f, rel))
+    # Core-first: text/config assets before heavy binaries, path-sorted within each group.
+    out.sort(key=lambda fr: (1 if _is_heavy_media(fr[1].replace("\\", "/")) else 0, fr[1]))
     return out
+
+
+def _reconnect(old_ftp):
+    """Tear down a (possibly wedged) session and open a fresh one at the WordPress root."""
+    try:
+        old_ftp.quit()
+    except Exception:
+        try:
+            old_ftp.close()
+        except Exception:
+            pass
+    return connect_ftp(timeout=120)
 
 
 def upload_one(ftp, remote_rr: str, hub_rel: str, local_path: Path, rel_posix: str) -> None:
@@ -66,7 +94,14 @@ def main() -> None:
         action="store_true",
         help="Do not delete remote files missing from local dist (not recommended).",
     )
+    ap.add_argument(
+        "--max-retries",
+        type=int,
+        default=3,
+        help="Per-file upload attempts before giving up on that file (reconnects between attempts). Default 3.",
+    )
     args = ap.parse_args()
+    max_retries = max(1, args.max_retries)
 
     root = Path(__file__).resolve().parents[1]
     dist = root / "hub/dist"
@@ -118,17 +153,48 @@ def main() -> None:
             except Exception as ex:
                 print(f"WARN: could not delete {hub_rel}/{rel}: {ex}", flush=True)
 
+    failed: list[str] = []
+    uploaded = 0
     for local_path, rel in files:
         rel_posix = rel.replace("\\", "/")
-        try:
-            ftp.cwd("/")
-            upload_one(ftp, remote_rr, hub_rel, local_path, rel_posix)
-        except Exception as ex:
-            ftp.quit()
-            raise SystemExit(f"Upload failed at {rel_posix}: {ex}") from ex
+        for attempt in range(1, max_retries + 1):
+            try:
+                ftp.cwd("/")
+                upload_one(ftp, remote_rr, hub_rel, local_path, rel_posix)
+                uploaded += 1
+                break
+            except Exception as ex:
+                print(
+                    f"WARN: upload attempt {attempt}/{max_retries} failed for {rel_posix}: {ex}",
+                    flush=True,
+                )
+                if attempt < max_retries:
+                    time.sleep(min(8, 2 * attempt))  # backoff before reconnect
+                    try:
+                        ftp, remote_rr = _reconnect(ftp)
+                        print("  → reconnected FTP session; retrying", flush=True)
+                    except Exception as rex:
+                        print(f"  → reconnect failed: {rex}", flush=True)
+                else:
+                    failed.append(rel_posix)
 
-    ftp.quit()
-    print("Done: Eyal client hub FTP publish.", flush=True)
+    try:
+        ftp.quit()
+    except Exception:
+        pass
+
+    if failed:
+        print(
+            f"WARN: {len(failed)} file(s) failed after {max_retries} attempts "
+            f"({uploaded}/{len(files)} uploaded OK). Core hub pages/assets upload first, "
+            f"so the site is live; re-run to retry the remaining (heavy media):",
+            flush=True,
+        )
+        for rel_posix in failed:
+            print(f"  FAILED: {rel_posix}", flush=True)
+        raise SystemExit(1)
+
+    print(f"Done: Eyal client hub FTP publish ({uploaded}/{len(files)} files).", flush=True)
 
 
 if __name__ == "__main__":

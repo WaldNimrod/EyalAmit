@@ -37,6 +37,28 @@ body {
   );
 }
 
+/* ניווט רספונסיבי — עטיפת שורות במקום שורה אחת שאינה נעטפת.
+ * hub-base.css מגדיר את ה־nav כ־flex עם white-space:nowrap וללא flex-wrap,
+ * כך שבמסך צר (≤375px) שורת הניווט (8 קישורים) נמתחת ל־~650px וגורמת לגלישה
+ * אופקית בכל העמודים. עטיפה בטוחה גם בדסקטופ (הקישורים נכנסים לשורה אחת ממורכזת).
+ * Responsive nav — wrap links instead of one non-wrapping row (fixes ~650px
+ * horizontal overflow at mobile widths; a no-op on desktop where it fits one line). */
+nav {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  nav {
+    gap: 0.4rem 0.85rem;
+    padding: 0.6rem 0.75rem;
+  }
+  nav a,
+  nav strong {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.4rem;
+  }
+}
+
 /* כפתורי ייצוא — CTA חזק לפי מיתוג (Brick + Terracotta) */
 .btn-export {
   background: linear-gradient(145deg, var(--eyal-terracotta), var(--eyal-brick));
