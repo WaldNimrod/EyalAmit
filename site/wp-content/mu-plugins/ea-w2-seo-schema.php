@@ -80,6 +80,18 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 					'closes'    => '14:00',
 				),
 			),
+			// areaServed — D2 ratified (bounded GeoCircle, NOT areaServed:Israel): Hadera–Haifa–Sharon
+			// catchment, 45km radius around the studio address. geoMidpoint geocoded from OpenStreetMap
+			// Nominatim (עמל / Amal St., פרדס חנה-כרכור) — DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md D2.
+			'areaServed'                => array(
+				'@type'        => 'GeoCircle',
+				'geoMidpoint'  => array(
+					'@type'     => 'GeoCoordinates',
+					'latitude'  => 32.4637761,
+					'longitude' => 34.9760176,
+				),
+				'geoRadius'    => 45000,
+			),
 			'sameAs'                    => $same_as,
 		);
 
