@@ -1,5 +1,5 @@
 {
   "schemaVersion": 1,
-  "hubVersion": "1.8.0",
-  "noteHe": "1.8.0 — עדכון לפגישת 2026-06-23: כל עמודי האתר נבנו בעיצוב «פרקים» ועלו לסטייג'ינג, התוכן מאומת (content-diff) ובדיקה עצמאית team_50 — PASS; ולידציה סופית team_190 בעיצומה. רוענן meeting-brief + eyal-pending + calendar-anchor. עדכנו hubVersion בעת שינוי מהותי בנתוני Hub לפני בנייה ופריסה."
+  "hubVersion": "1.9.1",
+  "noteHe": "1.9.1 — what-we-need.html: דף מאוחד «מה נדרש ממך» לפי עדיפות; eyal-needs.json; סנכרון materials לפגישה 23.6."
 }

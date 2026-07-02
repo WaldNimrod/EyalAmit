@@ -12,10 +12,10 @@
           "noteHe": "מעקב משימות, החלטות ממתינות וייצוא JSON"
         },
         {
-          "labelHe": "מפת דרכים ויומן עדכונים",
-          "href": "roadmap.html",
+          "labelHe": "סקירת עמודים",
+          "href": "page-review.html",
           "openInNewTab": false,
-          "noteHe": "אבני דרך ולוג עדכונים"
+          "noteHe": "עץ האתר המלא — תיקונים, מזהי מדיה, שאלות פתוחות לכל עמוד"
         },
         {
           "labelHe": "תדריך פגישה",

@@ -312,20 +312,33 @@ ARCHIVE_ITEMS = [
     ("content-index.html", "אינדקס תוכן", "אינדקס מקורות התוכן מאייל (תוכן לאתר 25.5.26)."),
 ]
 
+# פעילים, לא היסטוריים — רק לא בתפריט הראשי (הורדו כדי לצמצם עומס תפריט).
+# מוצגים בארכיון תחת סעיף נפרד, לא תחת «היסטורי».
+WORKFLOW_TOOL_ITEMS = [
+    ("meeting.html", "תדריך פגישה", "סיכום והכנה לקראת הפגישה עם אייל."),
+    ("meeting-checklist.html", "צ׳קליסט פגישה", "מה עוד חסר מאייל — לשימוש בזמן הפגישה."),
+    ("materials-intake.html", "השלמות מאייל", "טופס סטטוס חומרים נדרשים — מקושר גם מ«מה נדרש ממך»."),
+    ("content-intake.html", "קליטת תוכן", "טופס קליטת תוכן לעמוד — מקושר גם מ«מה נדרש ממך»."),
+    ("media-intake.html", "מדיה ותמונות", "טופס קליטת מדיה — מקושר גם מ«מה נדרש ממך»."),
+]
+
+
+# מקור יחיד לפריטי התפריט הראשי — nav() (עמודי hub זה) וגם inject_hub_nav_if_missing()
+# (עמודים שנבנים בסקריפט נפרד, למשל team_110/build-picker-v2.py) קוראים מכאן,
+# כדי שהתפריט יהיה זהה תמיד בכל עמוד בלי תלות במי בנה אותו.
+HUB_NAV_ITEMS: list[tuple[str, str]] = [
+    ("index.html", "כניסה"),
+    ("what-we-need.html", "מה נדרש ממך"),
+    ("page-review.html", "סקירת עמודים"),
+    ("tasks.html", "משימות והחלטות"),
+    ("archive.html", "ארכיון"),
+]
+
 
 def nav(active: str) -> str:
-    # Main menu = pages relevant to the meeting + ongoing work; older pages live
-    # behind a single «ארכיון» link → archive.html.
-    items = [
-        ("index.html", "כניסה"),
-        ("meeting.html", "תדריך פגישה"),
-        ("meeting-checklist.html", "צ׳קליסט פגישה"),
-        ("tasks.html", "משימות והחלטות"),
-        ("materials-intake.html", "השלמות מאייל"),
-        ("content-intake.html", "קליטת תוכן"),
-        ("media-intake.html", "מדיה ותמונות"),
-        ("archive.html", "ארכיון"),
-    ]
+    # תפריט ראשי מצומצם — רק עמודים רלוונטיים/חדשים. השאר (כלים שוטפים +
+    # עמודים היסטוריים) תחת «ארכיון» → archive.html, בשני סעיפים נפרדים.
+    items = HUB_NAV_ITEMS
     parts = ["<nav>"]
     for href, label in items:
         if href.replace(".html", "") == active:
@@ -341,6 +354,13 @@ def page_archive(generated_iso: str) -> str:
     html += nav("archive")
     html += '<div class="wrap">\n'
     html += "<h1>ארכיון</h1>\n"
+    html += '<p class="subtitle">כדי לשמור על תפריט ראשי נקי — כל עמוד שאינו חלק מהליבה השוטפת נמצא כאן.</p>\n'
+    html += "<h2>כלים שוטפים (פעילים — לא בתפריט הראשי)</h2>\n"
+    html += '<div class="card"><ul class="archive-list">\n'
+    for href, label, desc in WORKFLOW_TOOL_ITEMS:
+        html += f'<li><a href="{href}">{escape(label)}</a> — {escape(desc)}</li>\n'
+    html += "</ul></div>\n"
+    html += "<h2>עמודים היסטוריים</h2>\n"
     html += '<p class="subtitle">עמודי עזר / היסטוריים שאינם חלק מהעבודה השוטפת על המערכת. נשמרו לעיון.</p>\n'
     html += '<div class="card"><ul class="archive-list">\n'
     for href, label, desc in ARCHIVE_ITEMS:
@@ -432,30 +452,6 @@ def deliverable_document_status_badge(raw: Optional[str]) -> str:
     return (
         f'<span class="deliverable-status deliverable-status--{escape(ds)}">'
         f'{escape(labels[ds])}</span>'
-    )
-
-
-def html_site_tree_teaser(nodes: list, max_nodes: int = 12) -> str:
-    roots = [n for n in nodes if not n.get("parentId")]
-    roots.sort(
-        key=lambda x: (
-            x.get("treeOrder") if isinstance(x.get("treeOrder"), int) else 999,
-            x.get("titleHe") or "",
-            x.get("id") or "",
-        )
-    )
-    lines: list[str] = []
-    for n in roots[:max_nodes]:
-        ref = escape(str(n.get("pageRef", "")).strip())
-        title = escape(str(n.get("titleHe", "")))
-        lines.append(f"<li><span class=\"d-id\">{ref}</span> — {title}</li>")
-    more = ""
-    if len(roots) > max_nodes:
-        more = f'<p class="subtitle">ועוד {len(roots) - max_nodes} ענפים ברמה הראשונה — ראו עץ מלא.</p>\n'
-    return (
-        '<div class="hub-site-tree-teaser"><p><a href="site-tree.html">עץ אתר מלא</a></p><ul>\n'
-        + "".join(lines)
-        + f"</ul>{more}</div>\n"
     )
 
 
@@ -1953,7 +1949,6 @@ def page_index(
     tasks: dict,
     deliverables: Optional[dict],
     links_data: dict,
-    site_tree: dict,
     generated_iso: str,
     hub_version: str = DEFAULT_HUB_VIEW_VERSION,
 ) -> str:
@@ -1995,11 +1990,19 @@ def page_index(
 
     gate_body = f'<p class="index-gate-text">{escape(gate_text)}</p>\n'
     gate_body += (
+        '<div class="card index-cta-needs">'
+        '<h2 class="index-cta-needs__h"><a href="what-we-need.html">מה נדרש ממך — לפי עדיפות</a></h2>'
+        '<p class="subtitle">כל החומרים, האישורים והשאלות הפתוחות במקום אחד — נקודת הכניסה לפגישה.</p>'
+        "</div>\n"
+    )
+    gate_body += (
         f'<p class="subtitle"><a href="meeting-checklist.html">צ׳קליסט פגישה</a> · '
         f'<a href="meeting.html">תדריך פגישה</a> · <a href="tasks.html">משימות, ייצוא JSON</a> · '
-        f'<a href="roadmap.html">לוג עדכונים (ביומן)</a> · '
-        f'<a href="site-tree.html">עץ אתר</a> · <a href="content-intake.html">קליטת תוכן</a> · '
-        f'<a href="files/team40/ea-legacy-curated/gallery.html">גלריית מדיה לגסי</a></p>\n'
+        f'<a href="page-review.html">סקירת עמודים</a> · '
+        f'<a href="content-intake.html">קליטת תוכן</a> · '
+        f'<a href="image-picker.html">בחירת תמונות לעמודים</a> · '
+        f'<a href="files/team40/ea-legacy-curated/gallery.html">גלריית מדיה לגסי</a> · '
+        f'<a href="archive.html">עמודים היסטוריים (ארכיון)</a></p>\n'
     )
     gate_body += _intake_workflow_button_and_modal()
     gate_body += (
@@ -2029,7 +2032,6 @@ def page_index(
 
     links_body = html_links_from_json(links_data)
     mock_body = html_mockup_index_accordion_inner()
-    tree_body = html_site_tree_teaser(site_tree.get("nodes", []))
 
     html = head("אייל עמית — ממשק מצב עבודה")
     html += nav("index")
@@ -2048,7 +2050,6 @@ def page_index(
     html += hub_acc_section("idx-deliverables", "חומרים (דליברבלס)", deliv_body)
     html += hub_acc_section("idx-links", "קישורים מהירים", links_body)
     html += hub_acc_section("idx-mockups", "מוקאפים", f'<div id="mockups">\n{mock_body}</div>\n')
-    html += hub_acc_section("idx-sitetree", "עץ אתר (תקציר)", tree_body)
     html += "</div>\n"
     html += foot(generated_iso)
     return html
@@ -2696,14 +2697,114 @@ def page_pending_redirect() -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="refresh" content="0; url=tasks.html">
-<title>מעבר לעמוד משימות והחלטות</title>
-<link rel="canonical" href="tasks.html">
+<meta http-equiv="refresh" content="0; url=what-we-need.html">
+<title>מעבר — מה נדרש ממך</title>
+<link rel="canonical" href="what-we-need.html">
 </head>
 <body>
-<p>מעביר ל־<a href="tasks.html">משימות והחלטות</a>…</p>
+<p>מעביר ל־<a href="what-we-need.html">מה נדרש ממך</a>…</p>
 </body>
 </html>"""
+
+
+EYAL_NEEDS_STYLE = """<style>
+.ewn-intro{margin:.5rem 0 1rem}
+.ewn-submit{background:#f3f6ef;border:1px solid #d8e2c8;border-radius:8px;padding:.7rem 1rem;margin:1rem 0}
+.ewn-levers{background:#fff8e6;border:1px solid #e8d9a8;border-radius:8px;padding:.7rem 1rem;margin:1rem 0}
+.ewn-levers ul{margin:.4rem 0 0;padding-right:1.2rem}
+.ewn-prio-summary{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.3rem 0 .6rem}
+.ewn-open-badge{background:#9a3b12;color:#fff;font-size:.8rem;padding:.15rem .5rem;border-radius:6px}
+.ewn-done-badge{background:#1b5e3f;color:#fff;font-size:.8rem;padding:.15rem .5rem;border-radius:6px}
+.ewn-item{border:1px solid #e2dccd;border-radius:8px;padding:.55rem .75rem;margin:.45rem 0;background:#fff}
+.ewn-item[data-st="open"]{border-right:4px solid #c45c26}
+.ewn-item[data-st="done"]{border-right:4px solid #1b5e3f;opacity:.85}
+.ewn-ref{font-family:monospace;font-size:.78rem;color:#555}
+.ewn-actions{margin:.6rem 0 0}
+.ewn-actions a{display:inline-block;margin:.25rem 0 .25rem .5rem;padding:.35rem .75rem;background:#1b5e3f;color:#fff!important;border-radius:6px;text-decoration:none;font-weight:600}
+.ewn-actions a.ewn-actions--sec{background:#5a6b4a}
+.index-cta-needs{background:#f7fbf4;border:2px solid #1b5e3f;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.index-cta-needs__h{margin:0 0 .35rem;font-size:1.15rem}
+.index-cta-needs__h a{color:#1b5e3f}
+</style>"""
+
+
+def page_eyal_needs(needs: dict, generated_iso: str) -> str:
+    """Unified «מה נדרש ממך» — priorities P1–P7 with links to existing intake forms."""
+    html = head(needs.get("titleHe", "מה נדרש ממך"), extra_scripts=EYAL_NEEDS_STYLE)
+    html += nav("what-we-need")
+    html += '<div class="wrap">\n'
+    html += f'<h1>{escape(needs.get("titleHe", "מה נדרש ממך"))}</h1>\n'
+    if needs.get("introHe"):
+        html += f'<p class="ewn-intro">{escape(needs["introHe"])}</p>\n'
+    if needs.get("submissionHe"):
+        html += f'<div class="ewn-submit"><strong>איך מגישים:</strong> {escape(needs["submissionHe"])}</div>\n'
+
+    levers = needs.get("businessLeversHe") or []
+    if levers:
+        lev_body = "<p><strong>מנופים עסקיים</strong> (למה זה חשוב):</p><ul>\n"
+        for line in levers:
+            if isinstance(line, str) and line.strip():
+                lev_body += f"<li>{escape(line.strip())}</li>\n"
+        lev_body += "</ul>\n"
+        lh = needs.get("businessLeversHref", "content-proposals.html")
+        lev_body += f'<p class="ewn-actions"><a href="{escape(lh)}">פתח הצעות תוכן SEO</a></p>\n'
+        html += f'<div class="ewn-levers">{lev_body}</div>\n'
+
+    total_open = 0
+    for pr in needs.get("priorities") or []:
+        if not isinstance(pr, dict):
+            continue
+        items = pr.get("items") or []
+        open_n = sum(1 for it in items if isinstance(it, dict) and it.get("status") == "open")
+        total_open += open_n
+
+    html += (
+        f'<p class="subtitle"><span class="ewn-open-badge">{total_open} פריטים פתוחים</span> '
+        f"ב־{len(needs.get('priorities') or [])} עדיפויות</p>\n"
+    )
+
+    for pr in needs.get("priorities") or []:
+        if not isinstance(pr, dict):
+            continue
+        rank = pr.get("rank", "")
+        title = pr.get("titleHe", "")
+        sec_title = f"עדיפות {rank} — {title}" if rank else title
+        items = pr.get("items") or []
+        open_n = sum(1 for it in items if isinstance(it, dict) and it.get("status") == "open")
+        body = ""
+        if pr.get("whyHe"):
+            body += f'<p>{escape(pr["whyHe"])}</p>\n'
+        body += '<div class="ewn-prio-summary">\n'
+        body += f'<span class="ewn-open-badge">{open_n} פתוח</span>\n'
+        body += "</div>\n"
+        body += '<div class="ewn-actions">\n'
+        href = pr.get("hubHref", "#")
+        label = pr.get("hubHrefLabelHe", "פתח טופס")
+        body += f'<a href="{escape(href)}">{escape(label)}</a>\n'
+        if pr.get("hubHrefSecondary"):
+            body += (
+                f'<a class="ewn-actions--sec" href="{escape(pr["hubHrefSecondary"])}">'
+                f'{escape(pr.get("hubHrefSecondaryLabelHe", "טופס נוסף"))}</a>\n'
+            )
+        body += "</div>\n"
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            st = it.get("status", "open")
+            body += f'<div class="ewn-item" data-st="{escape(st)}">\n'
+            body += f'<div><span class="ewn-ref">{escape(it.get("ref", ""))}</span> '
+            body += f"<strong>{escape(it.get('titleHe', ''))}</strong></div>\n"
+            if it.get("whyHe"):
+                body += f'<div class="subtitle">{escape(it["whyHe"])}</div>\n'
+            if it.get("actionHe"):
+                body += f'<div><em>פעולה:</em> {escape(it["actionHe"])}</div>\n'
+            body += "</div>\n"
+        open_default = rank == 1
+        html += hub_acc_section(f"ewn-p{rank}", sec_title, body, open_default=open_default)
+
+    html += "</div>\n"
+    html += foot(generated_iso)
+    return html
 
 
 def mirror_docs(eyal_ceo: Path, dist: Path) -> None:
@@ -2749,6 +2850,96 @@ def copy_team40_legacy_curated(repo_root: Path, dist_dir: Path, skip: bool) -> N
         shutil.rmtree(dest)
     shutil.copytree(src, dest)
     print(f"[INFO] Copied legacy media catalog → {dest.relative_to(dist_dir)}", flush=True)
+
+
+# CSS עצמאי (ערכי hex ישירים, לא var(--...)) — כדי שהתפריט ייראה זהה גם בעמוד
+# עם משתני CSS משלו (למשל image-picker.html), בלי תלות ב-hub-base.css/hub.css.
+_STANDALONE_NAV_CSS = """<style>
+nav.hub-injected-nav {
+  background: #fff;
+  border-bottom: 2px solid #e0d8cf;
+  padding: .7rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  row-gap: .4rem;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Heebo, sans-serif;
+}
+nav.hub-injected-nav a, nav.hub-injected-nav strong {
+  font-size: .95rem;
+  padding: .3rem .6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #2d2a26;
+}
+nav.hub-injected-nav a:hover { background: #faf9f6; }
+nav.hub-injected-nav strong { color: #7a5c3e; background: #faf9f6; }
+</style>"""
+
+
+def inject_hub_nav_if_missing(html: str, active: str) -> str:
+    """מבטיח תפריט hub עקבי בכל עמוד שנכנס ל-dist/, גם אם נבנה בסקריפט נפרד
+    (למשל team_110/build-picker-v2.py) שלא קורא ל-nav() של המודול הזה.
+    נקודת אכיפה יחידה — במקום לסמוך על כל סקריפט לבנות תפריט זהה בעצמו.
+    לא פוגע בעמוד שכבר יש בו <nav> (nav() הרגיל, page_*() כאן) — לא מזריק כפול.
+    """
+    if "<nav" in html:
+        return html
+    parts = ['<nav class="hub-injected-nav">']
+    for href, label in HUB_NAV_ITEMS:
+        if href.replace(".html", "") == active:
+            parts.append(f"<strong>{escape(label)}</strong>")
+        else:
+            parts.append(f'<a href="{href}">{escape(label)}</a>')
+    parts.append("</nav>")
+    nav_html = _STANDALONE_NAV_CSS + "\n" + "\n".join(parts)
+    if "<body>" in html:
+        return html.replace("<body>", "<body>\n" + nav_html, 1)
+    return nav_html + html
+
+
+def copy_team110_picker_assets(repo_root: Path, dist_dir: Path, skip: bool) -> None:
+    """מעתיק image-picker.html (team_110) + נכסי תמונות נלווים (DOK _sm thumbs, theme images) ל־dist.
+
+    בונה עצמאי: python3 _COMMUNICATION/team_110/build-picker-v2.py → כותב ל־
+    _COMMUNICATION/team_110/build/image-picker.html. כאן רק מעתיקים את הפלט הקיים
+    (אם קיים) — לא מריצים את הבנייה שלו.
+    """
+    if skip:
+        print("[INFO] Skipping team110 image picker (--skip-team40-legacy-media)", flush=True)
+        return
+    picker_src = repo_root / "_COMMUNICATION" / "team_110" / "build" / "image-picker.html"
+    if not picker_src.is_file():
+        print(f"[WARN] image-picker.html not yet built (skip): {picker_src}", flush=True)
+        return
+    picker_html = picker_src.read_text(encoding="utf-8")
+    picker_html = inject_hub_nav_if_missing(picker_html, active="image-picker")
+    (dist_dir / "image-picker.html").write_text(picker_html, encoding="utf-8")
+    print("[INFO] Copied image picker → image-picker.html (+ hub nav injected)", flush=True)
+
+    dok_src = repo_root / "docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/DOK-WEB"
+    dok_dest = dist_dir / "files" / "team40" / "ea-dok-web-thumbs"
+    if dok_src.is_dir():
+        dok_dest.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for f in dok_src.iterdir():
+            if f.is_file() and f.name.lower().endswith("_sm.jpg"):
+                shutil.copy2(f, dok_dest / f.name)
+                n += 1
+        print(f"[INFO] Copied {n} DOK-WEB thumbnails → files/team40/ea-dok-web-thumbs/", flush=True)
+
+    theme_src = repo_root / "site/wp-content/themes/ea-eyalamit/assets/images"
+    theme_dest = dist_dir / "files" / "team40" / "site-theme-images"
+    if theme_src.is_dir():
+        if theme_dest.exists():
+            shutil.rmtree(theme_dest)
+        shutil.copytree(theme_src, theme_dest)
+        print("[INFO] Copied theme images → files/team40/site-theme-images/", flush=True)
 
 
 def copy_hub_reference_files(repo_root: Path, dist_dir: Path) -> None:
@@ -2802,6 +2993,270 @@ def copy_mockups(shared: Path, dist: Path) -> None:
                 shutil.copytree(f, poc_dest / f.name)
 
 
+EXPORT_TYPE_PAGE_REVIEW = "eyal-page-review"
+
+PAGE_REVIEW_STYLE = """<style>
+.pr-toolbar{position:sticky;top:0;z-index:10;background:#fff;border:1px solid #d9d2c4;border-radius:10px;padding:.6rem .9rem;margin:1rem 0;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.pr-toolbar .pr-prog{font-weight:600;flex:1;min-width:12rem}
+.pr-toolbar .done{color:#1b7a3d}
+.pr-btn{padding:.4rem .8rem;border:1px solid #cfc8b8;border-radius:8px;background:#f3efe6;font-family:inherit;font-size:.9rem;cursor:pointer}
+.pr-btn:hover{background:#e9e3d5}
+.pr-btn--export{background:#1b7a3d;color:#fff;border-color:#166433}
+.pr-resp{padding:.4rem .6rem;border:1px solid #cfc8b8;border-radius:8px;font-family:inherit;max-width:12rem}
+.pr-layout{display:flex;gap:1.2rem;align-items:flex-start}
+.pr-sidenav{position:sticky;top:5.4rem;flex:0 0 15rem;max-height:calc(100vh - 6.5rem);overflow:auto;border:1px solid #e2dccd;border-radius:10px;padding:.6rem .5rem;background:#fbf9f4;font-size:.9rem;box-sizing:border-box}
+.pr-sidenav h3{margin:.2rem .4rem .5rem;font-size:.95rem}
+.pr-sidenav ul{list-style:none;margin:0;padding:0}
+.pr-sidenav ul ul{margin-inline-start:.6rem;border-inline-start:1px dashed #ddd6c6;padding-inline-start:.35rem}
+.pr-sidenav a{display:block;padding:.18rem .4rem;border-radius:6px;color:#3a3324;text-decoration:none;line-height:1.35}
+.pr-sidenav a:hover{background:#efe9db}
+.pr-sidenav a .pr-ref{font-family:monospace;color:#8a7a52;font-size:.78rem}
+.pr-sidenav a.pr-has-content{font-weight:600}
+.pr-sidenav a .pr-dot{color:#1b7a3d;visibility:hidden}
+.pr-sidenav a.pr-has-content .pr-dot{visibility:visible}
+.pr-sidenav a .pr-warn{color:#c0392b}
+.pr-main{flex:1;min-width:0}
+.pr-sec{border:1px solid #d9d2c4;border-inline-start:6px solid #c9bfa8;border-radius:12px;margin:.7rem 0;background:#fff}
+.pr-sec[data-flags="1"]{border-inline-start-color:#d98b3b}
+.pr-sec.pr-filled{border-inline-start-color:#1b7a3d}
+.pr-sec>summary{cursor:pointer;padding:.7rem .9rem;font-weight:600;list-style:none;display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.pr-sec>summary::-webkit-details-marker{display:none}
+.pr-sec>summary .pr-ref{font-family:monospace;background:#efe9dc;border-radius:6px;padding:.05rem .45rem;font-size:.85rem}
+.pr-sec>summary .pr-title{flex:1;min-width:8rem}
+.pr-sec>summary .pr-flag{color:#c0392b;font-size:.9rem}
+.pr-sec>summary .pr-check{color:#1b7a3d;visibility:hidden}
+.pr-sec.pr-filled>summary .pr-check{visibility:visible}
+.pr-sec.pr-depth-1>summary .pr-title::before,.pr-sec.pr-depth-2>summary .pr-title::before,.pr-sec.pr-depth-3>summary .pr-title::before{content:"\\21b3 ";color:#b7ab88}
+.pr-body{padding:0 .9rem .9rem;border-top:1px dashed #e2dccd}
+.pr-meta{color:#555;font-size:.9rem;margin:.5rem 0;line-height:1.6}
+.pr-meta code{background:#f2eee4;border-radius:5px;padding:.02rem .35rem}
+.pr-meta a{color:#2b4a73}
+.pr-gaps{background:#fffaf2;border:1px solid #f0dcbf;border-radius:8px;padding:.5rem .75rem;margin:.55rem 0}
+.pr-gaps h4{margin:.1rem 0 .35rem;font-size:.88rem;color:#9a5a00}
+.pr-gaps ul{margin:.2rem 0;padding-inline-start:1.2rem}
+.pr-gaps li{margin:.15rem 0;line-height:1.55}
+.pr-gaps .pr-q{color:#1c3354}
+.pr-field{display:flex;flex-direction:column;gap:.25rem;margin:.6rem 0}
+.pr-field label{font-weight:600;font-size:.88rem}
+.pr-field input,.pr-field textarea{padding:.5rem .6rem;border:1px solid #cfc8b8;border-radius:8px;font-family:inherit;font-size:.95rem;width:100%;box-sizing:border-box}
+.pr-field .pr-hint{font-weight:400;color:#888;font-size:.8rem}
+@media(max-width:820px){.pr-layout{flex-direction:column}.pr-sidenav{position:static;flex:1 1 auto;max-height:15rem;width:100%}}
+</style>"""
+
+PAGE_REVIEW_JS = """<script>
+(function(){
+  var cfg=window.PR_CONFIG||{};
+  var LS='ea-page-review-v1';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return {}}}
+  function save(s){try{localStorage.setItem(LS,JSON.stringify(s))}catch(e){}}
+  var state=load();
+  var secs=[].slice.call(document.querySelectorAll('.pr-sec'));
+  function hasContent(id){var s=state[id]||{};return !!((s.mediaId&&s.mediaId.trim())||(s.notes&&s.notes.trim()));}
+  function refreshOne(sec){
+    var id=sec.getAttribute('data-node');
+    var filled=hasContent(id);
+    sec.classList.toggle('pr-filled',filled);
+    var nav=document.querySelector('.pr-sidenav a[data-target="'+id+'"]');
+    if(nav) nav.classList.toggle('pr-has-content',filled);
+  }
+  function refreshProgress(){
+    var done=0; secs.forEach(function(s){if(hasContent(s.getAttribute('data-node')))done++;});
+    var el=document.getElementById('pr-progress');
+    if(el) el.innerHTML='מולאו: <span class="done">'+done+'</span> מתוך '+secs.length+' עמודים · נשמר אוטומטית במכשיר שלך';
+  }
+  secs.forEach(function(sec){
+    var id=sec.getAttribute('data-node');
+    var media=sec.querySelector('.pr-media'), notes=sec.querySelector('.pr-notes');
+    var s=state[id]||{};
+    if(media&&s.mediaId) media.value=s.mediaId;
+    if(notes&&s.notes) notes.value=s.notes;
+    function upd(){state[id]={mediaId:media?media.value:'',notes:notes?notes.value:''};save(state);refreshOne(sec);refreshProgress();}
+    if(media) media.addEventListener('input',upd);
+    if(notes) notes.addEventListener('input',upd);
+    refreshOne(sec);
+  });
+  refreshProgress();
+  var eAll=document.getElementById('pr-expand'), cAll=document.getElementById('pr-collapse');
+  if(eAll) eAll.addEventListener('click',function(){secs.forEach(function(s){s.open=true;});});
+  if(cAll) cAll.addEventListener('click',function(){secs.forEach(function(s){s.open=false;});});
+  [].slice.call(document.querySelectorAll('.pr-sidenav a[data-target]')).forEach(function(a){
+    a.addEventListener('click',function(ev){
+      var id=a.getAttribute('data-target');
+      var sec=document.getElementById('pr-'+id);
+      if(sec){ev.preventDefault();sec.open=true;sec.scrollIntoView({behavior:'smooth',block:'start'});if(history.replaceState)history.replaceState(null,'','#pr-'+id);}
+    });
+  });
+  var xp=document.getElementById('pr-export');
+  if(xp) xp.addEventListener('click',function(){
+    var resp=(document.getElementById('pr-respondent')||{}).value||'';
+    var items=secs.map(function(sec){
+      var id=sec.getAttribute('data-node');var s=state[id]||{};
+      return {nodeId:id,pageRef:sec.getAttribute('data-ref')||'',titleHe:sec.getAttribute('data-title')||'',mediaId:s.mediaId||'',notes:s.notes||''};
+    }).filter(function(it){return it.mediaId||it.notes;});
+    var out={schemaVersion:1,exportType:cfg.exportType||'eyal-page-review',respondent:resp,exportTimestamp:new Date().toISOString(),project:cfg.project||'EyalAmit2026',items:items};
+    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='eyal-page-review-'+(new Date().toISOString().slice(0,10))+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>"""
+
+
+def _pr_preorder(by_parent: dict, roots: list, depth: int = 0) -> list:
+    out: list = []
+    for n in roots:
+        out.append((n, depth))
+        out.extend(_pr_preorder(by_parent, by_parent.get(n["id"], []), depth + 1))
+    return out
+
+
+def _pr_sidenav(by_parent: dict, roots: list, pages: dict) -> str:
+    parts = ["<ul>"]
+    for n in roots:
+        nid = n["id"]
+        ref = n.get("pageRef", "")
+        title = n.get("titleHe", "")
+        entry = pages.get(nid) or {}
+        warn = bool(entry.get("questionsHe") or entry.get("gapsHe"))
+        w = ' <span class="pr-warn" title="יש שאלות/חוסרים">⚠</span>' if warn else ""
+        parts.append(
+            f'<li><a data-target="{escape(nid)}" href="#pr-{escape(nid)}">'
+            f'<span class="pr-ref">{escape(ref)}</span> {escape(title)}{w}'
+            f'<span class="pr-dot"> ●</span></a>'
+        )
+        kids = by_parent.get(nid, [])
+        if kids:
+            parts.append(_pr_sidenav(by_parent, kids, pages))
+        parts.append("</li>")
+    parts.append("</ul>")
+    return "".join(parts)
+
+
+def _pr_section(n: dict, depth: int, tpl_names: dict, pages: dict, media_hint: str) -> str:
+    nid = n["id"]
+    ref = n.get("pageRef", "")
+    title = n.get("titleHe", "")
+    slug = n.get("slug", "")
+    tid = n.get("templateId", "")
+    tpl = tpl_names.get(tid, tid or "—")
+    entry = pages.get(nid) or {}
+    questions = entry.get("questionsHe") or []
+    gaps = entry.get("gapsHe") or []
+    status = str(entry.get("statusHe") or "").strip()
+    has_flags = bool(questions or gaps)
+
+    raw_stage = n.get("lifecycleStage")
+    has_explicit = "lifecycleStage" in n and str(raw_stage or "").strip()
+    if has_explicit:
+        stage = _normalize_lifecycle_stage(raw_stage)
+    elif n.get("productHref"):
+        stage = "content"
+    else:
+        stage = "planned"
+    show_pill = bool(has_explicit or n.get("productHref"))
+    pill = _lifecycle_pill_html(stage) if show_pill else ""
+
+    meta_bits = [f"<strong>slug:</strong> <code>{escape(slug)}</code>", f"<strong>תבנית:</strong> {escape(tpl)}"]
+    if status:
+        meta_bits.append(f"<strong>סטטוס:</strong> {escape(status)}")
+    product_href = str(n.get("productHref") or "").strip()
+    if product_href:
+        lab = str(n.get("productHrefLabelHe") or "").strip() or _default_product_href_label_he(product_href)
+        nt = ' target="_blank" rel="noopener noreferrer"' if product_href.lower().startswith(("http://", "https://")) else ""
+        meta_bits.append(f'<a href="{escape(product_href)}"{nt}>{escape(lab)}</a>')
+    legacy = str(n.get("legacyUrl") or "").strip()
+    if legacy:
+        meta_bits.append(f'<a href="{escape(legacy)}" target="_blank" rel="noopener" title="{escape(legacy)}">עמוד באתר הישן</a>')
+
+    body = f'<div class="pr-body">\n<p class="pr-meta">{" · ".join(meta_bits)}</p>\n'
+
+    if has_flags:
+        body += '<div class="pr-gaps">\n<h4>❓ שאלות / חוסרים שלנו לעמוד זה</h4>\n<ul>\n'
+        for q in questions:
+            body += f'<li class="pr-q">שאלה: {escape(str(q))}</li>\n'
+        for g in gaps:
+            body += f'<li>חסר: {escape(str(g))}</li>\n'
+        body += "</ul>\n</div>\n"
+
+    body += (
+        f'<div class="pr-field"><label for="pr-media-{escape(nid)}">מזהי מדיה לעמוד '
+        f'<span class="pr-hint">({escape(media_hint)})</span></label>\n'
+        f'<input class="pr-media" id="pr-media-{escape(nid)}" type="text" '
+        f'placeholder="מזהי תמונות/סרטונים לעמוד…"></div>\n'
+    )
+    body += (
+        f'<div class="pr-field"><label for="pr-notes-{escape(nid)}">תיקונים והערות של אייל</label>\n'
+        f'<textarea class="pr-notes" id="pr-notes-{escape(nid)}" rows="3" '
+        f'placeholder="תיקונים, תוספות, אישורים או הערות לעמוד זה…"></textarea></div>\n'
+    )
+    body += "</div>\n"
+
+    d = min(depth, 3)
+    flag_mark = ' <span class="pr-flag" title="יש שאלות/חוסרים">⚠</span>' if has_flags else ""
+    open_attr = " open" if has_flags else ""
+    return (
+        f'<details class="pr-sec pr-depth-{d}" id="pr-{escape(nid)}" data-node="{escape(nid)}" '
+        f'data-ref="{escape(ref)}" data-title="{escape(title)}" data-flags="{1 if has_flags else 0}"{open_attr}>\n'
+        f'<summary><span class="pr-ref">{escape(ref)}</span>'
+        f'<span class="pr-title">{escape(title)}</span>{pill}{flag_mark}'
+        f'<span class="pr-check" title="מולא">✓</span></summary>\n'
+        f"{body}</details>\n"
+    )
+
+
+def page_page_review(site_tree: dict, page_review: Optional[dict], page_templates: dict, generated_iso: str) -> str:
+    review = page_review or {}
+    pages = review.get("pages") or {}
+    media_hint = review.get("mediaHintHe", "לדוגמה: EA-000123, DOK:AJPS8301")
+    nodes = site_tree.get("nodes", [])
+    by_parent = _site_tree_children_map(nodes)
+    roots = by_parent.get(None, [])
+    tpl_names, _ = _template_lookup(page_templates)
+
+    title_he = review.get("titleHe", "סקירת עמודים — לפי עץ האתר")
+    intro_he = review.get(
+        "introHe",
+        "לכל עמוד באתר סקשן משלו: תיקונים והערות, מזהי מדיה, והשאלות/החוסרים שלנו.",
+    )
+    flagged = sum(1 for nid in pages if (pages[nid].get("questionsHe") or pages[nid].get("gapsHe")))
+
+    html = head(f"{title_he} — אייל עמית", extra_scripts=PAGE_REVIEW_STYLE)
+    html += nav("page-review")
+    html += '<div class="wrap">\n'
+    html += f"<h1>{escape(title_he)}</h1>\n"
+    html += f'<p class="subtitle">{escape(intro_he)}</p>\n'
+    html += (
+        f'<p class="subtitle">סה״כ {len(_pr_preorder(by_parent, roots))} עמודים בעץ · '
+        f'{flagged} עמודים עם שאלות/חוסרים פתוחים (מסומנים ב־⚠, פתוחים כברירת מחדל).</p>\n'
+    )
+
+    html += '<div class="pr-toolbar">\n'
+    html += '<span class="pr-prog" id="pr-progress"></span>\n'
+    html += '<button class="pr-btn" type="button" id="pr-expand">פתח הכל</button>\n'
+    html += '<button class="pr-btn" type="button" id="pr-collapse">סגור הכל</button>\n'
+    html += f'<input class="pr-resp" type="text" id="pr-respondent" value="{escape(DEFAULT_RESPONDENT)}" placeholder="שם המשיב">\n'
+    html += '<button class="pr-btn pr-btn--export" type="button" id="pr-export">ייצוא JSON</button>\n'
+    html += "</div>\n"
+
+    html += '<div class="pr-layout">\n'
+    html += '<aside class="pr-sidenav"><h3>עץ האתר</h3>\n'
+    html += _pr_sidenav(by_parent, roots, pages)
+    html += "</aside>\n"
+    html += '<div class="pr-main">\n'
+    for node, depth in _pr_preorder(by_parent, roots):
+        html += _pr_section(node, depth, tpl_names, pages, media_hint)
+    html += "</div>\n"  # pr-main
+    html += "</div>\n"  # pr-layout
+    html += "</div>\n"  # wrap
+
+    cfg = {"exportType": EXPORT_TYPE_PAGE_REVIEW, "project": PROJECT_META}
+    html += f'<script>window.PR_CONFIG={json.dumps(cfg, ensure_ascii=False)};</script>\n'
+    html += PAGE_REVIEW_JS
+    html += foot(generated_iso)
+    return html
+
+
 def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = False) -> None:
     if dist_dir.exists():
         shutil.rmtree(dist_dir)
@@ -2828,6 +3283,8 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     materials_needed = load_json_optional(DATA_DIR / "materials-needed.json")
     media_inventory = load_json_optional(DATA_DIR / "media-inventory.json")
     content_proposals = load_json_optional(DATA_DIR / "content-proposals.json")
+    eyal_needs = load_json_optional(DATA_DIR / "eyal-needs.json")
+    page_review = load_json_optional(DATA_DIR / "page-review.json")
     ssot_answers = load_ssot_answers()
 
     if ssot_answers:
@@ -2860,8 +3317,21 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     copy_mockups(shared, dist_dir)
     copy_hub_reference_files(root, dist_dir)
     copy_team40_legacy_curated(root, dist_dir, skip_team40_legacy)
+    copy_team110_picker_assets(root, dist_dir, skip_team40_legacy)
     if mirror_docs_flag:
         mirror_docs(eyal_ceo, dist_dir)
+
+    clarity_src = (
+        root
+        / "docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-06-19--clarity-setup-guide/clarity-setup-guide-he.html"
+    )
+    if clarity_src.is_file():
+        clarity_dest = (
+            dist_dir
+            / "files/to-eyal/2026-06-19--clarity-setup-guide/clarity-setup-guide-he.html"
+        )
+        clarity_dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(clarity_src, clarity_dest)
 
     inc_src = SRC_DIR / "incoming"
     if inc_src.is_dir():
@@ -2875,7 +3345,6 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
             tasks,
             deliverables,
             links_data,
-            site_tree,
             generated_iso,
             hub_ver,
         ),
@@ -2890,11 +3359,19 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
     (dist_dir / "meeting-checklist.html").write_text(
         page_meeting_checklist(decisions, generated_iso, eyal_pending), encoding="utf-8"
     )
+    if eyal_needs:
+        (dist_dir / "what-we-need.html").write_text(
+            page_eyal_needs(eyal_needs, generated_iso), encoding="utf-8"
+        )
     (dist_dir / "site-tree.html").write_text(
         page_site_tree(site_tree, page_templates, legacy_unmapped, generated_iso), encoding="utf-8"
     )
     (dist_dir / "content-intake.html").write_text(
         page_content_intake(site_tree, page_templates, generated_iso), encoding="utf-8"
+    )
+    (dist_dir / "page-review.html").write_text(
+        page_page_review(site_tree, page_review, page_templates, generated_iso),
+        encoding="utf-8",
     )
     if materials_needed:
         (dist_dir / "materials-intake.html").write_text(
@@ -2957,6 +3434,8 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         "legacy-unmapped.json",
         "content-index.json",
         "eyal-pending.json",
+        "eyal-needs.json",
+        "page-review.json",
         "hub-version.json",
     ):
         src = DATA_DIR / name

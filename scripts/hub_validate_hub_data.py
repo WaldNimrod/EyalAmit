@@ -27,10 +27,12 @@ REQUIRED: dict[str, list[str]] = {
     "page-templates.json": ["schemaVersion", "templates"],
     "content-index.json": ["schemaVersion"],
     "eyal-pending.json": ["schemaVersion", "items"],
+    "eyal-needs.json": ["schemaVersion", "priorities"],
     "legacy-unmapped.json": ["schemaVersion"],
     "links.json": ["schemaVersion", "categories"],
     "questions-prompts.json": ["schemaVersion", "formFields", "exportType"],
     "meeting-brief.json": ["schemaVersion", "meetingDate", "titleHe"],
+    "page-review.json": ["schemaVersion", "pages"],
 }
 
 

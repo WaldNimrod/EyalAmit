@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "titleHe": "מה נדרש ממך — לפי עדיפות",
+  "introHe": "כל החומרים, האישורים והשאלות הפתוחות במקום אחד — מסודר לפי עדיפות הפגישה. כל בלוק מפנה לטופס ההגשה המתאים (לא צריך לזכור איזה דף איפה).",
+  "submissionHe": "הגשה: העלה קבצים ל-Google Drive ורשום שם/קישור בטופס; או שלח בוואטסאפ; או ייצא JSON מהדף הרלוונטי ושלח לצוות. אפשר למלא בהדרגה — הטפסים נשמרים בדפדפן.",
+  "businessLeversHe": [
+    "CP-01 — פילר נחירות/דום נשימה: המנוף הגדול ביותר לתעבורה אורגנית ולציטוט ב-AI (SEO/GEO).",
+    "WP-01 — מעקב המרות: חיבור generate_lead + wa.me (כבר ב-Wave-1; אימות סופי ב-cutover).",
+    "48 עדויות — E-E-A-T ואמון בעמודי שירות ובקרוסלה.",
+    "BN-01 — מותג/ישות: הסרת «סטודיו נשימה מעגלית» לעקביות NAP ו-citation."
+  ],
+  "businessLeversHref": "content-proposals.html",
+  "priorities": [
+    {
+      "rank": 1,
+      "id": "P1",
+      "titleHe": "15 הצעות תוכן SEO/GEO",
+      "whyHe": "מנוף עסקי #1 — במיוחד פילר נחירות/דום נשימה (CP-01). בלי אישורך לא נבנה את תוכן ה-SEO המרכזי.",
+      "hubHref": "content-proposals.html",
+      "hubHrefLabelHe": "פתח טופס הצעות תוכן (15)",
+      "items": [
+        {
+          "ref": "CP-01",
+          "titleHe": "פילר נחירות/דום נשימה — cornerstone",
+          "status": "open",
+          "whyHe": "תעבורה אורגנית + AI citation בעברית",
+          "actionHe": "אשר/ערוך lede, ציטוט מומחה, disclaimer CPAP"
+        },
+        {
+          "ref": "AF-01..04",
+          "titleHe": "תשובה-קודם בעמודי שירות (4)",
+          "status": "open",
+          "whyHe": "מנועי תשובות שולפים 40–60 מילים ראשונות",
+          "actionHe": "אשר משפטי תשובה לטיפול/שיטה/סאונד/שיעורים"
+        },
+        {
+          "ref": "BN-01..03",
+          "titleHe": "Reframe מותג ו-bio (3)",
+          "status": "open",
+          "whyHe": "עקביות ישות ו-NAP",
+          "actionHe": "אשר ניסוח פוטר וביו ללא «סטודיו נשימה מעגלית»"
+        },
+        {
+          "ref": "FAQ-01..03",
+          "titleHe": "FAQ מורחב (3)",
+          "status": "open",
+          "whyHe": "Featured snippets ו-AEO",
+          "actionHe": "אשר/ערוך שאלות ותשובות"
+        },
+        {
+          "ref": "BLOG-01..04",
+          "titleHe": "פוסטי בלוג spokes (4)",
+          "status": "open",
+          "whyHe": "תמיכה בפילר + long-tail",
+          "actionHe": "אשר כותרות וטיוטות"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "P2",
+      "titleHe": "48 עדויות — אצירה ואישור אופן הצגה",
+      "whyHe": "עדויות verbatim כבר בעמודי שירות; נדרש לאצור 48 מהפייסבוק ולאשר אופן ההצגה.",
+      "hubHref": "materials-intake.html",
+      "hubHrefLabelHe": "פתח השלמות — קבוצה I (I1)",
+      "items": [
+        {
+          "ref": "I1",
+          "titleHe": "אצירת 48 המלצות מהפייסבוק",
+          "status": "open",
+          "whyHe": "קרוסלה + עמודי שירות",
+          "actionHe": "לכל פריט: אישור / תקציר / החרגה"
+        },
+        {
+          "ref": "OPEN-CHAPTERS-TESTIMONIALS",
+          "titleHe": "אישור אופן הצגת עדויות verbatim",
+          "status": "open",
+          "whyHe": "אימות שהצגה מקורית מתאימה",
+          "actionHe": "אשר או בקש שינוי"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "P3",
+      "titleHe": "מותג «סטודיו נשימה מעגלית» — אישור השמטה (WP-06)",
+      "whyHe": "המותג הוסר מהאתר; נדרש אישור סופי או ניסוח חלופי במשפטי היסטוריה.",
+      "hubHref": "content-proposals.html",
+      "hubHrefLabelHe": "פתח BN-01 בטופס הצעות",
+      "items": [
+        {
+          "ref": "BN-01",
+          "titleHe": "אישור השמטה או ניסוח חלופי",
+          "status": "open",
+          "whyHe": "entity collision / SEO",
+          "actionHe": "אשר מושמט או ספק ניסוח"
+        },
+        {
+          "ref": "OPEN-BRAND-RETIRED",
+          "titleHe": "אודות/השיטה — סטיית content-diff מאושרת",
+          "status": "open",
+          "whyHe": "~92% באודות בגלל השמטה",
+          "actionHe": "אשר או ספק טקסט חלופי"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "P4",
+      "titleHe": "מדיה חסרה — תמונות, וידאו, כריכות",
+      "whyHe": "העיצוב מוכן; חסרות תמונות אמיתיות ל-hero שירותים, חנות, ספרים, גלריות.",
+      "hubHref": "materials-intake.html",
+      "hubHrefLabelHe": "פתח השלמות מאייל",
+      "hubHrefSecondary": "media-intake.html",
+      "hubHrefSecondaryLabelHe": "מלאי מדיה מפורט",
+      "items": [
+        {
+          "ref": "A1",
+          "titleHe": "Hero ל-4 עמודי שירות",
+          "status": "open",
+          "whyHe": "זהות ויזואלית לכל שירות",
+          "actionHe": "תמונה/וידאו לכל עמוד"
+        },
+        {
+          "ref": "B-E",
+          "titleHe": "כריכות ספרים, מוצרי חנות, גלריות",
+          "status": "open",
+          "whyHe": "השלמת עיצוב חנות ומוזה",
+          "actionHe": "ראו קבוצות B–E ב-materials-intake"
+        },
+        {
+          "ref": "media-intake",
+          "titleHe": "38 פריטי מדיה במלאי",
+          "status": "open",
+          "whyHe": "מיפוי מלא לפי עמוד",
+          "actionHe": "מלא ב-media-intake.html"
+        },
+        {
+          "ref": "OPEN-MOKESH-FINAL",
+          "titleHe": "מוקש — אישור תוכן סופי + תמונות נוספות",
+          "status": "open",
+          "whyHe": "תוכן verbatim מומש; אישורך",
+          "actionHe": "עבור על העמוד ואשר/ערוך"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "P5",
+      "titleHe": "עמודים משפטיים + תוכן EN",
+      "whyHe": "נדרש לפני עלייה — הצהרת נגישות בחוק; EN נדחה אך נדרש לאישור.",
+      "hubHref": "content-intake.html",
+      "hubHrefLabelHe": "פתח קליטת תוכן",
+      "items": [
+        {
+          "ref": "OPEN-LEGAL-COPY",
+          "titleHe": "פרטיות / נגישות / תקנון",
+          "status": "open",
+          "whyHe": "חובה משפטית",
+          "actionHe": "נוסח מאייל או אישור טיוטת צוות"
+        },
+        {
+          "ref": "OPEN-EN-BODY",
+          "titleHe": "עמוד נחיתה /en/",
+          "status": "open",
+          "whyHe": "אין מקור אנגלית",
+          "actionHe": "אשר תקציר אנגלי מהצוות"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "P6",
+      "titleHe": "Microsoft Clarity — project_id (EYL-1)",
+      "whyHe": "GA4 פעיל; Clarity נדרש למדידה מלאה לפני go-live.",
+      "hubHref": "files/to-eyal/2026-06-19--clarity-setup-guide/clarity-setup-guide-he.html",
+      "hubHrefLabelHe": "פתח מדריך התקנה",
+      "items": [
+        {
+          "ref": "EYL-1",
+          "titleHe": "שלח project_id של Clarity",
+          "status": "open",
+          "whyHe": "שער אנליטיקס",
+          "actionHe": "עקוב אחר המדריך ושלח מזהה"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "id": "P7",
+      "titleHe": "וואטסאפ ואישורים קצרים",
+      "whyHe": "פרטי קשר לפרסום ואימות תוכן שכבר על האתר.",
+      "hubHref": "materials-intake.html",
+      "hubHrefLabelHe": "פתח השלמות — אישורים",
+      "items": [
+        {
+          "ref": "WA",
+          "titleHe": "אישור מספר וואטסאפ +972 52-482-2842",
+          "status": "open",
+          "whyHe": "wa.me בכל האתר",
+          "actionHe": "אשר או תקן מספר"
+        },
+        {
+          "ref": "RECHK",
+          "titleHe": "רענון ובדיקה חוזרת תוכן חי",
+          "status": "open",
+          "whyHe": "CR1–CR4 מומשו",
+          "actionHe": "רענן מטמון ואשר"
+        }
+      ]
+    }
+  ]
+}

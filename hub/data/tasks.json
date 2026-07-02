@@ -36,16 +36,23 @@
         {
           "id": "CH-T-T190",
           "titleHe": "ולידציה סופית קונסטיטוציונית (team_190)",
-          "status": "in_progress",
+          "status": "completed",
           "priorityHe": "גבוהה",
-          "stateHe": "בעיצומה — תנאי למיזוג ולעלייה לאוויר."
+          "stateHe": "PASS post-deploy 2026-06-23 — VERDICT_CHAPTERS-FULLSITE_POSTDEPLOY; F110-01 סגור."
         },
         {
-          "id": "CH-T-GOLIVE",
-          "titleHe": "מיזוג ל-main ועלייה לאוויר",
+          "id": "CH-T-MERGE-MAIN",
+          "titleHe": "מיזוג chapters-home → main",
+          "status": "completed",
+          "priorityHe": "גבוהה",
+          "stateHe": "מוזג @ 6d898a7 — MERGE_CHAPTERS-HOME_TO_MAIN_2026-06-23 (team_00)."
+        },
+        {
+          "id": "CH-T-M7-CUTOVER",
+          "titleHe": "עלייה ל-eyalamit.co.il (M7 cutover)",
           "status": "not_started",
           "priorityHe": "גבוהה",
-          "stateHe": "בכפוף ל-team_190 PASS ולאישור אייל."
+          "stateHe": "אחרי M5 + אישור אייל — 301 freeze, HTTPS, lift noindex, GSC."
         }
       ]
     },
@@ -377,6 +384,124 @@
           "status": "completed",
           "priorityHe": "נמוכה",
           "stateHe": "הושלם — העמודים נבנו ואומתו בעיצוב «פרקים»."
+        }
+      ]
+    },
+    {
+      "id": "M5-M7-COMPLETION-2026",
+      "titleHe": "סבב סיום — M5 SEO/GEO · M6 עיצוב · M7 עלייה (יוני 2026)",
+      "tasks": [
+        {
+          "id": "M5-T-CONTENT-PROPOSALS",
+          "titleHe": "אישור 15 הצעות תוכן SEO/GEO (content-proposals)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "ממתין לאייל — במיוחד CP-01 פילר נחירות/דום נשימה."
+        },
+        {
+          "id": "M5-T-LEAD-TRACKING",
+          "titleHe": "WP-01 — מעקב המרות (generate_lead + wa.me)",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "Wave-1 shipped; אימות end-to-end ב-cutover."
+        },
+        {
+          "id": "M5-T-SCHEMA-GEO",
+          "titleHe": "Schema/GEO — Person, ProfessionalService, Product",
+          "status": "in_progress",
+          "priorityHe": "גבוהה",
+          "stateHe": "Yoast graph live; השלמות לפי אישורי תוכן."
+        },
+        {
+          "id": "M5-T-SEO-PILLAR",
+          "titleHe": "פילר SEO נחירות/דום נשימה (gated CP-01)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "מנגנון URL מוכן; תוכן ממתין לאישור אייל."
+        },
+        {
+          "id": "M5-T-TESTIMONIALS",
+          "titleHe": "אינטגרציית 48 עדויות (EYL-4)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "ממתין לאצירה ואישור אייל — testimonials-curation."
+        },
+        {
+          "id": "M5-T-ANALYTICS",
+          "titleHe": "חיבור Microsoft Clarity (EYL-1)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "GA4 פעיל; Clarity project_id ממתין מאייל."
+        },
+        {
+          "id": "M5-T-MEDIA-INTAKE",
+          "titleHe": "השלמת מדיה — 38 פריטים (EYL-3)",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "hero שירותים, כריכות, גלריות — materials/media-intake."
+        },
+        {
+          "id": "M5-T-CONTACT-NAP",
+          "titleHe": "NAP + LocalBusiness בצור קשר",
+          "status": "completed",
+          "priorityHe": "בינונית",
+          "stateHe": "BLD-4 — NAP ושעות על staging."
+        },
+        {
+          "id": "M5-T-DESIGN-QA",
+          "titleHe": "בדיקת עיצוב responsive (M6 prep)",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "אחרי השלמת מדיה — השוואה למוקאפים team_35."
+        },
+        {
+          "id": "M6-T-MOCKUP-COMPARE",
+          "titleHe": "M6 — fidelity מול מוקאפים",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "QA-led find→fix→re-verify; תלוי M5 content-complete."
+        },
+        {
+          "id": "M7-T-301-FREEZE",
+          "titleHe": "M7 — הקפאת מפת 301 + ביקורת redirect",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "SSoT mu-plugin; כולל Blog/QR/blog pagination."
+        },
+        {
+          "id": "M7-T-HTTPS-NOINDEX",
+          "titleHe": "M7 — HTTPS + הסרת noindex staging",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "לפני DNS switch ל-eyalamit.co.il."
+        },
+        {
+          "id": "M7-T-GSC-ANALYTICS",
+          "titleHe": "M7 — GSC baseline + אימות אנליטיקס",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "sitemap resubmit; Clarity+GA4 לפני go-live."
+        },
+        {
+          "id": "M7-T-CUTOVER",
+          "titleHe": "M7 — DNS switch ל-eyalamit.co.il",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "gated: M5 + M6 + אישור אייל + launch-blockers סגורים."
+        },
+        {
+          "id": "EYL-5-COURSES-URL",
+          "titleHe": "קישור חיצוני «קורסים» בניווט",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "placeholder # — ממתין URL מאייל (EYL-5)."
+        },
+        {
+          "id": "EYL-6-SHOP-TERMS",
+          "titleHe": "יעד 301 ל-/shop/תקנון/",
+          "status": "not_started",
+          "priorityHe": "נמוכה",
+          "stateHe": "אישור: /terms/ vs / — EYL-6."
         }
       ]
     }

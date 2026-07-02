@@ -60,7 +60,9 @@ nav {
   border-bottom: 2px solid var(--border);
   padding: .7rem 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  row-gap: .4rem;
   justify-content: center;
   position: sticky;
   top: 0;
