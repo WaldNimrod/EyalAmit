@@ -9,9 +9,16 @@
  *     failing the Lighthouse SEO `meta-description` audit. We emit one derived
  *     from the existing hero copy (no new page content/copy is introduced).
  *     A site-wide fallback uses the WordPress tagline so inner pages without a
- *     dedicated description still get a sensible value. If a host-side SEO
- *     plugin already prints a `name="description"` tag this is harmless (the
- *     first one wins for crawlers; we only add when the theme owns the head).
+ *     dedicated description still get a sensible value.
+ *     UPDATE (WP-W2-17 T3, D-1 single source of truth): Yoast SEO independently
+ *     prints its own `name="description"` tag from post meta
+ *     `_yoast_wpseo_metadesc` on `wp_head`, which produced 2 duplicate tags on
+ *     every route where BOTH emitters had data (see spec §5 finding #1). This
+ *     function now checks that post meta FIRST and returns without printing
+ *     when Yoast already owns a non-empty value for the queried post — Yoast is
+ *     the single source of truth for every "16 rollup + mokesh" route (backfilled
+ *     once by ea-w2-17-metadesc-backfill-once.php); the logic below remains only
+ *     as a fallback for routes Yoast does not cover.
  *
  *  2. favicon link — the homepage logged a 404 for /favicon.ico, failing the
  *     Lighthouse best-practices `errors-in-console` audit. We point the icon at
@@ -126,6 +133,21 @@ function ea_w2_09_meta_description() {
 		$description = 'Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.';
 		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 		return;
+	}
+
+	// WP-W2-17 T3 (D-1, single source of truth): if Yoast already owns a
+	// non-empty _yoast_wpseo_metadesc for this queried post (seeded once by
+	// ea-m3-team80-placeholder-content-once.php or backfilled by
+	// ea-w2-17-metadesc-backfill-once.php), defer to it and print nothing here —
+	// this function's own resolution below is the fallback ONLY for routes Yoast
+	// does not cover. Prevents the 2x-duplicate-tag drift documented in
+	// WP-W2-17-CRFINAL-SEO-REMEDIATION-PROGRAM-2026-07-03.md §5 finding #1.
+	$queried_id = (int) get_queried_object_id();
+	if ( $queried_id > 0 ) {
+		$yoast_desc = trim( (string) get_post_meta( $queried_id, '_yoast_wpseo_metadesc', true ) );
+		if ( '' !== $yoast_desc ) {
+			return;
+		}
 	}
 
 	$front_id = (int) get_option( 'page_on_front', 0 );
