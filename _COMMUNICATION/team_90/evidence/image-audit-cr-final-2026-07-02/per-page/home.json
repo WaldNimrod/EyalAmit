@@ -1,0 +1,201 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+  "imagesTotal": 22,
+  "imagesBroken": 8,
+  "brokenUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-receiving.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stone-mandala.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/didgs-window.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg"
+  ],
+  "brokenDetails": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-receiving.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stone-mandala.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg",
+      "alt": "מפגש נשימה קבוצתי בגינת הסטודיו",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg",
+      "alt": "פנים הסטודיו — קיר הפסיפס והדיג׳רידו, פרדס חנה",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/didgs-window.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    }
+  ],
+  "bgImageCount": 0,
+  "slotsExpected": 18,
+  "slotsMissing": 2,
+  "missingSlotDetails": [
+    {
+      "slotId": "hero-video",
+      "expected": "ea-home-hero-720-muted.mp4",
+      "type": "video",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "hero-video",
+      "expected": "ea-home-hero-poster.jpg",
+      "type": "video",
+      "foundOnPage": false
+    }
+  ],
+  "slotResults": [
+    {
+      "slotId": "hero-video",
+      "expected": "ea-home-hero-720-muted.mp4",
+      "type": "video",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "hero-video",
+      "expected": "ea-home-hero-poster.jpg",
+      "type": "video",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "about-collage-big",
+      "expected": "eyal-portrait-garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "about-collage-sm1",
+      "expected": "didg-spiral-detail.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "about-collage-sm2",
+      "expected": "logo-didgs-door.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "whom-1",
+      "expected": "eyal-bright.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "whom-2",
+      "expected": "breath-practice.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "whom-3",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "whom-4",
+      "expected": "eyal-close.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "session-1",
+      "expected": "eyal-studio-play.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "session-2",
+      "expected": "eyal-teaching.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "session-3",
+      "expected": "eyal-receiving.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "session-4",
+      "expected": "stone-mandala.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "bleed-separator",
+      "expected": "group-session-garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "studio-media",
+      "expected": "studio-interior.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "compare-1",
+      "expected": "breath-practice.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "compare-2",
+      "expected": "didgs-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "start-bg",
+      "expected": "studio-interior.jpg",
+      "type": "img",
+      "foundOnPage": true
+    }
+  ],
+  "pass": false
+}

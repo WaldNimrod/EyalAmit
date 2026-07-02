@@ -1,0 +1,80 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+  "imagesTotal": 8,
+  "imagesBroken": 2,
+  "brokenUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"
+  ],
+  "brokenDetails": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg",
+      "alt": "אייל עמית מתרגל נשימה דרך הדיג׳רידו",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg",
+      "alt": "אייל עמית מתרגל נשימה דרך הדיג׳רידו",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    }
+  ],
+  "bgImageCount": 0,
+  "slotsExpected": 8,
+  "slotsMissing": 0,
+  "missingSlotDetails": [],
+  "slotResults": [
+    {
+      "slotId": "phero",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "split-fig",
+      "expected": "eyal-studio-play.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "mag-spread-fig",
+      "expected": "eyal-studio-play.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "bleed-quote",
+      "expected": "didg-spiral-detail.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-1",
+      "expected": "eyal-bright.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-2",
+      "expected": "breath-practice.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-3",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-4",
+      "expected": "eyal-close.jpg",
+      "type": "img",
+      "foundOnPage": true
+    }
+  ],
+  "pass": false
+}

@@ -1,0 +1,81 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+  "imagesTotal": 9,
+  "imagesBroken": 0,
+  "brokenUrls": [],
+  "brokenDetails": [],
+  "bgImageCount": 0,
+  "slotsExpected": 10,
+  "slotsMissing": 1,
+  "missingSlotDetails": [
+    {
+      "slotId": "videoblk",
+      "expected": "ea-home-hero-720-muted.mp4",
+      "type": "video",
+      "foundOnPage": false
+    }
+  ],
+  "slotResults": [
+    {
+      "slotId": "phero",
+      "expected": "eyal-studio-play.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "split-fig",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "bleed-breath",
+      "expected": "group-session-garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-1",
+      "expected": "eyal-bright.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-2",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-3",
+      "expected": "breath-practice.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-4",
+      "expected": "eyal-close.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-5",
+      "expected": "stone-mandala.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "videoblk",
+      "expected": "ea-home-hero-720-muted.mp4",
+      "type": "video",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "videoblk",
+      "expected": "eyal-window.jpg",
+      "type": "video",
+      "foundOnPage": true
+    }
+  ],
+  "pass": false
+}

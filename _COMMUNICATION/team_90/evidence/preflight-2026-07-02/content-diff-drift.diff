@@ -1,0 +1,46 @@
+34,35c34,35
+<   { path: '/books/', source: 'מוזה הוצאה לאור - ספרים/MUZZA.md', label: '/books' },
+<   { path: '/eyal-amit/', source: 'אודות - אייל עמית/אודות - אייל עמית.md', label: '/eyal-amit' },
+---
+>   { path: '/muzza/', source: 'מוזה הוצאה לאור - ספרים/MUZZA.md', label: '/muzza' },
+>   { path: '/about/', source: 'אודות - אייל עמית/אודות - אייל עמית.md', label: '/eyal-amit' },
+45,48c45,46
+<     path: '/eyal-amit/mokesh-dahiman/',
+<     // team_110 2026-06-21: re-pointed from the «ומה היום» fragment to Eyal's FULL
+<     // memorial doc (11 sections) — the page now renders the complete memorial (D-MOKESH).
+<     source: "מוקש דהימן/מוקש דהימן – מאסטר דיג'רידו – דף להנצחת זכרו ופועלו 1950-2020.docx",
+---
+>     path: '/about/moksha/',
+>     source: 'מוקש דהימן/ומה היום.docx',
+128,133d125
+<   // Brand normalization (team_110 2026-06-21): the mokesh source doc mixes "jungle
+<   // vibes" (\u00B664) and the typo "jungel vibes" (\u00B675); the published page renders the
+<   // correct "Jungle Vibes" everywhere (D-SPELLING \u2014 "always the correct spelling").
+<   // Fold both spellings AND case to one token on both sides so the verbatim gate
+<   // matches the corrected render (mirrors the geresh/dash display normalizations).
+<   t = t.replace(/jung(?:le|el)\s+vibes/gi, 'jungle vibes');
+309,313c301,303
+<     // Blockquote lines are authoring scaffolding in this corpus — DEV-NOTE image/
+<     // asset instructions and their continuation specs (> DEV NOTE:, > https://…,
+<     // > כולל:, > - תמונת כריכה …). Real published prose/quotes never use `>` here
+<     // (testimonials are ### name + text), so skip the whole blockquote. (team_100 fix.)
+<     if (/^>/.test(t)) continue;
+---
+>     // Blockquote DEV-NOTE image/asset instructions (> DEV NOTE: …, with their
+>     // > https://… continuation refs) are authoring scaffolding, not content.
+>     if (/^>\s*DEV\s+NOTE/i.test(t) || /^>\s*https?:\/\//i.test(t)) continue;
+336,346c326,327
+<       // Extract per <w:p> paragraph and join the <w:t> runs WITHIN a paragraph with
+<       // NO separator — Word can split one word across runs (e.g. "להיום" →
+<       // <w:t>להי</w:t><w:t>ום</w:t>). Paragraphs join with a newline so the sentence
+<       // splitter (which splits on \n+) keeps them apart. The prior code joined ALL
+<       // runs with ' ', producing spurious mid-word spaces ("ש ל", "להי ום") and fusing
+<       // repeated headings ("ומה היום ומה היום ...") — both broke matching of a
+<       // byte-verbatim render. Only the docx source (mokesh) is affected.
+<       const runText = (frag) =>
+<         [...frag.matchAll(/<w:t[^>]*>([^<]*)<\/w:t>/g)].map((m) => m[1]).join('');
+<       const paras = [...xml.matchAll(/<w:p(?:\s[^>]*)?>([\s\S]*?)<\/w:p>/g)].map((p) => runText(p[1]));
+<       return { error: null, text: paras.length ? paras.join('\n') : runText(xml), format: 'docx' };
+---
+>       const texts = [...xml.matchAll(/<w:t[^>]*>([^<]*)<\/w:t>/g)].map((m) => m[1]);
+>       return { error: null, text: texts.join(' '), format: 'docx' };

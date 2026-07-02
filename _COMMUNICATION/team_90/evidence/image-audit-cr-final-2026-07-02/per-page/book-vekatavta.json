@@ -1,0 +1,23 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+  "imagesTotal": 8,
+  "imagesBroken": 1,
+  "brokenUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg"
+  ],
+  "brokenDetails": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    }
+  ],
+  "bgImageCount": 0,
+  "slotsExpected": 0,
+  "slotsMissing": 0,
+  "missingSlotDetails": [],
+  "slotResults": [],
+  "pass": false
+}

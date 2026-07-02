@@ -1,0 +1,117 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+  "imagesTotal": 7,
+  "imagesBroken": 2,
+  "brokenUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-didgs.jpg"
+  ],
+  "brokenDetails": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    },
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-didgs.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true
+    }
+  ],
+  "bgImageCount": 0,
+  "slotsExpected": 10,
+  "slotsMissing": 4,
+  "missingSlotDetails": [
+    {
+      "slotId": "gallery-4",
+      "expected": "ea-home-hero-poster.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-1",
+      "expected": "tsva-bechol-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-2",
+      "expected": "kushi-blantis-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-3",
+      "expected": "vekatavt-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    }
+  ],
+  "slotResults": [
+    {
+      "slotId": "phero",
+      "expected": "eyal-portrait-garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "split-fig",
+      "expected": "studio-interior.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "mokesh-fig",
+      "expected": "mokesh-eyal.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "gallery-1",
+      "expected": "studio-mosaic.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "gallery-2",
+      "expected": "garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "gallery-3",
+      "expected": "studio-didgs.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "gallery-4",
+      "expected": "ea-home-hero-poster.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-1",
+      "expected": "tsva-bechol-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-2",
+      "expected": "kushi-blantis-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    },
+    {
+      "slotId": "book-3",
+      "expected": "vekatavt-cover.jpg",
+      "type": "img",
+      "foundOnPage": false
+    }
+  ],
+  "pass": false
+}

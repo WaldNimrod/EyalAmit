@@ -1,0 +1,92 @@
+validate_aos.sh — running up to 73 checks on ./_aos (active_modules: filter, context: spoke)
+=================================================
+[PASS] Check 1: YAML files parse correctly
+[PASS] Check 2: Cross-engine Iron Rule satisfied
+[PASS] Check 3: deprecated-module — N/A (module 09 version-consistency retired by W9)
+[PASS] Check 4: All spec_refs resolve to existing files
+[PASS] Check 5: All required fields present
+[PASS] Check 6: metadata.yaml complete
+[PASS] Check 7: All team IDs match slug regex
+[PASS] Check 8: All team suffixes are reserved
+[PASS] Check 9: Profile enum valid and consistent
+[PASS] Check 10: deprecated-module — N/A (module 05 snapshot retired by W9)
+[PASS] Check 11: Governance directory complete (definition.yaml + 14 team files)
+[PASS] Check 12: Cross-project boundary OK (project=eyalamit, 0 forbidden patterns found)
+[PASS] Check 13: definition.yaml <-> governance/ pairing is bidirectional-clean (no ghost teams, no orphan files)
+[PASS] Check 14: Not a hub project — additionalDirectories check skipped
+[PASS] Check 15: No stale artifacts for completed WPs in _COMMUNICATION/
+[SKIP] Check 16: not hub — validate_aos_commands.sh skipped (spoke/minimal)
+[SKIP] Check 17: not hub — PROJECT_CONTEXT schema check skipped (roll out per spoke)
+[SKIP] Check 18: aos_write_authorized.yaml absent (run gov sync) — _aos/ write allowlist unavailable
+[PASS] Check 19: API-only mutations: all team contracts include Iron Rule #7 API-only clause
+[SKIP] Check 19: Unified DB checker not found at scripts/db/check_db_connectivity.py (hub-only component; skip on spokes)
+[PASS] Check 20: mcp_profile='none' — no .cursor/mcp.json required
+[SKIP] Check 21: validate_gates.sh: gate structure advisories found (pre-V318 data debt; run validate_gates.sh manually)
+[SKIP] Check 22: validate_lod.sh: LOD400+ advisories found (pre-V318 schema debt; run validate_lod.sh --all --min-lod 400 manually)
+[PASS] Check 23: validate_verdicts.sh: verdict schema PASS
+[SKIP] Check 24: port-registry.yaml not found (spoke project — hub canon does not apply)
+[PASS] Check 25: No pending offline DB sync (PENDING_DB_SYNC.yaml absent)
+[PASS] Check 26: LOD400 CS citations — no suspected bare [CS-N] lines (ADR037)
+[PASS] Check 27: CLAUDE.md canonical invariants present (DB-probe + AOS authority/identity — ADR040)
+[PASS] Check 28: .cursorrules canonical invariants present (DB-probe + AOS startup section)
+
+200[SKIP] Check 29: hub LEAN_KIT_VERSION.md not reachable — set AOS_HUB_ROOT or start AOS API
+[PASS] Check 30: AOS commands within 150-line limit (Iron Rule #13 / ADR041)
+[PASS] Check 31: AOS command frontmatter (summary + category) present — ADR041
+[PASS] Check 32: _aos/ tree committed (no propagation drift) — IR#11
+  [WARN] Check 33: 6 unexpected MSG-*.md filename(s) (advisory — ADR043 vs Module 12 naming)
+    team_100/MSG-HUB-20260529-001-RESPONSE.md
+    team_100/MSG-TO-EYAL-CONTENT-PROPOSALS-2026-06-20.md
+    team_100/MSG-TO-EYAL-MEDIA-INTAKE-WEEKEND-2026-06-19.md
+    team_100/MSG-TO-EYAL-STATUS-2026-06-16.md
+    team_100/MSG-TO-EYAL-UPDATE-2026-06-16.md
+    team_100/MSG-TO-EYAL-WHATSAPP-OPEN-ITEMS-2026-06-16.md
+[PASS] Check 33: MSG naming advisory complete (non-blocking)
+[PASS] Check 34: AOS_handoff.md references hub /api/prompts/generate (no local re-implementation)
+[PASS] Check 35: QA_REQUEST enum lint — all values valid (or no QA_REQUEST files found)
+[PASS] Check 36: MSG branch independence — all send/read commands wired to msg_preflight.sh + msg_deliver_file (ADR043 v1.1.0 §4/§5)
+[PASS] Check 37: Multi-domain routing wired — server threads project_id, routes accept X-Project-Id, helper auto-detects spoke (ADR043 v1.1.0 §6)
+[PASS] Check 38: ADR043 v1.2.0 §6+§7 published, archive endpoint wired end-to-end (AOS-MSG-FOLLOWUPS-WP001)
+[PASS] Check 39: MSG-LOG operational: v5 messaging bus healthy at http://100.125.98.56:8092 (HTTP 200 — DB v2 bus active)
+[SKIP] Check 40: MSG-HARDENING: spoke msg_precommit_hook.sh snapshot present but pre-commit hook not installed — acceptable (operator choice)
+[SKIP] Check 41: auto-activation/ directory absent — acceptable pre-W6
+[PASS] Check 42: Sprint discipline: all active WPs within ≤3 sprint cap
+[SKIP] Check 43: Milestone completeness gate: _aos/milestones/ absent — no milestone definitions to check against (acceptable pre-MS001)
+[PASS] Check 44: Track+Effort metadata: all WP metadata.yaml files have valid track: and effort: fields
+[PASS] Check 45: WAN dual-stack — server='waldhomeserver' ipv4=True ipv6=True scenario='none' (checked 2026-06-15T14:01:36Z)
+[SKIP] Check 46: not hub — _aos/projects.yaml absent (spokes skip registry SSoT drift check)
+[SKIP] Check 47: not hub — _aos/projects.yaml absent (spokes skip definition snapshot drift check)
+[SKIP] Check 48: session_reap.sh not found (pre-W2 hub)
+[SKIP] Check 49: ADR053 tier check — no Tier-2-track WPs carry a validation_tiering block yet (legacy-tolerant)
+[PASS] Check 50: ADR054 governance stamp present — 0 advisory flag(s) (non-blocking)
+  [WARN] Check 51: AOS git hooks not fully installed (pre-push/pre-commit) — run: bash scripts/install_hooks.sh
+[PASS] Check 51: git-health probe — bare=false, 1 advisory flag(s) (non-blocking)
+[SKIP] Check 52: concurrent-session enforcement — session client/start_worktree missing
+[SKIP] Check 53: enum-SSoT (cockpit enums + migration 018 SSoT) — hub-only; skip on spokes
+[SKIP] Check 54: WARN: mandate R1 conformance — 5/5 MANDATE_*.md non-conformant (advisory; CA7 §5.6 R2 mechanical bridge)
+[SKIP] Check 55: qa_enforcement.py absent — QA anti-false-pass scan skipped (clone-portable; M5-WP1 advisory)
+[SKIP] Check 56: qa_enforcement.py absent — QA N×4 tally skipped (clone-portable; M5-WP1 advisory)
+[SKIP] Check 57: WARN: CI hard-gate harness incomplete —cold-integration.yml smoke.sh (advisory, never blocks; M5-WP2 / QA_DEEPENING §2.2)
+sed: 1: "s/.*CHECK58 WARN: //p;  ...": undefined label '; $p'
+[SKIP] Check 58: WARN: context-layers assembler —  (advisory, never blocks; M5-WP7)
+[SKIP] Check 59: WARN: DOC-close-gate — /opt/homebrew/opt/python@3.11/bin/python3.11: Error while finding module specification for 'core.modules.management.doc_canon' (ModuleNotFoundError: No module named 'core') (advisory standalone; HARD at CLOSE/CI via AOS_DOC_CLOSE_GATE=1; M5-WP8 / L26)
+[SKIP] Check 60: routing-policy anti-drift — no routing_policy.yaml (hub-only / pre-build) — skip
+[PASS] Check 61: C-MB1 Tier-A not tracked (governance|methodology|lean-kit out of git index)
+[PASS] Check 62: C-MB2 Tier-A git-ignored (all three cache dirs covered by AOS-GOV-CACHE block)
+[PASS] Check 63: C-MB3 Tier-A not symlinked (real dirs, IR#2)
+[PASS] Check 64: C-MB4 governance stamp present + schema aos.governance.version/v1
+[PASS] Check 65: C-MB5 cache count matches stamp (298 files)
+[PASS] Check 66: C-MB6 stamp & last_gov_sync hub_sha agree (34c461c0923e)
+[PASS] Check 67: C-MB7 no stray tracked ADR*/team_* governance files outside the cache
+[PASS] Check 68: C-MB8 canonical block well-formed (aos:canonical:start<end + notice present)
+[PASS] Check 69: C-MB9 CI-class OK (no .github/workflows — REMOVE-class correct)
+[SKIP] Check 70: CC-06 messaging-provenance — n/a (hub source absent)
+[SKIP] Check 71: CC-06 SSE-on-send — n/a (hub source absent)
+[SKIP] Check 72: CC-06 projection-completeness — n/a (hub source absent)
+[SKIP] Check 73: CC-06 spoke-onboarding-identity — n/a (hub source absent)
+[SKIP] Check 74: not hub — _aos/projects.yaml absent (spokes skip registry local_path canonical-tree guard)
+
+=================================================
+RESULT: 46 PASS / 29 SKIP / 0 FAIL
+=================================================
+L-GATE_BUILD EXIT CRITERION: SATISFIED

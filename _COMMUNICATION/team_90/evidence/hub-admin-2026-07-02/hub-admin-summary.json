@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-07-02T20:49:17.581Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub",
+  "hubMetadataMatch": "2026-07-02T12:18:20Z",
+  "pass": 8,
+  "fail": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "interface": "content-intake",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/content-intake.html",
+      "verdict": "PASS",
+      "error": null,
+      "pageOptions": 40,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "קליטת תוכן לעמוד — אייל עמית"
+    },
+    {
+      "interface": "media-intake",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/media-intake.html",
+      "verdict": "PASS",
+      "error": null,
+      "cardsFound": 38,
+      "medIdsInText": 3,
+      "expectedItems": 38,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "מדיה ותמונות — אייל עמית"
+    },
+    {
+      "interface": "materials-intake",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/materials-intake.html",
+      "verdict": "PASS",
+      "error": null,
+      "groupsExpected": 9,
+      "hasGroupA": true,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "השלמות נדרשות מאייל — אייל עמית"
+    },
+    {
+      "interface": "image-picker",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/image-picker.html",
+      "verdict": "PASS",
+      "error": null,
+      "total": 71,
+      "slots": 0,
+      "bodyLen": 349,
+      "expectedSlots": 71,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "בוחר תמונות — אייל עמית"
+    },
+    {
+      "interface": "page-review",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/page-review.html",
+      "verdict": "PASS",
+      "error": null,
+      "sections": 40,
+      "questionsInData": 5,
+      "hasQuestionsUI": true,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "סקירת עמודים — עמוד־עמוד לפי עץ האתר — אייל עמית"
+    },
+    {
+      "interface": "meeting-checklist",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/meeting-checklist.html",
+      "verdict": "PASS",
+      "error": null,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "צ׳קליסט פגישה — מול אייל"
+    },
+    {
+      "interface": "tasks",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/tasks.html",
+      "verdict": "PASS",
+      "error": null,
+      "taskBlocks": 60,
+      "hasExport": true,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "משימות והחלטות — אייל עמית"
+    },
+    {
+      "interface": "site-tree",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/site-tree.html",
+      "verdict": "PASS",
+      "error": null,
+      "nodesRendered": 40,
+      "expected": 40,
+      "pass": true,
+      "httpStatus": 200,
+      "title": "עץ אתר — אייל עמית"
+    }
+  ]
+}
