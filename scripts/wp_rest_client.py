@@ -200,6 +200,24 @@ def get_page_template(post_id: int) -> str:
     return data.get("template", "")
 
 
+def set_page_status(slug: str, status: str) -> int | None:
+    """
+    Set the status of the page at the given slug (e.g. 'draft' to unpublish).
+    Returns the post ID, or None if no page exists at that slug.
+    """
+    existing = get_page_by_slug(slug)
+    if not existing:
+        print(f"ℹ️  No page found at /{slug} — nothing to do")
+        return None
+    post_id = existing["id"]
+    if existing.get("status") == status:
+        print(f"ℹ️  Page /{slug} (ID {post_id}) already status={status!r}")
+        return post_id
+    _request("POST", f"/wp/v2/pages/{post_id}", {"status": status})
+    print(f"✅ Set /{slug} (ID {post_id}) status: {existing.get('status')!r} -> {status!r}")
+    return post_id
+
+
 def list_pages(per_page: int = 20) -> list[dict]:
     """Return a list of all pages (basic info)."""
     data = _request("GET", f"/wp/v2/pages?per_page={per_page}&status=any&context=edit")
@@ -219,6 +237,8 @@ def main() -> None:
     parser.add_argument("--get-template", metavar="POST_ID", type=int,
                         help="Print current template of a page")
     parser.add_argument("--list-pages", action="store_true", help="List all pages")
+    parser.add_argument("--set-status", nargs=2, metavar=("SLUG", "STATUS"),
+                        help="Set page status by slug (e.g. --set-status wave2-test draft)")
     args = parser.parse_args()
 
     if args.verify:
@@ -242,6 +262,10 @@ def main() -> None:
         pages = list_pages()
         for p in pages:
             print(f"  [{p['status']:9s}] ID={p['id']:4d}  /{p['slug']:30s}  tpl={p['template']!r:40s}  {p['title']}")
+
+    if args.set_status:
+        slug, status = args.set_status
+        set_page_status(slug, status)
 
 
 if __name__ == "__main__":

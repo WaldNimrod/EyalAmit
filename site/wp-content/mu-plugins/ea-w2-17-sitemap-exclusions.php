@@ -15,23 +15,25 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * The 14 redirect-source URLs confirmed live 301 sources (team_80 synthesis §5.2 D-2 +
- * Appendix A sitemap sweep, cross-referenced against the actual redirect maps in:
- *   - site/wp-content/themes/ea-eyalamit/inc/wave2-w2-02.php:178-189 (/about/, /about/moksha/)
- *   - site/wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php:400-423 (/services/*, /hashita/, /courses-soon/)
- *   - site/wp-content/themes/ea-eyalamit/functions.php:603-610 (/muzza/*, /muzeh/*)
- * plus the 2 unpublished-via-REST test shells (/sample-page/, /wave2-test/ — belt-and-braces:
- * excluded from the sitemap here too in case unpublish lags or is reverted).
+ * The 14 redirect-source URLs, ground-truth per team_80's live evidence log (Appendix A,
+ * SEO-GEO-RESEARCH-SYNTHESIS-2026-07-02.md:296-301 — actual live 301 sweep, 88x200/14x301):
+ *   /services/didgeridoo-lessons/ · /services/didgeridoo-treatment-breath/ ·
+ *   /services/handmade-instruments/ · /hashita/ · /courses-soon/ ·
+ *   /muzeh/{,tsva-bechol-ve-zorek-layam,kushi-blantis,vekatavt}/ (4) ·
+ *   /muzza/{,vekatavt,tsva-bechol-ve-zorek-layam}/ (3, no kushi-blantis variant) ·
+ *   /about/ · /about/moksha/  = 14.
  *
- * NOTE (open question — see COMPLETION_REPORT): the synthesis Appendix A shorthand lists
- * muzeh's variants as {,tsva…,kushi…,vekatavt} (4) but muzza's as {,vekatavt,tsva…} (3,
- * omitting kushi) to total 14. Source-code cross-check (functions.php:607,631) shows
- * /muzza/kushi-blantis/ IS a live redirect source (it is the actually-seeded+parented page,
- * site-tree-lock-sync-once.php:168) while /muzeh/kushi-blantis/ is only ever used as a
- * get_page_by_path() fallback lookup (:307), i.e. likely never a real published shell.
- * Both are listed below regardless: get_page_by_path() safely no-ops for whichever slug
- * does not resolve to a real page, so listing both cannot exclude a wrong/live URL — it
- * only guards against either naming being the one that is actually published.
+ * CORRECTION 2026-07-03 (live AC-004 verify, second pass): the first cut of this list
+ * (source-code cross-reference against functions.php/site-tree-lock-sync-once.php, without
+ * consulting Appendix A directly) incorrectly included /muzza/kushi-blantis/ (not a real
+ * redirect source per Appendix A) and omitted /muzeh/kushi-blantis/ (which IS one, and was
+ * confirmed still live in page-sitemap.xml after the first deploy). Fixed below against the
+ * ground-truth evidence log; /muzza/kushi-blantis/ is left in defensively (harmless no-op if
+ * it never resolves to a real sitemap entry).
+ *
+ * Also includes the 2 unpublished-via-REST test shells (/sample-page/, /wave2-test/ —
+ * belt-and-braces: excluded from the sitemap here too in case the REST unpublish, run
+ * separately via scripts/wp_rest_client.py, lags or is reverted).
  */
 function ea_w217_redirect_source_paths() {
 	return array(
@@ -45,10 +47,11 @@ function ea_w217_redirect_source_paths() {
 		'/muzza/',
 		'/muzza/vekatavt/',
 		'/muzza/tsva-bechol-ve-zorek-layam/',
-		'/muzza/kushi-blantis/',
+		'/muzza/kushi-blantis/', // defensive; not in the ground-truth 14 but harmless if absent.
 		'/muzeh/',
 		'/muzeh/vekatavt/',
 		'/muzeh/tsva-bechol-ve-zorek-layam/',
+		'/muzeh/kushi-blantis/', // the actual ground-truth 14th entry (Appendix A) — was missing.
 		// Belt-and-braces: excluded from the sitemap regardless of REST unpublish timing.
 		'/sample-page/',
 		'/wave2-test/',
