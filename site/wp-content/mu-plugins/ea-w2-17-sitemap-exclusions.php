@@ -127,3 +127,55 @@ function ea_w217_sitemap_exclude_post_type( $excluded, $post_type ) {
 	return $excluded;
 }
 add_filter( 'wpseo_sitemap_exclude_post_type', 'ea_w217_sitemap_exclude_post_type', 10, 2 );
+
+/**
+ * Belt-and-braces (live-verified 2026-07-03 need): 'wpa-stats-type' still appeared in
+ * sitemap_index.xml after the post-type-exclude filter above (deploy confirmed live —
+ * category/post_tag/author noise sitemaps DID disappear from the index — so this is a
+ * genuine gap for this specific CPT sitemap, not a caching artifact). Strip it directly
+ * from the index links regardless of how the underlying CPT sitemap is registered.
+ */
+function ea_w217_sitemap_index_strip_wpa_stats( $links ) {
+	if ( ! is_array( $links ) ) {
+		return $links;
+	}
+	return array_values(
+		array_filter(
+			$links,
+			function ( $link ) {
+				$loc = is_array( $link ) && isset( $link['loc'] ) ? (string) $link['loc'] : '';
+				return false === strpos( $loc, 'wpa-stats-type' );
+			}
+		)
+	);
+}
+add_filter( 'wpseo_sitemap_index_links', 'ea_w217_sitemap_index_strip_wpa_stats' );
+
+/**
+ * Belt-and-braces (live-verified 2026-07-03 need): the by-post-ID exclusion above resolved
+ * 13/14 redirect-source paths + both test pages correctly, but /muzeh/kushi-blantis/ still
+ * appeared in page-sitemap.xml live (get_page_by_path() path-resolution edge case — see the
+ * "open question" note in ea_w217_redirect_source_paths() above). Add a direct URL-string
+ * match on the rendered sitemap entry so exclusion never depends on path->ID resolution
+ * succeeding — this is authoritative regardless of the by-ID filter's outcome.
+ */
+function ea_w217_sitemap_entry_strip_by_url( $url, $type, $post ) {
+	if ( ! is_array( $url ) || empty( $url['loc'] ) ) {
+		return $url;
+	}
+	static $excluded_paths = null;
+	if ( null === $excluded_paths ) {
+		$excluded_paths = array_map(
+			function ( $p ) {
+				return trim( $p, '/' );
+			},
+			ea_w217_redirect_source_paths()
+		);
+	}
+	$path = trim( (string) wp_parse_url( $url['loc'], PHP_URL_PATH ), '/' );
+	if ( in_array( $path, $excluded_paths, true ) ) {
+		return false;
+	}
+	return $url;
+}
+add_filter( 'wpseo_sitemap_entry', 'ea_w217_sitemap_entry_strip_by_url', 10, 3 );
