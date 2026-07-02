@@ -131,6 +131,17 @@ export function normalize(text) {
   // Fold both spellings AND case to one token on both sides so the verbatim gate
   // matches the corrected render (mirrors the geresh/dash display normalizations).
   t = t.replace(/jung(?:le|el)\s+vibes/gi, 'jungle vibes');
+  // Brand retirement ratified permanent \u2014 DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md
+  // (P0-CRF-01 resolved via gate normalization, not content restore). The retired
+  // brand string "\u05e1\u05d8\u05d5\u05d3\u05d9\u05d5 \u05e0\u05e9\u05d9\u05de\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea" (+ optional city qualifier "\u05d1\u05e4\u05e8\u05d3\u05e1 \u05d7\u05e0\u05d4"/"\u05e4\u05e8\u05d3\u05e1 \u05d7\u05e0\u05d4")
+  // was permanently removed site-wide 2026-06-21; the 25.5.26 source docs are stale on
+  // this point. Strip the brand token AND a leading connector dash/comma (with any
+  // surrounding spaces) from BOTH source and live text so this can never re-drift the
+  // gate. Scoped to the brand token itself \u2014 does not touch the 6 verbatim customer-
+  // testimonial quotes (umbrella AC-09 scope-out), which contain the string in prose,
+  // not as a connector-prefixed suffix, and are unaffected by this pattern.
+  t = t.replace(/\s*[-,]\s*\u05e1\u05d8\u05d5\u05d3\u05d9\u05d5\s+\u05e0\u05e9\u05d9\u05de\u05d4\s+\u05de\u05e2\u05d2\u05dc\u05d9\u05ea(?:\s+\u05d1?\u05e4\u05e8\u05d3\u05e1\s+\u05d7\u05e0\u05d4)?/g, '');
+  t = t.replace(/\u05e1\u05d8\u05d5\u05d3\u05d9\u05d5\s+\u05e0\u05e9\u05d9\u05de\u05d4\s+\u05de\u05e2\u05d2\u05dc\u05d9\u05ea(?:\s+\u05d1?\u05e4\u05e8\u05d3\u05e1\s+\u05d7\u05e0\u05d4)?/g, '');
   // Drop a space before sentence punctuation \u2014 never content; it is a tag-strip
   // artifact of inline markup ending right before the mark, e.g. <a>\u2026\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5</a>.
   // becomes "\u05D1\u05D3\u05D9\u05D2'\u05E8\u05D9\u05D3\u05D5 ." (team_100 fix 2026-06-05).
