@@ -1500,8 +1500,9 @@ work_packages:
     T2 image verify-first; T3 D-1 meta single-source; T4 D-2 sitemap hygiene; T5 D2 GeoCircle;
     T6 D3 robots-production (cutover-gated) + C-1 provenance; T7 seo_probe.mjs; T8 AC-12 staging
     test (owner team_100, target 2026-07-09); T9 EN draft (Eyal gate). Builder team_110 under
-    ADR045 execution mandate per explicit team_00 directive 2026-07-03; engines: claude (build)
-    vs cursor (team_90 validate) — IR#1 held. Supersedes MANDATE-TEAM10-CRFINAL-FIXROUND-2026-07-03
+    ADR045 execution mandate per explicit team_00 directive 2026-07-03 (dispatched MSG-20260702-120);
+    team_110 canonical engine cursor-composer-2 — IR#1: leg-1 validator engine must differ from
+    executing build engine, recorded at re-audit dispatch. Supersedes MANDATE-TEAM10-CRFINAL-FIXROUND-2026-07-03
     Task 1. ADR034 note: API registration attempted 2026-07-03 (PUT /api/l0/eyalamit/work-packages/
     WP-W2-17, actor headers OK) — server 500, payload description not mapped to NOT-NULL column
     (server-side field-mapping bug); DB roadmap also stale (active_milestone S002, no W2-11..16
