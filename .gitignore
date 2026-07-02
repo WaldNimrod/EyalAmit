@@ -56,3 +56,11 @@ docs/chapters-preview/
 # Local IDE / transient CDP probe runs (regenerated; evidence lives under _COMMUNICATION/)
 .claude/
 docs/qa/probe-*/
+
+# Bulk media dumps — never commit (kept on disk / Drive only, per project media policy)
+# DOK-WEB source media from Eyal (images + videos, ~6.6GB)
+docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/DOK-WEB/
+# team_110 gallery pipeline output (durable build dir — catalogs/enrichment JSON stay tracked-free too; regenerate via _COMMUNICATION/team_110/*.py)
+_COMMUNICATION/team_110/build/gallery-eyal/
+# Local Google Drive desktop sync mirror
+/EyalAmit_Site_GoogleDrive_Sync/
