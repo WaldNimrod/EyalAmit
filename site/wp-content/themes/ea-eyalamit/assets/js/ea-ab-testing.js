@@ -123,4 +123,13 @@
   document.addEventListener('wpcf7mailsent', function () {
     track('generate_lead', { method: 'form' });
   });
+
+  // WP-W2-17 T8 (AC-12 validation-plan §4 step 4): the tel: lead path had no
+  // generate_lead wiring at all (whatsapp and form already did) — every
+  // tel: link on the page now fires one generate_lead per click.
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      track('generate_lead', { method: 'tel' });
+    });
+  });
 })();
