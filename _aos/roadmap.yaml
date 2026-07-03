@@ -1520,3 +1520,7 @@ work_packages:
     result: PASS
     date: '2026-07-03'
     notes: 'team_110 COMPLETION_REPORT (claude-code) — T1–T9 executed + 5 real live-found defects fixed; team_100 independently live-verified T3/T4/T5/T6 correct + accepted (ACCEPTANCE-WP-W2-17-BUILD-COMPLETION-2026-07-03). Correction: team_110 image "content gaps" are a verified stale-image-map artifact (all 6 files live-200) — 0 content gaps, 0 Eyal asks; manifest reconciliation is a low-priority team_110 follow-up. Advancing to L-GATE_VALIDATE — team_90 CR-FINAL leg-1 re-audit dispatched MSG-20260703-124.'
+  - gate: L-GATE_VALIDATE
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-03'
+    notes: 'CR-FINAL leg-1 re-audit — team_90 (cursor, cross-engine vs claude-code build). content-diff 17/17 gate-pass, /eyal-amit/ 100/100 (P0 resolved); image audit 16/16 0-broken 0-missing (canonical scripts/qa/image-audit.cjs); seo_probe checks curl-verified PASS (script exit 1 = host flakiness only); image-picker PASS. Brand normalization + seo_probe implementation RATIFIED. Legs 2/3 (team_190 + team_50 June PASS) ruled UNCHANGED by the constitutional validator → triple-PASS re-established for the WP-W2-17 build. Report: _COMMUNICATION/team_90/CONTENT-ACCURACY-REPORT-CR-FINAL-RERUN-2026-07-03.md. WP stays IN_PROGRESS for 2 tail items outside the CR-FINAL gate: AC-12 staging lead-receipt test (team_100/ops, ≤2026-07-09) + T9 EN-01 Eyal approval (hub). NO "ready" to Eyal — that is a team_00 decision gated on the M5→M6→M7 chain, not on this leg alone.'
