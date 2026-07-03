@@ -1483,7 +1483,7 @@ work_packages:
   label: CR-FINAL remediation + SEO/GEO ratified execution
   status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_VALIDATE
   lod_status: LOD400
   assigned_builder: team_110
   assigned_validator: team_90 (cursor, CR-FINAL leg-1 re-run) + team_50/team_190 (June PASS stands)
@@ -1512,3 +1512,11 @@ work_packages:
     result: PASS
     date: '2026-07-03'
     notes: Eligibility = explicit team_00 directive (fast-track both reports); inputs are two delivered canonical reports.
+  - gate: L-GATE_SPEC
+    result: PASS
+    date: '2026-07-03'
+    notes: External 3-validator adversarial panel (LOD400 canon / factual grounding / completeness) — PASS_WITH_FINDINGS, 0 BLOCKING, 20 findings remediated (spec §5). Cross-engine team_90 remains the constitutional validator at leg-1.
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-03'
+    notes: 'team_110 COMPLETION_REPORT (claude-code) — T1–T9 executed + 5 real live-found defects fixed; team_100 independently live-verified T3/T4/T5/T6 correct + accepted (ACCEPTANCE-WP-W2-17-BUILD-COMPLETION-2026-07-03). Correction: team_110 image "content gaps" are a verified stale-image-map artifact (all 6 files live-200) — 0 content gaps, 0 Eyal asks; manifest reconciliation is a low-priority team_110 follow-up. Advancing to L-GATE_VALIDATE — team_90 CR-FINAL leg-1 re-audit dispatched MSG-20260703-124.'
