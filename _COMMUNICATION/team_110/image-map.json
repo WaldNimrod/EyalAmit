@@ -13,8 +13,9 @@
     "wide 16:6": "רצועת גלריה רחבה"
   },
   "totals": {
-    "image_slots": 71,
-    "distinct_images_used": 25
+    "image_slots": 67,
+    "distinct_images_used": 25,
+    "mockup_unbuilt_slots": 6
   },
   "usage_count": {
     "assets/ea-home-hero-720-muted.mp4": 2,
@@ -102,8 +103,8 @@
           "role": "וידאו מסך-מלא (דף הבית בלבד)",
           "type": "video",
           "current": [
-            "assets/ea-home-hero-720-muted.mp4",
-            "assets/ea-home-hero-poster.jpg"
+            "assets/video/ea-home-hero-720-muted.mp4",
+            "assets/video/ea-home-hero-poster.jpg"
           ],
           "crop": "full-bleed cover · landscape 16:9",
           "note": "וידאו ייעודי לדף הבית. אפשר חלופות וידאו + פוסטר."
@@ -113,7 +114,7 @@
           "section": "אודות (collage)",
           "role": "תמונה ראשית",
           "type": "img",
-          "current": "assets/photos/eyal-portrait-garden.jpg",
+          "current": "assets/images/chapters/eyal-portrait-garden.jpg",
           "crop": "portrait ~4:5",
           "alt": "אייל בגינה עם הדיג׳רידו"
         },
@@ -122,7 +123,7 @@
           "section": "אודות (collage)",
           "role": "תמונה קטנה",
           "type": "img",
-          "current": "assets/photos/didg-spiral-detail.jpg",
+          "current": "assets/images/chapters/didg-spiral-detail.jpg",
           "crop": "square ~1:1",
           "alt": "ספירלת cbDIDG בקצה הכלי"
         },
@@ -131,7 +132,7 @@
           "section": "אודות (collage)",
           "role": "תמונה קטנה",
           "type": "img",
-          "current": "assets/photos/logo-didgs-door.jpg",
+          "current": "assets/images/chapters/logo-didgs-door.jpg",
           "crop": "square ~1:1",
           "alt": "שלושה דיג׳רידו בצורת ספירלה"
         },
@@ -140,7 +141,7 @@
           "section": "למי מתאים",
           "role": "thumb עגול",
           "type": "img",
-          "current": "assets/photos/eyal-bright.jpg",
+          "current": "assets/images/chapters/eyal-bright.jpg",
           "crop": "cover small ~1:1"
         },
         {
@@ -148,7 +149,7 @@
           "section": "למי מתאים",
           "role": "thumb עגול",
           "type": "img",
-          "current": "assets/photos/breath-practice.jpg",
+          "current": "assets/images/chapters/breath-practice.jpg",
           "crop": "cover small ~1:1"
         },
         {
@@ -156,7 +157,7 @@
           "section": "למי מתאים",
           "role": "thumb עגול",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "cover small ~1:1"
         },
         {
@@ -164,7 +165,7 @@
           "section": "למי מתאים",
           "role": "thumb עגול",
           "type": "img",
-          "current": "assets/photos/eyal-close.jpg",
+          "current": "assets/images/chapters/eyal-close.jpg",
           "crop": "cover small ~1:1"
         },
         {
@@ -172,7 +173,7 @@
           "section": "מה קורה במפגש",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "landscape ~4:3"
         },
         {
@@ -180,7 +181,7 @@
           "section": "מה קורה במפגש",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/eyal-teaching.jpg",
+          "current": "assets/images/chapters/eyal-teaching.jpg",
           "crop": "landscape ~4:3"
         },
         {
@@ -188,7 +189,7 @@
           "section": "מה קורה במפגש",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/eyal-receiving.jpg",
+          "current": "assets/images/chapters/eyal-receiving.jpg",
           "crop": "landscape ~4:3"
         },
         {
@@ -196,7 +197,7 @@
           "section": "מה קורה במפגש",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/stone-mandala.jpg",
+          "current": "assets/images/chapters/stone-mandala.jpg",
           "crop": "landscape ~4:3"
         },
         {
@@ -204,7 +205,7 @@
           "section": "רצועת מפריד full-bleed",
           "role": "רקע רוחבי",
           "type": "img",
-          "current": "assets/photos/group-session-garden.jpg",
+          "current": "assets/images/chapters/group-session-garden.jpg",
           "crop": "full-bleed cover · wide 16:6",
           "alt": "מפגש קבוצתי בגינה"
         },
@@ -213,7 +214,7 @@
           "section": "הסטודיו",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/studio-interior.jpg",
+          "current": "assets/images/chapters/studio-interior.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -221,7 +222,7 @@
           "section": "השוואה",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/breath-practice.jpg",
+          "current": "assets/images/chapters/breath-practice.jpg",
           "crop": "cover"
         },
         {
@@ -229,7 +230,7 @@
           "section": "השוואה",
           "role": "כרטיס",
           "type": "img",
-          "current": "assets/photos/didgs-window.jpg",
+          "current": "assets/images/chapters/didgs-window.jpg",
           "crop": "cover"
         },
         {
@@ -237,7 +238,7 @@
           "section": "07 איך מתחילים",
           "role": "רקע כהה full-bleed",
           "type": "img",
-          "current": "assets/photos/studio-interior.jpg",
+          "current": "assets/images/chapters/studio-interior.jpg",
           "crop": "full-bleed cover (מעומעם)"
         }
       ]
@@ -252,7 +253,7 @@
           "section": "Hero",
           "role": "hero media",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "full-bleed cover · landscape",
           "alt": "אייל מנגן מול קיר הקשתות"
         },
@@ -261,7 +262,7 @@
           "section": "מהי השיטה",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -269,7 +270,7 @@
           "section": "איך בנויה השיטה",
           "role": "ספרד מגזין (אנכי)",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "portrait tall ~3:4"
         },
         {
@@ -277,7 +278,7 @@
           "section": "ציטוט full-bleed",
           "role": "רקע רוחבי",
           "type": "img",
-          "current": "assets/photos/didg-spiral-detail.jpg",
+          "current": "assets/images/chapters/didg-spiral-detail.jpg",
           "crop": "full-bleed cover · wide"
         },
         {
@@ -285,7 +286,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-bright.jpg",
+          "current": "assets/images/chapters/eyal-bright.jpg",
           "crop": "portrait cover"
         },
         {
@@ -293,7 +294,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/breath-practice.jpg",
+          "current": "assets/images/chapters/breath-practice.jpg",
           "crop": "portrait cover"
         },
         {
@@ -301,7 +302,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "portrait cover"
         },
         {
@@ -309,7 +310,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-close.jpg",
+          "current": "assets/images/chapters/eyal-close.jpg",
           "crop": "portrait cover"
         }
       ]
@@ -324,7 +325,7 @@
           "section": "Hero",
           "role": "hero media",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "full-bleed cover · landscape"
         },
         {
@@ -332,7 +333,7 @@
           "section": "מה זה טיפול",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -340,7 +341,7 @@
           "section": "לנשום נכון (full-bleed)",
           "role": "רקע רוחבי",
           "type": "img",
-          "current": "assets/photos/group-session-garden.jpg",
+          "current": "assets/images/chapters/group-session-garden.jpg",
           "crop": "full-bleed cover · wide"
         },
         {
@@ -348,7 +349,7 @@
           "section": "למי מתאים (5)",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-bright.jpg",
+          "current": "assets/images/chapters/eyal-bright.jpg",
           "crop": "portrait cover"
         },
         {
@@ -356,7 +357,7 @@
           "section": "למי מתאים (5)",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "portrait cover"
         },
         {
@@ -364,7 +365,7 @@
           "section": "למי מתאים (5)",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/breath-practice.jpg",
+          "current": "assets/images/chapters/breath-practice.jpg",
           "crop": "portrait cover"
         },
         {
@@ -372,7 +373,7 @@
           "section": "למי מתאים (5)",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-close.jpg",
+          "current": "assets/images/chapters/eyal-close.jpg",
           "crop": "portrait cover"
         },
         {
@@ -380,7 +381,7 @@
           "section": "למי מתאים (5)",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/stone-mandala.jpg",
+          "current": "assets/images/chapters/stone-mandala.jpg",
           "crop": "portrait cover"
         },
         {
@@ -389,8 +390,8 @@
           "role": "בלוק וידאו גדול (poster+video)",
           "type": "video",
           "current": [
-            "assets/ea-home-hero-720-muted.mp4",
-            "assets/photos/eyal-window.jpg"
+            "assets/video/ea-home-hero-720-muted.mp4",
+            "assets/images/chapters/eyal-window.jpg"
           ],
           "crop": "landscape 16:9",
           "note": "PLACEHOLDER — משתמש כרגע בווידאו של דף הבית. דרוש סרטון טיפול ייעודי."
@@ -407,7 +408,7 @@
           "section": "Hero",
           "role": "hero media",
           "type": "img",
-          "current": "assets/photos/group-session-garden.jpg",
+          "current": "assets/images/chapters/group-session-garden.jpg",
           "crop": "full-bleed cover · landscape"
         },
         {
@@ -415,7 +416,7 @@
           "section": "מה זה",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/eyal-receiving.jpg",
+          "current": "assets/images/chapters/eyal-receiving.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -423,7 +424,7 @@
           "section": "המרחב (full-bleed)",
           "role": "רקע רוחבי",
           "type": "img",
-          "current": "assets/photos/studio-mosaic.jpg",
+          "current": "assets/images/chapters/studio-mosaic.jpg",
           "crop": "full-bleed cover · wide"
         },
         {
@@ -431,7 +432,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-bright.jpg",
+          "current": "assets/images/chapters/eyal-bright.jpg",
           "crop": "portrait cover"
         },
         {
@@ -439,7 +440,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/breath-practice.jpg",
+          "current": "assets/images/chapters/breath-practice.jpg",
           "crop": "portrait cover"
         },
         {
@@ -447,7 +448,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-window.jpg",
+          "current": "assets/images/chapters/eyal-window.jpg",
           "crop": "portrait cover"
         },
         {
@@ -455,7 +456,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-close.jpg",
+          "current": "assets/images/chapters/eyal-close.jpg",
           "crop": "portrait cover"
         }
       ]
@@ -470,7 +471,7 @@
           "section": "Hero",
           "role": "hero media",
           "type": "img",
-          "current": "assets/photos/eyal-teaching.jpg",
+          "current": "assets/images/chapters/eyal-teaching.jpg",
           "crop": "full-bleed cover · landscape"
         },
         {
@@ -478,7 +479,7 @@
           "section": "מה זה ללמוד",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -486,7 +487,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-bright.jpg",
+          "current": "assets/images/chapters/eyal-bright.jpg",
           "crop": "portrait cover"
         },
         {
@@ -494,7 +495,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-teaching.jpg",
+          "current": "assets/images/chapters/eyal-teaching.jpg",
           "crop": "portrait cover"
         },
         {
@@ -502,7 +503,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/didgs-window.jpg",
+          "current": "assets/images/chapters/didgs-window.jpg",
           "crop": "portrait cover"
         },
         {
@@ -510,7 +511,7 @@
           "section": "למי מתאים",
           "role": "reveal card",
           "type": "img",
-          "current": "assets/photos/eyal-close.jpg",
+          "current": "assets/images/chapters/eyal-close.jpg",
           "crop": "portrait cover"
         }
       ]
@@ -525,7 +526,7 @@
           "section": "Hero",
           "role": "hero media (פורטרט)",
           "type": "img",
-          "current": "assets/photos/eyal-portrait-garden.jpg",
+          "current": "assets/images/chapters/eyal-portrait-garden.jpg",
           "crop": "full-bleed cover · landscape"
         },
         {
@@ -533,7 +534,7 @@
           "section": "המרכז",
           "role": "תמונת split",
           "type": "img",
-          "current": "assets/photos/studio-interior.jpg",
+          "current": "assets/images/chapters/studio-interior.jpg",
           "crop": "landscape ~5:4"
         },
         {
@@ -541,7 +542,7 @@
           "section": "מוקש דהימן",
           "role": "תמונת split (פורטרט)",
           "type": "img",
-          "current": "assets/photos/mokesh-eyal.jpg",
+          "current": "assets/images/chapters/mokesh-eyal.jpg",
           "crop": "portrait ~4:5"
         },
         {
@@ -549,7 +550,7 @@
           "section": "הסטודיו (גלריה)",
           "role": "תמונה רחבה",
           "type": "img",
-          "current": "assets/photos/studio-mosaic.jpg",
+          "current": "assets/images/chapters/studio-mosaic.jpg",
           "crop": "wide 16:6"
         },
         {
@@ -557,7 +558,7 @@
           "section": "הסטודיו (גלריה)",
           "role": "תמונה",
           "type": "img",
-          "current": "assets/photos/garden.jpg",
+          "current": "assets/images/chapters/garden.jpg",
           "crop": "4:3"
         },
         {
@@ -565,40 +566,8 @@
           "section": "הסטודיו (גלריה)",
           "role": "תמונה",
           "type": "img",
-          "current": "assets/photos/studio-didgs.jpg",
+          "current": "assets/images/chapters/studio-didgs.jpg",
           "crop": "4:3"
-        },
-        {
-          "id": "gallery-4",
-          "section": "הסטודיו (גלריה)",
-          "role": "תמונה",
-          "type": "img",
-          "current": "assets/ea-home-hero-poster.jpg",
-          "crop": "4:3"
-        },
-        {
-          "id": "book-1",
-          "section": "שלושה ספרים",
-          "role": "כריכה",
-          "type": "img",
-          "current": "assets/covers/tsva-bechol-cover.jpg",
-          "crop": "book 3:4"
-        },
-        {
-          "id": "book-2",
-          "section": "שלושה ספרים",
-          "role": "כריכה",
-          "type": "img",
-          "current": "assets/covers/kushi-blantis-cover.jpg",
-          "crop": "book 3:4"
-        },
-        {
-          "id": "book-3",
-          "section": "שלושה ספרים",
-          "role": "כריכה",
-          "type": "img",
-          "current": "assets/covers/vekatavt-cover.jpg",
-          "crop": "book 3:4"
         }
       ]
     },
@@ -612,7 +581,7 @@
           "section": "מוזאיקה",
           "role": "אריח מוביל (גדול)",
           "type": "img",
-          "current": "assets/photos/eyal-studio-play.jpg",
+          "current": "assets/images/chapters/eyal-studio-play.jpg",
           "crop": "cover landscape"
         },
         {
@@ -620,7 +589,7 @@
           "section": "מוזאיקה",
           "role": "אריח חצי",
           "type": "img",
-          "current": "assets/photos/didgs-window.jpg",
+          "current": "assets/images/chapters/didgs-window.jpg",
           "crop": "cover"
         },
         {
@@ -636,7 +605,7 @@
           "section": "מוזאיקה",
           "role": "אריח גובה (פורטרט)",
           "type": "img",
-          "current": "assets/photos/logo-didgs-door.jpg",
+          "current": "assets/images/chapters/logo-didgs-door.jpg",
           "crop": "cover portrait"
         },
         {
@@ -644,7 +613,7 @@
           "section": "מוזאיקה",
           "role": "אריח חצי",
           "type": "img",
-          "current": "assets/photos/studio-mosaic.jpg",
+          "current": "assets/images/chapters/studio-mosaic.jpg",
           "crop": "cover"
         },
         {
@@ -652,7 +621,7 @@
           "section": "מוזאיקה",
           "role": "אריח חצי",
           "type": "img",
-          "current": "assets/photos/eyal-receiving.jpg",
+          "current": "assets/images/chapters/eyal-receiving.jpg",
           "crop": "cover"
         },
         {
@@ -660,7 +629,7 @@
           "section": "מוזאיקה",
           "role": "אריח חצי",
           "type": "img",
-          "current": "assets/photos/group-session-garden.jpg",
+          "current": "assets/images/chapters/group-session-garden.jpg",
           "crop": "cover"
         },
         {
@@ -683,7 +652,7 @@
           "section": "רצועת מרחב",
           "role": "רקע רוחבי (placeholder למפה)",
           "type": "img",
-          "current": "assets/ea-home-hero-poster.jpg",
+          "current": "assets/video/ea-home-hero-poster.jpg",
           "crop": "full-bleed cover · wide",
           "note": "מועמד להחלפה במפה/תמונת מיקום."
         }
@@ -699,7 +668,7 @@
           "section": "המורה",
           "role": "תמונת split (פורטרט)",
           "type": "img",
-          "current": "assets/photos/mokesh-eyal.jpg",
+          "current": "assets/images/chapters/mokesh-eyal.jpg",
           "crop": "portrait ~4:5"
         },
         {
@@ -707,7 +676,7 @@
           "section": "המורשת (גלריה)",
           "role": "תמונה",
           "type": "img",
-          "current": "assets/photos/mokesh-eyal.jpg",
+          "current": "assets/images/chapters/mokesh-eyal.jpg",
           "crop": "4:3"
         },
         {
@@ -715,7 +684,7 @@
           "section": "המורשת (גלריה)",
           "role": "תמונה",
           "type": "img",
-          "current": "assets/photos/logo-didgs-door.jpg",
+          "current": "assets/images/chapters/logo-didgs-door.jpg",
           "crop": "4:3"
         },
         {
@@ -723,7 +692,7 @@
           "section": "המורשת (גלריה)",
           "role": "תמונה",
           "type": "img",
-          "current": "assets/photos/studio-didgs.jpg",
+          "current": "assets/images/chapters/studio-didgs.jpg",
           "crop": "4:3"
         }
       ]
@@ -739,27 +708,58 @@
           "section": "Hero",
           "role": "כריכת ספר",
           "type": "img",
-          "current": "assets/covers/kushi-blantis-cover.jpg",
+          "current": "assets/images/kushi-blantis-cover.jpg",
           "crop": "book 3:4",
           "note": "placeholder תבנית — מוחלף לכל ספר."
-        },
-        {
-          "id": "bleed-quote",
-          "section": "ציטוט full-bleed",
-          "role": "רקע רוחבי",
-          "type": "img",
-          "current": "assets/gallery/kushi-04-sinai.jpg",
-          "crop": "full-bleed cover · wide"
-        },
-        {
-          "id": "author-fig",
-          "section": "מאת",
-          "role": "תמונת split",
-          "type": "img",
-          "current": "assets/gallery/kushi-02-eyal-italy.jpg",
-          "crop": "landscape ~5:4"
         }
       ]
     }
-  ]
+  ],
+  "mockup_unbuilt_slots": [
+    {
+      "intended_page": "אודות (About)",
+      "slotId": "gallery-4",
+      "type": "img",
+      "intended_image": "assets/video/ea-home-hero-poster.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    },
+    {
+      "intended_page": "אודות (About)",
+      "slotId": "book-1",
+      "type": "img",
+      "intended_image": "assets/images/tsva-bechol-cover.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    },
+    {
+      "intended_page": "אודות (About)",
+      "slotId": "book-2",
+      "type": "img",
+      "intended_image": "assets/images/kushi-blantis-cover.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    },
+    {
+      "intended_page": "אודות (About)",
+      "slotId": "book-3",
+      "type": "img",
+      "intended_image": "assets/images/vekatavt-cover.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    },
+    {
+      "intended_page": "תבנית עמוד ספר (Book template)",
+      "slotId": "bleed-quote",
+      "type": "img",
+      "intended_image": "assets/images/kushi-04-sinai.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    },
+    {
+      "intended_page": "תבנית עמוד ספר (Book template)",
+      "slotId": "author-fig",
+      "type": "img",
+      "intended_image": "assets/images/kushi-02-eyal-italy.jpg",
+      "note": "Mockup-intent slot NOT rendered on the built page (live-verified 2026-07-03). Image file exists in-repo; adding it to the page is an open design decision (team_00/Eyal), not a materials gap."
+    }
+  ],
+  "reconciliation": {
+    "2026-07-03": "team_100 (team_00-authorized direct implementation of the team_110 follow-up): corrected all stale slot paths to real theme locations (assets/photos->assets/images/chapters, assets/covers+assets/gallery->assets/images, hero assets/->assets/video); moved 6 mockup-intent slots the built pages do not render (About gallery-4/book-1/2/3; Book template bleed-quote/author-fig) into mockup_unbuilt_slots. All referenced files verified live-200. Video slots retained (real; audit made video-aware separately). Design question re: adding book covers to /eyal-amit/ flagged to team_00."
+  }
 }
