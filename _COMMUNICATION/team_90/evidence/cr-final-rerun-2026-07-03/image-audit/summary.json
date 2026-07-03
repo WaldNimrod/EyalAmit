@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-07-03T10:25:03.640Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "imageMapSource": "_COMMUNICATION/team_110/image-map.json",
+  "videoAware": true,
+  "httpVerifiedBroken": true,
+  "pagesAudited": 16,
+  "totalImages": 110,
+  "totalBroken": 1,
+  "totalLoadedSlow": 19,
+  "totalMissingSlots": 0,
+  "pagesPass": 15,
+  "pagesFail": 1,
+  "verdict": "FAIL",
+  "results": [
+    {
+      "name": "home",
+      "path": "/",
+      "imagesTotal": 22,
+      "imagesBroken": 0,
+      "slotsExpected": 18,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "method",
+      "path": "/method/",
+      "imagesTotal": 8,
+      "imagesBroken": 0,
+      "slotsExpected": 8,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "treatment",
+      "path": "/treatment/",
+      "imagesTotal": 9,
+      "imagesBroken": 0,
+      "slotsExpected": 10,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "sound-healing",
+      "path": "/sound-healing/",
+      "imagesTotal": 7,
+      "imagesBroken": 0,
+      "slotsExpected": 7,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "lessons",
+      "path": "/lessons/",
+      "imagesTotal": 6,
+      "imagesBroken": 0,
+      "slotsExpected": 6,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "faq",
+      "path": "/faq/",
+      "imagesTotal": 2,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "books",
+      "path": "/books/",
+      "imagesTotal": 4,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "eyal-amit",
+      "path": "/eyal-amit/",
+      "imagesTotal": 7,
+      "imagesBroken": 0,
+      "slotsExpected": 6,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "book-vekatavta",
+      "path": "/books/vekatavta/",
+      "imagesTotal": 8,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "book-kushi",
+      "path": "/books/kushi-blantis/",
+      "imagesTotal": 11,
+      "imagesBroken": 1,
+      "slotsExpected": 1,
+      "slotsMissing": 0,
+      "pass": false
+    },
+    {
+      "name": "book-tsva",
+      "path": "/books/tsva-bekahol/",
+      "imagesTotal": 2,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "didgeridoos",
+      "path": "/didgeridoos/",
+      "imagesTotal": 3,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "bags",
+      "path": "/bags/",
+      "imagesTotal": 4,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "stands-storage",
+      "path": "/stands-storage/",
+      "imagesTotal": 8,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "stand-floor",
+      "path": "/stand-floor/",
+      "imagesTotal": 2,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    },
+    {
+      "name": "repair",
+      "path": "/repair/",
+      "imagesTotal": 7,
+      "imagesBroken": 0,
+      "slotsExpected": 0,
+      "slotsMissing": 0,
+      "pass": true
+    }
+  ]
+}

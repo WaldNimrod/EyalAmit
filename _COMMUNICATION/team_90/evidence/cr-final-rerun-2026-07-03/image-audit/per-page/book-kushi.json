@@ -1,0 +1,38 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+  "imagesTotal": 11,
+  "imagesBroken": 1,
+  "imagesLoadedSlow": 3,
+  "loadedSlowUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg",
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stone-mandala.jpg"
+  ],
+  "brokenUrls": [
+    "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"
+  ],
+  "brokenDetails": [
+    {
+      "src": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg",
+      "alt": "",
+      "complete": false,
+      "naturalWidth": 0,
+      "broken": true,
+      "httpStatus": 0
+    }
+  ],
+  "bgImageCount": 0,
+  "videoSrcCount": 0,
+  "slotsExpected": 1,
+  "slotsMissing": 0,
+  "missingSlotDetails": [],
+  "slotResults": [
+    {
+      "slotId": "cover",
+      "expected": "kushi-blantis-cover.jpg",
+      "type": "img",
+      "foundOnPage": true
+    }
+  ],
+  "pass": false
+}

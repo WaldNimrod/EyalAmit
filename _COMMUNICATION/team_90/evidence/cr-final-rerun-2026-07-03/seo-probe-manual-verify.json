@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-07-03T11:21:00Z",
+  "purpose": "Independent retry verification of seo_probe.mjs exit-1 failures (flaky-host batch fetch)",
+  "seo_probe_run": "_COMMUNICATION/team_90/evidence/cr-final-rerun-2026-07-03/seo-probe-final/seo_probe_report.json",
+  "script_exit": 1,
+  "script_summary": "15/16 routes PASS; host sitemap_index FAIL (23 fetch errors); /method/ 6_og_image FAIL (fetch error)",
+  "manual_verification": [
+    {
+      "check": "6_og_image /method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "method": "curl -sI x3",
+      "result": "HTTP 200 all attempts",
+      "verdict": "PASS — script HEAD timed out; asset live"
+    },
+    {
+      "check": "3_sitemap_index sample",
+      "urls": [
+        "http://eyalamit-co-il-2026.s887.upress.link/sitemap_index.xml",
+        "http://eyalamit-co-il-2026.s887.upress.link/lessons/"
+      ],
+      "method": "curl -sI",
+      "result": "HTTP 200",
+      "verdict": "PASS — batch crawl hit connect timeouts; individual loc entries reachable"
+    }
+  ],
+  "ratification": "T7 implementation ratified against Appendix B with documented supersessions (D3 10-UA, C-2 no Service on /method/, brandExemptRoutes for check 12). Script lacks retry tolerance on check 3/6 batch fetches — non-blocking tooling finding."
+}

@@ -1,0 +1,821 @@
+{
+  "generatedAt": "2026-07-03T11:20:12.123Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "mode": "staging",
+  "cacheBust": "t7-seoprobe-1783077015062",
+  "tagline": "",
+  "ratifiedAllowedUAs": [
+    "Googlebot",
+    "Bingbot",
+    "GPTBot",
+    "OAI-SearchBot",
+    "ChatGPT-User",
+    "ClaudeBot",
+    "Claude-SearchBot",
+    "Claude-User",
+    "PerplexityBot",
+    "Perplexity-User"
+  ],
+  "supersessionNotes": [
+    "Check 2 (robots.txt UA count): Appendix B said 8 UAs; superseded by ratified D3 -> 10 UAs (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 1).",
+    "Check 7 (/method/ @type set): C-2 ratified /method/ as NOT a Service node (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9); manifest does not expect Service there.",
+    "Check 12 (brand-string exemption): file-scoped per AC-09 6-quote scope-out (SEO-GEO-ROUND2-COMPLETION-2026-06-21.md :35); route list in seo_probe.config.json is a best-effort reconstruction pending team_90 ratification."
+  ],
+  "hostLevelChecks": {
+    "2_robots_txt": {
+      "pass": true,
+      "details": "staging robots.txt any-content; status=200"
+    },
+    "3_sitemap_index": {
+      "pass": false,
+      "details": "23 failing <loc> entries: http://eyalamit-co-il-2026.s887.upress.link/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/100-100-100-%d7%aa%d7%95%d7%93%d7%94/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/historical-articles/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/lessons/ => fetch error: fetch failed; http://eyalamit-co-il-2026.s887.upress.link/learning/ => fetch error: fetch failed"
+    }
+  },
+  "routes": [
+    {
+      "name": "home",
+      "path": "/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"המרכז לטיפול בנשימה באמצעות דיג&#039;רידו בפרדס חנה — שיטת c…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "hreflang found=[\"en\",\"he\",\"x-default\"]"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "route exempt (6-quote scope-out); brand-string hits=0"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "method",
+      "path": "/method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/method/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"שיטת cbDIDG של אייל עמית — עבודה עם הנשימה דרך נגינה בדיג&#0…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/method/)"
+        },
+        "6_og_image": {
+          "pass": false,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg fetch error: fetch failed"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "route exempt (6-quote scope-out); brand-string hits=0"
+        }
+      },
+      "allPass": false
+    },
+    {
+      "name": "treatment",
+      "path": "/treatment/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"טיפול בדיג&#039;רידו הוא תהליך אישי של עבודה עם נשימה, צליל …\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/treatment/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"Service\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "route exempt (6-quote scope-out); brand-string hits=0"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "sound-healing",
+      "path": "/sound-healing/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"סאונד הילינג בדיג&#039;רידו הוא מרחב של הקשבה, צליל ותדר, למ…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/sound-healing/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"Service\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "route exempt (6-quote scope-out); brand-string hits=0"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "lessons",
+      "path": "/lessons/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"שיעורי דיג&#039;רידו עם אייל עמית מחברים בין לימוד נגינה, נש…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/lessons/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"Service\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "route exempt (6-quote scope-out); brand-string hits=0"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "faq",
+      "path": "/faq/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/faq/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"שאלות נפוצות על טיפול בדיג&#039;רידו, שיעורי נגינה, סאונד הי…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/faq/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "books",
+      "path": "/books/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"הספרים של אייל עמית בהוצאת מוזה — וכתבת, כושי בלאנטיס וצבע ב…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/books/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "eyal-amit",
+      "path": "/eyal-amit/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"אייל עמית — מאסטר דיג&#039;רידו ומטפל בנשימה, מייסד המרכז לט…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "books-vekatavta",
+      "path": "/books/vekatavta/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"וכתבת מאת אייל עמית — 46 סיפורים אמיתיים ומעוררי השראה מהחיי…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "books-kushi-blantis",
+      "path": "/books/kushi-blantis/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"כושי בלאנטיס — רומן פנטזיה מאת אייל עמית על התעוררות, בחירה,…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2026/04/kushi-blantis-cover.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "5 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "books-tsva-bekahol",
+      "path": "/books/tsva-bekahol/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"צבע בכחול וזרוק לים — ספר הביכורים של אייל עמית, 38 סיפורים …\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "didgeridoos",
+      "path": "/didgeridoos/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"דיג&#039;רידו למכירה — כלים בעבודת יד בבחירתו האישית של אייל…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "bags",
+      "path": "/bags/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/bags/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"תיקים לדיג&#039;רידו בעבודת יד — הגנה ונשיאה נוחה לכלי שלכם …\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/bags/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "stands-storage",
+      "path": "/stands-storage/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"סטנדים לאחסון דיג&#039;רידו — בתלייה או בעמידה, בעבודת יד וב…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/stands-storage/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "stand-floor",
+      "path": "/stand-floor/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"סטנד רצפתי לדיג&#039;רידו — פתרון נוח לנגינה בישיבה בגובה נמ…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/stand-floor/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    },
+    {
+      "name": "repair",
+      "path": "/repair/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/?nc=t7-seoprobe-1783077015062",
+      "status": 200,
+      "checks": {
+        "1_robots_meta_header": {
+          "pass": true,
+          "details": "staging expects noindex PRESENT; meta=true header=\"noindex, nofollow\""
+        },
+        "4_meta_description": {
+          "pass": true,
+          "details": "1 non-empty description (\"תיקון וחידוש דיג&#039;רידו וכלים נלווים מכל הסוגים, מתוך הבנ…\")"
+        },
+        "5_canonical": {
+          "pass": true,
+          "details": "canonical self-referencing (http://eyalamit-co-il-2026.s887.upress.link/repair/)"
+        },
+        "6_og_image": {
+          "pass": true,
+          "details": "og:image=http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg status=200"
+        },
+        "7_json_ld_graph": {
+          "pass": true,
+          "details": "all expected @type present: [\"Person\",\"ProfessionalService\",\"WebPage\",\"BreadcrumbList\",\"WebSite\"]"
+        },
+        "8_id_connectivity": {
+          "pass": true,
+          "details": "4 @id references, all resolve"
+        },
+        "9_prohibition_lint": {
+          "pass": true,
+          "details": "zero hits"
+        },
+        "10_hreflang": {
+          "pass": true,
+          "details": "not applicable — hreflang is scoped to / and /en/ only (by design)"
+        },
+        "11_ga4": {
+          "pass": true,
+          "details": "gtag/js present=true; config('G-MRXESK7QJF') calls=1"
+        },
+        "12_brand_absence": {
+          "pass": true,
+          "details": "zero hits"
+        }
+      },
+      "allPass": true
+    }
+  ],
+  "overallPass": false
+}

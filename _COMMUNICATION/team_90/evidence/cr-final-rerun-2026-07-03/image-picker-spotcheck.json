@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-07-03T11:08:44.187Z",
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/image-picker.html",
+  "pass": true,
+  "checks": {
+    "pageLoad": {
+      "pass": true,
+      "total": 71,
+      "slotCards": 0,
+      "candidateCards": 424
+    },
+    "thumbLoad": {
+      "pass": true,
+      "sampled": 6,
+      "loaded": 6,
+      "samples": [
+        {
+          "pid": "__current__",
+          "dataSrc": "files/team40/site-theme-images/chapters/eyal-portrait-garden.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/site-theme-images/chapters/eyal-portrait-garden.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "keep",
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "pid": "DOK-AJPS8301",
+          "dataSrc": "files/team40/ea-dok-web-thumbs/AJPS8301_sm.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/ea-dok-web-thumbs/AJPS8301_sm.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "dok",
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "pid": "DOK-AYHC6530",
+          "dataSrc": "files/team40/ea-dok-web-thumbs/AYHC6530_sm.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/ea-dok-web-thumbs/AYHC6530_sm.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "dok",
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "pid": "EA-000123",
+          "dataSrc": "files/team40/ea-legacy-curated/media/EA-000123.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/ea-legacy-curated/media/EA-000123.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "legacy",
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "pid": "EA-000124",
+          "dataSrc": "files/team40/ea-legacy-curated/media/EA-000124.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/ea-legacy-curated/media/EA-000124.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "legacy",
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "pid": "EA-000120",
+          "dataSrc": "files/team40/ea-legacy-curated/media/EA-000120.jpg",
+          "src": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/files/team40/ea-legacy-curated/media/EA-000120.jpg",
+          "naturalWidth": 0,
+          "loaded": false,
+          "decision": "legacy",
+          "httpStatus": 200,
+          "httpOk": true
+        }
+      ],
+      "note": "naturalWidth unreliable in headless; HTTP 200 used per image-audit precedent"
+    },
+    "localStorageRoundTrip": {
+      "pass": true,
+      "pickMeta": {
+        "slot": "about-collage-big",
+        "pid": "DOK-AJPS8301",
+        "src": "files/team40/ea-dok-web-thumbs/AJPS8301_sm.jpg",
+        "d": "dok"
+      },
+      "afterPick": {
+        "store": {
+          "about-collage-big": {
+            "pid": "DOK-AJPS8301",
+            "src": "files/team40/ea-dok-web-thumbs/AJPS8301_sm.jpg",
+            "decision": "dok",
+            "ts": 1783076995921
+          }
+        },
+        "selectedCount": 1
+      },
+      "afterReload": {
+        "storeKeys": [
+          "about-collage-big"
+        ],
+        "slotInStore": {
+          "pid": "DOK-AJPS8301",
+          "src": "files/team40/ea-dok-web-thumbs/AJPS8301_sm.jpg",
+          "decision": "dok",
+          "ts": 1783076995921
+        },
+        "cardHasSelected": true
+      }
+    }
+  },
+  "httpStatus": 200
+}

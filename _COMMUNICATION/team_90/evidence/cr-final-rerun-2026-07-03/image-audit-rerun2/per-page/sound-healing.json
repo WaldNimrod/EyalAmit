@@ -1,0 +1,59 @@
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+  "imagesTotal": 7,
+  "imagesBroken": 0,
+  "imagesLoadedSlow": 0,
+  "loadedSlowUrls": [],
+  "brokenUrls": [],
+  "brokenDetails": [],
+  "bgImageCount": 0,
+  "videoSrcCount": 0,
+  "slotsExpected": 7,
+  "slotsMissing": 0,
+  "missingSlotDetails": [],
+  "slotResults": [
+    {
+      "slotId": "phero",
+      "expected": "group-session-garden.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "split-fig",
+      "expected": "eyal-receiving.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "bleed",
+      "expected": "studio-mosaic.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-1",
+      "expected": "eyal-bright.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-2",
+      "expected": "breath-practice.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-3",
+      "expected": "eyal-window.jpg",
+      "type": "img",
+      "foundOnPage": true
+    },
+    {
+      "slotId": "reveal-4",
+      "expected": "eyal-close.jpg",
+      "type": "img",
+      "foundOnPage": true
+    }
+  ],
+  "pass": true
+}
