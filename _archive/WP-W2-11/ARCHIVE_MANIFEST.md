@@ -105,10 +105,10 @@ by this WP) → DS-hygiene carry-forward.
 - `_COMMUNICATION/team_100/WP-W2-11-COMPLETION-2026-06-02.md` (completion record)
 - `_COMMUNICATION/team_100/DEVIATION-WP-W2-11-BLOG-TEMPLATE-STATE-2026-06-01.md` (Blog STUB report corrected — templates are REAL)
 
-## Artifact inventory (referenced, retained in place)
+## Artifact inventory (archived 2026-07-08 — Phase B sweep, team_110)
 
-These canonical artifacts document the WP lifecycle. They remain at their `_COMMUNICATION/team_*/`
-locations (referenced as the audit trail; not relocated by this manifest).
+Per-team files **relocated** from `_COMMUNICATION/team_*/` into this archive dir (superseding the
+2026-06-02 "referenced in place" disposition).
 
 ### team_00
 - team_00/DECISION_DESIGN-ELEVATION-SEQUENCING_2026-06-01_v1.md
@@ -120,7 +120,7 @@ locations (referenced as the audit trail; not relocated by this manifest).
 - team_100/DISPOSITION-WP-W2-11-CONVERSION-S5-CLOSE-2026-06-02.md
 - team_100/DISPOSITION-WP-W2-11-BLOG-S5-CLOSE-2026-06-02.md
 - team_100/DISPOSITION-WP-W2-11-HOME-S5-CLOSE-2026-06-02.md
-- team_100/WP-W2-11-COMPLETION-2026-06-02.md
+- team_100/WP-W2-11-COMPLETION-2026-06-02.md (also cross-referenced by WP-W2-12 — see redirect)
 - team_100/DEVIATION-WP-W2-11-BLOG-TEMPLATE-STATE-2026-06-01.md
 - team_100/PROMPT-TEAM190-WP-W2-11-BLOG-HOME-L-GATE-VALIDATE-CURSOR-2026-06-02.md
 - team_100/HANDOFF_SELF_100_WP-W2-11_2026-06-01_v1.md
@@ -140,6 +140,31 @@ locations (referenced as the audit trail; not relocated by this manifest).
 - team_80/TOKEN-COMPLIANCE-WP-W2-11-BLOG-2026-06-02.md
 - team_80/TOKEN-COMPLIANCE-WP-W2-11-HOME-2026-06-02.md
 
+## Path redirects
+
+| Former path (before archive) | Archived path |
+|-------------------------------|---------------|
+| _COMMUNICATION/team_00/DECISION_DESIGN-ELEVATION-SEQUENCING_2026-06-01_v1.md | _archive/WP-W2-11/team_00/DECISION_DESIGN-ELEVATION-SEQUENCING_2026-06-01_v1.md |
+| _COMMUNICATION/team_100/MANDATE-TEAM10-WP-W2-11-S3-CONVERSION-2026-06-01.md | _archive/WP-W2-11/team_100/MANDATE-TEAM10-WP-W2-11-S3-CONVERSION-2026-06-01.md |
+| _COMMUNICATION/team_100/MANDATE-TEAM10-WP-W2-11-S3-BLOG-2026-06-02.md | _archive/WP-W2-11/team_100/MANDATE-TEAM10-WP-W2-11-S3-BLOG-2026-06-02.md |
+| _COMMUNICATION/team_100/MANDATE-TEAM10-WP-W2-11-S3-HOME-2026-06-02.md | _archive/WP-W2-11/team_100/MANDATE-TEAM10-WP-W2-11-S3-HOME-2026-06-02.md |
+| _COMMUNICATION/team_100/DISPOSITION-WP-W2-11-CONVERSION-S5-CLOSE-2026-06-02.md | _archive/WP-W2-11/team_100/DISPOSITION-WP-W2-11-CONVERSION-S5-CLOSE-2026-06-02.md |
+| _COMMUNICATION/team_100/DISPOSITION-WP-W2-11-BLOG-S5-CLOSE-2026-06-02.md | _archive/WP-W2-11/team_100/DISPOSITION-WP-W2-11-BLOG-S5-CLOSE-2026-06-02.md |
+| _COMMUNICATION/team_100/DISPOSITION-WP-W2-11-HOME-S5-CLOSE-2026-06-02.md | _archive/WP-W2-11/team_100/DISPOSITION-WP-W2-11-HOME-S5-CLOSE-2026-06-02.md |
+| _COMMUNICATION/team_100/WP-W2-11-COMPLETION-2026-06-02.md | _archive/WP-W2-11/team_100/WP-W2-11-COMPLETION-2026-06-02.md |
+| _COMMUNICATION/team_100/DEVIATION-WP-W2-11-BLOG-TEMPLATE-STATE-2026-06-01.md | _archive/WP-W2-11/team_100/DEVIATION-WP-W2-11-BLOG-TEMPLATE-STATE-2026-06-01.md |
+| _COMMUNICATION/team_100/PROMPT-TEAM190-WP-W2-11-BLOG-HOME-L-GATE-VALIDATE-CURSOR-2026-06-02.md | _archive/WP-W2-11/team_100/PROMPT-TEAM190-WP-W2-11-BLOG-HOME-L-GATE-VALIDATE-CURSOR-2026-06-02.md |
+| _COMMUNICATION/team_100/HANDOFF_SELF_100_WP-W2-11_2026-06-01_v1.md | _archive/WP-W2-11/team_100/HANDOFF_SELF_100_WP-W2-11_2026-06-01_v1.md |
+| _COMMUNICATION/team_190/VERDICT-WP-W2-11-CONVERSION-L-GATE-VALIDATE-2026-06-02.md | _archive/WP-W2-11/team_190/VERDICT-WP-W2-11-CONVERSION-L-GATE-VALIDATE-2026-06-02.md |
+| _COMMUNICATION/team_190/VERDICT-WP-W2-11-BLOG-L-GATE-VALIDATE-2026-06-02.md | _archive/WP-W2-11/team_190/VERDICT-WP-W2-11-BLOG-L-GATE-VALIDATE-2026-06-02.md |
+| _COMMUNICATION/team_190/VERDICT-WP-W2-11-HOME-L-GATE-VALIDATE-2026-06-02.md | _archive/WP-W2-11/team_190/VERDICT-WP-W2-11-HOME-L-GATE-VALIDATE-2026-06-02.md |
+| _COMMUNICATION/team_50/QA-VERDICT-WP-W2-11-CONVERSION-L-GATE-BUILD-2026-06-02.md | _archive/WP-W2-11/team_50/QA-VERDICT-WP-W2-11-CONVERSION-L-GATE-BUILD-2026-06-02.md |
+| _COMMUNICATION/team_50/QA-VERDICT-WP-W2-11-BLOG-L-GATE-BUILD-2026-06-02.md | _archive/WP-W2-11/team_50/QA-VERDICT-WP-W2-11-BLOG-L-GATE-BUILD-2026-06-02.md |
+| _COMMUNICATION/team_50/QA-VERDICT-WP-W2-11-HOME-L-GATE-BUILD-2026-06-02.md | _archive/WP-W2-11/team_50/QA-VERDICT-WP-W2-11-HOME-L-GATE-BUILD-2026-06-02.md |
+| _COMMUNICATION/team_80/TOKEN-COMPLIANCE-WP-W2-11-CONVERSION-2026-06-02.md | _archive/WP-W2-11/team_80/TOKEN-COMPLIANCE-WP-W2-11-CONVERSION-2026-06-02.md |
+| _COMMUNICATION/team_80/TOKEN-COMPLIANCE-WP-W2-11-BLOG-2026-06-02.md | _archive/WP-W2-11/team_80/TOKEN-COMPLIANCE-WP-W2-11-BLOG-2026-06-02.md |
+| _COMMUNICATION/team_80/TOKEN-COMPLIANCE-WP-W2-11-HOME-2026-06-02.md | _archive/WP-W2-11/team_80/TOKEN-COMPLIANCE-WP-W2-11-HOME-2026-06-02.md |
+
 ## Eyal-gap placeholders (graceful, awaiting Eyal materials — intentionally left)
 
 Hero video → gradient · testimonial avatars · book covers · blog featured-image → gradient · CF7 `form_id=0`.
@@ -154,3 +179,4 @@ All degrade gracefully (AC-05): no fatal, no broken UI, no console errors.
 
 ---
 *Generated by post-gate archive procedure (team_191) | 2026-06-02*
+*Phase B relocation completed by team_110 | 2026-07-08 (Fleet Version-Hygiene Sweep)*
