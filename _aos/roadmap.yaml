@@ -3,7 +3,7 @@ project:
   id: eyalamit
   name: Eyal Amit — EyalAmit.co.il 2026
   profile: L0
-  lean_kit_version: 3.1.3
+  lean_kit_version: 3.4.0+20e2011
   created: '2026-03-29'
   owner: eyalamit_sd
   active_milestone: S003
@@ -35,6 +35,15 @@ project:
     (stamped 2026-05-30) but live GET /api/l0/eyalamit/roadmap re-probe 2026-05-31 HANGS (http 000, 20s) and DB never held
     Wave2 WPs — file roadmap.yaml remains live SSoT; same mechanism as all W2-0N closures. Merge -> main PENDING team_00 go.
     NOTE: _aos/MILESTONE_MAP.md is stale (S003 labeled "Launch") — flagged to team_00, not edited (AOS-layer protection).
+
+    2026-07-14: 2026-07-12 content + quick-fix batch (12 items: Trust Line, testimonial links, /method
+    carousel, book accordions, hero video CWV, FAQ font-size, learning-menu links, footer disclaimer,
+    /repair copy, 8 meta descriptions) reached L-GATE_BUILD PASS_WITH_FINDINGS via genuine cross-engine
+    validation (team_90, cursor-composer-2, engine ≠ builder Claude — Iron Rule #1). No blocking defects;
+    2 non-blocking findings recorded. Artifacts: _COMMUNICATION/team_90/VERDICT_CONTENT-QA-2026-07-12_L-GATE_BUILD.md,
+    _COMMUNICATION/team_90/EVIDENCE-CLOSE-ITEM10c-METADESC-PROVENANCE-2026-07-14.md. Not tracked under
+    WP-CANON-TEMPLATE-UNIFICATION (that WP covers the separate, not-yet-built Wave2→Chapters unification) —
+    this was a pre-WP scoped batch, ungated by any formal WP id.
 
     '
 work_packages:
@@ -1524,3 +1533,37 @@ work_packages:
     result: PASS_WITH_FINDINGS
     date: '2026-07-03'
     notes: 'CR-FINAL leg-1 re-audit — team_90 (cursor, cross-engine vs claude-code build). content-diff 17/17 gate-pass, /eyal-amit/ 100/100 (P0 resolved); image audit 16/16 0-broken 0-missing (canonical scripts/qa/image-audit.cjs); seo_probe checks curl-verified PASS (script exit 1 = host flakiness only); image-picker PASS. Brand normalization + seo_probe implementation RATIFIED. Legs 2/3 (team_190 + team_50 June PASS) ruled UNCHANGED by the constitutional validator → triple-PASS re-established for the WP-W2-17 build. Report: _COMMUNICATION/team_90/CONTENT-ACCURACY-REPORT-CR-FINAL-RERUN-2026-07-03.md. WP stays IN_PROGRESS for 2 tail items outside the CR-FINAL gate: AC-12 staging lead-receipt test (team_100/ops, ≤2026-07-09) + T9 EN-01 Eyal approval (hub). NO "ready" to Eyal — that is a team_00 decision gated on the M5→M6→M7 chain, not on this leg alone.'
+
+- id: WP-CANON-TEMPLATE-UNIFICATION
+  label: Full-site template standardization — unify Wave2 → Chapters, delete dead code
+  status: IN_PROGRESS
+  track: BUILD
+  current_lean_gate: L-GATE_E
+  lod_status: LOD200
+  assigned_builder: team_110
+  assigned_validator: team_90 (full-site audit) + team_190 (constitutional) — cross-engine vs team_110 build, Iron Rule #1
+  created_at: '2026-07-12'
+  milestone_ref: S003
+  parent_wp:
+  spec_ref: _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD200-2026-07-12.md
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  notes: 'Discovered 2026-07-12 while reconciling two Eyal-provided ChatGPT-assisted docs (QA+SEO
+    spec) against live code: theme runs 2 parallel template systems (Wave2 legacy, Chapters live —
+    Chapters wins template_include priority 103 on nearly every route). Most "gaps" the doc-diff
+    found are not missing work — real, already-approved, already-validated features (Mokesh memorial
+    video/gallery/FB-embeds dual-PASS validated 2026-06-21 by team_50+team_190, a working
+    single-source category-filtered FAQ mechanism, a full Product-schema+purchase-CTA product
+    template) sitting in dead Wave2/mu-plugins code, silently orphaned by the 2026-06-22 Chapters
+    migration. team_00 directive 2026-07-12 item 1: "זה חייב להפוך לחבילת עבודה קאנונית מנוהלת
+    לביצוע סטנדרטיזציה מלאה" — full LOD200 scope at spec_ref. Sequence is mandatory: PORT the
+    good Wave2 components into Chapters FIRST (T1-T5), delete Wave2 only after (T6) — blind deletion
+    now would destroy the exact approved components that need to move. Also unifies /shop + /qr,
+    the only routes still actually served by Wave2 today. LOD400 full spec + T2 FAQ
+    single-vs-many-to-many-category decision still open, see spec_ref §4.'
+  gate_history:
+  - gate: L-GATE_E
+    result: PASS
+    date: '2026-07-12'
+    notes: Eligibility = explicit team_00 directive (2026-07-12 item 1, approved via plan-mode review), grounded in a 6-agent live-code diff (DETAILED-DIFF-EYAL-QA-SEO-VS-CURRENT-SITE-2026-07-12.md) plus a targeted re-verification pass that confirmed the dead-code components are real, validated, and portable.
