@@ -141,6 +141,9 @@ def main() -> None:
     # so Yoast is the single source of truth (pairs with the Yoast-first guard in
     # inc/wave2-w2-09.php's ea_w2_09_meta_description()).
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-17-metadesc-backfill-once.php", "wp-content/mu-plugins/ea-w2-17-metadesc-backfill-once.php"))
+    # 2026-07-12: force-overwrites 8 meta descriptions with Eyal's SEO-doc wording
+    # (content = Eyal's call; unlike the backfill-once file above, this one is unconditional).
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-content-eyal-seo-metadesc-2026-07-12-once.php", "wp-content/mu-plugins/ea-content-eyal-seo-metadesc-2026-07-12-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

@@ -24,12 +24,12 @@ if ( function_exists( 'ea_fb_testimonials_all' ) ) {
 		if ( '' === $txt ) {
 			continue;
 		}
-		$items[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ) );
+		$items[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ), 'href' => (string) ( $t['href'] ?? '' ) );
 	}
 }
 if ( empty( $items ) ) {
 	foreach ( ea_chapters_rows( 'testi_items' ) as $r ) {
-		$items[] = array( 'text' => $r['text'] ?? '', 'name' => $r['name'] ?? '' );
+		$items[] = array( 'text' => $r['text'] ?? '', 'name' => $r['name'] ?? '', 'href' => $r['href'] ?? '' );
 	}
 }
 
@@ -42,7 +42,11 @@ $render_cards = static function () use ( $items ) {
 		echo '<figure class="tmq">';
 		echo '<blockquote class="tmq__q">' . esc_html( $it['text'] ) . '</blockquote>';
 		if ( '' !== $it['name'] ) {
-			echo '<figcaption class="tmq__n">' . esc_html( $it['name'] ) . '</figcaption>';
+			if ( ! empty( $it['href'] ) ) {
+				echo '<figcaption class="tmq__n"><a class="tmq__nl" href="' . esc_url( $it['href'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $it['name'] ) . '</a></figcaption>';
+			} else {
+				echo '<figcaption class="tmq__n">' . esc_html( $it['name'] ) . '</figcaption>';
+			}
 		}
 		echo '</figure>';
 	}

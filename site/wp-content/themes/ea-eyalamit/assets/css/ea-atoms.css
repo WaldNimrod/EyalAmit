@@ -1106,7 +1106,7 @@
     .ea-faq-item__answer p {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1.85;
       color: var(--ea-earth);
       padding-bottom: var(--ea-space-4);

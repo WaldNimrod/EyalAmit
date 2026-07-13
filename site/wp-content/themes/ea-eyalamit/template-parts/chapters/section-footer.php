@@ -40,5 +40,8 @@ $h = static function ( $path ) {
 			</div>
 		</div>
 	</div>
-	<p class="foot__base">&copy; 2026 אייל עמית · כל הזכויות שמורות</p>
+	<div class="foot__legal">
+		<p class="foot__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>
+		<p class="foot__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="<?php echo $h( '/accessibility/' ); ?>">הצהרת נגישות</a> · <a href="<?php echo $h( '/privacy/' ); ?>">מדיניות פרטיות</a></p>
+	</div>
 </footer>

@@ -26,10 +26,11 @@ $h = static function ( $path ) {
 		<li>
 			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false">לימוד והכשרה<span class="nav__caret" aria-hidden="true">▾</span></button>
 			<ul class="nav__sub" role="list">
-				<li><a href="#">הכשרות למטפלים</a></li>
+				<li><a href="<?php echo $h( '/learning/therapist-training/' ); ?>">הכשרות למטפלים</a></li>
+				<?php /* קורסים: ממתין ל-URL קורס חיצוני (Scholar/חיצוני) מאייל — placeholder עד שיסופק, ר' block-topnav.php */ ?>
 				<li><a href="#">קורסים</a></li>
-				<li><a href="#">הרצאות</a></li>
-				<li><a href="#">סדנאות</a></li>
+				<li><a href="<?php echo $h( '/learning/lectures/' ); ?>">הרצאות</a></li>
+				<li><a href="<?php echo $h( '/learning/workshops/' ); ?>">סדנאות</a></li>
 			</ul>
 		</li>
 		<li>

@@ -64,6 +64,20 @@
     }
   }
 
+  /* ---- hero video: deferred, reduced-motion-safe autoplay (Core Web Vitals) ----
+   * Markup ships with no `autoplay` and `preload="none"` so the video never competes
+   * with the poster (LCP) or other critical assets during initial load. Start it only
+   * after `window.load`, and only when the visitor hasn't requested reduced motion —
+   * reduced-motion users keep the static poster frame. */
+  var deferredHeroVid = document.querySelector('.hero__media');
+  if (deferredHeroVid && deferredHeroVid.tagName === 'VIDEO' && !reduce) {
+    window.addEventListener('load', function () {
+      deferredHeroVid.load();
+      var p = deferredHeroVid.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+  }
+
   /* ---- sound toggle: mute/unmute the hero video ---- */
   var sndBtn = document.getElementById('soundtg');
   var heroVid = document.querySelector('.hero__media');

@@ -9,12 +9,16 @@ defined( 'ABSPATH' ) || exit;
 
 $video  = ea_chapters_asset_url( ea_chapters_field( 'hero_video' ) );
 $poster = ea_chapters_img( 'hero_poster' );
+$trust  = ea_chapters_field( 'hero_trust' );
 $cta_l  = ea_chapters_field( 'hero_cta_label' );
 $cta_u  = ea_chapters_field( 'hero_cta_url' );
 ?>
 <header class="hero">
 	<?php if ( $video ) : ?>
-		<video class="hero__media" autoplay muted loop playsinline preload="metadata"<?php echo $poster ? ' poster="' . esc_url( $poster ) . '"' : ''; ?>>
+		<?php /* No `autoplay`/eager preload in the static markup — ea-chapters.js starts playback
+			after window `load`, respecting prefers-reduced-motion, so the video never competes with
+			the poster (the hero's actual LCP element) for initial bandwidth. */ ?>
+		<video class="hero__media" muted loop playsinline preload="none"<?php echo $poster ? ' poster="' . esc_url( $poster ) . '"' : ''; ?>>
 			<source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
 		</video>
 	<?php elseif ( $poster ) : ?>
@@ -22,8 +26,9 @@ $cta_u  = ea_chapters_field( 'hero_cta_url' );
 	<?php endif; ?>
 	<div class="hero__scrim" aria-hidden="true"></div>
 	<div class="hero__c">
+		<?php if ( $trust ) : ?><span class="hero__trust"><?php echo esc_html( $trust ); ?></span><?php endif; ?>
 		<h1 class="hero__h"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_title' ) ); ?></h1>
-		<p class="hero__s"><?php echo esc_html( ea_chapters_field( 'hero_subtitle' ) ); ?></p>
+		<p class="hero__s"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_subtitle' ) ); ?></p>
 		<?php if ( $cta_l ) : ?>
 			<a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a>
 		<?php endif; ?>

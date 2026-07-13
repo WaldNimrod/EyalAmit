@@ -78,6 +78,12 @@ $GLOBALS['ea_chapters_type'] = 'method';
 		'items' => ea_chapters_rows( 'whom_items' ),
 	) );
 
+	get_template_part( 'template-parts/chapters/parts/testimonials', null, array(
+		'chap'  => ea_chapters_field( 'testi_chap' ),
+		'title' => ea_chapters_field( 'testi_title' ),
+		'items' => ea_chapters_rows( 'testi_items' ),
+	) );
+
 	get_template_part( 'template-parts/chapters/parts/cta', null, array(
 		'title'     => ea_chapters_field( 'cta_title' ),
 		'body'      => ea_chapters_field( 'cta_body' ),
