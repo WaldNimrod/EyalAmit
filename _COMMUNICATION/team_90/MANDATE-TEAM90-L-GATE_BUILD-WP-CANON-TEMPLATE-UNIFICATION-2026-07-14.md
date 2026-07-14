@@ -7,7 +7,8 @@ date: 2026-07-14
 type: mandate
 wp: WP-CANON-TEMPLATE-UNIFICATION
 gate: L-GATE_BUILD
-builder_engine: cursor-composer (team_110) — Iron Rule #1: validator must use a DIFFERENT engine
+builder_engine: cursor-grok-4.5 (team_110) — Iron Rule #1: validator MUST use a DIFFERENT engine (composer-2.5)
+validator_engine_required: composer-2.5
 ---
 
 # MANDATE — team_90 · L-GATE_BUILD · WP-CANON-TEMPLATE-UNIFICATION
@@ -15,6 +16,8 @@ builder_engine: cursor-composer (team_110) — Iron Rule #1: validator must use 
 ## Authority
 
 team_110 holds ADR045 `execution_authority: full` for this WP (team_00 handoff 2026-07-14). You are mandated to independently validate the **implementation** (not the LOD400 spec — already PASS_WITH_FINDINGS).
+
+**Engine split (team_00 2026-07-14):** Grok built → Composer validates. Do not validate on Grok.
 
 ## Spec SSOT
 

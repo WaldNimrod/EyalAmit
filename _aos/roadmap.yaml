@@ -1538,8 +1538,8 @@ work_packages:
   label: Full-site template standardization — unify Wave2 → Chapters, delete dead code
   status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_BUILD
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500
   assigned_builder: team_110
   assigned_validator: team_90 (full-site audit) + team_190 (constitutional) — cross-engine vs team_110 build, Iron Rule #1
   created_at: '2026-07-12'
@@ -1562,28 +1562,12 @@ work_packages:
     after (T6) — blind deletion now would destroy the exact approved components that need to move.
     Also unifies /shop + /qr, the only routes still actually served by Wave2 today.
 
-    2026-07-14: LOD300 breakdown + 3 mockups (T1/T2/T3b) authored, presented to team_00, all 3 open
-    questions decided in-chat (T2 FAQ many-to-many; T1 Mokesh video-tech left to engineering judgment;
-    T5 /qr treated as a hard URL-preservation constraint, not a design choice). LOD400 full build spec
-    (~2900 lines, all 8 T-items) authored same day, found + fixed several cross-task integration gaps
-    of its own (see LOD400 §0.1/§0.4) — most importantly that T6''s original file-deletion list would
-    have deleted Wave2 files that T3/T3b silently depend on at runtime. Cross-engine validated by
-    team_90 (cursor-composer/composer-2.5) in 2 rounds: round 1 FAIL (2 blockers + 1 major, all
-    real cross-task contract gaps between T3/T3b and T6/T4), team_100 patched in place, round 2
-    (delta) PASS_WITH_FINDINGS — no open blockers/majors. team_00 explicit handoff 2026-07-14:
-    "110 full - מימוש התוכנית כולל qa וולידציה... חובה להשאיר עץ נקי - פוש מלא להכול" — team_110
-    to execute under ADR045 execution_authority:full (build + mandate team_90 QA/validate + close),
-    not just GATE_2 review. One decision still open before T6 may touch tpl-home.php/stage-b.php —
-    see spec_ref §0.2 item 1; team_100''s recommendation (freeze-and-isolate) stands as the default
-    if team_110 has no stronger engineering reason to prefer otherwise — flag the choice made in the
-    COMPLETION_REPORT rather than blocking on it.
-
-    2026-07-14 (team_110 execution): T1–T6 implemented + staging FTP deploy. Smoke PASS (shop/qr/faq/
-    mokesh/product-cta/FAQPage markers; QR 48/48 HTTP 200). §0.2 defaults applied: freeze-and-isolate
-    tpl-home+stage-b; keep w2-07 for /press; hub QR grid built; C-5 still PENDING. Mandates filed for
-    team_90 L-GATE_BUILD + L-GATE_VALIDATE. COMPLETION_REPORT at
-    _COMMUNICATION/team_110/COMPLETION_REPORT_WP-CANON-TEMPLATE-UNIFICATION_v1.0.0.md. LOD500_LOCKED
-    deferred until team_90 independent gate PASS (Iron Rule #1).'
+    2026-07-14: LOD300/LOD400 authored + cross-engine SPEC PASS_WITH_FINDINGS. team_00 handoff to
+    team_110 ADR045 full execution. team_110 (cursor-grok-4.5) built T1–T6 + staging deploy.
+    team_00 engine rule: Grok builds, Composer validates. team_90 (composer-2.5) L-GATE_BUILD
+    PASS_WITH_FINDINGS (merged T1–T5 + T4/T6/T7 slices) then L-GATE_VALIDATE PASS_WITH_FINDINGS —
+    LOD500_LOCKED allowed; minors accepted (orphan tpl hygiene, FAQ content-diff distribution).
+    COMPLETION_REPORT + verdicts under _COMMUNICATION/team_110/ and team_90/.'
   gate_history:
   - gate: L-GATE_E
     result: PASS
@@ -1605,9 +1589,16 @@ work_packages:
     result: PASS_WITH_FINDINGS
     date: '2026-07-14'
     validator: team_90 (cursor-composer-2)
-    notes: All 7 round-1 findings closed (new inc/chapters/chapters-commerce.php re-homes the 4 functions T3/T3b need before T6 deletes their source files; T3b now exposes locked top-level schema fields T4 reads). One optional nit (D90-01, ea_wave2_wa_url fidelity) also closed by team_100 same day. No open blockers/majors — build-ready. Artifact same verdict file, updated in place.
+    notes: All 7 round-1 findings closed. No open blockers/majors — build-ready.
   - gate: L-GATE_BUILD
-    phase: team_110 execution + staging deploy
-    result: PENDING_TEAM_90
+    phase: team_110 grok build + team_90 composer validate
+    result: PASS_WITH_FINDINGS
     date: '2026-07-14'
-    notes: Implementation landed (T1–T6) + staging smoke PASS (QR 48/48, Chapters markers). Mandate — _COMMUNICATION/team_90/MANDATE-TEAM90-L-GATE_BUILD-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md. COMPLETION_REPORT filed by team_110; independent BUILD/VALIDATE verdicts still required from team_90.
+    builder: team_110 (cursor-grok-4.5)
+    validator: team_90 (composer-2.5)
+    notes: Independent dual-slice BUILD validation (T1–T5 + T4/T6/T7). QR 48/48, qa_probe PASS, schema live, commerce re-home verified. Minors only. Artifacts — VERDICT-WP-CANON-L-GATE_BUILD-2026-07-14.md (+ slice files).
+  - gate: L-GATE_VALIDATE
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-14'
+    validator: team_90 (composer-2.5)
+    notes: Constitutional spot-recheck CRITICAL AC PASS; minors accept; LOD500_LOCKED allowed. Artifact — VERDICT-WP-CANON-L-GATE_VALIDATE-2026-07-14.md.

@@ -1,0 +1,6 @@
+validator: team_90 (composer-2.5)
+date: 2026-07-14T02:32:00+03:00
+base: http://eyalamit-co-il-2026.s887.upress.link
+method: curl -s -o /dev/null -w '%{http_code}' for /qr/qr1/ .. /qr/qr48/
+result: ok=48 fail=0
+builder_baseline: _COMMUNICATION/team_110/_QR-BASELINE-HTTP-2026-07-14.txt (baseline_ok=48, post_ok=48)

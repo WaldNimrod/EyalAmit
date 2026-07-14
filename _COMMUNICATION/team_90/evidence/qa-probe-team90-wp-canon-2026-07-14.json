@@ -1,0 +1,9 @@
+{
+  "validator": "team_90 (composer-2.5)",
+  "date": "2026-07-14T02:33:06.881Z",
+  "command": "node _aos/lean-kit/modules/validation-quality/scripts/qa/qa_probe.mjs --base http://eyalamit-co-il-2026.s887.upress.link --paths /shop/,/qr/,/qr/qr2/,/faq/,/treatment/,/didgeridoos/,/books/vekatavta/,/eyal-amit/mokesh-dahiman/,/method/ --viewport 375",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "total": 18,
+  "failures": 0,
+  "verdict": "PASS"
+}

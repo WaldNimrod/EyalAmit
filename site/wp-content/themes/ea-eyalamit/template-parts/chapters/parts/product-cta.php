@@ -1,22 +1,11 @@
 <?php
 /**
  * Chapters part — product price + purchase/contact CTA (WP-CANON-TEMPLATE-UNIFICATION T3).
- * Reuses (does NOT duplicate) the Wave2 accessors — single source of truth for price,
- * the Green-Invoice URL map, and the WhatsApp URL builder:
- *   ea_w2_05_price()   — inc/wave2-w2-05.php:261-265
- *   ea_w2_05_gi_url()  — inc/wave2-w2-05.php:250-253 (map: inc/wave2-w2-05.php:234-241)
- *   ea_wave2_wa_url()  — inc/wave2-stage-b.php:22-27
- * Structural wrapper (.sec/.wrap/.chap/.h2) is Chapters-native; the price line + CTA
- * buttons reuse Wave2's .ea-product-price / .ea-cta-pill / .ea-cta-ab classes verbatim —
- * same mixing pattern already shipped in template-parts/chapters/parts/contact.php:76-79.
- * Zero new CSS: w2-05-shop.css + ea-atoms.css (which define all classes used here) are
- * already enqueued on these 5 pages today via ea_w2_05_assets() (slug-gated, template-
- * independent) and ea_wave2_enqueue_assets() (ea_wave2_shell-gated, set unconditionally
- * for every Chapters view by inc/chapters/chapters-routing.php's template_redirect hook).
- * data-* attributes match ea_w2_05_render_cta()'s contract exactly, so the already-loaded
- * assets/js/ea-ab-testing.js wires the A/B display + GA4 product_cta_click automatically
- * — zero new JS. (Prerequisite: the double-enqueue fix in §2.4 must land first, or the
- * click event double-fires — see LOD400 §6.3.)
+ * Commerce accessors live in inc/chapters/chapters-commerce.php (T6 re-home; Wave2 w2-05 deleted):
+ *   ea_w2_05_price() / ea_w2_05_gi_url() / ea_wave2_wa_url()
+ * Structural wrapper (.sec/.wrap/.chap/.h2) is Chapters-native; price + CTA buttons reuse
+ * .ea-product-price / .ea-cta-pill / .ea-cta-ab (ea-atoms / remaining stage-b enqueue).
+ * data-* attributes match the GA4 product_cta_click contract for assets/js/ea-ab-testing.js.
  *
  * $args:
  *   slug          (string, REQUIRED) — didgeridoos|bags|stands-storage|stand-floor|repair

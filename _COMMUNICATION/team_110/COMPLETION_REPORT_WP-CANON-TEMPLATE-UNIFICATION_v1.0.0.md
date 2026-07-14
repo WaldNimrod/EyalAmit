@@ -13,17 +13,19 @@ execution_authority: full (ADR045 — team_00 handoff 2026-07-14)
 
 ## 1. Verdict summary
 
-team_110 executed the full remaining lifecycle of WP-CANON-TEMPLATE-UNIFICATION under ADR045 `execution_authority: full` (team_00: build + QA + validate + clean push).
+team_110 executed the full remaining lifecycle under ADR045 `execution_authority: full`.
+
+**Engine split (team_00):** builder = **cursor-grok-4.5** · validator = **composer-2.5** (Iron Rule #1).
 
 | Phase | Result |
 |-------|--------|
-| Build T1–T6 | **DONE** — deployed to staging |
-| Staging smoke | **PASS** — see §4 |
-| QR URL preservation | **PASS** — 48/48 HTTP 200 post-deploy (baseline also 48/48) |
-| L-GATE_BUILD mandate | **FILED** → team_90 (cross-engine; Iron Rule #1) |
-| L-GATE_VALIDATE | **MANDATED** via same team_90 chain after BUILD verdict |
-| C-5 (tsva Mendele URL) | **PENDING** (external — Eyal) |
-| `/press` | **OUT OF SCOPE** — `wave2-w2-07.php` retained |
+| Build T1–T6 | **DONE** — staging FTP deploy |
+| Staging smoke (builder) | PASS — QR 48/48 |
+| L-GATE_BUILD (composer-2.5) | **PASS_WITH_FINDINGS** — 0 blockers |
+| L-GATE_VALIDATE (composer-2.5) | **PASS_WITH_FINDINGS** — LOD500_LOCKED allowed |
+| lod_status | **LOD500** |
+| C-5 (tsva Mendele URL) | **PENDING** (Eyal) |
+| `/press` | OUT OF SCOPE — `wave2-w2-07.php` retained |
 
 ## 2. §0.2 decisions taken (explicit)
 
@@ -41,10 +43,15 @@ team_110 executed the full remaining lifecycle of WP-CANON-TEMPLATE-UNIFICATION 
 | LOD400 build spec | `_COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD400-2026-07-14.md` |
 | LOD400 delta verdict (pre-build) | `_COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md` |
 | L-GATE_BUILD mandate | `_COMMUNICATION/team_90/MANDATE-TEAM90-L-GATE_BUILD-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md` |
+| L-GATE_BUILD rolled-up (composer) | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_BUILD-2026-07-14.md` |
+| L-GATE_BUILD T1–T5 slice | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_BUILD-T1-T5-2026-07-14.md` |
+| L-GATE_BUILD T4/T6/T7 slice | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_BUILD-T4-T6-T7-2026-07-14.md` |
+| L-GATE_VALIDATE (composer) | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_VALIDATE-2026-07-14.md` |
 | QR HTTP baseline + post | `_COMMUNICATION/team_110/_QR-BASELINE-HTTP-2026-07-14.txt` |
-| qa_probe log | `_COMMUNICATION/team_110/_QA-PROBE-WP-CANON-2026-07-14.txt` |
+| qa_probe log (builder) | `_COMMUNICATION/team_110/_QA-PROBE-WP-CANON-2026-07-14.txt` |
+| team_90 evidence | `_COMMUNICATION/team_90/evidence/` |
 
-**Note:** Iron Rule #1 — team_110 (Cursor Composer) must **not** self-sign L-GATE_BUILD/VALIDATE. team_90 mandate is filed; final PASS on those gates is team_90’s independent verdict.
+**Iron Rule #1:** team_110 (Grok) did **not** self-sign BUILD/VALIDATE. team_90 Composer subagents reproduced smoke, QR matrix, qa_probe, schema, and deletion greps independently.
 
 ## 4. Staging smoke evidence (2026-07-14, post FTP)
 
