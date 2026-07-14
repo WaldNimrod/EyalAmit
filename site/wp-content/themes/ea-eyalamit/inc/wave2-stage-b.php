@@ -2,6 +2,12 @@
 /**
  * WP-W2-01 Stage B — D-14 tokens, blocks, templates, analytics, CF7.
  *
+ * FROZEN EMERGENCY ROLLBACK + RESIDUAL WAVE2 DEP (WP-CANON T6):
+ * - Rollback: ea_wave2_render_home_blocks() for tpl-home.php when Chapters is off.
+ * - Residual: Chapters still sets ea_wave2_shell; this file enqueues ea-tokens/atoms,
+ *   site-wide WhatsApp float (ea_wave2_render_whatsapp_float), CF7 helpers, and GP
+ *   dequeue. Do NOT delete until Chapters-native asset isolation is complete (LOD400 §3.8).
+ *
  * @package ea_eyalamit
  */
 

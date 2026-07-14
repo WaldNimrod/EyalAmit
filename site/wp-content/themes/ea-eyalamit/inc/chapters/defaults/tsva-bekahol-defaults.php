@@ -15,6 +15,18 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 
+	// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
+	// considered final. Two candidates exist for the SAME book: this one
+	// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
+	// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
+	// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
+	'price'         => 59,
+	'buy_print_url' => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+	'buy_ebook_url' => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+	'genre'         => 'סיפורים קצרים · מסע',
+	'meta_year'     => '2001',
+	'meta_pages'    => 128,
+
 	/* page hero (media) — SECTION 01 */
 	'phero' => array(
 		'chap'      => 'הספר',
@@ -22,8 +34,14 @@ return array(
 		'sub'       => 'ספר הביכורים של אייל עמית — 38 סיפורים קצרים על הטיול הגדול לדרום אמריקה',
 		'media'     => 'assets/images/tsva-bechol-cover.jpg',
 		'media_alt' => 'אייל עמית, מחבר הספר «צבע בכחול וזרוק לים»',
-		'cta_label' => 'לרכישת הספר הדיגיטלי',
+		'cta_label' => 'לרכישת הספר · 59 ₪',
+		// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
+		// considered final. Two candidates exist for the SAME book: this one
+		// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
+		// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
+		// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
 		'cta_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+		'cta_slug'  => 'tsva-bekahol',
 	),
 
 	'sections' => array(
@@ -98,36 +116,26 @@ return array(
 
 		/* SECTION 10 — שאלות ותשובות (FAQ, verbatim) */
 		array(
-			'part' => 'faq',
+			'part' => 'faqblock',
 			'args' => array(
 				'chap'  => 'שאלות ותשובות',
 				'title' => 'שאלות ותשובות',
-				'items' => array(
-					array(
-						'q' => 'האם זה ספר למוצ\'ילרים בלבד?',
-						'a' => "<p>לא, מהספר הזה יוכלו להינות גם חבר'ה צעירים יותר לפני הטיול הגדול שלהם וגם למבוגרים יותר שכבר חזרו</p>",
-					),
-					array(
-						'q' => 'האם הסיפורים מבוססים על חוויות אמיתיות?',
-						'a' => "<p>הספר נכתב מתוך חוויות ומפגשים, אך אינו מתיימר להיות תיעוד מדויק של המציאות. חלק אמיתי וחלק מומצא</p>",
-					),
-					array(
-						'q' => 'כמה זמן לוקח לקרוא את הספר?',
-						'a' => "<p>אין זמן אחד. אפשר לקרוא סיפור אחד בכל פעם, או להישאב ולקרוא ברצף. בגדול מדובר ב־38 סיפורים וב־128 עמודים. לקורא הממוצע יקח שעה וחצי עד שעתיים לקרוא את כולו, אך מומלץ שלא לקרוא אותו בנשימה אחת, אלא בכל פעם סיפור ולתת לו לשקוע</p>",
-					),
-					array(
-						'q' => 'כמה עותקים נמכרו מהספר?',
-						'a' => "<p>הספר נמצא כרגע במהדורתו העשירית ובקרוב ימכר העותק ה־10,000 שלו. בזמנו הספר נחשב כ\"ספר פולחן\" והיה נפוץ מאוד בקרב המטיילים בדרום אמריקה</p>",
-					),
-					array(
-						'q' => 'איזה סגנון כתיבה יש לספר?',
-						'a' => "<p>כתיבה ישירה, מדוברת, לפעמים בועטת. לא ספר \"ספרותי כבד\", אלא חווייתי, זורם ואותנטי</p>",
-					),
-				),
+				'cats'  => array( 'tsva-bekahol' ),
 			),
 		),
 
-		/* SECTION 11 — כתבות מהעיתונות (image gallery omitted — media gap; no caption text) */
+		/* SECTION 05 — גלריה (new; real image wired per T3b; not blocked by C-5). */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'גלריה',
+				'title' => 'גלריה',
+				'lead'  => 'תמונות מהעולם של הספר. תמונות נוספות יתווספו עם קבלת החומרים.',
+				'items' => array(
+					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר צבע בכחול וזרוק לים' ),
+				),
+			),
+		),
 
 		/* SECTION 06 — רכישת הספר (purchase prose, full verbatim; external URLs kept) */
 		array(
@@ -140,14 +148,17 @@ return array(
 			),
 		),
 
-		/* SECTION 09 — קריאה לפעולה (ביניים) (interim CTA prose) */
+		// C-5 PENDING — both URLs below are the CURRENT LIVE placeholder; see the
+		// identical note on the hero cta_url above. Do not resolve unilaterally.
 		array(
-			'part' => 'prose',
+			'part' => 'cta',
 			'args' => array(
-				'chap'   => 'רוצה להתחיל כבר עכשיו?',
-				'title'  => 'רוצה להתחיל כבר עכשיו?',
-				'center' => true,
-				'body'   => "<p><a class=\"tlink\" href=\"https://www.mendele.co.il/product/tsvabacholvezorekleyam/\">לרכישת הספר הדיגיטלי</a></p>",
+				'title'      => 'רוצה להתחיל כבר עכשיו?',
+				'cta_label'  => 'לרכישת הספר המודפס',
+				'cta_url'    => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'cta2_label' => 'ספר אלקטרוני',
+				'cta2_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'cta_slug'   => 'tsva-bekahol',
 			),
 		),
 
@@ -170,7 +181,13 @@ return array(
 				'title'     => 'אם היית שם – אתה כבר מבין. אם לא – זה המקום להתחיל.',
 				'body'      => 'הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה. 38 סיפורים קצרים, בועטים, מפתיעים ומצחיקים — לרכישה דיגיטלית מיידית במנדלי.',
 				'cta_label' => 'לרכישת הספר הדיגיטלי',
+				// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
+				// considered final. Two candidates exist for the SAME book: this one
+				// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
+				// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
+				// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
 				'cta_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'cta_slug'  => 'tsva-bekahol',
 			),
 		),
 	),

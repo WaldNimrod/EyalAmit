@@ -30,7 +30,7 @@
     return;
   }
 
-  var hero = mount.closest('.ea-mem-hero');
+  var hero = mount.closest('.mokesh-hero');
   var unmuteBtn = hero ? hero.querySelector('[data-ea-mokesh-unmute]') : null;
   var player = null;
 
@@ -39,7 +39,7 @@
       return;
     }
     unmuteBtn.hidden = false;
-    var label = unmuteBtn.querySelector('.ea-mem-hero__unmute-label');
+    var label = unmuteBtn.querySelector('.mokesh-hero__unmute-label');
     unmuteBtn.addEventListener('click', function () {
       if (!player || typeof player.isMuted !== 'function') {
         return;
@@ -93,7 +93,7 @@
             /* autoplay policy may block; poster/gradient remains */
           }
           if (hero) {
-            hero.classList.add('ea-mem-hero--playing');
+            hero.classList.add('mokesh-hero--playing');
           }
           wireUnmute();
         },

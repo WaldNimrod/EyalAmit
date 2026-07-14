@@ -15,6 +15,13 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 
+	'price'         => 69,
+	'buy_print_url' => 'https://mrng.to/MTUiO3vkIg',
+	'buy_ebook_url' => 'https://www.mendele.co.il/product/kushibelantis/',
+	'genre'         => 'רומן פנטזיה',
+	'meta_year'     => '2004',
+	'meta_pages'    => 236,
+
 	/* page hero (media) — SECTION 01 */
 	'phero' => array(
 		'chap'      => 'הספר',
@@ -22,8 +29,9 @@ return array(
 		'sub'       => 'רומן פנטזיה מאת אייל עמית על התעוררות, בחירה, חופש, חיבור ללב, והאומץ לצאת מהחיים הנוחים מדי',
 		'media'     => 'assets/images/kushi-blantis-cover.jpg',
 		'media_alt' => 'אייל עמית, מחבר הרומן כושי בלאנטיס',
-		'cta_label' => 'לרכישת הספר הדיגיטלי',
-		'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+		'cta_label' => 'לרכישת הספר · 69 ₪',
+		'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
+		'cta_slug'  => 'kushi-blantis',
 	),
 
 	'sections' => array(
@@ -69,7 +77,7 @@ return array(
 			'args' => array(
 				'chap'  => 'רכישת הספר',
 				'title' => 'רכישת הספר',
-				'body'  => '<p>הספר זמין לרכישה כספר מודפס וכספר דיגיטלי.</p><p>לרכישת הספר המודפס – קישור יתווסף בהמשך<br>לרכישת הספר הדיגיטלי – <a class="tlink" href="https://www.mendele.co.il/product/kushibelantis/">לרכישה דרך מנדלי</a></p>',
+				'body'  => '<p>הספר זמין לרכישה כספר מודפס וכספר דיגיטלי.</p><p>לרכישת הספר המודפס – <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה דרך מורנינג</a><br>לרכישת הספר הדיגיטלי – <a class="tlink" href="https://www.mendele.co.il/product/kushibelantis/" target="_blank" rel="noopener noreferrer">לרכישה דרך מנדלי</a></p>',
 			),
 		),
 
@@ -107,25 +115,34 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
-				'title'     => 'רוצה להתחיל לקרוא כבר עכשיו?',
-				'cta_label' => 'לרכישת הספר הדיגיטלי',
-				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'title'      => 'רוצה להתחיל לקרוא כבר עכשיו?',
+				'cta_label'  => 'לרכישת הספר המודפס',
+				'cta_url'    => 'https://mrng.to/MTUiO3vkIg',
+				'cta2_label' => 'ספר אלקטרוני',
+				'cta2_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta_slug'   => 'kushi-blantis',
 			),
 		),
 
 		/* SECTION 10 — שאלות ותשובות (Q&A verbatim) */
 		array(
-			'part' => 'faq',
+			'part' => 'faqblock',
 			'args' => array(
 				'chap'  => 'שאלות ותשובות',
 				'title' => 'שאלות ותשובות',
+				'cats'  => array( 'kushi-blantis' ),
+			),
+		),
+
+		/* SECTION 05 — גלריה (new; real image wired per T3b). */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'גלריה',
+				'title' => 'גלריה',
+				'lead'  => 'תמונות מהעולם של הספר. תמונות נוספות יתווספו עם קבלת החומרים.',
 				'items' => array(
-					array( 'q' => 'האם מדובר בסיפור אמיתי?', 'a' => '<p>זהו רומן פנטזיה, אך חלקים ממנו מבוססים על אירועים, דמויות ומקומות אמיתיים מחייו של הסופר</p>' ),
-					array( 'q' => 'האם צריך לאהוב פנטזיה כדי להתחבר לספר?', 'a' => '<p>לא בהכרח. הספר משלב פנטזיה עם מסע אישי ותודעתי</p>' ),
-					array( 'q' => 'למי הספר הכי מתאים?', 'a' => '<p>למי שמחפש שינוי, חופש והשראה</p>' ),
-					array( 'q' => 'כמה זמן לוקח לקרוא את הספר?', 'a' => '<p>הספר כולל 236 עמודים</p>' ),
-					array( 'q' => 'האם זה ספר כבד או קל לקריאה?', 'a' => '<p>הכתיבה קלילה אך עם עומק</p>' ),
-					array( 'q' => 'האם יש קשר לעבודה של אייל היום?', 'a' => '<p>כן, הנושאים ממשיכים ללוות את עבודתו גם כיום</p>' ),
+					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר כושי בלאנטיס' ),
 				),
 			),
 		),
@@ -137,7 +154,8 @@ return array(
 				'title'     => 'לפעמים כל מה שצריך זה רגע אחד של אומץ כדי להתחיל לזוז למקום אחר',
 				'body'      => 'אם משהו כאן דיבר אליך – זה כנראה לא במקרה',
 				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
+				'cta_slug'  => 'kushi-blantis',
 			),
 		),
 	),

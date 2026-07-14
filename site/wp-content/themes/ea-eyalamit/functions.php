@@ -50,21 +50,6 @@ function ea_eyalamit_enqueue_theme_shell_fallback() {
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_theme_shell_fallback', 23 );
 
 /**
- * True when rendering the M2 home dashboard layout (מבנה ב׳; ויזואל לפי אתר קיים).
- * Uses page_on_front (not slug) so staging matches Reading settings even if slug differs from `home`.
- */
-function ea_eyalamit_is_home_dashboard_view() {
-	if ( is_page_template( 'page-templates/template-home-dashboard.php' ) ) {
-		return true;
-	}
-	$front_id = (int) get_option( 'page_on_front', 0 );
-	if ( $front_id > 0 && is_page( $front_id ) && is_front_page() ) {
-		return true;
-	}
-	return false;
-}
-
-/**
  * Load textdomain for child theme strings.
  */
 function ea_eyalamit_setup() {
@@ -149,14 +134,6 @@ function ea_eyalamit_enqueue_styles() {
 		);
 	}
 
-	if ( ea_eyalamit_is_home_dashboard_view() ) {
-		wp_enqueue_style(
-			'ea-eyalamit-home-front',
-			get_stylesheet_directory_uri() . '/assets/css/home-front.css',
-			array( 'ea-eyalamit-style', 'ea-eyalamit-fonts-rubik' ),
-			wp_get_theme()->get( 'Version' )
-		);
-	}
 }
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_styles', 20 );
 
@@ -205,41 +182,7 @@ function ea_eyalamit_font_preconnect( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'ea_eyalamit_font_preconnect', 10, 2 );
 
 /**
- * Force home dashboard template for static front page with slug `home` (M2 seed).
- *
- * @param string $template Path to template file.
- * @return string
- */
-function ea_eyalamit_home_dashboard_template( $template ) {
-	if ( ! is_front_page() || ! is_page() ) {
-		return $template;
-	}
-	$front_id = (int) get_option( 'page_on_front', 0 );
-	if ( $front_id < 1 || (int) get_queried_object_id() !== $front_id ) {
-		return $template;
-	}
-	$t = get_stylesheet_directory() . '/page-templates/template-home-dashboard.php';
-	return is_readable( $t ) ? $t : $template;
-}
-add_filter( 'template_include', 'ea_eyalamit_home_dashboard_template', 99 );
-
-/**
- * FAQ catalog page — תבנית M2 (st-faq) גם כשהעמוד נוצר בזריעה בלי בחירת תבנית ב־wp-admin.
- *
- * @param string $template Path to template file.
- * @return string
- */
-function ea_eyalamit_faq_catalog_template( $template ) {
-	if ( ! is_page( 'faq' ) ) {
-		return $template;
-	}
-	$t = get_stylesheet_directory() . '/page-templates/template-faq-catalog.php';
-	return is_readable( $t ) ? $t : $template;
-}
-add_filter( 'template_include', 'ea_eyalamit_faq_catalog_template', 98 );
-
-/**
- * Body class for home dashboard styling scope.
+ * Body class for EN + M4 polish scope.
  *
  * @param string[] $classes Body classes.
  * @return string[]
@@ -251,10 +194,7 @@ function ea_eyalamit_body_class( $classes ) {
 		$classes = array_values( array_diff( $classes, array( 'rtl' ) ) );
 		$classes[] = 'ltr';
 	}
-	if ( ea_eyalamit_is_home_dashboard_view() ) {
-		$classes[] = 'ea-home-dashboard';
-	} elseif ( ! is_admin() ) {
-		/* M3-M4: ליטוש מבני לתבניות תוכן (לא כפול מול ea-home-dashboard). */
+	if ( ! is_admin() ) {
 		$classes[] = 'ea-m4-polish';
 	}
 	return $classes;
@@ -295,34 +235,6 @@ function ea_eyalamit_en_language_attributes( $output ) {
 	return $output;
 }
 add_filter( 'language_attributes', 'ea_eyalamit_en_language_attributes', 20 );
-
-/**
- * GeneratePress: no sidebar on home dashboard.
- *
- * @param string $layout Layout slug.
- * @return string
- */
-function ea_eyalamit_home_sidebar_layout( $layout ) {
-	if ( ea_eyalamit_is_home_dashboard_view() ) {
-		return 'no-sidebar';
-	}
-	return $layout;
-}
-add_filter( 'generate_sidebar_layout', 'ea_eyalamit_home_sidebar_layout', 20 );
-
-/**
- * GeneratePress: hide content title — H1 is inside template hero.
- *
- * @param bool $show Whether to show title.
- * @return bool
- */
-function ea_eyalamit_home_hide_title( $show ) {
-	if ( ea_eyalamit_is_home_dashboard_view() ) {
-		return false;
-	}
-	return $show;
-}
-add_filter( 'generate_show_title', 'ea_eyalamit_home_hide_title', 20 );
 
 /**
  * M3 — רישום CPT לאינסטנסי FAQ, גלריות והמלצות (קטלוג מרכזי).
@@ -409,6 +321,24 @@ function ea_eyalamit_register_m3_instance_cpts() {
 			'rewrite'           => array( 'slug' => 'testimonial-cat', 'with_front' => false ),
 		)
 	);
+
+	register_taxonomy(
+		'ea_faq_cat',
+		array( 'ea_faq' ),
+		array(
+			'labels'             => array(
+				'name'          => __( 'קטגוריות שאלות נפוצות', 'ea-eyalamit' ),
+				'singular_name' => __( 'קטגוריה', 'ea-eyalamit' ),
+			),
+			'public'             => false, // WP-CANON T2 — no public term archives; hierarchical UI only.
+			'publicly_queryable' => false,
+			'show_ui'            => true,
+			'show_in_rest'       => true,
+			'show_admin_column'  => true,
+			'hierarchical'       => true,
+			'rewrite'            => false,
+		)
+	);
 }
 add_action( 'init', 'ea_eyalamit_register_m3_instance_cpts', 9 );
 
@@ -472,6 +402,82 @@ function ea_eyalamit_render_instance_catalog( $post_type, $args = array() ) {
 	}
 	echo '</ul>';
 	wp_reset_postdata();
+}
+
+/**
+ * כל מונחי ea_faq_cat כ-[slug => name], לפי סדר-יצירה (term_id ASC) — תואם
+ * לסדר שבו סקריפט ה-migration יוצר את המונחים, כדי לשמר את סדר-התצוגה הקיים
+ * היום ב-/faq בלי תלות בפלאגין מיון נוסף. WP-CANON T2.
+ *
+ * @return array<string,string> slug => name
+ */
+function ea_faq_get_categories() {
+	static $cache = null;
+	if ( null !== $cache ) {
+		return $cache;
+	}
+	$cache = array();
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'ea_faq_cat',
+			'hide_empty' => false,
+			'orderby'    => 'term_id',
+			'order'      => 'ASC',
+		)
+	);
+	if ( ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $t ) {
+			$cache[ $t->slug ] = $t->name;
+		}
+	}
+	return $cache;
+}
+
+/**
+ * פריטי ea_faq מפורסמים, מסוננים (OR — many-to-many) לפי $cat_slugs כשהוא לא ריק.
+ * $cat_slugs ריק = כל הקטלוג (זהה להתנהגות /faq היום ללא סינון). WP-CANON T2.
+ *
+ * post_content נשמר עם תגי <p>/<ul> מוכנים מראש — מוחזר גולמי, בלי the_content.
+ * הצריכה בצד הקורא חייבת להישאר wp_kses_post() בלבד.
+ *
+ * @param string[] $cat_slugs Category slugs.
+ * @return array<int,array{id:int,q:string,a:string,categories:string[]}>
+ */
+function ea_faq_query_items( array $cat_slugs = array() ) {
+	$qargs = array(
+		'post_type'      => 'ea_faq',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'orderby'        => array(
+			'menu_order' => 'ASC',
+			'title'      => 'ASC',
+		),
+		'no_found_rows'  => true,
+	);
+	if ( ! empty( $cat_slugs ) ) {
+		$qargs['tax_query'] = array(
+			array(
+				'taxonomy' => 'ea_faq_cat',
+				'field'    => 'slug',
+				'terms'    => array_map( 'sanitize_title', $cat_slugs ),
+				'operator' => 'IN',
+			),
+		);
+	}
+	$out = array();
+	foreach ( get_posts( $qargs ) as $p ) {
+		$terms = wp_get_post_terms( $p->ID, 'ea_faq_cat', array( 'fields' => 'slugs' ) );
+		if ( is_wp_error( $terms ) ) {
+			$terms = array();
+		}
+		$out[] = array(
+			'id'         => $p->ID,
+			'q'          => get_the_title( $p ),
+			'a'          => (string) $p->post_content,
+			'categories' => $terms,
+		);
+	}
+	return $out;
 }
 
 /**
@@ -663,101 +669,6 @@ function ea_eyalamit_book_detail_template( $template ) {
 add_filter( 'template_include', 'ea_eyalamit_book_detail_template', 94 );
 
 /**
- * דף טיפול בדיג׳רידו — tpl-treatment (S002 st-svc-treatment).
- *
- * @param string $template Path to template file.
- * @return string
- */
-function ea_eyalamit_treatment_template( $template ) {
-	if ( ! is_page( 'treatment' ) ) {
-		return $template;
-	}
-	$t = get_stylesheet_directory() . '/page-templates/template-treatment.php';
-	return is_readable( $t ) ? $t : $template;
-}
-add_filter( 'template_include', 'ea_eyalamit_treatment_template', 93 );
-
-/**
- * דף שיטת cbDIDG — tpl-method (S002 st-method).
- *
- * @param string $template Path to template file.
- * @return string
- */
-function ea_eyalamit_method_template( $template ) {
-	if ( ! is_page( 'method' ) ) {
-		return $template;
-	}
-	$t = get_stylesheet_directory() . '/page-templates/template-method.php';
-	return is_readable( $t ) ? $t : $template;
-}
-add_filter( 'template_include', 'ea_eyalamit_method_template', 92 );
-
-/**
- * עמודי שירות (treatment, method): ללא סרגל צד, ללא כותרת GP.
- *
- * @return bool
- */
-function ea_eyalamit_is_service_page_view() {
-	if ( ! is_singular( 'page' ) ) {
-		return false;
-	}
-	$post = get_queried_object();
-	if ( ! $post instanceof WP_Post ) {
-		return false;
-	}
-	return in_array( $post->post_name, array( 'treatment', 'method' ), true );
-}
-
-/**
- * No sidebar on service pages.
- *
- * @param string $layout Layout slug.
- * @return string
- */
-function ea_eyalamit_service_sidebar_layout( $layout ) {
-	if ( ea_eyalamit_is_service_page_view() ) {
-		return 'no-sidebar';
-	}
-	return $layout;
-}
-add_filter( 'generate_sidebar_layout', 'ea_eyalamit_service_sidebar_layout', 22 );
-
-/**
- * Hide GP content title on service pages — H1 is inside template.
- *
- * @param bool $show Whether to show title.
- * @return bool
- */
-function ea_eyalamit_service_hide_title( $show ) {
-	if ( ea_eyalamit_is_service_page_view() ) {
-		return false;
-	}
-	return $show;
-}
-add_filter( 'generate_show_title', 'ea_eyalamit_service_hide_title', 22 );
-
-/**
- * Enqueue services.css on treatment + method pages.
- *
- * @return void
- */
-function ea_eyalamit_service_pages_assets() {
-	if ( is_admin() ) {
-		return;
-	}
-	if ( ! ea_eyalamit_is_service_page_view() ) {
-		return;
-	}
-	wp_enqueue_style(
-		'ea-eyalamit-services',
-		get_stylesheet_directory_uri() . '/assets/css/services.css',
-		array( 'ea-eyalamit-style', 'ea-eyalamit-fonts-rubik' ),
-		wp_get_theme()->get( 'Version' )
-	);
-}
-add_action( 'wp_enqueue_scripts', 'ea_eyalamit_service_pages_assets', 27 );
-
-/**
  * עיצוב V2 — ספרים.
  * D-EYAL-DESIGN-STYLE-13: Heebo בלבד, ללא Frank Ruhl Libre / Amatic SC.
  *
@@ -852,55 +763,31 @@ function ea_eyalamit_books_v2_hide_title( $show ) {
 add_filter( 'generate_show_title', 'ea_eyalamit_books_v2_hide_title', 21 );
 
 /**
- * WP-W2-01 Stage B — D-14 implementation (tokens, blocks, templates, analytics).
+ * WP-W2-01 Stage B — frozen rollback + residual Wave2 deps (WP-CANON T6 §3.2).
+ * WhatsApp float, ea-tokens/atoms enqueue, CF7 — still required by Chapters shell.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-stage-b.php';
 
 /**
- * WP-W2-02 — Core Content routing, redirects, assets (6 pages).
- */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-02.php';
-
-/**
- * WP-W2-03 — Muzza Publishing catalog + 3 book-detail pages routing.
- */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-03.php';
-
-/**
- * WP-W2-04 — Sound Healing + Lessons service pages routing + content injection.
- */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-04.php';
-
-/**
- * WP-W2-05 — Shop (5 product pages + /shop catalog) routing + content injection.
- */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-05.php';
-
-/**
- * WP-W2-06 Blog Migration — blog archive/single hooks and CSS enqueue.
- */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-06.php';
-
-/**
- * WP-W2-07 Heritage — /press, 48 QR pages, FB Top-5 testimonials routing + render.
+ * WP-W2-07 Heritage — /press, QR DB-template pages, FB Top-5 testimonials.
+ * /press out of Chapters scope — keep until dedicated migration.
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-07.php';
 
 /**
- * WP-W2-08 — English Landing (/en) content injection, hreflang, assets.
+ * WP-W2-08 — English Landing (/en) hreflang + assets (keep — hook still live on Chapters /en).
  */
 require_once get_stylesheet_directory() . '/inc/wave2-w2-08.php';
 
 /**
- * WP-W2-09 — Cutover SEO/best-practices head hygiene (meta description, favicon).
+ * Site-wide SEO head fallbacks (relocated from wave2-w2-09.php — WP-CANON T6 §3.3).
  */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-09.php';
+require_once get_stylesheet_directory() . '/inc/seo-head-fallbacks.php';
 
 /**
- * WP-W2-14-E — Memorial + Galleries + Media: 3 new elevated pages (force-route
- * + compose + scoped catalog CSS).
+ * Commerce accessors — must load before Wave2 w2-03/05 deletion (WP-CANON T6 §3.5.5).
  */
-require_once get_stylesheet_directory() . '/inc/wave2-w2-14e.php';
+require_once get_stylesheet_directory() . '/inc/chapters/chapters-commerce.php';
 
 /**
  * D-TESTIMONIALS (team_110) — 48 Facebook testimonials corpus + accessors
@@ -913,3 +800,7 @@ require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
  * duplicate-page action, ACF home field group). Self-guarding / ACF-absent safe.
  */
 require_once get_stylesheet_directory() . '/inc/chapters/chapters-bootstrap.php';
+
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once get_stylesheet_directory() . '/inc/cli/class-ea-faq-migrate-command.php';
+}

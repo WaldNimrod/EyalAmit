@@ -24,12 +24,24 @@ function ea_chapters_template_include( $tpl ) {
 		return $t ? $t : $tpl;
 	}
 	if ( is_page() ) {
-		$map = ea_chapters_route_map();
+		$map  = ea_chapters_route_map();
 		$slug = ea_chapters_current_slug();
 		if ( isset( $map[ $slug ] ) ) {
 			$t = locate_template( 'page-templates/' . $map[ $slug ]['template'] . '.php' );
 			if ( $t ) {
 				return $t;
+			}
+		}
+		// Pattern-route — parent + child (e.g. /qr/qrN/).
+		$post = get_queried_object();
+		if ( $post instanceof WP_Post && $post->post_parent ) {
+			$parent_slug = get_post_field( 'post_name', (int) $post->post_parent );
+			$patterns    = ea_chapters_pattern_routes();
+			if ( isset( $patterns[ $parent_slug ] ) ) {
+				$t = locate_template( 'page-templates/' . $patterns[ $parent_slug ]['template'] . '.php' );
+				if ( $t ) {
+					return $t;
+				}
 			}
 		}
 	}

@@ -2,7 +2,7 @@
    WP-W2-16-C — FAQ topic navigation (TOC).
    Sticky topic menu at the top of /faq: anchor jump-to-section + scroll-spy
    active state + clearer separation between topic groups. Eyal feedback #3.
-   Loads only on /faq (enqueued in inc/wave2-w2-02.php). Uses ea-tokens
+   Loads only on /faq (enqueued in inc/chapters/chapters-enqueue.php). Uses ea-tokens
    variables only — NO new locked atom; ea-tokens.css / ea-atoms.css untouched.
    ========================================================================== */
 

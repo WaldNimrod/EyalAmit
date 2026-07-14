@@ -144,6 +144,8 @@ def main() -> None:
     # 2026-07-12: force-overwrites 8 meta descriptions with Eyal's SEO-doc wording
     # (content = Eyal's call; unlike the backfill-once file above, this one is unconditional).
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-content-eyal-seo-metadesc-2026-07-12-once.php", "wp-content/mu-plugins/ea-content-eyal-seo-metadesc-2026-07-12-once.php"))
+    # WP-CANON T2: one-time FAQ CPT seed when staging has no WP-CLI.
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-faq-seed-once.php", "wp-content/mu-plugins/ea-faq-seed-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:

@@ -1,477 +1,55 @@
 <?php
 /**
  * Block: faq-list — WP-W2-02 full FAQ accordion with category filter.
- * Content source: docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/דף FAQ/FAQ FINAL.md
+ * Content source: ea_faq CPT + ea_faq_cat taxonomy (WP-CANON T2).
  *
- * Optional arg (WP-W2-04, passed via get_template_part $args):
- *   $args['ea_faq_only_category'] — when set to a category slug, the block
- *   renders VIEW-ONLY: only that category's questions, no filter chips/select,
- *   no category heading. Default /faq behavior (full filterable list) is
- *   unchanged when the arg is absent. The single FAQ dataset is NOT duplicated.
+ * Optional args (passed via get_template_part $args):
+ *   ea_faq_only_category       — legacy single slug (Wave2 back-compat).
+ *   ea_faq_only_categories     — array of category slugs (many-to-many OR filter).
+ *   ea_faq_view_chap           — optional chap label in view-only mode.
+ *   ea_faq_view_title          — optional H2 in view-only mode.
+ *   ea_faq_view_id             — optional section id anchor in view-only mode.
  *
  * @package ea_eyalamit
  */
 defined( 'ABSPATH' ) || exit;
 
-$ea_faq_only_category = ( isset( $args['ea_faq_only_category'] ) && '' !== $args['ea_faq_only_category'] )
-	? (string) $args['ea_faq_only_category']
-	: '';
+// WP-CANON T2 — normalize legacy single arg + new array arg.
+$ea_only_cats = array();
+if ( isset( $args['ea_faq_only_categories'] ) && is_array( $args['ea_faq_only_categories'] ) ) {
+	$ea_only_cats = array_values( array_filter( array_map( 'sanitize_title', $args['ea_faq_only_categories'] ) ) );
+} elseif ( isset( $args['ea_faq_only_category'] ) && '' !== $args['ea_faq_only_category'] ) {
+	$ea_only_cats = array( sanitize_title( (string) $args['ea_faq_only_category'] ) );
+}
+$ea_view_chap  = isset( $args['ea_faq_view_chap'] ) ? (string) $args['ea_faq_view_chap'] : '';
+$ea_view_title = isset( $args['ea_faq_view_title'] ) ? (string) $args['ea_faq_view_title'] : '';
+$ea_view_id    = isset( $args['ea_faq_view_id'] ) ? (string) $args['ea_faq_view_id'] : '';
 
-$faq_categories = array(
-	'treatment'    => "טיפול בדיג'רידו",
-	'lessons'      => "שיעורי נגינה בדיג'רידו",
-	'sound-healing' => "סאונד הילינג בדיג'רידו",
-	'method'       => 'השיטה — cbDIDG',
-	// WP-W2-05 — shop product FAQ categories (source .md had an FAQ section).
-	'didgeridoos'    => "רכישת דיג'רידו",
-	'bags'           => "תיקים לדיג'רידו",
-	'stands-storage' => "סטנדים לאחסון דיג'רידו",
-	'stand-floor'    => 'סטנד רצפתי לנגינה',
-	'repair'         => "תיקון וחידוש דיג'רידו",
-	'general'      => 'שאלות כלליות',
-);
-
-$faq_data = array(
-
-	/* ─── TREATMENT (source SECTION 03) ─── */
-	array(
-		'category' => 'treatment',
-		'q'        => "מה זה בעצם טיפול בדיג'רידו?",
-		'a'        => "<p>טיפול בדיג'רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הנשימה, באמצעות נגינה בדיג'רידו ככלי עבודה.</p><p>הדיג'רידו לא עומד במרכז כנגינה או כמטרה, אלא משמש ככלי שמאפשר להבין, להרגיש ולשנות את דפוסי <a href=\"/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/\">הנשימה היומיומית.</a></p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'איך נראה מפגש טיפולי?',
-		'a'        => "<p>המפגש הוא אישי, אחד על אחד.</p><p>במהלך המפגש לומדים בהדרגה איך לעבוד עם הנשימה דרך הכלי, תוך תשומת לב לפרטים קטנים - אופן הנשיפה, תנועת הגוף, מתח, הרגלים קיימים ועוד.</p><p>זה לא שיעור נגינה רגיל, אלא תהליך שמכוון להשפעה על הנשימה עצמה, ומבוסס על <a href=\"/method/\">השיטה - cbDIDG.</a></p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'האם צריך ניסיון קודם בנגינה?',
-		'a'        => "<p>לא.</p><p>אין צורך בניסיון קודם, לא בנגינה ולא בעבודה עם נשימה.</p><p>העבודה מתחילה מהבסיס, ומותאמת לכל אדם לפי הקצב והיכולת שלו.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => "למי טיפול בדיג'רידו יכול להתאים?",
-		'a'        => "<p>אנשים מגיעים ממגוון סיבות, למשל:</p><ul><li>תחושה של עומס או סטרס מתמשך</li><li>קושי בנשימה או הרגלי נשימה לא מודעים</li><li>נחירות או הפרעות שינה</li><li>רצון לשפר את הקשר לגוף ולנשימה</li></ul><p>אבל לא חייבת להיות בעיה מוגדרת - יש גם מי שמגיעים מתוך סקרנות או רצון להעמיק.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => "מה ההבדל בין טיפול בדיג'רידו לסאונד הילינג?",
-		'a'        => "<p>בטיפול בדיג'רידו יש עבודה אקטיבית - המשתתף לומד לנגן ועובד בפועל עם הנשימה שלו.</p><p>לעומת זאת, <a href=\"/sound-healing/\">ב־סאונד הילינג בדיג'רידו</a> החוויה היא פאסיבית, <a href=\"/lessons/\">וב־שיעורי נגינה בדיג'רידו</a> הדגש הוא על לימוד הכלי, פיתוח שליטה ונגינה.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'כמה זמן לוקח לראות שינוי?',
-		'a'        => "<p>זה לא תהליך של מפגש אחד.</p><p>העבודה מבוססת על תרגול והתמדה, וההשפעה נבנית לאורך זמן - גם במפגשים וגם בין המפגשים.</p><p>רבים מדווחים על שינוי כבר בשלבים הראשונים, אבל המשמעות העמוקה מגיעה דרך תהליך.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'האם זה טיפול רפואי?',
-		'a'        => "<p>לא.</p><p>העבודה אינה תחליף לטיפול רפואי, ואינה מוצגת ככזו.</p><p>עם זאת, אנשים רבים מגיעים מתוך מצבים שונים שקשורים לנשימה או לסטרס, ועובדים עליהם דרך הנשימה.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'מה הקשר בין הנגינה לנשימה היומיומית?',
-		'a'        => "<p>זו נקודה מרכזית.</p><p>הנשימה בזמן נגינה בדיג'רידו היא כלי ללמידה, אבל המטרה היא להשפיע על הנשימה מחוץ לנגינה - ביומיום, בשגרה, ובמצבים שונים.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'כמה זמן נמשך התהליך?',
-		'a'        => "<p>אין זמן קבוע.</p><p>זה תהליך אישי, שיכול להימשך תקופה קצרה או ארוכה יותר בהתאם לצורך.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'האם צריך לתרגל גם בין המפגשים?',
-		'a'        => "<p>כן.</p><p>התרגול בין המפגשים הוא חלק חשוב מהתהליך, ושם הרבה מהשינוי מתבסס.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'מה קורה במפגש הראשון?',
-		'a'        => "<p>המפגש הראשון כולל היכרות ואבחון, וניתן להתחיל <a href=\"/contact/\">ב־שיחת היכרות.</a></p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'האם זה מתאים גם למי שלא "מחובר לעולם הזה"?',
-		'a'        => "<p>כן.</p><p>אין צורך ברקע, אמונה או גישה מסוימת.</p><p>העבודה היא פשוטה וישירה, ומתאימה למגוון רחב של אנשים.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => "במה זה שונה מטיפולי נשימה אחרים?",
-		'a'        => "<p>יש הרבה דרכים לעבוד עם נשימה.</p><p>הייחוד כאן הוא בשילוב בין כלי פיזי, צליל ותהליך למידה הדרגתי, שבו האדם עצמו לומד לעבוד עם הנשימה שלו.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => 'האם זה מתאים גם למי שכבר מכיר נשימה מעגלית?',
-		'a'        => "<p>יש הבדל בין נשימה מעגלית <a href=\"/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/\">ריברסינג</a> לבין נשימה מעגלית בדיג'רידו.</p><p>בנשימה מעגלית ריברסינג, מדובר בתרגול נשימתי רציף, אך הוא אינו מלמד לנגן בדיג'רידו.</p><p>בנשימה מעגלית בדיג'רידו, מדובר בטכניקה פיזית שונה לחלוטין, שדורשת תזמון, קואורדינציה ושליטה.</p>",
-	),
-	array(
-		'category' => 'treatment',
-		'q'        => "למי זה פחות מתאים?",
-		'a'        => "<p>העבודה מתאימה לרוב האנשים, אך יש מצבים שבהם כדאי להתייעץ מראש.</p><p>לדוגמה:</p><ul><li>נשים בהריון</li><li>מצבים נפשיים מורכבים</li><li>מצבים רפואיים חריגים</li></ul><p>בנוסף, העבודה מתאימה בדרך כלל מגיל 17 ומעלה.</p>",
-	),
-
-	/* ─── LESSONS (source SECTION 04) ─── */
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם אפשר ללמוד לבד מיוטיוב?',
-		'a'        => "<p>אפשר, אך ללא משוב טעויות מתקבעות, התסכול גדל ורבים פורשים.</p><p>ליווי אישי מאפשר תיקון בזמן אמת והתקדמות מדויקת.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם עדיף ללמוד בקבוצה או פרטי?',
-		'a'        => "<p>לימוד בקבוצה מתקדם בקצב אחיד ולא מאפשר התאמה אישית.</p><p>בשיעור פרטי ההתקדמות מהירה ומדויקת יותר בעשרות אחוזים.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם זה מתאים למי שניסה בעבר ולא הצליח?',
-		'a'        => "<p>כן. למידה מסודרת עם ליווי אישי מאפשרת התקדמות אמיתית.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם אפשר ללמוד על כיסא?',
-		'a'        => "<p>כן. ניתן ללמוד במגוון מנחים בהתאם לנוחות הגוף.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם יש מגבלת גיל?',
-		'a'        => "<p>השיעורים מיועדים מגיל 17 ומעלה.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם אפשר בזמן הריון?',
-		'a'        => "<p>לא מומלץ.</p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'יש לי בעיה בריאותית',
-		'a'        => "<p>שיעורים אינם טיפוליים.</p><p>פנו למסלול של <a href=\"/treatment/\">טיפול בדיג'רידו</a></p>",
-	),
-	array(
-		'category' => 'lessons',
-		'q'        => 'האם יש שיעור ניסיון?',
-		'a'        => "<p>כן. ניתן להגיע ללא התחייבות.</p>",
-	),
-
-	/* ─── SOUND HEALING (source SECTION 05) ─── */
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'האם צריך ניסיון קודם או היכרות עם סאונד הילינג?',
-		'a'        => "<p>לא. המפגש מתאים גם למי שמגיע בפעם הראשונה, מתוך סקרנות או רצון להיחשף לחוויה.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => "מה ההבדל בין סאונד הילינג לטיפול בדיג'רידו?",
-		'a'        => "<p>בסאונד הילינג מדובר במפגש פאסיבי שבו מקשיבים לצליל ונמצאים בתוך המרחב שנוצר.</p><p>לעומת זאת, בטיפול בדיג'רידו העבודה היא אקטיבית, ומבוססת על תהליך אישי עם הנשימה.</p><p>הדיג'רידו משמש בשני המקרים ככלי עבודה, אך המטרה שונה: בסאונד הילינג הדגש הוא על שהייה והקשבה, ואילו בטיפול העבודה היא על פיתוח שליטה בנשימה והשפעה על האופן שבו היא מתנהלת ביומיום.</p><p>👉 <a href=\"/treatment/\">למידע נוסף על טיפול בדיג'רידו</a></p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'האם יש מגע במהלך המפגש?',
-		'a'        => "<p>ברוב המקרים העבודה נעשית ללא מגע, דרך צליל ותדר בלבד.</p><p>במקרים מסוימים, ובהתאם לצורך, עשוי להיות מגע עדין ותומך.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'האם עולים רגשות או זיכרונות במהלך המפגש?',
-		'a'        => "<p>לעיתים כן. במהלך מפגש עמוק יכולים לעלות רגשות, זיכרונות או תכנים פנימיים.</p><p>זה חלק טבעי מהתהליך, והמפגש מתקיים בתוך מרחב מוחזק ובטוח שמאפשר לזה להתרחש בצורה מדויקת.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'מה אם קשה לי "להירגע" או לשחרר?',
-		'a'        => "<p>אין ציפייה להגיע למצב מסוים. גם אם המחשבות פעילות או הגוף לא נרגע מיד - הצליל עדיין פועל, והתהליך מתרחש בקצב האישי שלך.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'האם זה מתאים גם כמתנה או כחוויה זוגית?',
-		'a'        => "<p>כן. ניתן להגיע למפגש כיחיד או כזוג, והוא מתאים גם למי שמחפש דרך אחרת לציין רגע משמעותי, לחגוג או לעצור יחד.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'כמה זמן נמשך המפגש?',
-		'a'        => "<p>המפגש נמשך בדרך כלל כשעתיים.</p>",
-	),
-	array(
-		'category' => 'sound-healing',
-		'q'        => 'האם זה מתאים לכל אחד?',
-		'a'        => "<p>המפגש אינו מיועד למצבים נפשיים מורכבים או לא יציבים, ואינו מתאים לנשים בהריון.</p><p>אם יש ספק, מומלץ להתייעץ מראש דרך <a href=\"/contact/\">שיחת היכרות</a>.</p>",
-	),
-
-	/* ─── METHOD (source SECTION 06) ─── */
-	array(
-		'category' => 'method',
-		'q'        => "מה ההבדל בין שיטת cbDIDG לבין שיטות נשימה אחרות כמו ריברסינג או בוטייקו?",
-		'a'        => "<p>בשיטת <a href=\"/method/\">cbDIDG</a> העבודה מתבצעת דרך נגינה בדיג'רידו, כך שהנשימה הופכת לפעולה מוחשית עם משוב מיידי של צליל.</p><p>הנגינה יוצרת עניין, מיקוד ורצף תרגול, ומאפשרת להתמיד לאורך זמן.</p>",
-	),
-	array(
-		'category' => 'method',
-		'q'        => "מה ההבדל בין נשימה מעגלית בדיג'רידו לבין נשימה מעגלית בריברסינג?",
-		'a'        => "<p>למרות השם הדומה, מדובר בשתי גישות שונות לחלוטין.</p><p>נשימה מעגלית בדיג'רידו היא טכניקה פיזית שמאפשרת להפיק צליל רציף על ידי שילוב בו זמני בין נשיפה מהפה ושאיפה מהאף.</p><p>לעומת זאת, בריברסינג מדובר בתהליך נשימתי רציף שמטרתו לרוב לעורר חוויה רגשית או תודעתית.</p><p>למידע נוסף: <a href=\"/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/\">ריברסינג, נשימה מעגלית ודיג'רידו</a></p>",
-	),
-	array(
-		'category' => 'method',
-		'q'        => "האם צריך לדעת לנגן בדיג'רידו כדי להתחיל?",
-		'a'        => "<p>לא. הלימוד מתחיל מהבסיס.</p>",
-	),
-	array(
-		'category' => 'method',
-		'q'        => 'כמה זמן לוקח לראות שינוי?',
-		'a'        => "<p>זה תהליך הדרגתי שמבוסס על תרגול והתמדה.</p>",
-	),
-	array(
-		'category' => 'method',
-		'q'        => "האם השיטה יכולה לעזור לנחירות או דום נשימה?",
-		'a'        => "<p>יש מקרים שבהם כן, אך כל מקרה נבחן באופן אישי.</p><p><a href=\"https://www.bmj.com/content/332/7536/266\" target=\"_blank\" rel=\"noopener\">לקריאה על המחקר ב־BMJ</a></p>",
-	),
-	array(
-		'category' => 'method',
-		'q'        => 'למי זה לא מתאים?',
-		'a'        => "<p>לאנשים שמחפשים פתרון מהיר ללא תרגול, לנשים בהריון ולמצבים מורכבים מסוימים.</p>",
-	),
-
-	/* ─── GENERAL (source SECTION 07–08: שאלות כלליות) ─── */
-	array(
-		'category' => 'general',
-		'q'        => 'איפה מתקיימים המפגשים?',
-		'a'        => "<p>המפגשים מתקיימים בסטודיו בפרדס חנה, בסביבה שקטה ונעימה שמאפשרת עבודה ממוקדת עם נשימה וצליל.</p><p>הסטודיו ממוקם בתוך מרחב ירוק ושקט, עם חצר פתוחה, עצי פרי, שבילי עץ ואווירה שמאפשרת לעצור, להקשיב ולהתמקד.</p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'מה הכתובת של המרכז?',
-		'a'        => "<p>המרכז ממוקם בפרדס חנה.</p><p>כתובת מדויקת ניתנת לאחר יצירת קשר ותיאום מפגש.</p><p><a href=\"/contact/\">שיחת היכרות</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'מה שעות הפעילות?',
-		'a'        => "<p>הפעילות מתקיימת בתיאום מראש בלבד.</p><p>כדי למצוא זמן שמתאים, ניתן לפנות דרך <a href=\"/contact/\">שיחת היכרות</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'איך קובעים מפגש?',
-		'a'        => "<p>ניתן ליצור קשר דרך <a href=\"/contact/\">שיחת היכרות</a> ולתאם זמן שמתאים.</p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'כמה זה עולה?',
-		'a'        => "<p>המחירים משתנים בהתאם לסוג המפגש - <a href=\"/treatment/\">טיפול בדיג'רידו,</a> <a href=\"/lessons/\">שיעורי נגינה בדיג'רידו</a> או <a href=\"/sound-healing/\">סאונד הילינג בדיג'רידו.</a></p><p>הדרך הפשוטה היא לפנות ולקבל הסבר מדויק לפי הצורך.</p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'כמה זמן נמשך כל מפגש?',
-		'a'        => "<ul><li>טיפול בדיג'רידו - לרוב כ־60 דקות (מפגש ראשון ארוך יותר)</li><li>שיעורי נגינה בדיג'רידו - כ־60 דקות</li><li>סאונד הילינג בדיג'רידו - כ־שעתיים</li></ul>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => "האם אפשר לרכוש דיג'רידו?",
-		'a'        => "<p>כן.</p><p>יש אפשרות לרכוש כלים שנבנים בעבודת יד על ידי אייל עמית, בהתאמה אישית.</p><p>למידע נוסף: <a href=\"/didgeridoos/\">דיג'רידו למכירה - כלים בעבודת יד</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => "האם יש גם אביזרים נלווים?",
-		'a'        => "<p>כן.</p><p>ניתן למצוא גם אביזרים משלימים לנגינה ולתחזוקה:</p><ul><li><a href=\"/bags/\">תיקי נשיאה לדיג'רידו</a></li><li><a href=\"/stand-floor/\">סטנד לנגינה בישיבה נמוכה</a></li><li><a href=\"/stands-storage/\">סטנדים לאחסון דיג'רידו</a></li></ul>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => "האם ניתן לתקן דיג'רידו?",
-		'a'        => "<p>כן.</p><p>יש אפשרות לתיקון ושיקום כלי דיג'רידו.</p><p>למידע נוסף: <a href=\"/repair/\">תיקון דיג'רידו</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'האם יש סדנאות קבוצתיות?',
-		'a'        => "<p>לעיתים מתקיימות סדנאות חד פעמיות, אך עיקר העבודה נעשית באופן אישי במסגרת <a href=\"/treatment/\">טיפול בדיג'רידו</a> או <a href=\"/lessons/\">שיעורי נגינה בדיג'רידו</a>.</p>",
-	),
-
-	/* ─── GENERAL (source SECTION 09: ידע ורקע מקצועי) ─── */
-	array(
-		'category' => 'general',
-		'q'        => 'מי הוא מוקש ומה הקשר שלו לאייל עמית?',
-		'a'        => "<p>מוקש היה מאסטר לדיג'רידו, יוגי מזרם הבהקטי שחי עם משפחתו ברישיקש הודו, התמחה בבניית כלי דיג'רידו והקדיש את חייו להפצת הדיג'רידו ומלאכת בנייתו בעולם. פעילותו החלה באמצע שנות השבעים והסתיימה עם פטירתו בשנת 2020.</p><p>אייל עמית למד אצלו לאורך שנים והיה מתלמידיו הקרובים מאז שנת 2000. הקשר הזה מהווה חלק משמעותי מהבסיס שעליו נבנתה <a href=\"/method/\">השיטה - cbDIDG</a></p><p>למידע נוסף: <a href=\"/eyal-amit/mokesh-dahiman/\">מוקש</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'האם יש קורס להכשרת מטפלים?',
-		'a'        => "<p>כן.</p><p>קיים קורס הכשרה למטפלים בשיטת cbDIDG של אייל עמית, המיועד למי שמעוניין להעמיק בעבודה עם נשימה ולהפוך אותה לכלי מקצועי בעבודה עם אנשים.</p><p>למידע נוסף: קורס הכשרה למטפלים בשיטת cbDIDG</p>",
-	),
-
-	/* ─── GENERAL (source SECTION 10: תוכן נוסף וספרים) ─── */
-	array(
-		'category' => 'general',
-		'q'        => 'האם יש תוכן נוסף שאפשר לקרוא או ללמוד ממנו?',
-		'a'        => "<p>כן.</p><p>ניתן למצוא מאמרים, הסברים ותכנים נוספים ב־<a href=\"/blog/\">בלוג</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'האם אייל עמית כתב ספרים?',
-		'a'        => "<p>כן.</p><p>אייל עמית כתב והוציא לאור 3 ספרים במסגרת <a href=\"/books/\">מוזה הוצאה לאור</a></p>",
-	),
-	array(
-		'category' => 'general',
-		'q'        => 'האם ניתן לרכוש את הספרים?',
-		'a'        => "<p>כן.</p><p>ניתן לקבל פרטים דרך <a href=\"/contact/\">שיחת היכרות</a></p>",
-	),
-
-	/* ─── DIDGERIDOOS (WP-W2-05 — buy didgeridoo.md §08) ─── */
-	array(
-		'category' => 'didgeridoos',
-		'q'        => "האם צריך ניסיון קודם כדי לרכוש דיג'רידו?",
-		'a'        => "<p>לא. אפשר להתחיל גם בלי ניסיון, והכלי יכול ללוות אותך מהשלבים הראשונים.</p><p>אבל כדי לדייק את הבחירה וההתאמה של הכלי, מומלץ מאוד לדעת לנשום מעגלית בדיג'רידו.</p><p>אם עדיין לא למדת, אפשר להתחיל דרך <a href=\"/lessons/\">שיעורי נגינה בדיג'רידו</a>.</p>",
-	),
-	array(
-		'category' => 'didgeridoos',
-		'q'        => 'איך יודעים איזה כלי מתאים לי?',
-		'a'        => "<p>ההתאמה נעשית לפי הנשימה, התחושה בגוף והמטרה שלך. לכן מומלץ להגיע ולהתנסות לפני בחירה.</p>",
-	),
-	array(
-		'category' => 'didgeridoos',
-		'q'        => 'האם יש הבדל בין כלי למתחילים לכלי למתקדמים?',
-		'a'        => "<p>כן. יש כלים שקל יותר להתחיל איתם, ויש כאלה שדורשים שליטה גבוהה יותר. הבחירה נעשית יחד, בהתאם לניסיון שלך.</p>",
-	),
-	array(
-		'category' => 'didgeridoos',
-		'q'        => 'האם אפשר להשתמש בכלי גם לעבודה נשימתית ולא רק לנגינה?',
-		'a'        => "<p>כן. רבים משתמשים בדיג'רידו ככלי לעבודה עם הנשימה, לא רק ככלי נגינה. אפשר לקרוא עוד על <a href=\"/treatment/\">טיפול בדיג'רידו</a>.</p>",
-	),
-	array(
-		'category' => 'didgeridoos',
-		'q'        => 'איך קונים בפועל?',
-		'a'        => "<p>פונים דרך <a href=\"/contact/\">עמוד יצירת קשר</a>, ומתאמים הגעה או שיחה קצרה לבחירת הכלי המתאים.</p>",
-	),
-
-	/* ─── BAGS (WP-W2-05 — bags for didg.md §08) ─── */
-	array(
-		'category' => 'bags',
-		'q'        => "האם כל תיק מתאים לכל דיג'רידו?",
-		'a'        => "<p>לא. יש הבדלים באורך, בקוטר ובמבנה של הכלים, ולכן חשוב להתאים את התיק לכלי עצמו.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => 'האם התיק מגן מפני נפילות?',
-		'a'        => "<p>התיק מספק הגנה טובה מפני מכות וזעזועים יומיומיים, אבל הוא לא תחליף לשמירה בסיסית על הכלי.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => 'אפשר להזמין תיק בהתאמה אישית?',
-		'a'        => "<p>כן. ניתן להתאים תיק לפי סוג הכלי והצרכים שלך. לתיאום — <a href=\"/contact/\">צרו קשר</a>.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => 'אני בתחילת הדרך – כדאי כבר לקנות תיק?',
-		'a'        => "<p>כן. גם בשלבים הראשונים, תיק יכול לעזור לשמור על הכלי ולבנות הרגלי שימוש נכונים. למידע נוסף על <a href=\"/lessons/\">שיעורי נגינה בדיג'רידו</a>.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => "אפשר לאחסן את הדיג'רידו בתוך התיק לאורך זמן?",
-		'a'        => "<p>כן, כל עוד מדובר במקום יבש ומאוורר. התיק עוזר לשמור עליו מפני פגיעות ולכלוך.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => 'האם ניתן לכבס את התיק?',
-		'a'        => "<p>כן.</p>",
-	),
-	array(
-		'category' => 'bags',
-		'q'        => "כמה עולה תיק לדיג'רידו?",
-		'a'        => "<p>טווח המחירים משתנה בהתאם לגודל התיק. לפרטים — <a href=\"/contact/\">צרו קשר</a>.</p>",
-	),
-
-	/* ─── STANDS-STORAGE (WP-W2-05 — stend for hanging.md §08) ─── */
-	array(
-		'category' => 'stands-storage',
-		'q'        => "האם הסטנד מתאים לכל סוגי הדיג'רידו?",
-		'a'        => "<p>ברוב המקרים כן. הסטנדים מתאימים למגוון גדלים וסוגים של דיג'רידו. אם יש כלי חריג בגודל או במשקל, כדאי לציין זאת מראש.</p>",
-	),
-	array(
-		'category' => 'stands-storage',
-		'q'        => 'מה ההבדל בין סטנד לתלייה לסטנד לעמידה?',
-		'a'        => "<p>סטנד לתלייה מתחבר לקיר וחוסך מקום, סטנד לעמידה מונח על הרצפה ומתאים למי שמעדיף פתרון נייד ללא קידוח.</p>",
-	),
-	array(
-		'category' => 'stands-storage',
-		'q'        => "האם הסטנד שומר על הדיג'רידו?",
-		'a'        => "<p>כן. הדיג'רידו הוא כלי שביר יחסית, ונפילה עלולה לסדוק או לשבור אותו. הסטנד מחזיק אותו בצורה יציבה ומפחית את הסיכון לפגיעה.</p>",
-	),
-	array(
-		'category' => 'stands-storage',
-		'q'        => 'אפשר להזמין סטנד בהתאמה אישית?',
-		'a'        => "<p>כן. ניתן להזמין סטנד בהתאם לגודל הכלי, סוג האחסון הרצוי והעדפה עיצובית.</p>",
-	),
-	array(
-		'category' => 'stands-storage',
-		'q'        => 'איך מקבלים הצעת מחיר?',
-		'a'        => "<p>פונים דרך <a href=\"/contact/\">עמוד יצירת קשר</a> ומתארים מה צריך (סוג סטנד, כמות, התאמות אם יש), ומקבלים הצעת מחיר ללא התחייבות לפני תחילת עבודה.</p>",
-	),
-
-	/* ─── STAND-FLOOR (WP-W2-05 — stend for playing.md §08) ─── */
-	array(
-		'category' => 'stand-floor',
-		'q'        => "האם הסטנד מתאים לכל סוגי הדיג'רידו?",
-		'a'        => "<p>כן. המבנה מאפשר התאמה אוניברסלית לרוב סוגי הכלים.</p>",
-	),
-	array(
-		'category' => 'stand-floor',
-		'q'        => 'האם צריך להרכיב או לכוון אותו?',
-		'a'        => "<p>לא. פשוט מניחים על הרצפה, משחילים את הדיג'רידו ומנגנים.</p>",
-	),
-	array(
-		'category' => 'stand-floor',
-		'q'        => 'האם הסטנד דורש תחזוקה?',
-		'a'        => "<p>לא. אין חלקים נעים ואין צורך בתחזוקה שוטפת.</p>",
-	),
-	array(
-		'category' => 'stand-floor',
-		'q'        => 'האם אפשר להזמין עיצוב אישי?',
-		'a'        => "<p>כן. ניתן להזמין את הסטנד בשלל עיצובים וגם בהתאמה אישית.</p>",
-	),
-
-	/* ─── REPAIR (WP-W2-05 — build didg.md §05) ─── */
-	array(
-		'category' => 'repair',
-		'q'        => "כמה זמן לוקח תיקון דיג'רידו?",
-		'a'        => "<p>משך התיקון תלוי בסוג הבעיה. תיקונים פשוטים יכולים לקחת זמן קצר, בעוד שתיקונים מורכבים דורשים זמן לייבוש, ייצוב ובדיקה.</p>",
-	),
-	array(
-		'category' => 'repair',
-		'q'        => "האם כל דיג'רידו ניתן לתיקון?",
-		'a'        => "<p>ברוב המקרים כן. גם כלים עם סדקים או שברים משמעותיים ניתנים לשיקום, אך יש מצבים נדירים שבהם הנזק אינו מאפשר תיקון מלא. לעיתים משתלם יותר לרכוש כלי חדש מאשר להשקיע בתיקון כלי ישן. למידע נוסף על כלים חדשים בעבודת יד: <a href=\"/shop/\">כלים ואביזרים לדיג'רידו</a>.</p>",
-	),
-	array(
-		'category' => 'repair',
-		'q'        => 'האם התיקון משנה את הצליל של הכלי?',
-		'a'        => "<p>המטרה היא להחזיר את הכלי לאיזון המקורי שלו. במקרים מסוימים אף ניתן לשפר יציבות, תגובתיות וזרימת אוויר.</p>",
-	),
-	array(
-		'category' => 'repair',
-		'q'        => "כמה עולה תיקון דיג'רידו?",
-		'a'        => "<p>המחיר משתנה בהתאם למצב הכלי וסוג העבודה הנדרש. הצעת מחיר ניתנת לאחר בדיקה של הכלי, ללא התחייבות.</p>",
-	),
-	array(
-		'category' => 'repair',
-		'q'        => 'האם מקבלים הצעת מחיר לפני תחילת העבודה?',
-		'a'        => "<p>כן. כל תיקון מתחיל בהערכת מצב ומתן הצעת מחיר ללא התחייבות מראש. רק לאחר אישור - ניגשים לביצוע העבודה.</p>",
-	),
-	array(
-		'category' => 'repair',
-		'q'        => 'האם אפשר לשדרג את הכלי תוך כדי תיקון?',
-		'a'        => "<p>כן. במקרים רבים ניתן לשלב התאמות כמו שדרוג פייה או חיזוק מבני, בהתאם למצב הכלי ולצורך.</p>",
-	),
-);
+$faq_categories = function_exists( 'ea_faq_get_categories' ) ? ea_faq_get_categories() : array();
+$faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items() : array();
 ?>
-<?php if ( '' !== $ea_faq_only_category ) :
-	// WP-W2-04 — view-only single-category render (no chips/select/JS, no heading).
+<?php if ( ! empty( $ea_only_cats ) ) :
 	$ea_only_items = array_filter(
 		$faq_data,
-		static function ( $item ) use ( $ea_faq_only_category ) {
-			return $item['category'] === $ea_faq_only_category;
+		static function ( $item ) use ( $ea_only_cats ) {
+			return (bool) array_intersect( $ea_only_cats, $item['categories'] );
 		}
 	);
 	?>
-	<div class="ea-faq-list ea-faq-list--view-only" data-block="faq-list" data-faq-category="<?php echo esc_attr( $ea_faq_only_category ); ?>">
-		<div class="ea-faq-category" data-category="<?php echo esc_attr( $ea_faq_only_category ); ?>">
-			<?php foreach ( $ea_only_items as $item ) : ?>
-				<details class="ea-faq-item ea-entrance" data-category="<?php echo esc_attr( $item['category'] ); ?>">
-					<summary class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></summary>
-					<div class="ea-faq-item__answer"><?php echo wp_kses_post( $item['a'] ); ?></div>
-				</details>
-			<?php endforeach; ?>
+	<section class="ea-faq-list ea-faq-list--view-only" data-block="faq-list" data-faq-category="<?php echo esc_attr( implode( ' ', $ea_only_cats ) ); ?>"<?php echo '' !== $ea_view_id ? ' id="' . esc_attr( $ea_view_id ) . '"' : ''; ?>>
+		<div class="ea-faq-list__inner">
+			<?php if ( '' !== $ea_view_chap ) : ?><span class="chap chap--c r"><?php echo esc_html( $ea_view_chap ); ?></span><?php endif; ?>
+			<?php if ( '' !== $ea_view_title ) : ?><h2 class="h2 r"><?php echo esc_html( $ea_view_title ); ?></h2><?php endif; ?>
+			<div class="ea-faq-category">
+				<?php foreach ( $ea_only_items as $item ) : ?>
+					<details class="ea-faq-item ea-entrance" data-category="<?php echo esc_attr( implode( ' ', $item['categories'] ) ); ?>">
+						<summary class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></summary>
+						<div class="ea-faq-item__answer"><?php echo wp_kses_post( $item['a'] ); ?></div>
+					</details>
+				<?php endforeach; ?>
+			</div>
 		</div>
-	</div>
+	</section>
 	<?php return; endif; ?>
 <section class="ea-faq-list" data-block="faq-list" aria-label="<?php esc_attr_e( 'שאלות נפוצות', 'ea-eyalamit' ); ?>">
 	<div class="ea-faq-list__inner">
@@ -481,7 +59,7 @@ $faq_data = array(
 		$ea_faq_toc = array();
 		foreach ( $faq_categories as $ea_toc_slug => $ea_toc_label ) {
 			foreach ( $faq_data as $ea_toc_fd ) {
-				if ( $ea_toc_fd['category'] === $ea_toc_slug ) {
+				if ( in_array( $ea_toc_slug, $ea_toc_fd['categories'], true ) ) {
 					$ea_faq_toc[ $ea_toc_slug ] = $ea_toc_label;
 					break;
 				}
@@ -505,7 +83,7 @@ $faq_data = array(
 			$cat_items = array_filter(
 				$faq_data,
 				static function ( $item ) use ( $cat_slug ) {
-					return $item['category'] === $cat_slug;
+					return in_array( $cat_slug, $item['categories'], true );
 				}
 			);
 			?>
@@ -517,7 +95,7 @@ $faq_data = array(
 					<?php foreach ( $cat_items as $item ) : ?>
 						<details
 							class="ea-faq-item ea-entrance"
-							data-category="<?php echo esc_attr( $item['category'] ); ?>"
+							data-category="<?php echo esc_attr( implode( ' ', $item['categories'] ) ); ?>"
 						>
 							<summary class="ea-faq-item__summary">
 								<h3 class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></h3>

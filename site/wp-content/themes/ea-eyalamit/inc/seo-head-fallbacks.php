@@ -1,36 +1,10 @@
 <?php
 /**
- * WP-W2-09 — Cutover SEO/best-practices head hygiene.
+ * Site-wide SEO head fallbacks (relocated from inc/wave2-w2-09.php — WP-CANON T6).
  *
- * Two theme-level, content-neutral head additions surfaced by the AC-05
- * Lighthouse pass on HTTP staging:
- *
- *  1. meta description — the HE homepage had no <meta name="description">,
- *     failing the Lighthouse SEO `meta-description` audit. We emit one derived
- *     from the existing hero copy (no new page content/copy is introduced).
- *     A site-wide fallback uses the WordPress tagline so inner pages without a
- *     dedicated description still get a sensible value.
- *     UPDATE (WP-W2-17 T3, D-1 single source of truth): Yoast SEO independently
- *     prints its own `name="description"` tag from post meta
- *     `_yoast_wpseo_metadesc` on `wp_head`, which produced 2 duplicate tags on
- *     every route where BOTH emitters had data (see spec §5 finding #1). This
- *     function now checks that post meta FIRST and returns without printing
- *     when Yoast already owns a non-empty value for the queried post — Yoast is
- *     the single source of truth for every "16 rollup + mokesh" route (backfilled
- *     once by ea-w2-17-metadesc-backfill-once.php); the logic below remains only
- *     as a fallback for routes Yoast does not cover.
- *
- *  2. favicon link — the homepage logged a 404 for /favicon.ico, failing the
- *     Lighthouse best-practices `errors-in-console` audit. We point the icon at
- *     the existing brand logo asset shipped with the theme, eliminating the
- *     network 404 without adding a binary.
- *
- * NOTE (staging artifacts, intentionally NOT touched here):
- *   - is-crawlable (SEO) is failed by the intentional staging noindex
- *     (mu-plugin ea-staging-noindex.php). Removing it would game the score and
- *     is forbidden; it lifts at the M7 HTTPS/production cutover.
- *   - is-on-https / redirects-http (best-practices) are HTTP-only staging
- *     limits; HTTPS lands at M7 cutover.
+ *  1. meta description — Yoast-first; theme fallback for routes Yoast does not cover.
+ *  2. favicon link — eliminates /favicon.ico 404 when no WP Site Icon is set.
+ *  3. Blog author byline — display-only "אייל עמית" on single posts (from w2-06).
  *
  * @package ea_eyalamit
  */
@@ -55,12 +29,6 @@ function ea_w2_09_trim_description( $text ) {
 }
 
 /**
- * Meta description for the HE homepage (and a tagline-based site-wide fallback).
- *
- * Derived verbatim from the existing hero title + subtitle already rendered on
- * the front page, so no new copy is authored.
- */
-/**
  * Per-route meta description for inner pages (W1-09: these routes shipped description-less).
  * Keyed on the queried page slug; '' when no specific copy (caller falls back to the tagline).
  *
@@ -76,32 +44,16 @@ function ea_w2_09_route_description() {
 		'stand-floor'    => 'סטנד רצפתי לדיג׳רידו — לנגינה בישיבה בגובה נמוך, מחנות אייל עמית.',
 		'repair'         => 'תיקון דיג׳רידו — שירות מקצועי לכלים מכל הסוגים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו של אייל עמית.',
 		'books'          => 'הספרים של אייל עמית בהוצאת מוזה — סיפורים אוטוביוגרפיים. כל הכותרים והרכישה במקום אחד.',
-		// 'muzza' is a DEAD entry: /muzza/ is a 301 SOURCE that redirects to canonical
-		// /books/ (redirects SSoT). It is never queried as a Page, so this copy never
-		// renders. Retained as documentation; F-W1B-META-02 dispositioned — accept the
-		// /books/ canonical, do not author a distinct /muzza/ landing.
 		'muzza'          => 'מוזה הוצאה לאור — הספרים והסיפורים של אייל עמית. כל הכותרים והרכישה.',
-		// 'blog' is served by the is_home() branch below (the posts archive is not a
-		// Page); the entry lives here so the copy has a single source of truth.
 		'blog'           => 'הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה.',
 		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
 		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח׳ עמל 8 ב׳ פרדס חנה. וואטסאפ, טלפון וטופס.',
 	);
 
-	// Blog posts archive: WordPress serves /blog/ via is_home() (the static front
-	// page is a separate Page), so is_page() is false here and the slug map below is
-	// never reached. Without this branch the archive shipped description-less
-	// (B-W1B-META-01). Guard on ! is_front_page() so this only applies to the
-	// dedicated posts page, not when the blog is configured as the site homepage
-	// (that case is handled by the is_front_page() branch in the caller).
 	if ( is_home() && ! is_front_page() ) {
 		return $map['blog'];
 	}
 
-	// Single blog post: posts are is_singular('post'), not is_page(), so the slug map
-	// below never reached them and they shipped description-less (AC-19). Derive the
-	// description from the excerpt — the same source Yoast uses for og:description, so
-	// the two stay consistent — trimmed to ~157 chars on a clean boundary.
 	if ( is_singular( 'post' ) ) {
 		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
 		if ( '' !== $excerpt ) {
@@ -109,8 +61,6 @@ function ea_w2_09_route_description() {
 		}
 	}
 
-	// Chapters child pages (e.g. /books/vekatavta/, /eyal-amit/mokesh-dahiman/): derive
-	// from seeded phero.sub — verbatim hero copy, no new prose (F110-01).
 	if ( function_exists( 'ea_chapters_is_view' ) && ea_chapters_is_view()
 		&& function_exists( 'ea_chapters_defaults' ) ) {
 		$d = ea_chapters_defaults();
@@ -127,21 +77,16 @@ function ea_w2_09_route_description() {
 	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
 }
 
+/**
+ * Meta description fallback on wp_head (Yoast defers when post meta is set).
+ */
 function ea_w2_09_meta_description() {
-	// /en/ — mirror the hero subtitle already rendered in tpl-chapters-en.php (F110-01).
 	if ( function_exists( 'ea_w2_08_is_en_page' ) && ea_w2_08_is_en_page() ) {
 		$description = 'Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.';
 		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 		return;
 	}
 
-	// WP-W2-17 T3 (D-1, single source of truth): if Yoast already owns a
-	// non-empty _yoast_wpseo_metadesc for this queried post (seeded once by
-	// ea-m3-team80-placeholder-content-once.php or backfilled by
-	// ea-w2-17-metadesc-backfill-once.php), defer to it and print nothing here —
-	// this function's own resolution below is the fallback ONLY for routes Yoast
-	// does not cover. Prevents the 2x-duplicate-tag drift documented in
-	// WP-W2-17-CRFINAL-SEO-REMEDIATION-PROGRAM-2026-07-03.md §5 finding #1.
 	$queried_id = (int) get_queried_object_id();
 	if ( $queried_id > 0 ) {
 		$yoast_desc = trim( (string) get_post_meta( $queried_id, '_yoast_wpseo_metadesc', true ) );
@@ -156,7 +101,6 @@ function ea_w2_09_meta_description() {
 	if ( $is_front ) {
 		$description = 'המרכז לטיפול בנשימה באמצעות דיג׳רידו — שיטת cbDIDG של אייל עמית. להחזיר שליטה על הנשימה דרך עבודה עם דיג׳רידו, תרגול נשימה וליווי אישי.';
 	} else {
-		// W1-09: per-route description for inner pages (were description-less), then tagline fallback.
 		$description = ea_w2_09_route_description();
 		if ( '' === $description ) {
 			$tagline     = trim( (string) get_bloginfo( 'description' ) );
@@ -174,11 +118,9 @@ function ea_w2_09_meta_description() {
 add_action( 'wp_head', 'ea_w2_09_meta_description', 4 );
 
 /**
- * Emit a favicon link pointing at the shipped brand logo, eliminating the
- * /favicon.ico 404 that fails the best-practices errors-in-console audit.
+ * Favicon fallback when no WP Site Icon is configured.
  */
 function ea_w2_09_favicon() {
-	// Respect a real WP Site Icon if one is configured (it prints its own links).
 	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
 		return;
 	}
@@ -189,3 +131,18 @@ function ea_w2_09_favicon() {
 	printf( '<link rel="apple-touch-icon" href="%s" />' . "\n", esc_url( $icon ) );
 }
 add_action( 'wp_head', 'ea_w2_09_favicon', 4 );
+
+/**
+ * Display-only author byline on single blog posts (relocated from wave2-w2-06.php).
+ *
+ * @param string $display_name The author's display name.
+ * @return string
+ */
+function ea_w2_11_blog_author_display( $display_name ) {
+	if ( is_singular( 'post' ) ) {
+		return 'אייל עמית';
+	}
+	return $display_name;
+}
+add_filter( 'the_author', 'ea_w2_11_blog_author_display' );
+add_filter( 'get_the_author_display_name', 'ea_w2_11_blog_author_display' );

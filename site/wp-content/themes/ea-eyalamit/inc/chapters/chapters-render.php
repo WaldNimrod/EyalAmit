@@ -42,11 +42,13 @@ function ea_chapters_route_map() {
 		'stands-storage' => array( 'template' => 'tpl-chapters-page',  'type' => 'stands-storage' ),
 		'stand-floor'   => array( 'template' => 'tpl-chapters-page',   'type' => 'stand-floor' ),
 		'repair'        => array( 'template' => 'tpl-chapters-page',   'type' => 'repair' ),
+		'shop'          => array( 'template' => 'tpl-chapters-page',   'type' => 'shop' ),
 		'books'         => array( 'template' => 'tpl-chapters-page',   'type' => 'muzza' ),
+		'qr'            => array( 'template' => 'tpl-chapters-page',   'type' => 'qr-hub' ),
 		'vekatavta'     => array( 'template' => 'tpl-chapters-page',   'type' => 'vekatavta' ),
 		'kushi-blantis' => array( 'template' => 'tpl-chapters-page',   'type' => 'kushi-blantis' ),
 		'tsva-bekahol'  => array( 'template' => 'tpl-chapters-page',   'type' => 'tsva-bekahol' ),
-		'mokesh-dahiman' => array( 'template' => 'tpl-chapters-page',  'type' => 'mokesh' ),
+		'mokesh-dahiman' => array( 'template' => 'tpl-chapters-mokesh', 'type' => 'mokesh' ),
 		'contact'       => array( 'template' => 'tpl-chapters-page',   'type' => 'contact' ),
 		'galleries'     => array( 'template' => 'tpl-chapters-page',   'type' => 'galleries' ),
 		'media'         => array( 'template' => 'tpl-chapters-page',   'type' => 'media' ),
@@ -54,6 +56,18 @@ function ea_chapters_route_map() {
 		'accessibility' => array( 'template' => 'tpl-chapters-page',   'type' => 'accessibility' ),
 		'terms'         => array( 'template' => 'tpl-chapters-page',   'type' => 'terms' ),
 		'en'            => array( 'template' => 'tpl-chapters-en',     'type' => 'en' ),
+	) );
+}
+
+/**
+ * Parent-slug → template+type for hierarchical child pages (e.g. /qr/qrN/).
+ * Each child carries real post_content; not sections-based defaults.
+ *
+ * @return array<string,array{template:string,type:string}>
+ */
+function ea_chapters_pattern_routes() {
+	return (array) apply_filters( 'ea_chapters_pattern_routes', array(
+		'qr' => array( 'template' => 'tpl-chapters-qr', 'type' => 'qr' ),
 	) );
 }
 
@@ -97,7 +111,20 @@ function ea_chapters_is_view() {
 	if ( is_front_page() && is_page() ) {
 		return true;
 	}
-	return isset( ea_chapters_route_map()[ ea_chapters_current_slug() ] );
+	if ( isset( ea_chapters_route_map()[ ea_chapters_current_slug() ] ) ) {
+		return true;
+	}
+	// Pattern-route match (parent + child), e.g. /qr/qrN/.
+	if ( is_page() ) {
+		$post = get_queried_object();
+		if ( $post instanceof WP_Post && $post->post_parent ) {
+			$parent_slug = get_post_field( 'post_name', (int) $post->post_parent );
+			if ( isset( ea_chapters_pattern_routes()[ $parent_slug ] ) ) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 /**

@@ -63,3 +63,99 @@ function ea_chapters_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'ea_chapters_body_class', 105 );
+
+/**
+ * Enqueue the Mokesh memorial hero trailer script — scoped to /eyal-amit/mokesh-dahiman/
+ * only. Ported from inc/wave2-w2-14e.php's ea_w2_14e_assets() (WP-CANON T1). The Wave2
+ * enqueue call is intentionally left in place (harmless double-registration under the
+ * same 'ea-mokesh' handle — WP dedupes by handle) until T6 removes that file; see
+ * LOD400 T1 §6 for the sequencing note T6 must respect.
+ */
+function ea_chapters_mokesh_enqueue_assets() {
+	if ( is_admin() || 'mokesh-dahiman' !== ea_chapters_current_slug() ) {
+		return;
+	}
+	wp_enqueue_script(
+		'ea-mokesh',
+		get_stylesheet_directory_uri() . '/assets/js/ea-mokesh.js',
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_chapters_mokesh_enqueue_assets', 101 );
+
+/**
+ * FAQ topic TOC (relocated from inc/wave2-w2-02.php after T6 deletion).
+ */
+function ea_chapters_faq_toc_assets() {
+	if ( is_admin() || ! is_page( 'faq' ) ) {
+		return;
+	}
+	$ver = wp_get_theme()->get( 'Version' );
+	$uri = get_stylesheet_directory_uri();
+
+	wp_enqueue_style(
+		'ea-faq-toc',
+		$uri . '/assets/css/faq-toc.css',
+		array( 'ea-wave2-atoms' ),
+		$ver
+	);
+	wp_enqueue_script(
+		'ea-faq-toc',
+		$uri . '/assets/js/ea-faq-toc.js',
+		array(),
+		$ver,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_chapters_faq_toc_assets', 30 );
+
+/**
+ * Blog archive/single assets (relocated from inc/wave2-w2-06.php after T6 deletion).
+ */
+function ea_chapters_blog_assets() {
+	if ( is_admin() || ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) {
+		return;
+	}
+	$ver = wp_get_theme()->get( 'Version' );
+	$uri = get_stylesheet_directory_uri();
+
+	wp_enqueue_style(
+		'ea-blog',
+		$uri . '/assets/css/ea-blog.css',
+		array( 'ea-wave2-tokens' ),
+		$ver
+	);
+
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_script(
+			'ea-blog-share',
+			$uri . '/assets/js/ea-blog-share.js',
+			array(),
+			$ver,
+			true
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'ea_chapters_blog_assets', 29 );
+
+/**
+ * Blog view body classes (relocated from inc/wave2-w2-06.php).
+ *
+ * @param string[] $classes
+ * @return string[]
+ */
+function ea_chapters_blog_body_class( $classes ) {
+	if ( ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) {
+		return $classes;
+	}
+	if ( is_home() && ! is_front_page() && ! in_array( 'ea-blog-archive-view', $classes, true ) ) {
+		$classes[] = 'ea-blog-archive-view';
+	}
+	if ( is_singular( 'post' ) && ! in_array( 'ea-blog-single-view', $classes, true ) ) {
+		$classes[] = 'ea-blog-single-view';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'ea_chapters_blog_body_class', 106 );

@@ -1538,7 +1538,7 @@ work_packages:
   label: Full-site template standardization — unify Wave2 → Chapters, delete dead code
   status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
   lod_status: LOD400
   assigned_builder: team_110
   assigned_validator: team_90 (full-site audit) + team_190 (constitutional) — cross-engine vs team_110 build, Iron Rule #1
@@ -1576,7 +1576,14 @@ work_packages:
     not just GATE_2 review. One decision still open before T6 may touch tpl-home.php/stage-b.php —
     see spec_ref §0.2 item 1; team_100''s recommendation (freeze-and-isolate) stands as the default
     if team_110 has no stronger engineering reason to prefer otherwise — flag the choice made in the
-    COMPLETION_REPORT rather than blocking on it.'
+    COMPLETION_REPORT rather than blocking on it.
+
+    2026-07-14 (team_110 execution): T1–T6 implemented + staging FTP deploy. Smoke PASS (shop/qr/faq/
+    mokesh/product-cta/FAQPage markers; QR 48/48 HTTP 200). §0.2 defaults applied: freeze-and-isolate
+    tpl-home+stage-b; keep w2-07 for /press; hub QR grid built; C-5 still PENDING. Mandates filed for
+    team_90 L-GATE_BUILD + L-GATE_VALIDATE. COMPLETION_REPORT at
+    _COMMUNICATION/team_110/COMPLETION_REPORT_WP-CANON-TEMPLATE-UNIFICATION_v1.0.0.md. LOD500_LOCKED
+    deferred until team_90 independent gate PASS (Iron Rule #1).'
   gate_history:
   - gate: L-GATE_E
     result: PASS
@@ -1599,3 +1606,8 @@ work_packages:
     date: '2026-07-14'
     validator: team_90 (cursor-composer-2)
     notes: All 7 round-1 findings closed (new inc/chapters/chapters-commerce.php re-homes the 4 functions T3/T3b need before T6 deletes their source files; T3b now exposes locked top-level schema fields T4 reads). One optional nit (D90-01, ea_wave2_wa_url fidelity) also closed by team_100 same day. No open blockers/majors — build-ready. Artifact same verdict file, updated in place.
+  - gate: L-GATE_BUILD
+    phase: team_110 execution + staging deploy
+    result: PENDING_TEAM_90
+    date: '2026-07-14'
+    notes: Implementation landed (T1–T6) + staging smoke PASS (QR 48/48, Chapters markers). Mandate — _COMMUNICATION/team_90/MANDATE-TEAM90-L-GATE_BUILD-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md. COMPLETION_REPORT filed by team_110; independent BUILD/VALIDATE verdicts still required from team_90.

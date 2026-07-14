@@ -394,6 +394,28 @@ a{color:inherit}
 .faq__i[open] summary::after{transform:rotate(-135deg);margin-top:4px}
 .faq__i p{margin:0 0 22px;font-size:1rem;line-height:1.8;color:var(--body);max-width:62ch}
 
+/* WP-CANON T2 — ea-faq-* accordion (Chapters-native tokens; decoupled from Wave2 CSS). */
+.ea-faq-list{margin:40px auto 0;max-width:820px}
+.ea-faq-list--view-only{margin-top:0}
+.ea-faq-list__inner{max-width:820px;margin-inline:auto}
+.ea-faq-list--view-only .ea-faq-list__inner .chap{margin-bottom:12px}
+.ea-faq-list--view-only .ea-faq-list__inner .h2{margin-bottom:28px}
+.ea-faq-category{margin-top:0}
+.ea-faq-category__heading{font-family:var(--hf);font-weight:500;font-size:1.35rem;color:var(--ink);margin:0 0 20px;text-align:center}
+.ea-faq-category + .ea-faq-category{margin-top:48px}
+.ea-faq-item{border-top:1px solid var(--line)}
+.ea-faq-category .ea-faq-item:last-child{border-bottom:1px solid var(--line)}
+.ea-faq-item__summary,
+.ea-faq-item__question{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:500;font-size:1.08rem;color:var(--ink);margin:0}
+.ea-faq-item__summary::-webkit-details-marker,
+.ea-faq-item__question::-webkit-details-marker{display:none}
+.ea-faq-item__icon{flex:none;color:var(--terra);transition:transform .3s}
+.ea-faq-item[open] .ea-faq-item__icon{transform:rotate(180deg)}
+.ea-faq-item__answer{font-size:1rem;line-height:1.8;color:var(--body)}
+.ea-faq-item__answer p{margin:0 0 22px;max-width:62ch}
+.ea-faq-item__answer p:last-child{margin-bottom:22px}
+.ea-faq-item__answer ul{margin:0 0 22px;padding-inline-start:1.2em;max-width:62ch}
+
 .prose-acc{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .prose-acc__t{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:500;font-size:1.08rem;color:var(--ink)}
 .prose-acc__t::-webkit-details-marker{display:none}
@@ -508,6 +530,7 @@ a{color:inherit}
 .cta-band--row .cta-band__h{text-align:right;margin-bottom:14px}
 .cta-band--row .cta-band__p{margin:0;text-align:right;max-width:52ch}
 .cta-band--row .cta-band__act{flex:0 0 auto}
+.cta-band__act-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
 .cta-rings{position:absolute;z-index:1;top:50%;left:-120px;width:560px;height:560px;transform:translateY(-50%);pointer-events:none;opacity:.5}
 .cta-rings i{position:absolute;border-radius:50%;border:1px solid var(--terra-lt);inset:0;opacity:.5}
 .cta-rings i:nth-child(2){inset:70px;opacity:.4}
@@ -687,3 +710,40 @@ body.nav-locked{overflow:hidden}
 .gfig:hover img{transform:scale(1.05)}
 .gfig__cap{position:absolute;inset-inline:0;bottom:0;padding:14px 16px;font-family:var(--bf);font-size:.82rem;color:#fff;
   background:linear-gradient(0deg,rgba(14,9,5,.72),transparent);text-align:right}
+
+/* ── MOKESH MEMORIAL HERO — video variant of .phero--media, mokesh-dahiman only (WP-CANON T1) ── */
+.mokesh-hero__yt{position:absolute;inset:0;z-index:0;overflow:hidden}
+.mokesh-hero__yt iframe,.mokesh-hero__yt #ea-mokesh-trailer{position:absolute;top:50%;inset-inline-start:50%;transform:translate(-50%,-50%);width:100vw;height:56.25vw;min-width:177.78vh;min-height:100vh;border:0;pointer-events:none}
+.mokesh-hero__unmute{position:absolute;z-index:2;inset-block-end:24px;inset-inline-end:24px;display:inline-flex;align-items:center;gap:8px;padding-block:8px;padding-inline:16px;background:rgba(20,14,9,.6);color:#fff;border:1px solid var(--sand);border-radius:100px;font-family:var(--bf);font-size:.78rem;cursor:pointer}
+.mokesh-hero__unmute:hover,.mokesh-hero__unmute:focus-visible{background:rgba(20,14,9,.85)}
+.mokesh-hero__unmute-icon::before{content:"\1F507"}
+.mokesh-hero__unmute.is-on .mokesh-hero__unmute-icon::before{content:"\1F50A"}
+@media(prefers-reduced-motion:reduce){.mokesh-hero__yt{display:none}}
+
+/* ── Facebook post embeds grid (.fbgrid) — mokesh-dahiman only today, built generic ── */
+.fbgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:54px}
+.fbgrid__item{flex:0 1 500px;max-width:100%}
+.fbgrid__frame{display:block;width:100%;max-width:500px;height:640px;border:0}
+
+/* ── QR heritage media (ported from w2-07-heritage.css for Chapters tpl-chapters-qr) ── */
+.ea-qr-img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--ea-radius-img);
+	margin: var(--ea-space-5) auto;
+}
+.ea-qr-embed--video {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: var(--ea-radius-img);
+	overflow: hidden;
+}
+.ea-qr-embed--video iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}

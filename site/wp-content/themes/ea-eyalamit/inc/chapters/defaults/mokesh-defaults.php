@@ -20,8 +20,9 @@ return array(
 		'chap'      => 'לזכרו · 1950 – 2020',
 		'title'     => 'מוקש <em>דהימן</em>',
 		'sub'       => "מוקש דהימן היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו, שכבר בתחילת שנות השבעים הקדיש את חייו למלאכת בנייתו של הדיג'רידו ולהפצתו ככלי נשימה, ריפוי וחיבור ללב.",
-		'media'     => 'assets/images/chapters/mokesh-eyal.jpg',
+		'media'     => 'assets/images/chapters/mokesh-eyal.jpg', // fallback/poster — no-JS, reduced-motion, API-blocked
 		'media_alt' => "מוקש דהימן עם אייל עמית ברישיקש, הודו",
+		'yt_id'     => 'kf4NKSdYi9E', // הטריילר הרשמי — MUKESH: The Art of Shanti Living (ערוץ Kuthli Studio)
 	),
 
 	'sections' => array(
@@ -180,6 +181,38 @@ return array(
 			),
 		),
 
+		/* NEW — 19-photo memorial gallery (WP-CANON T1). Copy verbatim from Wave2
+		   (inc/wave2-w2-14e.php:519-520). Placement: immediately after "הסרط"/"The Art
+		   of Shanti Living", per team_00-approved mockup (t1-mokesh-gallery-video-placement_mockup.html). */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'תיעוד',
+				'title' => 'מוקש, רישיקש והדרך',
+				'items' => array(
+					array( 'image' => 'assets/images/mokesh/mokesh-01.jpeg', 'alt' => "מוקש דהימן, מאסטר הדיג'רידו מרישיקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-02.jpeg', 'alt' => "מוקש דהימן מנגן בדיג'רידו ארוך, כורע בנוף גבעות רישיקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-03.jpeg', 'alt' => "בית המלאכה של מוקש דהימן סמוך לגדת הגנגס ברישיקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-04.jpeg', 'alt' => "מוקש דהימן מלמד תלמידים לנגן בדיג'רידו סביב מדורה, בית המלאכה ברישיקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-05.jpeg', 'alt' => "מוקש דהימן נושם בדיג'רידו בחצר בית המלאכה" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-06.jpeg', 'alt' => 'סאדהו מנגן בכלי נשיפה, רישיקש' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-07.jpeg', 'alt' => "כפר קוטלי למרגלות ההימלאיה, מקום הסטודיו החדש של מוקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-08.jpeg', 'alt' => 'מבנה העץ הפתוח של הסטודיו בקוטלי בעת הקמתו' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-09.jpeg', 'alt' => 'מוקש דהימן יושב במרפסת ביתו בקוטלי, נוף ההרים ברקע' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-10.jpeg', 'alt' => "מוקש דהימן עם משפחתו, תיעוד נדיר מקוטלי" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-11.jpeg', 'alt' => 'מוקש דהימן מתחבק עם אורחים ליד הרכב, ביקור משפחתי בהודו' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-12.jpeg', 'alt' => "מוקש דהימן יושב ומנגן בדיג'רידו ארוך ליד מנדלה בחול" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-13.jpeg', 'alt' => 'אייל עמית עם מוקש דהימן ואורחת, ברחוב ברישיקש' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-14.jpeg', 'alt' => "גדת נהר הגנגס ברישיקש, מקום טקס הפרידה ממוקש" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-15.jpeg', 'alt' => 'מוקש דהימן ואשתו אניטה יחד, רגע משפחתי' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-16.jpeg', 'alt' => 'אייל עמית עם שניים מבניו של מוקש דהימן' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-17.jpeg', 'alt' => "אייל עמית חוזר לרישיקש לסגור מעגל, 2026" ),
+					array( 'image' => 'assets/images/mokesh/mokesh-18.jpeg', 'alt' => 'מוקש דהימן בתפילה על גדת הגנגס' ),
+					array( 'image' => 'assets/images/mokesh/mokesh-19.jpeg', 'alt' => 'מוקש דהימן בדרך יער בקוטלי, מברך לשלום' ),
+				),
+			),
+		),
+
 		/* SECTION 08 — תפנית חדה בעלילה (prose, verbatim) */
 		array(
 			'part' => 'prose',
@@ -244,6 +277,23 @@ return array(
 				'chap'  => 'ממשיכי הדרך',
 				'title' => "הרוח של מוקש חיה וקיימת",
 				'body'  => "<p>חזרתי מהודו שבור לב, אך במקביל גם בתחושת שליחות גדולה יותר מאי פעם. אני מרגיש זכות כל כך גדולה וענקית להמשיך את דרכו ופועלו של מוקש. כאן, בלב שלי, ובמרכז לטיפול בדיג'רידו שהקמתי בחצר ביתנו בפרדס חנה, הרוח של מוקש בהחלט חיה וקיימת. אמנם אין ביננו קשר דם, אך הקשר הנישמתי והרוחני חזק יותר מאי פעם.</p><p>בשנת 2018 בעודו בחיים, קיבלתי את ברכתו של מוקש שהכריז על המרכז שהקמתי כסניף הרשמי של Jungle Vibes בישראל.</p><p>כמוני בדיוק ישנם עוד מורים, בנאים ומטפלים אחרים בדיג'רידו ברחבי העולם, שיצאו מבית מלאכתו של מוקש. את חלקם אני מכיר באופן אישי, אך לצערי זיקתם למוקש והקשר אליו אבדו מזמן. מורשתו ומשנתו של מוקש כלל איננה באה לידי ביטוי בעשייתם, בהוויתם, או בהוראתם. מוקש נשכח מלבם. ואכן, בודדים ומעטים מאוד האנשים שזכו להכיר את מוקש מקרוב והצליחו לראות ולהכיר באמת גם את האיש שמעבר ל-\"בונה הדיג'ים ההודי מרישיקש\".</p><p>בתחומים אחרים, לא של דיג'רידו, אני מכיר באופן אישי גם לא מעט מטפלים הוליסטיים ובעלי מקצוע אחרים ההולכים בדרכו של מוקש, מדברים את שפת הלב ומיישמים את משנתו ותורתו בעשייתם.</p>",
+			),
+		),
+
+		/* NEW — 4 Facebook post embeds (WP-CANON T1). Copy verbatim from Wave2
+		   (inc/wave2-w2-14e.php:557-558, urls from ea_w2_14e_mokesh_fb_posts()).
+		   Placement: immediately after "ממשיכי הדרך", before the closing "דברי הספד". */
+		array(
+			'part' => 'fbembeds',
+			'args' => array(
+				'chap'  => 'מהקהילה',
+				'title' => 'מתוך הפייסבוק',
+				'items' => array(
+					array( 'href' => 'https://www.facebook.com/IsraelDidgCenter/posts/pfbid02G6viGTqgqTHFv36najD6n9T6yskVpC5UfWx1RzrbNTqNMfTYRKrJkzkqHH2taffXl' ),
+					array( 'href' => 'https://www.facebook.com/eyal.amit.muzza/posts/pfbid033bDz4Wj8Pc6K3nF58VuXBUHkfoNKPZa4wTsxhPSUVHANHwZT3rAqj1oUAGXzwTm6l' ),
+					array( 'href' => 'https://www.facebook.com/eyal.amit.muzza/posts/pfbid0zekNyNV6dztxGnwQKaLg9GhSAwSsjMWR2jaqQtAkZMLAHWNhKem12AknNrsCAJZRl' ),
+					array( 'href' => 'https://www.facebook.com/gemma.calaf/posts/pfbid0gsUdiLtCCghgQp9RuyPncdb4NRojZ3k5LdxMqfeNPinvQd9x6Y7j6Jrp9VUThqiEl' ),
+				),
 			),
 		),
 

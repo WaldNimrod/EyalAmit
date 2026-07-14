@@ -60,7 +60,12 @@ function ea_w209_legacy_redirects() {
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנד-רצפתי-לדיגרידו-לנגינה-בישיבה-נמו/' => '/stand-floor/',
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנדים-לאחסון-דיגרידו-בתלייה-או-בעמיד/' => '/stands-storage/',
 		'/וכתבת-אייל-עמית/' => '/books/vekatavta/',
-		'/אייל-עמית-אודות/' => '/about/',
+		// WP-CANON T6 — merged from inc/wave2-w2-02.php (canonical /eyal-amit/, single hop).
+		'/אייל-עמית-אודות/' => '/eyal-amit/',
+		'/about/' => '/eyal-amit/',
+		'/about/moksha/' => '/eyal-amit/mokesh-dahiman/',
+		'/mokesh-dahiman/' => '/eyal-amit/mokesh-dahiman/',
+		'/mokesh/' => '/eyal-amit/mokesh-dahiman/',
 		'/shop/cart/' => '/shop/',
 		'/shop/checkout/' => '/shop/',
 		'/shop/my-account/' => '/shop/',

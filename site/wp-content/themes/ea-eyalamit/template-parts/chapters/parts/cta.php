@@ -1,7 +1,7 @@
 <?php
 /**
  * Chapters part — horizontal CTA band with logo motif (.cta-band--row).
- * $args: title, body, cta_label, cta_url, id
+ * $args: title, body, cta_label, cta_url, cta2_label, cta2_url (optional — renders a second button for a split CTA), cta_slug (optional — see phero.php's identical convention), id
  *
  * @package ea_eyalamit
  */
@@ -17,7 +17,16 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 			<?php if ( ! empty( $a['body'] ) ) : ?><p class="cta-band__p"><?php echo esc_html( $a['body'] ); ?></p><?php endif; ?>
 		</div>
 		<?php if ( ! empty( $a['cta_label'] ) ) : ?>
-			<div class="cta-band__act r r2"><a class="btn btn--terra" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"><?php echo esc_html( $a['cta_label'] ); ?></a></div>
+			<div class="cta-band__act r r2<?php echo ! empty( $a['cta2_label'] ) ? ' cta-band__act-group' : ''; ?>">
+				<a class="btn btn--terra"
+					href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"
+					<?php if ( ! empty( $a['cta_slug'] ) ) : ?>target="_blank" rel="noopener noreferrer" data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( sanitize_title( $a['cta_slug'] ) ); ?>" aria-label="<?php echo esc_attr( $a['cta_label'] . ' (נפתח בלשונית חדשה)' ); ?>"<?php endif; ?>><?php echo esc_html( $a['cta_label'] ); ?></a>
+				<?php if ( ! empty( $a['cta2_label'] ) ) : ?>
+					<a class="btn btn--gw"
+						href="<?php echo esc_url( $a['cta2_url'] ?? '#' ); ?>"
+						<?php if ( ! empty( $a['cta_slug'] ) ) : ?>target="_blank" rel="noopener noreferrer" data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( sanitize_title( $a['cta_slug'] ) ); ?>" aria-label="<?php echo esc_attr( $a['cta2_label'] . ' (נפתח בלשונית חדשה)' ); ?>"<?php endif; ?>><?php echo esc_html( $a['cta2_label'] ); ?></a>
+				<?php endif; ?>
+			</div>
 		<?php endif; ?>
 	</div>
 </section>

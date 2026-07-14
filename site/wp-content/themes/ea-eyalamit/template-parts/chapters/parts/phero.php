@@ -1,7 +1,7 @@
 <?php
 /**
  * Chapters part — page hero (.phero / .phero--media). Renders the page's single H1.
- * $args: chap, title (limited HTML), sub, media (url), media_alt, cta_label, cta_url, dark(bool)
+ * $args: chap, title (limited HTML), sub, media (url), media_alt, cta_label, cta_url, cta_slug (optional — marks the CTA as an external, GA4-tracked purchase link: adds target=_blank/rel=noopener + data-ea-book-purchase/data-ea-book-slug + aria-label suffix. Do not pass for internal/same-site links.), dark(bool)
  *
  * @package ea_eyalamit
  */
@@ -22,7 +22,7 @@ $dark  = ! empty( $a['dark'] ) || '' === $media;
 		<h1 class="phero__h"><?php ea_chapters_kses_e( $a['title'] ?? '' ); ?></h1>
 		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php echo esc_html( $a['sub'] ); ?></p><?php endif; ?>
 		<?php if ( ! empty( $a['cta_label'] ) ) : ?>
-			<p class="phero__cta"><a class="btn btn--gw" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"><?php echo esc_html( $a['cta_label'] ); ?></a></p>
+			<p class="phero__cta"><a class="btn btn--gw" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"<?php if ( ! empty( $a['cta_slug'] ) ) : ?> target="_blank" rel="noopener noreferrer" data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( sanitize_title( $a['cta_slug'] ) ); ?>" aria-label="<?php echo esc_attr( $a['cta_label'] . ' (נפתח בלשונית חדשה)' ); ?>"<?php endif; ?>><?php echo esc_html( $a['cta_label'] ); ?></a></p>
 		<?php endif; ?>
 	</div>
 	<?php if ( $media ) : ?><span class="phero__media-cue" aria-hidden="true"></span><?php endif; ?>

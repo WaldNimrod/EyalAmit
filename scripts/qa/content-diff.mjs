@@ -41,6 +41,15 @@ export const PAGE_MAP = [
   { path: '/stands-storage/', source: "סטנדים לדיג'רידו לאחסון/stend for hanging.md" },
   { path: '/stand-floor/', source: 'סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md' },
   { path: '/repair/', source: "תיקון כלי דיג'רידו/build didg.md" },
+  { path: '/shop/', source: null, na: true, label: '/shop' },
+  { path: '/qr/', source: null, na: true, label: '/qr-hub' },
+  // QR children: URL-preservation surfaces (content is DB post_content, not Eyal MD).
+  ...Array.from({ length: 48 }, (_, i) => ({
+    path: `/qr/qr${i + 1}/`,
+    source: null,
+    na: true,
+    label: `/qr/qr${i + 1}`,
+  })),
   {
     path: '/eyal-amit/mokesh-dahiman/',
     // team_110 2026-06-21: re-pointed from the «ומה היום» fragment to Eyal's FULL

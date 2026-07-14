@@ -14,6 +14,13 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 
+	'price'         => 79,
+	'buy_print_url' => 'https://www.mendele.co.il/product/vekatavta/',
+	'buy_ebook_url' => 'https://www.mendele.co.il/product/vekatavta/',
+	'genre'         => 'סיפורים אמיתיים · QR',
+	'meta_year'     => '2017',
+	'meta_pages'    => 252,
+
 	/* page hero (media) — SECTION 01 */
 	'phero' => array(
 		'chap'      => 'ספר',
@@ -21,8 +28,9 @@ return array(
 		'sub'       => '46 סיפורים אמיתיים מחייו של אייל עמית. ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.',
 		'media'     => 'assets/images/vekatavt-cover.jpg',
 		'media_alt' => 'אייל עמית — וכתבת',
-		'cta_label' => 'לרכישת הספר',
+		'cta_label' => 'לרכישת הספר · 79 ₪',
 		'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+		'cta_slug'  => 'vekatavta',
 	),
 
 	'sections' => array(
@@ -106,27 +114,22 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
-				'title'     => 'אם הגעת עד כאן, כנראה שזה לא סתם.',
-				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'title'      => 'אם הגעת עד כאן, כנראה שזה לא סתם.',
+				'cta_label'  => 'לרכישת הספר המודפס',
+				'cta_url'    => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta2_label' => 'ספר אלקטרוני',
+				'cta2_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_slug'   => 'vekatavta',
 			),
 		),
 
 		/* SECTION 10 — שאלות ותשובות (FAQ, verbatim) */
 		array(
-			'part' => 'faq',
+			'part' => 'faqblock',
 			'args' => array(
 				'chap'  => 'שאלות ותשובות',
 				'title' => 'שאלות ותשובות',
-				'items' => array(
-					array( 'q' => 'האם צריך לקרוא את הספר ברצף?', 'a' => '<p>לא. הספר בנוי מסיפורים קצרים, וכל סיפור עומד בפני עצמו. אפשר לפתוח בכל עמוד.</p>' ),
-					array( 'q' => 'האם כל הסיפורים אמיתיים?', 'a' => '<p>כן. כל הסיפורים מבוססים על אירועים אמיתיים מחייו של אייל.</p>' ),
-					array( 'q' => 'כמה סיפורים יש בספר?', 'a' => '<p>46 סיפורים קצרים.</p>' ),
-					array( 'q' => 'כמה עמודים יש בספר?', 'a' => '<p>252 עמודים.</p>' ),
-					array( 'q' => 'האם הספר מתאים גם לקריאה קצרה?', 'a' => '<p>כן. בגלל המבנה שלו, הוא מתאים מאוד לקריאה בטיסות, חופשות או בין רגעים במהלך היום.</p>' ),
-					array( 'q' => 'מה זה ספוקן סטוריז?', 'a' => '<p>זה סגנון כתיבה שבו הסיפור מרגיש כאילו הוא מסופר בעל פה. הקריאה זורמת, ישירה ואישית.</p>' ),
-					array( 'q' => 'יש גם תוכן נוסף מעבר לספר?', 'a' => '<p>כן. בסיום כל סיפור יש קוד QR שמוביל להמשך, וידאו או תוכן נוסף.</p>' ),
-				),
+				'cats'  => array( 'vekatavta' ),
 			),
 		),
 
@@ -137,18 +140,20 @@ return array(
 				'chap'  => 'רכישת הספר',
 				'title' => 'רכישת הספר',
 				'alt'   => true,
-				'body'  => '<p>"וכתבת" זמין לרכישה בשתי גרסאות:</p><p>גרסה מודפסת (לפרטים והזמנה - <a class="tlink" href="/contact/">צרו קשר</a>)</p><p>גרסה דיגיטלית: <a class="tlink" href="https://www.mendele.co.il/product/vekatavta/">לרכישת הספר בגרסה דיגיטלית</a></p><p>ספר של 252 עמודים, 46 סיפורים אמיתיים מחייו של אייל עמית.</p>',
+				'body'  => '<p>"וכתבת" זמין לרכישה בשתי גרסאות:</p><p>גרסה מודפסת: <a class="tlink" href="https://www.mendele.co.il/product/vekatavta/" target="_blank" rel="noopener noreferrer">לרכישת הספר המודפס</a></p><p>גרסה דיגיטלית: <a class="tlink" href="https://www.mendele.co.il/product/vekatavta/" target="_blank" rel="noopener noreferrer">לרכישת הספר בגרסה דיגיטלית</a></p><p>ספר של 252 עמודים, 46 סיפורים אמיתיים מחייו של אייל עמית.</p>',
 			),
 		),
 
-		/* SECTION 05 — גלריה (image gallery omitted; caption text kept verbatim) */
+		/* SECTION 05 — גלריה (real image wired per T3b) */
 		array(
-			'part' => 'prose',
+			'part' => 'gallery',
 			'args' => array(
-				'chap'   => 'גלריה',
-				'title'  => 'גלריה',
-				'center' => true,
-				'body'   => '<p>גלריית תמונות מתוך הספר, מתוך רגעים מהדרך, ומהמפגש של הסיפורים עם העולם.</p>',
+				'chap'  => 'גלריה',
+				'title' => 'גלריה',
+				'lead'  => 'גלריית תמונות מתוך הספר, מתוך רגעים מהדרך, ומהמפגש של הסיפורים עם העולם. תמונות נוספות יתווספו עם קבלת החומרים.',
+				'items' => array(
+					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר וכתבת' ),
+				),
 			),
 		),
 
@@ -182,6 +187,7 @@ return array(
 				'body'      => 'אם הגעת עד כאן, כנראה שמשהו מתוך הסיפורים כבר נגע בך.',
 				'cta_label' => 'לרכישת הספר',
 				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_slug'  => 'vekatavta',
 			),
 		),
 	),

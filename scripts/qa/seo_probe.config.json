@@ -82,6 +82,12 @@
       "name": "repair",
       "path": "/repair/",
       "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+    },
+    {
+      "name": "mokesh-dahiman",
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "expectedTypes": ["Person", "ProfessionalService", "VideoObject", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "WP-CANON T1 (2026-07-14+). Person here checks presence of the @type only (satisfied by the global Eyal node too) — the Mokesh-specific @id must be verified separately (LOD400 T1 §5). VideoObject = the official trailer (kf4NKSdYi9E), deliberately NOT framed as hero decoration — see LOD400 T1 §3.4 for the 'no VideoObject on the muted hero loop' prohibition this must not trip."
     }
   ],
   "brandExemptRoutes": {

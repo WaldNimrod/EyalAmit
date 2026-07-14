@@ -146,8 +146,191 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 			}
 		}
 
+		// --- FAQPage (WP-CANON T4) — visible questions only via ea_faq_query_items ---
+		$ea_faq_pages = (array) apply_filters(
+			'ea_seo_faq_page_categories',
+			array(
+				'faq'            => array(),
+				'treatment'      => array( 'treatment' ),
+				'sound-healing'  => array( 'sound-healing' ),
+				'didgeridoos'    => array( 'didgeridoos' ),
+				'bags'           => array( 'bags' ),
+				'stands-storage' => array( 'stands-storage' ),
+				'stand-floor'    => array( 'stand-floor' ),
+				'repair'         => array( 'repair' ),
+				'lessons'        => array( 'lessons' ),
+				'method'         => array( 'method' ),
+				'vekatavta'      => array( 'vekatavta' ),
+				'kushi-blantis'  => array( 'kushi-blantis' ),
+				'tsva-bekahol'   => array( 'tsva-bekahol' ),
+			)
+		);
+		if ( is_page() && function_exists( 'ea_faq_query_items' ) ) {
+			$ea_obj  = get_queried_object();
+			$ea_slug = ( $ea_obj && isset( $ea_obj->post_name ) ) ? (string) $ea_obj->post_name : '';
+			if ( isset( $ea_faq_pages[ $ea_slug ] ) ) {
+				$ea_items = ea_faq_query_items( $ea_faq_pages[ $ea_slug ] );
+				if ( ! empty( $ea_items ) ) {
+					$graph[] = ea_w2_seo_schema_faqpage_node( $ea_items, $ea_slug );
+				}
+			}
+		}
+
+		// --- Book (WP-CANON T4) — contract: ea_chapters_field top-level schema fields from T3b ---
+		$ea_book_slugs = array( 'vekatavta', 'kushi-blantis', 'tsva-bekahol' );
+		if ( is_page() && function_exists( 'ea_chapters_field' ) ) {
+			$ea_obj = get_queried_object();
+			if ( $ea_obj instanceof WP_Post && in_array( $ea_obj->post_name, $ea_book_slugs, true ) ) {
+				$graph[] = ea_w2_seo_schema_book_node( $ea_obj->post_name, (int) $ea_obj->ID );
+			}
+		}
+
+		// --- Person + VideoObject: Mokesh Dahiman memorial page only (WP-CANON T1) ---
+		// Routed through Yoast's single @graph (not a hand-rolled second <script>, per this
+		// file's own "ONE schema engine" policy) — AND per the "no VideoObject on the muted
+		// hero loop" prohibition (SEO-GEO-EXECUTION-PLAN-2026-06-20.md:74; enforced by
+		// scripts/qa/seo_probe.mjs Check 9). The node below is anchored to the trailer as a
+		// named, independently-identifiable work ('about' → the Person it documents,
+		// 'publisher' → the business) — NOT described as "the hero decoration". Field values
+		// deliberately avoid the literal substring "hero" in any key/id/url (see LOD400 T1 §3.4).
+		if ( is_page() ) {
+			$obj  = get_queried_object();
+			$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
+			if ( 'mokesh-dahiman' === $slug ) {
+				$mokesh_id  = $site . '#/schema/person/mokesh-dahiman';
+				$mokesh_img = get_stylesheet_directory_uri() . '/assets/images/mokesh/mokesh-01.jpeg';
+
+				$graph[] = array(
+					'@type'         => 'Person',
+					'@id'           => $mokesh_id,
+					'name'          => 'מוקש דהימן',
+					'alternateName' => 'Mukesh Dhiman',
+					'description'   => "אמן-נגר ובונה דיג'רידו מרישיקש, הודו (1950–2020) — מורו של אייל עמית.",
+					'url'           => home_url( '/eyal-amit/mokesh-dahiman/' ),
+					'image'         => $mokesh_img,
+					'birthDate'     => '1950',
+					'deathDate'     => '2020-10-11',
+					'knowsAbout'    => array( "בניית דיג'רידו בעבודת יד", 'נשימה מעגלית', 'מסורת הדיג׳רידו ברישיקש' ),
+					'affiliation'   => array(
+						'@type' => 'Organization',
+						'name'  => 'Jungle Vibes',
+					),
+				);
+
+				$graph[] = array(
+					'@type'        => 'VideoObject',
+					'@id'          => $site . '#/schema/video/mukesh-trailer',
+					'name'         => 'MUKESH - The Art of Shanti Living | Official Trailer',
+					'description'  => 'הטריילר הרשמי לסרט התיעודי על מוקש דהימן, מאסטר הדיג׳רידו מרישיקש, מאת אייל וגיא עמית.',
+					'uploadDate'   => '2019-11-19T14:41:31-08:00',
+					'thumbnailUrl' => 'https://i.ytimg.com/vi/kf4NKSdYi9E/maxresdefault.jpg',
+					'embedUrl'     => 'https://www.youtube-nocookie.com/embed/kf4NKSdYi9E',
+					'contentUrl'   => 'https://youtu.be/kf4NKSdYi9E',
+					'about'        => array( '@id' => $mokesh_id ),
+					'publisher'    => array( '@id' => $biz_id ),
+				);
+			}
+		}
+
 		return $graph;
 	}
 	add_filter( 'wpseo_schema_graph', 'ea_w2_seo_schema_graph', 20, 2 );
+
+	/**
+	 * Build a FAQPage schema node from ea_faq_query_items()-shaped rows.
+	 *
+	 * @param array  $items Rows with q/a keys.
+	 * @param string $slug  Page slug for @id.
+	 * @return array
+	 */
+	function ea_w2_seo_schema_faqpage_node( array $items, $slug ) {
+		$site     = home_url( '/' );
+		$entities = array();
+		foreach ( $items as $it ) {
+			if ( empty( $it['q'] ) || empty( $it['a'] ) ) {
+				continue;
+			}
+			$entities[] = array(
+				'@type'          => 'Question',
+				'name'           => wp_strip_all_tags( (string) $it['q'] ),
+				'acceptedAnswer' => array(
+					'@type' => 'Answer',
+					'text'  => wp_kses_post( (string) $it['a'] ),
+				),
+			);
+		}
+		return array(
+			'@type'      => 'FAQPage',
+			'@id'        => $site . '#/schema/faqpage/' . $slug,
+			'mainEntity' => $entities,
+		);
+	}
+
+	/**
+	 * Build a Book schema node from Chapters top-level schema fields (T3b contract).
+	 *
+	 * @param string $slug    Book page slug.
+	 * @param int    $post_id Page ID.
+	 * @return array
+	 */
+	function ea_w2_seo_schema_book_node( $slug, $post_id ) {
+		$site = home_url( '/' );
+		$node = array(
+			'@type'      => 'Book',
+			'@id'        => $site . '#/schema/book/' . $slug,
+			'name'       => get_the_title( $post_id ),
+			'url'        => get_permalink( $post_id ),
+			'author'     => array( '@id' => $site . '#/schema/person/eyal-amit' ),
+			'publisher'  => array(
+				'@type' => 'Organization',
+				'name'  => 'מוזה הוצאה לאור',
+				'url'   => home_url( '/books/' ),
+			),
+			'inLanguage' => 'he',
+		);
+		$genre = ea_chapters_field( 'genre', $post_id );
+		if ( $genre ) {
+			$node['genre'] = $genre;
+		}
+		$year = ea_chapters_field( 'meta_year', $post_id );
+		if ( $year ) {
+			$node['datePublished'] = (string) $year;
+		}
+		$pages = ea_chapters_field( 'meta_pages', $post_id );
+		if ( is_numeric( $pages ) ) {
+			$node['numberOfPages'] = (int) $pages;
+		}
+		if ( function_exists( 'ea_chapters_img' ) ) {
+			$cover = ea_chapters_img( 'cover', 'full' );
+			if ( $cover ) {
+				$node['image'] = $cover;
+			}
+		}
+		$isbn = ea_chapters_field( 'isbn', $post_id );
+		if ( $isbn ) {
+			$node['isbn'] = $isbn;
+		}
+
+		$offers    = array();
+		$price     = ea_chapters_field( 'price', $post_id );
+		$print_url = ea_chapters_field( 'buy_print_url', $post_id );
+		$ebook_url = ea_chapters_field( 'buy_ebook_url', $post_id );
+		foreach ( array( $print_url, $ebook_url ) as $url ) {
+			if ( $url && is_numeric( $price ) ) {
+				$offers[] = array(
+					'@type'         => 'Offer',
+					'price'         => (string) $price,
+					'priceCurrency' => 'ILS',
+					'url'           => $url,
+					'availability'  => 'https://schema.org/InStock',
+				);
+			}
+		}
+		if ( $offers ) {
+			$node['offers'] = 1 === count( $offers ) ? $offers[0] : $offers;
+		}
+
+		return $node;
+	}
 
 endif;
