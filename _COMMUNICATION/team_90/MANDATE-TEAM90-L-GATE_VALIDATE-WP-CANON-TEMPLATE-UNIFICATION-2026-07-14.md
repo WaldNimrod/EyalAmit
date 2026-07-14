@@ -8,7 +8,8 @@ type: mandate
 wp: WP-CANON-TEMPLATE-UNIFICATION
 gate: L-GATE_VALIDATE
 depends_on: L-GATE_BUILD verdict for same WP
-builder_engine: cursor-composer (team_110)
+builder_engine: cursor-grok-4.5 (team_110)
+validator_engine_required: composer-2.5
 ---
 
 # MANDATE — team_90 · L-GATE_VALIDATE · WP-CANON-TEMPLATE-UNIFICATION
