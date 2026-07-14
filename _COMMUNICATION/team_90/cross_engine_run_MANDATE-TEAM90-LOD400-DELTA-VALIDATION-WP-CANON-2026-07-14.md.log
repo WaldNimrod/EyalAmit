@@ -1,0 +1,23 @@
+## Verdict: `PASS_WITH_FINDINGS`
+
+Delta re-validation filed to [`_COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md) (replaces prior FAIL verdict).
+
+### F90-01 — **closed**
+- §3.6 gates `wave2-w2-05.php` / `wave2-w2-03.php` deletion on `chapters-commerce.php` existing first.
+- `ea_w2_05_gi_url_map` and `ea_w2_05_price` match live verbatim; `ea_w2_05_gi_url` adds harmless `trim()`.
+- `ea_wave2_wa_url` is **not** verbatim (no default message, hardcoded E164) — but `product-cta.php` always passes an explicit message, so product pages are safe.
+
+### F90-02 — **closed**
+- `ea_chapters_book_purchase_assets()` covers the same 3 book slugs; same `ea-book-purchase.js`; §3.6 row corrected and gated.
+
+### F90-03 — **closed**
+- T3b §3.0.f + §3.1/3.2/3.3 add locked top-level fields (`price`, `buy_print_url`, `buy_ebook_url`, etc.) with real values per book.
+- T4 §2.3 reads the same names; `null`/empty handled correctly via `ea_chapters_field` + truthy guards.
+
+### F90-04..07 — **closed** (quick pass)
+- `ea_faq_query_items` in T4; QR wording softened; `234-241`; T4/T7 say **79** and `lessons` on regular port path.
+
+### Optional follow-up (does not block build)
+**D90-01:** Copy `ea_wave2_wa_url` truly verbatim from `wave2-stage-b.php`, or drop the “verbatim” label — no-arg callers like the WhatsApp float (`stage-b.php:374`) would lose the pre-filled default message under the proposed version.
+
+**Exit:** Blockers + major from the first run are closed. LOD400 is contract-ready for team_110; §0.2 team_00 micro-decisions for T6 execution remain unchanged.

@@ -1538,14 +1538,14 @@ work_packages:
   label: Full-site template standardization — unify Wave2 → Chapters, delete dead code
   status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_E
-  lod_status: LOD200
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
   assigned_builder: team_110
   assigned_validator: team_90 (full-site audit) + team_190 (constitutional) — cross-engine vs team_110 build, Iron Rule #1
   created_at: '2026-07-12'
   milestone_ref: S003
   parent_wp:
-  spec_ref: _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD200-2026-07-12.md
+  spec_ref: _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD400-2026-07-14.md
   profile: L0
   priority: HIGH
   blocked_by: []
@@ -1557,13 +1557,45 @@ work_packages:
     single-source category-filtered FAQ mechanism, a full Product-schema+purchase-CTA product
     template) sitting in dead Wave2/mu-plugins code, silently orphaned by the 2026-06-22 Chapters
     migration. team_00 directive 2026-07-12 item 1: "זה חייב להפוך לחבילת עבודה קאנונית מנוהלת
-    לביצוע סטנדרטיזציה מלאה" — full LOD200 scope at spec_ref. Sequence is mandatory: PORT the
-    good Wave2 components into Chapters FIRST (T1-T5), delete Wave2 only after (T6) — blind deletion
-    now would destroy the exact approved components that need to move. Also unifies /shop + /qr,
-    the only routes still actually served by Wave2 today. LOD400 full spec + T2 FAQ
-    single-vs-many-to-many-category decision still open, see spec_ref §4.'
+    לביצוע סטנדרטיזציה מלאה" — full LOD200 scope, superseded by LOD300/LOD400 at spec_ref. Sequence
+    is mandatory: PORT the good Wave2 components into Chapters FIRST (T1-T5), delete Wave2 only
+    after (T6) — blind deletion now would destroy the exact approved components that need to move.
+    Also unifies /shop + /qr, the only routes still actually served by Wave2 today.
+
+    2026-07-14: LOD300 breakdown + 3 mockups (T1/T2/T3b) authored, presented to team_00, all 3 open
+    questions decided in-chat (T2 FAQ many-to-many; T1 Mokesh video-tech left to engineering judgment;
+    T5 /qr treated as a hard URL-preservation constraint, not a design choice). LOD400 full build spec
+    (~2900 lines, all 8 T-items) authored same day, found + fixed several cross-task integration gaps
+    of its own (see LOD400 §0.1/§0.4) — most importantly that T6''s original file-deletion list would
+    have deleted Wave2 files that T3/T3b silently depend on at runtime. Cross-engine validated by
+    team_90 (cursor-composer/composer-2.5) in 2 rounds: round 1 FAIL (2 blockers + 1 major, all
+    real cross-task contract gaps between T3/T3b and T6/T4), team_100 patched in place, round 2
+    (delta) PASS_WITH_FINDINGS — no open blockers/majors. team_00 explicit handoff 2026-07-14:
+    "110 full - מימוש התוכנית כולל qa וולידציה... חובה להשאיר עץ נקי - פוש מלא להכול" — team_110
+    to execute under ADR045 execution_authority:full (build + mandate team_90 QA/validate + close),
+    not just GATE_2 review. One decision still open before T6 may touch tpl-home.php/stage-b.php —
+    see spec_ref §0.2 item 1; team_100''s recommendation (freeze-and-isolate) stands as the default
+    if team_110 has no stronger engineering reason to prefer otherwise — flag the choice made in the
+    COMPLETION_REPORT rather than blocking on it.'
   gate_history:
   - gate: L-GATE_E
     result: PASS
     date: '2026-07-12'
     notes: Eligibility = explicit team_00 directive (2026-07-12 item 1, approved via plan-mode review), grounded in a 6-agent live-code diff (DETAILED-DIFF-EYAL-QA-SEO-VS-CURRENT-SITE-2026-07-12.md) plus a targeted re-verification pass that confirmed the dead-code components are real, validated, and portable.
+  - gate: L-GATE_SPEC
+    phase: LOD300
+    result: PASS
+    date: '2026-07-14'
+    notes: LOD300 breakdown + 3 team_00-approved mockups (T1 placement, T2 FAQ model, T3b book delta). All 3 open questions (T2 many-to-many, T1 video-tech, T5 /qr constraint) decided by team_00 in-chat same day. Artifact — _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md.
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine round 1
+    result: FAIL
+    date: '2026-07-14'
+    validator: team_90 (cursor-composer-2)
+    notes: 2 blockers (T6 would delete Wave2 files T3/T3b depend on at runtime — F90-01/F90-02) + 1 major (T3b/T4 Book-schema field-name contract never actually locked — F90-03) + 4 minor. Verdict — _COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md.
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine delta (round 2)
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-14'
+    validator: team_90 (cursor-composer-2)
+    notes: All 7 round-1 findings closed (new inc/chapters/chapters-commerce.php re-homes the 4 functions T3/T3b need before T6 deletes their source files; T3b now exposes locked top-level schema fields T4 reads). One optional nit (D90-01, ea_wave2_wa_url fidelity) also closed by team_100 same day. No open blockers/majors — build-ready. Artifact same verdict file, updated in place.

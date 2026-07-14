@@ -1,0 +1,155 @@
+<meta charset="utf-8">
+<title>T1 — מוקאפ מוקש דהימן: מיקום גלריה/טריילר</title>
+<div dir="rtl" lang="he" class="t1-mock-root">
+<style>
+  .t1-mock-root{
+    --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+    --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+    --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+    font-family:'Heebo',-apple-system,Arial,sans-serif;
+    background:var(--ea-bg); color:var(--ea-ink); padding:40px 16px 64px; line-height:1.6;
+  }
+  .t1-mock-root *{ box-sizing:border-box; }
+  .t1-wrap{ max-width:1120px; margin:0 auto; }
+  .t1-kicker{ font-size:0.78rem; font-weight:600; letter-spacing:.3px; color:var(--ea-terracotta); margin:0 0 8px; }
+  .t1-h1{ font-weight:200; font-size:2rem; line-height:1.2; margin:0 0 12px; }
+  .t1-lede{ color:var(--ea-muted); font-weight:300; font-size:0.95rem; max-width:760px; margin:0 0 8px; }
+  .t1-lede b{ color:var(--ea-ink); font-weight:600; }
+  .t1-source{ font-size:0.72rem; color:var(--ea-muted); margin:0 0 12px; }
+  .t1-flag{ background:#FBF1EA; color:var(--ea-chocolate); border-radius:8px; padding:12px 16px; font-size:0.82rem; max-width:820px; margin-bottom:32px; }
+  .t1-flag b{ color:var(--ea-brick); }
+
+  .t1-cols2{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  @media (max-width:860px){ .t1-cols2{ grid-template-columns:1fr; } }
+  .t1-colhead{ display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+  .t1-colhead h2{ font-weight:400; font-size:1rem; margin:0; }
+  .t1-dot{ width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .t1-dot--now{ background:var(--ea-muted); }
+  .t1-dot--target{ background:var(--ea-terracotta); }
+
+  .t1-strip{ display:flex; flex-direction:column; gap:3px; }
+  .t1-blk{ background:#fff; border:1px solid var(--ea-line); border-radius:6px; padding:8px 12px; font-size:0.74rem; display:flex; align-items:center; gap:8px; }
+  .t1-blk-n{ color:var(--ea-muted); font-size:0.68rem; min-width:18px; }
+  .t1-blk-chap{ color:var(--ea-terracotta); font-weight:600; font-size:0.66rem; white-space:nowrap; }
+  .t1-blk-title{ color:var(--ea-ink); font-weight:300; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .t1-blk--hero{ background:var(--ea-ink); color:#fff; font-weight:500; }
+  .t1-blk--hero .t1-blk-chap{ color:var(--ea-sand); }
+  .t1-blk--hero .t1-blk-title{ color:#fff; }
+  .t1-blk--new{ background:#FBF1EA; border:1.5px dashed var(--ea-terracotta); font-weight:500; }
+  .t1-blk--new .t1-blk-title{ color:var(--ea-chocolate); font-weight:600; }
+  .t1-tag{ font-size:0.6rem; font-weight:700; padding:1px 7px; border-radius:100px; margin-inline-start:auto; white-space:nowrap; }
+  .t1-tag--new{ background:var(--ea-terracotta); color:#fff; }
+  .t1-tag--upgrade{ background:var(--ea-olive); color:#fff; }
+  .t1-tag--missing{ background:transparent; border:1px solid var(--ea-line); color:var(--ea-muted); }
+
+  .t1-note{ font-size:0.78rem; color:var(--ea-muted); margin-top:16px; padding-inline-start:2px; }
+  .t1-note b{ color:var(--ea-ink); }
+
+  .t1-legend{ display:flex; gap:18px; flex-wrap:wrap; font-size:0.72rem; color:var(--ea-muted); margin:28px 0; padding:14px 16px; background:var(--ea-bg-alt); border-radius:8px; }
+  .t1-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .t1-legend i{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+
+  .t1-decision{ background:#fff; border:1px solid var(--ea-line); border-radius:10px; padding:22px 20px; margin-top:12px; }
+  .t1-decision h3{ font-weight:500; font-size:0.95rem; margin:0 0 10px; }
+  .t1-decision p{ font-size:0.82rem; color:var(--ea-earth); margin:0 0 8px; }
+  .t1-decision .t1-nomock{ font-size:0.76rem; color:var(--ea-muted); border-top:1px dashed var(--ea-line); margin-top:14px; padding-top:12px; }
+
+  .t1-foot{ font-size:0.7rem; color:var(--ea-muted); border-top:1px solid var(--ea-line); padding-top:16px; margin-top:32px; }
+</style>
+
+<div class="t1-wrap">
+  <p class="t1-kicker">מוקאפ · T1 · LOD300 — מיקום בלבד, לא חי-פי</p>
+  <h1 class="t1-h1">עמוד מוקש דהימן: איפה נכנסים הטריילר והגלריה?</h1>
+  <p class="t1-lede">וויירפריים (wireframe) של סדר 21 הבלוקים בעמוד — <b>21 = הירו + 20 סעיפי הסיפור הקיימים</b> — עם 2 הצעות מיקום לתוספות המדיה החסרות. זו הצעה ל-wireframe, לא עיצוב סופי — המטרה היא להסכים על <b>מיקום</b>, לא על מראה.</p>
+  <p class="t1-source">מקור סדר הסעיפים: mokesh-defaults.php · תיעוד מלא: WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §2 (T1)</p>
+
+  <div class="t1-flag">⚠️ <b>לא כאן:</b> הבחירה הטכנולוגית (להרחיב את רכיב הווידאו הכללי לתמיכת YouTube, מול לשמר את הפתרון הייעודי הקיים) לא משפיעה על מה שמוצג כאן — לצופה באתר התוצאה זהה. ר' השוואה כתובה למטה, ושאלה פתוחה Q2 במסמך.</div>
+
+  <div class="t1-cols2">
+    <div>
+      <div class="t1-colhead"><span class="t1-dot t1-dot--now"></span><h2>מצב נוכחי — טקסט בלבד</h2></div>
+      <div class="t1-strip" id="t1-now"></div>
+    </div>
+    <div>
+      <div class="t1-colhead"><span class="t1-dot t1-dot--target"></span><h2>הצעת מיקום — עם מדיה</h2></div>
+      <div class="t1-strip" id="t1-target"></div>
+    </div>
+  </div>
+
+  <div class="t1-legend">
+    <span><i style="background:var(--ea-ink)"></i> Hero — היום: תמונה סטטית / הצעה: טריילר וידאו (אותו סלוט, משודרג)</span>
+    <span><i style="background:#FBF1EA;border:1.5px dashed var(--ea-terracotta)"></i> בלוק חדש שמוצע להוספה</span>
+  </div>
+
+  <p class="t1-note">
+    <b>למה גלריה אחרי "הסרט"?</b> סעיף 14 בסיפור הקיים ("הסרט — The Art of Shanti Living") כבר מספר שיש תיעוד קולנועי על מוקש — מיקום טבעי להציג גם תיעוד מצולם/סטילס, מיד אחריו.<br>
+    <b>למה פייסבוק אחרי "ממשיכי הדרך"?</b> לפני "דברי הספד" הסוגר את העמוד, קטע של "כך הקהילה זוכרת אותו" (הטמעות פייסבוק) הוא מעבר טבעי — עדות חברתית לפני מילות הפרידה הרשמיות. <b>שתי ההצעות פתוחות לשינוי — זו נקודת פתיחה לשיחה, לא נעילה.</b>
+  </p>
+
+  <div class="t1-decision">
+    <h3>הבחירה הטכנולוגית לטריילר (השוואה כתובה — לא מוקאפ, ר' לעיל)</h3>
+    <p><b>אפשרות 1 — הרחבת הרכיב הכללי:</b> משקיעים עכשיו כדי שרכיב הווידאו הכללי של האתר יתמוך גם ב-YouTube, לא רק בקובץ מהשרת. השקעה חד-פעמית גדולה יותר; כל עמוד עתידי עם טריילר יוטיוב מרוויח בחינם.</p>
+    <p><b>אפשרות 2 — שימור הפתרון הייעודי:</b> משאירים את קוד ה-JS הייעודי שכבר בנוי לעמוד הזה, בתוך מבנה ה-Chapters. השקעה קטנה יותר עכשיו; לא ניתן לשימוש חוזר בעמודים אחרים.</p>
+    <div class="t1-nomock">התוצאה שהצופה רואה זהה בשתי האפשרויות (פוסטר + כפתור נגן שמפעיל את הטריילר) — לכן לא נבנה לזה מוקאפ חזותי.</div>
+  </div>
+
+  <p class="t1-foot">מוקאפ להמחשת מיקום בלבד — אינו מפרט טכני לביצוע. חלק ממסמך LOD300 של WP-CANON-TEMPLATE-UNIFICATION, משימה T1. אושר לקריאה ע"י team_00 בלבד בשלב הזה.</p>
+</div>
+
+<script>
+(function(){
+  var sections = [
+    {chap:'לזכרו · 1950–2020', title:'מוקש דהימן (Hero)', hero:true},
+    {chap:'לזכרו', title:'מי היה מוקש דהימן?'},
+    {chap:'ראשית הדרך', title:"היכרותו הראשונה עם הדיג'רידו"},
+    {chap:'צליל ה-אום', title:'צינור האום'},
+    {chap:'האיש', title:'שפת הלב'},
+    {chap:'רישיקש', title:'בית המלאכה ברישיקש'},
+    {chap:'—', title:'(בלידקוט מצטט/תמונה מלאה)'},
+    {chap:'מורשת', title:'מוקש במרחבי ה-Dream Time'},
+    {chap:'חלום חדש', title:'קוטלי — הסטודיו החדש בהימליה'},
+    {chap:'קוטלי', title:'האדמה בקוטלי'},
+    {chap:'ציר זמן', title:'תחנות בדרכו של מוקש'},
+    {chap:'מפגש מחודש', title:'הביקור בקוטלי'},
+    {chap:'הגשמת החלום', title:'הגשמת החלום'},
+    {chap:'הסרט', title:'The Art of Shanti Living', filmMarker:true},
+    {chap:'תפנית', title:'תפנית חדה בעלילה'},
+    {chap:'פרידה', title:'פרידה'},
+    {chap:'לזכור', title:'מפעל חייו ימשיך להדהד'},
+    {chap:'ומה היום', title:'ומה היום'},
+    {chap:'רישיקש שאחרי', title:'תם עידן מוקש ברישיקש'},
+    {chap:'ממשיכי הדרך', title:'הרוח של מוקש חיה וקיימת', torchMarker:true},
+    {chap:'דברי הספד', title:'דברי הספד'}
+  ];
+
+  function block(n, s, opts){
+    opts = opts || {};
+    var cls = 't1-blk' + (opts.hero ? ' t1-blk--hero' : '') + (opts.isNew ? ' t1-blk--new' : '');
+    var tag = '';
+    if (opts.hero && opts.target) tag = '<span class="t1-tag t1-tag--upgrade">משודרג</span>';
+    else if (opts.isNew) tag = '<span class="t1-tag t1-tag--new">חדש — הצעה</span>';
+    else if (opts.missing) tag = '<span class="t1-tag t1-tag--missing">חסר היום</span>';
+    return '<div class="' + cls + '"><span class="t1-blk-n">' + n + '</span>' +
+      '<span class="t1-blk-chap">' + s.chap + '</span>' +
+      '<span class="t1-blk-title">' + s.title + '</span>' + tag + '</div>';
+  }
+
+  var nowHtml = '';
+  sections.forEach(function(s, i){ nowHtml += block(i + 1, s, {hero: s.hero}); });
+  document.getElementById('t1-now').innerHTML = nowHtml;
+
+  var targetHtml = '';
+  var n = 1;
+  sections.forEach(function(s){
+    targetHtml += block(n++, s, {hero: s.hero, target: s.hero});
+    if (s.filmMarker){
+      targetHtml += block(n++, {chap:'גלריה', title:'🖼️ גלריית 19 תמונות'}, {isNew:true});
+    }
+    if (s.torchMarker){
+      targetHtml += block(n++, {chap:'זיכרון קהילתי', title:'📱 4 הטמעות פייסבוק'}, {isNew:true});
+    }
+  });
+  document.getElementById('t1-target').innerHTML = targetHtml;
+})();
+</script>
+</div>

@@ -1,0 +1,117 @@
+# VERDICT — team_90 · ולידציה חוצת-מנוע · LOD400
+
+**תוצאה כוללת: `FAIL`**
+
+דוח מלא: [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-CANON-LOD400-2026-07-14.md)
+
+Iron Rule #1 מתקיים: בונה (Claude Code / team_100) ≠ ולידטור (cursor-composer / team_90). לא בוצע שום שינוי ב-`site/`.
+
+---
+
+## סיכום
+
+ה-LOD400 עמוק ורוב הציטוטים מול הקוד החי **נכונים** (10 spot-checks — כולם PASS). המסמך **נכשל** ברף ש-team_100 קבע לעצמו (*מפתח ג'וניור/agent טרי יכול לממש בלי פערים*) ובעקביות בין-משימתית: בונה שממשיך לפי T6 כתוב היום יכול לשבור עמודי מוצר, לאבד GA4 בספרים, או להמציא שמות שדות ל-Book schema.
+
+**לא להתחיל build (team_110)** עד סגירת F90-01, F90-02, F90-03.
+
+---
+
+## Spot-check מול קוד חי (10 טענות)
+
+| # | טענה | מקור חי | תוצאה |
+|---|------|---------|--------|
+| 1 | `tpl-chapters-page.php:43` קורא `phero` קשיח | אומת | PASS |
+| 2 | `mokesh-dahiman` → `tpl-chapters-page` / type `mokesh` (`chapters-render.php:49`) | אומת | PASS |
+| 3 | wrapper ל-YT mount ב-`wave2-w2-14e.php:471-473` | אומת | PASS |
+| 4 | gallery breakpoints `chapters.css:683-684` | אומת | PASS |
+| 5 | מאגר FAQ = **79** (לא ~62) | `grep -c "'category' =>"` → 79 | PASS |
+| 6 | `lessons` — FAQ כ-`prose` (`lessons-defaults.php:179-187`) | אומת | PASS |
+| 7 | CPT `ea_faq` קיים; אין `ea_faq_cat` עדיין | `functions.php:345+` | PASS |
+| 8 | `ea-ab-testing.js` נטען פעמיים | `wave2-w2-05.php:187` + `wave2-stage-b.php:116` | PASS |
+| 9 | `ea_w2_05_price` / `gi_url` / `gi_url_map` | `wave2-w2-05.php:234-265` | PASS |
+| 10 | אין `add_rewrite_rule` תחת `site/`; QR = עמודי WP היררכיים | grep ריק; `ea_w2_07_template_include` רק ל-`/press` | PASS |
+
+---
+
+## ממצאים (לפי חומרה)
+
+### F90-01 — **blocker** — T6 לא מטפל ב-re-home של פונקציות מסחר מ-T3
+
+- **LOD400 T3 §6.4 (~L1390):** `product-cta.php` קורא ל-`ea_w2_05_price()`, `ea_w2_05_gi_url*`, `ea_wave2_wa_url()` — חייבות לעבור דירה לפני מחיקת `wave2-w2-05.php`.
+- **LOD400 T6 §3.6 (~L2499):** `wave2-w2-05.php` → "מחק יחד" — **בלי** שלב re-home.
+- **תיקון:** שלב מפורש ב-T6 (למשל `inc/chapters/chapters-commerce.php`) + AC ב-T7.
+
+### F90-02 — **blocker** — T6 מתעלם מ-re-home של JS רכישת ספרים מ-T3b
+
+- **LOD400 T3b §6 (~L1773):** מחיקת `wave2-w2-03.php` בלי re-home של `ea_w2_03_purchase_assets()` → GA4 `book_purchase_click` נעלם בשקט.
+- **LOD400 T6 §3.6 (~L2497):** מתאר w2-03 כ"ניתוב בלבד" — **שגוי**; `ea_w2_03_purchase_assets()` חי ב-`wave2-w2-03.php:166+`, gate לפי slug+parent (לא template).
+- **תיקון:** שורת T6 מתוקנת + enqueue ב-Chapters לפני מחיקה.
+
+### F90-03 — **major** — חוזה T4↔T3b ל-Book schema לא נעול
+
+- **T4 (~L1970):** קורא `ea_chapters_field('price'|'genre'|'buy_print_url'|…)` — placeholders.
+- **T3b בפועל:** מחיר בטקסט `cta_label`; URLs ב-`cta_url`/`cta2_url` — **אין** מפתחות top-level ש-T4 יכול לקרוא.
+- **תיקון:** T3b מוסיף מפתחות סופיים; T4 מחליף placeholders.
+
+### F90-04 — **minor** — drift בשם accessor ל-FAQ
+
+- T2 נועל `ea_faq_query_items`; T4 sample משתמש ב-`ea_chapters_faq_items` (placeholder).
+- **תיקון:** שורה אחת ב-T4 — שם סופי אחד.
+
+### F90-05 — **minor** — ניסוח QR "לנצח / מבנית" מעט אופטימי
+
+- הטיעון המבני **נכון**: URL מ-`post_parent`+`post_name`; pattern-route לא נוגע בהם; rollback דרך `tpl-qr.php`.
+- "לנצח" תלוי גם במפעילים (לא משנים/מוחקים שורות DB, לא משנים permalink structure).
+- **תיקון:** ריכוך ניסוח — "מובטח למסלול המיגרציה הזה".
+
+### F90-06 — **minor** — טווח שורות `gi_url_map` (234-242 vs 234-241)
+
+### F90-07 — **minor** — T4/T7 עדיין מצטטים ~62 FAQ ו-"lessons ללא FAQ"
+
+סותר את תיקון T2/F-3 (79 פריטים; `lessons` בפורט הרגיל).
+
+---
+
+## §0.1–§0.2 — הוגנות מול team_00
+
+| ממצא | הערכה |
+|------|--------|
+| F-1 (w2-09 / stage-b / w2-02 redirects) | מבוסס היטב — ענף Chapters ב-w2-09:112-120 אומת |
+| F-2 (`/press` יתום) | פער scope אמיתי; המלצה פרופורציונלית |
+| F-3 (79 FAQ; lessons prose) | אומת |
+| F-4 (double ab-testing) | אומת |
+| F-5 (QR מבני) | אומת; ניסוח קצת אופטימי (F90-05) |
+| §0.2 החלטות 1–4 | מתאימות — לא מותנות מדי, לא דרמטיות מדי |
+
+---
+
+## T5 / QR — ביקורת הטיעון "pattern-route"
+
+```
+/qr/qrN/  →  wp_posts (post_name + post_parent)
+           →  template_include@103 (Chapters pattern-route → tpl-chapters-qr.php)
+           או  rollback: _wp_page_template → tpl-qr.php (נשמר עד T6 Group D)
+```
+
+- **URL → 200** מנותק מבחירת template — הטיעון נכון.
+- אין rewrite מותאם אישית — אומת (grep ריק על `site/`).
+- חור לוגי אפשרי: רק אם מפעיל משנה/מוחק שורות עמוד או מבנה permalinks — לא באחריות המנגנון עצמו.
+
+---
+
+## שלמות פנימית (8 משימות)
+
+כל המשימות כוללות קבצים + רצף + AC. הפערים הם **חוזים בין-משימתיים**, לא סעיפים ריקים.
+
+---
+
+## שער סגירה לפני build
+
+| ID | חומרה | בעלות | חוסם build? |
+|----|--------|-------|-------------|
+| F90-01 | blocker | team_100 | **כן** |
+| F90-02 | blocker | team_100 | **כן** |
+| F90-03 | major | team_100 | **כן** |
+| F90-04–07 | minor | team_100 | מומלץ באותו patch |
+
+**הצעד הבא:** team_100 מתקן LOD400 (T6 §3.6 + נעילת חוזה T3b→T4) → team_90 מריץ delta re-validation על F90-01/02/03 בלבד.

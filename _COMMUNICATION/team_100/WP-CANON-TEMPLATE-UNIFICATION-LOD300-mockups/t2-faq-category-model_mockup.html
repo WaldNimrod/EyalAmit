@@ -1,0 +1,187 @@
+<meta charset="utf-8">
+<title>T2 — מוקאפ FAQ: קטגוריה יחידה מול many-to-many</title>
+<div dir="rtl" lang="he" class="t2-mock-root">
+<style>
+  .t2-mock-root{
+    --ea-sand:#D8C7B5; --ea-terracotta:#A44E2B; --ea-earth:#8A5A44; --ea-olive:#6E6F4A;
+    --ea-ink:#2E2B28; --ea-chocolate:#5C3A2E; --ea-brick:#AB3A2B;
+    --ea-bg:#FAF8F5; --ea-bg-alt:#F3EEE8; --ea-line:rgba(216,199,181,0.35); --ea-muted:#6F635A;
+    --ea-radius-pill:100px; --ea-radius-img:4px;
+    font-family:'Heebo',-apple-system,Arial,sans-serif;
+    background:var(--ea-bg); color:var(--ea-ink);
+    padding:40px 16px 64px; line-height:1.6;
+  }
+  .t2-mock-root *{ box-sizing:border-box; }
+  .t2-wrap{ max-width:1120px; margin:0 auto; }
+  .t2-kicker{ font-size:0.78rem; font-weight:600; letter-spacing:.3px; color:var(--ea-terracotta); margin:0 0 8px; }
+  .t2-h1{ font-weight:200; font-size:2rem; line-height:1.2; margin:0 0 12px; }
+  .t2-lede{ color:var(--ea-muted); font-weight:300; font-size:0.95rem; max-width:760px; margin:0 0 8px; }
+  .t2-lede b{ color:var(--ea-ink); font-weight:600; }
+  .t2-source{ font-size:0.72rem; color:var(--ea-muted); margin:0 0 32px; }
+  .t2-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; margin-bottom:28px; }
+  @media (max-width:820px){ .t2-cols{ grid-template-columns:1fr; } }
+  .t2-panel{ background:#fff; border:1px solid var(--ea-line); border-radius:10px; padding:22px 20px; box-shadow:0 1px 3px rgba(46,43,40,0.06); }
+  .t2-panel--a{ border-top:4px solid var(--ea-muted); }
+  .t2-panel--b{ border-top:4px solid var(--ea-terracotta); }
+  .t2-badge{ display:inline-block; font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:100px; margin-bottom:16px; }
+  .t2-badge--a{ background:var(--ea-bg-alt); color:var(--ea-muted); }
+  .t2-badge--b{ background:var(--ea-terracotta); color:#fff; }
+
+  /* real theme FAQ classes, ea-atoms.css */
+  .ea-faq-list__filter{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:var(--ea-bg); padding:10px 0 16px; margin-bottom:8px; border-bottom:1px solid var(--ea-line); }
+  .ea-faq-list__filter-label{ font-weight:300; font-size:0.78rem; color:var(--ea-ink); white-space:nowrap; }
+  .ea-faq-list__filter-select{ padding:9px 14px; border:1px solid var(--ea-line); border-radius:var(--ea-radius-img); background:#fff; font-family:inherit; font-weight:300; font-size:0.85rem; color:var(--ea-ink); direction:rtl; }
+  .ea-faq-list__filter-count{ font-size:0.72rem; color:var(--ea-muted); margin-inline-start:auto; }
+  .ea-faq-category__heading{ font-weight:200; font-size:1.15rem; line-height:1.2; color:var(--ea-ink); margin:14px 0 4px; }
+  .ea-faq-item{ border-top:1px solid var(--ea-line); }
+  .ea-faq-item__summary{ display:flex; justify-content:space-between; align-items:flex-start; padding:16px 0; cursor:pointer; list-style:none; gap:12px; }
+  .ea-faq-item__summary::-webkit-details-marker{ display:none; }
+  .ea-faq-item__question{ font-size:0.92rem; font-weight:400; color:var(--ea-ink); margin:0; flex:1; }
+  .ea-faq-item__icon{ flex-shrink:0; color:var(--ea-terracotta); transition:transform .3s; }
+  .ea-faq-item__details[open] .ea-faq-item__icon{ transform:rotate(180deg); }
+  .ea-faq-item__answer p{ font-weight:300; font-size:0.88rem; line-height:1.8; color:var(--ea-earth); padding:0 0 16px; margin:0; }
+
+  .t2-chip{ display:inline-flex; align-items:center; padding:3px 11px; border-radius:100px; background:var(--ea-bg-alt); color:var(--ea-muted); font-size:0.66rem; font-weight:500; white-space:nowrap; }
+  .t2-chip--active{ background:var(--ea-terracotta); color:#fff; }
+  .t2-chip--muted{ background:transparent; border:1px solid var(--ea-line); color:var(--ea-muted); }
+  .t2-chiprow{ display:flex; gap:6px; flex-wrap:wrap; }
+  .t2-qchips{ display:flex; gap:4px; margin-top:6px; flex-wrap:wrap; }
+
+  .t2-note{ font-size:0.78rem; padding:10px 12px; border-radius:6px; margin-top:14px; line-height:1.6; }
+  .t2-note--warn{ background:#FBF1EA; color:var(--ea-chocolate); }
+  .t2-note--good{ background:#F0F2E7; color:var(--ea-olive); }
+
+  .t2-shape{ background:var(--ea-ink); color:#F3EEE8; border-radius:10px; padding:20px 22px; margin-bottom:28px; }
+  .t2-shape p{ font-size:0.78rem; color:#D8C7B5; margin:0 0 10px; font-weight:300; }
+  .t2-shape pre{ margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:0.82rem; line-height:1.9; direction:ltr; text-align:left; white-space:pre-wrap; }
+  .t2-shape .t2-tag{ color:#E8B896; }
+  .t2-shape .t2-val{ color:#B7C79A; }
+
+  .t2-live{ background:#fff; border:1px solid var(--ea-line); border-radius:10px; padding:22px 20px; margin-bottom:28px; }
+  .t2-live-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
+  .t2-live-title{ font-weight:400; font-size:0.95rem; margin:0; }
+  .t2-switch{ display:inline-flex; border:1px solid var(--ea-line); border-radius:100px; padding:3px; gap:2px; background:var(--ea-bg-alt); }
+  .t2-switch button{ border:none; background:transparent; padding:7px 16px; border-radius:100px; font-family:inherit; font-size:0.76rem; font-weight:500; color:var(--ea-muted); cursor:pointer; }
+  .t2-switch button.on{ background:var(--ea-terracotta); color:#fff; }
+
+  .t2-foot{ font-size:0.7rem; color:var(--ea-muted); border-top:1px solid var(--ea-line); padding-top:16px; margin-top:8px; }
+</style>
+
+<div class="t2-wrap">
+  <p class="t2-kicker">מוקאפ · T2 · LOD300 — שאלה פתוחה Q1</p>
+  <h1 class="t2-h1">FAQ: קטגוריה יחידה מול many-to-many</h1>
+  <p class="t2-lede">שתי האופציות מוצגות עם אותה שאלה אמיתית, הקיימת היום במאגר ה-FAQ המרכזי: <b>"מה זה בעצם טיפול בדיג'רידו?"</b> — משויכת כרגע לקטגוריה <b>טיפול</b> בלבד. תיוג-הכפול ל"שיטה" באופציה ב׳ הוא <b>להמחשה בלבד</b> — לא החלטת-תוכן שכבר התקבלה.</p>
+  <p class="t2-source">מקור: block-faq-list.php · תיעוד מלא: WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §2 (T2), §4 (Q1)</p>
+
+  <div class="t2-cols">
+    <!-- Panel A -->
+    <div class="t2-panel t2-panel--a">
+      <span class="t2-badge t2-badge--a">אופציה א׳ — קטגוריה יחידה (המצב היום)</span>
+      <div class="ea-faq-list__filter">
+        <label class="ea-faq-list__filter-label">סינון לפי קטגוריה:</label>
+        <select class="ea-faq-list__filter-select">
+          <option>טיפול בדיג'רידו</option>
+          <option>שיטה</option>
+          <option>סאונד הילינג</option>
+        </select>
+        <span class="ea-faq-list__filter-count">בחירה אחת בלבד</span>
+      </div>
+      <h2 class="ea-faq-category__heading">טיפול בדיג'רידו</h2>
+      <div class="ea-faq-item">
+        <div class="ea-faq-item__summary">
+          <p class="ea-faq-item__question">מה זה בעצם טיפול בדיג'רידו?</p>
+          <span class="ea-faq-item__icon">⌄</span>
+        </div>
+        <div class="ea-faq-item__answer"><p>טיפול בדיג'רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הצליל והנשימה...</p></div>
+      </div>
+      <div class="ea-faq-item">
+        <div class="ea-faq-item__summary">
+          <p class="ea-faq-item__question">איך זה שונה מסאונד הילינג?</p>
+          <span class="ea-faq-item__icon">⌄</span>
+        </div>
+      </div>
+      <div class="t2-note t2-note--warn">⚠️ אם מסננים לפי "שיטה" — השאלה הזו <b>לא תופיע שם</b>, גם אם היא רלוונטית גם שם. כל שאלה יכולה "לגור" רק בבית אחד.</div>
+    </div>
+
+    <!-- Panel B -->
+    <div class="t2-panel t2-panel--b">
+      <span class="t2-badge t2-badge--b">אופציה ב׳ — many-to-many (הצעה)</span>
+      <div class="ea-faq-list__filter">
+        <label class="ea-faq-list__filter-label">סינון לפי קטגוריה (ניתן לבחור כמה):</label>
+        <span class="t2-live-title" style="display:none"></span>
+      </div>
+      <div class="t2-chiprow" style="margin-bottom:14px;">
+        <span class="t2-chip t2-chip--active">טיפול</span>
+        <span class="t2-chip t2-chip--active">שיטה</span>
+        <span class="t2-chip t2-chip--muted">סאונד הילינג</span>
+        <span class="t2-chip t2-chip--muted">שיעורים</span>
+      </div>
+      <h2 class="ea-faq-category__heading">טיפול בדיג'רידו + שיטה</h2>
+      <div class="ea-faq-item">
+        <div class="ea-faq-item__summary">
+          <div>
+            <p class="ea-faq-item__question">מה זה בעצם טיפול בדיג'רידו?</p>
+            <div class="t2-qchips"><span class="t2-chip">טיפול</span><span class="t2-chip">שיטה</span></div>
+          </div>
+          <span class="ea-faq-item__icon">⌄</span>
+        </div>
+        <div class="ea-faq-item__answer"><p>טיפול בדיג'רידו הוא תהליך אישי שבו עובדים באופן אקטיבי עם הצליל והנשימה...</p></div>
+      </div>
+      <div class="ea-faq-item">
+        <div class="ea-faq-item__summary">
+          <div>
+            <p class="ea-faq-item__question">איך זה שונה מסאונד הילינג?</p>
+            <div class="t2-qchips"><span class="t2-chip">טיפול</span></div>
+          </div>
+          <span class="ea-faq-item__icon">⌄</span>
+        </div>
+      </div>
+      <div class="t2-note t2-note--good">✅ אותה שאלה מופיעה תחת שתי הקטגוריות בו-זמנית — תואם את הדרישה המקורית ("כל שאלה מקושרת לקטגוריה אחת או יותר").</div>
+    </div>
+  </div>
+
+  <div class="t2-shape">
+    <p>צורת הנתונים — להמחשה בלבד, לא קוד לביצוע:</p>
+    <pre>אופציה א׳ (היום):   <span class="t2-tag">category</span>: <span class="t2-val">"treatment"</span>
+
+אופציה ב׳ (הצעה):   <span class="t2-tag">category</span>: [<span class="t2-val">"treatment"</span>, <span class="t2-val">"method"</span>]
+                     ← דורש גם שינוי במנגנון הסינון עצמו (התאמה כנגד רשימה, לא ערך בודד)</pre>
+  </div>
+
+  <div class="t2-live">
+    <div class="t2-live-head">
+      <p class="t2-live-title">נסו בעצמכם — אותו widget, שני מצבים</p>
+      <div class="t2-switch">
+        <button id="t2-btn-a" class="on" onclick="t2setMode('a')">מצב א׳ · יחיד</button>
+        <button id="t2-btn-b" onclick="t2setMode('b')">מצב ב׳ · מרובה</button>
+      </div>
+    </div>
+    <div id="t2-live-body"></div>
+  </div>
+
+  <p class="t2-foot">מוקאפ להמחשת החלטה בלבד — אינו מפרט טכני לביצוע. חלק ממסמך LOD300 של WP-CANON-TEMPLATE-UNIFICATION, משימה T2. אושר לקריאה ע"י team_00 בלבד בשלב הזה.</p>
+</div>
+
+<script>
+(function(){
+  var singleHTML = ''
+    + '<div class="ea-faq-list__filter"><label class="ea-faq-list__filter-label">קטגוריה:</label>'
+    + '<select class="ea-faq-list__filter-select"><option>טיפול בדיג\'רידו</option><option>שיטה</option></select>'
+    + '<span class="ea-faq-list__filter-count">בחירה אחת</span></div>'
+    + '<div class="ea-faq-item"><div class="ea-faq-item__summary"><p class="ea-faq-item__question">מה זה בעצם טיפול בדיג\'רידו?</p><span class="ea-faq-item__icon">⌄</span></div></div>';
+
+  var multiHTML = ''
+    + '<div class="ea-faq-list__filter"><label class="ea-faq-list__filter-label">קטגוריות (ריבוי):</label>'
+    + '<div class="t2-chiprow"><span class="t2-chip t2-chip--active">טיפול</span><span class="t2-chip t2-chip--active">שיטה</span><span class="t2-chip t2-chip--muted">שיעורים</span></div></div>'
+    + '<div class="ea-faq-item"><div class="ea-faq-item__summary"><div><p class="ea-faq-item__question">מה זה בעצם טיפול בדיג\'רידו?</p>'
+    + '<div class="t2-qchips"><span class="t2-chip">טיפול</span><span class="t2-chip">שיטה</span></div></div><span class="ea-faq-item__icon">⌄</span></div></div>';
+
+  window.t2setMode = function(mode){
+    document.getElementById('t2-live-body').innerHTML = (mode === 'a') ? singleHTML : multiHTML;
+    document.getElementById('t2-btn-a').className = (mode === 'a') ? 'on' : '';
+    document.getElementById('t2-btn-b').className = (mode === 'b') ? 'on' : '';
+  };
+  t2setMode('a');
+})();
+</script>
+</div>
