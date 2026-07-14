@@ -23,6 +23,7 @@ team_110 executed the full remaining lifecycle under ADR045 `execution_authority
 | Staging smoke (builder) | PASS — QR 48/48 |
 | L-GATE_BUILD (composer-2.5) | **PASS_WITH_FINDINGS** — 0 blockers |
 | L-GATE_VALIDATE (composer-2.5) | **PASS_WITH_FINDINGS** — LOD500_LOCKED allowed |
+| team_50 E2E browser QA (composer-2.5) | **PASS_WITH_FINDINGS** → **GO** staging (0 P0/P1; qa_probe 30/30; QR 48/48) |
 | lod_status | **LOD500** |
 | C-5 (tsva Mendele URL) | **PENDING** (Eyal) |
 | `/press` | OUT OF SCOPE — `wave2-w2-07.php` retained |
@@ -47,6 +48,9 @@ team_110 executed the full remaining lifecycle under ADR045 `execution_authority
 | L-GATE_BUILD T1–T5 slice | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_BUILD-T1-T5-2026-07-14.md` |
 | L-GATE_BUILD T4/T6/T7 slice | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_BUILD-T4-T6-T7-2026-07-14.md` |
 | L-GATE_VALIDATE (composer) | `_COMMUNICATION/team_90/VERDICT-WP-CANON-L-GATE_VALIDATE-2026-07-14.md` |
+| team_50 E2E QA request | `_COMMUNICATION/team_50/QA-REQUEST-WP-CANON-TEMPLATE-UNIFICATION-E2E-TEAM50-2026-07-14.md` |
+| team_50 E2E QA report | `_COMMUNICATION/team_50/QA-REPORT-WP-CANON-TEMPLATE-UNIFICATION-E2E-2026-07-14.md` |
+| team_50 evidence | `_COMMUNICATION/team_50/evidence/` |
 | QR HTTP baseline + post | `_COMMUNICATION/team_110/_QR-BASELINE-HTTP-2026-07-14.txt` |
 | qa_probe log (builder) | `_COMMUNICATION/team_110/_QA-PROBE-WP-CANON-2026-07-14.txt` |
 | team_90 evidence | `_COMMUNICATION/team_90/evidence/` |
