@@ -577,18 +577,11 @@ add_filter( 'template_include', 'ea_eyalamit_books_hub_template', 95 );
 /**
  * WP-W2-15-CR1: consolidate the two duplicate "מוזה הוצאה לאור" pages.
  *
- * Eyal's verbatim MUZZA.md content is carried by the elevated /books archive
- * (page-templates/tpl-books.php -> ea_w2_05_render_books_archive()). The /muzza
- * books-hub page renders the_content() straight from the DB post_content, which
- * the FTP theme deploy cannot write — so it could not carry the source content.
- * Until the IA is consolidated (Principal decision: which slug is canonical),
- * send /muzza (and the /muzeh alias) to /books with a TEMPORARY 302 so visitors
- * — and the content-accuracy gate, which follows redirects — see the real page.
- * Resolved (WP-W2-15-CR, team_50 finding F-W2-15-CA-01): /books is the canonical
- * Muzza archive — the 3 book pages nest under /books/<slug>, so the catalog belongs
- * at /books for URL hierarchy. /muzza (and the /muzeh alias) is a PERMANENT 301 to it;
- * the nav now points directly at /books. Flip target here if the Principal prefers the
- * /muzza brand URL as canonical instead.
+ * Eyal's verbatim MUZZA.md content is carried by the Chapters /books archive
+ * (muzza-defaults + tpl-chapters-page). The legacy Wave2 tpl-books.php is retired
+ * (301 → /books/). /muzza (and the /muzeh alias) is a PERMANENT 301 to /books —
+ * the 3 book pages nest under /books/<slug>, so the catalog belongs at /books for
+ * URL hierarchy. The nav points directly at /books.
  */
 function ea_eyalamit_muzza_to_books_redirect() {
 	if ( is_admin() ) {

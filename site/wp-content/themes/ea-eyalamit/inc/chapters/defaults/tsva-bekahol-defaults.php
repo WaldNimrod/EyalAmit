@@ -130,9 +130,11 @@ return array(
 			'args' => array(
 				'chap'  => 'גלריה',
 				'title' => 'גלריה',
-				'lead'  => 'תמונות מהעולם של הספר. תמונות נוספות יתווספו עם קבלת החומרים.',
+				'lead'  => 'תמונות מהעולם של הספר.',
 				'items' => array(
+					array( 'image' => 'assets/images/tsva-bechol-cover.jpg', 'alt' => 'עטיפת הספר צבע בכחול וזרוק לים' ),
 					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר צבע בכחול וזרוק לים' ),
+					array( 'image' => 'assets/images/kushi-04-sinai.jpg', 'alt' => 'רגעים מהדרך' ),
 				),
 			),
 		),

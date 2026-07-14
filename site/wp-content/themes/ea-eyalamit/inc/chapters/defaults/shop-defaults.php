@@ -44,10 +44,11 @@ return array(
 		array(
 			'part' => 'bookcard',
 			'args' => array(
-				'chap'  => 'המוצרים',
-				'title' => 'כל המוצרים',
-				'items' => $ea_shop_items,
-				'alt'   => false,
+				'chap'       => 'המוצרים',
+				'title'      => 'כל המוצרים',
+				'cta_label'  => 'לעמוד המוצר ←',
+				'items'      => $ea_shop_items,
+				'alt'        => false,
 			),
 		),
 	),

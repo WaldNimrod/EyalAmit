@@ -36,8 +36,9 @@ return array(
 		array(
 			'part' => 'bookcard',
 			'args' => array(
-				'items' => $ea_qr_items,
-				'alt'   => false,
+				'cta_label' => 'לעמוד ה-QR ←',
+				'items'     => $ea_qr_items,
+				'alt'       => false,
 			),
 		),
 	),

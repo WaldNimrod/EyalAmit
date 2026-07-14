@@ -1,0 +1,63 @@
+{
+  "date": "2026-07-14",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "validator_engine": "composer-2.5",
+  "checks": [
+    {
+      "id": "shop-cta-product",
+      "url": "/shop/",
+      "expected": "5x «לעמוד המוצר ←»; 0x «לעמוד הספר» on product cards",
+      "found": { "לעמוד המוצר": 5, "לעמוד הספר": 0 },
+      "result": "PASS"
+    },
+    {
+      "id": "books-cta-book",
+      "url": "/books/",
+      "expected": "«לעמוד הספר ←» on book cards",
+      "found": { "לעמוד הספר": 3 },
+      "result": "PASS"
+    },
+    {
+      "id": "qr-cta",
+      "url": "/qr/",
+      "expected": "«לעמוד ה-QR ←» on QR hub cards",
+      "found": { "לעמוד ה-QR": 48 },
+      "result": "PASS"
+    },
+    {
+      "id": "book-gallery-vekatavta",
+      "url": "/books/vekatavta/",
+      "expected": "no «יתווספו»; ≥3 gallery images",
+      "found": { "יתווספו": 0, "gfig_count": 3, "sample_src": "themes/ea-eyalamit/assets/images/vekatavt-cover.jpg" },
+      "result": "PASS"
+    },
+    {
+      "id": "book-gallery-kushi-blantis",
+      "url": "/books/kushi-blantis/",
+      "expected": "no «יתווספו»; ≥3 gallery images",
+      "found": { "יתווספו": 0, "gfig_count": 3 },
+      "result": "PASS"
+    },
+    {
+      "id": "book-gallery-tsva-bekahol",
+      "url": "/books/tsva-bekahol/",
+      "expected": "no «יתווספו»; ≥3 gallery images",
+      "found": { "יתווספו": 0, "gfig_count": 3 },
+      "result": "PASS"
+    },
+    {
+      "id": "book-prices",
+      "urls": ["/books/vekatavta/", "/books/kushi-blantis/", "/books/tsva-bekahol/"],
+      "expected": "79 / 69 / 59 ₪",
+      "found": { "vekatavta": "79 ₪", "kushi-blantis": "69 ₪", "tsva-bekahol": "59 ₪" },
+      "result": "PASS"
+    },
+    {
+      "id": "c5-tsva-mendele-url",
+      "url": "/books/tsva-bekahol/",
+      "expected": "C-5 PENDING (accepted — not a finding)",
+      "found": "https://www.mendele.co.il/product/tsvabacholvezorekleyam/",
+      "result": "ACCEPTED_PENDING"
+    }
+  ]
+}

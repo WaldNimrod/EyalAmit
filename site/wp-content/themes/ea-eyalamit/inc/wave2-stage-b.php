@@ -66,7 +66,6 @@ function ea_wave2_is_active_view() {
 		'page-templates/tpl-content.php',
 		'page-templates/tpl-contact.php',
 		'page-templates/tpl-faq.php',
-		'page-templates/tpl-books.php',
 		'page-templates/tpl-book-detail.php',
 		'page-templates/tpl-shop-archive.php',
 		'page-templates/tpl-shop-item.php',
