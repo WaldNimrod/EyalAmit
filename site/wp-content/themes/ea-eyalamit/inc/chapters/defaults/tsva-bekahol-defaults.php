@@ -2,7 +2,7 @@
 /**
  * Chapters /books/tsva-bekahol/ (צבע בכחול וזרוק לים) — book-detail seeded content.
  * Sourced VERBATIM from eyal_tsva_FINAL.md; legacy publishing-page routes rewritten to
- * canonical /books/<slug>/ ; external purchase URLs (Mendele, contact) kept verbatim.
+ * canonical /books/<slug>/ ; purchase CTA = Green Invoice (Morning); temporary shared example until per-book URL.
  * Cover art is a known media gap — hero uses the closest in-repo image; galleries/QR
  * notes with no text are omitted, captions (none present) would be kept as prose.
  * Text carries the FULL approved source copy VERBATIM (summary, full excerpt, who-for,
@@ -15,14 +15,11 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 
-	// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
-	// considered final. Two candidates exist for the SAME book: this one
-	// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
-	// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
-	// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
+	// GI CHECKOUT — temporary shared example (kushi mrng.to) until per-book URL from Eyal.
+	// Drift fix 2026-07-14 — was Mendele/C-5; see DRIFT-REPORT-BOOK-PURCHASE-MENDELE-VS-GREEN-INVOICE-2026-07-14.md.
 	'price'         => 59,
-	'buy_print_url' => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
-	'buy_ebook_url' => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+	'buy_print_url' => 'https://mrng.to/MTUiO3vkIg',
+	'buy_ebook_url' => 'https://mrng.to/MTUiO3vkIg',
 	'genre'         => 'סיפורים קצרים · מסע',
 	'meta_year'     => '2001',
 	'meta_pages'    => 128,
@@ -35,12 +32,7 @@ return array(
 		'media'     => 'assets/images/tsva-bechol-cover.jpg',
 		'media_alt' => 'אייל עמית, מחבר הספר «צבע בכחול וזרוק לים»',
 		'cta_label' => 'לרכישת הספר · 59 ₪',
-		// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
-		// considered final. Two candidates exist for the SAME book: this one
-		// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
-		// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
-		// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
-		'cta_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+		'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 		'cta_slug'  => 'tsva-bekahol',
 	),
 
@@ -124,7 +116,7 @@ return array(
 			),
 		),
 
-		/* SECTION 05 — גלריה (new; real image wired per T3b; not blocked by C-5). */
+		/* SECTION 05 — גלריה (cover only + pending; no cross-book kushi images). */
 		array(
 			'part' => 'gallery',
 			'args' => array(
@@ -132,9 +124,45 @@ return array(
 				'title' => 'גלריה',
 				'lead'  => 'תמונות מהעולם של הספר.',
 				'items' => array(
-					array( 'image' => 'assets/images/tsva-bechol-cover.jpg', 'alt' => 'עטיפת הספר צבע בכחול וזרוק לים' ),
-					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר צבע בכחול וזרוק לים' ),
-					array( 'image' => 'assets/images/kushi-04-sinai.jpg', 'alt' => 'רגעים מהדרך' ),
+					array( 'image' => 'assets/images/tsva-bechol-cover.jpg', 'alt' => 'עטיפת הספר צבע בכחול וזרוק לים', 'cap' => 'עטיפה' ),
+					array(
+						'pending'       => true,
+						'pending_label' => 'inside / trip — ממתין לאישור / מדיה מ-Drive',
+						'alt'           => 'May placeholders + April 41 driveRefs — אין JPG מקומי.',
+						'cap'           => 'סלוט 1',
+					),
+					array(
+						'pending'       => true,
+						'pending_label' => 'inside / trip — ממתין לאישור / מדיה מ-Drive',
+						'alt'           => 'יושלם בייבוא ייצוא Drive של גלריית צבע בכחול.',
+						'cap'           => 'סלוט 2',
+					),
+				),
+			),
+		),
+
+		/* SECTION 11 — עיתונות (ממתין) */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'chap'   => 'כתבות מהעיתונות',
+				'title'  => 'כתבות מהעיתונות',
+				'center' => true,
+				'body'   => '<div class="ea-pending-approval" role="status"><span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">כתבות + press-article media</p><p class="ea-pending-approval__note">במקור May — אקורדיון/placeholder. יושלם עם חומרים מאושרים. <a class="tlink" href="/press/">עמוד העיתונות</a>.</p></div>',
+			),
+		),
+
+		/* SECTION 14 — trip-final (ממתין) */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'עוד מהטיול',
+				'title' => 'רגעים נוספים מהטיול',
+				'lead'  => 'מדיה נוספת לפי מקור May (trip-final) — ממתינה לייבוא.',
+				'items' => array(
+					array( 'pending' => true, 'pending_label' => 'trip-final-01 — ממתין לאישור', 'alt' => 'אין קובץ מקומי' ),
+					array( 'pending' => true, 'pending_label' => 'trip-final-02 — ממתין לאישור', 'alt' => 'אין קובץ מקומי' ),
+					array( 'pending' => true, 'pending_label' => 'trip-final-03 — ממתין לאישור', 'alt' => 'אין קובץ מקומי' ),
 				),
 			),
 		),
@@ -146,21 +174,20 @@ return array(
 				'chap'   => 'רכישת הספר',
 				'title'  => 'רכישת הספר',
 				'center' => true,
-				'body'   => "<p>ניתן לרכוש את הספר בשתי גרסאות:</p><p>ספר מודפס<br>(עותק פיזי)<br>לרכישה דרך פנייה ישירה<br><a class=\"tlink\" href=\"https://www.eyalamit.co.il/contact\">לרכישת עותק מודפס – צרו קשר</a></p><p>ספר דיגיטלי<br>(קריאה אונליין / הורדה)<br><a class=\"tlink\" href=\"https://www.mendele.co.il/product/tsvabacholvezorekleyam/\">לרכישת הספר הדיגיטלי במנדלי</a></p>",
+				'body'   => "<p>ניתן לרכוש את הספר בשתי גרסאות:</p><p>ספר מודפס<br>(עותק פיזי)<br><a class=\"tlink\" href=\"https://mrng.to/MTUiO3vkIg\">לרכישה מאובטחת (חשבונית ירוקה)</a></p><p>ספר דיגיטלי<br>(קריאה אונליין / הורדה)<br><a class=\"tlink\" href=\"https://mrng.to/MTUiO3vkIg\">לרכישה מאובטחת (חשבונית ירוקה)</a></p>",
 			),
 		),
 
-		// C-5 PENDING — both URLs below are the CURRENT LIVE placeholder; see the
-		// identical note on the hero cta_url above. Do not resolve unilaterally.
 		array(
 			'part' => 'cta',
 			'args' => array(
 				'title'      => 'רוצה להתחיל כבר עכשיו?',
 				'cta_label'  => 'לרכישת הספר המודפס',
-				'cta_url'    => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'cta_url'    => 'https://mrng.to/MTUiO3vkIg',
 				'cta2_label' => 'ספר אלקטרוני',
-				'cta2_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'cta2_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'   => 'tsva-bekahol',
+				'temp_note'  => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 
@@ -172,7 +199,7 @@ return array(
 				'title'  => 'הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה',
 				'center' => true,
 				'alt'    => true,
-				'body'   => "<p>הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה<br>אם היית שם – אתה כבר מבין<br>אם לא – זה המקום להתחיל</p><p><a class=\"tlink\" href=\"https://www.mendele.co.il/product/tsvabacholvezorekleyam/\">לרכישת הספר</a></p>",
+				'body'   => "<p>הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה<br>אם היית שם – אתה כבר מבין<br>אם לא – זה המקום להתחיל</p><p><a class=\"tlink\" href=\"https://mrng.to/MTUiO3vkIg\">לרכישת הספר</a></p>",
 			),
 		),
 
@@ -181,15 +208,11 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				'title'     => 'אם היית שם – אתה כבר מבין. אם לא – זה המקום להתחיל.',
-				'body'      => 'הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה. 38 סיפורים קצרים, בועטים, מפתיעים ומצחיקים — לרכישה דיגיטלית מיידית במנדלי.',
-				'cta_label' => 'לרכישת הספר הדיגיטלי',
-				// C-5 PENDING — Eyal must confirm the correct Mendele URL before this is
-				// considered final. Two candidates exist for the SAME book: this one
-				// ('tsvabacholvezorekleyam', currently live) vs Wave2's approved book map
-				// ('tzvabekahol', inc/wave2-w2-05.php:753). Do NOT change without his answer.
-				// See _COMMUNICATION/team_100/WP-CANON-TEMPLATE-UNIFICATION-LOD300-2026-07-14.md §1 C-5.
-				'cta_url'   => 'https://www.mendele.co.il/product/tsvabacholvezorekleyam/',
+				'body'      => 'הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה. 38 סיפורים קצרים, בועטים, מפתיעים ומצחיקים — לרכישה מאובטחת דרך חשבונית ירוקה.',
+				'cta_label' => 'לרכישת הספר',
+				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'tsva-bekahol',
+				'temp_note' => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 	),

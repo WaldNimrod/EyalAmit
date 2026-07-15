@@ -130,6 +130,19 @@ return array(
 			),
 		),
 
+		/* גלריית מוצר — pending (WP-S4-06 §4.1: real product photography blocked on Eyal) */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'גלריית מוצר',
+				'title' => 'תמונות המוצר',
+				'items' => array(
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 1 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 2 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+				),
+			),
+		),
+
 		/* Product price + purchase/contact CTA (T3) */
 		array(
 			'part' => 'product-cta',
@@ -139,6 +152,7 @@ return array(
 				'body'          => "אם אתה מנגן בישיבה נמוכה ומרגיש שהכלי לא יציב, הסטנד הזה יכול לשנות את החוויה בצורה מאוד פשוטה. אפשר ליצור קשר, לשאול, ולהבין אם זה מתאים לך ולסוג הכלי שלך.",
 				'contact_label' => 'ליצירת קשר',
 				'alt'           => true,
+				'gi_temp'       => true,
 			),
 		),
 	),

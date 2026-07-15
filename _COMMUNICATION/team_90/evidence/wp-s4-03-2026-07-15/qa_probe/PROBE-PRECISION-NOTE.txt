@@ -1,0 +1,1 @@
+NOTE: 'undefined' removed from absent-list — verified JS-only false positive (feature-detection), 0 visible.

@@ -167,6 +167,19 @@ return array(
 			),
 		),
 
+		/* גלריית מוצר — pending (WP-S4-06 §4.1: real product photography blocked on Eyal) */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'גלריית מוצר',
+				'title' => 'תמונות המוצר',
+				'items' => array(
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 1 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 2 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+				),
+			),
+		),
+
 		/* Product price + purchase/contact CTA (T3) */
 		array(
 			'part' => 'product-cta',
@@ -176,6 +189,7 @@ return array(
 				'body'          => "זה לבחור משהו שתעבוד איתו לאורך זמן. משהו שיתאים לנשימה שלך, לקצב שלך, ולדרך שלך. אם זה מדויק לך, אפשר לעצור רגע, להגיע, ולהרגיש.",
 				'contact_label' => "לתיאום הגעה ובחירת כלי",
 				'alt'           => true,
+				'gi_temp'       => true,
 			),
 		),
 	),

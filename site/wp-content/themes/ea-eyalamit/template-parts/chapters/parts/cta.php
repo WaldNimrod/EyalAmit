@@ -28,5 +28,8 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
+		<?php if ( ! empty( $a['temp_note'] ) ) : ?>
+			<p class="ea-pending-inline" role="status" style="margin-top:10px"><span><?php echo esc_html( $a['temp_note'] ); ?></span></p>
+		<?php endif; ?>
 	</div>
 </section>

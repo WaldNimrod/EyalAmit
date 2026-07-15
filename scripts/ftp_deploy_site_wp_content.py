@@ -117,6 +117,12 @@ def main() -> None:
     files.append((mu_m3_r2, "wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php"))
     files.append((mu_m4_g2348, "wp-content/mu-plugins/ea-m4-g2348-governance-once.php"))
     files.append((mu_w2_05_shop, "wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php"))
+    files.append(
+        (
+            root / "site" / "wp-content" / "mu-plugins" / "ea-snoring-anchor-seed-once.php",
+            "wp-content/mu-plugins/ea-snoring-anchor-seed-once.php",
+        )
+    )
     files.append((mu_w2_07_qr, "wp-content/mu-plugins/ea-w2-07-qr-seed-once.php"))
     files.append((mu_w2_07_qr_data, "wp-content/mu-plugins/ea-w2-07-qr-content-data.php"))
     files.append((mu_w2_09_redirects, "wp-content/mu-plugins/ea-w209-legacy-301-redirects.php"))

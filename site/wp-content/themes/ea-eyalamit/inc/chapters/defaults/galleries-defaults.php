@@ -23,11 +23,11 @@ return array(
 	'sections' => array(
 
 		array(
-			'part' => 'prose',
+			'part' => 'pending-note',
 			'args' => array(
-				'chap'  => 'בקרוב',
+				'chap'  => 'בהשלמה',
 				'title' => 'גלריית התמונות בהשלמה',
-				'body'  => '<p>⟨תוכן הגלריה והתמונות להשלמה ע״י אייל⟩ — להלן תצוגה לדוגמה של מבנה הגלריה.</p>',
+				'note'  => 'תוכן הגלריה, התמונות והכיתובים ממתינים להשלמה ולאישור מאייל. התמונות למטה הן תצוגה לדוגמה של מבנה הגלריה.',
 			),
 		),
 
@@ -37,12 +37,12 @@ return array(
 				'chap'  => 'הסטודיו והמרחב',
 				'title' => 'הצצה אל המרחב',
 				'items' => array(
-					array( 'image' => 'assets/images/chapters/studio-interior.jpg', 'alt' => 'פנים הסטודיו', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/garden.jpg', 'alt' => 'הגינה', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/studio-didgs.jpg', 'alt' => "דיג'רידו בסטודיו", 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/eyal-playing.jpg', 'alt' => 'אייל מנגן', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/group-session-garden.jpg', 'alt' => 'מפגש בגינה', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/eyal-workshop.jpg', 'alt' => 'בית המלאכה', 'cap' => '⟨כיתוב להשלמה⟩' ),
+					array( 'image' => 'assets/images/chapters/studio-interior.jpg', 'alt' => 'פנים הסטודיו', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/garden.jpg', 'alt' => 'הגינה', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/studio-didgs.jpg', 'alt' => "דיג'רידו בסטודיו", 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/eyal-playing.jpg', 'alt' => 'אייל מנגן', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/group-session-garden.jpg', 'alt' => 'מפגש בגינה', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/eyal-workshop.jpg', 'alt' => 'בית המלאכה', 'cap' => '' ),
 				),
 			),
 		),

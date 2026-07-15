@@ -1658,9 +1658,10 @@ work_packages:
   notes: 'S004 delivery milestone. Source saved at docs/.../from-eyal/2026-07-12--snoring-sleep-apnea-didgeridoo-CHECKED.md. Yoni story + Maccabi screenshot remain pending-approval (Eyal-blocked → WP-EI-03). Index — _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md.'
 - id: WP-S4-02
   label: Books technical-debt closeout — galleries, temp GI button, FAQ seed, schema (verify + residuals)
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS (2026-07-15). Verify-only (code pre-built). Verifier team_100/opus + cross-engine team_90/composer-2.5 (IR#1 satisfied). Blocking ACs PASS: temp-GI mrng.to/MTUiO3vkIg renders on 3 books + 5 products; 0 Mendele href (static+DOM); kushi isolation clean (0 kushi in image fields — VC-03 correctly scoped past comment lines); pending slots vekatavta=2/tsva=5; qa_probe 18/18 PASS (9 pages × 2 viewports, 0 overflow). By-design residuals (real GI URLs → WP-EI-01, real photos → WP-EI-02) not defects. Evidence: _COMMUNICATION/team_50/evidence/wp-s4-02-2026-07-15/. Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-02-VERIFY-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_10
   assigned_validator: team_50
@@ -1675,9 +1676,10 @@ work_packages:
   notes: 'Most work executed prior session; this WP = verification + residuals. Residual real images → WP-EI-02; exact GI URLs → WP-EI-01. Mendele drift fixed (DRIFT-REPORT-BOOK-PURCHASE-MENDELE-VS-GREEN-INVOICE-2026-07-14.md).'
 - id: WP-S4-03
   label: Content-QA 2026-07-12 batch — dedicated browser/staging closeout with evidence (12 items)
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS (2026-07-15). Cross-engine browser-QA closure. Original 12.7 builder=Claude; validator team_90/composer-2.5 independently RE-RAN all checks (IR#1 satisfied). 12/12 items PASS; blocking AC-1/2/3/4/6/7 + non-blocking AC-5 PASS. qa_probe 22/22 (0 overflow); book accordion opacity=1 after open+reopen ×3 (CDP); 8/8 metadescs exact-match; /learning ×3→200. undefined removed from absent-list (JS-only false positive; validator concurred). 0 defects. Evidence: _COMMUNICATION/team_90/evidence/wp-s4-03-2026-07-15/. Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-03-CONTENT-QA-BROWSER-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_50
   assigned_validator: team_90
@@ -1710,9 +1712,10 @@ work_packages:
   notes: 'team_00 2026-07-15 chose author-then-glow. Legal + /en are team drafts → Eyal approval WP-EI-05/06.'
 - id: WP-S4-05
   label: Restore wp-admin editability — Chapters inner ACF (Option B) + product price meta-box
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS (2026-07-15). RISKIEST WP (core render refactor). Builder team_110/sonnet; validator team_90/composer-2.5 (IR#1). Scope: team_00-approved master §2.1 set. Created acf-fields-inner.php + product-meta.php; added 6 overlay fns + type-aware repeater_specs to chapters-render.php; templates consume overlay. 27 free-ACF groups, 2406 fields, 0 dup keys. NO-REGRESSION proven 3 ways: builder harnesses 190/190 (129 identity-when-no-override + 26 override + 35 registration); team_100 re-ran all 190/190 + LIVE qa_probe 40/40 (20 editable pages × 2 vp, 0 fatal/overflow); composer-2.5 own independent harness (9 types identity ≡ legacy front-render) + merge unit tests, 0 unguarded ACF calls. Builder CAUGHT+FIXED a latent bug in the validated LOD400 pseudocode (assemble_rows compaction would corrupt sibling slots on AC-LIST) → non-compacting per-slot fetcher. NOTES: (a) registration is a SAFE SUPERSET — also covers legal/learning pages (beyond the ~20 list, but exclusions /en/qr/galleries/media respected; zero-risk, beneficial; narrow if desired). (b) AC-EDIT live wp-admin edit cycle DEFERRED to WP-S4-08 §C (needs credentialed login, team_00). (c) book top-level price field = S4-02 sub-task. Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-05-BUILD-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_110
   assigned_validator: team_90
@@ -1730,9 +1733,10 @@ work_packages:
   notes: 'CORE DRIFT FIX. team_00 22.6 Option B never implemented — only home has ACF; Chapters migration dropped post_content editability. Heterogeneous sections require LOD300 field-model decision (parent_lod300). Important-pages scope + exclusion candidates: index §2.1 (Eyal to approve exclusions).'
 - id: WP-S4-06
   label: Full-site glow-placeholder audit — every Eyal-missing item carries a visible marker
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS_WITH_FINDINGS (2026-07-15). Builder team_10/sonnet; validator team_90/composer-2.5 (IR#1). New pending-note.php component + .ea-pending-inline CSS + product-cta gi_temp + cta temp_note hooks + /en uniform banner. All blocking ACs PASS (composer-2.5 own 20-route CDP selector probe): 5 products .ea-pending-inline=1 + .gfig--pending=2 each (temp-GI CTA NOW MARKED — worst gap closed, hasUnmarkedGiCta=false ×5); legal glow + 0 brackets; books/muzza markers; anchor 0/2/3 PRESERVED (prose fingerprint c31a513449cca270 unchanged, verified by team_100 + composer-2.5 independently); no-false-positive sound-healing/lessons=0; php -l 17 files clean; qa_probe 0 fatal. FINDING F-01 (non-blocking, NOT a defect): /method/+/treatment/ carry the WP-S4-07 AF sign-off .ea-pending-approval = a LEGITIMATE [EYAL-SIGN-OFF] marker (correct behavior, not a false positive). route_recommendation: PROCEED. Evidence: _COMMUNICATION/team_90/evidence/wp-s4-06-2026-07-15/. Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-06-BUILD-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_10
   assigned_validator: team_50
@@ -1749,9 +1753,10 @@ work_packages:
   notes: 'Extends .ea-pending-approval to any prose/CTA lacking a media slot. User mandate: no Eyal-missing content renders without a glow marker.'
 - id: WP-S4-07
   label: SEO/GEO team content drafts — AF-01..04 answer-first, FAQ-02/03, BLOG spokes
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS_WITH_FINDINGS (2026-07-15). Builder team_10/sonnet; validator team_90/composer-2.5 (IR#1 satisfied). PASS: AF-01..04 answer-first live on 4 service pages (53/48/55/50 words, sign-off glow on AF-01/02); BN-01 footer cbDIDG; BN-02 retired brand 0 live occurrences; BLOG-01..04 seeded as draft (0 published); EN-01 /en sections; disclaimer present. FAQ new items (+10 incl. general-18 price w/ glow) went live after guard v1→v2 bump + re-seed (qa_probe 10/10 on AF pages). FINDINGS deferred (non-blocking): (a) 2 EXISTING-item edits (method-02 rebirthing glow, general-01 visible address) did not reflect — FAQ seed is insert-only, not update-existing → routed to WP-S4-06 (glow audit re-touches FAQ glow + owns uniform pending-note); NAP address IS in JSON-LD schema. (b) BN-03 cbDIDG-leading titles seeded but by-design NOT force-activated pre-sign-off [EYAL-SIGN-OFF] → M-EYAL-INPUTS; 5 service pages retain Eyal-approved 07-12 descriptions. (c) FAQ answer word-counts under target = verbatim source preserved (not padded) → Eyal review. (d) footer full-NAP line = Eyal decision D1. (e) BLOG-03 vs legacy rebirthing post reconciliation. Evidence: _COMMUNICATION/team_90/evidence/wp-s4-07-2026-07-15/. Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-07-BUILD-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_30
   assigned_validator: team_90
@@ -1766,9 +1771,10 @@ work_packages:
   notes: 'Team-authored per 2026-07-14 decision. Source drafts in hub/data/content-proposals.json. Claims needing Eyal sign-off (1999, CPAP, cbDIDG expansion) marked glow.'
 - id: WP-S4-08
   label: Final QA sweep + deploy + Eyal review package (closing gate)
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_VALIDATE
+  gate_result: 'L-GATE_VALIDATE PASS_WITH_FINDINGS + GO (2026-07-15). Constitutional final gate team_190 via composer-2.5 (cross-vendor ≠ Sonnet builder; gpt-5.2/Path-B attempted for max independence but its runner returned empty — documented fallback). Comprehensive A-G control: A re-check WP-01..07 all PASS/PWF (deferrals classified); B availability 32/32 routes + 48/48 QR = 200, render 54/54 (0 overflow/fatal — incl. galleries/media raw ⟨⟩ caught + converted to glow); C editability MECHANISM PASS (WP-05 190/190 harnesses + 40/40 no-regression), live edit cycle team_00-pending (credentialed login); D glow inventory complete (no unmarked Eyal-missing, anchor prose fingerprint c31a513449cca270 unchanged); E site + hub deployed (hub 1049/1049 --no-prune, live metadata match); F delivery docx+PDF built at to-eyal/2026-07-15--final-review-package/ (prior run false-FAILED on shallow glob; re-run PASS on recursive check); G lead-capture render PASS (CF7 + wa.me/tel + GA4 G-MRXESK7QJF). GO for delivery to Eyal (review). Non-blocking-for-review, recommended before PRODUCTION cutover: Part C credentialed wp-admin edit test, Part G one CF7 submit, WP-S4-01 git isolation. Verdict: _COMMUNICATION/team_190/VERDICT-S004-FINAL-CONTROL-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_50
   assigned_validator: team_190

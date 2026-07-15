@@ -1,0 +1,55 @@
+{
+  "date": "2026-07-14",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "engine": "composer-2.5 (team_50 browser CDP + headless probe)",
+  "pass_criteria": {
+    "stylesheet": "w2-05-shop.css in link[rel=stylesheet]",
+    "price": ".ea-product-price styled (fontSize >= 25px)",
+    "whatsapp": ".ea-cta-pill--whatsapp non-transparent green/olive bg"
+  },
+  "results": {
+    "didgeridoos": {
+      "source": "browser_cdp",
+      "stylesheetHasW205": true,
+      "w205Href": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/css/w2-05-shop.css?ver=1.5.6",
+      "priceFontSize": "38.4px",
+      "priceFontWeight": "300",
+      "waBackgroundColor": "rgb(110, 111, 74)",
+      "waBgTransparent": false,
+      "overflowX": false,
+      "verdict": "PASS"
+    },
+    "bags": {
+      "source": "browser_cdp",
+      "stylesheetHasW205": true,
+      "priceFontSize": "38.4px",
+      "priceFontWeight": "300",
+      "waBackgroundColor": "rgb(110, 111, 74)",
+      "waBgTransparent": false,
+      "overflowX": false,
+      "verdict": "PASS"
+    },
+    "stands-storage": {
+      "source": "headless_cdp_probe",
+      "stylesheetHasW205": true,
+      "desktop": { "priceFontSize": "38.4px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "mobile": { "priceFontSize": "25.6px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "verdict": "PASS"
+    },
+    "stand-floor": {
+      "source": "headless_cdp_probe",
+      "stylesheetHasW205": true,
+      "desktop": { "priceFontSize": "38.4px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "mobile": { "priceFontSize": "25.6px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "verdict": "PASS"
+    },
+    "repair": {
+      "source": "headless_cdp_probe",
+      "stylesheetHasW205": true,
+      "desktop": { "priceFontSize": "38.4px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "mobile": { "priceFontSize": "25.6px", "waBackgroundColor": "rgb(110, 111, 74)", "waBgTransparent": false },
+      "verdict": "PASS"
+    }
+  },
+  "overall": "5/5 PASS"
+}

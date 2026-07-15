@@ -2,11 +2,15 @@
 id: COMPLETION_REPORT_WP-CANON-TEMPLATE-UNIFICATION_v1.0.0
 from_team: team_110
 to_team: team_00, team_100
+cc: team_90, team_50
 date: 2026-07-14
 type: completion-report
 wp: WP-CANON-TEMPLATE-UNIFICATION
 lod_target: LOD500_LOCKED
 execution_authority: full (ADR045 — team_00 handoff 2026-07-14)
+git_head: 7767df7
+staging: https://eyalamit-co-il-2026.s887.upress.link
+reconciled: 2026-07-14 — CSS enqueue hygiene + T7 DONE; production gated on CSS fix + team_90 delta validate
 ---
 
 # COMPLETION_REPORT — WP-CANON-TEMPLATE-UNIFICATION v1.0.0
@@ -28,7 +32,8 @@ team_110 executed the full remaining lifecycle under ADR045 `execution_authority
 | lod_status | **LOD500** |
 | C-5 (tsva Mendele URL) | **PENDING** (Eyal) — accepted, not a finding |
 | `/press` | OUT OF SCOPE — `wave2-w2-07.php` retained |
-| Production deploy | **AWAITING team_00 approval** |
+| Post-VALIDATE hygiene (CSS enqueue) | **DONE** 2026-07-14 — `w2-05-shop.css` re-homed; see FIX-COMPLETE |
+| Production deploy | **NOT READY** until CSS fix is delta-validated by team_90 **and** team_00 GO |
 
 ## 2. §0.2 decisions taken (explicit)
 
@@ -58,12 +63,13 @@ team_110 executed the full remaining lifecycle under ADR045 `execution_authority
 | QR HTTP baseline + post | `_COMMUNICATION/team_110/_QR-BASELINE-HTTP-2026-07-14.txt` |
 | qa_probe log (builder) | `_COMMUNICATION/team_110/_QA-PROBE-WP-CANON-2026-07-14.txt` |
 | team_90 evidence | `_COMMUNICATION/team_90/evidence/` |
+| CSS enqueue fix-complete | `_COMMUNICATION/team_110/FIX-COMPLETE-WP-CANON-CSS-ENQUEUE-2026-07-14.md` |
 
-**Iron Rule #1:** team_110 (Grok) did **not** self-sign BUILD/VALIDATE. team_90 Composer subagents reproduced smoke, QR matrix, qa_probe, schema, and deletion greps independently.
+**Iron Rule #1:** team_110 (Grok) did **not** self-sign BUILD/VALIDATE. team_90 Composer subagents reproduced smoke, QR matrix, qa_probe, schema, and deletion greps independently. Post-VALIDATE CSS hygiene is builder-proven via curl; **team_90 delta validate** (CSS loaded + computed styles + V-01/V-06) is still required before production readiness.
 
 ## 4. Staging smoke evidence (2026-07-14, post FTP)
 
-Base: `http://eyalamit-co-il-2026.s887.upress.link`
+Base: `https://eyalamit-co-il-2026.s887.upress.link`
 
 | Path | HTTP | Markers |
 |------|------|---------|
@@ -80,28 +86,39 @@ Base: `http://eyalamit-co-il-2026.s887.upress.link`
 
 FAQ seed: `mu-plugins/ea-faq-seed-once.php` deployed; live `/faq/` shows `ea-faq-list` + FAQPage schema markers.
 
+**Post-hygiene (2026-07-14):** all five product pages enqueue `w2-05-shop.css` (`id='ea-w2-05-shop-css'`) — evidence in FIX-COMPLETE.
+
 ## 5. Task disposition
 
 | Task | Status | Notes |
 |------|--------|-------|
 | T1 Mokesh | DONE | Bespoke hero + gallery + FB embeds + schema |
 | T2 FAQ | DONE | Seed JSON + taxonomy + seed-once (98 items; LOD400 cited ~79 bank — seed includes page-local + books) |
-| T3 Product CTA | DONE | Double ab-testing enqueue removed |
+| T3 Product CTA | DONE | Double ab-testing enqueue removed; CSS enqueue re-homed 2026-07-14 |
 | T3b Books | DONE | C-5 PENDING comments retained on tsva URLs |
 | T4 Schema | DONE | FAQPage + Book via `ea_chapters_field` / `ea_faq_query_items` |
 | T5 shop/qr | DONE | Pattern-route; DB rows untouched |
 | T6 Wave2 delete | DONE (partial) | commerce re-home; Group A/B/C deletes; freeze home/stage-b; keep w2-07/08 |
-| T7 QA | IN PROGRESS / evidence filed | Smoke PASS; qa_probe run logged; full content-diff + team_90 BUILD pending |
+| T7 QA | **DONE** | L-GATE_VALIDATE recheck **PASS** (`VERDICT-WP-CANON-L-GATE_VALIDATE-RECHECK-PASS-LOOP-2026-07-14.md`) + team_50 E2E retest **PASS** (`QA-REPORT-WP-CANON-E2E-RETEST-PASS-LOOP-2026-07-14.md`) |
 
-## 6. Residual / follow-ups (not blockers for this COMPLETION_REPORT filing)
+## 6. Residual / follow-ups
 
-1. **team_90** must return L-GATE_BUILD (and then L-GATE_VALIDATE) on a non-Composer engine.
-2. **C-5** — Eyal confirms Mendele slug for «צבע בכחול».
-3. **WP follow-up:** `/press` → Chapters, then delete `wave2-w2-07.php`.
-4. **Optional:** isolate WhatsApp float from stage-b into Chapters-native hook (enables fuller stage-b enqueue deletion).
+**Production readiness gate (blocking):**
+
+1. This CSS enqueue fix is live on staging (builder curl PASS on 5/5 product URLs).
+2. **team_90** must run a **focused delta validate** (CSS loaded + computed styles + V-01/V-06 only) — not a full re-VALIDATE.
+3. Only after (2) + **team_00** GO is production deploy authorized.
+
+**Non-blocking follow-ups:**
+
+1. **C-5** — Eyal confirms Mendele slug for «צבע בכחול».
+2. **WP follow-up:** `/press` → Chapters, then delete `wave2-w2-07.php`.
+3. **Optional:** isolate WhatsApp float from stage-b into Chapters-native hook (enables fuller stage-b enqueue deletion).
+4. Book galleries: all three books use `assets/images/kushi-04-sinai.jpg` with caption «רגעים מהדרך» — flagged to Eyal/team_00; do not swap without content sign-off.
 5. Orphan templates still referencing deleted Wave2 helpers (`tpl-catalog-14e.php`, `tpl-books.php`) — Chapters-routed; cleanup nice-to-have.
 
 ## 7. Housekeeping
 
 - Staging FTP deploy completed (theme + mu-plugins including `ea-faq-seed-once.php`, updated `ea-w2-seo-schema.php`, `ea-w209-legacy-301-redirects.php`).
-- Git: clean commit + full push per team_00 instruction (this session).
+- CSS enqueue hygiene FTP: `inc/chapters/chapters-commerce.php` uploaded 2026-07-14.
+- Git head at report base: `7767df7`. Working tree may hold uncommitted enqueue + artifact updates — prefer leave ready; do not claim production GO.

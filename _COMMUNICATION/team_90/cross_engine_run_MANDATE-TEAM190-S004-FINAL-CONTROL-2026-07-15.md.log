@@ -1,0 +1,36 @@
+## L-GATE_VALIDATE — S004 Final Control
+
+**Verdict:** `PASS_WITH_FINDINGS`  
+**Go/no-go for Eyal:** **GO**
+
+Written to [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-S004-FINAL-CONTROL-2026-07-15.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-S004-FINAL-CONTROL-2026-07-15.md)
+
+### Key correction vs prior FAIL
+Part **F** was a **false negative** from a shallow glob. Recursive check confirms both files exist:
+
+| File | Size | Check |
+|------|------|-------|
+| `2026-07-15--EyalAmit-final-review-package.docx` | 39 080 B | 7-row M-EYAL-INPUTS table (EI-01..EI-07) + staging URL + intake instructions |
+| `2026-07-15--EyalAmit-final-review-package.pdf` | 87 876 B | `%PDF-1.7`, 2 pages |
+
+Path: [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-07-15--final-review-package/`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-07-15--final-review-package/)
+
+### Per-part summary
+
+| Part | Result |
+|------|--------|
+| **A** WP-S4-01..07 | PASS_WITH_FINDINGS — all 7 team_90 verdicts present; anchor + editability spot-checks pass |
+| **B** Routes/render | PASS_WITH_FINDINGS — 32/32 + 48/48 QR; galleries `⟨⟩` in main qa_probe superseded by live (0 brackets) |
+| **C** Editability | PASS_WITH_FINDINGS — mechanism proven; live wp-admin cycle **team_00-pending** (expected) |
+| **D** Glow | PASS — 0 raw `⟨⟩` live; products/books/legal/en/anchor marked |
+| **E** Deploy | PASS_WITH_FINDINGS — hub `generatedAt` matches live; 1049 files |
+| **F** CEO package | **PASS** (corrected) |
+| **G** Lead capture | PASS_WITH_FINDINGS — CF7 + wa.me + tel + GA4 present live |
+
+### Residuals for team_00 (not gate failures)
+- Credentialed wp-admin ACF edit cycle (R-C01)
+- One CF7 end-to-end submit (R-G01)
+- Git isolation / commit anchor defaults (R-A01)
+- Eyal M-EYAL-INPUTS sign-offs tracked in package (R-A02)
+
+**Next step (team_100):** copy verdict to `_COMMUNICATION/team_190/` as constitutional record, then deliver the docx/PDF package to Eyal.

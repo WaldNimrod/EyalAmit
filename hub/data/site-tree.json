@@ -414,6 +414,18 @@
       "templateId": "tpl-nav-hub",
       "menuHint": "legacy — לא בתפריט החדש",
       "treeNoteHe": "ליישור מול אתר ישן; להסיר לאחר מיגרציה סופית אם לא נדרש."
+    },
+    {
+      "id": "st-pillar-snoring-sleep-apnea",
+      "parentId": null,
+      "treeOrder": 15,
+      "titleHe": "דיג׳רידו, נחירות ודום נשימה בשינה",
+      "slug": "snoring-sleep-apnea",
+      "templateId": "tpl-chapters-page",
+      "menuHint": "לא בתפריט ראשי — פילר SEO; קישורים פנימיים מ-/treatment /method /faq /eyal-amit",
+      "treeNoteHe": "slug קנוני לפי intake 2026-07-12 (QA+SEO). נבנה 2026-07-14 מ-CP-01/FAQ-01. לא בתפריט ראשי.",
+      "lifecycleStage": "staging",
+      "productHref": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/"
     }
   ]
 }

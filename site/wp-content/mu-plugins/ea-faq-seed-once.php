@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: EA FAQ seed (once) — WP-CANON T2
- * Description: Idempotent seed of ea_faq posts + ea_faq_cat from theme inc/data/ea-faq-seed.json. Runs once on staging when WP-CLI is unavailable. Reset: delete_option('ea_faq_seed_v1').
+ * Description: Idempotent seed of ea_faq posts + ea_faq_cat from theme inc/data/ea-faq-seed.json. Runs once on staging when WP-CLI is unavailable. Reset: delete_option('ea_faq_seed_v2').
  * Version: 1.0.0
  */
 
@@ -34,7 +34,7 @@ function ea_faq_seed_once_category_labels() {
  * Run once: migrate seed JSON into CPT + taxonomy.
  */
 function ea_faq_seed_once_maybe_run() {
-	if ( get_option( 'ea_faq_seed_v1', '' ) === 'done' ) {
+	if ( get_option( 'ea_faq_seed_v2', '' ) === 'done' ) {
 		return;
 	}
 	if ( wp_installing() || wp_doing_ajax() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
@@ -117,7 +117,7 @@ function ea_faq_seed_once_maybe_run() {
 			wp_set_object_terms( $post_id, (array) $item['categories'], 'ea_faq_cat', false );
 		}
 
-		update_option( 'ea_faq_seed_v1', 'done', false );
+		update_option( 'ea_faq_seed_v2', 'done', false );
 	} finally {
 		delete_transient( 'ea_faq_seed_lock' );
 	}

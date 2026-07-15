@@ -1,0 +1,25 @@
+## VERDICT — WP-S4-06 (team_90 cross-engine validation)
+
+**Flag: `PASS_WITH_FINDINGS`**
+
+Written to [`_COMMUNICATION/team_90/VERDICT-WP-S4-06-BUILD-2026-07-15.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-06-BUILD-2026-07-15.md) with evidence under [`_COMMUNICATION/team_90/evidence/wp-s4-06-2026-07-15/`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/wp-s4-06-2026-07-15/).
+
+### Blocking ACs — all PASS
+
+| AC | Result | Staging counts (inline / `gfig--pending` / approval) |
+|----|--------|------------------------------------------------------|
+| **Products** (5 routes) | PASS | Each **1/2/**… — temp-GI chip + 2 gallery pending slots; no unmarked purchase CTA |
+| **Legal** (3 routes) | PASS | Each **0/0/1**; no visible `⟨`/`⟩` |
+| **Anchor** | PASS | `/snoring-sleep-apnea/` **0/2/3** — 2 gallery slots + יוני note preserved; prose unchanged vs WP-S4-01 |
+| **Components + php -l** | PASS | `pending-note.php`, `.ea-pending-inline`, `gi_temp`/`temp_note` hooks; 17 files lint-clean |
+| **No-regression** | PASS | qa_probe smoke: 0 failures, no overflow on sample routes |
+
+### Finding (non-blocking)
+
+**F-01:** `/method/` shows **1** `.ea-pending-approval` («פענוח cbDIDG + ייחוס מוקש דהימן») — **WP-S4-07 carryover**, not introduced by S4-06. Mandate examples `/sound-healing/` and `/lessons/` are **0/0/0** ✓.
+
+### route_recommendation
+
+**PROCEED** to WP-S4-08. No FAIL routes; no unmarked temp-GI CTAs; anchor verbatim prose confirmed intact.
+
+**Next owner:** team_100 for gate closeout; optional team_50 formal QA-REPORT against `tmp/qa/wp-s4-06-pending-manifest.json`.

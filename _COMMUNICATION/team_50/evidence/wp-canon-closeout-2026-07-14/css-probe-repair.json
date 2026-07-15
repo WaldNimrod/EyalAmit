@@ -1,0 +1,27 @@
+/bin/sh: sort: command not found
+/bin/sh: tail: command not found
+{
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+  "results": [
+    {
+      "viewport": "desktop",
+      "priceFound": true,
+      "waFound": true,
+      "priceFontSize": "38.4px",
+      "priceFontWeight": "300",
+      "waBackgroundColor": "rgb(110, 111, 74)",
+      "waBgTransparent": false,
+      "stylesheetHasW205": true
+    },
+    {
+      "viewport": "mobile",
+      "priceFound": true,
+      "waFound": true,
+      "priceFontSize": "25.6px",
+      "priceFontWeight": "300",
+      "waBackgroundColor": "rgb(110, 111, 74)",
+      "waBgTransparent": false,
+      "stylesheetHasW205": true
+    }
+  ]
+}

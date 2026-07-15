@@ -1,0 +1,34 @@
+Cross-engine validation for **WP-S4-07** is complete. Verdict written to:
+
+`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-07-BUILD-2026-07-15.md`
+
+## Verdict: **PASS_WITH_FINDINGS**
+
+### Solid passes
+- **AC-1/2/3** — AF-01..04 answer-first blocks are verbatim, 48–55 words, first `<p>` under target H2; confirmed in repo + staging render.
+- **AC-7** — Four blog spokes seeded as `draft` only; `/blog/` archive shows no S407 spokes live.
+- **AC-8** — «סטודיו נשימה מעגלית» removed from brand copy; footer shows «…דיג׳רידו · cbDIDG».
+- **AC-11** — Medical disclaimer on pillar; CPAP FAQ guardrails; blog disclaimer in seed.
+
+### Findings (not blocking M-EYAL deferrals)
+- **AC-5** — 7/9 new FAQ answers are **under 40 words** because `content-proposals.json` is short verbatim — source finding, not padding defect.
+- **AC-9** — Six routes have **unique** live titles, but **not** cbDIDG-leading BN-03 strings. Seed exists in `ea-s407-bn03-titles-metadesc-seed-once.php`; team_100’s sign-off-deferred framing is **accepted**.
+- **AC-4 staging** — New FAQ question strings **not yet visible** on `/faq/` (likely seed not re-run post-deploy).
+
+### Real gaps needing fix before closeout
+| AC | Issue |
+|----|--------|
+| **AC-4** | FAQ-03 Q3 «כמה עולה טיפול / שיעור?» **missing**; Q1 answer lacks «עמל 8 ב'» |
+| **AC-6** | FAQ-02#1 rebirthing (`method-02`, pre-existing) has **no** `.ea-pending-approval`; FAQ-03#3 glow N/A (question missing) |
+| **AC-10** | **FAIL** — NAP not byte-identical: phone only in `general-17`; footer has no address/phone |
+
+### Next owners
+1. **team_30** — Complete FAQ-03 Q1/Q3 + rebirthing glow + NAP alignment.
+2. **team_10** — Deploy mu-plugins + re-run FAQ seed on staging.
+3. **M-EYAL-INPUTS** — BN-03 cbDIDG titles + optional FAQ length expansion at sign-off.Cross-engine validation for **WP-S4-07** is done. Verdict: **`PASS_WITH_FINDINGS`** — full write-up at `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-07-BUILD-2026-07-15.md`.
+
+The staging HTML pass confirmed the core AF/footer work: answer-first blocks render, footer carries **cbDIDG** (no retired brand string), and **6/6 routes have unique titles** (none cbDIDG-leading yet — sign-off deferred per team_100).
+
+**Gaps to fix before closeout:** FAQ-03 Q3 missing + Q1 geo answer; rebirthing FAQ without glow marker; **AC-10 NAP** not matched FAQ↔footer; new FAQ items not yet visible on live `/faq/` (likely seed not re-run after deploy).
+
+**Owners:** team_30 (FAQ/NAP/glow copy) → team_10 (deploy + re-seed) → team_50 E2E after that.

@@ -22,11 +22,11 @@ return array(
 	'sections' => array(
 
 		array(
-			'part' => 'prose',
+			'part' => 'pending-note',
 			'args' => array(
-				'chap'  => 'בקרוב',
+				'chap'  => 'בהשלמה',
 				'title' => 'אוסף המדיה בהשלמה',
-				'body'  => '<p>⟨תוכן עמוד המדיה — סרטונים, הקלטות וכתבות — להשלמה ע״י אייל⟩. להלן תצוגה לדוגמה.</p>',
+				'note'  => 'תוכן עמוד המדיה — סרטונים, הקלטות וכתבות — ממתין להשלמה ולאישור מאייל. התמונות למטה הן תצוגה לדוגמה.',
 			),
 		),
 
@@ -36,10 +36,10 @@ return array(
 				'chap'  => 'רגעים',
 				'title' => 'מתוך המפגשים והנגינה',
 				'items' => array(
-					array( 'image' => 'assets/images/chapters/eyal-playing.jpg', 'alt' => 'נגינה', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/eyal-teaching.jpg', 'alt' => 'הוראה', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/group-session-garden.jpg', 'alt' => 'מפגש קבוצתי', 'cap' => '⟨כיתוב להשלמה⟩' ),
-					array( 'image' => 'assets/images/chapters/eyal-receiving.jpg', 'alt' => 'סאונד הילינג', 'cap' => '⟨כיתוב להשלמה⟩' ),
+					array( 'image' => 'assets/images/chapters/eyal-playing.jpg', 'alt' => 'נגינה', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/eyal-teaching.jpg', 'alt' => 'הוראה', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/group-session-garden.jpg', 'alt' => 'מפגש קבוצתי', 'cap' => '' ),
+					array( 'image' => 'assets/images/chapters/eyal-receiving.jpg', 'alt' => 'סאונד הילינג', 'cap' => '' ),
 				),
 			),
 		),

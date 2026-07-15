@@ -19,6 +19,8 @@ updated_2026_07_12_pm: >
   video/gallery regression from a same-week template migration, being restored from the
   already-approved source. Item 6 (book title spelling) added per team_00 directive
   2026-07-12 item 6.17 ("להעביר לאייל להכרעה").
+superseded_by: MSG-TO-EYAL-STAGING-UPDATE-QUESTIONS-2026-07-14.md
+superseded_pdf: docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-07-14--staging-update-questions-for-eyal/EYAL-STAGING-UPDATE-AND-QUESTIONS-2026-07-14.pdf
 ---
 
 # הודעה לאייל — שאלות פתוחות: דף העוגן (נחירות ודום נשימה) + שני הדוחות

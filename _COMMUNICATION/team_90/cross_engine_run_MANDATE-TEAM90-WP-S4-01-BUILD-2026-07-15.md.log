@@ -1,0 +1,34 @@
+Cross-engine validation for **WP-S4-01** is complete. Verdict written to:
+
+[`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-01-BUILD-2026-07-15.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-01-BUILD-2026-07-15.md)
+
+## Verdict: **PASS_WITH_FINDINGS**
+
+### Results (11/12 PASS)
+
+| AC | Result |
+|----|--------|
+| AC-1 Sections S01–S17 | PASS |
+| AC-2 Verbatim content vs MD | PASS — **0 discrepancies** |
+| AC-3 Two pending gallery slots | PASS |
+| AC-4 Yoni pending note + verbatim body | PASS |
+| AC-5 Single H1 (phero) | PASS |
+| AC-6 FAQ `dd` × 6, first active | PASS |
+| AC-7 Internal/external links | PASS |
+| AC-8 TOC 11 anchors → matching `id`s | PASS |
+| AC-9 Layout (`qa_probe`) | PASS — evidence at `evidence/wp-s4-01-2026-07-15/` |
+| AC-10 Disclaimer verbatim | PASS |
+| AC-11 Git isolation | **FAIL** |
+| AC-12 `php -l` + apostrophe escape | PASS |
+
+### AC-2 content discrepancies
+
+**none** — 201 public MD content units checked; all S01–S17 sentences present, including `250`, `2006`, `2014`, `1999`, `23:00`, `7:00`.
+
+### AC-11 finding
+
+`git diff --name-only HEAD` shows **20 other modified files**; `snoring-sleep-apnea-defaults.php` is **untracked** (`??`), so the literal AC is not met. This is a repo hygiene issue, not a content defect.
+
+### route_recommendation
+
+Return to **team_10** only for git isolation: commit the defaults file alone on a clean branch before L-GATE_BUILD closeout. No content rework needed.

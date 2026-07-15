@@ -31,30 +31,26 @@ $GLOBALS['ea_chapters_type'] = 'mokesh';
 <?php
 get_template_part( 'template-parts/chapters/section', 'nav' );
 
-$ea_d     = ea_chapters_defaults();
-$ea_phero = ( isset( $ea_d['phero'] ) && is_array( $ea_d['phero'] ) ) ? $ea_d['phero'] : array();
-// Resolve phero media path → URL.
-if ( ! empty( $ea_phero['media'] ) ) {
-	$ea_phero['media'] = ea_chapters_asset_url( $ea_phero['media'] );
-}
+// WP-S4-05: phero + sections now flow through the ACF-or-default overlay
+// (chapters-render.php) instead of reading $ea_d['phero']/['sections'] raw — this
+// is what makes the page wp-admin-editable. Image resolution (incl. ACF
+// attachment ids) happens inside the overlay via ea_chapters_resolve_img(), so no
+// separate asset_url pass is needed here any more. When ACF is inactive or a field
+// is empty, both overlay functions return the exact seeded defaults untouched
+// (AC-NOACF/AC-FALLBACK) — same render as before this change.
+$ea_phero = ea_chapters_phero_overlay();
 ?>
 
 <main id="chapters-main">
 	<?php
 	get_template_part( 'template-parts/chapters/parts/mokesh-hero', null, $ea_phero );
 
-	$ea_sections = ( isset( $ea_d['sections'] ) && is_array( $ea_d['sections'] ) ) ? $ea_d['sections'] : array();
+	$ea_sections = ea_chapters_page_sections();
 	foreach ( $ea_sections as $ea_s ) {
 		if ( empty( $ea_s['part'] ) ) {
 			continue;
 		}
 		$ea_args = isset( $ea_s['args'] ) && is_array( $ea_s['args'] ) ? $ea_s['args'] : array();
-		// Resolve any image-path args to URLs for image-bearing parts.
-		foreach ( array( 'image', 'media', 'poster', 'video' ) as $ea_k ) {
-			if ( ! empty( $ea_args[ $ea_k ] ) ) {
-				$ea_args[ $ea_k ] = ea_chapters_asset_url( $ea_args[ $ea_k ] );
-			}
-		}
 		get_template_part( 'template-parts/chapters/parts/' . $ea_s['part'], null, $ea_args );
 	}
 	?>

@@ -17,7 +17,7 @@ return array(
 
 	'price'         => 69,
 	'buy_print_url' => 'https://mrng.to/MTUiO3vkIg',
-	'buy_ebook_url' => 'https://www.mendele.co.il/product/kushibelantis/',
+	'buy_ebook_url' => 'https://mrng.to/MTUiO3vkIg',
 	'genre'         => 'רומן פנטזיה',
 	'meta_year'     => '2004',
 	'meta_pages'    => 236,
@@ -77,7 +77,7 @@ return array(
 			'args' => array(
 				'chap'  => 'רכישת הספר',
 				'title' => 'רכישת הספר',
-				'body'  => '<p>הספר זמין לרכישה כספר מודפס וכספר דיגיטלי.</p><p>לרכישת הספר המודפס – <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה דרך מורנינג</a><br>לרכישת הספר הדיגיטלי – <a class="tlink" href="https://www.mendele.co.il/product/kushibelantis/" target="_blank" rel="noopener noreferrer">לרכישה דרך מנדלי</a></p>',
+				'body'  => '<p>הספר זמין לרכישה כספר מודפס וכספר דיגיטלי.</p><p>לרכישת הספר המודפס – <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה דרך מורנינג</a><br>לרכישת הספר הדיגיטלי – <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה מאובטחת (חשבונית ירוקה)</a></p>',
 			),
 		),
 
@@ -119,8 +119,9 @@ return array(
 				'cta_label'  => 'לרכישת הספר המודפס',
 				'cta_url'    => 'https://mrng.to/MTUiO3vkIg',
 				'cta2_label' => 'ספר אלקטרוני',
-				'cta2_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta2_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'   => 'kushi-blantis',
+				'temp_note'  => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 
@@ -134,7 +135,7 @@ return array(
 			),
 		),
 
-		/* SECTION 05 — גלריה (new; real image wired per T3b). */
+		/* SECTION 05 — גלריה (full kushi POC pack, 2026-07-15). */
 		array(
 			'part' => 'gallery',
 			'args' => array(
@@ -142,10 +143,45 @@ return array(
 				'title' => 'גלריה',
 				'lead'  => 'תמונות מהעולם של הספר.',
 				'items' => array(
-					array( 'image' => 'assets/images/kushi-blantis-cover.jpg', 'alt' => 'עטיפת הספר כושי בלאנטיס' ),
-					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר כושי בלאנטיס' ),
-					array( 'image' => 'assets/images/kushi-04-sinai.jpg', 'alt' => 'רגעים מהדרך' ),
+					array( 'image' => 'assets/images/kushi-blantis-cover.jpg', 'alt' => 'עטיפת הספר כושי בלאנטיס', 'cap' => 'עטיפה' ),
+					array( 'image' => 'assets/images/kushi-01-blantis-1.jpg', 'alt' => 'מהעולם של הספר כושי בלאנטיס', 'cap' => 'מהעולם של הספר' ),
+					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'אייל עמית — רגעים מהדרך', 'cap' => 'רגעים מהדרך' ),
+					array( 'image' => 'assets/images/kushi-03-screenshot-2013.png', 'alt' => 'תיעוד מהדרך — 2013', 'cap' => 'תיעוד 2013' ),
+					array( 'image' => 'assets/images/kushi-04-sinai.jpg', 'alt' => 'סיני — רגעים מהדרך', 'cap' => 'סיני' ),
 				),
+			),
+		),
+
+		/* SECTION 05b — pending-note: shared/placeholder gallery images (WP-S4-06 §4.2.2) */
+		array(
+			'part' => 'pending-note',
+			'args' => array(
+				'chap'  => 'מדיה',
+				'title' => 'תמונות הגלריה — בחירת ביניים של הצוות',
+				'note'  => 'התמונות בגלריה זו הן בחירה זמנית של הצוות ולא אישור תוכן. ממתין: 2–3 תמונות ייעודיות לספר מ-Eyal, או אישור להשאיר כפי שהוא.',
+				'alt'   => true,
+			),
+		),
+
+		/* SECTION 11 — כתבות (ממתין לחומרים) */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'chap'   => 'כתבות מהעיתונות',
+				'title'  => 'כתבות מהעיתונות',
+				'center' => true,
+				'body'   => '<div class="ea-pending-approval" role="status"><span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">כתבות עיתונות לספר</p><p class="ea-pending-approval__note">במקור סומן כ־DEV-NOTE — יושלם כשיועברו כתבות/תמונות מאושרות. בינתיים: <a class="tlink" href="/press/">עמוד העיתונות</a>.</p></div>',
+			),
+		),
+
+		/* SECTION 14 — מדיה נוספת (ממתין) */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'chap'  => 'עוד מהדרך',
+				'title' => 'עוד רגעים מהדרך',
+				'alt'   => true,
+				'body'  => '<div class="ea-pending-approval" role="status"><span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">מדיה נוספת לספר</p><p class="ea-pending-approval__note">סלוט ממתינים לייבוא מ־Drive / אישור אייל (חבילת April + May DEV-NOTE).</p></div>',
 			),
 		),
 
@@ -158,6 +194,7 @@ return array(
 				'cta_label' => 'לרכישת הספר',
 				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'kushi-blantis',
+				'temp_note' => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 	),

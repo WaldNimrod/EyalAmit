@@ -45,6 +45,9 @@ html,body{overflow-x:hidden}
 </header>
 
 <main id="chapters-main" dir="ltr" style="direction:ltr;text-align:left">
+	<div class="wrap"><p class="ea-pending-inline ea-pending-inline--wide" role="status">
+		<span>Draft — English summary is a team draft awaiting Eyal's approval before launch (WP-EI-06) · טיוטה צוותית באנגלית הממתינה לאישור אייל</span>
+	</p></div>
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, array(
 		'chap'      => 'Didgeridoo &amp; Breath',
@@ -62,9 +65,21 @@ html,body{overflow-x:hidden}
 			<span class="chap r">About</span>
 			<h2 class="h2 r">Working with breath through the didgeridoo</h2>
 			<div class="intro-body r" style="text-align:left">
-				<p>⟨English summary to be finalized by Eyal (D-EYAL-EN-BODY-02)⟩.</p>
-				<p>Eyal Amit has worked with the didgeridoo and breath since 1999, developing the cbDIDG method — a structured way of using the didgeridoo as a tool to improve everyday breathing, reduce stress and support wellbeing. Sessions take place one-on-one at the studio in Pardes Hanna.</p>
+				<p>Eyal Amit has worked with the didgeridoo and breath since 1999. Over more than two decades of teaching, therapy, instrument-making and study — in Israel and abroad — he developed <strong>cbDIDG</strong>, a structured method that uses the didgeridoo as a practical tool for working with everyday breathing.</p>
+				<p>The method took shape gradually, growing out of Eyal's own study of breath — motivated in part by his own asthma — his apprenticeship with Mukesh Dahiman, and later study of body-breath disciplines such as tai chi, qigong, yoga and mindfulness. It rests on three principles: active work, not a passive experience; playing the didgeridoo is the practice tool, not the goal itself; and a cumulative process, not a one-time session.</p>
+				<p>The core idea is simple: the didgeridoo is not the goal — it is a working tool. Through it, and with personal guidance, one can develop deeper breath awareness, improve breathing patterns and ease symptoms linked to chronic stress. Sessions take place one-on-one at the studio in Pardes Hanna, Israel.</p>
 				<p>The full site is in Hebrew — <a class="tlink" href="/">visit the Hebrew site →</a></p>
+			</div>
+		</div>
+	</section>
+
+	<section class="sec sec--alt" style="direction:ltr;text-align:left">
+		<div class="wrap">
+			<span class="chap r">The Lineage</span>
+			<h2 class="h2 r">Mukesh Dahiman</h2>
+			<div class="intro-body r" style="text-align:left">
+				<p>Eyal met Mukesh Dahiman — a didgeridoo-maker and teacher from Rishikesh, India — in 2000, and became one of his close students. What he carries forward is a patient, hands-on way of working rooted in listening to the breath.</p>
+				<p>Mukesh passed away in October 2020. His teaching lives on through his students, Eyal among them.</p>
 			</div>
 		</div>
 	</section>
@@ -74,10 +89,11 @@ html,body{overflow-x:hidden}
 			<span class="chap r">What I offer</span>
 			<h2 class="h2 r">Ways to work together</h2>
 			<div class="intro-body r" style="text-align:left">
-				<p>Didgeridoo breath therapy — active work with everyday breathing.</p>
-				<p>Private sound healing — a personal journey in sound and vibration.</p>
-				<p>Didgeridoo lessons — learn to play, including circular breathing.</p>
-				<p>⟨Detailed English content to be finalized by Eyal⟩.</p>
+				<p><strong>Didgeridoo breath therapy</strong> — active, personal work with everyday breathing, sound and body awareness.</p>
+				<p><strong>Private sound healing</strong> — a quiet personal journey in sound and vibration; a time to stop, listen and let the sound work.</p>
+				<p><strong>Didgeridoo lessons</strong> — learn to play from scratch, including circular breathing, at your own pace.</p>
+				<p><strong>Talks &amp; workshops</strong> — group breath-and-sound sessions for teams, events and organizations.</p>
+				<p>To ask a question or arrange an introductory call, reach out on WhatsApp below.</p>
 			</div>
 		</div>
 	</section>
@@ -85,8 +101,9 @@ html,body{overflow-x:hidden}
 	<section class="sec" style="direction:ltr;text-align:left">
 		<div class="wrap center">
 			<h2 class="h2 r">Get in touch</h2>
-			<p class="lead r" style="margin-top:14px">Reach out on WhatsApp to ask a question or arrange an introductory call.</p>
+			<p class="lead r" style="margin-top:14px">Reach out on WhatsApp to ask a question or arrange a short introductory call.</p>
 			<p style="margin-top:28px"><a class="btn btn--terra" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener noreferrer">Talk on WhatsApp</a></p>
+			<p style="margin-top:14px">Or call/WhatsApp <a href="tel:+972524822842" dir="ltr">+972-52-482-2842</a> directly.</p>
 		</div>
 	</section>
 </main>

@@ -1,0 +1,21 @@
+/bin/sh: sort: command not found
+/bin/sh: tail: command not found
+node:internal/deps/undici/undici:15445
+      Error.captureStackTrace(err);
+            ^
+
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:15445:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/tmp/qa/css-computed-probe.mjs:32:20 {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:9593
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 9593
+  }
+}
+
+Node.js v24.7.0

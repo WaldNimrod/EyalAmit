@@ -1,0 +1,61 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-07-15T12:57:46.581Z",
+  "total": 4,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_galleries_",
+      "url": "/galleries/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "גלריות — קטלוג מרכזי - eyal amit",
+      "screenshot": "_COMMUNICATION/team_190/evidence/s4-08-2026-07-15/qa_galleries/screenshots/_galleries__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": "_COMMUNICATION/team_190/evidence/s4-08-2026-07-15/qa_galleries/screenshots/_media__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_galleries_",
+      "url": "/galleries/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "גלריות — קטלוג מרכזי - eyal amit",
+      "screenshot": "_COMMUNICATION/team_190/evidence/s4-08-2026-07-15/qa_galleries/screenshots/_galleries__desktop.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": "_COMMUNICATION/team_190/evidence/s4-08-2026-07-15/qa_galleries/screenshots/_media__desktop.png",
+      "pass": true
+    }
+  ]
+}

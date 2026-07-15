@@ -1,0 +1,5 @@
+{ "check":"book reading-excerpt accordion opacity after open+reopen (AC-4, blocking)",
+  "method":"CDP Runtime.evaluate via headless browser (engine-neutral); d.open toggled open->close->reopen",
+  "kushi-blantis": {"found":true,"hasRevealClass":false,"opacityAfterOpen":"1","opacityAfterReopen":"1"},
+  "vekatavta":     {"found":true,"hasRevealClass":false,"opacityAfterOpen":"1","opacityAfterReopen":"1"},
+  "tsva-bekahol":  {"found":true,"hasRevealClass":false,"opacityAfterOpen":"1","opacityAfterReopen":"1"} }

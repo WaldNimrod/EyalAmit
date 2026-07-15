@@ -711,6 +711,47 @@ body.nav-locked{overflow:hidden}
 .gfig__cap{position:absolute;inset-inline:0;bottom:0;padding:14px 16px;font-family:var(--bf);font-size:.82rem;color:#fff;
   background:linear-gradient(0deg,rgba(14,9,5,.72),transparent);text-align:right}
 
+/* ── Pending approval / missing media (team_00 2026-07-15) ── */
+.ea-pending-approval{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  margin:24px 0;padding:28px 20px;text-align:center;
+  border:3px solid #e8a317;border-radius:12px;
+  background:linear-gradient(135deg,#fff8e1 0%,#ffe082 55%,#ffd54f 100%);
+  box-shadow:0 0 0 4px rgba(232,163,23,.25),0 8px 24px rgba(120,80,0,.12);
+  color:#5d4037;font-family:var(--bf);
+}
+.ea-pending-approval__badge{
+  display:inline-block;padding:4px 12px;border-radius:999px;
+  background:#e65100;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;
+}
+.ea-pending-approval__title{margin:0;font-size:1.05rem;font-weight:700;color:#bf360c}
+.ea-pending-approval__note{margin:0;font-size:.88rem;line-height:1.55;max-width:36em}
+.gfig--pending{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  border:3px solid #e8a317;background:linear-gradient(135deg,#fff8e1,#ffe082);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.5);
+}
+.gfig--pending .ea-pending-approval{margin:12px;padding:16px;box-shadow:none;border-width:2px;background:transparent}
+
+/* ── Inline pending marker (temp CTA / temp link) — WP-S4-06 ── */
+.ea-pending-inline{
+  display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+  padding:6px 14px;border-radius:999px;
+  border:2px solid #e8a317;
+  background:linear-gradient(135deg,#fff8e1,#ffe082);
+  box-shadow:0 0 0 3px rgba(232,163,23,.22);
+  color:#8a5a00;font-family:var(--bf);font-size:.8rem;font-weight:600;line-height:1.3;
+}
+.ea-pending-inline::before{
+  content:"";width:9px;height:9px;border-radius:50%;
+  background:#e65100;box-shadow:0 0 0 3px rgba(230,81,0,.25);
+}
+.ea-pending-inline--wide{display:flex;width:100%;max-width:none;justify-content:center;text-align:center;margin-inline:auto}
+@media(prefers-reduced-motion:no-preference){
+  .ea-pending-inline{animation:eaPendingPulse 2.4s var(--e,ease) infinite}
+  @keyframes eaPendingPulse{0%,100%{box-shadow:0 0 0 3px rgba(232,163,23,.18)}50%{box-shadow:0 0 0 5px rgba(232,163,23,.34)}}
+}
+
 /* ── MOKESH MEMORIAL HERO — video variant of .phero--media, mokesh-dahiman only (WP-CANON T1) ── */
 .mokesh-hero__yt{position:absolute;inset:0;z-index:0;overflow:hidden}
 .mokesh-hero__yt iframe,.mokesh-hero__yt #ea-mokesh-trailer{position:absolute;top:50%;inset-inline-start:50%;transform:translate(-50%,-50%);width:100vw;height:56.25vw;min-width:177.78vh;min-height:100vh;border:0;pointer-events:none}

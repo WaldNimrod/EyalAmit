@@ -1,0 +1,87 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-07-15T12:40:26.528Z",
+  "total": 6,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_didgeridoos_",
+      "url": "/didgeridoos/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "כלי דיג'רידו למכירה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_method_",
+      "url": "/method/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "השיטה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_snoring_sleep_apnea_",
+      "url": "/snoring-sleep-apnea/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "דיג׳רידו, נחירות ודום נשימה בשינה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_didgeridoos_",
+      "url": "/didgeridoos/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "כלי דיג'רידו למכירה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_method_",
+      "url": "/method/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "השיטה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_snoring_sleep_apnea_",
+      "url": "/snoring-sleep-apnea/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "דיג׳רידו, נחירות ודום נשימה בשינה - eyal amit",
+      "screenshot": null,
+      "pass": true
+    }
+  ]
+}

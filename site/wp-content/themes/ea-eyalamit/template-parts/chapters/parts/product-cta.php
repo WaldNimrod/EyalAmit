@@ -55,6 +55,11 @@ $contact = home_url( '/contact?subject=product-' . rawurlencode( $slug ) );
 					<?php echo esc_html( ! empty( $a['gi_label'] ) ? $a['gi_label'] : 'לרכישה מאובטחת' ); ?>
 				</a>
 			</div>
+			<?php if ( '' !== $gi && ! empty( $a['gi_temp'] ) ) : ?>
+				<p class="ea-pending-inline r" role="status">
+					<span><?php echo esc_html( ! empty( $a['gi_temp_note'] ) ? $a['gi_temp_note'] : 'קישור רכישה זמני — ממתין לקישור הסופי מאייל' ); ?></span>
+				</p>
+			<?php endif; ?>
 		<?php else : ?>
 			<div class="ea-cta-ab r" data-ea-product-cta data-product-slug="<?php echo esc_attr( $slug ); ?>" data-cta-type="contact" data-ea-page="product-<?php echo esc_attr( $slug ); ?>">
 				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__form" href="<?php echo esc_url( $contact ); ?>" data-ea-ab-form data-ea-product-cta-link>

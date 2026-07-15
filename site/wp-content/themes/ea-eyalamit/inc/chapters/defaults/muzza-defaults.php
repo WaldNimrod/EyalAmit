@@ -120,6 +120,7 @@ return array(
 				'body'      => 'לרכישת חבילת 3 הספרים',
 				'cta_label' => 'לרכישת חבילת 3 הספרים',
 				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
+				'temp_note' => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לחבילת 3 הספרים מ-Eyal',
 			),
 		),
 
@@ -129,6 +130,15 @@ return array(
 			'args' => array(
 				'chap' => 'רכישה',
 				'body' => '<p><a class="tlink" href="https://mrng.to/MTUiO3vkIg">לרכישת חבילת 3 הספרים</a></p>',
+			),
+		),
+
+		/* SECTION 10b — pending-note: temp GI/Morning bundle purchase link (WP-S4-06 §4.2.3) */
+		array(
+			'part' => 'pending-note',
+			'args' => array(
+				'title' => 'קישור רכישת החבילה — זמני',
+				'note'  => 'קישור זמני (דוגמת Morning). ממתין לקישור GI ייעודי לחבילת 3 הספרים מ-Eyal.',
 			),
 		),
 

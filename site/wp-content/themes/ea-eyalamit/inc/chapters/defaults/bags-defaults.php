@@ -167,6 +167,19 @@ return array(
 			),
 		),
 
+		/* גלריית מוצר — pending (WP-S4-06 §4.1: real product photography blocked on Eyal) */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'chap'  => 'גלריית מוצר',
+				'title' => 'תמונות המוצר',
+				'items' => array(
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 1 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+					array( 'pending' => true, 'pending_label' => 'תמונת מוצר 2 — ממתין לאישור / תמונות מ-Eyal', 'alt' => 'תמונת מוצר אמיתית תוטען מ-Drive' ),
+				),
+			),
+		),
+
 		/* Product price + purchase/contact CTA (T3) */
 		array(
 			'part' => 'product-cta',
@@ -176,6 +189,7 @@ return array(
 				'body'          => "תיק נכון עושה את ההבדל בין כלי שנשמר לאורך שנים, לבין כלי שנשחק עם הזמן. אפשר להתאים תיק לפי סוג הכלי והאופן שבו אתה משתמש בו.",
 				'contact_label' => "לתיאום והתאמה של תיק לדיג'רידו",
 				'alt'           => true,
+				'gi_temp'       => true,
 			),
 		),
 	),

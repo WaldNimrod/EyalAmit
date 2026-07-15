@@ -1,0 +1,84 @@
+{
+  "ts": "2026-07-15T09:58:56.225Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "item01": {
+    "trust": true,
+    "trustBeforeH1": true,
+    "literalBr": false
+  },
+  "item02": {
+    "count": 80,
+    "links": [
+      {
+        "href": "https://www.facebook.com/share/p/1E7ndvYyrp/",
+        "tgt": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://www.facebook.com/share/p/1AdaytsL6w/",
+        "tgt": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://www.facebook.com/share/p/19m2waNvQe/",
+        "tgt": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
+  },
+  "item05": {
+    "found": true,
+    "autoplay": false,
+    "preload": "none",
+    "src": "/assets/video/ea-home-hero-720-muted.mp4"
+  },
+  "item07nav": [
+    "http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/",
+    "#",
+    "http://eyalamit-co-il-2026.s887.upress.link/learning/lectures/",
+    "http://eyalamit-co-il-2026.s887.upress.link/learning/workshops/"
+  ],
+  "item08": {
+    "found": true,
+    "disc": "המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ",
+    "a11y": true,
+    "priv": true
+  },
+  "item03": {
+    "cards": 16,
+    "textLens": [
+      208,
+      169,
+      222,
+      178,
+      190,
+      174,
+      176,
+      189
+    ]
+  },
+  "item06": {
+    "found": true,
+    "fontSize": "16px"
+  },
+  "item04": {
+    "kushi-blantis": {
+      "found": true,
+      "hasRevealClass": false,
+      "opacityAfterOpen": "1",
+      "opacityAfterReopen": "1"
+    },
+    "vekatavta": {
+      "found": true,
+      "hasRevealClass": false,
+      "opacityAfterOpen": "1",
+      "opacityAfterReopen": "1"
+    },
+    "tsva-bekahol": {
+      "found": true,
+      "hasRevealClass": false,
+      "opacityAfterOpen": "1",
+      "opacityAfterReopen": "1"
+    }
+  }
+}

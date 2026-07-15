@@ -1,0 +1,38 @@
+WP-S4-06 live selector counts (staging, 2026-07-15) — team_90 independent CDP probe
+Base: http://eyalamit-co-il-2026.s887.upress.link
+Format per route: .ea-pending-inline / .gfig--pending / .ea-pending-approval | angle-brackets | overflow
+
+PRODUCTS (blocking AC — all PASS):
+  /didgeridoos/       1/2/2 | false | false
+  /bags/              1/2/2 | false | false
+  /stands-storage/    1/2/2 | false | false
+  /stand-floor/       1/2/2 | false | false
+  /repair/            1/2/2 | false | false
+
+BOOKS:
+  /books/vekatavta/   2/2/4 | false | false
+  /books/tsva-bekahol/ 2/5/6 | false | false
+  /books/kushi-blantis/ 2/0/3 | false | false
+  /books/             1/0/1 | false | false
+
+LEGAL (PASS — glow present, no ⟨⟩):
+  /privacy/           0/0/1 | false | false
+  /accessibility/     0/0/1 | false | false
+  /terms/             0/0/1 | false | false
+
+EN:
+  /en/                1/0/0 (inlineWide=1) | false | false
+
+ANCHOR (PASS — preserved):
+  /snoring-sleep-apnea/ 0/2/3 | false | false
+  anchor file: no gi_temp, no pending-note, no ea-pending-inline; 2 pending gallery slots; key literals present
+
+NO-FALSE-POSITIVE sample:
+  /sound-healing/     0/0/0 | false | false
+  /lessons/           0/0/0 | false | false
+  /method/            0/0/1 | false | false  [F-01: WP-S4-07 carryover, not S4-06]
+  /treatment/         0/0/2 | false | false  [informational: WP-S4-07 carryover]
+  /eyal-amit/         0/0/0 | false | false
+  /                   0/0/0 | false | false
+
+Full JSON: _COMMUNICATION/team_90/evidence/wp-s4-06-2026-07-15/selector_probe.json

@@ -1,7 +1,7 @@
 <?php
 /**
  * Chapters /books/vekatavta/ (וכתבת — book detail) — seeded content defaults.
- * Sourced from vekatavta.md; external purchase URLs kept verbatim.
+ * Sourced from vekatavta.md; purchase CTA = Green Invoice (Morning example until per-book URL).
  * Real cover art is a known media gap — phero uses the closest in-repo image.
  * Image gallery (SECTION 05) and QR notes are omitted (no media asset / no body text),
  * but every body sentence is carried VERBATIM across the prose blocks below.
@@ -14,9 +14,11 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 
+	// GI CHECKOUT — temporary shared example (kushi mrng.to) until per-book URL from Eyal.
+	// Drift fix 2026-07-14 — was Mendele; see DRIFT-REPORT-BOOK-PURCHASE-MENDELE-VS-GREEN-INVOICE-2026-07-14.md.
 	'price'         => 79,
-	'buy_print_url' => 'https://www.mendele.co.il/product/vekatavta/',
-	'buy_ebook_url' => 'https://www.mendele.co.il/product/vekatavta/',
+	'buy_print_url' => 'https://mrng.to/MTUiO3vkIg',
+	'buy_ebook_url' => 'https://mrng.to/MTUiO3vkIg',
 	'genre'         => 'סיפורים אמיתיים · QR',
 	'meta_year'     => '2017',
 	'meta_pages'    => 252,
@@ -29,7 +31,7 @@ return array(
 		'media'     => 'assets/images/vekatavt-cover.jpg',
 		'media_alt' => 'אייל עמית — וכתבת',
 		'cta_label' => 'לרכישת הספר · 79 ₪',
-		'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+		'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 		'cta_slug'  => 'vekatavta',
 	),
 
@@ -115,11 +117,12 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				'title'      => 'אם הגעת עד כאן, כנראה שזה לא סתם.',
-				'cta_label'  => 'לרכישת הספר המודפס',
-				'cta_url'    => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_label'  => 'לרכישה מאובטחת (חשבונית ירוקה)',
+				'cta_url'    => 'https://mrng.to/MTUiO3vkIg',
 				'cta2_label' => 'ספר אלקטרוני',
-				'cta2_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta2_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'   => 'vekatavta',
+				'temp_note'  => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 
@@ -140,11 +143,11 @@ return array(
 				'chap'  => 'רכישת הספר',
 				'title' => 'רכישת הספר',
 				'alt'   => true,
-				'body'  => '<p>"וכתבת" זמין לרכישה בשתי גרסאות:</p><p>גרסה מודפסת: <a class="tlink" href="https://www.mendele.co.il/product/vekatavta/" target="_blank" rel="noopener noreferrer">לרכישת הספר המודפס</a></p><p>גרסה דיגיטלית: <a class="tlink" href="https://www.mendele.co.il/product/vekatavta/" target="_blank" rel="noopener noreferrer">לרכישת הספר בגרסה דיגיטלית</a></p><p>ספר של 252 עמודים, 46 סיפורים אמיתיים מחייו של אייל עמית.</p>',
+				'body'  => '<p>"וכתבת" זמין לרכישה בשתי גרסאות:</p><p>גרסה מודפסת: <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה מאובטחת (חשבונית ירוקה)</a></p><p>גרסה דיגיטלית: <a class="tlink" href="https://mrng.to/MTUiO3vkIg" target="_blank" rel="noopener noreferrer">לרכישה מאובטחת (חשבונית ירוקה)</a></p><p>ספר של 252 עמודים, 46 סיפורים אמיתיים מחייו של אייל עמית.</p>',
 			),
 		),
 
-		/* SECTION 05 — גלריה (real image wired per T3b) */
+		/* SECTION 05 — גלריה (cover only + pending Drive slots; no cross-book kushi images). */
 		array(
 			'part' => 'gallery',
 			'args' => array(
@@ -152,32 +155,42 @@ return array(
 				'title' => 'גלריה',
 				'lead'  => 'גלריית תמונות מתוך הספר, מתוך רגעים מהדרך, ומהמפגש של הסיפורים עם העולם.',
 				'items' => array(
-					array( 'image' => 'assets/images/vekatavt-cover.jpg', 'alt' => 'עטיפת הספר וכתבת' ),
-					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg', 'alt' => 'מהעולם של הספר וכתבת' ),
-					array( 'image' => 'assets/images/kushi-04-sinai.jpg', 'alt' => 'רגעים מהדרך' ),
+					array( 'image' => 'assets/images/vekatavt-cover.jpg', 'alt' => 'עטיפת הספר וכתבת', 'cap' => 'עטיפה' ),
+					array(
+						'pending'       => true,
+						'pending_label' => 'תמונת גלריה — ממתין לאישור / מדיה מ-Drive',
+						'alt'           => 'חבילת April (42 פריטים) — driveRefs בלבד; אין קובץ מקומי.',
+						'cap'           => 'סלוט 1',
+					),
+					array(
+						'pending'       => true,
+						'pending_label' => 'תמונת גלריה — ממתין לאישור / מדיה מ-Drive',
+						'alt'           => 'יושלם בייבוא ייצוא Drive של גלריית וכתבת.',
+						'cap'           => 'סלוט 2',
+					),
 				),
 			),
 		),
 
-		/* SECTION 11 — כתבות מהעיתונות (press; verbatim) */
+		/* SECTION 11 — כתבות מהעיתונות */
 		array(
 			'part' => 'prose',
 			'args' => array(
 				'chap'   => 'כתבות מהעיתונות',
 				'title'  => 'כתבות מהעיתונות',
 				'center' => true,
-				'body'   => '<p>כתבות וראיונות על אייל עמית והספר מופיעים גם בעמוד העיתונות.</p><p><a class="tlink" href="/press/">לעמוד העיתונות</a></p>',
+				'body'   => '<div class="ea-pending-approval" role="status"><span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">כתבות וראיונות על הספר</p><p class="ea-pending-approval__note">יתווספו בהמשך לפי המקור. בינתיים: <a class="tlink" href="/press/">עמוד העיתונות</a>.</p></div>',
 			),
 		),
 
-		/* SECTION 14 — עוד רגעים מהדרך (more moments; verbatim tail) */
+		/* SECTION 14 — עוד רגעים מהדרך */
 		array(
 			'part' => 'prose',
 			'args' => array(
 				'chap'  => 'עוד רגעים מהדרך',
 				'title' => 'עוד רגעים מהדרך',
 				'alt'   => true,
-				'body'  => '<p>הסיפורים לא נעצרו עם הספר.</p><p>גם אחרי ש"וכתבת" יצא לאור, הכתיבה ממשיכה ללוות את הדרך.</p><p>רגעים חדשים, תובנות, סיפורים קטנים מהחיים - חלקם ממשיכים להיכתב, חלקם כבר מחכים להיאסף.</p>',
+				'body'  => '<p>הסיפורים לא נעצרו עם הספר.</p><p>גם אחרי ש"וכתבת" יצא לאור, הכתיבה ממשיכה ללוות את הדרך.</p><p>רגעים חדשים, תובנות, סיפורים קטנים מהחיים - חלקם ממשיכים להיכתב, חלקם כבר מחכים להיאסף.</p><div class="ea-pending-approval" role="status"><span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">מדיה לסעיף זה</p><p class="ea-pending-approval__note">תמונות נוספות — ממתין לייבוא מ-Drive.</p></div>',
 			),
 		),
 
@@ -188,8 +201,9 @@ return array(
 				'title'     => '"וכתבת" הוא לא ספר שקוראים ושוכחים, אלא כזה שנשאר איתך גם אחרי שסוגרים אותו.',
 				'body'      => 'אם הגעת עד כאן, כנראה שמשהו מתוך הסיפורים כבר נגע בך.',
 				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'vekatavta',
+				'temp_note' => 'קישור רכישה זמני (דוגמת Morning) — ממתין לקישור GI ייעודי לספר מאייל',
 			),
 		),
 	),

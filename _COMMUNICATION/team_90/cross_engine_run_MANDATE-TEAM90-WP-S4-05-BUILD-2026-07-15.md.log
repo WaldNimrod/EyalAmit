@@ -1,0 +1,35 @@
+## Verdict: **PASS**
+
+Cross-engine validation for **WP-S4-05** is complete. The verdict is at:
+
+`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-05-BUILD-2026-07-15.md`
+
+### Critical: AC-NOACF / zero regression — **PASS**
+
+With ACF absent, the overlay matches the **pre-S4-05 template render pipeline** (not raw defaults arrays — scalar images are resolved the same way the old template did via `ea_chapters_asset_url`).
+
+Independent harness (`tmp/validate_wp_s4_05_noacf.php`): **9 path-B types, 0 failures** (treatment, didgeridoos, vekatavta, mokesh, sound-healing, lessons, about, faq, contact).
+
+Staging: **40/40** `qa_probe` probes PASS — no fatal/parse errors, all pages render.
+
+### Other mandated checks
+
+| Check | Result |
+|-------|--------|
+| **Guards** | **PASS** — 0 unguarded `get_field()` / `have_rows()` in the 6-file scope |
+| **AC-FALLBACK** | **PASS** — `ea_chapters_field_or()` + `ea_chapters_merge_list_rows()`; unit tests pass |
+| **AC-LOCK** | **PASS** — structural args not in `ea_chapters_part_field_map()` |
+| **Naming §2** | **PASS** — `s{N}_{arg}`, `f_{type}_…`, `group_chapters_{type}`, `return_format=id` |
+| **AC-IMG** | **PASS** — `ea_chapters_resolve_img()` in overlay + merge |
+| **Type-aware §4** | **PASS** — home vs method `whom_items` / `testi_items` shapes differ correctly |
+| **Product meta §5** | **PASS** — nonce, `edit_page` cap, `ea_product_price`, empty → delete |
+| **php -l** | **PASS** — all 6 files clean |
+| **Home regression** | **PASS** — `acf-fields-home.php` unchanged; `group_chapters_home` intact |
+
+### Deferred (per mandate)
+
+**AC-EDIT** (live wp-admin edit → front) is **not** evaluated here — scheduled for **WP-S4-08** with team_00.
+
+### route_recommendation
+
+**None** — proceed to WP-S4-06; book top-level `price` field remains a non-blocking S4-02 note per LOD400 §5.3.

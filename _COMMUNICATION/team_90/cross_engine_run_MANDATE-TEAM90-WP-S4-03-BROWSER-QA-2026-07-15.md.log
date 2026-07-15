@@ -1,0 +1,30 @@
+**VERDICT: PASS** — WP-S4-03 Content-QA browser closure signed off.
+
+Verdict filed at [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-03-CONTENT-QA-BROWSER-2026-07-15.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S4-03-CONTENT-QA-BROWSER-2026-07-15.md)
+
+### Iron Rule #1
+Validator **composer-2.5** (Cursor / team_90) ≠ builder **Claude** (2026-07-12 12.7 batch) — satisfied.
+
+### Independent re-runs (not trusted from gather files alone)
+| Check | Result |
+|-------|--------|
+| `qa_probe.mjs` | **22/22 PASS**, 0 overflow |
+| CDP items 1–8 + accordions | All spec expectations met |
+| `/learning/*` HTTP | 3× **200** |
+| Meta descriptions | **8/8** exact match to mu-plugin source |
+| `roadmap.yaml` / deploy list | OK |
+
+### Highlights
+- **AC-4 (blocking):** All 3 book accordions — `opacityAfterOpen` / `opacityAfterReopen` = `"1"`, `hasRevealClass:false`
+- **AC-3:** Home `literalBr:false`; no forbidden strings in probe
+- **Item 2:** 80 testimonial links with correct `target`/`rel` (not a finding)
+- **`undefined` absent-list:** Agree with probe-precision note — JS-only false positive; real markers = 0
+
+### Route recommendation
+- **L-GATE_VALIDATE (WP-S4-03): PASS** — no builder remediation
+- **team_00:** May close 12.7 QA batch and advance S004 sequence
+- **0 findings** — no `route_recommendation` for remediation
+
+Validator re-run artifacts saved under `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/wp-s4-03-2026-07-15/` (`item01-08-cdp-validator-rerun.json`, `qa_probe_result_validator-rerun.json`).The meta-description comparison finished successfully: **8/8 routes** on staging match the mu-plugin source strings exactly (character-for-character). That includes `/didgeridoos/`, which had timed out in the earlier gather run.
+
+This is already reflected in the WP-S4-03 verdict — **PASS**, with item 10 and non-blocking AC-5 closed.

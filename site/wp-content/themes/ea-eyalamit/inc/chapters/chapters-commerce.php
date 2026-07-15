@@ -15,12 +15,13 @@ if ( ! function_exists( 'ea_w2_05_gi_url_map' ) ) {
 	 * @return array<string,string>
 	 */
 	function ea_w2_05_gi_url_map() {
+		// Temporary shared GI example (kushi Morning) until per-SKU mrng.to URLs — team_00 2026-07-14.
 		return array(
-			'didgeridoos'    => '',
-			'bags'           => '',
-			'stands-storage' => '',
-			'stand-floor'    => '',
-			'repair'         => '',
+			'didgeridoos'    => 'https://mrng.to/MTUiO3vkIg',
+			'bags'           => 'https://mrng.to/MTUiO3vkIg',
+			'stands-storage' => 'https://mrng.to/MTUiO3vkIg',
+			'stand-floor'    => 'https://mrng.to/MTUiO3vkIg',
+			'repair'         => 'https://mrng.to/MTUiO3vkIg',
 		);
 	}
 }
@@ -80,3 +81,22 @@ function ea_chapters_book_purchase_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'ea_chapters_book_purchase_assets', 20 );
+
+/**
+ * Enqueue product-page shop CSS (re-homes former wave2-w2-05.php enqueue).
+ */
+function ea_chapters_w2_05_shop_assets() {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! is_page( array( 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair' ) ) ) {
+		return;
+	}
+	wp_enqueue_style(
+		'ea-w2-05-shop',
+		get_stylesheet_directory_uri() . '/assets/css/w2-05-shop.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_chapters_w2_05_shop_assets', 20 );

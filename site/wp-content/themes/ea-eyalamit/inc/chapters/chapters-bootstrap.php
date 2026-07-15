@@ -18,3 +18,5 @@ require_once $ea_chapters_dir . 'chapters-routing.php';
 require_once $ea_chapters_dir . 'chapters-enqueue.php';
 require_once $ea_chapters_dir . 'chapters-duplicate.php';
 require_once $ea_chapters_dir . 'acf-fields-home.php';
+require_once $ea_chapters_dir . 'acf-fields-inner.php';
+require_once $ea_chapters_dir . 'product-meta.php';

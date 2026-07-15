@@ -1,16 +1,45 @@
 {
   "schemaVersion": 2,
   "titleHe": "מול אייל — פערי תוכן, שאלות והשלמות (עמודי Chapters)",
-  "introHe": "סטטוס: כל עמודי האתר נבנו בעיצוב «פרקים», אומתו (team_50+team_190 PASS), ומוזגו ל-main (2026-06-23). אתר הבדיקה מוכן לסקירה. נשארים אישורים וחומרים ממך — ריכוז להחלטות בפגישה. כלל הטקסטים באתר נלקחו מילה-במילה מהמקור המאושר ואומתו (content-diff); הפריטים כאן הם החלטות/אישורים, השלמות מדיה, וטקסטים שטרם סופקו ממך.",
-  "lockedSummaryHe": "נעול: D-EYAL-SITE-07 · D-EYAL-IA-MENU-08 · D-EYAL-HOME-01 · D-EYAL-MENU-BRAND-10 · D-EYAL-GREEN-UX-06 · D-EYAL-CONTENT-MODEL-09 · D-EYAL-ENTITY-CATALOG-12 · D-EYAL-GALLERY-03 · D-EYAL-KMD-04 · D-EYAL-COURSES-05. נדחה: D-EYAL-EN-BODY-02.",
+  "introHe": "סטטוס (2026-07-15): הצוות בנה רצף חבילות מסודר להבאת האתר למסירה סופית. חבילות צוותיות (S004) — עוגן verbatim, סגירת חוב ספרים, learning/משפטי/אנגלית, שחזור עריכת תוכן ב-wp-admin, סימון זוהר לכל חוסר, וטיוטות SEO — יבוצעו ללא תלות בך. הפריטים למטה הם רצף «M-EYAL-INPUTS»: כל אחד ממתין לחומר/החלטה ממך, והחיווט באתר (סימון «ממתין לאישור» זוהר) כבר מוכן — עם קבלת החומר זו החלפה מיידית. דחוף ממך: קישורי חשבונית ירוקה מדויקים, תמונות גלריה/עוגן (מכבי/יוני), ואישור ניסוחים משפטיים/רפואיים.",
+  "lockedSummaryHe": "נעול: D-EYAL-SITE-07 · D-EYAL-IA-MENU-08 · D-EYAL-HOME-01 · D-EYAL-MENU-BRAND-10 · D-EYAL-GREEN-UX-06 · D-EYAL-CONTENT-MODEL-09 · D-EYAL-ENTITY-CATALOG-12 · D-EYAL-GALLERY-03 · D-EYAL-KMD-04 · D-EYAL-COURSES-05 · D-EYAL-BRAND-17 / OPEN-BRAND-RETIRED (השמטת «סטודיו נשימה מעגלית»). נדחה: D-EYAL-EN-BODY-02.",
   "stepsHe": [
-    "נקודת כניסה אחת: what-we-need.html — כל החומרים והאישורים לפי עדיפות.",
-    "15 הצעות תוכן SEO/GEO — אישור ב-content-proposals.html (עדיפות #1; CP-01 פילר).",
-    "עדויות: אצירת 48 + אישור אופן הצגה — materials-intake (I1).",
-    "מדיה: materials-intake + media-intake.",
-    "טקסטים: משפטי/EN ב-content-intake; Clarity (EYL-1); וואטסאפ (WA)."
+    "נקודת כניסה: what-we-need.html",
+    "WP-EI-01 — קישורי חשבונית ירוקה מדויקים: 3 ספרים + 5 מוצרים (דוגמה כבר חיה באתר הבדיקה).",
+    "WP-EI-02 — תמונות גלריה אמיתיות: ספרים + מוצרים (או אישור להשאיר זמני).",
+    "WP-EI-03 — מדיית עוגן (מכבי/יוני) + אישור ניסוח רפואי; העמוד נבנה גם בלעדיהן.",
+    "WP-EI-04..06 — אישור מוקש, נוסח משפטי (פרטיות/נגישות/תקנון), וגוף /en.",
+    "WP-EI-07 — אצירת 48 עדויות + אישור תצוגה + מזהי GA4/Clarity."
   ],
   "items": [
+    {
+      "id": "OPEN-GI-BOOK-URLS",
+      "titleHe": "קישורי חשבונית ירוקה מדויקים — 3 ספרים",
+      "owner": "eyal",
+      "hubAction": "content-intake",
+      "noteHe": "כרגע בכל עמודי הספרים חי כפתור עם דוגמת Morning שאושרה לכושי (mrng.to/MTUiO3vkIg). נדרש: URL מדויק לכל ספר (וכתבת / כושי / צבע בכחול) — מודפס ואם רלוונטי דיגיטלי. אין מנדלי / חנות חיצונית אחרת."
+    },
+    {
+      "id": "OPEN-BOOK-GALLERY-IMAGES",
+      "titleHe": "גלריות שלושת הספרים — תמונות ייעודיות או אישור משותף",
+      "owner": "eyal",
+      "hubAction": "drive-only",
+      "noteHe": "בשלושת עמודי הספרים (/books/vekatavta/, /books/kushi-blantis/, /books/tsva-bekahol/) מופיעה כרגע תמונה משותפת kushi-04-sinai.jpg עם הכיתוב «רגעים מהדרך» — בחירה זמנית של הצוות, לא אישור תוכן ממך. נדרש: (א) אשר להשאיר כך, או (ב) ספק 2–3 תמונות רלוונטיות לכל ספר (Drive / וואטסאפ)."
+    },
+    {
+      "id": "OPEN-PRODUCT-GALLERIES",
+      "titleHe": "תמונות מוצר אמיתיות — 5 עמודי חנות",
+      "owner": "eyal",
+      "hubAction": "drive-only",
+      "noteHe": "עמודי /didgeridoos/, /bags/, /stands-storage/, /stand-floor/, /repair/ כוללים מחיר ו-CTA; גלריית מוצר אמיתית לא נבנתה בכוונה (בלי placeholders אפורים). נדרש: תמונות מוצר לכל עמוד — או הוראה לדחות גלריות לשלב מאוחר. הגשה: materials-intake (קבוצות חנות)."
+    },
+    {
+      "id": "OPEN-GI-CHECKOUT-URLS",
+      "titleHe": "קישורי סליקה (חשבונית ירוקה) — 5 מוצרים",
+      "owner": "eyal",
+      "hubAction": "content-intake",
+      "noteHe": "כרגע 5 עמודי המוצר משתמשים באותה דוגמת Morning (זמני). נדרש: URL checkout מדויק לכל מוצר (דידג׳רידו, תיקים, סטנדים, תיקון)."
+    },
     {
       "id": "OPEN-CHAPTERS-TESTIMONIALS",
       "titleHe": "עדויות והמלצות — אופן הצגה + אצירת 48",
@@ -20,10 +49,11 @@
     },
     {
       "id": "OPEN-BRAND-RETIRED",
-      "titleHe": "מותג «סטודיו נשימה מעגלית» — אישור השמטה",
+      "titleHe": "מותג «סטודיו נשימה מעגלית» — נעול (השמטה)",
       "owner": "eyal",
       "hubAction": "content-intake",
-      "noteHe": "המותג «סטודיו נשימה מעגלית» הוסר מכל האתר (WP-06, אושר ע\"י נמרוד). במשפטי הקמה/היסטוריה (השיטה; אודות §07) הוא מושמט — ולכן התאמת-התוכן בעמוד אודות ~92% (סטייה מאושרת מהמקור, לא חוסר תוכן). להחלטה: להשאיר מושמט, או לספק ניסוח חלופי לאותם משפטים. docs/CHAPTERS-CONTENT-DECISIONS-EYAL.md §2."
+      "status": "locked",
+      "noteHe": "נעול 2026-07-03 (D-EYAL-BRAND-17 / BN-01): השמטה קבועה בכל האתר. אין פעולה נדרשת ממך. נשמר לתיעוד בלבד."
     },
     {
       "id": "OPEN-MATERIALS-MEDIA",
@@ -55,10 +85,11 @@
     },
     {
       "id": "OPEN-FAQ-COPY",
-      "titleHe": "טקסטים ל־FAQ בבית ולעמוד FAQ מלא",
+      "titleHe": "FAQ — אומת; סקירת content-diff אופציונלית (צוות)",
       "owner": "team",
       "hubAction": "content-intake",
-      "noteHe": "עמוד ה-FAQ ממומש מהמקור (block-faq-list עם קישורים פנימיים קנוניים, AC-18). גוון/השלמות טקסט — צוות + קליטת תוכן; §9.3–§9.4 במסמך המפתח."
+      "status": "closed",
+      "noteHe": "נסגר לאייל (2026-07-14): FAQ מלא + סינון לפי עמודים מומש ב-WP-CANON ואומת. סקירת דיוק טקסט many-to-many — אופציונלית לצוות 10/30, לא חוסמת ולא דורשת קלט ממך."
     },
     {
       "id": "OPEN-HOME-MARKETING-COPY",

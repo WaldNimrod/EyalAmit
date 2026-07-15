@@ -2,6 +2,40 @@
   "schemaVersion": 1,
   "sections": [
     {
+      "id": "WP-CANON-2026-07",
+      "titleHe": "איחוד תבניות WP-CANON (יולי 2026) — ממתין לאייל",
+      "tasks": [
+        {
+          "id": "WP-CANON-GI-BOOK-URLS",
+          "titleHe": "קישורי חשבונית ירוקה מדויקים — 3 ספרים",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "דוגמת Morning חיה על כל הספרים; ממתין ל-URL מדויק מאייל (OPEN-GI-BOOK-URLS)."
+        },
+        {
+          "id": "WP-CANON-BOOK-GALLERY",
+          "titleHe": "גלריות ספרים — אישור/החלפת תמונות משותפות",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "ממתין לאייל (OPEN-BOOK-GALLERY-IMAGES). כרגע kushi-04-sinai.jpg בכל 3 הספרים."
+        },
+        {
+          "id": "WP-CANON-PRODUCT-MEDIA",
+          "titleHe": "תמונות מוצר ל-5 עמודי חנות",
+          "status": "not_started",
+          "priorityHe": "בינונית",
+          "stateHe": "ממתין לאייל (OPEN-PRODUCT-GALLERIES). גלריות לא נבנו בכוונה עד חומרים."
+        },
+        {
+          "id": "WP-CANON-GI-URLS",
+          "titleHe": "קישורי סליקה (חשבונית ירוקה) ל-5 מוצרים",
+          "status": "not_started",
+          "priorityHe": "גבוהה",
+          "stateHe": "דוגמת Morning חיה על 5 מוצרים; ממתין ל-URL מדויק מאייל."
+        }
+      ]
+    },
+    {
       "id": "CHAPTERS-FULLSITE-2026-06",
       "titleHe": "מערכת «פרקים» — עיצוב מחדש, בנייה וולידציה (יוני 2026)",
       "tasks": [
@@ -172,9 +206,9 @@
         {
           "id": "M2-T-FORM-SPAM",
           "titleHe": "הגנות ספאם / הודעות כשלון",
-          "status": "in_progress",
+          "status": "completed",
           "priorityHe": "בינונית",
-          "stateHe": "תיעוד G3: team_30/M2-OPERATOR-GUIDE-DRAFT-2026-04-10.md §D5.1 (honeypot Fluent, הודעות כשלון, reCAPTCHA רק באישור 100). לאימות מלא בדוח 50."
+          "stateHe": "נסגר 2026-07-14: תיעוד G3 בתוקף; טופס צור-קשר חי בסטייג'ינג (Fluent). אימות מסירה מלא (תיבה/ספאם) נשאר ב-P7 AC-12-INBOX לפני עלייה — לא חוסם M2."
         }
       ]
     },
@@ -206,9 +240,9 @@
         {
           "id": "M2-T-EYAL-FAQ",
           "titleHe": "FAQ קצר בבית + עמוד FAQ מלא",
-          "status": "in_progress",
+          "status": "completed",
           "priorityHe": "בינונית",
-          "stateHe": "במאגר: בלוק FAQ בבית (template-home-dashboard) + תבנית tpl-faq-catalog + MU ea-m2-ia-slug-fixups-once (עמוד faq). תוכן אינסטנסים / טקסטים סופיים — ממתין אייל (OPEN-FAQ-COPY)."
+          "stateHe": "נסגר 2026-07-14: FAQ Chapters + פורט WP-CANON (סינון many-to-many) אומתו. OPEN-FAQ-COPY לא חוסם אייל."
         }
       ]
     },

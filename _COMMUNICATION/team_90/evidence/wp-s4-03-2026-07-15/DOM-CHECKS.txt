@@ -1,0 +1,12 @@
+item1 home: .hero__trust present; literal &lt;br&gt;=0 (PASS)
+item2 home testimonial links .tmq__nl=80 (PASS, >=1; non-blocking)
+item3 /method .tmq cards=48 (PASS, >=8)
+item5 home <video> preload="none", autoplay attr=0 (PASS)
+item6 /faq .ea-faq-item__answer p font-size=1rem [ea-atoms.css:1108] (PASS)
+item8 home footer .foot__legal present; accessibility+privacy links present as ABSOLUTE urls (PASS)
+item7 /learning/{therapist-training,lectures,workshops} -> 3x HTTP 200 (PASS, blocking AC-6)
+item9 /repair "מהנדס אלקטרוניקה" sentence present once, natural (PASS)
+item10 8/8 meta descriptions live & non-empty, match seeded strings (PASS, non-blocking AC-5)
+item11 roadmap.yaml yaml.safe_load OK (PASS)
+item12 metadesc mu-plugin in ftp deploy list (PASS)
+qa_probe §1: 22/22 PASS (0 overflow, 0 TBD/Lorem/<br>). 'undefined' dropped from absent-list = JS-only false positive.
