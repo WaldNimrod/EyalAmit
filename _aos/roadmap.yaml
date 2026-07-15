@@ -45,6 +45,20 @@ project:
     WP-CANON-TEMPLATE-UNIFICATION (that WP covers the separate, not-yet-built Wave2→Chapters unification) —
     this was a pre-WP scoped batch, ungated by any formal WP id.
 
+    2026-07-15: team_00 directive «רצף חבילות למסירה סופית לאייל» — prepare staging for Eyal final
+    review before go-live. team_100 authored a canonical LOD400 package sequence across TWO new
+    milestones (index: _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md):
+    (a) S004 «Final-Review Readiness» — 8 team-owned WPs, no Eyal blockers (WP-S4-01..08), the core
+    being WP-S4-05 = restore wp-admin editability (ACF Option B) that silently regressed in the
+    2026-06-22 Chapters migration (only home has ACF; inner pages render hardcoded PHP defaults);
+    (b) M-EYAL-INPUTS — 7 «swap-on-receipt» WPs each blocked on an Eyal material/decision
+    (WP-EI-01..07), placeholders (glow «ממתין לאישור») already wired in S004. All 15 WPs registered
+    below with LOD400 spec_ref. Roadmap mutation is file-SSoT (ADR034 R8): DB online but the API L0
+    eyalamit roadmap is stale (active_milestone=S002, unaware of S003/WP-CANON; full GET hangs
+    http=000, probed 2026-07-15) — _aos/roadmap.yaml remains the live SSoT for this spoke, same
+    mechanism as WP-CANON. active_milestone left at S003 pending team_00 S003 closeout + S004 kickoff;
+    LOD400 sequence pending cross-engine coverage validation (team_90, engine ≠ Claude author).
+
     '
 work_packages:
 - id: S001-P001-WP001
@@ -1536,12 +1550,15 @@ work_packages:
 
 - id: WP-CANON-TEMPLATE-UNIFICATION
   label: Full-site template standardization — unify Wave2 → Chapters, delete dead code
-  status: IN_PROGRESS
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_VALIDATE
-  lod_status: LOD500
+  current_lean_gate: CLOSED
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-14'
+  closed_by: team_00
+  closure_artifact: _COMMUNICATION/team_00/ACCEPTANCE-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md
   assigned_builder: team_110
-  assigned_validator: team_90 (full-site audit) + team_190 (constitutional) — cross-engine vs team_110 build, Iron Rule #1
+  assigned_validator: team_90 (full-site audit) + team_50 (E2E) — cross-engine vs team_110 build, Iron Rule #1
   created_at: '2026-07-12'
   milestone_ref: S003
   parent_wp:
@@ -1549,6 +1566,7 @@ work_packages:
   profile: L0
   priority: HIGH
   blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT — WP-CANON not in DB l0 roadmap (API holds stale early WPs only); file _aos/roadmap.yaml is live SSoT for this WP.'
   notes: 'Discovered 2026-07-12 while reconciling two Eyal-provided ChatGPT-assisted docs (QA+SEO
     spec) against live code: theme runs 2 parallel template systems (Wave2 legacy, Chapters live —
     Chapters wins template_include priority 103 on nearly every route). Most "gaps" the doc-diff
@@ -1565,9 +1583,10 @@ work_packages:
     2026-07-14: LOD300/LOD400 authored + cross-engine SPEC PASS_WITH_FINDINGS. team_00 handoff to
     team_110 ADR045 full execution. team_110 (cursor-grok-4.5) built T1–T6 + staging deploy.
     team_00 engine rule: Grok builds, Composer validates. team_90 (composer-2.5) L-GATE_BUILD
-    PASS_WITH_FINDINGS (merged T1–T5 + T4/T6/T7 slices) then L-GATE_VALIDATE PASS_WITH_FINDINGS —
-    LOD500_LOCKED allowed; minors accepted (orphan tpl hygiene, FAQ content-diff distribution).
-    COMPLETION_REPORT + verdicts under _COMMUNICATION/team_110/ and team_90/.'
+    PASS_WITH_FINDINGS then L-GATE_VALIDATE PASS (recheck + CSS-enqueue delta). team_50 E2E
+    close-out PASS. CSS enqueue regression remediations closed. team_00 accepted package closure
+    2026-07-14 (chat). Residuals for Eyal (C-5, galleries, GI URLs) tracked in Hub — not WP blockers.
+    Production cutover to eyalamit.co.il remains M7 / separate team_00 GO — out of this WP scope.'
   gate_history:
   - gate: L-GATE_E
     result: PASS
@@ -1602,3 +1621,287 @@ work_packages:
     date: '2026-07-14'
     validator: team_90 (composer-2.5)
     notes: Constitutional spot-recheck CRITICAL AC PASS; minors accept; LOD500_LOCKED allowed. Artifact — VERDICT-WP-CANON-L-GATE_VALIDATE-2026-07-14.md.
+  - gate: L-GATE_VALIDATE
+    phase: recheck PASS loop + CSS-enqueue delta
+    result: PASS
+    date: '2026-07-14'
+    validator: team_90 (composer-2.5)
+    notes: Hygiene recheck PASS; CSS enqueue delta PASS (computed styles). Artifacts — VERDICT-WP-CANON-L-GATE_VALIDATE-RECHECK-PASS-LOOP-2026-07-14.md · VERDICT-WP-CANON-L-GATE_VALIDATE-CSS-ENQUEUE-DELTA-2026-07-14.md.
+  - gate: L-GATE_VALIDATE
+    phase: team_50 E2E close-out
+    result: PASS
+    date: '2026-07-14'
+    validator: team_50 (composer-2.5)
+    notes: Full browser E2E PASS — 0 open P0/P1. Artifact — QA-REPORT-WP-CANON-CLOSEOUT-E2E-TEAM50-2026-07-14.md.
+  - gate: PACKAGE_CLOSE
+    result: ACCEPTED
+    date: '2026-07-14'
+    authority: team_00
+    notes: Principal accepted package closure in chat 2026-07-14 («מאשר סגירת החבילה כצוות 00»). Staging package closed for Eyal review; production cutover not in scope. Artifact — _COMMUNICATION/team_00/ACCEPTANCE-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md.
+- id: WP-S4-01
+  label: Anchor page /snoring-sleep-apnea/ — verbatim rewrite from saved Drive MD (18 sections) + pending media slots
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_90
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-01-LOD400-2026-07-15.md
+  next_wp: WP-S4-04
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT — API L0 eyalamit roadmap stale (active_milestone=S002, no S003/WP-CANON; full GET hangs http=000 2026-07-15); file _aos/roadmap.yaml is live SSoT.'
+  notes: 'S004 delivery milestone. Source saved at docs/.../from-eyal/2026-07-12--snoring-sleep-apnea-didgeridoo-CHECKED.md. Yoni story + Maccabi screenshot remain pending-approval (Eyal-blocked → WP-EI-03). Index — _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md.'
+- id: WP-S4-02
+  label: Books technical-debt closeout — galleries, temp GI button, FAQ seed, schema (verify + residuals)
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-02-LOD400-2026-07-15.md
+  next_wp: WP-S4-03
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Most work executed prior session; this WP = verification + residuals. Residual real images → WP-EI-02; exact GI URLs → WP-EI-01. Mendele drift fixed (DRIFT-REPORT-BOOK-PURCHASE-MENDELE-VS-GREEN-INVOICE-2026-07-14.md).'
+- id: WP-S4-03
+  label: Content-QA 2026-07-12 batch — dedicated browser/staging closeout with evidence (12 items)
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_50
+  assigned_validator: team_90
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-03-LOD400-2026-07-15.md
+  next_wp: WP-S4-07
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Closes the 2026-07-12 batch that reached L-GATE_BUILD PASS_WITH_FINDINGS but had no dedicated browser QA. Cross-engine vs original Claude builder.'
+- id: WP-S4-04
+  label: learning + legal + /en — team-authored content (glow-placeholder genuine gaps)
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-04-LOD400-2026-07-15.md
+  next_wp: WP-S4-02
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'team_00 2026-07-15 chose author-then-glow. Legal + /en are team drafts → Eyal approval WP-EI-05/06.'
+- id: WP-S4-05
+  label: Restore wp-admin editability — Chapters inner ACF (Option B) + product price meta-box
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_110
+  assigned_validator: team_90
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-05-LOD400-2026-07-15.md
+  parent_lod300: _COMMUNICATION/team_100/S004/WP-S4-05-LOD300-FIELD-MODEL-2026-07-15.md
+  next_wp: WP-S4-06
+  profile: L0
+  priority: CRITICAL
+  blocked_by:
+  - WP-S4-01
+  - WP-S4-04
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'CORE DRIFT FIX. team_00 22.6 Option B never implemented — only home has ACF; Chapters migration dropped post_content editability. Heterogeneous sections require LOD300 field-model decision (parent_lod300). Important-pages scope + exclusion candidates: index §2.1 (Eyal to approve exclusions).'
+- id: WP-S4-06
+  label: Full-site glow-placeholder audit — every Eyal-missing item carries a visible marker
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-06-LOD400-2026-07-15.md
+  next_wp: WP-S4-08
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - WP-S4-01
+  - WP-S4-04
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Extends .ea-pending-approval to any prose/CTA lacking a media slot. User mandate: no Eyal-missing content renders without a glow marker.'
+- id: WP-S4-07
+  label: SEO/GEO team content drafts — AF-01..04 answer-first, FAQ-02/03, BLOG spokes
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_30
+  assigned_validator: team_90
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-07-LOD400-2026-07-15.md
+  next_wp: WP-S4-05
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Team-authored per 2026-07-14 decision. Source drafts in hub/data/content-proposals.json. Claims needing Eyal sign-off (1999, CPAP, cbDIDG expansion) marked glow.'
+- id: WP-S4-08
+  label: Final QA sweep + deploy + Eyal review package (closing gate)
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_50
+  assigned_validator: team_190
+  created_at: '2026-07-15'
+  milestone_ref: S004
+  spec_ref: _COMMUNICATION/team_100/S004/WP-S4-08-LOD400-2026-07-15.md
+  next_wp: M-EYAL-INPUTS
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - WP-S4-01
+  - WP-S4-02
+  - WP-S4-03
+  - WP-S4-04
+  - WP-S4-05
+  - WP-S4-06
+  - WP-S4-07
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Cross-engine full-site E2E + qa_probe + FTP/theme + Hub deploy + Eyal review package. S004 closeout gate.'
+- id: WP-EI-01
+  label: 'Eyal-blocked: exact Green Invoice URLs — 3 books + 5 products'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-01-LOD400-2026-07-15.md
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - 'EYAL_INPUT: per-item Morning/GI checkout URLs'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Swap temp mrng.to/MTUiO3vkIg → per-item URL. Placeholder created by WP-S4-02. Hub: content-intake.'
+- id: WP-EI-02
+  label: 'Eyal-blocked: real book + product gallery images'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-02-LOD400-2026-07-15.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - 'EYAL_INPUT: 2-3 images per book/product (Drive/WhatsApp)'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Swap pending gallery slots → real attachments. Placeholder created by WP-S4-02/S4-06.'
+- id: WP-EI-03
+  label: 'Eyal-blocked: anchor media (Maccabi/Yoni) + final medical wording'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_90
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-03-LOD400-2026-07-15.md
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - 'EYAL_INPUT: Maccabi screenshot, Yoni story/photo, medical-claim approval'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Swap anchor pending slots + confirm medical claims. Placeholder created by WP-S4-01.'
+- id: WP-EI-04
+  label: 'Eyal-blocked: Mokesh Dahiman final approval + extra photos'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-04-LOD400-2026-07-15.md
+  profile: L0
+  priority: LOW
+  blocked_by:
+  - 'EYAL_INPUT: approval + memorial photos'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Page live verbatim; non-blocking. Hub: materials-intake (mokesh).'
+- id: WP-EI-05
+  label: 'Eyal-blocked: legal copy final approval (privacy/accessibility/terms)'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-05-LOD400-2026-07-15.md
+  profile: L0
+  priority: HIGH
+  blocked_by:
+  - 'EYAL_INPUT: approve/edit team legal drafts'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Remove glow banner + apply edits to WP-S4-04 drafts. Israeli accessibility statement legally required.'
+- id: WP-EI-06
+  label: 'Eyal-blocked: /en landing body approval'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-06-LOD400-2026-07-15.md
+  profile: L0
+  priority: LOW
+  blocked_by:
+  - 'EYAL_INPUT: approve English summary'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'D-EYAL-EN-BODY-02 was deferred; team draft in WP-S4-04.'
+- id: WP-EI-07
+  label: 'Eyal-blocked: 48 testimonials curation + display approval + GA4/Clarity IDs'
+  status: BLOCKED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10
+  assigned_validator: team_50
+  created_at: '2026-07-15'
+  milestone_ref: M-EYAL-INPUTS
+  spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-07-LOD400-2026-07-15.md
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - 'EYAL_INPUT: per-item testimonial approval + GA4 Measurement ID + Clarity Project ID'
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'GA4/Clarity are the 2 remaining WP-W2-01 Phase-2 inputs. Curation → hub/data/testimonials-curation.json.'
