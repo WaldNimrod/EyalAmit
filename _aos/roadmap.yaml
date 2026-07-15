@@ -1640,9 +1640,10 @@ work_packages:
     notes: Principal accepted package closure in chat 2026-07-14 («מאשר סגירת החבילה כצוות 00»). Staging package closed for Eyal review; production cutover not in scope. Artifact — _COMMUNICATION/team_00/ACCEPTANCE-WP-CANON-TEMPLATE-UNIFICATION-2026-07-14.md.
 - id: WP-S4-01
   label: Anchor page /snoring-sleep-apnea/ — verbatim rewrite from saved Drive MD (18 sections) + pending media slots
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS (2026-07-15). Builder team_10/sonnet; cross-engine validator team_90/composer-2.5 (IR#1 satisfied — anthropic≠cursor). AC-1..10,12 PASS; independent content-diff 0 discrepancies (201 MD units). AC-11 git-isolation = environmental (20 pre-existing dirty tracked files + untracked new deliverable; WP-S4-01 session touched ONLY snoring-sleep-apnea-defaults.php) — accepted by team_100 per validator route_recommendation (git hygiene, not content rework). Deployed to staging; qa_probe PASS mobile+desktop (0 overflow). Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-01-BUILD-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_10
   assigned_validator: team_90
@@ -1691,9 +1692,10 @@ work_packages:
   notes: 'Closes the 2026-07-12 batch that reached L-GATE_BUILD PASS_WITH_FINDINGS but had no dedicated browser QA. Cross-engine vs original Claude builder.'
 - id: WP-S4-04
   label: learning + legal + /en — team-authored content (glow-placeholder genuine gaps)
-  status: PLANNED
+  status: IN_PROGRESS
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: L-GATE_BUILD
+  gate_result: 'L-GATE_BUILD PASS (2026-07-15). Builder team_10/sonnet; cross-engine validator team_90/composer-2.5 (IR#1 satisfied). ALL AC PASS (A0,A2,A4,A5,B1-B5,C,X1-X3) — 4 learning defaults created + route map (additive, verified vs git HEAD), 3 legal drafts + glow banners (phero unchanged), /en English body (LTR). Deployed; qa_probe 16/16 PASS (8 routes × 2 viewports, 0 overflow). Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-04-BUILD-2026-07-15.md.'
   lod_status: LOD400
   assigned_builder: team_10
   assigned_validator: team_50

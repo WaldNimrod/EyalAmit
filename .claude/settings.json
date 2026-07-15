@@ -3,5 +3,20 @@
     "additionalDirectories": [
       "/Users/nimrod/Documents/agents-os"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(gh pr merge:*)",
+            "command": "bash \"$(git rev-parse --show-toplevel)/scripts/hooks/gh_merge_guard.sh\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
   }
 }
