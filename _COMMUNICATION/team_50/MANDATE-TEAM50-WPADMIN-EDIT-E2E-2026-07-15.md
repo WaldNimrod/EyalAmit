@@ -27,3 +27,9 @@ You are team_50 (E2E QA, composer-2.5). Prove that content is **actually editabl
 
 ## Required output
 Write **`_COMMUNICATION/team_50/VERDICT-WPADMIN-EDIT-E2E-2026-07-15.md`**: frontmatter (`tester_engine: composer-2.5`, `wp: WP-S4-05`); a top-level flag (`PASS` = full green / `FAIL` / `BLOCKED`); the page + field you tested; ACF-active result; AC-EDIT result (test value seen on front-end? yes/no + how verified); AC-FALLBACK result; cleanup confirmation; and any blocker (login failed, ACF inactive, ACF UI un-scriptable) with what a human would need to do. Save any script + screenshots/HTML under `_COMMUNICATION/team_50/evidence/wpadmin-edit-e2e-2026-07-15/`.
+
+## Credential update (team_00, 2026-07-15) — prior blocker RESOLVED
+`local/.env.upress` now has `UPRESS_WP_ADMIN_USER=nimrodadmin` (was the stale `eyaladmin`) + a fresh temporary `UPRESS_WP_ADMIN_PASS`. Use the env values as-is; the earlier wp-login failure was the stale user/pass — now fixed. Re-run the FULL cycle: login → confirm `group_chapters_treatment` ACF fields render on post 54 → AC-EDIT → front-end override → AC-FALLBACK → cleanup (leave field empty).
+
+## Location-rule fix deployed (team_100, 2026-07-15) — re-test the EDITOR UI
+The P0 you found is FIXED + deployed: `acf-fields-inner.php` now resolves the ACF `page` location to the numeric page ID via `ea_chapters_inner_page_id($slug)` (was the raw slug string, which ACF's `page` rule never matched). Re-run the FULL UI-driven cycle: login (nimrodadmin) → open post 54 (`/treatment/`) edit screen → **confirm `group_chapters_treatment` / `s1_title` ACF fields now RENDER** (`.acf-field` count > 0) → edit via the ACF UI field → save → front-end override → clear → fallback → cleanup. Expect PASS if the editor UI now shows the fields.

@@ -68,6 +68,40 @@ function ea_chapters_inner_type_slug_map() {
 }
 
 /**
+ * Resolve a Chapters route slug (leaf post_name, e.g. 'treatment' or 'mokesh-dahiman')
+ * to its numeric page ID for the ACF `page` location rule. ACF's `page` rule matches by
+ * numeric page ID — NOT by slug string — so a slug value never matches and the field
+ * group would never mount in wp-admin (fields invisible to the editor). Cached per request.
+ *
+ * @param string $slug
+ * @return int Page ID, or 0 if not found (location simply never matches — harmless).
+ */
+function ea_chapters_inner_page_id( $slug ) {
+	static $cache = array();
+	if ( array_key_exists( $slug, $cache ) ) {
+		return $cache[ $slug ];
+	}
+	$id   = 0;
+	$page = get_page_by_path( $slug, OBJECT, 'page' ); // top-level pages (treatment, method, …)
+	if ( $page instanceof WP_Post ) {
+		$id = (int) $page->ID;
+	} else {
+		// Nested pages (e.g. mokesh-dahiman under eyal-amit, vekatavta under books): the
+		// route slug is the leaf post_name — look it up directly by name.
+		$found = get_posts( array(
+			'name'        => $slug,
+			'post_type'   => 'page',
+			'post_status' => 'any',
+			'numberposts' => 1,
+			'fields'      => 'ids',
+		) );
+		$id = $found ? (int) $found[0] : 0;
+	}
+	$cache[ $slug ] = $id;
+	return $id;
+}
+
+/**
  * Common Hebrew editor-facing label for a recurring arg/sub name. Falls back to a
  * readable version of the raw key for anything not in this set — still fully
  * functional (the field still registers/overlays correctly), just less polished;
@@ -196,7 +230,7 @@ function ea_chapters_register_inner_fields() {
 			'title'           => 'פרקים — ' . $slug,
 			'fields'          => $fields,
 			'location'        => array(
-				array( array( 'param' => 'page', 'operator' => '==', 'value' => $slug ) ),
+				array( array( 'param' => 'page', 'operator' => '==', 'value' => (string) ea_chapters_inner_page_id( $slug ) ) ),
 			),
 			'menu_order'      => 0,
 			'position'        => 'normal',
@@ -374,7 +408,7 @@ function ea_chapters_register_method_fields() {
 		'title'           => 'פרקים — השיטה (method)',
 		'fields'          => $fields,
 		'location'        => array(
-			array( array( 'param' => 'page', 'operator' => '==', 'value' => 'method' ) ),
+			array( array( 'param' => 'page', 'operator' => '==', 'value' => (string) ea_chapters_inner_page_id( 'method' ) ) ),
 		),
 		'menu_order'      => 0,
 		'position'        => 'normal',

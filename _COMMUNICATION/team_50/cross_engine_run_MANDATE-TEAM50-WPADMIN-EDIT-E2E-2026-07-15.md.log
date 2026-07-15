@@ -1,30 +1,26 @@
-## E2E verdict: **BLOCKED**
+## VERDICT: **PASS**
 
-Delivered: `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/VERDICT-WPADMIN-EDIT-E2E-2026-07-15.md`
+Re-ran the full wp-admin editability cycle on staging after the location-rule fix. All mandate checks are green.
 
-Evidence: `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/evidence/wpadmin-edit-e2e-2026-07-15/`
+### What changed from the prior FAIL
+- **ACF UI now renders** on post **54** (`/treatment/`): **197** `.acf-field` elements in CDP; `group_chapters_treatment` / `s1_title` visible within ~3s of load (was 0 before `ea_chapters_inner_page_id()` fix).
+- **UI-driven cycle** (not just raw `acf[…]` POST): typed `__E2E_EDIT_2026-07-15__` into the `s1_title` input → clicked Gutenberg **עדכון** (`.editor-post-publish-button`) → front-end showed override → cleared field → save → default restored → **no `__E2E__` residue** on live `/treatment/`.
 
-### What was proven
+### Results summary
+
 | Check | Result |
 |-------|--------|
-| **ACF active on staging** | **YES** — `advanced-custom-fields/acf` is `active` (REST `/wp/v2/plugins` via `UPRESS_WP_APP_USER`/`PASS`) |
-| **ACF UI on edit screen** | **Not tested** — never reached wp-admin |
-| **AC-EDIT** | **Not run** |
-| **AC-FALLBACK (full cycle)** | **Not run** — baseline `/treatment/` shows seeded default (HTTP 200, no white-screen) only |
-| **Cleanup** | **N/A** — no `__E2E__` residue |
+| Login (`nimrodadmin` via env keys) | PASS |
+| ACF plugin active | YES |
+| ACF fields render in editor | YES |
+| AC-EDIT (override on front) | YES |
+| AC-FALLBACK (default, no white-screen) | YES |
+| Cleanup | YES (0 `__E2E__` on front) |
 
-### Blocker
-`UPRESS_WP_ADMIN_PASS` in `local/.env.upress` does **not** work for `wp-login.php` (user `eyaladmin` — WordPress returns “password incorrect”). Reproduced via HTTP POST and headless CDP form submit.
+### Artifacts
+- Verdict: `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/VERDICT-WPADMIN-EDIT-E2E-2026-07-15.md`
+- Primary evidence: `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/evidence/wpadmin-edit-e2e-2026-07-15/e2e-ui-results.json`
+- UI runner (new): `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/evidence/wpadmin-edit-e2e-2026-07-15/wpadmin_edit_e2e_ui.mjs`
 
-`UPRESS_WP_APP_USER`/`UPRESS_WP_APP_PASS` **do** work for REST (`verify_upress_rest.py` OK), but Application Passwords cannot drive the wp-admin ACF editor.
-
-### Planned test (not executed)
-- Page: `/treatment/` (ID 54)
-- Field: `s1_title` → `__E2E_EDIT_2026-07-15__`
-
-### Human action required (team_20)
-1. Retrieve/reset the real **wp-admin account password** for `eyaladmin` from uPress (not the Application Password).
-2. Update `UPRESS_WP_ADMIN_PASS` in `local/.env.upress`.
-3. Re-run this mandate — team_50 will complete AC-EDIT → AC-FALLBACK → cleanup in wp-admin.
-
-Scripts saved under evidence: `wpadmin_edit_e2e_runner.py`, `wpadmin_login_cdp.mjs`, plus `results.json` and login HTML/JSON captures.
+### Recommendation to team_100
+**WP-S4-05 AC-EDIT / AC-FALLBACK** — team_50 signs **PASS** for live staging editability on `/treatment/` post 54. Optional spot-check on `/repair/` and `/didgeridoos/` before broad gate close.
