@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-07-15T15:13:02.645Z",
+  "tester_engine": "composer-2.5",
+  "wp": "WP-S4-05",
+  "mode": "ui-driven-cdp",
+  "page": {
+    "id": 54,
+    "slug": "treatment"
+  },
+  "field": {
+    "name": "s1_title",
+    "key": "f_treatment_s1_title",
+    "testValue": "__E2E_EDIT_2026-07-15__"
+  },
+  "defaultSnippet": "משהו בנשימה שלך מבקש תשומת לב",
+  "envKeys": [
+    "UPRESS_WP_ADMIN_USER",
+    "UPRESS_WP_ADMIN_PASS"
+  ],
+  "userLogin": "nimrodadmin",
+  "cdpUi": {
+    "loginOk": true,
+    "acfUi": {
+      "hasAcfField": true,
+      "hasS1Title": true,
+      "hasFieldKey": true,
+      "acfFieldCount": 197,
+      "groupVisible": true
+    },
+    "uiEdit": {
+      "setField": {
+        "ok": true,
+        "value": "__E2E_EDIT_2026-07-15__"
+      },
+      "saveClick": {
+        "ok": true,
+        "method": "gutenberg-button",
+        "clicked": "components-button editor-post-publish-button editor-post-publish-button__button is-primary is-compact"
+      },
+      "frontAfterSet": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=1784128406464",
+        "status": 200,
+        "hasTestValue": true,
+        "hasDefault": true,
+        "bodyLen": 84282,
+        "whiteScreen": false
+      }
+    },
+    "uiClear": {
+      "clearField": {
+        "ok": true,
+        "value": ""
+      },
+      "saveClick": {
+        "ok": true,
+        "method": "components-button editor-post-publish-button editor-post-publish-button__button is-primary is-compact"
+      },
+      "frontAfterClear": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=1784128421748",
+        "status": 200,
+        "hasTestValue": false,
+        "hasDefault": true,
+        "bodyLen": 84280,
+        "whiteScreen": false
+      }
+    }
+  },
+  "verdict": "PASS",
+  "summary": {
+    "loginOk": true,
+    "acfUiRendered": true,
+    "uiSetOk": true,
+    "uiSaveOk": true,
+    "acEditOk": true,
+    "acFallbackOk": true,
+    "cleanupOk": true
+  }
+}

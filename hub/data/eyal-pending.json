@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "titleHe": "מול אייל — פערי תוכן, שאלות והשלמות (עמודי Chapters)",
   "introHe": "סטטוס (2026-07-15): הצוות בנה רצף חבילות מסודר להבאת האתר למסירה סופית. חבילות צוותיות (S004) — עוגן verbatim, סגירת חוב ספרים, learning/משפטי/אנגלית, שחזור עריכת תוכן ב-wp-admin, סימון זוהר לכל חוסר, וטיוטות SEO — יבוצעו ללא תלות בך. הפריטים למטה הם רצף «M-EYAL-INPUTS»: כל אחד ממתין לחומר/החלטה ממך, והחיווט באתר (סימון «ממתין לאישור» זוהר) כבר מוכן — עם קבלת החומר זו החלפה מיידית. דחוף ממך: קישורי חשבונית ירוקה מדויקים, תמונות גלריה/עוגן (מכבי/יוני), ואישור ניסוחים משפטיים/רפואיים.",
-  "lockedSummaryHe": "נעול: D-EYAL-SITE-07 · D-EYAL-IA-MENU-08 · D-EYAL-HOME-01 · D-EYAL-MENU-BRAND-10 · D-EYAL-GREEN-UX-06 · D-EYAL-CONTENT-MODEL-09 · D-EYAL-ENTITY-CATALOG-12 · D-EYAL-GALLERY-03 · D-EYAL-KMD-04 · D-EYAL-COURSES-05 · D-EYAL-BRAND-17 / OPEN-BRAND-RETIRED (השמטת «סטודיו נשימה מעגלית»). נדחה: D-EYAL-EN-BODY-02.",
+  "lockedSummaryHe": "נעול: D-EYAL-SITE-07 · D-EYAL-IA-MENU-08 · D-EYAL-HOME-01 · D-EYAL-MENU-BRAND-10 · D-EYAL-GREEN-UX-06 · D-EYAL-CONTENT-MODEL-09 · D-EYAL-ENTITY-CATALOG-12 · D-EYAL-GALLERY-03 · D-EYAL-KMD-04 · D-EYAL-COURSES-05 · D-EYAL-BRAND-17 / OPEN-BRAND-RETIRED (השמטת «סטודיו נשימה מעגלית») · D-EYAL-VIDEO-13 (וידאו הירו) · D-EYAL-TESTIMONIALS-14 (קרוסלת עדויות) · D-EYAL-ABOUT-URL-15 (כתובת קנונית /eyal-amit) · D-EYAL-MOKESH-16 (מקור תוכן מוקש). ממתין: D-EYAL-EN-BODY-02 (טיוטה כבר עלתה — ר' WP-EI-06).",
   "stepsHe": [
     "נקודת כניסה: what-we-need.html",
     "WP-EI-01 — קישורי חשבונית ירוקה מדויקים: 3 ספרים + 5 מוצרים (דוגמה כבר חיה באתר הבדיקה).",
@@ -42,10 +42,10 @@
     },
     {
       "id": "OPEN-CHAPTERS-TESTIMONIALS",
-      "titleHe": "עדויות והמלצות — אופן הצגה + אצירת 48",
+      "titleHe": "עדויות והמלצות — אישור 48 תקצירי הקרוסלה",
       "owner": "eyal",
       "hubAction": "content-intake",
-      "noteHe": "מומש: עמודי השירות (טיפול / שיעורים / סאונד הילינג) מציגים כעת את עדויות המקור המלאות מילה-במילה במרקיזה; דף הבית מציג את מרקיזת הקורפוס (15+). נדרש ממך: (1) אישור אופן ההצגה; (2) אצירת 48 ההמלצות מהפייסבוק — לכל פריט: אישור / עריכת תקציר / החרגה (hub/data/testimonials-curation.json). פירוט ודוגמאות: docs/CHAPTERS-CONTENT-DECISIONS-EYAL.md §1."
+      "noteHe": "מומש: 48 ההמלצות מהמסמך ששלחת (18.6) כבר שולבו וחיות באתר לפי קטגוריה (טיפול/סאונד הילינג/שיעורים) + דף המדיה; אופן ההצגה (קרוסלה אוטומטית) הוכרע ואושר (D-EYAL-TESTIMONIALS-14, 2026-06-16). נדרש ממך רק צעד אחד: לכל אחד מ-48 הפריטים — אישור / עריכת תקציר / החרגה (hub/data/testimonials-curation.json, השם מקושר לפוסט המקורי לבדיקה). פירוט: docs/CHAPTERS-CONTENT-DECISIONS-EYAL.md §1."
     },
     {
       "id": "OPEN-BRAND-RETIRED",
@@ -57,10 +57,10 @@
     },
     {
       "id": "OPEN-MATERIALS-MEDIA",
-      "titleHe": "השלמות מדיה (תמונות/וידאו) ואישור וואטסאפ",
+      "titleHe": "השלמות מדיה (תמונות/וידאו)",
       "owner": "eyal",
       "hubAction": "drive-only",
-      "noteHe": "חומרים חסרים להשלמת העיצוב: תמונת/וידאו hero ל-4 עמודי השירות, תמונות מוצר (תיקים/סטנדים/תיקון), כריכות 3 הספרים, ותמונות מוקש/גלריות; וכן אישור מספר וואטסאפ +972 52-482-2842. רשימה מלאה והגשה: materials-intake.html (קבוצות A–H)."
+      "noteHe": "חומרים חסרים להשלמת העיצוב: תמונת/וידאו hero ל-4 עמודי השירות, תמונות מוצר (תיקים/סטנדים/תיקון), כריכות 3 הספרים, ותמונות מוקש/גלריות. רשימה מלאה והגשה: materials-intake.html (קבוצות A–H). לפני שליחת תמונות חדשות — כדאי לבדוק קודם את חומרי ה-DOK-WEB שכבר סופקו (יוני 2026, ~582 תמונות + 1459 סרטונים) שמא חלק מהצורך כבר מכוסה שם."
     },
     {
       "id": "OPEN-MOKESH-FINAL",

@@ -6,7 +6,7 @@ project:
   lean_kit_version: 3.4.0+20e2011
   created: '2026-03-29'
   owner: eyalamit_sd
-  active_milestone: S003
+  active_milestone: S005
   notes: 'WordPress 6.x refresh of eyalamit.co.il (uPress staging). Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub +
     books v2) COMPLETE as of 2026-04-11. S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V
     PASS. S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12. S002 WPs initialized
@@ -58,6 +58,40 @@ project:
     http=000, probed 2026-07-15) — _aos/roadmap.yaml remains the live SSoT for this spoke, same
     mechanism as WP-CANON. active_milestone left at S003 pending team_00 S003 closeout + S004 kickoff;
     LOD400 sequence pending cross-engine coverage validation (team_90, engine ≠ Claude author).
+
+    2026-07-15: **S004 «Final-Review Readiness» milestone COMPLETE** — 8/8 WPs (WP-S4-01..08) built by
+    team_10/110 (Sonnet), cross-engine validated (team_90 composer-2.5, Iron Rule #1 satisfied throughout),
+    constitutional gate PASS_WITH_FINDINGS + GO (team_190, WP-S4-08). Anchor page verbatim, books/FAQ debt
+    closed, learning+legal+EN drafts live, wp-admin editability restored + E2E-verified (one P0 caught by
+    the live test — ACF page-location bug, fixed same day — that 190/190 code-harnesses had missed), glow
+    audit complete, SEO/GEO content live. Site fully deployed to uPress staging + client-hub reconciled
+    against full Eyal correspondence history (hub-audit 2026-07-15 — corrected several stale/inaccurate
+    tracking items, notably the 48-testimonials item which the hub and the same-day delivery package had
+    mis-framed as still needing curation from Eyal when he had already supplied and the team had already
+    deployed them in June). Delivery package sent to Eyal (7 M-EYAL-INPUTS items + editability invitation).
+
+    2026-07-15: **S003 milestone CLOSED (team_00 sign-off, per direct instruction).** Of 40 WPs, 20 were
+    already DONE/COMPLETE (incl. WP-CANON-TEMPLATE-UNIFICATION, accepted by team_00 in chat 2026-07-14).
+    The remaining 20 (Wave2-era WP-W2-10/15/16/17 sub-tasks, predating the 2026-06-22 Chapters migration)
+    were individually classified against direct S004/WP-CANON evidence and closed: 13 DONE (superseded —
+    their original goals were achieved via the Chapters migration + WP-CANON + S004, not the originally-
+    planned execution path) and 7 SUPERSEDED (2 split — Eyal-blocked residuals re-tagged onto WP-EI-02/
+    WP-EI-07 rather than tracked twice; 5 carried forward as live work under the new S005 milestone: 3
+    quick-verify items into WP-S5-01, legacy/301 completeness into WP-S5-03, SEO/GEO ratified-execution
+    T-items into WP-S5-02). See individual WP `closure_note` fields (closed_by/closure_date: team_00,
+    2026-07-15) for per-WP evidence. No `_COMMUNICATION/` documents were edited for this closure — expressed
+    once at the roadmap/milestone level, with references, per team_00 instruction not to re-litigate old
+    drift file-by-file.
+
+    2026-07-15: **S005 «Path to Production Cutover» OPENED** (active_milestone S003 → S005). Built on the
+    already-existing master cutover plan (`_COMMUNICATION/team_100/SEO-GEO-VALIDATION-DEPLOYMENT-PLAN-
+    2026-06-20.md` §6.3/§7 — a full 15-point gated cutover sequence, not reinvented here) plus the carried-
+    forward S003 residuals above. Sequence: WP-S5-01 (quick-verify residuals) → WP-S5-02 (SEO/GEO ratified
+    execution completion) ∥ WP-S5-03 (legacy/301 completeness) ∥ M-EYAL-INPUTS (parallel, Eyal-triggered)
+    → WP-S5-04 (human-verified checks: wp-admin live edit rounds, one real lead-capture test, testimonial
+    excerpt review) → WP-S5-05 (gated production cutover, executing the master plan §6.3 sequence verbatim,
+    requiring explicit Eyal/team_00 go-live approval per §7 item 15). Approved by team_00 (plan-mode review,
+    2026-07-15) after presenting the WP-by-WP classification for sign-off.
 
     '
 work_packages:
@@ -853,9 +887,12 @@ work_packages:
     - {gate: CLOSURE, action: wp-closed, by: team_100, date: '2026-05-31', note: 'WP Closure Protocol: COMPLETE/LOD500_LOCKED via ADR034 offline-fallback (API 200 but DB lacks WP-W2-09 -> file SSoT). validate_aos 0 FAIL. team_191 archive mandate issued. Propagation SKIP. Merge feature/w2-09-cutover -> main PENDING team_00 go. **CLOSES S002 Wave2 build — W2-01..09 all COMPLETE.**'}
 - id: WP-W2-10
   label: UI Precision (umbrella) — per-cluster hi-fi mockups (team_35) → Eyal sign-off → refine → validate
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — reviewed visual composition on every route achieved via the 2026-06-22 Chapters migration + WP-CANON-TEMPLATE-UNIFICATION + S004''s comprehensive QA (54/54 render checks across ~32 routes), not the originally-planned per-cluster mockup flow. See S003-CLOSURE classification, _COMMUNICATION/team_100/S004/.'
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD400
   assigned_builder: team_35 (mockups) + team_10 (refinement)
   assigned_validator: team_50 (L-GATE_BUILD) + team_190 (L-GATE_VALIDATE)
@@ -985,9 +1022,12 @@ work_packages:
   progress: 'TRACK-2 ELEVATION RECEIVED 2026-06-02 (team_35, READY_FOR_S2, 0 new tokens/atoms): elevated LTR landing (gradient hero+kicker+breath-lines, about/method/services/books-cover-row/testimonials x4). IMPL LOD400: _aos/work_packages/S003/WP-W2-10-F/LOD400_IMPL_spec.md (/en LTR mirror, EN copy verbatim from wave2-w2-08.php, logical-prop mirror checklist). S2 SIGN-OFF RECORDED 2026-06-02 (team_00 proxy for Eyal): _COMMUNICATION/team_00/SIGNOFF_S2_WP-W2-10-F_2026-06-02.md -> S3 (team_10) UNBLOCKED per LOD400_IMPL_spec.md. S3 BUILT (worktree w2-10-track2-F, merged) + S4 PASS + team_100 pre-flight PASS 2026-06-02 (/en HTTP 200, axe 0/0, LH perf 98 / a11y 100, single H1, dir/lang=ltr/en on html+main, logical props only [0 physical left/right], lang pill -> Hebrew /, EN copy verbatim, real covers, 0 D-14 drift; deployed to staging). current_lean_gate=L-GATE_BUILD; routed to S5 (team_50 -> team_190 Cursor) per MANDATE-S5-WP-W2-10-ABEF. NOT merged to main (await team_00 go). PHASE B SWEEP 2026-07-08 (team_110): all per-team _COMMUNICATION/ paths cited above have been relocated to _archive/WP-W2-10-F/ — see ARCHIVE_MANIFEST.md Path redirects table.'
 - id: WP-W2-10-G
   label: UI Precision — Hero video finalization (Hero=C)
-  status: BLOCKED
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — hero video is live (ea-home-hero-720-muted.mp4, no-autoplay, preload=none, reduced-motion aware), verified 2026-07-15 via WP-S4-03 item 5. Same deliverable as WP-W2-16-A (D-EYAL-VIDEO-13 approved).'
   track: CONTENT+A
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD400
   assigned_builder: team_35 + team_10
   assigned_validator: team_50 + team_190
@@ -1162,9 +1202,12 @@ work_packages:
 
 - id: WP-W2-15
   label: Content reconciliation + Eyal-feedback fixes (live text vs Eyal 25.5.26)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — body content for method/treatment/sound-healing/lessons/books/shop pages confirmed live+real (not placeholder) across S004 (WP-S4-01/02/04/06/07). Sub-items closed individually below; W2-15-F/CR5 residuals re-tagged to WP-EI-02/WP-EI-07; W2-15-G carried forward to WP-S5-03.'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1178,9 +1221,12 @@ work_packages:
   notes: 'Umbrella. Eyal review 2026-06-04 (9 points) + CONTENT-INTEGRITY-AUDIT-2026-06-04.md: most content pages run team_35 MOCKUP placeholder copy, not Eyal source. Rebuild page bodies verbatim from from-eyal/תוכן לאתר 25.5.26/ (INDEX-CONTENT-2026-05-25.md). Structure locked (WP-W2-14 DONE) - content-fill only, no structural rework. NEW gate: CONTENT-ACCURACY (verbatim live-vs-source diff). Program plan: _COMMUNICATION/team_100/WP-W2-15-CONTENT-RECONCILIATION-PROGRAM-PLAN-2026-06-04.md. Triage: EYAL-FEEDBACK-TRIAGE-2026-06-04.md. PREREQ: Eyal Drive folder is Shared-with-me (NOT syncing locally) - add shortcut to My Drive.'
 - id: WP-W2-15-A
   label: Blog pagination fix (P0) — archive only ever shows page 1
-  status: IN_PROGRESS
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): CARRIED FORWARD — concrete technical bug claim (/blog/page/2..5 shows page-1 posts only) never independently re-checked against the current Chapters-era blog template. Absorbed into WP-S5-01 (quick-verify residuals, S005 milestone).'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1194,9 +1240,12 @@ work_packages:
   notes: 'Eyal #6 CONFIRMED: /blog/page/2..5 render page-1 posts only (~12 of 54 posts ever shown); force-routed archive ignores paged query var. Code fix (blog WP). First/unblocked.'
 - id: WP-W2-15-B
   label: Content reconcile — service/content pages (method/treatment/sound-healing/lessons + home)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — service/content pages (method/treatment/sound-healing/lessons/home/about) confirmed live with real bodies + AF-01..04 answer-first blocks (WP-S4-07).'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1211,9 +1260,12 @@ work_packages:
   notes: Rebuild bodies verbatim from method.md (live 0%), treatment.md (~25%), sound_healing_final.md (~25%), lesons.md (~25%), homepage1-3 v2.md (fix invented blocks, ~66%). 11/14 method sections currently missing. + About /eyal-amit from 'אודות - אייל עמית.md' (13-section FINAL; arrived 2026-06-04; was Eyal #7, now UNBLOCKED).
 - id: WP-W2-15-C
   label: Content reconcile — commerce (muzza + 3 book-detail pages)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — muzza + 3 book-detail pages confirmed live with real content, galleries, FAQ, schema (WP-S4-02).'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1228,9 +1280,12 @@ work_packages:
   notes: 'Eyal #4/#5. Rebuild from MUZZA.md (live 0%) + eyal_tsva_FINAL.md / kushi_full.md / vekatavta.md.'
 - id: WP-W2-15-D
   label: Build 5 unbuilt pages (tools-for-sale, bags, stands-storage, floor-stand, repair)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — all 5 shop pages (tools-for-sale/bags/stands-storage/floor-stand/repair) confirmed live with real content + glow-marked temp-GI CTAs + pending galleries (WP-S4-06).'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1245,9 +1300,12 @@ work_packages:
   notes: 'Eyal #9: the 5 pages EXIST (200) with partial/mockup content (team_190 F01) — verbatim RECONCILE from source (buy didgeridoo.md, bags for didg.md, stend for hanging.md, stend for playing.md, build didg.md) + verify IA/nav, NOT build-from-scratch.'
 - id: WP-W2-15-E
   label: FAQ overhaul (show-all + section TOC) + testimonials carousel
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — testimonials carousel confirmed live (48 items, WP-EI-07/hub-audit 2026-07-15). FAQ show-all confirmed via ea_faq CPT + faqblock (WP-CANON/S004). FAQ section-TOC specifically carried forward as a quick-verify item under WP-S5-01.'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1262,9 +1320,12 @@ work_packages:
   notes: 'Eyal #1 (per-page FAQ shows only 3 -> show all), #3 (full FAQ page: section dividers + top TOC jump-nav), #2 (testimonials: more items + L<->R moving carousel). Carousel item list TBD with Eyal.'
 - id: WP-W2-15-F
   label: 'Eyal-blocked: About page + Mokesh source + galleries/media real content'
-  status: BLOCKED
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SPLIT — About page + Mokesh source decision: DONE (built, D-EYAL-MOKESH-16 approved, 19 real gallery images live). Galleries/media real content + testimonials list: genuine residual, RE-TAGGED onto WP-EI-02 (gallery/product images) and WP-EI-07 (testimonials — already substantially resolved, see hub-audit 2026-07-15). Not tracked here to avoid duplicate open-item tracking across two milestones.'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1279,9 +1340,12 @@ work_packages:
   notes: '#7 About UNBLOCKED 2026-06-04 (source arrived) -> built under 15-B. Remaining BLOCKED: #8 Mokesh source decision (H1), galleries/media real content, real testimonials list for the carousel. Await Eyal.'
 - id: WP-W2-15-G
   label: Legacy non-indexed pages — SEO/migration completeness
-  status: IN_PROGRESS
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): CARRIED FORWARD — genuine unresolved technical task (406 legacy URLs, 301 coverage) never independently verified. Absorbed into WP-S5-03 (S005 milestone) rather than left open under a closed milestone.'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_40 + team_20
   assigned_validator: team_50 + team_190
@@ -1359,9 +1423,12 @@ work_packages:
   notes: 'Content reconcile batch 4 (shop) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /didgeridoos · /bags · /stands-storage · /stand-floor 63.5% · /repair 4%'
 - id: WP-W2-15-CR5
   label: Content reconcile batch 5 (Eyal-blocked)
-  status: BLOCKED
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SPLIT — same Eyal-blocked content as WP-W2-15-F (mokesh/galleries/media). RE-TAGGED onto WP-EI-02/WP-EI-07. Not tracked here to avoid duplicate open-item tracking.'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10 (∥ page sub-agents)
   assigned_validator: team_50 + team_190 (+ team_90 final audit)
@@ -1375,9 +1442,12 @@ work_packages:
   notes: 'Content reconcile batch 5 (Eyal-blocked) — rebuild verbatim from 25.5.26 source. ∥ page sub-agents (1 page = 1 agent for L/XL); internal adversarial content-diff before handover; external team_50→team_190 per batch. PASS = section≥95% / sentence≥90% / 0 invented. Pages: /mokesh (source H1) · /galleries · /media — real content/decisions from Eyal'
 - id: WP-W2-15-CR-FINAL
   label: Final full-site content validation + sign-off gate
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — full-site content validation + sign-off gate function performed, more thoroughly, by S004''s WP-S4-08 constitutional gate (team_190 L-GATE_VALIDATE PASS_WITH_FINDINGS + GO, 2026-07-15).'
   track: CONTENT
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10 (∥ page sub-agents)
   assigned_validator: team_50 + team_190 (+ team_90 final audit)
@@ -1392,9 +1462,12 @@ work_packages:
 
 - id: WP-W2-16
   label: Post-content completion (media/features/IA/verification)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — post-content-completion goals (hero video, testimonials, Mokesh content, verification) all achieved via S004 + hub-audit 2026-07-15. Sub-items closed individually below; 16-C/16-D carried forward as quick-verify items under WP-S5-01.'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1408,9 +1481,12 @@ work_packages:
   notes: 'Parent WP for the Eyal 2026-06-16 info round (video + 9 feedback points). Batches 16-A..16-F. Decisions D-EYAL-VIDEO-13 / TESTIMONIALS-14 / ABOUT-URL-15 / MOKESH-16 gate the respective batches. Most content complaints (4,5,7,9) already closed by WP-W2-15 CR1-4 - this WP is media/features/IA/verification.'
 - id: WP-W2-16-A
   label: Homepage hero video (G1 unblocked)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — hero video live and verified (same evidence as WP-W2-10-G).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1424,9 +1500,12 @@ work_packages:
   notes: 'Integrate compressed hero video (local/video-work: 720p muted 6.1MB + poster) into the home hero; replace gradient. Eyal pt G1. Gated by D-EYAL-VIDEO-13 (treatment: muted loop / sound / trim).'
 - id: WP-W2-16-B
   label: Testimonials carousel
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — testimonials carousel live, 48 items integrated from Eyal''s 2026-06-18 document, confirmed via hub-audit 2026-07-15 (hub/data/testimonials-curation.json + theme''s ea-testimonials-fb.json both match exactly).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1440,9 +1519,12 @@ work_packages:
   notes: 'New moving carousel atom (RTL<->LTR) replacing the static 3-card band; populate >3. Eyal pt 2. Gated by D-EYAL-TESTIMONIALS-14 (source/count).'
 - id: WP-W2-16-C
   label: FAQ topic navigation (TOC)
-  status: IN_PROGRESS
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): CARRIED FORWARD — its own note says ''READY, no decision dependency'' but was never independently confirmed built. Absorbed into WP-S5-01 (quick-verify residuals, S005 milestone).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1456,9 +1538,12 @@ work_packages:
   notes: 'Sticky topic menu on /faq with jump-to-section + clearer section separation. Eyal pt 3. READY - no decision dependency.'
 - id: WP-W2-16-D
   label: Navigation & IA polish
-  status: IN_PROGRESS
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): CARRIED FORWARD — /eyal-amit canonical URL confirmed (D-EYAL-ABOUT-URL-15 approved + live), but shop-pages-in-nav-menu specifically not directly verified. Absorbed into WP-S5-01 (quick-verify residuals, S005 milestone).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1472,9 +1557,12 @@ work_packages:
   notes: 'Expose shop pages (didgeridoos/bags/stands-storage/stand-floor) in nav; resolve /eyal-amit URL. Eyal pts 7,9. Gated by D-EYAL-ABOUT-URL-15.'
 - id: WP-W2-16-E
   label: Mokesh memorial content (ex 15-CR5)
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — /eyal-amit/mokesh-dahiman/ memorial page live, D-EYAL-MOKESH-16 approved, 19 real gallery images confirmed live (hub-audit 2026-07-15).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1488,9 +1576,12 @@ work_packages:
   notes: 'Rebuild /about/moksha from Eyal source (content currently non-source). Eyal pt 8. BLOCKED on Eyal decision D-EYAL-MOKESH-16 (docx-as-page + bio).'
 - id: WP-W2-16-F
   label: Verification & re-publish
-  status: IN_PROGRESS
+  status: DONE
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): SUPERSEDED — verification + re-publish function performed, far more comprehensively, by S004''s WP-S4-08 (all ~32 routes + 48 QR codes re-verified, 0 defects).'
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
+  current_lean_gate: CLOSED
   lod_status: LOD200
   assigned_builder: team_10
   assigned_validator: team_50 + team_190
@@ -1504,9 +1595,12 @@ work_packages:
   notes: 'Bust staging cache; re-verify blog pagination (pt 6); confirm pts 1/4/5/7/9 closed live; route team_50+team_190 per batch; Eyal re-check note. Partial-now (cache+verify); full external validation after 16-A..D merge.'
 - id: WP-W2-17
   label: CR-FINAL remediation + SEO/GEO ratified execution
-  status: IN_PROGRESS
+  status: SUPERSEDED
+  closed_by: team_00
+  closure_date: '2026-07-15'
+  closure_note: 'S003 closure (2026-07-15, team_00): CARRIED FORWARD — this WP is the direct source of docs/cutover/WP012-CUTOVER-CHECKLIST.md (''WP-W2-17 T6c''). Remaining T-items (sitemap URL reconciliation, route-completeness schema, QR-iframe CWV, Offer-price rule, T6 robots-production swap — correctly cutover-gated) absorbed into WP-S5-02 (S005 milestone) rather than left open under a closed milestone.'
   track: BUILD
-  current_lean_gate: L-GATE_VALIDATE
+  current_lean_gate: CLOSED
   lod_status: LOD400
   assigned_builder: team_110
   assigned_validator: team_90 (cursor, CR-FINAL leg-1 re-run) + team_50/team_190 (June PASS stands)
@@ -1898,7 +1992,7 @@ work_packages:
   roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
   notes: 'D-EYAL-EN-BODY-02 was deferred; team draft in WP-S4-04.'
 - id: WP-EI-07
-  label: 'Eyal-blocked: 48 testimonials curation + display approval + GA4/Clarity IDs'
+  label: 'Eyal-blocked: 48 testimonial-excerpt approvals + GA4/Clarity IDs (NOT raw curation — see note)'
   status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
@@ -1909,8 +2003,139 @@ work_packages:
   milestone_ref: M-EYAL-INPUTS
   spec_ref: _COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-07-LOD400-2026-07-15.md
   profile: L0
-  priority: MEDIUM
+  priority: LOW
   blocked_by:
-  - 'EYAL_INPUT: per-item testimonial approval + GA4 Measurement ID + Clarity Project ID'
+  - 'EYAL_INPUT: per-excerpt approve/edit/exclude (48 items) + GA4 Measurement ID + Clarity Project ID'
   roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
-  notes: 'GA4/Clarity are the 2 remaining WP-W2-01 Phase-2 inputs. Curation → hub/data/testimonials-curation.json.'
+  notes: 'Corrected 2026-07-15 (hub-audit): the label/spec above pre-dates verification that Eyal already
+    supplied all 48 testimonials (ממליצים מהפייסבוק.docx, 2026-06-18) and the team already integrated them
+    live (hub/data/testimonials-curation.json 48/48 = theme ea-testimonials-fb.json 48/48, confirmed
+    rendering — 80 linked elements verified live). D-EYAL-TESTIMONIALS-14 (display method) already approved.
+    Remaining ask is materially narrower than "curation": Eyal reviews 48 auto-generated carousel snippets
+    (approve/edit/exclude each) — priority downgraded MEDIUM→LOW accordingly. Also: WP-EI-05/06 (legal, EN)
+    residuals from WP-W2-15-F/CR5 (galleries/media real content) are separately tracked at WP-EI-02, not here.
+    GA4 already live (G-MRXESK7QJF); Clarity confirmed still genuinely pending (analytics-config.json literal
+    "__PENDING_EYAL__" sentinel). Same-day corrective addendum sent to Eyal alongside the main package.'
+- id: WP-S5-01
+  label: Quick-verify residuals — blog pagination, FAQ TOC, shop-nav exposure, QR direct-200, route-completeness spot-check
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-07-15'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md
+  next_wp: WP-S5-02
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Absorbs 3 verify-only items carried forward from closed S003 WPs (not superseded, never independently
+    confirmed): (1) WP-W2-15-A — blog pagination bug claim (/blog/page/2..5 shows page-1 posts only); (2)
+    WP-W2-16-C — FAQ section-TOC ("READY, no decision dependency" per its own note, never confirmed built);
+    (3) WP-W2-16-D — shop pages (didgeridoos/bags/stands-storage/stand-floor/repair) actually exposed in the
+    live nav menu (canonical /eyal-amit/ URL itself already confirmed). Also folds in: QR direct-200 assertion
+    per master cutover plan §8 item 3 (49 rows — parent /qr/ + 48 /qr/qrN/ — must be direct-200, no
+    redirect-follow, so the documented prod 302 on /qr/ is not masked) and a spot-check against §8 item 7
+    (route-completeness schema for /shows /repair /bags /stand-floor /stands-storage /books/* /mokesh /press
+    + 48 QR pages). Cheap, independent, no cross-dependencies — can start immediately.'
+- id: WP-S5-02
+  label: SEO/GEO ratified-execution completion — sitemap reconciliation, route-completeness schema, QR-iframe CWV, Offer-price rule
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-07-15'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_100/WP-W2-17-CRFINAL-SEO-REMEDIATION-PROGRAM-2026-07-03.md
+  next_wp: WP-S5-05
+  profile: L0
+  priority: MEDIUM
+  blocked_by: [WP-S5-01]
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Absorbs WP-W2-17''s remaining T-items (closed/superseded 2026-07-15 — see its closure_note) plus
+    the master cutover plan''s §8 open-items list, everything NOT already resolved: sitemap URL reconciliation
+    (/sitemap_index.xml single agreed URL across robots+301+GSC); route-completeness schema/meta for the 8+
+    route classes named in §8 item 7 (OR explicit noindex where a schema target genuinely does not apply);
+    48 QR raw-iframe facade/lazy/transcript + CWV (§8 item 8); WP-08 Offer-vs-omit is_numeric() price rule
+    (§8 item 9, never a fake/zero-price Offer). Explicitly NOT in scope here: T6 robots-production swap itself
+    (correctly cutover-gated — stays inside WP-S5-05''s gated sequence, per docs/cutover/WP012-CUTOVER-CHECKLIST.md).'
+- id: WP-S5-03
+  label: Legacy/301 completeness — triage 406 legacy URLs, verify redirect-map coverage
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-07-15'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md
+  next_wp: WP-S5-05
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Absorbs WP-W2-15-G (closed/superseded 2026-07-15 — see its closure_note): 406 legacy eyalamit.co.il
+    URLs from the 2026-06-04 GSC not-indexed export (~174 after stripping feed/tag/category/qr+attachments) —
+    triage real-content (preserve/301) vs junk; verify 301 coverage vs the live mechanism
+    (ea-w209-legacy-301-redirects.php is the SOLE live redirect source — quarantine any stale exports that
+    disagree, per master cutover plan §6.3 step 3); confirm new/rebuilt pages are indexable (no stray noindex);
+    cross-check so no real legacy content was dropped in the Chapters migration. SEO completeness, not
+    content-rewrite. Genuinely independent of S5-01/02 — can run in parallel.'
+- id: WP-S5-04
+  label: Human-verified checks — wp-admin live edit rounds, one real lead-capture test, testimonial-excerpt review
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_00 / Eyal (external — not team-executable)
+  assigned_validator: N/A (direct human verification)
+  created_at: '2026-07-15'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md
+  next_wp: WP-S5-05
+  profile: L0
+  priority: MEDIUM
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'The handful of checks that need a real credentialed human, not an agent — same category as the
+    WP-S4-05 live wp-admin E2E test (2026-07-15), which itself caught a P0 (ACF page-location bug) that
+    190/190 code-harnesses missed. Items: (1) team_00/Eyal tries wp-admin editing on any of the ~20 important
+    pages not yet exercised, confirming ACF-free stays active + the override/fallback cycle holds under real
+    use; (2) one real end-to-end CF7 form submission confirming inbox receipt (master cutover plan §4/§7
+    item 12 — form/wa.me/tel all fire generate_lead AND actually reach Eyal''s inbox, not just render); (3)
+    Eyal''s 48-testimonial-excerpt review (WP-EI-07). Not team-blocked — proceeds whenever team_00/Eyal has
+    time; not a hard gate on WP-S5-01..03, but IS a hard gate on WP-S5-05 (cutover cannot close without it).'
+- id: WP-S5-05
+  label: Gated Production Cutover — execute the master 15-point cutover sequence, go-live at eyalamit.co.il
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD400
+  assigned_builder: team_10 (execution) + team_00 (go/no-go)
+  assigned_validator: team_190 (constitutional, cross-engine, Iron Rule #5)
+  created_at: '2026-07-15'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_100/SEO-GEO-VALIDATION-DEPLOYMENT-PLAN-2026-06-20.md
+  next_wp: N/A — milestone-closing WP
+  profile: L0
+  priority: HIGH
+  blocked_by: [WP-S5-01, WP-S5-02, WP-S5-03, WP-S5-04, M-EYAL-INPUTS]
+  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  notes: 'Deliberately NOT a new invention — executes the master cutover plan §6.3''s existing 15-step
+    sequence verbatim: PRE-CUTOVER (full backup, final staging sign-off, regenerate 301 SSoT via
+    gen_htaccess_301_from_decisions.py, consolidated migration inventory classify keep-200/301/410/
+    QR-protected-200, freeze window) → DEPLOY+CONFIG TO PRODUCTION (theme+mu-plugins+content parity,
+    remove staging guards, real WP_HOME/WP_SITEURL, valid TLS, CF7 recipient, GA4+Clarity IDs, publish
+    REAL production robots.txt) → GO-LIVE (domain switch to www.eyalamit.co.il) → POST-CUTOVER VERIFY,
+    the full §7 15-point checklist (noindex lifted, TLS valid, www-canonical, redirect-chain audit, /Blog/
+    catch-all, QR direct-200, 404 audit, sitemap, GSC baseline, AI-bot matrix, schema, lead-deliverability,
+    CWV re-measure, analytics baseline, final sign-off) gated by scripts/final_pre_cutover_check.sh exit 0.
+    ROLLBACK: restore-to-legacy from step-1 backup if any gate fails within the window. Cannot start until
+    ALL of S5-01..04 + M-EYAL-INPUTS are closed AND explicit Eyal/team_00 go-live approval is recorded
+    (§7 item 15) — the one irreversible operation in this whole sequence.'

@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-07-15T15:13:44.877210+00:00",
+  "tester_engine": "composer-2.5",
+  "wp": "WP-S4-05",
+  "page": {
+    "id": 54,
+    "slug": "treatment"
+  },
+  "field": {
+    "name": "s1_title",
+    "key": "f_treatment_s1_title",
+    "group": "group_chapters_treatment",
+    "test_value": "__E2E_EDIT_2026-07-15__"
+  },
+  "default_snippet": "משהו בנשימה שלך מבקש תשומת לב",
+  "env_keys": [
+    "UPRESS_WP_ADMIN_USER",
+    "UPRESS_WP_ADMIN_PASS"
+  ],
+  "user_login": "nimrodadmin",
+  "acf_plugin": {
+    "acf_active": true,
+    "plugin": {
+      "name": "Advanced Custom Fields",
+      "plugin": "advanced-custom-fields/acf",
+      "status": "active"
+    }
+  },
+  "wp_login": {
+    "login_ok": true,
+    "user_login": "nimrodadmin"
+  },
+  "edit_screen": {
+    "edit_status": 200,
+    "acf_field_div_count": 464,
+    "has_s1_title_input": true,
+    "has_group_chapters_treatment": true,
+    "acf_js_config_has_field_key": false,
+    "acf_fields_rendered": true,
+    "nonces": {
+      "_wpnonce": true,
+      "_acf_nonce": true
+    }
+  },
+  "baseline_front": {
+    "status": 200,
+    "has_test_value": false,
+    "has_default_snippet": true,
+    "body_len": 84280,
+    "white_screen": false
+  },
+  "ac_edit": {
+    "save": {
+      "status": 200,
+      "final_url": "http://eyalamit-co-il-2026.s887.upress.link/wp-admin/post.php?post=54&action=edit&message=4"
+    },
+    "front_after_set": {
+      "status": 200,
+      "has_test_value": true,
+      "has_default_snippet": true,
+      "body_len": 84282,
+      "white_screen": false
+    }
+  },
+  "ac_fallback": {
+    "save": {
+      "status": 200,
+      "final_url": "http://eyalamit-co-il-2026.s887.upress.link/wp-admin/post.php?post=54&action=edit&message=4"
+    },
+    "front_after_clear": {
+      "status": 200,
+      "has_test_value": false,
+      "has_default_snippet": true,
+      "body_len": 84280,
+      "white_screen": false
+    }
+  },
+  "verdict": "PASS",
+  "summary": {
+    "acf_active": true,
+    "acf_ui_rendered": true,
+    "ac_edit_ok": true,
+    "ac_fallback_ok": true,
+    "cleanup_ok": true
+  }
+}

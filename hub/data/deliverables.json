@@ -3,6 +3,28 @@
   "noteHe": "קישורים יחסיים ל־files/ ב־Hub. מסמכי Word — אחרי בנייה עם --mirror-docs. קבצי zip תחת from-eyal/CONTENT/ ממוררים עם --mirror-docs. קובץ הדלטה (Markdown) מועתק מהמאגר בכל בנייה ל־files/reference/.",
   "items": [
     {
+      "id": "DELIV-2026-07-15-FINAL-REVIEW-PACKAGE",
+      "date": "2026-07-15",
+      "titleHe": "חבילת סקירה סופית — 7 M-EYAL-INPUTS (docx + PDF)",
+      "href": "files/to-eyal/2026-07-15--final-review-package/2026-07-15--EyalAmit-final-review-package.docx",
+      "noteHe": "המסמך המרכזי לסבב הסקירה הנוכחי: מה מוכן, ו-7 סעיפי קלט הנדרשים ממך (EI-01..07). גרסת PDF זמינה באותה תיקייה.",
+      "documentStatus": "final"
+    },
+    {
+      "id": "DELIV-2026-07-14-STAGING-UPDATE-QUESTIONS",
+      "date": "2026-07-14",
+      "titleHe": "עדכון סטייג'ינג + שאלות — WP-CANON (חנות/ספרים/FAQ/מוקש)",
+      "href": "files/to-eyal/2026-07-14--staging-update-questions-for-eyal/EYAL-STAGING-UPDATE-AND-QUESTIONS-2026-07-14.pdf",
+      "noteHe": "עדכון על עליית איחוד התבניות לסטייג'ינג + שאלות (מנדלי/כושי, גלריות ספרים, תמונות מוצר, קישורי סליקה). חלק מהשאלות נסגרו מאז ב-S004."
+    },
+    {
+      "id": "DELIV-2026-06-19-CLARITY-GUIDE",
+      "date": "2026-06-19",
+      "titleHe": "מדריך הקמה — Microsoft Clarity (project_id)",
+      "href": "files/to-eyal/2026-06-19--clarity-setup-guide/clarity-setup-guide-he.html",
+      "noteHe": "מדריך שלב-אחר-שלב לאיתור ושליחת project_id של Clarity — שער אנליטיקס אחרון לפני go-live (EYL-1)."
+    },
+    {
       "id": "DELIV-2026-04-11-LEGACY-MEDIA-CATALOG",
       "date": "2026-04-11",
       "titleHe": "קטלוג מדיה לגסי — גלריה + אינדקס JSON (צוות 40)",

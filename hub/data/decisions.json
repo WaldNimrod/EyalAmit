@@ -62,12 +62,12 @@
     {
       "id": "D-EYAL-EN-BODY-02",
       "titleHe": "עמוד EN — גוף הטקסט",
-      "contextHe": "H1 נעול: Didgeridoo healing center - Eyal Amit. שאר הניסוח — טיוטה.",
-      "optionsHe": "א׳ לאשר מוקאפ · ב׳ עריכה ממוקדת (תשלח טקסט) · ג׳ שיחת טון 15 דק׳",
+      "contextHe": "H1 נעול: Didgeridoo healing center - Eyal Amit. עדכון 2026-07-15: טיוטת גוף מלאה (About + מה אנחנו מציעים) כבר כתובה וחיה ב-/en/, עם באנר DRAFT — לא רק ה-H1 שדנו בו קודם.",
+      "optionsHe": "א׳ לאשר את הטיוטה המלאה כפי שהיא · ב׳ עריכה ממוקדת (תשלח טקסט מתוקן) · ג׳ שיחת טון 15 דק׳",
       "implicationsHe": "א׳ חוסך סבבים; ב׳/ג׳ דורשים זמן ממך",
-      "recommendationHe": "א׳ לאחר קריאה אחת של מוקאפ EN",
-      "status": "deferred",
-      "resolutionHe": "נדחה (2026-04-06): גוף עמוד EN יטופל בשלב האחרון של בניית האתר — לא נדרש קלט נוסף מניהול כעת. מוקאפ ב־Hub: mockups/en-landing-page-preview.html.",
+      "recommendationHe": "א׳ לאחר קריאה אחת של /en/ החי",
+      "status": "pending",
+      "resolutionHe": "",
       "mockupHref": "mockups/en-landing-page-preview.html"
     },
     {
@@ -176,6 +176,28 @@
       "recommendationHe": "א׳ — עקבי עם הסרת המותג שכבר בוצעה בכל האתר.",
       "status": "approved",
       "resolutionHe": "א׳ — ההשמטה קבועה וסופית; שם המותג הוחלף בכל המקומות. מבדק התוכן עודכן בהתאם. (team_00, 2026-07-03)",
+      "mockupHref": ""
+    },
+    {
+      "id": "D-EYAL-FAQ-PRICING-18",
+      "titleHe": "מדיניות תמחור ב-FAQ — טווח מחיר מול «בתיאום אישי»",
+      "contextHe": "FAQ-03 (S4-07, 2026-07-15) מוסיף שאלה 'כמה עולה טיפול/שיעור?'. התשובה החיה כרגע נופלת כברירת מחדל ל-'בתיאום אישי' — לא פורסם טווח מחיר, כדי לא לפרסם מספר בלי הכרעה מפורשת שלך.",
+      "optionsHe": "א׳ לפרסם טווח מחיר מפורש · ב׳ להשאיר 'בתיאום אישי' (המצב הנוכחי) · ג׳ טווח כללי מאוד (למשל 'החל מ-₪X') בלי מספר מדויק",
+      "implicationsHe": "א׳ משפיע על נוסח ה-FAQ ועל ה-meta description; משנה את סוג הפניות (יותר מסוננות מראש). ב׳/ג׳ ללא שינוי טכני — רק ניסוח.",
+      "recommendationHe": "אין המלצת SEO חד-משמעית — תלוי במדיניות התמחור העסקית שלך.",
+      "status": "pending",
+      "resolutionHe": "",
+      "mockupHref": ""
+    },
+    {
+      "id": "D-EYAL-META-SWAP-19",
+      "titleHe": "Meta description — להחליף 5 תיאורים מאושרים (12.7) בניסוח cbDIDG חדש?",
+      "contextHe": "S4-07 (2026-07-15) כתב <title> + description חדשים מובילי-cbDIDG ל-6 routes. ה-<title> כבר חי בכולם. 5 מתוך 6 (/treatment /method /sound-healing /lessons /eyal-amit) שומרים בכוונה על ה-description שאישרת ב-12.7.2026 — הסקריפט לא דרס אותם בלי הכרעה מפורשת.",
+      "optionsHe": "א׳ להחליף את כל 5 בניסוח cbDIDG החדש · ב׳ להשאירם כפי שהם (המצב הנוכחי) · ג׳ להחליט זוג-זוג",
+      "implicationsHe": "א׳ דורש הפעלת סקריפט קיים שיידרוס בכוונה; ב׳ ללא פעולה נדרשת.",
+      "recommendationHe": "ב׳ כברירת מחדל — הם כבר עברו סבב אישור מלא ב-12.7; לשקול א׳ רק אם עקביות מיתוג-cbDIDG חדה יותר חשובה לך יותר מהניסוח הקיים.",
+      "status": "pending",
+      "resolutionHe": "",
       "mockupHref": ""
     }
   ]

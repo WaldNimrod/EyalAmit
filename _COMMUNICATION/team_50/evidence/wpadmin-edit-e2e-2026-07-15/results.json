@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T13:51:52.288210+00:00",
+  "generated_at": "2026-07-15T14:57:11.313031+00:00",
   "tester_engine": "composer-2.5",
   "wp": "WP-S4-05",
   "page": {
@@ -27,11 +27,11 @@
       "UPRESS_WP_ADMIN_USER",
       "UPRESS_WP_ADMIN_PASS"
     ],
-    "user_login": "eyaladmin",
-    "login_ok": false,
-    "final_url": "http://eyalamit-co-il-2026.s887.upress.link/wp-login.php",
-    "login_error": "שגיאה: הסיסמה שהוזנה עבור המשתמש eyaladmin אינה נכונה. שחזור סיסמה",
-    "edit_status": null,
+    "user_login": "nimrodadmin",
+    "login_ok": true,
+    "final_url": "http://eyalamit-co-il-2026.s887.upress.link/wp-admin/",
+    "login_error": null,
+    "edit_status": 200,
     "acf_fields_rendered": false
   },
   "baseline_front": {
@@ -79,9 +79,9 @@
     }
   },
   "derived": {
-    "flag": "BLOCKED",
+    "flag": "FAIL",
     "acf_active": true,
-    "wp_login_ok": false,
+    "wp_login_ok": true,
     "acf_ui_rendered": false,
     "ac_edit_render_path": false,
     "ac_fallback_render_path": true,
