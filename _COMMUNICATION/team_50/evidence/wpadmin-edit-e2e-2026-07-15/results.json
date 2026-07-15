@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-07-15T13:51:52.288210+00:00",
+  "tester_engine": "composer-2.5",
+  "wp": "WP-S4-05",
+  "page": {
+    "slug": "treatment",
+    "id": 54
+  },
+  "field": {
+    "name": "s1_title",
+    "key": "f_treatment_s1_title",
+    "test_value": "__E2E_EDIT_2026-07-15__"
+  },
+  "default_snippet": "משהו בנשימה שלך מבקש תשומת לב",
+  "acf_plugin": {
+    "source": "GET /wp/v2/plugins (UPRESS_WP_APP_USER/PASS)",
+    "acf_active": true,
+    "plugin": {
+      "name": "Advanced Custom Fields",
+      "plugin": "advanced-custom-fields/acf",
+      "status": "active"
+    }
+  },
+  "wp_login": {
+    "method": "POST /wp-login.php",
+    "env_keys": [
+      "UPRESS_WP_ADMIN_USER",
+      "UPRESS_WP_ADMIN_PASS"
+    ],
+    "user_login": "eyaladmin",
+    "login_ok": false,
+    "final_url": "http://eyalamit-co-il-2026.s887.upress.link/wp-login.php",
+    "login_error": "שגיאה: הסיסמה שהוזנה עבור המשתמש eyaladmin אינה נכונה. שחזור סיסמה",
+    "edit_status": null,
+    "acf_fields_rendered": false
+  },
+  "baseline_front": {
+    "status": 200,
+    "has_test_value": false,
+    "has_default_snippet": true,
+    "body_len": 84280,
+    "white_screen": false
+  },
+  "render_path_corroboration": {
+    "note": "SQL postmeta overlay — corroborates render only, NOT wp-admin UI",
+    "meta_before": {
+      "ok": true,
+      "action": "read",
+      "response_len": 189
+    },
+    "set": {
+      "ok": true,
+      "action": "set",
+      "response_len": 189
+    },
+    "front_after_set": {
+      "status": 200,
+      "has_test_value": false,
+      "has_default_snippet": true,
+      "body_len": 84280,
+      "white_screen": false
+    },
+    "clear": {
+      "ok": true,
+      "action": "clear",
+      "response_len": 189
+    },
+    "front_after_clear": {
+      "status": 200,
+      "has_test_value": false,
+      "has_default_snippet": true,
+      "body_len": 84280,
+      "white_screen": false
+    },
+    "meta_after_cleanup": {
+      "ok": true,
+      "action": "read",
+      "response_len": 189
+    }
+  },
+  "derived": {
+    "flag": "BLOCKED",
+    "acf_active": true,
+    "wp_login_ok": false,
+    "acf_ui_rendered": false,
+    "ac_edit_render_path": false,
+    "ac_fallback_render_path": true,
+    "cleanup_ok": true
+  }
+}
