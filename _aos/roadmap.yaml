@@ -2569,6 +2569,35 @@ work_packages:
   priority: HIGH
   blocked_by: []
   roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
+  gate_history:
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine cycle 1
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 blocker / 1 major (F-01) / 3 minor (F-02..F-04)
+    notes: 'F-01 (major) caught a real defect team_100 had inherited from BOTH input docs: §4.B/AC-2 targeted
+      template-parts/blocks/block-footer-social.php, but every live Chapters route renders
+      template-parts/chapters/section-footer.php — block-footer-social.php is DEAD CODE (ea-cfoot = 0 on /,
+      /faq/, /contact/, /treatment/, /blog/, /blog/?cat=*, /qr/qr2/; referenced only by dead Wave2 templates).
+      A builder following the spec would have "succeeded" in the wrong file and failed AC-2 on the home page.
+      This is the Wave2→Chapters dual-template debt; the error survived three documents because the dead
+      file''s string («פרדס חנה · ישראל») closely resembles the live footer''s («פרדס חנה, ישראל»). The
+      validator also independently confirmed both traps (FAQ seeder insert-only vs QR seeder update-on-rerun;
+      052-482284 substring) and all six §8 corrections to the input docs. Artifact —
+      _COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-2026-07-16.md.'
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine cycle 2 (delta)
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'All 4 cycle-1 findings CLOSED (F-01 §4.B rewritten to target section-footer.php L32-34 + explicit
+      do-not-touch on the dead file + AC-2 dead-code guard; F-02 full qa_probe.mjs path; F-03 0-based indexing
+      + author-name identification; F-04 naive count corrected 7→6 within the guard scan scope). Anti-regression
+      intact — both traps, AC-1/3/4/5/7 and guardrails unchanged. 0 new findings. Iron Rule #1 satisfied
+      (author claude-opus-4-8 ≠ validator composer-2.5). route_recommendation: L-GATE_SPEC PASS — team_110 may
+      start L-GATE_BUILD immediately. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-CYCLE2-2026-07-16.md.'
   origin: 'Carries forward the residual of **WP-S4-07** (SUPERSEDED 2026-07-16), whose own team_90 verdict
     mandated «before L-GATE_BUILD closeout: fix AC-10 (NAP FAQ-03 ↔ footer) and AC-6 gap (rebirthing FAQ glow);
     complete AC-4 FAQ-03 Q3 + Q1 geo answer in seed» — never performed, re-verified still open live 2026-07-16.

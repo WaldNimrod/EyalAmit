@@ -1,0 +1,33 @@
+## Verdict: `PASS_WITH_FINDINGS`
+
+פסק הדין נכתב ל: [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-2026-07-16.md)
+
+### מה אומת ונמצא נכון
+
+- **שתי המלכודות:** FAQ insert-only (`ea-faq-seed-once.php` L101–104, `init@40`) מול QR update-on-diff (`ea-w2-07-qr-seed-once.php` L57–58, `init@28`); drop-in priorities @41 / @27; איסור v3 update-all — **מדויק**.
+- **תת-מחרוזת:** lookaround → **קובץ אחד** (`ea-w2-07-qr-content-data.php:606`); נאיבי = **6** (לא 7).
+- **קודפוינטים:** L87+L88 U+2011 ב-`contact.php`; L50 שלושה U+05F3; SSoT L61/65/66; qr32 חי HTTP 200 + `052-482284`.
+- **סטייג'ינג `/faq/`:** `ניסוח בידול`=0, `052-482-2842`=2, price/geo/glow baseline — **תואם המפרט**.
+- **§8 (6 תיקונים):** כולם **צודקים** (כולל glow ב-repo ל-`method-02`, AC-4 VERIFY-only).
+- **§5, roadmap, AC-1/3–7:** buildable; `yaml.safe_load` PASS.
+
+### ממצא major (חוסם לפני BUILD)
+
+**F-01 — פוטר כפול:** §4.B + AC-2 מכוונים ל-`block-footer-social.php`, אבל בית/FAQ/contact/שירות מרנדרים `section-footer.php` (`tpl-chapters-home.php` L58 וכו'). חי: `foot__brand` על `/`, `/faq/`, `/contact/` — **אפס** `ea-cfoot__*`. ביצוע §4.B בלבד **לא יעבור AC-2** על המסלולים העיקריים.
+
+**המלצה לצוות 100:** להוסיף `section-footer.php` (או partial משותף) ל-scope, **או** לצמצם AC-2 לתבניות שמשתמשות ב-`block-footer-social` בלבד.
+
+### ממצאים minor (4)
+
+- F-02: AC-8 — נתיב מלא ל-`qa_probe.mjs` חסר  
+- F-03: אינדקס testimonials #2/#11 (לא #1/#10)  
+- F-04: «7 קבצים» נאיבי → בפועל 6  
+- F-05: §8.5 מפנה ל-ROUTING §1 במקום §2  
+
+### בעלות הבאה
+
+| צוות | פעולה |
+|------|--------|
+| **team_100** | תיקון F-01 במפרט → אז GO ל-`L-GATE_BUILD` |
+| **team_10/110** | ביצוע אחרי סגירת F-01 |
+| **team_50** | E2E אחרי build + drop-ins על סטייג'ינג |
