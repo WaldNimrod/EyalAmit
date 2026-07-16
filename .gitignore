@@ -64,3 +64,6 @@ docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5
 _COMMUNICATION/team_110/build/gallery-eyal/
 # Local Google Drive desktop sync mirror
 /EyalAmit_Site_GoogleDrive_Sync/
+
+# node deps for the QA harness — never track (a self-referencing symlink was committed here by mistake)
+scripts/qa/node_modules/
