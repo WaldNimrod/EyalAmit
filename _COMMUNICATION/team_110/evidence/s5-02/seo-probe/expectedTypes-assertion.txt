@@ -1,0 +1,13 @@
+seo_probe check #7 (expectedTypes present) — new routes
+==================================================================
+press            /press/              PASS
+   expected: ['CollectionPage', 'WebPage', 'BreadcrumbList', 'WebSite']
+   present : ['WebPage', 'BreadcrumbList', 'WebSite', 'Person', 'ProfessionalService', 'CollectionPage']
+shows-heritage   /shows-heritage/     PASS
+   expected: ['CollectionPage', 'WebPage', 'BreadcrumbList', 'WebSite']
+   present : ['WebPage', 'BreadcrumbList', 'WebSite', 'Person', 'ProfessionalService', 'CollectionPage']
+qr-qr2           /qr/qr2/             PASS
+   expected: ['Article', 'VideoObject', 'WebPage', 'BreadcrumbList', 'WebSite']
+   present : ['WebPage', 'BreadcrumbList', 'WebSite', 'Person', 'ProfessionalService', 'Article', 'VideoObject']
+==================================================================
+§5 new-route type-presence: PASS

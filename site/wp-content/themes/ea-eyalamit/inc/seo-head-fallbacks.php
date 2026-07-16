@@ -48,6 +48,9 @@ function ea_w2_09_route_description() {
 		'blog'           => 'הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה.',
 		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
 		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח׳ עמל 8 ב׳ פרדס חנה. וואטסאפ, טלפון וטופס.',
+		'press'          => 'אייל עמית בתקשורת — כתבות, ראיונות ואזכורים על המרכז לטיפול בנשימה באמצעות דיג׳רידו, שיטת cbDIDG והספרים.',
+		'shows-heritage' => 'מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה.',
+		'qr'             => 'עמודי ה-QR של אייל עמית — סרטוני הדרכה ותוכן נלווה לספרים ולכלים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו.',
 	);
 
 	if ( is_home() && ! is_front_page() ) {
@@ -58,6 +61,25 @@ function ea_w2_09_route_description() {
 		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
 		if ( '' !== $excerpt ) {
 			return ea_w2_09_trim_description( $excerpt );
+		}
+	}
+
+	// QR pages (WP-S5-02 §2.4) — resolved BEFORE the Chapters is_view branch below.
+	// The /qr/ hub is a Chapters view whose generic phero.sub would otherwise be
+	// returned there and mask the dedicated copy; the children carry real bodies.
+	// Hub /qr/ -> dedicated $map['qr'] copy; child /qr/qrN/ -> trimmed post_content.
+	if ( is_page() ) {
+		$qr_obj = get_queried_object();
+		if ( $qr_obj instanceof WP_Post ) {
+			$qr_parent_slug = $qr_obj->post_parent
+				? (string) get_post_field( 'post_name', $qr_obj->post_parent )
+				: '';
+			if ( 'qr' === $qr_parent_slug ) {
+				return ea_w2_09_trim_description( wp_trim_words( wp_strip_all_tags( (string) $qr_obj->post_content ), 30, '…' ) );
+			}
+			if ( 'qr' === $qr_obj->post_name && 0 === (int) $qr_obj->post_parent ) {
+				return isset( $map['qr'] ) ? $map['qr'] : '';
+			}
 		}
 	}
 

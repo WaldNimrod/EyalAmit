@@ -232,6 +232,104 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 			}
 		}
 
+		// --- QR pages: Article (+ VideoObject per embedded video) on the /qr/ hub
+		//     and its 48 /qr/qrN/ children (WP-S5-02 §2.2). Description reuses the
+		//     theme meta engine so schema + <meta> stay in lockstep. ---
+		if ( is_page() ) {
+			$qr_obj = get_queried_object();
+			if ( $qr_obj instanceof WP_Post ) {
+				$qr_parent_slug = $qr_obj->post_parent
+					? (string) get_post_field( 'post_name', $qr_obj->post_parent )
+					: '';
+				$qr_is_hub   = ( 'qr' === $qr_obj->post_name && 0 === (int) $qr_obj->post_parent );
+				$qr_is_child = ( 'qr' === $qr_parent_slug );
+				if ( $qr_is_hub || $qr_is_child ) {
+					$qr_desc    = function_exists( 'ea_w2_09_route_description' ) ? (string) ea_w2_09_route_description() : '';
+					$qr_article = array(
+						'@type'            => 'Article',
+						'@id'              => $site . '#/schema/article/qr/' . $qr_obj->post_name,
+						'headline'         => get_the_title( $qr_obj ),
+						'url'              => get_permalink( $qr_obj ),
+						'mainEntityOfPage' => get_permalink( $qr_obj ),
+						'author'           => array( '@id' => $person_id ),
+						'publisher'        => array( '@id' => $biz_id ),
+					);
+					if ( '' !== $qr_desc ) {
+						$qr_article['description'] = $qr_desc;
+					}
+					$graph[] = $qr_article;
+
+					// VideoObject per UNIQUE embedded YouTube id (nocookie or plain),
+					// mirroring the mokesh trailer node shape above. uploadDate omitted
+					// (unknown — never invented).
+					$qr_vids = array();
+					if ( preg_match_all( '#youtube(?:-nocookie)?\.com/embed/([A-Za-z0-9_-]{6,})#', (string) $qr_obj->post_content, $qr_m ) ) {
+						foreach ( $qr_m[1] as $qr_vid ) {
+							if ( ! in_array( $qr_vid, $qr_vids, true ) ) {
+								$qr_vids[] = $qr_vid;
+							}
+						}
+					}
+					$qr_vcount = count( $qr_vids );
+					foreach ( $qr_vids as $qr_i => $qr_vid ) {
+						$qr_name = get_the_title( $qr_obj );
+						if ( $qr_vcount > 1 ) {
+							$qr_name .= ' — ' . ( (int) $qr_i + 1 );
+						}
+						$graph[] = array(
+							'@type'        => 'VideoObject',
+							'@id'          => $site . '#/schema/video/qr-' . $qr_obj->post_name . '-' . $qr_vid,
+							'name'         => $qr_name,
+							'embedUrl'     => 'https://www.youtube-nocookie.com/embed/' . $qr_vid,
+							'thumbnailUrl' => 'https://i.ytimg.com/vi/' . $qr_vid . '/hqdefault.jpg',
+							'contentUrl'   => 'https://youtu.be/' . $qr_vid,
+							'about'        => array( '@id' => $person_id ),
+							'publisher'    => array( '@id' => $biz_id ),
+						);
+					}
+				}
+			}
+		}
+
+		// --- Article/collection pages: CollectionPage on /press/ and
+		//     /shows-heritage/ (WP-S5-02 §2.3). ---
+		$ea_article_pages = array(
+			'press'          => array( 'type' => 'CollectionPage', 'name' => 'עיתונות ותקשורת — אייל עמית' ),
+			'shows-heritage' => array( 'type' => 'CollectionPage', 'name' => 'מורשת והופעות — אייל עמית' ),
+		);
+		if ( is_page() ) {
+			$ap_obj  = get_queried_object();
+			$ap_slug = ( $ap_obj && isset( $ap_obj->post_name ) ) ? (string) $ap_obj->post_name : '';
+			if ( isset( $ea_article_pages[ $ap_slug ] ) ) {
+				$ap_type = $ea_article_pages[ $ap_slug ]['type'];
+				// isPartOf → Yoast's real WebSite node @id (resolved from the graph so
+				// the reference never dangles); fall back to the canonical id form.
+				$ap_website_id = '';
+				foreach ( $graph as $ap_piece ) {
+					if ( is_array( $ap_piece ) && isset( $ap_piece['@type'], $ap_piece['@id'] ) && 'WebSite' === $ap_piece['@type'] ) {
+						$ap_website_id = (string) $ap_piece['@id'];
+						break;
+					}
+				}
+				if ( '' === $ap_website_id ) {
+					$ap_website_id = $site . '#/schema/website';
+				}
+				$ap_node = array(
+					'@type'     => $ap_type,
+					'@id'       => $site . '#/schema/' . $ap_type . '/' . $ap_slug,
+					'name'      => $ea_article_pages[ $ap_slug ]['name'],
+					'url'       => home_url( '/' . $ap_slug . '/' ),
+					'isPartOf'  => array( '@id' => $ap_website_id ),
+					'publisher' => array( '@id' => $biz_id ),
+				);
+				$ap_desc = function_exists( 'ea_w2_09_route_description' ) ? (string) ea_w2_09_route_description() : '';
+				if ( '' !== $ap_desc ) {
+					$ap_node['description'] = $ap_desc;
+				}
+				$graph[] = $ap_node;
+			}
+		}
+
 		return $graph;
 	}
 	add_filter( 'wpseo_schema_graph', 'ea_w2_seo_schema_graph', 20, 2 );

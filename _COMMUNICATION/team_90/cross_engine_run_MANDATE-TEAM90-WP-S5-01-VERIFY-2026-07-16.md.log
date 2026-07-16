@@ -1,0 +1,24 @@
+## Cross-engine validation complete
+
+**Verdict: `PASS`** — written to [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md)
+
+Iron Rule #1 satisfied: builder `claude-opus-4-8` (team_110) ≠ validator `composer-2.5` (team_90).
+
+| Item | Result | Key reproduction |
+|------|--------|------------------|
+| **1** Blog pagination | **PASS** | 4 URLs → 200; distinct post-id sets (0 overlap); `chapters-main` live template; `get_query_var('paged')` at L15–19 |
+| **2** FAQ TOC | **PASS** | 13 chips ↔ 13 targets; 0 broken/orphan anchors |
+| **3** Shop-in-nav | **PASS** | All 6 hrefs inside `#nav`; code at `template-parts/chapters/section-nav.php` L39–44 |
+| **4** QR direct-200 | **PASS (staging)** | 49/49 direct 200, 0 `Location:`; 4 transient curl-`000` re-probed to 200; **OPEN-until-cutover** caveat confirmed |
+| **5.1** Route precheck | **PASS** | Saved builder HTML confirms exact gap list; controls complete |
+| **5.2** Route postcheck | **PASS** | `/press/`, `/shows-heritage/` → `CollectionPage` + meta; `/qr/`, `/qr/qr1/` → `Article` + meta (WP-S5-02 closed the gap) |
+
+**Findings:** none (blocker/major/minor). No regressions. **route_recommendation:** none back to team_110.
+
+**Note:** Item 3 code path is `template-parts/chapters/section-nav.php` (builder cited `section-nav.php:39-44` — same file, full path differs). Not a defect.**WP-S5-01 cross-engine validation — done**
+
+Team 90 (composer-2.5) independently reproduced all 5 checks against live staging and repo code. **Verdict: PASS** — no regressions, no findings.
+
+Verdict artifact: [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md)
+
+Item 4 stays **OPEN-until-cutover** (staging 49/49 direct-200; prod re-run at WP-S5-05). Item 5.2 confirms WP-S5-02 closed the schema/meta gaps on staging.

@@ -1,0 +1,25 @@
+**WP-S5-02 cross-engine validation: PASS**
+
+Independent validation (team_90, `composer-2.5`) is recorded in:
+
+[`/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-02-BUILD-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-02-BUILD-2026-07-16.md)
+
+Iron Rule #1 is satisfied (builder `claude-opus-4-8` ≠ validator `composer-2.5`). All 9 checks were reproduced on live staging (`curl -sk`) and in repo code — not by re-reading the team_110 self-verdict alone.
+
+### Highlights
+
+| Check | Result |
+|-------|--------|
+| **1** Gapped routes — schema + meta | **PASS** — Article/CollectionPage + non-empty meta on all 7 samples (`qr1`, `qr2`, `qr10`, `qr48`, hub `/qr/`, `press`, `shows-heritage`) |
+| **2** `/shows/` redirect | **PASS** — HTTP **301** → `/shows-heritage/` |
+| **3** QR video conditionality | **PASS** — nocookie `embedUrl`; qr10 = 3 unique VideoObjects; text-only pages = Article only |
+| **4** QR reseed | **PASS** — live iframes: `youtube-nocookie.com` + `loading="lazy"`; drop-in self-guarded (`ea_w2_07b_qr_reseed_done`) |
+| **5** Offer/price gate | **PASS** — 0 Product/Offer on 5 shop pages; `is_numeric()` gate at L135 |
+| **6** Early QR meta ordering | **PASS** — L67–84 before Chapters block; hub meta = dedicated `$map['qr']` copy |
+| **7** seo_probe harness | **PASS** — valid JSON; +3 routes (`press`, `shows-heritage`, `qr-qr2`) |
+| **8** `php -l` | **PASS** — all 3 PHP files clean |
+| **9** Regression set | **PASS** — `/repair/`, `/bags/`, `/books/vekatavta/`, `/eyal-amit/mokesh-dahiman/` unchanged |
+
+**Findings:** none (blocker/major/minor). No `route_recommendation` back to team_110.
+
+**Gate:** WP-S5-02 **L-GATE_VALIDATE PASS** — eligible to proceed toward WP-S5-05 cutover per team_00 routing.

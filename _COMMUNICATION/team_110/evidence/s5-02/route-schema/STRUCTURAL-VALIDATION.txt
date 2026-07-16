@@ -1,0 +1,14 @@
+Structural JSON-LD validation (schema.org shape + Google required-props)
+========================================================================
+  press            CollectionPage  @id=/schema/CollectionPage/press     OK
+  qr1              Article         @id=/schema/article/qr/qr1           OK
+  qr10             Article         @id=/schema/article/qr/qr10          OK
+  qr10             VideoObject     @id=/schema/video/qr-qr10-bdJQOIeQBig OK [uploadDate deliberately OMITTED per spec §2.2 — ratified; node structurally valid, not eligible for video-DATE rich result]
+  qr10             VideoObject     @id=/schema/video/qr-qr10-kQjtK32mGJQ OK [uploadDate deliberately OMITTED per spec §2.2 — ratified; node structurally valid, not eligible for video-DATE rich result]
+  qr10             VideoObject     @id=/schema/video/qr-qr10-BlqT-V_CTcg OK [uploadDate deliberately OMITTED per spec §2.2 — ratified; node structurally valid, not eligible for video-DATE rich result]
+  qr2              Article         @id=/schema/article/qr/qr2           OK
+  qr2              VideoObject     @id=/schema/video/qr-qr2-ng9q5-xkNmE OK [uploadDate deliberately OMITTED per spec §2.2 — ratified; node structurally valid, not eligible for video-DATE rich result]
+  qr48             Article         @id=/schema/article/qr/qr48          OK
+  shows-heritage   CollectionPage  @id=/schema/CollectionPage/shows-heritage OK
+========================================================================
+RESULT: STRUCTURALLY VALID (Article/CollectionPage complete; VideoObject uploadDate omitted per ratified spec)

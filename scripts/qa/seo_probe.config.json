@@ -88,6 +88,24 @@
       "path": "/eyal-amit/mokesh-dahiman/",
       "expectedTypes": ["Person", "ProfessionalService", "VideoObject", "WebPage", "BreadcrumbList", "WebSite"],
       "note": "WP-CANON T1 (2026-07-14+). Person here checks presence of the @type only (satisfied by the global Eyal node too) — the Mokesh-specific @id must be verified separately (LOD400 T1 §5). VideoObject = the official trailer (kf4NKSdYi9E), deliberately NOT framed as hero decoration — see LOD400 T1 §3.4 for the 'no VideoObject on the muted hero loop' prohibition this must not trip."
+    },
+    {
+      "name": "press",
+      "path": "/press/",
+      "expectedTypes": ["CollectionPage", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "WP-S5-02 §2.3/§5 (Option A). Dedicated CollectionPage node emitted by ea-w2-seo-schema.php (press/shows-heritage branch); dedicated meta via inc/seo-head-fallbacks.php $map['press']."
+    },
+    {
+      "name": "shows-heritage",
+      "path": "/shows-heritage/",
+      "expectedTypes": ["CollectionPage", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "WP-S5-02 §2.1/§2.3/§5 — the LIVE slug (old /shows/ 301s here). Dedicated CollectionPage node + $map['shows-heritage'] meta."
+    },
+    {
+      "name": "qr-qr2",
+      "path": "/qr/qr2/",
+      "expectedTypes": ["Article", "VideoObject", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "WP-S5-02 §2.2/§5 — representative QR child WITH an embedded video (id ng9q5-xkNmE). QR branch emits Article + one VideoObject per unique embed; QR pages without video emit Article only. Meta = trimmed post_content."
     }
   ],
   "brandExemptRoutes": {

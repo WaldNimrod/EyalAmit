@@ -1,0 +1,156 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
+      "url": "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
+      "name": "הופעות / מורשת מופע - eyal amit",
+      "isPartOf": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "datePublished": "2026-04-02T12:53:31+00:00",
+      "breadcrumb": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/#breadcrumb"
+      },
+      "inLanguage": "he-IL",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://eyalamit-co-il-2026.s887.upress.link/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "הופעות / מורשת מופע"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/#website",
+      "url": "https://eyalamit-co-il-2026.s887.upress.link/",
+      "name": "eyal amit",
+      "description": "",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://eyalamit-co-il-2026.s887.upress.link/?s={search_term_string}"
+          },
+          "query-input": {
+            "@type": "PropertyValueSpecification",
+            "valueRequired": true,
+            "valueName": "search_term_string"
+          }
+        }
+      ],
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit",
+      "name": "אייל עמית",
+      "url": "https://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "image": "https://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "jobTitle": "מאסטר דיג'רידו ומטפל בנשימה",
+      "worksFor": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "knowsAbout": [
+        "טיפול בנשימה באמצעות דיג'רידו",
+        "סאונד הילינג",
+        "נשימה מעגלית",
+        "דום נשימה בשינה ונחירות",
+        "נגינה בדיג'רידו"
+      ],
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg",
+      "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+      "alternateName": "cbDIDG",
+      "url": "https://eyalamit-co-il-2026.s887.upress.link/",
+      "image": "https://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "telephone": "+972-52-482-2842",
+      "founder": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "עמל 8 ב'",
+        "addressLocality": "פרדס חנה-כרכור",
+        "addressCountry": "IL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/CollectionPage/shows-heritage",
+      "name": "מורשת והופעות — אייל עמית",
+      "url": "https://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
+      "isPartOf": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "publisher": {
+        "@id": "https://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "description": "מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+WP-S5-02 staging deploy (team_110) — FTP to uPress staging
+Base: https://eyalamit-co-il-2026.s887.upress.link
+Mechanism: targeted FTPS upload via scripts/upress_ftp_env.py helpers (byte-size verified)
+
+Files deployed:
+  wp-content/mu-plugins/ea-w2-seo-schema.php            (17195 B)  — QR + press/shows-heritage schema nodes (§2.2/§2.3)
+  wp-content/mu-plugins/ea-w2-07b-qr-reseed-once.php    (1267 B)   — one-time QR reseed trigger (§3.1; no-WP-CLI drop-in)
+  wp-content/themes/ea-eyalamit/inc/seo-head-fallbacks.php (8217 B) — $map + early QR meta branch (§2.4)
+
+Local-only (NOT deployed — QA harness manifest):
+  scripts/qa/seo_probe.config.json  — +3 routes (press, shows-heritage, qr-qr2)  (§5)

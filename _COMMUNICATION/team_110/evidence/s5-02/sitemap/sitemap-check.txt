@@ -1,0 +1,5 @@
+=== §1 sitemap reconciliation ===
+  /sitemap_index.xml       -> 200
+  /wp-sitemap.xml          -> 301 redirect=https://eyalamit-co-il-2026.s887.upress.link/sitemap_index.xml
+  legacy site-map (he)     -> 301 redirect=https://eyalamit-co-il-2026.s887.upress.link/sitemap_index.xml
+  prod robots names sitemap_index: Sitemap: https://www.eyalamit.co.il/sitemap_index.xml

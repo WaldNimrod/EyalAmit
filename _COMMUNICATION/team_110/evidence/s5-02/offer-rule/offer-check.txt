@@ -1,0 +1,6 @@
+=== §4 Offer/price gate — 5 product pages, expect 0 Offer nodes (no price entered) ===
+  /repair/  Offer=0 Product=0  'מחיר לפי התאמה'x1
+  /bags/  Offer=0 Product=0  'מחיר לפי התאמה'x1
+  /stand-floor/  Offer=0 Product=0  'מחיר לפי התאמה'x1
+  /stands-storage/  Offer=0 Product=0  'מחיר לפי התאמה'x1
+  /didgeridoos/  Offer=0 Product=0  'מחיר לפי התאמה'x1
