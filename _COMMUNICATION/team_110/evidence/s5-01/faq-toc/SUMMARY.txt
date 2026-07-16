@@ -1,0 +1,29 @@
+WP-S5-01 Item 2 — FAQ section-TOC VERIFY | 2026-07-16T00:15:54Z
+Staging: https://eyalamit-co-il-2026.s887.upress.link/faq/  HTTP: 200
+Code: template-parts/blocks/block-faq-list.php:58-79 builds nav.ea-faq-toc from categories-with-questions.
+AC-2: #chips == #categories-with-questions; every chip #faq-topic-<slug> has a matching id in body (0 broken).
+-------------------------------------------------------------------
+nav.ea-faq-toc present: 1
+chips (#faq-topic-*): 13    | targets (id=faq-topic-*): 13
+broken anchors (chip w/o target): 0
+orphan targets (target w/o chip): 0
+research baseline: 13 categories-with-questions
+-------------------------------------------------------------------
+chip slugs:
+  - bags
+  - didgeridoos
+  - general
+  - kushi-blantis
+  - lessons
+  - method
+  - repair
+  - sound-healing
+  - stand-floor
+  - stands-storage
+  - treatment
+  - tsva-bekahol
+  - vekatavta
+diff (chips △ targets) — expect empty:
+  (identical sets)
+===================================================================
+ITEM 2 VERDICT: PASS

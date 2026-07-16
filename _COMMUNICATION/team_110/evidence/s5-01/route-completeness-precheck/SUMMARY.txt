@@ -1,0 +1,33 @@
+WP-S5-01 Item 5 — route-completeness schema/meta : VERIFY-ONLY (no build) | 2026-07-16T00:28:47Z
+Ownership of the FIX = WP-S5-02 (Option A). This item ONLY verifies the canonical gap list (5.1 precheck).
+5.2 postcheck (schema+meta present after S5-02 builds) = DEFERRED — WP-S5-02 has not built yet.
+===========================================================================================================
+5.1 PRECHECK — route -> meta-description? -> page-specific schema node? -> verdict
+-----------------------------------------------------------------------------------------------------------
+route                          | HTTP | meta-description | page-specific schema node    | verdict
+/press/                        | 200  | MISSING          | none (base graph only)       | GAP (meta+schema)
+/shows-heritage/               | 200  | MISSING          | none (base graph only)       | GAP (meta+schema)
+/qr/ (hub)                     | 200  | generic-auto*    | none (no qr branch)          | GAP (schema + no dedicated meta)
+/qr/qr1/ (repr. of 48)         | 200  | MISSING          | none (base graph only)       | GAP (meta+schema)
+  * /qr/ hub meta = 'כל עמוד קשור לקוד QR מודפס באחד הספרים.' — auto/generic, NOT a dedicated $map entry.
+-----------------------------------------------------------------------------------------------------------
+CONTROL routes (known-complete; establish the boundary — gap is NOT these covered classes):
+/repair/                       | 200  | PRESENT ($map)   | FAQPage                      | COMPLETE
+/bags/                         | 200  | PRESENT ($map)   | FAQPage                      | COMPLETE
+/books/vekatavta/              | 200  | PRESENT (phero.sub) | Book, FAQPage                | COMPLETE
+/eyal-amit/mokesh-dahiman/     | 200  | PRESENT (phero.sub) | VideoObject                  | COMPLETE
+===========================================================================================================
+CODE CROSS-CHECK (source of coverage):
+  inc/seo-head-fallbacks.php $map (L38-51): keys = eyal-amit, shop, didgeridoos, bags, stands-storage,
+     stand-floor, repair, books, muzza, blog, faq, contact.  NO press / shows-heritage / qr keys. (confirmed)
+  mu-plugins/ea-w2-seo-schema.php gate arrays: $services(L99), $ea_faq_pages(L150),
+     $ea_book_slugs(L180: vekatavta/kushi-blantis/tsva-bekahol), Person=mokesh-dahiman only(L199).
+     NONE of press / qr / shows appear in any gate array. (confirmed)
+-----------------------------------------------------------------------------------------------------------
+noindex clarification (spec §5.1): x-robots-tag: noindex,nofollow appears on ALL 8 probed routes —
+  COMPLETE (/repair/, /bags/, ...) AND GAP alike -> it is the site-wide staging plugin ea-staging-noindex.php
+  (host-conditional on upress.link), NOT a route-specific editorial noindex; will NOT exist on production.
+===========================================================================================================
+Canonical gap list CONFIRMED EXACTLY as: /press/, /shows-heritage/, hub /qr/ + 48x /qr/qrN/ — and no covered
+route class exhibits the gap. This is precisely the set WP-S5-02 (Option A) will build. NO BUILD done here.
+ITEM 5 VERDICT (5.1 precheck): PASS (verify-only) | 5.2 postcheck: DEFERRED to post-WP-S5-02

@@ -1,0 +1,26 @@
+WP-S5-01 Item 1 — blog pagination VERIFY | 2026-07-16T00:15:11Z
+Staging: https://eyalamit-co-il-2026.s887.upress.link
+Live template expected: tpl-chapters-blog-archive.php (marker id="chapters-main")
+Dead template (must NOT serve): tpl-blog-archive.php (marker id="main", uses get_header())
+AC-1: /blog/, /blog/page/2,3,5 all HTTP 200; distinct post sets; current-marker==page#; live template.
+-------------------------------------------------------------------
+page 1 | HTTP 200 | posts=12 | current-marker=1(OK) | template=LIVE (chapters-main=1,main=0)
+page 2 | HTTP 200 | posts=12 | current-marker=2(OK) | template=LIVE (chapters-main=1,main=0)
+page 3 | HTTP 200 | posts=12 | current-marker=3(OK) | template=LIVE (chapters-main=1,main=0)
+page 5 | HTTP 200 | posts=6 | current-marker=5(OK) | template=LIVE (chapters-main=1,main=0)
+-------------------------------------------------------------------
+distinctness matrix (shared post-ids between page pairs; expect 0):
+  page 1 ∩ page 2 = 0 shared
+  page 1 ∩ page 3 = 0 shared
+  page 1 ∩ page 5 = 0 shared
+  page 2 ∩ page 3 = 0 shared
+  page 2 ∩ page 5 = 0 shared
+  page 3 ∩ page 5 = 0 shared
+-------------------------------------------------------------------
+post-id sets (unique WP post IDs per page):
+  page 1 (12 posts): post-228 post-229 post-230 post-231 post-232 post-233 post-234 post-235 post-236 post-237 post-238 post-239 
+  page 2 (12 posts): post-215 post-216 post-217 post-218 post-219 post-220 post-222 post-223 post-224 post-225 post-226 post-227 
+  page 3 (12 posts): post-204 post-205 post-206 post-207 post-208 post-209 post-210 post-211 post-212 post-213 post-214 post-221 
+  page 5 (6 posts): post-186 post-187 post-188 post-189 post-190 post-191 
+===================================================================
+ITEM 1 VERDICT: PASS

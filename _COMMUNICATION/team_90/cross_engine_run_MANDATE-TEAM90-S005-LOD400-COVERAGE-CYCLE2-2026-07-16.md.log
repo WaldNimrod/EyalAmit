@@ -1,0 +1,32 @@
+## Verdict: `PASS_WITH_FINDINGS` (cycle 2)
+
+פלט נכתב ל:
+`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-S005-LOD400-COVERAGE-CYCLE2-2026-07-16.md`
+
+### סגירת F-01..F-04 — כולם **CLOSED**
+
+| Finding | סטטוס | אימות |
+|---------|--------|--------|
+| **F-01** href count | **CLOSED** | WP-S5-01 §3 L83, L90, §6 L156 — «6 hrefs»; תואם `section-nav.php` L39-44 (6 `<a href>`) |
+| **F-02** QR hub meta fork | **CLOSED** | WP-S5-02 §2.4 L113-114 — כניסת `$map['qr']` קאנונית יחידה (104 תווים) |
+| **F-03** roadmap Option A | **CLOSED** | `roadmap.yaml` L2065-2066 — Option A ratified; אין `OR explicit noindex` |
+| **F-04** `/shows` stale | **CLOSED** | `roadmap.yaml` L2043 — `/shows-heritage` |
+
+### רגרסיה — **PASS**
+- `next_wp` מיושר ב-3 מקורות (S5-01→S5-02, S5-02→S5-05, S5-03→S5-05)
+- `roadmap.yaml` parses
+- Option A עקבי
+- חפיפה S5-01↔S5-02 נקייה (verify-only מול BUILD)
+
+### ממצא חדש — **F-05 (minor)**
+ב-`S005-PACKAGE-1-3-INDEX-2026-07-16.md` שורה 86 עדיין כתוב **«5 hrefs»**, בעוד WP-S5-01 והקוד החי אומרים **6**. זה drift קוסמטי בלבד — לא חוסם handoff — אבל מונע **PASS נקי (0 findings)**.
+
+### Spot-check טרי — 3/3 PASS
+ספירת hrefs ב-nav, אורך מחרוזת `$map['qr']`, ופער harness/meta שמתואר נכון לפני בנייה.
+
+---
+
+**Blockers: 0.**  
+**route_recommendation:** אפשר להמשיך ל-handoff; ל-0 findings — תיקון שורה אחת באינדקס (cycle 3) או קבלת F-05 מפורשת מ-team_00.
+
+**בעלות הבאה (team_100):** תיקון אופציונלי של INDEX §3 row #3 → `6 hrefs (hub /shop/ + 5 מסלולי-מוצר)` ואז cycle 3; אחרת team_00 מנתב handoff ל-WP-S5-01.

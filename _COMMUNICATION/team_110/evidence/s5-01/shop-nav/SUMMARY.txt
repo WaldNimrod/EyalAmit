@@ -1,0 +1,23 @@
+WP-S5-01 Item 3 — shop-in-nav VERIFY | 2026-07-16T00:16:27Z
+Staging: https://eyalamit-co-il-2026.s887.upress.link/  HTTP: 200
+Code: template-parts/chapters/section-nav.php:39-44 (hard-coded 'כלים ואביזרים' dropdown, template-fixed).
+AC-3: all 6 hrefs (hub /shop/ + 5 product routes) present inside the <nav class="nav" id="nav"> block.
+nav block extracted: nav-block.html (52 lines)
+-------------------------------------------------------------------
+href -> found-in-nav:
+  /shop/ -> FOUND
+  /repair/ -> FOUND
+  /didgeridoos/ -> FOUND
+  /bags/ -> FOUND
+  /stands-storage/ -> FOUND
+  /stand-floor/ -> FOUND
+-------------------------------------------------------------------
+all shop-route hrefs found inside nav block (dedup):
+  href="https://eyalamit-co-il-2026.s887.upress.link/bags/"
+  href="https://eyalamit-co-il-2026.s887.upress.link/didgeridoos/"
+  href="https://eyalamit-co-il-2026.s887.upress.link/repair/"
+  href="https://eyalamit-co-il-2026.s887.upress.link/shop/"
+  href="https://eyalamit-co-il-2026.s887.upress.link/stand-floor/"
+  href="https://eyalamit-co-il-2026.s887.upress.link/stands-storage/"
+===================================================================
+ITEM 3 VERDICT: PASS

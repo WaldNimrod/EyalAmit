@@ -1,0 +1,24 @@
+WP-S5-01 Item 4 — QR direct-200 VERIFY (staging) + prod-only caveat | 2026-07-16T00:24:51Z
+Staging: https://eyalamit-co-il-2026.s887.upress.link
+Source: docs/project/team-100-preplanning/QR-URL-INVENTORY.csv (49 rows: hub /qr/ + qr1..qr48)
+Mechanism: /qr/ -> tpl-chapters-page qr-hub; /qr/qrN/ -> tpl-chapters-qr (parent-slug route).
+AC-4: all 49 DIRECT (no -L) HTTP 200 + zero Location header on staging; follow (-L) = no hidden redirect.
+NOTE: 10-way parallel probing caused transient curl-000 (transport timeout, slow shared host); re-probed
+      at low concurrency then sequentially until clean. 000 = curl timeout, never an HTTP redirect.
+-------------------------------------------------------------------
+rows: 49
+direct HTTP 200:      49 / 49
+direct Location hdr:  0  (expect 0)
+follow num_redirects>0: 0  (expect 0)
+PASS rows: 49 / 49
+-------------------------------------------------------------------
+*** MANDATORY PROD-ONLY CAVEAT (spec §4) ***
+Staging PASS does NOT prove the documented prod-only 302 on /qr/ is resolved.
+CSV row 1: 'VERIFIED 2026-05-26: parent /qr/ exists on prod but currently 302-redirects to /shop/books/וכתבת/'.
+The redirect engine is prod-conditional; staging cannot substitute. This item is OPEN-until-cutover.
+scripts/final_pre_cutover_check.sh MUST re-run this exact 49-row check (no -L, assert 200 + no Location)
+AFTER production cutover (WP-S5-05 §7 item 6). Do NOT mark 'closed' from staging evidence alone.
+-------------------------------------------------------------------
+full table: results.tsv (url | direct_code | direct_location | follow_code | num_redirects | url_effective | verdict)
+===================================================================
+ITEM 4 VERDICT: PASS (staging) — OPEN-until-cutover (prod re-run mandatory)
