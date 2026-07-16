@@ -96,14 +96,40 @@ GET /api/l0/eyalamit/roadmap  → HTTP 200 (4,962 bytes)   ← no longer hangs
    WP-S5-* present  : NONE        ← the API roadmap has never heard of S005
 ```
 
-So the endpoint is **responsive**, but the data is a **stale S002-era snapshot** that was never backfilled with
-S003/S004/S005. **file-SSoT (`_aos/roadmap.yaml`) remains the correct path** — but for a *different reason* than
-recorded, and the recorded reason should be corrected rather than copied forward.
+So the endpoint is **responsive**, but serves **S002-era data**. **file-SSoT (`_aos/roadmap.yaml`) remains the
+correct path** — but for a *different reason* than recorded, and the recorded reason must be corrected rather
+than copied forward.
 
-**The deeper issue for team_100/team_00:** ADR034's DB-as-SSoT premise is effectively **broken for this spoke** —
-the DB roadmap is ~3 milestones behind and no backfill has occurred. Every S003→S005 closure has quietly used the
-R8 file fallback. That is a governance decision above team_110: either backfill the spoke's DB roadmap, or
-formally record this spoke as file-SSoT. Recommend raising it rather than adding a 4th silent R8 invocation.
+> ### ⚠ CORRECTION (2026-07-16, later same session) — the root cause below was WRONG
+>
+> This section originally stated the cause as *"a stale DB snapshot never backfilled with S003/S004/S005"* and
+> recommended *"backfill the spoke's DB roadmap"*. **team_110 subsequently traced it properly and that diagnosis
+> is wrong — there is no DB roadmap table in this path at all.**
+>
+> **Actual, verified root cause:** `/api/l0/<proj>/roadmap` reads `_aos/roadmap.yaml` from a **server-side git
+> checkout** at the project's registered `server_path` (hub `_aos/projects.yaml` → `eyalamit.server_path:
+> /data/projects/eyalamit`). Proof it is filesystem-based: `GET /api/l0/microgreens/roadmap` → 404
+> `"Project root not found: neither local_p…"`. And that checkout is simply **stale**:
+>
+> ```
+> /data/projects/eyalamit    HEAD 8270d98 (2026-05-29) · main · clean · correct remote
+>                            → 450 commits behind origin/main
+> /data/projects/smallfarms  HEAD d5b7ab6 (2026-06-05) → 0 behind      ← healthy, for contrast
+> systemd: tiktrack-bare-sync.timer EXISTS · an eyalamit sync timer DOES NOT
+> ```
+>
+> **It is a missing sync mechanism, not a DB backfill, and not fleet-wide.** The checkout is clean and on the
+> right remote — it has simply never been pulled since 2026-05-29. **Do not action a "DB backfill".**
+>
+> Full evidence + the ruling request now sit with the Ambassador (team_120), whose mandate this is:
+> `_COMMUNICATION/team_110/DRIFT-REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md` (team_00-authorized).
+
+**What still stands for team_100/team_00:** ADR034's "DB online → API-only mutations" (Iron Rule #7) is a **live
+trap** in this spoke — `health` reports `db: online`, instructing agents to mutate via an API that serves an
+S002 world with no `WP-S5-*`. Three milestones (S003/S004/S005) have each quietly used the R8 file fallback
+without anyone identifying the shared cause. **file-SSoT stays correct**; please correct the recorded
+justification from *"full GET hangs http=000"* to *"server checkout 450 commits behind, no sync mechanism —
+see the team_120 drift report"*, rather than adding a 4th silent R8 invocation.
 
 ## 5. Not requested / out of scope here
 
