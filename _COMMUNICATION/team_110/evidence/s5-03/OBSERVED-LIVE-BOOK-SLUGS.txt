@@ -1,0 +1,19 @@
+Observation captured during WP-S5-06 build (2026-07-16) — relevant to WP-S5-03 §3.3 Pattern B.
+
+WP-S5-03 LOD400 §3.3 proposes mapping /shop/books/<slug> -> /books/<slug>, giving examples:
+  /shop/books/כושי-בלאנטיס/       -> /books/kushi-blantis/
+  /shop/books/צבע-בכחול.../        -> /books/tsva-bekahol/
+i.e. TRANSLITERATED latin target slugs.
+
+But the LIVE site tree links to the HEBREW slug. Observed on /qr/qr2/ (live staging, 2026-07-16):
+  <a href="/books/%D7%A6%D7%91%D7%A2-%D7%91%D7%9B%D7%97%D7%95%D7%9C-%D7%95%D7%96%D7%A8%D7%95%D7%A7-%D7%9C%D7%99%D7%9D/"></a>
+  = /books/צבע-בכחול-וזרוק-לים/
+
+=> Do NOT take §3.3's latin example slugs as the target set on faith. Resolve every
+   /shop/books/* target against the LIVE site tree before writing decisions into the SSoT
+   JSON, or the generated 301s will point at 404s (which is exactly the "redirect target is
+   itself a 404" class §6 defers to WP-S5-05).
+   Verify each candidate target with a direct curl (200, no Location) before folding it in.
+
+(This anchor is also the axe `link-name` serious violation on /qr/qr2/ — an empty <a> with no
+discernible text. Pre-existing, out of WP-S5-06 scope; see s5-06/a11y-rtl/AC-4-AXE-BASELINE-FINDING.txt.)

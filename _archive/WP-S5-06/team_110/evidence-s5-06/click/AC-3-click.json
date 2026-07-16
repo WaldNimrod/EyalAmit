@@ -1,0 +1,24 @@
+{
+ "/qr/qr2/": {
+  "playerReq": 13,
+  "playerBytes": 2563565,
+  "playerHosts": [
+   "www.youtube-nocookie.com",
+   "rr3---sn-pujapa-ua8l.googlevideo.com"
+  ],
+  "facadesLeft": 0,
+  "iframes": 1,
+  "nocookieIframes": 1
+ },
+ "/qr/qr10/": {
+  "playerReq": 14,
+  "playerBytes": 1664684,
+  "playerHosts": [
+   "www.youtube-nocookie.com",
+   "rr2---sn-ajua89-5x.googlevideo.com"
+  ],
+  "facadesLeft": 2,
+  "iframes": 1,
+  "nocookieIframes": 1
+ }
+}

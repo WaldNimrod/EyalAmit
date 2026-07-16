@@ -1,0 +1,7 @@
+FAIL 200  /qr/qr2/             crit=0 serious=2 mod=0 minor=0
+FAIL 200  /qr/qr10/            crit=0 serious=1 mod=0 minor=0
+
+============================================================
+Routes: 2 · clean(0 crit/serious): 0 · blocking: 2
+Report: /Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/scripts/qa/reports/axe-http-2026-07-16.json
+RESULT: FAIL — 2 route(s) with critical/serious violations or errors.

@@ -1,0 +1,48 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated": "2026-07-16T20:48:11.104Z",
+  "results": [
+    {
+      "route": "/qr/qr2/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/qr/qr2/",
+      "http": 200,
+      "critical": 0,
+      "serious": 2,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "help": "Links must have discernible text",
+          "nodes": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "route": "/qr/qr10/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/qr/qr10/",
+      "http": 200,
+      "critical": 0,
+      "serious": 1,
+      "moderate": 0,
+      "minor": 0,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+=== AC-5 scoping — facade must be QR-only (serial) ===
+  route          http   ea-qr-facade   facade.js    verdict
+  /              200    0              0            OK
+  /method/       200    0              0            OK
+  /faq/          200    0              0            OK
+  /repair/       200    0              0            OK
+  /blog/         200    0              0            OK
+  /contact/      200    0              0            OK
+  --- positive control: QR page MUST have it ---
+  /qr/qr2/       200    5              1            present=OK
+
+=== AC-5 cache-bust: theme Version live ===
+chapters.css?ver=1.5.7
+ea-qr-facade.js?ver=1.5.7

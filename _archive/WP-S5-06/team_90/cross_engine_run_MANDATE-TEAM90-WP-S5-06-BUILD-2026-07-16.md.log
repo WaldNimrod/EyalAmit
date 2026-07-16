@@ -1,0 +1,26 @@
+Cross-engine validation for **WP-S5-06** is complete. The verdict is at:
+
+[`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-06-BUILD-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-06-BUILD-2026-07-16.md)
+
+## Verdict flag: `PASS_WITH_FINDINGS`
+
+All 6 ACs reproduced independently on live staging. **AC-2 passed first** — the regression guard holds; no reseed route was taken.
+
+| AC | Independent result | Key observed values |
+|----|-------------------|---------------------|
+| **AC-2** | PASS | qr1=0, qr2=1, qr10=3, qr48=0 VideoObjects; Article on 4/4; meta descriptions byte-identical to BEFORE |
+| **AC-1** | PASS | qr2/qr10 player on load: **0 req / 0 bytes** (down from ~1050 KB) |
+| **AC-1b** | PASS | qr2: 1 req / 9.4 KB; qr10: 1 req / 13.4 KB (within budget) |
+| **AC-3** | PASS | Click → 14 player reqs via `youtube-nocookie.com`; **0** bare `youtube.com` |
+| **AC-4** | PASS | Facade counts match; LCP within +20%; `qa_probe` 0 overflow; axe zero-regression (see F-01) |
+| **AC-5** | PASS | `php -l` clean; QR-only scoping; live `?ver=1.5.7` on both assets |
+| **Check 7** | PASS | Regex matches **60/60** iframes; Facebook link at L584 untouched |
+
+## F-01 / F-02 adjudication
+
+- **F-01 — CONFIRM (minor):** `http-qa-axe.cjs` exits **1** (qr2 serious=2, qr10 serious=1), but BEFORE and AFTER are **identical** — zero regression on intent. Literal `exit 0` threshold is unsatisfiable; not a build defect.
+- **F-02 — CONFIRM (minor, mitigated):** Probe used `chrome-headless-shell`; AC-3 click registered **14 player requests**, proving the instrument is not blind.
+
+## route_recommendation
+
+**`L-GATE_BUILD PASS`** — no remediation route back to team_110. WP-S5-05 not opened.

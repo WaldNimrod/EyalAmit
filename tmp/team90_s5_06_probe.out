@@ -1,0 +1,175 @@
+chrome: /Users/nimrod/.cache/puppeteer/chrome-headless-shell/mac_arm-149.0.7827.22/chrome-headless-shell-mac-arm64/chrome-headless-shell
+probing /qr/qr48/ ...
+probing /qr/qr1/ ...
+probing /qr/qr2/ ...
+probing /qr/qr10/ ...
+
+=== WP-S5-06 QR facade probe (mobile 375x812, cold cache, staging) ===
+
+page                      | vids | facades | PLAYER on load | THUMBS on load  | LCP    | click -> player
+--------------------------|------|---------|----------------|-----------------|--------|------------------
+qr48 (0 videos — baseline) |    0 |       0 |   0 req /  0.0 KB |  0 req /  0.0 KB | 1396ms | (no facade)
+qr1  (0 videos — control) |    0 |       0 |   0 req /  0.0 KB |  0 req /  0.0 KB | 2636ms | (no facade)
+qr2  (1 video)            |    1 |       1 |   0 req /  0.0 KB |  1 req /  9.4 KB |  968ms | 14 req / 2502.9 KB
+qr10 (3 videos)           |    3 |       3 |   0 req /  0.0 KB |  1 req / 13.4 KB | 1540ms | 14 req / 1573.6 KB
+
+--- AC verdict ---
+  PASS  AC-1 (player 0/0) · AC-1b (thumb budget) · AC-3 (click) · AC-4 (facade counts)
+
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "generated_by": "scripts/qa/qr_facade_probe.mjs",
+  "pass": true,
+  "fails": [],
+  "note": [],
+  "pages": [
+    {
+      "name": "qr48 (0 videos — baseline)",
+      "path": "/qr/qr48/",
+      "videos": 0,
+      "baseLcp": 1688,
+      "lcp": 1396,
+      "lcpEl": "SPAN",
+      "load": 1710,
+      "iframes": 0,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": true,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    },
+    {
+      "name": "qr1  (0 videos — control)",
+      "path": "/qr/qr1/",
+      "videos": 0,
+      "baseLcp": null,
+      "lcp": 2636,
+      "lcpEl": "DIV",
+      "load": 1234,
+      "iframes": 0,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": true,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    },
+    {
+      "name": "qr2  (1 video)",
+      "path": "/qr/qr2/",
+      "videos": 1,
+      "baseLcp": 1108,
+      "lcp": 968,
+      "lcpEl": "SPAN",
+      "load": 1205,
+      "iframes": 0,
+      "facades": 1,
+      "thumbs": 1,
+      "facadeScriptLoaded": true,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 1,
+          "bytes": 9612,
+          "hosts": [
+            "i.ytimg.com"
+          ]
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": {
+        "playerReq": 14,
+        "playerBytes": 2563007,
+        "playerHosts": [
+          "www.youtube-nocookie.com",
+          "rr3---sn-pujapa-ua8l.googlevideo.com"
+        ],
+        "facadesLeft": 0,
+        "iframes": 1,
+        "nocookieIframes": 1
+      }
+    },
+    {
+      "name": "qr10 (3 videos)",
+      "path": "/qr/qr10/",
+      "videos": 3,
+      "baseLcp": 1532,
+      "lcp": 1540,
+      "lcpEl": "SPAN",
+      "load": 1727,
+      "iframes": 0,
+      "facades": 3,
+      "thumbs": 3,
+      "facadeScriptLoaded": true,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 1,
+          "bytes": 13696,
+          "hosts": [
+            "i.ytimg.com"
+          ]
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": {
+        "playerReq": 14,
+        "playerBytes": 1611338,
+        "playerHosts": [
+          "www.youtube-nocookie.com",
+          "rr4---sn-pujapa-ua8e.googlevideo.com"
+        ],
+        "facadesLeft": 2,
+        "iframes": 1,
+        "nocookieIframes": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+WP-S5-06 — deploy manifest (staging)
+Mechanism : targeted FTPS upload via scripts/upress_ftp_env.py helpers (byte-size verified),
+            mirroring the WP-S5-02 precedent. NOT scripts/ftp_deploy_site_wp_content.py.
+Base      : http://eyalamit-co-il-2026.s887.upress.link
+Date      : 2026-07-16
+Remote root: /   (WordPress root)
+
+file (local site/… -> remote wp-content/…)                                    bytes  verified
+---------------------------------------------------------------------------------------------
+wp-content/themes/ea-eyalamit/inc/chapters/chapters-qr-facade.php    (new)     3,395  OK
+wp-content/themes/ea-eyalamit/inc/chapters/chapters-bootstrap.php    (edit)      871  OK
+wp-content/themes/ea-eyalamit/assets/css/chapters.css                (edit)   63,300  OK
+wp-content/themes/ea-eyalamit/assets/js/ea-qr-facade.js              (new)     1,742  OK
+wp-content/themes/ea-eyalamit/style.css                              (edit)   12,350  OK
+
+uploaded=5  verified_ok=5  mismatched=0
+Remote SIZE compared to local byte count for every file.
+
+NOT deployed (deliberate — file-only build, zero DB change per LOD400 §0):
+  ea-w2-07-qr-content-data.php · ea-w2-07-qr-seed-once.php · ea-w2-07b-qr-reseed-once.php
+  · ea-w2-seo-schema.php · any DB/post_content mutation.
+scripts/qa/qr_facade_probe.mjs is a local harness — not deployed.

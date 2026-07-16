@@ -85,6 +85,24 @@ should be tracked with **M-EYAL-INPUTS**, not bundled into any facade LOD. Not a
 
 ## 4. ⚠ ADR034 finding — the recorded justification is now outdated (needs a team_100 ruling)
 
+> ### ✅ SUPERSEDED — closed by team_00's T-1 ruling (2026-07-16). No team_100 ruling is outstanding.
+>
+> **Superseded by T-1 ruling 2026-07-16 — file-SSoT enforced (R9/R10/R12); no backfill; fix = endpoint
+> authority guard + server checkout freshness; see `MSG-TEAM120-FINAL-RULING-ALIGNMENT-2026-07-16`.**
+>
+> Recorded by team_110 per team_120's ruling §4 item 2, from the S005 execution session (ADR045
+> `execution_authority: full`, mandate `MANDATE_S005_TEAM110_EXECUTION_v1.0.0.md` §7 item 2).
+>
+> **This section is retained as provenance only — do not action anything in it.** In particular the closing
+> paragraph below still asks team_100 to re-record the justification as *"server checkout 450 commits behind"*.
+> That is the **retracted** diagnosis (see the RETRACTED block in this same section) and must **not** be
+> actioned. The ruling's mechanism is the hybrid endpoint overriding `work_packages` from an unpopulated DB
+> (`l0_project_io.py:151-165`), not checkout staleness.
+>
+> **Live re-confirmation (this session, 2026-07-16):** `/api/system/health` → `db: online`,
+> `built_at: 2026-07-12` — the server build **predates** the endpoint fix, so the trap is still live. S005
+> closures for WP-S5-03/06/07 are therefore registered via the **FILE** path, not `POST /api/work-packages/{id}`.
+
 The roadmap's own note (L56-58) justifies file-SSoT with: *"DB online but the API L0 eyalamit roadmap is stale
 … full GET hangs http=000, probed 2026-07-15"*. **Re-probed 2026-07-16 — that is no longer accurate:**
 

@@ -1,0 +1,169 @@
+
+=== WP-S5-06 QR facade probe (mobile 375x812, cold cache, staging) ===
+
+page                      | vids | facades | PLAYER on load | THUMBS on load  | LCP    | click -> player
+--------------------------|------|---------|----------------|-----------------|--------|------------------
+qr48 (0 videos — baseline) |    0 |       0 |   0 req /  0.0 KB |  0 req /  0.0 KB | 1276ms | (no facade)
+qr1  (0 videos — control) |    0 |       0 |   0 req /  0.0 KB |  0 req /  0.0 KB | 2556ms | (no facade)
+qr2  (1 video)            |    1 |       0 |   8 req / 1050.1 KB |  1 req / 11.0 KB | 10748ms | (no facade)
+qr10 (3 videos)           |    3 |       0 |   8 req / 1046.2 KB |  1 req / 15.7 KB | 1732ms | (no facade)
+
+--- AC verdict ---
+  NOTE  AC-4 /qr/qr2/: LCP 10748ms vs baseline 1108ms (>+20%) — re-run before calling it a regression (§1: LCP is noisy)
+  FAIL  AC-1 /qr/qr2/: player on load = 8 req / 1075323 B (must be 0/0) hosts=www.youtube-nocookie.com
+  FAIL  AC-4 /qr/qr2/: facades 0 != videoCount 1
+  FAIL  AC-3 /qr/qr2/: no facade to click
+  FAIL  AC-1 /qr/qr10/: player on load = 8 req / 1071357 B (must be 0/0) hosts=www.youtube-nocookie.com
+  FAIL  AC-4 /qr/qr10/: facades 0 != videoCount 3
+  FAIL  AC-3 /qr/qr10/: no facade to click
+
+{
+  "base": "https://eyalamit-co-il-2026.s887.upress.link",
+  "generated_by": "scripts/qa/qr_facade_probe.mjs",
+  "pass": false,
+  "fails": [
+    "AC-1 /qr/qr2/: player on load = 8 req / 1075323 B (must be 0/0) hosts=www.youtube-nocookie.com",
+    "AC-4 /qr/qr2/: facades 0 != videoCount 1",
+    "AC-3 /qr/qr2/: no facade to click",
+    "AC-1 /qr/qr10/: player on load = 8 req / 1071357 B (must be 0/0) hosts=www.youtube-nocookie.com",
+    "AC-4 /qr/qr10/: facades 0 != videoCount 3",
+    "AC-3 /qr/qr10/: no facade to click"
+  ],
+  "note": [
+    "AC-4 /qr/qr2/: LCP 10748ms vs baseline 1108ms (>+20%) — re-run before calling it a regression (§1: LCP is noisy)"
+  ],
+  "pages": [
+    {
+      "name": "qr48 (0 videos — baseline)",
+      "path": "/qr/qr48/",
+      "videos": 0,
+      "baseLcp": 1688,
+      "lcp": 1276,
+      "lcpEl": "SPAN",
+      "load": 1616,
+      "iframes": 0,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": false,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    },
+    {
+      "name": "qr1  (0 videos — control)",
+      "path": "/qr/qr1/",
+      "videos": 0,
+      "baseLcp": null,
+      "lcp": 2556,
+      "lcpEl": "DIV",
+      "load": 1178,
+      "iframes": 0,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": false,
+      "onLoad": {
+        "player": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "thumb": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    },
+    {
+      "name": "qr2  (1 video)",
+      "path": "/qr/qr2/",
+      "videos": 1,
+      "baseLcp": 1108,
+      "lcp": 10748,
+      "lcpEl": "SPAN",
+      "load": 11223,
+      "iframes": 1,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": false,
+      "onLoad": {
+        "player": {
+          "req": 8,
+          "bytes": 1075323,
+          "hosts": [
+            "www.youtube-nocookie.com"
+          ]
+        },
+        "thumb": {
+          "req": 1,
+          "bytes": 11241,
+          "hosts": [
+            "i.ytimg.com"
+          ]
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    },
+    {
+      "name": "qr10 (3 videos)",
+      "path": "/qr/qr10/",
+      "videos": 3,
+      "baseLcp": 1532,
+      "lcp": 1732,
+      "lcpEl": "SPAN",
+      "load": 2065,
+      "iframes": 3,
+      "facades": 0,
+      "thumbs": 0,
+      "facadeScriptLoaded": false,
+      "onLoad": {
+        "player": {
+          "req": 8,
+          "bytes": 1071357,
+          "hosts": [
+            "www.youtube-nocookie.com"
+          ]
+        },
+        "thumb": {
+          "req": 1,
+          "bytes": 16036,
+          "hosts": [
+            "i.ytimg.com"
+          ]
+        },
+        "bare": {
+          "req": 0,
+          "bytes": 0,
+          "hosts": []
+        }
+      },
+      "afterClick": null
+    }
+  ]
+}

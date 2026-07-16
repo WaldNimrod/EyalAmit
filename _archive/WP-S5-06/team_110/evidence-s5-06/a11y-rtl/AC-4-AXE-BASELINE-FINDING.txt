@@ -1,0 +1,29 @@
+WP-S5-06 AC-4 — axe threshold vs. the live baseline (finding, raised by team_110 at build time)
+==============================================================================================
+LOD400 §6 AC-4 requires: `node scripts/qa/http-qa-axe.cjs /qr/qr2/ /qr/qr10/` -> exit 0
+("= 0 critical + 0 serious") BOTH before and after the build, described as "אפס נסיגה".
+
+MEASURED BEFORE THE BUILD (pre-facade staging, 2026-07-16):
+  /qr/qr2/   HTTP 200  crit=0 serious=2  -> color-contrast (1 node), link-name (1 node)
+  /qr/qr10/  HTTP 200  crit=0 serious=1  -> color-contrast (1 node)
+  axe exit = 1 (FAIL)
+
+=> The "exit 0 before AND after" threshold is UNSATISFIABLE AS WRITTEN. The baseline is
+   already non-zero, and both rules are PRE-EXISTING and OUT OF SCOPE for this WP:
+     - color-contrast : a theme/design token issue; the facade adds no text.
+     - link-name      : an anchor with no discernible text on qr2; the facade replaces
+                        <iframe> with <button>, so it neither creates nor removes anchors.
+   Nothing in LOD400 §4 (the build contract) touches either rule.
+
+This is the same class of defect team_100 self-documented in §8 row #2 (the addendum's
+"YouTube payload -> ~0 KB" AC-1, impossible as phrased because the probe counted ytimg
+inside ytBytes). There, the fix was to split the AC into an absolute part and a budgeted
+part. Here, the AC's own stated intent — "אפס נסיגה" / zero regression — IS satisfiable
+and is what team_110 measures against:
+
+  AC-4 (a11y) as executed: NO NEW violations vs. this baseline, per rule id and node count.
+  after <= before for every rule on every route. Any new rule id, or a higher node count on
+  an existing rule id, is a FAIL.
+
+The raw before/after reports are both in this directory so team_90 can re-derive either
+reading independently. Routed to team_90 (both gates) and team_100 as a spec finding.

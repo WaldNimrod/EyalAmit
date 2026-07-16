@@ -1,0 +1,21 @@
+WP-S5-06 AC-1 / AC-1b — player payload eliminated on load (measured, staging)
+
+route         videos   player BEFORE        player AFTER      thumbs AFTER     reduction
+/qr/qr48/          0   0 req / 0.0 KB       0 req / 0 B       0 req / 0.0 KB   -
+/qr/qr1/           0   0 req / 0.0 KB       0 req / 0 B       0 req / 0.0 KB   -
+/qr/qr2/           1   8 req / 1050.1 KB    0 req / 0 B       1 req / 9.4 KB   99.1%
+/qr/qr10/          3   8 req / 1046.2 KB    0 req / 0 B       1 req / 13.4 KB  98.7%
+
+AC-1  player on load == 0 req AND 0 bytes on /qr/qr2/ + /qr/qr10/  -> PASS
+AC-1b thumbReq <= videoCount and thumbBytes <= 20480*videoCount        -> PASS
+      qr2 : 1 req /  9.4 KB  (budget 1 req / 20 KB)
+      qr10: 1 req / 13.4 KB  (budget 3 req / 60 KB) - one poster fetched; the other two sit
+            below the lazy threshold and are never fetched. Under budget either way.
+
+AC-3 click (see ../click/AC-3-click.json): /qr/qr2/ -> 13 req / 2503 KB from
+     www.youtube-nocookie.com + googlevideo.com; nocookieIframes=1; facadesLeft=0.
+     /qr/qr10/ -> 14 req / 1626 KB; facadesLeft=2 (only the clicked one loads). Zero
+     requests to bare youtube.com on any route (privacy, LOD400 §5.2).
+
+Instrument: chrome-headless-shell (NOT full Chrome - site isolation hides OOPIF traffic and
+would report player=0 whether or not the facade works). See scripts/qa/qr_facade_probe.mjs findChrome().

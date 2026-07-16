@@ -2599,22 +2599,32 @@ work_packages:
     (§7 item 15) — the one irreversible operation in this whole sequence.'
 - id: WP-S5-06
   label: QR embed facade — click-to-load (deliver the lazy-load commitment)
-  status: PLANNED
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-16'
+  closed_by: 'team_110 (ADR045 execution_authority full — MANDATE_S005_TEAM110_EXECUTION_v1.0.0; team_00 authorization
+    2026-07-16 «/AOS_handoff 110 full ליצירת הסשן שיממש את כלל תהליך הפיתוח שאופיין»)'
+  closure_artifact: _archive/WP-S5-06/team_90/VERDICT-WP-S5-06-VALIDATE-2026-07-16.md
   assigned_builder: team_10/110
   assigned_validator: team_90 (cross-engine, Iron Rule #1)
   created_at: '2026-07-16'
   milestone_ref: S005
   spec_ref: _COMMUNICATION/team_100/S005/WP-S5-06-LOD400-2026-07-16.md
   parent_index: _COMMUNICATION/team_100/S005/S005-PACKAGE-1-3-INDEX-2026-07-16.md
-  authority: _COMMUNICATION/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md
+  authority: _archive/WP-S5-06/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md
   next_wp: WP-S5-05
   profile: L0
   priority: HIGH
   blocked_by: []
-  roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
+  roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation. **Written via the
+    FILE path by team_110 under ADR045 R2.3, deliberately NOT via POST /api/work-packages/{id} (which R2.2 offers).**
+    Re-probed live this session (2026-07-16): /api/system/health → db: online, built_at **2026-07-12** — the server
+    build predates the l0 endpoint fix, so /api/l0/eyalamit/roadmap still serves the S002-era payload
+    (l0_roadmap_source: database, 24 WPs, **zero WP-S5-* rows**). An API mutation would therefore write the wrong
+    object. This is a **ruled** R8/R9 invocation (team_00 T-1 ruling, ADR034 R9/R10/R12), not a silent fallback —
+    see _COMMUNICATION/team_110/ROUTING-REQUEST-TEAM100-S005-REGISTRATION-2026-07-16.md §4 (superseded banner).'
   gate_history:
   - gate: L-GATE_SPEC
     phase: LOD400 cross-engine cycle 1
@@ -2625,7 +2635,7 @@ work_packages:
     notes: 'Validator independently reproduced the spec''s measured claims — maxresdefault 404 on 3/4 ids,
       hqdefault 9,195-13,953 B, 0 Set-Cookie on i.ytimg.com, 60 iframes (not the 46 the addendum states), spec
       regex matches 60/60 on a live PHP run over the seed, 10/10 code spot-checks. Confirmed the addendum''s
-      AC-1 contradiction is real. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-2026-07-16.md.'
+      AC-1 contradiction is real. Artifact — _archive/WP-S5-06/team_90/VERDICT-WP-S5-06-LOD400-2026-07-16.md.'
   - gate: L-GATE_SPEC
     phase: LOD400 cross-engine cycle 2 (delta)
     result: PASS
@@ -2637,7 +2647,47 @@ work_packages:
       Anti-regression passed — §2 critical constraint not softened, AC-1/1b/2 unchanged, roadmap consistent.
       0 new findings. Iron Rule #1 satisfied (author claude-opus-4-8 ≠ validator composer-2.5).
       route_recommendation: L-GATE_SPEC PASS — team_110 may start L-GATE_BUILD immediately.
-      Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-CYCLE2-2026-07-16.md.'
+      Artifact — _archive/WP-S5-06/team_90/VERDICT-WP-S5-06-LOD400-CYCLE2-2026-07-16.md.'
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-16'
+    builder: team_110 (claude-opus-4-8, Claude Code)
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 blocker / 0 major / 2 minor (F-01, F-02 — both raised BY the builder; spec/tooling, not build defects)
+    notes: 'Independent cross-engine reproduction on live staging + repo code — Iron Rule #1 satisfied (builder
+      claude-opus-4-8/Anthropic ≠ validator composer-2.5/Cursor); clean on cycle 1, no correction loop (the 2 minor
+      findings are not remediable by the builder: F-02 was already fixed in-harness, F-01 needs a team_100 spec
+      amendment). **AC-1: player payload on load 8 req / ~1050 KB → 0 req / 0 bytes on /qr/qr2/ + /qr/qr10/ (99.1% /
+      98.7% reduction incl. poster).** AC-1b thumbs 1 req/9.4 KB (qr2), 1 req/13.4 KB (qr10) — inside budget.
+      **AC-2 regression guard HOLDS: VideoObject qr2=1, qr10=3, qr1=0, qr48=0 unchanged; Article 4/4; meta
+      description byte-identical 4/4** — the render-filter route protected the WP-S5-02 schema engine; post_content,
+      the seed and both QR seeders untouched (git diff empty; zero DB change). AC-3 click → 14 req to
+      www.youtube-nocookie.com + googlevideo, nocookieIframes=1, 0 requests to bare youtube.com. AC-4 facades ==
+      videoCount 4/4; LCP within +20% band; qa_probe 0 horizontal overflow mobile+desktop. AC-5 php -l clean; 0
+      facade leakage on /, /method/, /faq/, /repair/, /blog/, /contact/; live ?ver=1.5.7 on both assets. Validator
+      also reproduced the §4.A regex against the seed: 60/60 iframes, 60 unique ids, the ea-qr-embed--link Facebook
+      anchor (L584) untouched. Builder report — _archive/WP-S5-06/team_110/VERDICT-WP-S5-06-BUILD-2026-07-16.md;
+      mandate — _archive/WP-S5-06/team_90/MANDATE-TEAM90-WP-S5-06-BUILD-2026-07-16.md; verdict —
+      _archive/WP-S5-06/team_90/VERDICT-WP-S5-06-BUILD-2026-07-16.md; evidence root
+      _archive/WP-S5-06/team_110/evidence-s5-06/.'
+  - gate: L-GATE_VALIDATE
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'Constitutional closeability gate — **team_90 owns L-GATE_VALIDATE per team_00''s ruling 2026-07-16
+      («team_90 הוא הוולידטור»), superseding ADR045 R3.2 + CLAUDE.md Iron Rule #5, which still name the DISSOLVED
+      team_190** (ADR042 Addendum v1.1.0; independently confirmed this session — the live actor-key registry holds 15
+      teams, no team_190/team_191). GCR to make it canonical:
+      _COMMUNICATION/team_100/GCR_team_100_L-GATE_VALIDATE_OWNER_TEAM_90_2026-07-16_v1.0.0.md. Clean PASS, 0
+      findings: scope-honest (exactly the §0 file set — no creep into post_content/seed/schema, no §4 shortfall);
+      ratified decisions §5.1 hqdefault / §5.2 nocookie / §5.3 reseed drop-in retained / §5.4 explicit lazy / §5.5
+      transcripts correctly absent-and-unmarked all honoured; evidence complete and archive-safe (AC harness lives at
+      scripts/qa/qr_facade_probe.mjs, NOT under evidence/, per §4.F so Iron Rule #15 archiving cannot break the AC or
+      leave WP-S5-05 without the tool); F-01/F-02 dispositioned openly, not buried; Iron Rule #1 chain intact; no
+      undisclosed placeholder introduced on QR pages (team_00 delivery criterion L2569). The AC battery was NOT
+      re-run — settled at L-GATE_BUILD. Mandate — _archive/WP-S5-06/team_90/MANDATE-TEAM90-WP-S5-06-VALIDATE-2026-07-16.md;
+      artifact — _archive/WP-S5-06/team_90/VERDICT-WP-S5-06-VALIDATE-2026-07-16.md.'
   origin_ruling: '**team_00 ruling 2026-07-16 (REVERSAL of the same-day defer ruling)** — «משנה את ההגדרה שלי
     בהתאם להמלצה - ליזי מחוייב... ולחייב לממש את כל ההשלכות». The `loading="lazy"` commitment is **binding**;
     team_110''s CDP measurement proved it is **not delivered** (~1.06 MB of YouTube payload loads on the first
@@ -2671,6 +2721,15 @@ work_packages:
     cleanup** — ea-w2-07b-qr-reseed-once.php becomes an unneeded self-guarded no-op under the filter route; fold
     the removal decision in. (8) **Keep loading="lazy"** on the real iframe once swapped in (belt-and-braces for
     embeds 2+).'
+  open_findings_routed_to_team_100: 'F-01 (minor, confirmed by team_90) — AC-4''s a11y threshold («axe exit 0 before
+    AND after») is **unsatisfiable as written**: the pre-facade staging baseline already carries 3 serious violations
+    outside this WP''s contract (/qr/qr2/ color-contrast ×1 + link-name ×1 — an empty <a> to a book page; /qr/qr10/
+    color-contrast ×1). The facade swaps <iframe>→<button> and creates no anchors, so it can neither cause nor clear
+    them. Executed on the AC''s **stated intent** — «אפס נסיגה» / zero regression — verified per rule id + node count:
+    0 new, 0 worsened (raw before/after reports both in evidence/s5-06/a11y-rtl/). Same class as team_100''s own §8
+    row #2 (the addendum''s impossible "→ ~0 KB" AC-1). **team_100 actions:** (a) amend AC-4 to "no new/worsened
+    violations vs the recorded baseline"; (b) route the 3 pre-existing serious violations to a separate hygiene WP —
+    they are NOT S5-06 debt and do NOT block WP-S5-05. F-02 (minor) needs no team_100 action — fixed in-harness.'
   acceptance_criteria: 'Measurable; harness already exists — reuse _COMMUNICATION/team_110/evidence/s5-02-facade-cwv/qr_cwv_probe.mjs
     rather than inventing one. **AC-1 (the point):** YouTube payload on load → ~0 KB / 0 requests on /qr/qr2/ and
     /qr/qr10/ (from ~1.06 MB); baseline /qr/qr48/ stays 0 KB. **AC-2 (regression guard — NON-NEGOTIABLE):**
