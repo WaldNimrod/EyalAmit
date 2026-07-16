@@ -2323,6 +2323,29 @@ work_packages:
   priority: HIGH
   blocked_by: []
   roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
+  gate_history:
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine cycle 1
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 blocker / 0 major / 4 minor (F-01..F-04)
+    notes: 'Validator independently reproduced the spec''s measured claims — maxresdefault 404 on 3/4 ids,
+      hqdefault 9,195-13,953 B, 0 Set-Cookie on i.ytimg.com, 60 iframes (not the 46 the addendum states), spec
+      regex matches 60/60 on a live PHP run over the seed, 10/10 code spot-checks. Confirmed the addendum''s
+      AC-1 contradiction is real. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-2026-07-16.md.'
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine cycle 2 (delta)
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'All 4 cycle-1 findings CLOSED (F-01 aria-label rationale split from the index rule; F-02 full
+      evidence root; F-03 axe tooled to scripts/qa/http-qa-axe.cjs; F-04 tabindex="-1" before focus).
+      Anti-regression passed — §2 critical constraint not softened, AC-1/1b/2 unchanged, roadmap consistent.
+      0 new findings. Iron Rule #1 satisfied (author claude-opus-4-8 ≠ validator composer-2.5).
+      route_recommendation: L-GATE_SPEC PASS — team_110 may start L-GATE_BUILD immediately.
+      Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-CYCLE2-2026-07-16.md.'
   origin_ruling: '**team_00 ruling 2026-07-16 (REVERSAL of the same-day defer ruling)** — «משנה את ההגדרה שלי
     בהתאם להמלצה - ליזי מחוייב... ולחייב לממש את כל ההשלכות». The `loading="lazy"` commitment is **binding**;
     team_110''s CDP measurement proved it is **not delivered** (~1.06 MB of YouTube payload loads on the first

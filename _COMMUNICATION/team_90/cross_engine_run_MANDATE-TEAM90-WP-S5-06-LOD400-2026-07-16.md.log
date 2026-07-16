@@ -1,0 +1,30 @@
+## Verdict: `PASS_WITH_FINDINGS`
+
+נכתב: [`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/VERDICT-WP-S5-06-LOD400-2026-07-16.md)
+
+**Blockers: 0 · Major: 0 · Minor: 4**
+
+### האילוץ הקריטי (§2) — PASS
+- `ea-w2-seo-schema.php` L266 באמת regex על `$qr_obj->post_content` הגולמי
+- 60 iframes ב-seed (`ea-w2-07-qr-content-data.php`) — לא 46
+- מסלול `the_content` filter לא נוגע ב-DB; §2 נורמטיבי (חייב/אסור)
+- AC-2 תופס reseed: אם ה-URL יוצא מ-`post_content`, VideoObject נעלם
+
+### Spot-check (10/10)
+מסלול רינדור (`tpl-chapters-qr.php` @103, לא `tpl-qr.php`), 5 פילטרים לא נוגעים ב-QR, CLS L777–790, ספירות `6×0+27×1+12×2+3×3=60`, `qr1=0/qr2=1/qr10=3/qr48=0`, `style.css` 1.5.6, regex §4.A תופס 60/60 iframes ב-seed
+
+### §8 — הסתירה מאומתת
+`qr_cwv_probe.mjs` L45 סופר `ytimg.com` ב-`ytBytes` → AC-1 «0 KB מוחלט» בלתי-אפשרי עם כרזות. פיצול AC-1 + AC-1b נכון ומדיד. `curl` על 4 מזהים: hqdefault 9–14 KB, maxresdefault 404 ב-3/4, 0 Set-Cookie
+
+### Roadmap — PASS
+`lod_status: LOD400`, `spec_ref` נכון, `next_wp: WP-S5-05`, `blocked_by: []`, WP-S5-06 ב-`WP-S5-05.blocked_by`, YAML parses
+
+### ממצאי minor (לא חוסמים build)
+| ID | נושא |
+|----|------|
+| F-01 | `aria-label` מוסיף «נגן וידאו:» שלא ב-`VideoObject.name` |
+| F-02 | נתיבי `evidence/s5-06/` ללא קידומת `_COMMUNICATION/team_110/` |
+| F-03 | AC-4 דורש axe; §4.F לא מפרט axe ב-harness |
+| F-04 | `f.focus()` על iframe ללא `tabindex` — פוקוס לא מובטח |
+
+**המלצה:** אשר `L-GATE_SPEC` — team_110 יכול להתחיל build. תיקוני F-02/F-03 אופציונליים לפני build.
