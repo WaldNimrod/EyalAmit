@@ -93,6 +93,41 @@ project:
     requiring explicit Eyal/team_00 go-live approval per §7 item 15). Approved by team_00 (plan-mode review,
     2026-07-15) after presenting the WP-by-WP classification for sign-off.
 
+    2026-07-16: **WP-S5-01 + WP-S5-02 REGISTERED CLOSED — L-GATE_VALIDATE PASS, status COMPLETE,
+    LOD500_LOCKED.** Registered by team_100 under team_00 authorization («פרומט לסשן צוות 100 להשלמת הרישום»),
+    per ROUTING-REQUEST-TEAM100-S005-REGISTRATION-2026-07-16 (team_110). Both WPs: builder team_110
+    (claude-opus-4-8) ≠ validator team_90 (composer-2.5, Cursor) — **Iron Rule #1 satisfied**; both PASS with
+    **0 findings on cycle 1**, no correction loop. Verdicts — _COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md
+    (5/5 items) · VERDICT-WP-S5-02-BUILD-2026-07-16.md (9/9 checks). Per canon
+    (lean-kit/modules/gate-workflow/gates/L-GATE_VALIDATE.md §"roadmap.yaml update on L-GATE_VALIDATE PASS"):
+    PASS + 0 blockers → status=COMPLETE + lod_status=LOD500_LOCKED. Corrected the status drift that left both
+    WPs at PLANNED/L-GATE_SPEC despite build + cross-engine PASS.
+
+    **Registration deltas vs the team_110 request (verified, not accepted as stated):** (a) its item 5 asked to
+    resolve a validate_aos.sh Check-32 FAIL (uncommitted roadmap drift) — **already resolved**: Check 32 reads
+    PASS and _aos/roadmap.yaml was clean at 6c42f20 (the LOD400-authoring drift was committed in e8b02b9/6c42f20);
+    no action taken. (b) its item 3 asked to close S5-01/02 "consistent with how S004''s WPs were closed" — that
+    premise is **factually wrong**: S004''s 8 WPs are NOT closed (all still IN_PROGRESS / L-GATE_BUILD / LOD400)
+    even though S004 is declared COMPLETE in these notes. The convention actually applied here is canon +
+    the last properly-closed packages (S002 W2-0N, WP-CANON): COMPLETE / LOD500_LOCKED.
+
+    **⚠ OPEN FOR team_00 — S004 status drift (NOT fixed here, out of this registration''s scope):** all 8 S004
+    WPs (WP-S4-01..08) still read status=IN_PROGRESS / current_lean_gate=L-GATE_BUILD / lod_status=LOD400 while
+    the milestone is recorded COMPLETE with a team_190 constitutional PASS_WITH_FINDINGS + GO at WP-S4-08. This
+    is the same class of drift just fixed on S005 and needs a team_00 ruling (close all 8 to COMPLETE/LOD500_LOCKED
+    vs leave pending a formal S004 closeout artifact). Flagged, deliberately not mass-mutated by team_100.
+
+    **⚠ OPEN FOR team_00 — ADR034 / Iron Rule #7 structural ruling (ROUTING-REQUEST §4, independently
+    re-verified 2026-07-16):** the recorded file-SSoT justification is **outdated and has been corrected in-place**
+    on the WP rows. Re-probe 2026-07-16: /api/system/health → db online, mode online; GET /api/l0/eyalamit/roadmap
+    → **HTTP 200 in ~0.13s, 4,962 bytes — it does NOT hang** (the 2026-07-15 "http=000" reason is dead). But the
+    payload is a **stale S002-era snapshot**: active_milestone=S002, 24 work_packages, **zero** S004/S005/WP-S5-*
+    rows. So file-SSoT stays correct — for a different reason (nothing to gate-advance in the DB), not because the
+    API is down. Structurally, **ADR034''s DB-as-SSoT premise is broken for this spoke**: the DB roadmap is ~3
+    milestones behind and every S003→S005 closure has quietly used the R8 file fallback (this registration is the
+    4th). Decision needed above team_100: **backfill the spoke''s DB roadmap, or formally record eyalamit as
+    file-SSoT** — rather than keep invoking R8 silently.
+
     '
 work_packages:
 - id: S001-P001-WP001
@@ -2018,10 +2053,13 @@ work_packages:
     "__PENDING_EYAL__" sentinel). Same-day corrective addendum sent to Eyal alongside the main package.'
 - id: WP-S5-01
   label: Quick-verify residuals — blog pagination, FAQ TOC, shop-nav exposure, QR direct-200, route-completeness spot-check
-  status: PLANNED
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-16'
+  closed_by: team_100 (gate registration under team_00 authorization 2026-07-16 — «השלמת הרישום»)
+  closure_artifact: _COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md
   assigned_builder: team_10
   assigned_validator: team_90 (cross-engine, Iron Rule #1)
   created_at: '2026-07-15'
@@ -2032,7 +2070,36 @@ work_packages:
   profile: L0
   priority: MEDIUM
   blocked_by: []
-  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  roadmap_mutation: 'ADR034 R8 file-SSoT. **Justification CORRECTED 2026-07-16** — the previously recorded reason
+    ("full GET hangs http=000", probed 2026-07-15) is no longer accurate and must not be carried forward:
+    GET /api/l0/eyalamit/roadmap now returns **HTTP 200 in ~0.13s** (4,962 bytes). The endpoint is responsive;
+    the payload is a **stale S002-era snapshot** (active_milestone=S002, 24 WPs, zero S004/S005/WP-S5-* rows).
+    file-SSoT remains correct because no S005 WP exists in the DB to gate-advance via API — not because the API
+    is unreachable. Structural ADR034 question (backfill the spoke DB roadmap vs formally record eyalamit as
+    file-SSoT) escalated to team_00 — see project notes 2026-07-16 and ROUTING-REQUEST §4.'
+  gate_history:
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-16'
+    builder: team_110 (claude-opus-4-8, Claude Code)
+    notes: Verify package 5/5 PASS (items 1-3 + 4 + 5.1/5.2 pre/postcheck), 0 regressions. Self-verdict — _COMMUNICATION/team_110/VERDICT-WP-S5-01-BUILD-2026-07-16.md;
+      evidence root _COMMUNICATION/team_110/evidence/s5-01/.
+  - gate: L-GATE_VALIDATE
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'Independent cross-engine reproduction on live staging + repo code — Iron Rule #1 satisfied (builder
+      claude-opus-4-8/Anthropic ≠ validator composer-2.5/Cursor); clean on cycle 1, no correction loop. All 5 items
+      reproduced PASS: (1) /blog/page/2,3,5 all 200, 0 Location, 0 shared post-ids; (2) /faq/ TOC 13 chips ↔ 13
+      targets, 0 broken anchors; (3) all 6 shop hrefs present in nav; (4) QR 49/49 direct-200, 0 Location (staging);
+      (5.1/5.2) 4 formerly-gapped routes now carry meta + page-specific schema. No route_recommendation.
+      Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-01-VERIFY-2026-07-16.md.'
+  carried_forward_to_WP-S5-05: 'Item 4 (QR direct-200, 49 rows) is **OPEN-until-cutover — NOT closed by this
+    LOD500_LOCK.** team_90 PASS is staging-only; the documented /qr/ 302 is prod-conditional, so staging PASS does
+    not substitute. WP-S5-05 MUST re-run all 49 rows on production via scripts/final_pre_cutover_check.sh (no -L;
+    assert 200 + no Location header). This WP is locked on its own scope (verification-as-mandated); the prod
+    assertion is WP-S5-05 scope by design, not a residual of S5-01.'
   notes: 'Absorbs 3 verify-only items carried forward from closed S003 WPs (not superseded, never independently
     confirmed): (1) WP-W2-15-A — blog pagination bug claim (/blog/page/2..5 shows page-1 posts only); (2)
     WP-W2-16-C — FAQ section-TOC ("READY, no decision dependency" per its own note, never confirmed built);
@@ -2044,10 +2111,13 @@ work_packages:
     + 48 QR pages). Cheap, independent, no cross-dependencies — can start immediately.'
 - id: WP-S5-02
   label: SEO/GEO ratified-execution completion — sitemap reconciliation, route-completeness schema, QR-iframe CWV, Offer-price rule
-  status: PLANNED
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-16'
+  closed_by: team_100 (gate registration under team_00 authorization 2026-07-16 — «השלמת הרישום»)
+  closure_artifact: _COMMUNICATION/team_90/VERDICT-WP-S5-02-BUILD-2026-07-16.md
   assigned_builder: team_10
   assigned_validator: team_90 (cross-engine, Iron Rule #1)
   created_at: '2026-07-15'
@@ -2058,7 +2128,45 @@ work_packages:
   profile: L0
   priority: MEDIUM
   blocked_by: [WP-S5-01]
-  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation (API responsive
+    HTTP 200, but serves a stale S002-era snapshot with no WP-S5-* rows; escalated to team_00).'
+  gate_history:
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-16'
+    builder: team_110 (claude-opus-4-8, Claude Code)
+    notes: Schema/meta build + QR reseed deployed to staging. Self-verdict — _COMMUNICATION/team_110/VERDICT-WP-S5-02-BUILD-2026-07-16.md;
+      evidence root _COMMUNICATION/team_110/evidence/s5-02/.
+  - gate: L-GATE_VALIDATE
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'Independent cross-engine reproduction on live staging + repo code — Iron Rule #1 satisfied; clean on
+      cycle 1, no correction loop. All 9 mandated checks PASS: AC-2.1 page-specific node + non-empty meta on every
+      gapped route class (/qr/, /qr/qrN/ Article, /press/ + /shows-heritage/ CollectionPage); AC-2.2 /shows/ → 301
+      → /shows-heritage/; AC-2.3 QR video conditionality (nocookie embedUrl, dedup, no empty VideoObject); §3.1 QR
+      reseed self-guarded drop-in; §4 Offer is_numeric() gate (Product=0/Offer=0 on 5 product pages — never a
+      fake/zero-price Offer); §5 seo_probe.config.json harness; php -l clean ×3; 0 regressions on the regression
+      set. Ratified guardrails respected (uploadDate omission, §3.2 facade deferred, /qr/ prod 302 out of scope).
+      No route_recommendation. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-02-BUILD-2026-07-16.md.'
+  open_debt_facade_3_2: '**§3.2 facade DEFERRED (team_00 ruling, 2026-07-16) — recorded as known open debt, NOT
+    closed.** Not a cutover blocker: measured **zero CWV penalty**. Open debt is **data-transfer + privacy**, not
+    CWV: ~1.06 MB of avoidable YouTube payload on each of **42** QR pages (60 embeds across 48 pages: 6×0, 27×1,
+    12×2, 3×3), whose audience arrives by scanning a printed QR code on mobile/cellular. **`loading="lazy"` does
+    NOT defer the first embed** — despite sitting below the fold (958px/848px vs an 812px fold), ~1 MB loads anyway
+    because Chrome''s lazy threshold (~1250px) swallows it. The previously-recorded justification *"native
+    lazy-load already meets the CWV bar"* is **factually wrong as a mechanism and must not be carried forward**.
+    Lazy DOES work further down: qr10 (3 videos) pulls the same 9 requests / ~1.06 MB as qr2 (1 video) — videos 2+
+    (~62% down-page) are genuinely deferred; the cost is the first video only. Measured headless Chrome/CDP, mobile
+    375×812, cold cache, staging: /qr/qr48/ (0 video) LCP 1372–1680 ms, 0 KB YouTube; /qr/qr2/ (1) LCP 1104–1312 ms,
+    ~1039–1062 KB / 9 req; /qr/qr10/ (3) LCP 1076–1328 ms, ~1063–1064 KB / 9 req. **Not measured: TBT /
+    main-thread blocking** (YouTube player JS does work LCP will not show) — the one remaining evidence gap if this
+    debt is revisited. **Caveat:** cross-page LCP comparison is weak (different LCP elements) and LCP was noisy
+    across runs; the stable decisive number is the payload (1039–1064 KB, consistently 9 requests). Revisit
+    post-cutover. Evidence — _COMMUNICATION/team_110/evidence/s5-02/facade-cwv/ (reproducible via qr_cwv_probe.mjs).
+    Transcripts (60 videos needing real transcript text) are an **Eyal content task tracked under M-EYAL-INPUTS**,
+    NOT bundled into any facade LOD; not a cutover blocker.'
   notes: 'Absorbs WP-W2-17''s remaining T-items (closed/superseded 2026-07-15 — see its closure_note) plus
     the master cutover plan''s §8 open-items list, everything NOT already resolved: sitemap URL reconciliation
     (/sitemap_index.xml single agreed URL across robots+301+GSC); route-completeness schema/meta for the 8+
@@ -2130,7 +2238,20 @@ work_packages:
   profile: L0
   priority: HIGH
   blocked_by: [WP-S5-01, WP-S5-02, WP-S5-03, WP-S5-04, M-EYAL-INPUTS]
-  roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
+  roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
+  inherited_obligations:
+  - from: WP-S5-01 (item 4)
+    obligation: '**QR direct-200 (49 rows) prod re-run — MANDATORY, inherited OPEN-until-cutover.** WP-S5-01 was
+      LOD500_LOCKED on 2026-07-16 with team_90 PASS on **staging only**. Staging PASS does NOT substitute: the
+      documented /qr/ 302 is prod-conditional. Re-run all 49 rows (parent /qr/ + 48 /qr/qrN/, source
+      docs/project/team-100-preplanning/QR-URL-INVENTORY.csv) on **production** via
+      scripts/final_pre_cutover_check.sh — no -L / no redirect-follow; assert HTTP 200 AND absence of a Location
+      header on every row, so a prod 302 cannot be masked. Sequential/low-concurrency (transient curl-000 on the
+      shared uPress host is a transport timeout, not a redirect — re-probe individually before flagging).'
+  - from: WP-S5-02 (§3.2)
+    obligation: '§3.2 facade debt is DEFERRED, not resolved — carries past cutover by team_00 ruling. Not a
+      go-live blocker (measured zero CWV penalty). See WP-S5-02 open_debt_facade_3_2. Also cutover-gated from
+      WP-S5-02 scope by design: the T6 robots-production swap.'
   notes: 'Deliberately NOT a new invention — executes the master cutover plan §6.3''s existing 15-step
     sequence verbatim: PRE-CUTOVER (full backup, final staging sign-off, regenerate 301 SSoT via
     gen_htaccess_301_from_decisions.py, consolidated migration inventory classify keep-200/301/410/
