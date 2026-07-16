@@ -187,9 +187,31 @@ project:
     otherwise): only tiktrack healthy, 5 projects 404, hub checkout 257 behind / 68 dirty. **Consequence
     unchanged: ADR034 / Iron Rule #7 is a LIVE TRAP** — health says db:online while the API serves an S002 world,
     so a compliant agent would mutate against the wrong object. **file-SSoT (ADR034 R9) remains correct;
-    S005 is NOT blocked.** Remedy (commit T-1 + redeploy + fleet posture) is **team_00''s call**. Evidence:
-    _COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md ·
+    S005 is NOT blocked.** Evidence: _COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md ·
     _COMMUNICATION/team_100/REGISTRATION-S005-WP-S5-01-02-2026-07-16.md §4(c) rev-3.
+
+    2026-07-16 (final): **✅ ADR034 ESCALATION RESOLVED — team_00 T-1 ruling (via team_100). CLOSED.**
+    Authority: _COMMUNICATION/team_110/MSG-TEAM120-FINAL-RULING-ALIGNMENT-2026-07-16.md (team_120 Ambassador,
+    commit 2961352 — "FINAL for this incident"). **Ruling: ADR034 R9/R10/R12 ENFORCED — the FILE is the
+    write-SSoT. There is NO backfill and there will not be one.** The DB rows are a **read-only R12 projection
+    (observability only)**; the endpoint served them **as authority in violation of R12** — that is the bug.
+    Only a genuinely authoritative row (wp_source=''db'') may override the file; projection rows become
+    diagnostics. **Code written, 1054 tests green, heading to deploy.** So the escalation resolved to **option 2
+    of the two it offered**, and "do not backfill" is now correct for the **opposite reason** it was first
+    given: not "the DB isn''t the problem", but **R12 forbids treating that projection as authority at all**.
+    **Final root cause = TWO legs** (this vindicates the two-fault nuance recorded above rather than overturning
+    it): (1) **endpoint authority bug** — frozen projection rows served as authority → fix written; (2) **server
+    checkout freshness** — the file the endpoint should serve is read from a stuck checkout → **this was
+    team_110''s finding and is leg 2 of the fix**, mandated to **team_60** using **team_110''s own timer
+    proposal, adopted as the fleet-wide template**. ⚠ The earlier word "REFUTED" for team_110''s checkout
+    diagnosis is **too strong**: their *observation* was correct and is leg 2; the *causal leap* (staleness
+    explains the missing WP-S5-*) and "not fleet-wide" were the errors. **Nothing changes for this spoke —
+    file-SSoT is the approved canonical path; S005 continues as normal; do not wait for the deploy and do not
+    "fix" anything spoke-side.** A cutover message arrives when the whole fleet passes together.
+    **`prompt-generate` handoffs remain untrustworthy until the deploy** (team_120: «אל תסמכו על הנדאופים שלו»)
+    — which is exactly why every S005 handoff carries a hand-authored spoke supplement. Remaining actions are
+    **team_110''s** (confirm mail channel via `aos_actor team_110`; update §4 of their ROUTING-REQUEST to the
+    final wording) — both carried in their build handoff.
 
     2026-07-16: **§3.2 facade ruling REVERSED by team_00 → WP-S5-06 REGISTERED (mandatory, blocks cutover).**
     The defer-as-debt disposition registered earlier the same day is **void** («ליזי מחוייב») — the lazy-load
