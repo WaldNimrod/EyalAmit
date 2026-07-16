@@ -112,7 +112,15 @@ committed, and the verdict is explicit that content was PASS with **0 missing pu
 accept as satisfied-in-substance (recommended — it describes a git hygiene state that no longer exists), or
 record as a permanent process deviation on the WP. Either way it is **not** a reason to withhold registration.
 
-**(b) The NAP footer line is a business decision, not a build detail.** AC-10 requires the address + phone to
+**(b) ~~The NAP footer line is a business decision~~ — ✅ RESOLVED 2026-07-16, do NOT re-open.**
+> team_00 ruled: *«אני לא יודע כמה פעמים כבר אישרתי את הכתובת והטלפון האלו. גם אייל אישר… זה המידע המדוייק.
+> לא לשאול יותר שוב!!! לתקן בפוטר בהתאם ובכל מקום שצריך.»* — the NAP is **approved**; the footer **gets built**.
+> Canon + exact byte forms + full normalization scope: **`_COMMUNICATION/team_110/DECISION-NAP-CANON-2026-07-16.md`**.
+> A self-declared NAP SSoT already existed (`ea-w2-seo-schema.php` L6/L53) — nothing read from it, which is why
+> 6 phone variants and 3 apostrophe variants accumulated and AC-10 was unsatisfiable. **This item is CLOSED.**
+> Also found while establishing it: **`/qr/qr32/` renders a 9-digit WRONG phone live** (§3 of the decision record).
+
+~~**(b-original) The NAP footer line is a business decision, not a build detail.**~~ AC-10 requires the address + phone to
 appear byte-identically in the footer and FAQ-03. Putting **«עמל 8 ב'» + `052-482-2842` into the site-wide
 footer** is Eyal's call (public display of his business address/phone), not team_110's or team_100's. The
 verdict defers to *"decide D1 NAP footer line per BN-01 recommendation"*. **This decision must be resolved
