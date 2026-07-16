@@ -1,0 +1,77 @@
+
+=== QR page CWV / embed-payload probe (mobile 375x812, staging) ===
+
+page                      | iframes lazy | 1st iframe top vs fold | LCP    | load   | YouTube reqs / bytes | other
+--------------------------|--------------|------------------------|--------|--------|----------------------|--------
+qr48 (0 videos — baseline) |  0 /  0 lazy | no iframe              | 1680ms | 1916ms |   0 /     0 KB | 521 KB
+qr2  (1 video)            |  1 /  1 lazy | 958px vs 812px → below | 1312ms | 2198ms |   9 /  1039 KB | 578 KB
+qr10 (3 videos)           |  3 /  3 lazy | 848px vs 812px → below | 1076ms | 1542ms |   9 /  1063 KB | 579 KB
+
+=== Deltas vs 0-video baseline (= what a facade would prevent) ===
+  qr2  (1 video): +1039 KB YouTube payload, +9 requests, LCP 1680ms → 1312ms (-368ms)
+  qr10 (3 videos): +1063 KB YouTube payload, +9 requests, LCP 1680ms → 1076ms (-604ms)
+
+YouTube hosts contacted: www.youtube-nocookie.com, i.ytimg.com
+
+VERDICT: if YouTube bytes > 0 on a page whose iframe is ABOVE FOLD,
+         then loading="lazy" is NOT deferring it → a facade would prevent that payload.
+
+[
+  {
+    "name": "qr48 (0 videos — baseline)",
+    "path": "/qr/qr48/",
+    "videos": 0,
+    "lcp": 1680,
+    "lcpEl": "SPAN",
+    "load": 1916,
+    "iframes": 0,
+    "lazyIframes": 0,
+    "firstIframeTop": null,
+    "viewportH": 812,
+    "ytReq": 0,
+    "ytBytes": 0,
+    "otherReq": 37,
+    "otherBytes": 533577,
+    "ytHosts": []
+  },
+  {
+    "name": "qr2  (1 video)",
+    "path": "/qr/qr2/",
+    "videos": 1,
+    "lcp": 1312,
+    "lcpEl": "SPAN",
+    "load": 2198,
+    "iframes": 1,
+    "lazyIframes": 1,
+    "firstIframeTop": 958,
+    "viewportH": 812,
+    "ytReq": 9,
+    "ytBytes": 1063953,
+    "otherReq": 41,
+    "otherBytes": 591738,
+    "ytHosts": [
+      "www.youtube-nocookie.com",
+      "i.ytimg.com"
+    ]
+  },
+  {
+    "name": "qr10 (3 videos)",
+    "path": "/qr/qr10/",
+    "videos": 3,
+    "lcp": 1076,
+    "lcpEl": "SPAN",
+    "load": 1542,
+    "iframes": 3,
+    "lazyIframes": 3,
+    "firstIframeTop": 848,
+    "viewportH": 812,
+    "ytReq": 9,
+    "ytBytes": 1088831,
+    "otherReq": 41,
+    "otherBytes": 593217,
+    "ytHosts": [
+      "www.youtube-nocookie.com",
+      "i.ytimg.com"
+    ]
+  }
+]
