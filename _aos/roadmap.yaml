@@ -117,16 +117,36 @@ project:
     is the same class of drift just fixed on S005 and needs a team_00 ruling (close all 8 to COMPLETE/LOD500_LOCKED
     vs leave pending a formal S004 closeout artifact). Flagged, deliberately not mass-mutated by team_100.
 
-    **⚠ OPEN FOR team_00 — ADR034 / Iron Rule #7 structural ruling (ROUTING-REQUEST §4, independently
-    re-verified 2026-07-16):** the recorded file-SSoT justification is **outdated and has been corrected in-place**
-    on the WP rows. Re-probe 2026-07-16: /api/system/health → db online, mode online; GET /api/l0/eyalamit/roadmap
-    → **HTTP 200 in ~0.13s, 4,962 bytes — it does NOT hang** (the 2026-07-15 "http=000" reason is dead). But the
-    payload is a **stale S002-era snapshot**: active_milestone=S002, 24 work_packages, **zero** S004/S005/WP-S5-*
-    rows. So file-SSoT stays correct — for a different reason (nothing to gate-advance in the DB), not because the
-    API is down. Structurally, **ADR034''s DB-as-SSoT premise is broken for this spoke**: the DB roadmap is ~3
-    milestones behind and every S003→S005 closure has quietly used the R8 file fallback (this registration is the
-    4th). Decision needed above team_100: **backfill the spoke''s DB roadmap, or formally record eyalamit as
-    file-SSoT** — rather than keep invoking R8 silently.
+    **ADR034 / Iron Rule #7 (ROUTING-REQUEST §4) — observation right, ROOT CAUSE WRONG, corrected same day.**
+    Re-probed 2026-07-16: /api/system/health → db online, mode online; GET /api/l0/eyalamit/roadmap → **HTTP 200
+    in ~0.13s — it does NOT hang** (the 2026-07-15 "http=000" justification is dead and was corrected in-place on
+    the WP rows). The payload is S002-era (active_milestone=S002, 24 WPs, zero S004/S005/WP-S5-*). **But the cause
+    this session first reported — "a stale DB snapshot never backfilled", with a recommendation to backfill the
+    DB — was WRONG, and that recommendation is WITHDRAWN.** team_120 traced it properly (team_00-authorized):
+    /api/l0/<proj>/roadmap reads `_aos/roadmap.yaml` from a **server-side git checkout** at the registered
+    server_path (/data/projects/eyalamit) — **there is no DB roadmap table in this path** (proof: GET
+    /api/l0/microgreens/roadmap → 404 "Project root not found: neither local_p…"). The checkout is at 8270d98
+    (2026-05-29), **450 commits behind origin/main**, clean, correct remote, never pulled; a
+    tiktrack-bare-sync.timer exists, **no eyalamit sync timer does** (smallfarmsagents: 0 behind). It is a
+    **missing sync mechanism** — not a DB backfill, not fleet-wide. Consequences flagged by team_120: ADR034 /
+    Iron Rule #7 is a **live trap** (health reports db:online while the API serves an S002 world with no WP-S5-*,
+    so an agent obeying "API-only when DB online" would mutate against a 450-commit-stale world), and
+    prompt-generate has emitted content-empty handoffs since S003. Report —
+    _COMMUNICATION/team_120/REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md. file-SSoT remains the correct
+    path for this spoke meanwhile.
+
+    2026-07-16: **§3.2 facade ruling REVERSED by team_00 → WP-S5-06 REGISTERED (mandatory, blocks cutover).**
+    The defer-as-debt disposition registered earlier the same day is **void** («ליזי מחוייב») — the lazy-load
+    commitment is binding, team_110''s CDP measurement proved it undelivered (~1.06 MB loads on the first embed
+    despite loading="lazy"), so the facade is **built, not deferred**. Registered as **WP-S5-06** with its own
+    LOD400/ACs/mandate/gate per team_00''s scope ruling — deliberately NOT folded into WP-S5-03 (whose ACs and
+    cross-engine verdict must stay uncontaminated); both routed to the same team_110 session. Added to
+    **WP-S5-05.blocked_by**. Transcripts EXCLUDED (Eyal content task — bundling would make the WP permanently
+    Eyal-blocked and block cutover). Carries the critical scoping find: the facade **must** be a `the_content`
+    render filter — the reseed route would silently delete every QR VideoObject node (ea-w2-seo-schema.php L266
+    regexes raw post_content), destroying the WP-S5-02 build that just passed cross-engine. Authority —
+    _COMMUNICATION/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md. **Next team_100 action:
+    author WP-S5-06''s LOD400 + team_90 cross-engine validation of it.**
 
     '
 work_packages:
@@ -2073,10 +2093,18 @@ work_packages:
   roadmap_mutation: 'ADR034 R8 file-SSoT. **Justification CORRECTED 2026-07-16** — the previously recorded reason
     ("full GET hangs http=000", probed 2026-07-15) is no longer accurate and must not be carried forward:
     GET /api/l0/eyalamit/roadmap now returns **HTTP 200 in ~0.13s** (4,962 bytes). The endpoint is responsive;
-    the payload is a **stale S002-era snapshot** (active_milestone=S002, 24 WPs, zero S004/S005/WP-S5-* rows).
-    file-SSoT remains correct because no S005 WP exists in the DB to gate-advance via API — not because the API
-    is unreachable. Structural ADR034 question (backfill the spoke DB roadmap vs formally record eyalamit as
-    file-SSoT) escalated to team_00 — see project notes 2026-07-16 and ROUTING-REQUEST §4.'
+    the payload is **S002-era** (active_milestone=S002, 24 WPs, zero S004/S005/WP-S5-* rows). file-SSoT remains
+    correct because the API serves no S005 WP to gate-advance — not because the API is unreachable.
+    **⚠ ROOT CAUSE CORRECTED (team_120 drift report, 2026-07-16): it is NOT a DB-backfill problem.** This
+    session (team_100) and the routing request both initially framed it as "a stale DB snapshot never backfilled";
+    **that diagnosis was wrong and the backfill recommendation is withdrawn.** There is **no DB roadmap table in
+    this path at all**: /api/l0/<proj>/roadmap reads `_aos/roadmap.yaml` from a **server-side git checkout** at
+    the registered server_path (hub _aos/projects.yaml → eyalamit.server_path: /data/projects/eyalamit); proof it
+    is filesystem-based is GET /api/l0/microgreens/roadmap → 404 "Project root not found: neither local_p…".
+    That checkout is simply **stale**: HEAD 8270d98 (2026-05-29), **450 commits behind origin/main**, clean,
+    correct remote — never pulled; a tiktrack-bare-sync.timer exists but **no eyalamit sync timer does**
+    (smallfarmsagents: 0 behind — healthy, for contrast). So this is a **missing sync mechanism**, not a DB
+    backfill and not fleet-wide. Report — _COMMUNICATION/team_120/REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md.'
   gate_history:
   - gate: L-GATE_BUILD
     result: PASS
@@ -2150,9 +2178,16 @@ work_packages:
       fake/zero-price Offer); §5 seo_probe.config.json harness; php -l clean ×3; 0 regressions on the regression
       set. Ratified guardrails respected (uploadDate omission, §3.2 facade deferred, /qr/ prod 302 out of scope).
       No route_recommendation. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-02-BUILD-2026-07-16.md.'
-  open_debt_facade_3_2: '**§3.2 facade DEFERRED (team_00 ruling, 2026-07-16) — recorded as known open debt, NOT
-    closed.** Not a cutover blocker: measured **zero CWV penalty**. Open debt is **data-transfer + privacy**, not
-    CWV: ~1.06 MB of avoidable YouTube payload on each of **42** QR pages (60 embeds across 48 pages: 6×0, 27×1,
+  facade_3_2_disposition: '**⚠ SUPERSEDED — do NOT read this as debt.** The §3.2 facade was briefly registered
+    here as "deferred debt" per the team_00 ruling of 2026-07-16 (morning). **team_00 REVERSED that ruling the
+    same day** («משנה את ההגדרה שלי בהתאם להמלצה - ליזי מחוייב... ולחייב לממש את כל ההשלכות»): the lazy-load
+    commitment is **binding**, team_110''s measurement proved it is **not actually delivered**, therefore the
+    facade is **MANDATORY and must be built** — tracked as **WP-S5-06** (registered below; blocks WP-S5-05).
+    Authority: _COMMUNICATION/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md, which
+    explicitly supersedes ROUTING-REQUEST §3. The measurement below is retained **as WP-S5-06''s evidence
+    baseline**, not as a justification to defer. WP-S5-02''s own LOD500_LOCK is unaffected: the facade was
+    explicitly out of its scope and team_90 validated it as a ratified guardrail («§3.2 facade deferred»).
+    Measured baseline: ~1.06 MB of avoidable YouTube payload on each of **42** QR pages (60 embeds across 48 pages: 6×0, 27×1,
     12×2, 3×3), whose audience arrives by scanning a printed QR code on mobile/cellular. **`loading="lazy"` does
     NOT defer the first embed** — despite sitting below the fold (958px/848px vs an 812px fold), ~1 MB loads anyway
     because Chrome''s lazy threshold (~1250px) swallows it. The previously-recorded justification *"native
@@ -2161,10 +2196,11 @@ work_packages:
     (~62% down-page) are genuinely deferred; the cost is the first video only. Measured headless Chrome/CDP, mobile
     375×812, cold cache, staging: /qr/qr48/ (0 video) LCP 1372–1680 ms, 0 KB YouTube; /qr/qr2/ (1) LCP 1104–1312 ms,
     ~1039–1062 KB / 9 req; /qr/qr10/ (3) LCP 1076–1328 ms, ~1063–1064 KB / 9 req. **Not measured: TBT /
-    main-thread blocking** (YouTube player JS does work LCP will not show) — the one remaining evidence gap if this
-    debt is revisited. **Caveat:** cross-page LCP comparison is weak (different LCP elements) and LCP was noisy
-    across runs; the stable decisive number is the payload (1039–1064 KB, consistently 9 requests). Revisit
-    post-cutover. Evidence — _COMMUNICATION/team_110/evidence/s5-02/facade-cwv/ (reproducible via qr_cwv_probe.mjs).
+    main-thread blocking** (YouTube player JS does work LCP will not show) — the LOD400 may take it as a secondary
+    AC. **Caveat:** cross-page LCP comparison is weak (different LCP elements) and LCP was noisy
+    across runs; the stable decisive number is the payload (1039–1064 KB, consistently 9 requests). **Disposition:
+    build now under WP-S5-06 — NOT "revisit post-cutover".** Evidence root — _COMMUNICATION/team_110/evidence/s5-02-facade-cwv/
+    (reproducible via qr_cwv_probe.mjs; this probe is also WP-S5-06''s AC harness).
     Transcripts (60 videos needing real transcript text) are an **Eyal content task tracked under M-EYAL-INPUTS**,
     NOT bundled into any facade LOD; not a cutover blocker.'
   notes: 'Absorbs WP-W2-17''s remaining T-items (closed/superseded 2026-07-15 — see its closure_note) plus
@@ -2237,9 +2273,14 @@ work_packages:
   next_wp: N/A — milestone-closing WP
   profile: L0
   priority: HIGH
-  blocked_by: [WP-S5-01, WP-S5-02, WP-S5-03, WP-S5-04, M-EYAL-INPUTS]
+  blocked_by: [WP-S5-01, WP-S5-02, WP-S5-03, WP-S5-04, WP-S5-06, M-EYAL-INPUTS]
   roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
   inherited_obligations:
+  - from: WP-S5-06 (§3.2 facade — ruling REVERSED)
+    obligation: '**WP-S5-06 is now a hard cutover blocker** (added to blocked_by 2026-07-16). The earlier
+      "§3.2 deferred as debt, revisit post-cutover" disposition is **void** — team_00 reversed it the same day:
+      the lazy-load commitment is binding and measurably undelivered, so the facade must be BUILT before go-live.
+      See WP-S5-06 below and ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md.'
   - from: WP-S5-01 (item 4)
     obligation: '**QR direct-200 (49 rows) prod re-run — MANDATORY, inherited OPEN-until-cutover.** WP-S5-01 was
       LOD500_LOCKED on 2026-07-16 with team_90 PASS on **staging only**. Staging PASS does NOT substitute: the
@@ -2262,5 +2303,75 @@ work_packages:
     catch-all, QR direct-200, 404 audit, sitemap, GSC baseline, AI-bot matrix, schema, lead-deliverability,
     CWV re-measure, analytics baseline, final sign-off) gated by scripts/final_pre_cutover_check.sh exit 0.
     ROLLBACK: restore-to-legacy from step-1 backup if any gate fails within the window. Cannot start until
-    ALL of S5-01..04 + M-EYAL-INPUTS are closed AND explicit Eyal/team_00 go-live approval is recorded
+    ALL of S5-01..04 + S5-06 + M-EYAL-INPUTS are closed AND explicit Eyal/team_00 go-live approval is recorded
     (§7 item 15) — the one irreversible operation in this whole sequence.'
+- id: WP-S5-06
+  label: QR embed facade — click-to-load (deliver the lazy-load commitment)
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10/110
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-07-16'
+  milestone_ref: S005
+  spec_ref: _COMMUNICATION/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md
+  spec_ref_status: '**INTERIM — LOD400 NOT YET AUTHORED.** spec_ref currently points at the team_00-authorized
+    addendum (the ruling + measured evidence + implications list + AC-1..AC-5), which is the standing authority
+    but is **not** a LOD400. **Next team_100 action:** author _COMMUNICATION/team_100/S005/WP-S5-06-LOD400-2026-07-16.md
+    to the same bar as WP-S5-01/02/03 (buildable by a fresh agent, no guesses), cross-engine validate it
+    (team_90), then repoint spec_ref at it and advance lod_status LOD200 → LOD400. **Do not start the build
+    against this interim spec_ref alone.**'
+  next_wp: WP-S5-05
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
+  origin_ruling: '**team_00 ruling 2026-07-16 (REVERSAL of the same-day defer ruling)** — «משנה את ההגדרה שלי
+    בהתאם להמלצה - ליזי מחוייב... ולחייב לממש את כל ההשלכות». The `loading="lazy"` commitment is **binding**;
+    team_110''s CDP measurement proved it is **not delivered** (~1.06 MB of YouTube payload loads on the first
+    embed anyway, because Chrome''s ~1250px lazy threshold swallows a below-fold iframe). So the facade is
+    **built, not deferred**. Scope ruling: **its own WP** — own LOD400, own ACs, own team_90 mandate, own gate —
+    deliberately **NOT folded into WP-S5-03**, whose ACs and cross-engine verdict must stay uncontaminated.
+    team_00 routes S5-03 + S5-06 to the same team_110 session. Baseline evidence: see WP-S5-02
+    facade_3_2_disposition.'
+  critical_constraint: '🔴 **The facade MUST be a `the_content` RENDER FILTER. The reseed route is FORBIDDEN.**
+    Reason (found while scoping, not hypothetical): site/wp-content/mu-plugins/ea-w2-seo-schema.php **L266**
+    emits the QR VideoObject nodes by regexing the **raw `post_content` DB field**, not rendered output
+    (`preg_match_all(''#youtube(?:-nocookie)?\.com/embed/([A-Za-z0-9_-]{6,})#'', $qr_obj->post_content, $qr_m)`).
+    The 46 iframes live in the seed data (ea-w2-07-qr-content-data.php) → seeded into post_content. A facade
+    built by changing the seed + reseeding — the obvious route, and **exactly how §3.1 was just done** — removes
+    the literal embed URL from post_content → preg_match_all returns 0 → **every VideoObject node silently
+    vanishes from all 42 QR pages**, destroying the WP-S5-02 build that just earned a clean team_90 cross-engine
+    PASS. No error, no warning. A `the_content` filter leaves post_content untouched → regex still matches →
+    VideoObject nodes survive. **AC-2 is the regression guard that proves this collision was avoided.**'
+  implications_for_lod400: 'Input to the LOD400 (from the addendum §3) — not a substitute for it: (1) **Filter
+    priority** — existing the_content filters: ea_strip_legacy_blog_shortcodes_content @1,
+    ea_wave2_suppress_legacy_editorial_content @8, ea_w2_08_inject_content @9, ea_w2_07_inject_press @9,
+    ea_m2_contact_fluent_the_content_fix @12; facade must run AFTER content injection (suggest ≥20) and must not
+    fight the Wave2 suppressor; scope to QR pages only (hub + /qr/qrN/) mirroring the gating at
+    ea-w2-seo-schema.php L239-246 / seo-head-fallbacks.php L67-84. (2) **Preserve youtube-nocookie** on
+    click-to-load (privacy is half the point) — do not regress to youtube.com. (3) **Thumbnail decision** —
+    i.ytimg.com/vi/<id>/hqdefault.jpg is still third-party (~10–30 KB vs ~1 MB ≈ 97% win); recommend ACCEPT for
+    v1 with localization of 60 thumbs as a later enhancement — but the LOD400 must DECIDE, not leave it open.
+    (4) **A11y must not regress** — site holds Lighthouse a11y 100 / axe 0 violations; the play control needs a
+    real accessible name, keyboard operability, focus management on activation. (5) **RTL** — Hebrew site;
+    overlay/button correct in RTL. (6) **prefers-reduced-motion** (Wave2 precedent). (7) **Reseed drop-in
+    cleanup** — ea-w2-07b-qr-reseed-once.php becomes an unneeded self-guarded no-op under the filter route; fold
+    the removal decision in. (8) **Keep loading="lazy"** on the real iframe once swapped in (belt-and-braces for
+    embeds 2+).'
+  acceptance_criteria: 'Measurable; harness already exists — reuse _COMMUNICATION/team_110/evidence/s5-02-facade-cwv/qr_cwv_probe.mjs
+    rather than inventing one. **AC-1 (the point):** YouTube payload on load → ~0 KB / 0 requests on /qr/qr2/ and
+    /qr/qr10/ (from ~1.06 MB); baseline /qr/qr48/ stays 0 KB. **AC-2 (regression guard — NON-NEGOTIABLE):**
+    VideoObject node counts unchanged (/qr/qr2/=1, /qr/qr10/=3 unique ids, /qr/qr1/=0, /qr/qr48/=0); Article
+    nodes + meta descriptions unchanged. **AC-3:** clicking the facade loads the real player from
+    youtube-nocookie.com and it plays. **AC-4:** no LCP regression vs the §1 baseline; a11y (axe 0) and RTL hold.
+    **AC-5:** php -l clean; scoped to QR routes only — zero effect on any non-QR page.'
+  notes: 'Transcripts **EXCLUDED by team_00 ruling** — 60 videos needing real transcript text is an Eyal content
+    task, not code; bundling it would make this WP permanently Eyal-blocked and therefore block the cutover gate.
+    Track separately (M-EYAL-INPUTS) if wanted. Validation: team_90 cross-engine (Iron Rule #1 — builder Claude ≠
+    validator composer-2.5), mirroring MANDATE-TEAM90-WP-S5-0{1,2}-* **including their Guardrails section**
+    (demonstrably prevented false-positive FAILs: staging expired TLS → curl -k; host-conditional noindex;
+    transient curl-000 = transport timeout not a redirect → probe low-concurrency). Runner: bash
+    scripts/run_cross_engine_validation.sh team_90 . <mandate> (--dry-run first); requires team_00 to authorize
+    cursor-agent -p --force --trust with that literal phrasing — generic approval is rejected.'
