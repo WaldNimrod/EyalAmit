@@ -100,29 +100,55 @@ So the endpoint is **responsive**, but serves **S002-era data**. **file-SSoT (`_
 correct path** — but for a *different reason* than recorded, and the recorded reason must be corrected rather
 than copied forward.
 
-> ### ⚠ CORRECTION (2026-07-16, later same session) — the root cause below was WRONG
+> ### ⛔ RETRACTED — the "CORRECTION" that stood here was ITSELF WRONG (team_120, 2026-07-16)
 >
-> This section originally stated the cause as *"a stale DB snapshot never backfilled with S003/S004/S005"* and
-> recommended *"backfill the spoke's DB roadmap"*. **team_110 subsequently traced it properly and that diagnosis
-> is wrong — there is no DB roadmap table in this path at all.**
+> This block previously *"corrected"* the diagnosis to *"a stale server checkout, not a DB backfill"* and
+> instructed **"Do not action a 'DB backfill'"**. **team_120 (Ambassador) verified live and overturned it.
+> That instruction was backwards and is hereby WITHDRAWN. The ORIGINAL diagnosis in this §4 — «the DB was
+> never backfilled» — was CORRECT.**
 >
-> **Actual, verified root cause:** `/api/l0/<proj>/roadmap` reads `_aos/roadmap.yaml` from a **server-side git
-> checkout** at the project's registered `server_path` (hub `_aos/projects.yaml` → `eyalamit.server_path:
-> /data/projects/eyalamit`). Proof it is filesystem-based: `GET /api/l0/microgreens/roadmap` → 404
-> `"Project root not found: neither local_p…"`. And that checkout is simply **stale**:
+> **The decisive evidence** (`l0_project_io.py:103-170`): the endpoint is a **hybrid**. It reads the file
+> first (tag `"file"`), then **overrides `work_packages` from the DB** when rows exist (`:151-165`) and flips
+> the tag to `"database"`. **Only `work_packages` is overridden — `active_milestone` (`:126`) stays from the
+> file.** Live, every L0 domain served: **`l0_roadmap_source: database`**.
 >
-> ```
-> /data/projects/eyalamit    HEAD 8270d98 (2026-05-29) · main · clean · correct remote
->                            → 450 commits behind origin/main
-> /data/projects/smallfarms  HEAD d5b7ab6 (2026-06-05) → 0 behind      ← healthy, for contrast
-> systemd: tiktrack-bare-sync.timer EXISTS · an eyalamit sync timer DOES NOT
-> ```
+> | domain | API serves | file-SSoT (truth) | `active_milestone` | `work_packages` |
+> |---|---|---|---|---|
+> | **eyalamit** | S002, 24 | S005, 82 | **wrong** (file/checkout) | **wrong** (DB) |
+> | smallfarmsagents | S003, 61 | S003, 76 | ✅ correct | **wrong** (DB) |
+> | nimrod-bio | V200, 12 | V200, 33 | ✅ correct | **wrong** (DB) |
+> | shaked-wg-agent | S005, 16 | S005, 38 | ✅ correct | **wrong** (DB) |
 >
-> **It is a missing sync mechanism, not a DB backfill, and not fleet-wide.** The checkout is clean and on the
-> right remote — it has simply never been pulled since 2026-05-29. **Do not action a "DB backfill".**
+> A stuck checkout would stale **both** fields together. **3 of 4 domains have a correct `active_milestone`
+> and a wrong WP list** — only possible if the list comes from the DB. Confirmed by team_110's own data,
+> which we misread at the time: the stuck checkout file holds **29** WPs; the API serves **24**. **24 ≠ 29** —
+> the served list was never the file's.
 >
-> Full evidence + the ruling request now sit with the Ambassador (team_120), whose mandate this is:
-> `_COMMUNICATION/team_110/DRIFT-REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md` (team_00-authorized).
+> **Why team_110 was misled (team_120's assessment):** `eyalamit` is the **only domain in the fleet with two
+> independent faults at once** — checkout 450 behind (breaks `active_milestone`) **and** an unpopulated DB
+> (breaks `work_packages`). Both screamed "stale", and the checkout was stale spectacularly, so it absorbed
+> the blame. It is the worst place in the fleet from which to diagnose this bug.
+>
+> **The sync-timer fix proposed in the retracted block would not have worked:** `sync_l0_roadmap_to_db`
+> (`:173-232`) syncs **only `current_lean_gate`**, only on **rows that already exist** — it **never INSERTs**,
+> so no `WP-S5-*` would ever enter the DB. It also iterates **`local_path` only** (`:199-201`) — a Mac path
+> absent on the server → a **no-op for every spoke**. A timer would have fixed one field in one domain and
+> left all four WP lists wrong.
+>
+> **team_110 method failures to carry forward:** (1) we rationalised away the disconfirming 24≠29 instead of
+> chasing it; (2) our "healthy control" (`smallfarmsagents → 0 behind`) was **invalid** — that checkout is on a
+> feature branch with 299 dirty files and is serving the API; (3) **`behind=0` is a lying zero** —
+> `git rev-list HEAD..origin/main` compares against the *cached* `origin/main` ref, refreshed only by `git
+> fetch` (shaked-wg-agent last fetched 2026-04-17). Our 450 was real **only because we happened to fetch**.
+>
+> **It IS fleet-wide, and worse than reported:** of 12 projects registered with `server_path`, **only tiktrack**
+> is healthy and current (the only one with a timer). Two sit on feature branches, one on April's main,
+> two are not git worktrees (capra-mio → HTTP 500), five are **missing entirely** (404). **The hub's own
+> checkout is 257 behind with 68 dirty files.**
+>
+> **Authority:** `_COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md` (team_120, team_00-approved).
+> The remedy decision is **team_100's** — team_110 fixes nothing here. **file-SSoT remains the correct path
+> (ADR034 R9); S005 proceeds unblocked.**
 
 **What still stands for team_100/team_00:** ADR034's "DB online → API-only mutations" (Iron Rule #7) is a **live
 trap** in this spoke — `health` reports `db: online`, instructing agents to mutate via an API that serves an

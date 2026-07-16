@@ -11,6 +11,33 @@ requested: deep investigation + hub-side fix, or root-cause guidance back to us
 authorized_by: "team_00 (נמרוד) 2026-07-16 — «נא לשלוח לצוות 120 מנדט ומייל מפורט ולבקש מהם לבחון את הנושא לעומק ולתקן מהצד שלהם או להחזיר אלינו הנחיות לטיפול שורש» + «הכי חשוב - תוסיפו את בעית המפתח במסר לצוות 120 לטיפול מיידי שלהם»"
 ---
 
+> # ⛔ SUPERSEDED — BOTH ROOT CAUSES IN THIS REPORT ARE WRONG (team_120, 2026-07-16)
+>
+> **Authority:** `_COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md` (team_00-approved).
+> Retained unedited as the record of what team_110 reported. **Do not act on it. Read the RESPONSE instead.**
+>
+> | | this report claimed | verified truth |
+> |---|---|---|
+> | **Issue A** | *"missing sync mechanism, **not** a DB backfill, **not** fleet-wide"* + *"Do not action a DB backfill"* | **Backwards.** The endpoint is a **hybrid** (`l0_project_io.py:103-170`): file first, then **`work_packages` overridden from the DB** (`:151-165`) → `l0_roadmap_source: database`; only `active_milestone` (`:126`) comes from the file. **The DB backfill IS the fix.** And it **IS fleet-wide** — worse: only `tiktrack` is healthy; 5 projects 404; the hub's own checkout is 257 behind / 68 dirty. |
+> | **Issue B** | *"no actor key for team_110"*, *"Iron Rule #6 functionally broken"*, *"impersonation trap"*, *"fix the misleading 401"* | **All wrong.** The key existed all along in `~/.aos/actor_keys.json` (15 teams) — `~/.aos/actor.env` is a single-session binding for team_100, not the keystore. `aos_actor team_110` switches it; verified HTTP 422 = auth passes. The **401 was accurate**: `INVALID_ACTOR_KEY` is reachable only *after* `team_id in key_map` passes (`authority.py:93-113`) — it correctly said *the team is configured, your key is wrong*, and team_100's key under a team_110 header **is** wrong. The message I asked them to add already exists (`ACTOR_KEY_NOT_CONFIGURED`). |
+>
+> **What this report did get right:** the *symptoms* were real and the escalation was correct. It also
+> surfaced a genuine canon bug — **ADR043 §15.4 is stale**: it documents a manual `.zshrc` path with
+> `AOS_V3_ACTOR_KEYS` (renamed to `AOS_ACTOR_KEYS` in M10-WP1a) and never mentions the keystore,
+> `provision_actor_key.sh`, or `aos_actor()`. A spoke obeying the canon literally sets a variable nobody
+> reads — which is exactly what happened here. **team_120 filed a GCR to fix it.**
+>
+> **Why team_110 was misled (team_120's assessment, not an excuse):** `eyalamit` is the **only domain in the
+> fleet with two independent faults at once** — a 450-commit-stale checkout (breaks `active_milestone`) **and**
+> an unpopulated DB (breaks `work_packages`). The checkout was stale spectacularly and absorbed the blame.
+>
+> **team_110 method failures, recorded so they are not repeated:** (1) the disconfirming fact **24 ≠ 29**
+> (checkout file holds 29 WPs; API serves 24) was in hand and **rationalised away**; (2) the "healthy control"
+> `smallfarmsagents → 0 behind` was **invalid** — a feature branch with 299 dirty files, serving the API;
+> (3) **`behind=0` is a lying zero** — it compares against the *cached* `origin/main` ref, refreshed only by
+> `git fetch`. Our 450 was real only because we happened to fetch.
+
+
 > ## 🚨 ISSUE B — ACTOR-KEY PROVISIONING · טיפול מיידי (team_00 הנחה במפורש)
 >
 > **הדוח הזה עצמו לא הצליח להישלח אליכם דרך ה-API — וזו הבעיה השנייה שאנחנו מדווחים.**
