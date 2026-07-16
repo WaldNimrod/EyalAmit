@@ -2510,7 +2510,26 @@ work_packages:
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
   assigned_builder: team_10 (execution) + team_00 (go/no-go)
-  assigned_validator: team_190 (constitutional, cross-engine, Iron Rule #5)
+  assigned_validator: 'PENDING team_00 ruling — see governance_drift_l_gate_validate_owner below. (Was
+    "team_190 (constitutional, cross-engine, Iron Rule #5)" — team_190 has NO governance file in the current
+    canonical registry.)'
+  governance_drift_l_gate_validate_owner: '⚠ **OPEN FOR team_00 — L-GATE_VALIDATE has no owner in the current
+    team registry.** Found 2026-07-16 while correcting team_191 drift. **Evidence:** (1) the canonical registry
+    (_aos/governance/team_*.md, mirrored from hub core/governance/) contains **14 teams** — team_00, 10, 40, 50,
+    60, 70, 80, 90, 98, 99, 100, 110, 120, 200. **There is no team_190 and no team_191.** (2) `team_90.md`
+    machine block reads `gate_authority: {L-GATE_SPEC: awareness_only, L-GATE_BUILD: owner, L-GATE_VALIDATE:
+    awareness_only, L-GATE_ELIGIBILITY: awareness_only}` — team_90 owns **L-GATE_BUILD only**. (3) Its prose
+    says «Does NOT own L-GATE_ELIGIBILITY, L-GATE_SPEC, or L-GATE_VALIDATE — those are **Team 90** (Senior
+    Constitutional Validator) exclusively» — self-contradictory; this is a **botched 190→90 rename** (it must
+    once have read "Team 190"). (4) **ADR045 R3.2 still asserts** «team_190 remains the sole L-GATE_VALIDATE
+    owner», and **CLAUDE.md Iron Rule #5** still says «Final validation owned by team_190» — both naming a team
+    that no longer has a governance file. **Consequence:** no team in the registry owns L-GATE_VALIDATE (or
+    L-GATE_SPEC). **team_100 did NOT invent a replacement** — the candidates (team_90 as merged senior validator
+    vs a genuinely ownerless gate) have materially different constitutional weight, and Iron Rule #5 is
+    constitutional. **This does NOT block S005:** WP-S5-05 is the cutover gate and is already BLOCKED on
+    S5-01..04/06/07 + M-EYAL-INPUTS + explicit team_00 go-live approval. It must be ruled before the cutover
+    gate is routed. **Note also:** the S004 constitutional gate (WP-S4-08, 2026-07-15) WAS executed by team_190
+    and that history stands — this is a forward-assignment problem, not a retroactive one.'
   created_at: '2026-07-15'
   milestone_ref: S005
   spec_ref: _COMMUNICATION/team_100/SEO-GEO-VALIDATION-DEPLOYMENT-PLAN-2026-06-20.md

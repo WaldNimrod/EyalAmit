@@ -105,5 +105,4 @@ is `972524822842`. Do not "normalize" it.
 - **Ready for build:** **WP-S5-03** (handoff exists) · **WP-S5-06** (LOD400 + PASS + handoff) ·
   **WP-S5-07** (LOD400 + PASS). All three `blocked_by: []`.
 - **WP-S5-05 stays BLOCKED** — go-live still needs explicit team_00/Eyal approval.
-- Outstanding, unchanged: Iron Rule #15 archival (now also for the 7 newly-locked S004 WPs) — team_191 at
-  team_00's discretion; not blocking any build.
+- Iron Rule #15 archival: ⚠ **team_191 was DISSOLVED** (ADR042 Addendum v1.1.0, co-signed team_00+team_100). It is **not** a discretionary mandate: per the amended Step 1, *immediately on L-GATE_VALIDATE PASS* the **closing orchestrator** runs `/AOS_archive`; **team_120** = procedure custodian + `_aos/` archive authority; **team_60** commits. Standing duty at each gate PASS — currently **overdue** for S5-01/02 + the 7 locked S004 WPs. Not blocking any build.

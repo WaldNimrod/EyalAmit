@@ -98,5 +98,4 @@ constitutional GO that was issued correctly). Follows the S003-closure precedent
 - `validate_aos.sh` → **47 PASS / 31 SKIP / 0 FAIL**.
 - **WP-S5-07's LOD400 is authored and cross-engine validated** — see
   `_COMMUNICATION/team_100/S005/WP-S5-07-LOD400-2026-07-16.md`.
-- Iron Rule #15 archival for the 7 newly-LOD500_LOCKED WPs remains the standing spoke-wide gap (team_191 at
-  team_00's discretion) — not introduced by this registration.
+- Iron Rule #15 archival: ⚠ **team_191 was DISSOLVED** (ADR042 Addendum v1.1.0, co-signed team_00+team_100). It is **not** a discretionary mandate: per the amended Step 1, *immediately on L-GATE_VALIDATE PASS* the **closing orchestrator** runs `/AOS_archive`; **team_120** = procedure custodian + `_aos/` archive authority; **team_60** commits. Standing duty at each gate PASS — currently **overdue** for S5-01/02 + the 7 locked S004 WPs. Not blocking any build.
