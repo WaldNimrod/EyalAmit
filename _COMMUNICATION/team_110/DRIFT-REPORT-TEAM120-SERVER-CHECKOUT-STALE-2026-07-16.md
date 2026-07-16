@@ -6,9 +6,52 @@ cc: team_00, team_100
 date: 2026-07-16
 type: drift-report
 severity: HIGH — breaks ADR034 DB/API-as-SSoT for this spoke + corrupts every handoff generated since S003
+issues: 2 — (A) stale server checkout [HIGH]; (B) actor-key provisioning [BLOCKER — immediate, per team_00]
 requested: deep investigation + hub-side fix, or root-cause guidance back to us
-authorized_by: "team_00 (נמרוד) 2026-07-16 — «נא לשלוח לצוות 120 מנדט ומייל מפורט ולבקש מהם לבחון את הנושא לעומק ולתקן מהצד שלהם או להחזיר אלינו הנחיות לטיפול שורש»"
+authorized_by: "team_00 (נמרוד) 2026-07-16 — «נא לשלוח לצוות 120 מנדט ומייל מפורט ולבקש מהם לבחון את הנושא לעומק ולתקן מהצד שלהם או להחזיר אלינו הנחיות לטיפול שורש» + «הכי חשוב - תוסיפו את בעית המפתח במסר לצוות 120 לטיפול מיידי שלהם»"
 ---
+
+> ## 🚨 ISSUE B — ACTOR-KEY PROVISIONING · טיפול מיידי (team_00 הנחה במפורש)
+>
+> **הדוח הזה עצמו לא הצליח להישלח אליכם דרך ה-API — וזו הבעיה השנייה שאנחנו מדווחים.**
+>
+> ב-`~/.aos/actor.env` במכונה הזו קיים **מפתח יחיד, של `team_100` בלבד** (`AOS_ACTOR_TEAM_ID=team_100`).
+> ל-`team_110` — הצוות שמבצע בפועל את כל עבודת הבנייה בספוק הזה — **אין מפתח כלל**. התוצאה:
+>
+> ```
+> POST /api/messaging/v2/send   (X-Actor-Team-Id: team_110)
+>   → 401  INVALID_ACTOR_KEY   "does not match the configured secret for this team"
+>
+> POST /api/messaging/v2/send   (actor: team_100, sender: team_110)   ← ניסיון לשלוח בשם המחבר האמיתי
+>   → 403  TEAM_ID_MISMATCH    "Actor 'team_100' may not act as team 'team_110'.
+>                               Recorded and escalated to team_00 for decision (O25 §Q2 / P12)."
+>
+> GET  /api/messaging/inbox     (team_110 / team_00 / team_90 / 110 / 100)  → 401 לכולם
+>                               (רק team_100 עובר — 422 על פרמטרים, כלומר auth תקין)
+> ```
+>
+> **ההשלכות:**
+> 1. **Iron Rule #6 (תקשורת בין-צוותית דרך ארטיפקט קאנוני) שבור בפועל ל-team_110 בספוק הזה.** אנחנו יכולים
+>    לכתוב ארטיפקט — אבל לא להודיע לאף אחד דרך המסלול הקאנוני. הדוח הזה הגיע אליכם רק כי team_00 העביר אותו ידנית.
+> 2. **מלכודת impersonation.** הדרך ה"טבעית" לעקוף (actor=team_100, sender=team_110) **נחסמת ונרשמת כניסיון
+>    התחזות שמוסלם ל-team_00**. כלומר כל סוכן תם-לב שינסה לשלוח מסר מהספוק הזה ייצור אירוע-אבטחה. זה קרה לנו היום.
+> 3. **סוכן בספוק לא יכול לפתור את זה בעצמו.** `provision_actor_key.sh <team>` דורש **סשן מנפיק של
+>    team_00/team_99** (CLAUDE.md §Startup 0). כלומר הספוק חסום עד שמישהו בסמכות מריץ את זה — אין self-service.
+> 4. זה כנראה **לא חדש** — תועד אצלנו כ"רעש נסבל" (`ACTOR_KEY_NOT_CONFIGURED` / 401 על
+>    `aos_session_ctl start` / inbox). היום זה עבר מ"רעש" ל**חוסם**.
+>
+> **הבקשה (מיידית):**
+> - **האם הקאנון מצפה למפתח per-team לכל ספוק, או למפתח יחיד per-machine?** אם per-team — למה רק
+>   `team_100` הונפק כאן, והאם ספוקים נוספים בצי באותו מצב? (אותה שאלת-צי כמו Issue A.)
+> - **מי אמור להנפיק, ומתי?** אם רק team_00/team_99 יכולים, זה צוואר-בקבוק אנושי בכל onboarding של ספוק.
+>   האם צריך מסלול הנפקה אוטומטי ב-bootstrap?
+> - **בינתיים** — נא להנפיק מפתח ל-`team_110` בספוק `eyalamit`, או להנחות מהו המסלול הקאנוני שבו צוות שאינו
+>   `team_100` שולח מסר מספוק.
+> - **שקלו הודעת-שגיאה טובה יותר:** ה-401 אומר "does not match the configured secret for this team" — הוא
+>   לא אומר *"אין מפתח לצוות הזה; הרץ provision_actor_key.sh מסשן team_00/team_99"*. ההודעה הנוכחית שולחת
+>   אותך לחפש מפתח שגוי במקום מפתח חסר.
+>
+> *(Issue A — ה-checkout התקוע — ממשיך להלן. שתי הבעיות נפרדות אך שתיהן ב-mandate שלכם.)*
 
 # דיווח דריפט — ה-checkout של eyalamit בשרת תקוע 450 קומיטים מאחור; ה-API מגיש roadmap מ-S002
 
