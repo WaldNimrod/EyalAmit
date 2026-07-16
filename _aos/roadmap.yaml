@@ -2510,11 +2510,33 @@ work_packages:
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
   assigned_builder: team_10 (execution) + team_00 (go/no-go)
-  assigned_validator: 'PENDING team_00 ruling — see governance_drift_l_gate_validate_owner below. (Was
-    "team_190 (constitutional, cross-engine, Iron Rule #5)" — team_190 has NO governance file in the current
-    canonical registry.)'
-  governance_drift_l_gate_validate_owner: '⚠ **OPEN FOR team_00 — L-GATE_VALIDATE has no owner in the current
-    team registry.** Found 2026-07-16 while correcting team_191 drift. **Evidence:** (1) the canonical registry
+  assigned_validator: team_90 (Default Validator — L-GATE_VALIDATE owner per team_00 ruling 2026-07-16; cross-engine, Iron Rule #1 + Iron Rule #5)
+  l_gate_validate_owner_ruling: '✅ **RULED by team_00, 2026-07-16: «אשר את בעלות L-GATE_VALIDATE - team_90 הוא
+    הוולידטור».** team_90 owns **L-GATE_VALIDATE**, replacing the dissolved/absent **team_190**. This resolves
+    the governance gap recorded below (retained for provenance). **Authority:** team_00 is the Principal and the
+    final human authority (governance L2); Iron Rule #5 is constitutional, which is exactly why team_100 escalated
+    rather than substituting on its own authority.
+    **Consequences recorded honestly:**
+    (a) **It ratifies existing practice.** team_90 has de-facto validated L-GATE_SPEC/L-GATE_VALIDATE throughout
+    this project (WP-CANON; S005-PACKAGE-1-3 coverage cycles 1-3; WP-S5-06 + WP-S5-07 LOD400 cycles 1-2; the S004
+    registration audit) — every run team_00 authorized. Those verdicts are now registry-backed, not merely useful.
+    (b) **Iron Rule #1 still binds and is unaffected:** builder engine ≠ validator engine. team_90 runs composer-2.5
+    (Cursor) vs the Claude builders — satisfied on every S005 gate.
+    (c) **The hub governance does NOT yet reflect this ruling** — until it does, the next session will read
+    `team_90.md` and see `L-GATE_VALIDATE: awareness_only` again and re-open this. team_100 filed
+    **GCR_team_100_L-GATE_VALIDATE_OWNER_TEAM_90_2026-07-16_v1.0.0** (_COMMUNICATION/team_100/) to amend the three
+    canonical sources: `core/governance/team_90.md` (gate_authority block + the botched 190→90 prose), **ADR045
+    R3.2**, and **CLAUDE.md Iron Rule #5**. Spoke `_aos/governance/` is a READ-ONLY snapshot — team_100 must not
+    edit it here (Iron Rule #2/#11).
+    (d) **L-GATE_SPEC + L-GATE_ELIGIBILITY sit in the SAME orphaned bucket** — `team_90.md` marks all three
+    `awareness_only`, because all three belonged to the one absent team_190. The ruling names L-GATE_VALIDATE
+    explicitly; the GCR asks team_00 to confirm the same disposition for the other two rather than team_100
+    extending a constitutional ruling by inference. **Not blocking:** S005''s SPEC gates are already validated
+    and PASSed by team_90.
+    ⤵ Provenance — the gap as originally recorded (now RESOLVED for L-GATE_VALIDATE):'
+  governance_drift_l_gate_validate_owner: '⚠ **[RESOLVED 2026-07-16 — see l_gate_validate_owner_ruling above.
+    Retained for provenance.]** L-GATE_VALIDATE had no owner in the current
+    team registry. Found 2026-07-16 while correcting team_191 drift. **Evidence:** (1) the canonical registry
     (_aos/governance/team_*.md, mirrored from hub core/governance/) contains **14 teams** — team_00, 10, 40, 50,
     60, 70, 80, 90, 98, 99, 100, 110, 120, 200. **There is no team_190 and no team_191.** (2) `team_90.md`
     machine block reads `gate_authority: {L-GATE_SPEC: awareness_only, L-GATE_BUILD: owner, L-GATE_VALIDATE:
