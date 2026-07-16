@@ -140,6 +140,12 @@ project:
     *(Struck 2026-07-16 per that audit''s F-01 — the paragraph had contradicted the corrected narrative 60 lines
     above it.)*
 
+    **ADR034 / Iron Rule #7 — ⚠ THIS PARAGRAPH IS RETRACTED (2026-07-16, later same day). See the
+    2026-07-16 ADR034 RE-INSTATEMENT note below — it supersedes everything in this paragraph except the
+    live-probe observation.** *(Retained for provenance: the stale-checkout root cause below was team_110''s
+    diagnosis; team_120 verified live and REFUTED it, and team_110 retracted it — MSG-20260716-246 + their
+    commit 0f33654. The withdrawal of team_100''s escalation that this paragraph performs was itself the error.)*
+
     **ADR034 / Iron Rule #7 (ROUTING-REQUEST §4) — observation right, ROOT CAUSE WRONG, corrected same day.**
     Re-probed 2026-07-16: /api/system/health → db online, mode online; GET /api/l0/eyalamit/roadmap → **HTTP 200
     in ~0.13s — it does NOT hang** (the 2026-07-15 "http=000" justification is dead and was corrected in-place on
@@ -156,7 +162,34 @@ project:
     so an agent obeying "API-only when DB online" would mutate against a 450-commit-stale world), and
     prompt-generate has emitted content-empty handoffs since S003. Report —
     _COMMUNICATION/team_120/REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md. file-SSoT remains the correct
-    path for this spoke meanwhile.
+    path for this spoke meanwhile. *(↑ SUPERSEDED — see the ADR034 RE-INSTATEMENT note immediately below.)*
+
+    2026-07-16 (later): **⚠ ADR034 ESCALATION RE-INSTATED — the withdrawal above was the error.** team_110
+    retracted the stale-checkout diagnosis their §4 asserted (MSG-20260716-246; their commit 0f33654), after
+    **team_120 verified live and refuted BOTH reported root causes** (team_110''s stale checkout AND team_100''s
+    "never backfilled" framing). **team_100''s rev-1 escalation — «backfill the spoke DB roadmap, OR formally
+    record eyalamit as file-SSoT» — is back in force.** The "do not action a DB backfill" instruction is
+    **withdrawn**. **Actual mechanism:** /api/l0/<proj>/roadmap is a **hybrid** — l0_project_io.py:103-170 loads
+    the file (tags "file"), then **overwrites `work_packages` from DB rows** (:151-165) and re-tags
+    `l0_roadmap_source: "database"`; only `active_milestone` (:126) survives from the file. Decisive: **3 of 4
+    L0 domains serve a correct active_milestone beside a wrong WP list** — a stuck checkout cannot produce that
+    split (and the server file holds 29 WPs while the API serves 24). **team_100 re-probed live this session:
+    `l0_roadmap_source: database` · active_milestone S002 · 24 WPs · WP-S5-*: NONE — the trap is STILL ACTIVE.**
+    **⚠ NEW (team_100, not in team_120''s report): the remedy is already written but INERT, twice over.** The hub
+    source now carries an **ADR034 R9/R10/R12 T-1 ruling (team_00, 2026-07-16)** making the spoke FILE the
+    write-SSoT and letting only a genuinely authoritative row (wp_source=''db'') override — i.e. **exactly the
+    second option the escalation offered**. But: (1) it is **UNCOMMITTED** in the hub''s primary checkout
+    (`M core/modules/management/l0_project_io.py`; hub HEAD 1fa66ae) — dangling residue, the very failure
+    team_00''s worktree-isolation mandate exists to end; (2) the deployed server runs **build_sha 017a917,
+    built 2026-07-12 — four days BEFORE the ruling** — so even committing needs a rebuild/redeploy.
+    `sync_l0_roadmap_to_db` (:173-232) cannot fix it: only `current_lean_gate`, only on existing rows, **never
+    INSERTs**, iterates `local_path` only (no-op on the server). **It IS fleet-wide** (the retracted note said
+    otherwise): only tiktrack healthy, 5 projects 404, hub checkout 257 behind / 68 dirty. **Consequence
+    unchanged: ADR034 / Iron Rule #7 is a LIVE TRAP** — health says db:online while the API serves an S002 world,
+    so a compliant agent would mutate against the wrong object. **file-SSoT (ADR034 R9) remains correct;
+    S005 is NOT blocked.** Remedy (commit T-1 + redeploy + fleet posture) is **team_00''s call**. Evidence:
+    _COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md ·
+    _COMMUNICATION/team_100/REGISTRATION-S005-WP-S5-01-02-2026-07-16.md §4(c) rev-3.
 
     2026-07-16: **§3.2 facade ruling REVERSED by team_00 → WP-S5-06 REGISTERED (mandatory, blocks cutover).**
     The defer-as-debt disposition registered earlier the same day is **void** («ליזי מחוייב») — the lazy-load
@@ -2256,16 +2289,21 @@ work_packages:
     GET /api/l0/eyalamit/roadmap now returns **HTTP 200 in ~0.13s** (4,962 bytes). The endpoint is responsive;
     the payload is **S002-era** (active_milestone=S002, 24 WPs, zero S004/S005/WP-S5-* rows). file-SSoT remains
     correct because the API serves no S005 WP to gate-advance — not because the API is unreachable.
-    **⚠ ROOT CAUSE CORRECTED (team_120 drift report, 2026-07-16): it is NOT a DB-backfill problem.** This
-    session (team_100) and the routing request both initially framed it as "a stale DB snapshot never backfilled";
-    **that diagnosis was wrong and the backfill recommendation is withdrawn.** There is **no DB roadmap table in
-    this path at all**: /api/l0/<proj>/roadmap reads `_aos/roadmap.yaml` from a **server-side git checkout** at
-    the registered server_path (hub _aos/projects.yaml → eyalamit.server_path: /data/projects/eyalamit); proof it
-    is filesystem-based is GET /api/l0/microgreens/roadmap → 404 "Project root not found: neither local_p…".
-    That checkout is simply **stale**: HEAD 8270d98 (2026-05-29), **450 commits behind origin/main**, clean,
-    correct remote — never pulled; a tiktrack-bare-sync.timer exists but **no eyalamit sync timer does**
-    (smallfarmsagents: 0 behind — healthy, for contrast). So this is a **missing sync mechanism**, not a DB
-    backfill and not fleet-wide. Report — _COMMUNICATION/team_120/REPORT-TEAM120-SERVER-CHECKOUT-STALE-2026-07-16.md.'
+    **⚠ ROOT CAUSE — CORRECTED TWICE; this is the CURRENT text (2026-07-16, final).** The
+    2026-07-15 justification ("full GET hangs http=000") is dead. A first correction here blamed a **stale
+    server-side git checkout** — **that was team_110''s diagnosis and it is REFUTED**: team_120 verified live,
+    team_110 retracted it (MSG-20260716-246 / commit 0f33654). **Actual mechanism:** /api/l0/<proj>/roadmap is a
+    **hybrid** — l0_project_io.py:103-170 loads the file (tags "file"), then **overwrites `work_packages` from
+    DB rows** (:151-165) and re-tags `l0_roadmap_source: "database"`; only `active_milestone` (:126) survives
+    from the file. Decisive: 3 of 4 L0 domains serve a correct active_milestone beside a wrong WP list — a stuck
+    checkout cannot produce that. **team_100 re-probed live: l0_roadmap_source=database, S002, 24 WPs, 0
+    WP-S5-*.** file-SSoT is correct because the API holds no S005 row to gate-advance. **team_100''s rev-1
+    escalation (backfill DB vs formally record file-SSoT) is RE-INSTATED; the "do not backfill" instruction is
+    withdrawn.** team_00''s T-1 ruling (ADR034 R9/R10/R12) has already chosen the file-SSoT option in hub source
+    — but it is **uncommitted** and the server runs a **2026-07-12 build**, so the trap is still live. Full
+    escalation + evidence: project notes (2026-07-16 ADR034 RE-INSTATEMENT) ·
+    _COMMUNICATION/team_100/REGISTRATION-S005-WP-S5-01-02-2026-07-16.md §4(c) rev-3 ·
+    _COMMUNICATION/team_110/RESPONSE-TEAM120-TO-TEAM110-2026-07-16.md.'
   gate_history:
   - gate: L-GATE_BUILD
     result: PASS
@@ -2388,6 +2426,29 @@ work_packages:
   profile: L0
   priority: MEDIUM
   blocked_by: []
+  gate_history:
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine coverage cycles 1-2 (package S005-1-3)
+    result: PASS_WITH_FINDINGS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    notes: 'Validated as part of the S005-PACKAGE-1-3 coverage mandate (WP-S5-01 + WP-S5-02 + WP-S5-03 together):
+      spec accuracy vs live code, buildability, gap-coverage/no-duplication matrix, next_wp consistency across
+      3 sources. Findings F-01..F-05 raised and closed across cycles 1-2. Artifacts —
+      _COMMUNICATION/team_90/VERDICT-S005-LOD400-COVERAGE-2026-07-16.md ·
+      VERDICT-S005-LOD400-COVERAGE-CYCLE2-2026-07-16.md.'
+  - gate: L-GATE_SPEC
+    phase: LOD400 cross-engine coverage cycle 3 (delta)
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0
+    notes: '**Clean PASS — 0 findings.** F-05 CLOSED, F-01..F-04 confirmed no-regression (5/5 CLOSED); next_wp
+      3-source parity PASS; roadmap parse PASS; Option A consistency PASS; S5-01↔S5-02 overlap PASS. Iron Rule #1
+      satisfied (author claude-opus-4-8 ≠ validator composer-2.5). *(Registered 2026-07-16 — this gate_history was
+      MISSING on WP-S5-03 while its siblings S5-01/02 carried theirs: the PASS was earned on 2026-07-16 but never
+      written back. Found by team_100''s pre-release cross-plan audit, same bookkeeping drift class as the S004
+      reconciliation.)* Artifact — _COMMUNICATION/team_90/VERDICT-S005-LOD400-COVERAGE-CYCLE3-2026-07-16.md.'
   roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
   notes: 'Absorbs WP-W2-15-G (closed/superseded 2026-07-15 — see its closure_note): 406 legacy eyalamit.co.il
     URLs from the 2026-06-04 GSC not-indexed export (~174 after stripping feed/tag/category/qr+attachments) —
