@@ -1,0 +1,19 @@
+=== AC-2 — footer NAP live (measured on DECODED text: esc_html() encodes ' as &#039;) ===
+
+  route        http  foot__nap (decoded)                tel href  tel text  ea-cfoot verdict
+  /            200   רח' עמל 8 ב', פרדס חנה-כרכור       1         1         0        OK
+  /faq/        200   רח' עמל 8 ב', פרדס חנה-כרכור       1         1         0        OK
+  /contact/    200   רח' עמל 8 ב', פרדס חנה-כרכור       2         2         0        OK
+  /treatment/  200   רח' עמל 8 ב', פרדס חנה-כרכור       1         1         0        OK
+
+  All four routes render section-footer.php; ea-cfoot=0 proves block-footer-social.php stayed DEAD
+  (no second hard-coded NAP copy was created — LOD400 §4.B).
+
+=== AC-2 byte-match: FAQ <-> footer ===
+  canonical token                     : "עמל 8 ב'"  (apostrophe U+0027)
+  occurrences in /faq/ decoded page   : 2  (FAQ answer general-01 + the footer itself)
+  footer foot__nap decoded            : "רח' עמל 8 ב', פרדס חנה-כרכור"
+  token present in footer             : True
+  U+05F3 geresh form anywhere in /faq/: 0  (must be 0)
+
+  AC-2 byte-match: PASS — identical U+0027 form in both surfaces

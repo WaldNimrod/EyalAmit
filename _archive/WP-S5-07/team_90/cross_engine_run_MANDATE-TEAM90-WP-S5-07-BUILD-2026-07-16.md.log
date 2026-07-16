@@ -1,0 +1,27 @@
+Cross-engine validation for **WP-S5-07** is complete. Verdict written to:
+
+[`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-07-BUILD-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-07-BUILD-2026-07-16.md)
+
+## Verdict flag: `PASS_WITH_FINDINGS`
+
+All **8/8 ACs** independently reproduced **PASS** on live staging. **0 blockers.**
+
+| AC | Result | Key observed value |
+|----|--------|-------------------|
+| **AC-1** | PASS | `ProfessionalService` fields byte-identical vs BEFORE; `ea-w2-seo-schema.php:57–66` now reads `ea_nap()` |
+| **AC-2** | PASS | Footer NAP + `tel:+972524822842` on `/`, `/faq/`, `/contact/`, `/treatment/`; `ea-cfoot=0`; FAQ↔footer `עמל 8 ב'` (U+0027) match |
+| **AC-3** | PASS | `/qr/qr32/` → `052-4822842`, standalone `052-482284`=0; VideoObject=2; facade present; only `qr32` seed changed |
+| **AC-4** | PASS | `/faq/` glow=2, wrong phone=0, canonical=3 |
+| **AC-5** | PASS | VERIFY-only intact; `.ea-pending-approval`=12 (≥10) |
+| **AC-6** | PASS | `nap_canon_check.mjs` exit 0 |
+| **AC-7** | PASS | testimonials + `wave2-stage-b.php` diff empty; `דיג׳רידו` untouched |
+| **AC-8** | PASS on intent | `php -l` 9/9; `qa_probe` 4/4 no overflow; axe see F-02 |
+
+## Adjudication
+
+- **F-01 CONFIRM** — Spec §4.G bug real (`foreach $raw` → map size **0** vs `$raw['items']` → **108**). Builder fix verified; allow-list still exactly `method-02` + `general-17`. Finding is against the **spec**, not the build.
+- **F-02 CONFIRM** — Sole serious axe node is pre-existing `.foot__disc` (contrast 3.48). `.foot__nap` lands in `incomplete` only — **0 violations introduced**. Same baseline as WP-S5-06 F-01.
+
+## route_recommendation
+
+**`L-GATE_BUILD` PASS** — no return to team_110. WP-S5-05 not opened.

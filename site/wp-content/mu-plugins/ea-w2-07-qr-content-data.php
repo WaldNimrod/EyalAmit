@@ -603,7 +603,7 @@ return array(
 <div>עם סבלנות אין קץ, חיוך גדול ותחושת שליחות אמיתית, אשמח מאוד לפגוש גם אתכם.</div>
 <div>מוזמנים לצפות בוידאו המצורף כאן למטה (7 דקות) שלוקח אתכם לסיור קטן בסטודיו</div>
 <div></div>
-<div><strong>לפרטים נוספים מוזמנים ליצור קשר</strong> <strong>052-482284</strong></div>
+<div><strong>לפרטים נוספים מוזמנים ליצור קשר</strong> <strong>052-4822842</strong></div>
 <div class="ea-qr-embed ea-qr-embed--video"><iframe src="https://www.youtube-nocookie.com/embed/wDQoJauqsRM" title="YouTube video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>אוגוסט 2004, 38 מעלות בצל, 90 אחוזי לחות, 300 איש על גג מסעדת הטאלי 24 רופי ברחוב שוקן בתל אביב. השקת הספר השני שלי - כושי בלאנטיס. יורם סיוון, טל אפריים ואנוכי בתעופות. הערב המדהים הזה ילווה אותי כל חיי. לשים אזניות, להגביר את הווליום ולעוף!
 
 זמן חלום.<div class="ea-qr-embed ea-qr-embed--video"><iframe src="https://www.youtube-nocookie.com/embed/6DzgrvZf1tg" title="YouTube video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>יואב קליינמן המלך. מומחה לפתיחת צ\'אקרת הדיג\'. תודה חבר יקר!

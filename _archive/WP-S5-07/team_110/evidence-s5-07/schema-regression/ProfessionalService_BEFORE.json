@@ -1,0 +1,53 @@
+{
+ "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg",
+ "@type": "ProfessionalService",
+ "address": {
+  "@type": "PostalAddress",
+  "addressCountry": "IL",
+  "addressLocality": "פרדס חנה-כרכור",
+  "streetAddress": "עמל 8 ב'"
+ },
+ "alternateName": "cbDIDG",
+ "areaServed": {
+  "@type": "GeoCircle",
+  "geoMidpoint": {
+   "@type": "GeoCoordinates",
+   "latitude": 32.4637761,
+   "longitude": 34.9760176
+  },
+  "geoRadius": 45000
+ },
+ "founder": {
+  "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+ },
+ "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+ "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "closes": "19:00",
+   "dayOfWeek": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday"
+   ],
+   "opens": "09:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
+   "closes": "14:00",
+   "dayOfWeek": "Friday",
+   "opens": "09:00"
+  }
+ ],
+ "sameAs": [
+  "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+  "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+  "https://www.instagram.com/didgeridoo.therapy.center",
+  "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+ ],
+ "telephone": "+972-52-482-2842",
+ "url": "http://eyalamit-co-il-2026.s887.upress.link/"
+}

@@ -1,0 +1,16 @@
+=== AC-4 — the 2 open FAQ rows (defeating the insert-only seeder) ===
+
+  method-02 rebirthing glow     0 (before) ->  2 (after)   want ≥1
+  wrong phone form              2 (before) ->  0 (after)   want 0
+  canonical phone               1 (before) ->  3 (after)   want ≥1
+
+  AC-4: PASS
+
+=== AC-5 — VERIFY-only items unbroken ===
+
+  general-18 price Q3          2  (want >=1)  OK
+  price glow                   2  (want >=2)  OK
+  general-01 geo Q1            2  (want >=1)  OK
+  .ea-pending-approval blocks  10 -> 12   want >=10, expect 11
+
+  AC-5: PASS

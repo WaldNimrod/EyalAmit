@@ -84,8 +84,8 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 
 				<div class="ea-contact-nap" aria-label="<?php esc_attr_e( 'פרטי המרכז וכתובת', 'ea-eyalamit' ); ?>" style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line)">
 					<h3 class="ea-contact-section__heading" style="margin-bottom:.4rem"><?php esc_html_e( "המרכז לטיפול בנשימה באמצעות דיג'רידו", 'ea-eyalamit' ); ?></h3>
-					<p class="ea-contact-section__body"><?php esc_html_e( "רח' עמל 8 ב', פרדס חנה‑כרכור", 'ea-eyalamit' ); ?></p>
-					<p class="ea-contact-section__body"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:+972524822842" dir="ltr">052‑4822842</a></p>
+					<p class="ea-contact-section__body"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
+					<p class="ea-contact-section__body"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr" style="white-space:nowrap"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a></p>
 					<p class="ea-contact-section__body"><?php esc_html_e( "שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש", 'ea-eyalamit' ); ?></p>
 				</div>
 			</aside>

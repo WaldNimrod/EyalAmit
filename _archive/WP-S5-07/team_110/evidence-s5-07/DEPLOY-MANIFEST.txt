@@ -1,0 +1,35 @@
+WP-S5-07 — deploy manifest (staging)
+Mechanism : targeted FTPS upload via scripts/upress_ftp_env.py helpers (byte-size verified),
+            mirroring the WP-S5-02 precedent. NOT scripts/ftp_deploy_site_wp_content.py — its
+            mu-plugin allow-list OMITS ea-w2-seo-schema.php and the reseed drop-ins, so a
+            WP-S5-07 deploy through it would silently skip the files that matter.
+Base      : http://eyalamit-co-il-2026.s887.upress.link     Date: 2026-07-16   Remote root: /
+
+file (local site/… -> remote wp-content/…)                                   bytes  verified
+--------------------------------------------------------------------------------------------
+wp-content/mu-plugins/ea-nap-ssot.php                              (new)      1,453  OK
+wp-content/mu-plugins/ea-w2-seo-schema.php                         (edit)    17,175  OK
+wp-content/mu-plugins/ea-w2-07-qr-content-data.php                 (edit)    77,507  OK
+wp-content/themes/ea-eyalamit/template-parts/chapters/section-footer.php (edit) 3,159 OK
+wp-content/themes/ea-eyalamit/template-parts/chapters/parts/contact.php (edit)  7,909 OK
+wp-content/themes/ea-eyalamit/inc/seo-head-fallbacks.php           (edit)     8,217  OK
+wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-en.php   (edit)     7,373  OK
+wp-content/themes/ea-eyalamit/inc/data/ea-faq-seed.json            (edit)    52,698  OK
+wp-content/themes/ea-eyalamit/assets/css/chapters.css              (edit)    63,826  OK
+wp-content/mu-plugins/ea-s507-qr-reseed-once.php                   (new)      1,767  OK
+wp-content/mu-plugins/ea-s507-faq-update-once.php                  (new, v2)  3,450  OK
+
+uploaded=11  verified_ok=11  mismatched=0   (remote SIZE compared to local byte count)
+
+DB mutation path — drop-ins ONLY, never a hand edit:
+  ea-s507-qr-reseed-once.php   init@27  new flag ea_s507_qr_reseed_done
+      -> clears ea_w2_07_qr_seeded_v3 so the W2-07 seeder (init@28, update-capable at
+         ea-w2-07-qr-seed-once.php:57-59) rewrites /qr/qr32/ post_content in the SAME request.
+  ea-s507-faq-update-once.php  init@41  flag ea_s507_faq_update_v2_done
+      -> 2-key allow-list (method-02, general-17) wp_update_post from ea-faq-seed.json.
+      -> v1 SELF-DISARMED: it read the JSON at the top level, but the rows live under items[].
+         The map came out empty, every key hit `continue`, and it burnt ea_s507_faq_update_done
+         having changed nothing. v2 reads $raw['items'] and uses a NEW flag. See the builder
+         verdict F-01. Both drop-ins are single-fire; a second load is a no-op BY DESIGN.
+
+scripts/qa/nap_canon_check.mjs is a local guard — not deployed.

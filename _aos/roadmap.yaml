@@ -2747,10 +2747,14 @@ work_packages:
     cursor-agent -p --force --trust with that literal phrasing — generic approval is rejected.'
 - id: WP-S5-07
   label: S004 residual — NAP consistency + FAQ-03 geo/price + rebirthing glow (from WP-S4-07)
-  status: PLANNED
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-16'
+  closed_by: 'team_110 (ADR045 execution_authority full — MANDATE_S005_TEAM110_EXECUTION_v1.0.0; team_00 authorization
+    2026-07-16 «/AOS_handoff 110 full ליצירת הסשן שיממש את כלל תהליך הפיתוח שאופיין»)'
+  closure_artifact: _archive/WP-S5-07/team_90/VERDICT-WP-S5-07-VALIDATE-2026-07-16.md
   assigned_builder: team_10/110
   assigned_validator: team_90 (cross-engine, Iron Rule #1)
   created_at: '2026-07-16'
@@ -2782,7 +2786,7 @@ work_packages:
       file''s string («פרדס חנה · ישראל») closely resembles the live footer''s («פרדס חנה, ישראל»). The
       validator also independently confirmed both traps (FAQ seeder insert-only vs QR seeder update-on-rerun;
       052-482284 substring) and all six §8 corrections to the input docs. Artifact —
-      _COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-2026-07-16.md.'
+      _archive/WP-S5-07/team_90/VERDICT-WP-S5-07-LOD400-2026-07-16.md.'
   - gate: L-GATE_SPEC
     phase: LOD400 cross-engine cycle 2 (delta)
     result: PASS
@@ -2794,7 +2798,67 @@ work_packages:
       + author-name identification; F-04 naive count corrected 7→6 within the guard scan scope). Anti-regression
       intact — both traps, AC-1/3/4/5/7 and guardrails unchanged. 0 new findings. Iron Rule #1 satisfied
       (author claude-opus-4-8 ≠ validator composer-2.5). route_recommendation: L-GATE_SPEC PASS — team_110 may
-      start L-GATE_BUILD immediately. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S5-07-LOD400-CYCLE2-2026-07-16.md.'
+      start L-GATE_BUILD immediately. Artifact — _archive/WP-S5-07/team_90/VERDICT-WP-S5-07-LOD400-CYCLE2-2026-07-16.md.'
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-16'
+    builder: team_110 (claude-opus-4-8, Claude Code)
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 blocker / 0 major / 2 minor (F-01 spec bug — fixed + re-verified live; F-02 pre-existing axe baseline)
+    notes: 'Independent cross-engine reproduction on live staging + repo code — Iron Rule #1 satisfied (builder
+      claude-opus-4-8/Anthropic ≠ validator composer-2.5/Cursor). All 8 ACs reproduced PASS. **AC-3 (the headline):
+      /qr/qr32/ — reached by scanning a QR PRINTED IN EYAL''S BOOK — rendered 052-482284, a 9-digit UNREACHABLE
+      number, and it was the only phone on the page. Now renders 052-4822842; standalone truncated 1 → 0.**
+      **AC-1 regression guard HOLDS: the live ProfessionalService node is BYTE-IDENTICAL after the ea_nap()
+      refactor** (name/alternateName/telephone/streetAddress/addressLocality/addressCountry) — the WP-S5-02 schema
+      engine is intact. **AC-2 closes WP-S4-07''s AC-10**, which was unsatisfiable by construction (no canonical
+      byte-form existed and the footer had no NAP): the NAP is now live on /, /faq/, /contact/, /treatment/ (from
+      0 phone occurrences), FAQ↔footer byte-match on U+0027, and ea-cfoot=0 on all 4 proves the dead
+      block-footer-social.php stayed dead with no second hardcoded copy. AC-4 /faq/ glow 0→2, wrong phone 2→0.
+      AC-5 VERIFY-only intact (.ea-pending-approval 10→12; method-02 renders twice, threshold ≥10). AC-6
+      nap_canon_check.mjs exit 0 over 670 files. AC-7 scope: git diff empty for ea-testimonials-fb.json and
+      wave2-stage-b.php. AC-8 php -l 9/9; RTL 0 overflow. **Cross-WP: /qr/qr32/ VideoObject 2→2 with the S5-06
+      facade still live — the reseed and the render filter coexist, as §4.F predicted.** Builder report —
+      _archive/WP-S5-07/team_110/VERDICT-WP-S5-07-BUILD-2026-07-16.md; mandate —
+      _archive/WP-S5-07/team_90/MANDATE-TEAM90-WP-S5-07-BUILD-2026-07-16.md; verdict —
+      _archive/WP-S5-07/team_90/VERDICT-WP-S5-07-BUILD-2026-07-16.md; evidence root
+      _archive/WP-S5-07/team_110/evidence-s5-07/.'
+  - gate: L-GATE_VALIDATE
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'Constitutional closeability gate — team_90 owns L-GATE_VALIDATE per team_00''s ruling 2026-07-16,
+      superseding ADR045 R3.2 + CLAUDE.md Iron Rule #5, which still name the dissolved team_190 (GCR filed:
+      _COMMUNICATION/team_100/GCR_team_100_L-GATE_VALIDATE_OWNER_TEAM_90_2026-07-16_v1.0.0.md). Clean PASS, 0
+      findings: scope-honest (exactly LOD400 §1 — 11 deployed + 1 local harness; testimonials + wave2-stage-b.php
+      untouched); **the WP-S4-07 root cause is closed in CODE, not merely in a document** — ea_nap() is the one
+      source, ea-w2-seo-schema.php (the former "declarative but unreadable" SSoT) is now a CONSUMER like every
+      other surface, and nap_canon_check.mjs enforces what ea_nap() cannot reach (JSON/HTML seeds cannot call
+      PHP), so a future divergence is impossible-by-construction rather than merely forbidden; the dead-code trap
+      stayed shut (ea-cfoot=0, no second NAP copy added to block-footer-social.php); ratified decisions honoured
+      (§4.C both L87+L88, §4.D token-targeted with the brand word דיג׳רידו intact, §5.2 EN international form,
+      §5.3 testimonials, §5.4 brand word out of scope, §4.G allow-list still exactly 2 keys); findings
+      dispositioned honestly; Iron Rule #1 intact at both gates; no undisclosed placeholder introduced (the
+      method-02 glow it ADDS is a disclosed [EYAL-SIGN-OFF] marker — compliant, not a gap; team_00 delivery
+      criterion roadmap L2569). The AC battery was NOT re-run — settled at L-GATE_BUILD. Mandate —
+      _archive/WP-S5-07/team_90/MANDATE-TEAM90-WP-S5-07-VALIDATE-2026-07-16.md; artifact —
+      _archive/WP-S5-07/team_90/VERDICT-WP-S5-07-VALIDATE-2026-07-16.md.'
+  open_findings_routed_to_team_100: 'F-01 (minor, CONFIRMED by team_90 as a finding against the SPEC, not the
+    builder) — LOD400 §4.G''s drop-in code SELF-DISARMS. ea-faq-seed.json is {_note, count, items[]}; the rows live
+    under items[] (cf. ea-faq-seed-once.php:54,60), but §4.G does `foreach ( $seed as $row )` over the TOP level,
+    so the map comes out EMPTY (proven: v1 map size 0 vs v2 108), every key hits `continue`, and it sets its flag
+    having changed NOTHING — burning ea_s507_faq_update_done exactly as ea-w2-07b''s flag was burnt. It survived
+    BOTH LOD400 cross-engine cycles because the code was reviewed, never EXECUTED. This is the deeper cousin of
+    the very trap §4.G documents ("a builder will reset the flag, load the page, see no change, and get stuck").
+    Fixed by team_110: read $raw[''items''], new flag ea_s507_faq_update_v2_done, reasoning pinned in-file; the
+    2-key allow-list was NOT widened. **team_100 action:** correct §4.G''s code in the spec so it is not copied
+    forward. F-02 (minor) — AC-8''s axe threshold is unsatisfiable: the single serious node on /, /faq/, /contact/
+    is .foot__disc (the footer''s pre-existing medical disclaimer, contrast 3.48), and WP-S5-07''s own .foot__nap
+    lands in axe''s `incomplete` bucket for the same reason as its pre-existing siblings — 0 violations
+    introduced. **This is the SAME .foot__disc behind WP-S5-06''s F-01** (section-footer.php renders on QR pages
+    too): ONE site-wide defect surfacing in two WPs. Fold into the hygiene WP already requested under WP-S5-06
+    F-01; it is neither S5-06 nor S5-07 debt and does NOT block WP-S5-05.'
   origin: 'Carries forward the residual of **WP-S4-07** (SUPERSEDED 2026-07-16), whose own team_90 verdict
     mandated «before L-GATE_BUILD closeout: fix AC-10 (NAP FAQ-03 ↔ footer) and AC-6 gap (rebirthing FAQ glow);
     complete AC-4 FAQ-03 Q3 + Q1 geo answer in seed» — never performed, re-verified still open live 2026-07-16.

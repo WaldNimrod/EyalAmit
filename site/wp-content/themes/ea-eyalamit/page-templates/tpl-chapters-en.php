@@ -103,13 +103,13 @@ html,body{overflow-x:hidden}
 			<h2 class="h2 r">Get in touch</h2>
 			<p class="lead r" style="margin-top:14px">Reach out on WhatsApp to ask a question or arrange a short introductory call.</p>
 			<p style="margin-top:28px"><a class="btn btn--terra" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener noreferrer">Talk on WhatsApp</a></p>
-			<p style="margin-top:14px">Or call/WhatsApp <a href="tel:+972524822842" dir="ltr">+972-52-482-2842</a> directly.</p>
+			<p style="margin-top:14px">Or call/WhatsApp <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a> directly.</p>
 		</div>
 	</section>
 </main>
 
 <footer class="ea-en-foot">
-	<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Eyal Amit · The Didgeridoo Breath Center · Pardes Hanna, Israel · <a href="tel:+972524822842" dir="ltr">052-4822842</a></p>
+	<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Eyal Amit · The Didgeridoo Breath Center · Pardes Hanna, Israel · <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a></p>
 	<p><a href="/">לאתר העברי / Hebrew site</a></p>
 </footer>
 

@@ -789,6 +789,13 @@ body.nav-locked{overflow:hidden}
 	border: 0;
 }
 
+/* ── Footer NAP (WP-S5-07) ─────────────────────────────────────── */
+/* nowrap keeps the phone from breaking mid-number in RTL. This is the CSS half of
+   LOD400 §4.B's "choose one" — the inline style is deliberately NOT used. It replaces
+   the U+2011 homoglyph that used to do this job and silently broke byte-matching,
+   copy-paste and click-to-call parsers (DECISION-NAP-CANON §2 ruling 2). */
+.foot__tel a { white-space: nowrap; }
+
 /* ── QR facade (WP-S5-06) — click-to-load poster ───────────────── */
 .ea-qr-embed--video .ea-qr-facade {
 	position: absolute;

@@ -1,0 +1,61 @@
+WP-S5-07 AC-8 — axe color-contrast: the violating node is PRE-EXISTING, not this WP's
+=====================================================================================
+AC-8 requires: `node scripts/qa/http-qa-axe.cjs / /faq/ /contact/` -> exit 0
+("the reusable S5 a11y gate" — 0 critical + 0 serious).
+
+MEASURED, live staging 2026-07-16, with the runner's own config (runOnly wcag2a+wcag2aa):
+
+  /           HTTP 200  crit=0 serious=1
+  /faq/       HTTP 200  crit=0 serious=1
+  /contact/   HTTP 200  crit=0 serious=1
+  axe exit = 1
+
+All three are the SAME single node:
+
+  rule   : color-contrast
+  target : [".foot__disc"]
+  html   : <p class="foot__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי...
+  message: Element has insufficient color contrast of 3.48
+           (foreground #6a6664, background #0e0905) — needs 4.5:1
+
+`.foot__disc` is the footer's PRE-EXISTING medical-disclaimer paragraph
+(section-footer.php, foot__legal block). WP-S5-07 §4 touches no colour token and does not
+render it. It is not this WP's defect.
+
+WHERE THE ELEMENTS WP-S5-07 *ADDED* LAND (axe buckets, same run):
+
+  [violations]  .foot__disc                     <- pre-existing, 3.48
+  [incomplete]  .foot__brand > b                <- PRE-EXISTING
+  [incomplete]  .foot__brand > p:nth-child(2)   <- PRE-EXISTING (the tagline)
+  [incomplete]  .foot__nap                      <- ADDED BY WP-S5-07
+                reason (identical for all three): "Element's background color could not be
+                determined due to a background image"
+  .foot__tel a  -> not reported as a violation
+
+=> `.foot__nap` lands in EXACTLY the same bucket, for exactly the same reason, as the
+   pre-existing sibling elements it sits beside inside `foot__brand`. It inherits the
+   footer's established text treatment rather than introducing a new one. axe records it as
+   `incomplete` (indeterminate background image), NOT as a violation — so it does not affect
+   the runner's crit/serious count and does not change axe's exit code.
+
+   NOTE (honest correction): an earlier hand-computed estimate put `.foot__nap` at ~4.50:1
+   against a solid rgb(14,9,5). That estimate was WRONG — axe reports the background is an
+   IMAGE, so a solid-background composite is not the real measurement. The truthful statement
+   is the bucket result above, not a hand-computed ratio.
+
+=> WP-S5-07 introduced ZERO new axe violations. It inherited one that renders in the footer
+   on EVERY page of the site.
+
+SAME ROOT CAUSE AS WP-S5-06's F-01
+----------------------------------
+WP-S5-06's pre-existing `color-contrast` node on /qr/qr2/ and /qr/qr10/ is this SAME
+`.foot__disc` — section-footer.php renders on QR pages too. One site-wide defect surfacing in
+two WPs. It belongs to the hygiene WP already requested in WP-S5-06 F-01 — NOT to S5-06, NOT
+to S5-07, and it does NOT block WP-S5-05.
+
+CONSEQUENCE FOR AC-8
+--------------------
+"axe -> exit 0" is UNSATISFIABLE here for the same reason AC-4 was in WP-S5-06: the baseline
+is already non-zero and its cause is outside this WP's contract. Executed on the AC's intent —
+zero regression, verified per rule id + node target: 0 new, 0 worsened.
+Raw report: axe-AFTER.json (this directory).

@@ -54,17 +54,17 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 		$graph[] = array(
 			'@type'                     => 'ProfessionalService',
 			'@id'                       => $biz_id,
-			'name'                      => 'המרכז לטיפול בנשימה באמצעות דיג\'רידו',
-			'alternateName'             => 'cbDIDG',
+			'name'                      => ea_nap( 'name' ),
+			'alternateName'             => ea_nap( 'alternate_name' ),
 			'url'                       => $site,
 			'image'                     => $img,
-			'telephone'                 => '+972-52-482-2842',
+			'telephone'                 => ea_nap( 'phone_schema' ),
 			'founder'                   => array( '@id' => $person_id ),
 			'address'                   => array(
 				'@type'           => 'PostalAddress',
-				'streetAddress'   => 'עמל 8 ב\'',
-				'addressLocality' => 'פרדס חנה-כרכור',
-				'addressCountry'  => 'IL',
+				'streetAddress'   => ea_nap( 'street' ),
+				'addressLocality' => ea_nap( 'locality' ),
+				'addressCountry'  => ea_nap( 'country' ),
 			),
 			'openingHoursSpecification' => array(
 				array(

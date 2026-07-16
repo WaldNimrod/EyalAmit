@@ -1,0 +1,9 @@
+=== AC-3 — /qr/qr32/ AFTER the reseed (HTTP 200) ===
+  rendered contact number   : <strong>052-4822842</strong>
+  standalone truncated      : 1 (before)  ->  0 (after)   must be 0
+  canonical 052-4822842     : 1 (before) -> 2 (after)
+
+  🔴 S5-06 cross-check — VideoObject : 2 -> 2   (reseed must NOT drop them)
+     ea-qr-facade still present      : yes
+
+  AC-3: PASS — a reader scanning the printed QR now gets a reachable number
