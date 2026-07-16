@@ -31,7 +31,7 @@ request's summary:
 | **WP-S4-03** | `PASS` | team_10 (claude) | COMPLETE / LOD500_LOCKED |
 | **WP-S4-04** | `PASS` | team_10 (sonnet) | COMPLETE / LOD500_LOCKED |
 | **WP-S4-05** | `PASS` | team_110 (sonnet) | COMPLETE / LOD500_LOCKED — AC-EDIT deferral → WP-S5-04 (recorded) |
-| **WP-S4-06** | `PASS_WITH_FINDINGS` | team_10 (sonnet) | COMPLETE / LOD500_LOCKED — F-01 is a WP-S4-07 carryover; **closes when WP-S5-07 lands** (recorded) |
+| **WP-S4-06** | `PASS_WITH_FINDINGS` | team_10 (sonnet) | COMPLETE / LOD500_LOCKED — F-01 is a WP-S4-07 carryover, non-blocking; **closes when Eyal signs off (M-EYAL-INPUTS)** — *corrected, see §6* |
 | **WP-S4-08** | — (it **is** the gate) | team_50 | COMPLETE / LOD500_LOCKED — constitutional `PASS_WITH_FINDINGS + GO` |
 
 Each of WP-S4-01..06 carries **two** `gate_history` entries: its own L-GATE_BUILD verdict, plus the

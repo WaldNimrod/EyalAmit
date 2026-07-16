@@ -119,15 +119,26 @@ project:
     resolve a validate_aos.sh Check-32 FAIL (uncommitted roadmap drift) — **already resolved**: Check 32 reads
     PASS and _aos/roadmap.yaml was clean at 6c42f20 (the LOD400-authoring drift was committed in e8b02b9/6c42f20);
     no action taken. (b) its item 3 asked to close S5-01/02 "consistent with how S004''s WPs were closed" — that
-    premise is **factually wrong**: S004''s 8 WPs are NOT closed (all still IN_PROGRESS / L-GATE_BUILD / LOD400)
-    even though S004 is declared COMPLETE in these notes. The convention actually applied here is canon +
-    the last properly-closed packages (S002 W2-0N, WP-CANON): COMPLETE / LOD500_LOCKED.
+    premise was **factually wrong AT THE TIME (2026-07-16, earlier that day)**: S004''s 8 WPs were then NOT closed
+    (all still IN_PROGRESS / L-GATE_BUILD / LOD400) even though S004 was declared COMPLETE in these notes. The
+    convention actually applied here is canon + the last properly-closed packages (S002 W2-0N, WP-CANON):
+    COMPLETE / LOD500_LOCKED. **⚠ Chronology note (added 2026-07-16 per the team_90 registration audit, F-04):
+    this paragraph is HISTORICAL.** It records why the S5-01/02 registration could not follow S004 as precedent.
+    It was **overtaken later the same day** by the S004 reconciliation — 7 are now COMPLETE/LOD500_LOCKED and
+    WP-S4-07 is SUPERSEDED. Do not read it as the current state of S004.
 
-    **⚠ OPEN FOR team_00 — S004 status drift (NOT fixed here, out of this registration''s scope):** all 8 S004
+    **~~⚠ OPEN FOR team_00 — S004 status drift~~ → ✅ RESOLVED the same day (2026-07-16). Superseded — do not
+    read the struck text as current.** *(Escalation as originally written, retained for provenance: «all 8 S004
     WPs (WP-S4-01..08) still read status=IN_PROGRESS / current_lean_gate=L-GATE_BUILD / lod_status=LOD400 while
-    the milestone is recorded COMPLETE with a team_190 constitutional PASS_WITH_FINDINGS + GO at WP-S4-08. This
-    is the same class of drift just fixed on S005 and needs a team_00 ruling (close all 8 to COMPLETE/LOD500_LOCKED
-    vs leave pending a formal S004 closeout artifact). Flagged, deliberately not mass-mutated by team_100.
+    the milestone is recorded COMPLETE … needs a team_00 ruling … Flagged, deliberately not mass-mutated by
+    team_100.»)* **What actually happened:** team_00 ruled on it that day; team_110 audited; the reconciliation
+    landed — **7 WPs registered COMPLETE/LOD500_LOCKED, WP-S4-07 SUPERSEDED → WP-S5-07, and the false «8/8» note
+    corrected to 7/8** (see the 2026-07-15 S004 note above, as corrected, and the per-WP rows). **No S004 WP
+    still reads IN_PROGRESS.** Registration: _COMMUNICATION/team_100/REGISTRATION-S004-RECONCILIATION-2026-07-16.md.
+    Independently audited cross-engine (team_90, composer-2.5): **no over-registration, no PASS inflation, AC-11
+    ruling upheld** — _COMMUNICATION/team_90/VERDICT-S004-RECONCILIATION-REGISTRATION-2026-07-16.md.
+    *(Struck 2026-07-16 per that audit''s F-01 — the paragraph had contradicted the corrected narrative 60 lines
+    above it.)*
 
     **ADR034 / Iron Rule #7 (ROUTING-REQUEST §4) — observation right, ROOT CAUSE WRONG, corrected same day.**
     Re-probed 2026-07-16: /api/system/health → db online, mode online; GET /api/l0/eyalamit/roadmap → **HTTP 200
@@ -1804,7 +1815,10 @@ work_packages:
   status: COMPLETE
   track: BUILD
   current_lean_gate: L-GATE_VALIDATE
-  gate_result: 'L-GATE_BUILD PASS (2026-07-15). Builder team_10/sonnet; cross-engine validator team_90/composer-2.5 (IR#1 satisfied — anthropic≠cursor). AC-1..10,12 PASS; independent content-diff 0 discrepancies (201 MD units). AC-11 git-isolation = environmental (20 pre-existing dirty tracked files + untracked new deliverable; WP-S4-01 session touched ONLY snoring-sleep-apnea-defaults.php) — accepted by team_100 per validator route_recommendation (git hygiene, not content rework). Deployed to staging; qa_probe PASS mobile+desktop (0 overflow). Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-01-BUILD-2026-07-15.md.'
+  gate_result: 'L-GATE_BUILD **PASS_WITH_FINDINGS** (2026-07-15). *(Corrected 2026-07-16 per the team_90
+    registration audit F-02: this legacy summary field previously read "PASS", which was inflated — the verdict
+    flag is PASS_WITH_FINDINGS because AC-11 FAILed. `gate_history` below is authoritative and always said
+    PASS_WITH_FINDINGS; this field is now aligned to it.)* Builder team_10/sonnet; cross-engine validator team_90/composer-2.5 (IR#1 satisfied — anthropic≠cursor). AC-1..10,12 PASS; independent content-diff 0 discrepancies (201 MD units). AC-11 git-isolation = environmental (20 pre-existing dirty tracked files + untracked new deliverable; WP-S4-01 session touched ONLY snoring-sleep-apnea-defaults.php) — accepted by team_100 per validator route_recommendation (git hygiene, not content rework). Deployed to staging; qa_probe PASS mobile+desktop (0 overflow). Verdict: _COMMUNICATION/team_90/VERDICT-WP-S4-01-BUILD-2026-07-15.md.'
   lod_status: LOD500_LOCKED
   closure_date: '2026-07-16'
   closed_by: team_100 (bookkeeping registration under team_00 ruling 2026-07-16 — «כן — רישום 7 + WP-S5-07»)
@@ -1996,7 +2010,7 @@ work_packages:
     date: '2026-07-15'
     builder: team_10 (sonnet, Anthropic)
     validator: team_90 (composer-2.5, Cursor)
-    notes: 'Full-site glow-placeholder audit. All blocking ACs PASS on composer-2.5''s own 20-route CDP probe: temp-GI CTA now marked (hasUnmarkedGiCta=false x5), legal glow, 0 raw brackets, anchor prose preserved, php -l 17 files clean. F-01 (non-blocking) = 1 .ea-pending-approval on /method/ — a legitimate [EYAL-SIGN-OFF] marker carried over from WP-S4-07, NOT introduced here; it closes when WP-S5-07 lands. route_recommendation: PROCEED. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S4-06-BUILD-2026-07-15.md.'
+    notes: 'Full-site glow-placeholder audit. All blocking ACs PASS on composer-2.5''s own 20-route CDP probe: temp-GI CTA now marked (hasUnmarkedGiCta=false x5), legal glow, 0 raw brackets, anchor prose preserved, php -l 17 files clean. F-01 (non-blocking) = 1 .ea-pending-approval on /method/, titled «פענוח cbDIDG + ייחוס מוקש דהימן» (the AF-02 sign-off marker) — a LEGITIMATE [EYAL-SIGN-OFF] marker carried over from WP-S4-07, NOT introduced here and NOT a defect. Its own route_recommendation: «No hold on S4-06 — track for WP-S4-08 closure or accept as intentional Eyal-pending sign-off on method page.» **It therefore closes when EYAL SIGNS OFF (M-EYAL-INPUTS) — NOT when WP-S5-07 lands.** (Corrected 2026-07-16 per team_90 registration-audit F-03: this note previously said «closes when WP-S5-07 lands», inherited verbatim from ROUTING-REQUEST-TEAM100-S004-RECONCILIATION §1. That conflated two different «method» objects: S4-06''s F-01 is the /method/ PAGE''s cbDIDG/Mokesh sign-off glow, whereas WP-S5-07 AC-6 closes the FAQ ROW `method-02`''s rebirthing glow — present in the repo seed, absent from the live DB. Same word, different things.) route_recommendation: PROCEED. Artifact — _COMMUNICATION/team_90/VERDICT-WP-S4-06-BUILD-2026-07-15.md.'
   - gate: L-GATE_VALIDATE
     phase: constitutional final gate (milestone-level, via WP-S4-08)
     result: PASS_WITH_FINDINGS + GO
