@@ -20,17 +20,20 @@ function ea_w209_legacy_redirects() {
 	$gone = array(
 		'/qr/פרק-א/',
 		'/thankyou/',
+		'/סיני-יוני-09-154/',
+		'/סיני-יוני-09-151/',
+		'/adi/',
+		'/גבי-2/',
+		'/רני/',
+		'/רני-2/',
+		'/איל-מישה-איטליה-כושי-בלאנטיס-1/',
+		'/איל-מישה-איטליה-כושי-בלאנטיס-3/',
+		'/איל-מישה-איטליה-כושי-בלאנטיס-4/',
+		'/שלושת-הספרים-אלקטרוני2/',
+		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/studio-bunner/',
 	);
 	if ( in_array( $norm, $gone, true ) ) {
 		status_header( 410 ); header( 'X-EA-Redirect: w209-410' ); nocache_headers();
-		exit;
-	}
-
-	// W2-06 blog migration: legacy /Blog/<slug> (capital B) -> /blog/<slug> (regex prefix;
-	// the exact-match $map below cannot express a prefix). Lowercase /blog/ won't match -> no loop.
-	if ( preg_match( '#^/Blog/(.+)$#', $path, $m ) ) {
-		header( 'X-EA-Redirect: w209-blog' );
-		wp_redirect( home_url( '/blog/' . $m[1] ), 301 );
 		exit;
 	}
 
@@ -60,16 +63,46 @@ function ea_w209_legacy_redirects() {
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנד-רצפתי-לדיגרידו-לנגינה-בישיבה-נמו/' => '/stand-floor/',
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנדים-לאחסון-דיגרידו-בתלייה-או-בעמיד/' => '/stands-storage/',
 		'/וכתבת-אייל-עמית/' => '/books/vekatavta/',
-		// WP-CANON T6 — merged from inc/wave2-w2-02.php (canonical /eyal-amit/, single hop).
-		'/אייל-עמית-אודות/' => '/eyal-amit/',
-		'/about/' => '/eyal-amit/',
-		'/about/moksha/' => '/eyal-amit/mokesh-dahiman/',
-		'/mokesh-dahiman/' => '/eyal-amit/mokesh-dahiman/',
-		'/mokesh/' => '/eyal-amit/mokesh-dahiman/',
+		'/אייל-עמית-אודות/' => '/about/',
+		'/דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/דיגרידו-למכירה/' => '/didgeridoos/',
+		'/דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/סדנאות-בנייה-עצמית-דיגרידו/' => '/lessons/',
+		'/דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/תיקון-דיגרידו/' => '/repair/',
+		'/דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/תיקים-וסטנדים-לדיגרידו/' => '/bags/',
+		'/פרדס-חנה/הדיגרידו-ככלי-לריפוי-עצמי/' => '/treatment/',
+		'/פרדס-חנה/תיקון-דיגרידו/' => '/repair/',
+		'/פרדס-חנה/מדיטציית-דיגרידו-טקס-סאונד-הילינג/' => '/sound-healing/',
+		'/פרדס-חנה/תיקים-וסטנדים-לדיגרידו-2/' => '/bags/',
+		'/shop/books/וכתבת/' => '/books/vekatavta/',
+		'/shop/books/כושי-בלאנטיס/' => '/books/kushi-blantis/',
+		'/shop/books/כושי-בלנטיס/' => '/books/kushi-blantis/',
+		'/shop/books/צבע-בכחול-וזרוק-לים/' => '/books/tsva-bekahol/',
+		'/shop/books/שלושת-הספרים-וכתבתָּ-כושי-בלאנטיס-צב/' => '/books/',
+		'/shop/books/שני-הספרים-וכתבתָּ-כושי-בלאנטיס-במחי/' => '/books/',
+		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגרי/' => '/sound-healing/',
+		'/Blog/הכל-אודות-ריברסינג-נשימה-מעגלית-ו-דיג/' => '/ריברסינג-נשימה-מעגלית-דיגרידו/',
+		'/Blog/נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג-2/' => '/נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג/',
+		'/Blog/סדנה-קבוצתית-מקיפה-וייחודית-לנשימה-מע/' => '/סדנת-דיגרידו-קבוצתית-מקיפה-וייחודית-ל/',
+		'/Blog/את-הספר-החדש-שלי-לא-תמצאו-בחנויות-הספרי/' => '/את-הספר-החדש-שלי-לא-תמצאו-ברשתות-הספרים/',
 		'/shop/cart/' => '/shop/',
 		'/shop/checkout/' => '/shop/',
 		'/shop/my-account/' => '/shop/',
 	);
+
+	// W2-06 blog migration: legacy /Blog/<slug> (capital B) -> /blog/<slug> (regex prefix;
+	// the exact-match $map cannot express a prefix). Lowercase /blog/ won't match -> no loop.
+	//
+	// AN EXACT DECISION BEATS THE CATCH-ALL (WP-S5-03, 2026-07-16). The regex used to run
+	// BEFORE $map and exit(), so an exact /Blog/<slug> rule was unreachable — the catch-all
+	// always won. That silently dropped real content: a post RENAMED between the old and new
+	// site got 301'd to /blog/<old-slug>, which 404s, because a prefix rewrite cannot follow a
+	// rename. The full 406-URL triage found 4 live posts of Eyal's dead-ending exactly this way
+	// (e.g. /Blog/את-הספר-החדש-שלי-לא-תמצאו-בחנויות-הספרי -> the live post is ...ברשתות...).
+	// $map is now defined first and the regex yields to it. Do NOT reorder these back.
+	if ( ! isset( $map[ $norm ] ) && preg_match( '#^/Blog/(.+)$#', $path, $m ) ) {
+		header( 'X-EA-Redirect: w209-blog' );
+		wp_redirect( home_url( '/blog/' . $m[1] ), 301 );
+		exit;
+	}
 	if ( isset( $map[ $norm ] ) ) {
 		header( 'X-EA-Redirect: w209-301' );
 		wp_redirect( home_url( $map[ $norm ] ), 301 );

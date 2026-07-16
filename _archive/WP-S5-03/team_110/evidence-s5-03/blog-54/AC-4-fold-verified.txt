@@ -1,0 +1,9 @@
+=== §4 FOLD — 4 real posts that dead-ended, now reachable (curl -L) ===
+  /Blog/הכל-אודות-ריברסינג-נ�   direct=301  chain=200 1
+  /Blog/נשים-מנגנות-בדיגרידו   direct=301  chain=200 1
+  /Blog/סדנה-קבוצתית-מקיפה-ו�   direct=301  chain=200 1
+  /Blog/את-הספר-החדש-שלי-לא-ת�   direct=301  chain=200 1
+
+=== REGRESSION: the catch-all must still work for un-decided /Blog/ slugs ===
+  /Blog/23-הטור-של-אייל-עמית-ל�   -> 200 (2 hops)
+  /Blog/18-הטור-של-אייל-עמית-מ�   -> 200 (2 hops)

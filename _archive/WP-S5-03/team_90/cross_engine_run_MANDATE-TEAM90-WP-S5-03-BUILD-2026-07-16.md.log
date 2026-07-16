@@ -1,0 +1,27 @@
+Cross-engine validation for **WP-S5-03** is complete. The verdict is at:
+
+[`file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-03-BUILD-2026-07-16.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/.claude/worktrees/s005-team110-execution/_COMMUNICATION/team_90/VERDICT-WP-S5-03-BUILD-2026-07-16.md)
+
+## Verdict flag: **PASS_WITH_FINDINGS**
+
+Iron Rule #1 satisfied (Claude Code builder ≠ Cursor validator). All AC-3..AC-7 checks reproduced independently.
+
+### Headline confirmations
+
+| Check | Validator result |
+|-------|------------------|
+| **F-01 / triage** | **406** raw GSC rows (not 400); spec `tail\|wc` = **397**; **368/368** unique paths classified in `triage.csv` |
+| **Patterns A+B+`/פרדס-חנה/`** | In SSoT JSON + regenerated mu-plugin; live **301 single-hop → 200** on gap samples |
+| **Regen stability** | `gen_htaccess_301_from_decisions.py` → **zero diff** — artifact not hand-edited |
+| **AC-4 FOLD** | 4 renamed posts now **301 → 200** with `X-EA=w209-301`; title-verified on live targets |
+| **Catch-all regression** | KEEP slugs e.g. `/Blog/23-…-לציית-או-לחשוב/` still **2-hop → 200** (`w209-blog`) |
+| **AC-5** | All 11 orphan paths → **410** + `X-EA-Redirect: w209-410` |
+| **AC-7** | `deploy_htaccess_301.py` documented **NOT RUN** in deploy manifest |
+
+### Deviation adjudication
+
+The generator reorder (`$map` before `/Blog/` regex, regex yields via `!isset($map[$norm])`) is a **legitimate SSoT-first fix**. The 4 FOLD decisions were unreachable under the old emission order; the artifact itself was never hand-edited.
+
+### route_recommendation
+
+**L-GATE_BUILD → PASS.** No return to team_110. F-01 (correct spec §1 count), F-02 (optional regex tightening), F-03 (`/qr/qr2/` link → team_100) remain minor/non-blocking. WP-S5-05 not started.

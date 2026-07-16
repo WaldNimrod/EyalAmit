@@ -1,0 +1,18 @@
+WP-S5-03 — deploy manifest (staging)
+Mechanism : targeted FTPS upload via scripts/upress_ftp_env.py helpers (byte-size verified).
+Base      : http://eyalamit-co-il-2026.s887.upress.link    Date: 2026-07-16
+
+file                                                             bytes  verified
+--------------------------------------------------------------------------------
+wp-content/mu-plugins/ea-w209-legacy-301-redirects.php  (regen)   6,237+ OK
+
+⚠ The mu-plugin is a BUILD ARTIFACT and was NEVER hand-edited (spec §3.4). Chain:
+   hub/data/decisions/redirects-301-eyal-final-2026-05-27.json  (SSoT, 135 -> 165 decisions)
+     -> python3 scripts/gen_htaccess_301_from_decisions.py
+       -> site/wp-content/mu-plugins/ea-w209-legacy-301-redirects.php   (LIVE)
+       -> _COMMUNICATION/team_100/tools/htaccess_301_block.txt          (inert mirror; nginx ignores .htaccess)
+   Both targets regenerated in one run, as the generator's header promises.
+
+🚫 NOT RUN (spec §7 hazard, explicitly marked do-not-run):
+   _COMMUNICATION/team_100/tools/deploy_htaccess_301.py — uploads .htaccess, which nginx IGNORES.
+   Misleading: it would appear to "deploy redirects" while changing nothing live.

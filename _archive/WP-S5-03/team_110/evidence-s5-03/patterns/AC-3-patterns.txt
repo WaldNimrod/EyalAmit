@@ -1,0 +1,8 @@
+=== AC-3 — gap sample: direct 301 single-hop -> 200 (serial) ===
+  legacy path                                    direct    location                 follow
+  /דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/תיקון-דיגרידו/ 301 -> /repair/                 200
+  /דיגרידו-סטודיו-נשימה-מעגלית-אייל-עמית-2/דיגרידו-למכירה/ 301 -> /didgeridoos/            200
+  /פרדס-חנה/תיקון-דיגרידו/    301 -> /repair/                 200
+  /פרדס-חנה/הדיגרידו-ככלי-לריפוי-עצמי/ 301 -> /treatment/              200
+  /shop/books/צבע-בכחול-וזרוק-לים/ 301 -> /books/tsva-bekahol/     200
+  /shop/books/כושי-בלנטיס/             301 -> /books/kushi-blantis/    200

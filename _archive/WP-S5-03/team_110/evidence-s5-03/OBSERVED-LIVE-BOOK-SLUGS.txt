@@ -1,0 +1,55 @@
+Observed during WP-S5-06/S5-03 build (2026-07-16) — /books/ slug reality + a LIVE BROKEN LINK
+=============================================================================================
+
+⚠ THIS FILE CORRECTS AN EARLIER NOTE BY THE SAME AUTHOR. The first version of this note
+inferred that WP-S5-03 §3.3's transliterated example slugs were wrong and that the live tree
+used Hebrew slugs. **That inference was WRONG and is retracted.** Measured live:
+
+  /books/kushi-blantis/                  -> 200   <- §3.3's example target. CORRECT.
+  /books/tsva-bekahol/                   -> 200   <- §3.3's example target. CORRECT.
+  /books/vekatavta/                      -> 200   <- §3.3's example target. CORRECT.
+  /books/כושי-בלאנטיס/                    -> 404
+  /books/צבע-בכחול-וזרוק-לים/              -> 404
+  /books/וכתבת/                           -> 404
+
+=> WP-S5-03 §3.3 is RIGHT: /shop/books/<hebrew-slug>/ must map to the LATIN /books/<slug>/
+   targets. The live SSoT already uses exactly these targets for the /מוזה-הוצאה-לאור/ family:
+     /מוזה-הוצאה-לאור/וכתבת-אוטוביוגרפיה-בסיפורים/        -> /books/vekatavta/
+     /מוזה-הוצאה-לאור/כושי-בלאנטיס-אוטוביוגרפיה-בסיפורים/ -> /books/kushi-blantis/
+   Still verify each target with a direct curl before folding it into the SSoT (a 301 to a 404
+   is the defect class §6 defers to WP-S5-05), but the latin-slug convention is confirmed.
+
+🔴 SEPARATE, GENUINE DEFECT FOUND WHILE CHECKING THIS — a LIVE BROKEN LINK on a QR page
+---------------------------------------------------------------------------------------
+/qr/qr2/ contains:
+
+    <a href="/books/%D7%A6%D7%91%D7%A2-%D7%91%D7%9B%D7%97%D7%95%D7%9C-%D7%95%D7%96%D7%A8%D7%95%D7%A7-%D7%9C%D7%99%D7%9D/"></a>
+    = /books/צבע-בכחול-וזרוק-לים/   -> HTTP 404
+
+There are TWO anchors to that same 404 on /qr/qr2/:
+  1. <a href="/books/צבע-בכחול-וזרוק-לים/"></a>            — EMPTY text. This is the `link-name`
+     serious axe violation recorded in WP-S5-06's AC-4 baseline
+     (evidence/s5-06/a11y-rtl/AC-4-AXE-BASELINE-FINDING.txt). At the time it was classified as
+     "pre-existing and out of scope" — correct for that WP's contract, but UNDERSTATED: it is
+     not merely an a11y nit, it is a dead link.
+  2. <a href="/books/צבע-בכחול-וזרוק-לים/">לדף הספר&gt;&gt;</a>  — a VISIBLE, clickable link
+     reading "to the book page >>". A reader who scans the QR printed in Eyal's book, sees the
+     book reference and clicks it, lands on a Not Found. The correct target is
+     /books/tsva-bekahol/ (verified 200).
+
+BOUNDED SCOPE (measured, not estimated) — grep over the whole QR seed:
+  distinct hebrew-slug /books/ targets in the seed : 1  (/books/צבע-בכחול-וזרוק-לים/)
+  anchors pointing at it                           : 2
+  QR pages affected                                : 1  (qr2 only)
+  => a small, contained fix: repoint both anchors to /books/tsva-bekahol/ in
+     ea-w2-07-qr-content-data.php, then reseed with a new self-guarded -once flag (the same
+     mechanism WP-S5-07 §4.F used). No other QR page carries a hebrew-slug /books/ link.
+
+SCOPE: this is NOT WP-S5-06 (facade), NOT WP-S5-07 (NAP), and NOT WP-S5-03 (whose scope is the
+GSC legacy-URL 301 map — /books/צבע.../ is not a legacy GSC URL, it is a CURRENT internal link
+in the QR seed content, ea-w2-07-qr-content-data.php). Fixing it means editing the QR seed +
+reseeding — the same mechanism WP-S5-07 §4.F used.
+
+ROUTED: to team_100 as a new finding, for a content/hygiene WP — together with the same
+sweep for any other internal /books/<hebrew-slug>/ links in the QR seed. It does not block
+WP-S5-05, but Eyal's readers hit it today.

@@ -1,0 +1,43 @@
+WP-S5-03 §4 — the blog-slug TODO: fold-or-drop, decided per slug from the live triage
+======================================================================================
+
+/Blog/* URLs in the GSC exports: 105  (the spec's '54' was a count from the quarantined
+W2-06 exports; the authoritative number from the live 406-URL triage is the one above.)
+
+The live mechanism has ONE rule for these: the catch-all regex #^/Blog/(.+)$# -> /blog/$1 (301).
+It fires for EVERY /Blog/ URL — so none of them 404 directly; they all 301. The real question is
+whether the TARGET exists.
+
+  61  DROP — post slug whose target does not exist on the new site (301 -> 404 today)
+        /Blog/שליחות-חיי-כתבה-אודות-המרכז-לטיפול-בדי-5/ירון-סאנצ-דיגרידו-עם-אי
+        /Blog/23-הטור-של-אייל-עמית-לציית-או-לחשוב/
+        /Blog/portfolio_page/stockholm-fashion-destination/
+
+  33  DROP — feed URL (RSS of a post/tag/category). Never content.
+        /Blog/tag/בייס-גאמפ/feed/
+        /Blog/דיגרידו-פרדס-חנה-סטודיו-לבנייה-ונגינ/1017337_294771040668412_836
+        /Blog/דיגרידו-פרדס-חנה-סטודיו-לבנייה-ונגינ/feed/
+
+   7  DROP — tag archive, no new-site equivalent
+        /Blog/tag/הערוץ-הראשון/
+        /Blog/tag/דרמה/
+        /Blog/tag/הופעה/
+
+   4  DROP — attachment/media id, orphan
+        /Blog/שליחות-חיי-כתבה-אודות-המרכז-לטיפול-בדי-5/358453706_1016082445650
+        /Blog/תלמידים-ומטופלים-ממליצים-על-המרכז-לטי/358728867_1016082445638858
+        /Blog/תלמידים-ומטופלים-ממליצים-על-המרכז-לטי/371822714_781671903965228_
+
+DECISION (per-slug rationale, recorded):
+  • FOLD: the 17 whose target resolves 200 need NO new decision — the catch-all already serves them
+    correctly, single-hop. Adding exact rules would duplicate the regex for zero gain.
+  • DROP: the remainder are feeds, tag archives, attachment ids, pagination, and post slugs with no
+    new-site equivalent. None is 'real legacy content worth preserving' (spec §4 option b).
+
+  ⚠ RESIDUAL, ROUTED (NOT silently dropped): the catch-all currently produces a 301 -> 404 chain for
+    the DROP set. A 301 to a 404 is worse than a plain 404 for crawl budget. Two options for team_100:
+      (a) leave as-is (harmless to users; GSC already lists them as not-indexed), or
+      (b) tighten the regex to exclude /feed/, /tag/, /page/ and numeric attachment ids so those
+          return a clean 404/410 instead of a redirect into nothing.
+    This is a MECHANISM change (the regex lives in the generator, not in the SSoT decisions), so it is
+    outside this WP's 'add decisions + regenerate' contract. Raised as F-02.

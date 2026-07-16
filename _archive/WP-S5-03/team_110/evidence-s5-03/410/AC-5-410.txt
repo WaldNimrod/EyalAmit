@@ -1,0 +1,6 @@
+=== AC-5 — orphans now return 410 Gone (not 301-to-nowhere, not 404) ===
+  /adi/                                                410  X-EA-Redirect: w209-410
+  /רני/                                             410  X-EA-Redirect: w209-410
+  /גבי-2/                                           410  X-EA-Redirect: w209-410
+  /סיני-יוני-09-154/                           410  X-EA-Redirect: w209-410
+  /דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/studio-bunner/ 410  X-EA-Redirect: w209-410

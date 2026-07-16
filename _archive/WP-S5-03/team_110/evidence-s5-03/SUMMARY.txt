@@ -1,0 +1,66 @@
+WP-S5-03 — legacy/301 completeness: what the full triage actually found
+======================================================================
+
+SCOPE CORRECTION (spec §1 says 400; the mandate says 406 — THE MANDATE IS RIGHT)
+  Raw URL rows across the 9 GSC exports : 406
+  Unique normalised paths (triaged)     : 368
+  The spec's table (400) was built with a line-counter (`tail -n +2 | wc -l`). These files have
+  NO trailing newline, so that method DROPS THE LAST URL OF EVERY FILE — 6 files, 6 lost URLs.
+  The spec's own counting method would have silently omitted 6 real legacy URLs from the triage.
+
+TRIAGE RESULT (368/368 classified — evidence: triage-400/triage.csv)
+  by live direct status : 404=219 · 301=121 · 200=26 · 302=1 · 410=1
+  Redirect chains were re-probed with `curl -L` (full chain), NOT a single hop: the site has a
+  2-hop chain (/Blog/x -> /blog/x -> /x), and a 1-hop probe under-reports it. 27 reach 200.
+
+WHAT THE 404s REALLY ARE — the "135 gaps" under the covered prefix dissolve on inspection:
+  128 = /feed/ URLs (attachment/image RSS). Junk. Zero content value.
+    7 = real candidate pages (handled below)
+  This matches the spec's own severity call ("noindex (127) = רובם /feed/ legacy … סיכון נמוך").
+  The spec extrapolated "9 real gaps" from a 21-URL sample; the full triage confirms the sample
+  was directionally right — the gap is small, and concentrated.
+
+FIXES APPLIED — ALL THROUGH THE SSoT (135 -> 165 decisions), then regenerated
+  §3.2 Pattern A  (4)  2nd legacy prefix /דיגרידו-סטודיו-…-אייל-עמית-2/* -> mirrors the covered family
+  §3.2 Pattern A  (4)  🔴 3rd legacy prefix /פרדס-חנה/* — NOT NAMED IN THE SPEC. Found by the full
+                       triage; identical shape, same targets (repair/treatment/sound-healing/bags).
+  §3.3 Pattern B  (6)  /shop/books/<slug>/ -> /books/<latin-slug>/  (incl. the misspelling variant
+                       /shop/books/כושי-בלנטיס/ that appears in GSC). Targets verified live 200.
+                       ⚠ The spec's LATIN example slugs are CORRECT; the hebrew-slug variants 404.
+  §3.1            (1)  truncated variant of the covered סאונד-הילינג rule -> /sound-healing/
+  §4  FOLD        (4)  🔴 REAL LIVE POSTS OF EYAL'S THAT DEAD-ENDED — see below
+  §5  410        (11)  orphan media pages (/adi/, /רני/, /גבי-2/, /סיני-יוני-*/, /איל-מישה-*/,
+                       /שלושת-הספרים-אלקטרוני2/, studio-bunner) -> 410 Gone, not 301-to-nowhere
+  Live rule counts: 301  32 -> 47   ·   410  2 -> 13
+
+🔴 THE FINDING THAT MATTERS — §4: the catch-all was silently dropping real content
+  The mechanism ran `#^/Blog/(.+)$# -> /blog/$1` BEFORE the exact $map and exit()ed, so an exact
+  /Blog/<slug> decision was UNREACHABLE — the catch-all always won. A prefix rewrite cannot follow
+  a RENAME, so any post whose slug changed between the old and new site got 301'd into a 404.
+  The full triage found 4 such posts. All are live; all were unreachable from their legacy URL:
+     /Blog/הכל-אודות-ריברסינג-נשימה-מעגלית-ו-דיג/   -> /ריברסינג-נשימה-מעגלית-דיגרידו/
+     /Blog/נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג-2/  -> /נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג/
+     /Blog/סדנה-קבוצתית-מקיפה-וייחודית-לנשימה-מע/   -> /סדנת-דיגרידו-קבוצתית-מקיפה-וייחודית-ל/
+     /Blog/את-הספר-החדש-שלי-לא-תמצאו-בחנויות-הספרי/ -> /את-הספר-החדש-שלי-לא-תמצאו-ברשתות-הספרים/
+  Each verified by TITLE match against the live post, not by slug similarity alone.
+  FIX (in the GENERATOR, never the artifact): $map is now emitted BEFORE the regex and the regex
+  yields to it — `if ( ! isset( $map[$norm] ) && preg_match(...) )`. An exact decision beats the
+  catch-all. Verified live: all 4 now 301 single-hop -> 200; un-decided slugs still ride the
+  catch-all (2 hops -> 200). No regression.
+
+§4 fold-or-drop, per-slug (105 /Blog/ URLs — the spec's "54" came from the quarantined W2-06
+exports; 105 is the authoritative count from the live GSC set):
+  FOLD  4  the renamed real posts above (exact decisions added)
+  KEEP 27  already land on a live post via the catch-all — no decision needed, it works
+  DROP 74  33 feeds · 12 portfolio_page (PURCHASED-THEME DEMO CONTENT — Stockholm fashion, Der
+           Spiegel cover art — not Eyal's) · 7 tag archives · 4 attachment ids · 39 deep
+           attachment children. None is content worth preserving.
+
+§6 OUT-OF-STAGING-SCOPE — marked, carried to WP-S5-05 §7 (NOT verified here, by design)
+  1. www/scheme canonicalisation (http->https, non-www->www) — prod-conditional.
+  2. Redirect targets that are themselves 404 — the residual DROP set; needs prod content review.
+
+RESIDUAL ROUTED (not silently dropped) — F-02: the catch-all still produces 301 -> 404 chains for
+  the DROP set (feeds/tags/attachments). Harmless to users, wasteful for crawl budget. Fixing it
+  means tightening the regex (a MECHANISM change, outside this WP's "add decisions" contract).
+  Options for team_100 in blog-54/AC-4-blog-fold-or-drop.txt.

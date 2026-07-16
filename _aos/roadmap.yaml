@@ -2434,10 +2434,13 @@ work_packages:
     (correctly cutover-gated — stays inside WP-S5-05''s gated sequence, per docs/cutover/WP012-CUTOVER-CHECKLIST.md).'
 - id: WP-S5-03
   label: Legacy/301 completeness — triage 406 legacy URLs, verify redirect-map coverage
-  status: PLANNED
+  status: COMPLETE
   track: BUILD
-  current_lean_gate: L-GATE_SPEC
-  lod_status: LOD400
+  current_lean_gate: L-GATE_VALIDATE
+  lod_status: LOD500_LOCKED
+  closure_date: '2026-07-16'
+  closed_by: 'team_110 (ADR045 execution_authority full — MANDATE_S005_TEAM110_EXECUTION_v1.0.0; team_00 authorization 2026-07-16)'
+  closure_artifact: _archive/WP-S5-03/team_90/VERDICT-WP-S5-03-VALIDATE-2026-07-16.md
   assigned_builder: team_10
   assigned_validator: team_90 (cross-engine, Iron Rule #1)
   created_at: '2026-07-15'
@@ -2471,6 +2474,52 @@ work_packages:
       MISSING on WP-S5-03 while its siblings S5-01/02 carried theirs: the PASS was earned on 2026-07-16 but never
       written back. Found by team_100''s pre-release cross-plan audit, same bookkeeping drift class as the S004
       reconciliation.)* Artifact — _COMMUNICATION/team_90/VERDICT-S005-LOD400-COVERAGE-CYCLE3-2026-07-16.md.'
+  - gate: L-GATE_BUILD
+    result: PASS
+    date: '2026-07-16'
+    builder: team_110 (claude-opus-4-8, Claude Code)
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 blocker / 0 major / 3 minor (F-01 spec count, F-02 residual regex, F-03 out-of-scope QR link)
+    notes: 'Independent cross-engine reproduction — Iron Rule #1 satisfied. AC-3..AC-7 all PASS. 368/368 unique
+      paths triaged (from 406 raw rows — NOT the spec''s 400; see F-01), fully SERIAL with spaced retries on the
+      throttling host, and redirect chains re-probed with curl -L (the site has a legitimate 2-hop chain, so a
+      one-hop probe under-reports). All fixes applied through the SSoT (135 -> 165 decisions) + regeneration; the
+      mu-plugin was NEVER hand-edited (validator proved regeneration is zero-diff). Live rules: 301 32 -> 47,
+      410 2 -> 13. THE HEADLINE (§4) — the /Blog/ catch-all was SILENTLY DROPPING 4 REAL LIVE POSTS OF EYAL''S:
+      the regex ran before the exact $map and exit()ed, so an exact /Blog/ decision was UNREACHABLE, and a prefix
+      rewrite cannot follow a RENAME, so every renamed post was 301''d into a 404. Fixed in the GENERATOR (not the
+      artifact): $map is emitted first, the regex yields to it. All 4 verified live by TITLE match, now 301
+      single-hop -> 200; un-decided slugs still ride the catch-all (2 hops -> 200), no regression. team_90
+      adjudicated the deviation a LEGITIMATE SSoT-first fix, not an out-of-contract hand-edit. §3.2 Pattern A
+      applied for the 2nd prefix AND a 3rd prefix /פרדס-חנה/ the spec never names (found by the full triage).
+      §3.3 Pattern B applied (latin /books/ slugs verified 200; hebrew variants 404). §5: 11 orphan media pages
+      now 410 Gone. §6 prod-only items marked, deferred to WP-S5-05 §7. §7 hazard honoured — deploy_htaccess_301.py
+      NOT run (nginx ignores .htaccess). Builder report — _archive/WP-S5-03/team_110/VERDICT-WP-S5-03-BUILD-2026-07-16.md;
+      verdict — _archive/WP-S5-03/team_90/VERDICT-WP-S5-03-BUILD-2026-07-16.md; evidence
+      _archive/WP-S5-03/team_110/evidence-s5-03/.'
+  - gate: L-GATE_VALIDATE
+    result: PASS
+    date: '2026-07-16'
+    validator: team_90 (composer-2.5, Cursor)
+    findings: 0 (blocker / major / minor)
+    notes: 'Constitutional closeability gate — team_90 owns L-GATE_VALIDATE per team_00''s ruling 2026-07-16
+      (superseding ADR045 R3.2 + Iron Rule #5, which name the dissolved team_190). Clean PASS: scope-honest;
+      SSoT-first integrity intact (every rule traces to a decision; both targets regenerate; collides_canonical
+      still guards); NO REAL LEGACY CONTENT DROPPED — the 4 FOLD posts are live and single-hop, and the DROP set
+      is feeds / tag archives / attachment ids / purchased-theme demo content (portfolio_page), none of it Eyal''s;
+      findings routed not buried; §6 prod-only items marked honestly. Artifact —
+      _archive/WP-S5-03/team_90/VERDICT-WP-S5-03-VALIDATE-2026-07-16.md.'
+  open_findings_routed_to_team_100: 'F-01 — the spec''s §1 table is WRONG: 406 raw URL rows, not 400. The 9 GSC
+    exports have NO trailing newline, so the line-counter behind that table (tail -n +2 | wc -l) drops the LAST URL
+    OF EVERY FILE — 6 files, 6 real legacy URLs silently omitted from the triage denominator. The mandate''s 406 was
+    right. ASK: correct §1. F-02 — the /Blog/ catch-all still yields 301 -> 404 chains for the ~74 DROP-class URLs
+    (feeds/tags/attachments). Harmless to users, wasteful for crawl budget; fixing it means tightening the regex —
+    a MECHANISM change outside this WP''s add-decisions-and-regenerate contract. Options in the evidence pack.
+    F-03 — a LIVE BROKEN LINK on /qr/qr2/: two anchors point at /books/צבע-בכחול-וזרוק-לים/ (404); one is empty
+    (also S5-06''s axe link-name node), the other is a VISIBLE «לדף הספר>>» link a reader clicks. Correct target is
+    /books/tsva-bekahol/ (200). Bounded: 1 QR page, 2 anchors, 1 target. It is a CURRENT internal seed link, not a
+    legacy GSC URL — out of scope for S5-03/06/07. Fix = edit ea-w2-07-qr-content-data.php + reseed with a new
+    -once flag. Eyal''s readers hit it today.'
   roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
   notes: 'Absorbs WP-W2-15-G (closed/superseded 2026-07-15 — see its closure_note): 406 legacy eyalamit.co.il
     URLs from the 2026-06-04 GSC not-indexed export (~174 after stripping feed/tag/category/qr+attachments) —
