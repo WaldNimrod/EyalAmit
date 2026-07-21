@@ -67,3 +67,6 @@ _COMMUNICATION/team_110/build/gallery-eyal/
 
 # node deps for the QA harness — never track (a self-referencing symlink was committed here by mistake)
 scripts/qa/node_modules/
+
+# Scratch/build output — never versioned (M12 fleet alignment 2026-07-19)
+tmp/
