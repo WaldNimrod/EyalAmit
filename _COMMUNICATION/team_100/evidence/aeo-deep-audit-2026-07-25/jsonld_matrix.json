@@ -1,0 +1,560 @@
+{
+  "generatedAt": "2026-07-25T11:47:46.787Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "host": {
+    "robotsTxt": "User-agent: *\nDisallow: /",
+    "sitemapChildCount": 5,
+    "sitemapChildren": [
+      "http://eyalamit-co-il-2026.s887.upress.link/post-sitemap.xml",
+      "http://eyalamit-co-il-2026.s887.upress.link/page-sitemap.xml",
+      "http://eyalamit-co-il-2026.s887.upress.link/ea_faq-sitemap.xml",
+      "http://eyalamit-co-il-2026.s887.upress.link/ea_gallery-sitemap.xml",
+      "http://eyalamit-co-il-2026.s887.upress.link/ea_testimonial-sitemap.xml"
+    ]
+  },
+  "routes": [
+    {
+      "path": "/",
+      "error": "fetch failed"
+    },
+    {
+      "path": "/treatment/",
+      "error": "fetch failed"
+    },
+    {
+      "path": "/sound-healing/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 8,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "סאונד הילינג פרטי בדיג׳רידו – מסע אישי בצליל ותדר ליחידים ולזוגות"
+        ],
+        "h2Sample": [
+          "מה זה סאונד הילינג?",
+          "מה מיוחד בסאונד הילינג של אייל עמית?",
+          "איך זה עובד?",
+          "מה מאפשר הסאונד הילינג בדיג׳רידו?",
+          "למי זה מתאים?",
+          "ועוד למי זה מתאים",
+          "שאלות נפוצות על סאונד הילינג בדיג׳רידו",
+          "מבנה המפגש",
+          "מה מספרים על מפגשי סאונד הילינג",
+          "רוצים להגיע למפגש?"
+        ],
+        "faqDetailsCount": 8,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "חוויה פאסיבית של הרפיה עמוקה ואיזון תדרים. מפגש אישי בסטודיו אקוסטי בפרדס חנה. עצירה מהשגרה וחיבור פנימי דרך צליל הדיג&#039;רידו."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "מסע אישי ופרטי בצלילים ותדרים, שבו הרטט נע בגוף כמו עיסוי פנימי עדין, מאפשר האטה, מרווח את הנשימה, מפחית עומס ויוצר מרחב מוחזק להקשבה עמוקה למה שמתרחש מבפנים",
+        "pendingMarkers": 0,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/lessons/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 8,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "שיעורי נגינה בדיג'רידו לפי שיטת cbDIDG של אייל עמית"
+        ],
+        "h2Sample": [
+          "מה זה ללמוד לנגן בדיג&#039;רידו",
+          "למה בכלל ללמוד לנגן בדיג&#039;רידו",
+          "מה לומדים בפועל",
+          "איך נראים השיעורים בפועל",
+          "למי זה מתאים",
+          "למה ללמוד דווקא אצל אייל עמית",
+          "מה אומרים התלמידים",
+          "שאלות נפוצות",
+          "בואו לנסות"
+        ],
+        "faqDetailsCount": 8,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "למדו לנגן בדיג&#039;רידו אחד על אחד בפרדס חנה. שליטה בנשימה מעגלית, מקצבים ואפקטים. מתודולוגיה הדרגתית המותאמת לקצב האישי שלכם."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "במסגרת המרכז ניתן ללמוד לנגן בדיג&#039;רידו כתהליך לימודי ממוקד – רכישת מיומנות נגינה, שליטה בטכניקות הנשימה הייחודיות לכלי, עבודה עם מקצבים, עוצמות ומהירויות, ופיתוח שליטה בצליל ובאפקטים קוליים.",
+        "pendingMarkers": 0,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/method/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 9,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "שיטת cbDIDG של אייל עמית"
+        ],
+        "h2Sample": [
+          "מהי שיטת cbDIDG",
+          "איך בנויה השיטה",
+          "מה מייחד את שיטת cbDIDG",
+          "למי השיטה מתאימה",
+          "שאלות נפוצות על השיטה",
+          "מה אנשים חווים לאורך הדרך",
+          "אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם."
+        ],
+        "faqDetailsCount": 9,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "גלו את עקרונות cbDIDG: הבחנה בין דפוסי נשימה, עבודה אקטיבית ודיוק פיזיקלי. השיטה המקצועית של אייל עמית לחיזוק דרכי נשימה באמצעות דיג&#039;רידו."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "שיטה לעבודה עם הנשימה באמצעות דיג&#039;רידו, המבוססת על תרגול עצמי דרך הכלי בליווי אישי. הדיג&#039;רידו אינו המטרה – הוא הכלי שדרכו לומדים לעבוד עם הנשימה היומיומית, לחזק, לווסת ולהחזיר עליה את השליטה.",
+        "pendingMarkers": 6,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/faq/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 110,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "שאלות נפוצות"
+        ],
+        "h2Sample": [
+          "לא כל עבודה עם דיג׳רידו היא אותו דבר",
+          "טיפול בדיג&#039;רידו",
+          "שיעורי נגינה בדיג&#039;רידו",
+          "סאונד הילינג בדיג&#039;רידו",
+          "השיטה — cbDIDG",
+          "רכישת דיג&#039;רידו",
+          "תיקים לדיג&#039;רידו",
+          "סטנדים לאחסון דיג&#039;רידו",
+          "סטנד רצפתי לנגינה",
+          "תיקון וחידוש דיג&#039;רידו",
+          "שאלות כלליות",
+          "וכתבת"
+        ],
+        "faqDetailsCount": 108,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "כל התשובות על טיפול בנשימה, רכישה, תיקון כלי דיג&#039;רידו ולימוד נשימה מעגלית. מידע מקצועי מקיף מאת אייל עמית."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "שאלות נפוצות על טיפול בדיג&#039;רידו, שיעורי נגינה בדיג&#039;רידו, סאונד הילינג ושיטת cbDIDG. לא כל עבודה עם דיג&#039;רידו היא אותו דבר. כאן תמצאו תשובות לשאלות נפוצות והבנה ברורה של ההבדלים בין סוגי העבודה עם דיג&#039;רידו.",
+        "pendingMarkers": 12,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/eyal-amit/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 0,
+      "faqPagePresent": false,
+      "faqVisibleLikely": false,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "אייל עמית"
+        ],
+        "h2Sample": [
+          "מייסד שיטת cbDIDG, מורה לדיג׳רידו, מטפל בנשימה באמצעות דיג׳רידו ובונה כלי דיג׳רידו בעבודת יד.",
+          "המרכז לטיפול בדיג׳רידו",
+          "כמה תחנות בדרך",
+          "מוקש דהימן",
+          "הסטודיו בפרדס חנה",
+          "ספרים, במה ותקשורת",
+          "המפגש עם הדיג׳רידו",
+          "המורים שעיצבו את דרכי",
+          "הדיג׳ שנגנב והדרך החדשה שנפתחה",
+          "שיטת cbDIDG",
+          "המרכז לטיפול בדיג׳רידו",
+          "נשימה, מחקר והכרה מקצועית"
+        ],
+        "faqDetailsCount": 0,
+        "faqBlockSignal": false,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "אייל עמית — מאסטר דיג&#039;רידו ומטפל בנשימה, מייסד המרכז לטיפול בנשימה באמצעות דיג&#039;רידו בפרדס חנה. הסיפור האישי, שיטת cbDIDG והדרך אל הליווי האישי."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "מאז 1999 אני עוסק בדיג׳רידו, נשימה, הוראה, טיפול, בניית כלים ופיתוח שיטה סדורה לעבודה עם הנשימה באמצעות הדיג׳רידו.",
+        "pendingMarkers": 0,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/snoring-sleep-apnea/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 0,
+      "faqPagePresent": false,
+      "faqVisibleLikely": false,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג'רידו"
+        ],
+        "h2Sample": [
+          "מה יש בעמוד הזה",
+          "מה בכלל הקשר בין דיג&#039;רידו, נחירות ודום נשימה בשינה?",
+          "מה מצא המחקר על דיג&#039;רידו ודום נשימה בשינה?",
+          "גם באתר הרשמי של מכבי מדברים על דיג&#039;רידו",
+          "צילום מסך מאתר מכבי",
+          "נחירות הן לא תמיד רק נחירות",
+          "אילו פתרונות קיימים היום לנחירות ולדום נשימה?",
+          "אז מה בעצם מתרגלים כשמנגנים בדיג&#039;רידו?",
+          "איך אני עובד עם נחירות ודום נשימה באמצעות דיג&#039;רידו?",
+          "הסיפור של יוני",
+          "למי הגישה הזאת יכולה להתאים?",
+          "האם דיג&#039;רידו יכול להחליף CPAP או טיפול רפואי?"
+        ],
+        "faqDetailsCount": 0,
+        "faqBlockSignal": false,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "אם אתם נוחרים, מתעוררים עייפים או כבר אובחנתם עם דום נשימה בשינה, סביר להניח שכבר שמעתם על CPAP, סד דנטלי או אפשרויות רפואיות אחרות. אבל יש גם דרך הרבה פחות…"
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "אם אתם נוחרים, מתעוררים עייפים או כבר אובחנתם עם דום נשימה בשינה, סביר להניח שכבר שמעתם על CPAP, סד דנטלי או אפשרויות רפואיות אחרות. אבל יש גם דרך הרבה פחות מוכרת: להשתמש בדיג&#039;רידו ככלי לתרגול פעיל של הנשימה ושל האזורים המעורבים בדרכי האוויר העליונות. זה אולי נשמע מפתיע, אבל",
+        "pendingMarkers": 12,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/books/vekatavta/",
+      "status": 200,
+      "types": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 7,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "וכתבת"
+        ],
+        "h2Sample": [
+          "ספר אישי מאוד, חי מאוד, ומלא קול.",
+          "10 דברים שלא ידעתם עלי",
+          "על הספר",
+          "למי הספר מתאים",
+          "ולמי שפשוט רוצה לפתוח ספר",
+          "אייל עמית כותב מתוך החיים",
+          "אם הגעת עד כאן, כנראה שזה לא סתם.",
+          "שאלות ותשובות",
+          "רכישת הספר",
+          "גלריה",
+          "כתבות מהעיתונות",
+          "עוד רגעים מהדרך"
+        ],
+        "faqDetailsCount": 7,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "וכתבת מאת אייל עמית — 46 סיפורים אמיתיים ומעוררי השראה מהחיים, על אהבה, מסעות, הורות, אובדן, שינוי וצמיחה. ספר אישי מאוד, כתוב בקול ישיר וחי."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "46 סיפורים אמיתיים מחייו של אייל עמית. ספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.",
+        "pendingMarkers": 16,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    },
+    {
+      "path": "/didgeridoos/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "graphError": null,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "geoCircle": true,
+      "faqQCount": 5,
+      "faqPagePresent": true,
+      "faqVisibleLikely": true,
+      "faqSchemaMatchesVisible": true,
+      "prohibitions": {
+        "aggregateRating": false,
+        "areaServedIsrael": false,
+        "healthAndBeauty": false
+      },
+      "dom": {
+        "h1": [
+          "כלי דיג'רידו למכירה - כלים בעבודת יד"
+        ],
+        "h2Sample": [
+          "כלי עבודה על הנשימה",
+          "מי בונה את הכלים האלה",
+          "הדיוק הזה משמעותי",
+          "מה מייחד את הכלים",
+          "למי הכלים מתאימים",
+          "איך בוחרים כלי",
+          "איך זה עובד בפועל",
+          "אין לחץ, ואין צורך להחליט מהר",
+          "מוצרים משלימים",
+          "שאלות נפוצות",
+          "מה אומרים אנשים שעובדים עם הכלי",
+          "לבחור כלי זה לא רק לקנות כלי"
+        ],
+        "faqDetailsCount": 5,
+        "faqBlockSignal": true,
+        "metaDescCount": 1,
+        "metaDesc": [
+          "למכירה: כלי דיג&#039;רידו שנבנו בעבודת יד ע&quot;י אייל עמית. כלים בעלי לחץ אחורי גבוה המותאמים במיוחד לעבודה נשימתית טיפולית."
+        ],
+        "ogImageCount": 1,
+        "ogImage": [
+          "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg"
+        ],
+        "noindex": true,
+        "answerLead": "כלים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר הישיר ביניהם לבין הנשימה.",
+        "pendingMarkers": 8,
+        "phoneHits": [
+          "052-4822842"
+        ],
+        "napFooterSnippet": "עמל"
+      }
+    }
+  ]
+}

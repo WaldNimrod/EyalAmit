@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2026-07-25T12:21:20.684930Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 0,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    },
+    {
+      "path": "/treatment/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 20,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    },
+    {
+      "path": "/method/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 9,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    },
+    {
+      "path": "/faq/",
+      "status": 200,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 110,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    },
+    {
+      "path": "/snoring-sleep-apnea/",
+      "status": 200,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 6,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    },
+    {
+      "path": "/books/vekatavta/",
+      "status": 200,
+      "types": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "faqCount": 7,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "AC-1": {
+    "liveFetched": {
+      "/": 200,
+      "/treatment/": 200,
+      "/method/": 200,
+      "/faq/": 200,
+      "/snoring-sleep-apnea/": 200,
+      "/books/vekatavta/": 200
+    },
+    "yoastErrors": {
+      "/": null,
+      "/treatment/": null,
+      "/method/": null,
+      "/faq/": null,
+      "/snoring-sleep-apnea/": null,
+      "/books/vekatavta/": null
+    }
+  },
+  "AC-2": {
+    "methodHasService": false
+  },
+  "AC-3": {
+    "treatmentHasService": true,
+    "treatmentHasFAQPage": true
+  },
+  "AC-4": {
+    "snoringHasArticle": true,
+    "snoringHasFAQPage": true,
+    "snoringQuestions": {
+      "visibleCount": 6,
+      "schemaCount": 6,
+      "visibleNormalized": [
+        "צריך לדעת לנגן בדיג'רידו לפני שמתחילים?",
+        "חייבים ללמוד נשימה מעגלית?",
+        "כמה צריך לתרגל בבית?",
+        "תוך כמה זמן אפשר להרגיש שינוי?",
+        "האם זה מתאים גם למי שרק נוחר ולא אובחן עם דום נשימה?",
+        "צריך לקנות דיג'רידו?"
+      ],
+      "schemaNormalized": [
+        "צריך לדעת לנגן בדיג'רידו לפני שמתחילים?",
+        "חייבים ללמוד נשימה מעגלית?",
+        "כמה צריך לתרגל בבית?",
+        "תוך כמה זמן אפשר להרגיש שינוי?",
+        "האם זה מתאים גם למי שרק נוחר ולא אובחן עם דום נשימה?",
+        "צריך לקנות דיג'רידו?"
+      ],
+      "inVisibleNotSchema": [],
+      "inSchemaNotVisible": [],
+      "exactMatch": true
+    }
+  },
+  "AC-5": {
+    "/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    },
+    "/treatment/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    },
+    "/method/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    },
+    "/faq/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    },
+    "/snoring-sleep-apnea/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    },
+    "/books/vekatavta/": {
+      "type": "GeoCircle",
+      "geoRadius": 45000,
+      "lat": 32.4637761,
+      "lon": 34.9760176
+    }
+  },
+  "AC-6": {
+    "/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    },
+    "/treatment/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    },
+    "/method/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    },
+    "/faq/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    },
+    "/snoring-sleep-apnea/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "Article",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    },
+    "/books/vekatavta/": {
+      "expectedTypes": [
+        "Person",
+        "ProfessionalService",
+        "Book",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "presentTypes": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "missingExpected": []
+    }
+  },
+  "AC-7": {
+    "/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    },
+    "/treatment/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    },
+    "/method/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    },
+    "/faq/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    },
+    "/snoring-sleep-apnea/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    },
+    "/books/vekatavta/": {
+      "html": {
+        "AggregateRating": false,
+        "areaServed:\"Israel\"": false,
+        "HealthAndBeautyBusiness": false
+      },
+      "graph": {
+        "AggregateRating_type": false,
+        "HealthAndBeautyBusiness_type": false
+      }
+    }
+  }
+}

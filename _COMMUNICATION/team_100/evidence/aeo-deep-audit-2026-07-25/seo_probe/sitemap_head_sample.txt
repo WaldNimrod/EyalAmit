@@ -1,0 +1,8 @@
+200 http://eyalamit-co-il-2026.s887.upress.link/
+000 http://eyalamit-co-il-2026.s887.upress.link/services/
+200 http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/
+000 http://eyalamit-co-il-2026.s887.upress.link/books/
+200 http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/
+200 http://eyalamit-co-il-2026.s887.upress.link/historical-articles/
+200 http://eyalamit-co-il-2026.s887.upress.link/shop/
+200 http://eyalamit-co-il-2026.s887.upress.link/thank-you/

@@ -1,0 +1,57 @@
+{
+  "/snoring-sleep-apnea/": {
+    "types": [
+      "BreadcrumbList",
+      "Person",
+      "ProfessionalService",
+      "WebPage",
+      "WebSite"
+    ],
+    "faqN": 0,
+    "geoType": "GeoCircle",
+    "geoRadius": 45000,
+    "article": null
+  },
+  "/treatment/": {
+    "types": [
+      "BreadcrumbList",
+      "FAQPage",
+      "Person",
+      "ProfessionalService",
+      "Service",
+      "WebPage",
+      "WebSite"
+    ],
+    "faqN": 20,
+    "geoType": "GeoCircle",
+    "geoRadius": 45000,
+    "article": null
+  },
+  "/faq/": {
+    "types": [
+      "BreadcrumbList",
+      "FAQPage",
+      "Person",
+      "ProfessionalService",
+      "WebPage",
+      "WebSite"
+    ],
+    "faqN": 110,
+    "geoType": "GeoCircle",
+    "geoRadius": 45000,
+    "article": null
+  },
+  "/": {
+    "types": [
+      "BreadcrumbList",
+      "Person",
+      "ProfessionalService",
+      "WebPage",
+      "WebSite"
+    ],
+    "faqN": 0,
+    "geoType": "GeoCircle",
+    "geoRadius": 45000,
+    "article": null
+  }
+}

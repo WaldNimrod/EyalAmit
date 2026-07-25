@@ -1,0 +1,217 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/",
+      "name": "דיג׳רידו, נחירות ודום נשימה בשינה - eyal amit",
+      "isPartOf": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "datePublished": "2026-07-14T20:16:54+00:00",
+      "breadcrumb": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/#breadcrumb"
+      },
+      "inLanguage": "he-IL",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "http://eyalamit-co-il-2026.s887.upress.link/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "דיג׳רידו, נחירות ודום נשימה בשינה"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "name": "eyal amit",
+      "description": "",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "http://eyalamit-co-il-2026.s887.upress.link/?s={search_term_string}"
+          },
+          "query-input": {
+            "@type": "PropertyValueSpecification",
+            "valueRequired": true,
+            "valueName": "search_term_string"
+          }
+        }
+      ],
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Person",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit",
+      "name": "אייל עמית",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "jobTitle": "מאסטר דיג'רידו ומטפל בנשימה",
+      "worksFor": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "knowsAbout": [
+        "טיפול בנשימה באמצעות דיג'רידו",
+        "סאונד הילינג",
+        "נשימה מעגלית",
+        "דום נשימה בשינה ונחירות",
+        "נגינה בדיג'רידו"
+      ],
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg",
+      "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+      "alternateName": "cbDIDG",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "telephone": "+972-52-482-2842",
+      "founder": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "עמל 8 ב'",
+        "addressLocality": "פרדס חנה-כרכור",
+        "addressCountry": "IL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/faqpage/snoring-sleep-apnea",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "צריך לדעת לנגן בדיג'רידו לפני שמתחילים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>ממש לא. רוב האנשים שמגיעים אליי לא ניגנו קודם בדיג'רידו, ולחלקם אין שום רקע מוזיקלי. אנחנו מתחילים מההתחלה ולומדים הכל בהדרגה.</p><p>המטרה, במקרה הזה, היא לא להפוך אתכם לנגני דיג'רידו. הנגינה היא הדרך שבה אנחנו מתרגלים.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "חייבים ללמוד נשימה מעגלית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>הנשימה המעגלית היא חלק חשוב מהתהליך, אבל לא מתחילים ממנה ביום הראשון.</p><p>קודם לומדים להפיק צליל, לעבוד עם האוויר ולהפעיל את הפה, הלשון והלחיים. אחר כך מתקדמים בהדרגה.</p><p>יש אנשים שזה מתחבר להם מהר ויש אנשים שצריכים יותר זמן. זה בסדר גמור.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה צריך לתרגל בבית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>אין מספר קסם שמתאים לכולם, אבל כן צריך לתרגל באופן קבוע.</p><p>אני מעדיף תרגול קצר שאדם באמת עושה על פני תכנית מושלמת שנשארת על הנייר. התרגול מותאם לאדם, לשלב שבו הוא נמצא ולחיים שלו.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "תוך כמה זמן אפשר להרגיש שינוי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>זו שאלה שאין לי עליה תשובה אחת.</p><p>יש אנשים שמרגישים שינויים די מהר. אצל אחרים זה לוקח יותר זמן. זה תלוי במצב שממנו מתחילים, בחומרת הבעיה, בהתמדה בתרגול ובעוד הרבה דברים.</p><p>אני לא מבטיח מראש תוך כמה זמן משהו ישתנה, ואני גם לא חושב שנכון לעשות את זה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם זה מתאים גם למי שרק נוחר ולא אובחן עם דום נשימה?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כן, אבל חשוב להבין על אילו נחירות אנחנו מדברים.</p><p>אם מדובר בנחירות חזקות וקבועות, במיוחד אם יש הפסקות נשימה, יקיצות עם חנק או עייפות משמעותית ביום, לא מדלגים על שלב הבירור.</p><p>לפעמים בן אדם מגיע אליי ואומר: \"אני רק נוחר\", ואז מתברר שמי שישן לידו כבר שנים שומע אותו מפסיק לנשום בלילה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "צריך לקנות דיג'רידו?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>לא צריך להגיע למפגש הראשון עם כלי.</p><p>קודם נפגשים, מבינים מה מתאים ומתחילים לעבוד. אחר כך, אם ממשיכים בתהליך, צריך כמובן כלי שאפשר לתרגל איתו בבית.</p><p>אני עוזר גם בזה.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/Article/snoring-sleep-apnea",
+      "name": "נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג'רידו",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/",
+      "isPartOf": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "publisher": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "headline": "נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג'רידו",
+      "author": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+      },
+      "mainEntityOfPage": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/",
+      "datePublished": "2026-07-14T20:16:54+00:00",
+      "dateModified": "2026-07-14T20:16:54+00:00",
+      "description": "אם אתם נוחרים, מתעוררים עייפים או כבר אובחנתם עם דום נשימה בשינה, סביר להניח שכבר שמעתם על CPAP, סד דנטלי או אפשרויות רפואיות אחרות. אבל יש גם דרך הרבה פחות…"
+    }
+  ]
+}

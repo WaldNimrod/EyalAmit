@@ -32,7 +32,7 @@ BASE="https://www.eyalamit.co.il"
 for UA in "Googlebot" "Bingbot" "GPTBot" "OAI-SearchBot" "ChatGPT-User" \
           "ClaudeBot" "Claude-SearchBot" "Claude-User" \
           "PerplexityBot" "Perplexity-User"; do
-  for U in / /treatment/ /sleep-apnea-snoring/ ; do   # use the real pillar slug per WP-03 decision
+  for U in / /treatment/ /snoring-sleep-apnea/ ; do   # live pillar slug (AEO readiness 2026-07-25; was wrongly /sleep-apnea-snoring/)
     code=$(curl -s -A "$UA" -o /dev/null -w "%{http_code}" "$BASE$U")
     echo "$UA $U -> $code"   # expect 200, never 403/blocked
   done

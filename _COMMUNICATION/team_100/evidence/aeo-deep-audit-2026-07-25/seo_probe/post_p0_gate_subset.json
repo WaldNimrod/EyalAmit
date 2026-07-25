@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-07-25T11:53:08.146Z",
+  "results": [
+    {
+      "path": "/",
+      "missing": [],
+      "geoPass": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/method/",
+      "missing": [],
+      "geoPass": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/treatment/",
+      "missing": [],
+      "geoPass": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/faq/",
+      "missing": [],
+      "geoPass": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/snoring-sleep-apnea/",
+      "missing": [
+        "Article",
+        "FAQPage"
+      ],
+      "geoPass": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": false
+    },
+    {
+      "path": "/books/vekatavta/",
+      "missing": [],
+      "geoPass": true,
+      "present": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    }
+  ]
+}

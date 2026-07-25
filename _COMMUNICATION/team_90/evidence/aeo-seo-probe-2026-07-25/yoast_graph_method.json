@@ -1,0 +1,223 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+      "name": "השיטה - eyal amit",
+      "isPartOf": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "datePublished": "2026-04-06T19:52:22+00:00",
+      "dateModified": "2026-05-28T10:58:22+00:00",
+      "description": "גלו את עקרונות cbDIDG: הבחנה בין דפוסי נשימה, עבודה אקטיבית ודיוק פיזיקלי. השיטה המקצועית של אייל עמית לחיזוק דרכי נשימה באמצעות דיג'רידו.",
+      "breadcrumb": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/method/#breadcrumb"
+      },
+      "inLanguage": "he-IL",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "http://eyalamit-co-il-2026.s887.upress.link/method/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/method/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "http://eyalamit-co-il-2026.s887.upress.link/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "השיטה"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "name": "eyal amit",
+      "description": "",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "http://eyalamit-co-il-2026.s887.upress.link/?s={search_term_string}"
+          },
+          "query-input": {
+            "@type": "PropertyValueSpecification",
+            "valueRequired": true,
+            "valueName": "search_term_string"
+          }
+        }
+      ],
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Person",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit",
+      "name": "אייל עמית",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "jobTitle": "מאסטר דיג'רידו ומטפל בנשימה",
+      "worksFor": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "knowsAbout": [
+        "טיפול בנשימה באמצעות דיג'רידו",
+        "סאונד הילינג",
+        "נשימה מעגלית",
+        "דום נשימה בשינה ונחירות",
+        "נגינה בדיג'רידו"
+      ],
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg",
+      "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+      "alternateName": "cbDIDG",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "telephone": "+972-52-482-2842",
+      "founder": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "עמל 8 ב'",
+        "addressLocality": "פרדס חנה-כרכור",
+        "addressCountry": "IL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/faqpage/method",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "אפשר ללמוד נשימה מעגלית לבד מסרטונים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>אפשר להתחיל, אבל קשה לראות לבד מה באמת קורה ועל מה לעבוד. ליווי אישי נותן משוב בזמן אמת ומונע הטמעת טעויות שקשה לתקן אחר כך.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם השיטה יכולה לעזור לנחירות או דום נשימה בשינה?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>יש אנשים שמגיעים לשיטה בדיוק מתוך קושי כזה.</p><p>קיים מחקר רפואי שנערך בשווייץ, שמצא כי תרגול בדיג'רידו עשוי להפחית סימפטומים הקשורים בנחירות ובדום נשימה בשינה.</p><p>מכיוון שהעבודה בשיטה מתמקדת בשיפור השליטה בנשימה, בחיזוק ובוויסות של מערכת הנשימה, היא יכולה להיות רלוונטית גם במקרים כאלה.</p><p>עם זאת, כל מקרה נבחן לגופו במפגש הראשון, ואין כאן הבטחה אחידה או פתרון זהה לכולם. חשוב לציין כי במרוצת השנים מטופלים רבים דיווחו על הקלה משמעותית בסימפטומים, וחלקם אף הצליחו להיגמל משינה עם מכשיר CPAP – כמובן לאחר בדיקת שינה במעבדה ובאישור רופא.</p><p><a class=\"tlink\" href=\"https://www.bmj.com/content/332/7536/266\">לקריאה על המחקר ב־BMJ</a></p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם השיטה מתאימה גם למקרים שאינם קשורים ישירות לנשימה, כמו מערכת העיכול, מערכת העצבים או המערכת ההורמונלית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>למרות שהעבודה בשיטה מתמקדת בנשימה, חשוב להבין שהנשימה מחוברת ומשפיעה על כל מערכות הגוף.</p><p>היא פועלת כמראה למצב הגופני והתודעתי, ולכן כאשר עובדים עליה בצורה מדויקת, ההשפעה אינה נשארת רק ברמת הנשימה, אלא יכולה לבוא לידי ביטוי גם במערכות נוספות.</p><p>עם זאת, השיטה אינה מטפלת ישירות בכל מערכת בנפרד, אלא דרך העבודה על הנשימה, שמשפיעה באופן רחב יותר על הגוף כולו.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם נשימה מעגלית קשה ללמוד? כמה זמן זה לוקח?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>זה לא אינטואיטיבי, אבל הגוף לומד — בדומה לרכיבה על אופניים. רוב התלמידים מגיעים ליכולת בסיסית יציבה תוך מספר חודשי תרגול, בקצב אישי.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם צריך לדעת לנגן בדיג'רידו כדי להתחיל?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>לא. הלימוד מתחיל מהבסיס, ואין צורך בידע קודם. הנגינה עצמה נלמדת כחלק מהתהליך, ובהדרגה הופכת לכלי עבודה ממשי עם הנשימה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה זמן לוקח לראות שינוי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כל מקרה לגופו. זה תלוי עם מה מגיעים, מה המטרה, מה רמת השליטה ההתחלתית, ועד כמה קיימת קואורדינציה ושליטה במערכת הנשימה.</p><p>יש מי שמספיקים להם כמה מפגשים בודדים כדי להרגיש שינוי, ויש מי שזקוקים לתהליך ממושך יותר.</p><p>כך או כך, מדובר בתהליך הדרגתי שמבוסס על תרגול, התמדה והעמקה, ולא בחוויה חד פעמית.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "למי זה לא מתאים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>השיטה מיועדת למבוגרים מגיל 17 ומעלה.</p><p>היא אינה מתאימה לנשים בהריון, וכן לאנשים המתמודדים עם מצבים פסיכיאטריים מורכבים.</p><p>בנוסף, היא פחות מתאימה למי שמחפש פתרון מהיר ללא תרגול, או למי שאינו מוכן לקחת חלק פעיל בתהליך לאורך זמן.</p><p>למידע נוסף ושאלות נוספות ניתן לעבור ל־ <a class=\"tlink\" href=\"/contact/\">עמוד השאלות הנפוצות המלא</a></p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה ההבדל בין נשימה מעגלית בדיג'רידו לבין נשימה מעגלית בריברסינג?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<span class=\"ea-pending-approval\">ניסוח בידול מ-rebirthing — ממתין לאישור אייל</span><p>למרות השם הדומה, מדובר בשתי גישות שונות לחלוטין.</p><p>נשימה מעגלית בדיג'רידו היא טכניקה פיזית שמאפשרת להפיק צליל רציף על ידי שילוב בו זמני בין נשיפה מהפה ושאיפה מהאף.</p><p>לעומת זאת, בריברסינג מדובר בתהליך נשימתי רציף שמטרתו לרוב לעורר חוויה רגשית או תודעתית, דרך נשימה עצימה או רגועה שאין בה עצירות.</p><p>חשוב להבין שמדובר בשני שימושים שונים לחלוטין בנשימה: ריברסינג לא מלמד לנגן בדיג'רידו, ונשימה מעגלית בדיג'רידו אינה תהליך ריברסינג.</p><p>בשיטת cbDIDG הנשימה המעגלית היא כלי תרגול, והמטרה היא להשפיע על דפוסי הנשימה היומיומיים – לאורך היום וגם בזמן השינה.</p><p>למידע נוסף והסבר מעמיק, ניתן לקרוא כאן: <a class=\"tlink\" href=\"/blog/\">ריברסינג, נשימה מעגלית ודיג'רידו</a></p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה ההבדל בין שיטת cbDIDG לבין שיטות נשימה אחרות כמו ריברסינג או בוטייקו?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>בשיטות רבות העבודה עם הנשימה נעשית דרך תרגול מודע של הנשימה בלבד. בשיטת cbDIDG העבודה מתבצעת דרך נגינה בדיג'רידו, כך שהנשימה הופכת לפעולה מוחשית עם משוב מיידי של צליל.</p><p>הנגינה יוצרת עניין, מיקוד ורצף תרגול, ומאפשרת להתמיד לאורך זמן. זהו הבדל משמעותי, במיוחד עבור אנשים שמתקשים להישאר בתרגול נשימה “יבש” בלבד. עבור אנשים עם קושי בריכוז או צורך בגירוי מתמשך, האלמנט המוזיקלי הופך את התרגול לנגיש ואפקטיבי יותר.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}

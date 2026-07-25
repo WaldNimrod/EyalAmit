@@ -1,0 +1,415 @@
+{
+  "generatedAt": "2026-07-25T12:06:15.017Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "note": "post-redeploy route+GeoCircle gate (sitemap HEAD skipped — F-SEO-01)",
+  "passCount": 21,
+  "total": 21,
+  "overallPass": true,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/method/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 9,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/treatment/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 20,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/sound-healing/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 8,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/lessons/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 8,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/faq/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 110,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/books/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/eyal-amit/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/snoring-sleep-apnea/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 6,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/books/vekatavta/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 7,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/books/kushi-blantis/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 6,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "ImageObject",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/books/tsva-bekahol/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 5,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/didgeridoos/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 5,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/bags/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 7,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/stands-storage/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 5,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/stand-floor/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 4,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/repair/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 6,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "VideoObject",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/press/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "CollectionPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/shows-heritage/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "BreadcrumbList",
+        "CollectionPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/qr/qr2/",
+      "status": 200,
+      "missing": [],
+      "geoPass": true,
+      "faqN": 0,
+      "metaN": 1,
+      "ogN": 1,
+      "noindex": true,
+      "present": [
+        "Article",
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "VideoObject",
+        "WebPage",
+        "WebSite"
+      ],
+      "pass": true
+    }
+  ]
+}

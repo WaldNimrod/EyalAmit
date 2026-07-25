@@ -1,0 +1,15 @@
+/ status=200 PASS
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:15445:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchText (file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/scripts/qa/seo_probe.mjs:117:15)
+    at async probeRoute (file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/scripts/qa/seo_probe.mjs:463:31)
+    at async main (file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/scripts/qa/seo_probe.mjs:505:15) {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted address: eyalamit-co-il-2026.s887.upress.link:80, timeout: 10000ms)
+      at onConnectTimeout (node:internal/deps/undici/undici:1531:23)
+      at Immediate._onImmediate (node:internal/deps/undici/undici:1512:11)
+      at process.processImmediate (node:internal/timers:505:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+}
+EXIT:2

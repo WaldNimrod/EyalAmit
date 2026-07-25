@@ -1,6 +1,6 @@
 {
   "_comment": "WP-W2-17 T7 — seo_probe.mjs route manifest. Route set = team_90's CR1-4 rollup ('the 16 in-scope routes'): CONTENT-ACCURACY-REPORT-CR-FINAL-2026-07-02.md §1 (table, lines 43-58) + evidence/content-accuracy-cr-final-2026-07-02/summary.json (pagesTotal=19, pagesMeasured=17, gateWouldPassCount=16). /eyal-amit/mokesh-dahiman/ is measured but explicitly OUT of the CR1-4 rollup ('out of rollup' / '* mokesh measured but excluded from CR1-4 rollup per §6') and is NOT included here; /galleries/ and /media/ are N/A (no source doc) and also excluded. This manifest is the AC-007 / T7 authored artifact (did not pre-exist).",
-  "_expectedTypesSource": "Per-route expected @type set for check #7 (Appendix B, SEO-GEO-RESEARCH-SYNTHESIS-2026-07-02.md :321): home = Person+ProfessionalService; service slugs (treatment/sound-healing/lessons) = +Service; posts = Article. C-2 (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9): /method/ is the methodology entity, NOT a bookable service -> must NOT expect a Service node. Verified against the live schema emitter site/wp-content/mu-plugins/ea-w2-seo-schema.php:98-117 (services map = treatment/sound-healing/lessons only; Person emitted globally; ProfessionalService emitted globally).",
+  "_expectedTypesSource": "Per-route expected @type set for check #7 (Appendix B + AEO deep audit 2026-07-25): home = Person+ProfessionalService; service slugs = +Service; FAQ-emitting routes require FAQPage; book singles require Book; /snoring-sleep-apnea/ requires Article+FAQPage. C-2: /method/ is NOT a Service node. Check #7b (GeoCircle) asserts ProfessionalService.areaServed when ProfessionalService is present.",
   "routes": [
     {
       "name": "home",
@@ -10,28 +10,28 @@
     {
       "name": "method",
       "path": "/method/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"],
-      "note": "C-2 ratified (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9): NOT a Service node — do not add Service here."
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "C-2 ratified: NOT a Service node. FAQPage from ea_faq CPT (AEO 2026-07-25)."
     },
     {
       "name": "treatment",
       "path": "/treatment/",
-      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "sound-healing",
       "path": "/sound-healing/",
-      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "lessons",
       "path": "/lessons/",
-      "expectedTypes": ["Person", "ProfessionalService", "Service", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Service", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "faq",
       "path": "/faq/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "books",
@@ -44,44 +44,50 @@
       "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
+      "name": "snoring-sleep-apnea",
+      "path": "/snoring-sleep-apnea/",
+      "expectedTypes": ["Person", "ProfessionalService", "Article", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"],
+      "note": "AEO pillar 2026-07-25: Article + FAQPage from visible Chapters dd accordion (not ea_faq CPT)."
+    },
+    {
       "name": "books-vekatavta",
       "path": "/books/vekatavta/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Book", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "books-kushi-blantis",
       "path": "/books/kushi-blantis/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Book", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "books-tsva-bekahol",
       "path": "/books/tsva-bekahol/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "Book", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "didgeridoos",
       "path": "/didgeridoos/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "bags",
       "path": "/bags/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "stands-storage",
       "path": "/stands-storage/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "stand-floor",
       "path": "/stand-floor/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "repair",
       "path": "/repair/",
-      "expectedTypes": ["Person", "ProfessionalService", "WebPage", "BreadcrumbList", "WebSite"]
+      "expectedTypes": ["Person", "ProfessionalService", "FAQPage", "WebPage", "BreadcrumbList", "WebSite"]
     },
     {
       "name": "mokesh-dahiman",

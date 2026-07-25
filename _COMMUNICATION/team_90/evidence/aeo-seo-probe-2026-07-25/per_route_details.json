@@ -1,0 +1,256 @@
+{
+  "generatedAt": "2026-07-25T12:21:20.685288Z",
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "routes": {
+    "/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/?nc=team90-1784971274",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/?nc=team90-1784971274",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "BreadcrumbList",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 0,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": null,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    },
+    "/treatment/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=team90-1784971275",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nc=team90-1784971275",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "Service",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 20,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": null,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    },
+    "/method/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/method/?nc=team90-1784971276",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/method/?nc=team90-1784971276",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 9,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": false,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    },
+    "/faq/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/faq/?nc=team90-1784971277",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/faq/?nc=team90-1784971277",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 110,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": null,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    },
+    "/snoring-sleep-apnea/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/?nc=team90-1784971278",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/?nc=team90-1784971278",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "Article",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 6,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": null,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    },
+    "/books/vekatavta/": {
+      "requestedUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nc=team90-1784971279",
+      "finalUrl": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nc=team90-1784971279",
+      "status": 200,
+      "yoastError": null,
+      "types": [
+        "Book",
+        "BreadcrumbList",
+        "FAQPage",
+        "Person",
+        "ProfessionalService",
+        "WebPage",
+        "WebSite"
+      ],
+      "expectedTypesFromConfig": [
+        "Person",
+        "ProfessionalService",
+        "Book",
+        "FAQPage",
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "faqCount": 7,
+      "geoCircle": {
+        "areaServedType": "GeoCircle",
+        "geoRadius": 45000,
+        "lat": 32.4637761,
+        "lon": 34.9760176
+      },
+      "methodHasService": null,
+      "prohibitions": {
+        "html": {
+          "AggregateRating": false,
+          "areaServed:\"Israel\"": false,
+          "HealthAndBeautyBusiness": false
+        },
+        "graph": {
+          "AggregateRating_type": false,
+          "HealthAndBeautyBusiness_type": false
+        }
+      }
+    }
+  }
+}

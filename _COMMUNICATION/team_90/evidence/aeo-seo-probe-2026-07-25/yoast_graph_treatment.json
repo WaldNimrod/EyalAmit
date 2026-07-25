@@ -1,0 +1,321 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+      "name": "טיפול בדיג'רידו - eyal amit",
+      "isPartOf": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website"
+      },
+      "datePublished": "2026-04-06T19:52:22+00:00",
+      "dateModified": "2026-07-15T15:13:58+00:00",
+      "description": "תהליך אישי לחיזוק מערכת הנשימה. למדו להחזיר שליטה וויסות למערכת הנשימה דרך הדיג'רידו. פתרון מבוסס תרגול לסטרס, נחירות ומתח כרוני.",
+      "breadcrumb": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/treatment/#breadcrumb"
+      },
+      "inLanguage": "he-IL",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "http://eyalamit-co-il-2026.s887.upress.link/treatment/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/treatment/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "http://eyalamit-co-il-2026.s887.upress.link/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "טיפול בדיג'רידו"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#website",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "name": "eyal amit",
+      "description": "",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "http://eyalamit-co-il-2026.s887.upress.link/?s={search_term_string}"
+          },
+          "query-input": {
+            "@type": "PropertyValueSpecification",
+            "valueRequired": true,
+            "valueName": "search_term_string"
+          }
+        }
+      ],
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Person",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit",
+      "name": "אייל עמית",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "jobTitle": "מאסטר דיג'רידו ומטפל בנשימה",
+      "worksFor": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "knowsAbout": [
+        "טיפול בנשימה באמצעות דיג'רידו",
+        "סאונד הילינג",
+        "נשימה מעגלית",
+        "דום נשימה בשינה ונחירות",
+        "נגינה בדיג'רידו"
+      ],
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg",
+      "name": "המרכז לטיפול בנשימה באמצעות דיג'רידו",
+      "alternateName": "cbDIDG",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+      "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg",
+      "telephone": "+972-52-482-2842",
+      "founder": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/person/eyal-amit"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "עמל 8 ב'",
+        "addressLocality": "פרדס חנה-כרכור",
+        "addressCountry": "IL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.4637761,
+          "longitude": 34.9760176
+        },
+        "geoRadius": 45000
+      },
+      "sameAs": [
+        "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA",
+        "https://www.facebook.com/didgeridoo.studio.eyal.amit",
+        "https://www.instagram.com/didgeridoo.therapy.center",
+        "https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/service/treatment",
+      "name": "טיפול בנשימה באמצעות דיג'רידו",
+      "serviceType": "טיפול בנשימה באמצעות דיג'רידו",
+      "provider": {
+        "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/business/cbdidg"
+      },
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "http://eyalamit-co-il-2026.s887.upress.link/#/schema/faqpage/treatment",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "אי אפשר פשוט ללמוד לנשום לבד?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>השאלה הזו יכולה להתייחס לשני דברים שונים: נשימה יומיומית, וטכניקת נשימה מעגלית בדיג׳רידו.</p><p>אפשר לשים לב לנשימה, אבל לרוב קשה לראות לבד מה באמת קורה, ועל מה בדיוק צריך לעבוד.</p><p>הדיג׳רידו והליווי האישי יוצרים מסגרת ברורה, שמאפשרת דיוק, פידבק בזמן אמת והתקדמות יציבה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "איך זה שונה מסאונד הילינג?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>בסאונד הילינג האדם מקשיב לצליל בצורה פאסיבית. הצליל פועל עליו מבחוץ.</p><p>בטיפול בדיג׳רידו העבודה היא אקטיבית. האדם עצמו לומד לעבוד עם הנשימה שלו דרך תרגול בדיג׳רידו.</p><p>אפשר לומר בפשטות: בסאונד הילינג מקבלים חוויה, ובטיפול לומדים לעבוד עם הנשימה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "במה זה שונה מטיפולי נשימה אחרים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>יש הרבה דרכים לעבוד עם נשימה.</p><p>הייחוד כאן הוא בשילוב בין כלי פיזי, צליל ותהליך למידה הדרגתי, שבו האדם עצמו לומד לעבוד עם הנשימה שלו.</p><p>טכניקת הנשימה המעגלית בדיג׳רידו מחייבת דיוק, תזמון ושליטה, ומובילה את הגוף להתארגן אחרת ולפתח יכולת ויסות אמיתית.</p><p>בנוסף, העבודה עם הדיג׳רידו היא חווייתית ומעניינת, ולרבים היא מאפשרת התמדה לאורך זמן בצורה טבעית יותר.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם דיג'רידו באמת עוזר לנחירות?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>מחקרים, ובהם מחקר מבוקר ב-BMJ (2006), מצביעים על כך שתרגול קבוע בדיג'רידו עשוי להפחית נחירות בקרב אנשים עם דום נשימה קל-בינוני, ככל הנראה דרך חיזוק שרירי דרכי הנשימה העליונות. זה כלי משלים, לא תחליף לאבחון או טיפול רפואי.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם דיג'רידו מחליף מכשיר CPAP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>לא. CPAP הוא טיפול רפואי שנקבע ע\"י רופא. תרגול בדיג'רידו עשוי לתמוך ולהקל על תסמינים אצל חלק מהאנשים, ובמקרים מסוימים מטופלים דיווחו על הפחתת התלות במכשיר — אך אך ורק בליווי רופא ולאחר בדיקת שינה. אין להפסיק טיפול רפואי על דעת עצמך.</p><div class=\"ea-pending-approval\" role=\"status\"><span class=\"ea-pending-approval__badge\">ממתין לאישור</span><p class=\"ea-pending-approval__title\">טענת CPAP — נושא רגיש (YMYL)</p><p class=\"ea-pending-approval__note\">הניסוח על הפחתת התלות במכשיר CPAP ממתין לאישור אייל (WP-S4-07 §3.1, שאלה 2).</p></div>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם זה טיפול רפואי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>לא.</p><p>העבודה כאן אינה טיפול רפואי, אלא תהליך של למידה ועבודה עם הנשימה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם זה מתאים גם למי שכבר מכיר נשימה מעגלית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>יש הבדל בין נשימה מעגלית ריברסינג לבין נשימה מעגלית בדיג׳רידו.</p><p>בנשימה מעגלית ריברסינג, מדובר בתרגול נשימתי רציף, אך הוא אינו מלמד לנגן בדיג׳רידו.</p><p>בנשימה מעגלית בדיג׳רידו, מדובר בטכניקה פיזית שונה לחלוטין, שדורשת תזמון, קואורדינציה ושליטה, ומאפשרת הפקת צליל רציף דרך הכלי.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם זה מתאים לדום נשימה חמור?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>דום נשימה חמור מחייב מעקב רפואי וטיפול ייעודי. העבודה עם הנשימה יכולה להתאים ככלי משלים בעיקר במקרים קלים-בינוניים, ותמיד לאחר התייעצות עם רופא/מומחה שינה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם זה מתאים למי שמתמודד עם סטרס או עומס?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כן, במקרים רבים אנשים מגיעים בדיוק מהמקום הזה.</p><p>העבודה עם הנשימה יכולה לעזור לייצב ולהרגיע, אבל היא נעשית כתהליך ולא כפתרון מיידי.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם צריך לדעת לנגן כדי להתחיל?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>לא.</p><p>העבודה מתחילה מהבסיס, ואין צורך בידע קודם. לומדים בהדרגה גם את הנגינה וגם את העבודה עם הנשימה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם צריך לתרגל גם בין המפגשים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כן.</p><p>התרגול בין המפגשים הוא חלק חשוב מהתהליך, ושם הרבה מהשינוי מתבסס.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "זה מתאים גם למי שלא &quot;מחובר לעולם הזה&quot;?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כן.</p><p>אין צורך ברקע, אמונה או גישה מסוימת. העבודה היא פשוטה וישירה, ומתאימה למגוון רחב של אנשים.</p><p>אל המרכז לטיפול בדיג׳רידו מגיעים אנשים מכל קצוות הארץ, מגילאים שונים, מרקעים שונים ומכל תחומי החיים, בלי קשר למין, דת, לאום או אורח חיים.</p><p>הנשימה היא לכולם.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה זמן נמשך התהליך?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>אין זמן קבוע.</p><p>זה תהליך אישי, שיכול להימשך תקופה קצרה או ארוכה יותר בהתאם לצורך.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "למי זה פחות מתאים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>העבודה מתאימה לרוב האנשים, אך יש מצבים שבהם כדאי להתייעץ מראש.</p><p>לדוגמה: נשים בהריון, מצבים נפשיים מורכבים, מצבים רפואיים חריגים.</p><p>בנוסף, העבודה מתאימה בדרך כלל מגיל 17 ומעלה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה הקשר בין דיג׳רידו לנשימה היומיומית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>כדי לנגן בדיג׳רידו משתמשים בטכניקת נשימה מעגלית בדיג׳רידו, שדורשת שליטה ויכולת ויסות של מערכת הנשימה.</p><p>התרגול הזה משפיע בהדרגה על הנשימה היומיומית, ומשנה את האופן שבו הגוף נושם גם מחוץ למפגש.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה הקשר בין נשימה יומיומית, נחירות ושינה?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>דפוסי נשימה לא-יעילים ביום נוטים להימשך גם בשינה. עבודה אקטיבית על חיזוק וויסות הנשימה (שיטת cbDIDG) מטרתה לשפר את האופן שבו נושמים לאורך כל היום — וגם בלילה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה זה בעצם טיפול בדיג׳רידו?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>טיפול בדיג׳רידו הוא תהליך שבו עובדים באופן אקטיבי עם הנשימה היומיומית, באמצעות תרגול בדיג׳רידו, למידה וליווי אישי.</p><p>הדיג׳רידו משמש ככלי עבודה שמאפשר לדייק, לחזק ולווסת את מערכת הנשימה, אבל הוא לא המטרה.</p><p>המטרה היא להטיב ולהשפיע על האופן שבו נושמים ביומיום.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה קורה במפגש הראשון?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>המפגש הראשון כולל היכרות ואבחון, ולכן הוא לרוב מעט ארוך יותר.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "תוך כמה זמן רואים שינוי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>זה משתנה מאדם לאדם.</p><p>יש מי שמרגיש שינוי כבר בהתחלה, אבל השינוי המשמעותי נבנה לאורך זמן דרך תרגול והתמדה.</p>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "תוך כמה זמן רואים שיפור בנחירות?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>משתנה מאדם לאדם. במחקר ה-BMJ נמדד שיפור לאחר כ-4 חודשי תרגול קבוע. כמו בכל עבודה עם הנשימה, השינוי נבנה דרך התמדה ולא במפגש בודד.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}

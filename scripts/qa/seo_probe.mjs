@@ -365,6 +365,29 @@ function checkJsonLdGraph(yoastGraph, expectedTypes) {
   };
 }
 
+// Check 7b — when ProfessionalService is present, areaServed must be GeoCircle (D2 / AEO 2026-07-25).
+// Nested @type is not collected by graphTypesOf (top-level nodes only), so this is a dedicated assertion.
+function checkGeoCircleAreaServed(graphArray) {
+  const biz = (Array.isArray(graphArray) ? graphArray : []).find((n) => n && n['@type'] === 'ProfessionalService');
+  if (!biz) {
+    return { pass: true, details: 'no ProfessionalService on route — GeoCircle N/A' };
+  }
+  const area = biz.areaServed;
+  const typeOk = area && area['@type'] === 'GeoCircle';
+  const radius = area && area.geoRadius;
+  const mid = area && area.geoMidpoint;
+  const lat = mid && Number(mid.latitude);
+  const lon = mid && Number(mid.longitude);
+  const coordsOk =
+    Number.isFinite(lat) && Number.isFinite(lon) && lat >= 32.4 && lat <= 32.5 && lon >= 34.9 && lon <= 35.0;
+  const radiusOk = Number(radius) === 45000;
+  const pass = !!(typeOk && coordsOk && radiusOk);
+  return {
+    pass,
+    details: `areaServed@type=${area?.['@type'] || 'missing'} geoRadius=${radius} lat=${lat} lon=${lon}`,
+  };
+}
+
 // Check 8 — @id connectivity: no dangling @id references.
 function checkIdConnectivity(graphArray) {
   if (!Array.isArray(graphArray)) {
@@ -471,6 +494,7 @@ async function probeRoute(base, routeCfg, mode, tagline, brandExemptRoutes, nc) 
   const yoastGraph = extractYoastGraph(html);
   const jsonLdResult = checkJsonLdGraph(yoastGraph, routeCfg.expectedTypes);
   checks['7_json_ld_graph'] = { pass: jsonLdResult.pass, details: jsonLdResult.details };
+  checks['7b_geocircle_area_served'] = checkGeoCircleAreaServed(jsonLdResult.graphArray);
   checks['8_id_connectivity'] = checkIdConnectivity(jsonLdResult.graphArray);
 
   checks['9_prohibition_lint'] = checkProhibitionLint(html);
@@ -525,6 +549,8 @@ async function main() {
     supersessionNotes: [
       "Check 2 (robots.txt UA count): Appendix B said 8 UAs; superseded by ratified D3 -> 10 UAs (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 1).",
       "Check 7 (/method/ @type set): C-2 ratified /method/ as NOT a Service node (DECISION-WP-W2-17-RATIFICATIONS-2026-07-03.md item 9); manifest does not expect Service there.",
+      "Check 7 + config (AEO 2026-07-25): FAQPage/Book/Article asserted on routes that emit them; /snoring-sleep-apnea/ added.",
+      "Check 7b (GeoCircle): ProfessionalService.areaServed must be GeoCircle r=45000 in Pardes Hanna band when business node present.",
       "Check 12 (brand-string exemption): file-scoped per AC-09 6-quote scope-out (SEO-GEO-ROUND2-COMPLETION-2026-06-21.md :35); route list in seo_probe.config.json is a best-effort reconstruction pending team_90 ratification.",
     ],
     hostLevelChecks: {

@@ -165,13 +165,48 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 				'tsva-bekahol'   => array( 'tsva-bekahol' ),
 			)
 		);
+		$ea_faqpage_emitted = false;
 		if ( is_page() && function_exists( 'ea_faq_query_items' ) ) {
 			$ea_obj  = get_queried_object();
 			$ea_slug = ( $ea_obj && isset( $ea_obj->post_name ) ) ? (string) $ea_obj->post_name : '';
 			if ( isset( $ea_faq_pages[ $ea_slug ] ) ) {
 				$ea_items = ea_faq_query_items( $ea_faq_pages[ $ea_slug ] );
 				if ( ! empty( $ea_items ) ) {
-					$graph[] = ea_w2_seo_schema_faqpage_node( $ea_items, $ea_slug );
+					$graph[]            = ea_w2_seo_schema_faqpage_node( $ea_items, $ea_slug );
+					$ea_faqpage_emitted = true;
+				}
+			}
+		}
+
+		// FAQPage from visible Chapters `dd` accordion (e.g. /snoring-sleep-apnea/) when
+		// no ea_faq CPT FAQPage was emitted — schema must match visible Q&A (AEO deep audit 2026-07-25).
+		if ( is_page() && ! $ea_faqpage_emitted && function_exists( 'ea_chapters_page_sections' ) ) {
+			$ea_dd_obj  = get_queried_object();
+			$ea_dd_slug = ( $ea_dd_obj && isset( $ea_dd_obj->post_name ) ) ? (string) $ea_dd_obj->post_name : '';
+			if ( '' !== $ea_dd_slug ) {
+				$ea_dd_items = array();
+				foreach ( (array) ea_chapters_page_sections() as $ea_sec ) {
+					if ( ! is_array( $ea_sec ) || ( $ea_sec['part'] ?? '' ) !== 'dd' ) {
+						continue;
+					}
+					$ea_dd_rows = ( isset( $ea_sec['args']['items'] ) && is_array( $ea_sec['args']['items'] ) )
+						? $ea_sec['args']['items']
+						: array();
+					foreach ( $ea_dd_rows as $ea_dd_row ) {
+						if ( empty( $ea_dd_row['title'] ) || empty( $ea_dd_row['body'] ) ) {
+							continue;
+						}
+						$ea_dd_items[] = array(
+							'q' => (string) $ea_dd_row['title'],
+							'a' => (string) $ea_dd_row['body'],
+						);
+					}
+					if ( ! empty( $ea_dd_items ) ) {
+						break;
+					}
+				}
+				if ( ! empty( $ea_dd_items ) ) {
+					$graph[] = ea_w2_seo_schema_faqpage_node( $ea_dd_items, $ea_dd_slug );
 				}
 			}
 		}
@@ -292,10 +327,14 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 		}
 
 		// --- Article/collection pages: CollectionPage on /press/ and
-		//     /shows-heritage/ (WP-S5-02 §2.3). ---
+		//     /shows-heritage/ (WP-S5-02 §2.3); Article on snoring pillar (AEO 2026-07-25). ---
 		$ea_article_pages = array(
-			'press'          => array( 'type' => 'CollectionPage', 'name' => 'עיתונות ותקשורת — אייל עמית' ),
-			'shows-heritage' => array( 'type' => 'CollectionPage', 'name' => 'מורשת והופעות — אייל עמית' ),
+			'press'               => array( 'type' => 'CollectionPage', 'name' => 'עיתונות ותקשורת — אייל עמית' ),
+			'shows-heritage'      => array( 'type' => 'CollectionPage', 'name' => 'מורשת והופעות — אייל עמית' ),
+			'snoring-sleep-apnea' => array(
+				'type' => 'Article',
+				'name' => 'נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג\'רידו',
+			),
 		);
 		if ( is_page() ) {
 			$ap_obj  = get_queried_object();
@@ -322,6 +361,15 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 					'isPartOf'  => array( '@id' => $ap_website_id ),
 					'publisher' => array( '@id' => $biz_id ),
 				);
+				if ( 'Article' === $ap_type ) {
+					$ap_node['headline']         = $ea_article_pages[ $ap_slug ]['name'];
+					$ap_node['author']           = array( '@id' => $person_id );
+					$ap_node['mainEntityOfPage'] = home_url( '/' . $ap_slug . '/' );
+					if ( $ap_obj instanceof WP_Post ) {
+						$ap_node['datePublished'] = get_the_date( 'c', $ap_obj );
+						$ap_node['dateModified']  = get_the_modified_date( 'c', $ap_obj );
+					}
+				}
 				$ap_desc = function_exists( 'ea_w2_09_route_description' ) ? (string) ea_w2_09_route_description() : '';
 				if ( '' !== $ap_desc ) {
 					$ap_node['description'] = $ap_desc;
