@@ -51,7 +51,8 @@ defined( 'ABSPATH' ) || exit;
 		) );
 	}
 
-	// 03 — וידאו: לא נבנה. קישור הווידאו במסמך אייל הוא placeholder (XXXXXXXXXXX).
+	// 03 — וידאו: שלד + פלייסהולדר 16:9. התוכן חסום (H-06).
+	get_template_part( 'template-parts/chapters/section', 'home-03-video' );
 
 	get_template_part( 'template-parts/chapters/section', '06-compare' );      // 04 — טיפול בדיג'רידו או סאונד הילינג
 	get_template_part( 'template-parts/chapters/section', '02-for-whom' );     // 05 — למי מתאים התהליך
@@ -60,16 +61,8 @@ defined( 'ABSPATH' ) || exit;
 	get_template_part( 'template-parts/chapters/section', 'photo-band' );      // מעבר צילומי (לא סקשן ממוספר אצל אייל)
 	get_template_part( 'template-parts/chapters/section', '04-studio' );       // 08 — הסטודיו והמרחב
 
-	// 09 — הצצה נוספת לחוויה. הגלריה/וידאו המשני טרם הוגדרו, אבל הטקסט המאושר
-	// של אייל נשאר גלוי כאן ולא נמחק.
-	if ( '' !== trim( (string) ea_chapters_field( 'closing_body' ) ) ) {
-		get_template_part( 'template-parts/chapters/parts/prose', null, array(
-			'id'    => 'peek',
-			'chap'  => ea_chapters_field( 'closing_chap' ),
-			'title' => ea_chapters_field( 'closing_title' ),
-			'body'  => ea_chapters_field( 'closing_body' ),
-		) );
-	}
+	// 09 — הצצה נוספת לחוויה: טקסט מאושר + פלייסהולדר מדיה + CTA מ-C15.
+	get_template_part( 'template-parts/chapters/section', 'home-09-peek' );
 
 	get_template_part( 'template-parts/chapters/section', '05-testimonials' ); // 10 — עדויות והמלצות
 	get_template_part( 'template-parts/chapters/section', '01-about' );        // 11 — אייל עמית
