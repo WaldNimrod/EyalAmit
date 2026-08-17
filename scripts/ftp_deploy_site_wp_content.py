@@ -69,6 +69,10 @@ def main() -> None:
     mu_w2_07_qr_data = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-content-data.php"
     mu_w2_09_redirects = root / "site" / "wp-content" / "mu-plugins" / "ea-w209-legacy-301-redirects.php"
     mu_w2_15_cf7 = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-15-cf7-contact-form-once.php"
+    # S006 — /media -> /testimonials rename + its permanent 301.
+    # NOTE: the -once suffix covers the RENAME only. The 301 half must stay
+    # deployed forever, so this file must never be garbage-collected.
+    mu_s006_slug = root / "site" / "wp-content" / "mu-plugins" / "ea-s006-testimonials-slug-once.php"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
     if not mu_noindex.is_file():
@@ -117,6 +121,7 @@ def main() -> None:
     files.append((mu_m3_r2, "wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php"))
     files.append((mu_m4_g2348, "wp-content/mu-plugins/ea-m4-g2348-governance-once.php"))
     files.append((mu_w2_05_shop, "wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php"))
+    files.append((mu_s006_slug, "wp-content/mu-plugins/ea-s006-testimonials-slug-once.php"))
     files.append(
         (
             root / "site" / "wp-content" / "mu-plugins" / "ea-snoring-anchor-seed-once.php",
