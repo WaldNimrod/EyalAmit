@@ -336,6 +336,7 @@ TRACKER_FILENAME = 'EA-CONTENT-TRACKER.xlsx'
 TRACKER_DIR = 'EyalAmit_Site_GoogleDrive_Sync'
 SNAPSHOT_DIR = '_COMMUNICATION/team_100/S006/tracker'
 STAGING_BASE = 'http://eyalamit-co-il-2026.s887.upress.link'
-EYAL_MATERIAL_ROOT = (
-    '~/Library/CloudStorage/GoogleDrive-nimrod@mezoo.co/My Drive/Eyal Amit/content 13.8.26'
-)
+# team_00 17.8.26: the live pack lives inside the project Drive-sync folder.
+# My Drive «Eyal Amit/content 13.8.26» is the same bytes (verified method.md) but
+# is NOT the working SSOT — agents read and cite this path.
+EYAL_MATERIAL_ROOT = 'EyalAmit_Site_GoogleDrive_Sync/content 13.8.26'
