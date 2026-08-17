@@ -85,6 +85,67 @@ function ea_fb_testimonials_by_cat( $slug ) {
 }
 
 /**
+ * S006 · H-15 · מקור: content 13.8.26/ריכוז כל ההמלצות - טיפול בדיג'רידו, שיעורי
+ * נגינה, סאונדהילינג,/ממליצים מהפייסבוק.docx
+ *
+ * ניקוי כתובת פייסבוק מהקורפוס. בשתי שורות במסמך של אייל הקישור וגוף ההמלצה
+ * יושבים באותה פסקה, ולכן בונה ה-JSON בלע את הטקסט אל תוך ה-href:
+ *   idx 13 (דן ארליכמן)   — 'https://…/1DKp5Coss8/ ⁨U+2028⁩משתף אתכם בכתבה…'
+ *   idx 23 (ענת קוצר גפני) — 'https://…/1XpADx79Kb/⁨U+2028⁩דמייני לעצמך…'
+ * החיתוך ברווח/U+2028 הראשון מחזיר בדיוק את יעד ההיפר-קישור שרשום ב-docx
+ * (word/_rels/document.xml.rels) — אומת בייט-לבייט מול שתי הרשומות. אין כאן
+ * תוכן חדש: רק הסרה של טקסט שנדבק בטעות לכתובת.
+ *
+ * ⚠ ea-testimonials-fb.json עצמו לא נגע (מחוץ למנדט). התיקון במקור מדווח ל-team_100.
+ *
+ * @param string $href
+ * @return string
+ */
+function ea_fb_testimonials_clean_href( $href ) {
+	$href = (string) $href;
+	$cut  = preg_split( '/[\s\x{2028}\x{2029}]/u', $href, 2 );
+	return is_array( $cut ) ? trim( (string) $cut[0] ) : trim( $href );
+}
+
+/**
+ * S006 · H-15 · מקור: content 13.8.26/…/ממליצים מהפייסבוק.docx
+ *
+ * הסט המלא של קטגוריה אחת עבור עמוד ריכוז ההמלצות (/media), לפי הקטגוריות של
+ * אייל במסמך: «טיפול בדיג'רידו» (17) · «סאונד הילינג» (9) · «שיעורי נגינה
+ * בדיג'רידו» (22) = 48. בניגוד ל-ea_chapters_testimonials(), כאן שום רשומה לא
+ * נופלת: גם המלצה שאין לה snippet בקורפוס מוחזרת (שם + קישור בלבד), כי היא חלק
+ * מהרשימה של אייל.
+ *
+ * מותג שיצא משימוש (WP-06): «סטודיו נשימה מעגלית» לא מתפרסם. הכלל מוחל כאן על
+ * הטקסט המוצג בלבד (snippet) ולא על ה-full שאינו מרונדר — ולכן נופל הציטוט של
+ * רשומה אחת (idx 27, דרור מצליח) במקום חמש. הציטוט לא נערך ולא נוסח מחדש, רק
+ * לא מוצג; השם והקישור נשארים.
+ *
+ * @param string $cat Corpus category key (treatment|sound-healing|lessons).
+ * @return array<int,array{name:string,text:string,href:string}>
+ */
+function ea_fb_testimonials_archive( $cat ) {
+	$brand = 'סטודיו נשימה מעגלית';
+	$cat   = (string) $cat;
+	$out   = array();
+	foreach ( ea_fb_testimonials_all() as $t ) {
+		if ( ( $t['cat'] ?? '' ) !== $cat ) {
+			continue;
+		}
+		$text = trim( (string) ( $t['snippet'] ?? '' ) );
+		if ( '' !== $text && false !== mb_strpos( $text, $brand ) ) {
+			$text = ''; // brand-compliance: hide, never edit a customer quote.
+		}
+		$out[] = array(
+			'name' => (string) ( $t['name'] ?? '' ),
+			'text' => $text,
+			'href' => ea_fb_testimonials_clean_href( $t['href'] ?? '' ),
+		);
+	}
+	return $out;
+}
+
+/**
  * Broad cross-category set for the home rotator (snippet as text), up to
  * $per_cat per category, in document order. Provisional — Eyal curates in the hub.
  *
