@@ -1,6 +1,12 @@
 <?php
 /**
- * Chapters /media/ (מדיה) — ריכוז כל ההמלצות + מדיה.
+ * Chapters /testimonials/ (המלצות) — ריכוז כל ההמלצות + מדיה.
+ *
+ * S006 · slug rename · אישור team_00 2026-08-17 — ה־slug של העמוד עבר media →
+ * testimonials. שם הקובץ נשאר media-defaults.php בכוונה: הנתב טוען
+ * defaults/{type}-defaults.php לפי ה־'type' שבטבלה ea_chapters_route_map(), לא לפי
+ * ה־slug (ראו chapters-render.php; תקדים: 'books' => type 'muzza'). שינוי שם הקובץ
+ * היה דורש שינוי type — ואיתו מרחב מפתחות ה־ACF — בלי כל תועלת ל־URL.
  *
  * S006 · H-15 · מקור: content 13.8.26/ריכוז כל ההמלצות - טיפול בדיג'רידו, שיעורי
  * נגינה, סאונדהילינג,/ממליצים מהפייסבוק.docx — 48 המלצות בשלוש הקטגוריות של אייל,

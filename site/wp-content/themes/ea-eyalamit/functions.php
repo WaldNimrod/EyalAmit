@@ -788,7 +788,8 @@ require_once get_stylesheet_directory() . '/inc/chapters/chapters-commerce.php';
 
 /**
  * D-TESTIMONIALS (team_110) — 48 Facebook testimonials corpus + accessors
- * (per-category for service pages, broad set for home, full set for /media).
+ * (per-category for service pages, broad set for home, full set for /testimonials/
+ * — was /media/; S006 · slug rename · אישור team_00 2026-08-17).
  */
 require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
 

@@ -202,7 +202,7 @@ python3 scripts/ftp_deploy_site_wp_content.py
 ```
 
 ```bash
-node _aos/lean-kit/modules/validation-quality/scripts/qa/qa_probe.mjs --url http://eyalamit-co-il-2026.s887.upress.link/ --viewports mobile,desktop
+node _aos/lean-kit/modules/validation-quality/scripts/qa/qa_probe.mjs --base http://eyalamit-co-il-2026.s887.upress.link --paths / --viewports desktop
 ```
 
 ### ⚠ FTP של uPress נעול לפי IP — זה תמיד כך
@@ -228,6 +228,41 @@ https://my.upress.co.il/account/websites/eyalamit-co-il-2026.s887.upress.link?ta
 - E2E בדפדפן לכל עמוד שהוגש.
 - ולידציה חוצת־מנועים (Iron Rule #1: builder ≠ validator) — **לכל אצווה מאושרת, לא לכל עמוד.**
 - סגירה: `tracker_guard.py --mode verify` → `tracker_snapshot.py` → קומיט.
+
+---
+
+## 8א. ⚠ אימות טכני = ליין קומפוזר. team_100 לא בודק בעצמו
+
+**החלטת team_00, 17.8.26** — אחרי ש-team_100 הפר את הכלל הזה בסבב הראשון.
+
+קומפוזר (`cursor-agent`, Cursor) הוא **המנוע הקאנוני לאימות** בפרויקט הזה. כל סבב בדיקה —
+DOM, CSS, פריסה, ניגודיות, קישורים, רגרסיה — רץ כליין קומפוזר, **לא בסשן של team_100**.
+
+```bash
+scripts/run_cross_engine_validator.sh <prompt-file> composer-2.5 "$PWD" <out-file>
+```
+
+העטיפה מזהה פלט ריק / כשל / timeout ומריצה מחדש — cursor-agent מחזיר לעתים תשובה ריקה,
+שאחרת הייתה נקראת כ«PASS ללא ממצאים».
+
+**למה זה חשוב פעמיים:**
+1. **Iron Rule #1** — הבנאי אינו המאמת. כש-team_100 מאמת בנייה שהוא עצמו הזמין, אין כאן
+   ולידציה חוצת-מנועים בכלל.
+2. **כלכלת טוקנים** — בדיקה טכנית ישירה שורפת קונטקסט של המנהל. team_100 חייב להחזיק
+   תהליך של עשרות עמודים; הוא לא יכול לבזבז קונטקסט על `getComputedStyle`.
+
+**מה team_100 כן עושה:** מנסח את המנדט · מריץ את הליין · **קורא את ה-verdict בלבד** ·
+רושם בטרקר · מנתב החלטות. הוא אינו טוען גופי עמודים, אינו מריץ JS בדפדפן, ואינו קורא CSS.
+
+---
+
+## 8ב. היקף מסך — סבבים 1 ו-2 הם דסקטופ בלבד
+
+**החלטת team_00, 17.8.26, לייעול.** כל נושא **מובייל ורספונסיב** של האתר כולו עובר ל**סבב 3**.
+
+- סבבים 1–2: אימות ואישור **בדסקטופ בלבד**. `qa_probe --viewports desktop`.
+- ממצא מובייל שעולה תוך כדי — **נרשם לסבב 3 ולא מטופל**, אלא אם הוא שובר גם את הדסקטופ.
+- אישור אייל בסבבים 1–2 הוא אישור דסקטופ. מובייל ייבדק כיחידה אחת בסבב 3.
 
 ---
 

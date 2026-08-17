@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: EA M2 — תיקוני slug לפי עץ נעול (פעם אחת)
- * Description: יוצר עמודים חסרים: method (השיטה), faq, galleries, media — יישור ל־site-tree.json; לא מוחק עמודים ישנים (למשל hashita). אפס: delete_option('ea_m2_ia_slug_fixups_v1').
+ * Description: יוצר עמודים חסרים: method (השיטה), faq, galleries, testimonials (לשעבר media — S006, אישור team_00 2026-08-17) — יישור ל־site-tree.json; לא מוחק עמודים ישנים (למשל hashita). אפס: delete_option('ea_m2_ia_slug_fixups_v1').
  * Version: 1.0.0
  */
 

@@ -9,7 +9,8 @@
  *
  * Wiring: per-category snippets are appended (after service-specific, deduped) to
  * the service carousels (inc/wave2-w2-04.php); a broad set feeds the home rotator
- * (inc/wave2-stage-b.php); the FULL set renders on /media (inc/wave2-w2-14e.php).
+ * (inc/wave2-stage-b.php); the FULL set renders on /testimonials/ (was /media/ —
+ * S006 · slug rename · אישור team_00 2026-08-17).
  * Full 48 + the provisional selection are recorded as Eyal-review options in the
  * hub (hub/data/testimonials-curation.json + materials-needed.json I1).
  *
@@ -110,7 +111,8 @@ function ea_fb_testimonials_clean_href( $href ) {
 /**
  * S006 · H-15 · מקור: content 13.8.26/…/ממליצים מהפייסבוק.docx
  *
- * הסט המלא של קטגוריה אחת עבור עמוד ריכוז ההמלצות (/media), לפי הקטגוריות של
+ * הסט המלא של קטגוריה אחת עבור עמוד ריכוז ההמלצות (/testimonials/ — לשעבר /media/,
+ * S006 · slug rename · אישור team_00 2026-08-17), לפי הקטגוריות של
  * אייל במסמך: «טיפול בדיג'רידו» (17) · «סאונד הילינג» (9) · «שיעורי נגינה
  * בדיג'רידו» (22) = 48. בניגוד ל-ea_chapters_testimonials(), כאן שום רשומה לא
  * נופלת: גם המלצה שאין לה snippet בקורפוס מוחזרת (שם + קישור בלבד), כי היא חלק

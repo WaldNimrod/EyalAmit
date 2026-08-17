@@ -691,7 +691,8 @@ body.nav-locked{overflow:hidden}
 .tmq__nl{color:inherit;text-decoration:none}
 .tmq__nl:hover,.tmq__nl:focus{text-decoration:underline}
 
-/* S006 · H-15 · עמוד ריכוז ההמלצות (/media): רשת סטטית במקום קרוסלה.
+/* S006 · slug rename · אישור team_00 2026-08-17 — /media/ → /testimonials/ */
+/* S006 · H-15 · עמוד ריכוז ההמלצות (/testimonials/): רשת סטטית במקום קרוסלה.
    בקרוסלה כל כרטיס מודפס פעמיים (loop של 50%-) ו-clamp:8 חותך ציטוטים —
    שניהם פוסלים אותה לעמוד שאמור להציג את כל 48 ההמלצות במלואן.
    .tmq עצמו לא שונה; הרשת רק מבטלת את ה-flex-basis ואת החיתוך. */

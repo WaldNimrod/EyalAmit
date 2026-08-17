@@ -8,7 +8,8 @@
  *
  * $args: chap, title, cat (optional category slug), items (optional [{text,name,href}])
  *
- * S006 · H-15 · שלוש תוספות בלבד עבור /media (ריכוז כל ההמלצות). ברירת המחדל
+ * S006 · slug rename · אישור team_00 2026-08-17 — /media/ → /testimonials/
+ * S006 · H-15 · שלוש תוספות בלבד עבור /testimonials/ (ריכוז כל ההמלצות). ברירת המחדל
  * לא זזה — /treatment, /sound-healing, /lessons ודף הבית מרונדרים בדיוק כמקודם:
  *   1) 'href' על פריט → השם הופך לקישור, באותה תבנית בדיוק שכבר קיימת ב-
  *      template-parts/chapters/section-05-testimonials.php (tmq__nl + target/rel).
