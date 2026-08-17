@@ -19,33 +19,126 @@ SHEET_README = 'README'
 SHEET_STATE = 'מצב'
 SHEET_ROUND1 = 'סבב-1-ליבה'
 SHEET_ROUND2 = 'סבב-2'
+SHEET_ROUND3 = 'סבב-3'
 SHEET_LOG = 'LOG'
 
-DATA_SHEETS = (SHEET_ROUND1, SHEET_ROUND2)
+DATA_SHEETS = (SHEET_ROUND1, SHEET_ROUND2, SHEET_ROUND3)
+
+# Every round sheet states its own scope, so anyone opening it knows what the
+# round covers and when it opens without reading the charter.
+ROUND_DEFINITIONS: dict[str, dict[str, str]] = {
+    SHEET_ROUND1: {
+        'title': 'סבב 1 — ליבה',
+        'scope': 'עמודי התפריט הראשי החי (21 פריטים) + כל עמוד שאייל סיפק לו חומר '
+                 'ב-«content 13.8.26». זהו הסבב הפעיל.',
+        'opens': 'פעיל מ-17.8.26 · WP-S6-01',
+        'exit': 'כל שורה «אושר ע״י אייל», או «הוקפא» עם סיבה שנימרוד קיבל.',
+    },
+    SHEET_ROUND2: {
+        'title': 'סבב 2 — כל שאר העמודים הקיימים',
+        'scope': 'כל עמוד שזמין לגולש וכבר קיים ואינו בסבב 1: 54 פוסטים, 48 עמודי QR, '
+                 'עמודי legal, /thank-you, /404, וכפילויות legacy (אימות 301 בלבד — '
+                 'לא עריכת תוכן).',
+        'opens': '⚠ לא פעיל. נפתח רק בסגירת סבב 1 — WP-S6-02 חסומה על WP-S6-01. '
+                 'הרשימה מגובה כאן מראש כדי ששום עמוד לא ייפול בין הכיסאות.',
+        'exit': 'כל שורה «אושר ע״י אייל», או «הוקפא» עם סיבה שנימרוד קיבל.',
+    },
+    SHEET_ROUND3: {
+        'title': 'סבב 3 — תוכן תומך ואופטימיזציה',
+        'scope': 'טקסטים חלופיים (alt), meta titles/descriptions, OG, קידום ואופטימיזציה, '
+                 'והשלמת עמודים חדשים שאינם קיימים עדיין.',
+        'opens': '⚠ לא פעיל. **אבן דרך נפרדת — S007**, לא חלק מ-S006. ייתכן מאוד שנעלה '
+                 'לאוויר לפניה; ההחלטה תתקבל בין סבב 2 לסבב 3.',
+        'exit': 'ייקבע עם פתיחת S007. נכון להיום מכילה את S002-P001-WP004 (meta לכל האתר).',
+    },
+}
 
 # ── Column ownership ───────────────────────────────────────────────────────
 AGENT = 'AGENT'
 HUMAN = 'HUMAN'
 
+# Data grids carry NO legend row: the header is row 1 (page tabs: row 3) and
+# data begins immediately after. A legend row inside the grid would be dragged
+# around by any header sort and would sit inside the autofilter range.
+# Ownership is shown by header colour instead, and spelled out in README.
+ROUND_HEADER_ROW = 1
+ROUND_FIRST_DATA_ROW = 2
+PAGE_HEADER_ROW = 3
+PAGE_FIRST_DATA_ROW = 4
+
 # (header, owner). Order is significant — the guard compares the header row
 # verbatim and rejects any add / remove / rename / reorder.
+# Status and responsibility lead, per team_00 2026-08-17.
 COLUMNS: tuple[tuple[str, str], ...] = (
     ('#',                   AGENT),
-    ('סוג',                 AGENT),
+    ('סטטוס מכונה',         AGENT),
+    ('סטטוס אישור',         HUMAN),
+    ('ממתין ל',             AGENT),
     ('נתיב',                AGENT),
     ('כותרת',               AGENT),
+    ('סוג',                 AGENT),
     ('קובץ תוכן',           AGENT),
     ('מקור חומר (אייל)',    AGENT),
     ('WP קשור',             AGENT),
-    ('סטטוס מכונה',         AGENT),
     ('תאריך עבודה אחרון',   AGENT),
     ('ראיות QA',            AGENT),
     ('הערות סוכן',          AGENT),
-    ('סטטוס אישור',         HUMAN),
     ('הערות נימרוד',        HUMAN),
     ('הערות אייל',          HUMAN),
     ('תאריך אישור',         HUMAN),
 )
+
+COL_WAITING_ON = 'ממתין ל'
+COL_QA = 'ראיות QA'
+
+# Who must act next on this page. Derived from the page's items and statuses —
+# this is the column that answers «what is actually stuck, and on whom».
+W_NONE = '—'
+W_TEAM100 = 'team_100'
+W_BUILDER = 'סוכן בנייה'
+W_NIMROD = 'נימרוד'
+W_EYAL = 'אייל'
+WAITING_ON = (W_NONE, W_TEAM100, W_BUILDER, W_NIMROD, W_EYAL)
+
+# Round-sheet free text is a HEADLINE, not the record. Detail lives in the
+# page tab. Two lines, hard-capped so the index stays scannable.
+SUMMARY_MAX_LINES = 2
+SUMMARY_MAX_CHARS = 180
+SUMMARY_COLUMNS = ('ראיות QA', 'הערות סוכן')
+
+
+def summarize(text: str) -> str:
+    """Clamp round-sheet free text to at most two short lines."""
+    s = ' '.join(str(text or '').split())
+    if not s:
+        return ''
+    if len(s) <= SUMMARY_MAX_CHARS:
+        return s
+    cut = s[:SUMMARY_MAX_CHARS]
+    sp = cut.rfind(' ')
+    return (cut[:sp] if sp > 40 else cut).rstrip(' ,.;·—-') + ' …'
+
+
+def derive_waiting_on(machine: str, approval: str, item_statuses=()) -> str:
+    """Who must act next. Item-level blockers outrank page-level state."""
+    items = tuple(item_statuses)
+    if IT_WAIT_EYAL in items:
+        return W_EYAL
+    if IT_WAIT_NIMROD in items:
+        return W_NIMROD
+    if approval == AP_EYAL:
+        return W_NONE
+    if approval == AP_RETURNED:
+        return W_BUILDER
+    if approval == AP_NIMROD:
+        return W_EYAL
+    if machine == ST_SUBMITTED:
+        return W_NIMROD
+    if machine == ST_FROZEN:
+        return W_NIMROD
+    if machine == ST_IN_WORK:
+        return W_BUILDER
+    return W_TEAM100
 
 HEADERS = tuple(h for h, _ in COLUMNS)
 OWNER_OF = {h: o for h, o in COLUMNS}
@@ -99,17 +192,18 @@ STATUS_REQUIRING_REASON = (ST_FROZEN,)
 PAGE_TAB_PREFIX = 'עמוד · '
 
 # (header, owner) — the item-level grid.
+# Status and responsibility lead here too (team_00 2026-08-17).
 ITEM_COLUMNS: tuple[tuple[str, str], ...] = (
     ('#',                  AGENT),   # e.g. H-01, immutable
-    ('סקשן אצל אייל',      AGENT),   # SECTION 07 / —
+    ('סטטוס סעיף',         AGENT),
+    ('הכרעה נדרשת מ',      AGENT),   # — / נימרוד / אייל
+    ('סיווג',              AGENT),   # ברור / לא ברור
     ('הסעיף',              AGENT),   # what this item is
+    ('סקשן אצל אייל',      AGENT),   # SECTION 07 / —
     ('הכשל',               AGENT),   # what is wrong today
     ('התוכן הדרוש',        AGENT),   # what it must become, and from which source
     ('התיקון',             AGENT),   # the concrete change
-    ('סיווג',              AGENT),   # ברור / לא ברור
     ('נתיב קוד',           AGENT),
-    ('סטטוס סעיף',         AGENT),
-    ('הכרעה נדרשת מ',      AGENT),   # — / נימרוד / אייל
     ('אפשרויות לבחירה',    AGENT),   # populated when escalating
     ('הערות סוכן',         AGENT),
     ('בחירה',              HUMAN),   # Nimrod's or Eyal's pick

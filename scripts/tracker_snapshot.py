@@ -44,7 +44,9 @@ def rows() -> list[dict[str, str]]:
         if sheet not in wb.sheetnames:
             continue
         ws = wb[sheet]
-        for r in range(3, ws.max_row + 1):
+        hdr = next((r for r in range(1, min(ws.max_row, 12) + 1)
+                    if norm(ws.cell(r, 1).value) == S.COL_KEY), 1)
+        for r in range(hdr + 1, ws.max_row + 1):
             if not norm(ws.cell(r, 1).value):
                 continue
             rec = {'__sheet__': sheet}

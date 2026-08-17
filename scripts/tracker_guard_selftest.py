@@ -18,12 +18,25 @@ from openpyxl import load_workbook
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / 'EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx'
 BASE = REPO / '_COMMUNICATION/team_100/S006/tracker/latest.csv'
-SHEET = 'סבב-1-ליבה'
-COL = {'#': 1, 'סטטוס מכונה': 8, 'הערות סוכן': 11, 'סטטוס אישור': 12,
-       'הערות נימרוד': 13}
+sys.path.insert(0, str(REPO / 'scripts'))
+import tracker_schema as S  # noqa: E402
+
+SHEET = S.SHEET_ROUND1
+# Derived from the schema, never hardcoded: the column ORDER is deliberately
+# changeable (status and responsibility lead), and a stale index would silently
+# assert against the wrong cell.
+COL = {h: i + 1 for i, h in enumerate(S.HEADERS)}
 
 tmp = Path(tempfile.mkdtemp())
 results = []
+
+
+def header_row(ws) -> int:
+    for r in range(1, 12):
+        v = ws.cell(r, 1).value
+        if v is not None and str(v).strip() == S.COL_KEY:
+            return r
+    return 1
 
 
 def clean_row() -> int:
@@ -35,7 +48,7 @@ def clean_row() -> int:
     untouched row keeps these assertions meaningful for the whole milestone.
     """
     ws = load_workbook(SRC, data_only=True)[SHEET]
-    for r in range(3, ws.max_row + 1):
+    for r in range(header_row(ws) + 1, ws.max_row + 1):
         status = (ws.cell(r, COL['סטטוס מכונה']).value or '').strip()
         notes = (ws.cell(r, COL['הערות סוכן']).value or '').strip()
         if status == 'טרם נבדק' and not notes:
@@ -90,10 +103,23 @@ case('d_frozen_without_reason',
 case('e_row_deleted', lambda wb: wb[SHEET].delete_rows(ROW), 1,
      expect_text='שורות נמחקו')
 
-# f) header renamed
-case('f_header_renamed',
-     lambda wb: wb[SHEET].cell(1, COL['סטטוס אישור'], 'סטטוס'),
-     1, expect_text='FAIL — מבנה')
+# f) header renamed — must target the real header row, which sits below the
+# round's definition block, not row 1.
+def rename_header(wb):
+    ws = wb[SHEET]
+    ws.cell(header_row(ws), COL['סטטוס אישור'], 'סטטוס')
+
+
+case('f_header_renamed', rename_header, 1, expect_text='FAIL — מבנה')
+
+
+# f2) the key header itself renamed — guard must not silently skip the sheet
+def rename_key(wb):
+    ws = wb[SHEET]
+    ws.cell(header_row(ws), 1, 'מזהה')
+
+
+case('f2_key_header_renamed', rename_key, 1, expect_text='FAIL — מבנה')
 
 # g) invalid status value entirely
 case('g_bogus_status',

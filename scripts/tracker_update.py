@@ -36,8 +36,15 @@ def norm(v) -> str:
     return '' if v is None else str(v).strip()
 
 
+def header_row(ws) -> int:
+    for r in range(1, min(ws.max_row, 12) + 1):
+        if norm(ws.cell(r, 1).value) == S.COL_KEY:
+            return r
+    return S.ROUND_HEADER_ROW
+
+
 def find_row(ws, key: str) -> int | None:
-    for r in range(3, ws.max_row + 1):
+    for r in range(header_row(ws) + 1, ws.max_row + 1):
         if norm(ws.cell(r, 1).value) == key:
             return r
     return None
@@ -86,6 +93,8 @@ def main() -> int:
     ap.add_argument('--actor', default='team_100')
     ap.add_argument('--reason', default='')
     ap.add_argument('--show', metavar='ROW')
+    ap.add_argument('--refresh-waiting', action='store_true',
+                    help='recompute the derived «ממתין ל» column on every row')
     ap.add_argument('--acquire-lock', action='store_true',
                     help='take LOCK for a multi-step work window')
     ap.add_argument('--release-lock', action='store_true')
@@ -94,6 +103,51 @@ def main() -> int:
     if not TRACKER.exists():
         print(f'הטרקר לא נמצא: {TRACKER}', file=sys.stderr)
         return 2
+
+    if args.refresh_waiting:
+        wb = load_workbook(TRACKER)
+        # item statuses per page, so page-level «waiting on» reflects the real
+        # blockers rather than only the page's own status
+        items_by_page = {}
+        for name in wb.sheetnames:
+            if not name.startswith(S.PAGE_TAB_PREFIX):
+                continue
+            tab = wb[name]
+            import re as _re
+            m = _re.search(r'שורת אב (\S+)', norm(tab.cell(1, 1).value))
+            if not m:
+                continue
+            st_col = S.ITEM_HEADERS.index(S.COL_ITEM_STATUS) + 1
+            items_by_page[m.group(1)] = [
+                norm(tab.cell(r, st_col).value)
+                for r in range(S.PAGE_FIRST_DATA_ROW, tab.max_row + 1)
+                if norm(tab.cell(r, 1).value)]
+
+        changed = 0
+        for sheet in S.DATA_SHEETS:
+            if sheet not in wb.sheetnames:
+                continue
+            ws = wb[sheet]
+            hdr = header_row(ws)
+            ci = {h: i + 1 for i, h in enumerate(S.HEADERS)}
+            for r in range(hdr + 1, ws.max_row + 1):
+                key = norm(ws.cell(r, 1).value)
+                if not key:
+                    continue
+                want = S.derive_waiting_on(
+                    norm(ws.cell(r, ci[S.COL_MACHINE_STATUS]).value),
+                    norm(ws.cell(r, ci[S.COL_APPROVAL_STATUS]).value),
+                    items_by_page.get(key, ()))
+                cell = ws.cell(r, ci[S.COL_WAITING_ON])
+                if norm(cell.value) != want:
+                    cell.value = want
+                    changed += 1
+        if changed:
+            append_log(wb, args.actor, 'רענון «ממתין ל»', '',
+                       f'{changed} שורות עודכנו')
+            wb.save(TRACKER)
+        print(f'  «ממתין ל» רוענן — {changed} שורות השתנו')
+        return 0
 
     if args.release_lock or args.acquire_lock:
         wb = load_workbook(TRACKER)

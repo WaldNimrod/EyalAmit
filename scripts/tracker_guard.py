@@ -51,14 +51,27 @@ def read_workbook() -> dict[tuple[str, str], dict[str, str]]:
     wb = load_workbook(TRACKER, data_only=True)
 
     missing = [s for s in (S.SHEET_README, S.SHEET_STATE, S.SHEET_ROUND1,
-                           S.SHEET_ROUND2, S.SHEET_LOG) if s not in wb.sheetnames]
+                           S.SHEET_ROUND2, S.SHEET_ROUND3, S.SHEET_LOG)
+                if s not in wb.sheetnames]
     if missing:
         raise ValueError(f'טאבים חסרים: {missing}')
 
     out: dict[tuple[str, str], dict[str, str]] = {}
     for sheet in S.DATA_SHEETS:
+        if sheet not in wb.sheetnames:
+            raise ValueError(f'טאב חסר: {sheet}')
         ws = wb[sheet]
-        headers = tuple(norm(ws.cell(1, c).value)
+        # Sheets carry a definition block above the grid, so locate the header
+        # row rather than assuming it. Scanning also means a layout change does
+        # not silently turn into a false "headers were altered" rejection.
+        hdr = None
+        for r in range(1, min(ws.max_row, 12) + 1):
+            if norm(ws.cell(r, 1).value) == S.COL_KEY:
+                hdr = r
+                break
+        if hdr is None:
+            raise ValueError(f'לא נמצאה שורת כותרות בטאב «{sheet}»')
+        headers = tuple(norm(ws.cell(hdr, c).value)
                         for c in range(1, len(S.HEADERS) + 1))
         if headers != S.HEADERS:
             raise ValueError(
@@ -66,7 +79,7 @@ def read_workbook() -> dict[tuple[str, str], dict[str, str]]:
                 f'  צפוי:  {list(S.HEADERS)}\n'
                 f'  נמצא:  {list(headers)}')
         seen: set[str] = set()
-        for r in range(3, ws.max_row + 1):
+        for r in range(hdr + 1, ws.max_row + 1):
             key = norm(ws.cell(r, 1).value)
             if not key:
                 continue

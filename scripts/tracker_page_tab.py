@@ -27,32 +27,13 @@ import sys
 from pathlib import Path
 
 from openpyxl import load_workbook
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Protection, Side
-from openpyxl.utils import get_column_letter
-from openpyxl.worksheet.datavalidation import DataValidation
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import tracker_render as R  # noqa: E402
 import tracker_schema as S  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 TRACKER = REPO / S.TRACKER_DIR / S.TRACKER_FILENAME
-
-FILL_AGENT = PatternFill('solid', fgColor='E8EEF4')
-FILL_HUMAN = PatternFill('solid', fgColor='FDF3E3')
-FILL_TITLE = PatternFill('solid', fgColor='2F4858')
-FILL_WAIT = PatternFill('solid', fgColor='FBE3E0')   # decision pending
-THIN = Side(style='thin', color='B7C4CF')
-BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
-
-WIDTHS = {
-    '#': 7, 'סקשן אצל אייל': 14, 'הסעיף': 26, 'הכשל': 46, 'התוכן הדרוש': 46,
-    'התיקון': 40, 'סיווג': 10, 'נתיב קוד': 34, 'סטטוס סעיף': 18,
-    'הכרעה נדרשת מ': 14, 'אפשרויות לבחירה': 44, 'הערות סוכן': 34,
-    'בחירה': 24, 'הערות נימרוד': 30, 'הערות אייל': 30, 'תאריך הכרעה': 14,
-}
-WRAP = ('הכשל', 'התוכן הדרוש', 'התיקון', 'אפשרויות לבחירה', 'הערות סוכן',
-        'הערות נימרוד', 'הערות אייל', 'הסעיף', 'נתיב קוד')
-
 
 def norm(v) -> str:
     return '' if v is None else str(v).strip()
@@ -60,77 +41,16 @@ def norm(v) -> str:
 
 def find_page_row(wb, key: str):
     for sheet in S.DATA_SHEETS:
+        if sheet not in wb.sheetnames:
+            continue
         ws = wb[sheet]
-        for r in range(3, ws.max_row + 1):
+        hdr = next((r for r in range(1, min(ws.max_row, 12) + 1)
+                    if norm(ws.cell(r, 1).value) == S.COL_KEY),
+                   S.ROUND_HEADER_ROW)
+        for r in range(hdr + 1, ws.max_row + 1):
             if norm(ws.cell(r, 1).value) == key:
                 return sheet, r, ws
     raise SystemExit(f'שורת עמוד «{key}» לא נמצאה')
-
-
-def build_tab(ws, page_key: str, path: str, title: str, items: list[dict]) -> None:
-    ws.sheet_view.rightToLeft = True
-
-    ws.cell(1, 1, f'{title}   ·   {path}   ·   שורת אב {page_key}')
-    ws.cell(1, 1).font = Font(bold=True, size=13, color='2F4858')
-    ws.cell(2, 1, 'סיווג «ברור» = מבוצע באורקסטרציה ללא שאלה. '
-                  '«לא ברור» = אסקלציה — «הכרעה נדרשת מ» + «אפשרויות לבחירה». '
-                  'עמודות בחול הן שלכם בלבד.')
-    ws.cell(2, 1).font = Font(size=9, italic=True, color='6B7C8C')
-
-    hdr = 4
-    for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
-        c = ws.cell(hdr, col, h)
-        c.font = Font(bold=True, size=10, color='FFFFFF')
-        c.fill = FILL_TITLE
-        c.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
-        c.border = BORDER
-        ws.column_dimensions[get_column_letter(col)].width = WIDTHS.get(h, 18)
-    ws.row_dimensions[hdr].height = 30
-
-    for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
-        c = ws.cell(hdr + 1, col, 'סוכן' if owner == S.AGENT else 'אנוש ← רק אתם')
-        c.font = Font(bold=True, size=8,
-                      color='36618E' if owner == S.AGENT else 'A15C00')
-        c.fill = FILL_AGENT if owner == S.AGENT else FILL_HUMAN
-        c.alignment = Alignment(horizontal='center')
-        c.border = BORDER
-
-    first = hdr + 2
-    for i, item in enumerate(items):
-        r = first + i
-        waiting = item.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER
-        for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
-            c = ws.cell(r, col, item.get(h, ''))
-            if owner == S.HUMAN:
-                c.fill = FILL_HUMAN
-            else:
-                c.fill = FILL_WAIT if waiting else FILL_AGENT
-            c.border = BORDER
-            c.alignment = Alignment(horizontal='right', vertical='top',
-                                    wrap_text=h in WRAP)
-            c.protection = Protection(locked=(owner == S.AGENT))
-
-    last = first + max(len(items), 1) - 1
-
-    dv_s = DataValidation(type='list',
-                          formula1='"' + ','.join(S.ITEM_STATUSES) + '"',
-                          allow_blank=True, showDropDown=False)
-    dv_c = DataValidation(type='list',
-                          formula1='"' + ','.join(S.ITEM_CLASSES) + '"',
-                          allow_blank=True, showDropDown=False)
-    dv_d = DataValidation(type='list', formula1='"' + ','.join(S.DECIDERS) + '"',
-                          allow_blank=True, showDropDown=False)
-    for dv, colname in ((dv_s, S.COL_ITEM_STATUS), (dv_c, S.COL_ITEM_CLASS),
-                        (dv_d, S.COL_ITEM_DECIDER)):
-        ws.add_data_validation(dv)
-        L = get_column_letter(S.ITEM_HEADERS.index(colname) + 1)
-        dv.add(f'{L}{first}:{L}{last}')
-
-    ws.protection.sheet = True
-    ws.protection.selectLockedCells = False
-    ws.freeze_panes = ws.cell(first, 1).coordinate
-    ws.auto_filter.ref = (f'A{hdr}:'
-                          f'{get_column_letter(len(S.ITEM_HEADERS))}{last}')
 
 
 def main() -> int:
@@ -208,7 +128,7 @@ def main() -> int:
             return 1
 
         target = None
-        for rr in range(6, tab.max_row + 1):
+        for rr in range(S.PAGE_FIRST_DATA_ROW, tab.max_row + 1):
             if norm(tab.cell(rr, 1).value) == item_key:
                 target = rr
                 break
@@ -267,7 +187,7 @@ def main() -> int:
               'עדכון סעיפים קיימים נעשה בעריכה, לא בבנייה מחדש.', file=sys.stderr)
         return 1
 
-    build_tab(wb.create_sheet(name), args.create, path, title, items)
+    R.write_page_tab(wb.create_sheet(name), args.create, path, title, items)
 
     log = wb[S.SHEET_LOG]
     lr = log.max_row + 1
