@@ -6,7 +6,7 @@ project:
   lean_kit_version: 3.4.0+20e2011
   created: '2026-03-29'
   owner: eyalamit_sd
-  active_milestone: S005
+  active_milestone: S006
   notes: 'WordPress 6.x refresh of eyalamit.co.il (uPress staging). Pre-AOS phases M2 (infra), M3 (content/QA), M4 (Hub +
     books v2) COMPLETE as of 2026-04-11. S001 AOS canonization COMPLETE — 2026-04-11. validate_aos.sh 12 PASS. Team 190 L-GATE_V
     PASS. S002 = content completion (About, Home, Services, SEO). Team 110 arch sign-off APPROVED 2026-04-12. S002 WPs initialized
@@ -226,6 +226,53 @@ project:
     _COMMUNICATION/team_110/ADDENDUM-TEAM100-WP-S5-06-FACADE-MANDATORY-2026-07-16.md. **Next team_100 action:
     author WP-S5-06''s LOD400 + team_90 cross-engine validation of it.**
 
+    2026-08-17: **S006 «דיוק תוכן מלא מול חומרי אייל» OPENED — active_milestone S005 → S006.
+    S007 «תוכן תומך, נגישות ואופטימיזציה» registered PLANNED (not started).** team_00 directive:
+    open a content-accuracy milestone and put every other open topic on hold until Eyal has
+    approved all pages. **Cause, recorded deliberately as the milestone''s reason:** cross-cutting
+    work running in parallel with development has already OVERWRITTEN accurate content more than
+    once. Eyal''s own review file states it plainly — «הטקסט שמופיע באתר בכלל לא נכון» and «קלוד
+    המציא דברים ושכפל טקסטים» (Drive: «Eyal Amit/סקירה דף הבית.xlsx», 2026-08-17). We therefore
+    freeze, correct in full, and touch nothing else until sign-off.
+
+    **The content law (binding, quoted in every S006 mandate):** content may be ONE of exactly
+    three things — (a) what is already live, where Eyal raised no comment; (b) what arrived from
+    Eyal in files; (c) what Nimrod supplies directly in session. **No guessing, no self-authored
+    copy, no gap-filling.** Missing material → the tracker row goes to «הוקפא» with a written
+    reason; nothing is invented.
+
+    **Tracker (SSOT for page state):** `EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx`
+    — one row per page/post, Drive-synced so Nimrod and Eyal edit it directly. Two ownership
+    zones enforced by `scripts/tracker_guard.py` (11/11 self-test, `scripts/tracker_guard_selftest.py`):
+    agents own the machine columns and the statuses לא-ידוע→טרם-נבדק→בעבודה→הוגש-לבדיקה; humans
+    exclusively own חזר-לתיקונים / אושר-ע״י-נימרוד / אושר-ע״י-אייל. Git-side audit trail:
+    `_COMMUNICATION/team_100/S006/tracker/`. Charter: `_COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md`.
+
+    **Rounds:** סבב 1 = core (29 rows — the 21-item live primary menu plus every page Eyal
+    supplied material for). סבב 2 = every other visitor-reachable existing page (54 posts,
+    48 QR, legal, /en, legacy 301s) — opened only once round 1 closes. סבב 3 = supporting
+    content (alt text, meta, optimization, new pages) = **S007**, a separate milestone.
+
+    **team_00 sorting ruling applied to every open WP (2026-08-17):** (1) CONTENT WPs → ON_HOLD
+    with `hold_reason` + `hold_tracker_ref`, re-examined at their tracker row rather than reopened
+    independently — 9 WPs: S002-P001-WP001, S002-P001-WP002, WP-EI-01..07. (2) CODE/BUG → none
+    currently open; the standing rule is that any code defect surfaced during the content pass is
+    logged to `_COMMUNICATION/team_100/S006/CODE-BLOCKED-REGISTER.md`, judged for real harm to
+    correct content display, and ONLY genuinely harmful ones are put to team_00 for a go/no-go,
+    then executed on a dedicated sub-agent line. (3) SEO/meta (S002-P001-WP004) → moved to S007,
+    not held. (4) PRODUCTION CUTOVER (WP-S5-05) → repositioned, blocked_by S006, to run either
+    between round 2 and round 3 or after round 3 — decided at that bridge. (5) HUMAN VERIFICATION
+    (WP-S5-04) → always last before production, part of that same final sequence.
+    Untouched because terminal: 30 COMPLETE, 32 DONE, 8 SUPERSEDED.
+
+    **Roadmap mutation path:** file-SSoT per ADR034 R9 — and the R9/R12 endpoint fix has now
+    LANDED. Re-probed live this session (2026-08-17, server build_sha faf4cb6 / built 2026-08-13):
+    GET /api/l0/eyalamit/roadmap returns `l0_roadmap_source: file` with **83 WPs including all
+    WP-S5-01..07**. The stale S002-era projection that made Iron Rule #7 a live trap through
+    2026-07-16 is **gone**; the API now serves this file. Content writes go to
+    `site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/*.php` (git-tracked, reproducible to
+    production), NOT wp-admin/ACF — those are staging-DB-only and are lost on reseed.
+
     '
 work_packages:
 - id: S001-P001-WP001
@@ -374,7 +421,13 @@ work_packages:
   profile: L0
 - id: S002-P001-WP001
   label: About page — content completion + Hebrew copy
-  status: PLANNED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-21 (/eyal-amit/)'
+  prior_status: PLANNED
   track: A
   current_lean_gate: L-GATE_E
   lod_status: LOD100
@@ -387,7 +440,13 @@ work_packages:
   profile: L0
 - id: S002-P001-WP002
   label: Home page — hero copy + section content completion
-  status: PLANNED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-01 (/)'
+  prior_status: PLANNED
   track: A
   current_lean_gate: L-GATE_E
   lod_status: LOD100
@@ -439,10 +498,13 @@ work_packages:
   assigned_builder: eyalamit_build
   assigned_validator: eyalamit_val
   created_at: '2026-04-12'
-  milestone_ref: S002
+  milestone_ref: S007
   spec_ref: _aos/work_packages/S002/S002-P001-WP004/LOD400_spec.md
   gate_history: []
   profile: L0
+  reassigned_from: S002
+  reassigned_on: '2026-08-17'
+  reassigned_note: 'Moved to S007 (round 3 — supporting content / SEO / optimization) per the team_00 sorting ruling 2026-08-17. NOT on hold: meta work is supporting content, sequenced after the S006 body-copy pass so descriptions are written against approved text.'
 - id: WP-W2-01
   label: Wave2 WP-01 — Infrastructure (D-14 design system + form + footer + analytics)
   status: COMPLETE
@@ -2162,7 +2224,13 @@ work_packages:
   notes: 'Cross-engine full-site E2E + qa_probe + FTP/theme + Hub deploy + Eyal review package. S004 closeout gate.'
 - id: WP-EI-01
   label: 'Eyal-blocked: exact Green Invoice URLs — 3 books + 5 products'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-11..R1-19 (מסחר: כלים, תיקים, סטנדים, תיקון, ספרים)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2179,7 +2247,13 @@ work_packages:
   notes: 'Swap temp mrng.to/MTUiO3vkIg → per-item URL. Placeholder created by WP-S4-02. Hub: content-intake.'
 - id: WP-EI-02
   label: 'Eyal-blocked: real book + product gallery images'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-11..R1-19 (מסחר: כלים, תיקים, סטנדים, תיקון, ספרים)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2196,7 +2270,13 @@ work_packages:
   notes: 'Swap pending gallery slots → real attachments. Placeholder created by WP-S4-02/S4-06.'
 - id: WP-EI-03
   label: 'Eyal-blocked: anchor media (Maccabi/Yoni) + final medical wording'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-28 (/snoring-sleep-apnea/)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2213,7 +2293,13 @@ work_packages:
   notes: 'Swap anchor pending slots + confirm medical claims. Placeholder created by WP-S4-01.'
 - id: WP-EI-04
   label: 'Eyal-blocked: Mokesh Dahiman final approval + extra photos'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-22 (/eyal-amit/mokesh-dahiman/)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2230,7 +2316,13 @@ work_packages:
   notes: 'Page live verbatim; non-blocking. Hub: materials-intake (mokesh).'
 - id: WP-EI-05
   label: 'Eyal-blocked: legal copy final approval (privacy/accessibility/terms)'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-2 (privacy / accessibility / terms)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2247,7 +2339,13 @@ work_packages:
   notes: 'Remove glow banner + apply edits to WP-S4-04 drafts. Israeli accessibility statement legally required.'
 - id: WP-EI-06
   label: 'Eyal-blocked: /en landing body approval'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-24 (/en/)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2264,7 +2362,13 @@ work_packages:
   notes: 'D-EYAL-EN-BODY-02 was deferred; team draft in WP-S4-04.'
 - id: WP-EI-07
   label: 'Eyal-blocked: 48 testimonial-excerpt approvals + GA4/Clarity IDs (NOT raw curation — see note)'
-  status: BLOCKED
+  status: ON_HOLD
+  hold: true
+  hold_since: '2026-08-17'
+  hold_reason: 'S006 content-accuracy freeze. Subject matter is CONTENT — per the team_00 sorting ruling it is not reopened independently; it is re-examined when the content pass reaches its tracker row.'
+  hold_directive: 'team_00 2026-08-17 — «מסמנים את כל הנושאים הפתוחים והחבילות עבודה המתוכננות האחרות הקיימות במערכת במצב hold בהוראה שלי, עד לסיום אבן הדרך של עדכון התוכן»'
+  hold_tracker_ref: 'סבב-1-ליבה R1-26 (/media/)'
+  prior_status: BLOCKED
   track: BUILD
   current_lean_gate: L-GATE_SPEC
   lod_status: LOD400
@@ -2541,8 +2645,11 @@ work_packages:
   spec_ref: _COMMUNICATION/team_100/S004/S004-PACKAGE-SEQUENCE-INDEX-2026-07-15.md
   next_wp: WP-S5-05
   profile: L0
+  repositioned_on: '2026-08-17'
+  repositioned_note: 'Repositioned 2026-08-17 (team_00): human verification is ALWAYS last before production and is part of that same final sequence — it now sits after S006 and immediately before WP-S5-05.'
   priority: MEDIUM
-  blocked_by: []
+  blocked_by:
+  - 'MILESTONE: S006 (content accuracy) — all round-1 and round-2 rows approved by Eyal'
   roadmap_mutation: 'ADR034 R8 file-SSoT (see WP-S4-01).'
   notes: 'The handful of checks that need a real credentialed human, not an agent — same category as the
     WP-S4-05 live wp-admin E2E test (2026-07-15), which itself caught a P0 (ACF page-location bug) that
@@ -2606,6 +2713,8 @@ work_packages:
   spec_ref: _COMMUNICATION/team_100/SEO-GEO-VALIDATION-DEPLOYMENT-PLAN-2026-06-20.md
   next_wp: N/A — milestone-closing WP
   profile: L0
+  repositioned_on: '2026-08-17'
+  repositioned_note: 'Repositioned 2026-08-17 (team_00): cutover is re-placed, to run either between round 2 and round 3 or after round 3 — the call is made at that bridge. Blocked on S006 because there is no cutting over to production with content Eyal has not approved.'
   priority: HIGH
   blocked_by: [WP-S5-01, WP-S5-02, WP-S5-03, WP-S5-04, WP-S5-06, WP-S5-07, M-EYAL-INPUTS]
   roadmap_mutation: 'ADR034 R8 file-SSoT — corrected justification, see WP-S5-01 roadmap_mutation.'
@@ -2938,3 +3047,49 @@ work_packages:
   scope_excluded: 'inc/data/ea-testimonials-fb.json — **OUT OF SCOPE, do not touch.** The other phone numbers in
     that file belong to **testimonial authors**, not to Eyal; normalizing them onto Eyal''s canon would corrupt
     third-party attributed content.'
+- id: WP-S6-01
+  label: 'Round 1 (core) — page-by-page content accuracy against Eyal''s materials (29 rows)'
+  status: IN_PROGRESS
+  track: BUILD
+  current_lean_gate: L-GATE_BUILD
+  lod_status: LOD400
+  assigned_builder: team_10/110
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-08-17'
+  milestone_ref: S006
+  spec_ref: _COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md
+  tracker_ref: 'EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx — tab «סבב-1-ליבה», rows R1-01..R1-29'
+  profile: L0
+  priority: HIGH
+  blocked_by: []
+  roadmap_mutation: 'file-SSoT per ADR034 R9. Re-probed live 2026-08-17: GET /api/l0/eyalamit/roadmap
+    now returns l0_roadmap_source=file with 83 WPs incl. WP-S5-01..07 — the stale S002-era projection
+    that made Iron Rule #7 a trap is resolved; the API serves this file.'
+  notes: 'Row-level state lives in the tracker, NOT here — this WP is the gate wrapper so the round can be
+    validated cross-engine as a whole. Per-row status is owned by agents (לא ידוע→טרם נבדק→בעבודה→הוגש
+    לבדיקה); approval statuses are human-only and enforced by scripts/tracker_guard.py.
+    Scope = the 21-item live primary menu (probed 2026-08-17) plus every page Eyal supplied material for in
+    Drive «Eyal Amit/content 13.8.26/». Content channel: inc/chapters/defaults/*.php with a provenance
+    comment on every changed string. Cross-engine validation runs per APPROVED BATCH, not per page.
+    Exit: every R1 row reads «אושר ע״י אייל», or «הוקפא» with a written reason accepted by team_00.'
+- id: WP-S6-02
+  label: 'Round 2 — every other visitor-reachable existing page (54 posts, 48 QR, legal, /en, legacy 301s)'
+  status: PLANNED
+  track: BUILD
+  current_lean_gate: L-GATE_SPEC
+  lod_status: LOD200
+  assigned_builder: team_10/110
+  assigned_validator: team_90 (cross-engine, Iron Rule #1)
+  created_at: '2026-08-17'
+  milestone_ref: S006
+  spec_ref: _COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md
+  tracker_ref: 'EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx — tab «סבב-2» (seeded on open)'
+  profile: L0
+  priority: MEDIUM
+  blocked_by:
+  - 'WP-S6-01 — round 2 is opened only once round 1 closes (team_00 directive 2026-08-17)'
+  roadmap_mutation: 'file-SSoT per ADR034 R9 (see WP-S6-01).'
+  notes: 'Deliberately NOT seeded yet: the tab exists empty so nobody starts it early. Populated from the
+    live REST inventory at open time so the list reflects what is actually published then, not now.
+    Legacy duplicates (/muzeh/*, /services/*, /hashita/, /courses-soon/, /about/, /muzza/*) enter as
+    type «legacy/301» — verified for correct redirect only, not content-edited.'
