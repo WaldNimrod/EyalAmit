@@ -43,8 +43,19 @@ _run_attempt() {
   # The `--` before "$PROMPT" is required: any prompt file beginning with `---` (this repo's own
   # _COMMUNICATION/ frontmatter convention) is otherwise misparsed by cursor-agent's CLI as an unknown
   # option instead of a positional argument, failing loud with an empty response every time.
+  # MODE (team_00, 2026-08-17): `--mode plan` was hardcoded here and is WRONG for validation.
+  # Both --mode choices are read-only — `plan` proposes plans, `ask` is Q&A — and NEITHER can run
+  # shell. A validator that must gather its own evidence (curl a live URL, grep a tree) therefore
+  # returned an EMPTY response, which the guard below correctly failed loud on. Omitting --mode
+  # gives the default agentic mode, which can. Set AOS_VALIDATOR_MODE=plan|ask only when the
+  # mandate is pure analysis over files already on disk.
+  # NOTE: macOS ships bash 3.2, where `set -u` treats an EMPTY array expansion as an unbound
+  # variable. So the mode flag is passed as two plain scalars, never as an array.
+  local mode_flag="" mode_val=""
+  if [ -n "${AOS_VALIDATOR_MODE:-}" ]; then mode_flag="--mode"; mode_val="${AOS_VALIDATOR_MODE}"; fi
   ( cd "$WORKSPACE" && timeout "${AOS_VALIDATOR_TIMEOUT:-300}" \
-      cursor-agent --print --trust -f --model "$MODEL" --mode plan --output-format text -- "$PROMPT" ) \
+      cursor-agent --print --trust -f --model "$MODEL" ${mode_flag:+"$mode_flag" "$mode_val"} \
+      --output-format text -- "$PROMPT" ) \
       >"$tmp_out" 2>"$tmp_err"
 }
 
