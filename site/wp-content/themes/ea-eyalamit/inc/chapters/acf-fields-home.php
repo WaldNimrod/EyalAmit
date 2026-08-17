@@ -103,18 +103,15 @@ function ea_chapters_register_home_fields() {
 			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט', 'rows' => 3 ),
 		), 'פריט' ),
 
+		/* S006 · H-10 · פרק 07 עבר מכרטיסי hover-reveal לטקסט רץ (parts/prose.php).
+		 * 'session_lead' ו-'session_cards' הוסרו — הראשון שכפל את הפסקה הראשונה,
+		 * והשני נשא כותרות מומצאות. מקור: סקירה דף הבית.xlsx · C13. */
 		array(
-			$tab( 'tab_session', '03 מהלך המפגש' ),
+			$tab( 'tab_session', '07 מה קורה במפגש' ),
 			$txt( 'f_sess_chap', 'session_chap', 'תווית פרק' ),
 			$txt( 'f_sess_title', 'session_title', 'כותרת' ),
-			$txt( 'f_sess_lead', 'session_lead', 'משפט פתיחה', 'textarea', 2 ),
+			$txt( 'f_sess_body', 'session_body', 'פסקאות', 'wysiwyg' ),
 		),
-		$slots( 'session_cards', 4, array(
-			array( 'type' => 'image', 'name' => 'image', 'label' => 'תמונה' ),
-			array( 'type' => 'text', 'name' => 'title', 'label' => 'כותרת' ),
-			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט קצר', 'rows' => 2 ),
-			array( 'type' => 'textarea', 'name' => 'reveal', 'label' => 'טקסט שנחשף במעבר עכבר', 'rows' => 2 ),
-		), 'כרטיס' ),
 
 		array(
 			$tab( 'tab_band', 'תמונה + ציטוט' ),
@@ -136,9 +133,12 @@ function ea_chapters_register_home_fields() {
 			$txt( 'f_testi_chap', 'testi_chap', 'תווית פרק' ),
 			$txt( 'f_testi_title', 'testi_title', 'כותרת' ),
 		),
-		$slots( 'testi_items', 4, array(
-			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט', 'rows' => 3 ),
+		/* S006 · H-12 · 15 סלוטים (במקום 4) + תת-שדה 'href', לפי חמש-עשרה העדויות
+		 * המאושרות של אייל וקישור הפייסבוק של כל ממליץ. מקור: סקירה דף הבית.xlsx · C16. */
+		$slots( 'testi_items', 15, array(
+			array( 'type' => 'textarea', 'name' => 'text', 'label' => 'טקסט (כל שורה בשורה נפרדת)', 'rows' => 3 ),
 			array( 'type' => 'text', 'name' => 'name', 'label' => 'שם' ),
+			array( 'type' => 'text', 'name' => 'href', 'label' => 'קישור לפוסט המקורי' ),
 			array( 'type' => 'text', 'name' => 'initial', 'label' => 'אות (אם אין תמונה)' ),
 			array( 'type' => 'image', 'name' => 'avatar', 'label' => 'תמונת פרופיל (אופציונלי)' ),
 		), 'המלצה' ),

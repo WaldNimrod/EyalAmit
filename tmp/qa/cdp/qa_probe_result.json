@@ -1,7 +1,7 @@
 {
   "base": "http://eyalamit-co-il-2026.s887.upress.link",
-  "ts": "2026-08-17T13:53:27.896Z",
-  "total": 2,
+  "ts": "2026-08-17T15:06:53.135Z",
+  "total": 6,
   "failures": 0,
   "verdict": "PASS",
   "results": [
@@ -19,6 +19,32 @@
       "pass": true
     },
     {
+      "viewport": "mobile",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_treatment_",
+      "url": "/treatment/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בדיג'רידו - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
       "viewport": "desktop",
       "page": "_",
       "url": "/",
@@ -28,6 +54,32 @@
       "overflow": false,
       "forbiddenFound": [],
       "title": "בית - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_media_",
+      "url": "/media/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "המלצות — קטלוג מרכזי (ומדיה) - eyal amit",
+      "screenshot": null,
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_treatment_",
+      "url": "/treatment/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בדיג'רידו - eyal amit",
       "screenshot": null,
       "pass": true
     }

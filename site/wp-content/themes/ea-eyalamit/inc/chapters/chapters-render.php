@@ -254,8 +254,13 @@ function ea_chapters_repeater_specs( $type = null ) {
 	$base = array( // home (back-compat — unchanged default).
 		'about_timeline' => array( 'count' => 4, 'subs' => array( 'year', 'text' ) ),
 		'whom_items'     => array( 'count' => 4, 'subs' => array( 'image', 'text' ) ),
-		'session_cards'  => array( 'count' => 4, 'subs' => array( 'image', 'title', 'text', 'reveal' ) ),
-		'testi_items'    => array( 'count' => 4, 'subs' => array( 'text', 'name', 'initial', 'avatar' ) ),
+		/* S006 · H-10 · 'session_cards' הוסר: פרק 07 הוא כעת prose ('session_body'),
+		 * ואין יותר כרטיסים לרנדר. השארת המפרט הייתה רושמת 16 שדות ACF שאף תבנית
+		 * לא קוראת. מקור: סקירה דף הבית.xlsx · C13. */
+		/* S006 · H-12 · 'testi_items' עלה מ-4 ל-15 סלוטים ונוסף לו תת-שדה 'href',
+		 * כדי שמשטח העריכה יתאים לחמש-עשרה העדויות המאושרות של אייל (כל שם מקושר
+		 * לפוסט הפייסבוק שלו). מקור: סקירה דף הבית.xlsx · C16. */
+		'testi_items'    => array( 'count' => 15, 'subs' => array( 'text', 'name', 'href', 'initial', 'avatar' ) ),
 		'start_steps'    => array( 'count' => 3, 'subs' => array( 'title', 'text' ) ),
 	);
 	$by_type = array(

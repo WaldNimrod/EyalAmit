@@ -1,10 +1,20 @@
 <?php
 /**
- * Chapters — 05 TESTIMONIALS. Continuous side-scrolling marquee of many real
- * testimonials from the curated FB corpus (inc/ea-testimonials-fb.php), pausing
- * on hover/focus. The 5 quotes that still contain the retired brand
- * «סטודיו נשימה מעגלית» are EXCLUDED here (not edited) per WP-06.
- * Falls back to the ACF/seeded testi_items if the corpus isn't available.
+ * Chapters — 05 TESTIMONIALS. Continuous side-scrolling marquee, pausing on
+ * hover/focus.
+ *
+ * S006 · H-12 · מקור: סקירה דף הבית.xlsx · C16 — «קרוסלת עדויות - יש 15 עדויות
+ * במסמך המקורי. בסוף העדויות צריך לשים קישור לדף פנימי שמרכז את כל העדויות.»
+ *
+ * סדר העדיפויות הפוך מכפי שהיה: 'testi_items' (חמש-עשרה העדויות המאושרות של אייל
+ * מ-SECTION 10, ב-home-defaults.php) קודם, והקורפוס של 48 העדויות
+ * (inc/data/ea-testimonials-fb.json) נשאר רק כרשת ביטחון אם testi_items ריק.
+ * קודם לכן הקורפוס ניצח תמיד, ולכן דף הבית הציג 48 במקום 15.
+ * הקורפוס עצמו לא נגע — הוא ממשיך להזין את קרוסלות השירותים דרך
+ * template-parts/chapters/parts/testimonials.php.
+ *
+ * בנתיב הקורפוס, 5 הציטוטים שעדיין נושאים את המותג שיצא משימוש
+ * «סטודיו נשימה מעגלית» מסוננים (לא נערכים) לפי WP-06.
  *
  * @package ea_eyalamit
  */
@@ -18,7 +28,14 @@ $items = array();
 $cta_l = ea_chapters_field( 'testi_cta_label' );
 $cta_u = ea_chapters_field( 'testi_cta_url' );
 
-if ( function_exists( 'ea_fb_testimonials_all' ) ) {
+foreach ( ea_chapters_rows( 'testi_items' ) as $r ) {
+	$txt = trim( (string) ( $r['text'] ?? '' ) );
+	if ( '' === $txt ) {
+		continue;
+	}
+	$items[] = array( 'text' => $txt, 'name' => (string) ( $r['name'] ?? '' ), 'href' => (string) ( $r['href'] ?? '' ) );
+}
+if ( empty( $items ) && function_exists( 'ea_fb_testimonials_all' ) ) {
 	foreach ( ea_fb_testimonials_all() as $t ) {
 		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' );
 		if ( false !== mb_strpos( $blob, $brand ) ) {
@@ -31,11 +48,6 @@ if ( function_exists( 'ea_fb_testimonials_all' ) ) {
 		$items[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ), 'href' => (string) ( $t['href'] ?? '' ) );
 	}
 }
-if ( empty( $items ) ) {
-	foreach ( ea_chapters_rows( 'testi_items' ) as $r ) {
-		$items[] = array( 'text' => $r['text'] ?? '', 'name' => $r['name'] ?? '', 'href' => $r['href'] ?? '' );
-	}
-}
 
 if ( empty( $items ) ) {
 	return;
@@ -43,8 +55,13 @@ if ( empty( $items ) ) {
 
 $render_cards = static function () use ( $items ) {
 	foreach ( $items as $it ) {
+		/* S006 · H-12 · DEV NOTES של אייל ב-SECTION 10: «2–4 שורות לכל ממליץ».
+		 * הכרטיס מקודד HTML (esc_html), ולכן שבירת השורה נעשית כאן: כל שורה
+		 * מקודדת בנפרד ומחוברת ב-<br> שאנחנו מייצרים. הטקסט עצמו לא משתנה. */
+		$lines = preg_split( '/\R/u', (string) $it['text'] );
+		$html  = implode( '<br>', array_map( 'esc_html', (array) $lines ) );
 		echo '<figure class="tmq">';
-		echo '<blockquote class="tmq__q">' . esc_html( $it['text'] ) . '</blockquote>';
+		echo '<blockquote class="tmq__q">' . $html . '</blockquote>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- each line escaped above.
 		if ( '' !== $it['name'] ) {
 			if ( ! empty( $it['href'] ) ) {
 				echo '<figcaption class="tmq__n"><a class="tmq__nl" href="' . esc_url( $it['href'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $it['name'] ) . '</a></figcaption>';
