@@ -172,11 +172,13 @@ def main() -> int:
     if args.items:
         items = json.loads(Path(args.items).read_text(encoding='utf-8'))
         for it in items:
-            bad = [k for k in it if k not in S.ITEM_HEADERS]
+            bad = [k for k in it if k not in S.ITEM_HEADERS and not str(k).startswith('_')]
             if bad:
                 print(f'עמודות לא מוכרות בפריט: {bad}', file=sys.stderr)
                 return 2
             for k in it:
+                if str(k).startswith('_'):
+                    continue
                 if S.ITEM_OWNER_OF[k] == S.HUMAN and norm(it[k]):
                     print(f'סירוב: הפריט מנסה לאכלס «{k}» — עמודה בבעלות אנוש.',
                           file=sys.stderr)

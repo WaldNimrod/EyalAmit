@@ -158,6 +158,18 @@ function ea_chapters_type() {
 }
 
 /**
+ * S006 R1-02 · team_00 2026-08-17 — two live versions of /treatment/ for Eyal to choose.
+ * ?compare=eyal loads treatment-eyal-defaults.php (document-exact). Default URL is the proposed structure.
+ *
+ * @return bool
+ */
+function ea_chapters_treatment_compare_eyal() {
+	return 'treatment' === ea_chapters_type()
+		&& isset( $_GET['compare'] )
+		&& 'eyal' === sanitize_key( wp_unslash( (string) $_GET['compare'] ) );
+}
+
+/**
  * Load the seeded defaults for the current Chapters page type (cached per type).
  *
  * @return array
@@ -165,12 +177,15 @@ function ea_chapters_type() {
 function ea_chapters_defaults() {
 	static $cache = array();
 	$type = ea_chapters_type();
-	if ( isset( $cache[ $type ] ) ) {
-		return $cache[ $type ];
+	$eyal = ea_chapters_treatment_compare_eyal();
+	$key  = $eyal ? 'treatment-eyal' : $type;
+	if ( isset( $cache[ $key ] ) ) {
+		return $cache[ $key ];
 	}
-	$file           = get_stylesheet_directory() . '/inc/chapters/defaults/' . $type . '-defaults.php';
-	$cache[ $type ] = is_readable( $file ) ? (array) require $file : array();
-	return $cache[ $type ];
+	$slug           = $eyal ? 'treatment-eyal' : $type;
+	$file           = get_stylesheet_directory() . '/inc/chapters/defaults/' . $slug . '-defaults.php';
+	$cache[ $key ] = is_readable( $file ) ? (array) require $file : array();
+	return $cache[ $key ];
 }
 
 /**
@@ -583,6 +598,14 @@ function ea_chapters_phero_overlay() {
 	if ( empty( $phero ) || ! isset( $map['phero']['scalars'] ) ) {
 		return $phero;
 	}
+	/* S006 R1-02 · two-version compare: always seed /treatment/ from PHP defaults so
+	 * ACF slots from the previous section order cannot overwrite the new structure. */
+	if ( 'treatment' === ea_chapters_type() ) {
+		if ( ! empty( $phero['media'] ) ) {
+			$phero['media'] = ea_chapters_resolve_img( $phero['media'] );
+		}
+		return $phero;
+	}
 	foreach ( $map['phero']['scalars'] as $arg => $kind ) {
 		if ( ! array_key_exists( $arg, $phero ) ) {
 			continue; // Only overlay args this page's phero actually defines.
@@ -618,6 +641,18 @@ function ea_chapters_page_sections() {
 	foreach ( $secs as $n => $sec ) {
 		$part = isset( $sec['part'] ) ? (string) $sec['part'] : '';
 		$args = ( isset( $sec['args'] ) && is_array( $sec['args'] ) ) ? $sec['args'] : array();
+		/* S006 R1-02 · /treatment/ renders seeded defaults only (see phero overlay). */
+		if ( 'treatment' === $type ) {
+			if ( isset( $map[ $part ]['scalars'] ) ) {
+				foreach ( $map[ $part ]['scalars'] as $arg => $kind ) {
+					if ( array_key_exists( $arg, $args ) && ( 'img' === $kind || 'file' === $kind ) ) {
+						$args[ $arg ] = ea_chapters_resolve_img( $args[ $arg ] );
+					}
+				}
+			}
+			$out[] = array( 'part' => $part, 'args' => $args );
+			continue;
+		}
 		if ( isset( $map[ $part ]['scalars'] ) ) {
 			foreach ( $map[ $part ]['scalars'] as $arg => $kind ) {
 				if ( ! array_key_exists( $arg, $args ) ) {

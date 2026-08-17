@@ -218,3 +218,16 @@ hero · 01-about · 02-for-whom · 03-session · photo-band · 04-studio ·
 **מה שנבדק ונמצא תקין** (לא נגענו): `about_body` ≡ SECTION 11 · `start_steps` ≡ SECTION 06 ·
 `whom_items` ≡ SECTION 05 · `cmp_a_text`/`cmp_b_text` — **הנוסח** מדויק מול SECTION 04,
 רק שבירות השורה חסומות (C-01) · `studio_body` ≡ SECTION 08 · `session_lead` ≡ SECTION 07 ¶1.
+
+---
+
+## C-10 · `/treatment/` מדלג על שכבת ACF — מאושר ל-R1-02
+
+**מה.** `ea_chapters_phero_overlay()` / `ea_chapters_page_sections()` מדלגים על ACF כש-`ea_chapters_type()==='treatment'`, ו-`?compare=eyal` טוען `treatment-eyal-defaults.php`.
+
+**למה.** team_00 ביקש שני קישורים חיים להשוואה. אינדקסי ACF מהמבנה הישן היו דורסים את שתי הגרסאות. ערוץ הכתיבה של S006 הוא קבצי defaults.
+
+**מתי להחזיר overlay.** אחרי שאייל בוחר גרסה ב-T-01, ואחרי יישור ה-defaults לקובץ יחיד. עד אז עריכות wp-admin לעמוד הזה לא יופיעו בפרונט.
+
+**לא חוסם הגשה.** מנדט מפורש מ-team_00, 17.8.26.
+
