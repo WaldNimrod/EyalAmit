@@ -44,7 +44,7 @@ status: ACTIVE — stage 1, desktop only
 |---|---|---|
 | R1-01 | `/` דף הבית | **הוגש לבדיקה** · שלד פרק 03 + פלייסהולדר 09 + CTA מ-C15 · מספור `פרק 02`…`פרק 11` ברצף · **VERDICT PASS** (`composer-2.5` ≠ בנאי Grok) · 3 סעיפים ממתינים לאייל (H-01 · H-06 · H-07) |
 | R1-02 | `/treatment/` | **הוגש לבדיקה** · `ממתין ל=אייל` · שתי גרסאות חיות (מוצע + `?compare=eyal`) · Composer א׳ חוזה + ב׳ E2E/אקסל **PASS** · T-01 בחירת גרסה + T-02 סרטון |
-| R1-03 | `/method/` | **הוגש לבדיקה** · Composer א׳ חוזה **PASS** · MTH-01 תמונות ממתינות לאייל · E2E טרם |
+| R1-03 | `/method/` | **הוגש לבדיקה** · `ממתין ל=אייל` · Composer א׳ חוזה + ב׳ E2E/אקסל **PASS** · MTH-01 תמונות |
 | R1-26 | `/testimonials/` (היה `/media/`) | **44** המלצות (48 פחות 4 חסרות-טקסט) · slug שונה + 301 · **VERDICT PASS חוצה-מנועים** |
 
 ## ב.2 דף הבית — מוכן להצגה לאייל (דסקטופ)
@@ -76,7 +76,7 @@ artifact: `_COMMUNICATION/team_90/VERDICT-R1-01-HOME-PLACEHOLDERS-2026-08-17.md`
 
 ## ב.2א העמוד הבא — לפי סדר התפריט הראשי
 
-R1-03 `/method/` **הוגש** (חוזה Composer PASS; E2E טרם). הבא בתור להצעת סקואופ (לא לביצוע בלי אישור כתוב):
+R1-03 `/method/` **הוגש** (חוזה + E2E Composer PASS). הבא בתור להצעת סקואופ (לא לביצוע בלי אישור כתוב):
 
 | # | שורה | נתיב | חומר מאייל |
 |---|---|---|---|
@@ -89,6 +89,7 @@ R1-03 `/method/` **הוגש** (חוזה Composer PASS; E2E טרם). הבא בת�
 
 R1-03 חי: http://eyalamit-co-il-2026.s887.upress.link/method/
 פסק חוזה: `_COMMUNICATION/team_90/VERDICT-R1-03-METHOD-2026-08-17.md`
+פסק E2E: `_COMMUNICATION/team_90/VERDICT-R1-03-E2E-LENS-2026-08-18.md`
 
 R1-02 חי: http://eyalamit-co-il-2026.s887.upress.link/treatment/ · תאום: `?compare=eyal`
 פסק E2E: `_COMMUNICATION/team_90/VERDICT-R1-02-E2E-LENS-2026-08-17.md`

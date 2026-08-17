@@ -18,7 +18,10 @@ $ea_learning  = '<a class="tlink" href="/learning/">לימוד והכשרה</a>'
 $ea_contact   = '<a class="tlink" href="/contact/">ליצירת קשר</a>';
 $ea_faq       = '<a class="tlink" href="/faq/">עמוד השאלות הנפוצות המלא</a>';
 $ea_media     = '<a class="tlink" href="/media/">לעוד המלצות ועדויות</a>';
-$ea_rebirth   = '<a class="tlink" href="https://www.eyalamit.co.il/Blog/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%95%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">ריברסינג, נשימה מעגלית ודיג\'רידו</a>';
+/* S006 · מקור: content 13.8.26/השיטה/method.md · SECTION 11 (anchor text)
+ * href: md `/Blog/…-ודיג'רידו/` 404. Live post (R2-058, Eyal 301) is
+ * `/ריברסינג-נשימה-מעגלית-דיגרידו/` — same routing fix as mokesh, not new copy. */
+$ea_rebirth   = '<a class="tlink" href="/ריברסינג-נשימה-מעגלית-דיגרידו/">ריברסינג, נשימה מעגלית ודיג\'רידו</a>';
 $ea_bmj       = '<a class="tlink" href="https://www.bmj.com/content/332/7536/266">לקריאה על המחקר ב־BMJ</a>';
 
 return array(
