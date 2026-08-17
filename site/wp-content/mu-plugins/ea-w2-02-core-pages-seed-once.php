@@ -166,6 +166,11 @@ function ea_w2_02_method_html() {
 
 /**
  * HTML content for the Treatment page (from treatment.md — 25.5.26).
+ *
+ * S006 · slug rename · אישור team_00 2026-08-17 — קישור «לעוד המלצות ועדויות» עבר
+ * /media → /testimonials. ⚠ זהו המקור בלבד: ה־post_content החי ב־DB נזרע לפני השינוי
+ * ועדיין מחזיק /media — הוא מכוסה ע"י ה־301 (ea-s006-testimonials-slug-once.php)
+ * ויתעדכן רק אם ea_w2_02_seeded_* יאופס וייזרע מחדש.
  */
 function ea_w2_02_treatment_html() {
 	return '
@@ -219,7 +224,7 @@ function ea_w2_02_treatment_html() {
 <blockquote><p>"כמו רבים אחרים גם אני חשבתי שאני באה ללמוד דיג׳רידו, ולא היה לי מושג איזה מסע עוצמתי מחכה לי." — <a href="https://www.facebook.com/share/p/1E7ndvYyrp/" target="_blank" rel="noopener">שירי אלקבץ</a></p></blockquote>
 <blockquote><p>"מה שאני לומדת מאייל זה לנשום מחדש... להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים." — <a href="https://www.facebook.com/share/p/1AdaytsL6w/" target="_blank" rel="noopener">נוית צוף שטראוס</a></p></blockquote>
 <blockquote><p>"פעם ראשונה בחיים שלמדתי לנשום נכון... תרגול הנשימה בדידג׳ פשוט מרגיע אותי." — <a href="https://www.facebook.com/share/v/1Cky28MdtH/" target="_blank" rel="noopener">אלון גרזון רז</a></p></blockquote>
-<p><a href="/media">לעוד המלצות ועדויות</a></p>
+<p><a href="/testimonials">לעוד המלצות ועדויות</a></p>
 </section>
 
 <section class="ea-service-section">

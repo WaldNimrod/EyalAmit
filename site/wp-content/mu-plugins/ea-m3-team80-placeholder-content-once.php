@@ -149,7 +149,8 @@ function ea_m3_team80_placeholder_run() {
 		// קטלוגים.
 		ea_m3_team80_set_content( ea_m3_team80_page_id( 'faq' ), ea_m3_team80_html_faq_catalog() );
 		ea_m3_team80_set_content( ea_m3_team80_page_id( 'galleries' ), ea_m3_team80_html_galleries_catalog() );
-		ea_m3_team80_set_content( ea_m3_team80_page_id( 'media' ), ea_m3_team80_html_media_catalog() );
+		/* S006 · slug rename · אישור team_00 2026-08-17 — העמוד נמצא לפי path; media → testimonials. */
+		ea_m3_team80_set_content( ea_m3_team80_page_id( 'testimonials' ), ea_m3_team80_html_media_catalog() );
 
 		// משפטי + EN + הכשרות.
 		$legal_priv = '<p class="ea-team80-tag" role="note"><em>PLACEHOLDER — משפטי — לא לאישור פרסום סופי</em></p><p>המידע בעמוד זה נועד לתת הסבר ראשוני על אופן השימוש באתר, על יצירת קשר ועל אופן הטיפול בפרטים שנמסרים דרך טפסים או ערוצי פנייה. נוסח זה הוא placeholder בלבד, ויש להשלים אותו מול דרישות משפטיות, כלי המדידה בפועל ומנגנון ההסכמה לקוקיז לפני פרסום סופי.</p><p><strong>להשלים לפני פרסום:</strong></p><ul><li>אילו פרטים נאספים בפועל</li><li>אילו שירותי צד ג\' פועלים באתר</li><li>האם מופעלים כלי מדידה, דיוור או רימרקטינג</li><li>פרטי יצירת קשר רשמיים למדיניות</li></ul>';

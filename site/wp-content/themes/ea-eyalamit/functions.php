@@ -502,7 +502,11 @@ add_filter( 'template_include', 'ea_eyalamit_galleries_catalog_template', 97 );
  * @return string
  */
 function ea_eyalamit_media_catalog_template( $template ) {
-	if ( ! is_page( 'media' ) ) {
+	/* S006 · slug rename · אישור team_00 2026-08-17 */
+	/* ה־slug עבר media → testimonials. הנתב הזה (‎@96) גובר עליו נתב הפרקים (‎@103),
+	 * ולכן אין לו השפעה על הרינדור היום — אך הוא מתוחזק לשם שקילות ב־rollback
+	 * (EA_CHAPTERS_FRONT=false). לא לשנות חזרה ל־'media'. */
+	if ( ! is_page( 'testimonials' ) ) {
 		return $template;
 	}
 	$t = get_stylesheet_directory() . '/page-templates/template-media-catalog.php';

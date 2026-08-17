@@ -63,9 +63,12 @@ function ea_m2_ia_slug_fixups_maybe_run() {
 			'galleries',
 			'מבוא זמני — קטלוג גלריות לפי מודל האינסטנסים.'
 		);
+		/* S006 · slug rename · אישור team_00 2026-08-17 */
+		/* media → testimonials. אילו נשאר 'media', איפוס ea_m2_ia_slug_fixups_v1 היה
+		 * יוצר עמוד כפול ב־/media/ שמתנגש ב־301. אין להחזיר. */
 		ea_m2_ia_fixups_get_or_create_page(
 			'המלצות — קטלוג מרכזי',
-			'media',
+			'testimonials',
 			'מבוא זמני — המלצות ומדיה לפי מודל האינסטנסים.'
 		);
 		update_option( 'ea_m2_ia_slug_fixups_v1', 'done' );

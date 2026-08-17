@@ -54,7 +54,8 @@ if ( empty( $ea_test_items ) ) {
 		),
 	);
 	if ( ! isset( $ea_test_ctx['footer'] ) ) {
-		$ea_test_ctx['footer'] = array( 'label' => 'לכל ההמלצות', 'href' => home_url( '/media' ) );
+		/* S006 · slug rename · אישור team_00 2026-08-17 */
+		$ea_test_ctx['footer'] = array( 'label' => 'לכל ההמלצות', 'href' => home_url( '/testimonials' ) );
 	}
 }
 

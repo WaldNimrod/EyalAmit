@@ -52,7 +52,13 @@ function ea_chapters_route_map() {
 		'mokesh-dahiman' => array( 'template' => 'tpl-chapters-mokesh', 'type' => 'mokesh' ),
 		'contact'       => array( 'template' => 'tpl-chapters-page',   'type' => 'contact' ),
 		'galleries'     => array( 'template' => 'tpl-chapters-page',   'type' => 'galleries' ),
-		'media'         => array( 'template' => 'tpl-chapters-page',   'type' => 'media' ),
+		/* S006 · slug rename · אישור team_00 2026-08-17 */
+		/* המפתח (slug) עבר media → testimonials. ה־'type' נשאר 'media' בכוונה: הוא לא
+		 * ה־slug אלא שם קובץ ברירות המחדל (defaults/{type}-defaults.php) ומרחב שמות
+		 * ה־ACF (f_{type}_…). יש לכך תקדים מפורש באותה טבלה — 'books' => type 'muzza',
+		 * 'eyal-amit' => type 'about', 'qr' => type 'qr-hub'. שינוי ה־type היה גורר
+		 * שינוי שם קובץ + מפתחות ACF ללא כל תועלת ל־URL. */
+		'testimonials'  => array( 'template' => 'tpl-chapters-page',   'type' => 'media' ),
 		'privacy'       => array( 'template' => 'tpl-chapters-page',   'type' => 'privacy' ),
 		'accessibility' => array( 'template' => 'tpl-chapters-page',   'type' => 'accessibility' ),
 		'terms'         => array( 'template' => 'tpl-chapters-page',   'type' => 'terms' ),

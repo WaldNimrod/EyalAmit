@@ -200,7 +200,11 @@ function ea_m2_site_tree_lock_sync_run() {
 	// פוטר / מערכת (לא בתפריט ראשי).
 	$ids['faq']       = ea_m2_st_ensure_page( 'שאלות נפוצות (FAQ)', 'faq', 0, 'קטלוג FAQ — placeholder.' );
 	$ids['galleries'] = ea_m2_st_ensure_page( 'גלריות — קטלוג מרכזי', 'galleries', 0, 'קטלוג גלריות — placeholder.' );
-	$ids['media']     = ea_m2_st_ensure_page( 'המלצות — קטלוג מרכזי (ומדיה)', 'media', 0, 'קטלוג המלצות — placeholder.' );
+	/* S006 · slug rename · אישור team_00 2026-08-17 */
+	/* ה־slug עבר media → testimonials. מפתח המערך $ids['media'] נשאר (מפתח פנימי בלבד,
+	 * בלי השפעה). אם מישהו יאפס את EA_M2_SITE_TREE_SYNC_OPTION והשורה תישאר 'media' —
+	 * ייווצר עמוד כפול ב־/media/ שיתנגש ב־301. אין להחזיר ל־'media'. */
+	$ids['media']     = ea_m2_st_ensure_page( 'המלצות — קטלוג מרכזי (ומדיה)', 'testimonials', 0, 'קטלוג המלצות — placeholder.' );
 	$ids['privacy']   = ea_m2_st_ensure_page( 'מדיניות פרטיות', 'privacy', 0, 'מסמך משפטי — placeholder.' );
 	$ids['terms']     = ea_m2_st_ensure_page( 'תקנון', 'terms', 0, 'מסמך משפטי — placeholder.' );
 
@@ -408,7 +412,10 @@ function ea_m2_st_canonical_path_redirects() {
 		// WP-W2-15-CR-FINAL (F-CRF-02): /muzeh -> /books direct (was /muzza, a 2-hop).
 		'/muzeh/'                                 => home_url( '/books/' ),
 		'/hashita/'                               => home_url( '/method/' ),
-		'/testimonials-media/'                    => home_url( '/media/' ),
+		/* S006 · slug rename · אישור team_00 2026-08-17 */
+		/* היעד עבר /media/ → /testimonials/ כדי לשמור קפיצה אחת. השארה על /media/ הייתה
+		 * יוצרת שרשרת 2-hop דרך ה־301 החדש (ea-s006-testimonials-slug-once.php). */
+		'/testimonials-media/'                    => home_url( '/testimonials/' ),
 		'/didgeridoo-treatment-breath/'           => home_url( '/treatment/' ),
 		'/services/didgeridoo-treatment-breath/'  => home_url( '/treatment/' ),
 		'/services/didgeridoo-lessons/'            => home_url( '/lessons/' ),

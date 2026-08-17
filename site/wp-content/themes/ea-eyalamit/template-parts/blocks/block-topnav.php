@@ -168,7 +168,8 @@ $ea_topnav_items = array(
 $ea_mnav_foot_links = array(
 	array( 'href' => home_url( '/faq' ),           'label' => 'שאלות נפוצות' ),
 	array( 'href' => home_url( '/galleries' ),     'label' => 'גלריות' ),
-	array( 'href' => home_url( '/media' ),         'label' => 'המלצות' ),
+	/* S006 · slug rename · אישור team_00 2026-08-17 */
+	array( 'href' => home_url( '/testimonials' ),  'label' => 'המלצות' ),
 	array( 'href' => home_url( '/privacy' ),       'label' => 'מדיניות פרטיות' ),
 	array( 'href' => home_url( '/accessibility' ), 'label' => 'הצהרת נגישות' ),
 	array( 'href' => home_url( '/terms' ),         'label' => 'תקנון' ),

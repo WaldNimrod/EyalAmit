@@ -320,7 +320,8 @@ function ea_wave2_set_home_block_context() {
 			array( 'text' => "מסע זוגי מדיטטיבי ועוצמתי\nיצאנו בהיי\nחוויה אינטימית ומיוחדת", 'name' => 'ליה גלפנד', 'href' => 'https://www.facebook.com/share/p/18WepdnZu6/' ),
 			array( 'text' => "עפתי לחלל וטבעתי באמבטיית צלילים\nהרגשתי עטופה ובטוחה\nחוויה מאוד עוצמתית", 'name' => 'רתם פרץ', 'href' => 'https://www.facebook.com/share/p/1CdeS2kWm7/' ),
 		),
-		'footer'     => array( 'label' => 'לכל ההמלצות', 'href' => home_url( '/media' ) ),
+		/* S006 · slug rename · אישור team_00 2026-08-17 */
+		'footer'     => array( 'label' => 'לכל ההמלצות', 'href' => home_url( '/testimonials' ) ),
 	) );
 
 	// SECTION 12 — CTA סופי (closing band, verbatim). Structural label "CTA סופי"
