@@ -129,7 +129,8 @@ function ea_fb_testimonials_clean_href( $href ) {
 function ea_fb_testimonials_archive( $cat ) {
 	$brand = 'סטודיו נשימה מעגלית';
 	$cat   = (string) $cat;
-	$out   = array();
+
+	$rows = array();
 	foreach ( ea_fb_testimonials_all() as $t ) {
 		if ( ( $t['cat'] ?? '' ) !== $cat ) {
 			continue;
@@ -138,11 +139,36 @@ function ea_fb_testimonials_archive( $cat ) {
 		if ( '' !== $text && false !== mb_strpos( $text, $brand ) ) {
 			$text = ''; // brand-compliance: hide, never edit a customer quote.
 		}
-		$out[] = array(
+		$rows[] = array(
 			'name' => (string) ( $t['name'] ?? '' ),
 			'text' => $text,
 			'href' => ea_fb_testimonials_clean_href( $t['href'] ?? '' ),
 		);
+	}
+
+	/*
+	 * S006 · M-01 · החלטת team_00 17.8.26, מחייבת וללא יוצא מן הכלל:
+	 *
+	 *   «באתר אסור להציג בשום מקרה כרטיס ריק ללא תוכן. באתר מוצג רק מה שתקין.
+	 *    רשומת שם ללא תוכן מלא — נמצאת רק באקסל.»
+	 *
+	 * לכן: כל רשומה שאין לה טקסט מוצג **נופלת מהעמוד**, בלי תלות בשאלה אם לאותו
+	 * שם יש רשומות נוספות. אין כרטיס עם שם וקישור בלבד.
+	 *
+	 * ארבע רשומות נופלות כך (48 → 44): דן ארליכמן · דרור מצליח · קרן אברשי ·
+	 * שיילי פיינברג. שלושת האחרונים מיוצגים ממילא בכרטיסים אחרים; דן ארליכמן
+	 * יורד מהעמוד לגמרי — הטקסט שלו קיים ובר-שחזור (ראו C-08), והרשומה ממשיכה
+	 * להתנהל בטרקר כסעיף M-01a עד הכרעת אייל.
+	 *
+	 * ⚠ הטרקר — לא הקוד — הוא המקום שבו רשומה חסרת-תוכן ממשיכה להתקיים.
+	 * אין להחזיר לכאן רינדור של כרטיס ריק כדי «לא לאבד» ממליץ.
+	 */
+	$out = array();
+	foreach ( $rows as $r ) {
+		if ( '' === $r['text'] ) {
+			continue; // never render a card with no content
+		}
+		$out[] = $r;
 	}
 	return $out;
 }
