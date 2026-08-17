@@ -31,6 +31,7 @@ TRACKER = REPO / S.TRACKER_DIR / S.TRACKER_FILENAME
 SNAPDIR = REPO / S.SNAPSHOT_DIR
 
 FIELDS = ('__sheet__',) + S.HEADERS
+ITEM_FIELDS = ('__sheet__', '__page__') + S.ITEM_HEADERS
 
 
 def norm(v) -> str:
@@ -56,10 +57,33 @@ def rows() -> list[dict[str, str]]:
     return out
 
 
-def write_csv(path: Path, data: list[dict[str, str]]) -> None:
+def item_rows() -> list[dict[str, str]]:
+    """Per-page item grids. These carry the actual decisions — what was found,
+    what was decided, and by whom — so they belong in the audit trail just as
+    much as the page-level index does."""
+    import re
+    wb = load_workbook(TRACKER, data_only=True)
+    out = []
+    for name in wb.sheetnames:
+        if not name.startswith(S.PAGE_TAB_PREFIX):
+            continue
+        ws = wb[name]
+        m = re.search(r'שורת אב (\S+)', norm(ws.cell(1, 1).value))
+        page = m.group(1) if m else name
+        for r in range(S.PAGE_FIRST_DATA_ROW, ws.max_row + 1):
+            if not norm(ws.cell(r, 1).value):
+                continue
+            rec = {'__sheet__': name, '__page__': page}
+            rec.update({h: norm(ws.cell(r, c).value)
+                        for c, h in enumerate(S.ITEM_HEADERS, start=1)})
+            out.append(rec)
+    return out
+
+
+def write_csv(path: Path, data: list[dict[str, str]], fields=FIELDS) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('w', encoding='utf-8-sig', newline='') as fh:
-        w = csv.DictWriter(fh, fieldnames=FIELDS)
+        w = csv.DictWriter(fh, fieldnames=fields)
         w.writeheader()
         w.writerows(data)
 
@@ -77,11 +101,15 @@ def main() -> int:
     write_csv(SNAPDIR / 'latest.csv', data)
     print(f'  baseline: {SNAPDIR.relative_to(REPO)}/latest.csv ({len(data)} שורות)')
 
+    items = item_rows()
+    write_csv(SNAPDIR / 'latest-items.csv', items, ITEM_FIELDS)
+    print(f'  items:    {SNAPDIR.relative_to(REPO)}/latest-items.csv ({len(items)} סעיפים)')
+
     if not args.baseline_only:
         stamp = dt.date.today().isoformat()
-        dated = SNAPDIR / f'EA-CONTENT-TRACKER-{stamp}.csv'
-        write_csv(dated, data)
-        print(f'  snapshot: {dated.relative_to(REPO)}')
+        write_csv(SNAPDIR / f'EA-CONTENT-TRACKER-{stamp}.csv', data)
+        write_csv(SNAPDIR / f'EA-CONTENT-ITEMS-{stamp}.csv', items, ITEM_FIELDS)
+        print(f'  snapshot: EA-CONTENT-TRACKER-{stamp}.csv + EA-CONTENT-ITEMS-{stamp}.csv')
     return 0
 
 
