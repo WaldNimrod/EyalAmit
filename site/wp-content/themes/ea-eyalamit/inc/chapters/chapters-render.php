@@ -598,9 +598,9 @@ function ea_chapters_phero_overlay() {
 	if ( empty( $phero ) || ! isset( $map['phero']['scalars'] ) ) {
 		return $phero;
 	}
-	/* S006 R1-02/R1-03/R1-04 · seed /treatment/, /method/, /lessons/ from PHP
-	 * defaults so ACF slots from the previous section order cannot overwrite. */
-	if ( in_array( ea_chapters_type(), array( 'treatment', 'method', 'lessons' ), true ) ) {
+	/* S006 R1-02…R1-05 · seed chapter pages from PHP defaults so ACF slots
+	 * from the previous section order cannot overwrite. */
+	if ( in_array( ea_chapters_type(), array( 'treatment', 'method', 'lessons', 'sound-healing' ), true ) ) {
 		if ( ! empty( $phero['media'] ) ) {
 			$phero['media'] = ea_chapters_resolve_img( $phero['media'] );
 		}
@@ -641,8 +641,8 @@ function ea_chapters_page_sections() {
 	foreach ( $secs as $n => $sec ) {
 		$part = isset( $sec['part'] ) ? (string) $sec['part'] : '';
 		$args = ( isset( $sec['args'] ) && is_array( $sec['args'] ) ) ? $sec['args'] : array();
-		/* S006 R1-02/R1-03/R1-04 · /treatment/, /method/, /lessons/ render seeded defaults only (see phero overlay). */
-		if ( in_array( $type, array( 'treatment', 'method', 'lessons' ), true ) ) {
+		/* S006 R1-02…R1-05 · seeded defaults only (see phero overlay). */
+		if ( in_array( $type, array( 'treatment', 'method', 'lessons', 'sound-healing' ), true ) ) {
 			if ( isset( $map[ $part ]['scalars'] ) ) {
 				foreach ( $map[ $part ]['scalars'] as $arg => $kind ) {
 					if ( array_key_exists( $arg, $args ) && ( 'img' === $kind || 'file' === $kind ) ) {
