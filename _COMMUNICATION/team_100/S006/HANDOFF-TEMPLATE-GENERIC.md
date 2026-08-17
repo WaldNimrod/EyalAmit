@@ -1,5 +1,5 @@
 ---
-id: HANDOFF_TEMPLATE_GENERIC_S006_v3.0.0
+id: HANDOFF_TEMPLATE_GENERIC_S006_v3.1.0
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: full · reusable template
 from: team_100 (S006 content-accuracy milestone)
@@ -8,11 +8,11 @@ cc: [team_00, team_90, team_10, team_110]
 date: 2026-08-17
 law: S006-MILESTONE-CHARTER.md
 disposition: >-
-  TEMPLATE. This file is the reusable base, executed many times — once per page or page set.
+  TEMPLATE. This file is the reusable base, executed many times — once per page.
   It is NOT a state document: every figure in it must be re-derived (§6). The live state lives
   in HANDOFF-CURRENT-S006.md, which this template tells you how to read but never trusts.
-  v3.0.0 rebuilt onto the canonical AOS handoff skeleton (§0/§0.1/§5/§6) after two cross-engine
-  adversarial reviews (Grok, lens A + lens B) returned FAIL twice on the invented structure.
+  v3.1.0 maps §3 onto charter §8ד (nine gates from R1-02). Law stays in the charter; this file
+  holds commands only.
 status: ACTIVE — stage 1 in progress, desktop only
 ---
 
@@ -38,8 +38,12 @@ status: ACTIVE — stage 1 in progress, desktop only
 | כלל | השם האנושי — תמיד מוצמד |
 |---|---|
 | חוק התוכן | רק קיים-ללא-הערה · קבצים מאייל · טקסט מנימרוד |
+| אין סקירה | בלי קובץ «סקירה …» הכלל «אין הערה = מאושר» אינו חל — אמנה §2 |
 | נעילת הסיווג | מקור מצוטט + בייטים מדויקים + פעולה אחת |
 | אין תוכן = אין רכיב | לא מרנדרים ריק; הרשומה חיה בטרקר |
+| הנגשה לאייל | שאלה אחת + בחירה/מילוי · סטייג'ינג לא md — אמנה §3ג |
+| שתי גרסאות | רק במנדט נימרוד · טקסט שלו בשניהם · הפרשים מפורשים — אמנה §3ד |
+| שני ליינים | Composer א׳ חוזה תוכן · ב׳ E2E+אקסל · פוש רק אחרי שני PASS — אמנה §8ד |
 | מנוע ≠ בנאי | ברמת מזהה המודל, לא המשפחה |
 | הפער אינו היתר | מצוי≠רצוי מכניס להיקף, לא הופך ל`ברור` |
 
@@ -74,67 +78,93 @@ status: ACTIVE — stage 1 in progress, desktop only
 
 ---
 
-## §3 — המשימה: מחזור עמוד. כל שלב הוא שער.
+## §3 — המשימה: מחזור עמוד לפי אמנה §8ד. כל שער הוא עצירה.
 
-**3.1 קליטה** — קובץ הסקירה (מצוי / רצוי / הערות) + תיקיית החומר.
+הדין (קריטריוני יציאה) באמנה §8ד. כאן הפקודות. **עמוד אחד.** לא פותחים את הבא לפני שער 8.
+
+**שער 0 — סקואופ.** לפי §2 למעלה. בלי `סקואופ אושר: R1-XX בלבד` אין קליטה.
+
+**שער 1 — קליטה.** קובץ הסקירה (מצוי / רצוי / הערות) **אם קיים**, אחרת md בתיקיית החומר.
 `מקור החומר: אין` → **ברירת מחדל: לא לפתוח את העמוד.** סריקה כלשהי מחייבת אישור נפרד.
+אין קובץ סקירה → אמנה §2 «אין סקירה». אל תפעילו «אין הערה = מאושר».
 
-### 🔒 3.2 נעילת הסיווג — **קראו באמנה, §3א**
+### 🔒 שער 2 — נעילת הסיווג — **קראו באמנה, §3א**
 
 **הנעילה מנוסחת במקום אחד בלבד:** `S006-MILESTONE-CHARTER.md` §3א.
-**התבנית הזו אינה משכפלת אותה במכוון** — שני עותקים נסחפו זה מזה ונפסלו בביקורת.
+בקצרה: `ברור` דורש שלושה תנאים **יחד** — מקור מצוטט (תא/שורה, לא תיקייה) · בייטים מדויקים · פעולה אחת.
+`לא ברור` → נימרוד בכתב לפני בנייה. הכרעותיו (כמו חמש ההכרעות ב-R1-02) ננעלות בכתב, לא בזיכרון.
 
-בקצרה, ורק כתזכורת — **הנוסח המחייב הוא באמנה**: `ברור` דורש שלושה תנאים **יחד** —
-מקור מצוטט (תא/שורה, לא תיקייה) · בייטים מדויקים מאותו מקור · פעולה אחת.
-**הערה או פער מצוי≠רצוי מכניסים להיקף — ואינם מספיקים לסיווג `ברור`.**
-
-**3.3 טאב לעמוד** — `python3 scripts/tracker_page_tab.py --create <ROW> --items /tmp/items.json`
-סכימת הפריטים: `ITEM_HEADERS` ב-`scripts/tracker_schema.py`.
-דוגמה עובדת: `_COMMUNICATION/team_100/S006/tracker/latest-items.csv`.
-
-**3.4 ביצוע — ליין בנייה. team_100 לא כותב תוכן ולא בודק בעצמו.**
-**ערוץ הכתיבה היחיד:** `site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/<page>-defaults.php`
-**אסור:** wp-admin · ACF · DB · `inc/data/*.json` · קובץ defaults של **עמוד אחר**.
-**אין קובץ defaults לעמוד?** → עצור ואסקלץ. אל תמציא נתיב.
-
-**3.5 פריסה** — `python3 scripts/ftp_deploy_site_wp_content.py` (סטייג'ינג בלבד)
-נגעתם ב-CSS/JS → **העלו `Version` ב-`site/wp-content/themes/ea-eyalamit/style.css` לפני הפריסה.**
-mu-plugin חדש → **הוסיפו לרשימה בסקריפט הפריסה**, אחרת לא ייפרס בשקט.
-
-**3.6 אימות — מנוע ≠ הבנאי, ברמת מזהה המודל**
+**שער 3 — טאב לעמוד** — הנגשה לפי אמנה §3ג.
 ```bash
-scripts/run_cross_engine_validator.sh <prompt-file> <model> "$PWD" <out-file>
+python3 scripts/tracker_page_tab.py --create <ROW> --items items.json
 ```
-**ארבעת סעיפי חוזה המאמת — חובה בכל מנדט אימות:**
+סכימה: `ITEM_HEADERS` ב-`scripts/tracker_schema.py`. דוגמה: `_COMMUNICATION/team_100/S006/tracker/r1-02-items.json`.
+`ברור` = לביצוע. `לא ברור` לאייל = משפט אחד + `_picks` או מילוי + URL חי. לא דורסים H-01/H-06/H-07 וסעיפים ממתינים של עמוד אחר.
+שתי גרסאות רק אם נימרוד ביקש — אמנה §3ד.
+
+**שער 4 — בנייה + פריסה. team_100 לא כותב תוכן ולא בודק בעצמו.**
+**ערוץ הכתיבה:** `site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/<page>-defaults.php`
+מותר: חלק **חדש** תחת `template-parts/chapters/parts/` שרק העמוד הזה טוען.
+**אסור:** wp-admin · ACF · DB · `inc/data/*.json` · `videoblk.php` / `block-faq-list.php` · defaults של עמוד אחר.
+**אין קובץ defaults?** → עצור ואסקלץ. אל תמציא נתיב.
+קוד שחוסם תוכן → `CODE-BLOCKED-REGISTER.md`, לא תיקון «תוך כדי».
+```bash
+python3 scripts/ftp_deploy_site_wp_content.py
+```
+נגעתם ב-CSS/JS → **העלו `Version` ב-`style.css` לפני הפריסה.**
+mu-plugin חדש → **הוסיפו לרשימה בסקריפט הפריסה.**
+
+**שער 5 — עדשה א׳, חוזה תוכן. מנוע ≠ הבנאי.**
+```bash
+AOS_VALIDATOR_TIMEOUT=360 scripts/run_cross_engine_validator.sh \
+  _COMMUNICATION/team_90/MANDATE-<ROW>-<PAGE>-YYYY-MM-DD.md \
+  composer-2.5 \
+  /Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026 \
+  _COMMUNICATION/team_90/VERDICT-<ROW>-<PAGE>-YYYY-MM-DD.md
+```
+**ארבעת סעיפי חוזה המאמת — חובה בכל מנדט א׳:**
 1. **התאמת מקור** — כל מחרוזת חדשה חייבת להימצא **במקור המצוטט**. אחרת FAIL.
 2. **האנק לא ממופה** — שינוי קוד שאינו ממופה לסעיף בטאב → FAIL.
 3. **Provenance** — מחרוזת שהשתנתה בלי הערת מקור → FAIL.
-4. **פלט ריק = FAIL.** העטיפה אוכפת (exit 3) — אל תעקפו.
+4. **פלט ריק = FAIL.** `-fast` אסור. `qa_probe` דסקטופ בנוסף, אינו תחליף.
 
 **אסור** לתת למאמת מחרוזת שהבנאי כתב ולבקש אישוש. תנו לו את **המקור** ובקשו התאמה.
 **FAIL → ליין תיקון חדש.** אין «כמעט עבר». team_100 קורא verdict בלבד.
 
-**3.7 רישום**
+**שער 6 — הגשה בטרקר + קומיט**
 ```bash
 python3 scripts/tracker_page_tab.py --update <ROW> <ITEM> --set "סטטוס סעיף=בוצע"
-python3 scripts/tracker_update.py --row <ROW> --set "ראיות QA=<artifact>"
+python3 scripts/tracker_update.py --row <ROW> \
+  --set "סטטוס מכונה=הוגש לבדיקה" --set "ראיות QA=<artifact>"
 python3 scripts/tracker_update.py --refresh-waiting
 python3 scripts/tracker_guard.py --mode verify
 python3 scripts/tracker_snapshot.py
 git add <נתיבים מפורשים>    # לעולם לא -A כשליין רקע פעיל
 git commit
 ```
+לפני כתיבה: `--acquire-lock` · בסיום `--release-lock`.
+`--refresh-waiting` חייב להחזיר `ממתין ל=אייל` אם יש סעיף שממתין לו. אם נשאר `team_100` — תקנו לפני שער 7.
+**העמוד מגיע לאייל דרך הסטייג'ינג החי בלבד.** גלגול לאחור = `git revert <sha>` + פריסה מחדש.
 
-**3.8 תנאי יציאה — כולם, אחרת העמוד לא מוגש לאייל**
-verdict PASS · אפס רכיבים ריקים · `Version` הועלה אם נגעתם ב-CSS/JS · הטאב מלא ·
-`tracker_guard --mode verify` נקי · עץ נקי.
+**שער 7 — עדשה ב׳, E2E + אקסל. אותו מאמת, מנדט חדש.**
+מנדט על **העמוד שלנו** (נתיב קנוני, לא `?compare=eyal` אלא אם משווים במפורש):
+מידע · ממשקים · כל קישור בגוף/תפריט/פוטר · אפס רכיבים ריקים · הנגשה §3ג · נעילת סיווג על הסעיפים.
+```bash
+AOS_VALIDATOR_TIMEOUT=420 scripts/run_cross_engine_validator.sh \
+  _COMMUNICATION/team_90/MANDATE-<ROW>-E2E-LENS-YYYY-MM-DD.md \
+  composer-2.5 "$PWD" \
+  _COMMUNICATION/team_90/VERDICT-<ROW>-E2E-LENS-YYYY-MM-DD.md
+```
+FAIL או ריק → אין פוש. קומיט את המנדט+הפסק בנתיבים מפורשים אחרי PASS.
 
-**3.85 נעילת הקובץ ושליחה לאייל**
-לפני חלון כתיבה לטרקר: `python3 scripts/tracker_update.py --acquire-lock` · בסיום `--release-lock`.
-**העמוד מגיע לאייל דרך הסטייג'ינג החי בלבד** — לא markdown, לא צילומי מסך, לא הדבקה בצ'אט.
-**גלגול לאחור:** כל שינוי הוא קומיט נפרד בנתיבים מפורשים; חזרה = `git revert <sha>` + פריסה מחדש.
+**שער 8 — פוש**
+```bash
+git push origin HEAD
+```
+רק אחרי א׳+ב׳ PASS. אשרו בגיליון הראשי `ממתין ל=אייל` (כבר אמור להיות אחרי שער 6).
+**אל תפתחו את העמוד הבא באותו תור.**
 
-**3.9 סגירה** — רק כש**אייל** כתב `אושר ע״י אייל` בעמודת האנוש:
+**סגירה סופית** — רק כש**אייל** כתב `אושר ע״י אייל` בעמודת האנוש:
 `python3 scripts/tracker_page_tab.py --hide <ROW>` · «יפה» בצ'אט אינו אישור.
 
 ---
@@ -143,7 +173,7 @@ verdict PASS · אפס רכיבים ריקים · `Version` הועלה אם נג
 
 | | למה |
 |---|---|
-| **קבצים משותפים** — header · footer · nav · `parts/*.php` · `inc/data/*.json` · CSS גלובלי · **`*-defaults.php` של עמוד אחר** | עמוד אחד שובר עמוד אחר שכבר ממתין לאייל |
+| **קבצים משותפים** — header · footer · nav · `parts/*.php` **קיימים** · `inc/data/*.json` · CSS גלובלי · **`*-defaults.php` של עמוד אחר** · `videoblk.php` / `block-faq-list.php` | עמוד אחד שובר עמוד אחר שכבר ממתין לאייל. חלק **חדש** ייעודי לעמוד — מותר, אמנה §8ד |
 | **פרמלינקים / slugs / 301** | קבועים אחרי עלייה לאוויר |
 | **מדיה** — בחירה, ייצור, alt | שלב 3, או `לא ברור` |
 | **תיקוני קוד** | סשן תוכן לא מתקן קוד → `CODE-BLOCKED-REGISTER.md` |
@@ -207,6 +237,6 @@ https://my.upress.co.il/account/websites/eyalamit-co-il-2026.s887.upress.link?ta
 
 1. עדכנו את `_COMMUNICATION/team_100/S006/HANDOFF-CURRENT-S006.md` — סגור · הבא בתור ·
    ממתין לאייל · ממתין לנימרוד · חוב.
-2. `tracker_guard.py --mode verify` → `tracker_snapshot.py` → commit נקי.
+2. `tracker_guard.py --mode verify` → `tracker_snapshot.py` → commit נקי · פוש רק אם שער 8 הושלם.
 3. דווחו לנימרוד: מה נסגר · מה ממתין לו · מה ממתין לאייל.
-4. **ב-~80% קונטקסט — עצרו והעבירו.** אל תתחילו עמוד שלא תספיקו לסגור.
+4. **ב-~80% קונטקסט — עצרו והעבירו.** אל תתחילו עמוד שלא תספיקו להעביר בשער 8.
