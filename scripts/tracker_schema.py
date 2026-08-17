@@ -195,25 +195,37 @@ STATUS_REQUIRING_REASON = (ST_FROZEN,)
 PAGE_TAB_PREFIX = 'עמוד · '
 
 # (header, owner) — the item-level grid.
-# Status and responsibility lead here too (team_00 2026-08-17).
+# team_00, 2026-08-17: «המידע המיועד לבן האנוש צריך להיות תמיד מרוכז בעמודות הראשונות,
+# להיות קצר וברור… הוא בוחר ומסמן, לא כותב.»
+#
+# Columns A–E are what Eyal actually reads and fills. Everything the agent needs to do the
+# work comes AFTER them, so a human never scrolls through our reasoning to find the question.
 ITEM_COLUMNS: tuple[tuple[str, str], ...] = (
     ('#',                  AGENT),   # e.g. H-01, immutable
+    ('מה נדרש ממך',        AGENT),   # ONE short line, plain language. The whole ask.
+    ('בחירה',              HUMAN),   # dropdown — he picks, never types
+    ('מילוי',              HUMAN),   # only where a value is genuinely needed (links, text)
+    ('הערות אייל',         HUMAN),
+    # ── everything below is ours ──────────────────────────────────────────
     ('סטטוס סעיף',         AGENT),
     ('הכרעה נדרשת מ',      AGENT),   # — / נימרוד / אייל
     ('סיווג',              AGENT),   # ברור / לא ברור
-    ('הסעיף',              AGENT),   # what this item is
-    ('סקשן אצל אייל',      AGENT),   # SECTION 07 / —
-    ('הכשל',               AGENT),   # what is wrong today
-    ('התוכן הדרוש',        AGENT),   # what it must become, and from which source
-    ('התיקון',             AGENT),   # the concrete change
+    ('הסעיף',              AGENT),
+    ('סקשן אצל אייל',      AGENT),
+    ('הכשל',               AGENT),
+    ('התוכן הדרוש',        AGENT),
+    ('התיקון',             AGENT),
     ('נתיב קוד',           AGENT),
-    ('אפשרויות לבחירה',    AGENT),   # populated when escalating
+    ('קישור',              AGENT),   # reference to the content in question, when one exists
+    ('אפשרויות לבחירה',    AGENT),   # the long explanation; the dropdown carries the short labels
     ('הערות סוכן',         AGENT),
-    ('בחירה',              HUMAN),   # Nimrod's or Eyal's pick
     ('הערות נימרוד',       HUMAN),
-    ('הערות אייל',         HUMAN),
     ('תאריך הכרעה',        HUMAN),
 )
+
+COL_ITEM_ASK = 'מה נדרש ממך'
+COL_ITEM_PICK = 'בחירה'
+COL_ITEM_FILL = 'מילוי'
 
 ITEM_HEADERS = tuple(h for h, _ in ITEM_COLUMNS)
 ITEM_OWNER_OF = {h: o for h, o in ITEM_COLUMNS}

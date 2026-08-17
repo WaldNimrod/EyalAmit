@@ -41,13 +41,15 @@ ROUND_WIDTHS = {
     'הערות אייל': 30, 'תאריך אישור': 14,
 }
 ITEM_WIDTHS = {
-    '#': 7, 'סטטוס סעיף': 18, 'הכרעה נדרשת מ': 14, 'סיווג': 10,
+    '#': 7, 'מה נדרש ממך': 62, 'בחירה': 30, 'מילוי': 46, 'הערות אייל': 30,
+    'סטטוס סעיף': 18, 'הכרעה נדרשת מ': 14, 'סיווג': 10,
     'הסעיף': 28, 'סקשן אצל אייל': 13, 'הכשל': 46, 'התוכן הדרוש': 46,
-    'התיקון': 38, 'נתיב קוד': 32, 'אפשרויות לבחירה': 44, 'הערות סוכן': 32,
-    'בחירה': 22, 'הערות נימרוד': 28, 'הערות אייל': 28, 'תאריך הכרעה': 13,
+    'התיקון': 38, 'נתיב קוד': 32, 'קישור': 40, 'אפשרויות לבחירה': 44,
+    'הערות סוכן': 32, 'הערות נימרוד': 28, 'תאריך הכרעה': 13,
 }
 WRAP = ('ראיות QA', 'הערות סוכן', 'הערות נימרוד', 'הערות אייל', 'כותרת',
-        'הכשל', 'התוכן הדרוש', 'התיקון', 'אפשרויות לבחירה', 'הסעיף', 'נתיב קוד')
+        'הכשל', 'התוכן הדרוש', 'התיקון', 'אפשרויות לבחירה', 'הסעיף', 'נתיב קוד',
+        'מה נדרש ממך', 'מילוי', 'קישור')
 
 # column -> allowed values. Everything status-like is a dropdown.
 ROUND_DROPDOWNS = {
@@ -153,7 +155,7 @@ def write_page_tab(ws, page_key: str, path: str, title: str,
         r = first + i
         waiting = item.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER
         for col, h in enumerate(S.ITEM_HEADERS, start=1):
-            c = ws.cell(r, col, item.get(h, ''))
+            c = ws.cell(r, col, item.get(h, ''))  # '_picks' is not a header, never written
             if S.ITEM_OWNER_OF[h] == S.HUMAN:
                 c.fill = FILL_HUMAN
             else:
@@ -164,4 +166,18 @@ def write_page_tab(ws, page_key: str, path: str, title: str,
             c.protection = Protection(locked=(S.ITEM_OWNER_OF[h] == S.AGENT))
     last = first + max(len(items), 1) - 1
     add_dropdowns(ws, list(S.ITEM_HEADERS), ITEM_DROPDOWNS, first, last)
+
+    # «בחירה» gets a dropdown per ROW, built from that item's own short labels —
+    # team_00: «הוא בוחר ומסמן, לא כותב». Options arrive as item['_picks'].
+    pick_col = get_column_letter(S.ITEM_HEADERS.index(S.COL_ITEM_PICK) + 1)
+    for i, item in enumerate(items):
+        picks = item.get('_picks') or []
+        if not picks:
+            continue
+        dv = DataValidation(type='list', formula1='"' + ','.join(picks) + '"',
+                            allow_blank=True, showDropDown=False,
+                            promptTitle='בחירה', prompt='בחרו מהרשימה — אין צורך לכתוב.')
+        ws.add_data_validation(dv)
+        dv.add(f'{pick_col}{first + i}')
+
     finish(ws, list(S.ITEM_HEADERS), hdr, first, last)
