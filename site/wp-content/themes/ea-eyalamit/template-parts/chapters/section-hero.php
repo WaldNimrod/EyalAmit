@@ -26,7 +26,9 @@ $cta_u  = ea_chapters_field( 'hero_cta_url' );
 	<?php endif; ?>
 	<div class="hero__scrim" aria-hidden="true"></div>
 	<div class="hero__c">
-		<?php if ( $trust ) : ?><span class="hero__trust"><?php echo esc_html( $trust ); ?></span><?php endif; ?>
+		<?php /* S006 · H-02 · שורת האמון של אייל היא שתי שורות (SECTION 01 → «### Trust line:»),
+			ולכן היא עוברת דרך ea_chapters_kses_e (מתיר <br>) ולא דרך esc_html שבלע את השבירה. */ ?>
+		<?php if ( $trust ) : ?><span class="hero__trust"><?php ea_chapters_kses_e( $trust ); ?></span><?php endif; ?>
 		<h1 class="hero__h"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_title' ) ); ?></h1>
 		<p class="hero__s"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_subtitle' ) ); ?></p>
 		<?php if ( $cta_l ) : ?>

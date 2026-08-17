@@ -91,6 +91,72 @@ MACHINE_TRANSITIONS: dict[str, set[str]] = {
 # «הוקפא» always requires a written reason in the agent-notes column.
 STATUS_REQUIRING_REASON = (ST_FROZEN,)
 
+# ── Per-page tabs ──────────────────────────────────────────────────────────
+# team_00 rule (2026-08-17): every page IN WORK gets its own tab listing that
+# page's individual items. When the page is approved, the tab is HIDDEN (never
+# deleted — the record survives). The round tabs remain the page-level index.
+
+PAGE_TAB_PREFIX = 'עמוד · '
+
+# (header, owner) — the item-level grid.
+ITEM_COLUMNS: tuple[tuple[str, str], ...] = (
+    ('#',                  AGENT),   # e.g. H-01, immutable
+    ('סקשן אצל אייל',      AGENT),   # SECTION 07 / —
+    ('הסעיף',              AGENT),   # what this item is
+    ('הכשל',               AGENT),   # what is wrong today
+    ('התוכן הדרוש',        AGENT),   # what it must become, and from which source
+    ('התיקון',             AGENT),   # the concrete change
+    ('סיווג',              AGENT),   # ברור / לא ברור
+    ('נתיב קוד',           AGENT),
+    ('סטטוס סעיף',         AGENT),
+    ('הכרעה נדרשת מ',      AGENT),   # — / נימרוד / אייל
+    ('אפשרויות לבחירה',    AGENT),   # populated when escalating
+    ('הערות סוכן',         AGENT),
+    ('בחירה',              HUMAN),   # Nimrod's or Eyal's pick
+    ('הערות נימרוד',       HUMAN),
+    ('הערות אייל',         HUMAN),
+    ('תאריך הכרעה',        HUMAN),
+)
+
+ITEM_HEADERS = tuple(h for h, _ in ITEM_COLUMNS)
+ITEM_OWNER_OF = {h: o for h, o in ITEM_COLUMNS}
+
+COL_ITEM_STATUS = 'סטטוס סעיף'
+COL_ITEM_CLASS = 'סיווג'
+COL_ITEM_DECIDER = 'הכרעה נדרשת מ'
+COL_ITEM_CHOICE = 'בחירה'
+COL_ITEM_NOTES = 'הערות סוכן'
+
+# Classification — the team_00 work-layer rule, made a data value.
+CLS_CLEAR = 'ברור'        # defect + required content + fix all clear → execute
+CLS_UNCLEAR = 'לא ברור'   # anything missing → escalate
+ITEM_CLASSES = (CLS_CLEAR, CLS_UNCLEAR)
+
+IT_OPEN = 'פתוח'
+IT_IN_WORK = 'בעבודה'
+IT_DONE = 'בוצע'
+IT_WAIT_NIMROD = 'ממתין להכרעת נימרוד'
+IT_WAIT_EYAL = 'ממתין לאייל'
+IT_FROZEN = 'הוקפא'
+ITEM_STATUSES = (IT_OPEN, IT_IN_WORK, IT_DONE,
+                 IT_WAIT_NIMROD, IT_WAIT_EYAL, IT_FROZEN)
+
+DECIDERS = ('—', 'נימרוד', 'אייל')
+
+# An item that needs a decision must name who decides and offer the options.
+ITEM_STATUS_REQUIRING_DECIDER = (IT_WAIT_NIMROD, IT_WAIT_EYAL)
+ITEM_STATUS_REQUIRING_REASON = (IT_FROZEN,)
+
+
+def page_tab_name(path: str, title: str = '') -> str:
+    """Excel caps sheet names at 31 chars and forbids : \\ / ? * [ ]."""
+    label = (title or path).strip()
+    name = PAGE_TAB_PREFIX + label
+    for ch in ':\\/?*[]':
+        name = name.replace(ch, '-')
+    return name[:31]
+
+
 # ── Row types ──────────────────────────────────────────────────────────────
 TYPE_PAGE = 'עמוד'
 TYPE_POST = 'פוסט'

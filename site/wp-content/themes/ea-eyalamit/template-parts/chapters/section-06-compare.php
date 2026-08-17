@@ -45,7 +45,10 @@ $cards = array(
 					<span class="cmpc__sc" aria-hidden="true"></span>
 					<div class="cmpc__b">
 						<h3 class="cmpc__t"><?php echo esc_html( $c['title'] ); ?></h3>
-						<p class="cmpc__p"><?php echo esc_html( $c['text'] ); ?></p>
+						<?php /* S006 · H-03 · טקסט הכרטיס בנוי לפי SECTION 04 (תוויות «מה זה:» /
+							«למי זה מתאים:» + שורה לכל שורה של אייל), ולכן עובר דרך
+							ea_chapters_kses_e (מתיר <br>/<strong>) ולא דרך esc_html. */ ?>
+						<p class="cmpc__p"><?php ea_chapters_kses_e( $c['text'] ); ?></p>
 						<?php if ( $c['cta'] ) : ?>
 							<a class="btn btn--gw" href="<?php echo esc_url( $c['url'] ); ?>"><?php echo esc_html( $c['cta'] ); ?></a>
 						<?php endif; ?>

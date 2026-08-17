@@ -26,6 +26,26 @@ tmp = Path(tempfile.mkdtemp())
 results = []
 
 
+def clean_row() -> int:
+    """A row still at «טרם נבדק» with empty agent notes.
+
+    Cases that assert on status transitions must not hardcode a row number:
+    as the milestone progresses, real rows advance and what was an illegal
+    transition from «טרם נבדק» becomes legal from «בעבודה». Locating an
+    untouched row keeps these assertions meaningful for the whole milestone.
+    """
+    ws = load_workbook(SRC, data_only=True)[SHEET]
+    for r in range(3, ws.max_row + 1):
+        status = (ws.cell(r, COL['סטטוס מכונה']).value or '').strip()
+        notes = (ws.cell(r, COL['הערות סוכן']).value or '').strip()
+        if status == 'טרם נבדק' and not notes:
+            return r
+    raise SystemExit('no untouched row left — self-test needs one to assert on')
+
+
+ROW = clean_row()
+
+
 def run(path, mode='verify'):
     p = subprocess.run(
         [sys.executable, str(REPO / 'scripts/tracker_guard.py'),
@@ -48,26 +68,26 @@ def case(name, mutate, expect_rc, mode='verify', expect_text=None):
 
 # a) agent writes a human-only approval status
 case('a_agent_sets_eyal_approval',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס אישור'], 'אושר ע״י אייל'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס אישור'], 'אושר ע״י אייל'),
      1, expect_text='עמודה בבעלות אנוש')
 
 # b) agent writes into a human notes column
 case('b_agent_writes_nimrod_notes',
-     lambda wb: wb[SHEET].cell(3, COL['הערות נימרוד'], 'טקסט שהסוכן המציא'),
+     lambda wb: wb[SHEET].cell(ROW, COL['הערות נימרוד'], 'טקסט שהסוכן המציא'),
      1, expect_text='עמודה בבעלות אנוש')
 
 # c) illegal machine transition: טרם נבדק -> הוגש לבדיקה (skips בעבודה)
 case('c_illegal_transition',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס מכונה'], 'הוגש לבדיקה'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'הוגש לבדיקה'),
      1, expect_text='מעבר סטטוס אסור')
 
 # d) frozen without a written reason
 case('d_frozen_without_reason',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס מכונה'], 'הוקפא'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'הוקפא'),
      1, expect_text='ללא סיבה כתובה')
 
 # e) row deletion
-case('e_row_deleted', lambda wb: wb[SHEET].delete_rows(3), 1,
+case('e_row_deleted', lambda wb: wb[SHEET].delete_rows(ROW), 1,
      expect_text='שורות נמחקו')
 
 # f) header renamed
@@ -77,14 +97,14 @@ case('f_header_renamed',
 
 # g) invalid status value entirely
 case('g_bogus_status',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס מכונה'], 'בערך מוכן'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'בערך מוכן'),
      1, expect_text='ערך לא חוקי')
 
 
 # h) LEGAL agent flow: טרם נבדק -> בעבודה
 def legal(wb):
-    wb[SHEET].cell(3, COL['סטטוס מכונה'], 'בעבודה')
-    wb[SHEET].cell(3, COL['הערות סוכן'], 'התחלנו מול סקירה דף הבית.xlsx')
+    wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'בעבודה')
+    wb[SHEET].cell(ROW, COL['הערות סוכן'], 'התחלנו מול סקירה דף הבית.xlsx')
 
 
 case('h_legal_agent_progress', legal, 0)
@@ -92,23 +112,24 @@ case('h_legal_agent_progress', legal, 0)
 
 # i) LEGAL frozen WITH a reason
 def frozen_ok(wb):
-    wb[SHEET].cell(3, COL['סטטוס מכונה'], 'הוקפא')
-    wb[SHEET].cell(3, COL['הערות סוכן'], 'חסר חומר מאייל לפרק הווידאו')
+    wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'הוקפא')
+    wb[SHEET].cell(ROW, COL['הערות סוכן'], 'חסר חומר מאייל לפרק הווידאו')
 
 
 case('i_legal_frozen_with_reason', frozen_ok, 0)
 
 # j) human edit under ingest mode is accepted and surfaced as work
 case('j_human_edit_ingest',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס אישור'], 'חזר לתיקונים'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס אישור'], 'חזר לתיקונים'),
      0, mode='ingest', expect_text='קלט אנושי')
 
 # k) same human edit under verify mode is a violation
 case('k_human_edit_verify',
-     lambda wb: wb[SHEET].cell(3, COL['סטטוס אישור'], 'חזר לתיקונים'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס אישור'], 'חזר לתיקונים'),
      1, mode='verify')
 
-print('\n' + '=' * 74)
+print(f'\nclean row used for transition assertions: {ROW}')
+print('=' * 74)
 passed = sum(1 for _, ok, *_ in results if ok)
 for name, ok, rc, exp, head in results:
     print(f'{"PASS" if ok else "FAIL"}  {name:34} rc={rc} (expected {exp})')

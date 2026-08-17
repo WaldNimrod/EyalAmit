@@ -13,7 +13,10 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 	<span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>
 	<div class="cta-band__in">
 		<div class="cta-band__txt r">
-			<h2 class="cta-band__h"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
+			<?php /* S006 · H-08 · הכותרת אופציונלית: ה-CTA הסופי של דף הבית (SECTION 12)
+				הוא פסקה + כפתור בלבד, ללא כותרת אצל אייל — עדיף לא לרנדר h2 ריק
+				מאשר להמציא כותרת. עמודים שכן מעבירים 'title' לא מושפעים. */ ?>
+			<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="cta-band__h"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
 			<?php if ( ! empty( $a['body'] ) ) : ?><p class="cta-band__p"><?php echo esc_html( $a['body'] ); ?></p><?php endif; ?>
 		</div>
 		<?php if ( ! empty( $a['cta_label'] ) ) : ?>

@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+"""
+tracker_page_tab.py — per-page tabs in EA-CONTENT-TRACKER.xlsx.
+
+team_00 rule (2026-08-17): every page IN WORK gets its own tab listing that
+page's individual items — the defect, the required content, the fix, and who
+must decide when it is not clear. When the page is approved the tab is HIDDEN,
+never deleted: the record of how the page got approved has to survive.
+
+The item grid encodes the work-layer rule as data:
+  סיווג = «ברור»     → defect + required content + fix are all clear → we execute
+  סיווג = «לא ברור»  → escalate; «הכרעה נדרשת מ» names נימרוד or אייל, and
+                       «אפשרויות לבחירה» carries the options they choose between.
+
+Usage (repo root):
+    python3 scripts/tracker_page_tab.py --create R1-01
+    python3 scripts/tracker_page_tab.py --create R1-01 --items items.json
+    python3 scripts/tracker_page_tab.py --hide R1-01
+    python3 scripts/tracker_page_tab.py --list
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import sys
+from pathlib import Path
+
+from openpyxl import load_workbook
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Protection, Side
+from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.datavalidation import DataValidation
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import tracker_schema as S  # noqa: E402
+
+REPO = Path(__file__).resolve().parent.parent
+TRACKER = REPO / S.TRACKER_DIR / S.TRACKER_FILENAME
+
+FILL_AGENT = PatternFill('solid', fgColor='E8EEF4')
+FILL_HUMAN = PatternFill('solid', fgColor='FDF3E3')
+FILL_TITLE = PatternFill('solid', fgColor='2F4858')
+FILL_WAIT = PatternFill('solid', fgColor='FBE3E0')   # decision pending
+THIN = Side(style='thin', color='B7C4CF')
+BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
+
+WIDTHS = {
+    '#': 7, 'סקשן אצל אייל': 14, 'הסעיף': 26, 'הכשל': 46, 'התוכן הדרוש': 46,
+    'התיקון': 40, 'סיווג': 10, 'נתיב קוד': 34, 'סטטוס סעיף': 18,
+    'הכרעה נדרשת מ': 14, 'אפשרויות לבחירה': 44, 'הערות סוכן': 34,
+    'בחירה': 24, 'הערות נימרוד': 30, 'הערות אייל': 30, 'תאריך הכרעה': 14,
+}
+WRAP = ('הכשל', 'התוכן הדרוש', 'התיקון', 'אפשרויות לבחירה', 'הערות סוכן',
+        'הערות נימרוד', 'הערות אייל', 'הסעיף', 'נתיב קוד')
+
+
+def norm(v) -> str:
+    return '' if v is None else str(v).strip()
+
+
+def find_page_row(wb, key: str):
+    for sheet in S.DATA_SHEETS:
+        ws = wb[sheet]
+        for r in range(3, ws.max_row + 1):
+            if norm(ws.cell(r, 1).value) == key:
+                return sheet, r, ws
+    raise SystemExit(f'שורת עמוד «{key}» לא נמצאה')
+
+
+def build_tab(ws, page_key: str, path: str, title: str, items: list[dict]) -> None:
+    ws.sheet_view.rightToLeft = True
+
+    ws.cell(1, 1, f'{title}   ·   {path}   ·   שורת אב {page_key}')
+    ws.cell(1, 1).font = Font(bold=True, size=13, color='2F4858')
+    ws.cell(2, 1, 'סיווג «ברור» = מבוצע באורקסטרציה ללא שאלה. '
+                  '«לא ברור» = אסקלציה — «הכרעה נדרשת מ» + «אפשרויות לבחירה». '
+                  'עמודות בחול הן שלכם בלבד.')
+    ws.cell(2, 1).font = Font(size=9, italic=True, color='6B7C8C')
+
+    hdr = 4
+    for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
+        c = ws.cell(hdr, col, h)
+        c.font = Font(bold=True, size=10, color='FFFFFF')
+        c.fill = FILL_TITLE
+        c.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+        c.border = BORDER
+        ws.column_dimensions[get_column_letter(col)].width = WIDTHS.get(h, 18)
+    ws.row_dimensions[hdr].height = 30
+
+    for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
+        c = ws.cell(hdr + 1, col, 'סוכן' if owner == S.AGENT else 'אנוש ← רק אתם')
+        c.font = Font(bold=True, size=8,
+                      color='36618E' if owner == S.AGENT else 'A15C00')
+        c.fill = FILL_AGENT if owner == S.AGENT else FILL_HUMAN
+        c.alignment = Alignment(horizontal='center')
+        c.border = BORDER
+
+    first = hdr + 2
+    for i, item in enumerate(items):
+        r = first + i
+        waiting = item.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER
+        for col, (h, owner) in enumerate(S.ITEM_COLUMNS, start=1):
+            c = ws.cell(r, col, item.get(h, ''))
+            if owner == S.HUMAN:
+                c.fill = FILL_HUMAN
+            else:
+                c.fill = FILL_WAIT if waiting else FILL_AGENT
+            c.border = BORDER
+            c.alignment = Alignment(horizontal='right', vertical='top',
+                                    wrap_text=h in WRAP)
+            c.protection = Protection(locked=(owner == S.AGENT))
+
+    last = first + max(len(items), 1) - 1
+
+    dv_s = DataValidation(type='list',
+                          formula1='"' + ','.join(S.ITEM_STATUSES) + '"',
+                          allow_blank=True, showDropDown=False)
+    dv_c = DataValidation(type='list',
+                          formula1='"' + ','.join(S.ITEM_CLASSES) + '"',
+                          allow_blank=True, showDropDown=False)
+    dv_d = DataValidation(type='list', formula1='"' + ','.join(S.DECIDERS) + '"',
+                          allow_blank=True, showDropDown=False)
+    for dv, colname in ((dv_s, S.COL_ITEM_STATUS), (dv_c, S.COL_ITEM_CLASS),
+                        (dv_d, S.COL_ITEM_DECIDER)):
+        ws.add_data_validation(dv)
+        L = get_column_letter(S.ITEM_HEADERS.index(colname) + 1)
+        dv.add(f'{L}{first}:{L}{last}')
+
+    ws.protection.sheet = True
+    ws.protection.selectLockedCells = False
+    ws.freeze_panes = ws.cell(first, 1).coordinate
+    ws.auto_filter.ref = (f'A{hdr}:'
+                          f'{get_column_letter(len(S.ITEM_HEADERS))}{last}')
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--create', metavar='PAGE_KEY')
+    ap.add_argument('--items', help='JSON list of item dicts keyed by ITEM_HEADERS')
+    ap.add_argument('--hide', metavar='PAGE_KEY')
+    ap.add_argument('--list', action='store_true')
+    ap.add_argument('--update', nargs=2, metavar=('PAGE_KEY', 'ITEM_KEY'),
+                    help='update agent-owned cells on one item row')
+    ap.add_argument('--set', action='append', default=[], metavar='COL=VALUE')
+    ap.add_argument('--actor', default='team_100')
+    args = ap.parse_args()
+
+    if not TRACKER.exists():
+        print(f'הטרקר לא נמצא: {TRACKER}', file=sys.stderr)
+        return 2
+
+    wb = load_workbook(TRACKER)
+
+    if args.list:
+        for name in wb.sheetnames:
+            if name.startswith(S.PAGE_TAB_PREFIX):
+                print(f'  {name}   [{wb[name].sheet_state}]')
+        return 0
+
+    if args.hide:
+        sheet, r, ws = find_page_row(wb, args.hide)
+        path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
+        title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
+        approval = norm(ws.cell(r, S.HEADERS.index(S.COL_APPROVAL_STATUS) + 1).value)
+        if approval != S.AP_EYAL:
+            print(f'סירוב: «{args.hide}» אינו «{S.AP_EYAL}» (כרגע: {approval!r}). '
+                  'טאב עמוד מוסתר רק אחרי אישור אייל.', file=sys.stderr)
+            return 1
+        name = S.page_tab_name(path, title)
+        if name not in wb.sheetnames:
+            print(f'אין טאב לעמוד «{args.hide}»', file=sys.stderr)
+            return 1
+        wb[name].sheet_state = 'hidden'
+        wb.save(TRACKER)
+        print(f'  הוסתר: {name} (לא נמחק — הרשומה נשמרת)')
+        return 0
+
+    if args.update:
+        page_key, item_key = args.update
+        sheet, r, ws = find_page_row(wb, page_key)
+        path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
+        title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
+        name = S.page_tab_name(path, title)
+        if name not in wb.sheetnames:
+            print(f'אין טאב לעמוד «{page_key}»', file=sys.stderr)
+            return 1
+        tab = wb[name]
+
+        updates = {}
+        for pair in args.set:
+            if '=' not in pair:
+                print(f'--set חייב להיות COL=VALUE: {pair!r}', file=sys.stderr)
+                return 2
+            col, val = pair.split('=', 1)
+            col = col.strip()
+            if col not in S.ITEM_HEADERS:
+                print(f'עמודת סעיף לא מוכרת: {col!r}', file=sys.stderr)
+                return 2
+            if S.ITEM_OWNER_OF[col] == S.HUMAN:
+                print(f'סירוב: «{col}» היא עמודה בבעלות אנוש.', file=sys.stderr)
+                return 1
+            updates[col] = val.strip()
+
+        st = updates.get(S.COL_ITEM_STATUS)
+        if st and st not in S.ITEM_STATUSES:
+            print(f'סטטוס סעיף לא חוקי: {st!r}\nמותר: {list(S.ITEM_STATUSES)}',
+                  file=sys.stderr)
+            return 1
+
+        target = None
+        for rr in range(6, tab.max_row + 1):
+            if norm(tab.cell(rr, 1).value) == item_key:
+                target = rr
+                break
+        if not target:
+            print(f'סעיף «{item_key}» לא נמצא בטאב «{name}»', file=sys.stderr)
+            return 1
+
+        changes = []
+        for col, val in updates.items():
+            c = tab.cell(target, S.ITEM_HEADERS.index(col) + 1)
+            before = norm(c.value)
+            if before != val:
+                c.value = val
+                changes.append(f'{col}: {before!r} ← {val!r}')
+        if not changes:
+            print('  אין שינוי.')
+            return 0
+
+        log = wb[S.SHEET_LOG]
+        lr = log.max_row + 1
+        for col, val in enumerate((dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                   args.actor, 'עדכון סעיף',
+                                   f'{name}!{item_key}', ' | '.join(changes)), start=1):
+            log.cell(lr, col, val)
+        wb.save(TRACKER)
+        print(f'  {name}!{item_key} — {len(changes)} שינויים')
+        for ch in changes:
+            print(f'    {ch}')
+        return 0
+
+    if not args.create:
+        ap.print_help()
+        return 2
+
+    sheet, r, ws = find_page_row(wb, args.create)
+    path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
+    title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
+    name = S.page_tab_name(path, title)
+
+    items = []
+    if args.items:
+        items = json.loads(Path(args.items).read_text(encoding='utf-8'))
+        for it in items:
+            bad = [k for k in it if k not in S.ITEM_HEADERS]
+            if bad:
+                print(f'עמודות לא מוכרות בפריט: {bad}', file=sys.stderr)
+                return 2
+            for k in it:
+                if S.ITEM_OWNER_OF[k] == S.HUMAN and norm(it[k]):
+                    print(f'סירוב: הפריט מנסה לאכלס «{k}» — עמודה בבעלות אנוש.',
+                          file=sys.stderr)
+                    return 1
+
+    if name in wb.sheetnames:
+        print(f'סירוב: הטאב «{name}» כבר קיים. '
+              'עדכון סעיפים קיימים נעשה בעריכה, לא בבנייה מחדש.', file=sys.stderr)
+        return 1
+
+    build_tab(wb.create_sheet(name), args.create, path, title, items)
+
+    log = wb[S.SHEET_LOG]
+    lr = log.max_row + 1
+    for col, val in enumerate((dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                               args.actor, 'יצירת טאב עמוד', args.create,
+                               f'{name} · {len(items)} סעיפים'), start=1):
+        log.cell(lr, col, val)
+
+    wb.save(TRACKER)
+    waiting = sum(1 for i in items
+                  if i.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER)
+    print(f'  נוצר טאב «{name}» · {len(items)} סעיפים · {waiting} ממתינים להכרעה')
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

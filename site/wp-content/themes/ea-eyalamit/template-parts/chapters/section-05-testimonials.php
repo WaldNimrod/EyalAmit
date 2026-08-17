@@ -14,6 +14,10 @@ defined( 'ABSPATH' ) || exit;
 $brand = 'סטודיו נשימה מעגלית';
 $items = array();
 
+/* S006 · H-11 · מקור: content 13.8.26/דף הבית/homepage1-3 v2.md · SECTION 10 → «CTA: [לכל ההמלצות](/media)» */
+$cta_l = ea_chapters_field( 'testi_cta_label' );
+$cta_u = ea_chapters_field( 'testi_cta_url' );
+
 if ( function_exists( 'ea_fb_testimonials_all' ) ) {
 	foreach ( ea_fb_testimonials_all() as $t ) {
 		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' );
@@ -66,4 +70,9 @@ $render_cards = static function () use ( $items ) {
 			?>
 		</div>
 	</div>
+	<?php if ( $cta_l ) : ?>
+		<div class="wrap center" style="margin-top:40px">
+			<a class="btn btn--gd r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a>
+		</div>
+	<?php endif; ?>
 </section>
