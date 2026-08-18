@@ -157,6 +157,8 @@ def main() -> None:
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-content-eyal-seo-metadesc-2026-07-12-once.php", "wp-content/mu-plugins/ea-content-eyal-seo-metadesc-2026-07-12-once.php"))
     # WP-CANON T2: one-time FAQ CPT seed when staging has no WP-CLI.
     files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-faq-seed-once.php", "wp-content/mu-plugins/ea-faq-seed-once.php"))
+    # S006 R1-25: merge FAQ FINAL.md into live ea_faq (update-or-insert). team_00 18.8.26.
+    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-s006-faq-merge-once.php", "wp-content/mu-plugins/ea-s006-faq-merge-once.php"))
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:
