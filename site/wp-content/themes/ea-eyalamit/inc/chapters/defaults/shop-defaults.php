@@ -1,55 +1,200 @@
 <?php
 /**
- * Chapters /shop/ — product catalog hub (ported from Wave2 ea_w2_05_render_archive).
- * Product cards are intentionally duplicated (not calling ea_w2_05_*) so T6 can
- * delete wave2-w2-05.php without breaking this page. Prices resolve at runtime
- * from ea_product_price postmeta on each product page.
+ * Chapters /shop/ — Eyal's copy from Drive, one section per block.
+ *
+ * S006 R1-10 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$ea_shop_defs = array(
-	array( 'slug' => 'didgeridoos', 'title' => "כלי דיג'רידו למכירה", 'excerpt' => 'כלים בעבודת יד, מותאמים לצליל ולנשימה.' ),
-	array( 'slug' => 'bags', 'title' => "תיקים לדיג'רידו", 'excerpt' => 'הגנה ונשיאה נוחה לכלי, בעבודת יד.' ),
-	array( 'slug' => 'stands-storage', 'title' => "סטנדים לאחסון דיג'רידו", 'excerpt' => 'תלייה או עמידה — אחסון יציב ובטוח.' ),
-	array( 'slug' => 'stand-floor', 'title' => "סטנד רצפתי לנגינה בישיבה נמוכה", 'excerpt' => 'יציבות ונוחות לנגינה בישיבה על הרצפה.' ),
-	array( 'slug' => 'repair', 'title' => "תיקון וחידוש דיג'רידו", 'excerpt' => "שירות תיקון מקצועי לכלי דיג'רידו." ),
-);
-
-$ea_shop_items = array();
-foreach ( $ea_shop_defs as $d ) {
-	$price = '';
-	$page  = get_page_by_path( $d['slug'] );
-	if ( $page instanceof WP_Post ) {
-		$meta  = get_post_meta( $page->ID, 'ea_product_price', true );
-		$price = is_string( $meta ) ? trim( $meta ) : '';
-	}
-	$ea_shop_items[] = array(
-		'title' => $d['title'],
-		'blurb' => $d['excerpt'],
-		'url'   => home_url( '/' . $d['slug'] . '/' ),
-		'meta'  => '' !== $price ? $price . ' ₪' : 'מחיר לפי התאמה',
-	);
-}
-
 return array(
-	'phero'    => array(
-		'chap'  => 'חנות',
-		'title' => "כלים ואביזרים לדיג'רידו",
-		'sub'   => 'כלים בעבודת יד, תיקים, סטנדים, וכן שירות תיקון וחידוש.',
+
+	/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+	'phero' => array(
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+		'title'     => "כלי דיג'רידו למכירה - כלים בעבודת יד",
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+		'sub'       => "דיג'רידו הוא לא רק כלי נגינה. זה כלי עבודה על הנשימה. כאן תמצאו כלים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר הישיר ביניהם לבין הנשימה. כל כלי הוא שונה. מותאם, מדויק, ונבנה מתוך ניסיון של שנים בעבודה עם אנשים ונשימה.",
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+		'cta_label' => 'לתיאום והתאמה אישית',
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+		'cta_url'   => '/contact',
 	),
+
 	'sections' => array(
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
 		array(
-			'part' => 'bookcard',
+			'part' => 'prose',
 			'args' => array(
-				'chap'       => 'המוצרים',
-				'title'      => 'כל המוצרים',
-				'cta_label'  => 'לעמוד המוצר ←',
-				'items'      => $ea_shop_items,
-				'alt'        => false,
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
+				'body' => '<p>אם הגעתם לכאן מתוך רצון לעבוד עם הנשימה ולא רק לנגן, אפשר לקרוא גם על <a class="tlink" href="/treatment">טיפול בדיג\'רידו</a></p>',
 			),
 		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 02 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 02 */
+				'title' => 'מי בונה את הכלים האלה',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 02 */
+				'body'  => '<p>הכלים נבנים על ידי אייל עמית, מורה, מטפל ובונה דיג\'רידו, הפועל בתחום כבר למעלה מ־26 שנים.</p><p>לא מדובר בייצור סדרתי, אלא בעבודת יד שנשענת על ניסיון מצטבר, היכרות עמוקה עם הכלי, והבנה מדויקת של הקשר בין מבנה הכלי לבין הנשימה.</p><p>אייל למד את מלאכת הבנייה בהודו אצל המאסטר מוקש דהימן, ומשם המשיך לפתח את הדרך האישית שלו לאורך שנים של עבודה, ניסוי ודיוק.</p><p>הרקע שלו כמהנדס אלקטרוניקה בא לידי ביטוי בכל כלי: בהבנה של תדרים, זרימת אוויר, התנגדות, ואופן שבו הכלי מגיב לנשימה.</p><p>אייל עובד עם חומרים מהאיכות הגבוהה ביותר, לא מדלג על אף שלב בתהליך, ובונה כל כלי במקסימום תשומת לב, דיוק ואהבה.</p><p>הדיג\'רידו כאן לא נבנה רק כדי להישמע טוב, אלא כדי לעבוד נכון עם הגוף.</p><p>זה הבדל שמרגישים כבר מהנשיפה הראשונה.</p><p>מי שמגיע מעולמות של עבודה עם נשימה, או נחשף ל־<a class="tlink" href="/method">שיטת cbDIDG</a> מבין מהר מאוד עד כמה הדיוק הזה משמעותי.</p><p>ואם המטרה היא לא רק לנגן אלא ללמוד לעבוד עם הנשימה, שווה להכיר גם את <a class="tlink" href="/treatment">העבודה הטיפולית עם דיג\'רידו</a></p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 03 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 03 */
+				'title' => 'מה מייחד את הכלים',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 03 */
+				'body'  => '<p>לא כל דיג\'רידו הוא אותו דבר. ההבדלים לא תמיד נראים בעין, אבל מורגשים מיד בנשימה ובצליל.</p><p>מה שמייחד את הכלים כאן:</p><ul><li><strong>אוברטונים חזקים וברורים</strong> מאפשרים שליטה עשירה בצליל והפקת שכבות עומק נוספות</li><li><strong>לחץ אחורי גבוה</strong> יוצר התנגדות נכונה שמאפשרת נשימה רכה, קלה ונינוחה לאורך זמן</li><li><strong>צליל עמוק ויציב</strong> בסיס חזק שמחזיק את הנגינה ואת העבודה הנשימתית</li><li><strong>קלי משקל - עשויים מעץ אגבה</strong> נוחים לאחיזה, לנגינה ממושכת ולתנועה עם הכלי</li><li><strong>מתאימים גם לעבודה מדיטטיבית ולסאונד הילינג</strong> בזכות המשקל והתגובה של הכלי, ניתן לעבוד איתו לאורך זמן בלי מאמץ</li></ul><p>זה שילוב של תכנון, ניסיון ועבודה מדויקת, שמורגש מיד כשמתחילים לנגן.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 04 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 04 */
+				'title' => 'למי הכלים מתאימים',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 04 */
+				'body'  => '<p>הכלים מתאימים גם למי שמתחיל, וגם למי שכבר מנגן ורוצה כלי מדויק יותר.</p><p>אבל יותר מהכל - הם מתאימים למי שמבין שהדיג\'רידו הוא לא רק נגינה, אלא דרך לעבוד עם הנשימה.</p><p>הכלים יכולים להתאים ל:</p><ul><li>מי שרוצה להתחיל ללמוד דרך <a class="tlink" href="/lessons">שיעורי נגינה בדיג\'רידו</a></li><li>מי שמחפש כלי לעבודה אישית עם הנשימה</li><li>מטפלים ואנשים שמעבירים <a class="tlink" href="/sound-healing">סאונד הילינג</a></li><li>מי שכבר נמצא בתהליך של <a class="tlink" href="/treatment">טיפול בדיג\'רידו</a></li><li>נגנים שמחפשים כלי מדויק, נוח ועמוק יותר</li></ul><p>אין צורך בניסיון קודם. אבל כן יש יתרון למי שמוכן להיכנס לתהליך וללמוד לעבוד עם הכלי.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+				'title' => 'איך בוחרים כלי',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+				'body'  => '<p>בחירה של דיג\'רידו לא נעשית רק לפי מראה או צליל. ההתאמה האמיתית היא בינך לבין הכלי.</p><p>יש כמה דברים שחשוב לקחת בחשבון:</p><ul><li><strong>איך הכלי מגיב לנשימה שלך</strong> לכל אחד נשימה שונה, ומה שנוח לאחד לא בהכרח יתאים לאחר</li><li><strong>רמת הניסיון שלך</strong> יש כלים שמתאימים יותר להתחלה, ויש כאלה שדורשים שליטה גבוהה יותר</li><li><strong>המטרה שלך</strong> נגינה, עבודה נשימתית, מדיטציה או סאונד הילינג - לכל כיוון יש התאמה מעט שונה</li><li><strong>התחושה בגוף בזמן נגינה</strong> כלי נכון מרגיש טבעי. לא מאמץ, לא "נלחם" בך</li></ul><p>ברוב המקרים, הדרך הטובה ביותר לבחור כלי היא פשוט לנסות.</p><p>אפשר להגיע, להחזיק, לנגן, ולהרגיש מה נכון לך.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+				'cta_label' => 'לתיאום הגעה והתנסות בכלים',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+				'cta_url'   => '/contact',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 06 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 06 */
+				'title' => 'איך זה עובד בפועל',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 06 */
+				'body'  => '<p>התהליך פשוט, ישיר, ולא מחייב.</p><p><strong>1. פנייה ראשונית</strong> משאירים פרטים או מתקשרים דרך <a class="tlink" href="/contact">עמוד יצירת קשר</a></p><p><strong>2. שיחה קצרה</strong> מבינים יחד מה אתה מחפש ומה יכול להתאים</p><p><strong>3. הגעה והתנסות (מומלץ)</strong> מגיעים לסטודיו, מנסים כמה כלים ומרגישים את ההבדלים</p><p><strong>4. בחירה</strong> בוחרים את הכלי שמתאים לך באמת, לא רק זה שנשמע טוב</p><p>אין לחץ, ואין צורך "להחליט מהר". המטרה היא למצוא כלי שתעבוד איתו לאורך זמן.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+				'title' => 'מוצרים משלימים',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+				'body'  => '<p>מעבר לכלי עצמו, יש גם אביזרים שמשפרים את חוויית השימוש ושומרים על הכלי לאורך זמן.</p><ul><li><strong><a class="tlink" href="/instruments">תיקים לדיג\'רידו</a></strong> לנשיאה נוחה והגנה על הכלי</li><li><strong><a class="tlink" href="/instruments">סטנדים לאחסון דיג\'רידו</a></strong> שומרים על הכלי יציב ומוגן מנפילות (חשוב במיוחד כי דיג\'רידו הוא כלי שביר)</li><li><strong><a class="tlink" href="/repair">תיקון וחידוש דיג\'רידו</a></strong> חידוש, איטום וטיפול בכלים קיימים להארכת חיי הכלי</li></ul><p>האביזרים נבחרים מתוך ניסיון בעבודה יומיומית עם הכלים, ומתוך הבנה של מה באמת נדרש בשטח.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+				'cta_label' => 'לבדיקת זמינות והתאמה',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+				'cta_url'   => '/contact',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+		array(
+			'part' => 'faq-inline',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+				'title' => 'שאלות נפוצות',
+				'items' => array(
+					array(
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'q' => 'האם צריך ניסיון קודם כדי לרכוש דיג\'רידו?',
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'a' => '<p>לא.</p><p>אפשר להתחיל גם בלי ניסיון, והכלי יכול ללוות אותך מהשלבים הראשונים.</p><p>אבל כדי לדייק את הבחירה וההתאמה של הכלי, מומלץ מאוד לדעת לנשום מעגלית בדיג\'רידו.</p><p>אם עדיין לא למדת, אפשר להתחיל דרך <a class="tlink" href="/lessons">שיעורי נגינה בדיג\'רידו</a></p>',
+					),
+					array(
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'q' => 'איך יודעים איזה כלי מתאים לי?',
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'a' => '<p>ההתאמה נעשית לפי הנשימה, התחושה בגוף והמטרה שלך.</p><p>לכן מומלץ להגיע ולהתנסות לפני בחירה.</p>',
+					),
+					array(
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'q' => 'האם יש הבדל בין כלי למתחילים לכלי למתקדמים?',
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'a' => '<p>כן.</p><p>יש כלים שקל יותר להתחיל איתם, ויש כאלה שדורשים שליטה גבוהה יותר.</p><p>הבחירה נעשית יחד, בהתאם לניסיון שלך.</p>',
+					),
+					array(
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'q' => 'האם אפשר להשתמש בכלי גם לעבודה נשימתית ולא רק לנגינה?',
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'a' => '<p>כן.</p><p>רבים משתמשים בדיג\'רידו ככלי לעבודה עם הנשימה, לא רק ככלי נגינה.</p><p>אפשר לקרוא עוד על <a class="tlink" href="/treatment">טיפול בדיג\'רידו</a></p>',
+					),
+					array(
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'q' => 'איך קונים בפועל?',
+						/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 08 */
+						'a' => '<p>פונים דרך <a class="tlink" href="/contact">עמוד יצירת קשר</a>, ומתאמים הגעה או שיחה קצרה לבחירת הכלי המתאים.</p>',
+					),
+				),
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 09 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 09 */
+				'title' => 'מה אומרים אנשים שעובדים עם הכלי',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 09 */
+				'body'  => '<p><strong>שירי אלקבץ</strong></p><p><a class="tlink" href="https://www.facebook.com/share/p/1E7ndvYyrp/">לקריאת ההמלצה המלאה</a></p><p>כמו רבים אחרים גם אני חשבתי שאני באה "ללמוד דיג\'רידו".. לא היה לי שמץ של מושג איזה מסע עוצמתי אני הולכת לעבור...</p><p>מעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש העמוס, ליטוף וחיבוק של הלב.</p><p><strong>רותי שליט</strong></p><p><a class="tlink" href="https://www.facebook.com/share/p/19m2waNvQe/">לקריאת ההמלצה המלאה</a></p><p>אין מספיק מילים כדי לתאר את הלימוד אצל אייל, שהוא אחד המורים המשובחים ביותר שיצא לי לפגוש.</p><p><strong>אלון גרזון רז</strong></p><p><a class="tlink" href="https://www.facebook.com/share/v/1Cky28MdtH/">לצפייה בהמלצה</a></p><p>פעם ראשונה בחיים שלמדתי לנשום נכון. אין לנו מושג בכלל, אבל אנחנו לא נושמים נכון בכלל...</p><p>מי שמתחיל לעבוד עם הכלי, מבין מהר מאוד שזה לא רק עניין של נגינה.</p><p>אפשר לקרוא עוד על <a class="tlink" href="/treatment">טיפול בדיג\'רידו</a></p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+				'title' => 'לבחור כלי זה לא רק לקנות כלי',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+				'body'  => '<p>זה לבחור משהו שתעבוד איתו לאורך זמן. משהו שיתאים לנשימה שלך, לקצב שלך, ולדרך שלך.</p><p>אם זה מדויק לך, אפשר לעצור רגע, להגיע, ולהרגיש.</p>',
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+				'cta_label' => 'לתיאום הגעה ובחירת כלי',
+				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+				'cta_url'   => '/contact',
+			),
+		),
+
 	),
 );
