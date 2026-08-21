@@ -72,6 +72,7 @@
       host: 'https://www.youtube-nocookie.com',
       playerVars: {
         autoplay: 1,
+        start: 15,
         mute: 1,
         controls: 0,
         loop: 1,

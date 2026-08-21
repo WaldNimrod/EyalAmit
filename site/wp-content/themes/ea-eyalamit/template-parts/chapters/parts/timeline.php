@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 $a     = isset( $args ) && is_array( $args ) ? $args : array();
 $items = ( isset( $a['items'] ) && is_array( $a['items'] ) ) ? $a['items'] : array();
 ?>
-<section class="sec<?php echo ! empty( $a['dark'] ) ? ' sec--dark' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
+<section class="sec<?php echo ! empty( $a['dark'] ) ? ' sec--dark' : ( ! empty( $a['alt'] ) ? ' sec--alt' : '' ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap<?php echo ! empty( $a['center'] ) ? ' center' : ''; ?>">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
