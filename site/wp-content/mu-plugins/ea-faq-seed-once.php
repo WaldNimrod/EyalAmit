@@ -14,8 +14,11 @@ defined( 'ABSPATH' ) || exit;
  */
 function ea_faq_seed_once_category_labels() {
 	return array(
-		'treatment'      => "טיפול בדיג'רידו",
-		'lessons'        => "שיעורי נגינה בדיג'רידו",
+		'treatment'             => "טיפול בדיג'רידו",
+		'snoring-sleep-apnea'   => 'טיפול בנחירות ודום נשימה',
+		'lectures'              => 'הרצאות',
+		'workshops'             => "סדנאות דיג'רידו",
+		'lessons'               => "שיעורי נגינה בדיג'רידו",
 		'sound-healing'  => "סאונד הילינג בדיג'רידו",
 		'method'         => 'השיטה — cbDIDG',
 		'didgeridoos'    => "רכישת דיג'רידו",

@@ -24,8 +24,11 @@ class Ea_Faq_Migrate_Command {
 	 */
 	private function category_labels() {
 		return array(
-			'treatment'      => "טיפול בדיג'רידו",
-			'lessons'        => "שיעורי נגינה בדיג'רידו",
+			'treatment'             => "טיפול בדיג'רידו",
+			'snoring-sleep-apnea'   => 'טיפול בנחירות ודום נשימה',
+			'lectures'              => 'הרצאות',
+			'workshops'             => "סדנאות דיג'רידו",
+			'lessons'               => "שיעורי נגינה בדיג'רידו",
 			'sound-healing'  => "סאונד הילינג בדיג'רידו",
 			'method'         => 'השיטה — cbDIDG',
 			'didgeridoos'    => "רכישת דיג'רידו",
