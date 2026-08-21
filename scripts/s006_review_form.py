@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""S006 temporary review form for Eyal — open human decisions only.
+"""S006 temporary review form for Eyal.
 
-SSOT remains EA-CONTENT-TRACKER.xlsx. This view lists Round-1 items that still
-need a choice or a fill from Eyal or Nimrod. Frozen pages, done items, and
-team-internal notes stay out.
+SSOT is EA-CONTENT-TRACKER.xlsx. This page is regenerated from the tracker
+snapshot each round: only items still waiting on Eyal or Nimrod.
+Fields match the 19.8 Excel shape (free-text answer + page notes).
 """
 from __future__ import annotations
 
@@ -18,7 +18,59 @@ REPO = Path(__file__).resolve().parent.parent
 SNAPDIR = REPO / "_COMMUNICATION" / "team_100" / "S006" / "tracker"
 STAGING_ORIGIN = "http://eyalamit-co-il-2026.s887.upress.link"
 EXPORT_TYPE = "eyal-s006-tracker-answers"
+EXPORT_SCHEMA = "excel-v2"
 ROUND1_SHEET = "סבב-1-ליבה"
+R19_ANSWERS = SNAPDIR / "r19-eyal-answers.json"
+
+# Catalog waves — used on the form so Eyal sees *when* an already-given
+# 19.8 answer will land, instead of being asked the same radio again.
+PAGE_WAVE: dict[str, int] = {
+    "R1-01": 1,
+    "R1-02": 1,
+    "R1-04": 1,
+    "R1-21": 2,
+    "R1-03": 3,
+    "R1-05": 4,
+    "R1-26": 5,
+    "R1-10": 6,
+    "R1-11": 6,
+    "R1-12": 6,
+    "R1-13": 6,
+    "R1-14": 6,
+    "R1-15": 6,
+    "R1-16": 7,
+    "R1-17": 7,
+    "R1-18": 7,
+    "R1-19": 7,
+    "R1-22": 8,
+    "R1-25": 9,
+    "R1-28": 9,
+    "R1-08": 10,
+    "R1-09": 10,
+}
+
+PAGE_LIVE: dict[str, str] = {
+    "R1-01": "גל 1 עלה 21.8. ציר הזמן ירד. וידאו בפרק 3 נשאר פלייסהולדר (H-06 לשלב 2/3).",
+    "R1-02": "כתובת אחת /treatment/. ההשוואה ?compare=eyal כבויה. סרטון מפגש לשלב מדיה.",
+    "R1-03": "גל 3 עלה 21.8: כותרת «עדויות והמלצות», בלי כפילות chap, כפתור לכל ההמלצות → /testimonials/. תמונות נשארו. קרוסלת חצים = גל 5.",
+    "R1-04": "גל 1 עלה 21.8. קישור הריון כפי שנתת. מקום לווידאו שמור.",
+    "R1-05": "גל 4 עלה 21.8: בלוק אודות לפני CTA. שלד וידאו ב«איך זה עובד». תמונות נשארו. קרוסלת חצים = גל 5.",
+    "R1-10": "בתור גל 6 — כולל פיצול רשת הכלים. תמונות לשלב מאוחר.",
+    "R1-11": "בתור גל 6. תמונות לשלב הבא; בלוק ההמלצות בתיקון יימחק לפי תשובתך.",
+    "R1-12": "אין אקסל נפרד. הוראות חיות ב«עמוד קטלוג ראשי». בתור גל 6.",
+    "R1-13": "בתור גל 6. תמונות לשלב הבא; 6 תמונות מהאתר הישן; bleed נשאר.",
+    "R1-14": "בתור גל 6. באקסל נכתבו מזהי FLR בטעות — התשובות על סטנדים לאחסון.",
+    "R1-15": "האקסל ריק. לא מנחשים. בתור גל 6 אחרי הכרעה.",
+    "R1-16": "בתור גל 7. תמונות להשאיר; תמונת חבילה בהמשך. ניווט ספרים בגל 7.",
+    "R1-17": "בתור גל 7.",
+    "R1-18": "בתור גל 7. שני URL מנדלה — לא בוחרים בלי שורה.",
+    "R1-19": "בתור גל 7. שורת גלריה תויגה כ-VKT-01 שוב.",
+    "R1-21": "גל 2 עלה 21.8. עמוד אחד מ«אודות אייל עמית - סופי מאוחד.md». תמונות נשארו.",
+    "R1-22": "בתור גל 8.",
+    "R1-25": "בתור גל 9. FAQ-04 בלי תשובה באקסל — עדיין אצלך.",
+    "R1-26": "בתור גל 5 (המלצות + כרום קרוסלה).",
+    "R1-28": "בתור גל 9. שני JPG בתיקייה. SNR-04 בלי תשובה באקסל — עדיין אצלך.",
+}
 
 # Pages with more than one live copy Eyal must compare. SSOT for form links
 # (the tracker «אפשרויות לבחירה» text is not rendered as links today).
@@ -102,6 +154,64 @@ def _load_picks() -> dict[tuple[str, str], list[str]]:
             if iid and isinstance(picks, list) and picks:
                 out[(page_key, iid)] = [str(p).strip() for p in picks if str(p).strip()]
     return out
+
+
+def _canon_item_id(raw: str) -> str:
+    s = (raw or "").strip()
+    m = re.match(r"^([A-Za-z]+)-?0*(\d+)([a-zA-Z]?)$", s)
+    if m:
+        return f"{m.group(1).upper()}-{int(m.group(2)):02d}{m.group(3)}"
+    return s
+
+
+def load_r19() -> dict:
+    """19.8 Excel answers (column D) + page notes (column E)."""
+    empty: dict = {"by_page": {}, "lookup": {}}
+    if not R19_ANSWERS.is_file():
+        return empty
+    try:
+        data = json.loads(R19_ANSWERS.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return empty
+    lookup: dict[tuple[str, str], list[dict]] = {}
+    by_page: dict[str, dict] = {}
+    for pg in data.get("pages") or []:
+        if not isinstance(pg, dict):
+            continue
+        key = str(pg.get("pageKey") or "").strip()
+        if not key:
+            continue
+        recs: dict[str, list[dict]] = defaultdict(list)
+        for ans in pg.get("answers") or []:
+            iid = _canon_item_id(str(ans.get("id") or ""))
+            if not iid:
+                continue
+            recs[iid].append(ans)
+            lookup.setdefault((key, iid), []).append(ans)
+        by_page[key] = {
+            "file": pg.get("file") or "",
+            "pageNotes": [str(n) for n in (pg.get("pageNotes") or []) if str(n).strip()],
+            "by_id": recs,
+        }
+    # Id mix-ups in the 19.8 files (remap the label only — do not invent copy).
+    if lookup.get(("R1-05", "SH-01"), []):
+        sh = lookup[("R1-05", "SH-01")]
+        if len(sh) >= 2:
+            lookup[("R1-05", "SH-02")] = [sh[1]]
+    if lookup.get(("R1-19", "VKT-01"), []):
+        vkt = lookup[("R1-19", "VKT-01")]
+        if len(vkt) >= 2:
+            lookup[("R1-19", "VKT-02")] = [vkt[1]]
+    if lookup.get(("R1-14", "FLR-01")):
+        lookup[("R1-14", "STN-01")] = lookup[("R1-14", "FLR-01")]
+    if lookup.get(("R1-14", "FLR-02")):
+        lookup[("R1-14", "STN-02")] = lookup[("R1-14", "FLR-02")]
+    return {"by_page": by_page, "lookup": lookup}
+
+
+def r19_for_item(r19: dict, page_key: str, item_id: str) -> dict | None:
+    recs = r19.get("lookup", {}).get((page_key, item_id)) or []
+    return recs[0] if recs else None
 
 
 def classify_pattern(item: dict) -> tuple[str, str]:
@@ -197,6 +307,7 @@ def load_model() -> dict:
                 "patternLabel": pattern_label,
                 "groupId": classify_group(row),
                 "versions": PAGE_VERSIONS.get(page_key) if pattern_id == "version-choice" else None,
+                "wave": PAGE_WAVE.get(page_key),
             }
         )
 
@@ -227,19 +338,21 @@ def load_model() -> dict:
     for row in pages_rows:
         key = _cell(row, "#")
         path = _cell(row, "נתיב") or "/"
+        items = by_page.get(key, [])
         rec = {
             "key": key,
             "title": _cell(row, "כותרת") or key,
             "path": path,
             "liveUrl": staging_url(path) if path.startswith("/") else "",
             "machine": _cell(row, "סטטוס מכונה"),
-            "openCount": len(by_page.get(key, [])),
+            "openCount": len(items),
             "agentNotes": _cell(row, "הערות סוכן"),
             "eyalSource": _cell(row, "מקור חומר (אייל)"),
             "versions": PAGE_VERSIONS.get(key),
+            "liveState": PAGE_LIVE.get(key, ""),
+            "wave": PAGE_WAVE.get(key),
         }
         inventory.setdefault(rec["machine"], []).append(rec)
-        items = by_page.get(key, [])
         if not items:
             continue
         pages.append(
@@ -250,7 +363,10 @@ def load_model() -> dict:
                 "liveUrl": rec["liveUrl"],
                 "openCount": rec["openCount"],
                 "versions": rec.get("versions"),
+                "liveState": rec["liveState"],
+                "wave": rec["wave"],
                 "items": items,
+                "needItems": items,
             }
         )
 
@@ -259,6 +375,7 @@ def load_model() -> dict:
     return {
         "pages": pages,
         "openItems": open_items,
+        "needItems": open_items,
         "recurring": recurring,
         "inventory": inventory,
         "counts": {
@@ -277,16 +394,21 @@ def _badge(text: str, kind: str) -> str:
 
 
 def _item_html(it: dict) -> str:
+    return _item_need_html(it)
+
+
+def _item_need_html(it: dict) -> str:
     dom = it["domId"]
     bits = [
-        f'<article class="s006-item" id="item-{escape(dom)}" ',
+        f'<article class="s006-item s006-item--need" id="item-{escape(dom)}" ',
         f'data-id="{escape(it["id"])}" data-pattern="{escape(it["patternId"])}" ',
-        f'data-waiter="{escape(it["waiter"])}">\n',
+        f'data-waiter="{escape(it["waiter"])}" data-mode="need">\n',
         '<header class="s006-item__head">\n',
         f'<span class="s006-item__id">{escape(it["itemKey"])}</span>\n',
         f'<h3 class="s006-item__title">{escape(it["title"])}</h3>\n',
         '<span class="s006-item__badges">\n',
     ]
+    bits.append(_badge("עדיין אצלך", "need") + "\n")
     if it["waiter"] == "נימרוד":
         bits.append(_badge("אצל נימרוד", "nimrod") + "\n")
     if it["patternLabel"]:
@@ -299,34 +421,34 @@ def _item_html(it: dict) -> str:
         bits.append(
             f'<p class="s006-item__twin">{escape(it["groupLabel"])} — גם {escape(" · ".join(it["groupPeers"]))}</p>\n'
         )
-
-    field = f"choice-{dom}"
-    bits.append('<fieldset class="s006-choices">\n<legend>בחירה</legend>\n')
-    picks = it["picks"] or ["אחר — פירוט בהערה"]
-    for i, pick in enumerate(picks):
-        pid = f"{field}-{i}"
-        bits.append(
-            f'<label class="s006-choice" for="{escape(pid)}">'
-            f'<input type="radio" name="{escape(field)}" id="{escape(pid)}" '
-            f'value="{escape(pick)}"> {escape(pick)}</label>\n'
-        )
-    bits.append("</fieldset>\n")
     bits.append('<div class="s006-fields">\n')
+    bits.append(
+        '<div class="s006-field s006-field--answer">\n'
+        f'<label class="s006-label" for="answer-{escape(dom)}">תשובה (כמו עמודה D באקסל)</label>\n'
+        f'<textarea class="s006-input" id="answer-{escape(dom)}" rows="4" '
+        f'placeholder="כתבו כאן את התשובה — לא חייבים לבחור מהרשימה"></textarea>\n'
+        "</div>\n"
+    )
     if it["needsFill"]:
         bits.append(
             '<div class="s006-field">\n'
-            f'<label class="s006-label" for="fill-{escape(dom)}">קישור או שם קובץ</label>\n'
+            f'<label class="s006-label" for="fill-{escape(dom)}">קישור, שם קובץ, או חומר מצורף</label>\n'
             f'<input class="s006-input" type="text" id="fill-{escape(dom)}" '
-            f'placeholder="רק אם הבחירה דורשת">\n'
+            f'placeholder="רק אם התשובה דורשת קובץ או כתובת">\n'
             "</div>\n"
         )
-    bits.append(
-        '<div class="s006-field">\n'
-        f'<label class="s006-label" for="notes-{escape(dom)}">הערה</label>\n'
-        f'<textarea class="s006-input" id="notes-{escape(dom)}" rows="1" '
-        f'placeholder="רשות"></textarea>\n'
-        "</div>\n</div>\n</article>\n"
-    )
+    if it.get("picks"):
+        field = f"choice-{dom}"
+        bits.append('<fieldset class="s006-choices">\n<legend>אם נוח — בחירה קצרה (רשות)</legend>\n')
+        for i, pick in enumerate(it["picks"]):
+            pid = f"{field}-{i}"
+            bits.append(
+                f'<label class="s006-choice" for="{escape(pid)}">'
+                f'<input type="radio" name="{escape(field)}" id="{escape(pid)}" '
+                f'value="{escape(pick)}"> {escape(pick)}</label>\n'
+            )
+        bits.append("</fieldset>\n")
+    bits.append("</div>\n</article>\n")
     return "".join(bits)
 
 
@@ -441,17 +563,27 @@ def _round_today_html() -> str:
         "<strong>21.8.2026</strong>. לא מחליף את סבב 1 המקורי, וגם לא פותח עדיין "
         "את סבב 2 (בלוג/QR) או סבב 3 (מובייל) שבטבלה למטה.</p>\n"
         "<ul>\n"
-        "<li><strong>בית, טיפול, שיעורים</strong> — הערות הטקסט מ-19.8 עלו. "
+        "<li><strong>בית, טיפול, שיעורים</strong> — גל 1 עלה. "
         "קישור מאמר ההריון בשיעורים תואם לכתובת שנתת.</li>\n"
-        "<li><strong>אודות אייל עמית</strong> — עמוד אחד, נבנה מחדש מקובץ "
+        "<li><strong>אודות אייל עמית</strong> — גל 2: עמוד אחד מ"
         "«אודות אייל עמית - סופי מאוחד.md». שתי הגרסאות הקודמות ירדו. "
         '<a href="' + STAGING_ORIGIN + '/eyal-amit/" target="_blank" rel="noopener">'
         "לעמוד באתר הבדיקה</a>.</li>\n"
-        "<li><strong>מה נשאר למלא כאן</strong> — רק סעיפים שעדיין פתוחים "
-        "(תמונה, וידאו, קישור, או בחירה). מה שכבר יושם לא מופיע שוב.</li>\n"
+        "<li><strong>השיטה</strong> — גל 3 עלה: כותרת אחת «עדויות והמלצות», "
+        "בלי כפילות שם-פרק קטן, כפתור לכל ההמלצות → /testimonials/. "
+        "התמונות נשארו. קרוסלת חצים = גל 5. "
+        '<a href="' + STAGING_ORIGIN + '/method/" target="_blank" rel="noopener">'
+        "לעמוד השיטה</a>.</li>\n"
+        "<li><strong>סאונד הילינג</strong> — גל 4 עלה: בלוק אודות לפני יצירת קשר, "
+        "שלד וידאו ב«איך זה עובד». התמונות נשארו. קרוסלת חצים = גל 5. "
+        '<a href="' + STAGING_ORIGIN + '/sound-healing/" target="_blank" rel="noopener">'
+        "לעמוד סאונד הילינג</a>.</li>\n"
         "</ul>\n"
-        "<p>בסוף העמוד — ייצוא תשובות לקובץ JSON. הגיליון המלא נשאר "
-        "ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
+        "<p><strong>הטופס נגזר מהטרקר בכל סבב.</strong> "
+        "השדות הם תשובה חופשית + הערות לדף (כמו האקסל), לא רדיו בלבד. "
+        "סעיף שכבר נענה ב-19.8 עודכן בטרקר (בוצע / בעבודה / הוקפא) ואינו נשאל שוב.</p>\n"
+        "<p>ייצוא בסוף העמוד הוא JSON במבנה האקסל (עמוד → תשובות + הערות דף). "
+        "הגיליון המלא נשאר ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
         "</section>\n"
     )
 
@@ -479,7 +611,9 @@ def _context_html(model: dict) -> str:
         '<ul class="s006-context-list s006-context-list--pages">\n'
     )
     for rec in submitted:
-        note = " — הוגש כפי שהוא, בלי שאלה פתוחה" if rec["openCount"] == 0 else ""
+        note = f' — {escape(rec["liveState"])}' if rec.get("liveState") else (
+            " — הוגש כפי שהוא, בלי שאלה פתוחה" if rec["openCount"] == 0 else ""
+        )
         html += f"<li>{_page_chip(rec)}{note}</li>\n"
     html += "</ul>\n"
     if frozen:
@@ -578,11 +712,12 @@ def _context_html(model: dict) -> str:
 
 
 def _page_html(page: dict) -> str:
+    need_n = page.get("openCount") or 0
     bits = [
         f'<section class="s006-page" id="page-{escape(page["key"])}">\n',
         '<header class="s006-page__head">\n',
         f'<h2 class="s006-page__title">{escape(page["title"])}</h2>\n',
-        f'<p class="s006-page__meta">{escape(page["key"])} · {page["openCount"]} שאלות</p>\n',
+        f'<p class="s006-page__meta">{escape(page["key"])} · {need_n} שאלות מהטרקר</p>\n',
     ]
     if page.get("liveUrl"):
         bits.append(
@@ -590,11 +725,21 @@ def _page_html(page: dict) -> str:
             f'target="_blank" rel="noopener">העמוד באתר הבדיקה'
             f' <span dir="ltr">{escape(page["path"])}</span></a></p>\n'
         )
+    if page.get("liveState"):
+        bits.append(f'<p class="s006-page__state">{escape(page["liveState"])}</p>\n')
     if page.get("versions"):
         bits.append(_versions_html(page["versions"]))
     bits.append("</header>\n")
     for it in page["items"]:
         bits.append(_item_html(it))
+    bits.append(
+        '<div class="s006-field s006-field--page-notes">\n'
+        f'<label class="s006-label" for="pagenotes-{escape(page["key"])}">'
+        "הערות תוכן נוספות לגבי הדף (כמו עמודה E באקסל)</label>\n"
+        f'<textarea class="s006-input" id="pagenotes-{escape(page["key"])}" rows="4" '
+        f'placeholder="כל מה ששייך לדף ולא לסעיף בודד"></textarea>\n'
+        "</div>\n"
+    )
     bits.append("</section>\n")
     return "".join(bits)
 
@@ -604,7 +749,7 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     c = model["counts"]
     html = head(
         "שאלות לסגירה — סבב 21.8.2026 — אייל עמית",
-        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w5">\n',
+        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w7">\n',
     )
     html += nav("s006-review")
     html += '<div class="wrap s006-wrap">\n'
@@ -618,11 +763,11 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     if c["nimrod"]:
         who.append(f'{c["nimrod"]} לנימרוד')
     html += (
-        f'<p class="subtitle">{c["openItems"]} שאלות פתוחות על {c["pages"]} עמודים'
+        f'<p class="subtitle">{c["openItems"]} שאלות פתוחות מהטרקר על {c["pages"]} עמודים'
         + (f' ({" · ".join(who)})' if who else "")
-        + ". בחירה, ואם צריך קישור או שם קובץ. בסוף — ייצוא JSON.</p>\n"
+        + ". תשובה חופשית + הערות לדף. בסוף — ייצוא JSON.</p>\n"
     )
-    html += '<p class="s006-section-kicker">השאלות הפתוחות</p>\n'
+    html += '<p class="s006-section-kicker">השאלות הפתוחות בטרקר</p>\n'
     html += (
         '<p class="s006-tracker-ref">מזהה הסעיף זהה לגיליון '
         "<strong>EA-CONTENT-TRACKER.xlsx</strong> בדרייב · "
@@ -639,7 +784,7 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         html += '<li><button type="button" class="s006-chip s006-chip--all" data-filter="">הכל</button></li>\n'
         html += "</ul></div>\n"
 
-    html += '<nav class="s006-toc" aria-label="עמודים עם שאלות">\n<ul>\n'
+    html += '<nav class="s006-toc" aria-label="עמודים עם שאלות מהטרקר">\n<ul>\n'
     for page in model["pages"]:
         html += (
             f'<li><a href="#page-{escape(page["key"])}">{escape(page["title"])} '
@@ -663,7 +808,9 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
 
     cfg = {
         "exportType": EXPORT_TYPE,
-        "items": [{"id": it["id"], "domId": it["domId"]} for it in model["openItems"]],
+        "schema": EXPORT_SCHEMA,
+        "items": [{"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]} for it in model["needItems"]],
+        "pages": [{"key": p["key"]} for p in model["pages"] if p.get("needItems")],
         "defaultRespondent": default_respondent,
         "generatedAt": generated_iso,
     }
@@ -679,3 +826,6 @@ def copy_tracker_snapshots(dist_dir: Path) -> None:
     src = SNAPDIR / "latest-items.csv"
     if src.is_file():
         dest.joinpath("latest-items.csv").write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    r19 = SNAPDIR / "r19-eyal-answers.json"
+    if r19.is_file():
+        dest.joinpath("r19-eyal-answers.json").write_text(r19.read_text(encoding="utf-8"), encoding="utf-8")

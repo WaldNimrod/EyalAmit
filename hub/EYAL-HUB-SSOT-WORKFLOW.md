@@ -66,7 +66,7 @@ python3 scripts/ingest_eyal_feedback_json.py path/to/export.json --by "שם מק
 
 | עמוד | `exportType` | אחסון מומלץ אחרי סקירה |
 |------|----------------|-------------------------|
-| `s006-review.html` | `eyal-s006-tracker-answers` | JSON מאייל → צוות; מזהי סעיפים כבטרקר (`R1-01/H-01`). קליטה ידנית לגיליון עד שיוחלט ingest. טופס 21.8.2026: תיאור בהתחלה + סבב מתועדך. |
+| `s006-review.html` | `eyal-s006-tracker-answers` | נגזר מ-EA-CONTENT-TRACKER בכל סבב. JSON מאייל → צוות; schema `excel-v2` (תשובה + הערות דף). קליטה ידנית לגיליון עד שיוחלט ingest. |
 | `site-tree.html` | `eyal-site-tree-feedback` | `docs/project/eyal-ceo-submissions-and-responses/from-eyal/` עם שם מתאריך + נושא, ו/או `hub/ssot/responses/` אם סוכם למזג לתהליך SSOT |
 | `content-intake.html` | `eyal-page-content-intake` | כנ״ל — קובץ לכל עמוד או אצווה לפי מה שנוח לצוות |
 

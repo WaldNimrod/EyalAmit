@@ -1231,6 +1231,37 @@ nav {
 }
 .s006-badge--pattern { border-color: color-mix(in srgb, var(--eyal-olive) 45%, var(--border)); }
 .s006-badge--nimrod { border-color: var(--accent); color: var(--accent); }
+.s006-badge--received {
+  border-color: color-mix(in srgb, var(--eyal-olive) 55%, var(--border));
+  color: var(--eyal-olive);
+}
+.s006-badge--need {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.s006-item--received { background: color-mix(in srgb, var(--eyal-olive) 8%, var(--card)); }
+.s006-got {
+  margin: 0.2rem 0 0.15rem;
+  padding: 0.35rem 0.55rem;
+  border-inline-start: 3px solid var(--eyal-olive);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+.s006-remap { font-size: 0.8rem; color: var(--muted); }
+.s006-got-notes {
+  margin: 0.4rem 0 0.6rem;
+  padding: 0.45rem 0.65rem;
+  background: color-mix(in srgb, var(--eyal-sand) 35%, white);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.s006-got-notes ul { margin: 0.2rem 0 0.35rem; padding-inline-start: 1.1rem; }
+.s006-page__state { font-size: 0.88rem; color: var(--muted); margin: 0.15rem 0 0.35rem; }
+.s006-field--answer textarea,
+.s006-field--page-notes textarea { min-height: 5.5rem; }
+.s006-field--page-notes { margin: 0.75rem 0 0.35rem; }
 .s006-item__ask { margin: 0.1rem 0 0.3rem; font-size: 0.9rem; line-height: 1.35; }
 .s006-item__twin { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
 .s006-choices {
