@@ -991,3 +991,315 @@ nav {
   min-height: 5rem;
   resize: vertical;
 }
+
+/* S006 temporary review form — wide desktop, compact cards */
+.wrap.s006-wrap {
+  max-width: min(80rem, 96vw);
+  padding: 1.25rem 1.75rem 2.5rem;
+  line-height: 1.4;
+}
+.s006-wrap .subtitle { margin-bottom: 0.7rem; }
+.s006-round-today {
+  background: var(--card);
+  border: 2px solid var(--accent, #2a6f6a);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem 1rem;
+  margin: 0 0 1.1rem;
+}
+.s006-round-today__date {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent, #2a6f6a);
+}
+.s006-round-today h2 {
+  font-size: 1.12rem;
+  margin: 0 0 0.35rem;
+}
+.s006-round-today p { margin: 0.2rem 0 0.45rem; }
+.s006-round-today ul {
+  margin: 0.15rem 0 0.55rem;
+  padding-inline-start: 1.1rem;
+}
+.s006-round-today li { margin: 0.12rem 0; }
+.s006-context {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem 0.95rem;
+  margin: 0 0 1.1rem;
+}
+.s006-context h2 {
+  font-size: 1.08rem;
+  margin: 0.85rem 0 0.3rem;
+}
+.s006-context h2:first-child { margin-top: 0; }
+.s006-context p { margin: 0.2rem 0 0.4rem; }
+.s006-context-list,
+.s006-context-principles,
+.s006-context-ol {
+  margin: 0.15rem 0 0.55rem;
+  padding-inline-start: 1.1rem;
+}
+.s006-context-list li,
+.s006-context-principles li,
+.s006-context-ol li { margin: 0.08rem 0; }
+.s006-context-list--pages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.1rem 1.25rem;
+  padding-inline-start: 1.1rem;
+}
+.s006-context-principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 1.5rem;
+}
+.s006-frozen {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.35rem 0 0.7rem;
+}
+.s006-frozen th,
+.s006-frozen td {
+  text-align: start;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  padding: 0.4rem 0.65rem 0.45rem 0;
+  line-height: 1.35;
+}
+.s006-frozen th { color: var(--muted); font-weight: 600; font-size: 0.78rem; }
+.s006-frozen td:first-child { width: 22%; }
+.s006-frozen td:nth-child(2) { width: 40%; }
+.s006-frozen--rounds td:first-child { width: 4.5rem; font-weight: 700; font-size: 1.05rem; }
+.s006-frozen--rounds td:nth-child(2) { width: auto; }
+.s006-frozen--rounds td:nth-child(3) { width: 22%; }
+.s006-round-bits {
+  margin: 0.15rem 0 0;
+  padding-inline-start: 1.1rem;
+}
+.s006-round-bits li { margin: 0.12rem 0; }
+.s006-frozen--rounds td p { margin: 0 0 0.25rem; }
+@media (max-width: 959px) {
+  .s006-frozen thead { display: none; }
+  .s006-frozen tr { display: block; border-bottom: 1px solid var(--border); padding: 0.5rem 0; }
+  .s006-frozen td { display: block; width: auto; padding: 0.15rem 0; }
+  .s006-frozen td::before {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .s006-frozen td:nth-child(1)::before { content: "עמוד"; }
+  .s006-frozen td:nth-child(2)::before { content: "למה הוקפא"; }
+  .s006-frozen td:nth-child(3)::before { content: "מה דרוש להפשרה"; }
+  .s006-frozen--rounds td:nth-child(1)::before { content: "סבב"; }
+  .s006-frozen--rounds td:nth-child(2)::before { content: "מה בפנים"; }
+  .s006-frozen--rounds td:nth-child(3)::before { content: "מתי"; }
+}
+.s006-section-kicker {
+  font-family: "Frank Ruhl Libre", "David", serif;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 0.4rem 0 0.2rem;
+}
+.s006-tracker-ref {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.7rem;
+}
+.s006-patterns ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.7rem;
+}
+.s006-chip {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.12rem 0.65rem;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.s006-chip.is-on,
+.s006-chip:hover { border-color: var(--accent); color: var(--accent); }
+.s006-toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.7rem;
+  font-size: 0.88rem;
+}
+.s006-toolbar {
+  position: sticky;
+  top: 3.1rem;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  align-items: center;
+  background: color-mix(in srgb, var(--surface) 92%, white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.s006-progress { font-weight: 600; }
+.s006-resp { display: flex; gap: 0.4rem; align-items: center; font-size: 0.88rem; }
+.s006-resp input {
+  width: 9rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+.s006-page {
+  margin: 0 0 1.15rem;
+  padding-top: 0.15rem;
+}
+.s006-page__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  align-items: baseline;
+  margin-bottom: 0.45rem;
+}
+.s006-page__title { margin: 0; font-size: 1.2rem; }
+.s006-page__meta,
+.s006-page__link { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.s006-versions {
+  flex: 1 1 100%;
+  margin: 0.35rem 0 0.15rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--card));
+}
+.s006-versions--compact { margin: 0.25rem 0 0.45rem; }
+.s006-versions__intro { margin: 0 0 0.4rem; font-size: 0.9rem; line-height: 1.4; }
+.s006-versions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.s006-versions li { font-size: 0.9rem; line-height: 1.35; }
+.s006-versions a { font-weight: 650; }
+.s006-versions__note {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 0.08rem;
+}
+.s006-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem 0.55rem;
+  margin: 0;
+}
+.s006-item__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.55rem;
+  align-items: baseline;
+  margin-bottom: 0.15rem;
+}
+.s006-item__id {
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+}
+.s006-item__title { font-size: 0.95rem; margin: 0; }
+.s006-item__badges { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-inline-start: auto; }
+.s006-badge {
+  font-size: 0.7rem;
+  border-radius: 999px;
+  padding: 0.05rem 0.45rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.s006-badge--pattern { border-color: color-mix(in srgb, var(--eyal-olive) 45%, var(--border)); }
+.s006-badge--nimrod { border-color: var(--accent); color: var(--accent); }
+.s006-item__ask { margin: 0.1rem 0 0.3rem; font-size: 0.9rem; line-height: 1.35; }
+.s006-item__twin { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
+.s006-choices {
+  border: 0;
+  padding: 0;
+  margin: 0 0 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem 0.35rem;
+  align-items: center;
+}
+.s006-choices legend {
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 0;
+  margin: 0 0.15rem 0 0;
+  float: none;
+  width: auto;
+}
+.s006-choice {
+  display: inline-flex;
+  gap: 0.3rem;
+  align-items: center;
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 0.18rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+.s006-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 0.7rem;
+}
+.s006-field { min-width: 0; }
+.s006-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 0 0.12rem;
+}
+.s006-input {
+  width: 100%;
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 0.28rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  line-height: 1.3;
+}
+.s006-input[rows] {
+  resize: vertical;
+  min-height: 2.1rem;
+}
+
+@media (min-width: 960px) {
+  .s006-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 0.75rem;
+    align-items: start;
+  }
+  .s006-page__head { grid-column: 1 / -1; }
+}
+
+@media (max-width: 959px) {
+  .s006-context-list--pages,
+  .s006-context-principles,
+  .s006-fields { grid-template-columns: 1fr; }
+  .s006-item { margin-bottom: 0.55rem; }
+}

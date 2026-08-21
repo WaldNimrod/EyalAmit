@@ -6,16 +6,16 @@
       "titleHe": "ממשק Hub",
       "items": [
         {
+          "labelHe": "שאלות לסגירה — סבב 21.8.2026",
+          "href": "s006-review.html",
+          "openInNewTab": false,
+          "noteHe": "טופס מעודכן: תיאור בהתחלה + סבב היום. רק סעיפים פתוחים, ייצוא JSON"
+        },
+        {
           "labelHe": "משימות והחלטות",
           "href": "tasks.html",
           "openInNewTab": false,
           "noteHe": "מעקב משימות, החלטות ממתינות וייצוא JSON"
-        },
-        {
-          "labelHe": "סקירת עמודים",
-          "href": "page-review.html",
-          "openInNewTab": false,
-          "noteHe": "עץ האתר המלא — תיקונים, מזהי מדיה, שאלות פתוחות לכל עמוד"
         },
         {
           "labelHe": "תדריך פגישה",

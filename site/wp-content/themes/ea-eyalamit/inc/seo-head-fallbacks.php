@@ -29,6 +29,39 @@ function ea_w2_09_trim_description( $text ) {
 }
 
 /**
+ * True when a Yoast/excerpt string is leftover team-80 staging chrome
+ * (PLACEHOLDER banner). Those strings must never ship in share cards.
+ *
+ * @param string $text Raw description.
+ * @return bool
+ */
+function ea_w2_09_is_team80_chrome( $text ) {
+	$t = (string) $text;
+	if ( '' === $t ) {
+		return false;
+	}
+	return ( false !== strpos( $t, 'PLACEHOLDER' ) || false !== strpos( $t, 'צוות 80' ) );
+}
+
+/**
+ * Replace team-80 chrome with the theme route fallback (phero.sub / $map).
+ * Used by Yoast filters so og:description cannot leak the banner.
+ *
+ * @param string $desc Candidate description from Yoast or content.
+ * @return string
+ */
+function ea_w2_09_filter_yoast_chrome_desc( $desc ) {
+	if ( ! ea_w2_09_is_team80_chrome( $desc ) ) {
+		return $desc;
+	}
+	$fallback = ea_w2_09_route_description();
+	if ( '' === $fallback ) {
+		$fallback = trim( (string) get_bloginfo( 'description' ) );
+	}
+	return ea_w2_09_trim_description( $fallback );
+}
+
+/**
  * Per-route meta description for inner pages (W1-09: these routes shipped description-less).
  * Keyed on the queried page slug; '' when no specific copy (caller falls back to the tagline).
  *
@@ -36,7 +69,7 @@ function ea_w2_09_trim_description( $text ) {
  */
 function ea_w2_09_route_description() {
 	$map = array(
-		'eyal-amit'      => 'אייל עמית — מאסטר דיג׳רידו ומטפל בנשימה, מייסד המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה. הסיפור, שיטת cbDIDG וליווי אישי.',
+		'eyal-amit'      => 'הכירו את אייל עמית, מורה ומטפל בנשימה באמצעות דיג׳רידו מאז 1999, מייסד שיטת cbDIDG ובונה כלי דיג׳רידו בעבודת יד בפרדס חנה.',
 		'shop'           => 'חנות הדיג׳רידו של אייל עמית — כלים בעבודת יד, תיקים, סטנדים, אביזרים ותיקון דיג׳רידו, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה.',
 		'didgeridoos'    => 'דיג׳רידו למכירה — כלים בעבודת יד בבחירת אייל עמית, מאסטר דיג׳רידו. ייעוץ והתאמה אישית מהמרכז לטיפול בנשימה בפרדס חנה.',
 		'bags'           => 'תיקים לדיג׳רידו בעבודת יד — הגנה ונשיאה נוחה לכלי שלכם, מחנות אייל עמית.',
@@ -48,6 +81,7 @@ function ea_w2_09_route_description() {
 		'blog'           => 'הבלוג של אייל עמית — דיג׳רידו, נשימה, סאונד הילינג וסיפורים מהמרכז לטיפול בנשימה בפרדס חנה.',
 		'faq'            => 'שאלות נפוצות על טיפול בנשימה באמצעות דיג׳רידו, סאונד הילינג ושיעורי נגינה בדיג׳רידו — תשובות מאת אייל עמית.',
 		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח\' עמל 8 ב\' פרדס חנה. וואטסאפ, טלפון וטופס.',
+		'testimonials'   => 'סרטונים, הקלטות, וכתבות על העבודה עם הנשימה והדיג׳רידו.',
 		'press'          => 'אייל עמית בתקשורת — כתבות, ראיונות ואזכורים על המרכז לטיפול בנשימה באמצעות דיג׳רידו, שיטת cbDIDG והספרים.',
 		'shows-heritage' => 'מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה.',
 		'qr'             => 'עמודי ה-QR של אייל עמית — סרטוני הדרכה ותוכן נלווה לספרים ולכלים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו.',
@@ -112,7 +146,7 @@ function ea_w2_09_meta_description() {
 	$queried_id = (int) get_queried_object_id();
 	if ( $queried_id > 0 ) {
 		$yoast_desc = trim( (string) get_post_meta( $queried_id, '_yoast_wpseo_metadesc', true ) );
-		if ( '' !== $yoast_desc ) {
+		if ( '' !== $yoast_desc && ! ea_w2_09_is_team80_chrome( $yoast_desc ) ) {
 			return;
 		}
 	}
@@ -138,6 +172,9 @@ function ea_w2_09_meta_description() {
 	printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 }
 add_action( 'wp_head', 'ea_w2_09_meta_description', 4 );
+add_filter( 'wpseo_metadesc', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
+add_filter( 'wpseo_opengraph_desc', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
+add_filter( 'wpseo_twitter_description', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
 
 /**
  * Favicon fallback when no WP Site Icon is configured.

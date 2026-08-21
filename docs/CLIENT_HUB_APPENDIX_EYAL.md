@@ -31,6 +31,7 @@
 
 ## דפים נוספים (עץ · קליטת תוכן)
 
+- **`s006-review.html`** — טופס זמני: תיאור בהתחלה + סבב מתועדך (21.8.2026); רק סעיפים פתוחים לאייל/נימרוד מטרקר התוכן, ייצוא **`eyal-s006-tracker-answers`**.
 - **`site-tree.html`** — עץ IA מ־`hub/data/site-tree.json`: הערות כלליות ולפי צומת, קישורי legacy/מוקאפים, טבלת legacy לא ממופה, ייצוא **`eyal-site-tree-feedback`**.
 - **`content-intake.html`** — בחירת עמוד, שדות דינמיים מ־`page-templates.json`, בלוק Drive (שם קובץ/קישור), ייצוא **`eyal-page-content-intake`**.
 - **מוקאפי תבניות:** `dist/mockups/page-types/` (מועתקים מ־`hub/src/mockups/page-types/` בבנייה).
@@ -101,6 +102,7 @@
 
 | `exportType` | עמוד | הערה |
 |--------------|------|------|
+| `eyal-s006-tracker-answers` | `s006-review.html` | תשובות לסעיפי טרקר סבב 1; קליטה ידנית לגיליון |
 | `eyal-questions` | `tasks.html` (סקשן שאלות) | קליטה ידנית / ingest עתידי |
 | `eyal-drive-intake` | `tasks.html` או קליטה | שם קובץ בדרייב + הקשר |
 | `eyal-meeting-snapshot` | `meeting.html` | סנאפשוט סוף פגישה |

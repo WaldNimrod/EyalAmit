@@ -24,6 +24,8 @@ from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
 
+from s006_review_form import copy_tracker_snapshots, page_s006_review
+
 HUB_ROOT = Path(__file__).resolve().parent.parent / "hub"
 DATA_DIR = HUB_ROOT / "data"
 SRC_DIR = HUB_ROOT / "src"
@@ -320,6 +322,7 @@ WORKFLOW_TOOL_ITEMS = [
     ("content-intake.html", "קליטת תוכן", "טופס קליטת תוכן לעמוד — מקושר גם מ«מה נדרש ממך»."),
     ("media-intake.html", "מדיה ותמונות", "טופס קליטת מדיה — מקושר גם מ«מה נדרש ממך»."),
     ("content-proposals.html", "הצעות תוכן", "טופס אישור פעיל ל-15 הצעות ה-SEO/GEO (CP-01/AF/FAQ/BLOG/BN-03) — מקושר גם מ«מה נדרש ממך»."),
+    ("page-review.html", "סקירת עמודים (ישן)", "טופס סקירה לפי עץ האתר — הוחלף זמנית ב«שאלות לסגירה» מסבב 1."),
 ]
 
 
@@ -328,8 +331,8 @@ WORKFLOW_TOOL_ITEMS = [
 # כדי שהתפריט יהיה זהה תמיד בכל עמוד בלי תלות במי בנה אותו.
 HUB_NAV_ITEMS: list[tuple[str, str]] = [
     ("index.html", "כניסה"),
+    ("s006-review.html", "שאלות לסגירה"),
     ("what-we-need.html", "מה נדרש ממך"),
-    ("page-review.html", "סקירת עמודים"),
     ("tasks.html", "משימות והחלטות"),
     ("archive.html", "ארכיון"),
 ]
@@ -1992,6 +1995,10 @@ def page_index(
     gate_body = f'<p class="index-gate-text">{escape(gate_text)}</p>\n'
     gate_body += (
         '<div class="card index-cta-needs">'
+        '<h2 class="index-cta-needs__h"><a href="s006-review.html">שאלות לסגירה — סבב 21.8.2026</a></h2>'
+        '<p class="subtitle">תיאור בהתחלה + סבב מתועדך. רק מה שדורש בחירה או חומר ממך. ייצוא JSON בסוף.</p>'
+        "</div>\n"
+        '<div class="card index-cta-needs">'
         '<h2 class="index-cta-needs__h"><a href="what-we-need.html">מה נדרש ממך — לפי עדיפות</a></h2>'
         '<p class="subtitle">כל החומרים, האישורים והשאלות הפתוחות במקום אחד — נקודת הכניסה לפגישה.</p>'
         "</div>\n"
@@ -1999,7 +2006,7 @@ def page_index(
     gate_body += (
         f'<p class="subtitle"><a href="meeting-checklist.html">צ׳קליסט פגישה</a> · '
         f'<a href="meeting.html">תדריך פגישה</a> · <a href="tasks.html">משימות, ייצוא JSON</a> · '
-        f'<a href="page-review.html">סקירת עמודים</a> · '
+        f'<a href="s006-review.html">שאלות לסגירה</a> · '
         f'<a href="content-intake.html">קליטת תוכן</a> · '
         f'<a href="image-picker.html">בחירת תמונות לעמודים</a> · '
         f'<a href="files/team40/ea-legacy-curated/gallery.html">גלריית מדיה לגסי</a> · '
@@ -3308,6 +3315,7 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         "hub-form-exports.js",
         "site-tree-export.js",
         "content-intake.js",
+        "s006-review.js",
     ):
         src = SRC_DIR / "assets" / asset_name
         if src.exists():
@@ -3374,6 +3382,17 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         page_page_review(site_tree, page_review, page_templates, generated_iso),
         encoding="utf-8",
     )
+    (dist_dir / "s006-review.html").write_text(
+        page_s006_review(
+            head=head,
+            nav=nav,
+            foot=foot,
+            generated_iso=generated_iso,
+            default_respondent=DEFAULT_RESPONDENT,
+        ),
+        encoding="utf-8",
+    )
+    copy_tracker_snapshots(dist_dir)
     if materials_needed:
         (dist_dir / "materials-intake.html").write_text(
             page_materials_intake(materials_needed, generated_iso), encoding="utf-8"
