@@ -29,7 +29,7 @@ $cards = array(
 ?>
 <section class="sec" id="compare">
 	<div class="wrap center">
-		<span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'cmp_chap' ) ); ?></span>
+		<?php if ( ea_chapters_field( 'cmp_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'cmp_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'cmp_title' ) ); ?></h2>
 		<?php if ( $lead ) : ?>
 			<p class="lead r" style="margin-top:14px"><?php echo esc_html( $lead ); ?></p>

@@ -12,7 +12,7 @@ $lead  = ea_chapters_field( 'whom_lead' );
 ?>
 <section class="sec sec--alt" id="whom">
 	<div class="wrap center">
-		<span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'whom_chap' ) ); ?></span>
+		<?php if ( ea_chapters_field( 'whom_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'whom_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'whom_title' ) ); ?></h2>
 		<?php if ( $lead ) : ?>
 			<p class="lead r" style="margin-top:14px"><?php echo esc_html( $lead ); ?></p>

@@ -1,14 +1,9 @@
 <?php
 /**
- * Home-only SECTION 09 — approved prose + media placeholder + CTA from Excel.
+ * Home-only SECTION 09 — approved prose + gallery from old-site footer + CTA.
  *
  * S006 · טקסט: content 13.8.26/דף הבית/homepage1-3 v2.md · SECTION 09
- *        (שדות closing_* קיימים — שמות השדה לא שונו, חוב טכני מחוץ לסקואופ).
- * S006 · מדיה: סקירה דף הבית.xlsx · גיליון1!C15 — «גלריה / וידאו משני»
- *        «תמונות אותנטיות בלבד (לא stock)». הפלייסהולדר בנוי; H-07 נשאר ממתין לאייל.
- * S006 · CTA: אותו תא C15 — «[לתיאום שיחת היכרות](/contact)» מילה-במילה.
- *
- * Home-only file — does not edit shared parts/*.php.
+ * S006 · H-07 · גל 1 · מקור: דף הבית.xlsx D7 — תמונות מתחתית https://www.eyalamit.co.il/
  *
  * @package ea_eyalamit
  */
@@ -25,13 +20,28 @@ $title    = (string) ea_chapters_field( 'closing_title' );
 $plabel   = (string) ea_chapters_field( 'peek_media_placeholder' );
 $cta_l    = (string) ea_chapters_field( 'peek_cta_label' );
 $cta_u    = (string) ea_chapters_field( 'peek_cta_url' );
+$defaults = function_exists( 'ea_chapters_defaults' ) ? ea_chapters_defaults() : array();
+$gallery  = ( isset( $defaults['peek_gallery'] ) && is_array( $defaults['peek_gallery'] ) ) ? $defaults['peek_gallery'] : array();
 ?>
 <section class="sec" id="peek">
 	<div class="wrap">
 		<?php if ( $chap ) : ?><span class="chap r"><?php echo esc_html( $chap ); ?></span><?php endif; ?>
 		<?php if ( $title ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $title ); ?></h2><?php endif; ?>
 		<div class="intro-body r r2"><?php echo wp_kses_post( $body ); ?></div>
-		<?php if ( $plabel ) : ?>
+		<?php if ( ! empty( $gallery ) ) : ?>
+		<div class="gallery r" style="margin-top:32px">
+			<?php foreach ( $gallery as $it ) :
+				$src = ea_chapters_resolve_img( $it['image'] ?? '' );
+				if ( ! $src ) {
+					continue;
+				}
+				?>
+				<figure class="gfig">
+					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( $it['alt'] ?? '' ); ?>" loading="lazy">
+				</figure>
+			<?php endforeach; ?>
+		</div>
+		<?php elseif ( $plabel ) : ?>
 		<div class="gallery r" style="margin-top:32px">
 			<figure class="gfig gfig--pending">
 				<div class="ea-pending-approval" role="status">

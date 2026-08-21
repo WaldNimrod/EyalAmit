@@ -75,7 +75,7 @@ $render_cards = static function () use ( $items ) {
 ?>
 <section class="sec sec--alt">
 	<div class="wrap center">
-		<span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'testi_chap' ) ); ?></span>
+		<?php if ( ea_chapters_field( 'testi_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'testi_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'testi_title' ) ); ?></h2>
 	</div>
 	<div class="testi-mq r" role="region" aria-label="<?php esc_attr_e( 'עדויות והמלצות', 'ea-eyalamit' ); ?>">

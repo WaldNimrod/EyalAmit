@@ -16,7 +16,7 @@ $cta_u = ea_chapters_field( 'studio_cta_url' );
 	<div class="studio">
 		<div class="studio__t r">
 			<span class="arcs" aria-hidden="true"></span>
-			<span class="chap"><?php echo esc_html( ea_chapters_field( 'studio_chap' ) ); ?></span>
+			<?php if ( ea_chapters_field( 'studio_chap' ) ) : ?><span class="chap"><?php echo esc_html( ea_chapters_field( 'studio_chap' ) ); ?></span><?php endif; ?>
 			<h2 class="studio__h"><?php echo esc_html( ea_chapters_field( 'studio_title' ) ); ?></h2>
 			<?php /* S006 · H-04 · SECTION 08 הוא שלוש פסקאות אצל אייל, ולכן הטקסט עובר
 				דרך ea_chapters_kses_e (מתיר <br>) ולא דרך esc_html שבלע את הפיצול. */ ?>

@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wrap">
 		<div class="about">
 			<div class="r">
-				<span class="chap"><?php echo esc_html( ea_chapters_field( 'about_chap' ) ); ?></span>
+				<?php if ( ea_chapters_field( 'about_chap' ) ) : ?><span class="chap"><?php echo esc_html( ea_chapters_field( 'about_chap' ) ); ?></span><?php endif; ?>
 				<h2 class="h2" style="margin-bottom:22px"><?php echo esc_html( ea_chapters_field( 'about_title' ) ); ?></h2>
 				<div class="about__body"><?php echo wp_kses_post( ea_chapters_field( 'about_body' ) ); ?></div>
 			</div>

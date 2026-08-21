@@ -28,7 +28,7 @@ $icons = array(
 	</div>
 	<span class="start__sc" aria-hidden="true"></span>
 	<div class="start__in center">
-		<span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'start_chap' ) ); ?></span>
+		<?php if ( ea_chapters_field( 'start_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'start_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 start__h r"><?php echo esc_html( ea_chapters_field( 'start_title' ) ); ?></h2>
 		<div class="steps3 r">
 			<?php foreach ( $steps as $i => $row ) : ?>
