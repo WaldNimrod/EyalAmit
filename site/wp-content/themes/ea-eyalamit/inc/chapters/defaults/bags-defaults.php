@@ -166,6 +166,21 @@ return array(
 			),
 		),
 
+		/* S006 גל 6 · BAG-04 · שש תמונות מהדף הישן. לא דורסים הירו/bleed. */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'items' => array(
+					array( 'image' => 'assets/images/chapters/bags/bag-01.jpg', 'alt' => "תיק לדיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/bags/bag-02.jpg', 'alt' => "תיק לדיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/bags/bag-03.jpg', 'alt' => "תיק לדיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/bags/bag-04.jpg', 'alt' => "תיק לדיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/bags/bag-05.jpg', 'alt' => "תיק לדיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/bags/bag-06.jpg', 'alt' => "תיק לדיג'רידו" ),
+				),
+			),
+		),
+
 		/* S006 · מקור: content 13.8.26/תיקים לדיג_רידו/bags for didg.md · SECTION 10 */
 		array(
 			'part' => 'prose',

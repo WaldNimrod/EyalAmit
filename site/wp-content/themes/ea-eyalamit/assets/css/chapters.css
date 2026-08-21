@@ -457,7 +457,7 @@ a{color:inherit}
 /* ================= EXACT NAV with dropdowns ================= */
 .nav__l{gap:17px}
 .nav__l>li{position:relative;display:flex;align-items:center}
-.nav__dd{background:none;border:0;font-family:var(--bf);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.82);cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:4px 0;transition:color .2s}
+.nav__dd{background:none;border:0;font-family:var(--bf);font-weight:300;font-size:.78rem;color:rgba(255,255,255,.82);cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:4px 0;transition:color .2s;text-decoration:none}
 .nav__dd:hover,.nav__l>li:hover .nav__dd{color:#fff}
 .nav__caret{font-size:.6em;opacity:.7;transition:transform .25s}
 .nav__l>li:hover .nav__caret{transform:rotate(180deg)}

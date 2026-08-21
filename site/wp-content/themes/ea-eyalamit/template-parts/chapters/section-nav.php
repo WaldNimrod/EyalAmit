@@ -34,7 +34,7 @@ $h = static function ( $path ) {
 			</ul>
 		</li>
 		<li>
-			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false">כלים ואביזרים<span class="nav__caret" aria-hidden="true">▾</span></button>
+			<a class="nav__dd" href="<?php echo $h( '/shop/' ); ?>">כלים ואביזרים<span class="nav__caret" aria-hidden="true">▾</span></a>
 			<ul class="nav__sub" role="list">
 				<li><a href="<?php echo $h( '/shop/' ); ?>">כלים בעבודת יד ואביזרים</a></li>
 				<li><a href="<?php echo $h( '/repair/' ); ?>">תיקון וחידוש כלים</a></li>
