@@ -32,17 +32,8 @@ return array(
 
 	'sections' => array(
 
-		/* S006 · מקור: content 13.8.26/דף FAQ/FAQ FINAL.md · SECTION 02 · שורות 43–51
-		 * בלי תג «לפני שמתחילים» · בלי H2 שהומצא · 👉 ככתבו
-		 * href /didgeridoo-treatment ככתבו — לא המרה ל-/treatment/ */
-		array(
-			'part' => 'prose',
-			'args' => array(
-				'body' => "<p>👉 לפני שממשיכים, חשוב להבין:<br>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>אם עדיין לא יצא לך, מומלץ לקרוא גם על:</p><ul><li><a class=\"tlink\" href=\"/didgeridoo-treatment\">טיפול בדיג'רידו</a></li><li><a class=\"tlink\" href=\"/sound-healing\">סאונד הילינג בדיג'רידו</a></li><li><a class=\"tlink\" href=\"/lessons\">שיעורי נגינה בדיג'רידו</a></li><li><a class=\"tlink\" href=\"/method\">השיטה - cbDIDG</a></li></ul>",
-			),
-		),
-
-		/* S006 · FAQ-03 · accordion remains CPT faqblock (block-faq-list.php untouched) */
+		/* S006 · FAQ-03 · accordion remains CPT faqblock (block-faq-list.php untouched)
+		 * בלוק 2 (👉 לפני שממשיכים) ירד לפי הערת אייל 19.8 עמודה 5 */
 		array(
 			'part' => 'faqblock',
 			'args' => array(),

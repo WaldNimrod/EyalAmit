@@ -19,7 +19,13 @@ $h = static function ( $path ) {
 	</a>
 
 	<ul class="nav__l" role="list">
-		<li><a href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו</a></li>
+		<li>
+			<a class="nav__dd" href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו<span class="nav__caret" aria-hidden="true">▾</span></a>
+			<ul class="nav__sub" role="list">
+				<li><a href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו</a></li>
+				<li><a href="<?php echo $h( '/snoring-sleep-apnea/' ); ?>">נחירות ודום נשימה בשינה</a></li>
+			</ul>
+		</li>
 		<li><a href="<?php echo $h( '/method/' ); ?>">השיטה</a></li>
 		<li><a href="<?php echo $h( '/lessons/' ); ?>">שיעורי דיג׳רידו</a></li>
 		<li><a href="<?php echo $h( '/sound-healing/' ); ?>">סאונד הילינג</a></li>

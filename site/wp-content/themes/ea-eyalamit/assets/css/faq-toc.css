@@ -8,7 +8,7 @@
 
 /* Offset so a jumped-to heading clears the sticky top nav + the sticky TOC. */
 .ea-faq-category {
-	scroll-margin-top: 6rem;
+	scroll-margin-top: 12rem;
 }
 
 .ea-faq-toc {
