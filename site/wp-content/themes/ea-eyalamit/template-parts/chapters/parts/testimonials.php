@@ -6,7 +6,7 @@
  * source testimonials — otherwise falls back to the FB corpus (brand-excluded)
  * via ea_chapters_testimonials($cat).
  *
- * $args: chap, title, cat (optional category slug), items (optional [{text,name,href}])
+ * $args: chap, title, lead (optional HTML between title and cards), cat, items
  *
  * S006 · slug rename · אישור team_00 2026-08-17 — /media/ → /testimonials/
  * S006 · H-15 · שלוש תוספות בלבד עבור /testimonials/ (ריכוז כל ההמלצות). ברירת המחדל
@@ -74,8 +74,13 @@ $cards = static function () use ( $items, $grid ) {
 <section class="sec sec--alt">
 	<div class="wrap center">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
 	</div>
+	<?php if ( ! empty( $a['lead'] ) ) : ?>
+	<div class="wrap">
+		<div class="intro-body r" style="margin-bottom:22px"><?php echo wp_kses_post( $a['lead'] ); ?></div>
+	</div>
+	<?php endif; ?>
 <?php if ( $grid ) : /* S006 · H-15 · רשת סטטית, בלי הכפלה ובלי חיתוך טקסט. */ ?>
 	<div class="wrap">
 		<div class="testi-grid r"><?php $cards(); ?></div>
