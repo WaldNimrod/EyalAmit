@@ -47,6 +47,14 @@ function ea_chapters_enqueue_assets() {
 		$ver,
 		true
 	);
+
+	wp_enqueue_script(
+		'ea-testi-mq',
+		$uri . '/assets/js/ea-testi-mq.js',
+		array(),
+		$ver,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'ea_chapters_enqueue_assets', 100 );
 

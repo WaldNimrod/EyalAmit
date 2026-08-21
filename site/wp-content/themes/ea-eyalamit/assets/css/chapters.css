@@ -670,14 +670,17 @@ body.nav-locked{overflow:hidden}
 .ea-chapters .ea-whatsapp-float__icon{width:25px;height:25px;margin:0;color:#25D366}
 .ea-chapters .ea-whatsapp-float:hover{transform:translateY(-2px);border-color:var(--terra-lt);background:rgba(14,9,5,.92)}
 
-/* 6) TESTIMONIALS — continuous side-scrolling marquee (many quotes from the corpus) */
-.testi-mq{margin-top:54px;position:relative;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.testi-mq__track{display:flex;gap:24px;width:max-content;direction:ltr;animation:testi-scroll 90s linear infinite}
-.testi-mq:hover .testi-mq__track,.testi-mq:focus-within .testi-mq__track{animation-play-state:paused}
-@keyframes testi-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.testi-mq{ -webkit-mask-image:none;mask-image:none}.testi-mq__track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
+/* 6) TESTIMONIALS — manual left/right carousel (S006 wave 5). No auto-scroll. */
+.testi-mq{margin-top:54px;position:relative;display:flex;align-items:center;gap:10px}
+.testi-mq__viewport{flex:1;min-width:0;overflow:hidden}
+.testi-mq__track{display:flex;gap:24px;width:max-content;direction:ltr;transition:transform .45s var(--e, ease)}
+.testi-mq__btn{flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--ivory);color:var(--terra);font-size:1.6rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.testi-mq__btn:hover,.testi-mq__btn:focus-visible{background:var(--terra);color:#fff;border-color:var(--terra)}
+.testi-mq__btn:disabled{opacity:.35;cursor:default;background:var(--ivory);color:var(--terra);border-color:var(--line)}
+.testi-mq__btn--left{order:3}
+.testi-mq__btn--right{order:1}
+.testi-mq__viewport{order:2}
+@media(prefers-reduced-motion:reduce){.testi-mq__track{transition:none}}
 .tmq{flex:0 0 330px;direction:rtl;text-align:right;background:var(--ivory);border:1px solid var(--line);border-radius:12px;
   padding:30px 28px;display:flex;flex-direction:column;gap:14px;min-height:210px}
 .sec--alt .tmq{background:#fff}

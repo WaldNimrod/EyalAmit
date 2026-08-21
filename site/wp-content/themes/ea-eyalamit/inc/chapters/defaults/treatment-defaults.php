@@ -196,7 +196,7 @@ return array(
 					array( 'name' => 'גלית מילר', 'href' => 'https://www.facebook.com/share/v/1H6Z937hZ1/', 'text' => 'לא תיארתי לעצמי כמה זה ישנה לי את החיים. למדתי שאני לא נושמת נכון והיום אני בתהליך עמוק.' ),
 					array( 'name' => 'מירל רובין בהן', 'href' => 'https://www.facebook.com/share/p/1FK5zMUyXC/', 'text' => 'דרך מופלאה של נשימה ומוזיקה. החיים פשוטים יותר כשנושמים נכון.' ),
 					array( 'name' => 'אסתי קרמנר', 'href' => 'https://www.facebook.com/share/p/1CYN2aJvR7/', 'text' => 'חוויה נשימתית עמוקה ומיוחדת. ממליצה להתחבר לכלי ולאדם.' ),
-					array( 'name' => 'דן ארליכמן', 'href' => 'https://www.facebook.com/share/p/1DKp5Coss8/', 'text' => 'מורה מעורר השראה. מלמד להתחבר לנשימה מבפנים.' ),
+					array( 'name' => 'דן ארליכמן', 'href' => 'https://www.facebook.com/share/p/1DKp5Coss8/', 'text' => 'משתף אתכם בכתבה על המורה הנפלא שלי לנשימה מעגלית אייל עמית שממלא אותי בהשראה עמוקה ומלמד אותי להתחבר ולהפיק את צלילי הבריאה המרפאים מתוכי. תודה רבה' ),
 				),
 			),
 		),

@@ -28,9 +28,9 @@ defined( 'ABSPATH' ) || exit;
 return array(
 
 	'phero' => array(
-		'chap'      => 'מדיה',
-		'title'     => 'מדיה <em>ווידאו</em>',
-		'sub'       => 'סרטונים, הקלטות, וכתבות על העבודה עם הנשימה והדיג׳רידו.',
+		'chap'      => '',
+		'title'     => 'עדויות והמלצות',
+		'sub'       => '',
 		'media'     => 'assets/images/chapters/eyal-window.jpg',
 		'media_alt' => "אייל עמית מנגן בדיג'רידו",
 	),

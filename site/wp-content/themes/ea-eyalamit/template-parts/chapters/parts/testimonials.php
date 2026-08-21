@@ -1,6 +1,7 @@
 <?php
 /**
- * Chapters part — testimonials marquee (continuous side-scroll, pause on hover).
+ * Chapters part — testimonials. Grid on /testimonials/; elsewhere a manual
+ * left/right carousel (S006 wave 5 — no auto RTL marquee).
  *
  * Renders verbatim $args['items'] ({text, name}) when provided — the approved
  * source testimonials — otherwise falls back to the FB corpus (brand-excluded)
@@ -86,8 +87,18 @@ $cards = static function () use ( $items, $grid ) {
 		<div class="testi-grid r"><?php $cards(); ?></div>
 	</div>
 <?php else : ?>
-	<div class="testi-mq r" role="region" aria-label="<?php echo esc_attr( $a['title'] ?? 'עדויות' ); ?>">
-		<div class="testi-mq__track"><?php $cards(); $cards(); ?></div>
+	<div class="wrap">
+	<div class="testi-mq r" data-testi-mq role="region" aria-label="<?php echo esc_attr( $a['title'] ?? 'עדויות' ); ?>">
+		<button type="button" class="testi-mq__btn testi-mq__btn--right" aria-label="הזזה ימינה">
+			<span aria-hidden="true">›</span>
+		</button>
+		<div class="testi-mq__viewport">
+			<div class="testi-mq__track"><?php $cards(); ?></div>
+		</div>
+		<button type="button" class="testi-mq__btn testi-mq__btn--left" aria-label="הזזה שמאלה">
+			<span aria-hidden="true">‹</span>
+		</button>
+	</div>
 	</div>
 <?php endif; ?>
 </section>

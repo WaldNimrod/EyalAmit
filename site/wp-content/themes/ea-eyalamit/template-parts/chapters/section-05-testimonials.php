@@ -1,7 +1,6 @@
 <?php
 /**
- * Chapters — 05 TESTIMONIALS. Continuous side-scrolling marquee, pausing on
- * hover/focus.
+ * Chapters — 05 TESTIMONIALS. Manual carousel with left/right arrows (S006 wave 5).
  *
  * S006 · H-12 · מקור: סקירה דף הבית.xlsx · C16 — «קרוסלת עדויות - יש 15 עדויות
  * במסמך המקורי. בסוף העדויות צריך לשים קישור לדף פנימי שמרכז את כל העדויות.»
@@ -78,14 +77,20 @@ $render_cards = static function () use ( $items ) {
 		<?php if ( ea_chapters_field( 'testi_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'testi_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'testi_title' ) ); ?></h2>
 	</div>
-	<div class="testi-mq r" role="region" aria-label="<?php esc_attr_e( 'עדויות והמלצות', 'ea-eyalamit' ); ?>">
-		<div class="testi-mq__track">
-			<?php
-			// Rendered twice for a seamless -50% loop.
-			$render_cards();
-			$render_cards();
-			?>
+	<div class="wrap">
+	<div class="testi-mq r" data-testi-mq role="region" aria-label="<?php esc_attr_e( 'עדויות והמלצות', 'ea-eyalamit' ); ?>">
+		<button type="button" class="testi-mq__btn testi-mq__btn--right" aria-label="הזזה ימינה">
+			<span aria-hidden="true">›</span>
+		</button>
+		<div class="testi-mq__viewport">
+			<div class="testi-mq__track">
+				<?php $render_cards(); ?>
+			</div>
 		</div>
+		<button type="button" class="testi-mq__btn testi-mq__btn--left" aria-label="הזזה שמאלה">
+			<span aria-hidden="true">‹</span>
+		</button>
+	</div>
 	</div>
 	<?php if ( $cta_l ) : ?>
 		<div class="wrap center" style="margin-top:40px">
