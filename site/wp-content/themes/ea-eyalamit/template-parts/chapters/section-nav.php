@@ -44,7 +44,15 @@ $h = static function ( $path ) {
 				<li><a href="<?php echo $h( '/stand-floor/' ); ?>">סטנד רצפתי לנגינה</a></li>
 			</ul>
 		</li>
-		<li><a href="<?php echo $h( '/books/' ); ?>">מוזה הוצאה לאור</a></li>
+		<li>
+			<a class="nav__dd" href="<?php echo $h( '/books/' ); ?>">ספרים<span class="nav__caret" aria-hidden="true">▾</span></a>
+			<ul class="nav__sub" role="list">
+				<li><a href="<?php echo $h( '/books/#books-bundle' ); ?>">מבצעים</a></li>
+				<li><a href="<?php echo $h( '/books/tsva-bekahol/' ); ?>">צבע בכחול וזרוק לים</a></li>
+				<li><a href="<?php echo $h( '/books/kushi-blantis/' ); ?>">כושי בלאנטיס</a></li>
+				<li><a href="<?php echo $h( '/books/vekatavta/' ); ?>">וכתבת</a></li>
+			</ul>
+		</li>
 		<li><a href="<?php echo $h( '/blog/' ); ?>">בלוג דיג׳רידו</a></li>
 		<li>
 			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false">אייל עמית<span class="nav__caret" aria-hidden="true">▾</span></button>

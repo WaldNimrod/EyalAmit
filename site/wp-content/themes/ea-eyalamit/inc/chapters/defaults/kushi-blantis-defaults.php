@@ -45,6 +45,16 @@ return array(
 			),
 		),
 
+		/* S006 גל 7 · כפתור רכישה גם מתחת לתקציר */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				'cta_label' => 'לרכישת הספר',
+				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta_slug'  => 'kushi-blantis',
+			),
+		),
+
 		/* S006 · KSH-06 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · SECTION 03
 		 * כפתור/summary = שורה 30 · קו שורה 39 · סגור כברירת מחדל · בלי «לחצו לקריאת הקטע המלא» */
 		array(
@@ -78,11 +88,28 @@ return array(
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 110 */
 				'title' => 'גלריה',
 				'items' => array(
-					array( 'image' => 'assets/images/kushi-blantis-cover.jpg' ),
-					array( 'image' => 'assets/images/kushi-01-blantis-1.jpg' ),
-					array( 'image' => 'assets/images/kushi-02-eyal-italy.jpg' ),
-					array( 'image' => 'assets/images/kushi-03-screenshot-2013.png' ),
-					array( 'image' => 'assets/images/kushi-04-sinai.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-04.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-05.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-07.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-08.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-09.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-10.png' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-11.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-12.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-13.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-14.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-15.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-16.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-17.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-18.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-19.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-20.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-21.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-22.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-23.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-24.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-25.jpg' ),
+					array( 'image' => 'assets/images/chapters/kushi/kush-26.jpg' ),
 				),
 			),
 		),
@@ -119,7 +146,7 @@ return array(
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 162 */
 				'title' => 'על אייל עמית',
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורות 175–186 · שורה 178 בלי href */
-				'body'  => '<p>אייל עמית הוא מטפל ומורה לנשימה באמצעות דיג\'רידו<br>ומפתח שיטת cbDIDG</p><p>לעמוד אייל עמית</p><p>כושי בלאנטיס נכתב מתוך תקופה מוקדמת יותר בחייו, בזמן לימודיו לתואר בהנדסת אלקטרוניקה</p><p>כבר בכתיבה של הספר ניכרת אותה התבוננות ישירה ולא מתייפייפת<br>ושאלות על חופש, בחירה והליכה אחרי הלב – נושאים שממשיכים ללוות את עבודתו עד היום</p><p>כיום, לצד פעילותו בעולם הדיג\'רידו והנשימה<br>הוא ממשיך ללמד וללוות אנשים בתהליכים אישיים דרך עבודה עם הנשימה</p>',
+				'body'  => '<p>אייל עמית הוא מטפל ומורה לנשימה באמצעות דיג\'רידו ומפתח שיטת cbDIDG.</p><p><a class="tlink" href="/eyal-amit/">לעמוד אייל עמית</a></p><p>כשנכתב <strong>כושי בלאנטיס</strong>, אייל היה בעיצומו של שינוי גדול בחיים.</p><p>מצד אחד, לימודי הנדסת אלקטרוניקה ומסלול חיים שנראה מסודר וברור. מצד שני, משהו בפנים כבר משך לכיוון אחר - אל המסעות, הכתיבה, הדיג\'רוקשבה הולכת וגוברת למה שבאמת הרגיש נכון.</p><p>בתוך השנים האלה נכנס לחייו גם <a class="tlink" href="/eyal-amit/mokesh-dahiman/">מוקש דהימן</a>, שאותו פגש בהודו ושעליו נכתב אחד הסיפורים בספר. המפגש עם מוקש, עם בית המלאכה שלו ועם עולם הדיג\'רידו הפך בהמשך לחלק משמעותי מאוד במסלול חייו.</p><p>אחרי שסיים לבנות אצל מוקש דיג\'רידו מיוחד במשך חודש, הכלי נגנב בדרכו חזרה לישראל. דווקא האובדן הזה הפך לרגע מכונן: זמן קצר לאחר מכן החליט אייל לשחרר גם את המסלול שתכנן לעצמו כמהנדס, ולהתחיל חיים אחרים.</p><p><strong>כושי בלאנטיס נכתב מתוך התקופה הזאת - תקופה של תנועה, חיפוש, מפגשים והחלטה להקשיב יותר ללב, גם כשהוא מוביל למקום שלא תוכנן מראש.</strong></p>',
 			),
 		),
 

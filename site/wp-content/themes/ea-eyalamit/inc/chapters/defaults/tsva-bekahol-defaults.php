@@ -39,6 +39,15 @@ return array(
 			),
 		),
 
+		/* S006 גל 7 · כפתור רכישה מתחת לתקציר (מודפס = צור קשר) */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				'cta_label' => 'לרכישת הספר',
+				'cta_url'   => '/contact/',
+			),
+		),
+
 		/* S006 R1-18 TSV-04 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 03 */
 		/* toggle = md button; excerpt paragraphs unchanged; h3 inside accordion. */
 		array(
@@ -64,6 +73,61 @@ return array(
 			),
 		),
 
+		/* S006 גל 7 · TSV-02 גלריה מהדף הישן */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'title' => 'גלריה',
+				'items' => array(
+					array( 'image' => 'assets/images/chapters/tsva/tsva-04.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-05.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-07.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-08.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-09.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-10.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-11.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-12.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-13.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-14.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-15.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-16.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-17.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-18.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-19.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-20.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-21.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-22.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-23.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-24.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-25.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-26.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-27.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-28.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-29.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-30.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-31.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-32.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-33.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-34.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-35.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-36.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-37.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-38.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-39.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-40.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-41.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-42.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-43.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-44.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-45.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-46.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-47.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-48.jpg' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-49.jpg' ),
+				),
+			),
+		),
+
 		/* S006 R1-18 TSV-06 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 06 */
 		/* print + /contact/ only. Digital purchase = TSV-07 (omitted). */
 		array(
@@ -72,7 +136,7 @@ return array(
 				/* S006 R1-18 TSV-06 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 06 */
 				'title' => 'רכישת הספר',
 				/* S006 R1-18 TSV-06 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 06 */
-				'body'  => '<p>ניתן לרכוש את הספר בשתי גרסאות:</p><p>ספר מודפס<br>(עותק פיזי)<br>לרכישה דרך פנייה ישירה<br><a class="tlink" href="/contact/">לרכישת עותק מודפס – צרו קשר</a></p>',
+				'body'  => '<p>ניתן לרכוש את הספר בשתי גרסאות:</p><p>ספר מודפס<br>(עותק פיזי)<br>לרכישה דרך פנייה ישירה<br><a class="tlink" href="/contact/">לרכישת עותק מודפס – צרו קשר</a></p><p>ספר דיגיטלי<br><a class="tlink" href="https://www.mendele.co.il/product/tzvabekahol/" target="_blank" rel="noopener noreferrer">לרכישה דרך מנדלי</a></p>',
 			),
 		),
 
@@ -95,7 +159,17 @@ return array(
 				/* S006 R1-18 TSV-04 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 08 */
 				'title' => 'על אייל עמית',
 				/* S006 R1-18 TSV-04 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 08 */
-				'body'  => '<p>אייל עמית הוא מטפל ומורה לנשימה באמצעות דיג\'רידו<br>ומפתח שיטת cbDIDG</p><p><a class="tlink" href="/about/">לעמוד אייל עמית</a></p><p>הספר נכתב מתוך תקופה מוקדמת יותר בחייו<br>אך כבר ניכרת בו אותה התבוננות חדה, ישירה ולא מתייפייפת<br>שמאפיינת את עבודתו עד היום</p><p>כיום, לצד פעילותו בעולם הדיג\'רידו והנשימה<br>הוא ממשיך ללמד וללוות אנשים בתהליכים אישיים דרך עבודה עם הנשימה</p>',
+				'body'  => '<p>אייל עמית הוא מטפל ומורה לנשימה באמצעות דיג\'רידו ומפתח שיטת cbDIDG.</p><p><a class="tlink" href="/eyal-amit/">לעמוד אייל עמית</a></p><p>אבל הרבה לפני שהכתיבה הפכה לספרים, בלוג ומופע סיפורים, היה רגע אחד שבו היא פשוט פרצה החוצה.</p><p>במהלך טיול בברזיל עבר אייל שוד אלים. אקדח הוצמד לראשו, והחוויה טלטלה אותו עמוקות. בימים שאחרי השוד, כשהסתגר בחדר המלון וניסה לעכל את מה שקרה, הוא התחיל לכתוב.</p><p>עד אז לא חשב על עצמו כסופר. הכתיבה התחילה כדרך לפרוק ולעבד את החוויה, אבל תוך כדי נולד משהו נוסף - הגילוי שיש לו קול, קצב ויכולת לספר סיפור.</p><p>מאותו סיפור ראשון נולדו סיפורים נוספים, ומתוכם צמח הספר הראשון שלו, <strong>צבע בכחול וזרוק לים</strong>.</p><p>זה היה הרגע שבו אייל גילה את הכתיבה.</p><p>ואולי יותר נכון - הרגע שבו הכתיבה גילתה אותו.</p>',
+			),
+		),
+
+		/* S006 גל 7 · בלוק 9 CTA דיגיטלי. URL מעמודת תשובה TSV-07 (tzvabekahol). URL השני באקסל לא נבחר. */
+		array(
+			'part' => 'cta',
+			'args' => array(
+				'title'     => 'רוצה להתחיל כבר עכשיו?',
+				'cta_label' => 'לרכישת הספר הדיגיטלי',
+				'cta_url'   => 'https://www.mendele.co.il/product/tzvabekahol/',
 			),
 		),
 
@@ -148,6 +222,13 @@ return array(
 			'args' => array(
 				/* S006 R1-18 TSV-06 · מקור: content 13.8.26/צבע בכחול וזרוק לים/eyal_tsva_FINAL.md · SECTION 12 */
 				'body' => '<p>הטיול הגדול מתחיל הרבה לפני הכרטיס טיסה<br>אם היית שם – אתה כבר מבין<br>אם לא – זה המקום להתחיל</p>',
+			),
+		),
+		array(
+			'part' => 'cta',
+			'args' => array(
+				'cta_label' => 'לרכישת הספר המודפס',
+				'cta_url'   => '/contact/',
 			),
 		),
 	),
