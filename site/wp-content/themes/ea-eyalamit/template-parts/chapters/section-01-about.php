@@ -1,13 +1,14 @@
 <?php
 /**
- * Chapters — 01 ABOUT (bio + 3-image collage + timeline).
+ * Chapters — 01 ABOUT (bio + 3-image collage).
+ *
+ * S006 · H-01 · מקור: הערות 19.8.26/דף הבית.xlsx · גיליון1!D5 «למחוק מהדף»
+ * ציר הזמן אינו מרונדר. about_body + תמונות לא נפתחו בסקואופ הזה.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
-
-$tl = ea_chapters_rows( 'about_timeline' );
 ?>
 <section class="sec" id="about">
 	<div class="wrap">
@@ -25,16 +26,5 @@ $tl = ea_chapters_rows( 'about_timeline' );
 				</div>
 			</div>
 		</div>
-
-		<?php if ( ! empty( $tl ) ) : ?>
-			<ol class="tl r">
-				<?php foreach ( $tl as $row ) : ?>
-					<li class="tl__n">
-						<span class="tl__y"><?php echo esc_html( isset( $row['year'] ) ? $row['year'] : '' ); ?></span>
-						<p class="tl__l"><?php echo esc_html( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
-					</li>
-				<?php endforeach; ?>
-			</ol>
-		<?php endif; ?>
 	</div>
 </section>

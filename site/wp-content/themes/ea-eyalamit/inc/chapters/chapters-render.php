@@ -158,15 +158,14 @@ function ea_chapters_type() {
 }
 
 /**
- * S006 R1-02 · team_00 2026-08-17 — two live versions of /treatment/ for Eyal to choose.
- * ?compare=eyal loads treatment-eyal-defaults.php (document-exact). Default URL is the proposed structure.
+ * S006 T-01 · מקור: הערות 19.8.26/טיפול בדיג_רידו.xlsx · גיליון1!D5
+ * «לך על הגרסה המוצעת» — /treatment/ נשאר; ?compare=eyal אינו מחליף ברירות מחדל.
+ * treatment-eyal-defaults.php נשאר בדיסק ולא נטען.
  *
  * @return bool
  */
 function ea_chapters_treatment_compare_eyal() {
-	return 'treatment' === ea_chapters_type()
-		&& isset( $_GET['compare'] )
-		&& 'eyal' === sanitize_key( wp_unslash( (string) $_GET['compare'] ) );
+	return false;
 }
 
 /**

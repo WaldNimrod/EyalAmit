@@ -179,9 +179,7 @@ return array(
 		),
 
 		/* S006 · מקור: content 13.8.26/שיעורי נגינה/lesons.md · SECTION 09
-		 * FAQ הריון: md `[קראו עוד](/blog/pregnancy-didgeridoo)` is 404 live
-		 * (staging + production). No matching post in REST. LSN-09 waits on Eyal.
-		 * Visible answer «לא מומלץ» is pasted; the 404 href is not shipped. */
+		 * LSN-09 · מקור href: הערות 19.8.26/שיעורי דיג_רידו.xlsx · גיליון1!D6 */
 		array(
 			'part' => 'faq-inline',
 			'args' => array(
@@ -209,7 +207,7 @@ return array(
 					),
 					array(
 						'q' => 'האם אפשר בזמן הריון?',
-						'a' => '<p>לא מומלץ.</p>',
+						'a' => '<p>לא מומלץ.</p><p><a class="tlink" href="https://www.eyalamit.co.il/Blog/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/">קראו עוד</a></p>',
 					),
 					array(
 						'q' => 'יש לי בעיה בריאותית',
