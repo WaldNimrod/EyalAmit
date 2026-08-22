@@ -1995,8 +1995,8 @@ def page_index(
     gate_body = f'<p class="index-gate-text">{escape(gate_text)}</p>\n'
     gate_body += (
         '<div class="card index-cta-needs">'
-        '<h2 class="index-cta-needs__h"><a href="s006-review.html">שאלות לסגירה — סבב 21.8.2026</a></h2>'
-        '<p class="subtitle">תיאור בהתחלה + סבב מתועדך. רק מה שדורש בחירה או חומר ממך. ייצוא JSON בסוף.</p>'
+        '<h2 class="index-cta-needs__h"><a href="s006-review.html">אישור עמודים — סבב 1</a></h2>'
+        '<p class="subtitle">23 עמודים שהוגשו: אושר למסך מחשב, או יש תיקון. שאלה אחת נשארה בשאלות נפוצות. ייצוא JSON בסוף.</p>'
         "</div>\n"
         '<div class="card index-cta-needs">'
         '<h2 class="index-cta-needs__h"><a href="what-we-need.html">מה נדרש ממך — לפי עדיפות</a></h2>'

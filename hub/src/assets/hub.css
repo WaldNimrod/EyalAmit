@@ -1259,9 +1259,28 @@ nav {
 }
 .s006-got-notes ul { margin: 0.2rem 0 0.35rem; padding-inline-start: 1.1rem; }
 .s006-page__state { font-size: 0.88rem; color: var(--muted); margin: 0.15rem 0 0.35rem; }
+.s006-approve {
+  grid-column: 1 / -1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem 0.55rem;
+  margin: 0.15rem 0 0.35rem;
+  background: color-mix(in srgb, var(--eyal-sand) 28%, white);
+}
+.s006-approve legend {
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0 0.2rem;
+}
+.s006-choices--approve {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0;
+}
 .s006-field--answer textarea,
 .s006-field--page-notes textarea { min-height: 5.5rem; }
-.s006-field--page-notes { margin: 0.75rem 0 0.35rem; }
+.s006-field--page-notes { margin: 0.75rem 0 0.35rem; grid-column: 1 / -1; }
 .s006-item__ask { margin: 0.1rem 0 0.3rem; font-size: 0.9rem; line-height: 1.35; }
 .s006-item__twin { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
 .s006-choices {

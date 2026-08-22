@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """S006 temporary review form for Eyal.
 
-SSOT is EA-CONTENT-TRACKER.xlsx. This page is regenerated from the tracker
-snapshot each round: only items still waiting on Eyal or Nimrod.
-Fields match the 19.8 Excel shape (free-text answer + page notes).
+SSOT is EA-CONTENT-TRACKER.xlsx. Round 1 closes when Eyal marks each submitted
+page approved (or returned with a note). The form is regenerated from the
+tracker snapshot: 23 submitted pages as an approval board, plus any leftover
+content questions still waiting on Eyal. Frozen media is not re-asked.
 """
 from __future__ import annotations
 
@@ -18,7 +19,8 @@ REPO = Path(__file__).resolve().parent.parent
 SNAPDIR = REPO / "_COMMUNICATION" / "team_100" / "S006" / "tracker"
 STAGING_ORIGIN = "http://eyalamit-co-il-2026.s887.upress.link"
 EXPORT_TYPE = "eyal-s006-tracker-answers"
-EXPORT_SCHEMA = "excel-v2"
+EXPORT_SCHEMA = "round1-approval-v1"
+ASSET_CACHE = "s006w15"
 ROUND1_SHEET = "סבב-1-ליבה"
 R19_ANSWERS = SNAPDIR / "r19-eyal-answers.json"
 
@@ -77,6 +79,29 @@ PAGE_LIVE: dict[str, str] = {
 
 # Remaining Nimrod-only decisions after the 23.8 testimonials ruling. Closed choices are not listed.
 NIMROD_DECISIONS: tuple[dict, ...] = ()
+
+# Page-level close for Round 1. Values are what Eyal sees; status maps to the
+# tracker human column «סטטוס אישור» on ingest (agents never write that column).
+APPROVE_PICKS: tuple[dict, ...] = (
+    {
+        "label": "אושר למסך מחשב",
+        "value": "אושר למסך מחשב",
+        "status": "אושר ע״י אייל",
+        "hint": "העמוד תקין לסבב 1",
+    },
+    {
+        "label": "יש תיקון",
+        "value": "יש תיקון",
+        "status": "חזר לתיקונים",
+        "hint": "כתבו בתיבה מה לשנות",
+    },
+    {
+        "label": "עדיין לא בדקתי",
+        "value": "עדיין לא בדקתי",
+        "status": "—",
+        "hint": "",
+    },
+)
 
 # Pages with more than one live copy Eyal must compare. SSOT for form links
 # (the tracker «אפשרויות לבחירה» text is not rendered as links today).
@@ -361,7 +386,7 @@ def load_model() -> dict:
             "wave": PAGE_WAVE.get(key),
         }
         inventory.setdefault(rec["machine"], []).append(rec)
-        if not items:
+        if rec["machine"] != "הוגש לבדיקה":
             continue
         pages.append(
             {
@@ -589,7 +614,7 @@ def _round_today_html() -> str:
     o = STAGING_ORIGIN
     return (
         '<section class="s006-round-today" aria-label="סבב 21.8.2026">\n'
-        '<p class="s006-round-today__date">סבב 21.8.2026 · 11 גלים הושלמו · טופס רוענן 22.8.2026</p>\n'
+        '<p class="s006-round-today__date">סבב 21.8.2026 · 11 גלים הושלמו · טופס אישור עמודים 23.8.2026</p>\n'
         "<h2>מה עלה באתר הבדיקה</h2>\n"
         "<p>זה <strong>סבב התשובות מ-19.8</strong> — יישום באתר הבדיקה. לא מחליף את סבב 1 "
         "המקורי, וגם לא פותח עדיין את סבב 2 (בלוג/QR) או סבב 3 (מובייל) שבטבלה למטה.</p>\n"
@@ -621,8 +646,9 @@ def _round_today_html() -> str:
         "<li><strong>מדיה לשלב הבא</strong> — גל 11 ניירת: תמונות/וידאו שנדחו נשארו באתר כמו שהם, "
         "בלי המצאות. תא ריק באקסל = אין הערות.</li>\n"
         "</ul>\n"
-        "<p><strong>הטופס נגזר מהטרקר.</strong> נשארה שאלה אחת לאייל (קישור הכשרות בשאלות נפוצות). "
-        "תא ריק באקסל לא נשאל. אין שאלות פתוחות אצל נימרוד.</p>\n"
+        "<p><strong>מה סוגר את סבב 1:</strong> אישור 23 העמודים שהוגשו, למסך מחשב. "
+        "תשובות 19.8 כבר יושמו. מדיה חסרה (תמונות, וידאו) לא חוסמת — היא לשלב הבא. "
+        "שאלה אחת נשארה בשאלות נפוצות (קישור הכשרות). תא ריק באקסל לא נשאל.</p>\n"
         "<p>הגיליון המלא נשאר ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
         "</section>\n"
     )
@@ -647,7 +673,8 @@ def _context_html(model: dict) -> str:
         "(בלי גרסה כפולה).</p>\n"
     )
     html += (
-        f"<p><strong>מוכנים לעיונך באתר הבדיקה ({len(submitted)}):</strong></p>\n"
+        f"<p><strong>מוכנים לאישור באתר הבדיקה ({len(submitted)}):</strong> "
+        "לכל עמוד קישור למטה, ואז סימון אושר / יש תיקון.</p>\n"
         '<ul class="s006-context-list s006-context-list--pages">\n'
     )
     for rec in submitted:
@@ -681,25 +708,16 @@ def _context_html(model: dict) -> str:
         html += " (פריט תפריט בלי יעד ברור).</p>\n"
 
     html += "<h2>מה השלבים הבאים</h2>\n"
-    eyal_n = (model.get("counts") or {}).get("eyal") or 0
-    if eyal_n:
-        html += (
-            '<ol class="s006-context-ol">\n'
-            "<li>אתה עובר על השאלות למטה (או מאשר עמוד אחרי עמוד באתר הבדיקה). "
-            "אפשר למלא חלק, לייצא JSON, ולחזור.</li>\n"
-            "<li>אנחנו מיישמים את הבחירות באתר הבדיקה וחוזרים אליך רק אם נפתח משהו חדש.</li>\n"
-            "<li>סבב 1 נסגר כשאתה כותב שהעמוד אושר — או כשהוא מוקפא עם סיבה. "
-            "רק אז נפתח סבב 2.</li>\n"
-            "</ol>\n"
-        )
-    else:
-        html += (
-            '<ol class="s006-context-ol">\n'
-            "<li>אין שאלות פתוחות אליך בטופס. אפשר לעבור על העמודים ברשימה למעלה באתר הבדיקה.</li>\n"
-            "<li>הערות כלליות — בתיבה בתחתית החלק שלך. תא ריק באקסל לא נשאל שוב.</li>\n"
-            "<li>סבב 1 נסגר כשאתה כותב שהעמודים אושרו. רק אז נפתח סבב 2.</li>\n"
-            "</ol>\n"
-        )
+    html += (
+        '<ol class="s006-context-ol">\n'
+        "<li>לכל עמוד שהוגש: פותחים את הקישור באתר הבדיקה, מסמנים "
+        "<strong>אושר למסך מחשב</strong> או <strong>יש תיקון</strong> עם הערה. "
+        "אפשר למלא חלק, לייצא JSON, ולחזור.</li>\n"
+        "<li>שאלה אחת נשארה בשאלות נפוצות (קישור הכשרות). מדיה חסרה לא נשאלת כאן.</li>\n"
+        "<li>סבב 1 נסגר כשכל העמודים שהוגשו מסומנים אושר — או הוחזרו לתיקון. "
+        "רק אז נפתח סבב 2.</li>\n"
+        "</ol>\n"
+    )
 
     html += "<h2>סבב 2 וסבב 3 — מה בפנים</h2>\n"
     html += (
@@ -762,13 +780,38 @@ def _context_html(model: dict) -> str:
     return html
 
 
+def _approve_html(page_key: str) -> str:
+    field = f"approve-{page_key}"
+    bits = [
+        '<fieldset class="s006-approve">\n',
+        "<legend>אישור העמוד למסך מחשב</legend>\n",
+        '<div class="s006-choices s006-choices--approve">\n',
+    ]
+    for i, pick in enumerate(APPROVE_PICKS):
+        pid = f"{field}-{i}"
+        hint = f' — {escape(pick["hint"])}' if pick.get("hint") else ""
+        bits.append(
+            f'<label class="s006-choice" for="{escape(pid)}">'
+            f'<input type="radio" name="{escape(field)}" id="{escape(pid)}" '
+            f'value="{escape(pick["value"])}" '
+            f'data-status="{escape(pick["status"])}"> '
+            f'{escape(pick["label"])}{hint}</label>\n'
+        )
+    bits.append("</div>\n</fieldset>\n")
+    return "".join(bits)
+
+
 def _page_html(page: dict) -> str:
     need_n = page.get("openCount") or 0
+    if need_n:
+        meta = f"שאלה פתוחה אחת בעמוד הזה" if need_n == 1 else f"{need_n} שאלות פתוחות בעמוד הזה"
+    else:
+        meta = "אין שאלת תוכן פתוחה — רק אישור או תיקון"
     bits = [
         f'<section class="s006-page" id="page-{escape(page["key"])}">\n',
         '<header class="s006-page__head">\n',
         f'<h2 class="s006-page__title">{escape(page["title"])}</h2>\n',
-        f'<p class="s006-page__meta">{escape(page["key"])} · {need_n} שאלות מהטרקר</p>\n',
+        f'<p class="s006-page__meta">{escape(meta)}</p>\n',
     ]
     if page.get("liveUrl"):
         bits.append(
@@ -781,14 +824,15 @@ def _page_html(page: dict) -> str:
     if page.get("versions"):
         bits.append(_versions_html(page["versions"]))
     bits.append("</header>\n")
-    for it in page["items"]:
+    bits.append(_approve_html(page["key"]))
+    for it in page.get("items") or []:
         bits.append(_item_html(it))
     bits.append(
         '<div class="s006-field s006-field--page-notes">\n'
         f'<label class="s006-label" for="pagenotes-{escape(page["key"])}">'
-        "הערות תוכן נוספות לגבי הדף (כמו עמודה E באקסל)</label>\n"
-        f'<textarea class="s006-input" id="pagenotes-{escape(page["key"])}" rows="4" '
-        f'placeholder="כל מה ששייך לדף ולא לסעיף בודד"></textarea>\n'
+        "הערה לעמוד (חובה אם סימנת «יש תיקון»)</label>\n"
+        f'<textarea class="s006-input" id="pagenotes-{escape(page["key"])}" rows="3" '
+        f'placeholder="מה לשנות, או הערה חופשית"></textarea>\n'
         "</div>\n"
     )
     bits.append("</section>\n")
@@ -871,75 +915,72 @@ def _nimrod_section_html(items: list[dict]) -> str:
 def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent: str) -> str:
     model = load_model()
     c = model["counts"]
+    submitted_n = c.get("submitted") or 0
     html = head(
-        "שאלות לסגירה — סבב 21.8.2026 — אייל עמית",
-        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w14">\n',
+        "אישור עמודים — סבב 1 — אייל עמית",
+        extra_scripts=f'<link rel="stylesheet" href="assets/hub.css?v={ASSET_CACHE}">\n',
     )
     html += nav("s006-review")
     html += '<div class="wrap s006-wrap">\n'
-    html += "<h1>שאלות לסגירה — סבב 21.8.2026</h1>\n"
+    html += "<h1>אישור עמודים — סבב 1</h1>\n"
     html += _round_today_html()
     html += _context_html(model)
 
-    html += '<p class="s006-section-kicker">החלק של אייל</p>\n'
+    html += '<p class="s006-section-kicker">החלק של אייל — זה סוגר את סבב 1</p>\n'
+    html += (
+        f'<p class="subtitle">{submitted_n} עמודים שהוגשו לאתר הבדיקה. '
+        "לכל עמוד: פותחים, מסמנים אושר למסך מחשב או יש תיקון. "
+        "מדיה חסרה לא חוסמת. "
+    )
     if c["eyal"]:
         html += (
-            f'<p class="subtitle">{c["eyal"]} שאלות פתוחות מהטרקר על {c["pages"]} עמודים. '
-            "תשובה חופשית + הערות לדף. בסוף — ייצוא JSON.</p>\n"
+            f'שאלה פתוחה אחת נשארה בשאלות נפוצות. '
+            "בסוף — ייצוא JSON.</p>\n"
         )
-        html += (
-            '<p class="s006-tracker-ref">מזהה הסעיף זהה לגיליון '
-            "<strong>EA-CONTENT-TRACKER.xlsx</strong> בדרייב · "
-            '<a href="files/s006/latest-items.csv">CSV סעיפים</a></p>\n'
-        )
-        if model["recurring"]:
-            html += '<div class="s006-patterns"><ul>\n'
-            for p in model["recurring"]:
-                html += (
-                    f'<li><button type="button" class="s006-chip" data-filter="{escape(p["id"])}">'
-                    f'{escape(p["label"])} · {p["count"]}</button></li>\n'
-                )
-            html += '<li><button type="button" class="s006-chip s006-chip--all" data-filter="">הכל</button></li>\n'
-            html += "</ul></div>\n"
-        html += '<nav class="s006-toc" aria-label="עמודים עם שאלות מהטרקר">\n<ul>\n'
-        for page in model["pages"]:
-            html += (
-                f'<li><a href="#page-{escape(page["key"])}">{escape(page["title"])} '
-                f'({page["openCount"]})</a></li>\n'
-            )
-        html += "</ul></nav>\n"
-        html += '<div class="s006-toolbar" id="s006-toolbar">\n'
-        html += '<span class="s006-progress" id="s006-progress"></span>\n'
-        html += (
-            f'<label class="s006-resp">שם '
-            f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
-        )
-        html += '<button class="btn-export" type="button" id="btn-export-s006">ייצוא תשובות ל-JSON</button>\n'
-        html += "</div>\n"
-        html += '<div id="s006-pages">\n'
-        for page in model["pages"]:
-            html += _page_html(page)
-        html += "</div>\n"
     else:
+        html += "בסוף — ייצוא JSON.</p>\n"
+    html += (
+        '<p class="s006-tracker-ref">הגיליון המלא: '
+        "<strong>EA-CONTENT-TRACKER.xlsx</strong> בדרייב · "
+        '<a href="files/s006/latest-items.csv">CSV סעיפים</a></p>\n'
+    )
+    if model["recurring"]:
+        html += '<div class="s006-patterns"><ul>\n'
+        for p in model["recurring"]:
+            html += (
+                f'<li><button type="button" class="s006-chip" data-filter="{escape(p["id"])}">'
+                f'{escape(p["label"])} · {p["count"]}</button></li>\n'
+            )
+        html += '<li><button type="button" class="s006-chip s006-chip--all" data-filter="">הכל</button></li>\n'
+        html += "</ul></div>\n"
+    html += '<nav class="s006-toc" aria-label="עמודים לאישור">\n<ul>\n'
+    for page in model["pages"]:
+        extra = f' · {page["openCount"]}' if page.get("openCount") else ""
         html += (
-            '<p class="subtitle">אין שאלות פתוחות לאייל בטרקר. '
-            f'{c.get("submitted", 0)} עמודים מוכנים לעיון · {c.get("frozen", 0)} מוקפאים. '
-            "תא ריק באקסל = אין הערות, ולא נשאל שוב.</p>\n"
+            f'<li><a href="#page-{escape(page["key"])}">{escape(page["title"])}'
+            f"{extra}</a></li>\n"
         )
-        html += (
-            f'<label class="s006-resp s006-resp--inline">שם '
-            f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
-        )
-        html += (
-            '<div class="s006-field s006-field--page-notes">\n'
-            '<label class="s006-label" for="pagenotes-GENERAL">'
-            "הערות כלליות מאייל (רשות)</label>\n"
-            '<textarea class="s006-input" id="pagenotes-GENERAL" rows="4" '
-            'placeholder="אם יש הערה שלא שייכת לסעיף בודד"></textarea>\n'
-            "</div>\n"
-            '<p><button class="btn-export" type="button" id="btn-export-s006">'
-            "ייצוא הערות ל-JSON</button></p>\n"
-        )
+    html += "</ul></nav>\n"
+    html += '<div class="s006-toolbar" id="s006-toolbar">\n'
+    html += '<span class="s006-progress" id="s006-progress"></span>\n'
+    html += (
+        f'<label class="s006-resp">שם '
+        f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
+    )
+    html += '<button class="btn-export" type="button" id="btn-export-s006">ייצוא תשובות ל-JSON</button>\n'
+    html += "</div>\n"
+    html += '<div id="s006-pages">\n'
+    for page in model["pages"]:
+        html += _page_html(page)
+    html += "</div>\n"
+    html += (
+        '<div class="s006-field s006-field--page-notes">\n'
+        '<label class="s006-label" for="pagenotes-GENERAL">'
+        "הערות כלליות (רשות)</label>\n"
+        '<textarea class="s006-input" id="pagenotes-GENERAL" rows="3" '
+        'placeholder="אם יש הערה שלא שייכת לעמוד בודד"></textarea>\n'
+        "</div>\n"
+    )
 
     html += _nimrod_section_html(model.get("nimrodItems") or [])
     html += "</div>\n"
@@ -948,10 +989,8 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         "exportType": EXPORT_TYPE,
         "schema": EXPORT_SCHEMA,
         "items": [{"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]} for it in model["needItems"]],
-        "pages": (
-            [{"key": p["key"]} for p in model["pages"] if p.get("needItems")]
-            or ([{"key": "GENERAL"}] if not c["eyal"] else [])
-        ),
+        "pages": [{"key": p["key"], "path": p.get("path") or "", "title": p.get("title") or ""} for p in model["pages"]]
+        + [{"key": "GENERAL", "path": "", "title": "הערות כלליות"}],
         "nimrodItems": [
             {"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]}
             for it in (model.get("nimrodItems") or [])
@@ -960,7 +999,7 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         "generatedAt": generated_iso,
     }
     html += f'<script>window.S006_CONFIG={json.dumps(cfg, ensure_ascii=False)};</script>\n'
-    html += '<script src="assets/s006-review.js?v=s006w13"></script>\n'
+    html += f'<script src="assets/s006-review.js?v={ASSET_CACHE}"></script>\n'
     html += foot(generated_iso)
     return html
 

@@ -31,7 +31,7 @@
 
 ## דפים נוספים (עץ · קליטת תוכן)
 
-- **`s006-review.html`** — טופס זמני, **נגזר מהטרקר בכל סבב**: תיאור + סבב מתועדך (21.8.2026, 11 גלים); לאייל רק סעיפים שסטטוסם ממתין לאייל (כרגע אפס); שאלות לנימרוד בסקשן נפרד; שדות בסגנון האקסל; ייצוא **`eyal-s006-tracker-answers`** schema `excel-v2` + ייצוא **`nimrod-s006-decisions`**.
+- **`s006-review.html`** — טופס זמני, **נגזר מהטרקר בכל סבב**: לוח אישור ל־23 עמודי סבב 1 שהוגשו (אושר למסך מחשב / יש תיקון) + שאלות תוכן שנותרו ממתינות לאייל; שאלות לנימרוד בסקשן נפרד; ייצוא **`eyal-s006-tracker-answers`** schema `round1-approval-v1` + ייצוא **`nimrod-s006-decisions`**.
 - **`site-tree.html`** — עץ IA מ־`hub/data/site-tree.json`: הערות כלליות ולפי צומת, קישורי legacy/מוקאפים, טבלת legacy לא ממופה, ייצוא **`eyal-site-tree-feedback`**.
 - **`content-intake.html`** — בחירת עמוד, שדות דינמיים מ־`page-templates.json`, בלוק Drive (שם קובץ/קישור), ייצוא **`eyal-page-content-intake`**.
 - **מוקאפי תבניות:** `dist/mockups/page-types/` (מועתקים מ־`hub/src/mockups/page-types/` בבנייה).

@@ -1,6 +1,6 @@
 /**
- * S006 review form — Excel-shaped answers (column D) + page notes (column E).
- * schema excel-v2 · local draft in localStorage.
+ * S006 review form — page approvals (Round 1 close) + leftover Excel answers.
+ * schema round1-approval-v1 · local draft in localStorage.
  */
 (function () {
   "use strict";
@@ -8,6 +8,7 @@
   var cfg = window.S006_CONFIG || {};
   var items = cfg.items || [];
   var pages = cfg.pages || [];
+  var DECIDED = { "אושר למסך מחשב": 1, "יש תיקון": 1 };
 
   function $(id) {
     return document.getElementById(id);
@@ -71,6 +72,39 @@
     return el ? String(el.value || "").trim() : "";
   }
 
+  function readApproval(page) {
+    var key = page.key;
+    var name = "approve-" + key;
+    var radios = document.getElementsByName(name);
+    var choice = "";
+    var status = "";
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        choice = radios[i].value;
+        status = radios[i].getAttribute("data-status") || "";
+        break;
+      }
+    }
+    return {
+      pageKey: key,
+      path: page.path || "",
+      title: page.title || "",
+      choice: choice,
+      approvalStatus: status,
+      notes: readPageNotes(key),
+    };
+  }
+
+  function applyApproval(page, rec) {
+    if (!rec) return;
+    if (rec.choice) {
+      var radios = document.getElementsByName("approve-" + page.key);
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].checked = radios[i].value === rec.choice;
+      }
+    }
+  }
+
   var nimrodItems = cfg.nimrodItems || [];
 
   function readNimrod(it) {
@@ -82,6 +116,7 @@
       respondent: ($("respondent") && $("respondent").value) || "",
       answers: {},
       pageNotes: {},
+      pageApprovals: {},
       nimrodAnswers: {},
     };
     items.forEach(function (it) {
@@ -89,6 +124,9 @@
     });
     pages.forEach(function (p) {
       out.pageNotes[p.key] = readPageNotes(p.key);
+      if (p.key !== "GENERAL") {
+        out.pageApprovals[p.key] = readApproval(p);
+      }
     });
     nimrodItems.forEach(function (it) {
       out.nimrodAnswers[it.id] = readNimrod(it);
@@ -153,14 +191,26 @@
     URL.revokeObjectURL(a.href);
   }
 
-  function answeredCount() {
+  function approvalPages() {
+    return pages.filter(function (p) {
+      return p.key !== "GENERAL";
+    });
+  }
+
+  function decidedCount() {
+    var n = 0;
+    approvalPages().forEach(function (p) {
+      var rec = readApproval(p);
+      if (DECIDED[rec.choice]) n += 1;
+    });
+    return n;
+  }
+
+  function itemAnsweredCount() {
     var n = 0;
     items.forEach(function (it) {
       var rec = readItem(it);
       if (rec.answer || rec.choice || rec.fill) n += 1;
-    });
-    pages.forEach(function (p) {
-      if (readPageNotes(p.key)) n += 1;
     });
     return n;
   }
@@ -168,7 +218,12 @@
   function refreshProgress() {
     var el = $("s006-progress");
     if (!el) return;
-    el.textContent = answeredCount() + " מילויים בטופס";
+    var ap = approvalPages();
+    var text = decidedCount() + " מתוך " + ap.length + " עמודים סומנו";
+    if (items.length) {
+      text += " · " + itemAnsweredCount() + " מתוך " + items.length + " שאלות תוכן";
+    }
+    el.textContent = text;
   }
 
   function isoStamp() {
@@ -177,6 +232,22 @@
 
   function exportJson() {
     var byPage = {};
+    var pageApprovals = [];
+    approvalPages().forEach(function (p) {
+      var rec = readApproval(p);
+      if (rec.choice || rec.notes) {
+        pageApprovals.push(rec);
+        byPage[p.key] = {
+          pageKey: p.key,
+          path: rec.path,
+          title: rec.title,
+          approval: rec.choice,
+          approvalStatus: rec.approvalStatus,
+          items: [],
+          pageNotes: rec.notes,
+        };
+      }
+    });
     items.forEach(function (it) {
       var rec = readItem(it);
       if (!(rec.answer || rec.choice || rec.fill)) return;
@@ -189,32 +260,34 @@
         fill: rec.fill,
       });
     });
-    pages.forEach(function (p) {
-      var notes = readPageNotes(p.key);
-      if (!notes) return;
-      if (!byPage[p.key]) byPage[p.key] = { pageKey: p.key, items: [], pageNotes: "" };
-      byPage[p.key].pageNotes = notes;
-    });
+    var generalNotes = readPageNotes("GENERAL");
+    if (generalNotes) {
+      if (!byPage.GENERAL) byPage.GENERAL = { pageKey: "GENERAL", items: [], pageNotes: "" };
+      byPage.GENERAL.pageNotes = generalNotes;
+    }
     var pageList = Object.keys(byPage).map(function (k) {
       return byPage[k];
     });
     if (!pageList.length) {
-      alert("אין תשובות לייצוא");
+      alert("אין תשובות לייצוא — סמנו לפחות עמוד אחד, או כתבו הערה.");
       return;
     }
     var flat = [];
     pageList.forEach(function (pg) {
-      pg.items.forEach(function (it) {
+      (pg.items || []).forEach(function (it) {
         flat.push(it);
       });
     });
     var payload = {
-      schemaVersion: 2,
-      schema: cfg.schema || "excel-v2",
+      schemaVersion: 3,
+      schema: cfg.schema || "round1-approval-v1",
       exportType: cfg.exportType || "eyal-s006-tracker-answers",
       exportTimestamp: new Date().toISOString(),
       respondent: ($("respondent") && $("respondent").value.trim()) || cfg.defaultRespondent || "",
       sourceGeneratedAt: cfg.generatedAt || "",
+      decidedPages: decidedCount(),
+      submittedPages: approvalPages().length,
+      pageApprovals: pageApprovals,
       pages: pageList,
       answers: flat,
     };
@@ -266,6 +339,7 @@
     if (el && stored.pageNotes && stored.pageNotes[p.key]) {
       el.value = stored.pageNotes[p.key];
     }
+    applyApproval(p, stored.pageApprovals && stored.pageApprovals[p.key]);
   });
   nimrodItems.forEach(function (it) {
     applyItem(it, stored.nimrodAnswers && stored.nimrodAnswers[it.id]);
