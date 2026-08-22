@@ -716,6 +716,7 @@ function ea_chapters_testimonials( $cat = '' ) {
  * @return void
  */
 function ea_chapters_kses_e( $html ) {
+	$html = function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) $html ) : (string) $html;
 	echo wp_kses(
 		(string) $html,
 		array(

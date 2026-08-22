@@ -31,10 +31,10 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 		<?php if ( $collapsible ) : ?>
 			<details class="prose-acc">
 				<summary class="prose-acc__t"><?php echo esc_html( $a['toggle_label'] ?? 'לחצו לקריאה' ); ?></summary>
-				<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo wp_kses_post( $a['body'] ?? '' ); ?></div>
+				<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
 			</details>
 		<?php else : ?>
-			<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo wp_kses_post( $a['body'] ?? '' ); ?></div>
+			<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
 		<?php endif; ?>
 	</div>
 </section>

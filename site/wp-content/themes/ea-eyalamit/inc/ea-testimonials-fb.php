@@ -114,27 +114,56 @@ function ea_fb_testimonials_clean_href( $href ) {
 
 /**
  * S006 · Nimrod 23.8: retired brand «סטודיו נשימה מעגלית» is rewritten on
- * display to the NAP name (D-EYAL-BRAND-17 / ea_nap). The JSON corpus stays
- * verbatim. Empty bodies are still dropped; quotes with a body are shown.
+ * display to the NAP name (D-EYAL-BRAND-17 / ea_nap). Phrase-level pairs run
+ * first so «המרכז… - סטודיו נשימה מעגלית» does not become a doubled name.
+ * Testimonials JSON stays verbatim; empty bodies are still dropped.
  *
  * @param string $text
  * @return string
  */
-function ea_fb_testimonials_publish_text( $text ) {
+function ea_replace_retired_brand( $text ) {
 	$text = (string) $text;
 	if ( '' === $text ) {
 		return '';
+	}
+	$needles = array(
+		'סטודיו נשימה מעגלית',
+		'הסטודיו לנשימה מעגלית',
+		'סטודיו לנשימה מעגלית',
+	);
+	$hit = false;
+	foreach ( $needles as $n ) {
+		if ( false !== mb_strpos( $text, $n ) ) {
+			$hit = true;
+			break;
+		}
+	}
+	if ( ! $hit ) {
+		return $text;
 	}
 	$current = function_exists( 'ea_nap' ) ? (string) ea_nap( 'name' ) : '';
 	if ( '' === $current ) {
 		$current = "המרכז לטיפול בנשימה באמצעות דיג'רידו";
 	}
-	$retired = array(
-		'סטודיו נשימה מעגלית',
-		'הסטודיו לנשימה מעגלית',
-		'סטודיו לנשימה מעגלית',
+	$pairs = array(
+		"המרכז לטיפול בנשימה באמצעות דיג'רידו - סטודיו נשימה מעגלית בפרדס חנה" => "המרכז לטיפול בנשימה באמצעות דיג'רידו בפרדס חנה",
+		'המרכז לטיפול בנשימה באמצעות דיג׳רידו - סטודיו נשימה מעגלית בפרדס חנה' => 'המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה',
+		"את המרכז לטיפול בדיג'רידו - סטודיו נשימה מעגלית בפרדס חנה"             => "את המרכז לטיפול בנשימה באמצעות דיג'רידו בפרדס חנה",
+		'את המרכז לטיפול בדיג׳רידו, סטודיו נשימה מעגלית בפרדס חנה'             => 'את המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה',
+		'את המרכז לטיפול בדיג׳רידו — סטודיו נשימה מעגלית בפרדס חנה'           => 'את המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה',
+		'את המרכז לטיפול בדיג׳רידו - סטודיו נשימה מעגלית בפרדס חנה'           => 'את המרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה',
+		'ברוכים הבאים לסטודיו נשימה מעגלית בפרדס חנה'                           => 'ברוכים הבאים למרכז לטיפול בנשימה באמצעות דיג׳רידו בפרדס חנה',
 	);
-	return str_replace( $retired, $current, $text );
+	$text = str_replace( array_keys( $pairs ), array_values( $pairs ), $text );
+	return str_replace( $needles, $current, $text );
+}
+
+/**
+ * @param string $text
+ * @return string
+ */
+function ea_fb_testimonials_publish_text( $text ) {
+	return ea_replace_retired_brand( $text );
 }
 
 /**
@@ -227,3 +256,13 @@ function ea_fb_testimonials_home( $per_cat = 4 ) {
 	}
 	return $out;
 }
+
+add_filter( 'the_content', 'ea_replace_retired_brand', 12 );
+add_filter(
+	'the_title',
+	static function ( $title ) {
+		return is_string( $title ) ? ea_replace_retired_brand( $title ) : $title;
+	},
+	12
+);
+

@@ -15,7 +15,7 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 			<div class="r">
 				<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
 				<h2 class="h2" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
-				<div class="intro-body"><?php echo wp_kses_post( $a['body'] ?? '' ); ?></div>
+				<div class="intro-body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
 			</div>
 			<figure class="figr figr--<?php echo esc_attr( $a['figr'] ?? 'l' ); ?> split2__m r r2" style="margin:0">
 				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( $a['alt'] ?? '' ); ?>" loading="lazy">
