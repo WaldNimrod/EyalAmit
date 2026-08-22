@@ -76,9 +76,13 @@ function ea_fb_testimonials_by_cat( $slug ) {
 		if ( ( $t['cat'] ?? '' ) !== $cat ) {
 			continue;
 		}
+		$text = trim( (string) ( $t['snippet'] ?? '' ) );
+		if ( '' === $text ) {
+			continue; // Nimrod 23.8: incomplete cards are ignored; only body is shown.
+		}
 		$out[] = array(
 			'name' => (string) ( $t['name'] ?? '' ),
-			'text' => (string) ( $t['snippet'] ?? '' ),
+			'text' => $text,
 			'href' => (string) ( $t['href'] ?? '' ),
 		);
 	}
@@ -158,6 +162,11 @@ function ea_fb_testimonials_archive( $cat ) {
 	 * ארבע רשומות ירדו כך עד גל 5 (48 → 44): דן ארליכמן · דרור מצליח · קרן אברשי ·
 	 * שיילי פיינברג. גל 5 (M-01a): נוסח דן הוחזר לקורפוס — דן מוצג שוב.
 	 *
+	 * Nimrod 23.8 (M-WINNING-50): יש מספיק המלצות. רשומה בלי גוף — למחוק/להתעלם;
+	 * רשומה עם תוכן — להציג. לא מפיקים «פיסקה מנצחת» עד 50 מילים. שתי הרשומות
+	 * הריקות במקור (קרן אברשי 1Cm6yPLuWo, שיילי פיינברג 1KPWV8GvcL) נשארות מחוץ
+	 * לעמוד; שאר הכרטיסים עם טקסט נשארים כמו שהם.
+	 *
 	 * ⚠ הטרקר — לא הקוד — הוא המקום שבו רשומה חסרת-תוכן ממשיכה להתקיים.
 	 * אין להחזיר לכאן רינדור של כרטיס ריק כדי «לא לאבד» ממליץ.
 	 */
@@ -182,6 +191,10 @@ function ea_fb_testimonials_home( $per_cat = 4 ) {
 	$counts = array();
 	$out    = array();
 	foreach ( ea_fb_testimonials_all() as $t ) {
+		$text = trim( (string) ( $t['snippet'] ?? '' ) );
+		if ( '' === $text ) {
+			continue; // Nimrod 23.8: do not count empty cards toward the rotator.
+		}
 		$cat = (string) ( $t['cat'] ?? '' );
 		$n   = isset( $counts[ $cat ] ) ? $counts[ $cat ] : 0;
 		if ( $n >= $per_cat ) {
@@ -190,7 +203,7 @@ function ea_fb_testimonials_home( $per_cat = 4 ) {
 		$counts[ $cat ] = $n + 1;
 		$out[]          = array(
 			'name' => (string) ( $t['name'] ?? '' ),
-			'text' => (string) ( $t['snippet'] ?? '' ),
+			'text' => $text,
 			'href' => (string) ( $t['href'] ?? '' ),
 		);
 	}

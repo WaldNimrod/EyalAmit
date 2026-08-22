@@ -71,35 +71,12 @@ PAGE_LIVE: dict[str, str] = {
     "R1-22": "גל 8 עלה. שם באנגלית, ציר עם תחנת קורונה, גלריה מהאתר הישן.",
     "R1-23": "אין קובץ 19.8. הוגש כפי שהוא ב-18.8.",
     "R1-25": "גל 9+10: בלוק 2 ירד, קישורי ספרים ל-/books/, לשוניות הרצאות/סדנאות/נחירות. שאלה אחת פתוחה: קישור ההכשרות.",
-    "R1-26": "גל 5 עלה: כותרת «עדויות והמלצות», נוסח דן, קרוסלת חצים. תמונות פרופיל וסרטונים בהמשך.",
+    "R1-26": "גל 5 + הכרעת נימרוד 23.8: כרטיס בלי תוכן לא מוצג; מה שיש גוף — מוצג. תמונות פרופיל וסרטונים בהמשך.",
     "R1-28": "גל 9 עלה. צילום מכבי והתכתבות יוני. באנר ההמתנה ירד. אין מקור שלישי (תא ריק).",
 }
 
-# Remaining Nimrod-only decisions after the 22.8 JSON. Closed choices are not listed.
-NIMROD_DECISIONS: tuple[dict, ...] = (
-    {
-        "id": "M-WINNING-50",
-        "pageKey": "R1-26",
-        "title": "עדויות — מה חסר ומה אייל ביקש בפיסקה",
-        "path": "/testimonials/",
-        "ask": (
-            "נבדק מול הקובץ «ממליצים מהפייסבוק»: 48 רשומות, לכולן יש שם. "
-            "שתיים בלי גוף במקור עצמו — קרן אברשי "
-            "(https://www.facebook.com/share/v/1Cm6yPLuWo/) "
-            "ושיילי פיינברג (https://www.facebook.com/share/p/1KPWV8GvcL/). "
-            "לאותם שמות יש פוסטים אחרים עם טקסט. לא מילאנו בשקט מפוסט אחר. "
-            "ב-46 האחרות התקציר בקרוסלה הוא תחילת הפוסט. ב-19.8 אייל ביקש "
-            "«פיסקה מנצחת» עד 50 מילים מכל פוסט — זה עריכה מתוך הטקסט שלו, לא השלמת ממליצים חסרים."
-        ),
-        "picks": [
-            "להסתיר את שתי הכרטיסיות הריקות, ולא לגעת ב-46 התקצירים",
-            "להסתיר את הריקות, ולהפיק פיסקה מנצחת עד 50 מילים מכל אחד מ-46 הפוסטים",
-            "לשאול את אייל על שתי הריקות ועל הפיסקה המנצחת",
-            "אחר — לכתוב בתיבה",
-        ],
-        "needsFill": True,
-    },
-)
+# Remaining Nimrod-only decisions after the 23.8 testimonials ruling. Closed choices are not listed.
+NIMROD_DECISIONS: tuple[dict, ...] = ()
 
 # Pages with more than one live copy Eyal must compare. SSOT for form links
 # (the tracker «אפשרויות לבחירה» text is not rendered as links today).
@@ -645,7 +622,7 @@ def _round_today_html() -> str:
         "בלי המצאות. תא ריק באקסל = אין הערות.</li>\n"
         "</ul>\n"
         "<p><strong>הטופס נגזר מהטרקר.</strong> נשארה שאלה אחת לאייל (קישור הכשרות בשאלות נפוצות). "
-        "תא ריק באקסל לא נשאל. שאלות פנימיות לנימרוד — בסקשן נפרד למטה.</p>\n"
+        "תא ריק באקסל לא נשאל. אין שאלות פתוחות אצל נימרוד.</p>\n"
         "<p>הגיליון המלא נשאר ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
         "</section>\n"
     )
@@ -869,11 +846,13 @@ def _nimrod_item_html(it: dict) -> str:
 
 
 def _nimrod_section_html(items: list[dict]) -> str:
+    if not items:
+        return ""
     bits = [
         '<section class="s006-nimrod-board" id="nimrod-decisions" aria-label="שאלות לנימרוד">\n',
         '<p class="s006-nimrod-board__kicker">פנימי · לא למילוי אייל</p>\n',
         "<h2>שאלות לנימרוד</h2>\n",
-        "<p>הכרעות 22.8 נקלטו. נשארה כאן רק מה שעדיין דורש הכרעה. "
+        "<p>הכרעות 22.8 ו-23.8 נקלטו. נשארה כאן רק מה שעדיין דורש הכרעה. "
         "תאים ריקים באקסל לא נשאלים. מדיה שנדחתה לשלב 2/3 לא כאן.</p>\n",
     ]
     for it in items:
@@ -894,7 +873,7 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     c = model["counts"]
     html = head(
         "שאלות לסגירה — סבב 21.8.2026 — אייל עמית",
-        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w13">\n',
+        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w14">\n',
     )
     html += nav("s006-review")
     html += '<div class="wrap s006-wrap">\n'
