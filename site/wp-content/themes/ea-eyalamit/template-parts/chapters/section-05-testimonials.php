@@ -12,15 +12,13 @@
  * הקורפוס עצמו לא נגע — הוא ממשיך להזין את קרוסלות השירותים דרך
  * template-parts/chapters/parts/testimonials.php.
  *
- * בנתיב הקורפוס, 5 הציטוטים שעדיין נושאים את המותג שיצא משימוש
- * «סטודיו נשימה מעגלית» מסוננים (לא נערכים) לפי WP-06.
+ * בנתיב הקורפוס, שם המותג הישן מוחלף בתצוגה (Nimrod 23.8) ולא נחסם.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$brand = 'סטודיו נשימה מעגלית';
 $items = array();
 
 /* S006 · H-11 · מקור: content 13.8.26/דף הבית/homepage1-3 v2.md · SECTION 10 → «CTA: [לכל ההמלצות](/media)» */
@@ -36,11 +34,10 @@ foreach ( ea_chapters_rows( 'testi_items' ) as $r ) {
 }
 if ( empty( $items ) && function_exists( 'ea_fb_testimonials_all' ) ) {
 	foreach ( ea_fb_testimonials_all() as $t ) {
-		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' );
-		if ( false !== mb_strpos( $blob, $brand ) ) {
-			continue; // brand-compliance: exclude, do not edit customer quotes
-		}
 		$txt = trim( (string) ( $t['snippet'] ?? '' ) );
+		if ( function_exists( 'ea_fb_testimonials_publish_text' ) ) {
+			$txt = ea_fb_testimonials_publish_text( $txt );
+		}
 		if ( '' === $txt ) {
 			continue;
 		}

@@ -680,15 +680,15 @@ function ea_chapters_page_sections() {
 }
 
 /**
- * Curated testimonials for the marquee, optionally by category, with the retired
- * brand «סטודיו נשימה מעגלית» excluded (not edited). Returns [{text,name}].
+ * Curated testimonials for the marquee, optionally by category.
+ * Retired brand is rewritten on display (ea_fb_testimonials_publish_text).
+ * Returns [{text,name}].
  *
  * @param string $cat Optional FB-corpus category slug.
  * @return array<int,array{text:string,name:string}>
  */
 function ea_chapters_testimonials( $cat = '' ) {
-	$brand = 'סטודיו נשימה מעגלית';
-	$src   = array();
+	$src = array();
 	if ( '' !== $cat && function_exists( 'ea_fb_testimonials_by_cat' ) ) {
 		$src = ea_fb_testimonials_by_cat( $cat );
 	}
@@ -697,11 +697,10 @@ function ea_chapters_testimonials( $cat = '' ) {
 	}
 	$out = array();
 	foreach ( (array) $src as $t ) {
-		$blob = ( $t['name'] ?? '' ) . ' ' . ( $t['snippet'] ?? '' ) . ' ' . ( $t['full'] ?? '' ) . ' ' . ( $t['text'] ?? '' );
-		if ( false !== mb_strpos( $blob, $brand ) ) {
-			continue;
-		}
-		$txt = trim( (string) ( $t['snippet'] ?? ( $t['text'] ?? '' ) ) );
+		$raw = trim( (string) ( $t['text'] ?? ( $t['snippet'] ?? '' ) ) );
+		$txt = function_exists( 'ea_fb_testimonials_publish_text' )
+			? ea_fb_testimonials_publish_text( $raw )
+			: $raw;
 		if ( '' === $txt ) {
 			continue;
 		}

@@ -76,7 +76,7 @@ function ea_fb_testimonials_by_cat( $slug ) {
 		if ( ( $t['cat'] ?? '' ) !== $cat ) {
 			continue;
 		}
-		$text = trim( (string) ( $t['snippet'] ?? '' ) );
+		$text = ea_fb_testimonials_publish_text( trim( (string) ( $t['snippet'] ?? '' ) ) );
 		if ( '' === $text ) {
 			continue; // Nimrod 23.8: incomplete cards are ignored; only body is shown.
 		}
@@ -113,6 +113,31 @@ function ea_fb_testimonials_clean_href( $href ) {
 }
 
 /**
+ * S006 · Nimrod 23.8: retired brand «סטודיו נשימה מעגלית» is rewritten on
+ * display to the NAP name (D-EYAL-BRAND-17 / ea_nap). The JSON corpus stays
+ * verbatim. Empty bodies are still dropped; quotes with a body are shown.
+ *
+ * @param string $text
+ * @return string
+ */
+function ea_fb_testimonials_publish_text( $text ) {
+	$text = (string) $text;
+	if ( '' === $text ) {
+		return '';
+	}
+	$current = function_exists( 'ea_nap' ) ? (string) ea_nap( 'name' ) : '';
+	if ( '' === $current ) {
+		$current = "המרכז לטיפול בנשימה באמצעות דיג'רידו";
+	}
+	$retired = array(
+		'סטודיו נשימה מעגלית',
+		'הסטודיו לנשימה מעגלית',
+		'סטודיו לנשימה מעגלית',
+	);
+	return str_replace( $retired, $current, $text );
+}
+
+/**
  * S006 · H-15 · מקור: content 13.8.26/…/ממליצים מהפייסבוק.docx
  *
  * הסט המלא של קטגוריה אחת עבור עמוד ריכוז ההמלצות (/testimonials/ — לשעבר /media/,
@@ -122,30 +147,23 @@ function ea_fb_testimonials_clean_href( $href ) {
  * נופלת: גם המלצה שאין לה snippet בקורפוס מוחזרת (שם + קישור בלבד), כי היא חלק
  * מהרשימה של אייל.
  *
- * מותג שיצא משימוש (WP-06): «סטודיו נשימה מעגלית» לא מתפרסם. הכלל מוחל כאן על
- * הטקסט המוצג בלבד (snippet) ולא על ה-full שאינו מרונדר — ולכן נופל הציטוט של
- * רשומה אחת (idx 27, דרור מצליח) במקום חמש. הציטוט לא נערך ולא נוסח מחדש, רק
- * לא מוצג; השם והקישור נשארים.
+ * Nimrod 23.8: שם המותג הישן מוחלף בתצוגה ל-ea_nap('name') והכרטיס מוצג.
+ * הקורפוס JSON לא נגע.
  *
  * @param string $cat Corpus category key (treatment|sound-healing|lessons).
  * @return array<int,array{name:string,text:string,href:string}>
  */
 function ea_fb_testimonials_archive( $cat ) {
-	$brand = 'סטודיו נשימה מעגלית';
-	$cat   = (string) $cat;
+	$cat = (string) $cat;
 
 	$rows = array();
 	foreach ( ea_fb_testimonials_all() as $t ) {
 		if ( ( $t['cat'] ?? '' ) !== $cat ) {
 			continue;
 		}
-		$text = trim( (string) ( $t['snippet'] ?? '' ) );
-		if ( '' !== $text && false !== mb_strpos( $text, $brand ) ) {
-			$text = ''; // brand-compliance: hide, never edit a customer quote.
-		}
 		$rows[] = array(
 			'name' => (string) ( $t['name'] ?? '' ),
-			'text' => $text,
+			'text' => ea_fb_testimonials_publish_text( trim( (string) ( $t['snippet'] ?? '' ) ) ),
 			'href' => ea_fb_testimonials_clean_href( $t['href'] ?? '' ),
 		);
 	}
@@ -191,7 +209,7 @@ function ea_fb_testimonials_home( $per_cat = 4 ) {
 	$counts = array();
 	$out    = array();
 	foreach ( ea_fb_testimonials_all() as $t ) {
-		$text = trim( (string) ( $t['snippet'] ?? '' ) );
+		$text = ea_fb_testimonials_publish_text( trim( (string) ( $t['snippet'] ?? '' ) ) );
 		if ( '' === $text ) {
 			continue; // Nimrod 23.8: do not count empty cards toward the rotator.
 		}
