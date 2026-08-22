@@ -1318,6 +1318,35 @@ nav {
   min-height: 2.1rem;
 }
 
+.s006-nimrod-board {
+  margin: 1.6rem 0 0.4rem;
+  padding: 0.95rem 1.1rem 1.1rem;
+  border: 2px solid var(--accent, #2a6f6a);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--card));
+}
+.s006-nimrod-board__kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent, #2a6f6a);
+}
+.s006-nimrod-board h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+.s006-nimrod-board > p { margin: 0 0 0.7rem; }
+.s006-item--nimrod {
+  margin: 0 0 0.65rem;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.s006-toolbar--nimrod {
+  position: static;
+  margin: 0.85rem 0 0;
+}
+.s006-resp--inline { margin: 0 0 0.55rem; display: inline-flex; }
+
 @media (min-width: 960px) {
   .s006-page {
     display: grid;

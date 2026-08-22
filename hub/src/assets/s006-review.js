@@ -71,11 +71,18 @@
     return el ? String(el.value || "").trim() : "";
   }
 
+  var nimrodItems = cfg.nimrodItems || [];
+
+  function readNimrod(it) {
+    return readItem(it);
+  }
+
   function snapshot() {
     var out = {
       respondent: ($("respondent") && $("respondent").value) || "",
       answers: {},
       pageNotes: {},
+      nimrodAnswers: {},
     };
     items.forEach(function (it) {
       out.answers[it.id] = readItem(it);
@@ -83,7 +90,67 @@
     pages.forEach(function (p) {
       out.pageNotes[p.key] = readPageNotes(p.key);
     });
+    nimrodItems.forEach(function (it) {
+      out.nimrodAnswers[it.id] = readNimrod(it);
+    });
     return out;
+  }
+
+  function nimrodAnsweredCount() {
+    var n = 0;
+    nimrodItems.forEach(function (it) {
+      var rec = readNimrod(it);
+      if (rec.answer || rec.choice || rec.fill) n += 1;
+    });
+    return n;
+  }
+
+  function refreshNimrodProgress() {
+    var el = $("s006-nimrod-progress");
+    if (!el) return;
+    el.textContent = nimrodAnsweredCount() + " מתוך " + nimrodItems.length + " הכרעות";
+  }
+
+  function persist() {
+    save(snapshot());
+    refreshProgress();
+    refreshNimrodProgress();
+  }
+
+  function exportNimrodJson() {
+    var recs = [];
+    nimrodItems.forEach(function (it) {
+      var rec = readNimrod(it);
+      if (!(rec.answer || rec.choice || rec.fill)) return;
+      recs.push({
+        id: rec.id,
+        pageKey: rec.pageKey || it.pageKey || "",
+        answer: rec.answer,
+        choice: rec.choice,
+        fill: rec.fill,
+      });
+    });
+    if (!recs.length) {
+      alert("אין הכרעות לייצוא");
+      return;
+    }
+    var payload = {
+      schemaVersion: 1,
+      exportType: "nimrod-s006-decisions",
+      exportTimestamp: new Date().toISOString(),
+      sourceGeneratedAt: cfg.generatedAt || "",
+      decisions: recs,
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: "application/json;charset=utf-8",
+    });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "nimrod-s006-decisions-" + isoStamp() + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
   }
 
   function answeredCount() {
@@ -102,11 +169,6 @@
     var el = $("s006-progress");
     if (!el) return;
     el.textContent = answeredCount() + " מילויים בטופס";
-  }
-
-  function persist() {
-    save(snapshot());
-    refreshProgress();
   }
 
   function isoStamp() {
@@ -205,10 +267,16 @@
       el.value = stored.pageNotes[p.key];
     }
   });
+  nimrodItems.forEach(function (it) {
+    applyItem(it, stored.nimrodAnswers && stored.nimrodAnswers[it.id]);
+  });
   refreshProgress();
+  refreshNimrodProgress();
 
   var btn = $("btn-export-s006");
   if (btn) btn.addEventListener("click", exportJson);
+  var nbtn = $("btn-export-nimrod");
+  if (nbtn) nbtn.addEventListener("click", exportNimrodJson);
 
   document.querySelectorAll(".s006-chip").forEach(function (btn) {
     btn.addEventListener("click", function () {

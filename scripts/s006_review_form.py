@@ -50,29 +50,95 @@ PAGE_WAVE: dict[str, int] = {
 }
 
 PAGE_LIVE: dict[str, str] = {
-    "R1-01": "גל 1 עלה 21.8. ציר הזמן ירד. וידאו בפרק 3 נשאר פלייסהולדר (H-06 לשלב 2/3).",
+    "R1-01": "גל 1 עלה. ציר הזמן ירד. וידאו בפרק 3 נשאר פלייסהולדר (לשלב 2/3).",
     "R1-02": "כתובת אחת /treatment/. ההשוואה ?compare=eyal כבויה. סרטון מפגש לשלב מדיה.",
-    "R1-03": "גל 3 עלה 21.8: כותרת «עדויות והמלצות», כפתור לכל ההמלצות → /testimonials/. גל 5: קרוסלת חצים ידנית.",
-    "R1-04": "גל 1 עלה 21.8. קישור הריון כפי שנתת. מקום לווידאו שמור.",
-    "R1-05": "גל 4 עלה 21.8: בלוק אודות לפני CTA. שלד וידאו ב«איך זה עובד». גל 5: קרוסלת חצים ידנית.",
-    "R1-10": "בתור גל 6 — כולל פיצול רשת הכלים. תמונות לשלב מאוחר.",
-    "R1-11": "בתור גל 6. תמונות לשלב הבא; בלוק ההמלצות בתיקון יימחק לפי תשובתך.",
-    "R1-12": "אין אקסל נפרד. הוראות חיות ב«עמוד קטלוג ראשי». בתור גל 6.",
-    "R1-13": "בתור גל 6. תמונות לשלב הבא; 6 תמונות מהאתר הישן; bleed נשאר.",
-    "R1-14": "בתור גל 6. באקסל נכתבו מזהי FLR בטעות — התשובות על סטנדים לאחסון.",
-    "R1-15": "האקסל ריק. לא מנחשים. בתור גל 6 אחרי הכרעה.",
-    "R1-16": "בתור גל 7. תמונות להשאיר; תמונת חבילה בהמשך. ניווט ספרים בגל 7.",
-    "R1-17": "בתור גל 7.",
-    "R1-18": "גל 7 עלה. קישור מנדלה מעמודת התשובה חי. URL שני בגוף האקסל נשאר אצל נימרוד.",
-    "R1-19": "בתור גל 7. שורת גלריה תויגה כ-VKT-01 שוב.",
-    "R1-21": "גל 2 עלה 21.8. עמוד אחד מ«אודות אייל עמית - סופי מאוחד.md». תמונות נשארו.",
-    "R1-22": "גל 8 עלה 21.8. מוקש דהימן: שם באנגלית, ציר עם תחנת קורונה, גלריה מהאתר הישן.",
-    "R1-08": "גל 10 עלה 21.8. עמוד הרצאות נבנה מהמסמך. בלי בלוק המלצות (אין עדויות הרצאה).",
-    "R1-09": "גל 10 עלה 21.8. עמוד סדנאות נבנה מהמסמך. כרגע אין מועד לסדנה פתוחה.",
-    "R1-25": "גל 9 עלה 21.8. בלוק 2 ירד. קישורי ספרים ל-/books/. גל 10: לשוניות הרצאות, סדנאות ונחירות. FAQ-07 הכשרות עדיין אצל נימרוד.",
-    "R1-26": "גל 5 עלה 21.8: כותרת «עדויות והמלצות». נוסח דן הוחזר. קרוסלת חצים ידנית בעמודי השירות. תמונות פרופיל וסרטונים בהמשך.",
-    "R1-28": "גל 9 עלה 21.8. צילום מכבי והתכתבות יוני עלו. באנר ההמתנה ירד. אין מקור שלישי (תא ריק).",
+    "R1-03": "גל 3+5 עלו: כותרת «עדויות והמלצות», כפתור לכל ההמלצות, קרוסלת חצים ידנית.",
+    "R1-04": "גל 1 עלה. קישור הריון כפי שנתת. מקום לווידאו שמור.",
+    "R1-05": "גל 4+5 עלו: בלוק אודות לפני יצירת קשר, שלד וידאו, קרוסלת חצים ידנית.",
+    "R1-08": "גל 10 עלה. נבנה מהמסמך. בלי בלוק המלצות (אין עדויות הרצאה).",
+    "R1-09": "גל 10 עלה. נבנה מהמסמך. כרגע אין מועד לסדנה פתוחה.",
+    "R1-10": "גל 6 עלה. שער עם חמש קוביות. תמונות לשלב מאוחר.",
+    "R1-11": "גל 6 עלה. בלוק ההמלצות בתיקון ירד. תמונות לשלב הבא.",
+    "R1-12": "גל 6 עלה. נשאר בכתובת /didgeridoos/. תמונות לשלב מאוחר.",
+    "R1-13": "גל 6 עלה. שש תמונות מהאתר הישן; bleed נשאר. תמונות הירו לשלב הבא.",
+    "R1-14": "גל 6 עלה. תוכן אחסון יושם על /stands-storage/ (באקסל נכתבו מזהי FLR). תמונות לשלב הבא.",
+    "R1-15": "גל 6: האקסל ריק (= אין הערות). העמוד החי לא שונה.",
+    "R1-16": "גל 7 עלה. הכותרת «מוזה הוצאה לאור - ספרים». תמונות להשאיר; תמונת חבילה בהמשך.",
+    "R1-17": "גל 7 עלה. גלריה מהאתר הישן. כתבות בהמשך.",
+    "R1-18": "גל 7 עלה. קישור מנדלה מעמודת התשובה חי. URL שני אצל נימרוד. כתבות בהמשך.",
+    "R1-19": "גל 7 עלה. גלריה מהאתר הישן.",
+    "R1-21": "גל 2 עלה. עמוד אחד מ«אודות אייל עמית - סופי מאוחד.md». תמונות נשארו.",
+    "R1-22": "גל 8 עלה. שם באנגלית, ציר עם תחנת קורונה, גלריה מהאתר הישן.",
+    "R1-23": "אין קובץ 19.8. הוגש כפי שהוא ב-18.8.",
+    "R1-25": "גל 9+10: בלוק 2 ירד, קישורי ספרים ל-/books/, לשוניות הרצאות/סדנאות/נחירות. קישור הכשרות אצל נימרוד.",
+    "R1-26": "גל 5 עלה: כותרת «עדויות והמלצות», נוסח דן, קרוסלת חצים. תמונות פרופיל וסרטונים בהמשך.",
+    "R1-28": "גל 9 עלה. צילום מכבי והתכתבות יוני. באנר ההמתנה ירד. אין מקור שלישי (תא ריק).",
 }
+
+# Curated Nimrod-only decisions. Not asked of Eyal. Empty Excel cells are not listed.
+NIMROD_DECISIONS: tuple[dict, ...] = (
+    {
+        "id": "TSV-07",
+        "pageKey": "R1-18",
+        "title": "צבע בכחול — איזה קישור מנדלה נשאר",
+        "path": "/books/tsva-bekahol/",
+        "ask": (
+            "חי עכשיו קישור מעמודת התשובה באקסל. בגוף האקסל יש URL שני. "
+            "לא בוחרים בשקט."
+        ),
+        "picks": [
+            "להשאיר https://www.mendele.co.il/product/tzvabekahol/",
+            "להחליף ל-https://www.mendele.co.il/product/tsvabacholvezorekleyam/",
+            "אחר — לכתוב בתיבה",
+        ],
+    },
+    {
+        "id": "FAQ-07",
+        "pageKey": "R1-25",
+        "title": "שאלות נפוצות — קישור הכשרות",
+        "path": "/faq/",
+        "ask": (
+            "החי עדיין מצביע ל-/cbDidg-therapy-training (404). "
+            "עמוד ההכשרות מוקפא. לא ממציאים יעד."
+        ),
+        "picks": [
+            "בלי קישור עד שיהיה עמוד הכשרות",
+            "יש כתובת חיה — להדביק בתיבה",
+            "אחר — לכתוב בתיבה",
+        ],
+        "needsFill": True,
+    },
+    {
+        "id": "STN-FLR-MAP",
+        "pageKey": "R1-14",
+        "title": "סטנדים לאחסון — מיפוי מזהי FLR",
+        "path": "/stands-storage/",
+        "ask": (
+            "באקסל «סטנדים לאחסון» נכתבו מזהי FLR (סטנד רצפתי). "
+            "גל 6 יישם את התשובות על /stands-storage/. סטנד רצפתי נשאר בלי שינוי (אקסל ריק)."
+        ),
+        "picks": [
+            "מאשרים: התשובות שייכות ל-/stands-storage/",
+            "לא מאשרים — לפתוח מחדש",
+        ],
+    },
+    {
+        "id": "M-WINNING-50",
+        "pageKey": "R1-26",
+        "title": "המלצות — פיסקה מנצחת עד 50 מילים",
+        "path": "/testimonials/",
+        "ask": (
+            "מ-«ממליצים מהפייסבוק.docx». גל 5 לא ניחש ניסוח. "
+            "תמונות פרופיל נדחו לשלב מדיה — לא כאן."
+        ),
+        "picks": [
+            "ציטוט רציף מהקובץ (לסמן מילים אחרי ההכרעה)",
+            "עריכה של נימרוד — להדביק בתיבה",
+            "להשאיר בלי הפיסקה הזו",
+        ],
+        "needsFill": True,
+    },
+)
 
 # Pages with more than one live copy Eyal must compare. SSOT for form links
 # (the tracker «אפשרויות לבחירה» text is not rendered as links today).
@@ -268,13 +334,15 @@ def staging_url(path: str) -> str:
     return STAGING_ORIGIN.rstrip("/") + p
 
 
-def is_action_item(row: dict) -> bool:
+def is_action_item(row: dict, *, waiter: str | None = None) -> bool:
     ask = _cell(row, "מה נדרש ממך")
     if not ask or ask == "—":
         return False
-    waiter = _cell(row, "הכרעה נדרשת מ")
+    who = _cell(row, "הכרעה נדרשת מ")
     status = _cell(row, "סטטוס סעיף")
-    if waiter not in HUMAN_WAITERS:
+    if who not in HUMAN_WAITERS:
+        return False
+    if waiter and who != waiter:
         return False
     if status not in NEED_STATUSES:
         return False
@@ -289,7 +357,7 @@ def load_model() -> dict:
     open_items: list[dict] = []
     for row in _read_csv(SNAPDIR / "latest-items.csv"):
         page_key = _cell(row, "__page__")
-        if not page_key.startswith("R1-") or not is_action_item(row):
+        if not page_key.startswith("R1-") or not is_action_item(row, waiter="אייל"):
             continue
         item_id = _cell(row, "#")
         pattern_id, pattern_label = classify_pattern(row)
@@ -372,23 +440,48 @@ def load_model() -> dict:
             }
         )
 
-    eyal_n = sum(1 for it in open_items if it["waiter"] == "אייל")
-    nimrod_n = sum(1 for it in open_items if it["waiter"] == "נימרוד")
+    eyal_n = len(open_items)
+    nimrod_items = _nimrod_form_items()
     return {
         "pages": pages,
         "openItems": open_items,
         "needItems": open_items,
+        "nimrodItems": nimrod_items,
         "recurring": recurring,
         "inventory": inventory,
         "counts": {
             "pages": len(pages),
-            "openItems": len(open_items),
+            "openItems": eyal_n,
             "eyal": eyal_n,
-            "nimrod": nimrod_n,
+            "nimrod": len(nimrod_items),
+            "submitted": len(inventory.get("הוגש לבדיקה") or []),
+            "frozen": len(inventory.get("הוקפא") or []),
         },
         "itemIds": [it["id"] for it in open_items],
         "pageByKey": page_by_key,
     }
+
+
+def _nimrod_form_items() -> list[dict]:
+    out: list[dict] = []
+    for d in NIMROD_DECISIONS:
+        path = str(d.get("path") or "")
+        iid = str(d["id"])
+        out.append(
+            {
+                "id": iid,
+                "pageKey": str(d["pageKey"]),
+                "itemKey": iid,
+                "domId": f"nimrod__{iid}",
+                "title": str(d["title"]),
+                "ask": str(d["ask"]),
+                "path": path,
+                "liveUrl": staging_url(path) if path.startswith("/") else "",
+                "picks": list(d.get("picks") or []),
+                "needsFill": bool(d.get("needsFill")),
+            }
+        )
+    return out
 
 
 def _badge(text: str, kind: str) -> str:
@@ -540,8 +633,6 @@ def freeze_reason_he(notes: str) -> str:
 THAW_HE = {
     "R1-06": "תיקיית חומר או קובץ סקירה לשער «לימוד והכשרה» ב-content 13.8.26.",
     "R1-07": "חבילת תוכן להכשרות למטפלים ב-content 13.8.26 (לא טיוטת צוות). גם השער /learning/ מוקפא.",
-    "R1-08": "חבילת תוכן להרצאות ב-content 13.8.26.",
-    "R1-09": "חבילת תוכן לסדנאות ב-content 13.8.26.",
     "R1-20": "חבילת תוכן לארכיון הבלוג. 54 הפוסטים עצמם מתוכננים לסבב 2.",
     "R1-24": "מקור באנגלית שאישרת. בלי זה אין תרגום.",
     "R1-27": "תוכן עמוד לגלריות (טקסט או סקירה). קובץ zip של תמונות אינו מקור עמוד.",
@@ -557,39 +648,44 @@ def thaw_needed_he(rec: dict) -> str:
 
 def _round_today_html() -> str:
     """Dated banner for the 21.8.2026 content round. Keep above the original intro."""
+    o = STAGING_ORIGIN
     return (
         '<section class="s006-round-today" aria-label="סבב 21.8.2026">\n'
-        '<p class="s006-round-today__date">סבב 21.8.2026</p>\n'
-        "<h2>מה עלה היום באתר הבדיקה</h2>\n"
-        "<p>זה <strong>סבב התשובות מ-19.8</strong> — יישום באתר הבדיקה בתאריך "
-        "<strong>21.8.2026</strong>. לא מחליף את סבב 1 המקורי, וגם לא פותח עדיין "
-        "את סבב 2 (בלוג/QR) או סבב 3 (מובייל) שבטבלה למטה.</p>\n"
+        '<p class="s006-round-today__date">סבב 21.8.2026 · 11 גלים הושלמו · טופס רוענן 22.8.2026</p>\n'
+        "<h2>מה עלה באתר הבדיקה</h2>\n"
+        "<p>זה <strong>סבב התשובות מ-19.8</strong> — יישום באתר הבדיקה. לא מחליף את סבב 1 "
+        "המקורי, וגם לא פותח עדיין את סבב 2 (בלוג/QR) או סבב 3 (מובייל) שבטבלה למטה.</p>\n"
         "<ul>\n"
-        "<li><strong>בית, טיפול, שיעורים</strong> — גל 1 עלה. "
-        "קישור מאמר ההריון בשיעורים תואם לכתובת שנתת.</li>\n"
-        "<li><strong>אודות אייל עמית</strong> — גל 2: עמוד אחד מ"
-        "«אודות אייל עמית - סופי מאוחד.md». שתי הגרסאות הקודמות ירדו. "
-        '<a href="' + STAGING_ORIGIN + '/eyal-amit/" target="_blank" rel="noopener">'
-        "לעמוד באתר הבדיקה</a>.</li>\n"
-        "<li><strong>השיטה</strong> — גל 3 עלה: כותרת אחת «עדויות והמלצות», "
-        "בלי כפילות שם-פרק קטן, כפתור לכל ההמלצות → /testimonials/. "
-        "קרוסלת חצים ידנית. "
-        '<a href="' + STAGING_ORIGIN + '/method/" target="_blank" rel="noopener">'
-        "לעמוד השיטה</a>.</li>\n"
-        "<li><strong>סאונד הילינג</strong> — גל 4 עלה: בלוק אודות לפני יצירת קשר, "
-        "שלד וידאו ב«איך זה עובד». התמונות נשארו. "
-        '<a href="' + STAGING_ORIGIN + '/sound-healing/" target="_blank" rel="noopener">'
-        "לעמוד סאונד הילינג</a>.</li>\n"
-        "<li><strong>עדויות והמלצות</strong> — גל 5 עלה: כותרת העמוד, נוסח דן, "
-        "קרוסלת חצים ידנית (בלי גלילה אוטומטית). תמונות פרופיל וסרטונים בהמשך. "
-        '<a href="' + STAGING_ORIGIN + '/testimonials/" target="_blank" rel="noopener">'
-        "לעמוד העדויות</a>.</li>\n"
+        "<li><strong>בית, טיפול, שיעורים</strong> — גל 1. "
+        '<a href="' + o + '/" target="_blank" rel="noopener">בית</a> · '
+        '<a href="' + o + '/treatment/" target="_blank" rel="noopener">טיפול</a> · '
+        '<a href="' + o + '/lessons/" target="_blank" rel="noopener">שיעורים</a>.</li>\n'
+        "<li><strong>אודות</strong> — גל 2, עמוד אחד מהמסמך המאוחד. "
+        '<a href="' + o + '/eyal-amit/" target="_blank" rel="noopener">לעמוד</a>.</li>\n'
+        "<li><strong>השיטה</strong> — גל 3. "
+        '<a href="' + o + '/method/" target="_blank" rel="noopener">לעמוד</a>.</li>\n'
+        "<li><strong>סאונד הילינג</strong> — גל 4. "
+        '<a href="' + o + '/sound-healing/" target="_blank" rel="noopener">לעמוד</a>.</li>\n'
+        "<li><strong>עדויות והמלצות</strong> — גל 5, קרוסלת חצים ידנית. "
+        '<a href="' + o + '/testimonials/" target="_blank" rel="noopener">לעמוד</a>.</li>\n'
+        "<li><strong>קטלוג וכלים</strong> — גל 6, שער עם חמש קוביות. "
+        '<a href="' + o + '/shop/" target="_blank" rel="noopener">שער</a>.</li>\n'
+        "<li><strong>ספרים</strong> — גל 7. "
+        '<a href="' + o + '/books/" target="_blank" rel="noopener">שער ספרים</a>.</li>\n'
+        "<li><strong>מוקש דהימן</strong> — גל 8. "
+        '<a href="' + o + '/eyal-amit/mokesh-dahiman/" target="_blank" rel="noopener">לעמוד</a>.</li>\n'
+        "<li><strong>שאלות נפוצות ונחירות</strong> — גל 9. "
+        '<a href="' + o + '/faq/" target="_blank" rel="noopener">FAQ</a> · '
+        '<a href="' + o + '/snoring-sleep-apnea/" target="_blank" rel="noopener">נחירות</a>.</li>\n'
+        "<li><strong>הרצאות וסדנאות</strong> — גל 10. "
+        '<a href="' + o + '/learning/lectures/" target="_blank" rel="noopener">הרצאות</a> · '
+        '<a href="' + o + '/learning/workshops/" target="_blank" rel="noopener">סדנאות</a>.</li>\n'
+        "<li><strong>מדיה לשלב הבא</strong> — גל 11 ניירת: תמונות/וידאו שנדחו נשארו באתר כמו שהם, "
+        "בלי המצאות. תא ריק באקסל = אין הערות.</li>\n"
         "</ul>\n"
-        "<p><strong>הטופס נגזר מהטרקר בכל סבב.</strong> "
-        "השדות הם תשובה חופשית + הערות לדף (כמו האקסל), לא רדיו בלבד. "
-        "סעיף שכבר נענה ב-19.8 עודכן בטרקר (בוצע / בעבודה / הוקפא) ואינו נשאל שוב.</p>\n"
-        "<p>ייצוא בסוף העמוד הוא JSON במבנה האקסל (עמוד → תשובות + הערות דף). "
-        "הגיליון המלא נשאר ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
+        "<p><strong>הטופס נגזר מהטרקר.</strong> אין שאלות פתוחות לאייל. "
+        "סעיף שנענה ב-19.8 אינו נשאל שוב. שאלות לנימרוד — בסקשן נפרד למטה.</p>\n"
+        "<p>הגיליון המלא נשאר ב-EA-CONTENT-TRACKER.xlsx בדרייב.</p>\n"
         "</section>\n"
     )
 
@@ -610,7 +706,7 @@ def _context_html(model: dict) -> str:
         "הבדיקה וההגשה הן <strong>למסך מחשב בלבד</strong> — מובייל יטופל בסבב נפרד.</p>\n"
         "<p>עמוד בלי חבילת חומר ממך לא קיבל תוכן שהמצאנו. הוא מוקפא עד שיהיה מקור.</p>\n"
         "<p>טיפול בדיג'רידו ואודות מוצגים עכשיו <strong>בכתובת אחת לכל עמוד</strong> "
-        "(בלי גרסה כפולה). קישור לכל עמוד מופיע ליד השאלה, לא רק בראש העמוד.</p>\n"
+        "(בלי גרסה כפולה).</p>\n"
     )
     html += (
         f"<p><strong>מוכנים לעיונך באתר הבדיקה ({len(submitted)}):</strong></p>\n"
@@ -647,15 +743,25 @@ def _context_html(model: dict) -> str:
         html += " (פריט תפריט בלי יעד ברור).</p>\n"
 
     html += "<h2>מה השלבים הבאים</h2>\n"
-    html += (
-        '<ol class="s006-context-ol">\n'
-        "<li>אתה עובר על השאלות למטה (או מאשר עמוד אחרי עמוד באתר הבדיקה). "
-        "אפשר למלא חלק, לייצא JSON, ולחזור.</li>\n"
-        "<li>אנחנו מיישמים את הבחירות באתר הבדיקה וחוזרים אליך רק אם נפתח משהו חדש.</li>\n"
-        "<li>סבב 1 נסגר כשאתה כותב שהעמוד אושר — או כשהוא מוקפא עם סיבה. "
-        "רק אז נפתח סבב 2.</li>\n"
-        "</ol>\n"
-    )
+    eyal_n = (model.get("counts") or {}).get("eyal") or 0
+    if eyal_n:
+        html += (
+            '<ol class="s006-context-ol">\n'
+            "<li>אתה עובר על השאלות למטה (או מאשר עמוד אחרי עמוד באתר הבדיקה). "
+            "אפשר למלא חלק, לייצא JSON, ולחזור.</li>\n"
+            "<li>אנחנו מיישמים את הבחירות באתר הבדיקה וחוזרים אליך רק אם נפתח משהו חדש.</li>\n"
+            "<li>סבב 1 נסגר כשאתה כותב שהעמוד אושר — או כשהוא מוקפא עם סיבה. "
+            "רק אז נפתח סבב 2.</li>\n"
+            "</ol>\n"
+        )
+    else:
+        html += (
+            '<ol class="s006-context-ol">\n'
+            "<li>אין שאלות פתוחות אליך בטופס. אפשר לעבור על העמודים ברשימה למעלה באתר הבדיקה.</li>\n"
+            "<li>הערות כלליות — בתיבה בתחתית החלק שלך. תא ריק באקסל לא נשאל שוב.</li>\n"
+            "<li>סבב 1 נסגר כשאתה כותב שהעמודים אושרו. רק אז נפתח סבב 2.</li>\n"
+            "</ol>\n"
+        )
 
     html += "<h2>סבב 2 וסבב 3 — מה בפנים</h2>\n"
     html += (
@@ -708,7 +814,8 @@ def _context_html(model: dict) -> str:
         "<li>הטקסט שלך נכנס <strong>מילה במילה</strong>. בלי ניסוח מחדש, בלי «שיפור», "
         "ובלי השלמת פערים.</li>\n"
         "<li>בסקירה: אם מה שראית תואם למה שרצית ואין הערה — <strong>לא נגענו</strong>.</li>\n"
-        "<li>חסרה תמונה, וידאו או כתובת — <strong>שואלים אותך</strong>, לא ממציאים.</li>\n"
+        "<li>חסרה תמונה, וידאו או כתובת — <strong>לא ממציאים</strong>. "
+        "תא ריק = אין הערות. מדיה שנדחתה לשלב הבא נשארת בגיליון, לא בטופס.</li>\n"
         "<li>באתר מוצג רק מה שתקין. רשומה בלי תוכן נשארת בגיליון, לא ככרטיס ריק.</li>\n"
         "<li>קישור שכתבת במסמך ואינו קיים באתר נשאר כמו שכתבת, עד שתבחר כתובת אחרת או להסיר.</li>\n"
         "</ul>\n"
@@ -750,12 +857,83 @@ def _page_html(page: dict) -> str:
     return "".join(bits)
 
 
+def _nimrod_item_html(it: dict) -> str:
+    dom = it["domId"]
+    bits = [
+        f'<article class="s006-item s006-item--nimrod" id="item-{escape(dom)}" ',
+        f'data-id="{escape(it["id"])}" data-mode="nimrod">\n',
+        '<header class="s006-item__head">\n',
+        f'<span class="s006-item__id">{escape(it["itemKey"])}</span>\n',
+        f'<h3 class="s006-item__title">{escape(it["title"])}</h3>\n',
+        '<span class="s006-item__badges">\n',
+        _badge("הכרעת נימרוד", "nimrod") + "\n",
+        "</span>\n</header>\n",
+    ]
+    if it.get("liveUrl"):
+        bits.append(
+            f'<p class="s006-page__link"><a href="{escape(it["liveUrl"])}" '
+            f'target="_blank" rel="noopener">העמוד באתר הבדיקה'
+            f' <span dir="ltr">{escape(it["path"])}</span></a></p>\n'
+        )
+    bits.append(f'<p class="s006-item__ask">{escape(it["ask"])}</p>\n')
+    bits.append('<div class="s006-fields">\n')
+    bits.append(
+        '<div class="s006-field s006-field--answer">\n'
+        f'<label class="s006-label" for="answer-{escape(dom)}">הכרעה / הערה</label>\n'
+        f'<textarea class="s006-input" id="answer-{escape(dom)}" rows="3" '
+        f'placeholder="בחירה מהרשימה או ניסוח חופשי"></textarea>\n'
+        "</div>\n"
+    )
+    if it.get("needsFill"):
+        bits.append(
+            '<div class="s006-field">\n'
+            f'<label class="s006-label" for="fill-{escape(dom)}">קישור, ציטוט, או חומר מצורף</label>\n'
+            f'<input class="s006-input" type="text" id="fill-{escape(dom)}" '
+            f'placeholder="רק אם נדרש">\n'
+            "</div>\n"
+        )
+    if it.get("picks"):
+        field = f"choice-{dom}"
+        bits.append('<fieldset class="s006-choices">\n<legend>בחירה</legend>\n')
+        for i, pick in enumerate(it["picks"]):
+            pid = f"{field}-{i}"
+            bits.append(
+                f'<label class="s006-choice" for="{escape(pid)}">'
+                f'<input type="radio" name="{escape(field)}" id="{escape(pid)}" '
+                f'value="{escape(pick)}"> {escape(pick)}</label>\n'
+            )
+        bits.append("</fieldset>\n")
+    bits.append("</div>\n</article>\n")
+    return "".join(bits)
+
+
+def _nimrod_section_html(items: list[dict]) -> str:
+    bits = [
+        '<section class="s006-nimrod-board" id="nimrod-decisions" aria-label="שאלות לנימרוד">\n',
+        '<p class="s006-nimrod-board__kicker">פנימי · לא למילוי אייל</p>\n',
+        "<h2>שאלות לנימרוד</h2>\n",
+        "<p>ארבע בחירות פתוחות אחרי 11 הגלים. תאים ריקים באקסל לא נשאלים. "
+        "מדיה שנדחתה לשלב 2/3 לא כאן.</p>\n",
+    ]
+    for it in items:
+        bits.append(_nimrod_item_html(it))
+    bits.append(
+        '<div class="s006-toolbar s006-toolbar--nimrod">\n'
+        '<span class="s006-progress" id="s006-nimrod-progress"></span>\n'
+        '<button class="btn-export" type="button" id="btn-export-nimrod">'
+        "ייצוא הכרעות נימרוד ל-JSON</button>\n"
+        "</div>\n"
+        "</section>\n"
+    )
+    return "".join(bits)
+
+
 def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent: str) -> str:
     model = load_model()
     c = model["counts"]
     html = head(
         "שאלות לסגירה — סבב 21.8.2026 — אייל עמית",
-        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w7">\n',
+        extra_scripts='<link rel="stylesheet" href="assets/hub.css?v=s006w12">\n',
     )
     html += nav("s006-review")
     html += '<div class="wrap s006-wrap">\n'
@@ -763,65 +941,86 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     html += _round_today_html()
     html += _context_html(model)
 
-    who = []
+    html += '<p class="s006-section-kicker">החלק של אייל</p>\n'
     if c["eyal"]:
-        who.append(f'{c["eyal"]} לאייל')
-    if c["nimrod"]:
-        who.append(f'{c["nimrod"]} לנימרוד')
-    html += (
-        f'<p class="subtitle">{c["openItems"]} שאלות פתוחות מהטרקר על {c["pages"]} עמודים'
-        + (f' ({" · ".join(who)})' if who else "")
-        + ". תשובה חופשית + הערות לדף. בסוף — ייצוא JSON.</p>\n"
-    )
-    html += '<p class="s006-section-kicker">השאלות הפתוחות בטרקר</p>\n'
-    html += (
-        '<p class="s006-tracker-ref">מזהה הסעיף זהה לגיליון '
-        "<strong>EA-CONTENT-TRACKER.xlsx</strong> בדרייב · "
-        '<a href="files/s006/latest-items.csv">CSV סעיפים</a></p>\n'
-    )
-
-    if model["recurring"]:
-        html += '<div class="s006-patterns"><ul>\n'
-        for p in model["recurring"]:
-            html += (
-                f'<li><button type="button" class="s006-chip" data-filter="{escape(p["id"])}">'
-                f'{escape(p["label"])} · {p["count"]}</button></li>\n'
-            )
-        html += '<li><button type="button" class="s006-chip s006-chip--all" data-filter="">הכל</button></li>\n'
-        html += "</ul></div>\n"
-
-    html += '<nav class="s006-toc" aria-label="עמודים עם שאלות מהטרקר">\n<ul>\n'
-    for page in model["pages"]:
         html += (
-            f'<li><a href="#page-{escape(page["key"])}">{escape(page["title"])} '
-            f'({page["openCount"]})</a></li>\n'
+            f'<p class="subtitle">{c["eyal"]} שאלות פתוחות מהטרקר על {c["pages"]} עמודים. '
+            "תשובה חופשית + הערות לדף. בסוף — ייצוא JSON.</p>\n"
         )
-    html += "</ul></nav>\n"
+        html += (
+            '<p class="s006-tracker-ref">מזהה הסעיף זהה לגיליון '
+            "<strong>EA-CONTENT-TRACKER.xlsx</strong> בדרייב · "
+            '<a href="files/s006/latest-items.csv">CSV סעיפים</a></p>\n'
+        )
+        if model["recurring"]:
+            html += '<div class="s006-patterns"><ul>\n'
+            for p in model["recurring"]:
+                html += (
+                    f'<li><button type="button" class="s006-chip" data-filter="{escape(p["id"])}">'
+                    f'{escape(p["label"])} · {p["count"]}</button></li>\n'
+                )
+            html += '<li><button type="button" class="s006-chip s006-chip--all" data-filter="">הכל</button></li>\n'
+            html += "</ul></div>\n"
+        html += '<nav class="s006-toc" aria-label="עמודים עם שאלות מהטרקר">\n<ul>\n'
+        for page in model["pages"]:
+            html += (
+                f'<li><a href="#page-{escape(page["key"])}">{escape(page["title"])} '
+                f'({page["openCount"]})</a></li>\n'
+            )
+        html += "</ul></nav>\n"
+        html += '<div class="s006-toolbar" id="s006-toolbar">\n'
+        html += '<span class="s006-progress" id="s006-progress"></span>\n'
+        html += (
+            f'<label class="s006-resp">שם '
+            f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
+        )
+        html += '<button class="btn-export" type="button" id="btn-export-s006">ייצוא תשובות ל-JSON</button>\n'
+        html += "</div>\n"
+        html += '<div id="s006-pages">\n'
+        for page in model["pages"]:
+            html += _page_html(page)
+        html += "</div>\n"
+    else:
+        html += (
+            '<p class="subtitle">אין שאלות פתוחות לאייל בטרקר. '
+            f'{c.get("submitted", 0)} עמודים מוכנים לעיון · {c.get("frozen", 0)} מוקפאים. '
+            "תא ריק באקסל = אין הערות, ולא נשאל שוב.</p>\n"
+        )
+        html += (
+            f'<label class="s006-resp s006-resp--inline">שם '
+            f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
+        )
+        html += (
+            '<div class="s006-field s006-field--page-notes">\n'
+            '<label class="s006-label" for="pagenotes-GENERAL">'
+            "הערות כלליות מאייל (רשות)</label>\n"
+            '<textarea class="s006-input" id="pagenotes-GENERAL" rows="4" '
+            'placeholder="אם יש הערה שלא שייכת לסעיף בודד"></textarea>\n'
+            "</div>\n"
+            '<p><button class="btn-export" type="button" id="btn-export-s006">'
+            "ייצוא הערות ל-JSON</button></p>\n"
+        )
 
-    html += '<div class="s006-toolbar" id="s006-toolbar">\n'
-    html += '<span class="s006-progress" id="s006-progress"></span>\n'
-    html += (
-        f'<label class="s006-resp">שם '
-        f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
-    )
-    html += '<button class="btn-export" type="button" id="btn-export-s006">ייצוא תשובות ל-JSON</button>\n'
+    html += _nimrod_section_html(model.get("nimrodItems") or [])
     html += "</div>\n"
-
-    html += '<div id="s006-pages">\n'
-    for page in model["pages"]:
-        html += _page_html(page)
-    html += "</div>\n</div>\n"
 
     cfg = {
         "exportType": EXPORT_TYPE,
         "schema": EXPORT_SCHEMA,
         "items": [{"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]} for it in model["needItems"]],
-        "pages": [{"key": p["key"]} for p in model["pages"] if p.get("needItems")],
+        "pages": (
+            [{"key": p["key"]} for p in model["pages"] if p.get("needItems")]
+            or ([{"key": "GENERAL"}] if not c["eyal"] else [])
+        ),
+        "nimrodItems": [
+            {"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]}
+            for it in (model.get("nimrodItems") or [])
+        ],
         "defaultRespondent": default_respondent,
         "generatedAt": generated_iso,
     }
     html += f'<script>window.S006_CONFIG={json.dumps(cfg, ensure_ascii=False)};</script>\n'
-    html += '<script src="assets/s006-review.js"></script>\n'
+    html += '<script src="assets/s006-review.js?v=s006w12"></script>\n'
     html += foot(generated_iso)
     return html
 
