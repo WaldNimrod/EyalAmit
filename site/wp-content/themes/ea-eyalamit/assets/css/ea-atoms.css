@@ -81,8 +81,10 @@
       border-radius: 0 0 var(--ea-radius-img) var(--ea-radius-img);
       transition: top var(--ea-dur-fast);
     }
-    .ea-skiplink:focus {
+    .ea-skiplink:focus,
+    .ea-skiplink:focus-visible {
       top: 0;
+      transition: none;
     }
 
     /* Scroll progress */
