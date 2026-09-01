@@ -16,6 +16,17 @@ boundaries:
     - "docs/"
     - "local/"
 
+  # THE HUB SNAPSHOT INSIDE THIS PROJECT. Never edit, never add, never delete here.
+  # Propagation is ONE-DIRECTIONAL (hub -> project) and `aos_sync_all.sh` rsyncs these with
+  # --delete: anything written here is destroyed on the next deployment, silently.
+  # PRECEDENCE: forbidden_write_roots WINS over allowed_write_roots. A path under both is FORBIDDEN.
+  # Added 2026-09-01 by team_00 ruling: "לפרויקט אסור לערוך או לשנות תקיות או קבצי האב.
+  # הסנפשוט הוא חד-כיווני, ובכל מקרה פריסה חדשה תעלים את העריכות של הפרויקט ותיצור שבירה."
+  forbidden_write_roots:
+    - "_aos/governance/"
+    - "_aos/methodology/"
+    - "_aos/lean-kit/"
+
   forbidden_patterns:
     - "from tiktrack"
     - "from smallfarmsagents"
