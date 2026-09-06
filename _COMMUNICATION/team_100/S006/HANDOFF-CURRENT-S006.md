@@ -1,5 +1,5 @@
 ---
-id: HANDOFF_CURRENT_S006_2026-09-06_v1.8.0
+id: HANDOFF_CURRENT_S006_2026-09-06_v1.9.0
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: state-only
 from: team_100 (reset 30.8 — state SSOT after prompt/CURRENT collision)
@@ -37,6 +37,7 @@ status: ACTIVE — open-work SSOT (not a per-page build cycle)
 |---|---|---|---|
 | **W4 משפטי — מחקר, בלי הדבקה** | R2-003 `/accessibility/` · R2-016 `/privacy/` · R2-022 `/terms/` · שלושת `LEG-01` = `בעבודה` | דוח HTML: [RESEARCH-S006-W4-LEGAL-2026-08-30.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/RESEARCH-S006-W4-LEGAL-2026-08-30.html) (עודכן אחרי CDP 30.8). ממתין למשוב נימרוד. **אין** `GO-W4-PASTE`. באנר WP-EI-05 חי | CDP: שני דילוגים → `#main` עובד בלחיצה; דילוג ראשון ב־1.5.16 נשאר `top:-40px` בפוקוס מיידי (transition). טופס צור קשר: CF7 בלי label + טופס מקומי עם label — כפילות |
 | **A11Y-NOW — קומטה 6.9, עדיין לא בחי** | `fabd106` על `s006/tracker-integrity`. תמה 1.5.17 | **FTP חסום עד GO נימרוד** (מנדט NOW). אחרי FTP: אימות 50 Tab+Enter — [REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md) | הייתה **לא מקומטת מ-26.8 עד 6.9** בעץ משותף. team_110 תפס במדידה |
+| **🔴 מיזוג `feat/s006-a11y-close` — חוסם פריסה** | [RULING-110-BLOCKER](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_110/RULING-TEAM100-110-BLOCKER-AND-FOUR-2026-09-06.md) | **שער 4 מושהה.** אין FTP מהענף הזה עד מיזוג. `git merge` ו-`git push` **נחסמו ע״י מסנן ההרשאות** — שניהם ממתינים לנימרוד | הפריסה היא `rglob("*")` = דריסה מלאה. הענף חסר `position:fixed;z-index:100000`, ארבעה `:focus-visible`, `.foot__disc` ב-`.62`. פריסה = רגרסיה 1.5.20 ← 1.5.17 |
 | **T-1 — 126 מעברי סטטוס בסבב-2** | [DECIDE_S006_TRACKER_DRIFT](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_00/DECIDE_S006_TRACKER_DRIFT_2026-09-06_v1.md) | **חוסם.** הבסיס תקוע על 23.8, אין verify נקי. ממתין להכרעת נימרוד | 126/126 עם ראיית ביצוע — הסטטוס אמיתי, רק הפנקסנות דילגה על «בעבודה» |
 
 ### 2. מה נסגר ב-6.9
@@ -48,6 +49,8 @@ status: ACTIVE — open-work SSOT (not a per-page build cycle)
 | הצלת A11Y-NOW מ-26.8 | `fabd106` | 25 קבצים |
 | יומן הביקורת של סבב 2 | `6b615f3` | 392 קבצים שהיו רק בעץ העבודה |
 | הזדהות מול שני ליינֵי הבנייה | ארטיפקטים ב-`team_10/` ו-`team_110/` | שניהם אישררו, נתנו משוב, ועומדים **ללא מנדט** |
+
+**כללים שנקבעו 6.9 ואינם בתבנית:** פורס = team_100 בלבד (הבנאי מסיים בקוד+ראיות) · `Version` = הבנאי מודיע, team_100 מעלה · אישור אייל חל על הבייטים, לא על המימוש — רכיב משותף מחזיר רק עמודים שמחרוזת מאושרת שלהם זזה, מוכח בדיף-בייטים · ציטוט docx = `scripts/docx_paragraph_index.py`, פורמט «פסקה `<idx>`» · **מנדט בנייה פעיל אחד בכל רגע** (חלוקה לפי זמן, לא לפי קבצים) · «עד 50 מילים» **נמחק** — מספר בלי מקור · גל D ירד מרשימת הבנייה, אסקלציה לאייל.
 
 **שני ליינים חיים וממתינים:** team_110 (Opus, בנייה כבדה/רב-עמודית) · team_10 (Sonnet, קובץ יחיד קיים).
 הגבול: קובץ אחד, קיים, של עמוד אחד → team_10. כל השאר → team_110.
