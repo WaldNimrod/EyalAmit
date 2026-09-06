@@ -246,6 +246,13 @@ a{color:inherit}
 .phero__h{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.12;letter-spacing:-.4px;color:#fff;max-width:18ch;margin-bottom:20px}
 .phero__h em{font-style:normal;color:var(--terra-lt)}
 .phero__s{font-weight:300;font-size:clamp(1.04rem,1.4vw,1.2rem);line-height:1.8;color:rgba(255,255,255,.86);max-width:54ch}
+/* S006 · M-03 · גוף רב-פסקאות בהירו (phero.lede). נגזרת M-01: הטקסט של אייל עבר לכאן
+   מ-sections[0] ב-/shop/. עקבי עם .phero__s — אותו משקל, אותו צבע — ובמידה קטנה ממנו
+   כדי שלא יתחרה בו. הגלובלי p{margin:0} (שורה 32) מאפס את המרווחים, ולכן הריווח בין
+   הפסקאות נקבע כאן במפורש, והמרווח העליון של הראשונה הוא 0 מתוך אותה הצהרה. */
+.phero__lede{margin-top:18px;max-width:60ch;font-weight:300;font-size:clamp(.98rem,1.2vw,1.08rem);line-height:1.85;color:rgba(255,255,255,.86)}
+.phero__lede p{margin:0 0 14px}
+.phero__lede p:last-child{margin-bottom:0}
 .phero .chap{color:var(--terra-lt)}
 .prose{max-width:64ch}
 .prose p{margin-bottom:16px;color:var(--body);font-size:1.06rem;line-height:1.85}
