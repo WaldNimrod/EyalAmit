@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דוח מחקר W4 · נגישות · פרטיות · תקנון · 2026-08-30</title>
+<style>
+  :root { --ink:#1c1917; --muted:#57534e; --line:#d6d3d1; --bg:#fafaf9; --paper:#fff; --terra:#9a3412; --ok:#166534; --bad:#9f1239; --hold:#92400e; --r3:#1e3a5f; }
+  * { box-sizing: border-box; }
+  body { margin:0; font: 16px/1.55 "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.55rem; margin: 0 0 .4rem; }
+  h2 { font-size: 1.2rem; margin: 2.2rem 0 .6rem; border-bottom: 1px solid var(--line); padding-bottom: .3rem; }
+  h3 { font-size: 1.02rem; margin: 1.4rem 0 .4rem; }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); font-size: .92rem; }
+  .banner { background:#fff7ed; border: 1px solid #fdba74; padding: .85rem 1rem; margin: 1rem 0 1.5rem; }
+  .banner strong { color: var(--hold); }
+  table { width:100%; border-collapse: collapse; font-size: .92rem; background: var(--paper); }
+  th, td { border: 1px solid var(--line); padding: .45rem .55rem; vertical-align: top; text-align: right; }
+  th { background: #f5f5f4; font-weight: 600; }
+  .tone-bad { color: var(--bad); font-weight: 600; }
+  .tone-ok { color: var(--ok); font-weight: 600; }
+  .tone-hold { color: var(--hold); font-weight: 600; }
+  .tone-r3 { color: var(--r3); font-weight: 600; }
+  code, .path { font-family: ui-monospace, Menlo, monospace; font-size: .84em; }
+  a { color: var(--terra); }
+  .nav { display:flex; flex-wrap:wrap; gap:.5rem 1rem; margin: 1rem 0 0; font-size: .92rem; }
+  ul.tight li { margin: .2rem 0; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="muted">צוות 100 · S006 גל 4 · 2026-08-30 · <strong>אינו ייעוץ משפטי</strong> · <strong>אין הדבקה לאתר</strong> · אין <span class="path">GO-W4-PASTE</span></p>
+<h1>דוח מחקר: נגישות, פרטיות ותקנון</h1>
+<p>שלושת נושאי W4 יחד, כפי שננעל בקליטה. המסמך הזה הוא מה שנימרוד ביקש לקרוא <em>לפני</em> כל הדבקה ולפני טופס אייל על העמודים המשפטיים.</p>
+
+<div class="banner">
+  <strong>סטטוס:</strong> מחקר בלבד. באנר «טיוטת צוות» (WP-EI-05) נשאר חי ב־
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">/accessibility/</a> ·
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/privacy/">/privacy/</a> ·
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/terms/">/terms/</a>.
+  אין לכתוב באתר «עומדים בת״י 5568 AA» כעובדה. אין חתימת AA של צוות 100.
+</div>
+
+<nav class="nav">
+  <a href="#inventory">אינדקס מקורות</a>
+  <a href="#locked">נעול</a>
+  <a href="#tools">כלים</a>
+  <a href="#seq">סדר מימוש</a>
+  <a href="#now">A11Y-NOW</a>
+  <a href="#statement">הצהרה מול חי</a>
+  <a href="#law">דין ישראלי</a>
+  <a href="#code">קוד</a>
+  <a href="#privacy">פרטיות</a>
+  <a href="#terms">תקנון</a>
+  <a href="#ask">מה מבקשים ממך</a>
+</nav>
+
+<p class="muted">קליטה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/INTAKE-NIMROD-W4-2026-08-26.md">INTAKE-NIMROD-W4-2026-08-26.md</a>
+· מצב פתוח: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/HANDOFF-CURRENT-S006.md">HANDOFF-CURRENT-S006.md</a>
+· סטייג'ינג (HTTP; TLS לא תקין בכוונה): <a href="http://eyalamit-co-il-2026.s887.upress.link">eyalamit-co-il-2026.s887.upress.link</a></p>
+
+<h2 id="inventory">0. אינדקס — כל מה שכבר קיים במאגר (נסרק 30.8)</h2>
+<p>לא מחקר חדש. מיפוי של אפיון, נעילות, טיוטות, קוד, ראיות QA, ומה <em>חסר</em>. קישורים מלאים — לפתיחה ישירה.</p>
+
+<h3>שכבה א · אפיון ודרישות (מרץ–אפריל 2026) — עדיין הקנון</h3>
+<table>
+  <thead><tr><th>מסמך</th><th>מה כתוב שם</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/PROJECT-ENTRY.md">docs/PROJECT-ENTRY.md</a></td><td>יעד מוצר: נגישות לישראל, אתר פרטי קטן. מצביע ל־WP Accessibility + LEGAL spec.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md">LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md</a> · 29.3</td><td>צ'קליסט תכנון: הצהרה, מקלדת, כותרות, alt, ניגודיות, טפסים, מדיה, lang, איסור overlay כתחליף. WP Accessibility כעזר. צ'קליסט השקה (עדיין ריק). תיבת «יועץ חיצוני» <strong>לא עודכנה</strong> אחרי נעילת v1.2.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/SPEC-V1.2-DECISIONS-LOCK-2026-03-30.md">SPEC-V1.2-DECISIONS-LOCK</a> + <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/SITE-SPECIFICATION-FINAL-2026-03-30.md">SITE-SPECIFICATION-FINAL</a></td><td><strong>נעול:</strong> אין יועץ חיצוני. עמידה בחוק ובתקן במסגרת אתר פרטי קטן. אישור נימרוד.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/to-eyal/2026-03-30--final-spec-package-for-eyal/md-sources/FOR-EYAL-CHOICES-v1.2-2026-03-30.md">FOR-EYAL-CHOICES v1.2</a></td><td>אותה נעילה מול אייל: בלי תקציב ייעוץ.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/04-IA-SEO-SOCIAL-REQUIREMENTS.md">04-IA-SEO-SOCIAL §4</a></td><td>מקלדת, ניגודיות, alt. עדיין כתוב «עמידה מלאה» + «Accessibility Helper — להחליט» — <strong>מיושן</strong> מול בחירת WP Accessibility.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/LAUNCH-CHECKLIST-2026.md">LAUNCH-CHECKLIST-2026.md</a></td><td>לפני עלייה: צ'קליסט LEGAL הושלם + עמוד הצהרה + קישור בפוטר.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/SITEMAP-NEW-SITE-v2-DRAFT.md">SITEMAP v2</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/hub/data/site-tree.json">hub/data/site-tree.json</a></td><td>עמוד מערכת <span class="path">/accessibility/</span> קיים בעץ.</td></tr>
+  </tbody>
+</table>
+
+<h3>שכבה ב · דרישות מאייל עצמו</h3>
+<table>
+  <thead><tr><th>מסמך</th><th>מה ביקש</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/eyal_amit_dev_agent_build_spec.md">eyal_amit_dev_agent_build_spec.md</a> §13.5</td><td>labels, focus, contrast, keyboard, «עמידה בסיסית». עמוד הצהרה ברשימת עמודי מערכת.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/EYAL-SITEMAP-SEO-AEO-GEO--REQUIREMENTS-BASELINE-2026-04-02.md">EYAL-SITEMAP baseline IA-12</a></td><td>עמודי מערכת: נגישות, תקנון, תודה.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/MEETING-DECISIONS-2026-05-26.md">MEETING-DECISIONS 26.5 A4</a></td><td>כפתור השתקה ברור לווידאו — מצוין כחובת ת״י 5568; default-off.</td></tr>
+    <tr><td>Hub: eyal-needs / eyal-pending / materials-needed</td><td>WP-EI-05: אייל מאשר נוסח משפטי; הצהרה נדרשת בחוק. הטיוטה כבר חיה עם באנר.</td></tr>
+  </tbody>
+</table>
+
+<h3>שכבה ג · כלי ומנדט M2 (אפריל)</h3>
+<table>
+  <thead><tr><th>מסמך</th><th>נעילה</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md">M2-UPRESS-BUNDLED-PLUGINS</a></td><td>Enable Accessibility = לא מומלץ. WP Accessibility = חלופה מוסכמת, יעד skip #main. אינו ת״י 5568.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md">M2-WP-ACCESSIBILITY-CONFIG-AND-QA</a></td><td>הגדרות wp-admin, אזהרה מפני שני skip מתנגשים, צ'קליסט Q-A1…Q-A8 לצוות 50. דרש דוח M2-ACCESSIBILITY-QA-REPORT — <strong>הקובץ לא נוצר מעולם</strong>.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_30/M2-PLUGIN-INVENTORY-2026-04-10.md">M2-PLUGIN-INVENTORY</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_20/PLUGINS-INSTALLED-2026-05-26.md">PLUGINS-INSTALLED 26.5</a></td><td>WP Accessibility פעיל, גרסה שתועדה 2.3.3.</td></tr>
+  </tbody>
+</table>
+
+<h3>שכבה ד · טיוטת ההצהרה החיה (S004 → WP-EI-05)</h3>
+<table>
+  <thead><tr><th>מסמך</th><th>תפקיד</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S004/WP-S4-04-LOD400-2026-07-15.md">WP-S4-04</a> חלק B-2</td><td>הנוסח החי הועתק מכאן מילה במילה (ת״י 5568 / WCAG 2.0 AA, רשימת «מה הונגש», רכז בלי שם, יולי 2026).</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/M-EYAL-INPUTS/WP-EI-05-LOD400-2026-07-15.md">WP-EI-05</a></td><td>קליטת אייל = הסרת באנר + נוסח סופי. חסום עד אישור. זה לא GO-W4-PASTE.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/accessibility-defaults.php">accessibility-defaults.php</a></td><td>הטיוטה שמוגשת באתר עכשיו.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_80/M3-TEXT-PLACEHOLDER-RETURN-TEAM80-2026-04-06.md">M3 placeholder צוות 80</a></td><td>שלד מוקדם: תאריך, הסדרים, רכז, מגבלות.</td></tr>
+  </tbody>
+</table>
+
+<h3>שכבה ה · מחקר S006 W4 (אוגוסט) — בלי הדבקה</h3>
+<table>
+  <thead><tr><th>מסמך</th><th>תפקיד</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/WAVE-PLAN-S006-R2-2026-08-24.md">WAVE-PLAN גל 4</a></td><td>שלושה עמודים ליגל; טיוטות לפני הדבקה.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/DRAFT-R2-003-ACCESSIBILITY-2026-08-25.md">DRAFT-R2-003</a></td><td>המחקר המשפטי המפורט ביותר (35א–35ו, פטורים, נוסח מוצע «פועלים לפי»).</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/SUMMARY-S006-ACCESSIBILITY-2026-08-26.md">SUMMARY-S006-ACCESSIBILITY</a></td><td>מסקנה: בסיס טכני סביר, אין עמידה מוכחת.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/INTAKE-NIMROD-W4-2026-08-26.md">INTAKE-NIMROD-W4</a></td><td>נעול: דוח HTML, בלי הדבקה, כלי WP קיים.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/r2-003-items.json">tracker/r2-003-items.json</a></td><td>LEG-01 = בעבודה. «אין הדבקה».</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/PLAN-S006-A11Y-DEPTH-NOW-AND-R3-2026-08-26.md">PLAN NOW+R3</a></td><td>פיצול גלים, IDs, שער AA לסבב 3.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/MANDATE-S006-A11Y-NOW-TEAM10-2026-08-26.md">MANDATE NOW</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/DONE-S006-A11Y-NOW-TEAM10-2026-08-26.md">DONE NOW</a></td><td>01–04 בוצעו. CSS דילוג במאגר 1.5.17 (לא FTP). Tab 50 אחרי פריסה.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md">REQUEST spotcheck 50</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/BRIEF-S006-A11Y-R3-AUDIT-TEAM50-2026-08-26.md">BRIEF R3</a></td><td>50 לא חתם NOW. R3 אסור להריץ עכשיו.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/OPT-R3-REGISTER.md">OPT-R3-REGISTER</a></td><td>A11Y-R3-01…05 רשומים.</td></tr>
+  </tbody>
+</table>
+
+<h3>שכבה ו · ראיות מדידה שכבר רצו (לא חתימת AA)</h3>
+<table>
+  <thead><tr><th>ראיה</th><th>מה זה באמת</th></tr></thead>
+  <tbody>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/evidence/axe-stage-b-2026-05-27.summary.md">axe Stage B 27.5</a></td><td>0 הפרות על /wave2-test/ בלבד. האוטומציה עצמה מזהירה: 20–50% מהבעיות.</td></tr>
+    <tr><td><a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_archive/WP-S5-07/team_110/evidence-s5-07/a11y-rtl/AC-8-AXE-CONTRAST-FINDING.txt">axe S5-07 16.7</a></td><td>ניגודיות 3.48 על .foot__disc (הצהרת «לא ייעוץ רפואי» בפוטר) — בית/FAQ/צור קשר. ממצא R3 שכבר תועד.</td></tr>
+    <tr><td>qa_probe + CDP ב־DONE NOW 26.8</td><td>overflow PASS; דילוג ל־#main עובד בלחיצה. Tab כרום — לא.</td></tr>
+    <tr><td>hub/data/updates.json («נגישות 0 חמורות»)</td><td><strong>לא</strong> חתימת AA. זה axe/qa_probe מוגבל. לא להסתמך עליו מול הדין.</td></tr>
+  </tbody>
+</table>
+
+<h3>מה אין במאגר (חיפוש קבצים 30.8)</h3>
+<ul class="tight">
+  <li>אין M2-ACCESSIBILITY-QA-REPORT-TEAM50 — הצ'קליסט מ־9.4 מעולם לא נחתם.</li>
+  <li>אין S006-A11Y-R3-AUDIT-TEAM50 ואין VERDICT ל־NOW.</li>
+  <li>אין דוח VoiceOver/NVDA.</li>
+  <li>LEGAL spec עדיין מציג תיבת יועץ חיצוני פתוחה — סותר את v1.2.</li>
+</ul>
+
+<p class="muted">סתירה לזכור: אפיון 04-IA אומר «עמידה מלאה»; טיוטת S4-04 כותבת באתר שכבר עומדים ב-AA; מחקר W4 אומר לכתוב «פועלים לפי» עד ש־50 חותם. הקנון התפעולי לסבב הזה הוא INTAKE + PLAN, לא משפט ה-AA שעל העמוד החי.</p>
+
+<h2 id="locked">1. מה כבר ננעל — לא לפתוח מחדש</h2>
+
+<h3>כן</h3>
+<ul class="tight">
+  <li>W4 = דוח מחקר, בלי הדבקה, עד משוב שלך ואז אישור מפורש. מקור: הקליטה למעלה.</li>
+  <li>תקן המדידה בפרויקט: <strong>ת״י 5568 רמת AA = WCAG 2.0 AA</strong>. WCAG 2.2 אינו חובת הדין הישראלי כאן. מקור: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/PLAN-S006-A11Y-DEPTH-NOW-AND-R3-2026-08-26.md">PLAN-S006-A11Y-DEPTH-NOW-AND-R3</a>.</li>
+  <li>A11Y-NOW (דסקטופ מבני) — כן, במקביל לסבב 2. <strong>זה לא חתימת AA</strong>.</li>
+  <li>חתימת עמידה מלאה = צוות <strong>50</strong> בסבב 3 בלבד. צוות 100 מסגר. נימרוד סוגר שער אחרי verdict של 50. אין יועץ נגישות חיצוני (נעול v1.2).</li>
+  <li>כלי עזר: תוסף WordPress קיים, לא רכיב מאפס.</li>
+</ul>
+
+<h3>לא</h3>
+<ul class="tight">
+  <li>אין הדבקת הצהרה / אין הסרת באנר WP-EI-05 עד <span class="path">GO-W4-PASTE</span>.</li>
+  <li>אין Enable Accessibility של uPress, אין תוסף נגישות שני, אין overlay שהומצא.</li>
+  <li>אין לכתוב פטור מחזור בהצהרה בלי סיווג מאייל/רו״ח.</li>
+  <li>אין «חוק נגישות אתרים 2020» ואין חובת WCAG 2.2 במסמכי הפרויקט.</li>
+  <li>אין ניחוש תוכן לאייל (אמנת S006).</li>
+</ul>
+
+<h2 id="tools">2. כלים — מה נבחר, מה נדחה, למה</h2>
+<table>
+  <thead><tr><th>כלי</th><th>החלטה</th><th>תפקיד</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>WP Accessibility</strong> (Joe Dolson)</td>
+      <td class="tone-ok">נבחר</td>
+      <td>עזר: דילוג / פוקוס. חי בסטייג'ינג (סקריפט <span class="path">wpa</span> ב־HTML, 30.8). אינו תחליף לתבנית, alt, טפסים או ביקורת AA. יעד דילוג של התוסף: <span class="path">#main</span> (לא שונה ב־wp-admin ב־NOW-04 — היעד כבר היה נכון אחרי תיקון ה־id).</td>
+    </tr>
+    <tr>
+      <td>Enable Accessibility (uPress)</td>
+      <td class="tone-bad">נדחה</td>
+      <td>שכבת UI/מנוי. לא נגישות מובנית. מקור: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_communication/team_100/M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE-2026-04-02.md">M2-UPRESS-BUNDLED-PLUGINS-ARCHITECTURE</a>.</td>
+    </tr>
+    <tr>
+      <td>רכיב נגישות שנכתב מאפס</td>
+      <td class="tone-bad">נדחה</td>
+      <td>קליטת נימרוד: «צפוי תוסף/כלי WP קיים».</td>
+    </tr>
+    <tr>
+      <td>qa_probe.mjs / CDP / curl</td>
+      <td class="tone-ok">כלי בדיקה</td>
+      <td>qa_probe רואה overflow, לא מקלדת. curl רואה HTML, לא פוקוס. Tab אמיתי = כרום של צוות 50. Cursor webview אינו כרום.</td>
+    </tr>
+    <tr>
+      <td>יועץ חיצוני / overlay מסחרי (WAH וכו׳)</td>
+      <td class="tone-bad">נדחה לפרויקט</td>
+      <td>ביקורת פנימית. בייצור הישן יש WAH על 404 — לא להעתיק.</td>
+    </tr>
+  </tbody>
+</table>
+<p>הגדרות M2 של התוסף: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_communication/team_10/M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md">M2-WP-ACCESSIBILITY-CONFIG-AND-QA-2026-04-09.md</a></p>
+
+<h2 id="seq">3. דרך המימוש הנכונה</h2>
+<ol>
+  <li><strong>A11Y-NOW (דסקטופ)</strong> — צוות 10 ביצע 26.8: <span class="path">id="main"</span>, דילוג EN, alt לתמונות תוכן בבית, יעד התוסף תואם. דוח: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/DONE-S006-A11Y-NOW-TEAM10-2026-08-26.md">DONE-S006-A11Y-NOW-TEAM10</a>.</li>
+  <li><strong>אימות נקודתי צוות 50</strong> — Tab+Enter בכרום אמיתי (בית + צור קשר + EN). עדיין <span class="tone-hold">אין VERDICT</span>. בקשה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md">REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50</a>.</li>
+  <li><strong>הדוח הזה (W4)</strong> — אתה נותן משוב. אין הדבקה.</li>
+  <li><strong>GO-W4-PASTE שלך</strong> — רק אז צוות 10 מדביק נוסח מאושר, עם באנר glow עד אייל.</li>
+  <li><strong>אייל</strong> — שם רכז, «פועלים לפי» מול טענת AA, סיווג פטור אם בכלל. לא לאשר AA עכשיו.</li>
+  <li><strong>A11Y-R3</strong> — צוות 50 חותם מטריצת WCAG 2.0 A+AA (מובייל, מקלדת, קורא מסך, ניגודיות, מדיה, הצהרה בייצור). בריף: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/BRIEF-S006-A11Y-R3-AUDIT-TEAM50-2026-08-26.md">BRIEF-S006-A11Y-R3-AUDIT-TEAM50</a>.</li>
+</ol>
+
+<h2 id="now">4. A11Y-NOW — מה בוצע, מה נשאר, מה לא לגעת</h2>
+<p>יישום 01–04 <span class="tone-ok">בוצע בסטייג'ינג 1.5.16</span>. תיקון דילוג-בפוקוס במאגר <strong>1.5.17</strong> — <span class="tone-hold">עדיין לא ב-FTP</span>. CDP 30.8 על בית / נגישות / צור קשר / טיפול / EN / פרטיות:</p>
+<ul class="tight">
+  <li><span class="path">&lt;main id="main" class="chapters-main" tabindex="-1"&gt;</span> — קיים. <span class="path">id="chapters-main"</span> — לא קיים.</li>
+  <li>שני קישורי דילוג, שניהם <span class="path">href="#main"</span> (עברית בעמודים עבריים; EN: «Skip to content» ×2, <span class="path">lang=en</span>).</li>
+  <li>WP Accessibility טעון. באנר טיוטה חי רק בנגישות/פרטיות/תקנון.</li>
+</ul>
+<table>
+  <thead><tr><th>ID</th><th>מצב</th><th>הערה</th></tr></thead>
+  <tbody>
+    <tr><td>NOW-01 יעד דילוג</td><td class="tone-ok">בוצע</td><td>הפעלה ל־<span class="path">#main</span> אומתה ב־26.8 (CDP). שני דילוגים הותר במנדט אם שניהם עובדים.</td></tr>
+    <tr><td>NOW-02 EN</td><td class="tone-ok">בוצע ב־HTML</td><td>30.8: אין «דלג» ב־<span class="path">/en/</span>.</td></tr>
+    <tr><td>NOW-03 alt בית</td><td class="tone-ok">בוצע בקוד</td><td>מפת alt ב־<span class="path">ea_chapters_content_img_alt()</span>. אימות DOM חי של חמש התמונות — צוות 50.</td></tr>
+    <tr><td>NOW-04 תוסף</td><td class="tone-ok">יעד כבר #main</td><td>אין צילום wp-admin (לא שונתה הגדרה).</td></tr>
+    <tr><td>דילוג נראה בפוקוס</td><td class="tone-hold">תוקן במאגר, לא בחי</td><td>CDP 30.8 על 1.5.16: הסיבה היא <span class="path">transition: top 150ms</span> — מיד אחרי פוקוס <span class="path">top</span> נשאר <span class="path">-40px</span>; אחרי ~200ms מגיע ל־0. הדילוג השני מיידי. תיקון: <span class="path">transition:none</span> בפוקוס ב־<span class="path">ea-atoms.css</span> + <span class="path">chapters.css</span>, גרסה 1.5.17. <strong>אין FTP עד GO נימרוד.</strong></td></tr>
+    <tr><td>טופס צור קשר כפול</td><td class="tone-hold">NOW leftover</td><td>CDP: שדות CF7 גלויים בלי label + טופס מקומי עם <span class="path">label for</span>. הקוד תמיד מדפיס את שניהם (<span class="path">parts/contact.php</span> אחרי <span class="path">ea_wave2_render_contact_form()</span>). צוות 10: להסתיר את המקומי כש-CF7 חי.</td></tr>
+    <tr><td>Tab כרום</td><td class="tone-hold">חובה 50</td><td>webview של Cursor לא מדמה Tab.</td></tr>
+  </tbody>
+</table>
+<p><strong>מה לא ליישם עכשיו תחת «NOW»:</strong> שכתוב <span class="path">accessibility-defaults.php</span>, הסרת WP-EI-05, Enable Accessibility, ביקורת ניגודיות/מובייל/קורא מסך (R3), הדבקת נוסח לאייל.</p>
+
+<h2 id="statement">5. איפה לא עומדים בהצהרה החיה</h2>
+<p>מקור הטענות: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/accessibility-defaults.php">accessibility-defaults.php</a>
+· עמוד חי: <a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">/accessibility/</a></p>
+<table>
+  <thead><tr><th>טענת ההצהרה</th><th>מול החי / הקוד (30.8)</th><th>סיווג</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>«הנגשת האתר נעשית בהתאם… לת״י 5568 … WCAG 2.0 ברמת AA»</td>
+      <td class="tone-bad">טענת עובדה בלי ביקורת חתומה של צוות 50. באנר עצמו אומר שזו טיוטה.</td>
+      <td>STATEMENT-LIE עד GO + R3. לנוסח: «פועלים לפי», לא «עומדים».</td>
+    </tr>
+    <tr>
+      <td>כותרות היררכיות + alt לתמונות</td>
+      <td>H1 יחיד בעמודים שנמשכו. alt לתוכן בית תוקן ב־NOW-03. נשארו <span class="path">alt=""</span> מכוון (קישוט <span class="path">studio-interior</span> עם <span class="path">aria-hidden</span>) וגם אווטארים / תמונות QR / פוסטר הירו כשיש רק img.</td>
+      <td>חלקי. דגימה מלאה = R3.</td>
+    </tr>
+    <tr>
+      <td>ניגודיות מותאמת + הגדלת טקסט בלי אובדן</td>
+      <td>אין ביקורת 4.5:1 חתומה. מובייל = סבב 3. qa_probe 26.8: בלי overflow בנתיבים שנדגמו — זה לא ניגודיות.</td>
+      <td class="tone-r3">R3-01</td>
+    </tr>
+    <tr>
+      <td>ניווט מקלדת מלא + פוקוס נראה</td>
+      <td>CDP: Tab מגיע לדילוג; הראשון ב־1.5.16 החי נשאר מחוץ למסך בפוקוס מיידי (transition). 1.5.17 במאגר בלי FTP.</td>
+      <td>NOW שארית + R3-05</td>
+    </tr>
+    <tr>
+      <td>קוראי מסך + landmarks / ARIA</td>
+      <td>יש <span class="path">&lt;main&gt;</span>. אין דוח VoiceOver/NVDA.</td>
+      <td class="tone-r3">R3-05</td>
+    </tr>
+    <tr>
+      <td>«קישור דלג לתוכן בראש כל עמוד» (יחיד)</td>
+      <td>שני קישורים: <span class="path">wave2-stage-b.php</span> (<span class="path">.ea-skiplink</span>) + <span class="path">header.php</span> / תבניות chapters (<span class="path">.ea-skip-link</span>). שניהם ל־<span class="path">#main</span>. ההצהרה אומרת אחד; החי נותן שניים.</td>
+      <td>פער ניסוח, לא שבירה של 2.4.1 אחרי NOW-01. איחוד = אופציונלי אחרי 50.</td>
+    </tr>
+    <tr>
+      <td>רכז: טלפון 052-4822842, בלי שם</td>
+      <td>תקנה 35ה מצפה לפרטי רכז אם יש חובת מינוי. הטלפון חי; השם חסר.</td>
+      <td>בחירת אייל אחרי GO</td>
+    </tr>
+    <tr>
+      <td>«עודכנה לאחרונה ביולי 2026»</td>
+      <td>טיוטה שלא אושרה. תאריך מטעה.</td>
+      <td>לתקן בנוסח אחרי GO (אוגוסט 2026 או תאריך האישור)</td>
+    </tr>
+    <tr>
+      <td>הצהרה בולטת (35ה) בייצור</td>
+      <td><a href="https://www.eyalamit.co.il/accessibility/">https://www.eyalamit.co.il/accessibility/</a> = <strong>404</strong> (נכון לטיוטת 25.8; לא נפתח מחדש כחובת NOW).</td>
+      <td class="tone-r3">R3-04 / מעבר לייצור</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="law">6. דין ישראלי מול האתר — בלי המצאה</h2>
+<p>מקורות שכבר במאגר (לא חידוש דין בסשן הזה): טיוטת <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/DRAFT-R2-003-ACCESSIBILITY-2026-08-25.md">DRAFT-R2-003</a>,
+<a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/SUMMARY-S006-ACCESSIBILITY-2026-08-26.md">SUMMARY-S006-ACCESSIBILITY</a>,
+<a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md">LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md</a>.</p>
+<ul class="tight">
+  <li>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח–1998.</li>
+  <li>תקנות התאמות נגישות לשירות, התשע״ג–2013; סימן ג׳ כתיקון התשע״ח–2017 (תקנות 35–35ו).</li>
+  <li>ת״י 5568 ברמת AA = WCAG 2.0 AA (כך בתקנות 35א(א) לפי הטיוטה הקיימת — לא «WCAG 2.2 חובה»).</li>
+  <li>35ה: הצהרה בולטת, התאמות, רכז ופנייה.</li>
+  <li>35ו(ז): פטור עוסק פטור או מחזור ממוצע ≤ 100,000 ₪ — <strong>אין מספר; אסור לכתוב פטור</strong>.</li>
+  <li>35ו(ט): פטור אתר שהופעל לפני אוקטובר 2017 + מחזור ≤ מיליון — <strong>לא חל על אתר 2026</strong> (עשוי להיות רלוונטי לאתר הישן בלבד).</li>
+  <li>35ד: כתוביות וידאו — בעיקר רשות ציבורית או מחזור מעל 5 מיליון ₪. לא להבטיח כתוביות לכל YouTube.</li>
+</ul>
+<p>האתר החדש: עסק פרטי, מידע + הפניה, בלי סליקה באתר. זה מפחית מורכבות, לא מבטל הצהרה ולא מבטל צורך בנגישות מובנית אם החובה חלה לפי מחזור.</p>
+
+<h2 id="code">7. פערים בקוד — NOW / R3 / נעול-לא-לגעת</h2>
+<table>
+  <thead><tr><th>פער</th><th>איפה</th><th>WCAG 2.0 (אם ברור)</th><th>גל</th></tr></thead>
+  <tbody>
+    <tr><td>שני skip links</td><td><span class="path">inc/wave2-stage-b.php</span> ~408 + <span class="path">header.php</span> ~24 + tpl-chapters-*</td><td>2.4.1 (עובד כפול, לא שבור)</td><td>ניסוח הצהרה / אופציונלי אחרי 50</td></tr>
+    <tr><td>skip ראשון לא נראה בפוקוס (transition)</td><td><span class="path">ea-atoms.css</span> 84–88 + <span class="path">chapters.css</span> 624–626 — תוקן ב־1.5.17, חי עדיין 1.5.16</td><td>2.4.7</td><td>שארית NOW — ממתין ל-FTP</td></tr>
+    <tr><td>טופס צור קשר כפול (CF7 בלי label + native עם label)</td><td><span class="path">parts/contact.php</span> 25–68 · <span class="path">wave2-stage-b.php</span> 365–371</td><td>1.3.1 / 4.1.2</td><td>NOW leftover — צוות 10</td></tr>
+    <tr><td>פוטר h4 אחרי h2 (בלי h3)</td><td><span class="path">section-footer.php</span> 19, 26 — CDP: בית/נגישות/טיפול/פרטיות</td><td>1.3.1</td><td>NOW leftover / R3</td></tr>
+    <tr><td>alt אווטאר המלצות ריק</td><td>block-testimonials-* / wave2-w2-07</td><td>1.1.1</td><td class="tone-r3">R3</td></tr>
+    <tr><td>תמונות reveal / QR thumbs עם alt ריק</td><td>parts/reveals.php · chapters-qr-facade.php</td><td>1.1.1</td><td class="tone-r3">R3 (דגימת QR)</td></tr>
+    <tr><td>וידאו הירו בלי כתוביות מובטחות</td><td>section-hero.php + קובץ mp4</td><td>1.2.2 / 35ד</td><td class="tone-r3">R3-02 + מדיניות בהצהרה</td></tr>
+    <tr><td>ניגודיות פוטר .foot__disc = 3.48</td><td>אומת axe 16.7 על / /faq/ /contact/ — AC-8-AXE-CONTRAST-FINDING.txt</td><td>1.4.3</td><td class="tone-r3">R3-01 (כבר תועד, לא חדש)</td></tr>
+    <tr><td>טיוטת הצהרה טוענת AA</td><td>accessibility-defaults.php 34 + 42</td><td>כנות / 35ה</td><td>W4 — <strong>לא לערוך PHP עד GO</strong></td></tr>
+  </tbody>
+</table>
+
+<h2 id="privacy">8. פרטיות (R2-016) — דרישות, במה עומדים, במה לא</h2>
+<p>עמוד חי: <a href="http://eyalamit-co-il-2026.s887.upress.link/privacy/">/privacy/</a> · HTTP 200 · באנר טיוטה חי · ייצור <span class="path">/privacy/</span> היה 404 ב־25.8.
+טיוטה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/DRAFT-R2-016-PRIVACY-2026-08-25.md">DRAFT-R2-016-PRIVACY-2026-08-25.md</a></p>
+<p><strong>דין (שם+שנה, מהטיוטה הקיימת):</strong> חוק הגנת הפרטיות, התשמ״א–1981; תיקון מס׳ 13, התשפ״ד–2024 (תוקף 14.8.2025); תקנות אבטחת מידע, התשע״ז–2017. אין «חוק קוקיז 2025». אין זכות להישכח כב-GDPR.</p>
+<table>
+  <thead><tr><th>נושא</th><th>חי / קוד</th><th>המלצת מחקר (לא להדביק)</th></tr></thead>
+  <tbody>
+    <tr><td>טופס קשר</td><td>CF7: שם, טלפון, אימייל, נושא, הודעה</td><td>ליידע במפורש שזה המידע שנמסר ביוזמת המשתמש</td></tr>
+    <tr><td>GA4</td><td>מזהה <span class="path">G-MRXESK7QJF</span> חי ב־HTML</td><td>לכתוב «כן מופעל», Google בחו״ל — לא «עשוי»</td></tr>
+    <tr><td>באנר עוגיות</td><td>אין בסטייג'ינג</td><td>לא להמציא חובת באנר בשם חוק. באנר = החלטת אייל/עו״ד, לא חלק מהדבקת גל 4</td></tr>
+    <tr><td>«אחסון וסליקה»</td><td>אין checkout באתר החדש</td><td>להוריד סליקה מהאתר; ספק חיצוני = המדיניות שלו</td></tr>
+    <tr><td>מחיקה גורפת</td><td>הנוסח החי קרוב ל-GDPR</td><td>עיון/תיקון לפי ס׳ 13–14; לא «זכות להישכח»</td></tr>
+    <tr><td>חשבון משתמש</td><td>אין בסטייג'ינג</td><td>לכתוב במפורש שאין הרשמה</td></tr>
+  </tbody>
+</table>
+
+<h2 id="terms">9. תקנון (R2-022) — אתרים דומים + מה לתקן בנוסח</h2>
+<p>עמוד חי: <a href="http://eyalamit-co-il-2026.s887.upress.link/terms/">/terms/</a> · HTTP 200 · באנר טיוטה · ייצור <span class="path">/terms/</span> היה 404.
+טיוטה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/DRAFT-R2-022-TERMS-2026-08-25.md">DRAFT-R2-022-TERMS-2026-08-25.md</a></p>
+<p><strong>דין רלוונטי:</strong> חוק זכות יוצרים, התשס״ח–2007; חוק הגנת הצרכן, התשמ״א–1981 (על מי שגובה תשלום); חוק החוזים, התשל״ג–1973. אין «חוק תקנון אתרים 2019». <span class="path">/terms/</span> הוא פרקטיקה, לא שם חובה.</p>
+<p><strong>מה אתר מידע ישראלי קטן בדרך כלל עושה (השוואה מחקרית, לא העתקה):</strong> תנאי שימוש קצרים, אזהרה שתוכן אינו ייעוץ מקצועי, קניין רוחני, דין ישראלי, פנייה. אתרי טיפול/בריאות מדגישים «לא אבחון». אתר בלי קופה <strong>לא</strong> ממציא מדיניות החזרות מלאה כאילו יש עגלה.</p>
+<table>
+  <thead><tr><th>סעיף חי</th><th>בעיה</th><th>המלצה</th></tr></thead>
+  <tbody>
+    <tr><td>«תשלום דרך חשבונית ירוקה» כעובדה</td><td>בחנות הסטייג'ינג אין קישור GI</td><td>אין קופה באתר; רכישה בתיאום / קישור חיצוני שיימסר</td></tr>
+    <tr><td>החזרות «יתעדכנו»</td><td>הבטחה ריקה</td><td>חוק הגנת הצרכן אצל מי שגובה — בלי ימי ביטול מומצאים</td></tr>
+    <tr><td>AS IS + פטור מכל נזק</td><td>עלול להיות מקפח</td><td>מידע כללי, לא רפואי; בלי פטור גורף מנזק גוף/הטעיה</td></tr>
+    <tr><td>סמכות שיפוט «מחוז המרכז»</td><td>פרדס חנה אינה בהכרח «המרכז»</td><td>להשמיט עד עו״ד; דיני ישראל מספיקים</td></tr>
+  </tbody>
+</table>
+
+<h2 id="ask">10. מה מבקשים ממך עכשיו</h2>
+<ol>
+  <li>משוב על הדוח הזה (שלושת הנושאים). <strong>עדיין בלי הדבקה.</strong></li>
+  <li>אחרי שהנוסח ייושר: <span class="path">GO-W4-PASTE</span> — ואז צוות 10 מדביק, באנר נשאר עד אייל.</li>
+  <li>לאשר השקת אימות צוות 50 ל־A11Y-NOW (Tab כרום) — זה לא R3 המלא.</li>
+  <li>לא לסגור AA, לא להפעיל Enable Accessibility, לא לבנות overlay.</li>
+</ol>
+<p>שאלות לאייל — רק אחרי GO שלך (משפט אחד כל אחת): שם רכז; «פועלים לפי» מול טענת AA; סיווג פטור אם בכלל; האם GA4 נשאר; האם אין קופה באתר החדש.</p>
+
+<h2>11. בעלות</h2>
+<ul class="tight">
+  <li><strong>נימרוד:</strong> משוב על HTML זה.</li>
+  <li><strong>צוות 100:</strong> תיקון הדוח לפי משוב; אחרי GO — מנדט הדבקה ל־10. לא חותם AA.</li>
+  <li><strong>צוות 10:</strong> A11Y-NOW 01–04 חי. CSS 1.5.17 במאגר — FTP רק אחרי GO נימרוד. טופס צור קשר כפול — מנדט נפרד. הדבקת ליגל רק אחרי GO-W4-PASTE.</li>
+  <li><strong>צוות 50:</strong> spotcheck NOW עכשיו; ביקורת AA בסבב 3.</li>
+</ul>
+
+<footer>
+  CDP 30.8 (6 נתיבים): דילוג כפול → <span class="path">#main</span> בלחיצה; דילוג ראשון <span class="path">top:-40px</span> מיידי ב־1.5.16 בגלל transition; כותרות פוטר H2→H4; טופס צור קשר כפול. CSS 1.5.17 במאגר בלי FTP. אין הדבקת הצהרה.
+  טיוטות md קודמות נשארות מקור מחקר, לא עמוד חי.
+</footer>
+</div>
+</body>
+</html>

@@ -20,8 +20,63 @@ SNAPDIR = REPO / "_COMMUNICATION" / "team_100" / "S006" / "tracker"
 STAGING_ORIGIN = "http://eyalamit-co-il-2026.s887.upress.link"
 EXPORT_TYPE = "eyal-s006-tracker-answers"
 EXPORT_SCHEMA = "round1-approval-v1"
-ASSET_CACHE = "s006w15"
+ASSET_CACHE = "s006r2nav3"
 ROUND1_SHEET = "סבב-1-ליבה"
+ROUND2_SHEET = "סבב-2"
+ROUND3_SHEET = "סבב-3"
+EXPORT_TYPE_R2 = "eyal-s006-r2-answers"
+EXPORT_SCHEMA_R2 = "round2-approval-v2"
+WAVE_ASSIGN = SNAPDIR / "R2-WAVE-ASSIGN-2026-08-24.csv"
+SHOP_KEYS = frozenset({"R2-024", "R2-025", "R2-026"})
+R2_CHAPTER_META: tuple[tuple[str, str, str], ...] = (
+    ("core", "ליבה שאושרה בסבב 1", "עמודים שכבר נסגרו בסבב 1 — כאן רק לניווט, בלי אישור מחדש"),
+    ("w5", "ארכיון ושאלות מבנה", "עמודים חיים בלי חבילת 13.8 — שאלות לאייל תחת כל עמוד"),
+    ("shop", "חנות, כלים למכירה, תיקון", "שני עולמות חיים בסבב 1, ועמודים ישנים שמפנים אליהם"),
+    ("w4", "נגישות, פרטיות, תקנון", "טיוטות מחקר — ממתין לנימרוד לפני הדבקה"),
+    ("w1", "הפניות מכתובות ישנות", "רק לוודא שהכתובת הישנה מגיעה ליעד החדש"),
+    ("w3", "פוסטים בבלוג", "54 פוסטים כמו שהם חיים באתר הבדיקה"),
+    ("w2", "QR מודפסים", "שער + קודים מודפסים — אין לשבור permalink"),
+    ("other", "עמודים נוספים", "לא שויכו לגל"),
+    ("r3", "סבב 3 — מתוכנן", "מובייל, קידום, ועמודים חדשים שעוד לא קיימים"),
+)
+R3_PLANNED: tuple[dict, ...] = (
+    {
+        "key": "R3-PLAN-MOBILE",
+        "title": "מובייל ורספונסיב — כל האתר כיחידה אחת",
+        "path": "",
+        "liveUrl": "",
+        "machine": "טרם נבדק",
+        "inForm": False,
+        "openCount": 0,
+        "chapter": "r3",
+        "kind": "מתוכנן",
+        "round": 3,
+    },
+    {
+        "key": "R3-PLAN-SEO",
+        "title": "תיאורי תמונות, כותרות לחיפוש, קידום ואופטימיזציה",
+        "path": "",
+        "liveUrl": "",
+        "machine": "טרם נבדק",
+        "inForm": False,
+        "openCount": 0,
+        "chapter": "r3",
+        "kind": "מתוכנן",
+        "round": 3,
+    },
+    {
+        "key": "R3-PLAN-NEW",
+        "title": "עמודים חדשים שעוד לא קיימים באתר",
+        "path": "",
+        "liveUrl": "",
+        "machine": "טרם נבדק",
+        "inForm": False,
+        "openCount": 0,
+        "chapter": "r3",
+        "kind": "מתוכנן",
+        "round": 3,
+    },
+)
 R19_ANSWERS = SNAPDIR / "r19-eyal-answers.json"
 
 # Catalog waves — used on the form so Eyal sees *when* an already-given
@@ -77,8 +132,104 @@ PAGE_LIVE: dict[str, str] = {
     "R1-28": "גל 9 עלה. צילום מכבי והתכתבות יוני. באנר ההמתנה ירד. אין מקור שלישי (תא ריק).",
 }
 
-# Remaining Nimrod-only decisions after the 23.8 testimonials ruling. Closed choices are not listed.
-NIMROD_DECISIONS: tuple[dict, ...] = ()
+# Round-2 map, 23.8 — closed questions for Nimrod only. Not tracker codes on screen.
+NIMROD_DECISIONS: tuple[dict, ...] = (
+    {
+        "id": "R2-N-A",
+        "itemKey": "א",
+        "pageKey": "R2-MAP",
+        "title": "א. אודות מול אייל עמית",
+        "ask": (
+            "אודות חי ליד אייל עמית, אותה חבילת דרייב. "
+            "מה עושים עם אודות?"
+        ),
+        "path": "/about/",
+        "picks": (
+            "301 אל אייל עמית (מומלץ)",
+            "הקפאה של אודות",
+            "להשאיר שני עמודים",
+        ),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-B",
+        "itemKey": "ב",
+        "pageKey": "R2-MAP",
+        "title": "ב. מוקש-על-השם מול מוקש-לזכרו",
+        "ask": "שני עמודי מוקש חיים. מה עושים עם מוקש-על-השם?",
+        "path": "/about/moksha/",
+        "picks": (
+            "301 אל מוקש לזכרו (מומלץ)",
+            "הקפאה של מוקש-על-השם",
+            "להשאיר שני עמודים",
+        ),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-C",
+        "itemKey": "ג",
+        "pageKey": "R2-MAP",
+        "title": "ג. כלים / תיקון הישנים מול חנות + תיקון דיג'רידו",
+        "ask": (
+            "שלושה עמודים חיים: כלים ואביזרים, כלים בעבודת יד, תיקון כלים. "
+            "יש גם 301 משירותים הישן אל כלים בעבודת יד. "
+            "מה עושים עם השלושה?"
+        ),
+        "path": "/tools-and-accessories/",
+        "picks": (
+            "301 ליעדי סבב 1: שער→חנות, כלים-בעבודת-יד→כלים למכירה, תיקון-כלים→תיקון דיג'רידו (מומלץ)",
+            "הקפאה של השלושה",
+            "להשאיר כמו שהם",
+        ),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-D",
+        "itemKey": "ד",
+        "pageKey": "R2-MAP",
+        "title": "ד. קורסים-בקרוב → קורסים חיצוניים",
+        "ask": (
+            "ה-301 חי אל קורסים חיצוניים, שעדיין סבב 2 בלי חבילה "
+            "(ובסבב 1 פריט התפריט מוקפא). לאשר ולהקפיא את היעד?"
+        ),
+        "path": "/courses-soon/",
+        "picks": ("כן — לאשר 301 ולהקפיא את היעד (מומלץ)", "אחר — לפרט בהערה"),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-E",
+        "itemKey": "ה",
+        "pageKey": "R2-MAP",
+        "title": "ה. 54 הפוסטים",
+        "ask": "הקפאה כארכיון חי אחד, בלי רשימה לאייל, עד שתגיע חבילה?",
+        "path": "",
+        "picks": ("כן — הקפאה כארכיון חי (מומלץ)", "אחר — לפרט בהערה"),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-F",
+        "itemKey": "ו",
+        "pageKey": "R2-MAP",
+        "title": "ו. שער QR + 48 הקודים",
+        "ask": "אותה הקפאה כארכיון חי, בלי רשימה לאייל?",
+        "path": "/qr/",
+        "picks": ("כן — הקפאה כארכיון חי (מומלץ)", "אחר — לפרט בהערה"),
+        "needsFill": True,
+    },
+    {
+        "id": "R2-N-G",
+        "itemKey": "ז",
+        "pageKey": "R2-MAP",
+        "title": "ז. תשעת עמודי הליגל/ארכיון",
+        "ask": (
+            "נגישות, כתבות, קורסים חיצוניים, עיתונות, פרטיות, שירותים, "
+            "הופעות, תקנון, תודה: הקפאה אחת עד חבילה, בלי טופס לאייל?"
+        ),
+        "path": "",
+        "picks": ("כן — הקפאה אחת עד חבילה (מומלץ)", "אחר — לפרט בהערה"),
+        "needsFill": True,
+    },
+)
 
 # Page-level close for Round 1. Values are what Eyal sees; status maps to the
 # tracker human column «סטטוס אישור» on ingest (agents never write that column).
@@ -168,9 +319,19 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
 
 def _load_picks() -> dict[tuple[str, str], list[str]]:
     out: dict[tuple[str, str], list[str]] = {}
-    for path in sorted(SNAPDIR.glob("r1-*-items.json")):
-        m = re.match(r"r1-(\d+)-items", path.name, re.I)
-        page_key = f"R1-{int(m.group(1)):02d}" if m else ""
+    specs = (
+        (r"r1-(\d+)-items", "R1", 2),
+        (r"r2-(\d+)-items", "R2", 3),
+    )
+    for path in sorted(SNAPDIR.glob("r*-items.json")):
+        page_key = ""
+        for pat, prefix, width in specs:
+            m = re.match(pat, path.name, re.I)
+            if m:
+                page_key = f"{prefix}-{int(m.group(1)):0{width}d}"
+                break
+        if not page_key:
+            continue
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
@@ -277,6 +438,17 @@ def split_picks(text: str) -> list[str]:
         return []
     parts = [p.strip(" .") for p in re.split(r"\s*[·|/]\s*", raw) if p.strip()]
     if 2 <= len(parts) <= 6 and all(8 <= len(p) <= 48 for p in parts):
+        return parts
+    return []
+
+
+def split_picks_r2(text: str) -> list[str]:
+    """Round-2 options include short tokens such as HOLD-W4 / לאחד."""
+    raw = (text or "").strip()
+    if not raw:
+        return []
+    parts = [p.strip(" .") for p in re.split(r"\s*[·|/]\s*", raw) if p.strip()]
+    if 2 <= len(parts) <= 8 and all(3 <= len(p) <= 80 for p in parts):
         return parts
     return []
 
@@ -434,7 +606,7 @@ def _nimrod_form_items() -> list[dict]:
             {
                 "id": iid,
                 "pageKey": str(d["pageKey"]),
-                "itemKey": iid,
+                "itemKey": str(d.get("itemKey") or iid),
                 "domId": f"nimrod__{iid}",
                 "title": str(d["title"]),
                 "ask": str(d["ask"]),
@@ -801,7 +973,7 @@ def _approve_html(page_key: str) -> str:
     return "".join(bits)
 
 
-def _page_html(page: dict) -> str:
+def _page_html(page: dict, *, with_filename: bool = False) -> str:
     need_n = page.get("openCount") or 0
     if need_n:
         meta = f"שאלה פתוחה אחת בעמוד הזה" if need_n == 1 else f"{need_n} שאלות פתוחות בעמוד הזה"
@@ -824,7 +996,13 @@ def _page_html(page: dict) -> str:
     if page.get("versions"):
         bits.append(_versions_html(page["versions"]))
     bits.append("</header>\n")
-    bits.append(_approve_html(page["key"]))
+    if page.get("skipApproval"):
+        bits.append(
+            '<p class="s006-page__state">עדיין בעבודה — אין אישור אייל עד שיושלם המחקר. '
+            "אפשר הערה ושם קובץ.</p>\n"
+        )
+    else:
+        bits.append(_approve_html(page["key"]))
     for it in page.get("items") or []:
         bits.append(_item_html(it))
     bits.append(
@@ -835,6 +1013,20 @@ def _page_html(page: dict) -> str:
         f'placeholder="מה לשנות, או הערה חופשית"></textarea>\n'
         "</div>\n"
     )
+    if with_filename:
+        key = page["key"]
+        bits.append(
+            '<div class="s006-field s006-filewrap">\n'
+            f'<label class="s006-label" for="pagefile-{escape(key)}">'
+            "קובץ מצורף — נשמר רק שם הקובץ (הקובץ עצמו יסופק בדרייב בנפרד)</label>\n"
+            f'<input class="s006-input" type="text" id="pagefile-{escape(key)}" '
+            'placeholder="למשל: הערות-עמוד-אודות.pdf" autocomplete="off">\n'
+            f'<label class="s006-filepick-lab" for="pagefilepick-{escape(key)}">'
+            "בחירת קובץ כדי להעתיק את השם</label>\n"
+            f'<input type="file" class="s006-filepick" id="pagefilepick-{escape(key)}" '
+            f'data-target="pagefile-{escape(key)}">\n'
+            "</div>\n"
+        )
     bits.append("</section>\n")
     return "".join(bits)
 
@@ -889,15 +1081,30 @@ def _nimrod_item_html(it: dict) -> str:
     return "".join(bits)
 
 
-def _nimrod_section_html(items: list[dict]) -> str:
+def _nimrod_section_html(items: list[dict], *, variant: str = "r1-map") -> str:
     if not items:
         return ""
+    if variant == "r2-live":
+        kicker = "פנימי · נימרוד ממלא כאן עכשיו · לא למילוי אייל"
+        title = "השלמות נדרשות מנימרוד"
+        intro = (
+            "כל סעיף שממתין להכרעת נימרוד בטרקר. "
+            "סמנו בחירה או כתבו הערה — התשובות נשמרות במחשב זה. "
+            "ייצוא נפרד בסוף הסקשן."
+        )
+    else:
+        kicker = "פנימי · לא למילוי אייל · מקומי בלבד"
+        title = "שאלות לנימרוד — סבב 2"
+        intro = (
+            "שבע הכרעות מהמיפוי (23.8). סמנו בחירה; הערה רק אם צריך. "
+            "בסוף — ייצוא. יופיע קישור: תקבלו קובץ תשובות מלא "
+            "(כל השבע בקובץ אחד, גם אם חלק ריק)."
+        )
     bits = [
         '<section class="s006-nimrod-board" id="nimrod-decisions" aria-label="שאלות לנימרוד">\n',
-        '<p class="s006-nimrod-board__kicker">פנימי · לא למילוי אייל</p>\n',
-        "<h2>שאלות לנימרוד</h2>\n",
-        "<p>הכרעות 22.8 ו-23.8 נקלטו. נשארה כאן רק מה שעדיין דורש הכרעה. "
-        "תאים ריקים באקסל לא נשאלים. מדיה שנדחתה לשלב 2/3 לא כאן.</p>\n",
+        f'<p class="s006-nimrod-board__kicker">{escape(kicker)}</p>\n',
+        f"<h2>{escape(title)}</h2>\n",
+        f"<p>{escape(intro)}</p>\n",
     ]
     for it in items:
         bits.append(_nimrod_item_html(it))
@@ -905,8 +1112,11 @@ def _nimrod_section_html(items: list[dict]) -> str:
         '<div class="s006-toolbar s006-toolbar--nimrod">\n'
         '<span class="s006-progress" id="s006-nimrod-progress"></span>\n'
         '<button class="btn-export" type="button" id="btn-export-nimrod">'
-        "ייצוא הכרעות נימרוד ל-JSON</button>\n"
+        "ייצוא קובץ תשובות מלא</button>\n"
         "</div>\n"
+        '<p class="s006-nimrod-file" id="s006-nimrod-file" hidden>\n'
+        '<a id="s006-nimrod-file-a" download>תקבלו קובץ תשובות מלא</a>\n'
+        "</p>\n"
         "</section>\n"
     )
     return "".join(bits)
@@ -925,6 +1135,11 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     html += "<h1>אישור עמודים — סבב 1</h1>\n"
     html += _round_today_html()
     html += _context_html(model)
+    if model.get("nimrodItems"):
+        html += (
+            '<p class="s006-nimrod-jump"><a href="#nimrod-decisions">'
+            "נימרוד · שבע הכרעות לסבב 2 (פנימי, לא לאייל)</a></p>\n"
+        )
 
     html += '<p class="s006-section-kicker">החלק של אייל — זה סוגר את סבב 1</p>\n'
     html += (
@@ -992,7 +1207,799 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         "pages": [{"key": p["key"], "path": p.get("path") or "", "title": p.get("title") or ""} for p in model["pages"]]
         + [{"key": "GENERAL", "path": "", "title": "הערות כלליות"}],
         "nimrodItems": [
-            {"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]}
+            {
+                "id": it["id"],
+                "domId": it["domId"],
+                "pageKey": it["pageKey"],
+                "title": it.get("title") or "",
+                "ask": it.get("ask") or "",
+                "path": it.get("path") or "",
+            }
+            for it in (model.get("nimrodItems") or [])
+        ],
+        "defaultRespondent": default_respondent,
+        "generatedAt": generated_iso,
+        "storageKey": "ea-s006-review-v2",
+        "exportFilePrefix": "eyal-s006-excel-answers-",
+    }
+    html += f'<script>window.S006_CONFIG={json.dumps(cfg, ensure_ascii=False)};</script>\n'
+    html += f'<script src="assets/s006-review.js?v={ASSET_CACHE}"></script>\n'
+    html += foot(generated_iso)
+    return html
+
+
+def _r2_chapter_id(wave: str, key: str) -> str:
+    if key in SHOP_KEYS:
+        return "shop"
+    w = (wave or "").upper()
+    if w.startswith("W5"):
+        return "w5"
+    if w.startswith("W4"):
+        return "w4"
+    if w.startswith("W3"):
+        return "w3"
+    if w.startswith("W2"):
+        return "w2"
+    if w.startswith("W1"):
+        return "w1"
+    return "other"
+
+
+FORM_IA_META: tuple[tuple[str, str, str], ...] = (
+    ("archive", "אודות וארכיון", "עמודים חיים בלי חבילת 13.8 — שאלות תחת כל עמוד"),
+    ("shop", "חנות והפניות כלים", "שער החנות בסבב 1, וכתובות ישנות שמפנות אליו"),
+    ("learn", "לימוד והפניות", "הרצאות, סדנאות, קורסים, והפניות ישנות"),
+    ("books", "ספרים והפניות", "שער הספרים והכתובות הישנות של מוזה"),
+    ("legal", "נגישות, פרטיות, תקנון", "ממתין לדוחות מחקר — בלי הדבקה"),
+    ("blog", "פוסטים בבלוג", "54 פוסטים כמו שהם חיים"),
+    ("qr", "QR מודפסים", "שער + קודים מודפסים — אין לשבור permalink"),
+    ("legacy", "הפניות אחרות", "כתובות ישנות ליעדי סבב 1"),
+)
+
+
+def _form_ia_id(page: dict) -> str:
+    ch = page.get("chapter") or ""
+    path = page.get("path") or ""
+    if page.get("key") in SHOP_KEYS or path.startswith("/tools-and-accessories"):
+        return "shop"
+    if ch == "w5" or path.startswith("/about"):
+        return "archive"
+    if ch == "w4":
+        return "legal"
+    if ch == "w3":
+        return "blog"
+    if ch == "w2":
+        return "qr"
+    if path.startswith("/muzeh") or path.startswith("/muzza"):
+        return "books"
+    if (
+        path.startswith("/learning")
+        or "courses" in path
+        or path.startswith("/hashita")
+        or "didgeridoo-lessons" in path
+        or "didgeridoo-treatment" in path
+    ):
+        return "learn"
+    return "legacy"
+
+
+def _load_wave_assign() -> dict[str, str]:
+    out: dict[str, str] = {}
+    if not WAVE_ASSIGN.is_file():
+        return out
+    for row in _read_csv(WAVE_ASSIGN):
+        key = _cell(row, "מזהה")
+        if key:
+            out[key] = _cell(row, "גל")
+    return out
+
+
+def _r2_item_from_row(row: dict, picks_map: dict[tuple[str, str], list[str]]) -> dict:
+    page_key = _cell(row, "__page__")
+    item_id = _cell(row, "#")
+    pattern_id, pattern_label = classify_pattern(row)
+    picks = picks_map.get((page_key, item_id)) or split_picks_r2(_cell(row, "אפשרויות לבחירה"))
+    return {
+        "pageKey": page_key,
+        "itemKey": item_id,
+        "id": f"{page_key}/{item_id}",
+        "domId": f"{page_key}__{item_id}",
+        "ask": _cell(row, "מה נדרש ממך"),
+        "title": _cell(row, "הסעיף") or item_id,
+        "waiter": _cell(row, "הכרעה נדרשת מ"),
+        "picks": picks,
+        "needsFill": needs_fill(row, pattern_id, picks),
+        "patternId": pattern_id,
+        "patternLabel": pattern_label,
+        "groupId": "",
+        "versions": None,
+        "mark": _cell(row, "סקשן אצל אייל"),
+        "path": "",
+        "liveUrl": "",
+    }
+
+
+def _nest_paths(nodes: list[dict]) -> tuple[list[str], dict[str, list[str]]]:
+    by_path = {n["path"]: n["key"] for n in nodes if (n.get("path") or "").startswith("/")}
+    children: dict[str, list[str]] = defaultdict(list)
+    claimed: set[str] = set()
+    for path in sorted(by_path, key=len, reverse=True):
+        parts = path.rstrip("/").split("/")
+        parent = ""
+        for i in range(len(parts) - 1, 0, -1):
+            cand = "/".join(parts[:i]) + "/"
+            if cand in by_path and cand != path:
+                parent = cand
+                break
+        if parent:
+            children[parent].append(path)
+            claimed.add(path)
+    roots = [p for p in sorted(by_path, key=lambda x: (x.count("/"), x)) if p not in claimed]
+    for kids in children.values():
+        kids.sort()
+    return roots, children
+
+
+def load_r2_model() -> dict:
+    wave_map = _load_wave_assign()
+    picks_map = _load_picks()
+    pages_rows = [r for r in _read_csv(SNAPDIR / "latest.csv") if r.get("__sheet__") == ROUND2_SHEET]
+    r1_rows = [r for r in _read_csv(SNAPDIR / "latest.csv") if r.get("__sheet__") == ROUND1_SHEET]
+
+    eyal_items: list[dict] = []
+    nimrod_items: list[dict] = []
+    items_by_page: dict[str, list[dict]] = defaultdict(list)
+    nimrod_by_page: dict[str, list[dict]] = defaultdict(list)
+    for row in _read_csv(SNAPDIR / "latest-items.csv"):
+        page_key = _cell(row, "__page__")
+        if not page_key.startswith("R2-"):
+            continue
+        if is_action_item(row, waiter="אייל"):
+            it = _r2_item_from_row(row, picks_map)
+            eyal_items.append(it)
+            items_by_page[page_key].append(it)
+        elif is_action_item(row, waiter="נימרוד"):
+            it = _r2_item_from_row(row, picks_map)
+            it["domId"] = f"nimrod__{page_key}__{it['itemKey']}"
+            nimrod_items.append(it)
+            nimrod_by_page[page_key].append(it)
+
+    all_pages: list[dict] = []
+    for row in pages_rows:
+        key = _cell(row, "#")
+        path = _cell(row, "נתיב") or "/"
+        machine = _cell(row, "סטטוס מכונה")
+        items = items_by_page.get(key, [])
+        live = staging_url(path) if path.startswith("/") else ""
+        rec = {
+            "key": key,
+            "title": _cell(row, "כותרת") or key,
+            "path": path,
+            "liveUrl": live,
+            "machine": machine,
+            "inForm": machine == "הוגש לבדיקה",
+            "skipApproval": machine != "הוגש לבדיקה",
+            "hasCard": machine in {"הוגש לבדיקה", "בעבודה"},
+            "openCount": len(items),
+            "items": items,
+            "nimrodItems": nimrod_by_page.get(key, []),
+            "liveState": _cell(row, "הערות סוכן"),
+            "wave": wave_map.get(key, ""),
+            "chapter": _r2_chapter_id(wave_map.get(key, ""), key),
+            "kind": _cell(row, "סוג"),
+            "round": 2,
+            "versions": None,
+        }
+        all_pages.append(rec)
+        for it in items + rec["nimrodItems"]:
+            it["path"] = path
+            it["liveUrl"] = live
+
+    form_pages = [p for p in all_pages if p["inForm"]]
+    card_pages = [p for p in all_pages if p.get("hasCard")]
+    by_chapter: dict[str, list[dict]] = defaultdict(list)
+    for p in card_pages:
+        by_chapter[_form_ia_id(p)].append(p)
+
+    r1_pages = []
+    for row in r1_rows:
+        key = _cell(row, "#")
+        path = _cell(row, "נתיב") or "/"
+        machine = _cell(row, "סטטוס מכונה")
+        r1_pages.append(
+            {
+                "key": key,
+                "title": _cell(row, "כותרת") or key,
+                "path": path,
+                "liveUrl": staging_url(path) if path.startswith("/") else "",
+                "machine": machine,
+                "inForm": False,
+                "hasCard": machine == "הוגש לבדיקה",
+                "r1Card": machine == "הוגש לבדיקה",
+                "openCount": 0,
+                "chapter": "core",
+                "kind": "סבב-1",
+                "round": 1,
+            }
+        )
+
+    r3_rows = [r for r in _read_csv(SNAPDIR / "latest.csv") if r.get("__sheet__") == ROUND3_SHEET]
+    r3_pages = []
+    for row in r3_rows:
+        key = _cell(row, "#")
+        path = _cell(row, "נתיב") or ""
+        r3_pages.append(
+            {
+                "key": key,
+                "title": _cell(row, "כותרת") or key,
+                "path": path,
+                "liveUrl": staging_url(path) if path.startswith("/") else "",
+                "machine": _cell(row, "סטטוס מכונה"),
+                "inForm": False,
+                "openCount": 0,
+                "chapter": "r3",
+                "kind": _cell(row, "סוג") or "סבב-3",
+                "round": 3,
+            }
+        )
+    if not r3_pages:
+        r3_pages = [dict(x) for x in R3_PLANNED]
+
+    return {
+        "pages": form_pages,
+        "cardPages": card_pages,
+        "allPages": all_pages,
+        "r1Pages": r1_pages,
+        "r3Pages": r3_pages,
+        "needItems": eyal_items,
+        "nimrodItems": nimrod_items,
+        "byChapter": by_chapter,
+        "counts": {
+            "submitted": len(form_pages),
+            "eyal": len(eyal_items),
+            "nimrod": len(nimrod_items),
+            "rows": len(pages_rows),
+            "r3": len(r3_pages),
+        },
+    }
+
+
+def _r2_node_badges(node: dict) -> str:
+    bits = []
+    if node.get("openCount"):
+        n = node["openCount"]
+        bits.append(_badge(f"{n} שאלות" if n != 1 else "שאלה", "need"))
+    if node.get("nimrodItems"):
+        bits.append(_badge("נימרוד", "nimrod"))
+    if (node.get("kind") or "").find("301") >= 0 or (node.get("wave") or "").startswith("W1"):
+        if node.get("chapter") == "w1" or node.get("key") in SHOP_KEYS:
+            bits.append(_badge("הפניה", "pattern"))
+    machine = node.get("machine") or ""
+    if machine == "הוקפא" or machine.startswith("הוקפא"):
+        bits.append(_badge("מוקפא", "pattern"))
+    if machine == "בעבודה":
+        bits.append(_badge("בעבודה", "nimrod"))
+    mark = ""
+    for it in (node.get("items") or []) + (node.get("nimrodItems") or []):
+        m = (it.get("mark") or "").strip()
+        if m.startswith("E-R2"):
+            mark = m.split()[0]
+            break
+    if mark:
+        bits.append(_badge(mark, "need"))
+    return " ".join(bits)
+
+
+def _r2_card_href(node: dict, *, on_form: bool) -> str:
+    key = node.get("key") or ""
+    if node.get("r1Card"):
+        return f"s006-review.html#page-{escape(key)}"
+    if node.get("hasCard") and str(key).startswith("R2-"):
+        return f"#page-{escape(key)}" if on_form else f"s006-r2-review.html#page-{escape(key)}"
+    if node.get("nimrodItems"):
+        return "#nimrod-decisions" if on_form else "s006-r2-review.html#nimrod-decisions"
+    return ""
+
+
+LIVE_ICON_SVG = (
+    '<svg class="s006-sitemap__icon" viewBox="0 0 16 16" width="14" height="14" '
+    'aria-hidden="true" focusable="false">'
+    '<path fill="currentColor" d="M6.5 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 '
+    "1-1V9.5h-1.5V13H3V3h3.5V2zm3-1H15v5.5h-1.5V3.56L7.53 9.53 6.47 8.47l5.97-5.97H9.5V1z\"/>"
+    "</svg>"
+)
+
+BACK_TOP_HTML = (
+    '<a class="s006-backtop" href="#s006-top" id="s006-backtop">'
+    "חזרה למעלה</a>\n"
+)
+
+
+def _r2_round_chip(node: dict) -> str:
+    rnd = int(node.get("round") or 0)
+    if rnd not in (1, 2, 3):
+        return ""
+    labels = {1: "סבב 1", 2: "סבב 2", 3: "סבב 3"}
+    return (
+        f'<span class="s006-round-chip" title="{escape(labels[rnd])}" '
+        f'aria-label="{escape(labels[rnd])}">{rnd}</span>'
+    )
+
+
+def _r2_round_legend_html() -> str:
+    return (
+        '<ul class="s006-round-legend" aria-label="מקרא סבבים">\n'
+        '<li class="s006-round s006-round--1">'
+        '<span class="s006-round-chip" aria-hidden="true">1</span> '
+        "סבב 1 — ליבה</li>\n"
+        '<li class="s006-round s006-round--2">'
+        '<span class="s006-round-chip" aria-hidden="true">2</span> '
+        "סבב 2 — קיים לגולש, לא בליבה</li>\n"
+        '<li class="s006-round s006-round--3">'
+        '<span class="s006-round-chip" aria-hidden="true">3</span> '
+        "סבב 3 — מתוכנן</li>\n"
+        "</ul>\n"
+    )
+
+
+def _r2_page_li(node: dict, *, on_form: bool, children_html: str = "") -> str:
+    title = escape(node.get("title") or node.get("key") or "")
+    path = node.get("path") or ""
+    url = node.get("liveUrl") or ""
+    rnd = int(node.get("round") or 0)
+    cls = f' class="s006-round s006-round--{rnd}"' if rnd in (1, 2, 3) else ""
+    bits = [f"<li{cls}>"]
+    chip = _r2_round_chip(node)
+    if chip:
+        bits.append(chip + " ")
+    card = _r2_card_href(node, on_form=on_form)
+    if card:
+        bits.append(f'<a class="s006-sitemap__card" href="{card}">{title}</a>')
+    else:
+        bits.append(f"<span class=\"s006-sitemap__name\">{title}</span>")
+    if url and path.startswith("/"):
+        bits.append(
+            f'<a class="s006-sitemap__live" href="{escape(url)}" target="_blank" rel="noopener" '
+            f'title="העמוד באתר הבדיקה" aria-label="העמוד באתר הבדיקה: {title}">'
+            f"{LIVE_ICON_SVG}</a>"
+        )
+    if path.startswith("/"):
+        bits.append(f' <span dir="ltr" class="s006-path">{escape(path)}</span>')
+    badges = _r2_node_badges(node)
+    if badges:
+        bits.append(" " + badges)
+    if children_html:
+        bits.append(children_html)
+    bits.append("</li>\n")
+    return "".join(bits)
+
+
+def _r2_nested_list(nodes: list[dict], *, on_form: bool) -> str:
+    by_path = {n["path"]: n for n in nodes if (n.get("path") or "").startswith("/")}
+    roots, children = _nest_paths(nodes)
+
+    def render_path(path: str) -> str:
+        node = by_path[path]
+        kids = children.get(path) or []
+        inner = ""
+        if kids:
+            inner = "<ul>\n" + "".join(render_path(k) for k in kids) + "</ul>\n"
+        return _r2_page_li(node, on_form=on_form, children_html=inner)
+
+    leftover = [n for n in nodes if n.get("path") not in by_path]
+    html = "<ul>\n"
+    for path in roots:
+        html += render_path(path)
+    for n in leftover:
+        html += _r2_page_li(n, on_form=on_form)
+    html += "</ul>\n"
+    return html
+
+
+def _pick_path(nodes: list[dict], path: str) -> dict | None:
+    for n in nodes:
+        if n.get("path") == path:
+            return n
+    return None
+
+
+def _take_matching(pool: list[dict], pred) -> list[dict]:
+    taken, rest = [], []
+    for n in pool:
+        (taken if pred(n) else rest).append(n)
+    pool[:] = rest
+    return taken
+
+
+def _branch_details(title: str, hint: str, inner: str, *, open_it: bool) -> str:
+    open_attr = " open" if open_it else ""
+    return (
+        f'<li><details class="s006-sitemap__branch"{open_attr}>\n'
+        f"<summary><strong>{escape(title)}</strong>"
+        f'<span class="s006-sitemap__hint">{escape(hint)}</span></summary>\n'
+        f"{inner}</details></li>\n"
+    )
+
+
+def _r2_ia_tree_html(model: dict, *, on_form: bool) -> str:
+    """Site tree by menu / logical IA. Round colour is a marker, not the grouping."""
+    pool = list(model.get("r1Pages") or []) + list(model.get("allPages") or [])
+    r3 = list(model.get("r3Pages") or [])
+
+    def pfx(*prefixes: str):
+        return lambda n: any((n.get("path") or "").startswith(x) for x in prefixes)
+
+    def exact(*paths: str):
+        return lambda n: (n.get("path") or "") in paths
+
+    bits = ["<ul class=\"s006-sitemap__tree\">\n"]
+
+    def take_path(path: str) -> dict | None:
+        node = _pick_path(pool, path)
+        if node:
+            pool[:] = [n for n in pool if n.get("path") != path]
+        return node
+
+    def take_key(key: str) -> dict | None:
+        for n in pool:
+            if n.get("key") == key:
+                pool[:] = [x for x in pool if x.get("key") != key]
+                return n
+        return None
+
+    def li(path: str, children_html: str = "") -> str:
+        node = take_path(path)
+        if not node:
+            return children_html
+        return _r2_page_li(node, on_form=on_form, children_html=children_html)
+
+    def lis(paths: list[str]) -> str:
+        return "".join(li(p) for p in paths)
+
+    bits.append("<li><details class=\"s006-sitemap__branch\" open>\n")
+    bits.append(
+        "<summary><strong>תפריט ראשי</strong>"
+        '<span class="s006-sitemap__hint">אותו סדר כמו בניווט החי בסטייג\'ינג</span></summary>\n'
+        "<ul>\n"
+    )
+    bits.append(li("/"))
+    snoring = li("/snoring-sleep-apnea/")
+    bits.append(li("/treatment/", f"<ul>\n{snoring}</ul>\n" if snoring else ""))
+    bits.append(lis(["/method/", "/lessons/", "/sound-healing/"]))
+
+    learn_menu = lis(
+        [
+            "/learning/therapist-training/",
+            "/learning/lectures/",
+            "/learning/workshops/",
+        ]
+    )
+    courses_item = take_key("R1-29")
+    if courses_item:
+        learn_menu += _r2_page_li(courses_item, on_form=on_form)
+    learn_extra = _take_matching(
+        pool,
+        lambda n: (n.get("path") or "").startswith("/learning")
+        or (n.get("path") or "").startswith("/courses-soon")
+        or (n.get("path") or "").startswith("/hashita")
+        or "didgeridoo-lessons" in (n.get("path") or "")
+        or "didgeridoo-treatment" in (n.get("path") or ""),
+    )
+    if learn_extra:
+        learn_menu += _branch_details(
+            "שער לימוד והפניות ישנות",
+            "לא כולם שורה בתפריט — שער + הפניות 301",
+            _r2_nested_list(learn_extra, on_form=on_form),
+            open_it=False,
+        )
+    bits.append(
+        _branch_details(
+            "לימוד והכשרה",
+            "כמו בתפריט: הכשרות, קורסים, הרצאות, סדנאות",
+            f"<ul>\n{learn_menu}</ul>\n" if learn_menu else "",
+            open_it=True,
+        )
+    )
+
+    shop_menu = lis(
+        [
+            "/shop/",
+            "/repair/",
+            "/didgeridoos/",
+            "/bags/",
+            "/stands-storage/",
+            "/stand-floor/",
+        ]
+    )
+    shop_extra = _take_matching(
+        pool,
+        lambda n: (n.get("path") or "").startswith("/tools-and-accessories")
+        or "handmade-instruments" in (n.get("path") or ""),
+    )
+    if shop_extra:
+        shop_menu += _branch_details(
+            "כתובות ישנות לחנות",
+            "הפניות לשער / לכלים / לתיקון",
+            _r2_nested_list(shop_extra, on_form=on_form),
+            open_it=False,
+        )
+    bits.append(
+        _branch_details(
+            "כלים ואביזרים",
+            "כמו בתפריט החי — שער, תיקון, מכירה, תיקים, סטנדים",
+            f"<ul>\n{shop_menu}</ul>\n" if shop_menu else "",
+            open_it=True,
+        )
+    )
+
+    book_menu = lis(
+        [
+            "/books/",
+            "/books/tsva-bekahol/",
+            "/books/kushi-blantis/",
+            "/books/vekatavta/",
+        ]
+    )
+    book_extra = _take_matching(
+        pool,
+        lambda n: (n.get("path") or "").startswith("/books")
+        or (n.get("path") or "").startswith("/muzeh")
+        or (n.get("path") or "").startswith("/muzza"),
+    )
+    if book_extra:
+        book_menu += _branch_details(
+            "הפניות מוזה / ספרים ישנים",
+            "כתובות ישנות מקוננות",
+            _r2_nested_list(book_extra, on_form=on_form),
+            open_it=False,
+        )
+    bits.append(
+        _branch_details(
+            "ספרים",
+            "כמו בתפריט: שער + שלושת הספרים",
+            f"<ul>\n{book_menu}</ul>\n" if book_menu else "",
+            open_it=True,
+        )
+    )
+
+    blog_hub = take_path("/blog/")
+    posts = _take_matching(
+        pool,
+        lambda n: (n.get("kind") or "").find("פוסט") >= 0 or n.get("chapter") == "w3",
+    )
+    blog_inner = "<ul>\n"
+    if blog_hub:
+        blog_inner += _r2_page_li(blog_hub, on_form=on_form)
+    if posts:
+        blog_inner += _branch_details(
+            "54 פוסטים",
+            "נפתח לפי הצורך — כל שם מוביל לכרטיס",
+            _r2_nested_list(posts, on_form=on_form),
+            open_it=False,
+        )
+    blog_inner += "</ul>\n"
+    bits.append(_branch_details("בלוג דיג׳רידו", "כמו בתפריט · הפוסטים מקופלים", blog_inner, open_it=True))
+
+    mokesh = take_path("/eyal-amit/mokesh-dahiman/")
+    about_short = take_path("/about/")
+    about_rest = _take_matching(
+        pool,
+        lambda n: (n.get("path") or "").startswith("/about")
+        or (
+            (n.get("path") or "").startswith("/eyal-amit")
+            and (n.get("path") or "") != "/eyal-amit/"
+        ),
+    )
+    eyal_kids = ""
+    for n in [mokesh, about_short, *about_rest]:
+        if n:
+            eyal_kids += _r2_page_li(n, on_form=on_form)
+    bits.append(
+        li("/eyal-amit/", f"<ul>\n{eyal_kids}</ul>\n" if eyal_kids else "")
+    )
+    bits.append(lis(["/contact/", "/en/"]))
+    bits.append("</ul></details></li>\n")
+
+    more = _take_matching(pool, exact("/faq/", "/testimonials/", "/galleries/"))
+    bits.append(
+        _branch_details(
+            "עמודים חיים מחוץ לתפריט הראשי",
+            "FAQ, המלצות, גלריות — קיימים באתר, לא בשורת הניווט",
+            _r2_nested_list(more, on_form=on_form) if more else "",
+            open_it=True,
+        )
+    )
+
+    archive = _take_matching(
+        pool,
+        exact(
+            "/historical-articles/",
+            "/press/",
+            "/services/",
+            "/shows-heritage/",
+            "/thank-you/",
+        ),
+    )
+    bits.append(
+        _branch_details(
+            "ארכיון חי (לא בתפריט)",
+            "כתבות, עיתונות, שירותים, הופעות, תודה",
+            _r2_nested_list(archive, on_form=on_form) if archive else "",
+            open_it=True,
+        )
+    )
+
+    legal = _take_matching(pool, exact("/accessibility/", "/privacy/", "/terms/"))
+    bits.append(
+        _branch_details(
+            "משפטי",
+            "נגישות, פרטיות, תקנון",
+            _r2_nested_list(legal, on_form=on_form) if legal else "",
+            open_it=True,
+        )
+    )
+
+    qr = _take_matching(pool, pfx("/qr"))
+    bits.append(
+        _branch_details(
+            "QR מודפסים",
+            "שער + קודים — permalink נעול",
+            _r2_nested_list(qr, on_form=on_form) if qr else "",
+            open_it=False,
+        )
+    )
+
+    leftover = [n for n in pool if (n.get("path") or "").startswith("/") or n.get("key")]
+    if leftover:
+        bits.append(
+            _branch_details(
+                "כתובות ישנות נוספות",
+                "הפניות ליעדי סבב 1",
+                _r2_nested_list(leftover, on_form=on_form),
+                open_it=False,
+            )
+        )
+
+    if r3:
+        bits.append(
+            _branch_details(
+                "סבב 3 — מתוכנן",
+                "מובייל, קידום, עמודים חדשים",
+                _r2_nested_list(r3, on_form=on_form),
+                open_it=False,
+            )
+        )
+
+    bits.append("</ul>\n")
+    return "".join(bits)
+
+
+def _r2_sitemap_html(model: dict, *, on_form: bool) -> str:
+    bits = [
+        '<section class="s006-sitemap" id="s006-tree" aria-label="עץ אתר מלא">\n',
+        "<h2>עץ האתר — לפי התפריט החי</h2>\n",
+        "<p>הסדר למעלה כמו בניווט בסטייג'ינג. "
+        "<strong>השם</strong> מוביל לכרטיס האישור וההערות. "
+        "האיקון ליד השם פותח את העמוד באתר. "
+        "צבע ומספר 1/2/3 הם רק סימון באיזה סבב העמוד בוצע או מתוכנן.</p>\n",
+        _r2_round_legend_html(),
+        _r2_ia_tree_html(model, on_form=on_form),
+        "</section>\n",
+    ]
+    return "".join(bits)
+
+
+def _r2_chapters_html(model: dict) -> str:
+    by_ch = model.get("byChapter") or {}
+    bits = ['<div id="s006-pages" class="s006-chapters">\n']
+    for ch_id, title, hint in FORM_IA_META:
+        pages = by_ch.get(ch_id) or []
+        if not pages:
+            continue
+        qn = sum(p.get("openCount") or 0 for p in pages)
+        extra = f"{len(pages)} עמודים"
+        if qn:
+            extra += f" · {qn} שאלות לאייל"
+        if any(p.get("skipApproval") for p in pages):
+            extra += " · בעבודה"
+        open_attr = " open" if qn or ch_id in {"archive", "shop", "legal"} else ""
+        bits.append(
+            f'<details class="s006-chapter" data-chapter="{escape(ch_id)}" id="chapter-{escape(ch_id)}"{open_attr}>\n'
+            f"<summary>{escape(title)} <span>{escape(extra)} — {escape(hint)}</span></summary>\n"
+        )
+        if ch_id == "shop":
+            o = STAGING_ORIGIN
+            bits.append(
+                '<p class="s006-chapter__intro">העמודים החיים בסבב 1 (לא לאישור מחדש כאן): '
+                f'<a href="{escape(o + "/shop/")}" target="_blank" rel="noopener">חנות</a> · '
+                f'<a href="{escape(o + "/didgeridoos/")}" target="_blank" rel="noopener">כלים למכירה</a> · '
+                f'<a href="{escape(o + "/repair/")}" target="_blank" rel="noopener">תיקון</a>. '
+                "השאלה על איחוד מופיעה תחת ההפניה מ«כלים ואביזרים».</p>\n"
+            )
+        for page in pages:
+            bits.append(_page_html(page, with_filename=True))
+        bits.append("</details>\n")
+    bits.append("</div>\n")
+    return "".join(bits)
+
+
+def page_s006_r2_review(*, head, nav, foot, generated_iso: str, default_respondent: str) -> str:
+    model = load_r2_model()
+    c = model["counts"]
+    html = head(
+        "אישור עמודים — סבב 2 — אייל עמית",
+        extra_scripts=f'<link rel="stylesheet" href="assets/hub.css?v={ASSET_CACHE}">\n',
+    )
+    html += nav("s006-r2-review")
+    html += '<div class="wrap s006-wrap s006-wrap--r2">\n'
+    html += '<h1 id="s006-top">אישור עמודים — סבב 2</h1>\n'
+    html += (
+        '<p class="s006-section-kicker">טופס נפרד — לא מחליף את אישור סבב 1 · '
+        "אין קישור בתפריט הראשי</p>\n"
+        '<p class="subtitle">למעלה: עץ לפי התפריט החי בסטייג\'ינג. '
+        "השם פותח את כרטיס האישור; האיקון לידו פותח את העמוד באתר. "
+        "כפתור «חזרה למעלה» נשאר בזמן גלילה. "
+        "שאלות תחת העמוד, הערה ושם קובץ לכל עמוד. "
+        "הקובץ עצמו יסופק בדרייב; כאן נשמר רק השם. "
+        '<a href="s006-r2-tree.html">עץ בחלון נפרד</a>.</p>\n'
+        f'<p class="s006-tracker-ref">נגזר מטאב <strong>סבב-2</strong> בטרקר · '
+        f'{c["submitted"]} הוגשו מתוך {c["rows"]} שורות · '
+        f'{c["eyal"]} שאלות לאייל · {c["nimrod"]} לנימרוד.</p>\n'
+    )
+    html += _r2_sitemap_html(model, on_form=True)
+    html += _nimrod_section_html(model.get("nimrodItems") or [], variant="r2-live")
+    if not model["pages"]:
+        html += (
+            '<p class="s006-empty">טרם הוגשו עמודי סבב 2. '
+            "הטופס יתמלא אוטומטית מהטרקר אחרי גלים 1–5 "
+            "(סטטוס מכונה = הוגש לבדיקה).</p>\n"
+        )
+    else:
+        html += '<p class="s006-section-kicker">החלק של אייל — לפי פרקים</p>\n'
+        html += '<div class="s006-toolbar" id="s006-toolbar">\n'
+        html += '<span class="s006-progress" id="s006-progress"></span>\n'
+        html += (
+            f'<label class="s006-resp">שם '
+            f'<input type="text" id="respondent" value="{escape(default_respondent)}"></label>\n'
+        )
+        html += '<button class="btn-export" type="button" id="btn-export-s006">ייצוא תשובות ל-JSON</button>\n'
+        html += "</div>\n"
+        html += _r2_chapters_html(model)
+        html += (
+            '<div class="s006-field s006-field--page-notes">\n'
+            '<label class="s006-label" for="pagenotes-GENERAL">'
+            "הערות כלליות (רשות)</label>\n"
+            '<textarea class="s006-input" id="pagenotes-GENERAL" rows="3" '
+            'placeholder="אם יש הערה שלא שייכת לעמוד בודד"></textarea>\n'
+            "</div>\n"
+        )
+    html += BACK_TOP_HTML
+    html += "</div>\n"
+    cfg = {
+        "exportType": EXPORT_TYPE_R2,
+        "schema": EXPORT_SCHEMA_R2,
+        "storageKey": "ea-s006-r2-review-v2",
+        "exportFilePrefix": "eyal-s006-r2-answers-",
+        "items": [{"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]} for it in model["needItems"]],
+        "pages": [
+            {
+                "key": p["key"],
+                "path": p.get("path") or "",
+                "title": p.get("title") or "",
+                "skipApproval": bool(p.get("skipApproval")),
+            }
+            for p in (model.get("cardPages") or model["pages"])
+        ]
+        + [{"key": "GENERAL", "path": "", "title": "הערות כלליות", "skipApproval": True}],
+        "nimrodItems": [
+            {
+                "id": it["id"],
+                "domId": it["domId"],
+                "pageKey": it["pageKey"],
+                "title": it.get("title") or "",
+                "ask": it.get("ask") or "",
+                "path": it.get("path") or "",
+            }
             for it in (model.get("nimrodItems") or [])
         ],
         "defaultRespondent": default_respondent,
@@ -1004,12 +2011,38 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     return html
 
 
+def page_s006_r2_tree(*, head, nav, foot, generated_iso: str) -> str:
+    """Full nested sitemap. Not in HUB_NAV_ITEMS."""
+    model = load_r2_model()
+    html = head(
+        "עץ אתר — סבב 2 — אייל עמית",
+        extra_scripts=f'<link rel="stylesheet" href="assets/hub.css?v={ASSET_CACHE}">\n',
+    )
+    html += nav("s006-r2-tree")
+    html += '<div class="wrap s006-wrap s006-wrap--r2">\n'
+    html += '<h1 id="s006-top">עץ האתר — לפי התפריט החי</h1>\n'
+    html += (
+        '<p class="s006-section-kicker">לא בתפריט הראשי · אודות לא 301 · '
+        "איחוד חנות+תיקון לא מיושם ב-PHP</p>\n"
+        '<p class="subtitle">אותו עץ כמו בראש '
+        '<a href="s006-r2-review.html">טופס סבב 2</a>. '
+        "השם פותח את כרטיס האישור; האיקון לידו פותח את העמוד באתר. "
+        "כפתור «חזרה למעלה» נשאר בזמן גלילה.</p>\n"
+    )
+    html += _r2_sitemap_html(model, on_form=False)
+    html += BACK_TOP_HTML
+    html += "</div>\n"
+    html += foot(generated_iso)
+    return html
+
+
 def copy_tracker_snapshots(dist_dir: Path) -> None:
     dest = dist_dir / "files" / "s006"
     dest.mkdir(parents=True, exist_ok=True)
-    src = SNAPDIR / "latest-items.csv"
-    if src.is_file():
-        dest.joinpath("latest-items.csv").write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    for name in ("latest-items.csv", "latest.csv"):
+        src = SNAPDIR / name
+        if src.is_file():
+            dest.joinpath(name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     r19 = SNAPDIR / "r19-eyal-answers.json"
     if r19.is_file():
         dest.joinpath("r19-eyal-answers.json").write_text(r19.read_text(encoding="utf-8"), encoding="utf-8")

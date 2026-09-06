@@ -24,7 +24,12 @@ from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
 
-from s006_review_form import copy_tracker_snapshots, page_s006_review
+from s006_review_form import (
+    copy_tracker_snapshots,
+    page_s006_review,
+    page_s006_r2_review,
+    page_s006_r2_tree,
+)
 
 HUB_ROOT = Path(__file__).resolve().parent.parent / "hub"
 DATA_DIR = HUB_ROOT / "data"
@@ -3392,7 +3397,31 @@ def build(dist_dir: Path, mirror_docs_flag: bool, skip_team40_legacy: bool = Fal
         ),
         encoding="utf-8",
     )
+    (dist_dir / "s006-r2-review.html").write_text(
+        page_s006_r2_review(
+            head=head,
+            nav=nav,
+            foot=foot,
+            generated_iso=generated_iso,
+            default_respondent=DEFAULT_RESPONDENT,
+        ),
+        encoding="utf-8",
+    )
+    (dist_dir / "s006-r2-tree.html").write_text(
+        page_s006_r2_tree(
+            head=head,
+            nav=nav,
+            foot=foot,
+            generated_iso=generated_iso,
+        ),
+        encoding="utf-8",
+    )
     copy_tracker_snapshots(dist_dir)
+    from s006_r2_form_tracker_crosscheck import run_check as _r2_form_crosscheck
+    _rc, _report = _r2_form_crosscheck(html_path=dist_dir / "s006-r2-review.html")
+    print(_report)
+    if _rc:
+        raise SystemExit("S006 R2 form ↔ tracker cross-check failed")
     if materials_needed:
         (dist_dir / "materials-intake.html").write_text(
             page_materials_intake(materials_needed, generated_iso), encoding="utf-8"

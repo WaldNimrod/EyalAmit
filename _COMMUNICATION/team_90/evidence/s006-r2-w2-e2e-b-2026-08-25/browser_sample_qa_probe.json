@@ -1,0 +1,61 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "ts": "2026-08-24T23:05:13.148Z",
+  "total": 4,
+  "failures": 0,
+  "verdict": "PASS",
+  "results": [
+    {
+      "viewport": "mobile",
+      "page": "_qr_qr1_",
+      "url": "/qr/qr1/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "והקדמת - qr1 - eyal amit",
+      "screenshot": "/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/s006-r2-w2-e2e-b-2026-08-25/shots/screenshots/_qr_qr1__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "page": "_qr_qr48_",
+      "url": "/qr/qr48/",
+      "http_rendered": true,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "qr48 -וסיימת - eyal amit",
+      "screenshot": "/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/s006-r2-w2-e2e-b-2026-08-25/shots/screenshots/_qr_qr48__mobile.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_qr_qr1_",
+      "url": "/qr/qr1/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "והקדמת - qr1 - eyal amit",
+      "screenshot": "/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/s006-r2-w2-e2e-b-2026-08-25/shots/screenshots/_qr_qr1__desktop.png",
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "page": "_qr_qr48_",
+      "url": "/qr/qr48/",
+      "http_rendered": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "qr48 -וסיימת - eyal amit",
+      "screenshot": "/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/evidence/s006-r2-w2-e2e-b-2026-08-25/shots/screenshots/_qr_qr48__desktop.png",
+      "pass": true
+    }
+  ]
+}

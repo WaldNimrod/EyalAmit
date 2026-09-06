@@ -1,34 +1,108 @@
 ---
-id: HANDOFF_CURRENT_S006_2026-08-21_v1.5.0
+id: HANDOFF_CURRENT_S006_2026-08-30_v1.7.2
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: state-only
-from: team_100 (S006 session 12 · map Eyal R1 notes 19.8.26 — no implement)
-to: team_100 (fresh session · implement with Nimrod)
-cc: [team_00, team_90]
-date: 2026-08-21
+from: team_100 (reset 30.8 — state SSOT after prompt/CURRENT collision)
+to: team_100 (fresh session)
+cc: [team_00, team_90, team_10, team_50]
+date: 2026-08-30
 law: S006-MILESTONE-CHARTER.md
 disposition: >-
-  STATE ONLY. The method lives in HANDOFF-TEMPLATE-GENERIC.md and is NOT repeated here — a second
-  copy of the runbook drifted from the first and was flagged FAIL by cross-engine review. Read the
-  template first; this file only says where things stand.
-status: ACTIVE — stage 1, desktop only · WAIT-WAVE locked · tails core 21.8.26 shipped (H-01 · T-01 · LSN-09)
+  SSOT for what is OPEN at session level. Tracker xlsx is SSOT for row/item
+  status. Other S006 md files are method, archive, or mandates — they must
+  point here and must not keep a second open-list. Verified 2026-08-30 against
+  tracker + theme code + staging HTTP/DOM. Do not start a work plan from
+  archive sections below the line.
+status: ACTIVE — open-work SSOT (not a per-page build cycle)
 ---
 
-# HANDOFF → team_100 · S006 · **מצב בלבד**
+# HANDOFF → team_100 · S006 · **מצב בלבד** (חי)
 
-🔴 **קראו קודם:** `_COMMUNICATION/team_100/S006/HANDOFF-TEMPLATE-GENERIC.md` — שם השיטה,
-נעילת הסיווג, שער הסקואופ וחוזה המאמת. **המסמך הזה אינו חוזר עליהם ואינו גובר עליהם.**
+**מה פתוח מנוהל בקובץ הזה.**  
+סטטוס שורה/סעיף = `EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx` (וגם `tracker/latest.csv` / `latest-items.csv`).  
+אמנה = דין. תבנית GENERIC = פקודות ליין. אונבורד 17.8 / רשימות «ממתין לאייל» למטה = **ארכיון**. אל תציעו סקואופ עמוד מתוכם.
 
-🔴 **כל מספר כאן הוא קריאה מ-21.8.26 — גזרו מחדש לפי §6 בתבנית.**
-🔴 **§ב.2 «העמודים הבאים» הוא תור מוצע של הסוכן הקודם — אינו אישור סקואופ.**
-🔴 **מפת תשובות אייל 19.8:** `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/MAP-S006-EYAL-R1-NOTES-2026-08-19.md`  
-🔴 **פרומט סשן מימוש:** `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/ONBOARD-PROMPT-R1-NOTES-IMPLEMENT-2026-08-21.md`
+אימות חי 2026-08-30: סטייג'ינג `http://eyalamit-co-il-2026.s887.upress.link` · תמה **חיה** `1.5.16` · במאגר **1.5.17** (CSS דילוג, בלי FTP). `id="main"` בעמודי chapters.
 
-# חלק ב׳ — מצב נוכחי. הסשן המוסר מעדכן. הסשן המקבל קורא.
+---
 
-**עודכן:** 2026-08-21 (זנבות ליבה · H-01 · T-01 · LSN-09 — Composer א׳+ב׳ PASS) · **שלב פעיל:** 1 (ליבה, דסקטופ בלבד)
+## פתוח עכשיו
 
-קריאת טרקר מ-18.8 (29 שורות סבב 1): **21 הוגש לבדיקה** · **8 הוקפא** · **0 טרם נבדק**. Round 1 לא נסגר עד שאייל כותב `אושר ע״י אייל` על שורות שהוגשו. **תשובות לרוב סעיפי ב.3 הגיעו ב-19.8** — ראו מפה. טרקר/Hub לא עודכנו בסשן 12.
+### 1. עבודת סוכן שעדיין לא נסגרה
+
+| פריט | איפה | מה נשאר | נבדק חי/קוד |
+|---|---|---|---|
+| **W4 משפטי — מחקר, בלי הדבקה** | R2-003 `/accessibility/` · R2-016 `/privacy/` · R2-022 `/terms/` · שלושת `LEG-01` = `בעבודה` | דוח HTML: [RESEARCH-S006-W4-LEGAL-2026-08-30.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/RESEARCH-S006-W4-LEGAL-2026-08-30.html) (עודכן אחרי CDP 30.8). ממתין למשוב נימרוד. **אין** `GO-W4-PASTE`. באנר WP-EI-05 חי | CDP: שני דילוגים → `#main` עובד בלחיצה; דילוג ראשון ב־1.5.16 נשאר `top:-40px` בפוקוס מיידי (transition). טופס צור קשר: CF7 בלי label + טופס מקומי עם label — כפילות |
+| **A11Y-NOW — CSS דילוג במאגר, לא בחי** | תמה 1.5.17: `ea-atoms.css` + `chapters.css` (`transition:none` בפוקוס) | **FTP חסום עד GO נימרוד** (מנדט NOW). אחרי FTP: אימות 50 Tab+Enter בכרום — [REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md) | קוד מקומי 1.5.17 · חי עדיין 1.5.16 |
+| **עץ Git מלוכלך** | סשן [Team 100 wave 2](a88193ed-79d1-43b7-ac8f-d9d4a754b0f4) + CSS 1.5.17 | A11Y-NOW + ארטיפקטי R2 **בלי קומיט**. לא `git add -A` | `git status --porcelain` לא ריק |
+
+AOS: גרסת האב תגיע מההאב. **לא לגעת ב-`_aos/`**. `validate_aos` 11/13/65 נשארים.
+
+### 2. ממתין לאייל — טפסים חיים (לא לגעת בניסוח)
+
+טופס סבב 1: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s006-review.html  
+טופס סבב 2: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s006-r2-review.html  
+עץ: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s006-r2-tree.html  
+
+סעיפי טרקר `ממתין לאייל` (אומת 30.8 מ-`latest-items.csv`):
+
+| סעיף | עמוד | חי |
+|---|---|---|
+| FAQ-07 | `/faq/` | href `/cbDidg-therapy-training` → **HTTP 404**. `/learning/therapist-training/` עצמו 200 (עמוד מוקפא) |
+| SHOP-01 | R2-024 חנות/תיקון | שאלה: שני עולמות או איחוד — **לא ליישם** עד תשובה |
+| ARC-01 ×7 | אודות · כתבות היסטוריות · קורסים חיצוניים · עיתונות · שירותים · הופעות · תודה | כולם HTTP 200 כארכיון/placeholder |
+
+אין לפתוח מחדש עמוד `הוגש לבדיקה` בגלל השאלות האלה.
+
+### 3. הוקפא — לא בנייה עכשיו
+
+מדיה/וידאו בלי קובץ מאייל (H-06, T-02, LSN-02, SH-02, SHP/DG/BAG/… וכו') — סטטוס סעיף `הוקפא`. הרשימה המלאה בטרקר, לא כאן.
+
+**H-06 חי:** בית `#video` — כותרת «וידאו» · Lorem · קופסה «כאן ייכנס וידאו 16:9» · זה **פלייסהולדר יחיד** בבית (`ממתין לאישור` ×1). לא למלא URL.
+
+עמודי סבב 1 `הוקפא` (אין חבילה / ארכיון): R1-06 · R1-07 · R1-20 · R1-24 · R1-27 · R1-29.
+
+### 4. סבב 3 / אחרי S006 — לא בסשן
+
+מובייל · ביקורת ת״י 5568 AA · S007 meta · חיתוך לפרודקשן · `WP-S5-04/05`.
+
+---
+
+## לא פתוח — נבדק 30.8 (CURRENT הישן שיקר כאן)
+
+| טענה ישנה בקובץ זה / בפרומט 17.8 | מצב חי |
+|---|---|
+| דף הבית מועמד לבנייה / H-01 ו-H-07 ממתינים | R1-01 `הוגש לבדיקה`. ציר זמן: אין 2004/2017 ב-DOM (רק 1999 בשורת trust). H-07: **30** `<img>` ב-`#peek`, בלי פלייסהולדר |
+| פער מספור 02→04 חוסם הגשה | **לא נצפה.** תוויות `*_chap` ב-`home-defaults.php` ריקות; ב-DOM אין «פרק 02/03/04». סדר כותרות h2 תואם את 12 הפרקים של אייל |
+| R1-08 / R1-09 הוקפאו | `הוגש לבדיקה`. `/learning/lectures/` 200, H1 «הרצאות על נשימה, דיג'רידו, סטרס ושינה» |
+| C-07 / C-08 «לא יושמו» (§ב.6 הישן) | C-07 יושב (timeline ריק). C-08/M-01a `בוצע` בטרקר |
+| C-04 חסר CTA `/media` | חי: «לכל ההמלצות» → `/testimonials/` |
+| C-05 כרטיסים מומצאים | חי: פרק המפגש הוא פסקאות, בלי ארבע הכותרות שהומצאו |
+| `?compare=eyal` עדיין טוען טווין | `ea_chapters_treatment_compare_eyal()` מחזיר `false` |
+| סבב 2 «טרם נבנה» / OPTIONS 18.8 | גלים 1–3 + 5 הוגשו; גל 6 טופס חי (HTTP 200, title «אישור עמודים — סבב 2»); גל 4 = שורה 1 למעלה |
+| A11Y-NOW פתוח לצוות 10 | [DONE-S006-A11Y-NOW-TEAM10-2026-08-26.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/DONE-S006-A11Y-NOW-TEAM10-2026-08-26.md) |
+
+חתימת אייל בעמודת האנוש: **אפס שורות** — זה שער לקוח בטפסים, לא שער בנייה.
+
+טפסים: **לא לגעת** ב-`s006-review.html` (סבב 1) מעבר לקריאה.
+
+קליטת W4: [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/INTAKE-NIMROD-W4-2026-08-26.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/INTAKE-NIMROD-W4-2026-08-26.md)  
+חוק תוכן / שני ליינים: [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md) · [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/HANDOFF-TEMPLATE-GENERIC.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/HANDOFF-TEMPLATE-GENERIC.md) (פקודות בלבד).
+
+---
+
+# ארכיון — לא לגזור ממנו «פתוח»
+
+נכתב 17–26.8. נשמר כדי לא לאבד יומן גלים. **כל סעיף «ממתין» / «הבא בתור» מתחת לקו הזה מבוטל מול «פתוח עכשיו» למעלה.**
+
+### ב.0 מקור החומר
+
+1. **בייטים מקוריים (team_00 17.8.26):** `EyalAmit_Site_GoogleDrive_Sync/content 13.8.26/` + `סקירה דף הבית.xlsx` לידה.
+2. **תשובות סבב 1 (19.8.26):** `EyalAmit_Site_GoogleDrive_Sync/הערות של אייל לאחר סבב שלב 1 - 19.8.26/`
+3. **מפה:** `_COMMUNICATION/team_100/S006/MAP-S006-EYAL-R1-NOTES-2026-08-19.md`
+
+לא כותבים מ-`docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. 23 עמודי סבב 1 שהוגשו — לא לפתוח.
+
 
 ### ב.0 מקור החומר
 
@@ -36,9 +110,9 @@ status: ACTIVE — stage 1, desktop only · WAIT-WAVE locked · tails core 21.8.
 2. **תשובות סבב 1 (19.8.26):** `EyalAmit_Site_GoogleDrive_Sync/הערות של אייל לאחר סבב שלב 1 - 19.8.26/` — אקסלי טופס + md מחליף לאודות + md הרצאות/סדנאות + שני JPG + docx ממליצים.
 3. **מפה:** `_COMMUNICATION/team_100/S006/MAP-S006-EYAL-R1-NOTES-2026-08-19.md`
 
-לא כותבים מ-`docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. מחזור עמוד: אמנה §8ד + תבנית §3. לא לפתוח עמוד בלי `סקואופ אושר`.
+לא כותבים מ-`docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. מחזור עמוד סבב 2: אמנה §8ד + תבנית סוכן R2 + GO רציף. 23 עמודי סבב 1 — לא לפתוח.
 
-## ב.1 מה הושלם
+## ב.1 מה הושלם *(ארכיון 21.8 — אל תגזרו «נשאר» מכאן)*
 
 | שורה | עמוד | מצב |
 |---|---|---|
@@ -232,10 +306,10 @@ Hub: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s006-review.html
 
 סשן קודם: M-01b דרור מצליח · M-01c קרן אברשי · M-01d שיילי פיינברג — שלושה כרטיסים ריקים שהיו כפילות שם.
 
-## ב.6 חוב פתוח — לא חוסם
+## ב.6 חוב פתוח — לא חוסם *(ארכיון; C-07/C-08 למטה מבוטלים — ראו «לא פתוח» למעלה)*
 
-- **C-07** אייל (H-01, 19.8): **למחוק מהדף**. לא יושם. ממתין לסקואופ R1-01.
-- **C-08** אייל (M-01a): נוסח דן + URL פייסבוק. לא יושם. ממתין לסקואופ R1-26.
+- ~~**C-07** לא יושם~~ → **יושב** 21.8 + אומת DOM 30.8.
+- ~~**C-08** לא יושם~~ → M-01a `בוצע` בטרקר.
 - `ftp_deploy_site_wp_content.py` עבר ל-`glob('*.php')` + `MU_PLUGIN_DENYLIST` ריק; 40/40 הועלו לסטייג'ינג אחרי W1 PASS. להוסיף שם ל-denylist רק עם סיבה כתובה.
 - דריפט גברנס `validate_aos` checks 11/13/65 — קיים גם על עץ נקי, לא נגענו במכוון
 - סטיות מנוע זמניות → `_COMMUNICATION/team_120/`

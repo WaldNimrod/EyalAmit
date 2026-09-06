@@ -4,8 +4,8 @@
  */
 (function () {
   "use strict";
-  var LS = "ea-s006-review-v2";
   var cfg = window.S006_CONFIG || {};
+  var LS = cfg.storageKey || "ea-s006-review-v2";
   var items = cfg.items || [];
   var pages = cfg.pages || [];
   var DECIDED = { "אושר למסך מחשב": 1, "יש תיקון": 1 };
@@ -67,9 +67,18 @@
     }
   }
 
+  function basename(name) {
+    return String(name || "").replace(/^.*[\\/]/, "").trim();
+  }
+
   function readPageNotes(key) {
     var el = $("pagenotes-" + key);
     return el ? String(el.value || "").trim() : "";
+  }
+
+  function readPageFile(key) {
+    var el = $("pagefile-" + key);
+    return el ? basename(el.value) : "";
   }
 
   function readApproval(page) {
@@ -92,6 +101,7 @@
       choice: choice,
       approvalStatus: status,
       notes: readPageNotes(key),
+      pageFileName: readPageFile(key),
     };
   }
 
@@ -102,6 +112,10 @@
       for (var i = 0; i < radios.length; i++) {
         radios[i].checked = radios[i].value === rec.choice;
       }
+    }
+    var fileEl = $("pagefile-" + page.key);
+    if (fileEl && (rec.pageFileName || rec.fileName)) {
+      fileEl.value = basename(rec.pageFileName || rec.fileName);
     }
   }
 
@@ -116,6 +130,7 @@
       respondent: ($("respondent") && $("respondent").value) || "",
       answers: {},
       pageNotes: {},
+      pageFiles: {},
       pageApprovals: {},
       nimrodAnswers: {},
     };
@@ -124,6 +139,7 @@
     });
     pages.forEach(function (p) {
       out.pageNotes[p.key] = readPageNotes(p.key);
+      out.pageFiles[p.key] = readPageFile(p.key);
       if (p.key !== "GENERAL") {
         out.pageApprovals[p.key] = readApproval(p);
       }
@@ -155,43 +171,71 @@
     refreshNimrodProgress();
   }
 
+  var nimrodFileUrl = "";
+
   function exportNimrodJson() {
     var recs = [];
+    var decided = 0;
     nimrodItems.forEach(function (it) {
       var rec = readNimrod(it);
-      if (!(rec.answer || rec.choice || rec.fill)) return;
+      if (rec.answer || rec.choice || rec.fill) decided += 1;
       recs.push({
-        id: rec.id,
+        id: it.id,
         pageKey: rec.pageKey || it.pageKey || "",
+        title: it.title || "",
+        ask: it.ask || "",
+        path: it.path || "",
         answer: rec.answer,
         choice: rec.choice,
         fill: rec.fill,
       });
     });
-    if (!recs.length) {
-      alert("אין הכרעות לייצוא");
+    if (!nimrodItems.length) {
+      alert("אין שאלות לנימרוד בטופס");
       return;
     }
     var payload = {
-      schemaVersion: 1,
+      schemaVersion: 2,
       exportType: "nimrod-s006-decisions",
+      round: "s006-r2-map",
+      complete: true,
       exportTimestamp: new Date().toISOString(),
       sourceGeneratedAt: cfg.generatedAt || "",
+      decidedCount: decided,
+      total: nimrodItems.length,
       decisions: recs,
     };
     var blob = new Blob([JSON.stringify(payload, null, 2)], {
       type: "application/json;charset=utf-8",
     });
+    var filename = "nimrod-s006-answers-complete-" + isoStamp() + ".json";
+    if (nimrodFileUrl) {
+      URL.revokeObjectURL(nimrodFileUrl);
+    }
+    nimrodFileUrl = URL.createObjectURL(blob);
     var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "nimrod-s006-decisions-" + isoStamp() + ".json";
+    a.href = nimrodFileUrl;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
+    var wrap = $("s006-nimrod-file");
+    var link = $("s006-nimrod-file-a");
+    if (wrap && link) {
+      link.href = nimrodFileUrl;
+      link.download = filename;
+      link.textContent = "תקבלו קובץ תשובות מלא";
+      wrap.hidden = false;
+    }
   }
 
   function approvalPages() {
+    return pages.filter(function (p) {
+      return p.key !== "GENERAL" && !p.skipApproval;
+    });
+  }
+
+  function notePages() {
     return pages.filter(function (p) {
       return p.key !== "GENERAL";
     });
@@ -233,9 +277,9 @@
   function exportJson() {
     var byPage = {};
     var pageApprovals = [];
-    approvalPages().forEach(function (p) {
+    notePages().forEach(function (p) {
       var rec = readApproval(p);
-      if (rec.choice || rec.notes) {
+      if (rec.choice || rec.notes || rec.pageFileName) {
         pageApprovals.push(rec);
         byPage[p.key] = {
           pageKey: p.key,
@@ -245,6 +289,7 @@
           approvalStatus: rec.approvalStatus,
           items: [],
           pageNotes: rec.notes,
+          pageFileName: rec.pageFileName || "",
         };
       }
     });
@@ -296,7 +341,7 @@
     });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "eyal-s006-excel-answers-" + isoStamp() + ".json";
+    a.download = (cfg.exportFilePrefix || "eyal-s006-excel-answers-") + isoStamp() + ".json";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -319,12 +364,31 @@
         page.hidden = false;
       }
     });
+    document.querySelectorAll(".s006-chapter").forEach(function (ch) {
+      var any = false;
+      ch.querySelectorAll(".s006-page").forEach(function (page) {
+        if (!page.hidden) any = true;
+      });
+      ch.hidden = pid ? !any : false;
+    });
     document.querySelectorAll(".s006-chip").forEach(function (btn) {
       btn.classList.toggle("is-on", (btn.getAttribute("data-filter") || "") === pid);
     });
   }
 
-  document.addEventListener("change", persist);
+  function onFormChange(ev) {
+    var t = ev && ev.target;
+    if (t && t.classList && t.classList.contains("s006-filepick")) {
+      var dest = $(t.getAttribute("data-target") || "");
+      if (dest && t.files && t.files[0]) {
+        dest.value = basename(t.files[0].name);
+      }
+      t.value = "";
+    }
+    persist();
+  }
+
+  document.addEventListener("change", onFormChange);
   document.addEventListener("input", persist);
 
   var stored = load();
@@ -338,6 +402,10 @@
     var el = $("pagenotes-" + p.key);
     if (el && stored.pageNotes && stored.pageNotes[p.key]) {
       el.value = stored.pageNotes[p.key];
+    }
+    var fileEl = $("pagefile-" + p.key);
+    if (fileEl && stored.pageFiles && stored.pageFiles[p.key]) {
+      fileEl.value = basename(stored.pageFiles[p.key]);
     }
     applyApproval(p, stored.pageApprovals && stored.pageApprovals[p.key]);
   });
@@ -357,4 +425,69 @@
       filterPattern(btn.getAttribute("data-filter") || "");
     });
   });
+
+  function openAncestors(el) {
+    var p = el;
+    while (p) {
+      if (p.tagName === "DETAILS") p.open = true;
+      p = p.parentElement;
+    }
+  }
+
+  function scrollWindowTo(y) {
+    var top = Math.max(0, y);
+    if (window.scrollTo) {
+      try {
+        window.scrollTo({ top: top, left: 0, behavior: "auto" });
+      } catch (e) {
+        window.scrollTo(0, top);
+      }
+    }
+    if (document.documentElement) document.documentElement.scrollTop = top;
+    if (document.body) document.body.scrollTop = top;
+  }
+
+  function revealTarget(el) {
+    if (!el) return;
+    openAncestors(el);
+    function go() {
+      if (el.id === "s006-top") {
+        scrollWindowTo(0);
+        return;
+      }
+      var offset = 96;
+      var y = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) - offset;
+      scrollWindowTo(y);
+    }
+    go();
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(go);
+      });
+    }
+  }
+
+  function revealHash() {
+    var id = (location.hash || "").replace(/^#/, "");
+    if (!id) return;
+    revealTarget(document.getElementById(id));
+  }
+
+  document.addEventListener("click", function (ev) {
+    var t = ev.target;
+    var a = t && t.closest ? t.closest("a.s006-sitemap__card, a.s006-backtop") : null;
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (href.charAt(0) !== "#") return;
+    var el = document.getElementById(href.slice(1));
+    if (!el) return;
+    ev.preventDefault();
+    if (location.hash !== href) {
+      if (history.pushState) history.pushState(null, "", href);
+      else location.hash = href;
+    }
+    revealTarget(el);
+  });
+  window.addEventListener("hashchange", revealHash);
+  revealHash();
 })();

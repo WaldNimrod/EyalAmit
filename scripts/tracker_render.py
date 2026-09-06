@@ -138,6 +138,46 @@ def write_round_sheet(ws, sheet_name: str, rows: list[dict]) -> None:
     finish(ws, list(S.HEADERS), hdr, first, last)
 
 
+def write_item_rows(ws, items, first: int) -> int:
+    """Write item dicts starting at `first`. Returns last row written."""
+    pick_col = get_column_letter(S.ITEM_HEADERS.index(S.COL_ITEM_PICK) + 1)
+    for i, item in enumerate(items):
+        r = first + i
+        waiting = item.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER
+        for col, h in enumerate(S.ITEM_HEADERS, start=1):
+            c = ws.cell(r, col, item.get(h, ''))  # '_picks' is not a header
+            if S.ITEM_OWNER_OF[h] == S.HUMAN:
+                c.fill = FILL_HUMAN
+            else:
+                c.fill = FILL_WAIT if waiting else FILL_AGENT
+            c.border = BORDER
+            c.alignment = Alignment(horizontal='right', vertical='top',
+                                    wrap_text=h in WRAP)
+            c.protection = Protection(locked=(S.ITEM_OWNER_OF[h] == S.AGENT))
+        picks = item.get('_picks') or []
+        if picks:
+            dv = DataValidation(type='list', formula1='"' + ','.join(picks) + '"',
+                                allow_blank=True, showDropDown=False,
+                                promptTitle='בחירה', prompt='בחרו מהרשימה — אין צורך לכתוב.')
+            ws.add_data_validation(dv)
+            dv.add(f'{pick_col}{r}')
+    return first + max(len(items), 1) - 1
+
+
+def append_page_items(ws, items: list[dict]) -> tuple[int, int]:
+    """Append items after the last used data row. Returns (first_new, last_new)."""
+    last_used = S.PAGE_FIRST_DATA_ROW - 1
+    for r in range(S.PAGE_FIRST_DATA_ROW, (ws.max_row or S.PAGE_FIRST_DATA_ROW) + 1):
+        val = '' if ws.cell(r, 1).value is None else str(ws.cell(r, 1).value).strip()
+        if val:
+            last_used = r
+    first = last_used + 1
+    last = write_item_rows(ws, items, first)
+    add_dropdowns(ws, list(S.ITEM_HEADERS), ITEM_DROPDOWNS, first, last)
+    finish(ws, list(S.ITEM_HEADERS), S.PAGE_HEADER_ROW, S.PAGE_FIRST_DATA_ROW, last)
+    return first, last
+
+
 def write_page_tab(ws, page_key: str, path: str, title: str,
                    items: list[dict]) -> None:
     ws.sheet_view.rightToLeft = True
@@ -151,33 +191,6 @@ def write_page_tab(ws, page_key: str, path: str, title: str,
     hdr = S.PAGE_HEADER_ROW
     first = S.PAGE_FIRST_DATA_ROW
     write_header(ws, list(S.ITEM_HEADERS), S.ITEM_OWNER_OF, ITEM_WIDTHS, hdr)
-    for i, item in enumerate(items):
-        r = first + i
-        waiting = item.get(S.COL_ITEM_STATUS) in S.ITEM_STATUS_REQUIRING_DECIDER
-        for col, h in enumerate(S.ITEM_HEADERS, start=1):
-            c = ws.cell(r, col, item.get(h, ''))  # '_picks' is not a header, never written
-            if S.ITEM_OWNER_OF[h] == S.HUMAN:
-                c.fill = FILL_HUMAN
-            else:
-                c.fill = FILL_WAIT if waiting else FILL_AGENT
-            c.border = BORDER
-            c.alignment = Alignment(horizontal='right', vertical='top',
-                                    wrap_text=h in WRAP)
-            c.protection = Protection(locked=(S.ITEM_OWNER_OF[h] == S.AGENT))
-    last = first + max(len(items), 1) - 1
+    last = write_item_rows(ws, items, first) if items else first
     add_dropdowns(ws, list(S.ITEM_HEADERS), ITEM_DROPDOWNS, first, last)
-
-    # «בחירה» gets a dropdown per ROW, built from that item's own short labels —
-    # team_00: «הוא בוחר ומסמן, לא כותב». Options arrive as item['_picks'].
-    pick_col = get_column_letter(S.ITEM_HEADERS.index(S.COL_ITEM_PICK) + 1)
-    for i, item in enumerate(items):
-        picks = item.get('_picks') or []
-        if not picks:
-            continue
-        dv = DataValidation(type='list', formula1='"' + ','.join(picks) + '"',
-                            allow_blank=True, showDropDown=False,
-                            promptTitle='בחירה', prompt='בחרו מהרשימה — אין צורך לכתוב.')
-        ws.add_data_validation(dv)
-        dv.add(f'{pick_col}{first + i}')
-
     finish(ws, list(S.ITEM_HEADERS), hdr, first, last)

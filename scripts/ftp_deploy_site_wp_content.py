@@ -4,18 +4,8 @@ Deploy canonical site/wp-content artifacts to uPress staging via FTP/FTPS.
 
 Uploads:
   - site/wp-content/themes/ea-eyalamit/  -> wp-content/themes/ea-eyalamit/
-  - site/wp-content/mu-plugins/ea-staging-noindex.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m2-auto-activate-child.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m2-ensure-fluent-active.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m2-seed-shell-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m3-team80-placeholder-content-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m3-seed-instances-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m2-ia-slug-fixups-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-m4-g2348-governance-once.php -> wp-content/mu-plugins/
-  - site/wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php -> wp-content/mu-plugins/
+  - every site/wp-content/mu-plugins/*.php except MU_PLUGIN_DENYLIST
+    (WAIT-WAVE 2026-08-18: glob + explicit denylist, so new ea-*-once.php cannot be skipped)
   Optional (--upload-wxr):
   - site/exports/m2-pages-seed.wxr -> wp-content/uploads/ea-m2-seed/m2-pages-seed.wxr
 
@@ -40,6 +30,31 @@ from upress_ftp_env import (
     ftp_upload_file,
 )
 
+# Filename → reason. Empty as of WAIT-WAVE: every ea-*.php on disk is staging-safe
+# (once-plugins are self-guarded). Add a name here only with a written reason.
+MU_PLUGIN_DENYLIST: dict[str, str] = {
+    "ea-s006-strip-team80-seo-once.php": (
+        "S006 R2 W1: untracked once-plugin is not in this wave; do not FTP"
+    ),
+}
+
+
+def collect_mu_plugin_files(mu_dir: Path) -> tuple[list[tuple[Path, str]], list[tuple[str, str]], list[str]]:
+    """Return (upload_pairs, denied, orphans). orphans must be empty."""
+    if not mu_dir.is_dir():
+        raise SystemExit(f"Missing mu-plugins dir: {mu_dir}")
+    on_disk = sorted(p for p in mu_dir.glob("*.php") if p.is_file())
+    uploads: list[tuple[Path, str]] = []
+    denied: list[tuple[str, str]] = []
+    named = {p.name for p in on_disk}
+    for p in on_disk:
+        if p.name in MU_PLUGIN_DENYLIST:
+            denied.append((p.name, MU_PLUGIN_DENYLIST[p.name]))
+            continue
+        uploads.append((p, f"wp-content/mu-plugins/{p.name}"))
+    orphans = sorted(MU_PLUGIN_DENYLIST.keys() - named)
+    return uploads, denied, orphans
+
 
 def main() -> None:
     ap = argparse.ArgumentParser()
@@ -53,112 +68,24 @@ def main() -> None:
 
     root = Path(__file__).resolve().parents[1]
     theme_src = root / "site" / "wp-content" / "themes" / "ea-eyalamit"
-    mu_noindex = root / "site" / "wp-content" / "mu-plugins" / "ea-staging-noindex.php"
-    mu_activate = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-auto-activate-child.php"
-    mu_fluent = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-ensure-fluent-active.php"
-    mu_seed = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-seed-shell-once.php"
-    mu_tree = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-site-tree-lock-sync-once.php"
-    mu_m3_80 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-team80-placeholder-content-once.php"
-    mu_m3_inst = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-seed-instances-once.php"
-    mu_m2_ia = root / "site" / "wp-content" / "mu-plugins" / "ea-m2-ia-slug-fixups-once.php"
-    mu_m3_g5g7 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-g5g7-q16-rest-dedupe-once.php"
-    mu_m3_r2 = root / "site" / "wp-content" / "mu-plugins" / "ea-m3-r2-featured-sample-once.php"
-    mu_m4_g2348 = root / "site" / "wp-content" / "mu-plugins" / "ea-m4-g2348-governance-once.php"
-    mu_w2_05_shop = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-05-shop-pages-seed-once.php"
-    mu_w2_07_qr = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-seed-once.php"
-    mu_w2_07_qr_data = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-07-qr-content-data.php"
-    mu_w2_09_redirects = root / "site" / "wp-content" / "mu-plugins" / "ea-w209-legacy-301-redirects.php"
-    mu_w2_15_cf7 = root / "site" / "wp-content" / "mu-plugins" / "ea-w2-15-cf7-contact-form-once.php"
-    # S006 — /media -> /testimonials rename + its permanent 301.
-    # NOTE: the -once suffix covers the RENAME only. The 301 half must stay
-    # deployed forever, so this file must never be garbage-collected.
-    mu_s006_slug = root / "site" / "wp-content" / "mu-plugins" / "ea-s006-testimonials-slug-once.php"
+    mu_dir = root / "site" / "wp-content" / "mu-plugins"
     if not theme_src.is_dir():
         raise SystemExit(f"Missing theme dir: {theme_src}")
-    if not mu_noindex.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_noindex}")
-    if not mu_activate.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_activate}")
-    if not mu_fluent.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_fluent}")
-    if not mu_seed.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_seed}")
-    if not mu_tree.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_tree}")
-    if not mu_m3_80.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m3_80}")
-    if not mu_m3_inst.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m3_inst}")
-    if not mu_m2_ia.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m2_ia}")
-    if not mu_m3_g5g7.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m3_g5g7}")
-    if not mu_m3_r2.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m3_r2}")
-    if not mu_m4_g2348.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_m4_g2348}")
-    if not mu_w2_07_qr.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_w2_07_qr}")
-    if not mu_w2_07_qr_data.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_w2_07_qr_data}")
-    if not mu_w2_09_redirects.is_file():
-        raise SystemExit(f"Missing mu-plugin: {mu_w2_09_redirects}")
+    mu_uploads, mu_denied, mu_orphans = collect_mu_plugin_files(mu_dir)
+    if mu_orphans:
+        raise SystemExit(
+            "MU_PLUGIN_DENYLIST names missing from disk: " + ", ".join(mu_orphans)
+        )
+    must = mu_dir / "ea-staging-noindex.php"
+    if not must.is_file():
+        raise SystemExit(f"Missing required mu-plugin: {must}")
 
     files: list[tuple[Path, str]] = []
     for f in sorted(theme_src.rglob("*")):
         if f.is_file():
             rel = f.relative_to(theme_src).as_posix()
             files.append((f, f"wp-content/themes/ea-eyalamit/{rel}"))
-    files.append((mu_noindex, "wp-content/mu-plugins/ea-staging-noindex.php"))
-    files.append((mu_activate, "wp-content/mu-plugins/ea-m2-auto-activate-child.php"))
-    files.append((mu_fluent, "wp-content/mu-plugins/ea-m2-ensure-fluent-active.php"))
-    files.append((mu_seed, "wp-content/mu-plugins/ea-m2-seed-shell-once.php"))
-    files.append((mu_tree, "wp-content/mu-plugins/ea-m2-site-tree-lock-sync-once.php"))
-    files.append((mu_m3_80, "wp-content/mu-plugins/ea-m3-team80-placeholder-content-once.php"))
-    files.append((mu_m3_inst, "wp-content/mu-plugins/ea-m3-seed-instances-once.php"))
-    files.append((mu_m2_ia, "wp-content/mu-plugins/ea-m2-ia-slug-fixups-once.php"))
-    files.append((mu_m3_g5g7, "wp-content/mu-plugins/ea-m3-g5g7-q16-rest-dedupe-once.php"))
-    files.append((mu_m3_r2, "wp-content/mu-plugins/ea-m3-r2-featured-sample-once.php"))
-    files.append((mu_m4_g2348, "wp-content/mu-plugins/ea-m4-g2348-governance-once.php"))
-    files.append((mu_w2_05_shop, "wp-content/mu-plugins/ea-w2-05-shop-pages-seed-once.php"))
-    files.append((mu_s006_slug, "wp-content/mu-plugins/ea-s006-testimonials-slug-once.php"))
-    files.append(
-        (
-            root / "site" / "wp-content" / "mu-plugins" / "ea-snoring-anchor-seed-once.php",
-            "wp-content/mu-plugins/ea-snoring-anchor-seed-once.php",
-        )
-    )
-    files.append((mu_w2_07_qr, "wp-content/mu-plugins/ea-w2-07-qr-seed-once.php"))
-    files.append((mu_w2_07_qr_data, "wp-content/mu-plugins/ea-w2-07-qr-content-data.php"))
-    files.append((mu_w2_09_redirects, "wp-content/mu-plugins/ea-w209-legacy-301-redirects.php"))
-    files.append((mu_w2_15_cf7, "wp-content/mu-plugins/ea-w2-15-cf7-contact-form-once.php"))
-    # Blog shortcode cleanup (strips legacy [vc_*] from content + excerpts) + author display-name fix.
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-blog-shortcode-cleanup.php", "wp-content/mu-plugins/ea-blog-shortcode-cleanup.php"))
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-author-displayname-once.php", "wp-content/mu-plugins/ea-w2-10-author-displayname-once.php"))
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-10-nav-repair-canonical-once.php", "wp-content/mu-plugins/ea-w2-10-nav-repair-canonical-once.php"))
-    # W1-02: SEO entity schema (extends Yoast @graph with Person/ProfessionalService/Service).
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-seo-schema.php", "wp-content/mu-plugins/ea-w2-seo-schema.php"))
-    # W2-14-E (team_110): seed the 19 Mokesh memorial photos into the media library.
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-14e-mokesh-media-seed-once.php", "wp-content/mu-plugins/ea-w2-14e-mokesh-media-seed-once.php"))
-    # WP-04: default OG/Twitter image (extends Yoast when a page has none).
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-og-default.php", "wp-content/mu-plugins/ea-w2-og-default.php"))
-    # WP-06: one-time DB migration to scrub the seeded brand «סטודיו נשימה מעגלית».
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06-brand-migration-once.php", "wp-content/mu-plugins/ea-w2-06-brand-migration-once.php"))
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-06b-blog-title-brand-once.php", "wp-content/mu-plugins/ea-w2-06b-blog-title-brand-once.php"))
-    # WP-W2-17 T4 (D-2): sitemap hygiene — exclude redirect-source shells + test pages,
-    # disable noise child-sitemaps (Yoast filters).
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-17-sitemap-exclusions.php", "wp-content/mu-plugins/ea-w2-17-sitemap-exclusions.php"))
-    # WP-W2-17 T3 (D-1): one-time Yoast metadesc backfill for rollup routes with no value,
-    # so Yoast is the single source of truth (pairs with the Yoast-first guard in
-    # inc/wave2-w2-09.php's ea_w2_09_meta_description()).
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-w2-17-metadesc-backfill-once.php", "wp-content/mu-plugins/ea-w2-17-metadesc-backfill-once.php"))
-    # 2026-07-12: force-overwrites 8 meta descriptions with Eyal's SEO-doc wording
-    # (content = Eyal's call; unlike the backfill-once file above, this one is unconditional).
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-content-eyal-seo-metadesc-2026-07-12-once.php", "wp-content/mu-plugins/ea-content-eyal-seo-metadesc-2026-07-12-once.php"))
-    # WP-CANON T2: one-time FAQ CPT seed when staging has no WP-CLI.
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-faq-seed-once.php", "wp-content/mu-plugins/ea-faq-seed-once.php"))
-    # S006 R1-25: merge FAQ FINAL.md into live ea_faq (update-or-insert). team_00 18.8.26.
-    files.append((root / "site" / "wp-content" / "mu-plugins" / "ea-s006-faq-merge-once.php", "wp-content/mu-plugins/ea-s006-faq-merge-once.php"))
+    files.extend(mu_uploads)
 
     wxr = root / "site" / "exports" / "m2-pages-seed.wxr"
     if args.upload_wxr:
@@ -170,6 +97,17 @@ def main() -> None:
         print("Dry-run — would upload:")
         for _local, remote in files:
             print(f"  -> {remote}")
+        if mu_denied:
+            print("Dry-run — denylist (not uploaded):")
+            for name, reason in mu_denied:
+                print(f"  skip {name} — {reason}")
+        on_disk = {p.name for p in mu_dir.glob("*.php")}
+        uploaded = {Path(remote).name for _l, remote in mu_uploads}
+        denied_names = {n for n, _r in mu_denied}
+        leftover = sorted(on_disk - uploaded - denied_names)
+        if leftover:
+            raise SystemExit("Orphan mu-plugins (not upload, not denylist): " + ", ".join(leftover))
+        print(f"mu-plugins coverage: {len(uploaded)} upload · {len(denied_names)} denylist · 0 orphan")
         return
 
     ftp, remote_rr = connect_ftp(timeout=90)

@@ -15,6 +15,7 @@ The item grid encodes the work-layer rule as data:
 Usage (repo root):
     python3 scripts/tracker_page_tab.py --create R1-01
     python3 scripts/tracker_page_tab.py --create R1-01 --items items.json
+    python3 scripts/tracker_page_tab.py --append R1-25 --items new-items.json
     python3 scripts/tracker_page_tab.py --hide R1-01
     python3 scripts/tracker_page_tab.py --list
 """
@@ -53,9 +54,79 @@ def find_page_row(wb, key: str):
     raise SystemExit(f'שורת עמוד «{key}» לא נמצאה')
 
 
+def parent_key_from_tab(tab) -> str:
+    import re
+    m = re.search(r'שורת אב (\S+)', norm(tab.cell(1, 1).value))
+    return m.group(1) if m else ''
+
+
+def find_page_tab(wb, page_key: str, path: str, title: str):
+    """Resolve the Excel sheet for a page row.
+
+    Round-2 titles collide (two מוזה, two וכתבת, …). Prefer the sheet whose
+    A1 banner names this row key; fall back to the title-derived name only
+    when that sheet actually belongs to this row.
+    """
+    for name in wb.sheetnames:
+        if not name.startswith(S.PAGE_TAB_PREFIX):
+            continue
+        if parent_key_from_tab(wb[name]) == page_key:
+            return name
+    computed = S.page_tab_name(path, title)
+    if computed in wb.sheetnames and parent_key_from_tab(wb[computed]) in ('', page_key):
+        return computed
+    return None
+
+
+def unique_tab_name(wb, page_key: str, path: str, title: str) -> str:
+    computed = S.page_tab_name(path, title)
+    if computed not in wb.sheetnames:
+        return computed
+    if parent_key_from_tab(wb[computed]) in ('', page_key):
+        return computed
+    fallback = (S.PAGE_TAB_PREFIX + page_key)[:31]
+    if fallback in wb.sheetnames and parent_key_from_tab(wb[fallback]) not in ('', page_key):
+        raise SystemExit(f'שם טאב «{fallback}» תפוס על ידי שורה אחרת')
+    return fallback
+
+
+def load_items(path: str) -> list[dict]:
+    items = json.loads(Path(path).read_text(encoding='utf-8'))
+    if not isinstance(items, list):
+        raise SystemExit('--items חייב להיות מערך JSON')
+    for it in items:
+        bad = [k for k in it if k not in S.ITEM_HEADERS and not str(k).startswith('_')]
+        if bad:
+            raise SystemExit(f'עמודות לא מוכרות בפריט: {bad}')
+        for k in it:
+            if str(k).startswith('_'):
+                continue
+            if S.ITEM_OWNER_OF[k] == S.HUMAN and norm(it[k]):
+                raise SystemExit(
+                    f'סירוב: הפריט מנסה לאכלס «{k}» — עמודה בבעלות אנוש.')
+        key = norm(it.get('#', ''))
+        if not key:
+            raise SystemExit('כל פריט חייב מפתח «#»')
+        st = norm(it.get(S.COL_ITEM_STATUS, ''))
+        if st and st not in S.ITEM_STATUSES:
+            raise SystemExit(f'סטטוס סעיף לא חוקי: {st!r}')
+    return items
+
+
+def existing_item_keys(tab) -> set[str]:
+    keys = set()
+    for rr in range(S.PAGE_FIRST_DATA_ROW, (tab.max_row or S.PAGE_FIRST_DATA_ROW) + 1):
+        k = norm(tab.cell(rr, 1).value)
+        if k:
+            keys.add(k)
+    return keys
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--create', metavar='PAGE_KEY')
+    ap.add_argument('--append', metavar='PAGE_KEY',
+                    help='add new item keys to an existing page tab (never overwrite)')
     ap.add_argument('--items', help='JSON list of item dicts keyed by ITEM_HEADERS')
     ap.add_argument('--hide', metavar='PAGE_KEY')
     ap.add_argument('--list', action='store_true')
@@ -86,8 +157,8 @@ def main() -> int:
             print(f'סירוב: «{args.hide}» אינו «{S.AP_EYAL}» (כרגע: {approval!r}). '
                   'טאב עמוד מוסתר רק אחרי אישור אייל.', file=sys.stderr)
             return 1
-        name = S.page_tab_name(path, title)
-        if name not in wb.sheetnames:
+        name = find_page_tab(wb, args.hide, path, title)
+        if not name:
             print(f'אין טאב לעמוד «{args.hide}»', file=sys.stderr)
             return 1
         wb[name].sheet_state = 'hidden'
@@ -100,8 +171,8 @@ def main() -> int:
         sheet, r, ws = find_page_row(wb, page_key)
         path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
         title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
-        name = S.page_tab_name(path, title)
-        if name not in wb.sheetnames:
+        name = find_page_tab(wb, page_key, path, title)
+        if not name:
             print(f'אין טאב לעמוד «{page_key}»', file=sys.stderr)
             return 1
         tab = wb[name]
@@ -159,6 +230,47 @@ def main() -> int:
             print(f'    {ch}')
         return 0
 
+    if args.append:
+        if not args.items:
+            print('--append דורש --items', file=sys.stderr)
+            return 2
+        items = load_items(args.items)
+        sheet, r, ws = find_page_row(wb, args.append)
+        path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
+        title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
+        name = find_page_tab(wb, args.append, path, title)
+        if not name:
+            print(f'אין טאב לעמוד «{args.append}». השתמשו ב--create.', file=sys.stderr)
+            return 1
+        tab = wb[name]
+        have = existing_item_keys(tab)
+        collision = [norm(it.get('#', '')) for it in items if norm(it.get('#', '')) in have]
+        fresh = [it for it in items if norm(it.get('#', '')) not in have]
+        if collision and not fresh:
+            print(f'סירוב: כל המפתחות כבר קיימים ב«{name}»: {collision}. '
+                  'append אינו דורס.', file=sys.stderr)
+            return 1
+        if not fresh:
+            print('  אין שינוי.')
+            return 0
+        first, last = R.append_page_items(tab, fresh)
+        log = wb[S.SHEET_LOG]
+        lr = log.max_row + 1
+        keys = ','.join(norm(it.get('#', '')) for it in fresh)
+        for col, val in enumerate((dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                   args.actor, 'הוספת סעיפים',
+                                   f'{name}!{keys}',
+                                   f'{len(fresh)} חדשים · שורות {first}-{last}'
+                                   + (f' · דולגו קיימים: {collision}' if collision else '')),
+                                  start=1):
+            log.cell(lr, col, val)
+        wb.save(TRACKER)
+        skipped = f' · דולגו {len(collision)} קיימים' if collision else ''
+        print(f'  {name} — נוספו {len(fresh)} סעיפים (שורות {first}-{last}){skipped}')
+        for it in fresh:
+            print(f"    + {it.get('#')}")
+        return 0
+
     if not args.create:
         ap.print_help()
         return 2
@@ -166,28 +278,16 @@ def main() -> int:
     sheet, r, ws = find_page_row(wb, args.create)
     path = norm(ws.cell(r, S.HEADERS.index('נתיב') + 1).value)
     title = norm(ws.cell(r, S.HEADERS.index('כותרת') + 1).value)
-    name = S.page_tab_name(path, title)
+    existing = find_page_tab(wb, args.create, path, title)
+    if existing:
+        print(f'סירוב: הטאב «{existing}» כבר קיים. '
+              'עדכון סעיפים קיימים נעשה בעריכה, לא בבנייה מחדש.', file=sys.stderr)
+        return 1
+    name = unique_tab_name(wb, args.create, path, title)
 
     items = []
     if args.items:
-        items = json.loads(Path(args.items).read_text(encoding='utf-8'))
-        for it in items:
-            bad = [k for k in it if k not in S.ITEM_HEADERS and not str(k).startswith('_')]
-            if bad:
-                print(f'עמודות לא מוכרות בפריט: {bad}', file=sys.stderr)
-                return 2
-            for k in it:
-                if str(k).startswith('_'):
-                    continue
-                if S.ITEM_OWNER_OF[k] == S.HUMAN and norm(it[k]):
-                    print(f'סירוב: הפריט מנסה לאכלס «{k}» — עמודה בבעלות אנוש.',
-                          file=sys.stderr)
-                    return 1
-
-    if name in wb.sheetnames:
-        print(f'סירוב: הטאב «{name}» כבר קיים. '
-              'עדכון סעיפים קיימים נעשה בעריכה, לא בבנייה מחדש.', file=sys.stderr)
-        return 1
+        items = load_items(args.items)
 
     R.write_page_tab(wb.create_sheet(name), args.create, path, title, items)
 

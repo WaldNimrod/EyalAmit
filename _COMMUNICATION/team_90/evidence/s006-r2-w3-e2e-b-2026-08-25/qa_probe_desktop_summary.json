@@ -1,0 +1,487 @@
+{
+  "batches": [
+    {
+      "batch": 1,
+      "verdict": "PASS",
+      "failures": 0,
+      "ts": "2026-08-24T23:30:45.617Z",
+      "paths": 9
+    },
+    {
+      "batch": 2,
+      "verdict": "PASS",
+      "failures": 0,
+      "ts": "2026-08-24T23:32:10.746Z",
+      "paths": 9
+    },
+    {
+      "batch": 3,
+      "verdict": "PASS",
+      "failures": 0,
+      "ts": "2026-08-24T23:33:18.894Z",
+      "paths": 9
+    },
+    {
+      "batch": 4,
+      "verdict": "PASS",
+      "failures": 0,
+      "ts": "2026-08-24T23:34:26.893Z",
+      "paths": 9
+    },
+    {
+      "batch": 5,
+      "verdict": "FAIL",
+      "failures": 1,
+      "ts": "2026-08-24T23:36:20.000Z",
+      "paths": 9
+    },
+    {
+      "batch": 6,
+      "verdict": "PASS",
+      "failures": 0,
+      "ts": "2026-08-24T23:37:27.652Z",
+      "paths": 9
+    }
+  ],
+  "desktop_total": 54,
+  "desktop_pass": 54,
+  "unique_paths": 54,
+  "failures": [
+    "batch5_verdict_FAIL_failures_1"
+  ],
+  "all_pass": false,
+  "desktop": [
+    {
+      "path": "/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מופע \"ספיישל ברצלונה\"! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית - תופעת יחיד - מופע סיפורים - spoken stories - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "את הספר החדש שלי לא תמצאו ברשתות הספרים. למה? - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "ביקורות גולשים אודות: עכשיו!!!!! - מופע הסיפורים של אייל עמית - תופעת יחיד - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "נשימה מעגלית - סטודיו דיג'רידו לנגינה ובנייה בפרדס חנה - אייל עמית. פוסט מ 2012 - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת\"א ובפרדס חנה - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "הזמנה להשקת הספר החדש – \"וכתבתָ\" / אייל עמית 15.6.17 בפרדס חנה - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "אקדח לתוך הראש - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט! - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-24-%d7%99%d7%9c%d7%93-%d7%90%d7%a1%d7%95%d7%a8-%d7%99%d7%9c%d7%93-%d7%9e%d7%95%d7%aa%d7%a8/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(24) הטור של אייל עמית: ילד אסור ילד מותר - eyal amit",
+      "pass": true,
+      "batch": 1
+    },
+    {
+      "path": "/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "וסיפרתָּ - מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בנשימה באמצעות דיג'רידו - ללמוד לנשום נכון ביומיום וגם בלילה - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג'רידו - המרכז לטיפול בדיג'רידו / אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שליחות חיי - כתבה אודות המרכז לטיפול בדיג'רידו פרדס חנה - אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "כתבה על \"תופעת יחיד\" ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שם חדש למופע הסיפורים: \"עכשיו!!!!!\" קבלו את שלושת הקליפים הרישמיים עם ה-\"עכשווים\" שלכם! - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול - מעריב תרבות 21.7.15 - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מופע הסיפורים של אייל עמית מגיע לתיאטרון הקאמרי! - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מוקש דהימן - מאסטר דיג'רידו - ציור מקורי חדש במרכז לטיפול בדיג'רידו (שמן על קנבס) - eyal amit",
+      "pass": true,
+      "batch": 2
+    },
+    {
+      "path": "/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "האם לנשים מותר לנגן בדיג'רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "נגינה ונשימה מעגלית בדיג'רידו - ריפוי הנשימה והנשמה - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "סדנת דיג'רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג'רידו (רמת מתחילים) - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "הזמנה לסדרת מפגשים אינטימיים חדשה! \"סיפורים מהנייר\" עם אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "סרטים מהחיים - מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת\"א. - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג'רידו - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "\"פרדס חפלה\" - הסיפור החדש במופע הקרוב 13.9.14 בפרדס חנה - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז', 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית - eyal amit",
+      "pass": true,
+      "batch": 3
+    },
+    {
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "עכשיו!!!! מופע הסיפורים של אייל עמית - 15.11.14 בתיאטרון הידית פרדס חנה - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "הופעת בכורה בתל אביב!!! 3/12/13 'סרטים מהחיים' - מופע הסיפורים של אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג'רידו - אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג'רידו והעשייה הייחודית שלי במרכז לטיפול בנשימה באמצעות דיג'רידו - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "הכל אודות ריברסינג, נשימה מעגלית ו- דיג'רידו. האם נשימה מעגלית בדיג'רידו היא אותה נשימה מעגלית משיטת הטיפול ריברסינג? התשובה היא לא. הנה ההסבר המלא: - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "\"שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים - ועלייה חדה במחירים\" | צרכנות דה-מרקר - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מה חושבים על המופע \"תופעת יחיד\" של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד.. - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג'רידו - אייל עמית - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/100-100-100-%d7%aa%d7%95%d7%93%d7%94/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "100% !!!!!!! 100% !!!!!!!! 100% !!!!!!!! תודה !!!!!!!!! - eyal amit",
+      "pass": true,
+      "batch": 4
+    },
+    {
+      "path": "/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(18) הטור של אייל עמית: מסך הברזל - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "2.8 תופעת יחיד בצוותא - 50% מהמקומות באולם חינם לתושבי הדרום! - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/2228-2/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "מופע הסיפורים של אייל עמית - תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/23-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%a6%d7%99%d7%99%d7%aa-%d7%90%d7%95-%d7%9c%d7%97%d7%a9%d7%95%d7%91/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(23) הטור של אייל עמית: לציית או לחשוב - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(27) הטור של אייל עמית: חכמת הפרצוף - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(29) הטור של אייל עמית: רייב שבוע הספר - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/32-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%9d-%d7%90%d7%99%d7%9f-%d7%90%d7%a0%d7%99-%d7%9c%d7%99-%d7%9e%d7%99-%d7%9c%d7%99/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(32) הטור של אייל עמית: אם אין אני לי - מי לי - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(34) הטור של אייל עמית: הלב - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/36-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a9%d7%a7%d7%a9%d7%95%d7%a7%d7%94/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(36) הטור של אייל עמית: שיטת השקשוקה - eyal amit",
+      "pass": true,
+      "batch": 5
+    },
+    {
+      "path": "/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(40) הטור של אייל עמית: פרסומת אחת וחזרנו - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/41-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%90%d7%a8%d7%98%d7%94-%d7%91%d7%90%d7%a8%d7%98%d7%94/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(41) הטור של אייל עמית: חארטה בארטה - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/42-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%97%d7%93-%d7%91%d7%a1%d7%a4%d7%98%d7%9e%d7%91%d7%a8/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(42) הטור של אייל עמית: אחד בספטמבר - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(43) הטור של אייל עמית: אדון סליחות - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/45-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%95%d7%a4%d7%95%d7%a8%d7%a6%d7%99%d7%95%d7%aa/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(45) הטור של אייל עמית: פרופורציות - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/47-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%96%d7%9e%d7%9f-%d7%97%d7%9c%d7%95%d7%9d/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "זמן חלום (וידאו בלוג) - השקת הספר 'כושי בלאנטיס' גג מסעדת הטאלי 24 רופי | אוגוסט 2004 - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(49) הטור של אייל עמית: קומיק רליף - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/51-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%a7%d7%a1%d7%98%d7%a8%d7%99%d7%9d-%d7%96%d7%94-%d7%a0%d7%a2%d7%99%d7%9d/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "(51) הטור של אייל עמית: אקסטרים זה נעים! - eyal amit",
+      "pass": true,
+      "batch": 6
+    },
+    {
+      "path": "/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+      "overflow": false,
+      "forbiddenFound": [],
+      "title": "פרוייקט \"מטיילים מצטלמים\" עם הספרים של מוזה הוצאה לאור - eyal amit",
+      "pass": true,
+      "batch": 6
+    }
+  ]
+}

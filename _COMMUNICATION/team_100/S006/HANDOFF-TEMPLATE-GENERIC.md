@@ -13,10 +13,12 @@ disposition: >-
   in HANDOFF-CURRENT-S006.md, which this template tells you how to read but never trusts.
   v3.1.0 maps §3 onto charter §8ד (nine gates from R1-02). Law stays in the charter; this file
   holds commands only.
-status: ACTIVE — stage 1 in progress, desktop only
+status: METHOD ONLY — not the open-work list
 ---
 
 # HANDOFF → team_100 · S006 · תבנית קבועה
+
+**מה פתוח עכשיו:** רק [`HANDOFF-CURRENT-S006.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/HANDOFF-CURRENT-S006.md). הקובץ הזה הוא פקודות ליין וחוק-תוכן. §0/§2 אינם מנדט לפתוח עמוד; אל תציעו סקואופ מתוך הארכיון של CURRENT.
 
 **כל הנתיבים יחסית לשורש הריפו. אל תעשו `cd`.**
 
