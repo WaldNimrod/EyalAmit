@@ -37,14 +37,14 @@ html,body{overflow-x:hidden}
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#chapters-main">Skip to content</a>
+<a class="ea-skip-link screen-reader-text" href="#main">Skip to content</a>
 
 <header class="ea-en-head">
 	<a class="ea-en-head__b" href="/en/">Eyal Amit</a>
 	<a class="ea-en-head__lang" href="/">עברית →</a>
 </header>
 
-<main id="chapters-main" dir="ltr" style="direction:ltr;text-align:left">
+<main id="main" class="chapters-main" tabindex="-1" dir="ltr" style="direction:ltr;text-align:left">
 	<div class="wrap"><p class="ea-pending-inline ea-pending-inline--wide" role="status">
 		<span>Draft — English summary is a team draft awaiting Eyal's approval before launch (WP-EI-06) · טיוטה צוותית באנגלית הממתינה לאישור אייל</span>
 	</p></div>

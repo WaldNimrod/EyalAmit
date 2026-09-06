@@ -20,14 +20,14 @@ $GLOBALS['ea_chapters_type'] = 'method';
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#chapters-main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
+<a class="ea-skip-link screen-reader-text" href="#main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 
 <?php
 get_template_part( 'template-parts/chapters/section', 'nav' );
 $ea_phero = ea_chapters_phero_overlay();
 ?>
 
-<main id="chapters-main">
+<main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
 

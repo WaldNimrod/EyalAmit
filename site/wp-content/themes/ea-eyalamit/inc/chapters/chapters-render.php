@@ -731,3 +731,27 @@ function ea_chapters_kses_e( $html ) {
 		)
 	);
 }
+
+/**
+ * Alt for content photos when ACF rows omit the new `alt` sub-field.
+ *
+ * @param string $src      Image URL or theme-relative path.
+ * @param string $explicit Explicit alt from the row/field.
+ * @return string
+ */
+function ea_chapters_content_img_alt( $src, $explicit = '' ) {
+	$explicit = trim( (string) $explicit );
+	if ( '' !== $explicit ) {
+		return $explicit;
+	}
+	$path = (string) $src;
+	$base = strtolower( (string) basename( (string) ( wp_parse_url( $path, PHP_URL_PATH ) ?: $path ) ) );
+	$map  = array(
+		'eyal-bright.jpg'     => 'אייל עמית עם דיג׳רידו',
+		'breath-practice.jpg' => 'תרגול נשימה עם דיג׳רידו',
+		'eyal-window.jpg'     => 'אייל עמית ליד חלון הסטודיו',
+		'eyal-close.jpg'      => 'דיוקן של אייל עמית',
+		'didgs-window.jpg'    => 'דיג׳רידו ליד חלון הסטודיו',
+	);
+	return isset( $map[ $base ] ) ? $map[ $base ] : '';
+}

@@ -402,7 +402,10 @@ function ea_wave2_body_open_extras() {
 	if ( ! ea_wave2_is_active_view() ) {
 		return;
 	}
-	echo '<a class="ea-skiplink" href="#main">' . esc_html__( 'דלג לתוכן', 'ea-eyalamit' ) . '</a>';
+	$skip_label = ( is_page( 'en' ) || is_page( 'english' ) )
+		? __( 'Skip to content', 'ea-eyalamit' )
+		: __( 'דלג לתוכן', 'ea-eyalamit' );
+	echo '<a class="ea-skiplink" href="#main">' . esc_html( $skip_label ) . '</a>';
 	echo '<div id="ea-scroll-progress" aria-hidden="true"></div>';
 }
 add_action( 'wp_body_open', 'ea_wave2_body_open_extras', 5 );

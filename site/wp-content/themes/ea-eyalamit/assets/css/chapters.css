@@ -621,7 +621,9 @@ body.nav-locked{overflow:hidden}
 .about__body p:last-child{margin-bottom:0}
 /* skip-link parity (theme markup uses .ea-skip-link / .screen-reader-text) */
 .ea-skip-link{position:absolute;right:-9999px;top:auto;z-index:100;background:var(--terra);color:#fff;padding:10px 16px;border-radius:4px;font-family:var(--bf);font-size:.85rem}
-.ea-skip-link:focus{right:12px;top:12px}
+.ea-skip-link:focus,.ea-skip-link:focus-visible{right:12px;top:12px;transition:none}
+/* A11Y-NOW residual: wave2 .ea-skiplink — ea-atoms top transition kept link off-screen at focus measure */
+.ea-skiplink:focus,.ea-skiplink:focus-visible{top:12px;right:12px;transition:none}
 
 /* ============================================================
    feedback round (team_00, 2026-06-22): slower motion · fixed session · centered compare

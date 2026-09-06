@@ -21,7 +21,7 @@ if ( is_string( $parent_header ) && is_readable( $parent_header ) ) {
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#ea-main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
+<a class="ea-skip-link screen-reader-text" href="#main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 <div id="page" class="ea-shell">
 	<header class="ea-shell-header" role="banner">
 		<div class="ea-shell-header__bar" aria-hidden="true"></div>
@@ -72,4 +72,4 @@ if ( is_string( $parent_header ) && is_readable( $parent_header ) ) {
 			<?php endif; ?>
 		</div>
 	</header>
-	<main id="ea-main" class="ea-shell-main" role="main">
+	<main id="main" class="ea-shell-main" role="main" tabindex="-1">

@@ -11,6 +11,7 @@ $lead  = ea_chapters_field( 'cmp_lead' );
 $cards = array(
 	array(
 		'img'   => ea_chapters_img( 'cmp_a_image' ),
+		'alt'   => ea_chapters_field( 'cmp_a_alt' ),
 		'title' => ea_chapters_field( 'cmp_a_title' ),
 		'text'  => ea_chapters_field( 'cmp_a_text' ),
 		'cta'   => ea_chapters_field( 'cmp_a_cta' ),
@@ -19,6 +20,7 @@ $cards = array(
 	),
 	array(
 		'img'   => ea_chapters_img( 'cmp_b_image' ),
+		'alt'   => ea_chapters_field( 'cmp_b_alt' ),
 		'title' => ea_chapters_field( 'cmp_b_title' ),
 		'text'  => ea_chapters_field( 'cmp_b_text' ),
 		'cta'   => ea_chapters_field( 'cmp_b_cta' ),
@@ -39,7 +41,7 @@ $cards = array(
 				<div class="cmpc <?php echo esc_attr( $c['rcls'] ); ?>">
 					<span class="cmpc__m">
 						<?php if ( $c['img'] ) : ?>
-							<img src="<?php echo esc_url( $c['img'] ); ?>" alt="" loading="lazy">
+							<img src="<?php echo esc_url( $c['img'] ); ?>" alt="<?php echo esc_attr( ea_chapters_content_img_alt( $c['img'], $c['alt'] ) ); ?>" loading="lazy">
 						<?php endif; ?>
 					</span>
 					<span class="cmpc__sc" aria-hidden="true"></span>

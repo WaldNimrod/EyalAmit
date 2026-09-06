@@ -19,11 +19,11 @@ defined( 'ABSPATH' ) || exit;
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#chapters-main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
+<a class="ea-skip-link screen-reader-text" href="#main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
-<main id="chapters-main" class="ea-wave2-blog-single">
+<main id="main" class="chapters-main ea-wave2-blog-single" tabindex="-1">
 	<?php
 	while ( have_posts() ) :
 		the_post();
