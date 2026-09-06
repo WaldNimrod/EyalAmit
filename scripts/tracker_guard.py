@@ -182,6 +182,9 @@ def main() -> int:
     ap.add_argument('--mode', choices=('ingest', 'verify'), default='verify')
     ap.add_argument('--file', help='workbook to check (self-test / scratch copy)')
     ap.add_argument('--baseline', help='baseline CSV to diff against')
+    ap.add_argument('--allow-ingest', metavar='EXPORT_JSON',
+                    help='accept human-column changes ONLY where they match this '
+                         'client export byte-for-byte (see tracker_ingest_approvals.py)')
     args = ap.parse_args()
 
     if args.file:
@@ -229,7 +232,31 @@ def main() -> int:
             + '. מחיקת שורה אסורה — שורה שיצאה מהיקף עוברת ל«הוקפא» עם סיבה.')
 
     if args.mode == 'verify' and human:
+        # A client export is the one legitimate source for human columns: somebody
+        # must carry Eyal's own answers in. It is allowed only when every changed
+        # cell matches that file exactly — anything else is still a violation.
+        sanctioned = {}
+        if args.allow_ingest:
+            import json as _json
+            try:
+                _d = _json.loads(Path(args.allow_ingest).read_text(encoding='utf-8'))
+                _stamp = (_d.get('exportTimestamp') or '')[:10]
+                for _a in _d.get('pageApprovals', []):
+                    _st = (_a.get('approvalStatus') or '').strip()
+                    if not _st:
+                        continue
+                    sanctioned[_a['pageKey']] = {
+                        S.COL_APPROVAL_STATUS: _st,
+                        'הערות אייל': (_a.get('notes') or '').strip(),
+                        'תאריך אישור': _stamp,
+                    }
+            except Exception as e:
+                problems.append(f'--allow-ingest: לא ניתן לקרוא את הייצוא — {e}')
+
         for sheet, key, col, before, after in human:
+            ok = sanctioned.get(key, {}).get(col)
+            if ok is not None and ok == after:
+                continue          # exactly what the client wrote
             problems.append(
                 f'{sheet}!{key}: הסוכן שינה את «{col}» — עמודה בבעלות אנוש. '
                 f'{before!r} ← {after!r}')
