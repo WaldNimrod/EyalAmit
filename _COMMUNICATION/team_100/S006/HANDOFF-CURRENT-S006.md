@@ -1,18 +1,19 @@
 ---
-id: HANDOFF_CURRENT_S006_2026-08-30_v1.7.2
+id: HANDOFF_CURRENT_S006_2026-09-06_v1.8.0
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: state-only
 from: team_100 (reset 30.8 — state SSOT after prompt/CURRENT collision)
 to: team_100 (fresh session)
 cc: [team_00, team_90, team_10, team_50]
-date: 2026-08-30
+date: 2026-09-06
 law: S006-MILESTONE-CHARTER.md
 disposition: >-
   SSOT for what is OPEN at session level. Tracker xlsx is SSOT for row/item
   status. Other S006 md files are method, archive, or mandates — they must
   point here and must not keep a second open-list. Verified 2026-08-30 against
-  tracker + theme code + staging HTTP/DOM. Do not start a work plan from
-  archive sections below the line.
+  tracker + theme code + staging HTTP/DOM. Re-verified 2026-09-06 against
+  git (all branches), the live theme and Eyal's 31.8 export. Do not start a
+  work plan from archive sections below the line.
 status: ACTIVE — open-work SSOT (not a per-page build cycle)
 ---
 
@@ -22,7 +23,9 @@ status: ACTIVE — open-work SSOT (not a per-page build cycle)
 סטטוס שורה/סעיף = `EyalAmit_Site_GoogleDrive_Sync/EA-CONTENT-TRACKER.xlsx` (וגם `tracker/latest.csv` / `latest-items.csv`).  
 אמנה = דין. תבנית GENERIC = פקודות ליין. אונבורד 17.8 / רשימות «ממתין לאייל» למטה = **ארכיון**. אל תציעו סקואופ עמוד מתוכם.
 
-אימות חי 2026-08-30: סטייג'ינג `http://eyalamit-co-il-2026.s887.upress.link` · תמה **חיה** `1.5.16` · במאגר **1.5.17** (CSS דילוג, בלי FTP). `id="main"` בעמודי chapters.
+אימות חי 2026-09-06: סטייג'ינג `http://eyalamit-co-il-2026.s887.upress.link` · תמה **חיה** `1.5.20` · `main` **1.5.15** · ענף `s006/tracker-integrity` **1.5.17** · ענף `origin/feat/s006-a11y-close` **1.5.20** (לא ממוזג, בהוראת D-1).
+
+> ⚠ **העץ עומד על ענף `s006/tracker-integrity`, לא על `main`.** הענף **לא נדחף** — הדחיפה נחסמה וממתינה לאישור נימרוד.
 
 ---
 
@@ -33,8 +36,21 @@ status: ACTIVE — open-work SSOT (not a per-page build cycle)
 | פריט | איפה | מה נשאר | נבדק חי/קוד |
 |---|---|---|---|
 | **W4 משפטי — מחקר, בלי הדבקה** | R2-003 `/accessibility/` · R2-016 `/privacy/` · R2-022 `/terms/` · שלושת `LEG-01` = `בעבודה` | דוח HTML: [RESEARCH-S006-W4-LEGAL-2026-08-30.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/RESEARCH-S006-W4-LEGAL-2026-08-30.html) (עודכן אחרי CDP 30.8). ממתין למשוב נימרוד. **אין** `GO-W4-PASTE`. באנר WP-EI-05 חי | CDP: שני דילוגים → `#main` עובד בלחיצה; דילוג ראשון ב־1.5.16 נשאר `top:-40px` בפוקוס מיידי (transition). טופס צור קשר: CF7 בלי label + טופס מקומי עם label — כפילות |
-| **A11Y-NOW — CSS דילוג במאגר, לא בחי** | תמה 1.5.17: `ea-atoms.css` + `chapters.css` (`transition:none` בפוקוס) | **FTP חסום עד GO נימרוד** (מנדט NOW). אחרי FTP: אימות 50 Tab+Enter בכרום — [REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md) | קוד מקומי 1.5.17 · חי עדיין 1.5.16 |
-| **עץ Git מלוכלך** | סשן [Team 100 wave 2](a88193ed-79d1-43b7-ac8f-d9d4a754b0f4) + CSS 1.5.17 | A11Y-NOW + ארטיפקטי R2 **בלי קומיט**. לא `git add -A` | `git status --porcelain` לא ריק |
+| **A11Y-NOW — קומטה 6.9, עדיין לא בחי** | `fabd106` על `s006/tracker-integrity`. תמה 1.5.17 | **FTP חסום עד GO נימרוד** (מנדט NOW). אחרי FTP: אימות 50 Tab+Enter — [REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_50/REQUEST-S006-A11Y-NOW-SPOTCHECK-TEAM50-2026-08-26.md) | הייתה **לא מקומטת מ-26.8 עד 6.9** בעץ משותף. team_110 תפס במדידה |
+| **T-1 — 126 מעברי סטטוס בסבב-2** | [DECIDE_S006_TRACKER_DRIFT](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_00/DECIDE_S006_TRACKER_DRIFT_2026-09-06_v1.md) | **חוסם.** הבסיס תקוע על 23.8, אין verify נקי. ממתין להכרעת נימרוד | 126/126 עם ראיית ביצוע — הסטטוס אמיתי, רק הפנקסנות דילגה על «בעבודה» |
+
+### 2. מה נסגר ב-6.9
+
+| מה | קומיט | הערה |
+|---|---|---|
+| קליטת 21 הפסיקות של אייל (8 אושרו · 13 חזרו לתיקונים) | — (ה-xlsx הוא SSOT, gitignored) | דרך `tracker_ingest_approvals.py` בלבד. כתיבה ישירה נפסלה ע״י ה-guard, ובצדק |
+| בקרת `--allow-ingest` + אטימת מסלולי המחיקה של יומן הביקורת | `83ace46` | self-test 14/14, הרמטי. שתי בדיקות חדשות למסלול הקליטה |
+| הצלת A11Y-NOW מ-26.8 | `fabd106` | 25 קבצים |
+| יומן הביקורת של סבב 2 | `6b615f3` | 392 קבצים שהיו רק בעץ העבודה |
+| הזדהות מול שני ליינֵי הבנייה | ארטיפקטים ב-`team_10/` ו-`team_110/` | שניהם אישררו, נתנו משוב, ועומדים **ללא מנדט** |
+
+**שני ליינים חיים וממתינים:** team_110 (Opus, בנייה כבדה/רב-עמודית) · team_10 (Sonnet, קובץ יחיד קיים).
+הגבול: קובץ אחד, קיים, של עמוד אחד → team_10. כל השאר → team_110.
 
 AOS: גרסת האב תגיע מההאב. **לא לגעת ב-`_aos/`**. `validate_aos` 11/13/65 נשארים.
 
