@@ -12,7 +12,7 @@ $alt = ea_chapters_field( 'band_alt' );
 ?>
 <section class="bleed" aria-label="<?php echo esc_attr( $alt ); ?>">
 	<?php if ( $img ) : ?>
-		<img class="r r--fade" src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $alt ); ?>" loading="lazy">
+		<img class="r r--fade" src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $img, $alt ) : $alt ); ?>" loading="lazy">
 	<?php endif; ?>
 	<span class="bleed__sc" aria-hidden="true"></span>
 	<div class="bleed__c"><div class="bleed__in">

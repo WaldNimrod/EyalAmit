@@ -361,6 +361,8 @@ function ea_wave2_render_home_blocks( $include_chrome = true ) {
 
 /**
  * CF7 shortcode for contact surfaces.
+ *
+ * @return bool True when a live CF7 form was printed (native fallback must not render).
  */
 function ea_wave2_render_contact_form() {
 	$form_id = (int) apply_filters( 'ea_wave2_cf7_form_id', EA_WAVE2_CF7_FORM_ID );
@@ -368,9 +370,10 @@ function ea_wave2_render_contact_form() {
 		echo '<div class="ea-contact-form ea-contact-form--cf7">';
 		echo do_shortcode( '[contact-form-7 id="' . absint( $form_id ) . '" html_class="ea-contact-form__form" title="צור קשר"]' );
 		echo '</div>';
-		return;
+		return true;
 	}
 	echo '<p class="ea-contact-form__note" role="status">' . esc_html__( 'טופס צור קשר — יוגדר לאחר יצירת טופס CF7 ב־wp-admin (ראה inc/cf7-wave2-form.txt).', 'ea-eyalamit' ) . '</p>';
+	return false;
 }
 
 /**

@@ -37,7 +37,6 @@ html,body{overflow-x:hidden}
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#main">Skip to content</a>
 
 <header class="ea-en-head">
 	<a class="ea-en-head__b" href="/en/">Eyal Amit</a>

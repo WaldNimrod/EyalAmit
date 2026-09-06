@@ -22,7 +22,7 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 			<!-- Column: accessible contact form (CF7 placeholder until form_id wired). -->
 			<div class="ea-entrance">
 				<h2 class="ea-contact-section__heading r"><?php esc_html_e( 'השאירו פנייה', 'ea-eyalamit' ); ?></h2>
-				<?php ea_wave2_render_contact_form(); ?>
+				<?php if ( ! ea_wave2_render_contact_form() ) : ?>
 
 				<form class="ea-contact-form" action="#" method="post" novalidate aria-describedby="ea-cf-intro">
 					<p class="ea-sr-only" id="ea-cf-intro"><?php esc_html_e( 'שדות המסומנים כשדה חובה נדרשים למילוי.', 'ea-eyalamit' ); ?></p>
@@ -54,6 +54,7 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 					<button class="ea-cta-pill ea-cta-pill--primary" type="submit"><?php esc_html_e( 'שליחת פנייה', 'ea-eyalamit' ); ?></button>
 					<p class="ea-contact-form__note"><?php esc_html_e( 'פנייתך תיענה בדרך כלל תוך יום עסקים אחד.', 'ea-eyalamit' ); ?></p>
 				</form>
+				<?php endif; ?>
 			</div>
 
 			<!-- Column: WhatsApp A/B CTA (canonical ea-cta-ab / ea-ab-testing.js) + trust + NAP. -->

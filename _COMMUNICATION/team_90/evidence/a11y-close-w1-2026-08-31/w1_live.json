@@ -1,0 +1,537 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "nocache": "nocache=20260831w1",
+  "results": [
+    {
+      "path": "/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "המרכז לטיפול בנשימה באמצעות דיג'רידו – שיטת cbDIDG של אייל עמית",
+      "baseline_h1": "המרכז לטיפול בנשימה באמצעות דיג'רידו – שיטת cbDIDG של אייל עמית",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": {
+        "p": 2,
+        "h4": 0
+      },
+      "error": ""
+    },
+    {
+      "path": "/treatment/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "טיפול ב דיג׳רידו",
+      "baseline_h1": "טיפול בדיג׳רידו",
+      "h1_match_baseline": false,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/method/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/method/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "שיטת cbDIDG של אייל עמית",
+      "baseline_h1": "שיטת cbDIDG של אייל עמית",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/lessons/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "שיעורי נגינה בדיג'רידו לפי שיטת cbDIDG של אייל עמית",
+      "baseline_h1": "שיעורי נגינה בדיג'רידו לפי שיטת cbDIDG של אייל עמית",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/sound-healing/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "סאונד הילינג פרטי בדיג'רידו - מסע אישי בצליל ותדר ליחידים ולזוגות",
+      "baseline_h1": "סאונד הילינג פרטי בדיג'רידו - מסע אישי בצליל ותדר ליחידים ולזוגות",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/learning/lectures/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/lectures/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "הרצאות על נשימה, דיג'רידו, סטרס ושינה",
+      "baseline_h1": "הרצאות על נשימה, דיג'רידו, סטרס ושינה",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/learning/workshops/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/workshops/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "סדנאות דיג'רידו ונשימה לקבוצות וארגונים",
+      "baseline_h1": "סדנאות דיג'רידו ונשימה לקבוצות וארגונים",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/shop/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/shop/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "כלים בעבודת יד ואביזרים",
+      "baseline_h1": "כלים בעבודת יד ואביזרים",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/repair/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "תיקון וחידוש דיג'רידו",
+      "baseline_h1": "תיקון וחידוש דיג'רידו",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/didgeridoos/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "כלי דיג'רידו למכירה - כלים בעבודת יד",
+      "baseline_h1": "כלי דיג'רידו למכירה - כלים בעבודת יד",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/bags/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/bags/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "תיקים לדיג'רידו",
+      "baseline_h1": "תיקים לדיג'רידו",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/stands-storage/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "סטנדים לאחסון דיג'רידו לתלייה או בעמידה",
+      "baseline_h1": "סטנדים לאחסון דיג'רידו לתלייה או בעמידה",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/stand-floor/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "סטנד רצפתי לדיג'רידו לנגינה בישיבה נמוכה",
+      "baseline_h1": "סטנד רצפתי לדיג'רידו לנגינה בישיבה נמוכה",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/books/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "מוזה הוצאה לאור - ספרים",
+      "baseline_h1": "מוזה הוצאה לאור - ספרים",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/books/kushi-blantis/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "כושי בלאנטיס",
+      "baseline_h1": "כושי בלאנטיס",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/books/tsva-bekahol/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "צבע בכחול וזרוק לים",
+      "baseline_h1": "צבע בכחול וזרוק לים",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/books/vekatavta/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "וכתבת",
+      "baseline_h1": "וכתבת",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/eyal-amit/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "אייל עמית",
+      "baseline_h1": "אייל עמית",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "מי היה מוקש דהימן?",
+      "baseline_h1": "מי היה מוקש דהימן?",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/contact/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "צור קשר",
+      "baseline_h1": "צור קשר",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": 1,
+      "contact_has_ea_cf_name": false,
+      "contact_has_wpcf7": true,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/faq/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/faq/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "שאלות נפוצות",
+      "baseline_h1": "שאלות נפוצות",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/testimonials/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/testimonials/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "עדויות והמלצות",
+      "baseline_h1": "עדויות והמלצות",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/snoring-sleep-apnea/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג'רידו",
+      "baseline_h1": "נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג'רידו",
+      "h1_match_baseline": true,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "דלג לתוכן"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    },
+    {
+      "path": "/en/",
+      "url": "http://eyalamit-co-il-2026.s887.upress.link/en/?nocache=20260831w1",
+      "http_status": 200,
+      "h1": "Eyal Amit",
+      "baseline_h1": "",
+      "h1_match_baseline": null,
+      "skip_count": 1,
+      "skip_all_href_main": true,
+      "skiplinks": [
+        {
+          "href": "#main",
+          "label": "Skip to content"
+        }
+      ],
+      "main_id_main": true,
+      "contact_forms_count": null,
+      "contact_has_ea_cf_name": null,
+      "contact_has_wpcf7": null,
+      "footer_titles": null,
+      "error": ""
+    }
+  ]
+}

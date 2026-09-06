@@ -37,7 +37,7 @@ $gallery  = ( isset( $defaults['peek_gallery'] ) && is_array( $defaults['peek_ga
 				}
 				?>
 				<figure class="gfig">
-					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( $it['alt'] ?? '' ); ?>" loading="lazy">
+					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $src, $it['alt'] ?? '' ) : ( $it['alt'] ?? '' ) ); ?>" loading="lazy">
 				</figure>
 			<?php endforeach; ?>
 		</div>

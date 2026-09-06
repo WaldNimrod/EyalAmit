@@ -83,7 +83,11 @@
     }
     .ea-skiplink:focus,
     .ea-skiplink:focus-visible {
-      top: 0;
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      left: auto;
+      z-index: 100000;
       transition: none;
     }
 

@@ -45,7 +45,7 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 				endif;
 				?>
 				<figure class="gfig<?php echo $is_pending ? ' gfig--pending-img' : ''; ?>">
-					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( $it['alt'] ?? '' ); ?>" loading="lazy">
+					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $src, $it['alt'] ?? '' ) : ( $it['alt'] ?? '' ) ); ?>" loading="lazy">
 					<?php if ( $is_pending ) : ?>
 						<span class="ea-pending-approval__badge" style="position:absolute;inset-block-start:10px;inset-inline-start:10px;z-index:2">ממתין לאישור</span>
 					<?php endif; ?>

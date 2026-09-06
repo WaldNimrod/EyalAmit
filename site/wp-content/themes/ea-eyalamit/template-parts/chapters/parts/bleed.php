@@ -10,7 +10,7 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 ?>
 <section class="bleed" aria-label="<?php echo esc_attr( $a['alt'] ?? '' ); ?>">
 	<?php if ( ! empty( $a['image'] ) ) : ?>
-		<img class="r r--fade" src="<?php echo esc_url( $a['image'] ); ?>" alt="<?php echo esc_attr( $a['alt'] ?? '' ); ?>" loading="lazy">
+		<img class="r r--fade" src="<?php echo esc_url( $a['image'] ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['image'], $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy">
 	<?php endif; ?>
 	<span class="bleed__sc" aria-hidden="true"></span>
 	<div class="bleed__c"><div class="bleed__in">

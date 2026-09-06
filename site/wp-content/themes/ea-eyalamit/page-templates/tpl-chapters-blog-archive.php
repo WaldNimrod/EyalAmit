@@ -42,7 +42,6 @@ if ( ! $blog_base ) {
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
