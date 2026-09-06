@@ -46,18 +46,6 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 					</div>
 
 					<div class="ea-contact-form__field">
-						<label class="ea-contact-form__label" for="ea-cf-topic"><?php esc_html_e( 'נושא הפנייה', 'ea-eyalamit' ); ?></label>
-						<select class="ea-contact-form__select" id="ea-cf-topic" name="topic">
-							<option value="intro"><?php esc_html_e( 'תיאום שיחת היכרות', 'ea-eyalamit' ); ?></option>
-							<option value="treatment"><?php esc_html_e( "טיפול בדיג'רידו", 'ea-eyalamit' ); ?></option>
-							<option value="lessons"><?php esc_html_e( 'שיעורי נגינה', 'ea-eyalamit' ); ?></option>
-							<option value="sound-healing"><?php esc_html_e( 'סאונד הילינג', 'ea-eyalamit' ); ?></option>
-							<option value="didgeridoos"><?php esc_html_e( "רכישת דיג'רידו", 'ea-eyalamit' ); ?></option>
-							<option value="general"><?php esc_html_e( 'שאלה כללית', 'ea-eyalamit' ); ?></option>
-						</select>
-					</div>
-
-					<div class="ea-contact-form__field">
 						<label class="ea-contact-form__label" for="ea-cf-message"><?php esc_html_e( 'הודעה', 'ea-eyalamit' ); ?><span class="ea-sr-only"><?php esc_html_e( '(שדה חובה)', 'ea-eyalamit' ); ?></span></label>
 						<textarea class="ea-contact-form__textarea" id="ea-cf-message" name="message" rows="5" required aria-required="true" aria-describedby="ea-cf-message-err"></textarea>
 						<span class="ea-contact-form__error" id="ea-cf-message-err" hidden><?php esc_html_e( 'נא להזין את תוכן הפנייה.', 'ea-eyalamit' ); ?></span>
