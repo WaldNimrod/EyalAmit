@@ -26,7 +26,7 @@ $lead  = ea_chapters_field( 'whom_lead' );
 					<span class="whom__m">
 						<?php $src = ea_chapters_resolve_img( isset( $row['image'] ) ? $row['image'] : '' ); ?>
 						<?php if ( $src ) : ?>
-							<img src="<?php echo esc_url( $src ); ?>" alt="" loading="lazy">
+							<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( ea_chapters_content_img_alt( $src, isset( $row['alt'] ) ? $row['alt'] : '' ) ); ?>" loading="lazy">
 						<?php else : ?>
 							<span class="ph"><span><?php esc_html_e( 'תמונה', 'ea-eyalamit' ); ?></span></span>
 						<?php endif; ?>

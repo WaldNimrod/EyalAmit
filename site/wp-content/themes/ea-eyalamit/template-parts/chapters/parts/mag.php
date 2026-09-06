@@ -18,7 +18,7 @@ $items = ( isset( $a['items'] ) && is_array( $a['items'] ) ) ? $a['items'] : arr
 		<h2 class="h2 r" style="color:#fff;max-width:18ch"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
 		<div class="mag-spread">
 			<figure class="mag-spread__fig r">
-				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( $a['alt'] ?? '' ); ?>" loading="lazy">
+				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['image'] ?? '', $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy">
 				<figcaption><b><?php echo esc_html( $a['cap_b'] ?? '' ); ?></b><?php echo esc_html( $a['cap_sub'] ?? '' ); ?></figcaption>
 			</figure>
 			<ol class="mag-list r r2">

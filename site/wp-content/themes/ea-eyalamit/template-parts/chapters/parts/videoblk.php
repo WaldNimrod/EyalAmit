@@ -19,7 +19,7 @@ $poster = $a['poster'] ?? '';
 			<?php if ( ! empty( $a['body'] ) ) : ?><div class="intro-body r r2"><?php echo wp_kses_post( $a['body'] ); ?></div><?php endif; ?>
 		</div>
 		<div class="videoblk r r2" style="margin-top:48px">
-			<?php if ( $poster ) : ?><img class="videoblk__poster" src="<?php echo esc_url( $poster ); ?>" alt="<?php echo esc_attr( $a['alt'] ?? '' ); ?>" loading="lazy"><?php endif; ?>
+			<?php if ( $poster ) : ?><img class="videoblk__poster" src="<?php echo esc_url( $poster ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $poster, $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy"><?php endif; ?>
 			<?php if ( $video ) : ?>
 				<video class="videoblk__v" muted loop playsinline preload="none"<?php echo $poster ? ' poster="' . esc_url( $poster ) . '"' : ''; ?> style="display:none"><source src="<?php echo esc_url( $video ); ?>" type="video/mp4"></video>
 				<span class="videoblk__sc" aria-hidden="true"></span>

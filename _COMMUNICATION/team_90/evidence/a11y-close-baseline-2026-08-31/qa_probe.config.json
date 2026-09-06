@@ -1,0 +1,33 @@
+{
+  "base": "http://eyalamit-co-il-2026.s887.upress.link",
+  "viewports": [
+    { "name": "desktop", "w": 1440, "h": 900 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "treatment", "path": "/treatment/" },
+    { "name": "method", "path": "/method/" },
+    { "name": "lessons", "path": "/lessons/" },
+    { "name": "sound-healing", "path": "/sound-healing/" },
+    { "name": "lectures", "path": "/learning/lectures/" },
+    { "name": "workshops", "path": "/learning/workshops/" },
+    { "name": "shop", "path": "/shop/" },
+    { "name": "repair", "path": "/repair/" },
+    { "name": "didgeridoos", "path": "/didgeridoos/" },
+    { "name": "bags", "path": "/bags/" },
+    { "name": "stands-storage", "path": "/stands-storage/" },
+    { "name": "stand-floor", "path": "/stand-floor/" },
+    { "name": "books", "path": "/books/" },
+    { "name": "kushi-blantis", "path": "/books/kushi-blantis/" },
+    { "name": "tsva-bekahol", "path": "/books/tsva-bekahol/" },
+    { "name": "vekatavta", "path": "/books/vekatavta/" },
+    { "name": "eyal-amit", "path": "/eyal-amit/" },
+    { "name": "mokesh-dahiman", "path": "/eyal-amit/mokesh-dahiman/" },
+    { "name": "contact", "path": "/contact/" },
+    { "name": "faq", "path": "/faq/" },
+    { "name": "testimonials", "path": "/testimonials/" },
+    { "name": "snoring-sleep-apnea", "path": "/snoring-sleep-apnea/" }
+  ],
+  "absent": [],
+  "shots": false
+}

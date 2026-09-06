@@ -16,14 +16,14 @@ $h = static function ( $path ) {
 	<span class="arcs" aria-hidden="true"></span>
 	<div class="foot__in">
 		<div>
-			<h4>מה מציעים</h4>
+			<p class="foot__col-title">מה מציעים</p>
 			<a href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו</a>
 			<a href="<?php echo $h( '/lessons/' ); ?>">שיעורי דיג׳רידו</a>
 			<a href="<?php echo $h( '/sound-healing/' ); ?>">סאונד הילינג</a>
 			<a href="<?php echo $h( '/method/' ); ?>">השיטה cbDIDG</a>
 		</div>
 		<div>
-			<h4>עוד</h4>
+			<p class="foot__col-title">עוד</p>
 			<a href="<?php echo $h( '/blog/' ); ?>">בלוג</a>
 			<a href="<?php echo $h( '/books/' ); ?>">ספרים · מוזה</a>
 			<a href="<?php echo $h( '/eyal-amit/' ); ?>">אודות אייל</a>

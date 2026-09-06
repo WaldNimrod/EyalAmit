@@ -26,11 +26,10 @@ defined( 'ABSPATH' ) || exit;
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="ea-skip-link screen-reader-text" href="#chapters-main"><?php esc_html_e( 'דלג לתוכן העמוד', 'ea-eyalamit' ); ?></a>
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
-<main id="chapters-main">
+<main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	/* S006 · H-09 · סדר הסקשנים לפי מספור אייל 01..12
 	 * (content 13.8.26/דף הבית/homepage1-3 v2.md). שמות קבצי ה-partials נשארו

@@ -13,7 +13,7 @@ $dark  = ! empty( $a['dark'] ) || '' === $media;
 ?>
 <header class="phero<?php echo $media ? ' phero--media' : ''; ?>">
 	<?php if ( $media ) : ?>
-		<img class="phero__media" src="<?php echo esc_url( $media ); ?>" alt="<?php echo esc_attr( $a['media_alt'] ?? '' ); ?>">
+		<img class="phero__media" src="<?php echo esc_url( $media ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $media, $a['media_alt'] ?? '' ) : ( $a['media_alt'] ?? '' ) ); ?>">
 		<span class="phero__sc" aria-hidden="true"></span>
 	<?php endif; ?>
 	<span class="arcs" aria-hidden="true"></span>

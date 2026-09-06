@@ -74,10 +74,10 @@ return array(
 	'whom_title' => 'למי מתאים התהליך',
 	'whom_lead'  => '',
 	'whom_items' => array(
-		array( 'image' => 'assets/images/chapters/eyal-bright.jpg',     'text' => 'מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.' ),
-		array( 'image' => 'assets/images/chapters/breath-practice.jpg', 'text' => 'למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.' ),
-		array( 'image' => 'assets/images/chapters/eyal-window.jpg',     'text' => 'למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.' ),
-		array( 'image' => 'assets/images/chapters/eyal-close.jpg',      'text' => 'למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.' ),
+		array( 'image' => 'assets/images/chapters/eyal-bright.jpg',     'alt' => 'אייל עמית עם דיג׳רידו', 'text' => 'מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.' ),
+		array( 'image' => 'assets/images/chapters/breath-practice.jpg', 'alt' => 'תרגול נשימה עם דיג׳רידו', 'text' => 'למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.' ),
+		array( 'image' => 'assets/images/chapters/eyal-window.jpg',     'alt' => 'אייל עמית ליד חלון הסטודיו', 'text' => 'למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.' ),
+		array( 'image' => 'assets/images/chapters/eyal-close.jpg',      'alt' => 'דיוקן של אייל עמית', 'text' => 'למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.' ),
 	),
 
 	/* ── 07 SESSION (prose · אייל SECTION 07) ──
@@ -246,6 +246,7 @@ return array(
 	'cmp_title'   => "טיפול בדיג'רידו או סאונד הילינג – מה ההבדל?",
 	'cmp_lead'    => '',
 	'cmp_a_image' => 'assets/images/chapters/breath-practice.jpg',
+	'cmp_a_alt'   => 'תרגול נשימה עם דיג׳רידו',
 	'cmp_a_title' => "טיפול בדיג'רידו",
 	/* S006 · H-03 · מקור: content 13.8.26/דף הבית/homepage1-3 v2.md · SECTION 04 → «טיפול בדיג'רידו»
 	 * מבנה בלבד: תוויות «מה זה:» / «למי זה מתאים:» כ-<strong>, וכל שורה של אייל בשורה משלה.
@@ -254,6 +255,7 @@ return array(
 	'cmp_a_cta'   => "למידע נוסף על טיפול בדיג'רידו",
 	'cmp_a_url'   => '/treatment/',
 	'cmp_b_image' => 'assets/images/chapters/didgs-window.jpg',
+	'cmp_b_alt'   => 'דיג׳רידו ליד חלון הסטודיו',
 	'cmp_b_title' => 'סאונד הילינג',
 	/* S006 · H-03 · מקור: content 13.8.26/דף הבית/homepage1-3 v2.md · SECTION 04 → «סאונד הילינג»
 	 * מבנה בלבד — ראו ההערה ב-'cmp_a_text'. */

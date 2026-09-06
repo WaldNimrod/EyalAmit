@@ -54,6 +54,7 @@ a{color:inherit}
 .btn--gw:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
 .btn--gd{background:transparent;color:var(--terra);border-color:var(--terra)}
 .btn--gd:hover{background:var(--terra);color:#fff;transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--terra-lt);outline-offset:3px}
 
 /* placeholders */
 .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;
@@ -211,9 +212,10 @@ a{color:inherit}
 .foot{position:relative;background:var(--dark);color:rgba(255,255,255,.62);padding:80px 48px 48px;overflow:hidden;z-index:2}
 .foot .arcs{width:420px;height:420px;top:50%;left:-150px;transform:translateY(-50%);opacity:.1;filter:invert(1) sepia(.5) brightness(1.3)}
 .foot__in{position:relative;z-index:2;max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1fr 1fr 1.7fr;gap:44px}
-.foot h4{font-family:var(--bf);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin:0 0 18px;font-weight:500}
+.foot h4,.foot__col-title{font-family:var(--bf);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin:0 0 18px;font-weight:500}
 .foot a{display:block;font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:11px;transition:color .2s}
 .foot a:hover{color:#fff}
+.foot a:focus-visible{color:#fff;outline:2px solid var(--terra-lt);outline-offset:3px}
 .foot__brand{text-align:left}
 .foot__brand b{font-family:var(--hf);font-size:1.4rem;color:#fff;display:block;margin-bottom:8px}
 .foot__brand p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:34ch;margin:0 0 18px auto}
@@ -223,7 +225,7 @@ a{color:inherit}
 .foot__soc a:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.14)}
 .foot__soc a:hover svg{stroke:var(--terra-lt)}
 .foot__legal{position:relative;z-index:2;max-width:1200px;margin:50px auto 0;padding-top:22px;border-top:1px solid var(--line-d)}
-.foot__disc{font-size:.72rem;line-height:1.6;color:rgba(255,255,255,.38);max-width:74ch;margin:0 0 12px}
+.foot__disc{font-size:.72rem;line-height:1.6;color:rgba(255,255,255,.62);max-width:74ch;margin:0 0 12px}
 .foot__base{position:relative;z-index:2;font-size:.76rem;color:rgba(255,255,255,.4)}
 .foot__base a{display:inline;color:rgba(255,255,255,.55);text-decoration:underline;margin:0}
 .foot__base a:hover{color:#fff}
@@ -453,6 +455,8 @@ a{color:inherit}
 /* uniform link accent inside prose */
 .tlink{color:var(--terra-dk);text-decoration:none;border-bottom:1px solid rgba(154,79,43,.4);transition:border-color .2s}
 .tlink:hover{border-color:var(--terra-dk)}
+.tlink:focus-visible{outline:2px solid var(--terra-dk);outline-offset:3px}
+.sec--dark .tlink:focus-visible{outline-color:var(--terra-lt)}
 
 /* ================= EXACT NAV with dropdowns ================= */
 .nav__l{gap:17px}
@@ -621,9 +625,8 @@ body.nav-locked{overflow:hidden}
 .about__body p:last-child{margin-bottom:0}
 /* skip-link parity (theme markup uses .ea-skip-link / .screen-reader-text) */
 .ea-skip-link{position:absolute;right:-9999px;top:auto;z-index:100;background:var(--terra);color:#fff;padding:10px 16px;border-radius:4px;font-family:var(--bf);font-size:.85rem}
-.ea-skip-link:focus,.ea-skip-link:focus-visible{right:12px;top:12px;transition:none}
-/* A11Y-NOW residual: wave2 .ea-skiplink — ea-atoms top transition kept link off-screen at focus measure */
-.ea-skiplink:focus,.ea-skiplink:focus-visible{top:12px;right:12px;transition:none}
+.ea-skip-link:focus,.ea-skip-link:focus-visible{position:fixed;right:12px;top:12px;left:auto;z-index:100000;transition:none}
+.ea-skiplink:focus,.ea-skiplink:focus-visible{position:fixed;top:12px;right:12px;left:auto;z-index:100000;transition:none}
 
 /* ============================================================
    feedback round (team_00, 2026-06-22): slower motion · fixed session · centered compare

@@ -18,7 +18,7 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 				<div class="intro-body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
 			</div>
 			<figure class="figr figr--<?php echo esc_attr( $a['figr'] ?? 'l' ); ?> split2__m r r2" style="margin:0">
-				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( $a['alt'] ?? '' ); ?>" loading="lazy">
+				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['image'] ?? '', $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy">
 			</figure>
 		</div>
 	</div>

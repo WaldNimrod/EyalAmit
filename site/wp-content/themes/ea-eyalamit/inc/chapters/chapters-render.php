@@ -731,3 +731,42 @@ function ea_chapters_kses_e( $html ) {
 		)
 	);
 }
+
+/**
+ * Alt for content photos when ACF rows omit the new `alt` sub-field.
+ *
+ * @param string $src      Image URL or theme-relative path.
+ * @param string $explicit Explicit alt from the row/field.
+ * @return string
+ */
+function ea_chapters_content_img_alt( $src, $explicit = '' ) {
+	$explicit = trim( (string) $explicit );
+	if ( '' !== $explicit ) {
+		return $explicit;
+	}
+	$path = (string) $src;
+	$base = strtolower( (string) basename( (string) ( wp_parse_url( $path, PHP_URL_PATH ) ?: $path ) ) );
+	$map  = array(
+		'eyal-bright.jpg'         => 'אייל עמית עם דיג׳רידו',
+		'breath-practice.jpg'     => 'תרגול נשימה עם דיג׳רידו',
+		'eyal-window.jpg'         => 'אייל עמית ליד חלון הסטודיו',
+		'eyal-close.jpg'          => 'דיוקן של אייל עמית',
+		'didgs-window.jpg'        => 'דיג׳רידו ליד חלון הסטודיו',
+		'studio-didgs.jpg'        => 'דיג׳רידו בסטודיו בפרדס חנה',
+		'eyal-workshop.jpg'       => 'בית המלאכה של אייל עמית',
+		'didg-bells.jpg'          => 'פעמוני דיג׳רידו',
+		'eyal-playing.jpg'        => 'אייל עמית מנגן בדיג׳רידו',
+		'eyal-studio-play.jpg'    => 'אייל עמית במהלך עבודה עם דיג׳רידו בסטודיו',
+		'eyal-portrait-garden.jpg'=> 'אייל עמית בגינת הסטודיו בפרדס חנה',
+		'logo-didgs-door.jpg'     => 'לוגו מוזה על דלת הסטודיו',
+		'studio-interior.jpg'     => 'פנים הסטודיו בפרדס חנה',
+		'garden.jpg'              => 'גינת הסטודיו בפרדס חנה',
+		'studio-mosaic.jpg'       => 'בניין הפסיפס של הסטודיו',
+		'group-session-garden.jpg'=> 'מפגש קבוצתי בגינת הסטודיו',
+		'eyal-teaching.jpg'       => 'אייל עמית מלמד נגינה בדיג׳רידו',
+		'eyal-receiving.jpg'      => 'מפגש סאונד הילינג',
+		'didg-spiral-detail.jpg'  => 'פרט ספירלה על דיג׳רידו',
+		'mokesh-eyal.jpg'         => 'מוקש דהימן עם אייל עמית',
+	);
+	return isset( $map[ $base ] ) ? $map[ $base ] : '';
+}
