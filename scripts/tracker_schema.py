@@ -177,7 +177,11 @@ APPROVAL_STATUSES = (AP_NONE, AP_RETURNED, AP_NIMROD, AP_EYAL, AP_FROZEN)
 # Legal machine-status transitions. Anything not listed is rejected.
 MACHINE_TRANSITIONS: dict[str, set[str]] = {
     ST_UNKNOWN:     {ST_UNKNOWN, ST_NOT_CHECKED, ST_FROZEN},
-    ST_NOT_CHECKED: {ST_NOT_CHECKED, ST_IN_WORK, ST_FROZEN},
+    # ST_SUBMITTED direct: batch waves audit and submit a page in one operation,
+    # so ST_IN_WORK never lasts a moment. Requiring the hop produced 126 false
+    # positives across R2 and zero true ones — every flagged row had an item
+    # grid and a VERIFY or CONFIRM artifact. team_00 T-1, 2026-09-06.
+    ST_NOT_CHECKED: {ST_NOT_CHECKED, ST_IN_WORK, ST_SUBMITTED, ST_FROZEN},
     ST_IN_WORK:     {ST_IN_WORK, ST_SUBMITTED, ST_NOT_CHECKED, ST_FROZEN},
     # returned-for-fixes sends a submitted row back into work
     ST_SUBMITTED:   {ST_SUBMITTED, ST_IN_WORK, ST_FROZEN},

@@ -106,9 +106,11 @@ case('b_agent_writes_nimrod_notes',
      lambda wb: wb[SHEET].cell(ROW, COL['הערות נימרוד'], 'טקסט שהסוכן המציא'),
      1, expect_text='עמודה בבעלות אנוש')
 
-# c) illegal machine transition: טרם נבדק -> הוגש לבדיקה (skips בעבודה)
+# c) illegal machine transition. «הוגש לבדיקה» is legal from «טרם נבדק» since
+# T-1 (batch waves submit in one operation), so this asserts the rule that still
+# bites: nothing may slide backwards to «לא ידוע» and lose its history.
 case('c_illegal_transition',
-     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'הוגש לבדיקה'),
+     lambda wb: wb[SHEET].cell(ROW, COL['סטטוס מכונה'], 'לא ידוע'),
      1, expect_text='מעבר סטטוס אסור')
 
 # d) frozen without a written reason
