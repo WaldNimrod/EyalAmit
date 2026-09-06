@@ -12,13 +12,26 @@ So this is the tool that defines the count. It reads word/document.xml directly
 number — and emits, for each non-empty paragraph in document order:
 
     idx    1-based position in document order. This is the citable address.
-    sha256 of the exact text, so a validator can prove the bytes it was handed
-           are the bytes at that index without re-reading the .docx.
+    sha256 of the text AS THIS TOOL EMITS IT.
+
+**The tool's output is the canonical text, not the raw .docx.** A .docx splits a
+sentence across runs at arbitrary points and carries whatever whitespace the
+author typed, so the bytes are normalised here: runs joined, w:br/w:cr to \n,
+w:tab to \t, runs of spaces and tabs collapsed to one, ends stripped. That makes
+the text quotable — but it also means a validator that greps the raw .docx for a
+quoted string can miss it on a double space and report a defect that is not one.
+So the match is `sha256` against this output, never a search of the document.
+
+Scope notes, both deliberate: w:p is walked recursively, so paragraphs inside
+tables are indexed in document order like any other. Tracked deletions are NOT
+indexed — deleted text lives in w:delText and only w:t is read — so an accepted
+or rejected revision does not shift the numbering of anything else.
 
 Cite as:  /* S006 · מקור: <file> · פסקה <idx> */
 
 Usage:
     python3 scripts/docx_paragraph_index.py <file.docx> [--json out.json]
+    python3 scripts/docx_paragraph_index.py <file.docx> --find "<quoted text>"
 """
 from __future__ import annotations
 
@@ -59,6 +72,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('docx')
     ap.add_argument('--json', help='write the full index here')
+    ap.add_argument('--find', metavar='TEXT',
+                    help='resolve a quoted string back to its פסקה index, by '
+                         'sha256 of the normalised form — the gate-5 check')
     args = ap.parse_args()
 
     path = Path(args.docx)
@@ -72,6 +88,22 @@ def main() -> int:
               'chars': len(t),
               'text': t}
              for i, t in enumerate(paras, start=1)]
+
+    if args.find:
+        # Normalise the candidate exactly as a paragraph is normalised, so the
+        # comparison is the same one the index was built with.
+        want = re.sub(r'[ \t]+', ' ', args.find).strip()
+        digest = hashlib.sha256(want.encode('utf-8')).hexdigest()
+        hit = next((r for r in index if r['sha256'] == digest), None)
+        if hit:
+            print(f"  התאמה · פסקה {hit['idx']} · {hit['sha256'][:12]}")
+            return 0
+        near = [r for r in index if want and want in r['text']]
+        print('  אין התאמה מדויקת.', file=sys.stderr)
+        for r in near[:3]:
+            print(f"    מוכל בפסקה {r['idx']} — הציטוט אינו פסקה שלמה",
+                  file=sys.stderr)
+        return 1
 
     if args.json:
         Path(args.json).write_text(
