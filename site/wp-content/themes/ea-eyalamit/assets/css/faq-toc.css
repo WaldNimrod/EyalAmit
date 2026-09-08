@@ -6,9 +6,15 @@
    variables only — NO new locked atom; ea-tokens.css / ea-atoms.css untouched.
    ========================================================================== */
 
-/* Offset so a jumped-to heading clears the sticky top nav + the sticky TOC. */
+/* Offset so a jumped-to heading clears the sticky top nav + the sticky TOC.
+   S006 · M-05 · מקור: EA-CONTENT-TRACKER.xlsx · סבב-1-ליבה!R1-25 «הערות אייל» —
+   «העמוד יורד קצת יותר מדי למטה ומסתיר את כותרת הנושא».
+   12rem נקבע כשתפריט הנושאים היה שורה אחת. עם 16 נושאים הוא עוטף לשלוש שורות ותופס
+   201.5px לבדו, כך ש-72 (ניווט) + 201.5 (תפריט) = 273.5px נדרשים ורק 192px קיימים.
+   ea-faq-toc.js מודד את שניהם וכותב את הסכום ל---ea-faq-scroll-offset, כדי שהוספת נושא
+   תגדיל את ההיסט מעצמה. 12rem נשאר fallback: בלי JS ההתנהגות זהה למה שהיה. */
 .ea-faq-category {
-	scroll-margin-top: 12rem;
+	scroll-margin-top: var(--ea-faq-scroll-offset, 12rem);
 }
 
 .ea-faq-toc {
@@ -27,9 +33,14 @@
 	box-shadow: 0 2px 10px rgba(46, 43, 40, 0.06);
 }
 
+/* S006 · M-05 · היה `var(--ea-nav-height, 64px)`, ו-8px מהתפריט הסתתרו מתחת לניווט:
+   --ea-nav-height הוא 64px (ea-tokens.css:63) ומתאר את ניווט Wave2, בעוד שהניווט של
+   chapters בעמוד הזה הוא 72px (chapters.css:67) — נמדד חי, 72.0. הטוקן עצמו לא נוגע:
+   הוא גלובלי ומשמש עוד שמונה מקומות (ea-atoms, catalog, blog). במקומו משתנה FAQ-בלבד
+   ש-ea-faq-toc.js כותב מהניווט הנמדד בפועל, עם 72px כ-fallback ללא JS. */
 @media (min-width: 768px) {
 	.ea-faq-toc {
-		top: var(--ea-nav-height, 64px);
+		top: var(--ea-faq-toc-top, 72px);
 	}
 }
 

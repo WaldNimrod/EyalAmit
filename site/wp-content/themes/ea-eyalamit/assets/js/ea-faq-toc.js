@@ -27,6 +27,58 @@
 
 		var prefersReduce = window.matchMedia
 			&& window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+		/**
+		 * S006 · M-05 — measured scroll offset.
+		 *
+		 * A jumped-to heading has to clear two stacked fixed/sticky bars: the site nav
+		 * and this TOC. The CSS fallback (12rem) was chosen when the TOC was one line;
+		 * with 16 topics it wraps to three and the heading lands behind it. Measuring
+		 * instead of hard-coding means adding a topic widens the offset by itself.
+		 *
+		 * Writes two custom properties on :root —
+		 *   --ea-faq-toc-top       the real nav height, so the sticky TOC sits flush
+		 *                          under it (the ea-tokens value describes a different,
+		 *                          64px nav and left an 8px overlap here).
+		 *   --ea-faq-scroll-offset nav + TOC + a small gap, consumed by
+		 *                          .ea-faq-category { scroll-margin-top }.
+		 * Both keep CSS fallbacks, so a JS failure degrades to today's behaviour
+		 * rather than to none.
+		 */
+		var GAP = 12;
+		function updateOffsets() {
+			// A zero-sized viewport (hidden tab, some headless harnesses) reports
+			// collapsed boxes; writing those would shrink the offset instead of
+			// growing it. Keep the last good value.
+			if ( ! window.innerWidth || ! window.innerHeight ) {
+				return;
+			}
+			var nav = document.querySelector( '.nav' );
+			var navH = nav ? nav.getBoundingClientRect().height : 0;
+			var tocH = toc.getBoundingClientRect().height;
+			if ( ! tocH ) {
+				return;
+			}
+			var root = document.documentElement.style;
+			if ( navH ) {
+				root.setProperty( '--ea-faq-toc-top', Math.round( navH ) + 'px' );
+			}
+			root.setProperty(
+				'--ea-faq-scroll-offset',
+				Math.round( navH + tocH + GAP ) + 'px'
+			);
+		}
+
+		updateOffsets();
+
+		// Re-measure when the chip row re-wraps (resize) and once webfonts have
+		// settled (load) — both change the TOC's line count, hence its height.
+		var resizeTimer;
+		window.addEventListener( 'resize', function () {
+			window.clearTimeout( resizeTimer );
+			resizeTimer = window.setTimeout( updateOffsets, 150 );
+		} );
+		window.addEventListener( 'load', updateOffsets );
 		var linkBySlug = {};
 		Array.prototype.forEach.call( links, function ( a ) {
 			linkBySlug[ a.getAttribute( 'data-faq-toc-link' ) ] = a;
