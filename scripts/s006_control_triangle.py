@@ -13,6 +13,7 @@ be read as a harness that found nothing wrong):
   B  form → tracker   nothing is asked of him that the tracker does not carry
   C  tracker → live   every page the tracker calls submitted answers 200
   D  tracker → live   each page's own QA claim still holds in the served HTML
+  E  live → theme     no page is still being served a stale theme asset
 
 Usage:  python3 scripts/s006_control_triangle.py [--form hub/dist/s006-review.html]
 Exit:   0 all pass · 1 any mismatch (nothing is sent to Eyal)
@@ -22,6 +23,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import subprocess
 import sys
@@ -55,6 +57,30 @@ def fetch(path):
                         '--max-time', '20', f'{BASE}{path}'],
                        capture_output=True, text=True)
     return c.stdout.strip(), r.stdout
+
+
+SEMVER = re.compile(r'ea-eyalamit/[^"\']*?([\w.-]+\.(?:css|js))\?ver=(\d+\.\d+\.\d+)')
+
+
+def theme_version() -> str:
+    css = (REPO / 'site/wp-content/themes/ea-eyalamit/style.css').read_text(
+        encoding='utf-8', errors='ignore')
+    m = re.search(r'^Version:\s*(\S+)', css, re.M)
+    return m.group(1) if m else ''
+
+
+def stale_assets(body: str, want: str) -> list[str]:
+    """Theme assets served at a version older than the one we just shipped.
+
+    Only SEMANTIC versions are judged. style.css is also enqueued a second time
+    with a cache-busting timestamp (?ver=1788866882) from outside the theme —
+    GeneratePress or a plugin, not functions.php, which enqueues it once at
+    :120. That second copy is a permanent feature of the site, present back when
+    it was on 1.5.20, so requiring «every version string equals X» would fail on
+    it forever and teach us to ignore the check. team_110 raised this before the
+    first run rather than after.
+    """
+    return sorted({f'{f}?ver={v}' for f, v in SEMVER.findall(body) if v != want})
 
 
 def main() -> int:
@@ -92,7 +118,8 @@ def main() -> int:
     if extra:
         fails.append(f'B: סעיפים בטופס שאינם «ממתין לאייל» בטרקר — {sorted(extra)}')
 
-    ok_live = 0
+    want_ver = theme_version()
+    ok_live = fresh = 0
     for key in sorted(form_pages):
         row = tr.get(key)
         if not row:
@@ -103,6 +130,11 @@ def main() -> int:
             fails.append(f'C: {key} {row["נתיב"]} → HTTP {code}')
             continue
         ok_live += 1
+        stale = stale_assets(body, want_ver)
+        if stale:
+            fails.append(f'E: {key} מוגש עם נכס ישן — {stale}')
+        else:
+            fresh += 1
         marker = LIVE_MARKERS.get(key)
         if marker:
             tok, what = marker
@@ -115,6 +147,8 @@ def main() -> int:
                  + (f"  (+{len(form_sections)} סקשן טקסט חופשי, ללא נתיב)" if form_sections else ""))
     checked = [k for k in form_pages if k in LIVE_MARKERS]
     lines.append(f"D  ראיית QA    {len(checked)} עמודים נבדקו מול הסימן שאייל ביקש")
+
+    lines.append(f"E  טריות נכסים {fresh}/{len(form_pages)} עמודים — כל נכס בגרסה סמנטית הוא {want_ver}")
 
     print('\n'.join('  ' + l for l in lines))
     if fails:
