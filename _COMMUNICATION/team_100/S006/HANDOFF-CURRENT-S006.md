@@ -1,11 +1,11 @@
 ---
-id: HANDOFF_CURRENT_S006_2026-09-06_v1.9.0
+id: HANDOFF_CURRENT_S006_2026-09-08_v2.0.0
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: state-only
 from: team_100 (reset 30.8 — state SSOT after prompt/CURRENT collision)
 to: team_100 (fresh session)
 cc: [team_00, team_90, team_10, team_50]
-date: 2026-09-06
+date: 2026-09-08
 law: S006-MILESTONE-CHARTER.md
 disposition: >-
   SSOT for what is OPEN at session level. Tracker xlsx is SSOT for row/item
@@ -40,7 +40,22 @@ status: ACTIVE — open-work SSOT (not a per-page build cycle)
 | **🔴 מיזוג `feat/s006-a11y-close` — חוסם פריסה** | [RULING-110-BLOCKER](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_110/RULING-TEAM100-110-BLOCKER-AND-FOUR-2026-09-06.md) | **שער 4 מושהה.** אין FTP מהענף הזה עד מיזוג. `git merge` ו-`git push` **נחסמו ע״י מסנן ההרשאות** — שניהם ממתינים לנימרוד | הפריסה היא `rglob("*")` = דריסה מלאה. הענף חסר `position:fixed;z-index:100000`, ארבעה `:focus-visible`, `.foot__disc` ב-`.62`. פריסה = רגרסיה 1.5.20 ← 1.5.17 |
 | **T-1 — 126 מעברי סטטוס בסבב-2** | [DECIDE_S006_TRACKER_DRIFT](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_00/DECIDE_S006_TRACKER_DRIFT_2026-09-06_v1.md) | **חוסם.** הבסיס תקוע על 23.8, אין verify נקי. ממתין להכרעת נימרוד | 126/126 עם ראיית ביצוע — הסטטוס אמיתי, רק הפנקסנות דילגה על «בעבודה» |
 
-### 2. מה נסגר ב-6.9
+### 2. מה נסגר ב-7–8.9 — חמישה עמודים חיים
+
+| עמוד | מה נעשה | אימות חי |
+|---|---|---|
+| R1-10 `/shop/` | בלוק 2 נמחק, שלוש הפסקאות להירו (M-01+M-03) | 3 `<p>` בתוך `header.phero`, `intro-body` נעלם |
+| R1-23 `/contact/` | שדה «נושא הפנייה» נמחק (M-02) | `ea-cf-topic` נעדר |
+| R1-22 מוקש | נגן `youtube-nocookie` + כיתוב 3 שורות + ציר זמן מתחת לגלריה (M-04) | דלתא 0, כותרת מדויקת |
+| R1-25 `/faq/` | היסט מחושב, `12rem` כ-fallback (M-05) | 285px מול 273.5 נדרש |
+| R1-28 נחירות | `gallery--doc` בהצטרפות מפורשת (M-06) | 820px = ×2.29, דלתא יחס **0** |
+
+**גל הקרוסלה בוטל** — `9fcbec5` מ-21.8 («replace auto marquees with manual arrows») הקדים את המשוב של אייל ב-10 ימים. 3 מ-5 עמודים כבר הציגו את המספר המדויק. נותרו שתי שאלות בטופס: `H-16` (בית 15/16) · `DG-06` (כלים — אין קטגוריית כלים ב-docx).
+
+**שער לפני העברת טופס לאייל — `scripts/s006_control_triangle.py`.** חמש בדיקות, כולן נבדקו שלילית. הטופס לא עובר בלי ריצה ירוקה.
+**Version חי: 1.5.24.**
+
+### 2ב. מה נסגר ב-6.9
 
 | מה | קומיט | הערה |
 |---|---|---|
