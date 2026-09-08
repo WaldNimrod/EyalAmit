@@ -85,9 +85,14 @@ return array(
 		),
 
 		/* SNR-01 · צילום מסך מכבי מתיקיית 19.8 */
+		/* S006 · M-06 · מקור: EA-CONTENT-TRACKER.xlsx · סבב-1-ליבה!R1-28 «הערות אייל» —
+		   «התמונה מופיעה בדף אבל מאוד קטנה ואי אפשר לקרוא מה כתוב שם. צריך להגדיל
+		   את התמונה פי 2 לפחות». doc מציג את המסמך בעמודה אחת ובלי חיתוך.
+		   הקובץ עצמו לא הוחלף — הוא כבר 1294×781, רק הוצג בשליש רוחב. אפס שינוי טקסט. */
 		array(
 			'part' => 'gallery',
 			'args' => array(
+				'doc'   => true,
 				'items' => array(
 					array(
 						'image' => 'assets/images/chapters/snoring/maccabi.jpg',
@@ -164,9 +169,14 @@ return array(
 		),
 
 		/* SNR-02 · התכתבות וואטסאפ מתיקיית 19.8 · שם איש הקשר כבר מטושטש בקובץ */
+		/* S006 · M-06 · מקור: EA-CONTENT-TRACKER.xlsx · סבב-1-ליבה!R1-28 «הערות אייל» —
+		   «התמונה מאוד קטנה ולא ניתן לקרוא את כולה.. היא חתוכה».
+		   «חתוכה» הוא aspect-ratio:4/3 + object-fit:cover על צילום מסך לאורך 1080×2032;
+		   doc מבטל את שניהם ומציג את ההתכתבות במלואה. אפס שינוי טקסט. */
 		array(
 			'part' => 'gallery',
 			'args' => array(
+				'doc'   => true,
 				'items' => array(
 					array(
 						'image' => 'assets/images/chapters/snoring/yoni-whatsapp.jpg',

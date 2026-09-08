@@ -2,7 +2,13 @@
 /**
  * Chapters part — image gallery grid (.gallery / .gfig). A responsive masonry-ish
  * grid of figures (image + optional caption). Also reusable for book galleries.
- * $args: chap, title, lead, alt (bg, default true), id, items[ { image, alt, cap, pending, pending_label } ]
+ * $args: chap, title, lead, alt (bg, default true), id, doc (bool), items[ { image, alt, cap, pending, pending_label } ]
+ *
+ * `doc` marks the gallery as a single document meant to be READ rather than a grid of
+ * photos: it adds .gallery--doc, which drops to one column and removes the 4:3 crop.
+ * It is an explicit opt-in and is deliberately NOT inferred from a one-item list — a
+ * future single-image gallery elsewhere must keep rendering exactly as it does today.
+ * Without the argument every consumer's markup is unchanged, byte for byte.
  *
  * Items with pending=true (or empty image + pending) render a glowing
  * «ממתין לאישור» slot instead of skipping.
@@ -20,7 +26,7 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
 		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
-		<div class="gallery r">
+		<div class="gallery<?php echo ! empty( $a['doc'] ) ? ' gallery--doc' : ''; ?> r">
 			<?php
 			foreach ( $items as $it ) :
 				$is_pending = ! empty( $it['pending'] );
