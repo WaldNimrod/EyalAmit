@@ -781,6 +781,55 @@ def thaw_needed_he(rec: dict) -> str:
     )
 
 
+def _status_for_eyal_html(model) -> str:
+    """Plain-language status at the very top of the form.
+
+    team_00: Eyal opens the form and must immediately understand what changed
+    since his last review and what is being asked of him — client-facing, no
+    row keys, no file names, no version numbers. Everything here is written from
+    the tracker and from what is actually live, so it cannot drift from the
+    pages he is about to look at.
+    """
+    o = STAGING_ORIGIN
+    n = (model.get("counts") or {}).get("eyal") or 0
+    return (
+        '<section class="s006-round-today" aria-label="מה השתנה מאז ההערות שלך">\n'
+        '<p class="s006-round-today__date">עדכון מצב · 8.9.2026</p>\n'
+        "<h2>מה השתנה מאז ההערות שלך</h2>\n"
+        "<p>קיבלנו את ההערות ששלחת, וכולן טופלו. חמישה עמודים תוקנו ועלו לאתר "
+        "הבדיקה, ובשני נושאים גילינו שמה שביקשת כבר קיים ועובד — כדאי שתסתכל שוב "
+        "לפני שתסמן.</p>\n"
+        "<h3>תוקן ועלה לאתר</h3>\n"
+        "<ul>\n"
+        '<li><strong><a href="' + o + '/shop/" target="_blank" rel="noopener">חנות</a></strong>'
+        " — הטקסט שביקשת עבר לראש העמוד מתחת לכותרת, והבלוק שחזר על עצמו הוסר.</li>\n"
+        '<li><strong><a href="' + o + '/contact/" target="_blank" rel="noopener">צור קשר</a></strong>'
+        " — השדה «נושא הפנייה» הוסר מהטופס.</li>\n"
+        '<li><strong><a href="' + o + '/eyal-amit/mokesh-dahiman/" target="_blank" rel="noopener">'
+        "מוקש דהימן</a></strong> — נוסף נגן של הסרט ליד טקסט הפתיחה, נוסף הכיתוב "
+        "מתחת לתמונה, והבלוק «תחנות בדרכו של מוקש» ירד לתחתית העמוד מתחת לגלריה.</li>\n"
+        '<li><strong><a href="' + o + '/faq/" target="_blank" rel="noopener">שאלות נפוצות</a>'
+        "</strong> — כשלוחצים על נושא בראש העמוד, הכותרת כבר לא מוסתרת.</li>\n"
+        '<li><strong><a href="' + o + '/snoring-sleep-apnea/" target="_blank" rel="noopener">'
+        "נחירות ודום נשימה</a></strong> — שתי התמונות הוגדלו יותר מפי שניים, ומוצגות "
+        "במלואן בלי חיתוך.</li>\n"
+        "</ul>\n"
+        "<h3>שני דברים שכבר היו תקינים</h3>\n"
+        "<ul>\n"
+        "<li><strong>החצים בקרוסלת ההמלצות</strong> — ביקשת חצים שיאפשרו לעצור ולהזיז "
+        "ידנית במקום תנועה אוטומטית. הם קיימים ועובדים בכל העמודים, כבר מלפני ההערות "
+        "שלך. סביר שראית גרסה ישנה של האתר.</li>\n"
+        "<li><strong>מספר ההמלצות</strong> — בטיפול, בשיעורים ובסאונד הילינג המספר כבר "
+        "בדיוק מה שביקשת. בדף הבית מוצגות 15 מתוך 16, ובעמוד הכלים 3 — שתי אלה מופיעות "
+        "למטה כשאלה.</li>\n"
+        "</ul>\n"
+        f"<p><strong>מה מחכה לך כאן:</strong> {n} סעיפים לסימון. ברובם רק לבחור "
+        "אפשרות מהרשימה; רק במעטים צריך להוסיף טקסט או קובץ. אין צורך לענות על הכול "
+        "בבת אחת — התשובות נשמרות במחשב שלך.</p>\n"
+        "</section>\n"
+    )
+
+
 def _round_today_html() -> str:
     """Dated banner for the 21.8.2026 content round. Keep above the original intro."""
     o = STAGING_ORIGIN
@@ -1133,6 +1182,7 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     html += nav("s006-review")
     html += '<div class="wrap s006-wrap">\n'
     html += "<h1>אישור עמודים — סבב 1</h1>\n"
+    html += _status_for_eyal_html(model)
     html += _round_today_html()
     html += _context_html(model)
     if model.get("nimrodItems"):
