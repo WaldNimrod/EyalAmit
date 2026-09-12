@@ -53,7 +53,10 @@ LIVE_MARKERS = {
 # words, so the honest assertion is that the field IS present. When the page is
 # actually fixed, this moves back into ABSENT and the form text changes with it —
 # either one alone breaks the gate, which is the point.
-ABSENT: set[str] = set()
+# D-8 shipped: the free-text subject is gone, replaced by a required dropdown, so
+# the placeholder string must be absent again. Flipping this back together with the
+# form text is the whole point — either one alone breaks the gate.
+ABSENT: set[str] = {'R1-23'}
 
 
 def rows(name):
