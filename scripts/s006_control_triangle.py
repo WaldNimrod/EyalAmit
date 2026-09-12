@@ -38,11 +38,22 @@ BASE = 'http://eyalamit-co-il-2026.s887.upress.link'
 LIVE_MARKERS = {
     'R1-10': ('phero__lede', 'שלוש הפסקאות בהירו'),
     'R1-22': ('youtube-nocookie', 'נגן הסרט'),
-    'R1-23': ('ea-cf-topic', 'שדה «נושא הפנייה» — חייב להיעדר'),
+    # Assert the words Eyal wrote, not the id of the element we edited. The first
+    # version of this check looked for ea-cf-topic and passed — while the live CF7
+    # form carried its own «נושא הפנייה» field under a different name. It proved our
+    # patch landed; it never checked the thing he complained about.
+    'R1-23': ('נושא הפנייה', 'שדה «נושא הפנייה» — חייב להיעדר מהעמוד'),
     'R1-25': ('ea-faq-toc.js', 'סקריפט תפריט הנושאים'),
     'R1-28': ('gallery--doc', 'תצוגת מסמך מוגדלת'),
 }
-ABSENT = {'R1-23'}          # markers that must NOT appear
+# Markers that must NOT appear. The gate asserts that the form and the site AGREE
+# — not that every page is finished. /contact/ is genuinely not fixed: the live CF7
+# form carries its own «נושא הפנייה» field, seeded outside the theme, so M-02's patch
+# to the fallback markup no longer reaches the page. The form now says so in plain
+# words, so the honest assertion is that the field IS present. When the page is
+# actually fixed, this moves back into ABSENT and the form text changes with it —
+# either one alone breaks the gate, which is the point.
+ABSENT: set[str] = set()
 
 
 def rows(name):
