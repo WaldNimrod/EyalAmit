@@ -12,6 +12,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Bump to re-apply the form definition to the already-seeded form. 2 = D-8 dropdown.
+if ( ! defined( 'EA_W2_15_CF7_REV' ) ) {
+	define( 'EA_W2_15_CF7_REV', 2 );
+}
+
 /**
  * Ensure the contact form exists; return its post ID (0 if CF7 not available yet).
  */
@@ -20,11 +25,27 @@ function ea_w2_15_cf7_ensure_form() {
 		return 0;
 	}
 
+	/*
+	 * S006 D-8 · team_00 2026-09-12 — «נושא» becomes a dropdown and the mail subject
+	 * is built from the selection plus a fixed phrase.
+	 *
+	 * The original guard returned an existing form untouched, so editing the template
+	 * here could never reach a site that had already been seeded — which is why the
+	 * free-text subject field stayed live long after we thought we had removed it.
+	 * The definition is versioned now: the same form id is kept, and its properties
+	 * are re-applied whenever EA_W2_15_CF7_REV moves. Bump the constant to ship a
+	 * change; leave it alone and this stays a no-op on every request.
+	 */
 	$existing = (int) get_option( 'ea_w2_15_cf7_form_id', 0 );
+	$rev_seen = (int) get_option( 'ea_w2_15_cf7_rev', 0 );
 	if ( $existing > 0 ) {
 		$p = get_post( $existing );
 		if ( $p && 'wpcf7_contact_form' === $p->post_type && 'trash' !== $p->post_status ) {
-			return $existing;
+			if ( $rev_seen >= EA_W2_15_CF7_REV ) {
+				return $existing;
+			}
+		} else {
+			$existing = 0;
 		}
 	}
 
@@ -37,14 +58,14 @@ function ea_w2_15_cf7_ensure_form() {
 		'<p class="ea-cf7-row"><label>שם מלא<br />[text* your-name autocomplete:name placeholder "שם מלא"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>טלפון<br />[tel your-phone autocomplete:tel placeholder "טלפון"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>אימייל<br />[email* your-email autocomplete:email placeholder "אימייל"]</label></p>' . "\n" .
-		'<p class="ea-cf7-row"><label>נושא<br />[text your-subject placeholder "נושא הפנייה"]</label></p>' . "\n" .
+		'<p class="ea-cf7-row"><label>נושא<br />[select* your-subject "טיפול בדיג\'רידו" "שיעורי נגינה" "סאונד הילינג" "רכישת כלי" "רכישת ספר" "תיקון כלי" "אחר"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>הודעה<br />[textarea your-message placeholder "ספרו לנו במה נוכל לעזור"]</label></p>' . "\n" .
 		'<p class="ea-cf7-submit">[submit "שליחה"]</p>' . "\n" .
 		'</div>';
 
 	$mail = array(
 		'active'             => true,
-		'subject'            => 'פנייה חדשה מהאתר: [your-subject]',
+		'subject'            => '[your-subject] — פניה מטופס צור קשר באתר',
 		'sender'             => sprintf( '%s <wordpress@%s>', $blogname, $host ),
 		'recipient'          => $admin_email,
 		'body'               => "פנייה חדשה מאתר אייל עמית:\n\n"
@@ -60,7 +81,12 @@ function ea_w2_15_cf7_ensure_form() {
 		'exclude_blank'      => false,
 	);
 
-	$form  = WPCF7_ContactForm::get_template( array( 'title' => 'צור קשר — אייל עמית' ) );
+	$form = $existing > 0
+		? WPCF7_ContactForm::get_instance( $existing )
+		: WPCF7_ContactForm::get_template( array( 'title' => 'צור קשר — אייל עמית' ) );
+	if ( ! $form ) {
+		return 0;
+	}
 	$props = $form->get_properties();
 	$props['form'] = $form_markup;
 	$props['mail'] = $mail;
@@ -70,6 +96,7 @@ function ea_w2_15_cf7_ensure_form() {
 	$id = $form->save();
 	if ( $id ) {
 		update_option( 'ea_w2_15_cf7_form_id', (int) $id );
+		update_option( 'ea_w2_15_cf7_rev', EA_W2_15_CF7_REV );
 		return (int) $id;
 	}
 	return 0;
