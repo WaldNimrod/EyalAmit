@@ -380,6 +380,17 @@ function ea_wave2_render_contact_form() {
  * Floating WhatsApp CTA (variant controlled by ea-ab-testing.js).
  */
 function ea_wave2_render_whatsapp_float() {
+	/*
+	 * S006 R1-23 · team_00 12.9.2026 — Eyal: «יש בדף שני כפתורים המובילים לוואצאפ.
+	 * צריך למחוק כפתור אחד.» Both point at the same number; the duplication is on
+	 * /contact/, where this floating CTA sits alongside the in-content one. The
+	 * float is suppressed there only — the page's whole purpose is getting in
+	 * touch, and it already carries a form and a WhatsApp pill. Every other page
+	 * keeps it exactly as before.
+	 */
+	if ( is_page( 'contact' ) ) {
+		return;
+	}
 	$url = ea_wave2_wa_url();
 	?>
 	<a class="ea-whatsapp-float"
