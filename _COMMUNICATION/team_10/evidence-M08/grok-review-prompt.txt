@@ -1,0 +1,84 @@
+You are reviewing an UNCOMMITTED change to scripts/s006_review_form.py in this repo,
+made in response to a separate audit's findings. Your job is to independently determine
+whether the claimed pre-existing defects were real, and whether the diff actually fixes
+them without introducing new problems. Do not take the framing below on faith — verify
+each claim yourself against the actual repo and the actual generated output. An empty or
+skipped check is not a PASS; say explicitly what you did not check.
+
+Context: scripts/build_eyal_client_hub.py imports page_s006_review() from
+scripts/s006_review_form.py and writes its output to hub/dist/s006-review.html — a
+review form meant to be sent to an external client (Eyal) so he can approve or flag
+site changes. hub/dist/ is gitignored (build output), so `git diff` only shows the
+source change; you will need to actually run the build to see the generated HTML
+before/after.
+
+Three claimed pre-existing defects, and the fix each is supposed to produce:
+
+1. UNDERCOUNT: load_model() builds `open_items` (real tracker rows where the waiter
+   is Eyal, status is a NEED status, and the ask text is non-empty) and separately
+   builds `pages` (only pages whose tracker machine-status is exactly "הוגש לבדיקה").
+   _page_html() only renders an item if its page is in `pages`. Some open_items belong
+   to pages NOT in `pages` (already approved earlier), so those items were counted in
+   counts.eyal / cfg.items (used for the "X מתוך N" progress text) but never rendered
+   as visible cards. Claim: before the fix, 6 of 13 open_items had no corresponding
+   `.s006-item--need` element anywhere in the rendered HTML, so the page's own text
+   ("X סעיפים לסימון", and "שתי אלה מופיעות למטה כשאלה" in the round-today block)
+   was promising something the page didn't deliver. The fix adds `orphanItems` (open
+   items whose page isn't in `pages`) and renders them in a new dedicated section.
+
+2. INTERNAL CONTENT REACHABLE FROM THE CLIENT COPY: page_s006_review() used to render
+   a jump-link ("נימרוד · שבע הכרעות לסבב 2 (פנימי, לא לאייל)") and a full
+   _nimrod_section_html() section with Nimrod's own round-2 decisions (redirect policy,
+   page-freeze decisions) directly inside the SAME html returned by page_s006_review()
+   — i.e. inside the file actually sent to Eyal. The section had a text kicker saying
+   "פנימי · לא למילוי אייל" but no `hidden` attribute, no gate, nothing stopping Eyal
+   from clicking the link or scrolling into it. The embedded JSON config
+   (`window.S006_CONFIG`) also carried the title/ask text of those 7 items, visible via
+   view-source even without clicking through. The fix removes the jump-link and the
+   _nimrod_section_html() call from page_s006_review() specifically (that function's
+   output is what ships to Eyal) and hardcodes cfg.nimrodItems to `[]` in that same
+   function, while leaving _nimrod_section_html()'s other call site (inside
+   page_s006_r2_review(), a different generated page) untouched.
+
+3. INACCURATE STATUS TEXT: the static "מה השתנה" summary claimed a video player was
+   added "ליד טקסט הפתיחה" (next to the opening text) on
+   /eyal-amit/mokesh-dahiman/. Live measurement (not part of this diff — already done
+   by someone else) found the actual controllable/watchable embed sits ~900px below
+   the opening heading+paragraph, well past an additional full paragraph, on the live
+   site http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/ — only a
+   muted, control-less, autoplay hero BACKGROUND video is actually beside the opening
+   text. The fix rewords the static sentence in scripts/s006_review_form.py to stop
+   claiming proximity it doesn't have. This one you can verify directly against the
+   live URL if you have network access from this shell; if you don't, say so rather
+   than silently skipping it.
+
+What to actually do:
+
+- Read the diff: `git diff -- scripts/s006_review_form.py`.
+- To see the PRE-fix behavior, either `git stash` and rebuild, or check out the
+  committed version into a scratch copy and rebuild that — your choice, but be
+  explicit in your report which method you used.
+- Rebuild with the fix in place: `python3 scripts/build_eyal_client_hub.py` (writes to
+  hub/dist/, gitignored, safe to regenerate). Then inspect hub/dist/s006-review.html
+  directly (grep / read the file) for:
+  - How many elements have class `s006-item--need`, and does that match the
+    `items.length` inside the inline `window.S006_CONFIG=...` script tag.
+  - Whether `#nimrod-decisions`, `.s006-nimrod-jump`, or `.s006-nimrod-board` still
+    appear anywhere in the file, and what `cfg.nimrodItems` actually contains.
+  - The exact current wording of the mokesh-dahiman line in the "מה השתנה" block.
+- Do the same checks against the PRE-fix build to confirm the defects were real
+  (not just assumed) — a diff that "fixes" something that was never broken is itself
+  a finding worth reporting.
+- Check the diff for anything else wrong: a Python syntax/logic error, a change that
+  silently alters unrelated pages/output, a regression to the 15-page approval flow,
+  broken f-string interpolation, an item that would now render twice, anything.
+- `python3 -m py_compile scripts/s006_review_form.py` is not sufficient on its own —
+  it only proves the file parses, not that page_s006_review() runs correctly or that
+  its output is well-formed. Actually run the build and read its real output.
+
+Report, per claimed defect (1, 2, 3): were the ORIGINAL symptoms real (yes/no/couldn't
+check, with what you actually looked at) — is the fix CORRECT and COMPLETE (yes/no,
+with evidence) — did you find anything NEW that's wrong. If you can't fully verify
+something (e.g. no network for the live URL), say exactly what you couldn't check
+rather than assuming it's fine. End with one line: PASS, PASS WITH NOTES, or FAIL, and
+why.

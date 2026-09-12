@@ -575,12 +575,22 @@ def load_model() -> dict:
             }
         )
 
+    # Items that legitimately belong to open_items (waiter=Eyal, real ask text, NEED
+    # status) but whose page never entered `pages` above because that page's own
+    # machine status isn't "הוגש לבדיקה" (e.g. it was approved in an earlier round).
+    # _page_html() only renders a page's items when the page itself is in `pages`,
+    # so without this these items are counted in `counts.eyal` but never shown —
+    # the page promises "counts" cards and silently delivers fewer.
+    rendered_keys = {p["key"] for p in pages}
+    orphan_items = [it for it in open_items if it["pageKey"] not in rendered_keys]
+
     eyal_n = len(open_items)
     nimrod_items = _nimrod_form_items()
     return {
         "pages": pages,
         "openItems": open_items,
         "needItems": open_items,
+        "orphanItems": orphan_items,
         "nimrodItems": nimrod_items,
         "recurring": recurring,
         "inventory": inventory,
@@ -804,7 +814,8 @@ def _status_for_eyal_html(model) -> str:
         '<li><strong><a href="' + o + '/shop/" target="_blank" rel="noopener">חנות</a></strong>'
         " — הטקסט שביקשת עבר לראש העמוד מתחת לכותרת, והבלוק שחזר על עצמו הוסר.</li>\n"
         '<li><strong><a href="' + o + '/eyal-amit/mokesh-dahiman/" target="_blank" rel="noopener">'
-        "מוקש דהימן</a></strong> — נוסף נגן של הסרט ליד טקסט הפתיחה, נוסף הכיתוב "
+        "מוקש דהימן</a></strong> — נוסף נגן אמיתי של הסרט בעמוד (בהמשך הביוגרפיה, לא "
+        "צמוד לפסקת הפתיחה — יש עליו שאלה למטה), נוסף הכיתוב "
         "מתחת לתמונה, והבלוק «תחנות בדרכו של מוקש» ירד לתחתית העמוד מתחת לגלריה.</li>\n"
         '<li><strong><a href="' + o + '/faq/" target="_blank" rel="noopener">שאלות נפוצות</a>'
         "</strong> — כשלוחצים על נושא בראש העמוד, הכותרת כבר לא מוסתרת.</li>\n"
@@ -1192,11 +1203,12 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     html += _status_for_eyal_html(model)
     html += _round_today_html()
     html += _context_html(model)
-    if model.get("nimrodItems"):
-        html += (
-            '<p class="s006-nimrod-jump"><a href="#nimrod-decisions">'
-            "נימרוד · שבע הכרעות לסבב 2 (פנימי, לא לאייל)</a></p>\n"
-        )
+    # M-08 finding 2: this page is what gets sent to Eyal. Nimrod's round-2 decision
+    # items rendered here before, behind a text label ("internal, not for Eyal") that
+    # is not a gate — the link and section were live and clickable on Eyal's own copy.
+    # That content's real home is page_s006_r2_review() (s006-r2-review.html), which
+    # this page never links to. Do not re-add a jump-link or _nimrod_section_html()
+    # call here without also keeping it out of the exported cfg below.
 
     html += '<p class="s006-section-kicker">החלק של אייל — זה סוגר את סבב 1</p>\n'
     html += (
@@ -1245,6 +1257,25 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
     for page in model["pages"]:
         html += _page_html(page)
     html += "</div>\n"
+    if model.get("orphanItems"):
+        html += '<section class="s006-orphan-items" aria-label="עוד כמה שאלות קצרות">\n'
+        html += "<h2>עוד כמה שאלות</h2>\n"
+        # M-08 Grok review caught this: the first draft said these pages were
+        # "already approved" — the tracker actually has all of them at
+        # machine=בעבודה / approval=חזר לתיקונים. Don't assert an approval state
+        # this code never checked; say only what's actually true structurally
+        # (these items' pages aren't in the 15-page list above).
+        html += (
+            "<p>השאלות האלה שייכות לעמודים שלא ברשימת חמשת-עשר העמודים למעלה, "
+            "אבל עדיין ממתינות לתשובה שלך.</p>\n"
+        )
+        page_by_key = model.get("pageByKey") or {}
+        for it in model["orphanItems"]:
+            page_title = _cell(page_by_key.get(it["pageKey"], {}), "כותרת")
+            if page_title and page_title not in it["title"]:
+                it = {**it, "title": f'{page_title} — {it["title"]}'}
+            html += _item_html(it)
+        html += "</section>\n"
     html += (
         '<div class="s006-field s006-field--page-notes">\n'
         '<label class="s006-label" for="pagenotes-GENERAL">'
@@ -1254,7 +1285,6 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         "</div>\n"
     )
 
-    html += _nimrod_section_html(model.get("nimrodItems") or [])
     html += "</div>\n"
 
     cfg = {
@@ -1263,17 +1293,11 @@ def page_s006_review(*, head, nav, foot, generated_iso: str, default_respondent:
         "items": [{"id": it["id"], "domId": it["domId"], "pageKey": it["pageKey"]} for it in model["needItems"]],
         "pages": [{"key": p["key"], "path": p.get("path") or "", "title": p.get("title") or ""} for p in model["pages"]]
         + [{"key": "GENERAL", "path": "", "title": "הערות כלליות"}],
-        "nimrodItems": [
-            {
-                "id": it["id"],
-                "domId": it["domId"],
-                "pageKey": it["pageKey"],
-                "title": it.get("title") or "",
-                "ask": it.get("ask") or "",
-                "path": it.get("path") or "",
-            }
-            for it in (model.get("nimrodItems") or [])
-        ],
+        # Nimrod's round-2 items are deliberately omitted here — see the note above
+        # this function's nimrod-jump-link removal. This is Eyal's copy; embedding
+        # their title/ask text in this JSON blob would leak it via view-source even
+        # with no visible section to click through to.
+        "nimrodItems": [],
         "defaultRespondent": default_respondent,
         "generatedAt": generated_iso,
         "storageKey": "ea-s006-review-v2",

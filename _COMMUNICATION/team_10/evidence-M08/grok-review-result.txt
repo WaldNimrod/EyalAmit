@@ -1,0 +1,74 @@
+Independent review against the actual tracker, a **pre-fix rebuild**, and a **post-fix rebuild**. Method: I copied `HEAD` of `/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/scripts/s006_review_form.py` over the working tree, ran `python3 scripts/build_eyal_client_hub.py`, saved `hub/dist/s006-review.html` and `s006-r2-review.html` to `/tmp/s006-review-audit/BEFORE-*`, then restored the uncommitted file and rebuilt to `/tmp/s006-review-audit/AFTER-*`. Not a stash.
+
+---
+
+### 1. UNDERCOUNT — original symptoms: **yes**. Fix: **partial**.
+
+**Original was real.** `load_model()` really does keep every Eyal NEED item in `open_items` / `counts.eyal`, while `pages` only includes machine status `הוגש לבדיקה`. Pre-fix HTML:
+
+- `counts.eyal` / progress text: **13** (`מה מחכה לך כאן: 13 סעיפים לסימון`)
+- `window.S006_CONFIG.items.length`: **13**
+- `.s006-item--need` cards: **7**
+- Missing 6: `R1-01/H-16`, `R1-26/TST-D3`, `R1-02/TRT-D4`, `R1-04/LSN-D4`, `R1-05/SH-D4`, `R1-12/DG-06`
+
+That is exactly 6 of 13. The “שתי אלה מופיעות למטה כשאלה” line (home + tools) pointed at two of those missing cards.
+
+The parenthetical in the claim — “pages already approved earlier” — is **wrong for current tracker data**. All six orphan pages are `סטטוס מכונה=בעבודה` and `סטטוס אישור=חזר לתיקונים`, not approved. They are omitted because they are not `הוגש לבדיקה`.
+
+**Fix does close the count gap.** After rebuild: **13** `.s006-item--need` cards, **13** `cfg.items`, no duplicate `id`s, no item in both a page card and the orphan section. 15 page sections / 15 approve fieldsets unchanged. `s006-r2-review.html` is identical after stripping the generated timestamp.
+
+**Not complete / new problem:** the new section tells Eyal something false:
+
+> “עוד כמה שאלות — בעמודים שכבר אושרו”  
+> “העמודים האלה כבר אושרו קודם, אבל נשארה בהם שאלה קטנה אחת…”
+
+Those six pages were returned for corrections. Three cards share the title `מספר ההמלצות בעמוד` with no page title or live URL (only item codes `TRT-D4` / `LSN-D4` / `SH-D4`). The TOC still lists only the 15 submitted pages, so the orphan block is easy to miss. Pattern chips in `/Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/hub/src/assets/s006-review.js` only walk `.s006-page`, so they never hide/show orphan cards.
+
+I did **not** click-fill/export the form in a browser. JS `readItem()` keys off `#item-{domId}`, which now exists for all 13, so export should see them; that is code reading, not a click-through.
+
+---
+
+### 2. INTERNAL CONTENT ON THE CLIENT COPY — original: **yes**. Fix: **yes**.
+
+**Original was real.** Pre-fix `s006-review.html` had:
+
+- jump link `.s006-nimrod-jump` (“נימרוד · שבע הכרעות לסבב 2 (פנימי, לא לאייל)”)
+- `#nimrod-decisions` / `.s006-nimrod-board` with 7 `.s006-item--nimrod` cards
+- `cfg.nimrodItems` length **7**, each with `title` and `ask` (e.g. “א. אודות מול אייל עמית”, “301 אל אייל עמית”)
+
+No `hidden` attribute. A text kicker is not a gate.
+
+**Fix is correct for this page.** After rebuild: zero `#nimrod-decisions`, `.s006-nimrod-jump`, `.s006-nimrod-board`, `R2-N-*` cards, or nimrod title/ask strings. `cfg.nimrodItems` is `[]`. `page_s006_r2_review()` still calls `_nimrod_section_html()` at line 2022; that page currently has 0 nimrod items in the tracker, so both before and after r2 HTML have no nimrod board — call site untouched, as claimed.
+
+---
+
+### 3. INACCURATE MOKESH STATUS TEXT — original: **yes**. Fix: **yes for the static sentence; leftover contradiction elsewhere**.
+
+Network was available. I fetched `http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/` (HTTP 200) and measured layout in headless Chrome at 1440×900.
+
+| Element | `top` (px) |
+|---|---|
+| Hero background YT (`aria-hidden`, `autoplay=1`, `mute=1`, `controls=0`) | covers hero 0–792 |
+| `h1.phero__h` “מי היה מוקש דהימן?” | 523 |
+| Opening `p.phero__s` | 607–711 |
+| Extra intro section, **three** paragraphs | 930–1254 |
+| Watchable iframe `.figr iframe` (YouTube, allowfullscreen, no mute/autoplay in src) | **1491** |
+
+Delta watchable iframe − h1 = **969px**. After the opening paragraph there is a full extra biography block, then the real player. The pre-fix sentence “נגן של הסרט ליד טקסט הפתיחה” was false.
+
+After: that static `<li>` is reworded to “נגן אמיתי של הסרט בעמוד (בהמשך הביוגרפיה, לא צמוד לפסקת הפתיחה — יש עליו שאלה למטה)”. That matches the live layout.
+
+**Not fully cleaned:** item `MK-08` (still on submitted page R1-22, so it *is* “למטה”) still says “אנחנו מוסיפים נגן אמיתי שאפשר לצפות בו **ליד הפתיחה**”. That string comes from the tracker snapshot, not this diff, but the summary now contradicts the question it points at.
+
+---
+
+### Other checks
+
+- `python3 scripts/build_eyal_client_hub.py` ran successfully both times (not just `py_compile`).
+- No double-rendered items, no broken f-strings in the new block, r2 output unchanged, 15-page approval board unchanged.
+- Pre-existing, **not introduced**: subtitle still says “שאלה פתוחה אחת נשארה בשאלות נפוצות” while the same page promises 13 items.
+- No CSS for `.s006-orphan-items` in `hub/src/assets/hub.css`; cards still use `.s006-item`, so this is cosmetic unless someone expected a distinct layout.
+
+**Not checked:** clicking/exporting the live form; visual screenshot of `s006-review.html` itself; FTP publish of `hub/dist/` (gitignored rebuild only).
+
+**PASS WITH NOTES** — all three original defects were real and the diff fixes the count leak, the Nimrod leak on Eyal’s copy, and the static mokesh proximity claim; it also tells Eyal the six newly shown questions sit on “already approved” pages, which the tracker shows as returned-for-corrections (`בעבודה` / `חזר לתיקונים`).Those two headless Chrome probes had already printed the layout numbers I used in the review (watchable player at **1491px**, **969px** below the h1). They then hung on shutdown; I killed them. Nothing in the PASS WITH NOTES verdict depended on them exiting cleanly.
