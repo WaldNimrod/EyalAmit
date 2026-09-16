@@ -684,9 +684,23 @@ body.nav-locked{overflow:hidden}
 
 /* 6) TESTIMONIALS — manual left/right carousel (S006 wave 5). No auto-scroll. */
 .testi-mq{margin-top:54px;position:relative;display:flex;align-items:center;gap:10px}
-.testi-mq__viewport{flex:1;min-width:0;overflow:hidden}
+/* RTL fix (Nimrod, live in an Eyal meeting, 2026-09-16): .testi-mq__track sets its
+   own direction:ltr so cards read left-to-right and translateX(-index*step()) can
+   reveal them in source order, but that only governs the track's OWN flex children —
+   the track's *box* is still a wider-than-container block sitting in an RTL-inherited
+   viewport, so it passively right-aligns and card 0 starts off-screen to the left at
+   index 0. direction:ltr on the viewport (the actual containing block) fixes the
+   alignment, so transform:translateX(0) shows card 0 flush at the start as the JS
+   assumes. */
+.testi-mq__viewport{flex:1;min-width:0;overflow:hidden;direction:ltr}
 .testi-mq__track{display:flex;gap:24px;width:max-content;direction:ltr;transition:transform .45s var(--e, ease)}
-.testi-mq__btn{flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--ivory);color:var(--terra);font-size:1.6rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+/* Same date/reason: U+2039/U+203A (‹ ›) are Unicode-mirrored punctuation, so inside
+   an RTL run the browser silently swaps which glyph shape renders for which
+   character — the button classed --right (›, "move right") visually showed a
+   left-pointing chevron and vice versa. direction:ltr on the button stops the glyph
+   from being mirrored; it doesn't affect the (decorative, aria-hidden) icon's
+   meaning or the button's own aria-label. */
+.testi-mq__btn{flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--ivory);color:var(--terra);font-size:1.6rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;direction:ltr}
 .testi-mq__btn:hover,.testi-mq__btn:focus-visible{background:var(--terra);color:#fff;border-color:var(--terra)}
 .testi-mq__btn:disabled{opacity:.35;cursor:default;background:var(--ivory);color:var(--terra);border-color:var(--line)}
 .testi-mq__btn--left{order:3}
