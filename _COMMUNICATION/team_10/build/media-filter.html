@@ -57,10 +57,7 @@
   .tile .marks button.on-maybe{background:var(--maybe);color:#fff;border-color:var(--maybe)}
   .tile select, .tile textarea, .tile input[type=text]{width:100%;font-size:12px;border:1px solid var(--line);border-radius:4px;margin-top:4px;font-family:inherit;padding:4px}
   .tile textarea{resize:vertical;min-height:36px}
-  .tile .meta-block{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
-  .tile .meta-block label{display:block;font-size:10px;color:var(--muted);margin-top:5px}
-  .tile .meta-approve{display:flex;align-items:center;gap:5px;margin-top:6px;font-size:11px}
-  .tile .meta-missing{font-size:11px;color:var(--no);margin-top:6px}
+  .tile .meta-summary{font-size:11px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
   #sentinel-tpl{height:1px}
   .loadstatus{text-align:center;color:var(--muted);padding:16px}
   .kbd-hint{color:var(--muted);font-size:12px}
@@ -77,12 +74,22 @@
   .lightbox-nav button{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:14px;cursor:pointer}
   .lightbox-nav button:disabled{opacity:.35;cursor:default}
   .lightbox-pos{color:var(--muted);font-size:13px}
-  .lightbox-fields{flex:1 1 320px;min-width:280px}
+  /* Nimrod, 2026-09-17: every field in the lightbox one below the other, and
+     everything right-aligned (RTL reading start) — no side-by-side layout. */
+  .lightbox-fields{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;text-align:right}
+  .lightbox-fields > *{width:100%;text-align:right}
   .lightbox-fields .id{font-size:13px}
   .lightbox-fields .colls{font-size:13px;margin-bottom:10px}
-  .lightbox-fields .marks button{font-size:14px;padding:9px 4px}
-  .lightbox-fields select,.lightbox-fields textarea,.lightbox-fields input[type=text]{font-size:14px}
+  .lightbox-fields .marks{display:flex;gap:6px}
+  .lightbox-fields .marks button{flex:1;font-size:14px;padding:9px 4px;text-align:center}
+  .lightbox-fields select,.lightbox-fields textarea,.lightbox-fields input[type=text]{width:100%;box-sizing:border-box;font-size:14px;text-align:right;margin-bottom:10px}
   .lightbox-fields textarea{min-height:70px}
+  .lightbox-fields label{display:block;font-size:12px;color:var(--muted);margin-top:6px;text-align:right}
+  .lightbox-fields .meta-block{margin-top:14px;padding-top:12px;border-top:2px solid var(--line)}
+  .lightbox-fields .meta-status{font-size:12px;margin-bottom:8px}
+  .lightbox-fields .meta-status--found{color:var(--need)}
+  .lightbox-fields .meta-status--missing{color:var(--maybe)}
+  .lightbox-fields .meta-approve{display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:6px;margin-top:4px;font-size:13px}
 </style>
 </head>
 <body>
@@ -248,7 +255,12 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
   // `container` and returns {marks, note, sel} so the caller can refresh them
   // on external state changes (e.g. markAndAdvance updating a tile that isn't
   // the one the user clicked).
-  function attachFields(container, im, idx, gallery){
+  // mode: 'compact' (grid tile — display-only metadata, no inputs) or
+  // 'full' (lightbox — every metadata field editable, one per row, for every
+  // old-site image whether or not a match was found. Nimrod, 2026-09-17:
+  // Eyal himself needs somewhere to type this in later, so the fields must
+  // exist even when empty — a missing-data message alone isn't a field.)
+  function attachFields(container, im, idx, gallery, mode){
     var idEl = document.createElement('div');
     idEl.className = 'id';
     idEl.textContent = im.id;
@@ -287,22 +299,43 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
     note.addEventListener('input', function(){ setItem(im.id, {note: note.value}); });
     container.appendChild(note);
 
-    // Old-site metadata — display + edit/approve, per Nimrod: SEO preservation,
-    // import all metadata, allow approving or editing it for chosen images.
+    // Old-site metadata. Nimrod, 2026-09-17: fields must exist for EVERY
+    // old-site image, found or not — someone (Eyal, later) needs a place to
+    // type this in, not just a "missing" message. Grid tile: compact,
+    // display-only summary. Lightbox: one real editable field per data point.
     if (im.collections.indexOf('old-site') !== -1) {
-      var block = document.createElement('div');
-      block.className = 'meta-block';
-      var hasMeta = im.oldSiteMeta && (im.oldSiteMeta.alt_text || im.oldSiteMeta.title || im.oldSiteMeta.caption);
-      if (hasMeta) {
-        var titleLbl = document.createElement('label'); titleLbl.textContent = 'כותרת (מהאתר הישן)';
-        var titleInp = document.createElement('input'); titleInp.type = 'text';
-        var altLbl = document.createElement('label'); altLbl.textContent = 'טקסט alt (מהאתר הישן)';
-        var altInp = document.createElement('input'); altInp.type = 'text';
-        var capLbl = document.createElement('label'); capLbl.textContent = 'כיתוב (מהאתר הישן)';
-        var capInp = document.createElement('input'); capInp.type = 'text';
-        block.appendChild(titleLbl); block.appendChild(titleInp);
-        block.appendChild(altLbl); block.appendChild(altInp);
-        block.appendChild(capLbl); block.appendChild(capInp);
+      var hasMeta = !!(im.oldSiteMeta && (im.oldSiteMeta.alt_text || im.oldSiteMeta.title || im.oldSiteMeta.caption || im.oldSiteMeta.description));
+      var saved = state.items[im.id] || {};
+
+      if (mode === 'full') {
+        var block = document.createElement('div');
+        block.className = 'meta-block';
+        var status = document.createElement('div');
+        status.className = hasMeta ? 'meta-status meta-status--found' : 'meta-status meta-status--missing';
+        status.textContent = hasMeta ? 'נמצאה מטא-דאטה באתר הישן — ניתן לערוך.' : 'לא נמצאה מטא-דאטה באתר הישן לתמונה הזו — אפשר למלא כאן ידנית.';
+        block.appendChild(status);
+
+        var fieldsSpec = [
+          ['metaTitle', 'title', 'כותרת (מהאתר הישן)', 'input'],
+          ['metaAlt', 'alt_text', 'טקסט alt (מהאתר הישן)', 'input'],
+          ['metaCaption', 'caption', 'כיתוב (מהאתר הישן)', 'textarea'],
+          ['metaDescription', 'description', 'תיאור (מהאתר הישן)', 'textarea']
+        ];
+        var inputs = {};
+        fieldsSpec.forEach(function(spec){
+          var stateKey = spec[0], metaKey = spec[1], label = spec[2], tag = spec[3];
+          var lbl = document.createElement('label');
+          lbl.textContent = label;
+          block.appendChild(lbl);
+          var field = document.createElement(tag);
+          if (tag === 'input') field.type = 'text';
+          field.value = (saved[stateKey] != null ? saved[stateKey] : '') || (im.oldSiteMeta && im.oldSiteMeta[metaKey]) || '';
+          field.addEventListener('input', function(){
+            var patch = {}; patch[stateKey] = field.value; setItem(im.id, patch);
+          });
+          block.appendChild(field);
+          inputs[stateKey] = field;
+        });
 
         var approveWrap = document.createElement('div');
         approveWrap.className = 'meta-approve';
@@ -310,6 +343,8 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
         approveChk.type = 'checkbox';
         var approveId = 'approve-' + im.id + '-' + Math.random().toString(36).slice(2,7);
         approveChk.id = approveId;
+        approveChk.checked = !!saved.metaApproved;
+        approveChk.addEventListener('change', function(){ setItem(im.id, {metaApproved: approveChk.checked}); });
         var approveLbl = document.createElement('label');
         approveLbl.htmlFor = approveId;
         approveLbl.textContent = 'אושר לשימוש כמו שהוא';
@@ -317,31 +352,14 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
         approveWrap.appendChild(approveLbl);
         block.appendChild(approveWrap);
 
-        function persistMeta(){
-          setItem(im.id, {
-            metaTitle: titleInp.value,
-            metaAlt: altInp.value,
-            metaCaption: capInp.value,
-            metaApproved: approveChk.checked
-          });
-        }
-        titleInp.addEventListener('input', persistMeta);
-        altInp.addEventListener('input', persistMeta);
-        capInp.addEventListener('input', persistMeta);
-        approveChk.addEventListener('change', persistMeta);
-
-        var savedForMeta = state.items[im.id];
-        titleInp.value = (savedForMeta && savedForMeta.metaTitle) || im.oldSiteMeta.title || '';
-        altInp.value = (savedForMeta && savedForMeta.metaAlt) || im.oldSiteMeta.alt_text || '';
-        capInp.value = (savedForMeta && savedForMeta.metaCaption) || im.oldSiteMeta.caption || '';
-        approveChk.checked = !!(savedForMeta && savedForMeta.metaApproved);
+        container.appendChild(block);
       } else {
-        var missing = document.createElement('div');
-        missing.className = 'meta-missing';
-        missing.textContent = 'לא נמצאה מטא-דאטה מהאתר הישן לתמונה הזו.';
-        block.appendChild(missing);
+        // compact: one display-only line, no inputs — full editing lives in the lightbox.
+        var summary = document.createElement('div');
+        summary.className = 'meta-summary';
+        summary.textContent = hasMeta ? 'מטא-דאטה מהאתר הישן: קיימת (לחצו על התמונה לעריכה)' : 'מטא-דאטה מהאתר הישן: חסרה (לחצו על התמונה למילוי)';
+        container.appendChild(summary);
       }
-      container.appendChild(block);
     }
 
     var it = state.items[im.id];
@@ -379,7 +397,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
 
     var meta = document.createElement('div');
     meta.className = 'meta';
-    attachFields(meta, im, idx, gallery);
+    attachFields(meta, im, idx, gallery, 'compact');
     tile.appendChild(meta);
 
     tile.addEventListener('focus', function(){ gallery.setFocused(idx); });
@@ -460,7 +478,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
     // The lightbox's own index into `list` doubles as the gallery-relative
     // index for markAndAdvance/focus — correct as long as we always read the
     // list fresh via getFiltered(), which gallery.markAndAdvance also does.
-    attachFields(fieldsWrap, im, idx, gallery);
+    attachFields(fieldsWrap, im, idx, gallery, 'full');
 
     el.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -610,7 +628,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
     var items = [];
     images.forEach(function(im){
       var it = state.items[im.id];
-      if (it && (it.status || it.note || it.metaApproved || it.metaAlt || it.metaTitle || it.metaCaption)) {
+      if (it && (it.status || it.note || it.metaApproved || it.metaAlt || it.metaTitle || it.metaCaption || it.metaDescription)) {
         items.push({
           id: im.id,
           filename: (im.paths[0] || {}).filename || '',
@@ -623,7 +641,9 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
             title: it.metaTitle || (im.oldSiteMeta && im.oldSiteMeta.title) || '',
             altText: it.metaAlt || (im.oldSiteMeta && im.oldSiteMeta.alt_text) || '',
             caption: it.metaCaption || (im.oldSiteMeta && im.oldSiteMeta.caption) || '',
+            description: it.metaDescription || (im.oldSiteMeta && im.oldSiteMeta.description) || '',
             approved: !!it.metaApproved,
+            foundInOldSite: !!(im.oldSiteMeta),
             wpId: (im.oldSiteMeta && im.oldSiteMeta.wp_id) || null
           } : null,
           oldSitePages: im.oldSitePages || [],
