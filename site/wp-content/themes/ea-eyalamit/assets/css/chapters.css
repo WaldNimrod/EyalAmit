@@ -718,13 +718,14 @@ body.nav-locked{overflow:hidden}
 /* Nimrod, 2026-09-16: every testimonial gets a photo — real photos arrive later,
    per record, so this same placeholder stands in on every card until then (dashed
    border + muted fill so it visibly reads as "photo coming", not a broken image).
-   Square and full card width per Nimrod's follow-up (a small circular avatar read
-   as too minor for what will be a real photo). Not wired to any data field yet;
-   swap for a real <img> once photos exist — width:100% + aspect-ratio holds the
-   same slot open regardless of the actual photo's intrinsic size. */
-.tmq__avatar{width:100%;aspect-ratio:1/1;border-radius:8px;flex:0 0 auto;display:inline-flex;
+   Full card width per Nimrod's follow-up (a small circular avatar read as too
+   minor for what will be a real photo); 16:9 landscape per the round after that
+   (not square). Not wired to any data field yet; swap for a real <img> once
+   photos exist — width:100% + aspect-ratio holds the same slot open regardless
+   of the actual photo's intrinsic size. */
+.tmq__avatar{width:100%;aspect-ratio:16/9;border-radius:8px;flex:0 0 auto;display:inline-flex;
   align-items:center;justify-content:center;background:var(--ivory);border:1.5px dashed var(--line);color:var(--terra);opacity:.6}
-.tmq__avatar svg{width:38%;height:38%}
+.tmq__avatar svg{width:34px;height:34px}
 .sec--alt .tmq__avatar{background:#fff}
 .sec--alt .tmq{background:#fff}
 /* S006 · H-12 · כל עדות היא כעת שלוש שורות מפורשות של אייל (<br>), וכל שורה עלולה
@@ -738,13 +739,17 @@ body.nav-locked{overflow:hidden}
    card width. Cards now vary in height by content — .testi-mq's align-items:
    center keeps that from looking broken row-to-row. */
 .tmq__q{font-family:var(--hf);font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink)}
-/* Nimrod, 2026-09-16: name to the left (was text-align:right, RTL's default
-   start side); the little rule now a border-bottom on .tmq__n itself instead
-   of a fixed 22px ::before, so it's always exactly the name's own rendered
-   width — with or without the tmq__nl link inside — and sits directly under
-   it. align-self:flex-end is the physical left edge in this RTL flex column
-   (.tmq), regardless of text direction, so the name+rule move as one unit. */
-.tmq__n{margin-top:auto;align-self:flex-end;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500;border-bottom:1px solid var(--terra);padding-bottom:9px}
+/* Nimrod, 2026-09-16: corrected per follow-up — the border-bottom version
+   moved the rule to under the name and pinned it to the left along with the
+   name; neither was wanted. The rule and the name are independent: .tmq__n
+   is a full-width block (default flex stretch, not align-self), so the
+   ::before rule below keeps its own RTL block default (flush right, above
+   the name — display:block puts it first in flow) untouched by anything
+   done to the name. text-align:left here only moves the NAME's own inline
+   text to the left; it has no effect on the separately-positioned ::before
+   block. */
+.tmq__n{margin-top:auto;text-align:left;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
+.tmq__n::before{content:"";display:block;width:22px;height:1px;background:var(--terra);opacity:.5;margin-bottom:10px}
 .tmq__nl{color:inherit;text-decoration:none}
 .tmq__nl:hover,.tmq__nl:focus{text-decoration:underline}
 
