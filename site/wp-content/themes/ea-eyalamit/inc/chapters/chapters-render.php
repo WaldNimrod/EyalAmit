@@ -682,10 +682,10 @@ function ea_chapters_page_sections() {
 /**
  * Curated testimonials for the marquee, optionally by category.
  * Retired brand is rewritten on display (ea_fb_testimonials_publish_text).
- * Returns [{text,name}].
+ * Returns [{text,name,href}].
  *
  * @param string $cat Optional FB-corpus category slug.
- * @return array<int,array{text:string,name:string}>
+ * @return array<int,array{text:string,name:string,href:string}>
  */
 function ea_chapters_testimonials( $cat = '' ) {
 	$src = array();
@@ -704,7 +704,18 @@ function ea_chapters_testimonials( $cat = '' ) {
 		if ( '' === $txt ) {
 			continue;
 		}
-		$out[] = array( 'text' => $txt, 'name' => (string) ( $t['name'] ?? '' ) );
+		/* Nimrod, 2026-09-16: href was already in the corpus JSON (the original
+		 * Facebook post) but dropped here, so testimonials.php's existing
+		 * href-to-link logic never had anything to render for corpus-sourced
+		 * pages (it already worked for home's own hand-curated items, which
+		 * set href directly in home-defaults.php). No new field invented —
+		 * $t['href'] is the same source link ea_fb_testimonials_by_cat/_all
+		 * already carry from the corpus file. */
+		$out[] = array(
+			'text' => $txt,
+			'name' => (string) ( $t['name'] ?? '' ),
+			'href' => (string) ( $t['href'] ?? '' ),
+		);
 	}
 	return $out;
 }

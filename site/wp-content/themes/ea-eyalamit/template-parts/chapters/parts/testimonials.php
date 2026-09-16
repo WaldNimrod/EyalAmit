@@ -64,7 +64,7 @@ $cards = static function () use ( $items, $grid ) {
 		if ( '' !== $it['name'] ) {
 			/* S006 · H-15 · אותה תבנית קישור כמו section-05-testimonials.php. */
 			if ( ! empty( $it['href'] ) ) {
-				echo '<figcaption class="tmq__n"><a class="tmq__nl" href="' . esc_url( $it['href'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $it['name'] ) . '</a></figcaption>';
+				echo '<figcaption class="tmq__n"><a class="tmq__nl" href="' . esc_url( $it['href'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $it['name'] ) . '<svg class="tmq__link-ic" aria-hidden="true" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></figcaption>';
 			} else {
 				echo '<figcaption class="tmq__n">' . esc_html( $it['name'] ) . '</figcaption>';
 			}

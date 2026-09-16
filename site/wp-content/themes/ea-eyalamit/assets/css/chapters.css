@@ -738,7 +738,13 @@ body.nav-locked{overflow:hidden}
    much; removed the clamp so no approved text is ever cut, on any page, at any
    card width. Cards now vary in height by content — .testi-mq's align-items:
    center keeps that from looking broken row-to-row. */
-.tmq__q{font-family:var(--hf);font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink)}
+/* Nimrod, 2026-09-16, per _aos RTL_BIDI_STANDARD: GeneratePress's default
+   blockquote rule sets a physical border-left (confirmed via computed style —
+   5px solid rgba(0,0,0,.05)), which puts the accent on the visual left even
+   though this is dir:rtl and the accent belongs at the reading-start side
+   (right). border-inline-start resolves per the element's own direction
+   instead of a hardcoded physical side. */
+.tmq__q{font-family:var(--hf);font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink);border-left:0;border-inline-start:5px solid rgba(0,0,0,.05)}
 /* Nimrod, 2026-09-16: corrected per follow-up — the border-bottom version
    moved the rule to under the name and pinned it to the left along with the
    name; neither was wanted. The rule and the name are independent: .tmq__n
@@ -748,10 +754,16 @@ body.nav-locked{overflow:hidden}
    done to the name. text-align:left here only moves the NAME's own inline
    text to the left; it has no effect on the separately-positioned ::before
    block. */
-.tmq__n{margin-top:auto;text-align:left;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
+.tmq__n{margin-top:auto;text-align:end;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
 .tmq__n::before{content:"";display:block;width:22px;height:1px;background:var(--terra);opacity:.5;margin-bottom:10px}
-.tmq__nl{color:inherit;text-decoration:none}
+/* Nimrod, 2026-09-16: link icon so the name visibly reads as clickable, not
+   just via the underline. inline-flex + gap (not margin-inline-start on the
+   icon) so the icon sits on the correct side automatically in either
+   direction — no RTL-specific override needed per the _aos RTL_BIDI_STANDARD
+   guidance to prefer flex/gap over directional margins for icon spacing. */
+.tmq__nl{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
 .tmq__nl:hover,.tmq__nl:focus{text-decoration:underline}
+.tmq__link-ic{flex:0 0 auto;opacity:.6}
 
 /* S006 · slug rename · אישור team_00 2026-08-17 — /media/ → /testimonials/ */
 /* S006 · H-15 · עמוד ריכוז ההמלצות (/testimonials/): רשת סטטית במקום קרוסלה.
