@@ -716,11 +716,15 @@ body.nav-locked{overflow:hidden}
 .tmq{flex:0 0 330px;direction:rtl;text-align:right;background:var(--ivory);border:1px solid var(--line);border-radius:12px;
   padding:30px 28px;display:flex;flex-direction:column;gap:14px;min-height:210px}
 /* Nimrod, 2026-09-16: every testimonial gets a photo — real photos arrive later,
-   per record, so this same placeholder avatar stands in on every card until then
-   (dashed border + muted fill so it visibly reads as "photo coming", not a broken
-   image). Not wired to any data field yet; swap for a real <img> once photos exist. */
-.tmq__avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:inline-flex;
+   per record, so this same placeholder stands in on every card until then (dashed
+   border + muted fill so it visibly reads as "photo coming", not a broken image).
+   Square and full card width per Nimrod's follow-up (a small circular avatar read
+   as too minor for what will be a real photo). Not wired to any data field yet;
+   swap for a real <img> once photos exist — width:100% + aspect-ratio holds the
+   same slot open regardless of the actual photo's intrinsic size. */
+.tmq__avatar{width:100%;aspect-ratio:1/1;border-radius:8px;flex:0 0 auto;display:inline-flex;
   align-items:center;justify-content:center;background:var(--ivory);border:1.5px dashed var(--line);color:var(--terra);opacity:.6}
+.tmq__avatar svg{width:38%;height:38%}
 .sec--alt .tmq__avatar{background:#fff}
 .sec--alt .tmq{background:#fff}
 /* S006 · H-12 · כל עדות היא כעת שלוש שורות מפורשות של אייל (<br>), וכל שורה עלולה

@@ -50,6 +50,27 @@
 			return extra > 0 ? extra : 0;
 		}
 
+		// Nimrod, 2026-09-16: viewport was flex:1 (whatever space is left after the
+		// two round buttons), which is essentially never an exact multiple of
+		// card-width-plus-gap — so at every position, not just the ends, roughly a
+		// third card sat half-visible at the trailing edge. Locking the viewport to
+		// N whole cards (N picked to fit the space actually available) means every
+		// position — idle, clicked, or at rest — shows only complete cards.
+		function sizeViewport() {
+			var gap = parseFloat( window.getComputedStyle( track ).gap ) || 24;
+			var cardWidth = cards[ 0 ].getBoundingClientRect().width;
+			var s = cardWidth + gap;
+			if ( ! ( s > 0 ) ) {
+				return;
+			}
+			viewport.style.flex = '1 1 0%';
+			viewport.style.width = '';
+			var available = viewport.getBoundingClientRect().width;
+			var n = Math.max( 1, Math.floor( ( available + gap ) / s ) );
+			viewport.style.flex = '0 0 auto';
+			viewport.style.width = ( n * s - gap ) + 'px';
+		}
+
 		function maxIndex() {
 			var s = step();
 			if ( s <= 0 ) {
@@ -178,7 +199,12 @@
 			startIdle();
 		}
 
-		window.addEventListener( 'resize', apply );
+		function onResize() {
+			sizeViewport();
+			apply();
+		}
+		window.addEventListener( 'resize', onResize );
+		sizeViewport();
 		apply();
 	}
 
