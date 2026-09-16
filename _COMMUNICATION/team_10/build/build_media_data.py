@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """M-09 data prep: hash all media, dedupe by content, cross-reference the slot picker."""
 import hashlib
+import html
 import json
 import re
 from pathlib import Path
@@ -35,6 +36,55 @@ GROUP_LABELS_HE = {
     "old-site": "אתר ישן",
     "aviv": "חבילת אביב",
     "live-theme": "משולב באתר כרגע",
+}
+
+# Nimrod, 2026-09-16: "כל העמודים הקיימים בתפריט הראשי" — pulled live from the
+# rendered <nav> on the actual site (including dropdown children), not from
+# hub/data/site-tree.json, which turned out to be a stale, hand-annotated
+# planning doc (41 nodes, "לא בתפריט ראשי" notes baked into free-text fields —
+# not a live reflection of the current menu). Excludes "קורסים" (href="#", no
+# real page yet, frozen per WAIT-WAVE) and "מבצעים" (a same-page anchor on
+# /books/, not a separate page).
+MAIN_MENU_PAGES = [
+    ("בית", "/"),
+    ("אודות אייל", "/eyal-amit/"),
+    ("מוקש דהימן — לזכרו", "/eyal-amit/mokesh-dahiman/"),
+    ("טיפול בדיג'רידו", "/treatment/"),
+    ("השיטה", "/method/"),
+    ("שיעורי דיג'רידו", "/lessons/"),
+    ("סאונד הילינג", "/sound-healing/"),
+    ("הכשרות למטפלים", "/learning/therapist-training/"),
+    ("הרצאות", "/learning/lectures/"),
+    ("סדנאות", "/learning/workshops/"),
+    ("כלים ואביזרים (שער)", "/shop/"),
+    ("תיקון וחידוש כלים", "/repair/"),
+    ("כלי דיג'רידו למכירה", "/didgeridoos/"),
+    ("תיקים לדיג'רידו", "/bags/"),
+    ("סטנדים לאחסון דיג'רידו", "/stands-storage/"),
+    ("סטנד רצפתי לנגינה", "/stand-floor/"),
+    ("ספרים (שער)", "/books/"),
+    ("צבע בכחול וזרוק לים", "/books/tsva-bekahol/"),
+    ("כושי בלאנטיס", "/books/kushi-blantis/"),
+    ("וכתבת", "/books/vekatavta/"),
+    ("בלוג דיג'רידו", "/blog/"),
+    ("דיג׳רידו, נחירות ודום נשימה בשינה", "/snoring-sleep-apnea/"),
+    ("צור קשר", "/contact/"),
+    ("EN", "/en/"),
+]
+
+# slot-picker "page" string -> canonical title above. All 10 verified to map
+# cleanly (checked by hand, not fuzzy-matched — only 10 to check).
+SLOT_PAGE_TO_CANONICAL = {
+    "בית - פרקים.html": "בית",
+    "אודות - פרקים.html": "אודות אייל",
+    "Memorial - Mokesh (elevated).html": "מוקש דהימן — לזכרו",
+    "טיפול - פרקים.html": "טיפול בדיג'רידו",
+    "השיטה - פרקים.html": "השיטה",
+    "שיעורים - פרקים.html": "שיעורי דיג'רידו",
+    "סאונד הילינג - פרקים.html": "סאונד הילינג",
+    "בלוג - פרקים.html": "בלוג דיג'רידו",
+    "צור קשר - פרקים.html": "צור קשר",
+    "Book - Kushi Blantis.html": "כושי בלאנטיס",
 }
 
 IMG_EXT = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".tif", ".tiff"}
@@ -132,7 +182,46 @@ def main():
             # migrating every stored record. Never read by this build; always present.
             "oldSitePages": [],
             "oldSiteAlt": None,
+            "oldSiteMeta": None,
         })
+
+    # --- join old-site SEO metadata, per Nimrod (2026-09-16): import all of it,
+    # not just alt/page, and let it be approved or edited per chosen image.
+    # match_old_site_media.py keys its output by entry_id (public_id/media_filename
+    # are only populated in catalog.json, the curated 315-entry subset — NOT in
+    # catalog.all.json, which is what that script iterates for search terms). So
+    # the join goes through catalog.json's media_filename -> entry_id, not
+    # media_filename -> public_id directly. ---
+    catalog_curated = json.loads(
+        (DIST / "files" / "team40" / "ea-legacy-curated" / "catalog.json").read_text(encoding="utf-8")
+    )
+    filename_to_entry_id = {e["media_filename"]: e.get("entry_id") for e in catalog_curated["entries"] if e.get("media_filename")}
+    matched_path = Path(__file__).parent / "old_site_metadata_matched.json"
+    if matched_path.is_file():
+        matched_data = json.loads(matched_path.read_text(encoding="utf-8"))
+        entry_id_to_meta = matched_data["matched"]
+        joined = 0
+        for im in images:
+            if "old-site" not in im["collections"]:
+                continue
+            for p in im["paths"]:
+                if p["collection"] != "old-site":
+                    continue
+                eid = filename_to_entry_id.get(p["filename"])
+                meta = entry_id_to_meta.get(eid) if eid else None
+                if meta:
+                    im["oldSiteMeta"] = {
+                        "wp_id": meta["wp_id"],
+                        "title": html.unescape(meta["title"] or ""),
+                        "alt_text": html.unescape(meta["alt_text"] or ""),
+                        "caption": html.unescape(meta["caption"] or ""),
+                        "description": html.unescape(meta["description"] or ""),
+                    }
+                    joined += 1
+                    break
+        print(f"\nold-site metadata joined onto {joined} of {sum(1 for i in images if 'old-site' in i['collections'])} old-site images")
+    else:
+        print(f"\n[old-site metadata not yet fetched — {matched_path.name} not found; oldSiteMeta left null for all images]")
 
     # --- cross-reference the slot picker ---
     picker_html = (REPO / "_COMMUNICATION" / "team_110" / "build" / "image-picker.html").read_text(encoding="utf-8")
@@ -158,14 +247,22 @@ def main():
         return hash_to_id.get(digest)
 
     missing = []
-    page_assignments = defaultdict(list)
+    # Every canonical menu page gets an entry, including the 14 that have no
+    # slot-picker data at all (empty list — Nimrod assigns images to them fresh
+    # through the tool, per his instruction that the page list must be complete).
+    page_assignments: dict[str, list] = {title: [] for title, _path in MAIN_MENU_PAGES}
+    unmapped_slot_pages = set()
     for s in slots:
-        page = s.get("page", "")
+        raw_page = s.get("page", "")
+        canonical = SLOT_PAGE_TO_CANONICAL.get(raw_page)
+        if not canonical:
+            unmapped_slot_pages.add(raw_page)
+            continue
         cur_rel = s.get("current")
         cur_id = resolve_path_to_id(cur_rel) if cur_rel else None
         if cur_rel and not cur_id:
             missing.append(cur_rel)
-        page_assignments[page].append({
+        page_assignments[canonical].append({
             "slotId": s["id"],
             "section": s.get("section", ""),
             "role": s.get("role", ""),
@@ -175,10 +272,14 @@ def main():
     print(f"\ncurrent-path resolve failures: {len(missing)}")
     for mpath in missing[:10]:
         print("  MISSING:", mpath)
+    if unmapped_slot_pages:
+        print(f"\nWARNING — slot-picker pages with no canonical mapping (dropped): {unmapped_slot_pages}")
+    print(f"\ncanonical menu pages: {len(MAIN_MENU_PAGES)}")
 
     out = {
         "images": images,
-        "pageAssignments": {p: rows for p, rows in page_assignments.items()},
+        "pages": [{"title": t, "path": p} for t, p in MAIN_MENU_PAGES],
+        "pageAssignments": page_assignments,
     }
     out_path = Path(__file__).parent / "media_data.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
