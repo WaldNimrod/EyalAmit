@@ -707,8 +707,21 @@ body.nav-locked{overflow:hidden}
 .testi-mq__btn--right{order:1}
 .testi-mq__viewport{order:2}
 @media(prefers-reduced-motion:reduce){.testi-mq__track{transition:none}}
+/* Nimrod, 2026-09-16: the .45s click transition is deliberately quick for direct
+   feedback, but during the automatic idle ping-pong it was the only motion inside
+   a 2.6s gap — mostly still, then a sudden snap. This class (added by ea-testi-mq.js
+   only for idle-triggered steps, never for a manual click) stretches just that
+   transition so the glide itself reads as continuous drift instead of a jump. */
+.testi-mq__track.is-idle-move{transition-duration:1.4s}
 .tmq{flex:0 0 330px;direction:rtl;text-align:right;background:var(--ivory);border:1px solid var(--line);border-radius:12px;
   padding:30px 28px;display:flex;flex-direction:column;gap:14px;min-height:210px}
+/* Nimrod, 2026-09-16: every testimonial gets a photo — real photos arrive later,
+   per record, so this same placeholder avatar stands in on every card until then
+   (dashed border + muted fill so it visibly reads as "photo coming", not a broken
+   image). Not wired to any data field yet; swap for a real <img> once photos exist. */
+.tmq__avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:inline-flex;
+  align-items:center;justify-content:center;background:var(--ivory);border:1.5px dashed var(--line);color:var(--terra);opacity:.6}
+.sec--alt .tmq__avatar{background:#fff}
 .sec--alt .tmq{background:#fff}
 /* S006 · H-12 · כל עדות היא כעת שלוש שורות מפורשות של אייל (<br>), וכל שורה עלולה
    להישבר לשתיים ברוחב הכרטיס (274px). החישוב הגרוע ביותר מגיע ל-6 שורות בדיוק,

@@ -45,12 +45,17 @@
 			return card.getBoundingClientRect().width + gap;
 		}
 
+		function extraWidth() {
+			var extra = track.scrollWidth - viewport.clientWidth;
+			return extra > 0 ? extra : 0;
+		}
+
 		function maxIndex() {
 			var s = step();
 			if ( s <= 0 ) {
 				return 0;
 			}
-			var extra = track.scrollWidth - viewport.clientWidth;
+			var extra = extraWidth();
 			return extra <= 0 ? 0 : Math.ceil( extra / s );
 		}
 
@@ -62,7 +67,14 @@
 			if ( index > max ) {
 				index = max;
 			}
-			track.style.transform = 'translateX(' + ( -index * step() ) + 'px)';
+			// index*step() overshoots on the last step whenever extraWidth() isn't an
+			// exact multiple of step() (the common case) — maxIndex() rounds UP so
+			// every card stays reachable, but translating the full index*step() past
+			// the real end either clips content on one edge or leaves dead space on
+			// the other depending on viewport width. Clamping to extraWidth() makes
+			// the final step travel whatever's left (never more), landing flush.
+			var x = index === max ? -extraWidth() : -index * step();
+			track.style.transform = 'translateX(' + x + 'px)';
 			if ( leftBtn ) {
 				leftBtn.disabled = index >= max;
 			}
@@ -93,6 +105,12 @@
 				index = 0;
 				idleDirection = 1;
 			}
+			// Nimrod, 2026-09-16: the .45s click transition read as a jump when it's
+			// the only motion in a 2.6s idle interval — mostly still, then a quick
+			// snap. A slower glide during idle steps only (manual clicks stay at
+			// .45s, so direct interaction still feels responsive) fills more of the
+			// interval with visible motion instead of dead pause.
+			track.classList.add( 'is-idle-move' );
 			apply();
 		}
 
@@ -113,6 +131,7 @@
 		function stopIdleForGood() {
 			idleStopped = true;
 			stopIdleTimer();
+			track.classList.remove( 'is-idle-move' );
 		}
 
 		if ( leftBtn ) {

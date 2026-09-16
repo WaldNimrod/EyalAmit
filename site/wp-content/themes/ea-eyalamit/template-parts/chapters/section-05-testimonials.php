@@ -57,6 +57,7 @@ $render_cards = static function () use ( $items ) {
 		$lines = preg_split( '/\R/u', (string) $it['text'] );
 		$html  = implode( '<br>', array_map( 'esc_html', (array) $lines ) );
 		echo '<figure class="tmq">';
+		echo '<span class="tmq__avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"/></svg></span>';
 		echo '<blockquote class="tmq__q">' . $html . '</blockquote>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- each line escaped above.
 		if ( '' !== $it['name'] ) {
 			if ( ! empty( $it['href'] ) ) {
