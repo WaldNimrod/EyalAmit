@@ -50,25 +50,45 @@
 			return extra > 0 ? extra : 0;
 		}
 
-		// Nimrod, 2026-09-16: viewport was flex:1 (whatever space is left after the
-		// two round buttons), which is essentially never an exact multiple of
-		// card-width-plus-gap — so at every position, not just the ends, roughly a
-		// third card sat half-visible at the trailing edge. Locking the viewport to
-		// N whole cards (N picked to fit the space actually available) means every
-		// position — idle, clicked, or at rest — shows only complete cards.
+		// Nimrod, 2026-09-16: two problems, one fix. (a) viewport was flex:1
+		// (whatever space is left after the two round buttons), which is
+		// essentially never an exact multiple of card-width-plus-gap — so at every
+		// position, not just the ends, roughly a third card sat half-visible at
+		// the trailing edge. (b) locking the viewport to whole 330px cards only
+		// ever fit 2, even where 3 nearly fit (996px available, 3*330+2*24=1038 —
+		// close, but over) — visibly wasted width. Instead of a fixed card width,
+		// pick the largest count up to MAX_VISIBLE whose resulting per-card width
+		// is still >= MIN_CARD_WIDTH, then size cards AND viewport to exactly
+		// that: N cards, gaps, zero leftover space, and never a partial card.
+		// 330px is CSS's static fallback (no-JS); this overrides it per viewport.
+		var MAX_VISIBLE = 3;
+		var MIN_CARD_WIDTH = 290; // measured 316px for 3-up on /method/ at 1440px — this floor only bites on narrower screens, where it correctly falls back to 2 or 1.
+
 		function sizeViewport() {
 			var gap = parseFloat( window.getComputedStyle( track ).gap ) || 24;
-			var cardWidth = cards[ 0 ].getBoundingClientRect().width;
-			var s = cardWidth + gap;
-			if ( ! ( s > 0 ) ) {
-				return;
-			}
 			viewport.style.flex = '1 1 0%';
 			viewport.style.width = '';
+			cards.forEach( function ( c ) {
+				c.style.flexBasis = '';
+			} );
 			var available = viewport.getBoundingClientRect().width;
-			var n = Math.max( 1, Math.floor( ( available + gap ) / s ) );
+			if ( ! ( available > 0 ) ) {
+				return;
+			}
+			var n = MAX_VISIBLE;
+			var cardWidth;
+			do {
+				cardWidth = ( available - ( n - 1 ) * gap ) / n;
+				if ( cardWidth >= MIN_CARD_WIDTH || n <= 1 ) {
+					break;
+				}
+				n -= 1;
+			} while ( n > 1 );
+			cards.forEach( function ( c ) {
+				c.style.flexBasis = cardWidth + 'px';
+			} );
 			viewport.style.flex = '0 0 auto';
-			viewport.style.width = ( n * s - gap ) + 'px';
+			viewport.style.width = available + 'px';
 		}
 
 		function maxIndex() {
