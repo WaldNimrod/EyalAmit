@@ -738,8 +738,13 @@ body.nav-locked{overflow:hidden}
    card width. Cards now vary in height by content — .testi-mq's align-items:
    center keeps that from looking broken row-to-row. */
 .tmq__q{font-family:var(--hf);font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink)}
-.tmq__n{margin-top:auto;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
-.tmq__n::before{content:"";display:block;width:22px;height:1px;background:var(--terra);opacity:.5;margin-bottom:10px}
+/* Nimrod, 2026-09-16: name to the left (was text-align:right, RTL's default
+   start side); the little rule now a border-bottom on .tmq__n itself instead
+   of a fixed 22px ::before, so it's always exactly the name's own rendered
+   width — with or without the tmq__nl link inside — and sits directly under
+   it. align-self:flex-end is the physical left edge in this RTL flex column
+   (.tmq), regardless of text direction, so the name+rule move as one unit. */
+.tmq__n{margin-top:auto;align-self:flex-end;font-family:var(--bf);font-size:.74rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500;border-bottom:1px solid var(--terra);padding-bottom:9px}
 .tmq__nl{color:inherit;text-decoration:none}
 .tmq__nl:hover,.tmq__nl:focus{text-decoration:underline}
 
