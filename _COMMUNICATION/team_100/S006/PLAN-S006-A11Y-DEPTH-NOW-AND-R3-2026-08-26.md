@@ -66,6 +66,17 @@
 8. צוות 50 מפרסם `M2-ACCESSIBILITY-QA-REPORT` / `S006-A11Y-R3-AUDIT-TEAM50` עם verdict **PASS** או רשימת חריגים מאושרת לנימרוד.
 9. צוות 100 **אינו** חותם AA. נימרוד חותם על שער סבב 3 אחרי דוח 50.
 
+### ⚠ על מה חתימה מותר להישען — החלטת team_00, 18.9.26
+
+**סריקה אוטומטית נקייה אינה ראיה לעמידה, ואינה יכולה לשאת את החתימה בסעיף 8.** סורק מדווח
+כמה ממצאים נמצאו; הוא אינו מדווח עמידה. כל פריט בתשעת סעיפי ה-DoD חייב ראיה שהיא **קביעה
+חיובית על הקריטריון המסוים בעמוד המסוים** — לא היעדר שגיאה.
+
+נמדד בביקורת 17.9.26: axe-core החזיר אפס ממצאים על שלושת עמודי הספרים בזמן ש-162 תמונות
+תוכן שם הוגשו עם `alt=""`, משום ש-`alt=""` הוא הסימון התקני לקישוט והכלל עובר בתכנון.
+
+הכלל המלא הוא סעיף 5 בחוזה המאמת: [S006-MILESTONE-CHARTER.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/S006-MILESTONE-CHARTER.md)
+
 פרוטוקול הבדיקה: [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/team-100-preplanning/LEGAL-ACCESSIBILITY-ISRAEL-SPEC.md) — הופך מ«צ'קליסט תכנון» ל**פרוטוקול ביקורת סבב 3**.
 
 ---
