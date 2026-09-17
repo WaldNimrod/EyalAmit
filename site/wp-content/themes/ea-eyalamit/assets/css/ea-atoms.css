@@ -49,14 +49,18 @@
       scroll-behavior: smooth;
     }
 
+    /* RTL audit 2026-09-17: direction dropped (was hardcoded rtl unconditionally,
+       reaching /en/ too — html dir is already correct per page via
+       language_attributes(), and direction inherits from html); text-align
+       switched to the logical start so it also flips correctly on /en/. See
+       chapters.css's body rule for the full note — same fix, same reason. */
     body {
       margin: 0;
       font-family: var(--ea-font);
       font-weight: 300;
       background: var(--ea-bg);
       color: var(--ea-ink);
-      direction: rtl;
-      text-align: right;
+      text-align: start;
       -webkit-font-smoothing: antialiased;
     }
 

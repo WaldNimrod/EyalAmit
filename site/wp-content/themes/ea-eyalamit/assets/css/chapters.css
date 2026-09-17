@@ -24,7 +24,17 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--ivory);color:var(--ink);direction:rtl;text-align:right;
+/* RTL audit 2026-09-17: this used to hardcode direction:rtl;text-align:right
+   unconditionally, which also reached the live English page (/en/) since
+   nothing scoped it to Hebrew — that page only rendered correctly because its
+   template patches every section with an inline direction:ltr;text-align:left
+   override. direction is dropped entirely (html dir="rtl"/"ltr" is already set
+   correctly per page via language_attributes(), and direction inherits from
+   html to body); text-align:start resolves the same as the old :right on every
+   current Hebrew page but correctly flips to left wherever dir="ltr" — so a
+   future /en/ section that forgets its own inline patch no longer inherits
+   the wrong side by default. */
+body{margin:0;background:var(--ivory);color:var(--ink);text-align:start;
   font-family:var(--bf);font-weight:300;font-size:18px;line-height:1.66;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:multiply;opacity:.5;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.045'/></svg>")}
@@ -793,8 +803,13 @@ body.nav-locked{overflow:hidden}
 .bookcard__meta{font-family:var(--bf);font-size:.72rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
 .bookcard__t{font-family:var(--serif);font-size:1.5rem;line-height:1.2;color:var(--ink)}
 .bookcard__blurb{font-family:var(--hf);font-size:.98rem;line-height:1.6;color:var(--body)}
-.bookcard__cta{margin-top:8px;font-family:var(--bf);font-size:.8rem;letter-spacing:.6px;color:var(--terra-dk);font-weight:500}
+.bookcard__cta{margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:var(--bf);font-size:.8rem;letter-spacing:.6px;color:var(--terra-dk);font-weight:500}
 .bookcard:hover .bookcard__cta,.bookcard:focus-visible .bookcard__cta{color:var(--terra)}
+/* RTL audit 2026-09-17: "←" is Bidi_Mirrored — bare inside RTL text it paints
+   backwards (same mechanism as the testimonial-carousel arrows fixed
+   tonight). bookcard.php isolates it into this dir="ltr" span so it always
+   renders as a real left-pointing arrow regardless of the surrounding run. */
+.bookcard__cta-ar{display:inline-block}
 
 /* ── image gallery (.gallery / .gfig) — galleries / media / book galleries ── */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}

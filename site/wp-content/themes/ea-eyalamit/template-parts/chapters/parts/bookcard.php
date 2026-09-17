@@ -31,6 +31,18 @@ $cta_default = ! empty( $a['cta_label'] ) ? (string) $a['cta_label'] : 'לעמו
 				$cover = ea_chapters_resolve_img( $it['cover'] ?? '' );
 				$ttl   = $it['title'] ?? '';
 				$cta   = ! empty( $it['cta'] ) ? (string) $it['cta'] : $cta_default;
+				/* S006 RTL audit 2026-09-17: shop/QR cta copy ends in a literal
+				 * "←" (see shop-defaults.php / qr-hub-defaults.php) meant to read
+				 * "go this way" in Hebrew — left bare inside RTL text it bidi-
+				 * mirrors and points the wrong way, same bug class as tonight's
+				 * testimonial-carousel arrows. Strip it and re-render in its own
+				 * dir="ltr" span so every current and future cta/cta_label stays
+				 * correct without each content string needing its own workaround. */
+				$cta_arrow = false;
+				if ( false !== mb_strpos( $cta, '←' ) ) {
+					$cta       = trim( str_replace( '←', '', $cta ) );
+					$cta_arrow = true;
+				}
 				?>
 				<a class="bookcard" href="<?php echo esc_url( $url ?: '#' ); ?>">
 					<span class="bookcard__cover">
@@ -44,7 +56,7 @@ $cta_default = ! empty( $a['cta_label'] ) ? (string) $a['cta_label'] : 'לעמו
 						<?php if ( ! empty( $it['meta'] ) ) : ?><span class="bookcard__meta"><?php echo esc_html( $it['meta'] ); ?></span><?php endif; ?>
 						<span class="bookcard__t"><?php echo esc_html( $ttl ); ?></span>
 						<?php if ( ! empty( $it['blurb'] ) ) : ?><span class="bookcard__blurb"><?php echo esc_html( $it['blurb'] ); ?></span><?php endif; ?>
-						<span class="bookcard__cta" aria-hidden="true"><?php echo esc_html( $cta ); ?></span>
+						<span class="bookcard__cta" aria-hidden="true"><?php echo esc_html( $cta ); ?><?php if ( $cta_arrow ) : ?><span class="bookcard__cta-ar" dir="ltr">←</span><?php endif; ?></span>
 					</span>
 				</a>
 			<?php endforeach; ?>
