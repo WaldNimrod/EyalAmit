@@ -1197,6 +1197,101 @@
       flex-shrink: 0;
     }
 
+    /* 2026-09-17: contact page split into 3 visually separated rows (form +
+       photo, a dark WhatsApp CTA band, NAP details) instead of one flat
+       block, per Eyal — matches the home page's .sec/.sec--alt/.sec--dark
+       row rhythm rather than introducing a new pattern. */
+    .ea-contact-form-row {
+      max-width: var(--ea-prose-width);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--ea-space-8);
+      align-items: start;
+    }
+    @media (max-width: 767px) {
+      .ea-contact-form-row { grid-template-columns: 1fr; }
+      .ea-contact-portrait { width: 160px; margin-inline: auto; }
+    }
+    .ea-contact-portrait {
+      display: block;
+      width: 180px;
+      aspect-ratio: 3 / 4;
+      border-radius: var(--ea-radius-img);
+      overflow: hidden;
+      background: var(--ea-bg-alt);
+    }
+    .ea-contact-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* The CTA row reuses .ea-contact-section__heading/__body (defined below)
+       inside a .sec--dark context, which they were never styled for before. */
+    .sec--dark .ea-contact-section__heading { color: #fff; }
+    .sec--dark .ea-contact-section__body { color: rgba(255, 255, 255, 0.82); }
+    .ea-contact-cta {
+      position: relative;
+      z-index: 2;
+      max-width: var(--ea-prose-width);
+      margin-inline: auto;
+    }
+    /* Eyal, 2026-09-17: "these should really read as headlines" — was plain
+       .ea-contact-section__body paragraphs, same weight as everything else
+       on the page. A checkmark (universal-convention icon, never mirrored
+       per the RTL standard) plus bold sizing gives each point its own
+       visual weight instead of blending into body copy. */
+    .ea-contact-points {
+      list-style: none;
+      margin: var(--ea-space-3) 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--ea-space-2);
+    }
+    .ea-contact-points li {
+      display: flex;
+      align-items: center;
+      gap: var(--ea-space-2);
+      font-family: var(--ea-font);
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    .ea-contact-points li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D08A5E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    /* NAP row: its own block now (was crammed under the CTA with inline
+       styles) — centered, deliberate type scale instead of reusing
+       .ea-contact-section__body at full width for every line. */
+    .ea-contact-nap {
+      max-width: 46ch;
+      margin-inline: auto;
+    }
+    .ea-contact-nap__h {
+      font-family: var(--ea-font);
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: var(--ea-ink);
+      margin: 0 0 var(--ea-space-3);
+    }
+    .ea-contact-nap__row {
+      font-family: var(--ea-font);
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ea-text-body);
+      margin: 0 0 var(--ea-space-1);
+    }
+
     /* Contact form */
     .ea-contact-form {
       max-width: 560px;

@@ -1,10 +1,18 @@
 <?php
 /**
- * Chapters part — contact section. Two columns: an accessible contact form
- * (CF7 takes over via ea_wave2_render_contact_form() once Eyal wires the form id)
- * and the canonical WhatsApp A/B CTA (ea-cta-ab / ea-ab-testing.js → generate_lead)
- * + trust reassurances + NAP. Reuses the ea-contact-* / ea-cta-* atoms (ea-atoms.css
- * loads on Chapters views via the Wave2 shell), wrapped in a Chapters .sec.
+ * Chapters part — contact section. Three stacked rows (Eyal, 2026-09-17:
+ * "the page needs to be built from visually separated parts, rows, like the
+ * home page — each row with a touch of design that separates it"), replacing
+ * the previous single flat block:
+ *   1) form + a small photo of Eyal next to it
+ *   2) a dark WhatsApp CTA band (matches the home page's .cta-band look),
+ *      with the trust points styled as short headlines rather than body text
+ *   3) the NAP details, its own row with plain, deliberate typography
+ *
+ * CF7 takes over row 1's form via ea_wave2_render_contact_form() once Eyal
+ * wires the form id. WhatsApp CTA is the canonical ea-cta-ab / ea-ab-testing.js
+ * → generate_lead. Reuses the ea-contact-* / ea-cta-* atoms (ea-atoms.css
+ * loads on Chapters views via the Wave2 shell).
  *
  * @package ea_eyalamit
  */
@@ -17,9 +25,9 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 ?>
 <section class="sec ea-wave2-contact" data-block="contact">
 	<div class="wrap">
-		<div class="ea-contact-section__inner">
+		<div class="ea-contact-form-row">
 
-			<!-- Column: accessible contact form (CF7 placeholder until form_id wired). -->
+			<!-- Form (CF7 placeholder until form_id wired). -->
 			<div class="ea-entrance">
 				<h2 class="ea-contact-section__heading r"><?php esc_html_e( 'השאירו פנייה', 'ea-eyalamit' ); ?></h2>
 				<?php if ( ! ea_wave2_render_contact_form() ) : ?>
@@ -57,28 +65,45 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 				<?php endif; ?>
 			</div>
 
-			<!-- Column: WhatsApp A/B CTA (canonical ea-cta-ab / ea-ab-testing.js) + trust + NAP. -->
-			<aside class="ea-contact-section__cta-side ea-entrance" aria-label="<?php esc_attr_e( 'דרכי התקשרות מהירות', 'ea-eyalamit' ); ?>">
-				<h2 class="ea-contact-section__heading"><?php esc_html_e( 'מעדיפים לכתוב ישירות?', 'ea-eyalamit' ); ?></h2>
-				<p class="ea-contact-section__body"><?php esc_html_e( 'אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.', 'ea-eyalamit' ); ?></p>
+			<!-- Small photo of Eyal, next to the form (same portrait used on /eyal-amit/). -->
+			<span class="ea-contact-portrait ea-entrance" aria-hidden="true">
+				<img src="<?php echo esc_url( ea_chapters_resolve_img( 'assets/images/chapters/eyal-portrait-garden.jpg' ) ); ?>" alt="" loading="lazy">
+			</span>
 
-				<div class="ea-cta-ab" data-ea-ab data-ab-experiment="contact_whatsapp_cta" data-ea-page="contact">
-					<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="A" aria-label="<?php esc_attr_e( 'דברו איתי בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>"><?php esc_html_e( 'דברו איתי בוואטסאפ', 'ea-eyalamit' ); ?></a>
-					<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="B" aria-label="<?php esc_attr_e( 'לתיאום שיחת היכרות בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>" hidden><?php esc_html_e( 'לתיאום שיחת היכרות בוואטסאפ', 'ea-eyalamit' ); ?></a>
-				</div>
+		</div>
+	</div>
+</section>
 
-				<p class="ea-contact-section__body"><?php esc_html_e( 'שיחת היכרות ראשונית ללא התחייבות.', 'ea-eyalamit' ); ?></p>
-				<p class="ea-contact-section__body"><?php esc_html_e( 'ליווי אישי, אחד על אחד.', 'ea-eyalamit' ); ?></p>
-				<p class="ea-contact-section__body"><?php esc_html_e( 'מענה אישי תוך יום עסקים אחד.', 'ea-eyalamit' ); ?></p>
+<!-- Dark CTA row (same look as the home page's .cta-band), replacing the plain "prefer to write" text block. -->
+<section class="sec sec--dark ea-wave2-contact__cta" data-block="contact-cta">
+	<span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>
+	<div class="wrap">
+		<div class="ea-entrance ea-contact-cta r" aria-label="<?php esc_attr_e( 'דרכי התקשרות מהירות', 'ea-eyalamit' ); ?>">
+			<h2 class="ea-contact-section__heading"><?php esc_html_e( 'מעדיפים לכתוב ישירות?', 'ea-eyalamit' ); ?></h2>
+			<p class="ea-contact-section__body"><?php esc_html_e( 'אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.', 'ea-eyalamit' ); ?></p>
 
-				<div class="ea-contact-nap" aria-label="<?php esc_attr_e( 'פרטי המרכז וכתובת', 'ea-eyalamit' ); ?>" style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line)">
-					<h3 class="ea-contact-section__heading" style="margin-bottom:.4rem"><?php esc_html_e( "המרכז לטיפול בנשימה באמצעות דיג'רידו", 'ea-eyalamit' ); ?></h3>
-					<p class="ea-contact-section__body"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
-					<p class="ea-contact-section__body"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr" style="white-space:nowrap"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a></p>
-					<p class="ea-contact-section__body"><?php esc_html_e( "שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש", 'ea-eyalamit' ); ?></p>
-				</div>
-			</aside>
+			<div class="ea-cta-ab" data-ea-ab data-ab-experiment="contact_whatsapp_cta" data-ea-page="contact">
+				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="A" aria-label="<?php esc_attr_e( 'דברו איתי בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>"><?php esc_html_e( 'דברו איתי בוואטסאפ', 'ea-eyalamit' ); ?></a>
+				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="B" aria-label="<?php esc_attr_e( 'לתיאום שיחת היכרות בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>" hidden><?php esc_html_e( 'לתיאום שיחת היכרות בוואטסאפ', 'ea-eyalamit' ); ?></a>
+			</div>
 
+			<ul class="ea-contact-points">
+				<li><?php esc_html_e( 'שיחת היכרות ראשונית ללא התחייבות', 'ea-eyalamit' ); ?></li>
+				<li><?php esc_html_e( 'ליווי אישי, אחד על אחד', 'ea-eyalamit' ); ?></li>
+				<li><?php esc_html_e( 'מענה אישי תוך יום עסקים אחד', 'ea-eyalamit' ); ?></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- NAP row, its own block so it reads as a distinct "details" section, not a footnote under the CTA. -->
+<section class="sec sec--alt ea-wave2-contact__nap" data-block="contact-nap">
+	<div class="wrap center">
+		<div class="ea-entrance ea-contact-nap" aria-label="<?php esc_attr_e( 'פרטי המרכז וכתובת', 'ea-eyalamit' ); ?>">
+			<h3 class="ea-contact-nap__h"><?php esc_html_e( "המרכז לטיפול בנשימה באמצעות דיג'רידו", 'ea-eyalamit' ); ?></h3>
+			<p class="ea-contact-nap__row"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
+			<p class="ea-contact-nap__row"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr" style="white-space:nowrap"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a></p>
+			<p class="ea-contact-nap__row"><?php esc_html_e( "שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש", 'ea-eyalamit' ); ?></p>
 		</div>
 	</div>
 </section>
