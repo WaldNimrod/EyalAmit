@@ -14,8 +14,9 @@ defined( 'ABSPATH' ) || exit;
 
 // Bump to re-apply the form definition to the already-seeded form. 2 = D-8 dropdown.
 // 3 = the dropdown gets a blank prompt, so it stops pre-selecting the first topic.
+// 4 = Hebrew validation messages (A11Y-FIX-2026-09-18, WS-3B task 2), see below.
 if ( ! defined( 'EA_W2_15_CF7_REV' ) ) {
-	define( 'EA_W2_15_CF7_REV', 3 );
+	define( 'EA_W2_15_CF7_REV', 4 );
 }
 
 /**
@@ -100,6 +101,51 @@ function ea_w2_15_cf7_ensure_form() {
 	$props = $form->get_properties();
 	$props['form'] = $form_markup;
 	$props['mail'] = $mail;
+
+	/*
+	 * A11Y-FIX-2026-09-18 · WS-3B task 2 · REV 4 — SC 3.1.2 Language of Parts (AA)
+	 * + SC 3.3.1 Error Identification (A). Source: A11Y-INTERACT-04.
+	 *
+	 * Measured live on an empty submit: `.wpcf7-response-output` (the
+	 * validation_error banner) already renders in Hebrew — "קיימת שגיאה בשדה
+	 * אחד או יותר. נא לבדוק ולנסות שוב." — but every per-field
+	 * `.wpcf7-not-valid-tip` renders in English ("Please fill out this
+	 * field." / "Please enter an email address." / "Please enter a
+	 * telephone number."), inside a document whose <html> is lang="he-IL"
+	 * (functions.php:210-223 forces he-IL/rtl on every non-/en/ page). Not a
+	 * site-locale problem — if the whole site read as English, the banner
+	 * would be English too; it is not, on two independent live triggers
+	 * (empty-required-fields, and a filled-but-malformed phone+email). Root
+	 * cause, checked against Contact Form 7's own source
+	 * (rocklobster-in/contact-form-7: contact-form-template.php,
+	 * modules/text.php): every one of these strings goes through the same
+	 * `__( $string, 'contact-form-7' )` call, keyed per message — the
+	 * installed he_IL catalog on this server covers the long-standing
+	 * `validation_error` key but has no entry for the newer per-field-type
+	 * keys (`invalid_required`, `invalid_email`, `invalid_tel`), so gettext
+	 * falls back to the untranslated English source string for those three.
+	 *
+	 * Fixed here (CF7's own per-form `messages` property) rather than left
+	 * dependent on the server's plugin-translation catalog, so this is
+	 * correct regardless of what he_IL coverage the server has now or gains
+	 * later. `validation_error` is intentionally left untouched — it is
+	 * already correct — and so are mail_sent_ok/mail_sent_ng/spam/
+	 * accept_terms: not cited by the audit, not reachable under the
+	 * "do not send a real message" safe-test constraint, so left alone
+	 * rather than shipped unverified. Only the three keys this form's
+	 * fields can actually trigger (text* name, email* email, select*
+	 * subject all share `invalid_required`; tel has its own format check).
+	 * These are CF7's own UI strings, not Eyal's copy — no other text
+	 * changed. Plain, short, no invented brand voice, matching the wording
+	 * this form's own field labels already use ("אימייל", "טלפון" — line 69-70).
+	 */
+	if ( ! isset( $props['messages'] ) || ! is_array( $props['messages'] ) ) {
+		$props['messages'] = array();
+	}
+	$props['messages']['invalid_required'] = 'נא למלא שדה זה.';
+	$props['messages']['invalid_email']    = 'נא להזין כתובת אימייל.';
+	$props['messages']['invalid_tel']      = 'נא להזין מספר טלפון.';
+
 	$form->set_properties( $props );
 	$form->set_title( 'צור קשר — אייל עמית' );
 

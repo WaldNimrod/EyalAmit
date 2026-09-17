@@ -38,6 +38,94 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- submenu disclosure state (WS-3B / A11Y-FIX-2026-09-18) ----
+   * The two `.nav__dd` <button>s (section-nav.php:42,73 — "לימוד והכשרה",
+   * "אייל עמית") ship with a hardcoded aria-expanded="false" that never
+   * changes: zero occurrences of `nav__dd` existed in any theme JS file
+   * before this. SC 4.1.2 Name, Role, Value. Source: A11Y-INTERACT-03.
+   *
+   * Desktop (>1180px — chapters.css:527/657 breakpoint) reveals each
+   * button's sibling `.nav__sub` on real CSS `:hover`/`:focus-within`
+   * (chapters.css:522) — there is no click-driven open state to mirror here
+   * (unlike the dead ea-hero.js:47-75 reference, whose ea-atoms.css keys
+   * visibility off `[aria-expanded="true"] + .nav__submenu`; chapters.css
+   * has zero `aria-expanded` selectors, confirmed by grep, so this nav's
+   * visibility is driven purely by native hover/focus). So instead of
+   * porting that click-toggle logic, this listens for the same native
+   * mouseenter/mouseleave/focusin/focusout events CSS itself reacts to and
+   * re-reads `li.matches(':hover' )`/`:focus-within')` live — the attribute
+   * mirrors the true rendered state and can never drift from it.
+   *
+   * At <=1180px the submenu has no per-item state at all to mirror:
+   * chapters.css:679-683 deliberately makes every `.nav__sub` inline and
+   * permanently expanded together inside the open drawer ("the submenu is
+   * always expanded inside the drawer" — chapters.css:679-680 comment), and
+   * chapters.css:691-692 neutralises hover/focus-within there on purpose
+   * (defeating them was the fix for the 18-focusable-links-behind-a-closed-
+   * drawer bug in commit 57883f8). So below that width this instead tracks
+   * the single drawer flag (`nav[data-menu]`) that the burger handler below
+   * already owns — see the two syncDrawerExpanded() calls added to it.
+   *
+   * Deliberately NOT done (see 05-DONE-ARIA-AND-FORM-LANG.md for the full
+   * justification): no click/Escape/outside-click handling added for these
+   * two buttons — this hover/focus-within-driven popover already closes
+   * itself the instant hover/focus leaves, so there is no "stuck open"
+   * state for Escape to solve (unlike the dead nav's click-toggle, which
+   * needed one). The three `.nav__dd` <a> elements (section-nav.php:32,52,63)
+   * are left without aria-haspopup/aria-expanded — they are primary
+   * navigation links, not disclosure controls, and were not part of the
+   * measured defect (which is specifically the two buttons' hardcoded
+   * state); see the report for the full reasoning. */
+  if (nav) {
+    var ddToggles = nav.querySelectorAll('.nav__dd[aria-haspopup="true"]');
+    var narrowMQ = window.matchMedia
+      ? window.matchMedia('(max-width: 1180px)')
+      : { matches: false, addEventListener: function () {}, addListener: function () {} };
+
+    var syncDesktopOne = function (toggle) {
+      var li = toggle.closest('li');
+      var open = !!li && (li.matches(':hover') || li.matches(':focus-within'));
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    /* mobile: every `.nav__dd` submenu is expanded together, exactly when
+       the drawer is open — see the block comment above. */
+    var syncDrawerExpanded = function () {
+      var open = nav.getAttribute('data-menu') === '1';
+      ddToggles.forEach(function (toggle) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    };
+
+    if (ddToggles.length) {
+      ddToggles.forEach(function (toggle) {
+        var li = toggle.closest('li');
+        if (!li) return;
+        var onHoverFocusChange = function () {
+          if (!narrowMQ.matches) syncDesktopOne(toggle);
+        };
+        li.addEventListener('mouseenter', onHoverFocusChange);
+        li.addEventListener('mouseleave', onHoverFocusChange);
+        li.addEventListener('focusin', onHoverFocusChange);
+        li.addEventListener('focusout', onHoverFocusChange);
+      });
+
+      /* crossing the breakpoint mid-session (resize/orientation/devtools):
+         re-settle every toggle under whichever rule now governs it. */
+      var onNarrowChange = function () {
+        if (narrowMQ.matches) {
+          syncDrawerExpanded();
+        } else {
+          ddToggles.forEach(syncDesktopOne);
+        }
+      };
+      if (narrowMQ.addEventListener) narrowMQ.addEventListener('change', onNarrowChange);
+      else if (narrowMQ.addListener) narrowMQ.addListener(onNarrowChange); /* Safari <14 */
+
+      if (narrowMQ.matches) syncDrawerExpanded();
+    }
+  }
+
   /* ---- mobile hamburger ---- */
   if (nav) {
     var burger = nav.querySelector('.nav__burger');
@@ -54,6 +142,10 @@
            has focus, and a no-op at desktop width where it is display:none
            and therefore unfocusable. */
         burger.focus();
+        /* WS-3B (A11Y-FIX-2026-09-18): every `.nav__dd` submenu is inline
+           and expanded together with the drawer at this width (see above) —
+           keep them truthful on every close path too. */
+        syncDrawerExpanded();
       };
       burger.addEventListener('click', function () {
         var open = nav.getAttribute('data-menu') === '1';
@@ -61,6 +153,7 @@
         nav.setAttribute('data-menu', '1');
         burger.setAttribute('aria-expanded', 'true');
         document.body.classList.add('nav-locked');
+        syncDrawerExpanded();
       });
       /* close when a real link (not a dropdown toggle) is tapped */
       nav.querySelectorAll('.nav__l a').forEach(function (a) {
