@@ -11,15 +11,24 @@ Uploads:
 
 Reads connection from local/.env.upress (see docs/project/UPRESS_WORDPRESS_STANDARD_v2.md §12).
 
+⚠ This uploads the WORKING TREE, not a git ref, and never prunes. Two consequences
+that have already bitten (see assert_clean_tree): an uncommitted edit ships and then
+exists only on one machine, and an older checkout ships and silently reverts the live
+site. Since 2026-09-18 the script therefore refuses a dirty site/ and records the
+deployed commit in _COMMUNICATION/team_100/S006/DEPLOY-LOG.md.
+
 Usage (repo root):
   pip install -r scripts/requirements-upress.txt
   python3 scripts/ftp_deploy_site_wp_content.py
   python3 scripts/ftp_deploy_site_wp_content.py --upload-wxr
   python3 scripts/ftp_deploy_site_wp_content.py --dry-run
+  python3 scripts/ftp_deploy_site_wp_content.py --allow-dirty "hotfix, committing next"
 """
 from __future__ import annotations
 
 import argparse
+import datetime
+import subprocess
 import sys
 from pathlib import Path
 
@@ -34,9 +43,94 @@ from upress_ftp_env import (
 # (once-plugins are self-guarded). Add a name here only with a written reason.
 MU_PLUGIN_DENYLIST: dict[str, str] = {
     "ea-s006-strip-team80-seo-once.php": (
-        "S006 R2 W1: untracked once-plugin is not in this wave; do not FTP"
+        "S006 R2 W1: held back from this wave by decision. (The original reason said "
+        "'untracked'; it has been tracked since fabd106, so the file is in git — it is "
+        "the deploy that is withheld, not the file that is missing.)"
     ),
 }
+
+DEPLOY_LOG = "_COMMUNICATION/team_100/S006/DEPLOY-LOG.md"
+
+
+def _git(root: Path, *args: str) -> str:
+    """Run git in the repo and return stripped stdout ('' on any failure)."""
+    try:
+        out = subprocess.run(
+            ["git", *args], cwd=root, capture_output=True, text=True, timeout=20
+        )
+    except Exception:
+        return ""
+    return out.stdout.strip() if out.returncode == 0 else ""
+
+
+def assert_clean_tree(root: Path, allow_dirty: str | None) -> str:
+    """Refuse to deploy from a dirty working tree, and report what will ship.
+
+    This script uploads the working tree on disk, NOT a git ref. That has already
+    cost this project twice on 2026-09-06: commit 887d270 retroactively rescued 44
+    files that staging was serving while they existed only as uncommitted edits on
+    one machine, and fabd106 rescued 25 more including two untracked mu-plugins.
+    Either an uncommitted edit ships and lives nowhere but one laptop, or an older
+    checkout ships and silently reverts the live site.
+
+    So: a dirty `site/` stops the deploy, and every deploy records the commit whose
+    tree actually went to the server.
+    """
+    head = _git(root, "rev-parse", "HEAD")
+    branch = _git(root, "rev-parse", "--abbrev-ref", "HEAD")
+    if not head:
+        raise SystemExit(
+            "Refusing to deploy: cannot read git HEAD. The server would receive an "
+            "unidentifiable tree."
+        )
+
+    dirty = _git(root, "status", "--porcelain", "--", "site/")
+    if dirty:
+        if not allow_dirty:
+            raise SystemExit(
+                "Refusing to deploy: uncommitted changes under site/.\n"
+                + dirty
+                + "\n\nThis script ships the working tree, so these edits would go live "
+                "while existing in no commit — exactly the failure that produced the "
+                "887d270 and fabd106 rescue commits.\n"
+                "Commit them, or re-run with --allow-dirty 'written reason'."
+            )
+        print(f"WARN: deploying a DIRTY tree. Reason given: {allow_dirty}", file=sys.stderr)
+        print(dirty, file=sys.stderr)
+
+    print(f"Deploying tree of commit {head[:12]} on branch {branch}"
+          f"{' + UNCOMMITTED EDITS' if dirty else ''}", flush=True)
+    return head
+
+
+def record_deploy(root: Path, head: str, count: int, dirty_reason: str | None) -> None:
+    """Append what actually shipped, so the server's state is reconstructible."""
+    log = root / DEPLOY_LOG
+    stamp = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    branch = _git(root, "rev-parse", "--abbrev-ref", "HEAD") or "?"
+    version = ""
+    style = root / "site/wp-content/themes/ea-eyalamit/style.css"
+    if style.is_file():
+        for line in style.read_text(errors="replace").splitlines()[:20]:
+            if line.lower().startswith("version:"):
+                version = line.split(":", 1)[1].strip()
+                break
+    note = f" · DIRTY: {dirty_reason}" if dirty_reason else ""
+    line = f"- {stamp} · `{head[:12]}` · {branch} · theme {version or '?'} · {count} files{note}\n"
+    try:
+        if not log.exists():
+            log.parent.mkdir(parents=True, exist_ok=True)
+            log.write_text(
+                "# Deploy log — what actually reached the server\n\n"
+                "Written by `scripts/ftp_deploy_site_wp_content.py`. The script uploads the\n"
+                "working tree, not a git ref, so this file is the record of which commit's\n"
+                "tree is live. A line marked DIRTY shipped edits that were in no commit.\n\n"
+            )
+        with log.open("a") as fh:
+            fh.write(line)
+        print(f"Recorded in {DEPLOY_LOG}", flush=True)
+    except Exception as e:  # never fail a completed deploy over bookkeeping
+        print(f"WARN: could not write deploy log: {e}", file=sys.stderr)
 
 
 def collect_mu_plugin_files(mu_dir: Path) -> tuple[list[tuple[Path, str]], list[tuple[str, str]], list[str]]:
@@ -64,9 +158,16 @@ def main() -> None:
         action="store_true",
         help="Also upload site/exports/m2-pages-seed.wxr for wp-admin import (path uploads/ea-m2-seed/).",
     )
+    ap.add_argument(
+        "--allow-dirty",
+        metavar="REASON",
+        help="Deploy even though site/ has uncommitted changes. Requires a written reason, "
+        "which is printed and recorded in the deploy log.",
+    )
     args = ap.parse_args()
 
     root = Path(__file__).resolve().parents[1]
+    head = assert_clean_tree(root, args.allow_dirty)
     theme_src = root / "site" / "wp-content" / "themes" / "ea-eyalamit"
     mu_dir = root / "site" / "wp-content" / "mu-plugins"
     if not theme_src.is_dir():
@@ -140,6 +241,7 @@ def main() -> None:
         print(f"OK: {remote_rel}", flush=True)
 
     ftp.quit()
+    record_deploy(root, head, len(files), args.allow_dirty)
     print("Done: FTP deploy site/wp-content (child theme + mu-plugins).", flush=True)
     print(
         "Tip: hit staging homepage once (HTTP) so ea-m2-auto-activate-child.php switches theme; "
