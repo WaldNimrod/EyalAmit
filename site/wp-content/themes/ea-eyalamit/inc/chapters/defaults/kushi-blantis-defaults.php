@@ -81,7 +81,10 @@ return array(
 		),
 
 		/* S006 · KSH-06 · SECTION 05 אחרי 04 ולפני 06
-		 * KSH-02 · תמונות קיימות נשמרות עד בחירת אייל · בלי lead/כיתובים/pending שהומצאו */
+		 * KSH-02 · תמונות קיימות נשמרות עד בחירת אייל · בלי lead/כיתובים/pending שהומצאו
+		 * 2026-09-18 · team_00 אישר הסרת כפילות · 23 → 22:
+		 * kush-23 היה עותק זהה של kush-16 (אותו צילום, אותו כיתוב).
+		 * kush-25 זהה בתוכנו ל-tsva-43 (ספר אחר) — לא הוסר, ראו שאלה לאייל. */
 		array(
 			'part' => 'gallery',
 			'args' => array(
@@ -106,7 +109,6 @@ return array(
 					array( 'image' => 'assets/images/chapters/kushi/kush-20.jpg', 'alt' => 'שתי נשים שוכבות על כריות בחוף מדברי, קוראות ספרים' ),
 					array( 'image' => 'assets/images/chapters/kushi/kush-21.jpg', 'alt' => 'אישה קוראת את הספר בתוך סירה ירוקה על החוף, אדם נוסף שוכב לצידה' ),
 					array( 'image' => 'assets/images/chapters/kushi/kush-22.jpg', 'alt' => 'אישה עם שיער מתולתל קוראת את הספר הפתוח' ),
-					array( 'image' => 'assets/images/chapters/kushi/kush-23.jpg', 'alt' => 'גבר יושב על סלע ליד נהר בין הרים בדמדומים, מחזיק את הספר ודף נוסף' ),
 					array( 'image' => 'assets/images/chapters/kushi/kush-24.jpg', 'alt' => 'אישה יושבת על מבנה אבן ליד בריכת מים ירוקה, קוראת את הספר' ),
 					array( 'image' => 'assets/images/chapters/kushi/kush-25.jpg', 'alt' => 'תינוק שוכב עם מוצץ ובובת מיני מאוס, ספרים ובהם כושי בלאנטיס ברקע' ),
 					array( 'image' => 'assets/images/chapters/kushi/kush-26.jpg', 'alt' => 'גבר עם משקפיים מחזיק את הספר ותינוק בזרועותיו' ),

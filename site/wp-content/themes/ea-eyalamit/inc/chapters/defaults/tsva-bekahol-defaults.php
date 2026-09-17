@@ -73,7 +73,11 @@ return array(
 			),
 		),
 
-		/* S006 גל 7 · TSV-02 גלריה מהדף הישן */
+		/* S006 גל 7 · TSV-02 גלריה מהדף הישן
+		   2026-09-18 · team_00 אישר הסרת כפילויות · 46 → 44:
+		   tsva-40 היה עותק זהה של tsva-18 (אותו צילום, אותו כיתוב);
+		   tsva-39 היה עותק זהה של tsva-27 (אותו צילום, אותו כיתוב).
+		   tsva-43 זהה בתוכנו ל-kush-25 (ספר אחר) — לא הוסר, ראו שאלה לאייל. */
 		array(
 			'part' => 'gallery',
 			'args' => array(
@@ -113,8 +117,6 @@ return array(
 					array( 'image' => 'assets/images/chapters/tsva/tsva-36.jpg', 'alt' => 'פנים חנות בדים עמוסת אריגים מקופלים, שתי נשים יושבות וגבר הולך ברקע' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-37.jpg', 'alt' => 'אישה צעירה עם אופניים מחזיקה את הספר הכחול, עצי פריחה ושלטים ביפנית ברקע' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-38.jpg', 'alt' => 'גבר בגלימה מסורתית מחזיק את הספר הכחול ליד שלט הפארק הלאומי ג\'יגמה דורג\'י, פרה שחורה מאחור' ),
-					array( 'image' => 'assets/images/chapters/tsva/tsva-39.jpg', 'alt' => 'שתי נשים ליד מבנה טיח לבן מעוטר בדגלי תפילה, אחת מחזיקה ספר כחול קטן' ),
-					array( 'image' => 'assets/images/chapters/tsva/tsva-40.jpg', 'alt' => 'גבר עם מצלמה מחזיק את הספר הכחול ברחוב שוק, סטופה בודהיסטית מעוטרת בדגלי תפילה ברקע' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-41.jpg', 'alt' => 'גבר צעיר עם כובע מניף אגודל ומחזיק את הספר הכחול, שלטי ניאון ביפנית ברקע' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-42.jpg', 'alt' => 'גבר עם משקפי שמש יושב על מדרגות אבן ומחזיק את הספר הכחול, מבנה עם עמודים אדומים מאחור' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-43.jpg', 'alt' => 'תינוק שוכב עם מוצץ לצד בובת מיני מאוס, ספרים וכרטיסי ברכה ברקע' ),
