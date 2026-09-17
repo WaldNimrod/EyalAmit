@@ -162,7 +162,7 @@ the template is used. **Do not "fix" them blind; first re-verify whether they we
 
 ## Recorded debt — created deliberately on 2026-09-18, not a defect
 
-### P2-D1 · The 162 book-gallery alt texts will live in PHP, not in the database
+### P2-D1 · CLOSED 2026-09-18 by team_00 — alt text is agent-maintained by design
 
 M-10 chose **route (a)**: author the alt keys directly in
 `inc/chapters/defaults/{vekatavta,tsva-bekahol,kushi-blantis}-defaults.php`, and leave
@@ -194,6 +194,30 @@ differently, it comes back to us.
   winning.
 
 **Do not attempt this as a drive-by.** It needs its own mandate and its own verification.
+
+#### ⚑ CLOSED — team_00 ruling, 2026-09-18
+
+Nimrod has ruled that **alt text will always be updated through an agent, not through
+wp-admin.** Route (a) is therefore not a stopgap and not a debt — it is the chosen
+operating model, and the ACF work described above is **not scheduled and not wanted**.
+
+The gap it left — Eyal having no way to correct a description — is closed a different and
+better way: **the media gallery becomes his review channel.** Each image there gains its
+current alt text, the page that renders it, and an editable correction field, in the same
+structure as the per-image and per-page notes fields already built in M-09. He reviews
+against the actual photograph, writes corrections, exports, and we apply them.
+
+This is better than an ACF field for the reason that matters here: an ACF box in wp-admin
+would show him a text field next to a filename. The gallery shows him **the photograph**,
+which is the only way to judge whether a description of it is true.
+
+Two constraints recorded with the ruling, both measured:
+- **Coverage gap:** 246 of the 250 unique live-theme image contents are present in the
+  gallery's 939-image set. **4 unique contents (12 raw files) are missing** and must be
+  added or explicitly justified.
+- **Scope of the review:** the gallery holds 939 images; only ~250 are on the site. The alt
+  review must be scoped or filterable to what is actually rendered, or the ~250 that matter
+  are buried under the archive.
 
 ---
 
