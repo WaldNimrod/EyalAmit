@@ -1288,6 +1288,7 @@
       margin-top: var(--ea-space-1);
     }
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-text,
+    .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select,
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea {
       width: 100%;
       padding: 12px 16px;
@@ -1307,13 +1308,31 @@
       min-height: 8rem;
       resize: vertical;
     }
+    /* 2026-09-17: select had no rule at all (only .wpcf7-text/.wpcf7-textarea
+       were covered), so it fell back to the bare native control — different
+       background, a visible border where the others have none, and
+       shrink-to-content width instead of matching them. Folded into the
+       shared rule above; appearance:none drops the native arrow, so a
+       lightweight one is added back here. background-position has no
+       logical form (Standard §2.3 documented exception), so "left" is a
+       deliberate physical value, matching the RTL layout's own inline-start. */
+    .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select {
+      padding-inline-end: 40px;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236F635A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 14px center;
+      background-size: 14px;
+    }
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-text:focus,
+    .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select:focus,
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea:focus {
       border-color: var(--ea-terracotta);
       outline: none;
       border-bottom-width: 2px;
     }
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-text:focus-visible,
+    .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select:focus-visible,
     .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea:focus-visible {
       outline: 2px solid var(--ea-terracotta);
       outline-offset: 2px;

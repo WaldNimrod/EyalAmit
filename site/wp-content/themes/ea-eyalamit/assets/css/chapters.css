@@ -23,6 +23,17 @@
   --sec:clamp(78px,8vw,112px);
 }
 *,*::before,*::after{box-sizing:border-box}
+/* 2026-09-17: [hidden] is an attribute selector — same specificity (0,1,0) as
+   a plain class selector — so any component class that sets its own
+   `display` (e.g. .ea-cta-pill{display:inline-flex}) silently wins over the
+   browser's default [hidden]{display:none}, and the "hidden" element still
+   renders. Confirmed live: contact.php's two-copy WhatsApp CTA marks its B
+   variant hidden, but .ea-cta-pill's display:inline-flex defeated it, so
+   both variants showed stacked. !important here (rather than a narrower
+   .ea-cta-pill[hidden] rule) is deliberate: [hidden] should always mean
+   "not displayed," sitewide, no matter which future component's own
+   display rule would otherwise beat it. */
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 /* RTL audit 2026-09-17: this used to hardcode direction:rtl;text-align:right
    unconditionally, which also reached the live English page (/en/) since
