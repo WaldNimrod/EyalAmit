@@ -307,12 +307,15 @@ return array(
 	/* S006 · מקור: סקירה דף הבית.xlsx · גיליון1!C15 — «[לתיאום שיחת היכרות](/contact)» */
 	'peek_cta_label' => 'לתיאום שיחת היכרות',
 	'peek_cta_url'   => '/contact/',
-	/* S006 · H-07 · מקור: דף הבית.xlsx D7 + תחתית https://www.eyalamit.co.il/ · 30 תמונות מקוריות, לא הוטלינק. */
+	/* S006 · H-07 · מקור: דף הבית.xlsx D7 + תחתית https://www.eyalamit.co.il/ · 30 תמונות מקוריות, לא הוטלינק.
+	   2026-09-18 · team_00 אישר הסרת כפילויות · 30 → 27:
+	   peek-27 היה עותק זהה של breath-practice.jpg שכבר מוצגת פעמיים בעמוד;
+	   peek-20 היה עותק זהה של didg-spiral-detail.jpg שכבר מוצגת בעמוד;
+	   peek-04 היה אותו צילום כמו peek-26 בשתי רזולוציות — נשמרה החדה יותר. */
 	'peek_gallery'   => array(
 		array( 'image' => 'assets/images/chapters/home-peek/peek-01.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-02.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-03.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
-		array( 'image' => 'assets/images/chapters/home-peek/peek-04.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-05.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-06.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-07.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
@@ -328,14 +331,12 @@ return array(
 		array( 'image' => 'assets/images/chapters/home-peek/peek-17.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-18.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-19.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
-		array( 'image' => 'assets/images/chapters/home-peek/peek-20.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-21.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-22.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-23.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-24.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-25.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-26.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
-		array( 'image' => 'assets/images/chapters/home-peek/peek-27.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-28.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-29.jpg', 'alt' => 'הצצה לחוויה בסטודיו' ),
 		array( 'image' => 'assets/images/chapters/home-peek/peek-30.jpeg', 'alt' => 'הצצה לחוויה בסטודיו' ),
