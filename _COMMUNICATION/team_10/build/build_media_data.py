@@ -123,6 +123,118 @@ def sha256_of(path: Path) -> str:
     return h.hexdigest()
 
 
+
+# M-10, 2026-09-18 (team_10 -> team_100): site-wide image register, keyed by the
+# same sha256 id as the M-09 pool. Reuses the hashing already done for the
+# live-theme collection; adds where each image actually renders (defaults file
+# + page), its current alt, and — for the three book galleries this mandate
+# closed plus the home #peek gallery — a structured `people` identification
+# and any open accessibility question for Eyal. Written straight onto the
+# matching M-09 `images[]` entries so the tool never carries two parallel
+# schemas for "the same photo".
+DEFAULTS_DIR = THEME_SRC / "inc" / "chapters" / "defaults"
+
+# defaults-file stem -> chapters `type` -> canonical page path, hand-mapped
+# (31 files, not worth a fuzzy match). Files with no live page of their own
+# (media/qr/qr-hub) map to None and are skipped for "renderedAt".
+DEFAULTS_FILE_TO_PAGE = {
+    "about": "/eyal-amit/", "accessibility": "/accessibility/", "bags": "/bags/",
+    "contact": "/contact/", "didgeridoos": "/didgeridoos/", "en": "/en/",
+    "faq": "/faq/", "galleries": None, "home": "/", "kushi-blantis": "/books/kushi-blantis/",
+    "learning": "/learning/", "lectures": "/learning/lectures/", "lessons": "/lessons/",
+    "media": None, "method": "/method/", "mokesh": "/eyal-amit/mokesh-dahiman/",
+    "muzza": "/muzza/", "privacy": "/privacy/", "qr": None, "qr-hub": None,
+    "repair": "/repair/", "shop": "/shop/", "snoring-sleep-apnea": "/snoring-sleep-apnea/",
+    "sound-healing": "/sound-healing/", "stand-floor": "/stand-floor/",
+    "stands-storage": "/stands-storage/", "terms": "/terms/",
+    "therapist-training": "/learning/therapist-training/", "treatment": "/treatment/",
+    "treatment-eyal": None, "tsva-bekahol": "/books/tsva-bekahol/",
+    "vekatavta": "/books/vekatavta/", "workshops": "/learning/workshops/",
+}
+
+def sha256_of_theme_file(rel: str) -> str | None:
+    p = THEME_SRC / rel
+    if not p.is_file():
+        return None
+    return sha256_of(p)
+
+
+def build_m10_register(images: list, hash_to_id: dict) -> dict:
+    id_to_image = {im["id"]: im for im in images}
+
+    # Every 'image'=>path[,'alt'=>text] and 'media'=>path,'media_alt'=>text
+    # pair, with which defaults file (-> page) it came from.
+    pat_img = re.compile(r"'image'\s*=>\s*'([^']+)'(?:\s*,\s*'alt'\s*=>\s*'((?:[^'\\]|\\.)*)')?")
+    pat_media = re.compile(r"'media'\s*=>\s*'([^']+)'\s*,\s*'media_alt'\s*=>\s*'((?:[^'\\]|\\.)*)'")
+
+    rendered_by_hash: dict[str, list[dict]] = defaultdict(list)
+    alt_by_hash: dict[str, str] = {}
+    for f in sorted(DEFAULTS_DIR.glob("*.php")):
+        stem = f.stem.removesuffix("-defaults")
+        page = DEFAULTS_FILE_TO_PAGE.get(stem, "?")
+        txt = f.read_text(encoding="utf-8")
+        for pat in (pat_img, pat_media):
+            for m in pat.finditer(txt):
+                rel, alt = m.group(1), (m.group(2) or "").replace("\\'", "'")
+                digest = sha256_of_theme_file(rel)
+                if not digest:
+                    continue
+                rendered_by_hash[digest].append({"page": page, "defaultsFile": f.name})
+                if alt.strip():
+                    # Longest wins on conflict — same policy as the PHP alt
+                    # helper's map (chapters-render.php M-10), for the same
+                    # reason: the fuller, freshly-authored description beats
+                    # an older terse one for the same photo.
+                    if digest not in alt_by_hash or len(alt) > len(alt_by_hash[digest]):
+                        alt_by_hash[digest] = alt
+
+    people_path = Path(__file__).parent / "m10" / "people.json"
+    people_by_abspath = json.loads(people_path.read_text(encoding="utf-8")) if people_path.is_file() else {}
+    people_by_hash = {}
+    for abspath, info in people_by_abspath.items():
+        try:
+            rel = str(Path(abspath).relative_to(THEME_SRC))
+        except ValueError:
+            continue
+        digest = sha256_of_theme_file(rel)
+        if digest and info.get("people"):
+            people_by_hash[digest] = info
+
+    questions_by_hash = {}
+    for batch_file in sorted((Path(__file__).parent / "m10").glob("batch_*.json")) if (Path(__file__).parent / "m10").is_dir() else []:
+        for e in json.loads(batch_file.read_text(encoding="utf-8")):
+            if "question" not in e:
+                continue
+            try:
+                rel = str(Path(e["path"]).relative_to(THEME_SRC))
+            except ValueError:
+                continue
+            digest = sha256_of_theme_file(rel)
+            if digest:
+                questions_by_hash[digest] = e["question"]
+
+    covered = 0
+    live_theme_hashes = {im["sha256"] for im in images if "live-theme" in im["collections"]}
+    for digest in live_theme_hashes:
+        im = id_to_image[hash_to_id[digest]]
+        rendered_pairs = sorted(
+            {(r["page"] or "", r["defaultsFile"]) for r in rendered_by_hash.get(digest, [])}
+        )
+        im["renderedAt"] = [{"page": p, "defaultsFile": d} for p, d in rendered_pairs]
+        im["currentAlt"] = alt_by_hash.get(digest, "")
+        pinfo = people_by_hash.get(digest)
+        im["people"] = pinfo["people"] if pinfo else []
+        im["peopleConfidence"] = pinfo["confidence"] if pinfo else None
+        im["questionForEyal"] = questions_by_hash.get(digest)
+        if im["renderedAt"] or im["currentAlt"] or im["questionForEyal"]:
+            covered += 1
+
+    return {
+        "liveThemeTotal": len(live_theme_hashes),
+        "liveThemeCovered": covered,
+    }
+
+
 def main():
     total_files = 0
     by_hash: dict[str, list[dict]] = defaultdict(list)
@@ -275,6 +387,10 @@ def main():
     if unmapped_slot_pages:
         print(f"\nWARNING — slot-picker pages with no canonical mapping (dropped): {unmapped_slot_pages}")
     print(f"\ncanonical menu pages: {len(MAIN_MENU_PAGES)}")
+
+    m10_stats = build_m10_register(images, hash_to_id)
+    print(f"\nM-10 register: {m10_stats['liveThemeCovered']} of {m10_stats['liveThemeTotal']} "
+          f"live-theme images carry a renderedAt/currentAlt/question entry")
 
     out = {
         "images": images,
