@@ -13,8 +13,9 @@
 defined( 'ABSPATH' ) || exit;
 
 // Bump to re-apply the form definition to the already-seeded form. 2 = D-8 dropdown.
+// 3 = the dropdown gets a blank prompt, so it stops pre-selecting the first topic.
 if ( ! defined( 'EA_W2_15_CF7_REV' ) ) {
-	define( 'EA_W2_15_CF7_REV', 2 );
+	define( 'EA_W2_15_CF7_REV', 3 );
 }
 
 /**
@@ -35,6 +36,15 @@ function ea_w2_15_cf7_ensure_form() {
 	 * The definition is versioned now: the same form id is kept, and its properties
 	 * are re-applied whenever EA_W2_15_CF7_REV moves. Bump the constant to ship a
 	 * change; leave it alone and this stays a no-op on every request.
+	 *
+	 * REV 3 · 2026-09-18 — the dropdown shipped without a blank first option, so the
+	 * browser selected "טיפול בדיג'רידו" for everyone. Every visitor who never touched
+	 * the field mailed Eyal a subject line that had nothing to do with their enquiry —
+	 * a book order arriving labelled as a didgeridoo treatment. Found by the S006
+	 * accessibility audit (A11Y-INTERACT-05), though it is a correctness defect rather
+	 * than a WCAG failure. `first_as_label` makes the first item a prompt with an empty
+	 * value, and since the field is `select*` the form now refuses to submit until a
+	 * real topic is chosen. D-8 is unchanged: the field stays, the dropdown stays.
 	 */
 	$existing = (int) get_option( 'ea_w2_15_cf7_form_id', 0 );
 	$rev_seen = (int) get_option( 'ea_w2_15_cf7_rev', 0 );
@@ -58,7 +68,7 @@ function ea_w2_15_cf7_ensure_form() {
 		'<p class="ea-cf7-row"><label>שם מלא<br />[text* your-name autocomplete:name placeholder "שם מלא"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>טלפון<br />[tel your-phone autocomplete:tel placeholder "טלפון"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>אימייל<br />[email* your-email autocomplete:email placeholder "אימייל"]</label></p>' . "\n" .
-		'<p class="ea-cf7-row"><label>נושא<br />[select* your-subject "טיפול בדיג\'רידו" "שיעורי נגינה" "סאונד הילינג" "רכישת כלי" "רכישת ספר" "תיקון כלי" "אחר"]</label></p>' . "\n" .
+		'<p class="ea-cf7-row"><label>נושא<br />[select* your-subject first_as_label "בחרו נושא" "טיפול בדיג\'רידו" "שיעורי נגינה" "סאונד הילינג" "רכישת כלי" "רכישת ספר" "תיקון כלי" "אחר"]</label></p>' . "\n" .
 		'<p class="ea-cf7-row"><label>הודעה<br />[textarea your-message placeholder "ספרו לנו במה נוכל לעזור"]</label></p>' . "\n" .
 		'<p class="ea-cf7-submit">[submit "שליחה"]</p>' . "\n" .
 		'</div>';
