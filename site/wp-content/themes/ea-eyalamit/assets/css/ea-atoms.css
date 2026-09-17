@@ -1274,13 +1274,19 @@
     .ea-contact-form--cf7 .wpcf7-form { margin: 0; }
     .ea-contact-form--cf7 .ea-cf7 { margin: 0; }
     .ea-contact-form--cf7 .ea-cf7-row { margin: 0 0 var(--ea-space-4); }
+    /* 2026-09-17: Eyal asked to drop the separate label above each field —
+       every input/select/textarea already carries the same text as its
+       placeholder, so the label was showing the field's name twice. The
+       label element itself is kept (font-size:0 rather than display:none),
+       because it's what gives each control its real accessible name for
+       screen readers — a placeholder alone isn't a substitute (it disappears
+       on input and isn't reliably exposed as a label by every browser/AT).
+       Zeroing the font-size (not visibility/display) is what keeps it out of
+       sighted view without removing it from the accessibility tree. */
     .ea-contact-form--cf7 .ea-cf7-row > label {
       display: block;
-      font-family: var(--ea-font);
-      font-weight: 300;
-      font-size: 0.78rem;
-      color: var(--ea-ink);
-      text-align: right;
+      font-size: 0;
+      line-height: 0;
     }
     .ea-contact-form--cf7 .ea-cf7-row > label br { display: none; }
     .ea-contact-form--cf7 .wpcf7-form-control-wrap {
@@ -1337,7 +1343,10 @@
       outline: 2px solid var(--ea-terracotta);
       outline-offset: 2px;
     }
-    .ea-contact-form--cf7 .ea-cf7-submit { margin: var(--ea-space-2) 0 0; }
+    /* 2026-09-17: Eyal asked for the submit button at the form's left —
+       text-align:end (not :left) so it stays correct if this RTL-only form
+       is ever reused in an LTR context, per the project's RTL standard. */
+    .ea-contact-form--cf7 .ea-cf7-submit { margin: var(--ea-space-2) 0 0; text-align: end; }
     .ea-contact-form--cf7 .wpcf7-submit {
       display: inline-block;
       width: auto;
