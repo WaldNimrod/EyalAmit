@@ -160,6 +160,43 @@ the template is used. **Do not "fix" them blind; first re-verify whether they we
 
 ---
 
+## Recorded debt — created deliberately on 2026-09-18, not a defect
+
+### P2-D1 · The 162 book-gallery alt texts will live in PHP, not in the database
+
+M-10 chose **route (a)**: author the alt keys directly in
+`inc/chapters/defaults/{vekatavta,tsva-bekahol,kushi-blantis}-defaults.php`, and leave
+`chapters-render.php:644`'s 18-type exclusion list untouched.
+
+**This was the right call and team_100 endorses it.** Route (b) — removing the three book
+types from that exclusion list and registering real ACF fields — would have touched a guard
+that exists to stop ACF slot-order corruption, on a render path shared with `/shop/`,
+`/faq/`, `/treatment/` and twelve other page types, while three other lines were mid-flight
+on exactly those pages. Closing a live WCAG 1.1.1 failure should not be gated on a risky
+refactor.
+
+**The cost, stated plainly so nobody rediscovers it by surprise:** Eyal has no way to edit
+any of those 162 descriptions himself. Changing one means a developer, an edit to a PHP
+file, and a deploy. If he ever revises a book's photographs, or wants a description worded
+differently, it comes back to us.
+
+**What closing this would take** (a future work package, not scheduled):
+- Remove **only** `vekatavta`, `tsva-bekahol`, `kushi-blantis` from the array at
+  `chapters-render.php:644` — never the other fifteen in the same pass.
+- Register real ACF fields for the gallery list on those three types. The field map already
+  supports it: `ea_chapters_part_field_map()` at `chapters-render.php:434` registers
+  `'gallery' => array(..., 'list' => array('image'=>'img','alt'=>'txt','cap'=>'txt'))`, and
+  `ea_chapters_merge_list_rows()` at `:668-676` is the merge that the exclusion currently
+  skips. **The plumbing exists; only the exclusion stands in the way.**
+- Its own regression check proving no other page's section order or content shifted. That
+  check is the real work, not the removal.
+- Migrate the PHP-authored alt values into the DB so nothing is lost when the overlay starts
+  winning.
+
+**Do not attempt this as a drive-by.** It needs its own mandate and its own verification.
+
+---
+
 ## Explicitly NOT in this package
 
 - **The 30 identical alt strings** on the home `#peek` gallery — assigned to M-10, step 5.
