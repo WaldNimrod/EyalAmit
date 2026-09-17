@@ -76,6 +76,18 @@ a{color:inherit}
 .btn--gd{background:transparent;color:var(--terra);border-color:var(--terra)}
 .btn--gd:hover{background:var(--terra);color:#fff;transform:translateY(-2px)}
 .btn:focus-visible{outline:2px solid var(--terra-lt);outline-offset:3px}
+/* WS-2.1 (2026-09-18): .btn--terra and .btn--gw set color:#fff at single-class
+   specificity (0,1,0); GeneratePress's inline a:hover,a:focus,a:active{color:
+   var(--contrast)} (0,1,1) beats that on focus, collapsing white CTA text to
+   near-black on their own terracotta/dark-scrim backgrounds (measured
+   .btn--terra 4.63:1 -> 3.04:1; .btn--gw sits on a card's absolutely-positioned
+   dark scrim sibling, not an ancestor bg, so its ratio can't be walked, but the
+   same white->near-black collapse was confirmed the same way). .btn--gd is NOT
+   included here: its focused colour goes dark-ink-on-light, which only
+   increases contrast (measured 3.55:1 -> 11.74:1) — no bug to fix.
+   :focus-visible + one extra class is 0,2,0, wins honestly. See
+   _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */
+.btn--terra:focus-visible,.btn--gw:focus-visible{color:#fff}
 
 /* placeholders */
 .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;
@@ -89,6 +101,12 @@ a{color:inherit}
   padding:0 44px;background:linear-gradient(180deg,rgba(20,14,9,.55),transparent);transition:background .35s,backdrop-filter .35s,border-color .35s;border-bottom:1px solid transparent}
 .nav[data-s="1"]{background:rgba(20,14,9,.95);backdrop-filter:blur(12px);border-bottom-color:var(--line-d)}
 .nav__b{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+/* WS-2.1 (2026-09-18): .nav__b is single-class (0,1,0); GeneratePress's inline
+   a:hover,a:focus,a:active{color:var(--contrast)} (0,1,1) beats it on focus,
+   collapsing the logo link to near-black on the dark nav (measured 19.15:1 ->
+   1.36:1). .nav__b:focus is 0,2,0, wins honestly. See _COMMUNICATION/team_10/
+   A11Y-FIX-2026-09-18/. */
+.nav__b:focus,.nav__b:focus-visible{color:#fff}
 .nav__lg{width:28px;height:28px;background:url('../images/ea-logo-mark.png') center/contain no-repeat;filter:invert(1) sepia(.5) brightness(1.4)}
 .nav__b b{font-family:var(--hf);font-weight:500;font-size:1.06rem;line-height:1}
 .nav__l{display:flex;gap:24px;list-style:none;margin:0;padding:0}
@@ -101,6 +119,13 @@ a{color:inherit}
 .nav__tg svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6}
 .nav__en{font-size:.72rem;letter-spacing:1px;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:7px 13px;text-decoration:none}
 .nav__en:hover{border-color:#fff;color:#fff}
+/* WS-2.1 (2026-09-18): same cascade collision as .nav__b above — .nav__en is
+   single-class (0,1,0) and had NO :focus rule at all, so GeneratePress's
+   inline a:hover,a:focus,a:active{color:var(--contrast)} (0,1,1) fully wins on
+   focus (measured 13.83:1 -> 1.36:1, matches team_100's 1.1-1.4:1 finding).
+   Re-using the existing :hover treatment for :focus/:focus-visible (0,2,0,
+   wins honestly). See _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */
+.nav__en:focus,.nav__en:focus-visible{border-color:#fff;color:#fff}
 @media(max-width:1080px){.nav__l{display:none}}
 
 /* ---- HERO ---- */
@@ -680,7 +705,7 @@ body.nav-locked{overflow:hidden}
 /* skip-link parity (theme markup uses .ea-skip-link / .screen-reader-text) */
 .ea-skip-link{position:absolute;right:-9999px;top:auto;z-index:100;background:var(--terra);color:#fff;padding:10px 16px;border-radius:4px;font-family:var(--bf);font-size:.85rem}
 .ea-skip-link:focus,.ea-skip-link:focus-visible{position:fixed;right:12px;top:12px;left:auto;z-index:100000;transition:none}
-.ea-skiplink:focus,.ea-skiplink:focus-visible{position:fixed;top:12px;right:12px;left:auto;z-index:100000;transition:none}
+.ea-skiplink:focus,.ea-skiplink:focus-visible{position:fixed;top:12px;right:12px;left:auto;z-index:100000;transition:none;color:#fff}/* WS-2.1 2026-09-18: color added, see ea-atoms.css:88-96 for the full note. NOT .ea-skip-link above — that class is dead header.php markup, not live. */
 
 /* ============================================================
    feedback round (team_00, 2026-06-22): slower motion · fixed session · centered compare

@@ -93,6 +93,13 @@
       left: auto;
       z-index: 100000;
       transition: none;
+      /* WS-2.1 (2026-09-18): re-assert the base rule's own color:#fff (line 79).
+         GeneratePress's inline `a:hover,a:focus,a:active{color:var(--contrast)}`
+         is specificity 0,1,1 and beats this selector's un-pseudo-classed 0,1,0,
+         collapsing focused text to near-black (2.48:1) on the terracotta bg.
+         This selector is 0,2,0 (class + pseudo-class), which wins honestly —
+         no !important needed. See _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */
+      color: #fff;
     }
 
     /* Scroll progress */
