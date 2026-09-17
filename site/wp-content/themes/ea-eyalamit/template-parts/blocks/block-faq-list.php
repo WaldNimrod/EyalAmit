@@ -25,6 +25,21 @@ $ea_view_chap  = isset( $args['ea_faq_view_chap'] ) ? (string) $args['ea_faq_vie
 $ea_view_title = isset( $args['ea_faq_view_title'] ) ? (string) $args['ea_faq_view_title'] : '';
 $ea_view_id    = isset( $args['ea_faq_view_id'] ) ? (string) $args['ea_faq_view_id'] : '';
 
+/* A11Y fix 2026-09-18 (A11Y-STRUCT-03, team_10/WS-3B, _COMMUNICATION/team_10/
+ * A11Y-FIX-2026-09-18/04-DONE-HEADING-STRUCTURE.md): in this view-only/
+ * filtered mode the question was a bare text node inside <summary> — no
+ * heading at all — while the full/unfiltered mode a few lines down (:100-101)
+ * already wraps it in an <h3>. Measured live: /faq/ (full mode) has 150
+ * headings including an H3 per question; /treatment/ (this filtered mode)
+ * has 12, all H1/H2, none for its own 22 listed questions. Level is derived
+ * from this view's own context, not hardcoded: this branch renders its own
+ * <h2 class="h2 r"> right below when $ea_view_title is set, so the question
+ * is one level deeper (H3) — the only live caller (treatment-defaults.php's
+ * faqblock section) always sets a title, giving H1→H2→H3 with no skip. If a
+ * future caller omits the title, no H2 exists here, so the question stays at
+ * H2 to avoid skipping a level. */
+$ea_view_only_q_tag = ( '' !== $ea_view_title ) ? 'h3' : 'h2';
+
 $faq_categories = function_exists( 'ea_faq_get_categories' ) ? ea_faq_get_categories() : array();
 $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items() : array();
 ?>
@@ -43,7 +58,7 @@ $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items()
 			<div class="ea-faq-category">
 				<?php foreach ( $ea_only_items as $item ) : ?>
 					<details class="ea-faq-item ea-entrance" data-category="<?php echo esc_attr( implode( ' ', $item['categories'] ) ); ?>">
-						<summary class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></summary>
+						<summary class="ea-faq-item__question"><?php printf( '<%1$s class="ea-faq-item__question-h">%2$s</%1$s>', $ea_view_only_q_tag, esc_html( $item['q'] ) ); ?></summary>
 						<div class="ea-faq-item__answer"><?php echo wp_kses_post( $item['a'] ); ?></div>
 					</details>
 				<?php endforeach; ?>
