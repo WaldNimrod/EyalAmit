@@ -18,6 +18,15 @@ $h = static function ( $path ) {
 		<span class="nav__lg" aria-hidden="true"></span><b>אייל עמית</b>
 	</a>
 
+	<?php /* WS-2.2 (A11Y-FIX-2026-09-18): burger moved before .nav__l so DOM/tab order
+	matches the open-panel reality at mobile width — Tab from the burger must land inside
+	the menu it just opened, not past it. Visual position at both breakpoints is restored
+	via `order` in chapters.css (see .nav__burger, mobile media query) since CSS order
+	does not affect tab order. See _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */ ?>
+	<button class="nav__burger" type="button" aria-label="<?php esc_attr_e( 'תפריט', 'ea-eyalamit' ); ?>" aria-expanded="false" aria-controls="nav">
+		<span></span><span></span><span></span>
+	</button>
+
 	<ul class="nav__l" role="list">
 		<li>
 			<a class="nav__dd" href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו<span class="nav__caret" aria-hidden="true">▾</span></a>
@@ -75,8 +84,5 @@ $h = static function ( $path ) {
 			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 h4 l5-4 v14 l-5-4 H4 z"/><path d="M17 9 a4 4 0 0 1 0 6"/></svg>שמע
 		</button>
 		<a class="nav__en" href="<?php echo $h( '/en/' ); ?>" hreflang="en" lang="en">EN</a>
-		<button class="nav__burger" type="button" aria-label="<?php esc_attr_e( 'תפריט', 'ea-eyalamit' ); ?>" aria-expanded="false" aria-controls="nav">
-			<span></span><span></span><span></span>
-		</button>
 	</div>
 </nav>

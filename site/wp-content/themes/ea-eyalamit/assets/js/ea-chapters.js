@@ -46,6 +46,14 @@
         nav.removeAttribute('data-menu');
         burger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('nav-locked');
+        /* WS-2.2 (A11Y-FIX-2026-09-18): restore focus to the trigger on every
+           close path (Escape, link tap, or re-clicking the burger) so it is
+           never left on/inside a panel that just went off-screen — same
+           restore-on-close contract as the dead ea-mobile-nav.js reference
+           (closeDrawer -> lastFocus.focus()). A no-op when the burger already
+           has focus, and a no-op at desktop width where it is display:none
+           and therefore unfocusable. */
+        burger.focus();
       };
       burger.addEventListener('click', function () {
         var open = nav.getAttribute('data-menu') === '1';
