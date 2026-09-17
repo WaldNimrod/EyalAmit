@@ -459,7 +459,25 @@
 	line-height: 1.4;
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
-	color: var( --eyal-muted, #a8a19b );
+	/* WS-3B (2026-09-18): --eyal-muted was defined nowhere in the theme, so this
+	   silently fell back to the hardcoded #a8a19b — the exact value
+	   ea-tokens.css's own --ea-muted was replaced FROM on 2026-05-27 for
+	   failing AA (2.55:1 on white). The sibling --eyal-brick/--eyal-olive/
+	   --eyal-line declarations below (§16, §27b) show the same "eyal-" prefix
+	   with a fallback that matches each token's CURRENT --ea-* value exactly —
+	   i.e. this whole file predates a prefix rename from "eyal-" to "ea-" that
+	   was never followed through here; only this one's fallback went stale,
+	   because --ea-muted's value (unlike brick/olive/line) changed after the
+	   rename. Repointed to the real, already AA-fixed token: --ea-muted
+	   (ea-tokens.css:28, #6F635A, confirmed loaded on this view —
+	   tpl-book-detail.php is a Wave2-active-view template,
+	   inc/wave2-stage-b.php:69). 5.82:1 on white. NOTE: confirmed zero live
+	   occurrences of .ea-section-label across the books hub + all 3 book
+	   detail pages at time of fix — currently dead, fixed at the token level
+	   anyway since it's a general-purpose utility class any future book page
+	   could reactivate. See
+	   _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/03-DONE-CONTRAST-TOKENS.md. */
+	color: var( --ea-muted, #6F635A );
 	margin-block-end: 0.75rem;
 }
 
@@ -836,7 +854,14 @@
 	font-weight: 200;
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
-	color: var( --eyal-muted, #a8a19b );
+	/* WS-3B (2026-09-18): --eyal-muted -> --ea-muted, same fix/rationale as
+	   .ea-section-label above (§15). Applies to all three --eyal-muted uses in
+	   this §27b block (__label here, __text and __note below) — one token,
+	   fixed once, per the mandate. This whole placeholder block is also
+	   confirmed dead live (zero occurrences, all 3 book pages + hub; its own
+	   comment above says it's a temporary Custom HTML block pending photos
+	   from team_40), same as .ea-section-label. */
+	color: var( --ea-muted, #6F635A );
 	margin-block-end: 1rem;
 	display: block;
 }
@@ -876,7 +901,7 @@
 	font-family: "Heebo", sans-serif;
 	font-size: 0.72rem;
 	font-weight: 300;
-	color: var( --eyal-muted, #a8a19b );
+	color: var( --ea-muted, #6F635A ); /* WS-3B 2026-09-18, see §15 above */
 	letter-spacing: 0.5px;
 }
 
@@ -884,7 +909,7 @@
 	font-family: "Heebo", sans-serif;
 	font-size: 0.62rem;
 	font-weight: 200;
-	color: var( --eyal-muted, #a8a19b );
+	color: var( --ea-muted, #6F635A ); /* WS-3B 2026-09-18, see §15 above */
 	opacity: 0.7;
 }
 

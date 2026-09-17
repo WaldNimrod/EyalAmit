@@ -15,7 +15,18 @@
   --dark-grad:linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);
   --terra:#B5663D; --terra-lt:#D08A5E; --terra-dk:#9A4F2B;
   --sand:#D8C7B5;
-  --ink:#2f2013; --body:#67482d; --muted:#8C775F;
+  --ink:#2f2013; --body:#67482d;
+  /* WS-3B (2026-09-18): was #8C775F — measured 4.26:1 on --ivory and 3.56:1 on
+     --ivory-2, both below the 4.5:1 AA floor for normal text (live consumer:
+     the figcaption in template-parts/chapters/parts/mokesh-portrait.php:53, on
+     /eyal-amit/mokesh-dahiman/; also the inactive .dd__tag background-fill at
+     :410, live on /treatment/ and /lessons/, which read white-on-#8C775F at
+     4.27:1, also failing). Darkened along the SAME hue/saturation (32.00deg /
+     19.15% — only lightness dropped, 46.08%->39.44%) so this is a contrast
+     nudge, not a repaint: #786651 clears both real backgrounds (5.48:1 /
+     4.59:1) and the .dd__tag reuse (5.50:1). See
+     _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/03-DONE-CONTRAST-TOKENS.md. */
+  --muted:#786651;
   --line:rgba(42,32,22,.14); --line-d:rgba(216,199,181,.16);
   --hf:'Heebo',-apple-system,Arial,sans-serif; --bf:'Heebo',-apple-system,Arial,sans-serif;
   --serif:'Frank Ruhl Libre',serif;   /* reserved serif accent — hero + years only */
@@ -468,6 +479,12 @@ a{color:inherit}
 .ea-faq-category .ea-faq-item:last-child{border-bottom:1px solid var(--line)}
 .ea-faq-item__summary,
 .ea-faq-item__question{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:500;font-size:1.08rem;color:var(--ink);margin:0}
+/* A11Y 2026-09-18 (A11Y-STRUCT-03): the embedded/filtered FAQ branch wraps its question in a
+   real heading so it can be reached by heading navigation, matching what /faq/ already did.
+   The <summary> keeps all of its own styling; this inner heading must add none of its own,
+   or the h1,h2,h3 reset blows the question up from 17.28px to a browser-default 29px. */
+.ea-faq-item__question-h{font:inherit;margin:0;text-wrap:wrap}
+
 .ea-faq-item__summary::-webkit-details-marker,
 .ea-faq-item__question::-webkit-details-marker{display:none}
 .ea-faq-item__icon{flex:none;color:var(--terra);transition:transform .3s}
@@ -863,7 +880,10 @@ body.nav-locked{overflow:hidden}
 .bookcard__cover .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--serif);font-size:1.2rem;line-height:1.3}
 .bookcard__b{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px}
 .bookcard__meta{font-family:var(--bf);font-size:.72rem;letter-spacing:1.2px;color:var(--terra-dk);font-weight:500}
-.bookcard__t{font-family:var(--serif);font-size:1.5rem;line-height:1.2;color:var(--ink)}
+.bookcard__t{font-family:var(--serif);font-size:1.5rem;line-height:1.2;color:var(--ink);font-weight:300;text-wrap:wrap}/* A11Y 2026-09-18 (A11Y-STRUCT-02): the card title is a real heading now, so the sitewide
+   h1,h2,h3 reset at line 63 reaches it and would thicken it to 500 and balance its wrapping.
+   font-weight and text-wrap restated here keep the card looking exactly as it did as a span. */
+
 .bookcard__blurb{font-family:var(--hf);font-size:.98rem;line-height:1.6;color:var(--body)}
 .bookcard__cta{margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:var(--bf);font-size:.8rem;letter-spacing:.6px;color:var(--terra-dk);font-weight:500}
 .bookcard:hover .bookcard__cta,.bookcard:focus-visible .bookcard__cta{color:var(--terra)}
