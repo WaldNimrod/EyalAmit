@@ -318,7 +318,7 @@ a{color:inherit}
 .phero{position:relative;background:var(--dark-grad);color:#fff;overflow:hidden;padding:calc(72px + var(--sec)) 0 var(--sec)}
 .phero .arcs{width:620px;height:620px;top:50%;left:-220px;transform:translateY(-50%);opacity:.12;filter:invert(1) sepia(.5) brightness(1.3)}
 .phero__in{position:relative;z-index:2;max-width:1200px;margin-inline:auto;padding:0 48px}
-.phero__h{font-family:var(--hf);font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;max-width:18ch;margin-bottom:20px}
+.phero__h{font-family:var(--hf);text-wrap:normal;font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;max-width:34ch;margin-bottom:20px}
 .phero__h em{font-style:normal;color:var(--terra-lt)}
 .phero__s{font-weight:300;font-size:var(--fs-lead);line-height:1.8;color:rgba(255,255,255,.86);max-width:54ch}
 /* S006 · M-03 · גוף רב-פסקאות בהירו (phero.lede). נגזרת M-01: הטקסט של אייל עבר לכאן
