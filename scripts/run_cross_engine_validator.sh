@@ -14,7 +14,15 @@
 set -uo pipefail
 
 PROMPT_SRC="${1:-}"
-MODEL="${2:-gpt-5.2-codex}"
+# Engine order is team_00's, 2026-09-18, and it is about cost, not capability:
+#   1. Grok  (cursor-grok-4.6-*)  — the default for verification work.
+#   2. composer-2.5               — pure black work; it is simply the newer Composer.
+#   3. GPT   (gpt-5.x-*)          — a small budget, kept for when an extra edge is
+#                                   genuinely needed. Do not spend it on routine runs.
+# The previous default, gpt-5.2-codex, no longer exists at all — cursor-agent rejects
+# it outright, which is how this was found. Check `cursor-agent` model availability
+# before pinning a new one.
+MODEL="${2:-cursor-grok-4.6-high}"
 WORKSPACE="${3:-$PWD}"
 OUT_FILE="${4:-}"
 RERUNS="${AOS_VALIDATOR_RERUNS:-1}"   # extra attempts after the first failed result
@@ -53,7 +61,7 @@ _run_attempt() {
   # variable. So the mode flag is passed as two plain scalars, never as an array.
   local mode_flag="" mode_val=""
   if [ -n "${AOS_VALIDATOR_MODE:-}" ]; then mode_flag="--mode"; mode_val="${AOS_VALIDATOR_MODE}"; fi
-  ( cd "$WORKSPACE" && timeout "${AOS_VALIDATOR_TIMEOUT:-300}" \
+  ( cd "$WORKSPACE" && timeout "${AOS_VALIDATOR_TIMEOUT:-900}" \
       cursor-agent --print --trust -f --model "$MODEL" ${mode_flag:+"$mode_flag" "$mode_val"} \
       --output-format text -- "$PROMPT" ) \
       >"$tmp_out" 2>"$tmp_err"
