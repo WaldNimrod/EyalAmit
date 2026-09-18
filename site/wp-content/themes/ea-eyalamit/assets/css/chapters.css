@@ -37,7 +37,11 @@
      .bookcard__cover .ph, .bookcard__t. --display ('Suez One') is a THIRD family on
      six more. Whether either stays is team_00's call — see canon §10. */
   --e:cubic-bezier(.22,1,.36,1);
-  --sec:clamp(78px,8vw,112px);
+  /* S007 (2026-09-18, team_00): «המרווח לפני ואחרי כל row… גדול מידי. מעט פחות אוויר —
+     כללי לכל המערכת». .sec applies this as padding TOP AND BOTTOM, so two adjacent
+     sections put 2x of it between their content: it was 156-224px, now 124-176px.
+     One token, five consumers, every page. Dial it with &sec= in the preview tool. */
+  --sec:clamp(62px,6.2vw,88px);
 }
 *,*::before,*::after{box-sizing:border-box}
 /* 2026-09-17: [hidden] is an attribute selector — same specificity (0,1,0) as
