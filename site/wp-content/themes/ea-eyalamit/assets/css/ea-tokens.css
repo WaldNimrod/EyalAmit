@@ -134,9 +134,17 @@
    component CSS at all — the six page-template-default pages outside the Wave2
    whitelist — still lands on the scale instead of on browser defaults. */
 body{font-size:var(--fs-body);font-weight:var(--fw-body)}
-h1{font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:1.12}
-h2{font-size:var(--fs-h2);font-weight:var(--fw-h2);line-height:1.2}
-h3{font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:1.35}
-h4{font-size:var(--fs-h4);font-weight:var(--fw-h3);line-height:1.35}
-p,li,td,th,dd,dt,figcaption,label,input,select,textarea,button{font-size:var(--fs-body)}
-small{font-size:var(--fs-xs)}
+/* `body h1` = specificity 0,0,2 on purpose. GeneratePress's main.min.css ships
+   h1{font-size:42px} and h2{font-size:35px} at 0,0,1 and loads after this file, so a
+   bare element selector here loses on source order — measured on /about/, where the
+   page title rendered 42px and a section heading 35px with --fs-h1 sitting unused in
+   the cascade behind them. 0,0,2 beats the parent theme regardless of load order and
+   still loses to every class-based rule in this theme (0,1,0 > 0,0,2), so no component
+   design is touched. */
+body h1{font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:1.12}
+body h2{font-size:var(--fs-h2);font-weight:var(--fw-h2);line-height:1.2}
+body h3{font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:1.35}
+body h4{font-size:var(--fs-h4);font-weight:var(--fw-h3);line-height:1.35}
+body p,body li,body td,body th,body dd,body dt,body figcaption,
+body label,body input,body select,body textarea,body button{font-size:var(--fs-body)}
+body small{font-size:var(--fs-xs)}
