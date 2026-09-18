@@ -29,15 +29,47 @@
 
   /* --- Typography --- */
   --ea-font:        'Heebo', -apple-system, Arial, sans-serif;
-  --ea-type-h1-hero:   100 3.4rem/1.12 var(--ea-font);
-  --ea-type-h1:        200 2.8rem/1.12 var(--ea-font);
-  --ea-type-h2:        200 2.0rem/1.2  var(--ea-font);
-  --ea-type-h3:        400 0.92rem/1.4 var(--ea-font);
-  --ea-type-h4:        300 0.78rem/1.4 var(--ea-font);
-  --ea-type-body-lg:   300 1.05rem/1.9 var(--ea-font);
-  --ea-type-body:      300 0.9rem/1.85 var(--ea-font);
-  --ea-type-body-sm:   300 0.78rem/1.6 var(--ea-font);
-  --ea-type-caption:   200 0.58rem/1.4 var(--ea-font);
+  /* ── S007 TYPE SCALE · locked by team_00 2026-09-18 ──────────────────────────
+     «תנעל את הסולם לפי הצירוף האחרון». Body is the anchor and every rung is a
+     ratio of it, which is the model he set: «מהגודל הזה נגזור את כל האחרים».
+
+     Five rungs are his, read straight off the combination he approved
+     (?ty=17&nav=1.08&h1=2.6&h2=1.45&h3=1.1):
+       body 1.00  nav 1.08  h3 1.10  h2 1.45  h1 2.60
+     The other seven are derived to cover the roles his combination does not name.
+     Nothing here is fluid on purpose: these are the DESKTOP values. Phase 3 adds a
+     media query that re-declares these same tokens, which is why they are tokens.
+
+     h3 weight is 600, not the 500 in that URL — «H3 יותר כבד» came after it. */
+  --fs-h1:44.2px;      /* 2.60 · page hero titles                    */
+  --fs-display:34px;   /* 2.00 · pull quotes, statement headings     */
+  --fs-h2:24.65px;     /* 1.45 · section titles                     */
+  --fs-h4:21.25px;     /* 1.25 · card and sub-block titles          */
+  --fs-lead:19.55px;   /* 1.15 · hero sub-headings and ledes        */
+  --fs-h3:18.7px;      /* 1.10 · sub-headings inside a section      */
+  --fs-nav:18.36px;    /* 1.08 · main menu and submenu              */
+  --fs-body:17px;      /* 1.00 · the anchor — running text          */
+  --fs-sm:15.3px;      /* 0.90 · secondary text, buttons            */
+  --fs-xs:13.6px;      /* 0.80 · labels, form controls, footer links */
+  --fs-2xs:12.24px;    /* 0.72 · tags, toggles, fine print          */
+  --fs-3xs:11.05px;    /* 0.65 · eyebrows, column titles            */
+  --fw-h1:300; --fw-h2:400; --fw-h3:600; --fw-nav:400; --fw-body:300; --fw-sub:300;
+
+  /* The nine composite `font:` tokens below are a SECOND type system that predates the
+     scale above. They carry size inside a shorthand, so no search for `font-size` can
+     see them — which is exactly how a 9.28px date survived on every blog card while the
+     inventory reported the blog clean. Each is now expressed in rungs, so all 51 uses of
+     the shorthand follow the locked scale without touching 51 rules. Sizes are mapped to
+     the nearest rung, so the design is preserved; only the anchor moved. */
+  --ea-type-h1-hero:   var(--fw-h1) var(--fs-h1)/1.12 var(--ea-font);       /* was 54.4px */
+  --ea-type-h1:        var(--fw-h1) var(--fs-h1)/1.12 var(--ea-font);       /* was 44.8px */
+  --ea-type-h2:        var(--fw-h2) var(--fs-display)/1.2 var(--ea-font);   /* was 32px   */
+  --ea-type-h3:        var(--fw-h3) var(--fs-sm)/1.4 var(--ea-font);        /* was 14.72px — this system's h3 was SMALLER than its body */
+  --ea-type-h4:        var(--fw-body) var(--fs-2xs)/1.4 var(--ea-font);     /* was 12.48px */
+  --ea-type-body-lg:   var(--fw-body) var(--fs-body)/1.65 var(--ea-font);   /* was 16.8px  */
+  --ea-type-body:      var(--fw-body) var(--fs-sm)/1.65 var(--ea-font);     /* was 14.4px  */
+  --ea-type-body-sm:   var(--fw-body) var(--fs-2xs)/1.6 var(--ea-font);     /* was 12.48px */
+  --ea-type-caption:   var(--fw-body) var(--fs-3xs)/1.4 var(--ea-font);     /* was 9.28px  */
 
   /* --- Spacing --- */
   --ea-space-0:   0px;
