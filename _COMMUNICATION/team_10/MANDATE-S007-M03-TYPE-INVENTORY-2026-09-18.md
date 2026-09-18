@@ -17,10 +17,10 @@ status: DISPATCHED
 
 team_00's closing instruction for this phase was to wire the whole site cleanly and
 precisely to the same CSS definitions. That is impossible to do safely by eye: the
-live-loaded stylesheets carry **263 `font-size` declarations** and `chapters.css`
-alone spends **53 distinct values** on its 115 declarations. Before a scale can be
+live-loaded stylesheets carry **261 `font-size` declarations** (I briefed 263 — see
+the correction below) and `chapters.css` alone spends 53 distinct values on its 114. Before a scale can be
 applied, every declaration has to be located, resolved to a real pixel number, and
-clustered — so that locking the scale becomes a mechanical mapping instead of 263
+clustered — so that locking the scale becomes a mechanical mapping instead of 261
 individual judgement calls.
 
 This mandate produces that inventory. **It produces no fix.**
