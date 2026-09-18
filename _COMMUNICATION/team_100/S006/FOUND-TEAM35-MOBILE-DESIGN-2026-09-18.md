@@ -1,3 +1,9 @@
+
+> ⚠ **HISTORICAL — not the current state.** Typography and CSS sizing are governed by
+> `_COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md`, locked at theme 1.5.56. Numbers in
+> this file were true when it was written. **Do not act on a font-size figure from here**
+> without checking the canon first — §7 there lists the specific figures that are dead.
+> Kept because the measurements and the method are still useful; the conclusions are not.
 # The mobile design already exists, was built, and is stranded
 
 team_100, 2026-09-18. Found on team_00's recollection that «צוות 35» had produced design work.

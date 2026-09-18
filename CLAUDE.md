@@ -84,6 +84,28 @@ You are working inside an **AOS spoke** — repo `EyalAmit.co.il-2026`, profile 
 
 ## Domain rules
 
+### Typography and CSS sizing — read the canon before touching a font-size
+
+`_COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md` is the **only** authority on type sizing
+in this theme. Locked by team_00 on 2026-09-18 at theme 1.5.56.
+
+- The scale is **twelve `--fs-*` rungs plus six `--fw-*` weights**, defined once in
+  `site/wp-content/themes/ea-eyalamit/assets/css/ea-tokens.css`. Body 17px is the anchor and
+  every rung is a ratio of it.
+- **To change sizing, change a token.** Never add a `font-size` to a component rule, and
+  never add a breakpoint `font-size` — re-declare the tokens inside the media query instead.
+- Rungs are `rem` on purpose. A `px` rung silently breaks text resize, which the site's
+  published accessibility statement promises. Do not "restore" the pixel values.
+- Three declarations are deliberately off-scale and annotated in place with reasons. A
+  fourth unexplained one is a defect.
+- Many earlier documents in `_COMMUNICATION/` carry superseded font-size figures. They are
+  stamped HISTORICAL; §7 of the canon lists the dead numbers explicitly (the menu is 18.36px,
+  not 12.8; body is 17px, not 18; the hero H1 is Heebo, not Frank Ruhl Libre).
+- This site is **157 published URLs in 16 distinct CSS-plus-template families**
+  (`_COMMUNICATION/team_100/S006/S007-SITEMAP-157-URLS-2026-09-18.tsv`). A sweep of the pages
+  you happen to know is not a sweep of the site — six pages render outside every Wave2
+  template whitelist and were missed that way once already.
+
 <!-- Project-specific rules, commands, paths, and conventions go here.
      This section is PRESERVED across aos_sync_all.sh runs. -->
 <!-- aos:project-specific:end -->

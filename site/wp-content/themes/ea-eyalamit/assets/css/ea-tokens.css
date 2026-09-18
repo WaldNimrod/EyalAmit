@@ -1,3 +1,16 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   TYPE SCALE — THE SINGLE SOURCE. Canon: _COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md
+   Locked by team_00 2026-09-18 at theme 1.5.56.
+
+   To change sizing anywhere on this site, change a token BELOW. Do not add a font-size
+   to a component rule, and do not add a breakpoint font-size — re-declare these same
+   tokens inside the media query instead. That is what they are for.
+
+   This file is enqueued on EVERY front-end view (functions.php, priority 3) because six
+   published pages render outside every Wave2 template whitelist and had no tokens at all
+   until 1.5.55. Do not move these tokens into chapters.css: that file is gated on
+   ea_chapters_is_view(), and a `font:` shorthand with one unresolvable var() fails whole.
+   ═══════════════════════════════════════════════════════════════════════════════ */
 /* =============================================================
    EyalAmit.co.il — D-14 Design Tokens
    Source: D-14-DESIGN-SYSTEM-LOD400-2026-05-26.md §1

@@ -15,6 +15,10 @@ disposition: >
 
 # S006 / S007 · state at 2026-09-18, written for compaction
 
+**Typography and CSS sizing are NOT governed by this file.** They are governed by
+`_COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md`, locked at theme 1.5.56. Any font-size
+figure in this file or any other is historical unless the canon agrees with it.
+
 **Read first:** the charter (`S006-MILESTONE-CHARTER.md`), this file, and the decision index
 (`_COMMUNICATION/team_00/DECISION-INDEX.md`). Conflict precedence: charter › method template
 › this file › session memory. **Derive every number fresh — quote nothing from here as current
