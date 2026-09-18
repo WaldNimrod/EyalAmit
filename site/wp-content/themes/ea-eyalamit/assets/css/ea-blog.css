@@ -404,7 +404,7 @@
 	margin: 0 0 var(--ea-space-3) 0;
 }
 .ea-edhero__title {
-	font-weight: 100;
+	font-weight:var(--fw-thin);
 	font-size:var(--fs-h1);
 	line-height: 1.14;
 	letter-spacing: -0.5px;
@@ -456,7 +456,7 @@
 	margin: 0 0 var(--ea-space-1) 0;
 }
 .ea-metastrip__v {
-	font-weight: 300;
+	font-weight:var(--fw-light);
 	font-size:var(--fs-body);
 	color: var(--ea-ink);
 	margin: 0;
@@ -501,13 +501,13 @@
 	background: var(--ea-bg);
 }
 .ea-mokesh-disc__nm {
-	font-weight: 200;
+	font-weight:var(--fw-xlight);
 	font-size:var(--fs-body);
 	color: var(--ea-ink);
 	margin: 0;
 }
 .ea-mokesh-disc__yr {
-	font-weight: 300;
+	font-weight:var(--fw-light);
 	font-size:var(--fs-2xs);
 	letter-spacing: 1px;
 	color: var(--ea-muted);
@@ -525,7 +525,7 @@
 	margin: 0;
 	border-inline-start: 1px solid var(--ea-terracotta);
 	padding-inline-start: var(--ea-space-4);
-	font-weight: 200;
+	font-weight:var(--fw-xlight);
 	font-size:var(--fs-h4);
 	line-height: 1.6;
 	color: var(--ea-chocolate);

@@ -100,7 +100,7 @@ body.rtl {
 	display: block;
 	padding: 0.45rem 0.55rem;
 	font-size: var(--fs-xs);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 	color: var(--eyal-ink, #2e2b28);
 	text-decoration: none;
 	border-radius: 7px;
@@ -138,7 +138,7 @@ body.rtl {
 	display: block;
 	padding: 0.45rem 0.85rem;
 	font-size: var(--fs-xs);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 	color: var(--eyal-ink, #2e2b28);
 	text-decoration: none;
 }
@@ -185,7 +185,7 @@ body.rtl {
 .ea-shell-site-title {
 	margin: 0;
 	font-size: var(--fs-body);
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 	letter-spacing: 0.02em;
 }
 
@@ -200,7 +200,7 @@ body.rtl {
 
 .ea-shell-header__en a {
 	font-size: var(--fs-xs);
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 	color: var(--eyal-brick, #ab3a2b);
 	text-decoration: none;
 	padding: 0.2rem 0.5rem;
@@ -233,7 +233,7 @@ body.rtl {
 #headerimg h1 {
 	margin: 0;
 	font-size: var(--fs-body);
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 }
 
 #headerimg h1 a {
@@ -251,7 +251,7 @@ body.rtl {
 
 .entry-content a:not(.ea-home-btn):not(.ea-books-hub-card__title a) {
 	color: var(--eyal-brick, #ab3a2b);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 	text-underline-offset: 0.15em;
 }
 
@@ -276,7 +276,7 @@ body.rtl {
 
 .ea-shell-footer__brand {
 	margin: 0 0 0.75rem;
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 }
 
 .ea-shell-footer__brand a {

@@ -352,7 +352,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-area-card a {
 	border: 1px solid var(--ea-home-border);
 	border-radius: 4px;
 	text-decoration: none !important;
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-area-card a:hover {
@@ -370,7 +370,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item {
 
 body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item summary {
 	cursor: pointer;
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 	color: var(--ea-home-heading);
 }
 
@@ -413,7 +413,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__hint {
 body.ea-home-dashboard .ea-home-front .ea-home-testimonials-sub {
 	margin: 0 0 0.5rem;
 	font-size: var(--fs-sm);
-	font-weight: 600;
+	font-weight:var(--fw-semibold);
 	color: var(--ea-home-heading);
 }
 
@@ -511,7 +511,7 @@ body.ea-home-dashboard .entry-header {
 	background: var(--ea-bg);
 	color: var(--ea-muted);
 	font-size: var(--fs-2xs);
-	font-weight: 300;
+	font-weight:var(--fw-light);
 	line-height: 1.5;
 	letter-spacing: 0.3px;
 }
@@ -584,7 +584,7 @@ body.ea-home-dashboard .entry-header {
 }
 .ea-testimonials-section--rotator .ea-testimonial-card__text {
 	font-size: var(--fs-lead);
-	font-weight: 200;
+	font-weight:var(--fw-xlight);
 	line-height: 1.7;
 	color: var(--ea-chocolate);
 }

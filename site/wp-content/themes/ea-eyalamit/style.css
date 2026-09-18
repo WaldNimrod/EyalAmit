@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.5.59
+Version: 1.5.60
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -33,7 +33,7 @@ body.ea-lang-en.ltr {
 .main-navigation .ea-header-en-link {
 	display: inline-block;
 	font-size: var(--fs-2xs);
-	font-weight: 700;
+	font-weight:var(--fw-bold);
 	letter-spacing: 0.04em;
 	line-height: 1;
 	padding: 0.35em 0.55em;
@@ -163,10 +163,9 @@ body.ea-lang-en.ltr {
 /* טוקני --eyal-* ו־GP (--accent וכו׳) מוגדרים ב־:root דרך inline ב־functions.php כדי לנצח dynamic CSS של GeneratePress. */
 body.ea-m4-polish {
 	--ea-font-sans: "Rubik", sans-serif;
-	--ea-fw-normal: 400;
-	--ea-fw-medium: 500;
-	--ea-fw-semibold: 600;
-	--ea-fw-bold: 700;
+	/* --ea-fw-* moved to ea-tokens.css 2026-09-18 and pointed at the shared weight scale.
+	   They were a second, parallel weight family declared here and consumed seven times in
+	   this file — the same duplication the --ea-type-* composites had. One definition now. */
 	--ea-leading-tight: 1.28;
 	--ea-leading-body: 1.58;
 	--ea-m4-border: rgba(var(--eyal-accent-rgb), 0.22);

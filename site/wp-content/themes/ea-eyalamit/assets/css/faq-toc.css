@@ -46,7 +46,7 @@
 
 .ea-faq-toc__label {
 	font-size:var(--fs-xs);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 	color: var(--ea-muted);
 	white-space: nowrap;
 }

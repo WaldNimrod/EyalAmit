@@ -71,7 +71,23 @@
   --fs-xs:0.85rem;      /* 0.80 · labels, form controls, footer links */
   --fs-2xs:0.765rem;    /* 0.72 · tags, toggles, fine print          */
   --fs-3xs:0.690625rem;    /* 0.65 · eyebrows, column titles            */
-  --fw-h1:300; --fw-h2:400; --fw-h3:600; --fw-nav:400; --fw-body:300; --fw-sub:300;
+  /* WEIGHT SCALE — the same idea as the rungs above: one place, one name per value.
+     team_00 approved the five ROLE weights (h1/h2/h3/nav/body); these eight are the
+     vocabulary those roles and every component draw from. Mapping the site onto them
+     changed NOTHING visually — each declaration kept its own number — but weight is now
+     changeable from here, which is what the mobile phase will need. */
+  --fw-thin:100; --fw-xlight:200; --fw-light:300; --fw-regular:400;
+  --fw-medium:500; --fw-semibold:600; --fw-bold:700; --fw-xbold:800;
+
+  /* Role weights — team_00's five, plus the submenu. Aliases, not literals. */
+  --fw-h1:var(--fw-light); --fw-h2:var(--fw-regular); --fw-h3:var(--fw-semibold);
+  --fw-nav:var(--fw-regular); --fw-body:var(--fw-light); --fw-sub:var(--fw-light);
+
+  /* The Wave2 weight family, pointed at the same scale — it was a second, parallel set
+     declared in style.css and consumed there seven times, exactly the duplication the
+     --ea-type-* composites had. */
+  --ea-fw-normal:var(--fw-regular); --ea-fw-medium:var(--fw-medium);
+  --ea-fw-semibold:var(--fw-semibold); --ea-fw-bold:var(--fw-bold);
 
   /* The nine composite `font:` tokens below are a SECOND type system that predates the
      scale above. They carry size inside a shorthand, so no search for `font-size` can

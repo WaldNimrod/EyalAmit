@@ -28,7 +28,7 @@ body.ea-en-landing .ea-lang-pill {
 	padding-inline: 14px;
 	font-family: var(--ea-font);
 	font-size: var(--fs-3xs);
-	font-weight: 300;
+	font-weight:var(--fw-light);
 	color: var(--ea-on-dark);
 	opacity: 0.85;
 	text-decoration: none;
@@ -83,7 +83,7 @@ body.ea-en-landing .ea-en-hero__content {
 }
 
 body.ea-en-landing .ea-en-hero__kicker {
-	font-weight: 200;
+	font-weight:var(--fw-xlight);
 	font-size: var(--fs-3xs);
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
@@ -132,7 +132,7 @@ body.ea-en-landing .ea-en-section__inner {
 }
 
 body.ea-en-landing .ea-en-section__label {
-	font-weight: 200;
+	font-weight:var(--fw-xlight);
 	font-size: var(--fs-3xs);
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
@@ -158,7 +158,7 @@ body.ea-en-landing .ea-en-prose p:last-child {
 
 body.ea-en-landing .ea-en-prose strong {
 	color: var(--ea-text);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 }
 
 body.ea-en-landing .ea-en-list {
@@ -231,7 +231,7 @@ body.ea-en-landing .ea-en-testimonial__quote p {
 
 body.ea-en-landing .ea-en-testimonial__name {
 	font: var(--ea-type-body-sm);
-	font-weight: 500;
+	font-weight:var(--fw-medium);
 	color: var(--ea-accent);
 }
 
