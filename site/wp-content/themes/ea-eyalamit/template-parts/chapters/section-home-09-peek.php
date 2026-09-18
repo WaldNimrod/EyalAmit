@@ -52,7 +52,7 @@ $gallery  = ( isset( $defaults['peek_gallery'] ) && is_array( $defaults['peek_ga
 		</div>
 		<?php endif; ?>
 		<?php if ( $cta_l ) : ?>
-		<p class="r" style="margin-top:24px"><a class="tlink" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a></p>
+		<p class="r" style="margin-top:28px;text-align:left"><a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a></p>
 		<?php endif; ?>
 	</div>
 </section>

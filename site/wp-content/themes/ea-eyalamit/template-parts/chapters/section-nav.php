@@ -15,7 +15,7 @@ $h = static function ( $path ) {
 ?>
 <nav class="nav" id="nav" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
 	<a class="nav__b" href="<?php echo $h( '/' ); ?>" aria-label="<?php esc_attr_e( 'אייל עמית — דף הבית', 'ea-eyalamit' ); ?>">
-		<span class="nav__lg" aria-hidden="true"></span><b>אייל עמית</b>
+		<span class="nav__lg" aria-hidden="true"></span>
 	</a>
 
 	<?php /* WS-2.2 (A11Y-FIX-2026-09-18): burger moved before .nav__l so DOM/tab order

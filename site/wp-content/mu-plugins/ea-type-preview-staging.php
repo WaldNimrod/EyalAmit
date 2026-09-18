@@ -17,9 +17,13 @@
  *     &h1w=300 &h2w=400 &h3w=400  heading weights
  *     &sub=1                      force one submenu open, to judge it against the main menu
  *     &subpad=6                   submenu item padding in px        (default 10, site ships 10/14)
- *     &serif=0                    hero H1 in Heebo like every other heading, instead of the
- *                                 reserved Frank Ruhl Libre accent — so the family deviation
- *                                 team_00 spotted can be judged rather than argued about
+ *     &serif=1                    put the hero H1 back on Frank Ruhl Libre. INVERTED 2026-09-18:
+ *                                 team_00 ruled the hero string still broke the font map, so
+ *                                 Heebo is what the site now ships and the serif is the
+ *                                 comparison — the switch shows what was replaced.
+ *     &lh=1.6                     running-text line-height   (site now ships 1.65-1.7)
+ *     &h3ls=0.2                   h3 letter-spacing in px    (site now ships 0.2)
+ *     &logo=40                    logo mark size in px       (site now ships 40)
  *     &demo=1                     insert a labelled specimen sub-heading into the first prose
  *                                 sections, so the h3 rung is visible at all — see below
  *     &fam=1                      outline every element that does NOT resolve to Heebo, and
@@ -73,7 +77,10 @@ add_action( 'wp_head', function () {
 	$h3w  = (int) ea_type_preview_num( 'h3w', 400, 100, 900 );
 	$sub    = isset( $_GET['sub'] ) && '1' === $_GET['sub'];
 	$subpad = ea_type_preview_num( 'subpad', 10, 0, 24 );
-	$serif  = ! ( isset( $_GET['serif'] ) && '0' === $_GET['serif'] );
+	$serif  = isset( $_GET['serif'] ) && '1' === $_GET['serif'];
+	$lh     = isset( $_GET['lh'] )   ? ea_type_preview_num( 'lh',   1.65, 1.1, 2.4 ) : null;
+	$h3ls   = isset( $_GET['h3ls'] ) ? ea_type_preview_num( 'h3ls', 0.2, -1.5, 4.0 ) : null;
+	$logo   = isset( $_GET['logo'] ) ? ea_type_preview_num( 'logo', 40,  20,  90 )  : null;
 	$demo   = isset( $_GET['demo'] ) && '1' === $_GET['demo'];
 	$fam    = isset( $_GET['fam'] ) && '1' === $_GET['fam'];
 	$grid = isset( $_GET['grid'] ) && '1' === $_GET['grid'];
@@ -94,12 +101,23 @@ h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 /* submenu: same size as the main menu, one step lighter, tighter padding — per team_00 */
 .nav__sub a{font-size:{$nav_px}px!important;font-weight:" . max( 100, $navw - 100 ) . "!important;color:rgba(255,255,255," . round( $alpha * 0.92, 3 ) . ")!important;padding:" . round( $subpad * 0.7, 1 ) . "px {$subpad}px!important}
 ";
-	if ( ! $serif ) {
-		/* the hero is the only heading on the site in a serif; let it be judged, not assumed */
-		$css .= ".hero__h,.phero__h{font-family:var(--hf)!important}\n";
+	if ( $serif ) {
+		/* the serif the hero used to carry, for comparison against what now ships */
+		$css .= ".hero__h,.phero__h{font-family:'Frank Ruhl Libre',serif!important}\n";
 	}
 	if ( $sub ) {
 		$css .= "@media(min-width:1181px){.nav__l>li:nth-of-type(2) .nav__sub{opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important}}\n";
+	}
+	if ( null !== $lh ) {
+		/* team_00 2026-09-18: «פחות מרווח בין שורות». Shipped by eye at 1.55-1.7;
+		   this dial is here so the eye that asked for it can correct the guess. */
+		$css .= ".sec p,.intro-body p,.prose p,.faq__i p,.dd__body,.lead,.hero__s{line-height:{$lh}!important}\n";
+	}
+	if ( null !== $h3ls ) {
+		$css .= "h3{letter-spacing:{$h3ls}px!important}\n";
+	}
+	if ( null !== $logo ) {
+		$css .= ".nav__lg{width:{$logo}px!important;height:{$logo}px!important}\n";
 	}
 	if ( $demo ) {
 		/* The specimen inherits the h3 rule above, so the h3 dial actually moves it. */

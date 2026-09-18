@@ -30,8 +30,8 @@ $h = static function ( $path ) {
 			<a href="<?php echo $h( '/contact/' ); ?>">צור קשר</a>
 		</div>
 		<div class="foot__brand">
-			<b>אייל עמית</b>
-			<p>המרכז לטיפול בנשימה באמצעות דיג׳רידו · פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>
+			<b>המרכז לטיפול בנשימה באמצעות דיג׳רידו</b>
+			<p>פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>
 			<p class="foot__nap"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
 			<p class="foot__tel">
 				<a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a>
