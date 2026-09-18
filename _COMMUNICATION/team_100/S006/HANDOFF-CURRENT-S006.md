@@ -22,34 +22,57 @@ state without re-measuring.**
 
 ## Where the code is
 
-Branch `s006/tracker-integrity`; `main`, `origin/main` and both remotes are **all aligned at
-the same commit**. Live staging runs theme **1.5.40**, which matches the working tree.
+Branch `s006/tracker-integrity`; `main`, `origin/main` and `origin/s006/tracker-integrity`
+are **all aligned at the same commit** (one remote, `origin`; both branches' remote-tracking
+refs match, confirmed against the GitHub API too, not just local refs). Live staging runs
+theme **1.5.40**, which matches the working tree — confirmed byte-identical to the live
+`style.css`, not just the version string. (Cross-checked 2026-09-18,
+`XVAL-STATE-ACCURACY-2026-09-18.md` line S1; that same session later observed a `?ver=1.5.42`
+handle in passing — not reconciled, re-verify the live version fresh rather than trusting
+1.5.40 or 1.5.42 here.)
 `http://eyalamit-co-il-2026.s887.upress.link` (HTTP; invalid TLS there by design).
 
-## Accessibility — CLOSED except four named items
+## Accessibility — CLOSED except six named items (widened 2026-09-18 by a state-doc cross-check)
 
-P0 and P1 are fixed, deployed and verified, including cross-engine on Grok.
+P0 and P1's code-level fixes are deployed and verified cross-engine on Grok. **The published
+statement is NOT yet accurate** — see item 5. Theme moved 1.5.39 (the `XVAL-*` measurement
+wave cited below) → **1.5.40** during the same day this was cross-checked — re-verify
+anything version-sensitive fresh; do not trust any version number written here either.
 
 **Landed:** focus colour on skip link / nav / logo / CTAs · mobile menu reachable by keyboard
 and the closed drawer out of the tab order · 162 book-gallery photographs described (6 left
 as deliberate questions for Eyal) · hash-based alt matching · the child-theme path bug that
-had made that whole map dead · card and FAQ headings · muted colour tokens · submenu
-`aria-expanded` · Hebrew CF7 validation · the D-8 blank prompt · duplicate photographs removed
-· the last failing contrast chip · the statement rewritten, then **corrected twice** after
-cross-engine falsified two claims I had published.
+had made that whole map dead · card and FAQ headings · muted colour tokens · the treatment/
+lessons active-tag contrast fail (**confirmed passing live on 1.5.40, 4.6255:1** — the
+`XVAL-B2` file measures the pre-fix 1.5.39 state, 4.2573:1 FAIL; no fresh cross-engine
+artifact for 1.5.40 exists yet, so cite this line, not `XVAL-B2`, if asked how this closed).
+
+**Not independently re-verified by the `XVAL-*` evidence** (may well be true — just not
+re-measured; do not cite `XVAL-*` for these): submenu `aria-expanded` · Hebrew CF7 validation
+· the D-8 blank prompt · duplicate photographs removed.
 
 **Still open, all measured:**
-1. **Focus-indicator prominence** — the ring is 1.06:1 on the skip link, 1.65:1 on
-   `.btn--terra`. Not a WCAG 2.0 AA failure (the 3:1 floor is 2.1 SC 1.4.11, which IS 5568
-   does not bind) but the statement now names it as a limitation.
+1. **Focus-indicator prominence** — ring contrast: skip 1.06:1, `.btn--terra` 1.65:1, brand
+   2.54:1, EN toggle 2.90–3.00:1 (borderline). Not a WCAG 2.0 AA failure (the 3:1 floor is
+   2.1 SC 1.4.11, which IS 5568 does not bind) but the statement now names it as a limitation.
 2. **Footer brand/address/phone at 4.4867:1** — three hundredths short of 4.5.
 3. **Mobile only (390px)** — header Tab order contradicts visual RTL order; focus lands
    off-screen on one home `#peek` link and six FAQ chips.
-4. **Eyal owes two answers** — his name as coordinator (D-11), and the final legal wording
+4. **200% text/zoom clipping** (was missing from this list) — document overflow reads 0px,
+   which is NOT sufficient evidence of "no clipping": the skip link overlaps the brand
+   (~24px), home `h1` sits at y=−150, the FAQ heading overlaps the nav, and CSS `zoom:2`
+   pushes the burger 151.6px and EN 107.6px outside the viewport.
+5. **The published statement still asserts at least two false things** (was missing from
+   this list) — it claims 200% enlargement with no clipping/no horizontal scroll (false, see
+   item 4), and its limitations section still names the treatment/lessons tag chip as a
+   current failure (false as of 1.5.40 — see "Landed" above; the statement now needs the
+   opposite correction from the one made before).
+6. **Eyal owes two answers** — his name as coordinator (D-11), and the final legal wording
    that retires the WP-EI-05 draft banner (D-13). Plus six unidentified photographs.
 
-Evidence: `_COMMUNICATION/team_50/XVAL-CONSOLIDATED-2026-09-18.md` and the six `XVAL-*` files;
-`_COMMUNICATION/team_100/S006/A11Y-CONSOLIDATED-REGISTER-2026-09-17.md`;
+Evidence: `_COMMUNICATION/team_50/XVAL-CONSOLIDATED-2026-09-18.md` and the `XVAL-*` files it
+indexes; `_COMMUNICATION/team_50/XVAL-STATE-ACCURACY-2026-09-18.md` (this cross-check, and
+why items 1/5/Landed changed); `_COMMUNICATION/team_100/S006/A11Y-CONSOLIDATED-REGISTER-2026-09-17.md`;
 `_COMMUNICATION/team_10/A11Y-FIX-2026-09-18/`.
 
 ## S007 typography — IN FLIGHT, waiting on team_00's eye
@@ -58,19 +81,40 @@ Evidence: `_COMMUNICATION/team_50/XVAL-CONSOLIDATED-2026-09-18.md` and the six `
 typography → accessibility re-check → mobile → rows, in that order because type changes
 invalidate the other two's measurements.
 
+**Corrected 2026-09-18 by cross-engine state-check** (`_COMMUNICATION/team_50/XVAL-STATE-ACCURACY-2026-09-18.md`,
+line S3) — the bullets below replace an earlier version whose specific numbers were wrong in
+several places, including one that was backwards. Do not re-quote the old numbers (242 / 21
+all-hardcoded / 500×27 / "H1 is Frank Ruhl Libre") without re-deriving them.
+
 **What is known, measured:**
-- Neither the theme nor the team_35 design has a type scale. 242 hardcoded `font-size`
-  declarations in live CSS plus 21 in `style.css`; the only `font-size:var()` set is dead
-  code scoped to `.ea-home-dashboard`, which matches zero elements.
-- The menu is **not** small relative to the design — 12.48px designed, 12.8px live. Making it
-  larger is a new decision, not a correction.
-- The real divergence is **weight**: the design runs 100–400 with nothing above 400; live
-  runs 500×27, 300×14, 400×9, 600×7, 700×2, 800×2. Headings are three to four steps heavier
-  than designed; body, lead and nav already match at 300.
-- **Font-family deviations** — every H1 renders in Frank Ruhl Libre while every other heading
-  renders in Heebo (documented as a reserved accent, `chapters.css:32`); `--hf` and `--bf` are
-  declared with identical values so the heading/body font distinction is fictional; carousel
-  arrows fall through to `-apple-system`; and Rubik is fetched on every page and used nowhere.
+- Neither the theme nor the team_35 design has a type scale — that part holds. The live
+  child-theme sheets that actually load on `/` carry **247** hardcoded `font-size`
+  declarations (114 `chapters.css` + 93 `ea-atoms.css` + 15 `home-front.css` + 5
+  `ea-mobile-nav.css` + 13 `ea-mobile-variants.css`; `books-v2.css`'s 33 do **not** load on
+  `/` or `/method/`, only on book pages). `style.css` has 21 `font-size` declarations, but
+  only **7** are hardcoded — the other **14** are `font-size: var(...)`, all scoped to
+  `body.ea-home-dashboard …`, a body class nothing live adds (confirmed 0 matches).
+- The menu is **not** a single 12.48-designed/12.8-live pair — it is genuinely mixed live,
+  because two competing rules match different elements: `<a>` nav items render **12.8px**
+  (`.nav__l a`, wins on specificity); the two dropdown-trigger `<button class="nav__dd">`
+  elements render **12.48px** (`.nav__dd`, which only wins there because the higher-specificity
+  rule doesn't select a `<button>`). The "not smaller than designed" conclusion still holds —
+  do not quote this as one uniform pair.
+- The real divergence is **weight**, but the histogram was `chapters.css` alone, not the full
+  loaded set, and two counts were off by one: 500×**26**, 300×14, 400×9, 600×**8** (a same-day
+  `h3{font-weight:600}` addition), 700×2, 800×2. Adding `ea-atoms.css` (also loaded) changes
+  the distribution substantially. Headings vs the D-14 100–400 tokens: h1 and h2 really are
+  3–4 steps heavier; **h3 is only 1 step heavier**, not 3–4 — don't apply the blanket phrasing
+  to h3. Body and nav confirmed at weight 300, live; `.lead` is declared 300 in CSS but has
+  **zero live elements** on either page checked — nobody sees it at any weight.
+- **Font-family — the H1 claim was backwards.** Every sampled `<h1>` renders in **Heebo**, not
+  Frank Ruhl Libre (`--hf`/`--bf` genuinely are declared identically, so that half — the
+  heading/body distinction being fictional — was right). Frank Ruhl Libre **is** live, just
+  not on headings generally: `--display` drives `.fstep__t` / `.mag-list__t` / `.btile__t`,
+  and `.bookcard__t` (book titles, which render as real `h2`/`h3`) uses `--serif` directly —
+  so "every other heading renders in Heebo" also overstates it. Carousel arrows falling
+  through to the OS system font, and Rubik fetched on every page but used by zero rendered
+  text (faces stay `unloaded`): both confirmed as originally stated.
 
 **The approval instrument is live:** `mu-plugins/ea-type-preview-staging.php` — staging-only,
 URL-driven, body size is the anchor and everything derives from it. Parameters: `ty` (body,
@@ -85,7 +129,9 @@ especially the hero.
 
 **Last combination shown, and the one he called "improving":**
 `?ty=17&nav=1.08&navw=400&h1=2.6&h2=1.45&h3=1.1&h1w=300&h2w=400&h3w=500&sub=1&subpad=6&serif=0`
-→ h1 44.2/300, h2 24.6/400, h3 18.7/500, body 17/300, nav 18.4/400.
+→ h1 44.2/300, h2 24.65/400, h3 18.7/500, body 17/300, nav 18.36/400. (Corrected 2026-09-18:
+the PHP's own `round()` emits 24.65 and 18.36, not the previously-quoted 24.6 / 18.4 — two
+independent cross-engine lines caught the same rounding mismatch; h1/h3/body were exact.)
 
 **Immediate next step:** he picks a combination and sends the URL; team_100 locks it as a real
 token scale, applies to three flagship pages first (D-24), then widens, then exceptions.
