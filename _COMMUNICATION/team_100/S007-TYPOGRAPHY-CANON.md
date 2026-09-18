@@ -115,11 +115,28 @@ phase; they are the pattern to replace, not to copy.
 
 ## 6. The only declarations deliberately NOT on a rung
 
-Each is annotated in place with its reason. **A fourth unexplained one is a defect.**
+Each is annotated in place with its reason. **A sixth unexplained one is a defect.**
 
 - `.nav__caret` — `.6em`, a glyph sized off its parent, not a type rung.
 - `.testi-mq__btn` — a carousel arrow glyph, not text.
 - CF7 row label — `font-size:0`, hidden on purpose (Eyal asked for the separate labels to go).
+- `.ea-books-hub-card__cta a::after` and `::before` — `0.85em` arrow glyphs on
+  pseudo-elements, same case as `.nav__caret`.
+
+> **This list was three when first written and the cross-engine gate falsified that.**
+> `.ea-topnav__caret` was a fourth, undocumented, at `0.7em` resolving to 8.568px — it is
+> now on `--fs-3xs` rather than becoming a fifth exemption. The two `books-v2.css` arrow
+> glyphs are genuine and were simply missed. Treat any new `em` or literal size as a defect
+> until it appears in this list.
+
+## 6a. Scope of "no live stylesheet carries a hardcoded size"
+
+**That claim is about LIVE sheets only.** Four stylesheets in `assets/css/` have **no enqueue
+call anywhere in the codebase** and are not wired: `services.css`, `w2-04-service.css`,
+`w2-10-service.css`, `w2-14e-catalog.css` (its renderer was deleted in an earlier cleanup and
+the CSS never followed). They are dead, not exempt. If any is ever re-enqueued it must be
+wired first. `theme-shell-fallback.css` IS conditionally live — it loads when the parent
+GeneratePress stylesheet is unreadable — and **is** wired.
 
 ## 7. Superseded — these numbers are DEAD, do not act on them
 

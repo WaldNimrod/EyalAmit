@@ -425,14 +425,14 @@
 	background: var(--ea-sand);
 }
 @media (max-width: 1023px) {
-	.ea-edhero__title { font-size: 2.2rem; }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
+	.ea-edhero__title { font-size:var(--fs-display); }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
 }
 @media (max-width: 767px) {
 	.ea-edhero__inner { grid-template-columns: 1fr; gap: var(--ea-space-6); }
 }
 @media (max-width: 639px) {
 	.ea-edhero { padding-inline: var(--ea-space-3); }
-	.ea-edhero__title { font-size: 1.7rem; }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
+	.ea-edhero__title { font-size:var(--fs-h2); }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
 }
 
 /* ── 2. Meta strip — scannable key/value row ──────────────────────────────── */

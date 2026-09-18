@@ -20,7 +20,7 @@ body.ea-book-detail-view {
 	margin: 0;
 	min-height: 100vh;
 	font-family: "Rubik", system-ui, sans-serif;
-	font-size: 1.05rem;
+	font-size: var(--fs-body);
 	line-height: 1.65;
 	color: var(--eyal-ink, #2e2b28);
 	background-color: #fffdfb;
@@ -99,7 +99,7 @@ body.rtl {
 .ea-shell-nav__list > li > a {
 	display: block;
 	padding: 0.45rem 0.55rem;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 500;
 	color: var(--eyal-ink, #2e2b28);
 	text-decoration: none;
@@ -137,7 +137,7 @@ body.rtl {
 .ea-shell-nav .sub-menu a {
 	display: block;
 	padding: 0.45rem 0.85rem;
-	font-size: 0.88rem;
+	font-size: var(--fs-xs);
 	font-weight: 500;
 	color: var(--eyal-ink, #2e2b28);
 	text-decoration: none;
@@ -184,7 +184,7 @@ body.rtl {
 
 .ea-shell-site-title {
 	margin: 0;
-	font-size: 1.05rem;
+	font-size: var(--fs-body);
 	font-weight: 600;
 	letter-spacing: 0.02em;
 }
@@ -199,7 +199,7 @@ body.rtl {
 }
 
 .ea-shell-header__en a {
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 600;
 	color: var(--eyal-brick, #ab3a2b);
 	text-decoration: none;
@@ -232,7 +232,7 @@ body.rtl {
 /* מבנה legacy אם עדיין מופיע */
 #headerimg h1 {
 	margin: 0;
-	font-size: 1.05rem;
+	font-size: var(--fs-body);
 	font-weight: 600;
 }
 
@@ -263,7 +263,7 @@ body.rtl {
 	margin-top: 3rem;
 	padding: 1.75rem 0 2rem;
 	border-top: 1px solid rgba(46, 43, 40, 0.12);
-	font-size: 0.88rem;
+	font-size: var(--fs-xs);
 	color: var(--eyal-earth, #8a5a44);
 	background: linear-gradient(180deg, transparent 0%, rgba(110, 111, 74, 0.06) 100%);
 	border-radius: 12px 12px 0 0;
@@ -292,7 +292,7 @@ body.rtl {
 	margin-top: 3rem;
 	padding: 1.5rem 0;
 	border-top: 1px solid rgba(46, 43, 40, 0.1);
-	font-size: 0.88rem;
+	font-size: var(--fs-xs);
 	color: var(--eyal-earth, #8a5a44);
 }
 

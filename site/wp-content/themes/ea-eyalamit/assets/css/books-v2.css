@@ -354,7 +354,7 @@
 
 .ea-books-hub-card__cta a::after {
 	content: "←";                 /* RTL direction indicator */
-	font-size: 0.85em;
+	font-size: 0.85em;  /* S007 exemption: an arrow glyph sized off its parent, same case as .nav__caret */
 	opacity: 0.8;
 	transition: transform 0.15s ease;
 }
@@ -1375,7 +1375,7 @@
 
 .ea-books-hub-card__cta a::before {
 	content: '→';           /* RTL: → points toward text (right side) */
-	font-size: 0.85em;
+	font-size: 0.85em;  /* S007 exemption: an arrow glyph sized off its parent, same case as .nav__caret */
 	display: inline-block;
 	transition: transform 0.25s ease;
 }

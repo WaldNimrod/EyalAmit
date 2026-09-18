@@ -265,7 +265,12 @@
       gap: 4px;
     }
     .ea-topnav__caret {
-      font-size: 0.7em;
+      /* S007: was 0.7em, which resolved to 8.568px against a 12.24px parent — the
+         cross-engine gate caught it as a fourth, undocumented off-scale declaration.
+         .nav__caret in chapters.css stays em because its parent IS a rung; this one's
+         parent is a rung too but 0.7 of it lands below every rung, so it goes on the
+         scale outright rather than becoming a second exemption to explain. */
+      font-size: var(--fs-3xs);
       line-height: 1;
       transition: transform var(--ea-dur-fast);
     }
