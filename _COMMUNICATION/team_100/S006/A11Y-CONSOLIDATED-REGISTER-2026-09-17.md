@@ -190,7 +190,19 @@ Recorded because a conformance claim needs evidence of what passes, not only wha
 
 ---
 
-## 5. Decisions that belong to team_00, with the evidence to make them
+## 5. Decisions that belonged to team_00 — ALL RULED, and moved
+
+⚠ **This section's `D-A`…`D-E` letters are superseded.** They were a fourth numbering
+scheme in a project that already had three, and they collided with the live `D-1`…`D-8`
+sequence. Every ruling below was made by team_00 on 2026-09-18 and now lives in the single
+sequence: `D-A→D-9`, `D-B→D-10`, `D-C→D-11`, `D-D→D-12`, `D-E→D-13`.
+
+**Do not read the options below as open.** They are kept for the evidence that informed the
+rulings, not as a decision list. The binding text is in
+`_COMMUNICATION/team_00/DECISION_S006_A11Y_AND_PROCESS_2026-09-18_v1.md`, indexed from
+`_COMMUNICATION/team_00/DECISION-INDEX.md`. **This file does not hold a second list.**
+
+### The evidence that was put to him
 
 **D-A · The overlay plugin question.** `A11Y-LEGAL-16`.
 Facts established: wp-accessibility (Joe Dolson) is active, but its own skip-link feature is
