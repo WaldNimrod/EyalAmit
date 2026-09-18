@@ -20,7 +20,23 @@
  *     &serif=0                    hero H1 in Heebo like every other heading, instead of the
  *                                 reserved Frank Ruhl Libre accent — so the family deviation
  *                                 team_00 spotted can be judged rather than argued about
+ *     &demo=1                     insert a labelled specimen sub-heading into the first prose
+ *                                 sections, so the h3 rung is visible at all — see below
+ *     &fam=1                      outline every element that does NOT resolve to Heebo, and
+ *                                 name the family on it, so the deviations can be seen
  *     &grid=1                     show the resolved numbers in a corner readout
+ *
+ *   WHY demo=1 EXISTS. Measured on live staging 2026-09-18: every section title in all
+ *   24 Chapters body parts is an <h2 class="h2 r">, and H3 appears only as a CARD title
+ *   inside a grid. Heading counts on the flagship pages: /method/ 13×h2 0×h3 ·
+ *   /eyal-amit/ 13×h2 0×h3 · /books/ 6×h2 0×h3 · home 10×h2 2×h3. So on most pages the
+ *   h3 dial above moves nothing, and team_00 cannot judge a three-rung hierarchy he
+ *   cannot see. This switch injects ONE specimen sub-heading per prose section, in the
+ *   first three sections only, with text that says outright that it is a specimen.
+ *
+ *   It is NOT content. It never renders without demo=1, it never renders off staging,
+ *   it is injected in the browser and touches no theme file, and it dies with this
+ *   plugin. The content law («רק מה שקיים») is about site copy; this is a measuring rod.
  *
  * @package ea_eyalamit
  */
@@ -58,6 +74,8 @@ add_action( 'wp_head', function () {
 	$sub    = isset( $_GET['sub'] ) && '1' === $_GET['sub'];
 	$subpad = ea_type_preview_num( 'subpad', 10, 0, 24 );
 	$serif  = ! ( isset( $_GET['serif'] ) && '0' === $_GET['serif'] );
+	$demo   = isset( $_GET['demo'] ) && '1' === $_GET['demo'];
+	$fam    = isset( $_GET['fam'] ) && '1' === $_GET['fam'];
 	$grid = isset( $_GET['grid'] ) && '1' === $_GET['grid'];
 
 	$nav_px = round( $b * $nav, 2 );
@@ -83,6 +101,19 @@ h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 	if ( $sub ) {
 		$css .= "@media(min-width:1181px){.nav__l>li:nth-of-type(2) .nav__sub{opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important}}\n";
 	}
+	if ( $demo ) {
+		/* The specimen inherits the h3 rule above, so the h3 dial actually moves it. */
+		$css .= ".ea-typrev-h3{margin:1.6em 0 .5em;color:var(--ink)}\n";
+	}
+	if ( $fam ) {
+		/* Every live rule that resolves to something other than Heebo. Two families,
+		   thirteen selectors, all in chapters.css — outlined so they can be seen in
+		   place instead of read off a list. */
+		$css .= ".hero__h,.phero__h,.tl__y,.bleed__q,.st3::after,.shstep__dot span,.bookcard__t"
+			. "{outline:2px dashed #E0A33C!important;outline-offset:3px}\n";
+		$css .= ".fstep__num,.fstep__t,.mag-spread__fig figcaption b,.mag-list__n,.mag-list__t,.btile__t"
+			. "{outline:2px dashed #4FA3C4!important;outline-offset:3px}\n";
+	}
 	echo "<style id=\"ea-type-preview\">" . $css . "</style>\n";
 
 	if ( $grid ) {
@@ -90,6 +121,21 @@ h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 		echo '<div id="ea-typro">body ' . esc_html( $b ) . 'px &middot; nav ' . esc_html( $nav_px ) . 'px/' . esc_html( $navw )
 			. ' &middot; h1 ' . esc_html( $h1_px ) . 'px/' . esc_html( $h1w )
 			. ' &middot; h2 ' . esc_html( $h2_px ) . 'px/' . esc_html( $h2w )
-			. ' &middot; h3 ' . esc_html( $h3_px ) . 'px/' . esc_html( $h3w ) . '</div>';
+			. ' &middot; h3 ' . esc_html( $h3_px ) . 'px/' . esc_html( $h3w )
+			. ( $fam ? ' &middot; <span style="color:#E0A33C">Frank Ruhl Libre</span> &middot; <span style="color:#4FA3C4">Suez One</span>' : '' )
+			. '</div>';
+	}
+
+	if ( $demo ) {
+		/* Injected in the browser: no theme file is touched, and nothing persists.
+		   The specimen names itself, so it cannot be mistaken for Eyal's copy even
+		   in a screenshot taken out of context. */
+		$label = 'כותרת משנה — טקסט הדגמה לבחינת ההיררכיה';
+		echo "<script id=\"ea-type-preview-demo\">document.addEventListener('DOMContentLoaded',function(){"
+			. "var n=0;document.querySelectorAll('.intro-body').forEach(function(b){"
+			. "if(n>=3)return;var ps=b.querySelectorAll(':scope > p');if(ps.length<2)return;"
+			. "var h=document.createElement('h3');h.className='ea-typrev-h3';"
+			. "h.textContent=" . wp_json_encode( $label ) . ";"
+			. "ps[0].insertAdjacentElement('afterend',h);n++;});});</script>\n";
 	}
 }, 99 );
