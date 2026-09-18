@@ -40,3 +40,24 @@ All three sub-claims held on what was checked: every rung is declared in `rem` (
 ## What changed since the brief was written
 
 The brief's own theme version (1.5.56) was already one version behind live by the time the first line ran, and two behind by the time this report was written. Nothing here should be read as this session's own conclusion beyond what is stated above — re-measure before citing any of these numbers later, per the standing rule already on this project.
+
+## Re-check at theme 1.5.59 (site frozen for this pass, no version drift)
+
+Fixes were made for C1, C3 and C5 at theme 1.5.59; team_50 (the session that owns this gate) declined to close it on its own measurement and asked for an independent re-check. Two more lines, same discipline: `T1B` (C1) and `T2B` (C3/C5), read `_COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md` §6/§6a directly for the current claim rather than a paraphrase.
+
+| Re-checked item | Result |
+|---|---|
+| The 4 named files (`services.css`, `w2-04-service.css`, `w2-10-service.css`, `w2-14e-catalog.css`) are genuinely dead | **CONFIRMED** — traced every enqueue path, not a filename grep; zero `<link>` hits across 27 HTML + 11 rendered pages |
+| `.ea-topnav__caret` now on-rung | **CONFIRMED** — 11.05px (`--fs-3xs`), live on both `/press/` and `/about/`, was 8.568px |
+| `/about/` has exactly one `<h1>` | **CONFIRMED** — the duplicate template-emitted title is gone |
+| Exemption list is exactly five, all live and off-rung as intended | **PARTIALLY FALSIFIED** — the two `books-v2.css` pseudo-element exemptions (`.ea-books-hub-card__cta a::after`/`::before`) are real declarations in a genuinely-live sheet, but the only template that emits that class 301-redirects away on every slug that reaches it; there is currently no live DOM node to confirm they render off-rung. Not wrongly on-scale either — just unverifiable live right now. |
+| No other live child-theme off-scale size declarations | **CONFIRMED** — the ~58+2 found before are gone; remaining non-token hits are `inherit` or a literal `0`, correctly not counted as violations |
+| No live *stylesheet at all* carries a hardcoded size | **FALSIFIED, but out of this gate's intended scope** — GeneratePress's own `main.min.css`, `wpa-style.css`, Fluent Forms and CF7's own CSS are all live and hardcoded; the child-theme token still wins the cascade where checked (`/services/` h1: 44.2px, not GP's 42px). C1 as written was about the child theme's own scale, not third-party CSS. |
+| Family grouping (15) still holds | **CONFIRMED** on a 6-URL stability sample (not a full 157 re-derivation — the grouping wasn't what changed) |
+| Regression smoke-test, 6 more URLs across 6 families | **CONFIRMED clean**, with one exception below |
+
+**New finding, not a regression from the 1.5.59 fix:** `/2228-2/` (a single post, family F01) renders `h1 → h3`, skipping `h2` — in the post's own authored content, not from `tpl-content.php` or `ea-atoms.css`. Neither xval pass had sampled this specific post before; F01 has 54 URLs and only 2 have been checked across both passes. This is a content-authoring issue independent of the type-scale gate, surfaced only because a different post happened to get sampled this time.
+
+**Also surfaced, not part of the five gate claims:** 207 live child-theme `font-weight` declarations are still numeric/`bold` rather than `var(--fw-*)` tokens (`ea-atoms.css` 76, `chapters.css` 53, `books-v2.css` 29, `w2-05-shop.css` 20, `ea-mobile-nav.css` 12, smaller counts elsewhere). Same pattern as the size migration, not claimed as fixed by C1, not scored against it here — flagged for whoever scopes weight-token migration next.
+
+**Net:** neither of the two re-checked fixes was falsified. One exemption is declared-but-currently-unrenderable rather than fully confirmed, one scope boundary needed stating explicitly, and one new, unrelated content bug surfaced by chance of sampling. Closing this gate is team_50's call, per its own request not to be closed on this session's say-so alone.
