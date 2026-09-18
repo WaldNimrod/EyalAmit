@@ -23,9 +23,9 @@ state without re-measuring.**
 ## Where the code is
 
 Branch `s006/tracker-integrity`. `main`, `origin/main` and `origin/s006/tracker-integrity`
-all aligned. Live staging ran theme **1.5.48** when this line was written, after twelve
-deploys in one day (1.5.40 → 1.5.48). **That number is stale the moment you read it** — the
-1.5.40 written here before survived less than an hour. Re-derive it; do not cite it.
+all aligned. Live staging ran theme **1.5.54** when this line was written, after eighteen
+deploys in one day (1.5.40 → 1.5.54). **That number is stale the moment you read it** — 1.5.40
+survived less than an hour here, and 1.5.48 not much longer. Re-derive it; do not cite it.
 `http://eyalamit-co-il-2026.s887.upress.link` (HTTP; invalid TLS there by design).
 
 ## Accessibility — four items open, two resolved 2026-09-18 pending M-04 re-verification
@@ -130,16 +130,38 @@ That sweep — not the file inventory — is what found both gaps above.
 and note the FTP deploy **never prunes**, so deleting the file locally does not remove it
 from staging.
 
-**Phase 2 is dispatched** — `MANDATE-S007-M04-A11Y-RECHECK-2026-09-18.md`, against 1.5.48.
-Its reason is specific: **WCAG's contrast threshold is a function of text size** (3:1 for
-large text, 4.5:1 otherwise), so locking a scale can fail a criterion without changing a
-colour. `.cmpc__t` (26→21.25) and `.bookcard__t` (24→21.25) both crossed out of large-text
-territory today. `.h2` now clears 24px by **0.65px** — a standing hazard, not a finding.
+**Phase 2 ran and closed** — `_COMMUNICATION/team_10/S007-M04/`. 193 contrast failures
+reported across 1,845 elements on 12 pages. **That number is not 193 defects.** 118 were the
+FAQ disclosure chevron and 6 the section eyebrow, both on `--terra` at ~4.43:1 — closed by
+repointing to `--terra-btn`, the token team_00 had already approved for the topic chip (no
+new colour, brand `--terra` untouched). Verified live at 4.61:1. The rest split between
+genuine near-misses at the footer (~4.50, open item 2) and backdrop-measurement errors.
 
-**Still open in typography:** the remaining SHOW-FIRST decisions, and team_00's own list from
-2026-09-18 that is not yet fully closed — inner-page hero line breaks need a per-title
-decision each, and six card-title classes still outrank the h3 tier on weight (whether the
-tier should override those designs is his call).
+**The nav was a real failure and I initially denied it.** I told team_10 their 4.18–4.40
+readings were wrong and the nav measured ~11:1. They came back with the CSS: `.phero--media`
+lays a photograph under a scrim that is only `.5` at the top. I looked at the rendered pixels
+— a workshop photo with pale mosaic and a lit doorway sits directly behind the menu. There IS
+a nav scrim (`chapters.css`), which is what my walker found, but it runs `.82` at the top edge
+and `.34` by 52%, and `.nav` is 72px tall with its text vertically centred — so the text sits
+at the `.34`, not the `.82`. Right gradient, wrong sample height. Arithmetic across photo
+tones: old state 10.71 / 5.27 / **2.71**:1; new state 16.48 / 13.20 / 9.79:1. Fixed in 1.5.54
+by holding the scrim at `.74` through 62% and lifting the links from 82% to 95% white — the
+latter being the contrast increase team_00 asked for and I had not shipped.
+
+**Also closed in phase 2:** the home hero clipped its own CTA at 200% text (`height:100vh` +
+`overflow:hidden`, 911px of content in a 900px box) — now `min-height:max(620px,100vh)`,
+re-measured at 900→922px with nothing cut. Heading structure clean on all 12 pages.
+
+**Closed since:** content HTML inside prose bodies (bare `h2/h3/h4/li/blockquote` were never
+selected by any child-theme rule — three `h3` rendered at 29px, *larger* than the 24.65px
+section title above them); three inline `style="font-size"` attributes in the content itself,
+the only place a stylesheet cannot reach; and all nine wrapping hero titles, each now breaking
+on a chosen boundary in the sentence with the cap tightened to 32ch so the sentence decides
+where a title breaks rather than the cap.
+
+**Still open in typography:** the remaining SHOW-FIRST decisions, and six card-title classes
+that still outrank the h3 tier on weight — whether the tier should override those designs is
+team_00's call, not ours.
 
 ## S007 later phases — defined, not started
 
