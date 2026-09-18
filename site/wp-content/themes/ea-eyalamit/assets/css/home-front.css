@@ -299,7 +299,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-section {
 body.ea-home-dashboard .ea-home-front .ea-home-section > h2 {
 	margin: 0 0 0.5rem;
 	color: var(--ea-home-heading);
-	font-size: 1.15rem;
+	font-size: var(--fs-nav);
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-section-lead {
@@ -309,7 +309,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-section-lead {
 
 body.ea-home-dashboard .ea-home-front .ea-home-section-lead--compact {
 	margin-bottom: 0.65rem;
-	font-size: 0.95rem;
+	font-size: var(--fs-sm);
 	color: var(--ea-home-muted);
 }
 
@@ -322,13 +322,13 @@ body.ea-home-dashboard .ea-home-front .ea-home-video-block .ea-home-video-placeh
 	border: 1px dashed var(--ea-home-border);
 	border-radius: 4px;
 	color: var(--ea-home-muted);
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	margin: 0.75rem 0;
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-video-caption {
 	margin: 0.5rem 0 0;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	color: var(--ea-home-muted);
 }
 
@@ -376,7 +376,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item summa
 
 body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item p {
 	margin: 0.5rem 0 0;
-	font-size: 0.92rem;
+	font-size: var(--fs-sm);
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-faq-more {
@@ -395,7 +395,7 @@ body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom {
 body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__title {
 	margin: 0 0 0.5rem;
 	color: var(--ea-home-heading);
-	font-size: 1.2rem;
+	font-size: var(--fs-lead);
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__text {
@@ -405,14 +405,14 @@ body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__text {
 
 body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__hint {
 	margin: 0.75rem 0 0;
-	font-size: 0.88rem;
+	font-size: var(--fs-xs);
 	color: var(--ea-home-muted, var(--ea-home-text));
 	opacity: 0.9;
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-testimonials-sub {
 	margin: 0 0 0.5rem;
-	font-size: 1rem;
+	font-size: var(--fs-sm);
 	font-weight: 600;
 	color: var(--ea-home-heading);
 }
@@ -427,13 +427,13 @@ body.ea-home-dashboard .ea-home-front .ea-home-quote {
 
 body.ea-home-dashboard .ea-home-front .ea-home-quote p {
 	margin: 0;
-	font-size: 0.95rem;
+	font-size: var(--fs-sm);
 	line-height: 1.5;
 }
 
 body.ea-home-dashboard .ea-home-front .ea-home-placeholder-tag {
 	margin: 0.5rem 0 0;
-	font-size: 0.78rem;
+	font-size: var(--fs-2xs);
 	opacity: 0.85;
 }
 
@@ -510,7 +510,7 @@ body.ea-home-dashboard .entry-header {
 	border-radius: var(--ea-radius-pill);
 	background: var(--ea-bg);
 	color: var(--ea-muted);
-	font-size: 0.74rem;
+	font-size: var(--fs-2xs);
 	font-weight: 300;
 	line-height: 1.5;
 	letter-spacing: 0.3px;
@@ -583,7 +583,7 @@ body.ea-home-dashboard .entry-header {
 	max-inline-size: 56ch;
 }
 .ea-testimonials-section--rotator .ea-testimonial-card__text {
-	font-size: 1.2rem;
+	font-size: var(--fs-lead);
 	font-weight: 200;
 	line-height: 1.7;
 	color: var(--ea-chocolate);
@@ -634,7 +634,7 @@ body.ea-home-dashboard .entry-header {
 }
 @media (max-width: 639px) {
 	.ea-testimonials-section--rotator .ea-testimonial-card__text {
-		font-size: 1.05rem;
+		font-size: var(--fs-body);
 	}
 }
 

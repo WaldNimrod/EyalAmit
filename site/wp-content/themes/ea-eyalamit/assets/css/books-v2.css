@@ -79,7 +79,7 @@
 	white-space: nowrap;
 
 	font-family: "Heebo", sans-serif; /* [W1→V2] replaces Rubik/Frank Ruhl/Amatic SC */
-	font-size: 0.78rem;
+	font-size: var(--fs-2xs);
 	font-weight: 300;              /* Rule: button weight = 300 */
 	line-height: 1;
 	letter-spacing: 0.2px;
@@ -148,7 +148,7 @@
 
 .ea-books-hub-title {
 	font-family: "Heebo", sans-serif;
-	font-size: 2rem;               /* H2 scale */
+	font-size: var(--fs-display);               /* H2 scale */
 	font-weight: 200;              /* [W1→V2] was 700 — Rule: larger = lighter */
 	line-height: 1.2;
 	letter-spacing: -0.3px;
@@ -177,7 +177,7 @@
 
 .ea-books-hub-intro {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.9rem;             /* Body: 0.9rem / 15px */
+	font-size: var(--fs-xs);             /* Body: 0.9rem / 15px */
 	font-weight: 300;
 	line-height: 1.88;             /* Body: 1.85-1.9 */
 	color: var( --eyal-ink, #2e2b28 );
@@ -297,7 +297,7 @@
 .ea-books-hub-card__title {
 	margin: 0;
 	font-family: "Heebo", sans-serif;
-	font-size: 0.92rem;            /* H3 scale */
+	font-size: var(--fs-sm);            /* H3 scale */
 	font-weight: 400;              /* [W1→V2] was 600 */
 	line-height: 1.4;
 	color: var( --eyal-chocolate, #5c3a2e );
@@ -320,7 +320,7 @@
 
 .ea-books-hub-card__excerpt {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 300;
 	line-height: 1.88;
 	color: var( --eyal-ink, #2e2b28 );
@@ -345,7 +345,7 @@
 	align-items: center;
 	gap: 0.3em;
 	font-family: "Heebo", sans-serif;
-	font-size: 0.82rem;            /* Link scale */
+	font-size: var(--fs-xs);            /* Link scale */
 	font-weight: 400;              /* [W1→V2] was 600 */
 	color: var( --eyal-terracotta, #a44e2b );
 	text-decoration: none;
@@ -379,7 +379,7 @@
 	background-color: #faf8f5;
 	border: 1px dashed var( --eyal-line, rgba( 216, 199, 181, 0.35 ) );
 	font-family: "Heebo", sans-serif;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 300;
 	color: var( --eyal-earth, #8a5a44 );
 	line-height: 1.88;
@@ -412,7 +412,7 @@
 /* Bundle title: H2 scale */
 .ea-books-bundle__title {
 	font-family: "Heebo", sans-serif;
-	font-size: 2rem;
+	font-size: var(--fs-display);
 	font-weight: 200;
 	line-height: 1.2;
 	letter-spacing: -0.3px;
@@ -423,7 +423,7 @@
 /* Bundle description: body scale */
 .ea-books-bundle__desc {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 300;
 	line-height: 1.88;
 	color: var( --eyal-earth, #8a5a44 );
@@ -454,7 +454,7 @@
 .ea-section-label {
 	display: block;
 	font-family: "Heebo", sans-serif;
-	font-size: 0.58rem;
+	font-size: var(--fs-3xs);
 	font-weight: 200;
 	line-height: 1.4;
 	letter-spacing: 3.5px;
@@ -503,7 +503,7 @@
 
 .ea-book-detail h1 {
 	font-family: "Heebo", sans-serif;
-	font-size: 2.8rem;
+	font-size: var(--fs-h1);
 	font-weight: 200;              /* [W1→V2] Amatic SC implied bold — Heebo 200 */
 	line-height: 1.12;
 	letter-spacing: -0.5px;
@@ -521,7 +521,7 @@
 
 .ea-book-lead {
 	font-family: "Heebo", sans-serif;
-	font-size: 1rem;
+	font-size: var(--fs-sm);
 	font-weight: 300;
 	line-height: 1.88;
 	color: var( --eyal-ink, #2e2b28 );
@@ -576,7 +576,7 @@
 
 .ea-book-cover figcaption {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.74rem;
+	font-size: var(--fs-2xs);
 	font-weight: 300;
 	color: var( --eyal-earth, #8a5a44 );
 	margin-block-start: 0.5rem;
@@ -593,7 +593,7 @@
 
 .ea-book-body {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.9rem;
+	font-size: var(--fs-xs);
 	font-weight: 300;
 	line-height: 1.88;
 	color: var( --eyal-ink, #2e2b28 );
@@ -623,7 +623,7 @@
 
 .ea-book-body h2 {
 	font-family: "Heebo", sans-serif;
-	font-size: 2rem;               /* H2 scale */
+	font-size: var(--fs-display);               /* H2 scale */
 	font-weight: 200;              /* [W1→V2] was Rubik 600 */
 	line-height: 1.2;
 	letter-spacing: -0.3px;
@@ -633,7 +633,7 @@
 
 .ea-book-body h3 {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.92rem;            /* H3 scale */
+	font-size: var(--fs-sm);            /* H3 scale */
 	font-weight: 400;              /* [W1→V2] was Rubik 600 */
 	line-height: 1.4;
 	letter-spacing: 0;
@@ -757,7 +757,7 @@
 	white-space: nowrap;
 
 	font-family: "Heebo", sans-serif;
-	font-size: 0.78rem;
+	font-size: var(--fs-2xs);
 	font-weight: 300 !important;      /* [W1→V2] was 600 */
 	line-height: 1;
 	letter-spacing: 0.2px;
@@ -809,7 +809,7 @@
 	color: #fff;
 	text-decoration: none;
 	font-family: "Heebo", sans-serif;
-	font-size: 0.78rem;
+	font-size: var(--fs-2xs);
 	font-weight: 300;              /* [W1→V2] was 600 */
 	letter-spacing: 0.2px;
 	line-height: 1;
@@ -850,7 +850,7 @@
 
 .ea-book-gallery-placeholder__label {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.58rem;
+	font-size: var(--fs-3xs);
 	font-weight: 200;
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
@@ -899,7 +899,7 @@
 
 .ea-book-gallery-placeholder__text {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.72rem;
+	font-size: var(--fs-3xs);
 	font-weight: 300;
 	color: var( --ea-muted, #6F635A ); /* WS-3B 2026-09-18, see §15 above */
 	letter-spacing: 0.5px;
@@ -907,7 +907,7 @@
 
 .ea-book-gallery-placeholder__note {
 	font-family: "Heebo", sans-serif;
-	font-size: 0.62rem;
+	font-size: var(--fs-3xs);
 	font-weight: 200;
 	color: var( --ea-muted, #6F635A ); /* WS-3B 2026-09-18, see §15 above */
 	opacity: 0.7;
@@ -957,11 +957,11 @@
 
 	/* Slightly smaller headings on mobile */
 	.ea-book-detail h1 {
-		font-size: 2rem;
+		font-size: var(--fs-display);
 	}
 
 	.ea-books-hub-title {
-		font-size: 1.6rem;
+		font-size: var(--fs-h2);
 	}
 }
 
@@ -1102,7 +1102,7 @@
 	color: #faf8f5;
 	font-family: "Heebo", sans-serif;
 	font-weight: 200;
-	font-size: 2.8rem;
+	font-size: var(--fs-h1);
 	line-height: 1.12;
 	letter-spacing: -0.5px;
 	margin: 0;
@@ -1122,7 +1122,7 @@
 		padding-block-end: 28px;
 	}
 	.ea-books-hub-hero__title {
-		font-size: 2rem;
+		font-size: var(--fs-display);
 	}
 }
 
@@ -1181,7 +1181,7 @@
 	display: block;
 	color: rgba( 250, 248, 245, 0.50 );
 	font-family: "Heebo", sans-serif;
-	font-size: 0.72rem;
+	font-size: var(--fs-3xs);
 	font-weight: 300;
 	text-decoration: none;
 	letter-spacing: 0.5px;
@@ -1197,7 +1197,7 @@
 	color: #faf8f5;
 	font-family: "Heebo", sans-serif;
 	font-weight: 200;
-	font-size: 2.8rem;
+	font-size: var(--fs-h1);
 	line-height: 1.12;
 	letter-spacing: -0.5px;
 	margin: 0;
@@ -1223,7 +1223,7 @@
 		padding-block-end: 28px;
 	}
 	.ea-book-detail-hero__title {
-		font-size: 2rem;
+		font-size: var(--fs-display);
 	}
 }
 
@@ -1271,7 +1271,7 @@
 	bottom: 0.6rem;
 	inset-inline-start: 0.6rem;
 	color: rgba( 250, 248, 245, 0.80 );
-	font-size: 1.4rem;
+	font-size: var(--fs-h4);
 	line-height: 1;
 	pointer-events: none;
 	opacity: 0;
@@ -1316,7 +1316,7 @@
 	top: 1.5rem;
 	inset-inline-end: 2rem;
 	color: rgba( 250, 248, 245, 0.65 );
-	font-size: 1.6rem;
+	font-size: var(--fs-h2);
 	cursor: pointer;
 	line-height: 1;
 	transition: color 0.2s ease;
@@ -1361,7 +1361,7 @@
 
 /* Card title — slightly larger, lighter weight */
 .ea-books-hub-card__title {
-	font-size: 1rem;
+	font-size: var(--fs-sm);
 	font-weight: 300;
 }
 

@@ -165,7 +165,7 @@
     .ea-topnav__brand {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       color: #fff;
       text-decoration: none;
       letter-spacing: 0.5px;
@@ -188,7 +188,7 @@
     .ea-topnav__link {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: rgba(255,255,255,0.8);
       text-decoration: none;
       position: relative;
@@ -240,7 +240,7 @@
       padding: 6px 10px;
       color: rgba(255,255,255,0.8);
       cursor: pointer;
-      font-size: 1rem;
+      font-size: var(--fs-sm);
     }
     .ea-topnav__burger:focus-visible {
       outline: 2px solid var(--ea-terracotta);
@@ -310,7 +310,7 @@
       display: block;
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: rgba(255,255,255,0.8);
       text-decoration: none;
       padding: var(--ea-space-1) var(--ea-space-3);
@@ -338,7 +338,7 @@
       border-radius: var(--ea-radius-pill);
       padding: 6px 12px;
       font-family: var(--ea-font);
-      font-size: 0.68rem;
+      font-size: var(--fs-3xs);
       font-weight: 300;
       letter-spacing: 0.5px;
       color: rgba(255,255,255,0.92);
@@ -389,7 +389,7 @@
       border-radius: var(--ea-radius-pill);
       padding: 6px 14px;
       font-family: var(--ea-font);
-      font-size: 0.68rem;
+      font-size: var(--fs-3xs);
       font-weight: 300;
       color: rgba(255,255,255,0.92);
       cursor: pointer;
@@ -411,7 +411,7 @@
       border-color: var(--ea-sand);
     }
     .ea-sound-toggle__ico {
-      font-size: 0.8rem;
+      font-size: var(--fs-2xs);
       transition: opacity var(--ea-dur-fast);
     }
 
@@ -480,7 +480,7 @@
     .ea-hero__title {
       font-family: var(--ea-font);
       font-weight: 100;
-      font-size: 3.4rem;
+      font-size: var(--fs-h1);
       line-height: 1.12;
       letter-spacing: -0.5px;
       color: #fff;
@@ -493,7 +493,7 @@
 
     .ea-hero__subtitle {
       color: rgba(255,255,255,0.8);
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       font-weight: 300;
       line-height: 1.9;
       margin: 0 0 var(--ea-space-2) 0;
@@ -504,7 +504,7 @@
 
     .ea-hero__trust {
       color: rgba(255,255,255,0.55);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       font-weight: 200;
       letter-spacing: 0.2px;
       margin: 0 0 var(--ea-space-5) 0;
@@ -520,11 +520,11 @@
     }
 
     @media (max-width: 1023px) {
-      .ea-hero__title { font-size: 2.4rem; }
+      .ea-hero__title { font-size: var(--fs-display); }
     }
     @media (max-width: 639px) {
-      .ea-hero__title { font-size: 1.8rem; text-shadow: 0 1px 8px rgba(46,43,40,0.7); }
-      .ea-hero__subtitle { font-size: 0.92rem; }
+      .ea-hero__title { font-size: var(--fs-h2); text-shadow: 0 1px 8px rgba(46,43,40,0.7); }
+      .ea-hero__subtitle { font-size: var(--fs-sm); }
     }
 
     /* =============================================================
@@ -629,7 +629,7 @@
     .ea-section-intro__body {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       line-height: 1.9;
       color: var(--ea-text-body);
       max-width: 65ch;
@@ -655,7 +655,7 @@
     .ea-content-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       letter-spacing: -0.3px;
       color: var(--ea-ink);
@@ -664,7 +664,7 @@
     .ea-content-section__subheading {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       line-height: 1.4;
       color: var(--ea-ink);
       margin: var(--ea-space-5) 0 var(--ea-space-2) 0;
@@ -672,7 +672,7 @@
     .ea-content-section__body p {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       margin: 0 0 var(--ea-space-3) 0;
@@ -687,7 +687,7 @@
     .ea-content-section__body li {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       margin-bottom: var(--ea-space-1);
     }
@@ -711,7 +711,7 @@
     .ea-pillar__label {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 0.58rem;
+      font-size: var(--fs-3xs);
       line-height: 1.4;
       letter-spacing: 3.5px;
       text-transform: uppercase;
@@ -721,7 +721,7 @@
     .ea-pillar__title {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       line-height: 1.4;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-2) 0;
@@ -729,7 +729,7 @@
     .ea-pillar__text {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       margin: 0;
@@ -754,7 +754,7 @@
     .ea-service-comparison__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-6) 0;
@@ -775,7 +775,7 @@
     .ea-service-comparison__col-title {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       line-height: 1.4;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-4) 0;
@@ -788,7 +788,7 @@
     .ea-service-comparison__list li {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       border-top: 1px solid var(--ea-line);
@@ -800,7 +800,7 @@
     /* De-inlined audience note (WP-W2-12). margin 0 0 space-4 = original shorthand. */
     .ea-service-comparison__note {
       font-family: var(--ea-font);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       font-weight: 200;
       color: var(--ea-muted);
       margin: 0 0 var(--ea-space-4);
@@ -820,7 +820,7 @@
     .ea-testimonials-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-6) 0;
@@ -874,7 +874,7 @@
     .ea-testimonial-card__text {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       margin: 0 0 var(--ea-space-2) 0;
@@ -886,13 +886,13 @@
       gap: 4px;
     }
     .ea-testimonial-card__name {
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       font-weight: 300;
       color: var(--ea-terracotta);
     }
     .ea-testimonial-card__hint {
       color: var(--ea-muted);
-      font-size: 0.7rem;
+      font-size: var(--fs-3xs);
     }
     .ea-testimonials-section__footer {
       margin-top: var(--ea-space-6);
@@ -913,7 +913,7 @@
     .ea-books-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-3) 0;
@@ -921,7 +921,7 @@
     .ea-books-section__intro {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       margin: 0 0 var(--ea-space-6) 0;
@@ -965,7 +965,7 @@
       align-items: center;
       justify-content: center;
       color: var(--ea-muted);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       font-family: var(--ea-font);
     }
     .ea-book-card__body {
@@ -974,7 +974,7 @@
     .ea-book-card__title {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       line-height: 1.4;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-1) 0;
@@ -982,7 +982,7 @@
     .ea-book-card__teaser {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       line-height: 1.6;
       color: var(--ea-earth);
       margin: 0;
@@ -1002,7 +1002,7 @@
     .ea-services-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-6) 0;
@@ -1033,7 +1033,7 @@
     .ea-service-tile__label {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 0.58rem;
+      font-size: var(--fs-3xs);
       letter-spacing: 3.5px;
       text-transform: uppercase;
       color: var(--ea-terracotta);
@@ -1042,7 +1042,7 @@
     .ea-service-tile__title {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       line-height: 1.4;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-2) 0;
@@ -1050,7 +1050,7 @@
     .ea-service-tile__desc {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-earth);
       margin: 0;
@@ -1070,7 +1070,7 @@
     .ea-faq-mini-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-5) 0;
@@ -1307,7 +1307,7 @@
       display: block;
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: var(--ea-ink);
       margin-bottom: var(--ea-space-1);
       text-align: right;
@@ -1322,7 +1322,7 @@
       background: var(--ea-bg);
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       color: var(--ea-ink);
       direction: rtl;
       text-align: right;
@@ -1348,20 +1348,20 @@
     .ea-contact-form__error {
       display: block;
       font-family: var(--ea-font);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: var(--ea-brick);
       margin-top: var(--ea-space-1);
     }
     .ea-contact-form__status {
       margin-top: var(--ea-space-3);
       font-family: var(--ea-font);
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
     }
     .ea-contact-form__status[data-state="success"] { color: var(--ea-olive); }
     .ea-contact-form__status[data-state="error"]   { color: var(--ea-brick); }
     .ea-contact-form__note {
       font-family: var(--ea-font);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: var(--ea-text-body);
       margin-top: var(--ea-space-3);
     }
@@ -1533,7 +1533,7 @@
     .ea-bio-block__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-3) 0;
@@ -1541,7 +1541,7 @@
     .ea-bio-block__text {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       line-height: 1.85;
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-4) 0;
@@ -1562,21 +1562,21 @@
     .ea-footer__brand {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 1.2rem;
+      font-size: var(--fs-lead);
       color: rgba(255,255,255,0.9);
       margin: 0 0 var(--ea-space-2) 0;
     }
     .ea-footer__tagline {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: rgba(255,255,255,0.5);
       margin: 0 0 var(--ea-space-5) 0;
     }
     .ea-footer__location {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.72rem;
+      font-size: var(--fs-3xs);
       letter-spacing: 3px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
@@ -1621,7 +1621,7 @@
     .ea-footer__nav-link {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: rgba(255,255,255,0.6);
       text-decoration: none;
       transition: color var(--ea-dur-fast);
@@ -1634,7 +1634,7 @@
     .ea-footer__copy {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: rgba(255,255,255,0.78);
       margin: 0;
     }
@@ -1694,7 +1694,7 @@
       .ea-faq-mini-section__heading,
       .ea-contact-section__heading,
       .ea-service-comparison__heading {
-        font-size: 1.4rem;
+        font-size: var(--fs-h4);
       }
       /* F-R2-02: RTL paragraph alignment on wave2 service/content pages (IDEA-002). */
       .ea-wave2-service p,
@@ -1753,7 +1753,7 @@
     .ea-section__heading {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-4) 0;
@@ -1761,7 +1761,7 @@
     .ea-section__list {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.95rem;
+      font-size: var(--fs-sm);
       line-height: 1.85;
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-3) 0;
@@ -1776,7 +1776,7 @@
     .ea-book-prose p {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.95rem;
+      font-size: var(--fs-sm);
       line-height: 1.9;
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-3) 0;
@@ -1791,7 +1791,7 @@
     .ea-book-prose h3 {
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       color: var(--ea-ink);
       margin: var(--ea-space-3) 0 var(--ea-space-2) 0;
     }
@@ -1828,7 +1828,7 @@
       display: inline-block;
       color: rgba(250,248,245,0.65);
       font-family: var(--ea-font);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       font-weight: 300;
       text-decoration: none;
       margin-bottom: var(--ea-space-2);
@@ -1837,7 +1837,7 @@
     .ea-book-hero__title {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 3rem;
+      font-size: var(--fs-h1);
       line-height: 1.12;
       letter-spacing: -0.5px;
       color: var(--ea-on-dark);
@@ -1846,7 +1846,7 @@
     .ea-book-hero__subtitle {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       line-height: 1.7;
       color: rgba(250,248,245,0.88);
       margin: 0 0 var(--ea-space-2) 0;
@@ -1868,7 +1868,7 @@
       cursor: pointer;
       font-family: var(--ea-font);
       font-weight: 400;
-      font-size: 0.92rem;
+      font-size: var(--fs-sm);
       color: var(--ea-terracotta);
       list-style: none;
     }
@@ -1895,7 +1895,7 @@
     .ea-book-midcta__text {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-3) 0;
     }
@@ -1920,7 +1920,7 @@
     .ea-bundle__title {
       font-family: var(--ea-font);
       font-weight: 200;
-      font-size: 2rem;
+      font-size: var(--fs-display);
       line-height: 1.2;
       color: var(--ea-ink);
       margin: 0 0 var(--ea-space-2) 0;
@@ -1928,14 +1928,14 @@
     .ea-bundle__price {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 1.1rem;
+      font-size: var(--fs-body);
       line-height: 1.7;
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-3) 0;
     }
     .ea-bundle__price strong {
       font-weight: 500;
-      font-size: 1.4rem;
+      font-size: var(--fs-h4);
       color: var(--ea-terracotta);
     }
     .ea-bundle__price del {
@@ -1944,7 +1944,7 @@
     .ea-bundle__desc {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.95rem;
+      font-size: var(--fs-sm);
       line-height: 1.85;
       color: var(--ea-text-body);
       margin: 0 0 var(--ea-space-5) 0;
@@ -1952,7 +1952,7 @@
     .ea-bundle__note {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.82rem;
+      font-size: var(--fs-xs);
       line-height: 1.6;
       color: var(--ea-muted);
       margin: var(--ea-space-4) 0 0 0;
@@ -1965,7 +1965,7 @@
     .ea-book-gallery__label {
       display: block;
       font-family: var(--ea-font);
-      font-size: 0.58rem;
+      font-size: var(--fs-3xs);
       font-weight: 200;
       letter-spacing: 3.5px;
       text-transform: uppercase;
@@ -1991,13 +1991,13 @@
     }
     .ea-book-gallery__text {
       font-family: var(--ea-font);
-      font-size: 0.72rem;
+      font-size: var(--fs-3xs);
       font-weight: 300;
       color: var(--ea-muted);
     }
     .ea-book-gallery__note {
       font-family: var(--ea-font);
-      font-size: 0.72rem;
+      font-size: var(--fs-3xs);
       font-weight: 300;
       color: var(--ea-muted);
       margin: var(--ea-space-2) 0 0 0;
@@ -2005,10 +2005,10 @@
 
     @media (max-width: 799px) {
       .ea-book-gallery__grid { grid-template-columns: repeat(2, 1fr); }
-      .ea-book-hero__title { font-size: 2.1rem; }
+      .ea-book-hero__title { font-size: var(--fs-display); }
       .ea-book-hero { min-height: 46vh; }
       .ea-section__heading,
-      .ea-bundle__title { font-size: 1.6rem; }
+      .ea-bundle__title { font-size: var(--fs-h2); }
     }
 
     /* =============================================================
@@ -2032,7 +2032,7 @@
     .ea-contact-page-intro__sub {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: var(--fs-body);
       line-height: 1.9;
       color: var(--ea-text-body);
       margin: 0;
@@ -2061,7 +2061,7 @@
     .ea-faq-list__filter-label {
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: var(--ea-ink);
       white-space: nowrap;
     }
@@ -2072,7 +2072,7 @@
       background: var(--ea-bg);
       font-family: var(--ea-font);
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: var(--fs-xs);
       color: var(--ea-ink);
       direction: rtl;
       min-width: 240px;
@@ -2085,7 +2085,7 @@
     }
     .ea-faq-list__filter-count {
       font-family: var(--ea-font);
-      font-size: 0.78rem;
+      font-size: var(--fs-2xs);
       color: var(--ea-muted);
       margin-inline-start: auto;
     }

@@ -50,15 +50,15 @@
     grid-template-columns:1fr 1fr !important;
     gap:var(--ea-space-3) !important;
   }
-  .ea-shop-grid .ea-book-card__title{font-size:0.86rem}
-  .ea-shop-grid .ea-book-card__teaser{font-size:0.74rem}
-  .ea-shop-grid .ea-book-card__cover-placeholder{font-size:0.66rem;padding:var(--ea-space-1)}
+  .ea-shop-grid .ea-book-card__title{font-size:var(--fs-xs)}
+  .ea-shop-grid .ea-book-card__teaser{font-size:var(--fs-2xs)}
+  .ea-shop-grid .ea-book-card__cover-placeholder{font-size:var(--fs-3xs);padding:var(--ea-space-1)}
 
   html[data-shop="1col"] .ea-shop-grid{
     grid-template-columns:1fr !important;
   }
-  html[data-shop="1col"] .ea-shop-grid .ea-book-card__title{font-size:0.92rem}
-  html[data-shop="1col"] .ea-shop-grid .ea-book-card__teaser{font-size:0.78rem}
+  html[data-shop="1col"] .ea-shop-grid .ea-book-card__title{font-size:var(--fs-sm)}
+  html[data-shop="1col"] .ea-shop-grid .ea-book-card__teaser{font-size:var(--fs-2xs)}
 
   /* ---------- TESTIMONIALS ----------
      default: 1-column stack (best readability + a11y). The page CSS

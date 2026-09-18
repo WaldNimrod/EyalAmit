@@ -36,7 +36,7 @@
 .ea-service-hero__title {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-size: var(--fs-h1);
   line-height: 1.15;
   color: var(--ea-on-dark);
   margin: 0 0 var(--ea-space-4) 0;
@@ -44,7 +44,7 @@
 .ea-service-hero__subtitle {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-size: var(--fs-body);
   line-height: 1.8;
   color: var(--ea-on-dark);
   opacity: 0.94;
@@ -63,7 +63,7 @@
   margin: 0 auto;
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 1.02rem;
+  font-size: var(--fs-body);
   line-height: 1.95;
   color: var(--ea-text-body);
 }
@@ -86,7 +86,7 @@
 .ea-prose-subheading {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: var(--fs-h4);
   line-height: 1.3;
   color: var(--ea-ink);
   margin: var(--ea-space-6) 0 var(--ea-space-3) 0;
@@ -100,7 +100,7 @@
   margin: 0 auto var(--ea-space-5) auto;
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 1.02rem;
+  font-size: var(--fs-body);
   line-height: 1.9;
   color: var(--ea-text-body);
 }
@@ -126,7 +126,7 @@
   max-width: var(--ea-prose-width);
   margin: var(--ea-space-5) auto 0 auto;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: var(--fs-xs);
 }
 
 /* ============================================================
@@ -168,7 +168,7 @@
 .ea-testimonial-acc__name {
   flex: 1 1 auto;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: var(--fs-sm);
   color: var(--ea-ink);
 }
 .ea-testimonial-acc__chevron {
@@ -196,7 +196,7 @@
 .ea-product-price {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: var(--fs-display);
   line-height: 1.2;
   color: var(--ea-ink);
   margin: 0 auto var(--ea-space-2) auto;
@@ -206,7 +206,7 @@
   margin: 0 auto;
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
   line-height: 1.7;
   color: var(--ea-text-muted);
 }
@@ -295,14 +295,14 @@
 .ea-shop-card__title {
   font-family: var(--ea-font);
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: var(--fs-body);
   line-height: 1.3;
   color: var(--ea-ink);
 }
 .ea-shop-card__excerpt {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   line-height: 1.6;
   color: var(--ea-text-body);
 }
@@ -310,7 +310,7 @@
   margin-top: auto;
   font-family: var(--ea-font);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: var(--fs-sm);
   color: var(--ea-accent-strong);
 }
 
@@ -354,7 +354,7 @@
 .ea-books-section__label {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: 0.58rem;
+  font-size: var(--fs-3xs);
   letter-spacing: 3.5px;
   text-transform: uppercase;
   color: var(--ea-terracotta);
@@ -365,7 +365,7 @@
 .ea-book-hero__kicker {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: 0.58rem;
+  font-size: var(--fs-3xs);
   letter-spacing: 3.5px;
   text-transform: uppercase;
   color: var(--ea-sand);
@@ -420,7 +420,7 @@
 .ea-book-card__genre {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: 0.56rem;
+  font-size: var(--fs-3xs);
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--ea-terracotta);
@@ -437,17 +437,17 @@
 .ea-book-card__price {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: var(--fs-body);
   color: var(--ea-ink);
 }
 .ea-book-card__price small {
-  font-size: 0.72rem;
+  font-size: var(--fs-3xs);
   color: var(--ea-muted);
 }
 .ea-book-card__more {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 0.78rem;
+  font-size: var(--fs-2xs);
   color: var(--ea-terracotta);
 }
 
@@ -461,7 +461,7 @@
 .ea-bundle__label {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: 0.58rem;
+  font-size: var(--fs-3xs);
   letter-spacing: 3.5px;
   text-transform: uppercase;
   color: var(--ea-sand);
@@ -499,7 +499,7 @@
 }
 .ea-bundle__price strong {
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: var(--fs-h4);
   color: var(--ea-on-dark);
 }
 .ea-bundle__price del {
@@ -533,7 +533,7 @@
 .ea-metastrip__k {
   font-family: var(--ea-font);
   font-weight: 200;
-  font-size: 0.56rem;
+  font-size: var(--fs-3xs);
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--ea-muted);
@@ -542,7 +542,7 @@
 .ea-metastrip__v {
   font-family: var(--ea-font);
   font-weight: 300;
-  font-size: 1rem;
+  font-size: var(--fs-sm);
   color: var(--ea-ink);
   margin: 0;
 }

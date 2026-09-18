@@ -27,7 +27,7 @@ body.ea-en-landing .ea-lang-pill {
 	padding-block: 6px;
 	padding-inline: 14px;
 	font-family: var(--ea-font);
-	font-size: 0.68rem;
+	font-size: var(--fs-3xs);
 	font-weight: 300;
 	color: var(--ea-on-dark);
 	opacity: 0.85;
@@ -84,7 +84,7 @@ body.ea-en-landing .ea-en-hero__content {
 
 body.ea-en-landing .ea-en-hero__kicker {
 	font-weight: 200;
-	font-size: 0.58rem;
+	font-size: var(--fs-3xs);
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
 	color: var(--ea-sand);
@@ -133,7 +133,7 @@ body.ea-en-landing .ea-en-section__inner {
 
 body.ea-en-landing .ea-en-section__label {
 	font-weight: 200;
-	font-size: 0.58rem;
+	font-size: var(--fs-3xs);
 	letter-spacing: 3.5px;
 	text-transform: uppercase;
 	color: var(--ea-terracotta);

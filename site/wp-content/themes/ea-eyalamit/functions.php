@@ -50,6 +50,30 @@ function ea_eyalamit_enqueue_theme_shell_fallback() {
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_theme_shell_fallback', 23 );
 
 /**
+ * S007 · הסולם הטיפוגרפי חייב להגיע לכל עמוד, לא רק לתבניות של גל 2.
+ *
+ * ea-tokens.css was enqueued only behind ea_wave2_is_active_view(), a template
+ * whitelist. Six published pages — courses-external, courses-soon, thank-you,
+ * historical-articles, shows-heritage, services — render on page-template-default
+ * and were outside it, so --fs-* did not exist there at all and their headings fell
+ * through to browser defaults (measured: h1 at 42px against a 44.2px rung it could
+ * not see). The file declares custom properties and nothing else, so loading it
+ * everywhere costs one small request and changes nothing on pages that already had it.
+ */
+function ea_eyalamit_enqueue_type_tokens_everywhere() {
+	if ( is_admin() ) {
+		return;
+	}
+	wp_enqueue_style(
+		'ea-wave2-tokens',
+		get_stylesheet_directory_uri() . '/assets/css/ea-tokens.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_type_tokens_everywhere', 3 );
+
+/**
  * Load textdomain for child theme strings.
  */
 function ea_eyalamit_setup() {

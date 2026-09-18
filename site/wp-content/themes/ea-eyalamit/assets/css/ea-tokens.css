@@ -126,3 +126,17 @@
      0.3s=step*6. Honored only outside prefers-reduced-motion (see ea-animations.css). */
   --ea-stagger-step: 0.05s;
 }
+
+
+/* ── S007 base floor ──────────────────────────────────────────────────────────
+   Specificity 0,0,1 on purpose: every component rule in this theme carries a
+   class and therefore wins. This exists only so a page rendering with no
+   component CSS at all — the six page-template-default pages outside the Wave2
+   whitelist — still lands on the scale instead of on browser defaults. */
+body{font-size:var(--fs-body);font-weight:var(--fw-body)}
+h1{font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:1.12}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-h2);line-height:1.2}
+h3{font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:1.35}
+h4{font-size:var(--fs-h4);font-weight:var(--fw-h3);line-height:1.35}
+p,li,td,th,dd,dt,figcaption,label,input,select,textarea,button{font-size:var(--fs-body)}
+small{font-size:var(--fs-xs)}
