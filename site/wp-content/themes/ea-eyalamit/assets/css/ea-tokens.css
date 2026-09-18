@@ -162,7 +162,14 @@
    class and therefore wins. This exists only so a page rendering with no
    component CSS at all — the six page-template-default pages outside the Wave2
    whitelist — still lands on the scale instead of on browser defaults. */
-body{font-size:var(--fs-body);font-weight:var(--fw-body)}
+/* `html body` = 0,0,2, for the same reason `body h1` is: GeneratePress sets
+   body{font-family:-apple-system,…} at 0,0,1 and loads after this file. The full-site
+   scan found six published pages — /services/, /shows-heritage/, /historical-articles/,
+   /thank-you/, /courses-soon/, /learning/courses-external/ — rendering 27 elements in the
+   OS font and ZERO in Heebo, with the Heebo token sitting unused in the cascade behind
+   it. Those are the same six that had no size tokens until 1.5.55: they were outside the
+   size system and outside the family system, and only the first half got fixed then. */
+html body{font-family:var(--ea-font);font-size:var(--fs-body);font-weight:var(--fw-body)}
 /* `body h1` = specificity 0,0,2 on purpose. GeneratePress's main.min.css ships
    h1{font-size:42px} and h2{font-size:35px} at 0,0,1 and loads after this file, so a
    bare element selector here loses on source order — measured on /about/, where the
