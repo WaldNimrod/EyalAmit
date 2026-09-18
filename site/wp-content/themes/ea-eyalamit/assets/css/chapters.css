@@ -446,6 +446,23 @@ a{color:inherit}
 /* intro multi-paragraph */
 .intro-body{max-width:65ch}
 .intro-body p{font-size:var(--fs-body);line-height:1.7;color:var(--body);margin:0 0 14px}
+/* S007 (2026-09-18): content HTML written inside a prose body — Eyal's own markup — was
+   never reached by any child-theme rule. Measured live on /snoring-sleep-apnea/: three
+   <h3> rendering at 29px, which is LARGER than the section title above them at 24.65px,
+   and blockquote text at 20.4px. That inversion is exactly what team_00 saw when he said
+   «כותרות עדין גדול מידי ככותרת רצה בתוך הטקסט». Sizing the containers rather than the
+   instances means any prose added later inherits the scale instead of re-opening this. */
+.intro-body h2,.prose h2,.dd__body h2,.ea-faq-item__answer h2{
+  font-size:var(--fs-h2);font-weight:var(--fw-h2);line-height:1.2;margin:1.4em 0 .5em}
+.intro-body h3,.prose h3,.dd__body h3,.ea-faq-item__answer h3{
+  font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:1.35;margin:1.6em 0 .5em}
+.intro-body h4,.prose h4,.dd__body h4,.ea-faq-item__answer h4{
+  font-size:var(--fs-h4);font-weight:var(--fw-h3);line-height:1.35;margin:1.4em 0 .4em}
+.intro-body li,.prose li,.dd__body li,.ea-faq-item__answer li{
+  font-size:var(--fs-body);line-height:1.7;color:var(--body)}
+.intro-body blockquote,.prose blockquote,.dd__body blockquote{font-size:var(--fs-lead)}
+.intro-body blockquote p,.prose blockquote p,.dd__body blockquote p,
+.intro-body blockquote strong,.prose blockquote strong{font-size:inherit}
 
 /* bio block (איך נראה מפגש) */
 .bio{display:grid;grid-template-columns:1fr 360px;gap:clamp(40px,5vw,72px);align-items:center}
