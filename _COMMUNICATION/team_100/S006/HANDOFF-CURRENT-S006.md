@@ -107,7 +107,13 @@ all-hardcoded / 500×27 / "H1 is Frank Ruhl Libre") without re-deriving them.
   3–4 steps heavier; **h3 is only 1 step heavier**, not 3–4 — don't apply the blanket phrasing
   to h3. Body and nav confirmed at weight 300, live; `.lead` is declared 300 in CSS but has
   **zero live elements** on either page checked — nobody sees it at any weight.
-- **Font-family — the H1 claim was backwards.** Every sampled `<h1>` renders in **Heebo**, not
+- **Font-family — the H1 claim was TRUE when written and was then changed.** The cross-engine
+  line measured `<h1>` in **Heebo** and read that as a falsification, but it measured after
+  theme 1.5.41. `git show 78d4896^` has `.hero__h{font-family:var(--serif)}` and
+  `.phero__h{font-family:var(--serif)}`; `git show 78d4896` has `var(--hf)`. team_00 ruled
+  the hero string still broke the font map, and commit 78d4896 moved it. Do not read this
+  as "the serif hero never existed" — it existed until 2026-09-18 and was removed on his
+  instruction. Every sampled `<h1>` renders in **Heebo** from 1.5.41 onward, not
   Frank Ruhl Libre (`--hf`/`--bf` genuinely are declared identically, so that half — the
   heading/body distinction being fictional — was right). Frank Ruhl Libre **is** live, just
   not on headings generally: `--display` drives `.fstep__t` / `.mag-list__t` / `.btile__t`,

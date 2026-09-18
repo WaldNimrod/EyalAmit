@@ -28,6 +28,19 @@
  *  - Limitations are named specifically rather than hedged, because reg. 35ה asks
  *    for נקודות חוסר and a vague limitation clause protects nobody.
  *
+ *
+ * 2026-09-18 (second correction): the limitation naming one interface component as still
+ * failing contrast was REMOVED — it had become false. The active topic chip was repointed
+ * at the existing --terra-btn token and measures 4.6255:1 live, with the two inactive chips
+ * at 5.5003:1. All three clear 4.5:1. A statement that understates what was done is still a
+ * statement that does not match the site, which is exactly what reg. 35ה asks it to do.
+ *
+ * Same day: «הגדלת טקסט עד פי שניים ללא חיתוך תוכן» was measured rather than assumed, and
+ * was FALSE at the time — .hero was height:100vh with overflow:hidden, so at 200% text the
+ * hero's call-to-action fell 11px outside the box. Fixed in theme 1.5.47 (min-height), and
+ * re-measured: hero grows 900 -> 922px, nothing cut, no horizontal scrolling. The claim is
+ * true now because the site changed, not because the wording did.
+ *
  * NOT legal advice. Open for Eyal: the coordinator's name (D-C) — he must approve
  * being named before it is published; the six photographs he still has to identify.
  *
@@ -77,7 +90,7 @@ return array(
 			'args' => array(
 				'chap'  => 'מגבלות',
 				'title' => 'מגבלות ידועות',
-				'body'  => '<p>אנו מעדיפים לפרט את המגבלות שאנו מכירים, ולא להסתפק בנוסח כללי:</p><ul><li><strong>לא בוצעה בדיקה בקורא מסך.</strong> האתר נבנה עם סימון מתאים לקוראי מסך ונבדק בכלים אוטומטיים וידניים, אך טרם נבדק בפועל מול תוכנת קורא מסך.</li><li><strong>מספר תמונות בגלריות הספרים ממתינות לזיהוי</strong> ולכן טרם ניתן להן תיאור. העדפנו להשאירן ללא תיאור על פני לנחש את תוכנן.</li><li><strong>רכיב ממשק אחד</strong> — תגית נושא במצב מסומן — עדיין אינו עומד ביחס הניגודיות הנדרש, ותיקונו מצריך שינוי בצבע מותג.</li><li><strong>סימון המיקוד במקלדת בולט פחות מדי בחלק מהפקדים.</strong> הטקסט עצמו קריא בכל מצב, אך מסגרת הסימון בכמה פקדים — ובהם קישור הדילוג וכפתורי הפעולה — אינה בולטת מספיק מול הרקע שמאחוריה. אנו פועלים לתקן זאת.</li><li><strong>תכני צד שלישי</strong>, ובהם הטמעות וידאו, אינם בשליטתנו המלאה.</li><li><strong>כלי בדיקה אוטומטיים אינם מעידים על עמידה בתקן.</strong> למדנו זאת באתר הזה: בספטמבר 2026 סורק תקני דיווח «אפס תקלות» על עמודים שבהם 162 תמונות תוכן היו אז חסרות תיאור לחלוטין. אותן תמונות תוארו מאז, ונותרו מעטות הממתינות לזיהוי כאמור למעלה. לכן כל הבדיקות שלעיל נעשו גם ידנית.</li></ul><p>אנו ממשיכים לפעול לשיפור הנגישות באופן שוטף.</p>',
+				'body'  => '<p>אנו מעדיפים לפרט את המגבלות שאנו מכירים, ולא להסתפק בנוסח כללי:</p><ul><li><strong>לא בוצעה בדיקה בקורא מסך.</strong> האתר נבנה עם סימון מתאים לקוראי מסך ונבדק בכלים אוטומטיים וידניים, אך טרם נבדק בפועל מול תוכנת קורא מסך.</li><li><strong>מספר תמונות בגלריות הספרים ממתינות לזיהוי</strong> ולכן טרם ניתן להן תיאור. העדפנו להשאירן ללא תיאור על פני לנחש את תוכנן.</li><li><strong>סימון המיקוד במקלדת בולט פחות מדי בחלק מהפקדים.</strong> הטקסט עצמו קריא בכל מצב, אך מסגרת הסימון בכמה פקדים — ובהם קישור הדילוג וכפתורי הפעולה — אינה בולטת מספיק מול הרקע שמאחוריה. אנו פועלים לתקן זאת.</li><li><strong>תכני צד שלישי</strong>, ובהם הטמעות וידאו, אינם בשליטתנו המלאה.</li><li><strong>כלי בדיקה אוטומטיים אינם מעידים על עמידה בתקן.</strong> למדנו זאת באתר הזה: בספטמבר 2026 סורק תקני דיווח «אפס תקלות» על עמודים שבהם 162 תמונות תוכן היו אז חסרות תיאור לחלוטין. אותן תמונות תוארו מאז, ונותרו מעטות הממתינות לזיהוי כאמור למעלה. לכן כל הבדיקות שלעיל נעשו גם ידנית.</li></ul><p>אנו ממשיכים לפעול לשיפור הנגישות באופן שוטף.</p>',
 			),
 		),
 		array(
