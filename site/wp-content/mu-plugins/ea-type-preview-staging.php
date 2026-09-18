@@ -16,6 +16,10 @@
  *     &h1=2.4 &h2=1.75 &h3=1.12   heading sizes as multiples of body
  *     &h1w=300 &h2w=400 &h3w=400  heading weights
  *     &sub=1                      force one submenu open, to judge it against the main menu
+ *     &subpad=6                   submenu item padding in px        (default 10, site ships 10/14)
+ *     &serif=0                    hero H1 in Heebo like every other heading, instead of the
+ *                                 reserved Frank Ruhl Libre accent — so the family deviation
+ *                                 team_00 spotted can be judged rather than argued about
  *     &grid=1                     show the resolved numbers in a corner readout
  *
  * @package ea_eyalamit
@@ -51,7 +55,9 @@ add_action( 'wp_head', function () {
 	$h1w  = (int) ea_type_preview_num( 'h1w', 300, 100, 900 );
 	$h2w  = (int) ea_type_preview_num( 'h2w', 400, 100, 900 );
 	$h3w  = (int) ea_type_preview_num( 'h3w', 400, 100, 900 );
-	$sub  = isset( $_GET['sub'] ) && '1' === $_GET['sub'];
+	$sub    = isset( $_GET['sub'] ) && '1' === $_GET['sub'];
+	$subpad = ea_type_preview_num( 'subpad', 10, 0, 24 );
+	$serif  = ! ( isset( $_GET['serif'] ) && '0' === $_GET['serif'] );
 	$grid = isset( $_GET['grid'] ) && '1' === $_GET['grid'];
 
 	$nav_px = round( $b * $nav, 2 );
@@ -67,9 +73,13 @@ add_action( 'wp_head', function () {
 .phero__h,h1{font-size:{$h1_px}px!important;font-weight:{$h1w}!important}
 h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 .nav__l a,.nav__dd{font-size:{$nav_px}px!important;font-weight:{$navw}!important;color:rgba(255,255,255,{$alpha})!important}
-/* submenu: same size as the main menu, one step lighter — per team_00 */
-.nav__sub a{font-size:{$nav_px}px!important;font-weight:" . max( 100, $navw - 100 ) . "!important;color:rgba(255,255,255," . round( $alpha * 0.92, 3 ) . ")!important}
+/* submenu: same size as the main menu, one step lighter, tighter padding — per team_00 */
+.nav__sub a{font-size:{$nav_px}px!important;font-weight:" . max( 100, $navw - 100 ) . "!important;color:rgba(255,255,255," . round( $alpha * 0.92, 3 ) . ")!important;padding:" . round( $subpad * 0.7, 1 ) . "px {$subpad}px!important}
 ";
+	if ( ! $serif ) {
+		/* the hero is the only heading on the site in a serif; let it be judged, not assumed */
+		$css .= ".hero__h,.phero__h{font-family:var(--hf)!important}\n";
+	}
 	if ( $sub ) {
 		$css .= "@media(min-width:1181px){.nav__l>li:nth-of-type(2) .nav__sub{opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important}}\n";
 	}
