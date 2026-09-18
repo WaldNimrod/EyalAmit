@@ -1,0 +1,262 @@
+file,line,selector,raw_value,computed_px_1440,computed_px_390,font_weight,font_family_token,role_guess,status
+assets/css/chapters.css,59,body,18px,18.0,18.0,300,--bf,body,LIVE
+assets/css/chapters.css,78,.chap,.64rem,10.24,10.24,500,--bf,body,LIVE
+assets/css/chapters.css,80,.h2,"clamp(1.8rem,3.1vw,2.6rem)",41.6,28.8,600,--hf,section-title,LIVE
+assets/css/chapters.css,81,.lead,1.06rem,16.96,16.96,300,(none),lead,LIVE
+assets/css/chapters.css,85,.more,.8rem,12.8,12.8,400,--bf,body,ORPHAN
+assets/css/chapters.css,88,.btn,.95rem,15.2,15.2,500,--bf,button,LIVE
+assets/css/chapters.css,113,.ph span,.66rem,10.56,10.56,inherit,--bf,body,LIVE
+assets/css/chapters.css,131,.nav__l a,.8rem,12.8,12.8,300,(none),nav,LIVE
+assets/css/chapters.css,135,.nav__tg,.72rem,11.52,11.52,inherit,--bf,nav,LIVE
+assets/css/chapters.css,138,.nav__en,.72rem,11.52,11.52,inherit,(none),nav,LIVE
+assets/css/chapters.css,159,.hero__trust,.86rem,13.76,13.76,500,--bf,hero-title,LIVE
+assets/css/chapters.css,160,.hero__h,"clamp(2.2rem,4.8vw,3.7rem)",59.2,35.2,500,--hf,hero-title,LIVE
+assets/css/chapters.css,162,.hero__s,"clamp(1.02rem,1.4vw,1.18rem)",18.88,16.32,300,(none),hero-title,LIVE
+assets/css/chapters.css,195,.tl__n:not(:last-child)::after,1rem,16.0,16.0,inherit,(none),body,ORPHAN
+assets/css/chapters.css,196,.tl__y,1.7rem,27.2,27.2,500,--serif,body,LIVE
+assets/css/chapters.css,197,.tl__l,.9rem,14.4,14.4,inherit,(none),label,LIVE
+assets/css/chapters.css,206,.whom__p,.96rem,15.36,15.36,inherit,(none),body,LIVE
+assets/css/chapters.css,216,.sc__t,1.12rem,17.92,17.92,500,--hf,title,ORPHAN
+assets/css/chapters.css,217,.sc__p,.9rem,14.4,14.4,inherit,(none),body,ORPHAN
+assets/css/chapters.css,225,.studio__h,2rem,32.0,32.0,500,--hf,body,LIVE
+assets/css/chapters.css,226,.studio__p,1.04rem,16.64,16.64,300,(none),body,LIVE
+assets/css/chapters.css,237,.tcard__q,1.08rem,17.28,17.28,400,--hf,testimonial,ORPHAN
+assets/css/chapters.css,238,.tcard__n,.74rem,11.84,11.84,500,--bf,testimonial,ORPHAN
+assets/css/chapters.css,249,.cmpc__t,1.6rem,25.6,25.6,500,--hf,title,LIVE
+assets/css/chapters.css,250,.cmpc__p,1rem,16.0,16.0,300,(none),body,LIVE
+assets/css/chapters.css,258,.bleed__q,"clamp(1.5rem,3vw,2.5rem)",40.0,24.0,400,--serif,body,LIVE
+assets/css/chapters.css,259,.bleed__a,.74rem,11.84,11.84,inherit,--bf,body,LIVE
+assets/css/chapters.css,274,.st3::after,1.5rem,24.0,24.0,inherit,--serif,body,ORPHAN
+assets/css/chapters.css,277,.st3__t,1.18rem,18.88,18.88,500,--hf,title,LIVE
+assets/css/chapters.css,278,.st3__p,.94rem,15.04,15.04,inherit,(none),body,LIVE
+assets/css/chapters.css,284,".foot h4,.foot__col-title",.6rem,9.6,9.6,500,--bf,footer,LIVE
+assets/css/chapters.css,285,.foot a,.85rem,13.6,13.6,inherit,(none),footer,LIVE
+assets/css/chapters.css,289,.foot__brand b,1.4rem,22.4,22.4,inherit,--hf,footer,LIVE
+assets/css/chapters.css,290,.foot__brand p,.82rem,13.12,13.12,inherit,(none),footer,LIVE
+assets/css/chapters.css,297,.foot__disc,.72rem,11.52,11.52,inherit,(none),footer,LIVE
+assets/css/chapters.css,298,.foot__base,.76rem,12.16,12.16,inherit,(none),footer,LIVE
+assets/css/chapters.css,315,.phero__h,"clamp(2.2rem,4.6vw,3.6rem)",57.6,35.2,500,--hf,hero-title,LIVE
+assets/css/chapters.css,317,.phero__s,"clamp(1.04rem,1.4vw,1.2rem)",19.2,16.64,300,(none),hero-title,LIVE
+assets/css/chapters.css,322,.phero__lede,"clamp(.98rem,1.2vw,1.08rem)",17.28,15.68,300,(none),hero-title,LIVE
+assets/css/chapters.css,327,.prose p,1.06rem,16.96,16.96,inherit,(none),body,ORPHAN
+assets/css/chapters.css,334,.cap,.76rem,12.16,12.16,inherit,(none),caption,ORPHAN
+assets/css/chapters.css,338,.cta-band__h,"clamp(1.8rem,3.2vw,2.6rem)",41.6,28.8,500,--hf,button,LIVE
+assets/css/chapters.css,339,.cta-band__p,1.08rem,17.28,17.28,300,(none),button,LIVE
+assets/css/chapters.css,343,.filter__c,.78rem,12.48,12.48,400,--bf,body,ORPHAN
+assets/css/chapters.css,351,.feat__tag,.62rem,9.92,9.92,500,--bf,tag,ORPHAN
+assets/css/chapters.css,352,.feat__t,"clamp(1.6rem,2.6vw,2.2rem)",35.2,25.6,600,--hf,title,ORPHAN
+assets/css/chapters.css,353,.feat__ex,1.05rem,16.8,16.8,300,(none),body,ORPHAN
+assets/css/chapters.css,354,.feat__meta,.76rem,12.16,12.16,inherit,(none),meta,ORPHAN
+assets/css/chapters.css,363,.post__ph span,.66rem,10.56,10.56,inherit,--bf,body,ORPHAN
+assets/css/chapters.css,364,.post__tag,.58rem,9.28,9.28,inherit,--bf,tag,ORPHAN
+assets/css/chapters.css,365,.post__t,1.16rem,18.56,18.56,500,--hf,title,ORPHAN
+assets/css/chapters.css,367,.post__meta,.74rem,11.84,11.84,inherit,(none),meta,ORPHAN
+assets/css/chapters.css,376,.phero__trust,.78rem,12.48,12.48,300,(none),hero-title,ORPHAN
+assets/css/chapters.css,381,.nav__tg,.72rem,11.52,11.52,inherit,--bf,nav,LIVE
+assets/css/chapters.css,395,.shstep__dot span,2rem,32.0,32.0,500,--serif,body,ORPHAN
+assets/css/chapters.css,400,.shstep__t,1.16rem,18.56,18.56,600,--hf,title,ORPHAN
+assets/css/chapters.css,402,.shstep__p,.94rem,15.04,15.04,inherit,(none),body,ORPHAN
+assets/css/chapters.css,408,.sc__more p,.86rem,13.76,13.76,inherit,(none),body,ORPHAN
+assets/css/chapters.css,410,.sc__hint,.62rem,9.92,9.92,inherit,--bf,body,ORPHAN
+assets/css/chapters.css,421,.dd__tag,.56rem,8.96,8.96,inherit,--bf,tag,LIVE
+assets/css/chapters.css,423,.dd__t,1.2rem,19.2,19.2,600,--hf,title,LIVE
+assets/css/chapters.css,429,.dd__body,1rem,16.0,16.0,inherit,(none),body,LIVE
+assets/css/chapters.css,442,.intro-body p,1.08rem,17.28,17.28,inherit,(none),body,LIVE
+assets/css/chapters.css,457,.videoblk__cap,.7rem,11.2,11.2,inherit,--bf,caption,ORPHAN
+assets/css/chapters.css,469,.soundstrip__t,.82rem,13.12,13.12,inherit,(none),title,ORPHAN
+assets/css/chapters.css,475,.faq__i summary,1.08rem,17.28,17.28,500,--hf,faq,ORPHAN
+assets/css/chapters.css,479,.faq__i p,1rem,16.0,16.0,inherit,(none),faq,ORPHAN
+assets/css/chapters.css,488,.ea-faq-category__heading,1.35rem,21.6,21.6,500,--hf,faq,LIVE
+assets/css/chapters.css,492,".ea-faq-item__summary, .ea-faq-item__question",1.08rem,17.28,17.28,500,--hf,faq,LIVE
+assets/css/chapters.css,504,.ea-faq-item__answer,1rem,16.0,16.0,inherit,(none),faq,LIVE
+assets/css/chapters.css,510,.prose-acc__t,1.08rem,17.28,17.28,500,--hf,title,LIVE
+assets/css/chapters.css,518,.disc__t,.82rem,13.12,13.12,inherit,(none),title,ORPHAN
+assets/css/chapters.css,526,.cmp3__tag,.56rem,8.96,8.96,inherit,--bf,tag,ORPHAN
+assets/css/chapters.css,527,.cmp3__t,1.16rem,18.56,18.56,600,--hf,title,ORPHAN
+assets/css/chapters.css,529,.cmp3__p,.95rem,15.2,15.2,inherit,(none),body,ORPHAN
+assets/css/chapters.css,546,.nav__dd,.78rem,12.48,12.48,300,--bf,nav,LIVE
+assets/css/chapters.css,548,.nav__caret,.6em,9.6,9.6,inherit,(none),nav,LIVE
+assets/css/chapters.css,553,.nav__sub a,.8rem,12.8,12.8,300,(none),nav,LIVE
+assets/css/chapters.css,573,.rcard__t,1.14rem,18.24,18.24,600,--hf,card-title,ORPHAN
+assets/css/chapters.css,575,.rcard__more p,.92rem,14.72,14.72,inherit,(none),body,ORPHAN
+assets/css/chapters.css,576,.rcard__hint,1rem,16.0,16.0,inherit,(none),body,ORPHAN
+assets/css/chapters.css,590,.fstep__num,"clamp(3.4rem,6vw,5.4rem)",86.4,54.4,800,--display,body,ORPHAN
+assets/css/chapters.css,598,.fstep__t,1.5rem,24.0,24.0,800,--display,title,ORPHAN
+assets/css/chapters.css,600,.fstep__p,1rem,16.0,16.0,inherit,(none),body,ORPHAN
+assets/css/chapters.css,613,.mag-spread__fig figcaption,.72rem,11.52,11.52,inherit,--bf,caption,ORPHAN
+assets/css/chapters.css,614,.mag-spread__fig figcaption b,1rem,16.0,16.0,400,--display,caption,ORPHAN
+assets/css/chapters.css,618,.mag-list__n,"clamp(2.2rem,3.2vw,3rem)",46.08,35.2,400,--display,body,ORPHAN
+assets/css/chapters.css,620,.mag-list__t,1.4rem,22.4,22.4,400,--display,title,ORPHAN
+assets/css/chapters.css,621,.mag-list__p,.98rem,15.68,15.68,inherit,(none),body,ORPHAN
+assets/css/chapters.css,654,.btile__tag,.56rem,8.96,8.96,500,--bf,tag,ORPHAN
+assets/css/chapters.css,655,.btile__t,1.1rem,17.6,17.6,400,--display,title,ORPHAN
+assets/css/chapters.css,656,.btile__meta,.72rem,11.52,11.52,inherit,--bf,meta,ORPHAN
+assets/css/chapters.css,659,.btile--feat .btile__t,1.95rem,31.2,31.2,inherit,(none),title,ORPHAN
+assets/css/chapters.css,660,.btile--tall .btile__t,1.3rem,20.8,20.8,inherit,(none),title,ORPHAN
+assets/css/chapters.css,662,.btile--quad .btile__t,1.25rem,20.0,20.0,inherit,(none),title,ORPHAN
+assets/css/chapters.css,679,".pager a,.pager span",.9rem,14.4,14.4,inherit,--bf,body,ORPHAN
+assets/css/chapters.css,682,.pager__nav,.8rem,12.8,12.8,inherit,(none),nav,ORPHAN
+assets/css/chapters.css,714,".nav__l>li>a,.nav__dd",1rem,16.0,16.0,inherit,(none),nav,LIVE
+assets/css/chapters.css,739,.about__body p:first-child,1.06rem,16.96,16.96,inherit,(none),body,LIVE
+assets/css/chapters.css,742,.ea-skip-link,.85rem,13.6,13.6,inherit,--bf,body,ORPHAN
+assets/css/chapters.css,821,.testi-mq__btn,1.6rem,25.6,25.6,inherit,(none),button,LIVE
+assets/css/chapters.css,865,.tmq__q,1rem,16.0,16.0,400,--hf,testimonial,LIVE
+assets/css/chapters.css,875,.tmq__n,.74rem,11.84,11.84,500,--bf,testimonial,LIVE
+assets/css/chapters.css,909,.bookcard__cover .ph,1.2rem,19.2,19.2,inherit,--serif,body,LIVE
+assets/css/chapters.css,911,.bookcard__meta,.72rem,11.52,11.52,500,--bf,meta,ORPHAN
+assets/css/chapters.css,912,.bookcard__t,1.5rem,24.0,24.0,300,--serif,card-title,LIVE
+assets/css/chapters.css,916,.bookcard__blurb,.98rem,15.68,15.68,inherit,--hf,card-blurb,LIVE
+assets/css/chapters.css,917,.bookcard__cta,.8rem,12.8,12.8,500,--bf,button,LIVE
+assets/css/chapters.css,943,.gfig__cap,.82rem,13.12,13.12,inherit,--bf,caption,ORPHAN
+assets/css/chapters.css,955,.ea-pending-approval__badge,.72rem,11.52,11.52,700,(none),body,LIVE
+assets/css/chapters.css,959,.ea-pending-approval__title,1.05rem,16.8,16.8,700,(none),title,LIVE
+assets/css/chapters.css,960,.ea-pending-approval__note,.88rem,14.08,14.08,inherit,(none),body,LIVE
+assets/css/chapters.css,969,.ea-pending-inline,.8rem,12.8,12.8,600,--bf,body,LIVE
+assets/css/chapters.css,990,.mokesh-hero__unmute,.78rem,12.48,12.48,inherit,--bf,hero-title,LIVE
+assets/css/ea-atoms.css,74,.ea-skiplink,0.9rem,14.4,14.4,inherit,--ea-font,body,LIVE
+assets/css/ea-atoms.css,165,.ea-topnav__brand,0.9rem,14.4,14.4,200,--ea-font,nav,ORPHAN
+assets/css/ea-atoms.css,188,.ea-topnav__link,0.78rem,12.48,12.48,300,--ea-font,nav,ORPHAN
+assets/css/ea-atoms.css,235,.ea-topnav__burger,1rem,16.0,16.0,inherit,(none),nav,ORPHAN
+assets/css/ea-atoms.css,267,.ea-topnav__caret,0.7em,11.2,11.2,inherit,(none),nav,ORPHAN
+assets/css/ea-atoms.css,309,.ea-topnav__sublink,0.78rem,12.48,12.48,300,--ea-font,nav,ORPHAN
+assets/css/ea-atoms.css,333,.ea-topnav__lang,0.68rem,10.88,10.88,300,--ea-font,nav,ORPHAN
+assets/css/ea-atoms.css,386,.ea-sound-toggle,0.68rem,10.88,10.88,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,413,.ea-sound-toggle__ico,0.8rem,12.8,12.8,inherit,(none),body,ORPHAN
+assets/css/ea-atoms.css,480,.ea-hero__title,3.4rem,54.4,54.4,100,--ea-font,hero-title,ORPHAN
+assets/css/ea-atoms.css,494,.ea-hero__subtitle,1.05rem,16.8,16.8,300,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,505,.ea-hero__trust,0.78rem,12.48,12.48,200,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,523,.ea-hero__title,2.4rem,38.4,38.4,inherit,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,526,.ea-hero__title,1.8rem,28.8,28.8,inherit,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,527,.ea-hero__subtitle,0.92rem,14.72,14.72,inherit,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,533,.ea-cta-pill,0.78rem,12.48,12.48,300,--ea-font,button,LIVE
+assets/css/ea-atoms.css,620,.ea-section-intro__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,629,.ea-section-intro__body,1.05rem,16.8,16.8,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,655,.ea-content-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,664,.ea-content-section__subheading,0.92rem,14.72,14.72,400,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,672,.ea-content-section__body p,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,687,.ea-content-section__body li,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,711,.ea-pillar__label,0.58rem,9.28,9.28,200,--ea-font,button,ORPHAN
+assets/css/ea-atoms.css,721,.ea-pillar__title,0.92rem,14.72,14.72,400,--ea-font,button,ORPHAN
+assets/css/ea-atoms.css,729,.ea-pillar__text,0.9rem,14.4,14.4,300,--ea-font,button,ORPHAN
+assets/css/ea-atoms.css,754,.ea-service-comparison__heading,2rem,32.0,32.0,200,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,775,.ea-service-comparison__col-title,0.92rem,14.72,14.72,400,--ea-font,title,ORPHAN
+assets/css/ea-atoms.css,788,.ea-service-comparison__list li,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,801,.ea-service-comparison__note,0.78rem,12.48,12.48,200,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,820,.ea-testimonials-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,874,.ea-testimonial-card__text,0.9rem,14.4,14.4,300,--ea-font,card-title,ORPHAN
+assets/css/ea-atoms.css,888,.ea-testimonial-card__name,0.78rem,12.48,12.48,300,(none),testimonial,ORPHAN
+assets/css/ea-atoms.css,893,.ea-testimonial-card__hint,0.7rem,11.2,11.2,inherit,(none),testimonial,ORPHAN
+assets/css/ea-atoms.css,913,.ea-books-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,921,.ea-books-section__intro,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,958,.ea-book-card__cover-placeholder,0.78rem,12.48,12.48,inherit,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,974,.ea-book-card__title,0.92rem,14.72,14.72,400,--ea-font,card-title,ORPHAN
+assets/css/ea-atoms.css,982,.ea-book-card__teaser,0.78rem,12.48,12.48,300,--ea-font,card-title,ORPHAN
+assets/css/ea-atoms.css,1002,.ea-services-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,1033,.ea-service-tile__label,0.58rem,9.28,9.28,200,--ea-font,label,ORPHAN
+assets/css/ea-atoms.css,1042,.ea-service-tile__title,0.92rem,14.72,14.72,400,--ea-font,title,ORPHAN
+assets/css/ea-atoms.css,1050,.ea-service-tile__desc,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1070,.ea-faq-mini-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,1103,.ea-faq-item__question,1rem,16.0,16.0,400,--ea-font,faq,LIVE
+assets/css/ea-atoms.css,1123,.ea-faq-item__answer p,1rem,16.0,16.0,300,--ea-font,faq,LIVE
+assets/css/ea-atoms.css,1158,.ea-contact-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,LIVE
+assets/css/ea-atoms.css,1166,.ea-contact-section__body,1.05rem,16.8,16.8,300,--ea-font,body,LIVE
+assets/css/ea-atoms.css,1176,.ea-whatsapp-float,0.95rem,15.2,15.2,700,--ea-font,body,LIVE
+assets/css/ea-atoms.css,1260,.ea-contact-points li,1.15rem,18.4,18.4,500,--ea-font,body,LIVE
+assets/css/ea-atoms.css,1286,.ea-contact-nap__h,1.3rem,20.8,20.8,500,--ea-font,body,LIVE
+assets/css/ea-atoms.css,1293,.ea-contact-nap__row,0.95rem,15.2,15.2,300,--ea-font,body,LIVE
+assets/css/ea-atoms.css,1306,.ea-contact-form__label,0.78rem,12.48,12.48,300,--ea-font,label,ORPHAN
+assets/css/ea-atoms.css,1315,".ea-contact-form__input, .ea-contact-form__select, .ea-contact-form__textarea",0.9rem,14.4,14.4,300,--ea-font,form,ORPHAN
+assets/css/ea-atoms.css,1348,.ea-contact-form__error,0.78rem,12.48,12.48,inherit,--ea-font,form,ORPHAN
+assets/css/ea-atoms.css,1355,.ea-contact-form__status,0.9rem,14.4,14.4,inherit,--ea-font,form,ORPHAN
+assets/css/ea-atoms.css,1362,.ea-contact-form__note,0.78rem,12.48,12.48,inherit,--ea-font,form,ORPHAN
+assets/css/ea-atoms.css,1388,.ea-contact-form--cf7 .ea-cf7-row > label,0,,,inherit,(none),label,LIVE
+assets/css/ea-atoms.css,1398,".ea-contact-form--cf7 .wpcf7-form-control.wpcf7-text, .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select, .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea",0.9rem,14.4,14.4,300,--ea-font,form,LIVE
+assets/css/ea-atoms.css,1452,.ea-contact-form--cf7 .wpcf7-submit,0.95rem,15.2,15.2,400,--ea-font,form,LIVE
+assets/css/ea-atoms.css,1476,.ea-contact-form--cf7 .wpcf7-not-valid-tip,0.78rem,12.48,12.48,inherit,--ea-font,form,ORPHAN
+assets/css/ea-atoms.css,1483,.ea-contact-form--cf7 .wpcf7-response-output,0.9rem,14.4,14.4,inherit,--ea-font,form,LIVE
+assets/css/ea-atoms.css,1533,.ea-bio-block__heading,2rem,32.0,32.0,200,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1541,.ea-bio-block__text,0.9rem,14.4,14.4,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1562,.ea-footer__brand,1.2rem,19.2,19.2,200,--ea-font,footer,ORPHAN
+assets/css/ea-atoms.css,1569,.ea-footer__tagline,0.78rem,12.48,12.48,300,--ea-font,footer,ORPHAN
+assets/css/ea-atoms.css,1576,.ea-footer__location,0.72rem,11.52,11.52,400,--ea-font,footer,ORPHAN
+assets/css/ea-atoms.css,1621,.ea-footer__nav-link,0.78rem,12.48,12.48,300,--ea-font,nav,ORPHAN
+assets/css/ea-atoms.css,1634,.ea-footer__copy,0.78rem,12.48,12.48,300,--ea-font,footer,ORPHAN
+assets/css/ea-atoms.css,1688,".ea-section-intro__heading, .ea-content-section__heading, .ea-bio-block__heading, .ea-testimonials-section__heading, .ea-books-section__heading, .ea-services-section__heading, .ea-faq-mini-section__heading, .ea-contact-section__heading, .ea-service-comparison__heading",1.4rem,22.4,22.4,inherit,(none),section-title,LIVE
+assets/css/ea-atoms.css,1753,.ea-section__heading,2rem,32.0,32.0,200,--ea-font,section-title,ORPHAN
+assets/css/ea-atoms.css,1761,.ea-section__list,0.95rem,15.2,15.2,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1775,".ea-section--prose .ea-section__inner > p, .ea-book-prose p",0.95rem,15.2,15.2,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1791,.ea-book-prose h3,1.05rem,16.8,16.8,400,--ea-font,title,ORPHAN
+assets/css/ea-atoms.css,1827,.ea-book-hero__back,0.78rem,12.48,12.48,300,--ea-font,hero-title,ORPHAN
+assets/css/ea-atoms.css,1837,.ea-book-hero__title,3rem,48.0,48.0,200,--ea-font,hero-title,ORPHAN
+assets/css/ea-atoms.css,1846,.ea-book-hero__subtitle,1.05rem,16.8,16.8,300,--ea-font,hero-title,ORPHAN
+assets/css/ea-atoms.css,1865,.ea-book-excerpt__toggle,0.92rem,14.72,14.72,400,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1895,.ea-book-midcta__text,1.05rem,16.8,16.8,300,--ea-font,button,ORPHAN
+assets/css/ea-atoms.css,1920,.ea-bundle__title,2rem,32.0,32.0,200,--ea-font,title,ORPHAN
+assets/css/ea-atoms.css,1928,.ea-bundle__price,1.1rem,17.6,17.6,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1936,.ea-bundle__price strong,1.4rem,22.4,22.4,500,(none),body,ORPHAN
+assets/css/ea-atoms.css,1944,.ea-bundle__desc,0.95rem,15.2,15.2,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1952,.ea-bundle__note,0.82rem,13.12,13.12,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1965,.ea-book-gallery__label,0.58rem,9.28,9.28,200,--ea-font,label,ORPHAN
+assets/css/ea-atoms.css,1992,.ea-book-gallery__text,0.72rem,11.52,11.52,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,1998,.ea-book-gallery__note,0.72rem,11.52,11.52,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,2008,.ea-book-hero__title,2.1rem,33.6,33.6,inherit,(none),hero-title,ORPHAN
+assets/css/ea-atoms.css,2010,".ea-section__heading, .ea-bundle__title",1.6rem,25.6,25.6,inherit,(none),section-title,ORPHAN
+assets/css/ea-atoms.css,2032,.ea-contact-page-intro__sub,1.05rem,16.8,16.8,300,--ea-font,body,ORPHAN
+assets/css/ea-atoms.css,2061,.ea-faq-list__filter-label,0.78rem,12.48,12.48,300,--ea-font,faq,ORPHAN
+assets/css/ea-atoms.css,2068,.ea-faq-list__filter-select,0.9rem,14.4,14.4,300,--ea-font,faq,ORPHAN
+assets/css/ea-atoms.css,2086,.ea-faq-list__filter-count,0.78rem,12.48,12.48,inherit,--ea-font,faq,ORPHAN
+assets/css/ea-atoms.css,2094,.ea-faq-category__heading,1.4rem,22.4,22.4,200,--ea-font,faq,LIVE
+assets/css/ea-mobile-nav.css,69,.ea-mnav-burger,1.15rem,18.4,18.4,inherit,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,80,.ea-mnav-pill,0.68rem,10.88,10.88,300,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,133,.ea-mnav-drawer__brand,1.05rem,16.8,16.8,200,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,137,.ea-mnav-close,1.4rem,22.4,22.4,inherit,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,150,".ea-mnav-link, .ea-mnav-acc__btn",1.02rem,16.32,16.32,300,--ea-font,nav,ORPHAN
+assets/css/ea-mobile-nav.css,167,.ea-mnav-link__ext,0.7rem,11.2,11.2,200,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,170,.ea-mnav-acc__caret,0.8rem,12.8,12.8,inherit,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,183,.ea-mnav-sublink,0.92rem,14.72,14.72,300,--ea-font,nav,ORPHAN
+assets/css/ea-mobile-nav.css,202,.ea-mnav-foot__links a,0.74rem,11.84,11.84,300,(none),nav,ORPHAN
+assets/css/ea-mobile-nav.css,226,.ea-cfoot__brand,1.2rem,19.2,19.2,200,(none),footer,ORPHAN
+assets/css/ea-mobile-nav.css,227,.ea-cfoot__tag,.8rem,12.8,12.8,300,(none),footer,ORPHAN
+assets/css/ea-mobile-nav.css,228,.ea-cfoot__loc,.7rem,11.2,11.2,400,(none),footer,ORPHAN
+assets/css/ea-mobile-nav.css,229,.ea-cfoot__head,.62rem,9.92,9.92,400,(none),footer,ORPHAN
+assets/css/ea-mobile-nav.css,231,.ea-cfoot__list a,.82rem,13.12,13.12,300,(none),footer,ORPHAN
+assets/css/ea-mobile-nav.css,234,.ea-cfoot__copy,.76rem,12.16,12.16,300,(none),footer,ORPHAN
+assets/css/ea-mobile-variants.css,53,.ea-shop-grid .ea-book-card__title,0.86rem,13.76,13.76,inherit,(none),card-title,ORPHAN
+assets/css/ea-mobile-variants.css,54,.ea-shop-grid .ea-book-card__teaser,0.74rem,11.84,11.84,inherit,(none),card-title,ORPHAN
+assets/css/ea-mobile-variants.css,55,.ea-shop-grid .ea-book-card__cover-placeholder,0.66rem,10.56,10.56,inherit,(none),body,ORPHAN
+assets/css/ea-mobile-variants.css,60,"html[data-shop=""1col""] .ea-shop-grid .ea-book-card__title",0.92rem,14.72,14.72,inherit,(none),card-title,ORPHAN
+assets/css/ea-mobile-variants.css,61,"html[data-shop=""1col""] .ea-shop-grid .ea-book-card__teaser",0.78rem,12.48,12.48,inherit,(none),card-title,ORPHAN
+assets/css/home-front.css,299,body.ea-home-dashboard .ea-home-front .ea-home-section > h2,1.15rem,18.4,18.4,inherit,(none),section-title,ORPHAN
+assets/css/home-front.css,310,body.ea-home-dashboard .ea-home-front .ea-home-section-lead--compact,0.95rem,15.2,15.2,inherit,(none),lead,ORPHAN
+assets/css/home-front.css,316,body.ea-home-dashboard .ea-home-front .ea-home-video-block .ea-home-video-placeholder,0.9rem,14.4,14.4,inherit,(none),body,ORPHAN
+assets/css/home-front.css,329,body.ea-home-dashboard .ea-home-front .ea-home-video-caption,0.9rem,14.4,14.4,inherit,(none),caption,ORPHAN
+assets/css/home-front.css,377,body.ea-home-dashboard .ea-home-front .ea-home-faq-short .ea-home-faq-item p,0.92rem,14.72,14.72,inherit,(none),faq,ORPHAN
+assets/css/home-front.css,395,body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__title,1.2rem,19.2,19.2,inherit,(none),button,ORPHAN
+assets/css/home-front.css,406,body.ea-home-dashboard .ea-home-front .ea-home-cta-bottom__hint,0.88rem,14.08,14.08,inherit,(none),button,ORPHAN
+assets/css/home-front.css,413,body.ea-home-dashboard .ea-home-front .ea-home-testimonials-sub,1rem,16.0,16.0,600,(none),testimonial,ORPHAN
+assets/css/home-front.css,428,body.ea-home-dashboard .ea-home-front .ea-home-quote p,0.95rem,15.2,15.2,inherit,(none),body,ORPHAN
+assets/css/home-front.css,434,body.ea-home-dashboard .ea-home-front .ea-home-placeholder-tag,0.78rem,12.48,12.48,inherit,(none),tag,ORPHAN
+assets/css/home-front.css,506,.ea-mediarow__ph span,0.74rem,11.84,11.84,300,(none),body,ORPHAN
+assets/css/home-front.css,585,.ea-testimonials-section--rotator .ea-testimonial-card__text,1.2rem,19.2,19.2,200,(none),card-title,ORPHAN
+assets/css/home-front.css,636,.ea-testimonials-section--rotator .ea-testimonial-card__text,1.05rem,16.8,16.8,inherit,(none),card-title,ORPHAN
+style.css,33,.main-navigation .ea-header-en-link,0.75rem,12.0,12.0,700,(none),nav,ORPHAN
+style.css,57,.ea-footer-legal-menu,0.85rem,13.6,13.6,inherit,(none),nav,ORPHAN
+style.css,116,body.ea-home-dashboard .ea-home-front,1rem,16.0,16.0,var(--ea-fw-normal),--ea-font-sans,body,ORPHAN
+style.css,146,body.ea-home-dashboard .ea-home-front .ea-home-banner,var(--ea-size-md),,,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,153,body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay h1,var(--ea-size-hero-h1),,,inherit,(none),hero-title,ORPHAN
+style.css,158,body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay .ea-home-hero-sub,var(--ea-size-95),,,var(--ea-fw-medium),(none),hero-title,ORPHAN
+style.css,165,body.ea-home-dashboard .ea-home-front .ea-home-hero-overlay .ea-home-hero-meta,var(--ea-size-xs),,,var(--ea-fw-normal),(none),hero-title,ORPHAN
+style.css,172,body.ea-home-dashboard .ea-home-front .ea-home-btn,var(--ea-size-md),,,var(--ea-fw-bold),inherit,button,ORPHAN
+style.css,179,body.ea-home-dashboard .ea-home-front .ea-home-priority > h2,var(--ea-size-h2-priority),,,inherit,(none),section-title,ORPHAN
+style.css,183,body.ea-home-dashboard .ea-home-front .ea-home-priority > .ea-home-priority-intro,0.9rem,14.4,14.4,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,190,body.ea-home-dashboard .ea-home-front .ea-home-priority-grid a,var(--ea-size-md),,,var(--ea-fw-semibold),(none),body,ORPHAN
+style.css,196,body.ea-home-dashboard .ea-home-front .ea-home-card h3,var(--ea-size-h3),,,inherit,(none),title,ORPHAN
+style.css,200,body.ea-home-dashboard .ea-home-front .ea-home-card p,var(--ea-size-md),,,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,207,body.ea-home-dashboard .ea-home-front .ea-home-card ul,var(--ea-size-md),,,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,213,body.ea-home-dashboard .ea-home-front .ea-home-block-large .inner h2,var(--ea-size-h2-card),,,inherit,(none),section-title,ORPHAN
+style.css,221,"body.ea-home-dashboard .ea-home-front .ea-home-legacy p, body.ea-home-dashboard .ea-home-front .ea-home-legacy li",var(--ea-size-sm),,,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,232,body.ea-home-dashboard .ea-home-front .ea-home-seo-block h2,var(--ea-size-h2-seo),,,inherit,(none),section-title,ORPHAN
+style.css,236,body.ea-home-dashboard .ea-home-front .ea-home-seo-block p,var(--ea-size-md),,,var(--ea-fw-normal),(none),body,ORPHAN
+style.css,279,.ea-instance-catalog__title,1.15rem,18.4,18.4,inherit,(none),title,ORPHAN
+style.css,294,.ea-instance-catalog__excerpt,0.95rem,15.2,15.2,inherit,(none),body,ORPHAN
+style.css,300,.ea-catalog-empty,0.95rem,15.2,15.2,inherit,(none),body,ORPHAN

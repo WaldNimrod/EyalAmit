@@ -33,7 +33,13 @@ This mandate produces that inventory. **It produces no fix.**
   team_00 has not locked the scale yet; a recommendation now would prejudge his call.
 - Do not touch `_aos/`. Do not run `git add -A` or `git add .` (charter §5.4).
 
-## The eight files that are actually live
+## The nine files that are actually live
+
+> Corrected 2026-09-18 after team_10 caught it: this heading said "eight" over a list of
+> nine. `home-front.css` is also home-page-conditional (enqueued from `inc/wave2-stage-b.php`),
+> not sitewide — it is absent from `/treatment/`. And the 263 figure below is wrong: the real
+> count is **261**. My 262 included one `font-size` inside a comment at `ea-atoms.css:1379`,
+> and the 263 predated my own removal of `.nav__b b`.
 
 Confirmed 2026-09-18 from the rendered home page at theme version 1.5.40. Only these
 load on a page; everything else in `assets/css/` is either conditional or dead.
