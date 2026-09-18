@@ -17,8 +17,22 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 				<h2 class="h2" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
 				<div class="intro-body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
 			</div>
+			<?php
+			$ea_img_src = esc_url( $a['image'] ?? '' );
+			$ea_img_alt = esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['image'] ?? '', $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) );
+			/* `zoom` is for document screenshots that have to sit beside their text and
+			   still be readable — the image is small in a two-column split, so the button
+			   opens it full size. Plain <img> when the flag is absent. */
+			?>
 			<figure class="figr figr--<?php echo esc_attr( $a['figr'] ?? 'l' ); ?> split2__m r r2" style="margin:0">
-				<img src="<?php echo esc_url( $a['image'] ?? '' ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['image'] ?? '', $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy">
+				<?php if ( ! empty( $a['zoom'] ) ) : ?>
+					<button type="button" class="zoom" data-zoom-src="<?php echo $ea_img_src; ?>" data-zoom-alt="<?php echo $ea_img_alt; ?>">
+						<img src="<?php echo $ea_img_src; ?>" alt="<?php echo $ea_img_alt; ?>" loading="lazy">
+						<span class="zoom__hint"><?php esc_html_e( 'להגדלה — לחצו על התמונה', 'ea-eyalamit' ); ?></span>
+					</button>
+				<?php else : ?>
+					<img src="<?php echo $ea_img_src; ?>" alt="<?php echo $ea_img_alt; ?>" loading="lazy">
+				<?php endif; ?>
 			</figure>
 		</div>
 	</div>

@@ -76,13 +76,21 @@ return array(
 
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 128, 139–145 */
 		array(
-			'part' => 'prose',
+			'part' => 'split',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 128 */
 				'title' => 'גם באתר הרשמי של מכבי מדברים על דיג\'רידו',
 				'id'    => 'מכבי-דיגרידו',
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 139–145 */
 				'body'  => '<p>זה בעיניי פרט ששווה לעצור עליו.</p><p>בעמוד הרשמי של מכבי על דום נשימה חסימתי בשינה מופיע סעיף בשם <strong>"טיפולים משלימים"</strong>. תחת הסעיף הזה מכבי מציינת את המחקר על דיג\'רידו ומתארת כיצד נגינה יום יומית במשך ארבעה חודשים נקשרה לירידה בעייפות היומית. בעמוד נכתב גם שייתכן שהנגינה מחזקת את שרירי דרכי האוויר העליונות וכך מושגת ההטבה.</p><p>אני עוסק בדיג\'רידו מאז 1999, והרבה שנים הרגשתי שהחיבור בין הכלי הזה לנשימה ולשינה כמעט לא מוכר. העובדה שהיום אפשר למצוא את הדיג\'רידו גם באתר הרשמי של אחת מקופות החולים הגדולות בישראל, תחת טיפולים משלימים לדום נשימה, היא מבחינתי עניין גדול.</p><p><a class="tlink" href="https://www.maccabi4u.co.il/healthguide/medicalconditions/obstructivesleepapneaosa/" target="_blank" rel="noopener noreferrer">לקריאה באתר מכבי</a></p>',
+				/* S007 (2026-09-18, team_00): «התמונה - לשים בצד עם lightbox - לצד הטקסט».
+				   This screenshot was a full-width gallery below the text, because he had
+				   earlier required it be readable and beside-the-text makes it ~420px. The
+				   lightbox is what lets both of those be true at once. */
+				'image' => 'assets/images/chapters/snoring/maccabi.jpg',
+				'alt'   => 'מתוך אתר מכבי: דיג\'רידו תחת "טיפולים משלימים" לדום נשימה חסימתי בשינה',
+				'figr'  => 'l',
+				'zoom'  => true,
 			),
 		),
 
@@ -102,19 +110,6 @@ return array(
 		   «התמונה מופיעה בדף אבל מאוד קטנה ואי אפשר לקרוא מה כתוב שם. צריך להגדיל
 		   את התמונה פי 2 לפחות». doc מציג את המסמך בעמודה אחת ובלי חיתוך.
 		   הקובץ עצמו לא הוחלף — הוא כבר 1294×781, רק הוצג בשליש רוחב. אפס שינוי טקסט. */
-		array(
-			'part' => 'gallery',
-			'args' => array(
-				'doc'   => true,
-				'items' => array(
-					array(
-						'image' => 'assets/images/chapters/snoring/maccabi.jpg',
-						'alt'   => 'מתוך אתר מכבי: דיג\'רידו תחת "טיפולים משלימים" לדום נשימה חסימתי בשינה',
-					),
-				),
-			),
-		),
-
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 155, 157, 168–223 */
 		array(
 			'part' => 'prose',
@@ -172,7 +167,7 @@ return array(
 		/* SNR-03 KEEP — באנר אישור + סיפור יוני. לא נמחק. לא נפתח WP-EI-03. */
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 371, 373, 384–437 */
 		array(
-			'part' => 'prose',
+			'part' => 'split',
 			'args' => array(
 				'alt'   => true,
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 373 */
@@ -181,6 +176,14 @@ return array(
 				'id'    => 'הסיפור-של-יוני',
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 384–437 · באנר = SNR-03 KEEP */
 				'body'  => '<p>יוני, שם בדוי, הוא איש הייטק ואבא לחמישה ילדים.</p><p>כשהוא הגיע אליי הוא כבר סבל כמעט עשור מדום נשימה חסימתי בשינה.</p><p>כמעט עשור שהוא ישן כל לילה עם מכשיר CPAP שמזרים לו אוויר בלחץ. הוא ישן רע, קם עצבני, כועס, עייף ועם כאבי ראש.</p><p>נפשית, הבנאדם היה שחוט. גמור.</p><p>ואפשר להבין למה.</p><p>בבדיקת שינה שעבר בשנת 2014 נמדדו אצלו, לדבריו, כ-250 הפסקות נשימה בלילה.</p><p>תחשבו על המספר הזה רגע.</p><p>250 פעמים בלילה.</p><p>הרופאים המליצו לו על ניתוח. יוני חיפש אפשרות אחרת ובסופו של דבר הגיע אליי.</p><p>התחלנו לעבוד. ללמוד דיג\'רידו, לעבוד עם הנשימה ולתרגל. שוב ושוב. לא טיפול של פעם אחת ולא משהו שקורה בלי להשקיע.</p><p>ברשותכם אני אקפוץ ישר לסוף.</p><p>אחרי תקופה של עבודה יוני חזר לבדיקת שינה.</p><p>וכשהוא קיבל את התוצאות, הוא שלח לי הודעה.</p><blockquote><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote><p>מיד אחר כך הוא כתב:</p><blockquote><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote><p>אני זוכר את ההתרגשות.</p><p>אחרי כמעט עשר שנים של לילות שלא באמת היו לילות, הבדיקה החדשה כבר לא הדגימה את תסמונת דום הנשימה שממנה סבל.</p><p>אי אפשר לתאר את האושר.</p><p>יוני חזר לישון.</p><p>הוא חזר לחיים.</p><p>חשוב לי לומר משהו ברור. זה הסיפור של יוני. מקרה אישי אחד. אני לא מבטיח שכל אדם שיגיע אליי יקבל את אותה תוצאה.</p><p>אבל זה קרה.</p><p>והפעם לא מדובר רק בתחושה של "אני ישן יותר טוב".</p><p>היתה בדיקת שינה.</p><p><strong>2014: כ-250 הפסקות נשימה בלילה</strong></p><p><strong>לאחר התהליך: "בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה"</strong></p>',
+				/* S007 (2026-09-18, team_00): «התמונה - לשים בצד עם lightbox - לצד הטקסט».
+				   This screenshot was a full-width gallery below the text, because he had
+				   earlier required it be readable and beside-the-text makes it ~420px. The
+				   lightbox is what lets both of those be true at once. */
+				'image' => 'assets/images/chapters/snoring/yoni-whatsapp.jpg',
+				'alt'   => 'התכתבות עם מטופל על תוצאות בדיקת שינה לאחר תהליך דיג\'רידו — פרט מזהה מטושטש',
+				'figr'  => 'l',
+				'zoom'  => true,
 			),
 		),
 
@@ -200,19 +203,6 @@ return array(
 		   «התמונה מאוד קטנה ולא ניתן לקרוא את כולה.. היא חתוכה».
 		   «חתוכה» הוא aspect-ratio:4/3 + object-fit:cover על צילום מסך לאורך 1080×2032;
 		   doc מבטל את שניהם ומציג את ההתכתבות במלואה. אפס שינוי טקסט. */
-		array(
-			'part' => 'gallery',
-			'args' => array(
-				'doc'   => true,
-				'items' => array(
-					array(
-						'image' => 'assets/images/chapters/snoring/yoni-whatsapp.jpg',
-						'alt'   => 'התכתבות עם מטופל על תוצאות בדיקת שינה לאחר תהליך דיג\'רידו — פרט מזהה מטושטש',
-					),
-				),
-			),
-		),
-
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 447, 449, 460–474 */
 		array(
 			'part' => 'prose',

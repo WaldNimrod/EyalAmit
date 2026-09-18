@@ -55,6 +55,17 @@ function ea_chapters_enqueue_assets() {
 		$ver,
 		true
 	);
+
+	/* Image lightbox — loaded on every Chapters view because any page may carry a
+	   document screenshot beside its text. It exits immediately when the page has no
+	   [data-zoom-src] trigger, so the cost on pages without one is a parsed no-op. */
+	wp_enqueue_script(
+		'ea-lightbox',
+		$uri . '/assets/js/ea-lightbox.js',
+		array(),
+		$ver,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'ea_chapters_enqueue_assets', 100 );
 

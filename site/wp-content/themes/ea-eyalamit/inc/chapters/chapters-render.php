@@ -420,7 +420,7 @@ function ea_chapters_part_field_map() {
 	return array(
 		'phero'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'ta', 'sub' => 'ta', 'media' => 'img', 'media_alt' => 'txt', 'cta_label' => 'txt', 'cta_url' => 'txt' ) ),
 		'prose'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'toggle_label' => 'txt' ) ),
-		'split'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'image' => 'img', 'alt' => 'txt' ) ),
+		'split'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'image' => 'img', 'alt' => 'txt', 'zoom' => 'txt' ) ),
 		'lead'         => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'lead' => 'ta' ) ),
 		'bleed'        => array( 'scalars' => array( 'image' => 'img', 'alt' => 'txt', 'quote' => 'ta', 'attrib' => 'txt' ) ),
 		'cta'          => array( 'scalars' => array( 'title' => 'ta', 'body' => 'ta', 'cta_label' => 'txt', 'cta_url' => 'txt', 'cta2_label' => 'txt', 'cta2_url' => 'txt' ) ),
