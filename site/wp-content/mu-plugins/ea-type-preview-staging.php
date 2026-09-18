@@ -5,8 +5,13 @@
  *   Body size is the anchor; every other role derives from it, which is the model he
  *   asked for: «טקסט רץ — מבקש להתחיל מלנעול את הגודל שלו… ומהגודל הזה נגזור את כל האחרים».
  *
- *   SCAFFOLDING. It refuses to run anywhere but *.upress.link, it only ever emits CSS,
- *   and it is deleted the moment the scale is locked. Nothing here is the product.
+ *   SCALE LOCKED 2026-09-18 (team_00: «תנעל את הסולם לפי הצירוף האחרון»). The values are
+ *   now real tokens in chapters.css (--fs-* / --fw-*), and a page with no ?ty= in its URL
+ *   renders purely from those. This tool is kept ONLY so the locked numbers can still be
+ *   tuned by eye; it overrides the tokens with !important when asked. Delete it on his word.
+ *   Note the FTP deploy never prunes, so deleting the file here does NOT remove it from
+ *   staging — it has to be removed there too, or it becomes exactly the kind of dead file
+ *   this project already has too many of.
  *
  *   Usage — append to any page URL:
  *     ?ty=17                      body 17px, everything derives from it
