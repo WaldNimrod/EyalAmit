@@ -41,18 +41,23 @@
      media query that re-declares these same tokens, which is why they are tokens.
 
      h3 weight is 600, not the 500 in that URL — «H3 יותר כבד» came after it. */
-  --fs-h1:44.2px;      /* 2.60 · page hero titles                    */
-  --fs-display:34px;   /* 2.00 · pull quotes, statement headings     */
-  --fs-h2:24.65px;     /* 1.45 · section titles                     */
-  --fs-h4:21.25px;     /* 1.25 · card and sub-block titles          */
-  --fs-lead:19.55px;   /* 1.15 · hero sub-headings and ledes        */
-  --fs-h3:18.7px;      /* 1.10 · sub-headings inside a section      */
-  --fs-nav:18.36px;    /* 1.08 · main menu and submenu              */
-  --fs-body:17px;      /* 1.00 · the anchor — running text          */
-  --fs-sm:15.3px;      /* 0.90 · secondary text, buttons            */
-  --fs-xs:13.6px;      /* 0.80 · labels, form controls, footer links */
-  --fs-2xs:12.24px;    /* 0.72 · tags, toggles, fine print          */
-  --fs-3xs:11.05px;    /* 0.65 · eyebrows, column titles            */
+  /* rem, not px. The approved numbers are pixel values, but shipping them AS pixels
+     would have frozen the site against the reader's own font-size setting — px does not
+     follow it, and this site publishes an accessibility statement that promises text can
+     be doubled. Each value below is the exact approved pixel size divided by the 16px
+     root, so nothing renders differently and resizing works again. */
+  --fs-h1:2.7625rem;      /* 2.60 · page hero titles                    */
+  --fs-display:2.125rem;   /* 2.00 · pull quotes, statement headings     */
+  --fs-h2:1.540625rem;     /* 1.45 · section titles                     */
+  --fs-h4:1.328125rem;     /* 1.25 · card and sub-block titles          */
+  --fs-lead:1.221875rem;   /* 1.15 · hero sub-headings and ledes        */
+  --fs-h3:1.16875rem;      /* 1.10 · sub-headings inside a section      */
+  --fs-nav:1.1475rem;    /* 1.08 · main menu and submenu              */
+  --fs-body:1.0625rem;      /* 1.00 · the anchor — running text          */
+  --fs-sm:0.95625rem;      /* 0.90 · secondary text, buttons            */
+  --fs-xs:0.85rem;      /* 0.80 · labels, form controls, footer links */
+  --fs-2xs:0.765rem;    /* 0.72 · tags, toggles, fine print          */
+  --fs-3xs:0.690625rem;    /* 0.65 · eyebrows, column titles            */
   --fw-h1:300; --fw-h2:400; --fw-h3:600; --fw-nav:400; --fw-body:300; --fw-sub:300;
 
   /* The nine composite `font:` tokens below are a SECOND type system that predates the
