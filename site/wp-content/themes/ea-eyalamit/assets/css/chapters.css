@@ -76,7 +76,7 @@ a{color:inherit}
 .arcs{position:absolute;background:url('../images/ea-arcs.png') center/contain no-repeat;pointer-events:none}
 
 /* chapter eyebrow */
-.chap{font-family:var(--bf);font-weight:500;font-size:var(--fs-3xs);letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:block}
+.chap{font-family:var(--bf);font-weight:500;font-size:var(--fs-3xs);letter-spacing:3px;text-transform:uppercase;color:var(--terra-btn);margin-bottom:12px;display:block}
 .chap--c{text-align:center}
 .h2{font-family:var(--hf);font-weight:var(--fw-h2);font-size:var(--fs-h2);line-height:1.16;letter-spacing:-.3px;color:var(--ink)}
 .lead{font-weight:300;font-size:var(--fs-body);line-height:1.65;color:var(--body)}
@@ -530,7 +530,10 @@ a{color:inherit}
 
 .ea-faq-item__summary::-webkit-details-marker,
 .ea-faq-item__question::-webkit-details-marker{display:none}
-.ea-faq-item__icon{flex:none;color:var(--terra);transition:transform .3s}
+/* S007/A11Y (2026-09-18): --terra on ivory measures ~4.43:1 against a 4.5 floor.
+   --terra-btn is the token team_00 already approved for exactly this, when the active
+   topic chip failed — no new colour, brand --terra untouched. Same fix, same reason. */
+.ea-faq-item__icon{flex:none;color:var(--terra-btn);transition:transform .3s}
 .ea-faq-item[open] .ea-faq-item__icon{transform:rotate(180deg)}
 .ea-faq-item__answer{font-size:var(--fs-body);line-height:1.65;color:var(--body)}
 .ea-faq-item__answer p{margin:0 0 22px;max-width:62ch}
