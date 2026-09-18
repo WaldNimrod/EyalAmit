@@ -15,6 +15,14 @@ disposition: >
 
 # S006 / S007 · state at 2026-09-18, written for compaction
 
+**Typography passed a cross-engine gate only after failing it.** On 2026-09-18 an
+independent Grok run falsified **three of five** claims in the canon: 58 hardcoded
+declarations were still live in `chapters.css` (a second scale running in parallel), the
+exemption list said three where there were five, and `/about/` rendered two identical `h1`.
+All fixed at 1.5.59, and the **re-check is being run by the same independent party** — this
+gate is not closed by the session that made the fix. A future session reading "the scale is
+locked" should know it was locked, then found leaking, then re-locked.
+
 **Typography and CSS sizing are NOT governed by this file.** They are governed by
 `_COMMUNICATION/team_100/S007-TYPOGRAPHY-CANON.md`, locked at theme 1.5.56. Any font-size
 figure in this file or any other is historical unless the canon agrees with it.
