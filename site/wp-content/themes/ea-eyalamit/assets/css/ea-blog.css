@@ -377,7 +377,7 @@
 
 /* Promoted lead paragraph (first para of the centre section). */
 .ea-wave2-editorial .ea-content-section__body p.lead {
-	font-size: 1.15rem;
+	font-size:var(--fs-lead);
 	color: var(--ea-ink);
 }
 
@@ -405,7 +405,7 @@
 }
 .ea-edhero__title {
 	font-weight: 100;
-	font-size: 3rem;
+	font-size:var(--fs-h1);
 	line-height: 1.14;
 	letter-spacing: -0.5px;
 	color: var(--ea-on-dark);
@@ -425,14 +425,14 @@
 	background: var(--ea-sand);
 }
 @media (max-width: 1023px) {
-	.ea-edhero__title { font-size: 2.2rem; }
+	.ea-edhero__title { font-size: 2.2rem; }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
 }
 @media (max-width: 767px) {
 	.ea-edhero__inner { grid-template-columns: 1fr; gap: var(--ea-space-6); }
 }
 @media (max-width: 639px) {
 	.ea-edhero { padding-inline: var(--ea-space-3); }
-	.ea-edhero__title { font-size: 1.7rem; }
+	.ea-edhero__title { font-size: 1.7rem; }  /* S007 phase 3: breakpoint override, re-declares --fs-h1 per width */
 }
 
 /* ── 2. Meta strip — scannable key/value row ──────────────────────────────── */
@@ -457,7 +457,7 @@
 }
 .ea-metastrip__v {
 	font-weight: 300;
-	font-size: 1rem;
+	font-size:var(--fs-body);
 	color: var(--ea-ink);
 	margin: 0;
 }
@@ -502,13 +502,13 @@
 }
 .ea-mokesh-disc__nm {
 	font-weight: 200;
-	font-size: 1.1rem;
+	font-size:var(--fs-body);
 	color: var(--ea-ink);
 	margin: 0;
 }
 .ea-mokesh-disc__yr {
 	font-weight: 300;
-	font-size: 0.72rem;
+	font-size:var(--fs-2xs);
 	letter-spacing: 1px;
 	color: var(--ea-muted);
 	margin: var(--ea-space-1) 0 0 0;
@@ -526,7 +526,7 @@
 	border-inline-start: 1px solid var(--ea-terracotta);
 	padding-inline-start: var(--ea-space-4);
 	font-weight: 200;
-	font-size: 1.4rem;
+	font-size:var(--fs-h4);
 	line-height: 1.6;
 	color: var(--ea-chocolate);
 }
