@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>סקיצה — אלמנט תוכן עניינים</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fs-h1:2.7625rem; --fs-h2:1.540625rem; --fs-h3:1.16875rem; --fs-body:1.0625rem;
+    --fs-sm:.95625rem; --fs-xs:.85rem; --fs-2xs:.765rem; --fs-3xs:.690625rem;
+    --fw-light:300; --fw-regular:400; --fw-medium:500; --fw-semibold:600;
+    --ink:#2f2013; --body:#67482d; --ivory:#fffffa; --ivory-2:#f6f1e9;
+    --terra:#B5663D; --terra-btn:#B05F38; --line:rgba(216,199,181,.55); --sec:88px;
+    --f:'Heebo',-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--f);font-size:var(--fs-body);font-weight:var(--fw-light);
+    line-height:1.55;color:var(--body);background:var(--ivory)}
+  .note{background:#2f2013;color:#fffffa;padding:22px 28px;font-size:var(--fs-sm)}
+  .note b{color:#E0A33C;font-weight:var(--fw-semibold)}
+  .note code{font-family:ui-monospace,monospace;font-size:var(--fs-2xs);opacity:.85}
+  .wrap{max-width:1100px;margin-inline:auto;padding:0 48px}
+  .sec{padding:var(--sec) 0}
+  h2{font-size:var(--fs-h2);font-weight:var(--fw-regular);color:var(--ink);margin:0 0 18px;line-height:1.2}
+  h3{font-size:var(--fs-h3);font-weight:var(--fw-semibold);letter-spacing:.2px;color:var(--ink);margin:1.6em 0 .5em}
+  p{margin:0 0 14px;line-height:1.7}
+  .alt{background:var(--ivory-2)}
+
+  /* ── the element ───────────────────────────────────────────────── */
+
+  /* A · inline, on the same line as the intro */
+  .lede{display:grid;grid-template-columns:1fr auto;gap:38px;align-items:start}
+  .toc-inline{border-inline-start:2px solid var(--line);padding-inline-start:18px;min-width:210px}
+  .toc-inline__h{font-size:var(--fs-3xs);font-weight:var(--fw-medium);letter-spacing:2.2px;
+    text-transform:uppercase;color:var(--terra-btn);margin:0 0 10px}
+  .toc-inline ol{list-style:none;margin:0;padding:0;counter-reset:t}
+  .toc-inline li{counter-increment:t;margin-bottom:7px}
+  .toc-inline a{font-size:var(--fs-xs);font-weight:var(--fw-light);color:var(--body);
+    text-decoration:none;display:flex;gap:8px;line-height:1.45}
+  .toc-inline a::before{content:counter(t,decimal-leading-zero);color:var(--terra-btn);
+    font-size:var(--fs-3xs);font-weight:var(--fw-medium);padding-top:2px}
+  .toc-inline a:hover,.toc-inline a:focus-visible{color:var(--terra-btn)}
+
+  /* B · the floating rail — sits in the margin, never over content */
+  .rail{position:fixed;inset-block-start:50%;inset-inline-end:16px;transform:translateY(-50%);
+    z-index:40;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
+  .rail a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--body);
+    font-size:var(--fs-3xs);font-weight:var(--fw-light)}
+  .rail i{display:block;width:16px;height:2px;background:var(--line);border-radius:2px;
+    transition:width .22s,background .22s}
+  .rail a span{opacity:0;transform:translateX(6px);transition:opacity .22s,transform .22s;
+    white-space:nowrap;background:var(--ivory);padding:2px 8px;border-radius:4px;
+    box-shadow:0 2px 10px rgba(47,32,19,.1)}
+  .rail a:hover span,.rail a:focus-visible span{opacity:1;transform:none}
+  .rail a:hover i,.rail a:focus-visible i,.rail a.on i{width:26px;background:var(--terra-btn)}
+  .rail a.on span{opacity:1;transform:none}
+
+  /* C · mobile — a pill that opens a sheet, and the sheet closes */
+  .toc-fab{display:none}
+  @media(max-width:860px){
+    .wrap{padding:0 22px}
+    .lede{grid-template-columns:1fr}
+    .toc-inline{border:0;padding:0;border-block-start:1px solid var(--line);padding-block-start:18px}
+    .rail{display:none}
+    .toc-fab{display:flex;position:fixed;inset-block-end:18px;inset-inline-start:18px;z-index:60;
+      align-items:center;gap:8px;background:var(--ink);color:#fffffa;border:0;border-radius:100px;
+      padding:11px 18px;font-family:var(--f);font-size:var(--fs-xs);font-weight:var(--fw-medium);
+      box-shadow:0 8px 22px rgba(47,32,19,.3)}
+  }
+  .sheet{border:0;padding:0;border-radius:14px 14px 0 0;max-width:100%;width:100%;
+    margin:auto auto 0;background:var(--ivory)}
+  .sheet::backdrop{background:rgba(47,32,19,.55)}
+  .sheet__in{padding:22px 22px 30px}
+  .sheet__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .sheet__t{font-size:var(--fs-3xs);font-weight:var(--fw-medium);letter-spacing:2.2px;
+    text-transform:uppercase;color:var(--terra-btn)}
+  .sheet__x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    background:none;font-size:22px;line-height:1;color:var(--ink);font-family:var(--f)}
+  .sheet ol{list-style:none;margin:0;padding:0;counter-reset:t}
+  .sheet li{counter-increment:t;border-block-end:1px solid var(--line)}
+  .sheet a{display:flex;gap:10px;padding:13px 2px;text-decoration:none;color:var(--ink);
+    font-size:var(--fs-body);font-weight:var(--fw-light)}
+  .sheet a::before{content:counter(t,decimal-leading-zero);color:var(--terra-btn);
+    font-size:var(--fs-2xs);font-weight:var(--fw-medium);padding-top:4px}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <b>סקיצה לאישור — אלמנט «תוכן עניינים».</b> שלושה מצבים של אותו רכיב, לא שלושה רכיבים.
+  הסקיצה בנויה על הסולם הנעול בלבד: <code>--fs-xs .85rem</code> לפריטי הרשימה,
+  <code>--fs-3xs .690625rem</code> למספור ולכותרת, <code>--fw-light 300</code> לטקסט.
+  גללו כדי לראות את הפס הצף, והצרו את החלון מתחת ל-860 פיקסלים כדי לראות את מצב המובייל.
+</div>
+
+<div class="wrap sec">
+  <h2>נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג׳רידו</h2>
+
+  <!-- A · inline, beside the intro -->
+  <div class="lede">
+    <div>
+      <p>רוב הפתרונות פועלים בזמן השינה. הדיג׳רידו עובד על הערות — על שרירי דרכי האוויר
+         העליונות, דרך תרגול נשימה יומיומי.</p>
+      <p>בעמוד הזה ריכזתי את מה שידוע היום: מה מצא המחקר, מה כתוב באתר הרשמי של מכבי,
+         איך אני עובד עם זה בפועל, ולמי זה מתאים.</p>
+    </div>
+    <nav class="toc-inline" aria-label="תוכן העניינים">
+      <p class="toc-inline__h">בעמוד הזה</p>
+      <ol>
+        <li><a href="#a">מה הקשר בין דיג׳רידו לנחירות</a></li>
+        <li><a href="#b">מה מצא המחקר</a></li>
+        <li><a href="#c">מה כתוב באתר מכבי</a></li>
+        <li><a href="#d">איך אני עובד עם זה</a></li>
+        <li><a href="#e">הסיפור של יוני</a></li>
+        <li><a href="#f">שאלות שאני שומע הרבה</a></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- B · the floating rail -->
+<nav class="rail" aria-label="ניווט מהיר בעמוד">
+  <a href="#a"><span>מה הקשר</span><i></i></a>
+  <a href="#b" class="on"><span>מה מצא המחקר</span><i></i></a>
+  <a href="#c"><span>מכבי</span><i></i></a>
+  <a href="#d"><span>איך אני עובד</span><i></i></a>
+  <a href="#e"><span>הסיפור של יוני</span><i></i></a>
+  <a href="#f"><span>שאלות</span><i></i></a>
+</nav>
+
+<section class="sec alt" id="a"><div class="wrap">
+  <h2>מה הקשר בין דיג׳רידו, נחירות ודום נשימה בשינה?</h2>
+  <p>בזמן השינה השרירים בגוף נרפים. אצל חלק מהאנשים גם האזור של דרכי האוויר העליונות
+     נעשה רפוי יותר ומעבר האוויר מצטמצם.</p>
+  <h3>אז למה בכלל אנחנו נוחרים?</h3>
+  <p>כשהאוויר עובר דרך מעבר צר, הרקמות יכולות לרטוט וליצור את צליל הנחירה.</p>
+</div></section>
+
+<section class="sec" id="b"><div class="wrap">
+  <h2>מה מצא המחקר על דיג׳רידו ודום נשימה בשינה?</h2>
+  <p>נגינה יום יומית במשך ארבעה חודשים נקשרה לירידה בעייפות היומית, ולשיפור במדדי הנשימה.</p>
+</div></section>
+
+<section class="sec alt" id="c"><div class="wrap">
+  <h2>גם באתר הרשמי של מכבי מדברים על דיג׳רידו</h2>
+  <p>בעמוד הרשמי של מכבי על דום נשימה חסימתי בשינה מופיע סעיף בשם «טיפולים משלימים».</p>
+</div></section>
+
+<section class="sec" id="d"><div class="wrap">
+  <h2>איך אני עובד עם נחירות ודום נשימה</h2>
+  <p>מתחילים בשיחה, ממשיכים בתרגול קצר ויומיומי, ובונים הרגל.</p>
+</div></section>
+
+<section class="sec alt" id="e"><div class="wrap">
+  <h2>הסיפור של יוני</h2>
+  <p>יוני, שם בדוי, הוא איש הייטק ואבא לחמישה ילדים.</p>
+</div></section>
+
+<section class="sec" id="f"><div class="wrap">
+  <h2>שאלות שאני שומע הרבה</h2>
+  <p>שש שאלות, באקורדיון שכבר קיים בעמוד.</p>
+</div></section>
+
+<button class="toc-fab" type="button" aria-haspopup="dialog">☰ בעמוד הזה</button>
+
+<dialog class="sheet" aria-label="תוכן העניינים">
+  <div class="sheet__in">
+    <div class="sheet__top">
+      <span class="sheet__t">בעמוד הזה</span>
+      <button class="sheet__x" type="button" aria-label="סגירה">&times;</button>
+    </div>
+    <ol>
+      <li><a href="#a">מה הקשר בין דיג׳רידו לנחירות</a></li>
+      <li><a href="#b">מה מצא המחקר</a></li>
+      <li><a href="#c">מה כתוב באתר מכבי</a></li>
+      <li><a href="#d">איך אני עובד עם זה</a></li>
+      <li><a href="#e">הסיפור של יוני</a></li>
+      <li><a href="#f">שאלות שאני שומע הרבה</a></li>
+    </ol>
+  </div>
+</dialog>
+
+<script>
+  var fab = document.querySelector('.toc-fab'),
+      sheet = document.querySelector('.sheet');
+  fab.addEventListener('click', function () { sheet.showModal(); });
+  sheet.querySelector('.sheet__x').addEventListener('click', function () { sheet.close(); });
+  sheet.addEventListener('click', function (e) { if (e.target === sheet) { sheet.close(); } });
+  sheet.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { sheet.close(); });
+  });
+  /* the rail marks where you are */
+  var links = [].slice.call(document.querySelectorAll('.rail a'));
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) { return; }
+      links.forEach(function (l) {
+        l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id);
+      });
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  document.querySelectorAll('section[id]').forEach(function (s) { obs.observe(s); });
+</script>
+</body>
+</html>
