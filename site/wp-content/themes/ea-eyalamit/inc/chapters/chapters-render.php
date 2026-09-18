@@ -795,7 +795,15 @@ function ea_chapters_content_img_alt( $src, $explicit = '' ) {
  */
 function ea_chapters_content_img_abs_path( $src ) {
 	$path = (string) ( wp_parse_url( $src, PHP_URL_PATH ) ?: $src );
-	$theme_root = get_template_directory();
+	/* get_stylesheet_directory(), NOT get_template_directory(). This is a child
+	   theme: get_template_directory() returns the GeneratePress parent, so the
+	   needle became '/wp-content/themes/generatepress/', matched nothing, and
+	   every path resolved to a file that does not exist — realpath() returned
+	   false and the whole 191-entry hash map was dead on the live site. Every
+	   other path lookup in this file already uses get_stylesheet_directory()
+	   (see :185, :206). It survived review because a standalone PHP harness has
+	   no parent theme to be wrong about; only WordPress tells the two apart. */
+	$theme_root = get_stylesheet_directory();
 	$needle     = '/wp-content/themes/' . basename( $theme_root ) . '/';
 	$pos        = strpos( $path, $needle );
 	$rel        = false !== $pos ? substr( $path, $pos + strlen( $needle ) ) : ltrim( $path, '/' );
