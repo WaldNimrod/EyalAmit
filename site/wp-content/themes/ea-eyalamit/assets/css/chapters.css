@@ -129,7 +129,7 @@ a{color:inherit}
 .nav__lg{width:40px;height:40px;background:url('../images/ea-logo-mark.png') center/contain no-repeat;filter:invert(1) sepia(.5) brightness(1.4)}
 /* .nav__b b removed 2026-09-18: team_00 dropped the wordmark, mark only. */
 .nav__l{display:flex;gap:24px;list-style:none;margin:0;padding:0}
-.nav__l a{color:rgba(255,255,255,.82);text-decoration:none;font-size:var(--fs-nav);font-weight:var(--fw-nav);position:relative;padding:4px 0;transition:color .2s}
+.nav__l a{color:rgba(255,255,255,.95);text-decoration:none;font-size:var(--fs-nav);font-weight:var(--fw-nav);position:relative;padding:4px 0;transition:color .2s}
 .nav__l a::after{content:"";position:absolute;bottom:0;right:0;left:0;height:1px;background:var(--terra-lt);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--e)}
 .nav__l a:hover{color:#fff}.nav__l a:hover::after{transform:scaleX(1)}
 .nav__r{display:flex;align-items:center;gap:12px}
@@ -577,7 +577,7 @@ a{color:inherit}
 /* ================= EXACT NAV with dropdowns ================= */
 .nav__l{gap:17px}
 .nav__l>li{position:relative;display:flex;align-items:center}
-.nav__dd{background:none;border:0;font-family:var(--bf);font-weight:var(--fw-nav);font-size:var(--fs-nav);color:rgba(255,255,255,.82);cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:4px 0;transition:color .2s;text-decoration:none}
+.nav__dd{background:none;border:0;font-family:var(--bf);font-weight:var(--fw-nav);font-size:var(--fs-nav);color:rgba(255,255,255,.95);cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:4px 0;transition:color .2s;text-decoration:none}
 .nav__dd:hover,.nav__l>li:hover .nav__dd{color:#fff}
 .nav__caret{font-size:.6em;opacity:.7;transition:transform .25s}  /* .6em on purpose: a glyph sized off its parent, not a type rung */
 .nav__l>li:hover .nav__caret{transform:rotate(180deg)}
@@ -818,7 +818,11 @@ body.nav-locked{overflow:hidden}
    ============================================================ */
 
 /* 1) NAV — stronger subtle backdrop on load (was too faint over the bright hero) */
-.nav{background:linear-gradient(180deg,rgba(14,9,5,.82),rgba(14,9,5,.34) 52%,rgba(14,9,5,0))}
+/* S007/A11Y (2026-09-18): this gradient was .82 at the top edge and .34 by 52% — but the
+   nav is 72px tall and its text sits vertically centred, i.e. right at that .34, over a
+   photograph on every .phero--media page whose own scrim is only .5 at the top. Held dark
+   across the band the text actually occupies, still fading out below it. */
+.nav{background:linear-gradient(180deg,rgba(14,9,5,.9),rgba(14,9,5,.74) 62%,rgba(14,9,5,.3) 86%,rgba(14,9,5,0))}
 
 /* 4+5) 03 SESSION cards — keep the photo CLEAR at rest (scrim only at the bottom for
    the title); darken only on hover for the reveal text. Taller card to match mockup. */
