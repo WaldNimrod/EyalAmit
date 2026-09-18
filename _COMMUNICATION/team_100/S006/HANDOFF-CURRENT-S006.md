@@ -1,4 +1,132 @@
 ---
+id: HANDOFF_CURRENT_S006_2026-09-18_v3.0.0
+schema_version: aos_v1_team_messaging
+type: STATE (team_100)
+status: ACTIVE — open-work SSOT
+law: S006-MILESTONE-CHARTER.md
+decisions: _COMMUNICATION/team_00/DECISION-INDEX.md
+date: 2026-09-18
+disposition: >
+  SSOT for what is OPEN at session level. The tracker xlsx remains SSOT for row/item status.
+  Every other S006 md file is method, archive or mandate — they point here and must not keep
+  a second open-list. Rewritten in full on 2026-09-18 after the accessibility milestone
+  closed and S007 opened; everything below the ARCHIVE line is prior-wave history.
+---
+
+# S006 / S007 · state at 2026-09-18, written for compaction
+
+**Read first:** the charter (`S006-MILESTONE-CHARTER.md`), this file, and the decision index
+(`_COMMUNICATION/team_00/DECISION-INDEX.md`). Conflict precedence: charter › method template
+› this file › session memory. **Derive every number fresh — quote nothing from here as current
+state without re-measuring.**
+
+## Where the code is
+
+Branch `s006/tracker-integrity`; `main`, `origin/main` and both remotes are **all aligned at
+the same commit**. Live staging runs theme **1.5.40**, which matches the working tree.
+`http://eyalamit-co-il-2026.s887.upress.link` (HTTP; invalid TLS there by design).
+
+## Accessibility — CLOSED except four named items
+
+P0 and P1 are fixed, deployed and verified, including cross-engine on Grok.
+
+**Landed:** focus colour on skip link / nav / logo / CTAs · mobile menu reachable by keyboard
+and the closed drawer out of the tab order · 162 book-gallery photographs described (6 left
+as deliberate questions for Eyal) · hash-based alt matching · the child-theme path bug that
+had made that whole map dead · card and FAQ headings · muted colour tokens · submenu
+`aria-expanded` · Hebrew CF7 validation · the D-8 blank prompt · duplicate photographs removed
+· the last failing contrast chip · the statement rewritten, then **corrected twice** after
+cross-engine falsified two claims I had published.
+
+**Still open, all measured:**
+1. **Focus-indicator prominence** — the ring is 1.06:1 on the skip link, 1.65:1 on
+   `.btn--terra`. Not a WCAG 2.0 AA failure (the 3:1 floor is 2.1 SC 1.4.11, which IS 5568
+   does not bind) but the statement now names it as a limitation.
+2. **Footer brand/address/phone at 4.4867:1** — three hundredths short of 4.5.
+3. **Mobile only (390px)** — header Tab order contradicts visual RTL order; focus lands
+   off-screen on one home `#peek` link and six FAQ chips.
+4. **Eyal owes two answers** — his name as coordinator (D-11), and the final legal wording
+   that retires the WP-EI-05 draft banner (D-13). Plus six unidentified photographs.
+
+Evidence: `_COMMUNICATION/team_50/XVAL-CONSOLIDATED-2026-09-18.md` and the six `XVAL-*` files;
+`_COMMUNICATION/team_100/S006/A11Y-CONSOLIDATED-REGISTER-2026-09-17.md`;
+`_COMMUNICATION/team_10/A11Y-FIX-2026-09-18/`.
+
+## S007 typography — IN FLIGHT, waiting on team_00's eye
+
+**The plan:** `/Users/nimrod/.claude/plans/100-humming-forest.md`, Part Two — four phases,
+typography → accessibility re-check → mobile → rows, in that order because type changes
+invalidate the other two's measurements.
+
+**What is known, measured:**
+- Neither the theme nor the team_35 design has a type scale. 242 hardcoded `font-size`
+  declarations in live CSS plus 21 in `style.css`; the only `font-size:var()` set is dead
+  code scoped to `.ea-home-dashboard`, which matches zero elements.
+- The menu is **not** small relative to the design — 12.48px designed, 12.8px live. Making it
+  larger is a new decision, not a correction.
+- The real divergence is **weight**: the design runs 100–400 with nothing above 400; live
+  runs 500×27, 300×14, 400×9, 600×7, 700×2, 800×2. Headings are three to four steps heavier
+  than designed; body, lead and nav already match at 300.
+- **Font-family deviations** — every H1 renders in Frank Ruhl Libre while every other heading
+  renders in Heebo (documented as a reserved accent, `chapters.css:32`); `--hf` and `--bf` are
+  declared with identical values so the heading/body font distinction is fictional; carousel
+  arrows fall through to `-apple-system`; and Rubik is fetched on every page and used nowhere.
+
+**The approval instrument is live:** `mu-plugins/ea-type-preview-staging.php` — staging-only,
+URL-driven, body size is the anchor and everything derives from it. Parameters: `ty` (body,
+the anchor), `nav` `navw` `navc`, `h1` `h2` `h3` and their `*w` weights, `sub=1`, `subpad`,
+`serif=0`, `grid=1`. **It is scaffolding and is deleted when the scale is locked.**
+
+**team_00's direction so far, not yet locked:** body size first and everything derives from
+it · menu slightly larger than body, heavier, higher contrast · submenu same size as the main
+menu, one weight lighter, tighter padding · headings too large as running sub-headings —
+implement real hierarchy rather than repeating one size · watch the font-family deviations,
+especially the hero.
+
+**Last combination shown, and the one he called "improving":**
+`?ty=17&nav=1.08&navw=400&h1=2.6&h2=1.45&h3=1.1&h1w=300&h2w=400&h3w=500&sub=1&subpad=6&serif=0`
+→ h1 44.2/300, h2 24.6/400, h3 18.7/500, body 17/300, nav 18.4/400.
+
+**Immediate next step:** he picks a combination and sends the URL; team_100 locks it as a real
+token scale, applies to three flagship pages first (D-24), then widens, then exceptions.
+
+## S007 later phases — defined, not started
+
+- **Mobile** — `TASK-S007-RESPONSIVE-MOBILE-2026-09-18.md` + its research file. Central fact:
+  the approved team_35 mobile design was built as `ea-mobile-nav.css` / `.js` /
+  `ea-mobile-variants.css`, then orphaned when Chapters replaced the nav. All three still load
+  on every page and match **zero** elements.
+- **Rows and media** — `FOUND-ROW-RHYTHM-GAP-2026-09-18.md`. 11 of 29 pages have zero
+  alternating rows, 21 have at most one; the loop has no alternation logic at all and only 4
+  of 33 defaults files request a variant. Six of twenty-four body parts are dead code and
+  several are the vocabulary the flat pages lack. **Definition only — no corrective work.**
+- **Element templates** — `BACKLOG-S007-M02-ELEMENT-TEMPLATES.md`, parked by D-21.
+
+## Standing rules that bit us this session
+
+- **A clean automated scan is not a PASS** — charter §8א clause 5, D-14. axe returned 0
+  violations on the three book pages both before and after 162 photographs were fixed.
+- **Split verification lines; do not raise the timeout.** Three lines timed out and returned
+  nothing tonight; re-splitting worked immediately.
+- **Engine cost order** — Grok first, `composer-2.5` for black work, GPT only for a real edge.
+- **The deploy script ships the working tree, not a git ref.** It now refuses a dirty `site/`
+  and records the deployed commit in `DEPLOY-LOG.md`.
+- **Spacing-sensitive greps lie.** `font-size:var(` found zero where `font-size: var(` had
+  fourteen.
+
+## Two sessions are working alongside this one
+
+`eyalamit-co-il-2026-ce` and `eyalamit-co-il-2026-e4`, both team_10 on Sonnet, sharing this
+worktree. Both idle as of writing. They manage lines; they do not validate their own builds.
+
+---
+
+# ═══════════ ARCHIVE — everything below is prior-wave history ═══════════
+
+Kept so the wave log is not lost. **Every "open" or "next" item below this line is VOID
+against the state above.**
+
+---
 id: HANDOFF_CURRENT_S006_2026-09-08_v2.0.0
 schema_version: aos_v1_team_messaging
 type: HANDOFF_TO_NEXT (team_100 → fresh team_100 session) · depth: state-only
