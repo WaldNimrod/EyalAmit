@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 return array(
 	'phero' => array(
 		'chap'      => 'הכשרה',
-		'title'     => 'הכשרת <em>מטפלים ומנחים</em> בשיטת cbDIDG',
+		'title'     => 'הכשרת <em>מטפלים ומנחים</em><br>בשיטת cbDIDG',
 		'sub'       => 'להעביר את הידע הלאה — מסלול עומק למי שמבקש ללמוד, ללמד ולטפל בנשימה באמצעות דיג׳רידו.',
 		'media'     => 'assets/images/chapters/studio-interior.jpg',
 		'media_alt' => 'פנים הסטודיו בפרדס חנה',

@@ -27,7 +27,7 @@ return array(
 	/* S006 W10 · SECTION 01 HERO */
 	'phero' => array(
 		'chap'      => '',
-		'title'     => "הרצאות על נשימה, דיג'רידו,<br>סטרס ושינה",
+		'title'     => "הרצאות על נשימה,<br>דיג'רידו, סטרס ושינה",
 		'sub'       => "סיפור אישי, ידע, מחקר והדגמות חיות בדיג'רידו",
 		'media'     => 'assets/images/chapters/studio-didgs.jpg',
 		'media_alt' => 'אייל עמית מנחה מפגש דיג׳רידו',
