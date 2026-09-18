@@ -28,6 +28,7 @@
  *                                 comparison — the switch shows what was replaced.
  *     &pherow=34                   inner-page hero title cap in ch  (site now ships 34)
  *     &herow=880                  hero content box in px     (site now ships 880)
+ *     &sec=88                     section padding top/bottom in px (site now ships 62-88 fluid)
  *     &lh=1.6                     running-text line-height   (site now ships 1.65-1.7)
  *     &h3ls=0.2                   h3 letter-spacing in px    (site now ships 0.2)
  *     &logo=40                    logo mark size in px       (site now ships 40)
@@ -89,6 +90,7 @@ add_action( 'wp_head', function () {
 	$h3ls   = isset( $_GET['h3ls'] ) ? ea_type_preview_num( 'h3ls', 0.2, -1.5, 4.0 ) : null;
 	$logo   = isset( $_GET['logo'] ) ? ea_type_preview_num( 'logo', 40,  20,  90 )  : null;
 	$herow  = isset( $_GET['herow'] ) ? ea_type_preview_num( 'herow', 880, 520, 1400 ) : null;
+	$sec    = isset( $_GET['sec'] )   ? ea_type_preview_num( 'sec', 88, 20, 160 ) : null;
 	$pherow = isset( $_GET['pherow'] ) ? ea_type_preview_num( 'pherow', 34, 10, 60 ) : null;
 	$demo   = isset( $_GET['demo'] ) && '1' === $_GET['demo'];
 	$fam    = isset( $_GET['fam'] ) && '1' === $_GET['fam'];
@@ -127,6 +129,9 @@ h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 	}
 	if ( null !== $pherow ) {
 		$css .= ".phero__h{max-width:{$pherow}ch!important}\n";
+	}
+	if ( null !== $sec ) {
+		$css .= ":root{--sec:{$sec}px!important}\n";
 	}
 	if ( null !== $herow ) {
 		$css .= ".hero__c{max-width:{$herow}px!important}\n";
