@@ -148,7 +148,12 @@ a{color:inherit}
 @media(max-width:1080px){.nav__l{display:none}}
 
 /* ---- HERO ---- */
-.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;text-align:center}
+/* S007/A11Y (2026-09-18): was height:100vh with overflow:hidden, which locks the hero to
+   the viewport no matter what the content needs. Measured at 200% text resize on a
+   1440x900 viewport: content needed 911px against a 900px box, and the hero CTA was cut
+   off — while the published accessibility statement promises text doubles without
+   content being clipped. min-height lets it grow; overflow:hidden stays for the video. */
+.hero{position:relative;height:auto;min-height:max(620px,100vh);overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,12,8,.55),rgba(18,12,8,.25) 35%,rgba(18,12,8,.55) 75%,rgba(18,12,8,.9))}
 /* S007 (2026-09-18): the hero title carries one break, on the dash in the source.
