@@ -746,6 +746,16 @@ body.nav-locked{overflow:hidden}
    #B5663D stays the accent for eyebrows/lines; only the solid CTA bg is nudged. */
 :root{--terra-btn:#B05F38}
 .btn--terra{background:var(--terra-btn)}
+/* 2026-09-18 · team_00 approved nudging this one chip rather than the palette.
+   The ACTIVE .dd__tag filled itself from raw --terra (#B5663D) and measured
+   4.26:1 against its white label, below the 4.5 floor — the inactive chips were
+   fixed earlier tonight via the --muted token and now sit at 5.50:1, so only the
+   active state was left failing. Reusing --terra-btn rather than inventing a new
+   value: it exists for exactly this reason, it is already the filled-button
+   background, and it measures 4.63:1 — better than the 4.58 a 2% lightness drop
+   would have produced, with one less colour in the system. Brand --terra is
+   untouched and stays the accent for eyebrows and lines. */
+.dd__item--active .dd__tag{background:var(--terra-btn)}
 .btn--terra:hover{background:var(--terra-dk)}
 /* footer copyright: lift opacity so it clears AA on the near-black footer */
 .foot__base{color:rgba(255,255,255,.62)}
