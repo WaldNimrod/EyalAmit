@@ -21,6 +21,7 @@
  *                                 team_00 ruled the hero string still broke the font map, so
  *                                 Heebo is what the site now ships and the serif is the
  *                                 comparison — the switch shows what was replaced.
+ *     &herow=880                  hero content box in px     (site now ships 880)
  *     &lh=1.6                     running-text line-height   (site now ships 1.65-1.7)
  *     &h3ls=0.2                   h3 letter-spacing in px    (site now ships 0.2)
  *     &logo=40                    logo mark size in px       (site now ships 40)
@@ -81,6 +82,7 @@ add_action( 'wp_head', function () {
 	$lh     = isset( $_GET['lh'] )   ? ea_type_preview_num( 'lh',   1.65, 1.1, 2.4 ) : null;
 	$h3ls   = isset( $_GET['h3ls'] ) ? ea_type_preview_num( 'h3ls', 0.2, -1.5, 4.0 ) : null;
 	$logo   = isset( $_GET['logo'] ) ? ea_type_preview_num( 'logo', 40,  20,  90 )  : null;
+	$herow  = isset( $_GET['herow'] ) ? ea_type_preview_num( 'herow', 880, 520, 1400 ) : null;
 	$demo   = isset( $_GET['demo'] ) && '1' === $_GET['demo'];
 	$fam    = isset( $_GET['fam'] ) && '1' === $_GET['fam'];
 	$grid = isset( $_GET['grid'] ) && '1' === $_GET['grid'];
@@ -115,6 +117,9 @@ h3{font-size:{$h3_px}px!important;font-weight:{$h3w}!important}
 	}
 	if ( null !== $h3ls ) {
 		$css .= "h3{letter-spacing:{$h3ls}px!important}\n";
+	}
+	if ( null !== $herow ) {
+		$css .= ".hero__c{max-width:{$herow}px!important}\n";
 	}
 	if ( null !== $logo ) {
 		$css .= ".nav__lg{width:{$logo}px!important;height:{$logo}px!important}\n";

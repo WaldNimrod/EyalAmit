@@ -150,7 +150,12 @@ a{color:inherit}
 .hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,12,8,.55),rgba(18,12,8,.25) 35%,rgba(18,12,8,.55) 75%,rgba(18,12,8,.9))}
-.hero__c{position:relative;z-index:3;max-width:760px;padding:0 40px}
+/* S007 (2026-09-18): the hero title carries one break, on the dash in the source.
+   Measured at 1440: segment one needs 1032px at the shipped 59.2px, and the box gave
+   680px — so the break could never be the only break. 880px box = 800px of content,
+   which holds the segment at any H1 up to 45.9px. team_00's own last-liked value was
+   44.2px (h1=2.6 x body 17), so his number fits; the shipped 59.2px still will not. */
+.hero__c{position:relative;z-index:3;max-width:880px;padding:0 40px}
 .hero__trust{font-family:var(--bf);font-weight:500;font-size:.86rem;letter-spacing:1.1px;text-transform:uppercase;color:rgba(255,255,255,.93);text-shadow:0 1px 3px rgba(0,0,0,.55);margin-bottom:16px;display:block}
 .hero__h{font-family:var(--hf);text-wrap:normal;font-weight:500;font-size:clamp(2.2rem,4.8vw,3.7rem);line-height:1.12;letter-spacing:-.4px;color:#fff;margin-bottom:22px}
 .hero__h em{font-style:normal;color:var(--terra-lt)}
