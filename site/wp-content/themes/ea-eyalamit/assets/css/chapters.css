@@ -463,6 +463,14 @@ a{color:inherit}
 .intro-body blockquote,.prose blockquote,.dd__body blockquote{font-size:var(--fs-lead)}
 .intro-body blockquote p,.prose blockquote p,.dd__body blockquote p,
 .intro-body blockquote strong,.prose blockquote strong{font-size:inherit}
+/* Two roles that were carried by inline style="font-size:…" inside the content itself —
+   the only place in the site a stylesheet could not reach, and the exact opposite of
+   wiring everything to one set of definitions. Three instances, now classes on rungs:
+   the lead paragraphs on /treatment/ (19.52px) and /snoring-sleep-apnea/ (18.4px), and
+   the price callout on /books/ (24px). No words changed, only the attribute carrying
+   the size. */
+.intro-body .p-lead,.prose .p-lead,.dd__body .p-lead{font-size:var(--fs-lead);line-height:1.7}
+.intro-body .p-display,.prose .p-display,.dd__body .p-display{font-size:var(--fs-h2);line-height:1.3}
 
 /* bio block (איך נראה מפגש) */
 .bio{display:grid;grid-template-columns:1fr 360px;gap:clamp(40px,5vw,72px);align-items:center}
