@@ -121,7 +121,11 @@ Each is annotated in place with its reason. **A sixth unexplained one is a defec
 - `.testi-mq__btn` — a carousel arrow glyph, not text.
 - CF7 row label — `font-size:0`, hidden on purpose (Eyal asked for the separate labels to go).
 - `.ea-books-hub-card__cta a::after` and `::before` — `0.85em` arrow glyphs on
-  pseudo-elements, same case as `.nav__caret`.
+  pseudo-elements. **Listed but NOT verifiable as live:** the cross-engine re-check traced
+  `.ea-books-hub-card__cta` to a template gated on slugs that all 301 before rendering, so
+  no DOM node exists anywhere to confirm they compute off-rung. They are annotated in the
+  CSS and left alone. **If that template ever gets a live route, treat them as unproven and
+  re-measure rather than assuming this entry vouched for them.**
 
 > **This list was three when first written and the cross-engine gate falsified that.**
 > `.ea-topnav__caret` was a fourth, undocumented, at `0.7em` resolving to 8.568px — it is
@@ -130,6 +134,12 @@ Each is annotated in place with its reason. **A sixth unexplained one is a defec
 > until it appears in this list.
 
 ## 6a. Scope of "no live stylesheet carries a hardcoded size"
+
+**Read it as "no live CHILD-THEME sheet."** That is what the claim was tested against and it
+holds. It is **false** of the page as a whole: GeneratePress's `main.min.css`, `wpa-style.css`,
+Fluent Forms and CF7 all ship live hardcoded sizes. The child-theme token wins the cascade
+wherever it was checked — see §4 layer 1 for why that needed `0,0,2` to be true — but do not
+repeat the claim in its unqualified form.
 
 **That claim is about LIVE sheets only.** Four stylesheets in `assets/css/` have **no enqueue
 call anywhere in the codebase** and are not wired: `services.css`, `w2-04-service.css`,
@@ -171,3 +181,18 @@ Full list: memory `eyalamit-qa-harnesses-that-fail-open`. The four that bite typ
 3. **A declaration being present proves nothing.** Check computed values (see §4, layer 1).
 4. **Spacing-sensitive greps lie.** `font-size:var(` found zero where `font-size: var(` had
    fourteen.
+
+
+## 9. Known gaps, deliberately out of scope for the size lock
+
+These were surfaced by the cross-engine gate and are **not** defects in the size scale.
+
+- **207 live `font-weight` declarations are not on `--fw-*` tokens.** Same shape as the
+  size gap, never part of the C1 claim. Six weight tokens exist and only the five roles
+  team_00 ruled on use them. Snapping the remaining 207 would change visual weight across
+  the site in places he has not seen, so it is **a decision for him, not a cleanup.**
+- **`/2228-2/`** — one of the 54 posts skips `h1` → `h3` in its own authored content. Real
+  and live, found only because a re-check happened to sample a different post than the two
+  earlier passes did. A content item, not a template bug; nothing in the theme causes it.
+  Worth remembering that two independent passes over 54 posts sampled 2 each and both
+  missed it.
