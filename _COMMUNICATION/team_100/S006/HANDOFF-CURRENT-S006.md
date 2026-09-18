@@ -22,17 +22,13 @@ state without re-measuring.**
 
 ## Where the code is
 
-Branch `s006/tracker-integrity`; `main`, `origin/main` and `origin/s006/tracker-integrity`
-are **all aligned at the same commit** (one remote, `origin`; both branches' remote-tracking
-refs match, confirmed against the GitHub API too, not just local refs). Live staging runs
-theme **1.5.40**, which matches the working tree — confirmed byte-identical to the live
-`style.css`, not just the version string. (Cross-checked 2026-09-18,
-`XVAL-STATE-ACCURACY-2026-09-18.md` line S1; that same session later observed a `?ver=1.5.42`
-handle in passing — not reconciled, re-verify the live version fresh rather than trusting
-1.5.40 or 1.5.42 here.)
+Branch `s006/tracker-integrity`. `main`, `origin/main` and `origin/s006/tracker-integrity`
+all aligned. Live staging ran theme **1.5.48** when this line was written, after twelve
+deploys in one day (1.5.40 → 1.5.48). **That number is stale the moment you read it** — the
+1.5.40 written here before survived less than an hour. Re-derive it; do not cite it.
 `http://eyalamit-co-il-2026.s887.upress.link` (HTTP; invalid TLS there by design).
 
-## Accessibility — CLOSED except six named items (widened 2026-09-18 by a state-doc cross-check)
+## Accessibility — four items open, two resolved 2026-09-18 pending M-04 re-verification
 
 P0 and P1's code-level fixes are deployed and verified cross-engine on Grok. **The published
 statement is NOT yet accurate** — see item 5. Theme moved 1.5.39 (the `XVAL-*` measurement
@@ -58,15 +54,26 @@ re-measured; do not cite `XVAL-*` for these): submenu `aria-expanded` · Hebrew 
 2. **Footer brand/address/phone at 4.4867:1** — three hundredths short of 4.5.
 3. **Mobile only (390px)** — header Tab order contradicts visual RTL order; focus lands
    off-screen on one home `#peek` link and six FAQ chips.
-4. **200% text/zoom clipping** (was missing from this list) — document overflow reads 0px,
-   which is NOT sufficient evidence of "no clipping": the skip link overlaps the brand
-   (~24px), home `h1` sits at y=−150, the FAQ heading overlaps the nav, and CSS `zoom:2`
-   pushes the burger 151.6px and EN 107.6px outside the viewport.
-5. **The published statement still asserts at least two false things** (was missing from
-   this list) — it claims 200% enlargement with no clipping/no horizontal scroll (false, see
-   item 4), and its limitations section still names the treatment/lessons tag chip as a
-   current failure (false as of 1.5.40 — see "Landed" above; the statement now needs the
-   opposite correction from the one made before).
+4. **200% text resize** — **the real failure here is FIXED** (1.5.47). `.hero` was
+   `height:100vh` with `overflow:hidden`; at a 32px root the hero needed 911px against a
+   900px box and the hero CTA fell outside. Now `min-height:max(620px,100vh)`; re-measured on
+   `/`, the hero grows 900→922px, nothing clipped, no horizontal scroll, every rung scaling
+   exactly ×2. **Verified on the home page only** — the other eleven pages are M-04's job.
+   Two cautions carried forward from getting this wrong first:
+   - The earlier measurement used CSS `zoom:2`, which scales layout and is **page zoom**, a
+     different question from text resize. Its overlap numbers (skip link over brand, FAQ
+     heading over nav, burger 151.6px out) describe that test, not SC 1.4.4.
+   - `scrollHeight > clientHeight` is **not** clipping unless an ancestor actually clips. It
+     flagged nine `.h2` and the `h1` here; all nine were a tight line-height on an
+     `overflow:visible` box. Only the hero was real, because only the hero had a clipping
+     ancestor.
+5. **The published statement's two false claims are both resolved** — differently, and the
+   difference matters. The limitations section named the treatment/lessons tag chip as a
+   current failure; that was false, so **the sentence was removed** (verified gone live).
+   The 200% claim was false, so **the site was changed until the claim became true** (item 4)
+   — the wording was not touched. Fixing the sentence would have been the wrong repair there.
+   Statement now on its third and fourth corrections; treat every remaining sentence as a
+   claim to falsify. M-04 re-measures all of them against 1.5.48.
 6. **Eyal owes two answers** — his name as coordinator (D-11), and the final legal wording
    that retires the WP-EI-05 draft banner (D-13). Plus six unidentified photographs.
 
@@ -75,72 +82,64 @@ indexes; `_COMMUNICATION/team_50/XVAL-STATE-ACCURACY-2026-09-18.md` (this cross-
 why items 1/5/Landed changed); `_COMMUNICATION/team_100/S006/A11Y-CONSOLIDATED-REGISTER-2026-09-17.md`;
 `_COMMUNICATION/team_10/A11Y-FIX-2026-09-18/`.
 
-## S007 typography — IN FLIGHT, waiting on team_00's eye
+## S007 typography — SCALE LOCKED 2026-09-18, mapping run, phase 2 dispatched
 
 **The plan:** `/Users/nimrod/.claude/plans/100-humming-forest.md`, Part Two — four phases,
 typography → accessibility re-check → mobile → rows, in that order because type changes
 invalidate the other two's measurements.
 
-**Corrected 2026-09-18 by cross-engine state-check** (`_COMMUNICATION/team_50/XVAL-STATE-ACCURACY-2026-09-18.md`,
-line S3) — the bullets below replace an earlier version whose specific numbers were wrong in
-several places, including one that was backwards. Do not re-quote the old numbers (242 / 21
-all-hardcoded / 500×27 / "H1 is Frank Ruhl Libre") without re-deriving them.
+**LOCKED.** team_00: «תנעל את הסולם לפי הצירוף האחרון ותריץ את המיפוי». The scale is real
+tokens in `assets/css/ea-tokens.css`, and the site renders from them.
 
-**What is known, measured:**
-- Neither the theme nor the team_35 design has a type scale — that part holds. The live
-  child-theme sheets that actually load on `/` carry **247** hardcoded `font-size`
-  declarations (114 `chapters.css` + 93 `ea-atoms.css` + 15 `home-front.css` + 5
-  `ea-mobile-nav.css` + 13 `ea-mobile-variants.css`; `books-v2.css`'s 33 do **not** load on
-  `/` or `/method/`, only on book pages). `style.css` has 21 `font-size` declarations, but
-  only **7** are hardcoded — the other **14** are `font-size: var(...)`, all scoped to
-  `body.ea-home-dashboard …`, a body class nothing live adds (confirmed 0 matches).
-- The menu is **not** a single 12.48-designed/12.8-live pair — it is genuinely mixed live,
-  because two competing rules match different elements: `<a>` nav items render **12.8px**
-  (`.nav__l a`, wins on specificity); the two dropdown-trigger `<button class="nav__dd">`
-  elements render **12.48px** (`.nav__dd`, which only wins there because the higher-specificity
-  rule doesn't select a `<button>`). The "not smaller than designed" conclusion still holds —
-  do not quote this as one uniform pair.
-- The real divergence is **weight**, but the histogram was `chapters.css` alone, not the full
-  loaded set, and two counts were off by one: 500×**26**, 300×14, 400×9, 600×**8** (a same-day
-  `h3{font-weight:600}` addition), 700×2, 800×2. Adding `ea-atoms.css` (also loaded) changes
-  the distribution substantially. Headings vs the D-14 100–400 tokens: h1 and h2 really are
-  3–4 steps heavier; **h3 is only 1 step heavier**, not 3–4 — don't apply the blanket phrasing
-  to h3. Body and nav confirmed at weight 300, live; `.lead` is declared 300 in CSS but has
-  **zero live elements** on either page checked — nobody sees it at any weight.
-- **Font-family — the H1 claim was TRUE when written and was then changed.** The cross-engine
-  line measured `<h1>` in **Heebo** and read that as a falsification, but it measured after
-  theme 1.5.41. `git show 78d4896^` has `.hero__h{font-family:var(--serif)}` and
-  `.phero__h{font-family:var(--serif)}`; `git show 78d4896` has `var(--hf)`. team_00 ruled
-  the hero string still broke the font map, and commit 78d4896 moved it. Do not read this
-  as "the serif hero never existed" — it existed until 2026-09-18 and was removed on his
-  instruction. Every sampled `<h1>` renders in **Heebo** from 1.5.41 onward, not
-  Frank Ruhl Libre (`--hf`/`--bf` genuinely are declared identically, so that half — the
-  heading/body distinction being fictional — was right). Frank Ruhl Libre **is** live, just
-  not on headings generally: `--display` drives `.fstep__t` / `.mag-list__t` / `.btile__t`,
-  and `.bookcard__t` (book titles, which render as real `h2`/`h3`) uses `--serif` directly —
-  so "every other heading renders in Heebo" also overstates it. Carousel arrows falling
-  through to the OS system font, and Rubik fetched on every page but used by zero rendered
-  text (faces stay `unloaded`): both confirmed as originally stated.
+**Twelve rungs, body as the anchor.** Five are his, read off the combination he approved
+(`?ty=17&nav=1.08&h1=2.6&h2=1.45&h3=1.1`): body 1.00 · nav 1.08 · h3 1.10 · h2 1.45 · h1 2.60.
+Seven derived for roles his combination does not name: display, h4, lead, sm, xs, 2xs, 3xs.
+**One deliberate departure:** h3 weight is 600, not the 500 in that URL — «H3 יותר כבד» came
+after it, and locking 500 would have undone an instruction already given.
 
-**The approval instrument is live:** `mu-plugins/ea-type-preview-staging.php` — staging-only,
-URL-driven, body size is the anchor and everything derives from it. Parameters: `ty` (body,
-the anchor), `nav` `navw` `navc`, `h1` `h2` `h3` and their `*w` weights, `sub=1`, `subpad`,
-`serif=0`, `grid=1`. **It is scaffolding and is deleted when the scale is locked.**
+**Expressed in `rem`, not `px`.** The approved numbers are pixel numbers, but a px font-size
+does not follow the reader's own font-size setting and this site promises text can be
+doubled. Each rung is the approved pixel value over the 16px root, so nothing renders
+differently and resize works again. Shipping px was my error, caught the same day.
 
-**team_00's direction so far, not yet locked:** body size first and everything derives from
-it · menu slightly larger than body, heavier, higher contrast · submenu same size as the main
-menu, one weight lighter, tighter padding · headings too large as running sub-headings —
-implement real hierarchy rather than repeating one size · watch the font-family deviations,
-especially the hero.
+**Mapping run: 73 of 76 live declarations wired**, plus 8 more in two stylesheets the
+inventory never saw. Three are deliberately NOT wired and annotated in place — `.nav__caret`
+(`.6em`, a glyph sized off its parent), `.testi-mq__btn` (a carousel arrow), and a CF7 label
+at `font-size:0` (hidden on purpose). A rung for any of those would be wrong, not missing.
 
-**Last combination shown, and the one he called "improving":**
-`?ty=17&nav=1.08&navw=400&h1=2.6&h2=1.45&h3=1.1&h1w=300&h2w=400&h3w=500&sub=1&subpad=6&serif=0`
-→ h1 44.2/300, h2 24.65/400, h3 18.7/500, body 17/300, nav 18.36/400. (Corrected 2026-09-18:
-the PHP's own `round()` emits 24.65 and 18.36, not the previously-quoted 24.6 / 18.4 — two
-independent cross-engine lines caught the same rounding mismatch; h1/h3/body were exact.)
+**Two findings that change how this codebase should be searched:**
+- **A tenth live stylesheet.** `faq-toc.css` loads only on `/faq/`, `ea-blog.css` only on blog
+  views. The nine-file list — mine, and team_10's verification of it — was derived from `/`
+  and `/treatment/`, which load neither. Both passes agreed and both were incomplete. A
+  stylesheet list read off two pages is a claim about two pages.
+- **A second, invisible type system.** `ea-tokens.css` defines nine `--ea-type-*` composites
+  that carry size inside the `font:` **shorthand**. It reports **zero** `font-size`
+  declarations, which is why it read as empty; 51 rules across six sheets consume it, and it
+  loads on every page. That is how a 9.28px date survived on every blog card while the sweep
+  reported the blog clean. Now expressed in rungs, so all 51 uses follow the scale.
+- The rungs live in `ea-tokens.css`, **not** `chapters.css`: the latter is gated on
+  `ea_chapters_is_view()`. Defining rungs in the conditional sheet and consuming them in the
+  unconditional one collapses the whole `font:` shorthand — it fails whole, not per-property.
 
-**Immediate next step:** he picks a combination and sends the URL; team_100 locks it as a real
-token scale, applies to three flagship pages first (D-24), then widens, then exceptions.
+**Verification method that actually worked:** sweep the rendered DOM of each page for text
+elements whose computed size is not one of the twelve rungs. Nine page types returned zero.
+That sweep — not the file inventory — is what found both gaps above.
+
+**The preview tool is still installed** and still overrides the tokens with `!important` when
+`?ty=` is present, so the numbers can still be tuned by eye. Delete it on team_00's word —
+and note the FTP deploy **never prunes**, so deleting the file locally does not remove it
+from staging.
+
+**Phase 2 is dispatched** — `MANDATE-S007-M04-A11Y-RECHECK-2026-09-18.md`, against 1.5.48.
+Its reason is specific: **WCAG's contrast threshold is a function of text size** (3:1 for
+large text, 4.5:1 otherwise), so locking a scale can fail a criterion without changing a
+colour. `.cmpc__t` (26→21.25) and `.bookcard__t` (24→21.25) both crossed out of large-text
+territory today. `.h2` now clears 24px by **0.65px** — a standing hazard, not a finding.
+
+**Still open in typography:** the remaining SHOW-FIRST decisions, and team_00's own list from
+2026-09-18 that is not yet fully closed — inner-page hero line breaks need a per-title
+decision each, and six card-title classes still outrank the h3 tier on weight (whether the
+tier should override those designs is his call).
 
 ## S007 later phases — defined, not started
 
@@ -165,6 +164,22 @@ token scale, applies to three flagship pages first (D-24), then widens, then exc
   and records the deployed commit in `DEPLOY-LOG.md`.
 - **Spacing-sensitive greps lie.** `font-size:var(` found zero where `font-size: var(` had
   fourteen.
+- **A search for the wrong PROPERTY is the same failure one level up.** `ea-tokens.css`
+  reports zero `font-size` declarations and carries an entire nine-rung type system inside
+  the `font:` shorthand. Two independent passes recorded it as empty.
+- **A file list read off two pages is a claim about two pages.** Two live stylesheets load
+  only on `/faq/` and on blog views, and were missed by both my inventory and its
+  verification. The authority is what renders, not what is enqueued in the files you checked.
+- **`scrollHeight > clientHeight` is not clipping** unless an ancestor actually clips. It
+  produced nine false positives in one sweep here; a tight line-height causes it routinely.
+- **Do not resolve a backdrop from the DOM for contrast.** `backgroundColor` is transparent
+  for gradients, background images and video, so a DOM walk sails past the real backdrop and
+  lands on the body. Twelve findings, mostly false, in one pass. Sample rendered pixels.
+- **`px` freezes a site against the reader's font-size setting; `rem` does not.** An approved
+  pixel number is not an instruction to ship a pixel unit.
+- **Before calling a same-day document wrong, check git.** A cross-engine line correctly
+  measured Heebo and wrongly called the serif-H1 claim "backwards" — the claim was true when
+  written and superseded three minutes before that line started.
 
 ## Two sessions are working alongside this one
 
