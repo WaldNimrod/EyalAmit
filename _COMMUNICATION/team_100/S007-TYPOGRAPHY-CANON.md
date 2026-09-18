@@ -216,3 +216,38 @@ These were surfaced by the cross-engine gate and are **not** defects in the size
   earlier passes did. A content item, not a template bug; nothing in the theme causes it.
   Worth remembering that two independent passes over 54 posts sampled 2 each and both
   missed it.
+
+
+## 10. Font FAMILY — the third axis, and the one nobody had scanned
+
+team_00 found this himself on the home page: «נשימה היא הבסיס להכל - חורג מהטיפוגרפיה».
+That element is `.bleed__q`, and it is not a size problem — it renders in **Frank Ruhl Libre**
+while the other 33 text selectors on that page render in **Heebo**. Every scan on this
+milestone had checked size; two also checked weight; **none checked family.**
+
+**Four families are live, not one.**
+
+- **Heebo** — `--hf`, `--bf`, `--ea-font`. All three are the same string; the
+  heading/body distinction those token names imply is fictional.
+- **Frank Ruhl Libre** — `--serif`, on six `chapters.css` rules: `.tl__y`, `.bleed__q`,
+  `.st3::after`, `.shstep__dot span`, `.bookcard__cover .ph`, `.bookcard__t`. Its comment
+  used to say «hero + years only» and that stopped being true at 1.5.41, when the hero moved
+  to Heebo on team_00's instruction. Comment corrected.
+- **Suez One** — `--display`, a third family on six more: `.fstep__num`, `.fstep__t`,
+  `.mag-spread__fig figcaption b`, `.mag-list__n`, `.mag-list__t`, `.btile__t`.
+- **Rubik** — `--ea-font-sans`, six `style.css` rules, plus a literal in
+  `theme-shell-fallback.css`. Earlier reports called Rubik "fetched and unused". It is used.
+
+**Fixed at 1.5.61 because it was unambiguous:** the two carousel-arrow `<span>` elements
+inside `.testi-mq__btn` set **no font-family at all** and fell through to `-apple-system` —
+so those glyphs rendered in whatever font the visitor's OS supplied, differently per device.
+That is not a design choice, it is an omission.
+
+**NOT fixed, because it is a design decision and not ours:** whether Frank Ruhl Libre and
+Suez One remain as accents. Both are deliberate-looking, both are applied consistently within
+their components, and collapsing them to Heebo would change the look of the timeline, the
+pull quotes, the book titles and the whole magazine/feature vocabulary. **team_00's call.**
+
+Full per-page evidence: `_COMMUNICATION/team_10/S007-M05/` — a scan of **all 157 URLs**, not
+a sample, on all three axes. Sampling was retired as a method at this point in the milestone
+because three consecutive sampled passes each missed something the next one found.

@@ -30,7 +30,12 @@
   --line:rgba(42,32,22,.14); --line-d:rgba(216,199,181,.16);
   /* S007 type scale lives in ea-tokens.css — it loads on every page, chapters.css does not. */
   --hf:'Heebo',-apple-system,Arial,sans-serif; --bf:'Heebo',-apple-system,Arial,sans-serif;
-  --serif:'Frank Ruhl Libre',serif;   /* reserved serif accent — hero + years only */
+  --serif:'Frank Ruhl Libre',serif;
+  /* Reserved serif accent. The comment here used to say «hero + years only» and that
+     stopped being true at 1.5.41, when team_00 ruled the hero back onto Heebo. It is
+     live on SIX selectors now: .tl__y, .bleed__q, .st3::after, .shstep__dot span,
+     .bookcard__cover .ph, .bookcard__t. --display ('Suez One') is a THIRD family on
+     six more. Whether either stays is team_00's call — see canon §10. */
   --e:cubic-bezier(.22,1,.36,1);
   --sec:clamp(78px,8vw,112px);
 }
@@ -856,7 +861,7 @@ body.nav-locked{overflow:hidden}
    left-pointing chevron and vice versa. direction:ltr on the button stops the glyph
    from being mirrored; it doesn't affect the (decorative, aria-hidden) icon's
    meaning or the button's own aria-label. */
-.testi-mq__btn{flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--ivory);color:var(--terra);font-size:1.6rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;direction:ltr}  /* 1.6rem on purpose: carousel arrow glyph, not text */
+.testi-mq__btn{font-family:var(--bf);flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--ivory);color:var(--terra);font-size:1.6rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;direction:ltr}  /* 1.6rem on purpose: carousel arrow glyph, not text */
 .testi-mq__btn:hover,.testi-mq__btn:focus-visible{background:var(--terra);color:#fff;border-color:var(--terra)}
 .testi-mq__btn:disabled{opacity:.35;cursor:default;background:var(--ivory);color:var(--terra);border-color:var(--line)}
 .testi-mq__btn--left{order:3}
