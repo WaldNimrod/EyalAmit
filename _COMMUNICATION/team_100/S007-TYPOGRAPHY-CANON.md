@@ -54,6 +54,17 @@ Weights:
 --fw-h1 300   --fw-h2 400   --fw-h3 600   --fw-nav 400   --fw-body 300   --fw-sub 300
 ```
 
+Since 1.5.60 those six are **aliases** onto an eight-value weight scale, not literals:
+
+```
+--fw-thin 100  --fw-xlight 200  --fw-light 300  --fw-regular 400
+--fw-medium 500  --fw-semibold 600  --fw-bold 700  --fw-xbold 800
+```
+
+Every `font-weight` in every live child-theme sheet points at one of those eight. The Wave2
+`--ea-fw-*` family is aliased onto the same scale. **Change a weight token, never a
+declaration** — the same rule as sizes.
+
 **`--fw-h3` is 600, not the 500 in that URL.** «H3 יותר כבד» came after it. This is the one
 deliberate departure from the approved combination and it is intentional.
 
@@ -187,10 +198,19 @@ Full list: memory `eyalamit-qa-harnesses-that-fail-open`. The four that bite typ
 
 These were surfaced by the cross-engine gate and are **not** defects in the size scale.
 
-- **207 live `font-weight` declarations are not on `--fw-*` tokens.** Same shape as the
-  size gap, never part of the C1 claim. Six weight tokens exist and only the five roles
-  team_00 ruled on use them. Snapping the remaining 207 would change visual weight across
-  the site in places he has not seen, so it is **a decision for him, not a cleanup.**
+- ~~207 live `font-weight` declarations off-token~~ — **CLOSED 2026-09-18 at 1.5.60**, on
+  team_00's instruction «משקלים קודם - ואז מובייל». 214 declarations across eleven live
+  sheets now point at an eight-value weight scale in `ea-tokens.css`; the six role weights
+  he approved are aliases onto it rather than literals. **Zero visual change** — every
+  declaration kept its own number. A second weight family (`--ea-fw-*`, declared in
+  `style.css`, consumed seven times there) was pointed at the same scale and its duplicate
+  definitions removed.
+  **What is still open is the design question, not the plumbing:** the team_35 design used
+  nothing above weight 400, and the rendered site does exceed that. Measured live — home
+  page 73×300, 43×400, **32×500, 7×700**; `/press/` 184×300, 8×200, 1×100, 6×400, 6×500,
+  1×700; `/books/kushi-blantis/` 101×300, 22×400, 13×500, 3×700. So the divergence is a
+  short, concrete list of elements at 500 and 700, not a sitewide restyle — and it is
+  team_00's call whether to bring them down.
 - **`/2228-2/`** — one of the 54 posts skips `h1` → `h3` in its own authored content. Real
   and live, found only because a re-check happened to sample a different post than the two
   earlier passes did. A content item, not a template bug; nothing in the theme causes it.
