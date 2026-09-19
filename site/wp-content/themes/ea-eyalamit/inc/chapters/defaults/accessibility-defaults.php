@@ -49,6 +49,28 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/*
+ * THE LAST-UPDATED DATE LIVES HERE AND NOWHERE ELSE.
+ *
+ * team_00 approved 2026-09-18 as the governing date on 2026-09-19: it is the day the
+ * statement's text last changed substantively, when two claims about keyboard focus that
+ * were measured false were corrected. That is the only meaning of "last updated" that is
+ * both legally useful and checkable.
+ *
+ * Why a variable and not a sentence: the visible copy lives in this theme file while
+ * WordPress stores an April placeholder for the same page, so WordPress never learned the
+ * text had changed and kept publishing 2026-04-07 in its own `modified` field and in the
+ * JSON-LD built from it. One URL, two contradictory dates, the machine-readable one wrong.
+ * A hand-typed date in a template drifts again the moment someone edits the text and
+ * forgets the sentence — which is exactly how it drifted the first time.
+ *
+ * IF YOU CHANGE THE STATEMENT'S TEXT, CHANGE THIS DATE, and run
+ * mu-plugins/ea-a11y-statement-modified-once.php again with a bumped flag so WordPress's
+ * own `modified` field follows. The two must never disagree.
+ */
+$ea_a11y_updated_iso = '2026-09-18';
+$ea_a11y_updated_he  = '18 בספטמבר 2026';
+
 return array(
 	'phero' => array(
 		'chap'      => 'משפטי',
@@ -114,7 +136,7 @@ return array(
 			'args' => array(
 				'chap'  => 'תאריך',
 				'title' => 'עדכון ההצהרה',
-				'body'  => '<p>הצהרת נגישות זו עודכנה לאחרונה בספטמבר 2026, לאחר סבב בדיקות ותיקונים באתר, ותיבחן מעת לעת בהתאם לשינויים באתר ובדרישות הדין.</p>',
+				'body'  => '<p>הצהרת נגישות זו עודכנה לאחרונה ב־' . esc_html( $ea_a11y_updated_he ) . ', לאחר סבב בדיקות ותיקונים באתר, ותיבחן מעת לעת בהתאם לשינויים באתר ובדרישות הדין.</p>',
 			),
 		),
 	),

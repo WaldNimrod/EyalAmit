@@ -138,3 +138,21 @@ the brand in lowercase Latin. **They get the same drawer as everything else.** T
 single clearest instruction in this whole record, and the one a future session is most likely
 to quietly drop, because those six pages have been missed by every sweep on this milestone.
 
+---
+
+## The last open question, closed — 2026-09-19
+
+**team_00: «והמגירה שנועלת את העמוד מאחוריה לגמרי - מקובל»**
+
+The all-or-nothing cost stated above is **accepted**. `showModal()` stands: no partial drawer,
+no peeking edge, and the page does not scroll while the drawer is open.
+
+**Every question on the mobile navigation is now answered.** The look is the June package's
+drawer; the mechanism is the browser's own modal; every page gets it with no exception; the
+WhatsApp float goes behind or away; the row spacing comes down by roughly 3px so the menu fits
+a 844-tall phone without scrolling, while `overflow-y:auto` stays as the floor for shorter
+phones; and the background locking completely is approved rather than tolerated.
+
+**Nothing on this element is waiting on team_00 any more.** What remains is building it, and
+that is blocked only by the mobile phase itself starting.
+
