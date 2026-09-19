@@ -80,3 +80,61 @@ Not cosmetic. Before any of it is built:
 M-08 repairs the Wave2 drawer's closed-state focusability **now**, knowing this decision will
 replace it. That is deliberate: it is a live accessibility defect on two published pages. The
 mandate tells team_10 to match the Chapters behaviour minimally and not to invest in it.
+
+---
+
+# team_00's rulings on the drawer, 2026-09-19 — and what they cost, measured
+
+## The rulings
+
+**«מגירה מאושר - יש לנו המון עמודים - חובה לוודא שנכנס במסך או לצמצם רווחים»**
+**«הכול כולל הכול בלי שום עמוד חריג.»**
+**«כשהמגירה נפתחת - כפתור וואטסאפ או מאחור או מוסתר»**
+
+So: the drawer is approved; **every page gets it, with no exception** — the six pages still on
+the bare parent theme included; it **must fit the screen or the spacing comes down**; and the
+WhatsApp float must go **behind or away** while it is open.
+
+## What "fit the screen" actually costs — measured, not estimated
+
+Live on `/about/` at **390×844**, the existing designed drawer opened with a real click:
+
+- **11 top-level items, 25 rows in total.** Three sub-lists, and they are **open by default** —
+  there is no collapsing today, which is why the list is as long as it is.
+- The list box is **597px** tall and already carries `overflow-y:auto`, so it **does** scroll
+  inside itself rather than spilling off the screen.
+- Content measures **660px**. **63px sit below the fold**, and **18 of the 25 rows are fully
+  visible without any scrolling.**
+
+**So it fits today, and the gap is 63px.** Spread over 25 rows that is **under 3px of vertical
+padding per row** — which is the cheapest possible version of his "reduce spacing", and it
+makes the entire menu reachable on an iPhone 14 with no scrolling at all.
+
+**Internal scrolling still has to stay.** At 375×667 the viewport is 177px shorter and no
+amount of reasonable trimming closes that. The rule is therefore: **trim so it fits on a
+844-tall phone, keep `overflow-y:auto` so a 667-tall phone degrades to a scroll instead of a
+clipped menu.** Never `overflow:hidden` on that list.
+
+**And the row height is not a free variable.** Rows are 59px today, which is above the 44px
+touch-target floor with room to spare; trimming 3px keeps it there. Do not trim below 44px of
+hit area to win space — that trades one accessibility problem for another.
+
+## The WhatsApp float
+
+Today it renders **on top of** the open drawer — visible in the comparison screenshots. It
+sits at `z-index:60`. **A native `<dialog>` opened with `showModal()` solves this by
+construction**: the dialog is in the browser's top layer, which is above every z-index on the
+page, so the float ends up behind it without a single line of z-index arithmetic. That is a
+second, independent reason the mechanism decided above is the right one.
+
+If the float must be **hidden** rather than merely behind — his wording allows either — hide it
+with `visibility:hidden`, never `opacity:0`, or it stays in the tab order behind a modal.
+
+## No exceptions means the six orphan pages too
+
+`/services/`, `/shows-heritage/`, `/historical-articles/`, `/thank-you/`, `/courses-soon/`,
+`/learning/courses-external/` currently serve GeneratePress's own toggle — a white panel with
+the brand in lowercase Latin. **They get the same drawer as everything else.** That is the
+single clearest instruction in this whole record, and the one a future session is most likely
+to quietly drop, because those six pages have been missed by every sweep on this milestone.
+
