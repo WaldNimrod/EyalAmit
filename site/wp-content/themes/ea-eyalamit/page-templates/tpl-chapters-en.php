@@ -28,7 +28,7 @@ html,body{overflow-x:hidden}
 .screen-reader-text:focus{position:fixed!important;top:8px;inset-inline-start:8px;width:auto!important;height:auto!important;clip:auto!important;padding:10px 16px;background:#fff;z-index:200}
 .ea-en-head{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
 	max-width:1200px;margin-inline:auto;padding:20px 48px}
-.ea-en-head__b{font-family:var(--serif,'Frank Ruhl Libre',serif);font-size:1.2rem;color:var(--ink,#2f2013);text-decoration:none}
+.ea-en-head__b{font-family:var(--bf,'Heebo',sans-serif);font-size:1.2rem;color:var(--ink,#2f2013);text-decoration:none}/* S007 M-07: was var(--serif,...) — nobody had decided this brand link should differ from .ea-en-head__lang beside it */
 .ea-en-head__lang{font-family:var(--bf,'Heebo',sans-serif);font-size:.85rem;color:var(--terra-dk,#9A4F2B);text-decoration:none}
 .ea-en-foot{background:var(--dark-grad,#0E0905);color:rgba(255,255,255,.82);padding:48px 48px;text-align:center;font-size:.85rem}
 .ea-en-foot a{color:var(--terra-lt,#D08A5E);text-decoration:none}

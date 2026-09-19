@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.5.72
+Version: 1.5.73
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -162,7 +162,9 @@ body.ea-lang-en.ltr {
  * --------------------------------------------------------------------------- */
 /* טוקני --eyal-* ו־GP (--accent וכו׳) מוגדרים ב־:root דרך inline ב־functions.php כדי לנצח dynamic CSS של GeneratePress. */
 body.ea-m4-polish {
-	--ea-font-sans: "Rubik", sans-serif;
+	/* S007 M-07: was "Rubik", sans-serif — Rubik is fetched sitewide and used nowhere else;
+	   collapsing here through the token, not the six consuming declarations below. */
+	--ea-font-sans: var(--ea-font);
 	/* --ea-fw-* moved to ea-tokens.css 2026-09-18 and pointed at the shared weight scale.
 	   They were a second, parallel weight family declared here and consumed seven times in
 	   this file — the same duplication the --ea-type-* composites had. One definition now. */

@@ -208,7 +208,7 @@ a{color:inherit}
 .tl__n{position:relative;padding:28px 28px 8px 0}
 .tl__n::before{content:"";position:absolute;top:-5px;right:0;width:9px;height:9px;border-radius:50%;background:var(--terra)}
 .tl__n:not(:last-child)::after{content:"←";position:absolute;top:24px;left:14px;color:var(--terra);opacity:.5;font-size:var(--fs-sm)}
-.tl__y{font-family:var(--serif);font-weight:var(--fw-medium);font-size:var(--fs-h2);color:var(--terra);display:block;margin-bottom:6px}
+.tl__y{font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-h2);color:var(--terra);display:block;margin-bottom:6px}/* S007 M-07: was var(--serif) */
 .tl__l{font-size:var(--fs-xs);color:var(--body);line-height:1.55;max-width:24ch}
 
 /* ---- 02 FOR WHOM — photo columns ---- */
@@ -286,7 +286,7 @@ a{color:inherit}
 .st3{counter-increment:s;position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;
   background:rgba(245,236,224,.06);border:1px solid rgba(216,199,181,.18);border-radius:10px;padding:40px 28px 34px;backdrop-filter:blur(3px);transition:transform .3s var(--e),border-color .3s,background .3s}
 .st3:hover{transform:translateY(-5px);border-color:var(--terra-lt);background:rgba(245,236,224,.1)}
-.st3::after{content:counter(s,decimal-leading-zero);position:absolute;top:16px;right:20px;font-family:var(--serif);font-size:var(--fs-h2);color:var(--terra-lt);opacity:.5}
+.st3::after{content:counter(s,decimal-leading-zero);position:absolute;top:16px;right:20px;font-family:var(--bf);font-size:var(--fs-h2);color:var(--terra-lt);opacity:.5}/* S007 M-07: was var(--serif) */
 .st3__ic{width:66px;height:66px;border-radius:50%;border:1px solid var(--terra-lt);display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(181,102,61,.14)}
 .st3__ic svg{width:28px;height:28px;stroke:var(--terra-lt);fill:none;stroke-width:1.5}
 .st3__t{font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-h3);color:#fff;margin-bottom:8px}
@@ -422,7 +422,7 @@ a{color:inherit}
 .shstep{position:relative;text-align:center;padding-top:0}
 .shstep__dot{position:relative;z-index:2;width:92px;height:92px;margin:0 auto 22px;border-radius:50%;background:var(--ivory);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px -22px rgba(42,32,22,.4);transition:transform .4s var(--e),border-color .4s,background .4s}
 .sec--dark .shstep__dot,.show--ondark .shstep__dot{background:var(--dark-2);border-color:var(--line-d)}
-.shstep__dot span{font-family:var(--serif);font-weight:var(--fw-medium);font-size:var(--fs-display);color:var(--terra);transition:color .3s}
+.shstep__dot span{font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-display);color:var(--terra);transition:color .3s}/* S007 M-07: was var(--serif) */
 .shstep:hover .shstep__dot{transform:translateY(-6px) scale(1.04);border-color:var(--terra);background:var(--terra)}
 .shstep:hover .shstep__dot span{color:#fff}
 .shstep__dot::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid var(--terra);opacity:0;transition:opacity .4s,inset .4s var(--e)}
@@ -661,7 +661,10 @@ a{color:inherit}
 /* tighten CTA */
 .cta-band{padding:clamp(72px,7vw,96px) 48px}
 
-:root{--display:'Suez One','Frank Ruhl Libre',serif}
+/* S007 M-07: was 'Suez One','Frank Ruhl Libre',serif — team_00 named only .bleed__q (--serif)
+   as the typography exception; every --display consumer collapses to Heebo through this
+   token, not by touching the six consuming declarations. */
+:root{--display:var(--bf)}
 
 /* ===== magazine "how it's built" spread ===== */
 .mag-spread{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(40px,5vw,76px);align-items:center;margin-top:60px;text-align:right}
@@ -968,10 +971,10 @@ body.nav-locked{overflow:hidden}
 .bookcard__cover{position:relative;aspect-ratio:3/4;background:var(--ivory-2);overflow:hidden;display:block}
 .bookcard__cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--e)}
 .bookcard:hover .bookcard__cover img{transform:scale(1.04)}
-.bookcard__cover .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--serif);font-size:var(--fs-sm);line-height:1.3}
+.bookcard__cover .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:var(--bf);font-size:var(--fs-sm);line-height:1.3}/* S007 M-07: was var(--serif) */
 .bookcard__b{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px}
 .bookcard__meta{font-family:var(--bf);font-size:var(--fs-3xs);letter-spacing:1.2px;color:var(--terra-dk);font-weight:var(--fw-medium)}
-.bookcard__t{font-family:var(--serif);font-size:var(--fs-h4);line-height:1.2;color:var(--ink);font-weight:var(--fw-light);text-wrap:wrap}/* A11Y 2026-09-18 (A11Y-STRUCT-02): the card title is a real heading now, so the sitewide
+.bookcard__t{font-family:var(--bf);font-size:var(--fs-h4);line-height:1.2;color:var(--ink);font-weight:var(--fw-light);text-wrap:wrap}/* S007 M-07: was var(--serif). A11Y 2026-09-18 (A11Y-STRUCT-02): the card title is a real heading now, so the sitewide
    h1,h2,h3 reset at line 63 reaches it and would thicken it to 500 and balance its wrapping.
    font-weight and text-wrap restated here keep the card looking exactly as it did as a span. */
 
