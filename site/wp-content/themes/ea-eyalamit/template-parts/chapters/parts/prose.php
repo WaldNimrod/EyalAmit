@@ -1,6 +1,8 @@
 <?php
 /**
  * Chapters part — prose section (.intro-body). $args: chap, title, body(HTML), center(bool), alt, dark, id,
+ * pairs_with_toc(bool) — marks this .sec as the lead that sits beside a following .ea-toc
+ * (class ea-toc-lede-lead; pairing CSS cannot nest :has()),
  * collapsible(bool) + toggle_label — when collapsible is true, body renders inside a closed-by-default
  * <details>/<summary> instead of a plain div (e.g. long reading excerpts).
  *
@@ -14,6 +16,9 @@ if ( ! empty( $a['dark'] ) ) {
 	$cls .= ' sec--dark';
 } elseif ( ! empty( $a['alt'] ) ) {
 	$cls .= ' sec--alt';
+}
+if ( ! empty( $a['pairs_with_toc'] ) ) {
+	$cls .= ' ea-toc-lede-lead';
 }
 $center      = ! empty( $a['center'] );
 $collapsible = ! empty( $a['collapsible'] );

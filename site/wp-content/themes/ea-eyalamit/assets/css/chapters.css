@@ -1213,18 +1213,18 @@ body.nav-locked{overflow:hidden}
    wraps become columns of .chapters-main. Only when that lead sibling exists,
    and only above the mobile breakpoint — below 860px they stack, as the sketch. */
 @media(min-width:861px){
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc){
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc){
     display:grid;grid-template-columns:minmax(48px,1fr) minmax(0,856px) auto minmax(48px,1fr);
     column-gap:38px}
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > *:not(.rail):not(.toc-fab):not(.sheet){grid-column:1/-1}
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .sec:has(.p-lead):has(+ .ea-toc),
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .ea-toc,
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .ea-toc > .sec{display:contents}
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap:has(.p-lead){
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > *:not(.rail):not(.toc-fab):not(.sheet){grid-column:1/-1}
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .sec.ea-toc-lede-lead,
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .ea-toc,
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .ea-toc > .sec{display:contents}
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .sec.ea-toc-lede-lead > .wrap{
     grid-column:2;max-width:none;padding-inline:0;padding-block:var(--sec);text-align:start}
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap:has(.p-lead) .intro-body{
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .sec.ea-toc-lede-lead > .wrap .intro-body{
     margin-inline:0!important;max-width:none}
-  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap.lede{
+  .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc) > .ea-toc .wrap.lede{
     grid-column:3;max-width:none;padding-inline:0;padding-block:var(--sec);display:block}
 }
 

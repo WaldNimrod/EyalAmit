@@ -31,9 +31,10 @@ return array(
 		array(
 			'part' => 'prose',
 			'args' => array(
-				'center' => true,
+				'center'         => true,
+				'pairs_with_toc' => true,
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 21 */
-				'body'   => '<p class="p-lead"><strong>רוב הפתרונות פועלים בזמן השינה. הדיג\'רידו מאפשר לתרגל בזמן שאתם ערים.</strong></p>',
+				'body'           => '<p class="p-lead"><strong>רוב הפתרונות פועלים בזמן השינה. הדיג\'רידו מאפשר לתרגל בזמן שאתם ערים.</strong></p>',
 			),
 		),
 
