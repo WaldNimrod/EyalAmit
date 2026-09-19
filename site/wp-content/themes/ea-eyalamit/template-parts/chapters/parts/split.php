@@ -1,15 +1,19 @@
 <?php
 /**
  * Chapters part — two-column text + figure (.split2 / .intro-body / .figr).
- * $args: chap, title, body (HTML), image (url), alt, figr ('l'|'p'|'w'), reversed(bool), id
+ * $args: chap, title, body (HTML), image (url), alt, figr ('l'|'p'|'w'), reversed(bool), id,
+ * pairs_with_cards(bool) — marks this .sec as the lead that sits beside a following
+ * .ea-testi-cards part (class ea-cards-lede-lead; same display:contents + :has()
+ * technique as prose.php's pairs_with_toc — see chapters.css).
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
-$a = isset( $args ) && is_array( $args ) ? $args : array();
+$a   = isset( $args ) && is_array( $args ) ? $args : array();
+$cls = 'sec' . ( ! empty( $a['pairs_with_cards'] ) ? ' ea-cards-lede-lead' : '' );
 ?>
-<section class="sec"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
+<section class="<?php echo esc_attr( $cls ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap">
 		<div class="split2<?php echo ! empty( $a['reversed'] ) ? ' split2--rev' : ''; ?>">
 			<div class="r">

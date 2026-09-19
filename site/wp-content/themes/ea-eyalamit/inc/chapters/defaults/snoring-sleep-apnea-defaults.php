@@ -180,16 +180,27 @@ return array(
 
 		/* SNR-03 KEEP — באנר אישור + סיפור יוני. לא נמחק. לא נפתח WP-EI-03. */
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 371, 373, 384–437 */
+		/* S007 M-09 (2026-09-19, team_00): «קרוסלה - אם יש רק 2 - עדיף כרטיסים» /
+		   «עדויות - ליד הסיפור». The two blockquotes below were relocated character
+		   for character into the testi-cards section right after this one (pairs via
+		   'pairs_with_cards'), not deleted or reworded. NOTE for whoever reads this
+		   next: removing them leaves "וכשהוא קיבל את התוצאות, הוא שלח לי הודעה." and
+		   "מיד אחר כך הוא כתב:" with nothing following in the prose flow — the second
+		   sentence in particular now ends on a colon with no quote after it. That is
+		   an existing-content problem, not something this change is authorized to
+		   rewrite (content law: no words that are not already in the source file) —
+		   flagged in DONE-S007-M09, not smoothed over here. */
 		array(
 			'part' => 'split',
 			'args' => array(
-				'alt'   => true,
+				'alt'             => true,
+				'pairs_with_cards' => true,
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 373 */
 				'title' => 'הסיפור של יוני',
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 371 */
 				'id'    => 'הסיפור-של-יוני',
-				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 384–437 · באנר = SNR-03 KEEP */
-				'body'  => '<p>יוני, שם בדוי, הוא איש הייטק ואבא לחמישה ילדים.</p><p>כשהוא הגיע אליי הוא כבר סבל כמעט עשור מדום נשימה חסימתי בשינה.</p><p>כמעט עשור שהוא ישן כל לילה עם מכשיר CPAP שמזרים לו אוויר בלחץ. הוא ישן רע, קם עצבני, כועס, עייף ועם כאבי ראש.</p><p>נפשית, הבנאדם היה שחוט. גמור.</p><p>ואפשר להבין למה.</p><p>בבדיקת שינה שעבר בשנת 2014 נמדדו אצלו, לדבריו, כ-250 הפסקות נשימה בלילה.</p><p>תחשבו על המספר הזה רגע.</p><p>250 פעמים בלילה.</p><p>הרופאים המליצו לו על ניתוח. יוני חיפש אפשרות אחרת ובסופו של דבר הגיע אליי.</p><p>התחלנו לעבוד. ללמוד דיג\'רידו, לעבוד עם הנשימה ולתרגל. שוב ושוב. לא טיפול של פעם אחת ולא משהו שקורה בלי להשקיע.</p><p>ברשותכם אני אקפוץ ישר לסוף.</p><p>אחרי תקופה של עבודה יוני חזר לבדיקת שינה.</p><p>וכשהוא קיבל את התוצאות, הוא שלח לי הודעה.</p><blockquote><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote><p>מיד אחר כך הוא כתב:</p><blockquote><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote><p>אני זוכר את ההתרגשות.</p><p>אחרי כמעט עשר שנים של לילות שלא באמת היו לילות, הבדיקה החדשה כבר לא הדגימה את תסמונת דום הנשימה שממנה סבל.</p><p>אי אפשר לתאר את האושר.</p><p>יוני חזר לישון.</p><p>הוא חזר לחיים.</p><p>חשוב לי לומר משהו ברור. זה הסיפור של יוני. מקרה אישי אחד. אני לא מבטיח שכל אדם שיגיע אליי יקבל את אותה תוצאה.</p><p>אבל זה קרה.</p><p>והפעם לא מדובר רק בתחושה של "אני ישן יותר טוב".</p><p>היתה בדיקת שינה.</p><p><strong>2014: כ-250 הפסקות נשימה בלילה</strong></p><p><strong>לאחר התהליך: "בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה"</strong></p>',
+				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 384–437 · באנר = SNR-03 KEEP · S007 M-09: שני ה-blockquote הוצאו לכרטיסים */
+				'body'  => '<p>יוני, שם בדוי, הוא איש הייטק ואבא לחמישה ילדים.</p><p>כשהוא הגיע אליי הוא כבר סבל כמעט עשור מדום נשימה חסימתי בשינה.</p><p>כמעט עשור שהוא ישן כל לילה עם מכשיר CPAP שמזרים לו אוויר בלחץ. הוא ישן רע, קם עצבני, כועס, עייף ועם כאבי ראש.</p><p>נפשית, הבנאדם היה שחוט. גמור.</p><p>ואפשר להבין למה.</p><p>בבדיקת שינה שעבר בשנת 2014 נמדדו אצלו, לדבריו, כ-250 הפסקות נשימה בלילה.</p><p>תחשבו על המספר הזה רגע.</p><p>250 פעמים בלילה.</p><p>הרופאים המליצו לו על ניתוח. יוני חיפש אפשרות אחרת ובסופו של דבר הגיע אליי.</p><p>התחלנו לעבוד. ללמוד דיג\'רידו, לעבוד עם הנשימה ולתרגל. שוב ושוב. לא טיפול של פעם אחת ולא משהו שקורה בלי להשקיע.</p><p>ברשותכם אני אקפוץ ישר לסוף.</p><p>אחרי תקופה של עבודה יוני חזר לבדיקת שינה.</p><p>וכשהוא קיבל את התוצאות, הוא שלח לי הודעה.</p><p>מיד אחר כך הוא כתב:</p><p>אני זוכר את ההתרגשות.</p><p>אחרי כמעט עשר שנים של לילות שלא באמת היו לילות, הבדיקה החדשה כבר לא הדגימה את תסמונת דום הנשימה שממנה סבל.</p><p>אי אפשר לתאר את האושר.</p><p>יוני חזר לישון.</p><p>הוא חזר לחיים.</p><p>חשוב לי לומר משהו ברור. זה הסיפור של יוני. מקרה אישי אחד. אני לא מבטיח שכל אדם שיגיע אליי יקבל את אותה תוצאה.</p><p>אבל זה קרה.</p><p>והפעם לא מדובר רק בתחושה של "אני ישן יותר טוב".</p><p>היתה בדיקת שינה.</p><p><strong>2014: כ-250 הפסקות נשימה בלילה</strong></p><p><strong>לאחר התהליך: "בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה"</strong></p>',
 				/* S007 (2026-09-18, team_00): «התמונה - לשים בצד עם lightbox - לצד הטקסט».
 				   This screenshot was a full-width gallery below the text, because he had
 				   earlier required it be readable and beside-the-text makes it ~420px. The
@@ -198,6 +209,19 @@ return array(
 				'alt'   => 'התכתבות עם מטופל על תוצאות בדיקת שינה לאחר תהליך דיג\'רידו — פרט מזהה מטושטש',
 				'figr'  => 'l',
 				'zoom'  => true,
+			),
+		),
+
+		/* S007 M-09: the two quotes, relocated character for character from the
+		   blockquotes that used to sit inline in the Yoni prose above. No heading,
+		   attribution, rating or date added — none was in the source. */
+		array(
+			'part' => 'testi-cards',
+			'args' => array(
+				'quotes' => array(
+					'<strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong>',
+					'<strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong>',
+				),
 			),
 		),
 

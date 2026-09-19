@@ -32,10 +32,13 @@
   --hf:'Heebo',-apple-system,Arial,sans-serif; --bf:'Heebo',-apple-system,Arial,sans-serif;
   --serif:'Frank Ruhl Libre',serif;
   /* Reserved serif accent. The comment here used to say «hero + years only» and that
-     stopped being true at 1.5.41, when team_00 ruled the hero back onto Heebo. It is
-     live on SIX selectors now: .tl__y, .bleed__q, .st3::after, .shstep__dot span,
-     .bookcard__cover .ph, .bookcard__t. --display ('Suez One') is a THIRD family on
-     six more. Whether either stays is team_00's call — see canon §10. */
+     stopped being true at 1.5.41, when team_00 ruled the hero back onto Heebo. As of
+     S007 M-07 (1.5.73) this token has exactly ONE live consumer left: .bleed__q, the
+     one exception team_00 named. The other five that used to read this token
+     (.tl__y, .st3::after, .shstep__dot span, .bookcard__cover .ph, .bookcard__t) were
+     repointed to var(--bf). --display ('Suez One') was a third family on six more
+     selectors, none of which render live (grep-confirmed dead) — collapsed onto
+     var(--bf) at the token itself rather than left as a fourth state. */
   --e:cubic-bezier(.22,1,.36,1);
   /* S007 (2026-09-18, team_00): «המרווח לפני ואחרי כל row… גדול מידי. מעט פחות אוויר —
      כללי לכל המערכת». .sec applies this as padding TOP AND BOTTOM, so two adjacent
@@ -1283,4 +1286,31 @@ body.nav-locked{overflow:hidden}
     align-items:center;gap:8px;background:var(--ink);color:var(--ivory);border:0;border-radius:100px;
     padding:11px 18px;font-family:var(--bf);font-size:var(--fs-xs);font-weight:var(--fw-medium);
     box-shadow:0 8px 22px rgba(47,32,19,.3);cursor:pointer}
+}
+
+/* S007 M-09: pair the immediately-preceding split (a story) with a following
+   testimonial-cards part — same display:contents + :has() technique as
+   .ea-toc-lede-lead above; see that comment for why this cannot be a nested
+   :has(). team_00, «עדויות - ליד הסיפור»: the quotes sit beside the story they
+   came from, not lifted into a separate section or a carousel. */
+@media(min-width:861px){
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards){
+    display:grid;grid-template-columns:minmax(48px,1fr) minmax(0,620px) minmax(260px,460px) minmax(48px,1fr);
+    column-gap:38px}
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > *:not(.rail):not(.toc-fab):not(.sheet){grid-column:1/-1}
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-cards-lede-lead,
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-testi-cards{display:contents}
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-cards-lede-lead > .wrap{
+    grid-column:2;max-width:none;padding-inline:0;padding-block:var(--sec)}
+  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-testi-cards > .wrap{
+    grid-column:3;max-width:none;padding-inline:0;padding-block:var(--sec);display:block}
+}
+.ea-testi-cards__list{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ea-testi-cards__card{margin:0;padding:26px 22px;background:var(--ivory-2);border-inline-start:3px solid var(--terra);
+  border-radius:6px;font-family:var(--bf);font-size:var(--fs-sm);font-weight:var(--fw-light);
+  line-height:1.55;color:var(--ink)}
+.ea-testi-cards__card strong{font-weight:var(--fw-medium)}
+@media(max-width:860px){
+  .ea-testi-cards{padding-block-start:0}
+  .ea-testi-cards__list{grid-template-columns:1fr}
 }
