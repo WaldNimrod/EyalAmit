@@ -4,10 +4,13 @@
  * $args: quotes (array of HTML strings, relocated verbatim from source content —
  * this part adds no wording, label, attribution or heading of its own), id.
  *
- * S007 M-09: team_00, «עדויות - ליד הסיפור» — pairs with the immediately
- * preceding .sec via the same display:contents + :has() technique as
- * .ea-toc-lede-lead (see chapters.css). The preceding section's own args must
- * set 'pairs_with_cards' => true (prose.php / split.php).
+ * S007 M-09: team_00, «עדויות - ליד הסיפור».
+ * 20.9.2026 — the side-column pairing this first shipped with was wrong and he
+ * said so: it narrowed the story's text to a third of the page for the height of
+ * two small cards. «ליד הסיפור» means AT THE RIGHT POINT IN IT, not in a parallel
+ * column. This now renders as a normal full-width band placed between the two
+ * halves of the narrative, directly under the sentence that introduces the quotes.
+ * $args also takes alt(bool) so the band can share its neighbours' background.
  *
  * @package ea_eyalamit
  */
@@ -19,7 +22,7 @@ if ( empty( $quotes ) ) {
 	return;
 }
 ?>
-<section class="sec ea-testi-cards"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
+<section class="sec ea-testi-cards<?php echo ! empty( $a['alt'] ) ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap">
 		<div class="ea-testi-cards__list">
 			<?php foreach ( $quotes as $ea_q ) : ?>

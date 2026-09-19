@@ -1303,23 +1303,30 @@ body.nav-locked{overflow:hidden}
     box-shadow:0 8px 22px rgba(47,32,19,.3);cursor:pointer}
 }
 
-/* S007 M-09: pair the immediately-preceding split (a story) with a following
-   testimonial-cards part — same display:contents + :has() technique as
-   .ea-toc-lede-lead above; see that comment for why this cannot be a nested
-   :has(). team_00, «עדויות - ליד הסיפור»: the quotes sit beside the story they
-   came from, not lifted into a separate section or a carousel. */
-@media(min-width:861px){
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards){
-    display:grid;grid-template-columns:minmax(48px,1fr) minmax(0,620px) minmax(260px,460px) minmax(48px,1fr);
-    column-gap:38px}
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > *:not(.rail):not(.toc-fab):not(.sheet){grid-column:1/-1}
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-cards-lede-lead,
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-testi-cards{display:contents}
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-cards-lede-lead > .wrap{
-    grid-column:2;max-width:none;padding-inline:0;padding-block:var(--sec)}
-  .chapters-main:has(> .sec.ea-cards-lede-lead + .sec.ea-testi-cards) > .sec.ea-testi-cards > .wrap{
-    grid-column:3;max-width:none;padding-inline:0;padding-block:var(--sec);display:block}
+/* The cards' side-column pairing was removed on 2026-09-20. team_00, on screenshots:
+   «הטקסט לכל הרוחב תוכן הקבוע של האתר / הכרטיסיות - רחבות- אינליין - במקום הנכון בהקשר».
+   Pairing a band into its own grid column narrows the NEIGHBOUR for that band's whole
+   height — on the Yoni story that meant a third of the page for two small quotes. The
+   cards are a normal full-width .sec now, placed where the quotes belong in the story.
+   The .ea-toc pairing above stays: a table of contents beside a one-line lead is a
+   different shape from two cards beside twenty paragraphs. */
+/* A SMALL picture inside prose: floated, text wrapping around it. The alternative —
+   .split2's two columns — costs the section's whole text width for the height of one
+   image, which is exactly what team_00 rejected on 20.9.2026.
+   Width is a clamp, not a fraction, so the text keeps a readable measure beside it; below
+   720px it stops floating and becomes a normal block, because a 300px float in a 390px
+   viewport leaves a 70px column of text. */
+.pfloat{margin:6px 0 18px;max-width:clamp(220px,32%,340px)}
+.pfloat--s{float:inline-start;margin-inline-end:26px}
+.pfloat--e{float:inline-end;margin-inline-start:26px}
+.pfloat img{display:block;width:100%;height:auto;border-radius:10px}
+.pfloat .zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font-family:var(--bf)}
+@media(max-width:720px){
+  .pfloat,.pfloat--s,.pfloat--e{float:none;max-width:none;margin-inline:0}
 }
+/* The prose body must contain its own float, or the next section rides up beside it. */
+.intro-body::after{content:"";display:block;clear:both}
+
 .ea-testi-cards__list{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .ea-testi-cards__card{margin:0;padding:26px 22px;background:var(--ivory-2);border-inline-start:3px solid var(--terra);
   border-radius:6px;font-family:var(--bf);font-size:var(--fs-sm);font-weight:var(--fw-light);
