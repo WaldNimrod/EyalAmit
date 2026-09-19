@@ -66,6 +66,17 @@ function ea_chapters_enqueue_assets() {
 		$ver,
 		true
 	);
+
+	/* Page TOC (inline / rail / mobile sheet) — loaded on every Chapters view
+	   because any inner page may carry the part. It exits immediately when the
+	   page has no .ea-toc, so the cost on pages without one is a parsed no-op. */
+	wp_enqueue_script(
+		'ea-toc',
+		$uri . '/assets/js/ea-toc.js',
+		array(),
+		$ver,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'ea_chapters_enqueue_assets', 100 );
 

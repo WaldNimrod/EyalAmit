@@ -37,13 +37,26 @@ return array(
 			),
 		),
 
-		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 40–50 · בלי H2 «מה יש בעמוד הזה» */
+		/* S007 M-06 · TOC part. Relocated from the hand-written <nav class="toc">
+		   that previously lived in this slot as a prose body (same 11 links, same
+		   text, same order). Sits beside sections[0] — the one-line lead — via
+		   the sketch's .lede grid. That previous prose had no other content. */
 		array(
-			'part' => 'prose',
+			'part' => 'toc',
 			'args' => array(
-				'alt'   => true,
-				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורות 40–50 */
-				'body' => '<nav class="toc" aria-label="תוכן העניינים"><h2 class="h2 r">תוכן עניינים</h2><ul><li><a href="#הקשר-בין-דיגרידו-נחירות-ודום-נשימה">מה הקשר בין דיג\'רידו, נחירות ודום נשימה?</a></li><li><a href="#מה-מצא-המחקר">מה מצא המחקר?</a></li><li><a href="#נחירות-הן-לא-תמיד-רק-נחירות">נחירות הן לא תמיד רק נחירות</a></li><li><a href="#אילו-פתרונות-קיימים-היום">אילו פתרונות קיימים היום?</a></li><li><a href="#מה-מתרגלים-בדיגרידו">מה בעצם מתרגלים בדיג\'רידו?</a></li><li><a href="#איך-אני-עובד">איך אני עובד?</a></li><li><a href="#הסיפור-של-יוני">הסיפור של יוני</a></li><li><a href="#למי-הגישה-מתאימה">למי הגישה יכולה להתאים?</a></li><li><a href="#דיגרידו-ו-cpap">האם דיג\'רידו יכול להחליף CPAP?</a></li><li><a href="#שאלות-נפוצות">שאלות שאני שומע הרבה</a></li><li><a href="#איך-יודעים-אם-זה-מתאים">איך יודעים אם זה יכול להתאים גם לכם?</a></li></ul></nav>',
+				'items' => array(
+					array( 'id' => 'הקשר-בין-דיגרידו-נחירות-ודום-נשימה', 'label' => 'מה הקשר בין דיג\'רידו, נחירות ודום נשימה?' ),
+					array( 'id' => 'מה-מצא-המחקר', 'label' => 'מה מצא המחקר?' ),
+					array( 'id' => 'נחירות-הן-לא-תמיד-רק-נחירות', 'label' => 'נחירות הן לא תמיד רק נחירות' ),
+					array( 'id' => 'אילו-פתרונות-קיימים-היום', 'label' => 'אילו פתרונות קיימים היום?' ),
+					array( 'id' => 'מה-מתרגלים-בדיגרידו', 'label' => 'מה בעצם מתרגלים בדיג\'רידו?' ),
+					array( 'id' => 'איך-אני-עובד', 'label' => 'איך אני עובד?' ),
+					array( 'id' => 'הסיפור-של-יוני', 'label' => 'הסיפור של יוני' ),
+					array( 'id' => 'למי-הגישה-מתאימה', 'label' => 'למי הגישה יכולה להתאים?' ),
+					array( 'id' => 'דיגרידו-ו-cpap', 'label' => 'האם דיג\'רידו יכול להחליף CPAP?' ),
+					array( 'id' => 'שאלות-נפוצות', 'label' => 'שאלות שאני שומע הרבה' ),
+					array( 'id' => 'איך-יודעים-אם-זה-מתאים', 'label' => 'איך יודעים אם זה יכול להתאים גם לכם?' ),
+				),
 			),
 		),
 

@@ -1149,3 +1149,93 @@ body.nav-locked{overflow:hidden}
   cursor:pointer;display:flex;align-items:center;justify-content:center}
 .ea-lb__x:focus-visible{outline:3px solid #fff;outline-offset:2px}
 @media(max-width:700px){.ea-lb__x{inset-block-start:8px;inset-inline-end:8px}}
+
+/* ── Page TOC (inline / rail / mobile sheet) ─────────────────────────────────
+   Ported from SKETCH-TOC-ELEMENT-2026-09-18.html. Three states of the same
+   navigation. Selectors are scoped under .ea-toc / the pairing :has() so they
+   do not collide with .lead, .nav, or .ea-lb. Colors reuse this file's :root
+   tokens (--ink --body --terra-btn --line --ivory). Sizes and weights are
+   locked rungs only. */
+.ea-toc .lede{display:grid;grid-template-columns:1fr auto;gap:38px;align-items:start}
+.ea-toc .toc-inline{border-inline-start:2px solid var(--line);padding-inline-start:18px;min-width:210px}
+.ea-toc .toc-inline__h{font-size:var(--fs-3xs);font-weight:var(--fw-medium);letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--terra-btn);margin:0 0 10px}
+.ea-toc .toc-inline ol{list-style:none;margin:0;padding:0;counter-reset:t}
+.ea-toc .toc-inline li{counter-increment:t;margin-bottom:7px}
+.ea-toc .toc-inline a{font-size:var(--fs-xs);font-weight:var(--fw-light);color:var(--body);
+  text-decoration:none;display:flex;gap:8px;line-height:1.45}
+.ea-toc .toc-inline a::before{content:counter(t,decimal-leading-zero);color:var(--terra-btn);
+  font-size:var(--fs-3xs);font-weight:var(--fw-medium);padding-top:2px}
+.ea-toc .toc-inline a:hover,.ea-toc .toc-inline a:focus-visible{color:var(--terra-btn)}
+
+/* B · floating rail — sits in the margin, never over content.
+   Hidden until the inline list leaves the viewport (.is-on). visibility +
+   opacity, not display: the transition needs both, and visibility:hidden
+   takes the links out of the tab order. */
+.ea-toc .rail{position:fixed;inset-block-start:50%;inset-inline-end:16px;transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:9px;align-items:flex-end;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .28s var(--e,ease),visibility .28s}
+.ea-toc .rail.is-on{opacity:1;visibility:visible;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.ea-toc .rail{transition:none}}
+.ea-toc .rail a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--body);
+  font-size:var(--fs-3xs);font-weight:var(--fw-light)}
+.ea-toc .rail i{display:block;width:16px;height:2px;background:var(--line);border-radius:2px;
+  transition:width .22s,background .22s}
+.ea-toc .rail a span{opacity:0;transform:translateX(6px);transition:opacity .22s,transform .22s;
+  white-space:nowrap;background:var(--ivory);padding:2px 8px;border-radius:4px;
+  box-shadow:0 2px 10px rgba(47,32,19,.1)}
+.ea-toc .rail a:hover span,.ea-toc .rail a:focus-visible span{opacity:1;transform:none}
+.ea-toc .rail a:hover i,.ea-toc .rail a:focus-visible i,.ea-toc .rail a.on i{width:26px;background:var(--terra-btn)}
+.ea-toc .rail a.on span{opacity:1;transform:none}
+
+/* C · mobile pill + sheet */
+.ea-toc .toc-fab{display:none}
+.ea-toc .sheet{border:0;padding:0;border-radius:14px 14px 0 0;max-width:100%;width:100%;
+  margin:auto auto 0;background:var(--ivory)}
+.ea-toc .sheet::backdrop{background:rgba(47,32,19,.55)}
+.ea-toc .sheet__in{padding:22px 22px 30px}
+.ea-toc .sheet__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.ea-toc .sheet__t{font-size:var(--fs-3xs);font-weight:var(--fw-medium);letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--terra-btn)}
+.ea-toc .sheet__x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+  background:none;font-size:var(--fs-h4);line-height:1;color:var(--ink);font-family:var(--bf);
+  cursor:pointer}
+.ea-toc .sheet ol{list-style:none;margin:0;padding:0;counter-reset:t}
+.ea-toc .sheet li{counter-increment:t;border-block-end:1px solid var(--line)}
+.ea-toc .sheet a{display:flex;gap:10px;padding:13px 2px;text-decoration:none;color:var(--ink);
+  font-size:var(--fs-body);font-weight:var(--fw-light)}
+.ea-toc .sheet a::before{content:counter(t,decimal-leading-zero);color:var(--terra-btn);
+  font-size:var(--fs-2xs);font-weight:var(--fw-medium);padding-top:4px}
+
+/* Pair the immediately-preceding lead prose with this part so they share the
+   sketch's .lede row. display:contents flattens the two section boxes; the
+   wraps become columns of .chapters-main. Only when that lead sibling exists,
+   and only above the mobile breakpoint — below 860px they stack, as the sketch. */
+@media(min-width:861px){
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc){
+    display:grid;grid-template-columns:minmax(48px,1fr) minmax(0,856px) auto minmax(48px,1fr);
+    column-gap:38px}
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > *:not(.rail):not(.toc-fab):not(.sheet){grid-column:1/-1}
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .sec:has(.p-lead):has(+ .ea-toc),
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .ea-toc,
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .ea-toc > .sec{display:contents}
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap:has(.p-lead){
+    grid-column:2;max-width:none;padding-inline:0;padding-block:var(--sec);text-align:start}
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap:has(.p-lead) .intro-body{
+    margin-inline:0!important;max-width:none}
+  .chapters-main:has(> .sec:has(.p-lead) + .ea-toc) > .wrap.lede{
+    grid-column:3;max-width:none;padding-inline:0;padding-block:var(--sec);display:block}
+}
+
+@media(max-width:860px){
+  .sec:has(.p-lead):has(+ .ea-toc){padding-block-end:0}
+  .ea-toc .ea-toc__sec{padding-block-start:0}
+  .ea-toc .lede{grid-template-columns:1fr}
+  .ea-toc .toc-inline{border:0;padding:0;border-block-start:1px solid var(--line);padding-block-start:18px}
+  .ea-toc .rail{display:none}
+  .ea-toc .toc-fab{display:flex;position:fixed;inset-block-end:18px;inset-inline-start:18px;z-index:60;
+    align-items:center;gap:8px;background:var(--ink);color:var(--ivory);border:0;border-radius:100px;
+    padding:11px 18px;font-family:var(--bf);font-size:var(--fs-xs);font-weight:var(--fw-medium);
+    box-shadow:0 8px 22px rgba(47,32,19,.3);cursor:pointer}
+}
