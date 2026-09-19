@@ -11,7 +11,7 @@ decision_record: _COMMUNICATION/team_00/DECISION-S007-MOBILE-NAV-MECHANISM-2026-
 design_source: _COMMUNICATION/team_35/handoff-WP-W2-10-MOBILE/
 baseline: _COMMUNICATION/team_50/XVAL-MOBILE-BASELINE-2026-09-19.md
 theme_at_dispatch: 1.5.83
-status: HELD — start only when M-11 has reported and team_100 has cleared it
+status: DISPATCHED — M-11 closed clean on 2026-09-20, hold lifted
 ---
 
 # M-12 · One mobile drawer, every page, on the browser's own modal
