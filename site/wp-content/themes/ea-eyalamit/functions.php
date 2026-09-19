@@ -43,7 +43,11 @@ function ea_eyalamit_enqueue_theme_shell_fallback() {
 	wp_enqueue_style(
 		'ea-eyalamit-theme-shell-fallback',
 		get_stylesheet_directory_uri() . '/assets/css/theme-shell-fallback.css',
-		array( 'ea-eyalamit-style', 'ea-eyalamit-fonts-rubik' ),
+		/* S007 M-10: 'ea-eyalamit-fonts-rubik' removed from deps — that handle no longer
+		   exists (the Rubik request was removed below). A $deps entry naming a handle
+		   that is not registered would silently drop this whole style, not just the
+		   dependency, so this had to change in the same commit as the enqueue removal. */
+		array( 'ea-eyalamit-style' ),
 		wp_get_theme()->get( 'Version' )
 	);
 }
@@ -148,16 +152,11 @@ function ea_eyalamit_enqueue_styles() {
 		wp_get_theme()->get( 'Version' )
 	);
 
-	/* Rubik — דף בית + שאר העמודים (M3-M4 ליטוש מבני). */
-	if ( ! is_admin() ) {
-		wp_enqueue_style(
-			'ea-eyalamit-fonts-rubik',
-			'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap',
-			array(),
-			null
-		);
-	}
-
+	/* S007 M-10: Rubik enqueue removed — the cross-engine gate measured zero elements
+	   computing Rubik across all 157 published URLs (the M3-M4 rules that used to
+	   consume it were pointed at --ea-font in S007 M-07). This request was pure dead
+	   weight on every page load. theme-shell-fallback.css's $deps was updated in the
+	   same change — see ea_eyalamit_enqueue_theme_shell_fallback() above. */
 }
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_styles', 20 );
 
@@ -188,7 +187,9 @@ function ea_eyalamit_enqueue_palette_root_overrides() {
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_palette_root_overrides', 100 );
 
 /**
- * Preconnect to Google Fonts (Rubik) בחזית.
+ * Preconnect to Google Fonts בחזית.
+ * S007 M-10: comment used to say "(Rubik)" — that request is gone; this preconnect
+ * now only serves ea-chapters-fonts (Heebo + Frank Ruhl Libre).
  */
 function ea_eyalamit_font_preconnect( $urls, $relation_type ) {
 	if ( 'preconnect' !== $relation_type || is_admin() ) {
@@ -703,9 +704,10 @@ function ea_eyalamit_books_v2_assets() {
 		return;
 	}
 
-	// [V2] Heebo — לא נטען גלובלית בתבנית (הפונט הגלובלי הוא Rubik).
-	// נטען כאן לעמודי הספרים בלבד. כשמערכת העיצוב תועבר גלובלית ל-Heebo —
-	// להעביר את ה-enqueue ל-ea_eyalamit_enqueue_styles() ולהסיר מכאן.
+	// [V2] Heebo — נטען כאן לעמודי הספרים בלבד, לא כחלק מ-ea_eyalamit_enqueue_styles().
+	// S007 M-10: ההערה הקודמת אמרה שהפונט הגלובלי הוא Rubik — זה הוסר (אפס צרכנים,
+	// נמדד על פני 157 העמודים). --ea-font כבר מפנה ל-Heebo בכל מקום; הבקשה הזאת
+	// עדיין נפרדת כי אין enqueue גלובלי בפועל שמביא את קובץ הגופן עצמו.
 	if ( ! wp_style_is( 'ea-eyalamit-fonts-heebo', 'enqueued' )
 		&& ! wp_style_is( 'ea-eyalamit-fonts-heebo', 'registered' ) ) {
 		wp_enqueue_style(

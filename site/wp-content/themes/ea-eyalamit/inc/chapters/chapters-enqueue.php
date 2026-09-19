@@ -23,10 +23,13 @@ function ea_chapters_enqueue_assets() {
 	$ver = wp_get_theme()->get( 'Version' );
 	$uri = get_stylesheet_directory_uri();
 
-	// 3-family Google Fonts: Heebo (body+headings) · Frank Ruhl Libre (hero/quotes) · Suez One (display).
+	// 2-family Google Fonts: Heebo (body+headings) · Frank Ruhl Libre (the .bleed__q pull
+	// quote — team_00's one named exception to the Heebo collapse; keep this family).
+	// S007 M-10: Suez One removed from this request — zero elements computed it across
+	// all 157 URLs (its --display consumers were repointed to var(--bf) in S007 M-07).
 	wp_enqueue_style(
 		'ea-chapters-fonts',
-		'https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Suez+One&display=swap',
+		'https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700&display=swap',
 		array(),
 		null
 	);

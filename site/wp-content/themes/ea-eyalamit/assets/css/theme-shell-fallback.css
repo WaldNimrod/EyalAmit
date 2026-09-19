@@ -19,7 +19,11 @@ body.ea-books-hub-view,
 body.ea-book-detail-view {
 	margin: 0;
 	min-height: 100vh;
-	font-family: "Rubik", system-ui, sans-serif;
+	/* S007 M-10: was "Rubik", system-ui, sans-serif. The Rubik request is gone
+	   (zero live consumers, measured across all 157 URLs); --ea-font is the
+	   site's real font and is enqueued unconditionally (ea-tokens.css), so it
+	   is available even in the parent-theme-missing case this file exists for. */
+	font-family: var(--ea-font);
 	font-size: var(--fs-body);
 	line-height: 1.65;
 	color: var(--eyal-ink, #2e2b28);
