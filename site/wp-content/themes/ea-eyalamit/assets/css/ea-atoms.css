@@ -1177,36 +1177,21 @@
       margin: 0 0 var(--ea-space-5) 0;
     }
 
-    /* WhatsApp floating button */
+    /* The WhatsApp float lives in style.css, not here.
+       ea-atoms.css does not load on /services/, /shows-heritage/,
+       /historical-articles/, /thank-you/, /courses-soon/ or
+       /learning/courses-external/ — measured live: their stylesheet list is
+       ea-tokens, the parent theme, and style.css, nothing else. A float rule here
+       would have missed exactly the six pages team_00 ruled must not be
+       exceptions. */
+    /* Geometry, colour and the hidden label now live once in style.css, which is the
+       only child-theme sheet that loads on every page. What stays here is the pulse
+       and nothing else: its keyframes and its prefers-reduced-motion guard are both
+       in this file's own scope, so moving it to style.css would have shipped an
+       animation to six pages with no way to turn it off. Pages that never loaded
+       this sheet never had the pulse, and still do not. */
     .ea-whatsapp-float {
-      position: fixed;
-      bottom: var(--ea-space-5);
-      inset-inline-start: var(--ea-space-5);
-      z-index: var(--ea-z-toast);
-      display: inline-flex;
-      align-items: center;
-      gap: var(--ea-space-1);
-      background: #0F7A3F;
-      color: #fff;
-      border-radius: var(--ea-radius-pill);
-      padding: 12px 20px;
-      text-decoration: none;
-      font-family: var(--ea-font);
-      font-size:var(--fs-sm);
-      font-weight:var(--fw-bold);
       animation: breathe-fast 8s ease-in-out infinite;
-      transition: box-shadow var(--ea-dur-fast), background var(--ea-dur-fast);
-    }
-    .ea-whatsapp-float:hover {
-      background: #0C6A37;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
-    }
-    .ea-whatsapp-float:focus-visible {
-      outline: 2px solid #fff;
-      outline-offset: 3px;
-    }
-    .ea-whatsapp-float__icon {
-      flex-shrink: 0;
     }
 
     /* 2026-09-17: contact page split into 3 visually separated rows (form +

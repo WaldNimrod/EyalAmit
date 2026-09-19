@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.5.71
+Version: 1.5.72
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -301,3 +301,58 @@ body.ea-m4-polish .ea-footer-legal-menu a:hover,
 body.ea-m4-polish .ea-footer-legal-menu a:focus {
 	color: var(--eyal-terracotta);
 }
+
+/* ── WhatsApp float — icon only, every page ──────────────────────────────────
+   team_00, 19.9.2026: «כפתור וואטסאפ. בכל האתר - ללא הטקסט - רק איקון.»
+
+   It lives HERE and not in ea-atoms.css because ea-atoms.css does not load on the
+   six pages outside both template systems. Measured live on /services/ before this
+   rule: the float computed display:inline at 106x19 with the label showing — it was
+   not a floating button there at all, just an inline link in the footer flow. The
+   canon's own warning applies: a sweep of the pages you happen to know is not a
+   sweep of the site.
+
+   The label is hidden, not deleted. The <a> carries its own aria-label, so the
+   control keeps its accessible name, and display:none also removes the span from
+   the tab order rather than leaving invisible text a keyboard can reach.
+
+   54x54 clears the 44px touch-target floor; the old pill was 19px on the short
+   axis, which did not. .ea-chapters overrides the colours in chapters.css and is
+   left alone — he asked to drop the text, not to restyle the button. */
+.ea-whatsapp-float {
+	position: fixed;
+	inset-block-end: 22px;
+	inset-inline-start: 22px;
+	z-index: 60;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	width: 54px;
+	height: 54px;
+	padding: 0;
+	background: #0F7A3F;
+	color: #fff;
+	border-radius: 50%;
+	text-decoration: none;
+	font-family: var(--ea-font);
+}
+
+.ea-whatsapp-float:hover,
+.ea-whatsapp-float:focus-visible {
+	background: #0C6A37;
+}
+
+.ea-whatsapp-float:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 3px;
+}
+
+.ea-whatsapp-float__icon {
+	flex-shrink: 0;
+}
+
+.ea-whatsapp-float__label {
+	display: none;
+}
+
