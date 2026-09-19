@@ -302,7 +302,13 @@ a{color:inherit}
 .foot a:focus-visible{color:#fff;outline:2px solid var(--terra-lt);outline-offset:3px}
 .foot__brand{text-align:left}
 .foot__brand b{font-family:var(--hf);font-size:var(--fs-h4);color:#fff;display:block;margin-bottom:8px}
-.foot__brand p{font-size:var(--fs-xs);color:rgba(255,255,255,.45);line-height:1.7;max-width:34ch;margin:0 0 18px auto}
+/* .46 and not .45: white at .45 over the footer's painted #0E0905 flattens to
+   rgb(122.5,119.7,117.5) = 4.4960:1, four thousandths under the 4.5 floor, at 13.6px/300
+   which is not large text. .46 gives 4.6538:1 — a real margin rather than a knife-edge
+   .452 — and moves each channel by about 2 of 255, which is not a visible change.
+   The fix is the alpha, not a new colour: this line is the brand, address and phone on
+   every chapters footer, and three independent measurements filed it as a fail. */
+.foot__brand p{font-size:var(--fs-xs);color:rgba(255,255,255,.46);line-height:1.7;max-width:34ch;margin:0 0 18px auto}
 .foot__soc{display:flex;gap:11px;justify-content:flex-start}
 .foot__soc a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d);display:flex;align-items:center;justify-content:center;margin:0}
 .foot__soc svg{width:16px;height:16px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:1.5}
