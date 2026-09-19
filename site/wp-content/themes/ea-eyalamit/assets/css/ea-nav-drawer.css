@@ -1,0 +1,183 @@
+/* =============================================================
+   ea-nav-drawer — the ONE mobile navigation drawer, every page.
+   S007 M-12 (2026-09-20), replacing three independent mobile menus
+   (Chapters .nav__burger, Wave2 .ea-mnav-*, GeneratePress .menu-toggle)
+   per _COMMUNICATION/team_00/DECISION-S007-MOBILE-NAV-MECHANISM-2026-09-19.md.
+
+   Native <dialog> + showModal(): focus trap, Escape-to-close, background
+   inertness and focus-return are the browser's job, not this file's.
+   Visual language ported from the June package
+   (_COMMUNICATION/team_35/handoff-WP-W2-10-MOBILE/mockups/assets/ea-mobile-nav.css)
+   — colours and spacing are the same D-14 tokens that file already used;
+   every font-size in the mockup was re-typed onto the twelve --fs-* rungs
+   per canon (S007-TYPOGRAPHY-CANON.md), none copied across as a number.
+
+   Enqueued on wp_enqueue_scripts priority 3 (inc/ea-nav-drawer.php), the
+   same unconditional hook ea_eyalamit_enqueue_type_tokens_everywhere()
+   uses — the one proven to reach the six parent-theme pages that load
+   neither ea-atoms.css nor chapters.css.
+   ============================================================= */
+
+/* ea-atoms.css:46 sets box-sizing:border-box on every element, but the six
+   pages above never load ea-atoms.css — every inline-size:100%-plus-padding
+   rule below silently overflows its container on exactly those pages
+   without this. Scoped to this component's own subtree rather than a
+   global *, so it cannot change sizing anywhere else on a page this file
+   does not otherwise touch. Caught via a real CDP measurement (.ea-nd__link
+   read 408px wide inside a 335px-wide dialog) before this ever reached the
+   six pages it matters most on — not assumed safe because it worked in a
+   harness that (like ea-atoms-carrying pages) already had border-box. */
+.ea-nd,.ea-nd *,.ea-nd *::before,.ea-nd *::after,
+.ea-nd-burger,.ea-nd-burger *{box-sizing:border-box}
+
+/* physical slide edge from doc direction — dialog is always anchored to the
+   inline-end edge, so RTL slides from the left and LTR from the right */
+html[dir="rtl"]{--ea-nd-tx:-100%}
+html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
+
+.ea-nd-burger{
+  display:none;
+}
+
+@media (max-width:1023px){
+  .ea-nd-burger{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:44px;min-height:44px;padding:0;
+    background:transparent;border:1px solid rgba(255,255,255,0.28);border-radius:var(--ea-radius-img);
+    color:var(--ea-on-dark,#fff);cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .ea-nd-burger__bars{display:block;width:20px;height:14px;position:relative}
+  .ea-nd-burger__bars span{
+    position:absolute;inset-inline:0;height:1.5px;background:currentColor;
+    transition:transform var(--ea-dur-mid) var(--ea-ease-enter),opacity var(--ea-dur-fast);
+  }
+  .ea-nd-burger__bars span:nth-child(1){top:0}
+  .ea-nd-burger__bars span:nth-child(2){top:6px}
+  .ea-nd-burger__bars span:nth-child(3){top:12px}
+
+  /* fixed trigger for the six pages that have no burger of their own today */
+  .ea-nd-burger--standalone{
+    position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
+    background:rgba(14,9,5,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  }
+}
+
+@media (min-width:1024px){
+  .ea-nd-burger--standalone{display:none}
+}
+
+/* Universal scroll lock while the drawer is open. This file is the one
+   stylesheet enqueued on every page (inc/ea-nav-drawer.php, same hook/
+   priority as ea-wave2-tokens) — chapters.css already carries its own copy
+   for Chapters pages, this is what makes the same flag work everywhere
+   else too, including the six orphan pages. */
+body.nav-locked{overflow:hidden}
+
+/* display:none here is load-bearing, not decorative: it is what keeps every
+   link/button inside genuinely out of the tab order while closed — the same
+   guarantee visibility:hidden gave the two hand-rolled panels this replaces,
+   except here it is the browser's own default for a dialog without [open],
+   restated explicitly so an unscoped display rule below can never win the
+   cascade over it by accident (a first version of this file did exactly
+   that with an unconditional display:flex, and 11 of 15 real Tab stops
+   landed inside the CLOSED dialog — caught by a real CDP tab-walk, not
+   inferred). Only dialog.ea-nd[open] may ever set display. */
+dialog.ea-nd{
+  display:none;
+  position:fixed;inset-block:0;inset-inline-end:0;inset-inline-start:auto;
+  margin:0;padding:0;border:0;max-width:none;max-height:100dvh;
+  inline-size:min(86vw,360px);
+  background:linear-gradient(180deg,#211e1b 0%,var(--ea-ink) 60%,#241d18 100%);
+  color:var(--ea-on-dark,#fff);
+  box-shadow:0 0 60px -10px rgba(0,0,0,.6);
+  overscroll-behavior:contain;
+  translate:var(--ea-nd-tx) 0;
+  transition:translate var(--ea-dur-mid) var(--ea-ease-enter),
+    overlay var(--ea-dur-mid) allow-discrete,
+    display var(--ea-dur-mid) allow-discrete;
+}
+dialog.ea-nd[open]{display:flex;flex-direction:column;translate:0 0}
+@starting-style{ dialog.ea-nd[open]{translate:var(--ea-nd-tx) 0} }
+
+dialog.ea-nd::backdrop{
+  background:rgba(46,43,40,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+  opacity:0;
+  transition:opacity var(--ea-dur-mid) var(--ea-ease-enter),
+    overlay var(--ea-dur-mid) allow-discrete,
+    display var(--ea-dur-mid) allow-discrete;
+}
+dialog.ea-nd[open]::backdrop{opacity:1}
+@starting-style{ dialog.ea-nd[open]::backdrop{opacity:0} }
+
+@media (min-width:1024px){
+  dialog.ea-nd{display:none !important}
+}
+
+.ea-nd :focus-visible{outline:2px solid var(--ea-sand);outline-offset:3px;border-radius:var(--ea-radius-img)}
+
+.ea-nd__head{
+  display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;
+  padding:var(--ea-space-3) var(--ea-space-3) var(--ea-space-2);
+  border-block-end:1px solid rgba(255,255,255,.08);
+}
+.ea-nd__brand{font-weight:var(--fw-xlight);font-size:var(--fs-body);letter-spacing:.5px;color:var(--ea-on-dark,#fff);text-decoration:none}
+.ea-nd__close{
+  min-width:44px;min-height:44px;padding:0;font-size:var(--fs-h4);line-height:1;
+  background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:var(--ea-radius-img);
+  color:var(--ea-on-dark,#fff);cursor:pointer;
+}
+.ea-nd__close:hover{border-color:rgba(255,255,255,.5)}
+
+.ea-nd__list{list-style:none;margin:0;padding:var(--ea-space-1) 0;flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.ea-nd__item{border-block-end:1px solid rgba(255,255,255,.06)}
+.ea-nd__link,.ea-nd__acc-btn{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--ea-space-2);
+  inline-size:100%;min-height:50px;padding:var(--ea-space-2) var(--ea-space-3);
+  font-family:var(--ea-font);font-weight:var(--fw-light);font-size:var(--fs-body);
+  color:rgba(255,255,255,.9);text-decoration:none;text-align:start;
+  background:transparent;border:0;cursor:pointer;
+  transition:background var(--ea-dur-fast),color var(--ea-dur-fast);
+}
+.ea-nd__link:hover,.ea-nd__acc-btn:hover{background:rgba(255,255,255,.05);color:var(--ea-on-dark,#fff)}
+.ea-nd__link[aria-current="page"]{color:var(--ea-sand)}
+.ea-nd__link[aria-current="page"]::before{
+  content:"";inline-size:3px;block-size:18px;border-radius:2px;background:var(--ea-terracotta);
+  margin-inline-end:calc(var(--ea-space-2) * -1 + 4px);margin-inline-start:-12px;
+}
+
+.ea-nd__caret{flex:0 0 auto;color:var(--ea-sand);font-size:var(--fs-2xs);transition:transform var(--ea-dur-mid) var(--ea-ease-enter)}
+.ea-nd__acc-btn[aria-expanded="true"] .ea-nd__caret{transform:rotate(180deg)}
+.ea-nd__acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--ea-dur-mid) var(--ea-ease-enter);background:rgba(0,0,0,.18)}
+.ea-nd__acc-btn[aria-expanded="true"] + .ea-nd__acc-panel{grid-template-rows:1fr}
+.ea-nd__acc-panel-in{overflow:hidden;min-height:0}
+.ea-nd__sublist{list-style:none;margin:0;padding:0}
+.ea-nd__sublink{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--ea-space-2);min-height:46px;
+  padding:var(--ea-space-1) var(--ea-space-3);padding-inline-start:var(--ea-space-5);
+  font-family:var(--ea-font);font-weight:var(--fw-light);font-size:var(--fs-sm);
+  color:rgba(255,255,255,.72);text-decoration:none;
+  transition:background var(--ea-dur-fast),color var(--ea-dur-fast);
+}
+.ea-nd__sublink:hover{background:rgba(255,255,255,.05);color:var(--ea-on-dark,#fff)}
+
+.ea-nd__foot{border-block-start:1px solid rgba(255,255,255,.08);padding:var(--ea-space-3);flex:0 0 auto;
+  display:flex;flex-direction:column;gap:var(--ea-space-3)}
+.ea-nd__foot-utils{display:flex;gap:var(--ea-space-1);align-items:center}
+.ea-nd__pill{
+  min-height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid rgba(255,255,255,.28);border-radius:var(--ea-radius-pill);
+  color:var(--ea-on-dark,#fff);font-family:var(--ea-font);font-size:var(--fs-3xs);font-weight:var(--fw-light);
+  letter-spacing:.2px;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:border-color var(--ea-dur-fast),background var(--ea-dur-fast);
+}
+.ea-nd__pill:hover{border-color:rgba(255,255,255,.55)}
+.ea-nd__pill[aria-pressed="true"]{background:var(--ea-sand);border-color:var(--ea-sand);color:var(--ea-ink)}
+.ea-nd__foot-links{display:flex;flex-wrap:wrap;gap:var(--ea-space-1) var(--ea-space-3)}
+.ea-nd__foot-links a{font-size:var(--fs-2xs);font-weight:var(--fw-light);color:rgba(255,255,255,.55);text-decoration:none}
+.ea-nd__foot-links a:hover{color:var(--ea-on-dark,#fff)}
+
+@media (prefers-reduced-motion:reduce){
+  dialog.ea-nd,dialog.ea-nd::backdrop,.ea-nd__acc-panel,.ea-nd__caret,.ea-nd-burger__bars span{
+    transition:none !important;
+  }
+}

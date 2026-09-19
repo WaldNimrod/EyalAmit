@@ -825,6 +825,11 @@ require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
  */
 require_once get_stylesheet_directory() . '/inc/chapters/chapters-bootstrap.php';
 
+/**
+ * S007 M-12 — the one mobile navigation drawer, every page.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-nav-drawer.php';
+
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once get_stylesheet_directory() . '/inc/cli/class-ea-faq-migrate-command.php';
 }

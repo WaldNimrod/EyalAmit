@@ -791,53 +791,30 @@ a{color:inherit}
 .pager__dots{border:0;min-width:auto}
 
 /* ============================================================
-   mobile nav (Chapters) — hamburger + slide-in panel (≤1180)
+   mobile nav (Chapters) — hamburger opens the shared drawer (≤1180)
+   S007 M-12 (2026-09-20): .nav__l used to double as the mobile off-canvas
+   panel (slid on with transform, visibility-delayed to stay out of the tab
+   order while closed — see git history for that fix, WS-2.2). It is now
+   simply hidden at this width: ea-nav-drawer.js opens a separate, shared
+   <dialog> instead (template-parts/nav/nav-drawer.php), so .nav__l and its
+   .nav__dd/.nav__sub contents are never shown or reachable below 1181px at
+   all, which is a stronger guarantee than the old visibility-delay trick.
    ============================================================ */
 .nav__burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:0}
 .nav__burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s var(--e),opacity .25s}
-.nav[data-menu="1"] .nav__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav[data-menu="1"] .nav__burger span:nth-child(2){opacity:0}
-.nav[data-menu="1"] .nav__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1180px){
-  /* WS-2.2 (A11Y-FIX-2026-09-18): burger is now first in DOM (section-nav.php)
-     so keyboard tab order reaches it before the menu; `order` restores its
-     visual position at the end of the header cluster (after sound/EN) without
+  /* WS-2.2 (A11Y-FIX-2026-09-18): burger is first in DOM (section-nav.php) so
+     keyboard tab order reaches it before the menu; `order` restores its visual
+     position at the end of the header cluster (after sound/EN) without
      touching tab order, which CSS order never affects. No-op at >1180px since
      the burger is display:none there regardless of DOM/order position. */
   .nav__burger{display:flex;order:1}
-  /* S006 A11Y · WS-2.2 — the closed drawer is pushed off-screen with a transform,
-     and a transform does not take anything out of the tab order. So a keyboard user
-     who passed the burger without opening it still walked through all 28 invisible
-     menu links: focus on something nobody can see (SC 2.4.3 / 2.4.7).
-     `visibility:hidden` makes the closed drawer genuinely unreachable. The 0s delay
-     holds visibility until the slide-out has finished, so the animation is unchanged;
-     on open it flips immediately with no delay. */
-  .nav__l{position:fixed;inset:72px 0 0 0;display:flex;flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(11,7,3,.985);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    padding:18px 32px 40px;overflow-y:auto;transform:translateX(100%);visibility:hidden;
-    transition:transform .35s var(--e),visibility 0s linear .35s}
-  .nav[data-menu="1"] .nav__l{transform:none;visibility:visible;
-    transition:transform .35s var(--e),visibility 0s linear 0s}
-  .nav__l>li{width:100%;border-bottom:1px solid var(--line-d)}
-  .nav__l>li>a,.nav__dd{font-size:var(--fs-nav);padding:16px 2px;width:100%;justify-content:space-between}
-  /* `visibility:inherit`, not `visible`: at this width the submenu is always expanded
-     inside the drawer, but if it forces its own visibility it re-exposes every submenu
-     link to the tab order while the drawer is closed — which is most of the 28 links
-     the closed drawer was leaking. Inheriting keeps it open when the drawer is open
-     and genuinely gone when it is not. */
-  .nav__sub{position:static;opacity:1;visibility:inherit;transform:none;background:transparent;border:0;
-    box-shadow:none;padding:0 8px 12px;min-width:0}
-  /* The desktop hover/focus-within rule (0,3,1) outranks the line above, and
-     `:focus-within` is self-fulfilling: focus reaching a link makes its submenu
-     visible, which is what kept the link focusable in the first place. Scope both
-     away while the drawer is closed. Measured: without this, 18 submenu links stay
-     reachable behind a closed drawer. */
-  .nav:not([data-menu="1"]) .nav__l>li:hover .nav__sub,
-  .nav:not([data-menu="1"]) .nav__l>li:focus-within .nav__sub{visibility:inherit}
-  .nav__sub::before{display:none}
-  .nav__sub a{padding:9px 10px;color:rgba(255,255,255,.7)}
+  .nav__l{display:none}
 }
-@media(prefers-reduced-motion:reduce){.nav__l{transition:none}.nav__burger span{transition:none}}
+@media(prefers-reduced-motion:reduce){.nav__burger span{transition:none}}
 body.nav-locked{overflow:hidden}
 
 /* ============================================================

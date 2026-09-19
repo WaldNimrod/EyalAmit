@@ -126,44 +126,14 @@
     }
   }
 
-  /* ---- mobile hamburger ---- */
-  if (nav) {
-    var burger = nav.querySelector('.nav__burger');
-    if (burger) {
-      var closeMenu = function () {
-        nav.removeAttribute('data-menu');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-locked');
-        /* WS-2.2 (A11Y-FIX-2026-09-18): restore focus to the trigger on every
-           close path (Escape, link tap, or re-clicking the burger) so it is
-           never left on/inside a panel that just went off-screen — same
-           restore-on-close contract as the dead ea-mobile-nav.js reference
-           (closeDrawer -> lastFocus.focus()). A no-op when the burger already
-           has focus, and a no-op at desktop width where it is display:none
-           and therefore unfocusable. */
-        burger.focus();
-        /* WS-3B (A11Y-FIX-2026-09-18): every `.nav__dd` submenu is inline
-           and expanded together with the drawer at this width (see above) —
-           keep them truthful on every close path too. */
-        syncDrawerExpanded();
-      };
-      burger.addEventListener('click', function () {
-        var open = nav.getAttribute('data-menu') === '1';
-        if (open) { closeMenu(); return; }
-        nav.setAttribute('data-menu', '1');
-        burger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('nav-locked');
-        syncDrawerExpanded();
-      });
-      /* close when a real link (not a dropdown toggle) is tapped */
-      nav.querySelectorAll('.nav__l a').forEach(function (a) {
-        a.addEventListener('click', closeMenu);
-      });
-      window.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && nav.getAttribute('data-menu') === '1') closeMenu();
-      });
-    }
-  }
+  /* ---- mobile hamburger ----
+   * S007 M-12 (2026-09-20): the burger no longer opens .nav__l as an
+   * off-canvas panel — chapters.css hides .nav__l entirely at <=1180px now,
+   * and ea-nav-drawer.js opens the one shared <dialog> instead (the burger
+   * carries data-ea-nav-trigger, added in section-nav.php, which that script
+   * auto-wires). data-menu/nav-locked on this element are therefore dead;
+   * removed rather than left half-wired. See
+   * _COMMUNICATION/team_00/DECISION-S007-MOBILE-NAV-MECHANISM-2026-09-19.md. */
 
   /* ---- hero video: deferred, reduced-motion-safe autoplay (Core Web Vitals) ----
    * Markup ships with no `autoplay` and `preload="none"` so the video never competes

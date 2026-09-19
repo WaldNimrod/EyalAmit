@@ -23,7 +23,9 @@ $h = static function ( $path ) {
 	the menu it just opened, not past it. Visual position at both breakpoints is restored
 	via `order` in chapters.css (see .nav__burger, mobile media query) since CSS order
 	does not affect tab order. See _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */ ?>
-	<button class="nav__burger" type="button" aria-label="<?php esc_attr_e( 'תפריט', 'ea-eyalamit' ); ?>" aria-expanded="false" aria-controls="nav">
+	<?php /* S007 M-12 (2026-09-20): opens the one shared drawer dialog (ea-nav-drawer.js
+	auto-wires any [data-ea-nav-trigger]), not the old .nav__l off-canvas panel. */ ?>
+	<button class="nav__burger" type="button" data-ea-nav-trigger aria-label="<?php esc_attr_e( 'תפריט', 'ea-eyalamit' ); ?>" aria-expanded="false">
 		<span></span><span></span><span></span>
 	</button>
 
