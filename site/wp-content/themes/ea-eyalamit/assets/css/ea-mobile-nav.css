@@ -100,6 +100,14 @@ html[dir="ltr"]{--ea-mnav-tx:100%}
   }
 
   /* ---- drawer / side sheet ---- */
+  /* S007 M-08: closed drawer computed display:flex;visibility:visible;opacity:1 with
+     only a transform pushing it off-screen — a transform does not remove anything from
+     the tab order. Measured: 22 of 28 stops on /about/ and 10 of 16 on /press/ landed
+     inside it. `visibility:hidden` on close, delayed by the slide duration so the
+     animation is unaffected and it only truly disappears once off-screen; the open
+     rule below flips it back with zero delay. Same pattern already used for the
+     Chapters burger drawer (chapters.css .nav__l, WS-2.2 / A11Y-FIX-2026-09-18) —
+     copied here rather than inventing a second mechanism. */
   .ea-mnav-drawer{
     display:flex;flex-direction:column;
     position:fixed;inset-block:0;
@@ -109,7 +117,8 @@ html[dir="ltr"]{--ea-mnav-tx:100%}
     z-index:var(--ea-z-modal,50);
     box-shadow:0 0 60px -10px rgba(0,0,0,0.6);
     transform:translateX(var(--ea-mnav-tx,100%));
-    transition:transform var(--ea-dur-mid) var(--ea-ease-enter);
+    visibility:hidden;
+    transition:transform var(--ea-dur-mid) var(--ea-ease-enter),visibility 0s linear var(--ea-dur-mid);
     overscroll-behavior:contain;
     will-change:transform;
   }
@@ -119,7 +128,8 @@ html[dir="ltr"]{--ea-mnav-tx:100%}
 
   /* open state (class on <html>) */
   .ea-mnav-open .ea-mnav-scrim{opacity:1;visibility:visible}
-  .ea-mnav-open .ea-mnav-drawer{transform:translateX(0)}
+  .ea-mnav-open .ea-mnav-drawer{transform:translateX(0);visibility:visible;
+    transition:transform var(--ea-dur-mid) var(--ea-ease-enter),visibility 0s linear 0s}
   .ea-mnav-open .ea-mnav-burger__bars span:nth-child(1){transform:translateY(6px) rotate(45deg)}
   .ea-mnav-open .ea-mnav-burger__bars span:nth-child(2){opacity:0}
   .ea-mnav-open .ea-mnav-burger__bars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}

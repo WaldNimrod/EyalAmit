@@ -158,6 +158,17 @@
 			} );
 		} );
 
+		// S007 M-08: at <=560px this nav becomes a horizontal scroller (faq-toc.css) and
+		// five-plus chips sit off the visible strip. Tabbing to one moves keyboard focus
+		// there without moving the strip, landing a sighted keyboard user on a chip they
+		// cannot see. `inline:'nearest'` scrolls only the strip itself (never the page —
+		// `block:'nearest'` leaves vertical position alone).
+		Array.prototype.forEach.call( links, function ( a ) {
+			a.addEventListener( 'focus', function () {
+				a.scrollIntoView( { inline: 'nearest', block: 'nearest' } );
+			} );
+		} );
+
 		// Legacy deep-link: ?topic=<slug> scrolls to that section on load.
 		var initial = '';
 		try {
