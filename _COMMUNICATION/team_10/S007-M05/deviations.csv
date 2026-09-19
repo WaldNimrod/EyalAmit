@@ -1,0 +1,115 @@
+page,selector,axis,computed,expected_nearest,source_sheet,status
+/thank-you/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/thank-you/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/thank-you/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/thank-you/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/thank-you/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/thank-you/,main.site-main>article.post-29.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/thank-you/,main.site-main>article.post-29.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/thank-you/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/thank-you/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/thank-you/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/thank-you/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/thank-you/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/en/,html>body.wp-singular.page-template-default.page>header.ea-en-head>a.ea-en-head__b,family,Frank Ruhl Libre,Heebo,,NEW
+/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/services/didgeridoo-treatment-breath/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/,div.wrap>div.ea-post-content>div.xdj266r.x11i5rnm.xat24cr>div>strong,size,16,--fs-sm (15.3px),,NEW
+/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/,section.sec>div.wrap>div.ea-post-content>p.MsoNormal>span,family,Arial,Heebo,,NEW
+/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/,p.MsoNormal>span>a>span>strong,family,Arial,Heebo,,NEW
+/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/,div.ea-post-content>p.MsoNormal>span>span>strong,family,Arial,Heebo,,NEW
+/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/,div.wrap>div.ea-post-content>p.MsoNormal>span>span,family,Arial,Heebo,,NEW
+/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/,div.ea-post-content>p.MsoNormal>span>span>span,family,Arial,Heebo,,NEW
+/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/,span>span>span>a>span,family,Arial,Heebo,,NEW
+/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/,span>span>span>span>span,family,Arial,Heebo,,NEW
+/press/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/learning/courses-external/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,main.site-main>article.post-60.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/learning/courses-external/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-team80-tag>em,family,Rubik,Heebo,,NEW
+/learning/courses-external/,main.site-main>article.post-60.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/learning/courses-external/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-courses-external-actions>a.ea-button.ea-courses-purchase,family,Rubik,Heebo,,NEW
+/learning/courses-external/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-courses-external-actions>a.ea-button.ea-courses-learn,family,Rubik,Heebo,,NEW
+/learning/courses-external/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/learning/courses-external/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/learning/courses-external/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/shop/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/shop/,div.wrap.center>div.bookcards.r.in>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/historical-articles/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/historical-articles/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/historical-articles/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/historical-articles/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/historical-articles/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/historical-articles/,main.site-main>article.post-24.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/historical-articles/,main.site-main>article.post-24.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/historical-articles/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/historical-articles/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/historical-articles/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/historical-articles/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/historical-articles/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/books/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/books/,div.wrap.center>div.bookcards.r.in>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/eyal-amit/mokesh-dahiman/,section.sec.sec--alt>div.wrap>ol.tl.r>li.tl__n>span.tl__y,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/eyal-amit/mokesh-dahiman/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/eyal-amit/mokesh-dahiman/,section.sec.sec--alt>div.wrap>ol.tl.r.in>li.tl__n>span.tl__y,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/qr/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/bags/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/about/moksha/,section.sec.sec--alt>div.wrap>ol.tl.r>li.tl__n>span.tl__y,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/about/moksha/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/about/moksha/,section.sec.sec--alt>div.wrap>ol.tl.r.in>li.tl__n>span.tl__y,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/tools-and-accessories/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/tools-and-accessories/,div.wrap.center>div.bookcards.r.in>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/treatment/,main.chapters-main>section.bleed>div.bleed__c>div.bleed__in>p.bleed__q.r.in,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/shows-heritage/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/shows-heritage/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/shows-heritage/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/shows-heritage/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/shows-heritage/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/shows-heritage/,main.site-main>article.post-23.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/shows-heritage/,main.site-main>article.post-23.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/shows-heritage/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/shows-heritage/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/shows-heritage/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/shows-heritage/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/shows-heritage/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/services/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/services/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/services/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/services/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/services/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/services/,main.site-main>article.post-6.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/services/,main.site-main>article.post-6.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/services/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/services/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/services/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/services/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/services/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-24-%d7%99%d7%9c%d7%93-%d7%90%d7%a1%d7%95%d7%a8-%d7%99%d7%9c%d7%93-%d7%9e%d7%95%d7%aa%d7%a8/,span>span>span>span>span,family,Arial,Heebo,,NEW
+/about/,body.rtl.wp-singular.page-template>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/muzza/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/muzza/,div.wrap.center>div.bookcards.r.in>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/muzeh/,div.wrap.center>div.bookcards.r>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/muzeh/,div.wrap.center>div.bookcards.r.in>a.bookcard>div.bookcard__b>h2.bookcard__t,family,Frank Ruhl Libre,Heebo,chapters.css (--serif/--display),catalogued
+/courses-soon/,html>body.rtl.wp-singular.page-template-default>a.screen-reader-text.skip-link,family,-apple-system,Heebo,,NEW
+/courses-soon/,header.site-header.has-inline-mobile-toggle>div.inside-header.grid-container>div.site-branding>p.main-title>a,family,-apple-system,Heebo,,NEW
+/courses-soon/,div.inside-header.grid-container>nav.main-navigation.nav-align-right.sub-menu-left>div.inside-navigation.grid-container>span.ea-header-en-wrap>a.ea-header-en-link,family,-apple-system,Heebo,,NEW
+/courses-soon/,div.inside-navigation.grid-container>div.main-nav>ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/courses-soon/,ul.menu.sf-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>ul.sub-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,-apple-system,Heebo,,NEW
+/courses-soon/,main.site-main>article.post-60.page.type-page>div.inside-article>header.entry-header>h1.entry-title,family,Rubik,Heebo,,NEW
+/courses-soon/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-team80-tag>em,family,Rubik,Heebo,,NEW
+/courses-soon/,main.site-main>article.post-60.page.type-page>div.inside-article>div.entry-content>p,family,Rubik,Heebo,,NEW
+/courses-soon/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-courses-external-actions>a.ea-button.ea-courses-purchase,family,Rubik,Heebo,,NEW
+/courses-soon/,article.post-60.page.type-page>div.inside-article>div.entry-content>p.ea-courses-external-actions>a.ea-button.ea-courses-learn,family,Rubik,Heebo,,NEW
+/courses-soon/,body.rtl.wp-singular.page-template-default>nav.ea-footer-legal-nav>ul.ea-footer-legal-menu>li.menu-item.menu-item-type-post_type.menu-item-object-page>a,family,Rubik,Heebo,,NEW
+/courses-soon/,body.rtl.wp-singular.page-template-default>div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar,family,-apple-system,Heebo,,NEW
+/courses-soon/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>span.copyright,family,-apple-system,Heebo,,NEW
+/courses-soon/,div.site-footer>footer.site-info>div.inside-site-info.grid-container>div.copyright-bar>a,family,-apple-system,Heebo,,NEW
+/courses-soon/,html>body.rtl.wp-singular.page-template-default>a.ea-whatsapp-float>span.ea-whatsapp-float__label,family,-apple-system,Heebo,,NEW
+/contact/,div.wpcf7.js>form.wpcf7-form.init.ea-contact-form__form>div.ea-cf7>p.ea-cf7-row>label,size,0,--fs-3xs (11.05px),"canon §6 exemption (CF7 label font-size:0, intentional)",catalogued
+/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/,div.ea-post-content>p>em>span>span,family,arial,Heebo,,NEW
+/41-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%90%d7%a8%d7%98%d7%94-%d7%91%d7%90%d7%a8%d7%98%d7%94/,section.sec>div.wrap>div.ea-post-content>p.MsoNormal>span,family,Arial,Heebo,,NEW
