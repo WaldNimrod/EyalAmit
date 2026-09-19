@@ -322,6 +322,30 @@ a{color:inherit}
 .foot__base{position:relative;z-index:2;font-size:var(--fs-2xs);color:rgba(255,255,255,.4)}
 .foot__base a{display:inline;color:rgba(255,255,255,.55);text-decoration:underline;margin:0}
 .foot__base a:hover{color:#fff}
+/* ── Touch targets on a phone ─────────────────────────────────────────────────
+   WCAG 2.2 SC 2.5.8 (AA) wants a pointer target of at least 24x24. Measured at
+   390x844 on /treatment/, three groups of STANDALONE links were under it:
+   the 8 footer column links at 21px, the 9 testimonial name links at 19px, and
+   the footer phone link at 23px — which is the one that matters most, because a
+   phone number on a phone is the likeliest thing a visitor taps.
+
+   The two footer legal links, also ~20px, are deliberately NOT in this rule. The
+   criterion has an explicit Inline exception for a target inside a sentence whose
+   size is constrained by the line-height of the text around it, and those two are
+   exactly that. Padding them would break the sentence they sit in to satisfy a
+   rule that does not apply to them.
+
+   padding-block and not min-height: these are inline links, and a min-height with
+   inline-flex would change how they sit in their line. Padding grows the hit area
+   and leaves the typography alone. Mobile only — the desktop pointer is not the
+   problem this criterion is about. */
+@media(max-width:760px){
+  .foot__in a,
+  .foot__tel a{padding-block:6px}
+  .tmq__n a{padding-block:4px;display:inline-block}
+  .foot__base a{padding-block:0}   /* inline in a sentence — exempt, see above */
+}
+
 @media(max-width:760px){.foot__in{grid-template-columns:1fr 1fr}.foot__brand{grid-column:1/-1;text-align:right}.foot__brand p{margin-inline:0}}
 
 /* reveal */
