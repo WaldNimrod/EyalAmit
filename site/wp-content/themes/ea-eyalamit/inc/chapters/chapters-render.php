@@ -419,7 +419,11 @@ function ea_chapters_resolve_img( $value, $size = 'large' ) {
 function ea_chapters_part_field_map() {
 	return array(
 		'phero'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'ta', 'sub' => 'ta', 'media' => 'img', 'media_alt' => 'txt', 'cta_label' => 'txt', 'cta_url' => 'txt' ) ),
-		'prose'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'toggle_label' => 'txt' ) ),
+		/* float_image MUST be declared 'img' here or it never reaches the path resolver and
+		   renders as a page-relative URL that 404s — which is exactly what shipped at 1.5.79
+		   and showed the alt text instead of the picture. A field is only resolved if this map
+		   names it; adding an arg to a part template is half the job. */
+		'prose'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'toggle_label' => 'txt', 'float_image' => 'img', 'float_alt' => 'txt', 'float_zoom' => 'txt', 'float_side' => 'txt' ) ),
 		'split'        => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'body' => 'wys', 'image' => 'img', 'alt' => 'txt', 'zoom' => 'txt' ) ),
 		'lead'         => array( 'scalars' => array( 'chap' => 'txt', 'title' => 'txt', 'lead' => 'ta' ) ),
 		'bleed'        => array( 'scalars' => array( 'image' => 'img', 'alt' => 'txt', 'quote' => 'ta', 'attrib' => 'txt' ) ),

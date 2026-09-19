@@ -1313,10 +1313,12 @@ body.nav-locked{overflow:hidden}
 /* A SMALL picture inside prose: floated, text wrapping around it. The alternative —
    .split2's two columns — costs the section's whole text width for the height of one
    image, which is exactly what team_00 rejected on 20.9.2026.
-   Width is a clamp, not a fraction, so the text keeps a readable measure beside it; below
-   720px it stops floating and becomes a normal block, because a 300px float in a 390px
-   viewport leaves a 70px column of text. */
-.pfloat{margin:6px 0 18px;max-width:clamp(220px,32%,340px)}
+   Width is a clamp, not a fraction, so the text keeps a readable measure beside it. The
+   prose it floats in is capped at 65ch (615px at this root size), so a 260px cap leaves
+   ~45 characters per line beside the picture — below about 40 the wrap stops being
+   readable and starts being a ribbon. Below 720px it stops floating and becomes a normal
+   block, because a float that wide in a 390px viewport leaves a 70px column of text. */
+.pfloat{margin:6px 0 18px;max-width:clamp(180px,30%,260px)}
 .pfloat--s{float:inline-start;margin-inline-end:26px}
 .pfloat--e{float:inline-end;margin-inline-start:26px}
 .pfloat img{display:block;width:100%;height:auto;border-radius:10px}
