@@ -170,6 +170,49 @@
    it. Those are the same six that had no size tokens until 1.5.55: they were outside the
    size system and outside the family system, and only the first half got fixed then. */
 html body{font-family:var(--ea-font);font-size:var(--fs-body);font-weight:var(--fw-body)}
+
+/* ── The mobile rungs ─────────────────────────────────────────────────────────
+   S007 phase 3. Canon section 5 named this mechanism and reserved it for now:
+   "For mobile, RE-DECLARE THE SAME TOKENS inside a media query. Do not add
+   breakpoint font-size rules to components — that is what tokens are for."
+   This is that media query. It is the only one in this file and there should
+   never be a second.
+
+   Why it is needed, measured on staging at 390x844 before it existed:
+   • The scale did not change at all between 1440 and 390 — --fs-h1 computed
+     44.2px at both. On the long titles that is 5 to 7 wrapped lines: the blog
+     post title alone was 230x346px, seven lines, the whole first screen.
+   • At 200% text — which this site's published accessibility statement promises
+     — the home H1 block was 990px tall and the blog H1 1485px, so the hero ate
+     the viewport and the CTA left the first screen entirely. With these rungs the
+     H1 at 200% is 64.6px instead of 88.4px.
+
+   The shape of the change: only the large end moves, and it moves TOWARD the body
+   anchor. Ratios over the 17px body go 2.60 -> 1.90 (h1), 2.00 -> 1.60 (display),
+   1.45 -> 1.32 (h2), 1.25 -> 1.18 (h4), 1.15 -> 1.10 (lead), 1.10 -> 1.06 (h3).
+
+   --fs-nav and everything from --fs-body down are UNCHANGED, deliberately:
+   • Body text never shrinks on a phone. It is already the anchor and already the
+     smallest comfortable reading size; taking it down is the single most common
+     mobile accessibility mistake.
+   • --fs-nav, --fs-sm and --fs-xs size controls and labels, and shrinking those
+     works against the 44px touch-target floor rather than with it.
+
+   640px and not 860px: 768 and 720 are tablet widths where the desktop scale
+   still has room, and the TOC's own breakpoint at 860 is about layout, not type.
+   A rung set is not a layout breakpoint and they should not be confused. */
+@media(max-width:640px){
+  :root{
+    --fs-h1:2.01875rem;      /* 1.90 · was 2.60 */
+    --fs-display:1.7rem;     /* 1.60 · was 2.00 */
+    --fs-h2:1.4025rem;       /* 1.32 · was 1.45 */
+    --fs-h4:1.25375rem;      /* 1.18 · was 1.25 */
+    --fs-lead:1.16875rem;    /* 1.10 · was 1.15 */
+    --fs-h3:1.12625rem;      /* 1.06 · was 1.10 */
+    /* --fs-nav and --fs-body downward: unchanged on purpose, see above. */
+  }
+}
+
 /* Form controls do NOT inherit font-family — the UA sheet sets its own, and GeneratePress
    then ships `body,button,input,select,textarea{font-family:-apple-system,…}` at 0,0,1.
    So `html body` above, which fixed the six orphan pages, cannot reach a <button>: a

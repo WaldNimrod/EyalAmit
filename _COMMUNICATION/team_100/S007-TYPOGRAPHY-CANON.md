@@ -135,10 +135,31 @@ Wired at the **container**, so prose written later inherits the scale automatica
 
 **Change the token. Never a declaration.** One edit in `ea-tokens.css` moves the whole site.
 
-For mobile (phase 3): **re-declare the same tokens inside a media query.** Do not add
-breakpoint `font-size` rules to components — that is what tokens are for. Two
-`.ea-edhero__title` breakpoint overrides in `ea-blog.css` are annotated as belonging to that
-phase; they are the pattern to replace, not to copy.
+For mobile: **re-declare the same tokens inside a media query.** Do not add breakpoint
+`font-size` rules to components — that is what tokens are for. Two `.ea-edhero__title`
+breakpoint overrides in `ea-blog.css` are annotated as belonging to that phase; they are the
+pattern to replace, not to copy.
+
+**That media query now exists**, added 2026-09-20 at `@media(max-width:640px)` in
+`ea-tokens.css`. It is the only one in that file and there should never be a second — a
+second set of mobile rungs somewhere else is the beginning of a second scale, which is the
+failure this canon was written to end.
+
+**What it changes, and what it deliberately does not.** Only the large end moves, and it moves
+toward the body anchor: h1 2.60→1.90, display 2.00→1.60, h2 1.45→1.32, h4 1.25→1.18,
+lead 1.15→1.10, h3 1.10→1.06 (ratios over the 17px body). **`--fs-nav` and everything from
+`--fs-body` down are unchanged.** Body text never shrinks on a phone — it is already the
+anchor and already the smallest comfortable reading size — and `--fs-nav`, `--fs-sm`, `--fs-xs`
+size controls and labels, where shrinking works against the 44px touch-target floor.
+
+**Measured at 390×844, before and after:** the home hero title went from 248px tall over five
+wrapped lines to 145px over four; the blog post title from 347px over seven lines to 217px
+over six. **At 200% text**, which the site's published accessibility statement promises, the
+home H1 block went from 990px to 579px and the blog post's from 1485px to 796px.
+
+**640px, not 860px, on purpose.** 768 and 720 are tablet widths where the desktop scale still
+has room, and the TOC's 860px breakpoint is about layout. A rung set is not a layout
+breakpoint; do not align them for tidiness.
 
 ## 6. The only declarations deliberately NOT on a rung
 
