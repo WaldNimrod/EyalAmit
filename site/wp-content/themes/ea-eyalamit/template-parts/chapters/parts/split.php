@@ -1,15 +1,18 @@
 <?php
 /**
  * Chapters part — two-column text + figure (.split2 / .intro-body / .figr).
- * $args: chap, title, body (HTML), image (url), alt, figr ('l'|'p'|'w'), reversed(bool), id,
- * .ea-testi-cards part (class ea-cards-lede-lead; same display:contents + :has()
- * technique as prose.php's pairs_with_toc — see chapters.css).
+ * $args: chap, title, body (HTML), image (url), alt, figr ('l'|'p'|'w'), reversed(bool), id.
+ *
+ * The pairs_with_cards flag was removed on 2026-09-20 with the cards' side-column layout
+ * (team_00 rejected it on screenshots). For a SMALL picture that should sit beside the text
+ * without narrowing it, use prose.php's float_image instead of this part.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 $a   = isset( $args ) && is_array( $args ) ? $args : array();
+$cls = 'sec';
 ?>
 <section class="<?php echo esc_attr( $cls ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap">
