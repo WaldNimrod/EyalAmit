@@ -1198,6 +1198,15 @@ body.nav-locked{overflow:hidden}
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .28s var(--e,ease),visibility .28s}
 .ea-toc .rail.is-on{opacity:1;visibility:visible}
+/* Hiding is INSTANT; only appearing fades. The cross-engine gate falsified team_00's own
+   rule on the way back up: with a symmetric .28s transition, .is-on is removed the moment the
+   inline list re-enters the viewport but the rail keeps painting while it fades — six samples
+   over ~167ms with both navigations on screen at opacity 1 → 0.75 → 0.37 → 0.17 → 0.07.
+   A settle-then-measure test never sees it; a reader scrolling up does.
+   «אין מצב שרואים גם את הראשוני הפרוס וגם את הצדדים» — 167ms is a mode.
+   A transition is read from the state being entered, so :not(.is-on) kills the fade-out
+   while the fade-in from the base rule is untouched. */
+.ea-toc .rail:not(.is-on){transition:none}
 /* The rail's box is as wide as its widest LABEL (~225px) even while every label is
    invisible, because opacity:0 still occupies layout. An is-on rail with
    pointer-events:auto therefore captures clicks and text selection across the first
@@ -1213,7 +1222,13 @@ body.nav-locked{overflow:hidden}
    link's accessible name, and hiding it would leave the link nameless. */
 .ea-toc .rail.is-on{pointer-events:none}
 .ea-toc .rail i{pointer-events:auto}
-.ea-toc .rail a:hover span,.ea-toc .rail a:focus-visible span,.ea-toc .rail a.on span{pointer-events:auto}
+/* `.on` is NOT in this list, deliberately. The current section's label is the one that is
+   permanently visible, 199.8px wide, and the gate measured it hit-testing across ~131px of the
+   content column (wrap starts at 120, label runs to 251) on its own row — the narrow survivor
+   of the 322px dead zone fixed at 1.5.70. It is a position marker, not a target: the tick
+   beside it is the link and still hit-tests as itself. Hover and focus labels keep their
+   pointer events because the reader summoned those deliberately and they vanish again. */
+.ea-toc .rail a:hover span,.ea-toc .rail a:focus-visible span{pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.ea-toc .rail{transition:none}}
 .ea-toc .rail a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--body);
   font-size:var(--fs-3xs);font-weight:var(--fw-light)}

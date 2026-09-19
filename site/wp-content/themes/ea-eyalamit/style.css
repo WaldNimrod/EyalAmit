@@ -4,7 +4,7 @@ Theme URI: https://www.eyalamit.co.il/
 Author: Eyal Amit project
 Template: generatepress
 Description: Child theme for GeneratePress — Eyal Amit 2026 rebuild. All brand and custom PHP/CSS live here only; prefix ea_ for PHP. Locked per SITE-SPECIFICATION-FINAL §1.2.1, SPEC-V1.2 §14, 05-PLATFORM-DECISION §6.
-Version: 1.5.76
+Version: 1.5.77
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -356,5 +356,17 @@ body.ea-m4-polish .ea-footer-legal-menu a:focus {
 
 .ea-whatsapp-float__label {
 	display: none;
+}
+
+/* team_00, 19.9.2026: «כשהמגירה נפתחת - כפתור וואטסאפ או מאחור או מוסתר».
+   It was neither. The float is z-index 60, the Wave2 drawer's scrim is 40, so the gate found
+   elementFromPoint at (363,780) on /about/ and /press/ landing on the float while the drawer
+   was open — a live control floating over a modal navigation.
+   visibility:hidden and not opacity:0, for the same reason as everywhere else on this site:
+   opacity leaves it in the tab order behind an open drawer. Covers both systems — .ea-mnav-open
+   is the Wave2 drawer's flag, body.nav-locked the Chapters one. */
+.ea-mnav-open .ea-whatsapp-float,
+body.nav-locked .ea-whatsapp-float {
+	visibility: hidden;
 }
 
