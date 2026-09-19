@@ -21,7 +21,14 @@ $wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found 
 <?php wp_head(); ?>
 <style>
 /* Scoped to the EN landing — minimal LTR header/footer + overflow guard. */
-html,body{overflow-x:hidden}
+/* The `html,body{overflow-x:hidden}` guard that used to be here is REMOVED (20.9.2026).
+   It was added for the far-right skip-link that forced a ~10000px overflow — and the rule
+   below actually fixes that, so the guard had been doing nothing for a while. Measured on
+   live /en/ at 390 and 1440 with the guard forced off: scrollWidth === innerWidth, delta 0
+   at both. What it WAS still doing is hiding any future overflow, which turns a real bug
+   into a silent one: a page that cannot scroll sideways because it was told not to is not
+   a page that passes. The decorative span.arcs still extends past the viewport and is
+   clipped by its own container, which is the correct way to do that. */
 /* The theme hides .screen-reader-text with right:-10000px (RTL); on this LTR page
    that lands far-right and forces a ~10000px horizontal overflow — neutralize it. */
 .screen-reader-text{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(1px,1px,1px,1px)!important;left:auto!important;right:auto!important;inset-inline-start:0!important}
