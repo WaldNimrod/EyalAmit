@@ -319,6 +319,15 @@ a{color:inherit}
 @media(prefers-reduced-motion:no-preference){
   .r{opacity:0;transform:translateY(26px);transition:opacity 1.4s var(--e),transform 1.4s var(--e)}
   .r.in{opacity:1;transform:none}
+  /* A control inside a block that has not been revealed yet is still in the tab order —
+     opacity:0 hides paint, not focusability. The cross-engine keyboard line found exactly
+     that at stop 39 on the home page: the #peek CTA «לתיאום שיחת היכרות» took real Tab
+     focus while its p.r wrapper was still opacity:0, because the reveal observer's
+     rootMargin (-7% at the bottom) puts a control at y=856 inside the layout viewport and
+     outside the observer root, so `in` never arrived. Focus reveals the block itself, with
+     no transition — a keyboard user needs to see the control on arrival, not 1.4s later.
+     This is the same class of bug as the mobile drawer's transform-only hide. */
+  .r:focus-within{opacity:1;transform:none;transition:none}
   .r--fade{transform:none}            /* opacity-only reveal for absolute / full-bleed images (no layout shift) */
   .r2{transition-delay:.18s}.r3{transition-delay:.36s}.r4{transition-delay:.54s}.r5{transition-delay:.72s}.r6{transition-delay:.9s}
 }
