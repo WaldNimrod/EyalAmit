@@ -1185,7 +1185,23 @@ body.nav-locked{overflow:hidden}
   z-index:40;display:flex;flex-direction:column;gap:9px;align-items:flex-end;
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .28s var(--e,ease),visibility .28s}
-.ea-toc .rail.is-on{opacity:1;visibility:visible;pointer-events:auto}
+.ea-toc .rail.is-on{opacity:1;visibility:visible}
+/* The rail's box is as wide as its widest LABEL (~225px) even while every label is
+   invisible, because opacity:0 still occupies layout. An is-on rail with
+   pointer-events:auto therefore captures clicks and text selection across the first
+   ~120px of the content column. Measured live at 1440 before this fix:
+   elementFromPoint at x=130/160/200/235 all returned the rail; .wrap was only
+   reachable from x=250, over a 322px-tall band.
+   team_00's instruction for this element was that it float "without hiding content at
+   all" — capturing a pointer over text is hiding it, even when nothing is painted.
+   So the container takes no pointer events and only what a reader can actually SEE
+   does: the tick, and a label that is genuinely showing (hover, focus, or current).
+   Do not put pointer-events:auto back on the container.
+   The resting label keeps opacity:0 and NOT visibility:hidden on purpose — it is the
+   link's accessible name, and hiding it would leave the link nameless. */
+.ea-toc .rail.is-on{pointer-events:none}
+.ea-toc .rail i{pointer-events:auto}
+.ea-toc .rail a:hover span,.ea-toc .rail a:focus-visible span,.ea-toc .rail a.on span{pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.ea-toc .rail{transition:none}}
 .ea-toc .rail a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--body);
   font-size:var(--fs-3xs);font-weight:var(--fw-light)}
