@@ -104,6 +104,22 @@ was completely inert — the token sat unused in the cascade behind the wrong nu
 beats the parent theme regardless of load order and still loses to every class-based rule
 in this theme (`0,1,0` > `0,0,2`), so no component design is affected.
 
+**The floor has a second rule, and it is not optional: form controls.**
+`html button, html input, html select, html textarea { font-family: var(--ea-font) }`.
+A `<button>` does **not** inherit `font-family` — the UA sheet gives it its own, and
+GeneratePress then sets `body,button,input,select,textarea{font-family:-apple-system,…}`.
+A same-element rule beats an inherited value at any specificity, so `html body` cannot
+reach a control no matter how specific it is. This omission has produced **four** separate
+live defects here in three days: the carousel arrows (1.5.61), six whole pages (1.5.65),
+the lightbox chrome (1.5.66), and then 224 controls the first three fixes did not touch —
+the chapters burger on nearly every page, the QR play overlay (**visible at desktop on 42
+URLs**), the Wave2 drawer and the GeneratePress toggle (1.5.68). The floor sets **family
+only**; size and weight on a control belong to its component.
+
+**If you add a control that renders text, set its font-family explicitly.** Every scan that
+filters for elements with direct text is blind to most of them, which is how 224 of them
+survived a 157-URL, 13,412-element sweep.
+
 **Layer 2 — the nine composite `font:` tokens**, also in `ea-tokens.css`. These carry size
 *inside* the `font:` shorthand, which is why no search for `font-size` can see them and why
 that file reported zero declarations while holding an entire second scale. 51 rules across

@@ -170,6 +170,20 @@
    it. Those are the same six that had no size tokens until 1.5.55: they were outside the
    size system and outside the family system, and only the first half got fixed then. */
 html body{font-family:var(--ea-font);font-size:var(--fs-body);font-weight:var(--fw-body)}
+/* Form controls do NOT inherit font-family — the UA sheet sets its own, and GeneratePress
+   then ships `body,button,input,select,textarea{font-family:-apple-system,…}` at 0,0,1.
+   So `html body` above, which fixed the six orphan pages, cannot reach a <button>: a
+   same-element rule beats an inherited value regardless of specificity. The cross-engine
+   typography line found 224 controls still on the OS font after 1.5.65/1.5.66 — the
+   chapters burger on every page, the QR play overlay (visible at DESKTOP on 42 URLs), the
+   Wave2 drawer, the GeneratePress toggle, and two embedded post forms.
+   0,0,2 again, for the same reason as `html body`: it beats the parent theme regardless of
+   load order and still loses to every class rule here, so .zoom, .ea-lb__x, .testi-mq__btn
+   and every styled button keep what they were given. Family only — size and weight on form
+   controls are the components' business, not this floor's.
+   Fourth occurrence of this exact omission in three days. If you are adding a control that
+   renders text, set the family on it. */
+html button,html input,html select,html textarea{font-family:var(--ea-font)}
 /* `body h1` = specificity 0,0,2 on purpose. GeneratePress's main.min.css ships
    h1{font-size:42px} and h2{font-size:35px} at 0,0,1 and loads after this file, so a
    bare element selector here loses on source order — measured on /about/, where the
