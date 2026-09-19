@@ -1211,7 +1211,18 @@ body.nav-locked{overflow:hidden}
 /* Pair the immediately-preceding lead prose with this part so they share the
    sketch's .lede row. display:contents flattens the two section boxes; the
    wraps become columns of .chapters-main. Only when that lead sibling exists,
-   and only above the mobile breakpoint — below 860px they stack, as the sketch. */
+   and only above the mobile breakpoint — below 860px they stack, as the sketch.
+
+   The pairing is detected via the .ea-toc-lede-lead marker class (set by
+   prose.php when its 'pairs_with_toc' arg is true), NOT via a nested
+   :has(.sec:has(.p-lead)). That is not a workaround for this project's own
+   test browser — CSS Selectors Level 4 forbids :has() from taking another
+   :has() as an argument, full stop; it is invalid everywhere, not merely
+   unsupported here. Confirmed independently in both this repo's
+   chrome-headless-shell (149.0.7827.22) and a current real Chrome
+   (152.0.7977.76): CSS.supports('selector(:has(.b:has(.c)))') is false on
+   both. Do not "simplify" this back to a nested :has() — it would silently
+   stop matching on every browser, not just the ones this project tests with. */
 @media(min-width:861px){
   .chapters-main:has(> .sec.ea-toc-lede-lead + .ea-toc){
     display:grid;grid-template-columns:minmax(48px,1fr) minmax(0,856px) auto minmax(48px,1fr);
