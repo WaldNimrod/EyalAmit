@@ -1,8 +1,6 @@
 <?php
 /**
  * Chapters part — prose section (.intro-body). $args: chap, title, body(HTML), center(bool), alt, dark, id,
- * pairs_with_toc(bool) — marks this .sec as the lead that sits beside a following .ea-toc
- * (class ea-toc-lede-lead; pairing CSS cannot nest :has()),
  * float_image + float_alt + float_zoom + float_side('s'|'e') — a SMALL figure floated inside
  * the prose so the text wraps around it, instead of a two-column split that narrows the
  * whole section's text for the height of one picture (team_00, 20.9.2026),
@@ -19,9 +17,6 @@ if ( ! empty( $a['dark'] ) ) {
 	$cls .= ' sec--dark';
 } elseif ( ! empty( $a['alt'] ) ) {
 	$cls .= ' sec--alt';
-}
-if ( ! empty( $a['pairs_with_toc'] ) ) {
-	$cls .= ' ea-toc-lede-lead';
 }
 $center      = ! empty( $a['center'] );
 $collapsible = ! empty( $a['collapsible'] );

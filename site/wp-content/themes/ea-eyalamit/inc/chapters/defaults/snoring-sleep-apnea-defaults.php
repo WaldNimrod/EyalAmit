@@ -27,21 +27,17 @@ return array(
 
 	'sections' => array(
 
-		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 21 */
-		array(
-			'part' => 'prose',
-			'args' => array(
-				'center'         => true,
-				'pairs_with_toc' => true,
-				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 21 */
-				'body'           => '<p class="p-lead"><strong>רוב הפתרונות פועלים בזמן השינה. הדיג\'רידו מאפשר לתרגל בזמן שאתם ערים.</strong></p>',
-			),
-		),
-
 		/* S007 M-06 · TOC part. Relocated from the hand-written <nav class="toc">
 		   that previously lived in this slot as a prose body (same 11 links, same
-		   text, same order). Sits beside sections[0] — the one-line lead — via
-		   the sketch's .lede grid. That previous prose had no other content. */
+		   text, same order). That previous prose had no other content.
+
+		   20.9.2026, team_00: «״בעמוד הזה״ והקישורים - צריך לעלות לתוך ההירו - אותו
+		   מיקום משמאל». So it no longer pairs with the lead sentence — it is placed
+		   into the hero's own row by CSS, on the inline-end side, where the hero had
+		   a large empty area. It is FIRST in this array on purpose: the placement is
+		   visual, and putting it first makes the DOM order match what a sighted
+		   reader sees, so a screen reader meets the contents list where it appears
+		   rather than after the sentence below it. */
 		array(
 			'part' => 'toc',
 			'args' => array(
@@ -58,6 +54,16 @@ return array(
 					array( 'id' => 'שאלות-נפוצות', 'label' => 'שאלות שאני שומע הרבה' ),
 					array( 'id' => 'איך-יודעים-אם-זה-מתאים', 'label' => 'איך יודעים אם זה יכול להתאים גם לכם?' ),
 				),
+			),
+		),
+
+		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 21 */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'center' => true,
+				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 21 */
+				'body'   => '<p class="p-lead"><strong>רוב הפתרונות פועלים בזמן השינה. הדיג\'רידו מאפשר לתרגל בזמן שאתם ערים.</strong></p>',
 			),
 		),
 
