@@ -1,3 +1,31 @@
+
+> ## ⚠ CORRECTION, 2026-09-19 — one finding in this report is FALSE
+>
+> **"Open `ea-mnav` background is not inert" and "no scroll lock" do not reproduce, and the
+> method that produced them cannot test what they claim.**
+>
+> This report established background reachability with `main.click()`. **`element.click()` is
+> a programmatic dispatch on the element itself — it fires regardless of overlays, scrims,
+> `pointer-events`, or anything else in front of it. It bypasses hit-testing entirely and
+> therefore tests nothing about whether a user could reach that element.**
+>
+> Measured independently at 1.5.74, drawer open, 390×844, on `/about/` and `/press/`:
+> `elementFromPoint` at four separate coordinates returned only `.ea-mnav-link`,
+> `.ea-mnav-acc__btn` and `.ea-mnav-scrim` — **`main` was never reached**. `html` and `body`
+> both compute `overflow:hidden`, so the scroll **is** locked.
+>
+> And it was always locked: `.ea-mnav-open body{overflow:hidden}` is present in
+> `ea-mobile-nav.css` at 1.5.72, before M-08 existed, and M-08's diff touches no `overflow`
+> rule. This was never broken.
+>
+> **team_100 carried this finding into MANDATE-S007-M08 as a defect to fix. team_10 could not
+> reproduce it, declined to invent a fix for it, and flagged the discrepancy instead — which
+> is the correct behaviour and is why this correction exists.** The other findings in this
+> report were independently confirmed and stand.
+>
+> Recorded as a harness trap: use `elementFromPoint`, or a real coordinate click, to test
+> reachability. Never `element.click()`.
+
 # XVAL — mobile baseline at phone width (2026-09-19)
 
 Independent verifier on a different engine from the builders. **Nothing was changed.** This is a measured baseline before the mobile phase, not a sign-off.
