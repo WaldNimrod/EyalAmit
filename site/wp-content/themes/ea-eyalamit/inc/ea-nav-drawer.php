@@ -33,6 +33,16 @@ function ea_nav_drawer_orphan_slugs() {
 }
 
 /**
+ * Every page with no burger of its own today: the six GeneratePress orphans,
+ * plus /en/ — a self-contained LTR landing (tpl-chapters-en.php) that never
+ * includes section-nav.php and has no mobile trigger either. The mandate
+ * names /en/ explicitly for this reason ("today has no burger at all").
+ */
+function ea_nav_drawer_no_burger_pages() {
+	return array_merge( ea_nav_drawer_orphan_slugs(), array( 'en' ) );
+}
+
+/**
  * The shared nav tree. A third, independently-maintained copy of the site
  * tree — Chapters (section-nav.php) and Wave2 (block-topnav.php) already
  * each keep their own; unifying those is a separate, content-level decision
@@ -130,20 +140,21 @@ function ea_nav_drawer_render() {
 		array(
 			'items'      => ea_nav_drawer_items(),
 			'foot_links' => ea_nav_drawer_foot_links(),
-			'show_sound' => ! is_page( ea_nav_drawer_orphan_slugs() ),
+			'show_sound' => ! is_page( ea_nav_drawer_no_burger_pages() ),
 		)
 	);
 }
 add_action( 'wp_footer', 'ea_nav_drawer_render', 15 );
 
 /**
- * A standalone burger for the six pages that have no burger of their own
- * today (GeneratePress's real .menu-toggle already exists in their own
- * masthead; this is Phase A's minimum viable trigger, not a redesign of
- * that masthead — that visual unification is Phase B).
+ * A standalone burger for every page that has no burger of its own today
+ * (the six GeneratePress orphans — whose real .menu-toggle already exists in
+ * their own masthead, so this is Phase A's minimum viable trigger, not a
+ * redesign of that masthead, which is Phase B — plus /en/). Chapters and
+ * Wave2 pages already have a real burger of their own; not touched here.
  */
 function ea_nav_drawer_render_standalone_burger() {
-	if ( ! is_page( ea_nav_drawer_orphan_slugs() ) ) {
+	if ( ! is_page( ea_nav_drawer_no_burger_pages() ) ) {
 		return;
 	}
 	?>
