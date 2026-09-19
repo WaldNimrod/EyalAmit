@@ -356,7 +356,26 @@ a{color:inherit}
 .phero__lede p{margin:0 0 14px}
 .phero__lede p:last-child{margin-bottom:0}
 .phero .chap{color:var(--terra-lt)}
-.prose{max-width:64ch}
+/* ── Reading measure ───────────────────────────────────────────────────────────
+   team_00 chose this on 20.9.2026, from three live screenshots of the same section:
+   «ג רחב יותר» — the wider one.
+
+   Before: 65ch (615px at this root size), which is 51% of the 1200 content width, and
+   flush to the inline-start edge — 537px of void on one side and 48 on the other. That
+   lopsidedness, not the line length, is what made the page read as half empty, and it is
+   what he was pointing at when he said «כל העמוד מנצל רק כמחצית הרוחב».
+
+   After: 82ch (776px), centred — 212px each side. It sits closer to the split rows (92%)
+   and the full bands (100%), so a page no longer shows three unrelated widths.
+
+   Both values here are the SAME number on purpose: .intro-body and .prose are the two
+   long-form reading containers and they were 65ch and 64ch for no reason anyone recorded.
+   Component copy — hero subs, cards, the footer — keeps its own narrower measure; those
+   are not reading columns.
+
+   This is a site-wide change. It moves every line break on every page, which is why it
+   was put to him with pictures rather than decided here. */
+.prose{max-width:82ch;margin-inline:auto}
 .prose p{margin-bottom:16px;color:var(--body);font-size:var(--fs-body);line-height:1.65}
 .split2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);align-items:center}
 .split2--rev .split2__m{order:-1}
@@ -471,7 +490,8 @@ a{color:inherit}
 @media(max-width:760px){.bleed__breath{display:none}}
 
 /* intro multi-paragraph */
-.intro-body{max-width:65ch}
+/* Reading measure — see the note on .prose above; these two must stay equal. */
+.intro-body{max-width:82ch;margin-inline:auto}
 .intro-body p{font-size:var(--fs-body);line-height:1.7;color:var(--body);margin:0 0 14px}
 /* S007 (2026-09-18): content HTML written inside a prose body — Eyal's own markup — was
    never reached by any child-theme rule. Measured live on /snoring-sleep-apnea/: three
