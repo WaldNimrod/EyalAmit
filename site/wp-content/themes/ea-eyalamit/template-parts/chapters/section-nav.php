@@ -1,17 +1,20 @@
 <?php
 /**
- * Chapters — top navigation (fixed required menu structure, scope-doc §05).
- * Menu structure is intentionally fixed (not editor-managed) — it is template,
- * not content. Links resolve to real WP routes via home_url().
+ * Chapters — top navigation.
+ *
+ * S007 M-13: items now come from ea_canonical_nav_items() (inc/ea-canonical-
+ * nav.php) — the single source every renderer reads — instead of being
+ * hand-coded here. "home" is skipped: the logo two lines below already
+ * carries it (href, aria-label), so this renderer's affordance for it is
+ * the logo, not a text item; that is markup, which the ruling leaves to
+ * each renderer.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$h = static function ( $path ) {
-	return esc_url( home_url( $path ) );
-};
+$ea_nav_items = ea_canonical_nav_items();
 ?>
 <nav class="nav" id="nav" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
 	<a class="nav__b" href="<?php echo $h( '/' ); ?>" aria-label="<?php esc_attr_e( 'אייל עמית — דף הבית', 'ea-eyalamit' ); ?>">
@@ -30,55 +33,28 @@ $h = static function ( $path ) {
 	</button>
 
 	<ul class="nav__l" role="list">
+		<?php foreach ( $ea_nav_items as $ea_item ) : ?>
+			<?php if ( 'home' === $ea_item['key'] ) : ?>
+				<?php continue; // the logo above already carries this. ?>
+			<?php endif; ?>
+			<?php $ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array(); ?>
+			<?php if ( $ea_children ) : ?>
 		<li>
-			<a class="nav__dd" href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו<span class="nav__caret" aria-hidden="true">▾</span></a>
+			<?php if ( $ea_item['href'] ) : ?>
+			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>"><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
+			<?php else : ?>
+			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false"><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></button>
+			<?php endif; ?>
 			<ul class="nav__sub" role="list">
-				<li><a href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו</a></li>
-				<li><a href="<?php echo $h( '/snoring-sleep-apnea/' ); ?>">נחירות ודום נשימה בשינה</a></li>
+				<?php foreach ( $ea_children as $ea_child ) : ?>
+				<li><a href="<?php echo esc_url( $ea_child['href'] ); ?>"><?php echo esc_html( $ea_child['label'] ); ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</li>
-		<li><a href="<?php echo $h( '/method/' ); ?>">השיטה</a></li>
-		<li><a href="<?php echo $h( '/lessons/' ); ?>">שיעורי דיג׳רידו</a></li>
-		<li><a href="<?php echo $h( '/sound-healing/' ); ?>">סאונד הילינג</a></li>
-		<li>
-			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false">לימוד והכשרה<span class="nav__caret" aria-hidden="true">▾</span></button>
-			<ul class="nav__sub" role="list">
-				<li><a href="<?php echo $h( '/learning/therapist-training/' ); ?>">הכשרות למטפלים</a></li>
-				<?php /* קורסים: ממתין ל-URL קורס חיצוני (Scholar/חיצוני) מאייל — placeholder עד שיסופק, ר' block-topnav.php */ ?>
-				<li><a href="#">קורסים</a></li>
-				<li><a href="<?php echo $h( '/learning/lectures/' ); ?>">הרצאות</a></li>
-				<li><a href="<?php echo $h( '/learning/workshops/' ); ?>">סדנאות</a></li>
-			</ul>
-		</li>
-		<li>
-			<a class="nav__dd" href="<?php echo $h( '/shop/' ); ?>">כלים ואביזרים<span class="nav__caret" aria-hidden="true">▾</span></a>
-			<ul class="nav__sub" role="list">
-				<li><a href="<?php echo $h( '/shop/' ); ?>">כלים בעבודת יד ואביזרים</a></li>
-				<li><a href="<?php echo $h( '/repair/' ); ?>">תיקון וחידוש כלים</a></li>
-				<li><a href="<?php echo $h( '/didgeridoos/' ); ?>">כלי דיג׳רידו למכירה</a></li>
-				<li><a href="<?php echo $h( '/bags/' ); ?>">תיקים לדיג׳רידו</a></li>
-				<li><a href="<?php echo $h( '/stands-storage/' ); ?>">סטנדים לאחסון דיג׳רידו</a></li>
-				<li><a href="<?php echo $h( '/stand-floor/' ); ?>">סטנד רצפתי לנגינה</a></li>
-			</ul>
-		</li>
-		<li>
-			<a class="nav__dd" href="<?php echo $h( '/books/' ); ?>">ספרים<span class="nav__caret" aria-hidden="true">▾</span></a>
-			<ul class="nav__sub" role="list">
-				<li><a href="<?php echo $h( '/books/#books-bundle' ); ?>">מבצעים</a></li>
-				<li><a href="<?php echo $h( '/books/tsva-bekahol/' ); ?>">צבע בכחול וזרוק לים</a></li>
-				<li><a href="<?php echo $h( '/books/kushi-blantis/' ); ?>">כושי בלאנטיס</a></li>
-				<li><a href="<?php echo $h( '/books/vekatavta/' ); ?>">וכתבת</a></li>
-			</ul>
-		</li>
-		<li><a href="<?php echo $h( '/blog/' ); ?>">בלוג דיג׳רידו</a></li>
-		<li>
-			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false">אייל עמית<span class="nav__caret" aria-hidden="true">▾</span></button>
-			<ul class="nav__sub" role="list">
-				<li><a href="<?php echo $h( '/eyal-amit/' ); ?>">אודות אייל</a></li>
-				<li><a href="<?php echo $h( '/eyal-amit/mokesh-dahiman/' ); ?>">מוקש דהימן — לזכרו</a></li>
-			</ul>
-		</li>
-		<li><a href="<?php echo $h( '/contact/' ); ?>">צור קשר</a></li>
+			<?php else : ?>
+		<li><a href="<?php echo esc_url( $ea_item['href'] ); ?>"><?php echo esc_html( $ea_item['label'] ); ?></a></li>
+			<?php endif; ?>
+		<?php endforeach; ?>
 	</ul>
 
 	<div class="nav__r">

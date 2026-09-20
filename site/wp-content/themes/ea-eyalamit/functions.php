@@ -846,6 +846,12 @@ require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
 require_once get_stylesheet_directory() . '/inc/chapters/chapters-bootstrap.php';
 
 /**
+ * S007 M-13 — the one canonical nav tree every renderer reads.
+ * Required before ea-nav-drawer.php, which now consumes it.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-canonical-nav.php';
+
+/**
  * S007 M-12 — the one mobile navigation drawer, every page.
  */
 require_once get_stylesheet_directory() . '/inc/ea-nav-drawer.php';
