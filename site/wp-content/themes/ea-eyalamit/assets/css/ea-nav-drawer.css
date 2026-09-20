@@ -55,9 +55,18 @@ html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
   .ea-nd-burger__bars span:nth-child(2){top:6px}
   .ea-nd-burger__bars span:nth-child(3){top:12px}
 
-  /* fixed trigger for the six pages that have no burger of their own today */
+  /* Fixed trigger for pages with no burger of their own today (the six
+     GeneratePress orphans, /en/). Bottom-inline-end on purpose, not a top
+     corner: GeneratePress's own real .menu-toggle already occupies the
+     top-inline-end area of its masthead on all six pages, and a first
+     version placed this burger directly on top of it — same screen
+     coordinates, GP's element winning every real hit-test, so clicks never
+     reached this button at all. Caught via elementFromPoint at the burger's
+     own center, not assumed working because showModal() itself worked fine
+     when called directly. Bottom-inline-end also keeps clear of the
+     WhatsApp float, which owns bottom-inline-start (style.css). */
   .ea-nd-burger--standalone{
-    position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
+    position:fixed;inset-block-end:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
     background:rgba(14,9,5,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   }
 }
