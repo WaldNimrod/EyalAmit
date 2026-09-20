@@ -161,14 +161,19 @@ function ea_gp_wordmark_body_class( $classes ) {
 add_filter( 'body_class', 'ea_gp_wordmark_body_class', 100 );
 
 /**
- * Render the Chapters wordmark beside GeneratePress site branding (WAF-V01).
+ * Append the Chapters wordmark beside GP site title (WAF-V01).
+ *
+ * generate_after_logo does not run when the header uses a text site title
+ * instead of a custom logo — filter the title output instead.
+ *
+ * @param string $output Site title markup.
+ * @return string
  */
-function ea_gp_render_header_wordmark() {
+function ea_gp_append_wordmark_to_site_title( $output ) {
 	if ( ! is_page( array( 'about', 'press' ) ) ) {
-		return;
+		return $output;
 	}
-	echo '<span class="nav__wm">';
-	esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' );
-	echo '</span>';
+	$output .= '<span class="nav__wm">' . esc_html__( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ) . '</span>';
+	return $output;
 }
-add_action( 'generate_after_logo', 'ea_gp_render_header_wordmark' );
+add_filter( 'generate_site_title_output', 'ea_gp_append_wordmark_to_site_title', 20 );

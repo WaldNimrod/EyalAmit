@@ -2126,12 +2126,10 @@
 
     /* WAF-V01 (2026-09-20): GP /about/ /press/ — wordmark beside site branding.
        Same string and scale as Chapters .nav__wm; hidden mid-desktop like Chapters. */
-    body.ea-gp-wordmark .site-branding {
+    body.ea-gp-wordmark .site-branding .main-title {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-    body.ea-gp-wordmark .site-branding .main-title {
       margin: 0;
     }
     body.ea-gp-wordmark .site-branding .nav__wm {
