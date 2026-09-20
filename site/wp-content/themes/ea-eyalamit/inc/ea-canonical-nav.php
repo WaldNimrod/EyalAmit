@@ -149,13 +149,35 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 			if ( $item['href'] ) {
 				$html .= sprintf( '<a href="%s">%s</a>', esc_url( $item['href'] ), esc_html( $item['label'] ) );
 			} else {
-				/* "לימוד והכשרה" / "אייל עמית": permanent category labels with no
-				   overview page of their own (section-nav.php renders these as a
-				   <button>, not a link, for the same reason) — not the same thing
-				   as "קורסים"'s href="#", which stands in for a real destination
-				   still pending from Eyal. GP's dropdown-hover CSS expects an <a>
-				   here, so this is href="#" rather than a non-link element. */
-				$html .= sprintf( '<a href="#">%s</a>', esc_html( $item['label'] ) );
+				/*
+				 * "לימוד והכשרה" / "אייל עמית": permanent category labels with no
+				 * overview page of their own (section-nav.php renders these as a
+				 * <button>, not a link, for the same reason) — not the same thing
+				 * as "קורסים"'s href="#", which stands in for a real destination
+				 * still pending from Eyal.
+				 *
+				 * First version of this used href="#" to match GP's dropdown-hover
+				 * CSS, which only reacts to :hover — measured live afterward:
+				 * focusing that link does not reveal its submenu at all, and a
+				 * real Tab walk confirms the submenu's own items (e.g. "הכשרות
+				 * למטפלים") are unreachable by keyboard entirely. A real Enter
+				 * keypress on href="#" also moves focus away to the top of the
+				 * page instead of opening anything — a focusable control that
+				 * does nothing, on every page that reaches GP's header. Same
+				 * class of defect as "קורסים", found instead of assumed safe.
+				 *
+				 * Fixed with a real <button> (native Enter/Space activation, no
+				 * hand-rolled key handling needed) wired by
+				 * assets/js/ea-canonical-nav-gp-dropdown.js, which toggles
+				 * aria-expanded and sets the submenu's own inline display style
+				 * directly — high enough specificity to win regardless of GP's
+				 * own (unread, unvendored) hover CSS, and cleared back to '' on
+				 * close so GP's own hover behaviour resumes control for mouse
+				 * users. ea-canonical-nav-gp-dropdown.css gives the button the
+				 * same inherited font/color a sibling <a> would have, since a
+				 * bare <button> does not inherit GP's own link styling.
+				 */
+				$html .= sprintf( '<button type="button" class="ea-gp-dd-toggle" aria-haspopup="true" aria-expanded="false">%s</button>', esc_html( $item['label'] ) );
 			}
 			$html .= '<ul class="sub-menu">';
 			foreach ( $children as $child ) {
@@ -174,3 +196,19 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 	return $html;
 }
 add_filter( 'wp_nav_menu_items', 'ea_canonical_nav_gp_header_items', 10, 2 );
+
+/**
+ * Keyboard access for the .ea-gp-dd-toggle buttons above. Same unconditional
+ * hook/priority as ea_eyalamit_enqueue_type_tokens_everywhere() — harmless
+ * (and inert; the JS no-ops if it finds no matching elements) on pages that
+ * never reach GeneratePress's header at all.
+ */
+function ea_canonical_nav_gp_dropdown_assets() {
+	if ( is_admin() ) {
+		return;
+	}
+	$ver = wp_get_theme()->get( 'Version' );
+	wp_enqueue_style( 'ea-canonical-nav-gp-dropdown', get_stylesheet_directory_uri() . '/assets/css/ea-canonical-nav-gp-dropdown.css', array(), $ver );
+	wp_enqueue_script( 'ea-canonical-nav-gp-dropdown', get_stylesheet_directory_uri() . '/assets/js/ea-canonical-nav-gp-dropdown.js', array(), $ver, true );
+}
+add_action( 'wp_enqueue_scripts', 'ea_canonical_nav_gp_dropdown_assets', 3 );
