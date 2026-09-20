@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דוח מחקר · הצהרת נגישות · R2-003 · 2026-09-22</title>
+<style>
+  :root { --ink:#1c1917; --muted:#57534e; --line:#d6d3d1; --bg:#fafaf9; --paper:#fff; --terra:#9a3412; --ok:#166534; --bad:#9f1239; --hold:#92400e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font: 16px/1.55 "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 .4rem; }
+  h2 { font-size: 1.18rem; margin: 2.1rem 0 .55rem; border-bottom: 1px solid var(--line); padding-bottom: .3rem; }
+  h3 { font-size: 1.02rem; margin: 1.3rem 0 .35rem; }
+  .muted { color: var(--muted); font-size: .92rem; }
+  .banner { background:#fff7ed; border: 1px solid #fdba74; padding: .85rem 1rem; margin: 1rem 0 1.4rem; }
+  .banner strong { color: var(--hold); }
+  .unsure { background:#fef2f2; border: 1px solid #fecaca; padding: .85rem 1rem; margin: 1rem 0; }
+  table { width:100%; border-collapse: collapse; font-size: .92rem; background: var(--paper); }
+  th, td { border: 1px solid var(--line); padding: .45rem .55rem; vertical-align: top; text-align: right; }
+  th { background: #f5f5f4; }
+  a { color: var(--terra); }
+  .nav { display:flex; flex-wrap:wrap; gap:.5rem 1.1rem; margin: 1rem 0; font-size: .92rem; }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: .84em; }
+  ul.tight li { margin: .22rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="muted">צוות 10 · S007-GROK · R2-003 · נמדד 2026-09-20 · קובץ 2026-09-22 · <strong>אינו ייעוץ משפטי</strong> · <strong>אין הדבקה לאתר</strong></p>
+<h1>דוח מחקר: הצהרת נגישות לאתר של מטפל קטן</h1>
+<p>חלק מחבילת שלושה דוחות (נגישות · פרטיות · תקנון). נקודת המוצא: הטיוטה שאושרה כבסיס ב־25.8, ביקורת הנגישות של 17–18.9, והעמוד החי היום. <strong>המדידה הקובעת היא הסטייג'ינג החי</strong>, לא הטיוטה.</p>
+
+<nav class="nav">
+  <a href="#law">מה הדין דורש</a>
+  <a href="#live">איפה האתר עומד</a>
+  <a href="#gaps">פערים</a>
+  <a href="#tool">המלצת כלי</a>
+  <a href="#unsure">מה לא בטוחים</a>
+  <a href="#next">מה מבקשים ממך</a>
+  <a href="#src">מקורות</a>
+</nav>
+<p class="muted">אחים: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html">פרטיות</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html">תקנון</a></p>
+
+<div class="banner">
+  <strong>סטטוס:</strong> מחקר לנימרוד בלבד. לא הודבק דבר לעמוד
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">http://eyalamit-co-il-2026.s887.upress.link/accessibility/</a>.
+  באנר «טיוטת צוות / ממתין לאישור» (WP-EI-05) נשאר חי. הנוסח החי כבר אומר «פועלים לפי», לא «עומדים» — זה תיקון מספטמבר, לא מהדוח הזה.
+</div>
+
+<h2 id="law">1. מה הדין הישראלי דורש מאתר כזה</h2>
+<p>מסגרת: <strong>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח–1998</strong>. החובה על אתר יושבת בתקנות השירות, לא ב«חוק נגישות אתרים 2020» — כזה חוק לא הומצא כאן.</p>
+<ul class="tight">
+  <li><strong>תקנות</strong> שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע״ג–2013. סימן ג׳ על שירות אינטרנט (תקנות 35–35ו) הוחלף/נוסף בתיקון התשע״ח–2017, ק״ת 7876, תחילה 26 באוקטובר 2017.</li>
+  <li><strong>תקנה 35א(א):</strong> חייב יספק התאמות נגישות בשירות אינטרנט לפי «תקן נגישות אינטרנט» ברמת <strong>AA</strong>. התקן הוא <strong>ת״י 5568</strong>, מבוסס WCAG 2.0 AA. WCAG 2.1/2.2 הם כלי בדיקה; הם אינם החובה הכתובה בתקנות.</li>
+  <li><strong>תקנה 35ה:</strong> הצהרה במקום בולט: מה הונגש בפועל, פרטי רכז נגישות <em>אם</em> החייב מחויב למנותו לפי דין, ודרך פנייה על היעדר הנגשה.</li>
+  <li><strong>תקנה 35ו(ז):</strong> פטור מסימן זה לעוסק פטור (חוק מע״מ) <em>או</em> למחזור שנתי ממוצע שאינו עולה על 100,000 ₪.</li>
+  <li><strong>תקנה 35ו(ט):</strong> פטור לאתר שהחל לפעול <em>לפני</em> אוקטובר 2017, אם המחזור הממוצע ≤ 1,000,000 ₪, ודרכי התקשרות נגישות; מתחדש כל שלוש שנים. <strong>לא חל על אתר 2026</strong>.</li>
+  <li><strong>תקנה 35ד:</strong> כתוביות לווידאו מוקלט — בעיקר רשות ציבורית, או חייב שמחזורו הממוצע עולה על 5 מיליון ₪.</li>
+</ul>
+<p>עסק פרטי קטן עם אתר מידע <strong>נמצא בחובה כברירת מחדל</strong>, אלא אם פטור 35ו(ז) חל והוא מבוסס במספרים שאייל/רו״ח מאשרים. אין לנו מחזור. אסור לכתוב בהצהרה «פטורים».</p>
+
+<h2 id="live">2. איפה האתר החי עומד (נמדד 2026-09-20)</h2>
+<p>GET בלי follow-redirect · HTTP · סטייג'ינג. הייצור <code>https://www.eyalamit.co.il/accessibility/</code> היה 404 בביקורות קודמות; לא נפתח מחדש היום כבדיקת חובה (האתר החדש עדיין לא שם).</p>
+<table>
+  <thead><tr><th>בדיקה</th><th>תוצאה חיה</th></tr></thead>
+  <tbody>
+    <tr><td>URL / סטטוס</td><td><a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">/accessibility/</a> · HTTP <strong>200</strong> · באנר טיוטה חי</td></tr>
+    <tr><td>H1 / H2</td><td>H1 «הצהרת נגישות». H2: המחויבות שלנו · ההתאמות שבוצעו בפועל · מגבלות ידועות · וידאו ואודיו · פנייה בנושא נגישות · עדכון ההצהרה</td></tr>
+    <tr><td>נוסח AA</td><td>«<strong>פועלים לפי</strong> … ת״י 5568 / WCAG 2.0 AA». מפורש: <strong>לא בוצעה ביקורת חיצונית</strong>, אין טענת עמידה מאושרת. זה תואם את הכרעת team_00 מ־18.9 (D-B).</td></tr>
+    <tr><td>תאריך בהצהרה</td><td>«18 בספטמבר 2026» (משתנה בקובץ התמה, לא ב־WordPress)</td></tr>
+    <tr><td>רכז</td><td>טלפון 052-4822842 + קישור ל־<code>/contact/</code>. <strong>אין שם אדם.</strong></td></tr>
+    <tr><td>קישור דילוג</td><td>חי. תוסף WP Accessibility טעון (<code>var wpa</code>); דילוג העבודה הוא של התמה, לא של התוסף.</td></tr>
+    <tr><td>מה כבר יצא בקוד (לא דף ריק)</td><td>דילוג לתוכן, טבעת <code>:focus-visible</code>, alt לתמונות תוכן שנמדדו, ניגודיות שתוקנה ב־18.9, מגירת ניווט אחת, ניווט קנוני אחד ברוב העמודים, <code>lang</code> עברית</td></tr>
+    <tr><td>פטור מחזור</td><td>לא מוזכר בהצהרה — נכון</td></tr>
+  </tbody>
+</table>
+<p>העמוד החי <strong>אינו כרטיס ריק</strong>. הוא טיוטת צוות עם באנר. אייל עדיין לא אישר אותו כמחייב.</p>
+
+<h2 id="gaps">3. פערים מול הדין / מול המציאות</h2>
+<table>
+  <thead><tr><th>נושא</th><th>חי עכשיו</th><th>המלצת מחקר (לא להדביק)</th></tr></thead>
+  <tbody>
+    <tr><td>טענת AA</td><td>מרוככת — «פועלים לפי» + גילוי שאין ביקורת חיצונית</td><td>להשאיר. לא להחזיר «עומדים». צוות 50 עדיין לא חתם ביקורת ת״י 5568 מלאה.</td></tr>
+    <tr><td>רכז נגישות</td><td>טלפון בלי שם</td><td>שם (ברירת מחדל: אייל עמית) רק אחרי שהוא מאשר להיות נקוב. התקנה דורשת שם <em>אם</em> יש חובת מינוי; גם בלי חובה, שם אדם מגן יותר מטלפון יתום.</td></tr>
+    <tr><td>קורא מסך</td><td>ההצהרה עצמה אומרת שטרם נבדק ב־VoiceOver/NVDA</td><td>נכון להשאיר כמגבלה. לא לסגור AA על סריקה אוטומטית — axe דיווח 0 על עמודים עם 162 תמונות בלי alt.</td></tr>
+    <tr><td>כתוביות</td><td>ההצהרה לא מבטיחה כתוביות; מציעה חלופה בפנייה</td><td>תואם 35ד לעסק מתחת ל־5 מיליון ₪. לא להבטיח כתוביות לכל סרטון.</td></tr>
+    <tr><td>באנר טיוטה</td><td>חי</td><td>נשאר עד אייל. אחרי אישור — להסיר את ה־glow, לא את ההצהרה.</td></tr>
+    <tr><td>ייצור</td><td>אין עמוד הצהרה בנתיב הזה באתר הישן (404 היסטורי)</td><td>חשיפה מלאה ביום העברת הדומיין. לא «לתקן» את הייצור הישן במסגרת הדוח הזה.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="tool">4. המלצת כלי — קיים, לא המצאה</h2>
+<p>הטרקר ביקש במפורש תוסף/כלי WordPress קיים, לא רכיב מאפס.</p>
+<table>
+  <thead><tr><th>כלי</th><th>המלצה</th><th>למה</th></tr></thead>
+  <tbody>
+    <tr><td><a href="https://wordpress.org/plugins/wp-accessibility/">WP Accessibility</a> (Joe Dolson)</td><td><strong>להשאיר.</strong> כבר מותקן וטעון.</td><td>עזר לדילוג/פוקוס/הגדרות תבנית. אינו תחליף לת״י 5568. יעד הדילוג של התוסף כבר <code>#main</code>; הדילוג החי בפועל הוא של התמה.</td></tr>
+    <tr><td>Enable Accessibility (uPress) / WAH / accessiBe / כל overlay</td><td><strong>לא.</strong> נעול בפרויקט (D-A).</td><td>שכבת UI לא מייצרת עמידה בתקן. ה־FTC סיים ב־2025 הליך נגד accessiBe על מצגי־שווא של «האתר שלכם נגיש». האתר הישן של אייל רץ WAH — לא להעתיק את זה לכאן.</td></tr>
+    <tr><td>בנייה מאפס</td><td><strong>לא.</strong></td><td>מפורש בטרקר ובאפיון v1.2 (בלי יועץ חיצוני, בלי overlay).</td></tr>
+  </tbody>
+</table>
+<p>הסיכון העיקרי אינו היעדר תוסף. הסיכון הוא הצהרה שלא תואמת את האתר, או טענת AA בלי ביקורת. הנוסח החי כבר טיפל בזה חלקית.</p>
+
+<h2 id="unsure">5. מה לא בטוחים לגביו — במפורש</h2>
+<div class="unsure">
+<ul class="tight">
+  <li><strong>האם חל פטור 35ו(ז).</strong> אין מספר מחזור ואין סיווג עוסק פטור בכתב מאייל/רו״ח. לא מנחשים.</li>
+  <li><strong>האם חלה חובת מינוי רכז נגישות «לפי דין».</strong> 35ה מתנה את פרטי הרכז בחובה הזו. לעסק קטן זה לעיתים לא חל — לא סגרנו מול ייעוץ משפטי.</li>
+  <li><strong>האם ת״י 5568 כפי שעודכן ב־2023 משנה משהו מהותי מעבר ל־WCAG 2.0 AA.</strong> קראנו את דף הנציבות ואת כותרת ה־PDF הממשלתי (ספטמבר 2023), לא את התקן עמוד־עמוד. אף מקור רשמי שמצאנו לא מעביר את החובה הישראלית ל־WCAG 2.2.</li>
+  <li><strong>עמידת AA בפועל על כל 157 הנתיבים.</strong> נמדדו התאמות על מדגם + על מה שצוות 10 תיקן ב־18.9. אין מטריצת WCAG חתומה של צוות 50 על כל האתר.</li>
+  <li>הדוח הזה <strong>אינו ייעוץ משפטי</strong> ואינו חותמת AA.</li>
+</ul>
+</div>
+
+<h2 id="next">6. מה מבקשים ממך עכשיו</h2>
+<ol>
+  <li>משוב על הדוח. עדיין בלי הדבקה.</li>
+  <li>אחרי יישור: GO מפורש להדבקה — ואז צוות 10 מדביק, באנר נשאר עד אייל.</li>
+  <li>לאשר השארת WP Accessibility; לא Enable Accessibility; לא overlay.</li>
+</ol>
+<p>שאלות לאייל — רק אחרי GO שלך, משפט אחד כל אחת: שם רכז; האם להשאיר «פועלים לפי»; סיווג פטור אם בכלל.</p>
+
+<h2 id="src">7. מקורות</h2>
+<ul class="tight">
+  <li>טיוטת בסיס שאושרה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/DRAFT-R2-003-ACCESSIBILITY-2026-08-25.md">DRAFT-R2-003-ACCESSIBILITY-2026-08-25.md</a></li>
+  <li>קליטת נימרוד 26.8: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/INTAKE-NIMROD-W4-2026-08-26.md">INTAKE-NIMROD-W4-2026-08-26.md</a></li>
+  <li>ביקורת משפטית/תוסף 17.9: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/A11Y-AUDIT-2026-09-17/05-LEGAL-STATEMENT-PLUGIN-DOCS-AUDIT.md">05-LEGAL-STATEMENT-PLUGIN-DOCS-AUDIT.md</a></li>
+  <li>קובץ התקנות 7876 (תיקון 2017): <a href="https://www.osh.org.il/UploadedImages/10_2017/kt_7876.pdf">kt_7876.pdf</a></li>
+  <li>נגישות ישראל, סעיף 35: <a href="https://aisrael.org/%D7%9E%D7%99%D7%93%D7%A2-%D7%9C%D7%9E%D7%A0%D7%92%D7%99%D7%A9/%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA-%D7%90%D7%AA%D7%A8%D7%99-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98/%D7%AA%D7%A7%D7%A0%D7%AA-%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA-%D7%9C%D7%90%D7%AA%D7%A8%D7%99-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98-%D7%A1%D7%A2-35-%D7%91%D7%AA%D7%A7%D7%A0%D7%95%D7%AA-%D7%A0/">aisrael.org</a></li>
+  <li>ת״י 5568 חלק 1, gov.il, ספטמבר 2023: <a href="https://www.gov.il/BlobFolder/legalinfo/israeli_accessibility_standards_pdf/he/sitedocs_si-5568-1-september-2023.pdf">PDF ממשלתי</a></li>
+  <li>נציבות שוויון, דף התקן (עודכן 18.6.2025): <a href="https://www.gov.il/he/pages/israeli_standard_5598">gov.il</a></li>
+  <li>כל־זכות, הנגשת אתרים: <a href="https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%92%D7%A9%D7%AA_%D7%90%D7%AA%D7%A8%D7%99_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98_%D7%95%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA_%D7%9C%D7%90%D7%A0%D7%A9%D7%99%D7%9D_%D7%A2%D7%9D_%D7%9E%D7%95%D7%92%D7%91%D7%9C%D7%95%D7%AA">kolzchut.org.il</a></li>
+  <li>FTC v. accessiBe, 2025: <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/2223156-accessibe-inc">ftc.gov</a></li>
+  <li>WP Accessibility: <a href="https://wordpress.org/plugins/wp-accessibility/">wordpress.org/plugins/wp-accessibility</a></li>
+  <li>עמוד חי: <a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">/accessibility/</a> · GET 200 ב־2026-09-20</li>
+</ul>
+
+<footer>
+אין הדבקה. אין GO-W4-PASTE. כפתור הסאונד תוקן בנפרד (תמה 1.5.93) ואינו חלק מהצהרה זו.
+</footer>
+</div>
+</body>
+</html>
