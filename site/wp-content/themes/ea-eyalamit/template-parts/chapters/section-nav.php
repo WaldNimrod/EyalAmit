@@ -14,10 +14,17 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/* The M-13 rewrite removed this file's local `$h = fn($path) => esc_url(home_url($path))`
+   helper along with the hand-coded item list, but two call sites survived it — the logo
+   href and the EN link — and `$h('/')` on an undefined variable is a fatal, not a notice.
+   It took down every Chapters page on 1.5.90. Both now call esc_url(home_url()) directly
+   so there is no local helper left to lose. Third time a deletion in this theme has taken
+   a neighbouring assignment with it; see the memory note on regex deletions. */
+
 $ea_nav_items = ea_canonical_nav_items();
 ?>
 <nav class="nav" id="nav" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
-	<a class="nav__b" href="<?php echo $h( '/' ); ?>" aria-label="<?php esc_attr_e( 'אייל עמית — דף הבית', 'ea-eyalamit' ); ?>">
+	<a class="nav__b" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'אייל עמית — דף הבית', 'ea-eyalamit' ); ?>">
 		<span class="nav__lg" aria-hidden="true"></span>
 	</a>
 
@@ -61,6 +68,6 @@ $ea_nav_items = ea_canonical_nav_items();
 		<button class="nav__tg" id="soundtg" type="button" aria-pressed="false" aria-label="<?php esc_attr_e( 'הפעלת קול בסרטון', 'ea-eyalamit' ); ?>">
 			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 h4 l5-4 v14 l-5-4 H4 z"/><path d="M17 9 a4 4 0 0 1 0 6"/></svg>שמע
 		</button>
-		<a class="nav__en" href="<?php echo $h( '/en/' ); ?>" hreflang="en" lang="en">EN</a>
+		<a class="nav__en" href="<?php echo esc_url( home_url( '/en/' ) ); ?>" hreflang="en" lang="en">EN</a>
 	</div>
 </nav>
