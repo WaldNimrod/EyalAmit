@@ -106,7 +106,7 @@ a{color:inherit}
 .btn--gw:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
 .btn--gd{background:transparent;color:var(--terra);border-color:var(--terra)}
 .btn--gd:hover{background:var(--terra);color:#fff;transform:translateY(-2px)}
-.btn:focus-visible{outline:2px solid var(--terra-lt);outline-offset:3px}
+.btn:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
 /* WS-2.1 (2026-09-18): .btn--terra and .btn--gw set color:#fff at single-class
    specificity (0,1,0); GeneratePress's inline a:hover,a:focus,a:active{color:
    var(--contrast)} (0,1,1) beats that on focus, collapsing white CTA text to
@@ -302,7 +302,7 @@ a{color:inherit}
 .foot h4,.foot__col-title{font-family:var(--bf);font-size:var(--fs-3xs);letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin:0 0 18px;font-weight:var(--fw-medium)}
 .foot a{display:block;font-size:var(--fs-xs);color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:11px;transition:color .2s}
 .foot a:hover{color:#fff}
-.foot a:focus-visible{color:#fff;outline:2px solid var(--terra-lt);outline-offset:3px}
+.foot a:focus-visible{color:#fff;outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
 .foot__brand{text-align:left}
 .foot__brand b{font-family:var(--hf);font-size:var(--fs-h4);color:#fff;display:block;margin-bottom:8px}
 /* .46 and not .45: white at .45 over the footer's painted #0E0905 flattens to
@@ -322,6 +322,18 @@ a{color:inherit}
 .foot__base{position:relative;z-index:2;font-size:var(--fs-2xs);color:rgba(255,255,255,.4)}
 .foot__base a{display:inline;color:rgba(255,255,255,.55);text-decoration:underline;margin:0}
 .foot__base a:hover{color:#fff}
+/* The focus floor. Every control that has no ring of its own gets this one —
+   the skip link and the brand link were relying on the browser default, which is
+   a blue that this palette swallows. Element selectors at 0,0,2 so any component
+   rule still wins, and the ones that win now use the same tokens anyway. */
+html a:focus-visible,
+html button:focus-visible,
+html input:focus-visible,
+html select:focus-visible,
+html textarea:focus-visible,
+html summary:focus-visible,
+html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo);border-radius:2px}
+
 /* ── Touch targets on a phone ─────────────────────────────────────────────────
    WCAG 2.2 SC 2.5.8 (AA) wants a pointer target of at least 24x24. Measured at
    390x844 on /treatment/, three groups of STANDALONE links were under it:
@@ -642,7 +654,7 @@ a{color:inherit}
 /* uniform link accent inside prose */
 .tlink{color:var(--terra-dk);text-decoration:none;border-bottom:1px solid rgba(154,79,43,.4);transition:border-color .2s}
 .tlink:hover{border-color:var(--terra-dk)}
-.tlink:focus-visible{outline:2px solid var(--terra-dk);outline-offset:3px}
+.tlink:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
 .sec--dark .tlink:focus-visible{outline-color:var(--terra-lt)}
 
 /* ================= EXACT NAV with dropdowns ================= */
@@ -683,7 +695,7 @@ a{color:inherit}
 .rcard:hover .rcard__sc,.rcard:focus-within .rcard__sc{background:linear-gradient(0deg,rgba(20,14,9,.96) 20%,rgba(20,14,9,.7) 60%,rgba(20,14,9,.4))}
 .rcard:hover .rcard__more,.rcard:focus-within .rcard__more{max-height:170px;opacity:1;margin-top:10px}
 .rcard:hover .rcard__hint,.rcard:focus-within .rcard__hint{transform:rotate(135deg);background:var(--terra);border-color:var(--terra)}
-.rcard[tabindex]:focus{outline:2px solid var(--terra-lt);outline-offset:3px}
+.rcard[tabindex]:focus{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
 
 /* ================= creative step redesign (Method) — distinct display font ================= */
 .flow-steps2{position:relative;margin-top:70px}
@@ -1183,7 +1195,7 @@ body.nav-locked{overflow:hidden}
    Escape and focus-return are the browser's job and not ours. */
 .zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font-family:var(--bf)}
 .zoom img{display:block;width:100%;height:auto}
-.zoom:focus-visible{outline:3px solid var(--terra-btn);outline-offset:3px}
+.zoom:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
 .zoom__hint{display:block;margin-top:8px;font-size:var(--fs-2xs);font-weight:var(--fw-medium);
   letter-spacing:.4px;color:var(--terra-btn)}
 .ea-lb{max-width:min(96vw,1200px);max-height:92vh;padding:0;border:0;border-radius:10px;

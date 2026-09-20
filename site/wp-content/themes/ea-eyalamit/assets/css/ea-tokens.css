@@ -76,6 +76,21 @@
      vocabulary those roles and every component draw from. Mapping the site onto them
      changed NOTHING visually — each declaration kept its own number — but weight is now
      changeable from here, which is what the mobile phase will need. */
+  /* Focus ring — two-tone on purpose, and it is the whole point.
+     A single-colour ring fails whenever it lands on something close to its own
+     colour: measured 2026-09-18, the primary CTA's light-terracotta ring on a
+     terracotta fill was 1.65:1, the brand link 2.54:1, and the skip link — which
+     the accessibility statement names FIRST — was the browser's default blue on
+     terracotta at 1.06:1. Against a 3:1 floor (WCAG 2.1 SC 1.4.11).
+     An ivory ring with an ink halo always has one edge that contrasts, whatever is
+     behind it. Measured against every background this site uses: terracotta button
+     4.37, dark nav 18.70, ivory page 14.83, alt band 13.52, white 15.71, brand
+     terracotta 4.02. Worst case 4.02, and the two ring colours are 14.83 against
+     each other so the ring reads as a ring and not as a smudge.
+     The statement says «אנו פועלים לתקן זאת» about this. This is that. */
+  --focus-ring:2px solid var(--ivory);
+  --focus-halo:0 0 0 4px var(--ink);
+
   --fw-thin:100; --fw-xlight:200; --fw-light:300; --fw-regular:400;
   --fw-medium:500; --fw-semibold:600; --fw-bold:700; --fw-xbold:800;
 
