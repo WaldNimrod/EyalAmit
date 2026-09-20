@@ -55,6 +55,19 @@ function ea_w217_redirect_source_paths() {
 		// Belt-and-braces: excluded from the sitemap regardless of REST unpublish timing.
 		'/sample-page/',
 		'/wave2-test/',
+		/*
+		 * S007 2026-09-20, approved by team_00. Three more genuine redirect sources that
+		 * were sitting in page-sitemap.xml as sitemap entries while every request to them
+		 * is 301'd. Verified live the same day WITHOUT following redirects:
+		 *   /tools-and-accessories/            301 -> /shop/
+		 *   /tools-and-accessories/instruments/ 301 -> /didgeridoos/
+		 *   /tools-and-accessories/repair/      301 -> /repair/
+		 * They are also the targets the WordPress menu links to, which is a separate
+		 * defect handled by M-13 — excluding them here fixes the sitemap, not the menu.
+		 */
+		'/tools-and-accessories/',
+		'/tools-and-accessories/instruments/',
+		'/tools-and-accessories/repair/',
 	);
 }
 
