@@ -22,14 +22,21 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * The six pages that render on GeneratePress's own page.php today and gain
- * a working mobile menu — and, by using the Chapters list, also gain reach
- * to /shop/ and /snoring-sleep-apnea/ and the EN toggle, none of which their
- * current (WordPress-menu-driven) header nav can reach. That is a real,
- * visible change in what those pages offer, not only a styling one.
+ * Pages whose ENTIRE nav chrome is GeneratePress's own header — no separate
+ * template-rendered bar of their own. Originally the six GeneratePress
+ * orphans (gaining a working mobile menu, and via the canonical list, reach
+ * to /shop/, /snoring-sleep-apnea/ and EN that their old WP-menu-driven
+ * header never had). S007 M-13 (2026-09-20) adds 'about' and 'press':
+ * tpl-content.php used to render its own separate .ea-mnav-burger there,
+ * which is now removed (see page-templates/tpl-content.php) because it was
+ * a second navigation next to GeneratePress's — so those two pages need
+ * this same standalone trigger now, same as the six originals. Name kept
+ * (not renamed to something like "gp-header-only") to limit this change's
+ * surface area; the six-orphan framing it implies is narrower than what the
+ * function now covers.
  */
 function ea_nav_drawer_orphan_slugs() {
-	return array( 'services', 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'courses-external' );
+	return array( 'services', 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'courses-external', 'about', 'press' );
 }
 
 /**
@@ -60,76 +67,16 @@ function ea_nav_drawer_orphan_body_class( $classes ) {
 add_filter( 'body_class', 'ea_nav_drawer_orphan_body_class' );
 
 /**
- * The shared nav tree. A third, independently-maintained copy of the site
- * tree — Chapters (section-nav.php) and Wave2 (block-topnav.php) already
- * each keep their own; unifying those is a separate, content-level decision
- * for team_00, not this mandate.
+ * S007 M-13: the nav tree itself moved to inc/ea-canonical-nav.php
+ * (ea_canonical_nav_items()) — it is no longer this drawer's own copy, it is
+ * THE single source every renderer reads (Chapters, Wave2, GeneratePress's
+ * header, and this drawer). Kept as a thin alias so nothing else in this
+ * file has to change.
  *
  * @return array
  */
 function ea_nav_drawer_items() {
-	$h = static function ( $path ) {
-		return esc_url( home_url( $path ) );
-	};
-	return array(
-		array( 'key' => 'home', 'label' => 'בית', 'href' => $h( '/' ) ),
-		array(
-			'key'      => 'treatment',
-			'label'    => 'טיפול בדיג׳רידו',
-			'href'     => $h( '/treatment/' ),
-			'children' => array(
-				array( 'key' => 'snoring-sleep-apnea', 'label' => 'נחירות ודום נשימה בשינה', 'href' => $h( '/snoring-sleep-apnea/' ) ),
-			),
-		),
-		array( 'key' => 'method', 'label' => 'השיטה', 'href' => $h( '/method/' ) ),
-		array( 'key' => 'lessons', 'label' => 'שיעורי דיג׳רידו', 'href' => $h( '/lessons/' ) ),
-		array( 'key' => 'sound-healing', 'label' => 'סאונד הילינג', 'href' => $h( '/sound-healing/' ) ),
-		array(
-			'key'      => 'learning',
-			'label'    => 'לימוד והכשרה',
-			'href'     => null,
-			'children' => array(
-				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
-				/* "קורסים" (external course link) intentionally omitted — see file docblock. */
-				array( 'key' => 'lectures', 'label' => 'הרצאות', 'href' => $h( '/learning/lectures/' ) ),
-				array( 'key' => 'workshops', 'label' => 'סדנאות', 'href' => $h( '/learning/workshops/' ) ),
-			),
-		),
-		array(
-			'key'      => 'shop',
-			'label'    => 'כלים ואביזרים',
-			'href'     => $h( '/shop/' ),
-			'children' => array(
-				array( 'key' => 'repair', 'label' => 'תיקון וחידוש כלים', 'href' => $h( '/repair/' ) ),
-				array( 'key' => 'didgeridoos', 'label' => 'כלי דיג׳רידו למכירה', 'href' => $h( '/didgeridoos/' ) ),
-				array( 'key' => 'bags', 'label' => 'תיקים לדיג׳רידו', 'href' => $h( '/bags/' ) ),
-				array( 'key' => 'stands-storage', 'label' => 'סטנדים לאחסון דיג׳רידו', 'href' => $h( '/stands-storage/' ) ),
-				array( 'key' => 'stand-floor', 'label' => 'סטנד רצפתי לנגינה', 'href' => $h( '/stand-floor/' ) ),
-			),
-		),
-		array(
-			'key'      => 'books',
-			'label'    => 'ספרים',
-			'href'     => $h( '/books/' ),
-			'children' => array(
-				array( 'key' => 'books-bundle', 'label' => 'מבצעים', 'href' => $h( '/books/#books-bundle' ) ),
-				array( 'key' => 'tsva-bekahol', 'label' => 'צבע בכחול וזרוק לים', 'href' => $h( '/books/tsva-bekahol/' ) ),
-				array( 'key' => 'kushi-blantis', 'label' => 'כושי בלאנטיס', 'href' => $h( '/books/kushi-blantis/' ) ),
-				array( 'key' => 'vekatavta', 'label' => 'וכתבת', 'href' => $h( '/books/vekatavta/' ) ),
-			),
-		),
-		array( 'key' => 'blog', 'label' => 'בלוג דיג׳רידו', 'href' => $h( '/blog/' ) ),
-		array(
-			'key'      => 'eyal-amit',
-			'label'    => 'אייל עמית',
-			'href'     => null,
-			'children' => array(
-				array( 'key' => 'about', 'label' => 'אודות אייל', 'href' => $h( '/eyal-amit/' ) ),
-				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן — לזכרו', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
-			),
-		),
-		array( 'key' => 'contact', 'label' => 'צור קשר', 'href' => $h( '/contact/' ) ),
-	);
+	return ea_canonical_nav_items();
 }
 
 /** Secondary footer links — identical set to block-topnav.php's $ea_mnav_foot_links (team_00-approved 2026-08-17). */

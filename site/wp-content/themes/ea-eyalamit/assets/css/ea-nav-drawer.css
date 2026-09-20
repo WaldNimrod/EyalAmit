@@ -91,6 +91,20 @@ html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
    else too, including the six orphan pages. */
 body.nav-locked{overflow:hidden}
 
+/* S007 M-13 (2026-09-20) — /about/ and /press/ (ea-nd-orphan, extended for
+   M-13) also carry ea-wave2-shell, an older flag whose own rule in
+   ea-atoms.css (".ea-wave2-shell .site-header{display:none}") hides
+   GeneratePress's entire header — written back when these two pages showed
+   their own separate .ea-topnav bar instead and GP's was redundant.
+   tpl-content.php no longer renders that separate bar (M-13 removed it, the
+   double-nav fix), which left these two pages with GP's header AND its now-
+   canonical nav BOTH hidden and no visible desktop nav at all — measured
+   live: only the two skip-links sit above the fold, nothing else. GP's
+   header is what these pages' nav actually comes from now, so it is shown
+   again specifically for them. (0,3,1) beats ea-atoms.css's (0,2,0); loads
+   after it regardless. */
+body.ea-nd-orphan.ea-wave2-shell .site-header{display:block}
+
 /* display:none here is load-bearing, not decorative: it is what keeps every
    link/button inside genuinely out of the tab order while closed — the same
    guarantee visibility:hidden gave the two hand-rolled panels this replaces,

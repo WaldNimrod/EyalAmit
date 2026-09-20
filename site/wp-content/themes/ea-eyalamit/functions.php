@@ -263,16 +263,36 @@ add_filter( 'language_attributes', 'ea_eyalamit_en_language_attributes', 20 );
 
 /**
  * M3 — רישום CPT לאינסטנסי FAQ, גלריות והמלצות (קטלוג מרכזי).
+ *
+ * S007 2026-09-20 — these three post types are DATA, not pages. Their content is
+ * rendered by /faq/, /galleries/ and /testimonials/, which query them directly by
+ * post_type; nothing links to a single item and no template renders one. They were
+ * nevertheless registered public, so WordPress routed 137 single URLs
+ * (/faq-item/…, /gallery-item/…, /testimonial-item/…) and Yoast published three
+ * child sitemaps for them. Measured live 2026-09-20: all 133 ea_faq questions AND
+ * all 133 answers already appear verbatim on /faq/ — a full content duplication of
+ * the page they exist to feed — and the 4 gallery/testimonial singles were seed
+ * placeholders whose visible body was our own internal build notes. All 137 also
+ * rendered the WordPress menu instead of the site's own navigation.
+ *
+ * team_00 ruled 2026-09-20: «שאלות - אם זה כפילות תוכן מלאה - למחוק».
+ *
+ * The URLs are what gets deleted, NOT the content. /faq/ reads these posts
+ * (ea_faq_query_items() below), so trashing them would empty the page they feed.
+ * public=false removes the single URLs and drops the three child sitemaps, while
+ * show_ui/show_in_rest keep every item editable exactly as before. Rewrite rules
+ * for the old single URLs are flushed once by
+ * mu-plugins/ea-s007-cpt-singles-retire-once.php.
  */
 function ea_eyalamit_register_m3_instance_cpts() {
 	$base = array(
-		'public'              => true,
-		'publicly_queryable'  => true,
+		'public'              => false,
+		'publicly_queryable'  => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_rest'        => true,
 		'has_archive'         => false,
-		'exclude_from_search' => false,
+		'exclude_from_search' => true,
 		'capability_type'     => 'post',
 		'hierarchical'        => false,
 		'menu_icon'           => 'dashicons-list-view',
@@ -824,6 +844,12 @@ require_once get_stylesheet_directory() . '/inc/ea-testimonials-fb.php';
  * duplicate-page action, ACF home field group). Self-guarding / ACF-absent safe.
  */
 require_once get_stylesheet_directory() . '/inc/chapters/chapters-bootstrap.php';
+
+/**
+ * S007 M-13 — the one canonical nav tree every renderer reads.
+ * Required before ea-nav-drawer.php, which now consumes it.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-canonical-nav.php';
 
 /**
  * S007 M-12 — the one mobile navigation drawer, every page.

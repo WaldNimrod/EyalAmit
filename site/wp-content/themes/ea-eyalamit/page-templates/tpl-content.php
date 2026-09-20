@@ -13,13 +13,25 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$ea_editorial_ctx    = function_exists( 'ea_wave2_editorial_ctx' ) ? ea_wave2_editorial_ctx() : null;
-$ea_editorial_active = is_array( $ea_editorial_ctx ) && isset( $ea_editorial_ctx['route'] ) ? (string) $ea_editorial_ctx['route'] : '';
+$ea_editorial_ctx = function_exists( 'ea_wave2_editorial_ctx' ) ? ea_wave2_editorial_ctx() : null;
 
 get_header();
 
-set_query_var( 'ea_topnav_active', $ea_editorial_active );
-get_template_part( 'template-parts/blocks/block', 'topnav' );
+/*
+ * S007 M-13 (2026-09-20): this used to ALSO render block-topnav.php's own
+ * .ea-topnav here, right after get_header() — meaning /about/ and /press/
+ * showed two navigations at once: GeneratePress's own header nav (via
+ * get_header(), which every template in this theme reaches) and this
+ * template's separate, independently-maintained one. That is exactly the
+ * defect _COMMUNICATION/team_00/DECIDE-S007-TWO-NAVIGATIONS-2026-09-20.md
+ * found and M-13 exists to end — team_00: «כל העמודים ללא יוצא מהכלל חייבים
+ * להציג אותו תפריט מדוייק ונכון». GeneratePress's header now renders the
+ * canonical set too (inc/ea-canonical-nav.php's wp_nav_menu_items filter),
+ * so this second render is removed rather than reconciled — the mobile
+ * trigger these two pages relied on from .ea-mnav-burger is replaced by the
+ * same standalone burger the GeneratePress-orphan pages already use (see
+ * ea_nav_drawer_no_burger_pages() in inc/ea-nav-drawer.php).
+ */
 ?>
 <main id="main" class="ea-wave2-editorial">
 	<?php

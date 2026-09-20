@@ -40,6 +40,19 @@ $wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found 
 .ea-en-foot{background:var(--dark-grad,#0E0905);color:rgba(255,255,255,.82);padding:48px 48px;text-align:center;font-size:.85rem}
 .ea-en-foot a{color:var(--terra-lt,#D08A5E);text-decoration:none}
 @media(max-width:600px){.ea-en-head,.ea-en-foot{padding-inline:24px}}
+/* S007 M-13 (2026-09-20): team_00 — «אנגלית - יש להוסיף לתפריט». /en/ was the
+   only published URL rendering no navigation at all. Canonical items, canonical
+   (Hebrew) labels — team_00 has not ruled on translating them, so this does not
+   invent English ones; each label is its own RTL run inside this LTR page,
+   which the browser's own bidi handling renders correctly without dir="rtl"
+   reversing the (LTR) item order. Desktop only — mobile already gets the one
+   shared drawer via the universal hooks in inc/ea-nav-drawer.php (unchanged,
+   verified in M-12 Phase A). Hidden below 1024px, same breakpoint as every
+   other desktop bar in this theme; the drawer is the mobile path here too. */
+.ea-en-nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--bf,'Heebo',sans-serif);font-size:.85rem}
+.ea-en-nav a{color:var(--ink,#2f2013);text-decoration:none}
+.ea-en-nav a:hover,.ea-en-nav a:focus-visible{color:var(--terra-dk,#9A4F2B)}
+@media(max-width:1023px){.ea-en-nav{display:none}}
 </style>
 </head>
 <body <?php body_class(); ?>>
@@ -47,6 +60,32 @@ $wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found 
 
 <header class="ea-en-head">
 	<a class="ea-en-head__b" href="/en/">Eyal Amit</a>
+	<?php
+	/*
+	 * Flattened, not nested: this header has no dropdown affordance of its
+	 * own to build one-off for a single draft page, and "identical item
+	 * set... targets" has to mean every target is reachable, not only the
+	 * top-level ones. A parent with no href of its own (learning, eyal-amit)
+	 * renders no link for itself — it never had a destination — but its
+	 * children still appear.
+	 */
+	?>
+	<nav class="ea-en-nav" aria-label="Main">
+		<?php foreach ( ea_canonical_nav_items() as $ea_en_item ) : ?>
+			<?php if ( 'home' === $ea_en_item['key'] ) : ?>
+				<?php continue; // the brand link above already carries this. ?>
+			<?php endif; ?>
+			<?php if ( $ea_en_item['href'] ) : ?>
+		<a href="<?php echo esc_url( $ea_en_item['href'] ); ?>"><?php echo esc_html( $ea_en_item['label'] ); ?></a>
+			<?php endif; ?>
+			<?php foreach ( ( $ea_en_item['children'] ?? array() ) as $ea_en_child ) : ?>
+				<?php if ( $ea_en_child['href'] === $ea_en_item['href'] ) : ?>
+					<?php continue; // a self-referencing overview row (e.g. shop, treatment) — already linked above as the parent. ?>
+				<?php endif; ?>
+		<a href="<?php echo esc_url( $ea_en_child['href'] ); ?>"><?php echo esc_html( $ea_en_child['label'] ); ?></a>
+			<?php endforeach; ?>
+		<?php endforeach; ?>
+	</nav>
 	<a class="ea-en-head__lang" href="/">עברית →</a>
 </header>
 

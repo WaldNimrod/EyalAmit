@@ -1,0 +1,29 @@
+/* S007 M-13 (2026-09-20) — .ea-gp-dd-toggle is a real <button> standing in
+   for what used to be an href="#" <a> inside GeneratePress's own menu
+   markup (inc/ea-canonical-nav.php). A bare <button> does not inherit a
+   surrounding menu's link styling the way a sibling <a> does, so this
+   resets the browser's own button chrome and inherits font/color from
+   context instead of guessing GP's exact values (unvendored, unread).
+   ea-canonical-nav-gp-dropdown.js sets the submenu's own inline display on
+   toggle; this file only makes the trigger look and sit like its <a>
+   siblings. */
+.ea-gp-dd-toggle {
+  /* display + padding are explicit, not inherited: measured live that a bare
+     <button> here computes a 0x0 box even before any of this file's rules
+     apply — GP's own menu CSS is written against <a>, tag-specific enough
+     that swapping to <button> loses sizing too, not only colour/underline. */
+  display: inline-block;
+  padding: 0.5em 0;
+  background: none;
+  border: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  line-height: inherit;
+}
+.ea-gp-dd-toggle:hover,
+.ea-gp-dd-toggle:focus-visible {
+  text-decoration: underline;
+}
