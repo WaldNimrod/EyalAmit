@@ -1,85 +1,49 @@
-# HANDOFF TO TEAM 100 — S007-GROK four items · 2026-09-22
+# HANDOFF TO TEAM 100 — S007-GROK · דוח חי עד חזרת צוות 100
 
-**Builder:** this Grok line, team 10, working with Nimrod (team_00).  
-**Attacker (reports):** a separate GPT-5.2 session, 2026-09-20. Builder engine ≠ validator engine.  
-**Audit Tuesday:** a separate Claude line.  
-**Staging:** http://eyalamit-co-il-2026.s887.upress.link (HTTP; TLS invalid by design).  
-**Theme after legal paste:** 1.5.94.
+**נמען:** צוות 100 (חוזר לפעולה בערך בערב שלישי 2026-09-22). קוראים את הקובץ הזה ראשון.  
+**מבצע עד אז:** קו הבנייה מול נימרוד (team_00) במשימות ישירות — בערך 48 שעות.  
+**Staging:** http://eyalamit-co-il-2026.s887.upress.link (HTTP; TLS לא תקין בכוונה).  
+**תמה חיה אחרונה:** 1.5.94 · **HEAD שנמסר כאן:** `94b20c7`
 
-Silent gaps are the failure mode this file exists to prevent.
+**כלל עדכון (team_00, 2026-09-20):** עם סיום כל סעיף — שורה בטבלה למטה. מה נדרש, מה בוצע, סטטוס, קומיט, איך נבדק, הערות. פער גלוי עדיף על שתיקה.
 
----
-
-## TASK 4 — sound toggle
-
-**Status:** shipped, re-measured, **approved by Nimrod in his own words.**
-
-**Nimrod, verbatim, 2026-09-20:** «שמע בדף הבית נראה סבבה, יש לוודא שהוא מופיע רק היכן שיש וידאו או סאונד.»  
-Earlier defect ruling: «לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.»
-
-**Live re-measure after that ruling (GET, no follow-redirect, 156 sitemap URLs, all 200):**
-
-| Marker | Count | Where |
-|---|---|---|
-| `<video>` | 1 | `/` |
-| `#soundtg` / `.hero__sound` | 1 | `/` (on the hero video) |
-| `.nav__tg` / `.ea-nd__sound` / `.ea-sound-toggle` | 0 | — |
-| `.mokesh-hero__unmute` | 2 | `/about/moksha/`, `/eyal-amit/mokesh-dahiman/` (YouTube on the hero) |
-| `<audio>` | 0 | Wave2 ambient file is not in the theme |
-
-QR pages have YouTube iframes with the player’s own controls — not our שמע button.
-
-Evidence file: [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md)
+שפה מול נימרוד: עברית. ביקורת / הערות קוד: אנגלית.
 
 ---
 
-## TASKS 1–3 — legal reports, attack cycle, then paste
+## טבלת סעיפים
 
-**Nimrod, 2026-09-20, process change (verbatim intent):** validation against an attacking sub-session, correction until approved, **then paste to the site** and send to Eyal for final approval **by adding a section to the form sent today** — the last active form, not old addenda.
-
-**Attacker verdict (GPT-5.2, live GET):**
-
-- Accessibility page: **APPROVE-PASTE** = keep the 18.9 live statement. Do not paste the research HTML.
-- Privacy: **REJECT** July text (GA4 as “may”, GDPR-like deletion, checkout language).
-- Terms: **REJECT** Green Invoice as fact + «מחוז המרכז».
-
-**What was pasted (theme 1.5.94), banner WP-EI-05 kept until Eyal:**
-
-- `/accessibility/` — unchanged 18.9 text.
-- `/privacy/` — new defaults: operator אייל עמית; GA4 `G-MRXESK7QJF` named; Google Fonts noted; rights = §§13–14 only; no cart.
-- `/terms/` — new defaults: no checkout; דיני ישראל without a district; no blanket body-injury waiver.
-
-Reports (updated after the attack):
-
-- [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-ACCESSIBILITY-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-ACCESSIBILITY-2026-09-22.html)
-- [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html)
-- [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html)
+| # | סעיף | מה נדרש | מה בוצע | סטטוס | קומיט | איך נבדק | הערות |
+|---|---|---|---|---|---|---|---|
+| 1 | כפתור שמע על הסרט | רק כשיש סרט, תמיד על הסרט או צמוד אליו; לא בניווט; 44px; `aria-label` + `aria-pressed`; מקלדת | `#soundtg` הוסר מ־`section-nav.php` ומהמגירה; מרונדר ב־`section-hero.php` רק כשיש `<video>`; תמה 1.5.93 | **סגור — אושר נימרוד** | `69dea0a` (קוד+FTP) | GET לפני/אחרי; CDP דסקטופ+טלפון אחרי layout: 74.57×44px על הווידאו; Tab מציג טבעת; `aria-pressed` מתחלף. עמודי Chapters בלי סרט: אפס `#soundtg` | נימרוד: «שמע בדף הבית נראה סבבה». פירוט: [DONE-SOUND-TOGGLE-2026-09-22.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md) |
+| 2 | שמע רק היכן שיש וידאו או סאונד | אחרי אישור הבית — לוודא שאין כפתור יתום בעמודים בלי מדיה | סריקת GET בלי follow-redirect ל־156 נתיבי מפת האתר | **סגור** | מדידה על `69dea0a` החי | כולם HTTP 200. `<video>` + `#soundtg` רק ב־`/`. `.nav__tg` / `.ea-nd__sound` / `.ea-sound-toggle` = 0. `.mokesh-hero__unmute` רק ב־`/about/moksha/` ו־`/eyal-amit/mokesh-dahiman/` (יוטיוב על הגיבור). `<audio>` = 0 | עמודי QR עם iframe יוטיוב — פקדי הנגן של יוטיוב, לא כפתור «שמע» שלנו. קובץ דיג׳רידו אמביינט חסר בתמה |
+| 3 | שלושה דוחות מחקר HTML | נגישות / פרטיות / תקנון בעברית, מול האתר החי והדין בישראל; מקורות ואי-ודאות; בלי הדבקה בשלב המחקר | שלושה HTML כחבילה תחת `S007-GROK/` | **סגור כמחקר** (הדבקה = סעיף 5) | `e0378de` | GET חי ל־`/accessibility/` `/privacy/` `/terms/` `/contact/` `/shop/` `/learning/courses-external/` + GA4 `G-MRXESK7QJF` | אינו ייעוץ משפטי. קבצים: [נגישות](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-ACCESSIBILITY-2026-09-22.html) · [פרטיות](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html) · [תקנון](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html) |
+| 4 | סשן תקיפה על הדוחות | ולידציה במנוע אחר שתוקף ומתקן עד אישור; חייב לתאום את האתר ואת החוק בישראל | תקיפה ב־GPT-5.2 מול GET חי. נגישות: להשאיר נוסח 18.9. פרטיות/תקנון: לדחות את נוסח יולי | **סגור — תקיפה אישרה אחרי הדבקה** | תקיפה לפני `b992a03`; אישור חי אחרי 1.5.94 | סיבוב 2 על `?nc=paste`: שלושת העמודים **APPROVE-LIVE**; טופס L1/L2/L3 קיימים | בונה ≠ תוקף. לא הודבק HTML של הדוח לעמוד |
+| 5 | הדבקה לעמודים המשפטיים | אחרי אישור המעגל — לדחוף לאתר. באנר עד אייל | פרטיות+תקנון חדשים ב־defaults; נגישות ללא שינוי. באנר WP-EI-05 נשאר. תמה 1.5.94 | **סגור באתר הבדיקה; ממתין לאייל** | `b992a03` (קוד) · FTP רשום ב־`94b20c7` | GET אחרי פריסה: פרטיות = GA4 בשמו, «מפעיל האתר: אייל עמית», ס׳ 13–14, בלי יולי/מחיקה כב־GDPR. תקנון = אין קופה, בלי חשבונית ירוקה, בלי מחוז המרכז. נגישות = «פועלים לפי», בלי «עומדים» | לא נקוב שם רכז בלי אישור אייל |
+| 6 | סעיף בטופס הפעיל לאייל | לעדכן את הטופס האחרון שנשלח היום — לא טפסי השלמות ישנים | **חלק ח** ב־`s007-content-gaps.html`: L1 נגישות, L2 פרטיות, L3 תקנון. 129 פריטים | **סגור בשרת** | אותו `b992a03`; העלאת קובץ בודד ל־Hub (בלי rebuild מלא) | GET לטופס: 200, `data-id` L1/L2/L3 = 1 כל אחד, «חלק ח» חי, 129 פריטים | Live: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html · מקור: [FORM-EYAL-CONTENT-GAPS-2026-09-20.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html). לא `s006-review` ולא `s006-r2-review`. rebuild מלא של ה־Hub מוחק את שלושת קישורי דף הבית — לכן העלאה של הקובץ הזה בלבד |
 
 ---
 
-## Form sent to Eyal (the active one, not an old addendum)
+## ממתינים (אין שורה חדשה עד שמגיע סעיף מנימרוד)
 
-**Source:** [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html)
-
-**Live:** http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html
-
-Added **חלק ח** — L1 `/accessibility/`, L2 `/privacy/`, L3 `/terms/`. Existing item IDs unchanged. Not `s006-review.html` (round 1) and not `s006-r2-review.html`.
-
-Hub publish of this file is a **single-file upload**. Full `build_eyal_client_hub.py` would strip the three home-page links (see the form README).
+- **אייל:** סימון L1/L2/L3 בטופס החי. באנר יורד רק היכן שכתב «אושר».
+- **הקו הזה:** המשימה הבאה שתימסר ישירות כאן. כל סעיף חדש = שורה חדשה בטבלה, באותו קובץ, באותו ערב.
+- **צוות 100 / קלוד בערב שלישי:** ביקורת. לא אנחנו.
 
 ---
 
-## What this line did not do
+## מה לא נעשה במכוון
 
-- Did not name an accessibility coordinator without Eyal’s OK.
-- Did not invent a cookie-banner statute or a GDPR erasure right.
-- Did not open or commit `local/`. Did not edit `_aos/`. Did not `git add -A`.
-- Did not run a full hub rebuild (would drop the form’s hub-home links).
+- לא נקוב שם רכז נגישות בלי אישור אייל.
+- לא הומצא חוק באנר עוגיות ולא «זכות להישכח» כב־GDPR.
+- לא נפתח ולא נעשה commit ל־`local/`. לא נערך `_aos/`. לא `git add -A`.
+- לא רץ `build_eyal_client_hub.py` מלא אחרי הוספת חלק ח (היה מוחק קישורי הטופס בדף הבית של ה־Hub).
 
 ---
 
-## Ownership of the next step
+## ציטוטי נימרוד בסשן הזה
 
-- **Eyal:** mark L1/L2/L3 on the live form.
-- **This builder:** after his JSON — remove banners only where he said אושר; apply any correction notes.
-- **Team 100 / Claude Tuesday:** read this file first.
+- «לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.»
+- «שמע בדף הבית נראה סבבה, יש לוודא שהוא מופיע רק היכן שיש וידאו או סאונד.»
+- תהליך הדוחות: ולידציה מול סשן תקיפה → תיקון עד אישור → דחיפה לאתר → אייל בטופס הפעיל שנשלח היום.
+- 2026-09-20: עד חזרת צוות 100 (~48 שעות) — משימות ישירות; הטבלה הזו מתעדכנת עם סיום כל סעיף.
