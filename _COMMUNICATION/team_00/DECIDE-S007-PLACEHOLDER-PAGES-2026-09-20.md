@@ -62,3 +62,33 @@ found_during: M-12, while looking at a screenshot of a header
 
 **ואם ההכרעה היא הורדה מפרסום — תגיד לי לפני שאנחנו מסיימים את המגירה**, כי אין טעם לתת
 תפריט עובד לעמודים שעומדים לרדת.
+
+---
+
+## ✅ הכרעת team_00 — 20 בספטמבר 2026
+
+**מקור — לשונו של נימרוד:**
+
+> «עמודים שלא מאושרים לפרסום - נכון להחזיק באתר סטייגינג שלנו - זה לאייל להשלים תוכן.
+> מה שכן - מציע לעדכן את הטראקר שלנו בהתאם, ואת הטופס לאייל - להכין טופס נוסף עם התאריך
+> של היום - ולציין לאייל בדיוק איפה נדרש השלמת תוכן.
+> שימו לב האתר עוד לא פורסם ולא עולה לאוויר- העליה לאוויר היא כשנעבור לכתובת הראשית בדומיין.»
+
+**Canonical ruling (English — binding for all teams):**
+
+1. **The five placeholder pages STAY on staging, published, unchanged.** Holding
+   not-yet-approved pages on our own staging site is correct and expected. Do not unpublish
+   them, do not add a robots block, do not remove them from the sitemap.
+2. **The content is Eyal's to complete.** No team writes copy for these pages. The standing
+   content law is unchanged.
+3. **The premise of the escalation was wrong on urgency, not on fact.** The site is NOT
+   published and NOT live. Going live happens only when we move to the primary domain. Until
+   that cutover, nothing on staging can be indexed from the real domain, so there is no
+   live search-exposure risk to mitigate today.
+4. **Before the domain cutover, this file must be re-read.** Everything in the sections
+   above becomes live risk at the moment the primary domain is pointed here. The cutover
+   checklist owns it from then on.
+5. **Actions ordered by team_00 and completed 2026-09-20:** the tracker was updated to match
+   reality, and a new dated form for Eyal was produced naming every place content is missing.
+
+**Status:** CLOSED. Superseded for the cutover by the re-read duty in item 4.
