@@ -58,6 +58,16 @@
   .done{color:var(--ok);font-weight:700;margin-inline-start:10px}
   footer{margin-top:26px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);
          padding-top:14px}
+  .sub3{font-size:1.05rem;margin:22px 0 8px;font-weight:700}
+  .item--slim{padding:9px 12px;margin:5px 0}
+  .slim{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .slink{flex:1 1 300px;min-width:0;color:var(--accent);font-size:.95rem}
+  .dt{font-size:.8rem;color:var(--muted);white-space:nowrap}
+  .mini{display:inline-flex;align-items:center;gap:5px;font-size:.87rem;
+        border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer;min-height:38px}
+  .mini:hover{background:#f7f4ee}
+  .mini input{width:17px;height:17px;margin:0;accent-color:var(--accent)}
+  .item--slim textarea{min-height:38px;flex:1 1 180px;margin-top:0}
   @media print{.bar,button,#out{display:none}.item{break-inside:avoid}}
 </style>
 </head>
@@ -67,7 +77,7 @@
 <header>
   <h1>איפה נדרשת השלמת תוכן</h1>
   <p class="date">אייל עמית · טופס השלמות · 20 בספטמבר 2026</p>
-  <p class="lede">עשרים ושלוש נקודות שבהן האתר מחכה להכרעה או לחומר ממך. בכל נקודה כתוב מה מוצג באתר היום, מה חסר, ומה צריך לסמן. לחיצה על שם העמוד פותחת אותו באתר הבדיקה.</p>
+  <p class="lede">עשרים וארבע נקודות שבהן האתר מחכה להכרעה או לחומר ממך, ואחריהן מאה ושניים פריטים לאישור מהיר — פוסטים ועמודי קודים. בכל נקודה כתוב מה מוצג באתר היום, מה חסר, ומה צריך לסמן. לחיצה על שם העמוד פותחת אותו באתר הבדיקה.</p>
 </header>
 
 <div class="note">
@@ -141,13 +151,13 @@
   <div class="need"><span class="lbl">מה חסר</span>הקישורים עצמם לקורסים החיצוניים, והטקסט הקצר שמלווה אותם. זה גם העמוד היחיד מבין החמישה שכבר מקושר מהתפריט באתר, בתווית «קורסים».</div>
   <fieldset><legend>סמן בבקשה</legend>
     <label class="opt"><input type="radio" name="A5" value="אשלח קישורים"><span>אשלח את הקישורים והטקסט</span></label>
-    <label class="opt"><input type="radio" name="A5" value="להוריד מהתפריט"><span>להוריד את הקורסים מהתפריט בינתיים</span></label>
+    <label class="opt"><input type="radio" name="A5" value="להשאיר מחוץ לתפריט"><span>להשאיר מחוץ לתפריט עד שיהיה תוכן</span></label>
     <label class="opt"><input type="radio" name="A5" value="למחוק"><span>העמוד לא נחוץ — למחוק אותו</span></label>
   </fieldset>
   <textarea placeholder="הערה (לא חובה)"></textarea>
 </div>
 
-<h2>חלק ב · סקשנים בתוך עמודים חיים שמחכים לחומר <span class="cnt">— שתי נקודות</span></h2>
+<h2>חלק ב · סקשנים בתוך עמודים חיים שמחכים לחומר <span class="cnt">— שלוש נקודות</span></h2>
 <p class="sub">העמוד עצמו מלא ותקין, ובתוכו יש קופסה מסומנת שממתינה לך.</p>
 
 <div class="item" data-id="B1" data-page="R1-01" data-path="/">
@@ -167,11 +177,24 @@
   <h3>גלריות</h3>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
   <div class="now"><span class="lbl">מה מוצג היום</span>מבנה גלריה עם תמונות לדוגמה בלבד, ומעליו כתוב במפורש <span class="quote">תוכן הגלריה, התמונות והכיתובים ממתינים להשלמה ולאישור מאייל.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>התמונות עצמן והכיתובים שלהן. יש אצלנו קובץ מדיה גדול מיולי, אבל אין בו סימון איזו תמונה שייכת לאיזו גלריה ואיזה כיתוב מתאים לה.</div>
+  <div class="need"><span class="lbl">מה חסר</span>התמונות עצמן והכיתובים שלהן. הוכנה לך גלריה זמנית שמרכזת את כל התמונות הקיימות, כדי שהבחירה תהיה מתוך מה שיש ולא מהזיכרון. בחירת התמונות לגלריה הראשית נשאלת בנפרד בחלק ז׳.</div>
   <fieldset><legend>סמן בבקשה</legend>
     <label class="opt"><input type="radio" name="B2" value="אשלח תמונות וכיתובים"><span>אשלח תמונות וכיתובים</span></label>
     <label class="opt"><input type="radio" name="B2" value="לבחור מהקובץ הקיים"><span>קחו מהקובץ הקיים ואאשר את הבחירה</span></label>
     <label class="opt"><input type="radio" name="B2" value="להסיר את הגלריות"><span>להסיר את עמוד הגלריות בינתיים</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (לא חובה)"></textarea>
+</div>
+
+<div class="item" data-id="B3" data-page="R1-27" data-path="/galleries/">
+  <h3>בחירת התמונות לגלריה הראשית</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/" target="_blank" rel="noopener">פתיחת הגלריות באתר הבדיקה</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span>הגלריה הראשית מציגה תצוגה לדוגמה בלבד. הוכנה לך גלריה זמנית שמרכזת את כל התמונות הקיימות, כדי שהבחירה תהיה מתוך מה שיש בפועל.</div>
+  <div class="need"><span class="lbl">מה נדרש</span>לסמן אילו תמונות מתוך הגלריה הזמנית נכנסות לגלריה הראשית, ובאיזה סדר.</div>
+  <fieldset><legend>סמן בבקשה</legend>
+    <label class="opt"><input type="radio" name="B3" value="אבחר מהגלריה הזמנית"><span>אעבור על הגלריה הזמנית ואסמן</span></label>
+    <label class="opt"><input type="radio" name="B3" value="שתבחרו ואאשר"><span>בחרו אתם הצעה ואאשר אותה</span></label>
+    <label class="opt"><input type="radio" name="B3" value="אשלח תמונות אחרות"><span>אשלח תמונות אחרות</span></label>
   </fieldset>
   <textarea placeholder="הערה (לא חובה)"></textarea>
 </div>
@@ -208,7 +231,7 @@
 <div class="item" data-id="C3" data-page="R1-24" data-path="/en/">
   <h3>העמוד באנגלית</h3>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span>סיכום באנגלית שכתב הצוות, ובראש העמוד מופיעה שורה גלויה שאומרת שזו טיוטה הממתינה לאישורך.</div>
+  <div class="now"><span class="lbl">מה מוצג היום</span>סיכום באנגלית שכתב הצוות, ובראש העמוד מופיעה שורה גלויה שאומרת שזו טיוטה הממתינה לאישורך. התפריט בעמוד נשאר בעברית — נימרוד הכריע בעשרים בספטמבר שהעמוד מיועד בעיקר למנועי חיפוש, ולכן אין צורך בתפריט מתורגם.</div>
   <div class="need"><span class="lbl">מה חסר</span>אישור לתרגום, או נוסח אנגלי משלך. לא תרגמנו מהעברית ולא המצאנו נוסח.</div>
   <fieldset><legend>סמן בבקשה</legend>
     <label class="opt"><input type="radio" name="C3" value="מאשר כמו שהוא"><span>קראתי — מאשר את הנוסח כמו שהוא</span></label>
@@ -339,11 +362,11 @@
 <div class="item" data-id="E7" data-page="R2-007" data-path="/learning/courses-external/">
   <h3>קורסים — מקום בתפריט</h3>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span>מצב מבלבל: בחלק מהעמודים באתר יש קישור «קורסים» שמוביל לעמוד הזה, ובשאר העמודים יש פריט «קורסים» שלא מוביל לשום מקום. שני הדברים ייעלמו כשנאחד לתפריט אחד.</div>
+  <div class="now"><span class="lbl">מה מוצג היום</span>הפריט «קורסים» הוסר מהתפריט לפי הכרעת נימרוד מהעשרים בספטמבר, כי הוא לא הוביל לשום מקום. ההסרה זמנית: ברגע שיתקבלו הקישורים, הפריט חוזר לתפריט.</div>
   <div class="need"><span class="lbl">מה נדרש</span>החלטה אם «קורסים» נשאר בתפריט. אם כן — נדרשים גם הקישורים שביקשנו בחלק א׳.</div>
   <fieldset><legend>סמן בבקשה</legend>
     <label class="opt"><input type="radio" name="E7" value="להשאיר בתפריט"><span>להשאיר בתפריט — אשלח קישורים</span></label>
-    <label class="opt"><input type="radio" name="E7" value="להוריד מהתפריט"><span>להוריד מהתפריט עד שיהיה תוכן</span></label>
+    <label class="opt"><input type="radio" name="E7" value="להשאיר מחוץ לתפריט"><span>להשאיר מחוץ לתפריט עד שיהיה תוכן</span></label>
     <label class="opt"><input type="radio" name="E7" value="למחוק"><span>למחוק את הפריט ואת העמוד</span></label>
   </fieldset>
   <textarea placeholder="הערה (לא חובה)"></textarea>
@@ -417,6 +440,828 @@
     <label class="opt"><input type="radio" name="F3" value="אסטמה"><span>אסטמה — בטי״ת</span></label>
   </fieldset>
   <textarea placeholder="הערה (לא חובה)"></textarea>
+</div>
+
+<h2>חלק ז · אישור פוסטים ועמודי קודים, אחד־אחד <span class="cnt">— מאה ושניים פריטים</span></h2>
+<p class="sub">נימרוד ביקש שתקבל את הרשימה המלאה עם מקום להתייחס לכל פריט בנפרד. התוכן הועתק כלשונו מהאתר הישן ולא נוסח מחדש — הסימון כאן הוא רק אישור שהפריט תקין כמו שהוא.</p>
+<h3 class="sub3">חמישים וארבעה פוסטים בבלוג</h3>
+<div class="item item--slim" data-id="P001" data-page="R1-20" data-path="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/" target="_blank" rel="noopener">צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</a><span class="dt">2026-01-12</span>
+    <label class="mini"><input type="radio" name="P001" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P001" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P002" data-page="R1-20" data-path="/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/" target="_blank" rel="noopener">פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה</a><span class="dt">2025-08-12</span>
+    <label class="mini"><input type="radio" name="P002" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P002" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P003" data-page="R1-20" data-path="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener">ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג&#x27;רידו והעשייה הייחודית שלי במרכז לטיפול בנשימה באמצעות דיג&#x27;רידו</a><span class="dt">2025-08-04</span>
+    <label class="mini"><input type="radio" name="P003" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P003" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P004" data-page="R1-20" data-path="/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/" target="_blank" rel="noopener">עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג&#x27;רידו</a><span class="dt">2025-07-31</span>
+    <label class="mini"><input type="radio" name="P004" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P004" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P005" data-page="R1-20" data-path="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/" target="_blank" rel="noopener">טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</a><span class="dt">2025-05-05</span>
+    <label class="mini"><input type="radio" name="P005" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P005" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P006" data-page="R1-20" data-path="/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/" target="_blank" rel="noopener">הכל אודות ריברסינג, נשימה מעגלית ו- דיג&#x27;רידו. האם נשימה מעגלית בדיג&#x27;רידו היא אותה נשימה מעגלית משיטת הטיפול ריברסינג? התשובה היא לא. הנה ההסבר המלא:</a><span class="dt">2025-04-14</span>
+    <label class="mini"><input type="radio" name="P006" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P006" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P007" data-page="R1-20" data-path="/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/" target="_blank" rel="noopener">נגינה ונשימה מעגלית בדיג&#x27;רידו – ריפוי הנשימה והנשמה</a><span class="dt">2025-02-10</span>
+    <label class="mini"><input type="radio" name="P007" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P007" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P008" data-page="R1-20" data-path="/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/" target="_blank" rel="noopener">האם לנשים מותר לנגן בדיג&#x27;רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות</a><span class="dt">2025-02-09</span>
+    <label class="mini"><input type="radio" name="P008" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P008" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P009" data-page="R1-20" data-path="/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/" target="_blank" rel="noopener">סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</a><span class="dt">2024-09-11</span>
+    <label class="mini"><input type="radio" name="P009" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P009" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P010" data-page="R1-20" data-path="/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/" target="_blank" rel="noopener">תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</a><span class="dt">2024-08-05</span>
+    <label class="mini"><input type="radio" name="P010" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P010" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P011" data-page="R1-20" data-path="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/" target="_blank" rel="noopener">טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בדיג&#x27;רידו / אייל עמית</a><span class="dt">2024-08-05</span>
+    <label class="mini"><input type="radio" name="P011" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P011" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P012" data-page="R1-20" data-path="/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/" target="_blank" rel="noopener">מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס)</a><span class="dt">2024-08-05</span>
+    <label class="mini"><input type="radio" name="P012" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P012" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P013" data-page="R1-20" data-path="/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/" target="_blank" rel="noopener">שליחות חיי – כתבה אודות המרכז לטיפול בדיג&#x27;רידו פרדס חנה – אייל עמית</a><span class="dt">2023-09-21</span>
+    <label class="mini"><input type="radio" name="P013" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P013" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P014" data-page="R1-20" data-path="/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/" target="_blank" rel="noopener">וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית</a><span class="dt">2017-09-27</span>
+    <label class="mini"><input type="radio" name="P014" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P014" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P015" data-page="R1-20" data-path="/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/" target="_blank" rel="noopener">את הספר החדש שלי לא תמצאו ברשתות הספרים. למה?</a><span class="dt">2017-06-23</span>
+    <label class="mini"><input type="radio" name="P015" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P015" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P016" data-page="R1-20" data-path="/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener">הזמנה לסדרת מפגשים אינטימיים חדשה! &quot;סיפורים מהנייר&quot; עם אייל עמית</a><span class="dt">2017-06-20</span>
+    <label class="mini"><input type="radio" name="P016" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P016" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P017" data-page="R1-20" data-path="/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/" target="_blank" rel="noopener">הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</a><span class="dt">2017-05-25</span>
+    <label class="mini"><input type="radio" name="P017" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P017" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P018" data-page="R1-20" data-path="/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/" target="_blank" rel="noopener">כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</a><span class="dt">2017-02-15</span>
+    <label class="mini"><input type="radio" name="P018" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P018" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P019" data-page="R1-20" data-path="/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/" target="_blank" rel="noopener">מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד – מופע סיפורים – spoken stories</a><span class="dt">2016-08-21</span>
+    <label class="mini"><input type="radio" name="P019" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P019" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P020" data-page="R1-20" data-path="/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/" target="_blank" rel="noopener">שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית</a><span class="dt">2015-10-27</span>
+    <label class="mini"><input type="radio" name="P020" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P020" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P021" data-page="R1-20" data-path="/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/" target="_blank" rel="noopener">מופע הסיפורים של אייל עמית מגיע לתיאטרון הקאמרי!</a><span class="dt">2015-10-21</span>
+    <label class="mini"><input type="radio" name="P021" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P021" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P022" data-page="R1-20" data-path="/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/" target="_blank" rel="noopener">מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</a><span class="dt">2015-07-21</span>
+    <label class="mini"><input type="radio" name="P022" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P022" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P023" data-page="R1-20" data-path="/2228-2/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/2228-2/" target="_blank" rel="noopener">מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</a><span class="dt">2015-07-06</span>
+    <label class="mini"><input type="radio" name="P023" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P023" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P024" data-page="R1-20" data-path="/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/" target="_blank" rel="noopener">מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד..</a><span class="dt">2015-02-23</span>
+    <label class="mini"><input type="radio" name="P024" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P024" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P025" data-page="R1-20" data-path="/%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4/" target="_blank" rel="noopener">&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צרכנות דה-מרקר</a><span class="dt">2015-01-29</span>
+    <label class="mini"><input type="radio" name="P025" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P025" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P026" data-page="R1-20" data-path="/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/" target="_blank" rel="noopener">דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</a><span class="dt">2014-12-18</span>
+    <label class="mini"><input type="radio" name="P026" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P026" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P027" data-page="R1-20" data-path="/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/" target="_blank" rel="noopener">עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</a><span class="dt">2014-10-29</span>
+    <label class="mini"><input type="radio" name="P027" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P027" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P028" data-page="R1-20" data-path="/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94/" target="_blank" rel="noopener">&quot;פרדס חפלה&quot; – הסיפור החדש במופע הקרוב 13.9.14 בפרדס חנה</a><span class="dt">2014-09-09</span>
+    <label class="mini"><input type="radio" name="P028" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P028" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P029" data-page="R1-20" data-path="/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/" target="_blank" rel="noopener">2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</a><span class="dt">2014-07-20</span>
+    <label class="mini"><input type="radio" name="P029" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P029" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P030" data-page="R1-20" data-path="/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4/" target="_blank" rel="noopener">אקדח לתוך הראש</a><span class="dt">2014-06-06</span>
+    <label class="mini"><input type="radio" name="P030" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P030" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P031" data-page="R1-20" data-path="/%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95/" target="_blank" rel="noopener">שם חדש למופע הסיפורים: &quot;עכשיו!!!!!&quot;  קבלו את שלושת הקליפים הרישמיים עם ה-&quot;עכשווים&quot; שלכם!</a><span class="dt">2014-05-11</span>
+    <label class="mini"><input type="radio" name="P031" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P031" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P032" data-page="R1-20" data-path="/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/" target="_blank" rel="noopener">ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</a><span class="dt">2014-04-25</span>
+    <label class="mini"><input type="radio" name="P032" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P032" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P033" data-page="R1-20" data-path="/%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/" target="_blank" rel="noopener">סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א.</a><span class="dt">2014-01-01</span>
+    <label class="mini"><input type="radio" name="P033" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P033" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P034" data-page="R1-20" data-path="/100-100-100-%d7%aa%d7%95%d7%93%d7%94/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/100-100-100-%d7%aa%d7%95%d7%93%d7%94/" target="_blank" rel="noopener">100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</a><span class="dt">2013-12-05</span>
+    <label class="mini"><input type="radio" name="P034" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P034" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P035" data-page="R1-20" data-path="/%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/" target="_blank" rel="noopener">הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</a><span class="dt">2013-11-03</span>
+    <label class="mini"><input type="radio" name="P035" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P035" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P036" data-page="R1-20" data-path="/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/" target="_blank" rel="noopener">הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</a><span class="dt">2013-10-14</span>
+    <label class="mini"><input type="radio" name="P036" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P036" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P037" data-page="R1-20" data-path="/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/" target="_blank" rel="noopener">נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית. פוסט מ 2012</a><span class="dt">2012-11-03</span>
+    <label class="mini"><input type="radio" name="P037" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P037" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P038" data-page="R1-20" data-path="/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/" target="_blank" rel="noopener">פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</a><span class="dt">2010-12-23</span>
+    <label class="mini"><input type="radio" name="P038" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P038" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P039" data-page="R1-20" data-path="/51-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%a7%d7%a1%d7%98%d7%a8%d7%99%d7%9d-%d7%96%d7%94-%d7%a0%d7%a2%d7%99%d7%9d/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/51-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%a7%d7%a1%d7%98%d7%a8%d7%99%d7%9d-%d7%96%d7%94-%d7%a0%d7%a2%d7%99%d7%9d/" target="_blank" rel="noopener">(51) הטור של אייל עמית: אקסטרים זה נעים!</a><span class="dt">2009-11-11</span>
+    <label class="mini"><input type="radio" name="P039" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P039" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P040" data-page="R1-20" data-path="/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/" target="_blank" rel="noopener">(49) הטור של אייל עמית: קומיק רליף</a><span class="dt">2009-10-28</span>
+    <label class="mini"><input type="radio" name="P040" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P040" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P041" data-page="R1-20" data-path="/47-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%96%d7%9e%d7%9f-%d7%97%d7%9c%d7%95%d7%9d/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/47-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%96%d7%9e%d7%9f-%d7%97%d7%9c%d7%95%d7%9d/" target="_blank" rel="noopener">זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004</a><span class="dt">2009-10-13</span>
+    <label class="mini"><input type="radio" name="P041" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P041" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P042" data-page="R1-20" data-path="/45-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%95%d7%a4%d7%95%d7%a8%d7%a6%d7%99%d7%95%d7%aa/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/45-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%95%d7%a4%d7%95%d7%a8%d7%a6%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener">(45) הטור של אייל עמית: פרופורציות</a><span class="dt">2009-09-30</span>
+    <label class="mini"><input type="radio" name="P042" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P042" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P043" data-page="R1-20" data-path="/43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa/" target="_blank" rel="noopener">(43) הטור של אייל עמית: אדון סליחות</a><span class="dt">2009-09-16</span>
+    <label class="mini"><input type="radio" name="P043" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P043" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P044" data-page="R1-20" data-path="/42-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%97%d7%93-%d7%91%d7%a1%d7%a4%d7%98%d7%9e%d7%91%d7%a8/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/42-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%97%d7%93-%d7%91%d7%a1%d7%a4%d7%98%d7%9e%d7%91%d7%a8/" target="_blank" rel="noopener">(42) הטור של אייל עמית: אחד בספטמבר</a><span class="dt">2009-09-08</span>
+    <label class="mini"><input type="radio" name="P044" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P044" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P045" data-page="R1-20" data-path="/41-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%90%d7%a8%d7%98%d7%94-%d7%91%d7%90%d7%a8%d7%98%d7%94/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/41-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%90%d7%a8%d7%98%d7%94-%d7%91%d7%90%d7%a8%d7%98%d7%94/" target="_blank" rel="noopener">(41) הטור של אייל עמית: חארטה בארטה</a><span class="dt">2009-09-02</span>
+    <label class="mini"><input type="radio" name="P045" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P045" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P046" data-page="R1-20" data-path="/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/" target="_blank" rel="noopener">(40) הטור של אייל עמית: פרסומת אחת וחזרנו</a><span class="dt">2009-08-26</span>
+    <label class="mini"><input type="radio" name="P046" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P046" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P047" data-page="R1-20" data-path="/36-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a9%d7%a7%d7%a9%d7%95%d7%a7%d7%94/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/36-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a9%d7%a7%d7%a9%d7%95%d7%a7%d7%94/" target="_blank" rel="noopener">(36) הטור של אייל עמית: שיטת השקשוקה</a><span class="dt">2009-07-29</span>
+    <label class="mini"><input type="radio" name="P047" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P047" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P048" data-page="R1-20" data-path="/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/" target="_blank" rel="noopener">(34) הטור של אייל עמית: הלב</a><span class="dt">2009-07-14</span>
+    <label class="mini"><input type="radio" name="P048" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P048" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P049" data-page="R1-20" data-path="/32-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%9d-%d7%90%d7%99%d7%9f-%d7%90%d7%a0%d7%99-%d7%9c%d7%99-%d7%9e%d7%99-%d7%9c%d7%99/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/32-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%9d-%d7%90%d7%99%d7%9f-%d7%90%d7%a0%d7%99-%d7%9c%d7%99-%d7%9e%d7%99-%d7%9c%d7%99/" target="_blank" rel="noopener">(32) הטור של אייל עמית: אם אין אני לי – מי לי</a><span class="dt">2009-07-01</span>
+    <label class="mini"><input type="radio" name="P049" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P049" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P050" data-page="R1-20" data-path="/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/" target="_blank" rel="noopener">(29) הטור של אייל עמית: רייב שבוע הספר</a><span class="dt">2009-06-10</span>
+    <label class="mini"><input type="radio" name="P050" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P050" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P051" data-page="R1-20" data-path="/27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3/" target="_blank" rel="noopener">(27) הטור של אייל עמית: חכמת הפרצוף</a><span class="dt">2009-05-26</span>
+    <label class="mini"><input type="radio" name="P051" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P051" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P052" data-page="R1-20" data-path="/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-24-%d7%99%d7%9c%d7%93-%d7%90%d7%a1%d7%95%d7%a8-%d7%99%d7%9c%d7%93-%d7%9e%d7%95%d7%aa%d7%a8/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-24-%d7%99%d7%9c%d7%93-%d7%90%d7%a1%d7%95%d7%a8-%d7%99%d7%9c%d7%93-%d7%9e%d7%95%d7%aa%d7%a8/" target="_blank" rel="noopener">(24) הטור של אייל עמית: ילד אסור ילד מותר</a><span class="dt">2009-05-05</span>
+    <label class="mini"><input type="radio" name="P052" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P052" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P053" data-page="R1-20" data-path="/23-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%a6%d7%99%d7%99%d7%aa-%d7%90%d7%95-%d7%9c%d7%97%d7%a9%d7%95%d7%91/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/23-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%a6%d7%99%d7%99%d7%aa-%d7%90%d7%95-%d7%9c%d7%97%d7%a9%d7%95%d7%91/" target="_blank" rel="noopener">(23) הטור של אייל עמית: לציית או לחשוב</a><span class="dt">2009-04-28</span>
+    <label class="mini"><input type="radio" name="P053" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P053" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="P054" data-page="R1-20" data-path="/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/" target="_blank" rel="noopener">(18) הטור של אייל עמית: מסך הברזל</a><span class="dt">2009-03-31</span>
+    <label class="mini"><input type="radio" name="P054" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="P054" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<h3 class="sub3">ארבעים ושמונה עמודי קודים מודפסים</h3>
+<p class="sub">הכתובות של העמודים האלה לא ישתנו לעולם, כי הקודים כבר מודפסים בספרים.</p>
+<div class="item item--slim" data-id="Q001" data-page="R1-QR" data-path="/qr/qr1/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/" target="_blank" rel="noopener">והקדמת – qr1</a>
+    <label class="mini"><input type="radio" name="Q001" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q001" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q002" data-page="R1-QR" data-path="/qr/qr2/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr2/" target="_blank" rel="noopener">qr2 – אקדח לתוך הראש</a>
+    <label class="mini"><input type="radio" name="Q002" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q002" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q003" data-page="R1-QR" data-path="/qr/qr3/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr3/" target="_blank" rel="noopener">qr3 – האלמנה השחורה</a>
+    <label class="mini"><input type="radio" name="Q003" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q003" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q004" data-page="R1-QR" data-path="/qr/qr4/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr4/" target="_blank" rel="noopener">qr4 – בום-בום-בום על דלתי מרום</a>
+    <label class="mini"><input type="radio" name="Q004" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q004" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q005" data-page="R1-QR" data-path="/qr/qr5/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr5/" target="_blank" rel="noopener">qr5 – אלכסון הוא אסון</a>
+    <label class="mini"><input type="radio" name="Q005" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q005" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q006" data-page="R1-QR" data-path="/qr/qr6/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr6/" target="_blank" rel="noopener">qr6 – ספיבאק</a>
+    <label class="mini"><input type="radio" name="Q006" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q006" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q007" data-page="R1-QR" data-path="/qr/qr7/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr7/" target="_blank" rel="noopener">qr7 – אחד לשלושה</a>
+    <label class="mini"><input type="radio" name="Q007" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q007" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q008" data-page="R1-QR" data-path="/qr/qr8/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr8/" target="_blank" rel="noopener">qr8 – סופה במדבר</a>
+    <label class="mini"><input type="radio" name="Q008" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q008" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q009" data-page="R1-QR" data-path="/qr/qr9/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr9/" target="_blank" rel="noopener">qr9 – טיפול שורש</a>
+    <label class="mini"><input type="radio" name="Q009" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q009" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q010" data-page="R1-QR" data-path="/qr/qr10/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr10/" target="_blank" rel="noopener">qr10 – וואט איז דאט?</a>
+    <label class="mini"><input type="radio" name="Q010" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q010" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q011" data-page="R1-QR" data-path="/qr/qr11/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr11/" target="_blank" rel="noopener">qr11 – חורשט זבזי</a>
+    <label class="mini"><input type="radio" name="Q011" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q011" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q012" data-page="R1-QR" data-path="/qr/qr12/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr12/" target="_blank" rel="noopener">qr12 – אינדיאנה ג&#x27;ונס והמכרה הארור</a>
+    <label class="mini"><input type="radio" name="Q012" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q012" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q013" data-page="R1-QR" data-path="/qr/qr13/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr13/" target="_blank" rel="noopener">qr13 – ואהבתָ</a>
+    <label class="mini"><input type="radio" name="Q013" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q013" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q014" data-page="R1-QR" data-path="/qr/qr14/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr14/" target="_blank" rel="noopener">qr14 – גורילות בערפל האמזונס</a>
+    <label class="mini"><input type="radio" name="Q014" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q014" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q015" data-page="R1-QR" data-path="/qr/qr15/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr15/" target="_blank" rel="noopener">qr15 – היקיקומורי</a>
+    <label class="mini"><input type="radio" name="Q015" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q015" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q016" data-page="R1-QR" data-path="/qr/qr16/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr16/" target="_blank" rel="noopener">qr16 – דם על הידיים</a>
+    <label class="mini"><input type="radio" name="Q016" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q016" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q017" data-page="R1-QR" data-path="/qr/qr17/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr17/" target="_blank" rel="noopener">qr17 – יוגי לודג&#x27;</a>
+    <label class="mini"><input type="radio" name="Q017" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q017" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q018" data-page="R1-QR" data-path="/qr/qr18/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr18/" target="_blank" rel="noopener">qr18 – אחד לשלושה טריליון</a>
+    <label class="mini"><input type="radio" name="Q018" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q018" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q019" data-page="R1-QR" data-path="/qr/qr19/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr19/" target="_blank" rel="noopener">qr19 – הפיצה הכי טעימה שאכלתי בחיים</a>
+    <label class="mini"><input type="radio" name="Q019" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q019" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q020" data-page="R1-QR" data-path="/qr/qr20/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr20/" target="_blank" rel="noopener">qr20 – אבא, אני רעב</a>
+    <label class="mini"><input type="radio" name="Q020" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q020" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q021" data-page="R1-QR" data-path="/qr/qr21/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr21/" target="_blank" rel="noopener">qr21 – ג&#x27;סי ראם!</a>
+    <label class="mini"><input type="radio" name="Q021" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q021" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q022" data-page="R1-QR" data-path="/qr/qr22/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr22/" target="_blank" rel="noopener">qr22 – בולט אנט</a>
+    <label class="mini"><input type="radio" name="Q022" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q022" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q023" data-page="R1-QR" data-path="/qr/qr23/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr23/" target="_blank" rel="noopener">qr23 – יום כן יום לא</a>
+    <label class="mini"><input type="radio" name="Q023" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q023" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q024" data-page="R1-QR" data-path="/qr/qr24/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr24/" target="_blank" rel="noopener">qr24 – קוֹל פּוּט שוֹרט סטופ!</a>
+    <label class="mini"><input type="radio" name="Q024" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q024" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q025" data-page="R1-QR" data-path="/qr/qr25/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr25/" target="_blank" rel="noopener">qr25 – גרין ווש</a>
+    <label class="mini"><input type="radio" name="Q025" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q025" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q026" data-page="R1-QR" data-path="/qr/qr26/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr26/" target="_blank" rel="noopener">qr26 – כורסת הציפורניים</a>
+    <label class="mini"><input type="radio" name="Q026" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q026" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q027" data-page="R1-QR" data-path="/qr/qr27/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr27/" target="_blank" rel="noopener">qr27 – אמסטרדם</a>
+    <label class="mini"><input type="radio" name="Q027" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q027" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q028" data-page="R1-QR" data-path="/qr/qr28/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr28/" target="_blank" rel="noopener">qr28 – נזכור ולא נשכח</a>
+    <label class="mini"><input type="radio" name="Q028" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q028" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q029" data-page="R1-QR" data-path="/qr/qr29/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr29/" target="_blank" rel="noopener">qr29 – לעבור דירה</a>
+    <label class="mini"><input type="radio" name="Q029" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q029" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q030" data-page="R1-QR" data-path="/qr/qr30/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr30/" target="_blank" rel="noopener">qr30 – פרדס חפלה</a>
+    <label class="mini"><input type="radio" name="Q030" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q030" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q031" data-page="R1-QR" data-path="/qr/qr31/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr31/" target="_blank" rel="noopener">qr31 – פיפי במעלית</a>
+    <label class="mini"><input type="radio" name="Q031" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q031" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q032" data-page="R1-QR" data-path="/qr/qr32/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr32/" target="_blank" rel="noopener">qr32 – נשימה מעגלית</a>
+    <label class="mini"><input type="radio" name="Q032" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q032" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q033" data-page="R1-QR" data-path="/qr/qr33/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr33/" target="_blank" rel="noopener">qr33 – תאכלו ביצים, תהיו טייסים</a>
+    <label class="mini"><input type="radio" name="Q033" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q033" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q034" data-page="R1-QR" data-path="/qr/qr34/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr34/" target="_blank" rel="noopener">qr34 – תקום</a>
+    <label class="mini"><input type="radio" name="Q034" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q034" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q035" data-page="R1-QR" data-path="/qr/qr35/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr35/" target="_blank" rel="noopener">qr35 – הגבר החדש</a>
+    <label class="mini"><input type="radio" name="Q035" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q035" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q036" data-page="R1-QR" data-path="/qr/qr36/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr36/" target="_blank" rel="noopener">qr36 – חוני המעגל</a>
+    <label class="mini"><input type="radio" name="Q036" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q036" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q037" data-page="R1-QR" data-path="/qr/qr37/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr37/" target="_blank" rel="noopener">qr37 – דרך השלום</a>
+    <label class="mini"><input type="radio" name="Q037" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q037" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q038" data-page="R1-QR" data-path="/qr/qr38/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr38/" target="_blank" rel="noopener">qr38 – הבטחות או לא להיות</a>
+    <label class="mini"><input type="radio" name="Q038" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q038" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q039" data-page="R1-QR" data-path="/qr/qr39/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr39/" target="_blank" rel="noopener">qr39 – תחשוב חיובי</a>
+    <label class="mini"><input type="radio" name="Q039" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q039" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q040" data-page="R1-QR" data-path="/qr/qr40/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr40/" target="_blank" rel="noopener">qr40 – אבנים חמות</a>
+    <label class="mini"><input type="radio" name="Q040" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q040" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q041" data-page="R1-QR" data-path="/qr/qr41/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr41/" target="_blank" rel="noopener">qr41 – לופ בטעם תות לימון</a>
+    <label class="mini"><input type="radio" name="Q041" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q041" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q042" data-page="R1-QR" data-path="/qr/qr42/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr42/" target="_blank" rel="noopener">qr42 – הבטחות אחים</a>
+    <label class="mini"><input type="radio" name="Q042" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q042" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q043" data-page="R1-QR" data-path="/qr/qr43/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr43/" target="_blank" rel="noopener">qr43 – עכשיו!!!</a>
+    <label class="mini"><input type="radio" name="Q043" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q043" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q044" data-page="R1-QR" data-path="/qr/qr44/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr44/" target="_blank" rel="noopener">qr44 – כולנו פרעושים</a>
+    <label class="mini"><input type="radio" name="Q044" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q044" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q045" data-page="R1-QR" data-path="/qr/qr45/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr45/" target="_blank" rel="noopener">qr45 – צום מיצים</a>
+    <label class="mini"><input type="radio" name="Q045" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q045" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q046" data-page="R1-QR" data-path="/qr/qr46/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr46/" target="_blank" rel="noopener">qr46  – האומץ לאהוב את הפחד</a>
+    <label class="mini"><input type="radio" name="Q046" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q046" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q047" data-page="R1-QR" data-path="/qr/qr47/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr47/" target="_blank" rel="noopener">qr47  – טיפול זוגי</a>
+    <label class="mini"><input type="radio" name="Q047" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q047" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
+</div>
+<div class="item item--slim" data-id="Q048" data-page="R1-QR" data-path="/qr/qr48/">
+  <div class="slim">
+    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr48/" target="_blank" rel="noopener">qr48 -וסיימת</a>
+    <label class="mini"><input type="radio" name="Q048" value="מאושר"><span>מאושר</span></label>
+    <label class="mini"><input type="radio" name="Q048" value="יש הערה"><span>יש הערה</span></label>
+    <textarea placeholder="הערה" aria-label="הערה"></textarea>
+  </div>
 </div>
 
 <div class="bar">
