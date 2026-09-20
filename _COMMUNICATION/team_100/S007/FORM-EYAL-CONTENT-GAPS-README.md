@@ -32,6 +32,7 @@ in a worktree. Publish from the main checkout, or pass `--no-prune`.
 
 ## What the form contains
 
-126 answerable items in seven parts: 24 substantive questions, then item-by-item approval of the
-54 blog posts and the 48 printed-QR pages, each with its own link and note field — the per-item
-list team_00 asked for on 2026-09-20.
+129 answerable items in eight parts: 27 substantive questions (including three legal-page
+approvals added the same evening), then item-by-item approval of the 54 blog posts and the
+48 printed-QR pages, each with its own link and note field — the per-item list team_00 asked
+for on 2026-09-20.

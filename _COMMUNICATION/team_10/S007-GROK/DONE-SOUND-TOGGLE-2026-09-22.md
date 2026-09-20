@@ -4,9 +4,9 @@
 
 **team_00 ruling (verbatim, 2026-09-20):** «לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.»
 
-**Nimrod's approval of this fix:** not yet spoken in this session. Asked in chat after live verification. Do not treat this file as accepted until that quote is pasted here.
+**Nimrod's approval of the home-page fix (verbatim, 2026-09-20):** «שמע בדף הבית נראה סבבה, יש לוודא שהוא מופיע רק היכן שיש וידאו או סאונד.»
 
-This is not a paste to the legal pages. No sentence on `/accessibility/`, `/privacy/` or `/terms/` was changed.
+Re-measured 2026-09-20 after that ruling, GET no-follow, 156 sitemap URLs all HTTP 200: `<video>` and `#soundtg` / `.hero__sound` only on `/`. `.nav__tg` `.ea-nd__sound` `.ea-sound-toggle` = 0. `.mokesh-hero__unmute` only on `/about/moksha/` and `/eyal-amit/mokesh-dahiman/` (YouTube on the hero). QR pages have YouTube iframes with the player’s own controls — not our שמע button. No `<audio>`. Wave2 ambient file is absent from the theme, so that nav pill is not live.
 
 ---
 

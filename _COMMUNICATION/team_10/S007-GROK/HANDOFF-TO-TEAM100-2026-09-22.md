@@ -1,78 +1,85 @@
 # HANDOFF TO TEAM 100 — S007-GROK four items · 2026-09-22
 
 **Builder:** this Grok line, team 10, working with Nimrod (team_00).  
-**Audit:** a separate Claude line, Tuesday night 2026-09-22. Builder engine ≠ validator engine.  
+**Attacker (reports):** a separate GPT-5.2 session, 2026-09-20. Builder engine ≠ validator engine.  
+**Audit Tuesday:** a separate Claude line.  
 **Staging:** http://eyalamit-co-il-2026.s887.upress.link (HTTP; TLS invalid by design).  
-**Theme after this work:** 1.5.93 · commit `69dea0a` (sound) then this handoff commit.
+**Theme after legal paste:** 1.5.94.
 
-**If a task is incomplete, it is said here.** Silent gaps are the failure mode this file exists to prevent.
+Silent gaps are the failure mode this file exists to prevent.
 
 ---
 
 ## TASK 4 — sound toggle
 
-**Status:** code shipped and re-measured live. **Nimrod has not yet approved it in his own words in this session.** Asked in chat. Until that quote exists, do not treat the ruling as closed on the human side.
+**Status:** shipped, re-measured, **approved by Nimrod in his own words.**
 
-**What changed:** `id="soundtg"` left the nav and the mobile drawer. It now renders only on the home hero, and only when that hero has a `<video>`. Files, before/after counts, box-model numbers, and the 157-URL sweep are in:
+**Nimrod, verbatim, 2026-09-20:** «שמע בדף הבית נראה סבבה, יש לוודא שהוא מופיע רק היכן שיש וידאו או סאונד.»  
+Earlier defect ruling: «לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.»
 
-[file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md)
+**Live re-measure after that ruling (GET, no follow-redirect, 156 sitemap URLs, all 200):**
 
-**Live evidence (this session, GET, no follow-redirect):**
+| Marker | Count | Where |
+|---|---|---|
+| `<video>` | 1 | `/` |
+| `#soundtg` / `.hero__sound` | 1 | `/` (on the hero video) |
+| `.nav__tg` / `.ea-nd__sound` / `.ea-sound-toggle` | 0 | — |
+| `.mokesh-hero__unmute` | 2 | `/about/moksha/`, `/eyal-amit/mokesh-dahiman/` (YouTube on the hero) |
+| `<audio>` | 0 | Wave2 ambient file is not in the theme |
 
-- http://eyalamit-co-il-2026.s887.upress.link/ — 200, one `<video>`, one `#soundtg` as `.hero__sound`, not inside `nav`, JS 1.5.93.
-- http://eyalamit-co-il-2026.s887.upress.link/method/ — 200, zero `#soundtg`, zero `.ea-nd__sound`.
-- Same zero on `/accessibility/`, `/privacy/`, `/terms/`.
-- Sitemap TSV 157 paths: `<video>` and `#soundtg` only on `/`. 141 × 200. 16 × 301 (legacy aliases already in the TSV — recorded as 301, not dressed as 200).
+QR pages have YouTube iframes with the player’s own controls — not our שמע button.
 
-**Rendered (CDP after layout, not a pre-layout zero):** desktop 74.57×44 px, phone 375 74.57×44 px, inside the video, no overlap with H1/CTA/cue spans, `aria-pressed` flips on click, Tab shows a visible `:focus-visible` ring.
-
-**Nimrod, verbatim, so far:** the defect ruling of 2026-09-20 — «לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.» Approval of the *fix* is still outstanding.
-
-**Deliberately not done:** Wave2 `.ea-sound-toggle` (ambient audio, not live in nav); mokesh unmute (already on its media); no `--allow-dirty`; no paste to legal pages; no claim that extra `<nav>` counts on `/press/` `/about/` `/faq/` are this change.
+Evidence file: [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DONE-SOUND-TOGGLE-2026-09-22.md)
 
 ---
 
-## TASKS 1–3 — three legal research reports (R2-003, R2-016, R2-022)
+## TASKS 1–3 — legal reports, attack cycle, then paste
 
-**Status:** the three HTML files exist. **Nothing was pasted into the live legal pages.** That is a pass/fail gate and it passed: `/accessibility/`, `/privacy/`, `/terms/` still carry the WP-EI-05 draft banner; privacy/terms still say «יולי 2026»; accessibility still says «פועלים לפי» from the 18.9 statement, which this session did not edit.
+**Nimrod, 2026-09-20, process change (verbatim intent):** validation against an attacking sub-session, correction until approved, **then paste to the site** and send to Eyal for final approval **by adding a section to the form sent today** — the last active form, not old addenda.
 
-**Files:**
+**Attacker verdict (GPT-5.2, live GET):**
+
+- Accessibility page: **APPROVE-PASTE** = keep the 18.9 live statement. Do not paste the research HTML.
+- Privacy: **REJECT** July text (GA4 as “may”, GDPR-like deletion, checkout language).
+- Terms: **REJECT** Green Invoice as fact + «מחוז המרכז».
+
+**What was pasted (theme 1.5.94), banner WP-EI-05 kept until Eyal:**
+
+- `/accessibility/` — unchanged 18.9 text.
+- `/privacy/` — new defaults: operator אייל עמית; GA4 `G-MRXESK7QJF` named; Google Fonts noted; rights = §§13–14 only; no cart.
+- `/terms/` — new defaults: no checkout; דיני ישראל without a district; no blanket body-injury waiver.
+
+Reports (updated after the attack):
 
 - [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-ACCESSIBILITY-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-ACCESSIBILITY-2026-09-22.html)
 - [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-PRIVACY-2026-09-22.html)
 - [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/REPORT-TERMS-2026-09-22.html)
 
-**Live evidence used in the reports (2026-09-20, GET, no follow-redirect):**
+---
 
-| URL | status | what was observed |
-|---|---|---|
-| http://eyalamit-co-il-2026.s887.upress.link/accessibility/ | 200 | H1 הצהרת נגישות; «פועלים לפי»; באנר טיוטה; רכז בלי שם; WP Accessibility טעון; GA4 `G-MRXESK7QJF` |
-| http://eyalamit-co-il-2026.s887.upress.link/privacy/ | 200 | באנר טיוטה; «יולי 2026»; «עשוי… Google Analytics» while GA4 is actually on; no cookie banner; no Set-Cookie |
-| http://eyalamit-co-il-2026.s887.upress.link/terms/ | 200 | באנר טיוטה; «חשבונית ירוקה» + «מחוז המרכז»; no checkout on `/shop/` |
-| http://eyalamit-co-il-2026.s887.upress.link/contact/ | 200 | one CF7 form: name, phone, email, subject, message; no reCAPTCHA |
-| http://eyalamit-co-il-2026.s887.upress.link/shop/ | 200 | catalogue, no WooCommerce / add-to-cart |
-| http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/ | 200 | placeholder, no purchase URL |
+## Form sent to Eyal (the active one, not an old addendum)
 
-**Nimrod's approval of the reports:** not yet. Sequence remains: research → his feedback → (implementation = revise the reports, not the site) → his approval → only then Eyal. **No `GO-W4-PASTE`.**
+**Source:** [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html)
 
-**Plugin recommendation (accessibility):** keep WP Accessibility (already installed). Not an overlay. Not Enable Accessibility. Not a from-scratch widget. Stated in the accessibility report with sources.
+**Live:** http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html
+
+Added **חלק ח** — L1 `/accessibility/`, L2 `/privacy/`, L3 `/terms/`. Existing item IDs unchanged. Not `s006-review.html` (round 1) and not `s006-r2-review.html`.
+
+Hub publish of this file is a **single-file upload**. Full `build_eyal_client_hub.py` would strip the three home-page links (see the form README).
 
 ---
 
-## What this line did not do, on purpose
+## What this line did not do
 
-- Did not paste a sentence, heading, or FTP of `accessibility-defaults.php` / `privacy-defaults.php` / `terms-defaults.php`.
-- Did not open or commit `local/`.
-- Did not edit `_aos/`.
-- Did not `git add -A`.
-- Did not invent Eyal copy.
-- Did not wait for a cross-engine self-audit (Claude does that Tuesday).
-- Did not invent Nimrod's approval quotes. Where he has not spoken, the file says so.
+- Did not name an accessibility coordinator without Eyal’s OK.
+- Did not invent a cookie-banner statute or a GDPR erasure right.
+- Did not open or commit `local/`. Did not edit `_aos/`. Did not `git add -A`.
+- Did not run a full hub rebuild (would drop the form’s hub-home links).
 
 ---
 
 ## Ownership of the next step
 
-- **Nimrod:** (1) approve or reject the live sound button in his own words; (2) read the three HTML reports and give feedback. Still no paste.
-- **This builder:** revise reports against that feedback if he gives it before Tuesday; paste only on an explicit `GO-W4-PASTE`.
-- **Team 100 / Claude audit Tuesday:** read this file first.
+- **Eyal:** mark L1/L2/L3 on the live form.
+- **This builder:** after his JSON — remove banners only where he said אושר; apply any correction notes.
+- **Team 100 / Claude Tuesday:** read this file first.
