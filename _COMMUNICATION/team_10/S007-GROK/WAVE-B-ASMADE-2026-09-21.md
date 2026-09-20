@@ -14,28 +14,32 @@
 | WB-04a nowrap | `inc/chapters/defaults/{method,lessons,therapist-training,home}-defaults.php`, `inc/chapters/chapters-render.php` (`lang` on span), `style.css` (`.ea-nowrap`) |
 | WB-17 nav 88→56 | `assets/css/chapters.css`, `assets/css/faq-toc.css` |
 | WB-07 CMP | `inc/ea-cookie-notice.php`, `assets/js/ea-cookie-notice.js`, `assets/css/ea-cookie-notice.css`, `inc/wave2-stage-b.php`, `inc/chapters/chapters-enqueue.php`, `functions.php`, `inc/chapters/defaults/privacy-defaults.php` |
-| WB-08 hrefs | `inc/data/ea-faq-seed.json`, `inc/chapters/defaults/lessons-defaults.php` |
+| WB-08 hrefs | `inc/data/ea-faq-seed.json`, `inc/chapters/defaults/lessons-defaults.php`, `mu-plugins/ea-wave-b-faq-href-once.php` (CPT sync) |
 | Version + require | `style.css` (1.5.98), `functions.php` (`ea-breadcrumbs.php`) |
 
 ## Git commit
 
-_(filled after commit)_
+- `d3d82b9` — Wave B approved pack (theme + mandate + as-made)
+- `5e0017b` — FAQ CPT href sync mu-plugin
 
 ## FTP
 
-_(filled after deploy)_
+`Done: FTP deploy site/wp-content (child theme + mu-plugins).` (×2 — after each commit)
 
 ## DB post-body hrefs (WB-08 remainder)
 
-Theme seed/defaults only for FAQ + lessons blog link. Post content in WP DB not updated in this pack — list for follow-up if still live on staging:
+FAQ CPT synced via `ea-wave-b-faq-href-once.php` (keys general-07/08/09, lessons-06). Still in WP post content only (not theme):
 
-- mokesh post body (legacy mokesh URL → `/eyal-amit/mokesh-dahiman/`)
-- reversing post (`/treatment/`)
+- mokesh post body → `/eyal-amit/mokesh-dahiman/`
+- reversing post → `/treatment/`
 - new book blog post
-- studio post (`/books/vekatavta/`)
-- column 49 (`/contact/`)
-- column 40 muzza (`/books/`)
+- studio post → `/books/vekatavta/`
+- column 49 → `/contact/`
+- column 40 muzza → `/books/`
 
 ## Smoke GET (no redirect follow)
 
-_(filled after deploy)_
+| URL | Result |
+|-----|--------|
+| `/method/` HTTP 200 | `ea-crumb` present; `style.css?ver=1.5.98` |
+| `/faq/` HTTP 200 | `ea-crumb` present; **0** `www.eyalamit.co.il` in FAQ answers after mu-plugin run |
