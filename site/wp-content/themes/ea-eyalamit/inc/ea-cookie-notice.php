@@ -1,19 +1,24 @@
 <?php
 /**
- * Wave A 2026-09-20 — first-visit cookie/measurement notice.
+ * Wave B 2026-09-21 — first-visit measurement choice (accept / reject).
  *
- * Facts already published on /privacy/: GA4 G-MRXESK7QJF may use cookies or
- * identifiers; some pages load Google Fonts. Israeli Privacy Law + Amendment 13
- * require transparency, not a GDPR consent wall. This notice does not block
- * GA4 and does not offer categories/reject (that is Wave B).
- *
- * D-6 (2026-09-06) required a cookie banner; this is the informational first
- * slice. Copy is paraphrased from privacy-defaults.php, not invented law.
+ * Replaces Wave A acknowledgement-only notice. Key: ea_cookie_cmp = accept|reject.
+ * Ignores legacy ea_cookie_notice_ack. PHP gates GA4 + Google Fonts via cookie;
+ * JS mirrors choice to localStorage + first-party cookie (path=/, SameSite=Lax).
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
+
+/**
+ * Whether GA4 / Clarity / Google Fonts may load for this request.
+ *
+ * @return bool
+ */
+function ea_cookie_measurement_allowed() {
+	return isset( $_COOKIE['ea_cookie_cmp'] ) && 'accept' === $_COOKIE['ea_cookie_cmp'];
+}
 
 function ea_cookie_notice_enqueue_assets() {
 	if ( is_admin() ) {
@@ -48,7 +53,8 @@ function ea_cookie_notice_render() {
 		<p class="ea-cookie__body"><?php esc_html_e( 'באתר פועל Google Analytics 4 לאיסוף נתוני שימוש סטטיסטיים, ועשוי להשתמש בעוגיות או במזהים. בחלק מהעמודים נטענים גם גופנים מ־Google.', 'ea-eyalamit' ); ?></p>
 		<p class="ea-cookie__body"><a class="ea-cookie__link" href="<?php echo $privacy; ?>"><?php esc_html_e( 'מדיניות הפרטיות', 'ea-eyalamit' ); ?></a></p>
 		<div class="ea-cookie__row">
-			<button type="button" class="ea-cookie__ack" data-ea-cookie-ack><?php esc_html_e( 'הבנתי', 'ea-eyalamit' ); ?></button>
+			<button type="button" class="ea-cookie__ack" data-ea-cookie-choice="accept"><?php esc_html_e( 'אישור מדידה', 'ea-eyalamit' ); ?></button>
+			<button type="button" class="ea-cookie__reject" data-ea-cookie-choice="reject"><?php esc_html_e( 'המשך בלי מדידה', 'ea-eyalamit' ); ?></button>
 		</div>
 	</div>
 </dialog>

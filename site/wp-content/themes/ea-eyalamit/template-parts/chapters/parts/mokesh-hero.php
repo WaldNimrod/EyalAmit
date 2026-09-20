@@ -26,6 +26,9 @@ $yt_id = $a['yt_id'] ?? '';
 	<span class="arcs" aria-hidden="true"></span>
 	<div class="phero__in">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( function_exists( 'ea_breadcrumbs_render' ) ) : ?>
+			<?php ea_breadcrumbs_render( array( 'dark' => true ) ); ?>
+		<?php endif; ?>
 		<h1 class="phero__h"><?php ea_chapters_kses_e( $a['title'] ?? '' ); ?></h1>
 		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php echo esc_html( $a['sub'] ); ?></p><?php endif; ?>
 	</div>

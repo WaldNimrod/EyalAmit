@@ -31,7 +31,7 @@ return array(
 	/* S006 · מקור: content 13.8.26/השיטה/method.md · SECTION 01 */
 	'phero' => array(
 		'chap'  => '',
-		'title'     => 'שיטת cbDIDG של אייל עמית',
+		'title'     => '<span class="ea-nowrap">שיטת <span lang="en" class="ea-nowrap">cbDIDG</span></span> של אייל עמית',
 		'sub'       => "שיטה לעבודה עם הנשימה באמצעות דיג'רידו, המבוססת על תרגול עצמי דרך הכלי בליווי אישי. הדיג'רידו אינו המטרה - הוא הכלי שדרכו לומדים לעבוד עם הנשימה היומיומית, לחזק, לווסת ולהחזיר עליה את השליטה.",
 		'media'     => 'assets/images/chapters/eyal-window.jpg',
 		'media_alt' => 'אייל עמית מנגן בדיג׳רידו מול קיר הקשתות בסטודיו',

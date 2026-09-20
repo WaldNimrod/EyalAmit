@@ -195,6 +195,9 @@ function ea_eyalamit_font_preconnect( $urls, $relation_type ) {
 	if ( 'preconnect' !== $relation_type || is_admin() ) {
 		return $urls;
 	}
+	if ( function_exists( 'ea_cookie_measurement_allowed' ) && ! ea_cookie_measurement_allowed() ) {
+		return $urls;
+	}
 	$urls[] = array(
 		'href' => 'https://fonts.googleapis.com',
 	);
@@ -728,7 +731,8 @@ function ea_eyalamit_books_v2_assets() {
 	// S007 M-10: ההערה הקודמת אמרה שהפונט הגלובלי הוא Rubik — זה הוסר (אפס צרכנים,
 	// נמדד על פני 157 העמודים). --ea-font כבר מפנה ל-Heebo בכל מקום; הבקשה הזאת
 	// עדיין נפרדת כי אין enqueue גלובלי בפועל שמביא את קובץ הגופן עצמו.
-	if ( ! wp_style_is( 'ea-eyalamit-fonts-heebo', 'enqueued' )
+	if ( function_exists( 'ea_cookie_measurement_allowed' ) && ea_cookie_measurement_allowed()
+		&& ! wp_style_is( 'ea-eyalamit-fonts-heebo', 'enqueued' )
 		&& ! wp_style_is( 'ea-eyalamit-fonts-heebo', 'registered' ) ) {
 		wp_enqueue_style(
 			'ea-eyalamit-fonts-heebo',
@@ -860,6 +864,11 @@ require_once get_stylesheet_directory() . '/inc/ea-nav-drawer.php';
  * Wave A 2026-09-20 — first-visit cookie/measurement notice (informational).
  */
 require_once get_stylesheet_directory() . '/inc/ea-cookie-notice.php';
+
+/**
+ * S007 Wave B — breadcrumbs from canonical nav.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-breadcrumbs.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once get_stylesheet_directory() . '/inc/cli/class-ea-faq-migrate-command.php';

@@ -12,6 +12,9 @@ $h = static function ( $path ) {
 	return esc_url( home_url( $path ) );
 };
 ?>
+<?php if ( function_exists( 'ea_chapters_type' ) && 'contact' === ea_chapters_type() ) : ?>
+<div class="ea-contact-foot-gap" aria-hidden="true"></div>
+<?php endif; ?>
 <footer class="foot">
 	<span class="arcs" aria-hidden="true"></span>
 	<div class="foot__in">

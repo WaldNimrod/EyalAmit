@@ -40,7 +40,7 @@
    ש-ea-faq-toc.js כותב מהניווט הנמדד בפועל, עם 72px כ-fallback ללא JS. */
 @media (min-width: 768px) {
 	.ea-faq-toc {
-		top: var(--ea-faq-toc-top, 72px);
+		top: var(--ea-faq-toc-top, 88px);
 	}
 }
 

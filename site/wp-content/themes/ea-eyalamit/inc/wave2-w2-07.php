@@ -636,6 +636,9 @@ function ea_wave2_editorial_render_hero( $h ) {
 	          <?php if ( '' !== $kicker ) : ?>
 	          <p class="ea-edhero__kicker"><?php echo esc_html( $kicker ); ?></p>
 	          <?php endif; ?>
+	          <?php if ( function_exists( 'ea_breadcrumbs_render' ) ) : ?>
+	          	<?php ea_breadcrumbs_render(); ?>
+	          <?php endif; ?>
 	          <h1 class="ea-edhero__title"><?php echo esc_html( $title ); ?></h1>
 	          <?php if ( '' !== $lead ) : ?>
 	          <p class="ea-edhero__lead"><?php echo esc_html( $lead ); ?></p>

@@ -91,12 +91,14 @@ function ea_wave2_enqueue_assets() {
 	$dir = get_stylesheet_directory();
 	$uri = get_stylesheet_directory_uri();
 
-	wp_enqueue_style(
-		'ea-eyalamit-fonts-heebo',
-		'https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600&display=swap',
-		array(),
-		null
-	);
+	if ( function_exists( 'ea_cookie_measurement_allowed' ) && ea_cookie_measurement_allowed() ) {
+		wp_enqueue_style(
+			'ea-eyalamit-fonts-heebo',
+			'https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600&display=swap',
+			array(),
+			null
+		);
+	}
 
 	wp_enqueue_style( 'ea-wave2-tokens', $uri . '/assets/css/ea-tokens.css', array(), $ver );
 	wp_enqueue_style( 'ea-wave2-animations', $uri . '/assets/css/ea-animations.css', array( 'ea-wave2-tokens' ), $ver );
@@ -449,6 +451,9 @@ function ea_wave2_get_analytics_config() {
  * GA4 + Clarity in head (scaffold when PENDING_CREDENTIALS).
  */
 function ea_wave2_print_analytics_head() {
+	if ( function_exists( 'ea_cookie_measurement_allowed' ) && ! ea_cookie_measurement_allowed() ) {
+		return;
+	}
 	$cfg  = ea_wave2_get_analytics_config();
 	$ga4  = isset( $cfg['ga4']['measurement_id'] ) ? (string) $cfg['ga4']['measurement_id'] : '';
 	$clar = isset( $cfg['clarity']['project_id'] ) ? (string) $cfg['clarity']['project_id'] : '';

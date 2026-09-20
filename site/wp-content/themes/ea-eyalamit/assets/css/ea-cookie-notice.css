@@ -6,7 +6,10 @@
 .ea-cookie__body{margin:0 0 10px;font-family:var(--bf,Heebo,sans-serif);font-weight:var(--fw-body,400);font-size:var(--fs-sm);line-height:1.55;color:var(--ink,#1c140e)}
 .ea-cookie__link{color:var(--terra,#B5663D);text-decoration:underline}
 .ea-cookie__link:focus-visible{outline:2px solid var(--terra,#B5663D);outline-offset:3px}
-.ea-cookie__row{display:flex;justify-content:flex-start;margin-top:14px}
-.ea-cookie__ack{min-width:44px;min-height:44px;padding:10px 18px;border:0;border-radius:100px;cursor:pointer;font-family:var(--bf,Heebo,sans-serif);font-size:var(--fs-sm);font-weight:var(--fw-medium,500);color:#fff;background:var(--terra-btn,#B05F38)}
+.ea-cookie__row{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start;margin-top:14px}
+.ea-cookie__ack,.ea-cookie__reject{min-width:44px;min-height:44px;padding:10px 18px;border:0;border-radius:100px;cursor:pointer;font-family:var(--bf,Heebo,sans-serif);font-size:var(--fs-sm);font-weight:var(--fw-medium,500)}
+.ea-cookie__ack{color:#fff;background:var(--terra-btn,#B05F38)}
 .ea-cookie__ack:hover{background:var(--terra-dk,#8C4A2E)}
-.ea-cookie__ack:focus-visible{outline:2px solid var(--terra,#B5663D);outline-offset:3px}
+.ea-cookie__reject{color:var(--ink,#1c140e);background:transparent;border:1px solid var(--line,#d8c7b5)}
+.ea-cookie__reject:hover{border-color:var(--terra,#B5663D);color:var(--terra,#B5663D)}
+.ea-cookie__ack:focus-visible,.ea-cookie__reject:focus-visible{outline:2px solid var(--terra,#B5663D);outline-offset:3px}

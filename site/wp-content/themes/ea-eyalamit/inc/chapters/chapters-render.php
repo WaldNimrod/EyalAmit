@@ -738,7 +738,10 @@ function ea_chapters_kses_e( $html ) {
 			'em'     => array(),
 			'br'     => array(),
 			'strong' => array(),
-			'span'   => array( 'class' => array() ),
+			'span'   => array(
+				'class' => array(),
+				'lang'  => array(),
+			),
 			'a'      => array(
 				'href'  => array(),
 				'class' => array(),
