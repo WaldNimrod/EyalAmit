@@ -1,0 +1,560 @@
+<title>לוח הסגירות — אייל עמית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@300;400;500;700&display=swap">
+<style>
+:root{
+  --ground:#f1f3f5; --surface:#fff; --surface-2:#f8f9fb;
+  --ink:#191c22; --muted:#666d79; --line:#dee1e6; --line-soft:#eceef1;
+  --nimrod:#2d6b8f; --eyal:#9a6a28; --team:#3d6b4e; --launch:#6d4a72;
+  --st-open:#9a6a28; --st-work:#2d6b8f; --st-done:#3d6b4e; --st-hold:#8d8d8d;
+  --sans:"Heebo",-apple-system,"Segoe UI",Arial,sans-serif;
+  --serif:"Frank Ruhl Libre","Times New Roman",serif;
+  --sp:clamp(18px,3vw,34px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14161a; --surface:#1d2026; --surface-2:#22262d;
+    --ink:#e7e9ee; --muted:#98a0ab; --line:#2f343c; --line-soft:#272c33;
+    --nimrod:#6aa8c9; --eyal:#d0a05c; --team:#77ab88; --launch:#b18ab5;
+    --st-open:#d0a05c; --st-work:#6aa8c9; --st-done:#77ab88; --st-hold:#8d939c;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14161a; --surface:#1d2026; --surface-2:#22262d;
+  --ink:#e7e9ee; --muted:#98a0ab; --line:#2f343c; --line-soft:#272c33;
+  --nimrod:#6aa8c9; --eyal:#d0a05c; --team:#77ab88; --launch:#b18ab5;
+  --st-open:#d0a05c; --st-work:#6aa8c9; --st-done:#77ab88; --st-hold:#8d939c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+     font-size:16.5px;line-height:1.6;direction:rtl}
+.page{max-width:1080px;margin:0 auto;padding:var(--sp) clamp(14px,3vw,26px) 120px}
+
+header.top{padding-bottom:20px;border-bottom:2px solid var(--ink);margin-bottom:22px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,4.4vw,2.6rem);
+   margin:0 0 6px;line-height:1.2;text-wrap:balance}
+.sub{color:var(--muted);margin:0;max-width:62ch}
+.stamp{font-size:.82rem;letter-spacing:.06em;color:var(--muted);margin:0 0 10px}
+
+.meter{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:20px 0 6px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+       border-top:3px solid var(--c)}
+.mcard .n{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--c)}
+.mcard .l{font-size:.86rem;color:var(--muted)}
+.bar{height:7px;border-radius:4px;background:var(--line-soft);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;background:var(--c);width:0}
+
+.filters{position:sticky;top:0;z-index:5;background:var(--ground);padding:12px 0 10px;
+         border-bottom:1px solid var(--line);margin-bottom:6px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.filters b{font-size:.84rem;color:var(--muted);font-weight:500;margin-inline-end:4px}
+.chip{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+      background:var(--surface);color:var(--ink);cursor:pointer;min-height:36px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.chip:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{
+  outline:2px solid var(--nimrod);outline-offset:2px}
+
+section.owner{margin-top:34px}
+.ohead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+       border-inline-start:5px solid var(--c);padding-inline-start:12px;margin-bottom:4px}
+.ohead h2{font-family:var(--serif);font-size:1.5rem;margin:0;font-weight:700}
+.ohead .who{font-size:.85rem;color:var(--c);font-weight:500}
+.ohead .cnt{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.onote{color:var(--muted);font-size:.93rem;margin:0 0 14px;padding-inline-start:17px;max-width:66ch}
+
+h3.topic{font-size:.83rem;letter-spacing:.09em;color:var(--muted);font-weight:500;
+         margin:20px 0 8px;padding-inline-start:17px}
+
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+      padding:14px 16px;margin-bottom:9px}
+.item[data-done="1"]{background:var(--surface-2);opacity:.72}
+.irow{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.pill{font-size:.76rem;padding:3px 9px;border-radius:999px;white-space:nowrap;
+      background:color-mix(in srgb,var(--sc) 15%,transparent);color:var(--sc);
+      border:1px solid color-mix(in srgb,var(--sc) 40%,transparent);font-weight:500}
+.ttl{font-weight:500;flex:1 1 260px;min-width:0}
+.ask{margin:8px 0 0;color:var(--ink)}
+.why{margin:6px 0 0;color:var(--muted);font-size:.93rem}
+.opts{margin:9px 0 0;padding:9px 12px;background:var(--surface-2);border-radius:8px;
+      border-inline-start:3px solid var(--c)}
+.opts .lb{font-size:.78rem;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:3px}
+.opts ul{margin:0;padding-inline-start:18px}
+.decided{margin:9px 0 0;padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--c) 10%,transparent);border-inline-start:3px solid var(--c)}
+.decided .lb{font-size:.78rem;letter-spacing:.07em;color:var(--c);display:block;margin-bottom:3px;font-weight:500}
+.decided q{font-style:normal}
+.tw{margin:9px 0 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;direction:ltr}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+th{background:var(--surface-2);font-weight:500;color:var(--muted);font-size:.8rem}
+tr:last-child td{border-bottom:0}
+.opts li{margin:2px 0}
+.rec{margin:7px 0 0;font-size:.93rem}
+.rec b{color:var(--c)}
+.links{margin:9px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.links a{font-size:.85rem;padding:4px 10px;border:1px solid var(--line);border-radius:7px;
+         text-decoration:none;color:var(--ink);background:var(--surface-2);min-height:32px;
+         display:inline-flex;align-items:center}
+.links a:hover{border-color:var(--c);color:var(--c)}
+.resp{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+      display:flex;gap:9px;flex-wrap:wrap;align-items:flex-start}
+select,textarea{font:inherit;font-size:.93rem;background:var(--surface);color:var(--ink);
+       border:1px solid var(--line);border-radius:7px;padding:7px 9px;min-height:40px}
+select{min-width:130px}
+textarea{flex:1 1 260px;min-height:40px;resize:vertical}
+
+.tail{position:fixed;inset-inline:0;bottom:0;background:var(--surface);border-top:2px solid var(--ink);
+      padding:11px clamp(14px,3vw,26px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:9}
+.tail .grow{flex:1 1 auto;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+button.act{font:inherit;font-weight:500;padding:10px 18px;border-radius:9px;border:1px solid var(--ink);
+       background:var(--ink);color:var(--ground);cursor:pointer;min-height:44px}
+button.act.ghost{background:transparent;color:var(--ink)}
+#out{position:fixed;inset:0;background:var(--ground);z-index:20;padding:clamp(14px,3vw,26px);
+     display:none;flex-direction:column;gap:11px}
+#out textarea{flex:1;width:100%;font-size:.9rem;direction:rtl;text-align:right}
+.done-msg{color:var(--st-done);font-weight:500}
+@media print{.filters,.tail,.resp,#out{display:none}.item{break-inside:avoid}}
+</style>
+
+<div class="page">
+<header class="top">
+  <p class="stamp">אייל עמית · אתר בדיקה · עודכן בעשרים בספטמבר 2026</p>
+  <h1>לוח הסגירות</h1>
+  <p class="sub"><span id="hdr-count">הסעיפים</span> בפרויקט, מסודרים לפי מי צריך להכריע. התהליך מוגדר כסגירת כל הסעיפים — עד שאפשר לומר שגם הצד שלנו וגם הצד שלך סגורים. סמן סטטוס לכל סעיף, כתוב הערה במידת הצורך, ובסוף העתק את כל המשוב אלינו בלחיצה אחת.</p>
+  <div class="meter" id="meter"></div>
+</header>
+
+<div class="filters" id="filters">
+  <b>הצג</b>
+  <button class="chip" data-f="all" aria-pressed="true">הכול</button>
+  <button class="chip" data-f="nimrod" aria-pressed="false">אצלך</button>
+  <button class="chip" data-f="eyal" aria-pressed="false">אצל אייל</button>
+  <button class="chip" data-f="team" aria-pressed="false">אצלנו</button>
+  <button class="chip" data-f="launch" aria-pressed="false">לעלייה לאוויר</button>
+  <button class="chip" data-f="openonly" aria-pressed="false">רק מה שעוד פתוח</button>
+</div>
+
+<main id="board"></main>
+</div>
+
+<div class="tail">
+  <span class="grow" id="tally"></span>
+  <button class="act ghost" id="btn-clear" type="button">איפוס סימונים</button>
+  <button class="act" id="btn-copy" type="button">העתקת המשוב אלינו</button>
+</div>
+
+<div id="out">
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <strong style="font-family:var(--serif);font-size:1.2rem">המשוב שלך</strong>
+    <span class="grow" id="out-msg"></span>
+    <button class="act" id="btn-copy2" type="button">העתקה ללוח</button>
+    <button class="act ghost" id="btn-close" type="button">סגירה</button>
+  </div>
+  <textarea id="out-text" readonly></textarea>
+</div>
+
+<script>
+const S = "http://eyalamit-co-il-2026.s887.upress.link";
+const OWNERS = [
+  {k:"nimrod", name:"אצלך — נימרוד", who:"הכרעה שלך", c:"var(--nimrod)",
+   note:"ענית על אחד־עשר הסעיפים שהופנו אליך, והם מופיעים כאן סגורים עם ההכרעה שלך כלשונה. נשאר סעיף אחד פתוח — טבלת ההפניות שביקשת, שמופיעה עכשיו בתוך הסעיף עצמו."},
+  {k:"eyal", name:"אצל אייל", who:"ממתין לחומר או להכרעה שלו", c:"var(--eyal)",
+   note:"גדל בשלושה סעיפים בעקבות התשובות שלך: אישור הפוסטים, אישור עמודי הקודים, ובחירת התמונות לגלריה הראשית. ביום שלישי אמור להגיע ממנו מידע נוסף."},
+  {k:"team", name:"אצלנו", who:"עבודה שלנו", c:"var(--team)",
+   note:"מיקום כפתור הקול עבר אלינו כתיקון לפי הכרעתך. אחריו שלושת דוחות המחקר המשפטיים, שהם העבודה האמיתית שטרם נעשתה, ושני חובות רשומים."},
+  {k:"launch", name:"נדחה לעלייה לאוויר", who:"לא לפני המעבר לדומיין", c:"var(--launch)",
+   note:"אלה דברים שאינם מזיקים כל עוד האתר אינו מפורסם, והופכים אמיתיים ברגע שהדומיין הראשי יצביע לכאן. שלושה מהם נפתחו מהתשובות שלך היום. הרשימה הזו חייבת להיקרא שוב לפני המעבר."}
+];
+
+const ITEMS = [
+/* ═══ נימרוד ═══ */
+{id:"N-REDIR",o:"nimrod",t:"ממתין לאישורך",h:"שתים־עשרה ההפניות מכתובות ישנות",
+ ask:"ביקשת טבלה מסודרת של כל שתים־עשרה ההפניות — מה מפנה למה. הנה היא, ואומתה חי היום: כל שתים־עשרה מחזירות הפניה קבועה, וכל שתים־עשרה הכתובות שאליהן הן מגיעות מחזירות עמוד תקין.",
+ table:[["הכתובת הישנה","מפנה אל"],
+  ["/courses-soon/","/learning/courses-external/"],
+  ["/hashita/","/method/"],
+  ["/muzeh/","/books/"],
+  ["/muzeh/kushi-blantis/","/books/kushi-blantis/"],
+  ["/muzeh/tsva-bechol-ve-zorek-layam/","/books/tsva-bekahol/"],
+  ["/muzeh/vekatavt/","/books/vekatavta/"],
+  ["/muzza/","/books/"],
+  ["/muzza/tsva-bechol-ve-zorek-layam/","/books/tsva-bekahol/"],
+  ["/muzza/vekatavt/","/books/vekatavta/"],
+  ["/services/didgeridoo-lessons/","/lessons/"],
+  ["/services/didgeridoo-treatment-breath/","/treatment/"],
+  ["/services/handmade-instruments/","/didgeridoos/"]],
+ why:"שתי הכתובות של מוזה מפנות לאותם יעדים, כי שתיהן היו בשימוש בעבר. זה תקין ולא כפילות.",
+ links:[["בדיקה — מוזה","/muzeh/"],["בדיקה — השיטה הישנה","/hashita/"]]},
+
+{id:"N-POSTS",o:"nimrod",t:"הוכרע על ידך",h:"חמישים וארבעה פוסטים בבלוג",
+ ask:"האישור עובר לאייל, עם רשימת קישורים מלאה ומקום להתייחס לכל פוסט בנפרד.",
+ decided:"זה אישור תוכן - להעביר לאייל עם רשימת קישורים מלאה ומקום להתייחס לכל פוסט בנפרד.",
+ st:"ok"},
+{id:"N-QR",o:"nimrod",t:"הוכרע על ידך",h:"ארבעים ותשעה עמודי קוד QR",
+ ask:"האישור עובר לאייל באותה צורה. הדגשת שהקוד המודפס בספר חייב להוביל נכון אחרי המעבר לדומיין — נרשם כסעיף נפרד לעלייה לאוויר.",
+ decided:"זה אישור תוכן - להעביר לאייל עם רשימת קישורים מלאה ומקום להתייחס לכל פוסט בנפרד. מזכיר - מה שחשוב כאן - שהqr המקורי המודפס בספר יקושר נכון אחרי המעבר לדומיין הסופי.",
+ st:"ok"},
+{id:"N-LEARN",o:"nimrod",t:"הוכרע על ידך",h:"לימוד והכשרה",
+ ask:"עובר לאישור תוכן אצל אייל. הסעיף כבר קיים אצלו בלוח.",
+ decided:"זה אישור תוכן - להעביר לאייל",st:"ok"},
+{id:"N-THER",o:"nimrod",t:"הוכרע על ידך",h:"הכשרות למטפלים",
+ ask:"עובר לאישור תוכן אצל אייל. זה גם משחרר את הקישור השבור בשאלות הנפוצות.",
+ decided:"זה אישור תוכן - להעביר לאייל",st:"ok"},
+{id:"N-EN",o:"nimrod",t:"הוכרע על ידך",h:"העמוד באנגלית",
+ ask:"עובר לאישור תוכן אצל אייל.",
+ decided:"זה אישור תוכן - להעביר לאייל",st:"ok"},
+{id:"N-GAL",o:"nimrod",t:"הוכרע על ידך",h:"הגלריות",
+ ask:"עובר לאייל. הזכרת שכבר בנינו לו גלריה זמנית עם כל התמונות הקיימות, ושצריך להוסיף לו סעיף על בחירת תמונות לגלריה הראשית — נוסף אצלו.",
+ decided:"זה אישור תוכן - להעביר לאייל - מזכיר שיצרנו לו גלרייה זמנית לעבודה עם כל התמונות בקיימות, משם נקבל ממנו בדיוק. צריך רק להוסיף לו סעיף - בחירת תמונות לגלריה ראשית.",
+ st:"ok"},
+{id:"N-BLOG",o:"nimrod",t:"הוכרע על ידך",h:"הבלוג כארכיון",
+ ask:"אושר כארכיון. ציינת שאחרי העלייה לאוויר יעלו פוסטים נוספים באופן קבוע — נרשם כסעיף לאחרי העלייה.",
+ decided:"אחרי העליה - יעלו פוסטים נוספים באופן קבוע.",st:"ok"},
+{id:"N-COURSE",o:"nimrod",t:"הוכרע על ידך",h:"פריט הקורסים בתפריט",
+ ask:"ההסרה מאושרת עכשיו. נרשם סעיף לאחרי העלייה — השלמת העמוד והחזרתו לתפריט.",
+ decided:"לאשר עכשיו את ההסרה - לרשום סעיף נוסף לאחרי העליה - השלמת העמוד והחזרה שלו לתפריט",st:"ok"},
+{id:"N-ENLANG",o:"nimrod",t:"הוכרע על ידך",h:"שפת התפריט בעמוד האנגלי",
+ ask:"התפריט נשאר עברית בכל האתר, כולל בעמוד האנגלי. הסעיף סגור ואינו עובר לאייל.",
+ decided:"כל התפריט נשאר עברית - העמוד אנגלית מיועד בעיקר למנועים ואינדקסים.",
+ why:"ההמלצה שלנו הייתה לבקש תוויות באנגלית. ההנמקה שלך — שהעמוד מיועד בעיקר למנועים — מייתרת אותה.",
+ st:"ok",links:[["העמוד האנגלי","/en/"]]},
+{id:"N-SOUND",o:"nimrod",t:"הוכרע על ידך",h:"כפתור הקול בסרגל התפריט",
+ ask:"קבעת שזו תקלה ולא החלטה. עבר אלינו לתיקון.",
+ decided:"לא תקין - צריך להופיע רק כשיש סרט ותמיד על הסרט או צמוד אליו.",
+ why:"ההמלצה שלנו הייתה להשאיר כמו שהוא, והיא הייתה שגויה. הכפתור יושב היום בסרגל התפריט ולא ליד הסרט.",
+ st:"ok"},
+{id:"N-MERGE",o:"nimrod",t:"הוכרע על ידך",h:"מיזוג הענף לראשי",
+ ask:"בוצע לפי הוראתך. שלושה־עשר קומיטים בענף הראשי, האתר חי בגרסה 1.5.92.",done:1},
+
+/* ═══ אייל ═══ */
+{id:"E-POSTS",o:"eyal",t:"אישורי תוכן שהעברת אליו",h:"חמישים וארבעה פוסטים בבלוג",
+ ask:"אישור תוכן לכל פוסט בנפרד. נדרש ממנו אישור, ולנו להכין לו רשימת קישורים מלאה עם מקום להתייחס לכל פוסט לחוד.",
+ why:"התוכן הועתק כלשונו מהאתר הישן. לא נוסח ולא נכתב מחדש שום דבר.",
+ links:[["עמוד הבלוג","/blog/"]]},
+{id:"E-QR",o:"eyal",t:"אישורי תוכן שהעברת אליו",h:"ארבעים ותשעה עמודי קוד QR",
+ ask:"אישור תוכן לכל עמוד קוד בנפרד, באותה צורה.",
+ why:"אלה עמודים שמגיעים אליהם מקודים שכבר מודפסים בספרים. הכתובות שלהם לא ישתנו.",
+ links:[["מדף הקודים","/qr/"]]},
+{id:"E-GALPICK",o:"eyal",t:"אישורי תוכן שהעברת אליו",h:"בחירת תמונות לגלריה הראשית",
+ ask:"סעיף חדש לפי הוראתך: אייל בוחר מתוך הגלריה הזמנית שבנינו לו אילו תמונות נכנסות לגלריה הראשית.",
+ why:"הגלריה הזמנית כבר מכילה את כל התמונות הקיימות, ולכן הבחירה שלו יכולה להיות מדויקת ולא כללית.",
+ links:[["עמוד הגלריות","/galleries/"]]},
+
+{id:"E-SERV",o:"eyal",t:"חמישה עמודים בלי תוכן כלל",h:"שירותים",
+ ask:"כל מה שמוצג בעמוד הוא סימון פנימי שלנו. נדרש טקסט, או החלטה שהעמוד אינו נחוץ.",
+ links:[["פתיחת העמוד","/services/"]]},
+{id:"E-SHOWS",o:"eyal",t:"חמישה עמודים בלי תוכן כלל",h:"הופעות ומורשת מופע",
+ ask:"אותו מצב — סימון פנימי במקום תוכן.",links:[["פתיחת העמוד","/shows-heritage/"]]},
+{id:"E-HIST",o:"eyal",t:"חמישה עמודים בלי תוכן כלל",h:"כתבות היסטוריות",
+ ask:"סימון פנימי בלבד, והעמוד מסומן אצלנו כאופציונלי.",links:[["פתיחת העמוד","/historical-articles/"]]},
+{id:"E-THANKS",o:"eyal",t:"חמישה עמודים בלי תוכן כלל",h:"דף תודה אחרי טפסים",
+ ask:"מה שמוצג הוא הערה פנימית ולא תוכן. קודם צריך להחליט אם בכלל משתמשים בדף תודה.",
+ links:[["פתיחת העמוד","/thank-you/"]]},
+{id:"E-COURSES",o:"eyal",t:"חמישה עמודים בלי תוכן כלל",h:"קורסים חיצוניים",
+ ask:"העמוד אומר על עצמו שאינו מאושר לפרסום. נדרשים הקישורים לקורסים והטקסט שמלווה אותם.",
+ why:"הפריט הוסר מהתפריט בינתיים לפי הכרעתך, ויחזור אליו כשיהיה תוכן.",
+ links:[["פתיחת העמוד","/learning/courses-external/"]]},
+
+{id:"E-VIDEO",o:"eyal",t:"שני סקשנים שמחכים לחומר",h:"פרק הווידאו בדף הבית",
+ ask:"במקום הסרטון יש היום טקסט ממלא מקום וקופסה שכתוב בה שכאן ייכנס וידאו. נדרש הקישור לסרטון.",
+ links:[["פרק הווידאו","/#video"]]},
+{id:"E-GALCONT",o:"eyal",t:"שני סקשנים שמחכים לחומר",h:"תמונות וכיתובים לגלריות",
+ ask:"העמוד אומר במפורש שהתמונות והכיתובים ממתינים להשלמה ולאישור ממנו.",
+ why:"משלים את סעיף בחירת התמונות לגלריה הראשית שלמעלה.",
+ links:[["פתיחת הגלריות","/galleries/"]]},
+
+{id:"E-LEARN",o:"eyal",t:"שלושה עמודים בטיוטת צוות",h:"לימוד והכשרה",
+ ask:"עמוד מלא בטקסט שכתב הצוות. נדרשת קריאה ואישור, או טקסט משלו.",
+ links:[["פתיחת העמוד","/learning/"]]},
+{id:"E-THER",o:"eyal",t:"שלושה עמודים בטיוטת צוות",h:"הכשרות למטפלים",
+ ask:"אותו מצב, והעמוד הזה גם היעד של קישור שבור בשאלות הנפוצות.",
+ links:[["פתיחת העמוד","/learning/therapist-training/"]]},
+{id:"E-ENTXT",o:"eyal",t:"שלושה עמודים בטיוטת צוות",h:"הנוסח באנגלית",
+ ask:"סיכום שכתב הצוות, ובראשו שורה גלויה שאומרת שזו טיוטה הממתינה לאישורו. התפריט בעמוד נשאר עברית לפי הכרעתך.",
+ links:[["פתיחת העמוד","/en/"]]},
+
+{id:"E-TESTI",o:"eyal",t:"שלושה פריטים חסרים בעמודים עובדים",h:"המלצות בעמוד הכלים למכירה",
+ ask:"ביקש שמונה המלצות; מוצגות שלוש. בקובץ ההמלצות שלו אין קטגוריה של כלים ולכן אין מאיפה לקחת עוד.",
+ links:[["פתיחת העמוד","/didgeridoos/"]]},
+{id:"E-T16",o:"eyal",t:"שלושה פריטים חסרים בעמודים עובדים",h:"ההמלצה השש־עשרה בדף הבית",
+ ask:"ביקש שש־עשרה; מוצגות חמש־עשרה, וזו בדיוק הרשימה שאישר. חסר שם הממליץ הנוסף.",
+ links:[["פתיחת דף הבית","/"]]},
+{id:"E-FAQLINK",o:"eyal",t:"שלושה פריטים חסרים בעמודים עובדים",h:"קישור שבור בשאלות הנפוצות",
+ ask:"בשאלה על הכשרת מטפלים יש קישור לכתובת ישנה שכבר לא קיימת.",
+ links:[["פתיחת העמוד","/faq/"]]},
+
+{id:"E-PRESS",o:"eyal",t:"שבעה עמודים מחוץ לתפריט",h:"עיתונות",
+ ask:"עמוד גמור ומלא, ואף תפריט באתר לא מקשר אליו. גולש לא יכול להגיע אליו.",
+ why:"זה הבולט מבין השבעה — עמוד עם תוכן אמיתי שאיש לא רואה.",
+ links:[["פתיחת העמוד","/press/"]]},
+{id:"E-LEARNMENU",o:"eyal",t:"שבעה עמודים מחוץ לתפריט",h:"לימוד והכשרה כעמוד ראשי",
+ ask:"בתפריט זו כותרת שנפתחת ואי אפשר ללחוץ עליה, בזמן שהעמוד עצמו קיים ומלא.",
+ links:[["פתיחת העמוד","/learning/"]]},
+{id:"E-MENU5",o:"eyal",t:"שבעה עמודים מחוץ לתפריט",h:"מקום בתפריט לחמשת העמודים הריקים",
+ ask:"לכל אחד מהם נשאלת שאלה נפרדת בטופס: אם יהיה בו תוכן, האם הוא נכנס לתפריט.",
+ why:"ארבעים ושמונה עמודי הקודים המודפסים נשארים מחוץ לתפריט בכוונה ואינם חלק מהשאלה.",
+ links:[["שירותים","/services/"],["הופעות","/shows-heritage/"],["כתבות","/historical-articles/"],["תודה","/thank-you/"],["קורסים","/learning/courses-external/"]]},
+
+{id:"E-ABOUT1",o:"eyal",t:"שני עמודים מספרים על אייל",h:"איזה משני העמודים נשאר",
+ ask:"קיימים שני עמודים שמספרים על אייל. הארוך בתפריט וכל עמוד מקשר אליו; הקצר אינו בשום תפריט ואי אפשר להגיע אליו.",
+ why:"השווינו משפט מול משפט: אותן עובדות בניסוח אחר. רק שני פרטים קיימים אך ורק בקצר — שהקשר עם מוקש דהימן החל בשנת אלפיים, ושבחצר הסטודיו יש עצי פרי.",
+ opts:["להשאיר רק את הארוך ולהפנות אליו","להשאיר את שניהם ולהוסיף את הקצר לתפריט","להשאיר כמו היום","שהקצר יהיה הראשי"],
+ rec:"להשאיר רק את הארוך. הוא מקושר מכל האתר, מעודכן יותר, וכולל כמעט הכול.",
+ links:[["העמוד הארוך","/eyal-amit/"],["העמוד הקצר","/about/"]]},
+{id:"E-ABOUT2",o:"eyal",t:"שני עמודים מספרים על אייל",h:"שני הפרטים שיאבדו",
+ ask:"אם הקצר יורד — האם להעביר קודם את השנה אלפיים ואת עצי הפרי אל העמוד הארוך.",
+ links:[["העמוד הארוך","/eyal-amit/"]]},
+{id:"E-ASTMA",o:"eyal",t:"שני עמודים מספרים על אייל",h:"איך כותבים אסתמה",
+ ask:"בעמוד אחד כתוב אסתמה ובשני אסטמה. שתי הצורות תקינות, ובאתר אחד כדאי שתהיה צורה אחת.",
+ links:[["עם תי״ו","/eyal-amit/"],["עם טי״ת","/about/"]]},
+
+/* ═══ אנחנו ═══ */
+{id:"T-SOUND",o:"team",t:"תיקון שהוטל עלינו",h:"מיקום כפתור הקול",
+ ask:"לפי הכרעתך: הכפתור יופיע רק בעמודים שיש בהם סרט, ותמיד על הסרט עצמו או צמוד אליו — לא בסרגל התפריט.",
+ why:"היום הוא יושב בסרגל התפריט בעמודי הפרקים, ונעדר מהעמודים האחרים. זו תקלה ולא החלטה, וההמלצה הקודמת שלנו להשאיר אותו הייתה שגויה.",
+ rec:"לבצע יחד עם התיקון הבא בסרגל, כדי לא לפרוס פעמיים.",
+ links:[["עמוד עם סרט","/"],["עמוד בלי סרט","/services/"]]},
+{id:"T-A11Y",o:"team",t:"עבודה שטרם נעשתה",h:"דוח מחקר להצהרת הנגישות",
+ ask:"הנוסח הראשוני אושר ושום דבר לא הודבק לאתר. נדרש דוח מחקר מלא לפני שזה מגיע לאייל.",
+ why:"ההצהרה החיה כבר מתוקנת ונושאת את התאריך שאישרת.",
+ links:[["ההצהרה החיה","/accessibility/"]]},
+{id:"T-PRIV",o:"team",t:"עבודה שטרם נעשתה",h:"דוח מחקר למדיניות הפרטיות",
+ ask:"אותו מצב — נוסח אושר, לא הודבק, נדרש דוח.",links:[["העמוד החי","/privacy/"]]},
+{id:"T-TERMS",o:"team",t:"עבודה שטרם נעשתה",h:"דוח מחקר לתקנון",
+ ask:"אותו מצב. שלושת הדוחות אמורים לצאת יחד כחבילה אחת.",links:[["העמוד החי","/terms/"]]},
+{id:"T-DEAD",o:"team",t:"חוב רשום",h:"מערך תפריט ישן שאינו נקרא",
+ ask:"בקוד נשאר מערך תפריט ישן שאף אחד כבר לא קורא ממנו, והוא מחזיק רשימה שהתיישנה.",
+ why:"הוא לא יכול להופיע באתר היום. נרשם כדי שלא ייקרא בטעות בעתיד כאילו הוא מקור אמת.",
+ rec:"למחוק בהזדמנות הבאה שנוגעים באזור הזה, לא לפני."},
+{id:"T-XVAL",o:"team",t:"חוב רשום",h:"סבב אימות חוצה־מנועי על עבודת התפריט",
+ ask:"הצוות שבנה את התפריט האחיד גם בדק אותו. ביקשת לוותר על סבב חיצוני בשלב הזה, וזה נרשם במפורש גם בהודעת המיזוג.",
+ opts:["להשאיר כמו שהוחלט","לשלוח סבב חיצוני לפני המסירה לאייל"],
+ rec:"להשאיר כמו שהוחלט. אם יתגלה משהו בסבב של אייל, אז לשלוח."},
+
+/* ═══ עלייה לאוויר ═══ */
+{id:"L-QR",o:"launch",t:"סעיפים שנפתחו מהתשובות שלך",h:"הקודים המודפסים בספר אחרי המעבר לדומיין",
+ ask:"לוודא שכל קוד שכבר מודפס בספרים מוביל לעמוד הנכון אחרי המעבר לדומיין הסופי.",
+ why:"הזכרת את זה בתשובתך על עמודי הקודים, וזה הסעיף היחיד ברשימה שאי אפשר לתקן בדיעבד — קוד מודפס לא משנים.",
+ rec:"לבדוק את כל ארבעים ותשעת הקודים בדומיין הראשי ביום המעבר, לפני כל דבר אחר.",
+ links:[["מדף הקודים","/qr/"]]},
+{id:"L-COURSE",o:"launch",t:"סעיפים שנפתחו מהתשובות שלך",h:"החזרת עמוד הקורסים לתפריט",
+ ask:"אחרי שיתקבלו קישורי הקורסים מאייל — להשלים את העמוד ולהחזיר את הפריט לתפריט.",
+ why:"ההסרה מהתפריט אושרה על ידך כזמנית בלבד.",
+ links:[["עמוד הקורסים","/learning/courses-external/"]]},
+{id:"L-BLOG",o:"launch",t:"סעיפים שנפתחו מהתשובות שלך",h:"פוסטים חדשים באופן קבוע",
+ ask:"אחרי העלייה לאוויר יעלו פוסטים נוספים באופן שוטף.",
+ why:"נרשם כדי שהבלוג ייבנה מראש כערוץ פעיל ולא כארכיון סגור.",
+ links:[["הבלוג","/blog/"]]},
+{id:"L-INDEX",o:"launch",t:"חשיפה לגוגל",h:"חמישה עמודי ממלא מקום ללא חסימת אינדוקס",
+ ask:"חמשת העמודים הריקים נמצאים במפת האתר ואין בהם תג שמונע מגוגל לאנדקס אותם.",
+ why:"בשרת הבדיקות יש חסימה ברמת השרת ולכן אף אחד לא רואה אותם. בדומיין האמיתי החסימה הזו לא קיימת.",
+ rec:"אם עד המעבר לא יתקבל תוכן מאייל — לחסום אינדוקס או להוריד מפרסום לפני שמפנים את הדומיין.",
+ links:[["שירותים","/services/"],["הופעות","/shows-heritage/"],["כתבות","/historical-articles/"],["תודה","/thank-you/"],["קורסים","/learning/courses-external/"]]},
+{id:"L-ABOUT",o:"launch",t:"רישום שגוי",h:"עמוד אודות רשום אצלנו כהפניה ואינו הפניה",
+ ask:"העמוד רשום ברשימה של כתובות שמפנות הלאה, ולכן אינו מופיע באף מפת אתר. בפועל הוא מחזיר עמוד מלא.",
+ why:"בגלל זה הוא היה בלתי נראה לכל סריקה שביצענו במשך חודשים.",
+ rec:"אחרי שאייל יכריע על שני עמודי האודות — לסדר את הרישום בהתאם.",
+ links:[["פתיחת העמוד","/about/"]]},
+{id:"L-WPREC",o:"launch",t:"רישום שגוי",h:"רשומה ישנה מאחורי עמוד אייל עמית",
+ ask:"הרשומה השמורה בוורדפרס לעמוד הזה עדיין מכילה טקסט ממלא מקום מאפריל, בזמן שהתוכן האמיתי מגיע מהתבנית.",
+ why:"בדיוק הפיצול הזה גרם לכך שהצהרת הנגישות פרסמה תאריך עדכון שגוי למנועי החיפוש.",
+ rec:"ליישר את הרשומה לפני המעבר, כמו שעשינו להצהרת הנגישות.",
+ links:[["פתיחת העמוד","/eyal-amit/"]]},
+{id:"L-PERF",o:"launch",t:"מדידות שצריך לחזור עליהן",h:"ציוני ביצועים וקידום",
+ ask:"כל מדידת ביצועים או קידום שנעשתה על שרת הבדיקות אינה מייצגת.",
+ why:"בשרת הבדיקות יש חסימת אינדוקס ברמת השרת ומטמון שונה, ושניהם מעוותים את התוצאה.",
+ rec:"למדוד מחדש בדומיין הראשי מיד אחרי המעבר, לפני שמסיקים מסקנות."},
+{id:"L-TLS",o:"launch",t:"מדידות שצריך לחזור עליהן",h:"תעודת האבטחה",
+ ask:"בשרת הבדיקות התעודה אינה תקינה, וזה מכוון. בדומיין האמיתי תעודה לא תקינה היא תקלה אמיתית.",
+ why:"לכן כל הקישורים בלוח הזה הם בכתובת רגילה ולא מאובטחת.",
+ rec:"לוודא תעודה תקינה בדומיין הראשי כחלק מרשימת המעבר."}
+];
+
+const STATUSES=[["","— לא סומן —"],["ok","מאושר / סגור"],["fix","לתקן — כתבתי למטה"],["wait","להמתין"],["no","לא רלוונטי"]];
+const KEY="ea-closure-board-v1";
+let state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){state={}}
+let db=null;
+
+function id(i){return ITEMS[i].id}
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+function render(){
+  const board=document.getElementById("board");
+  board.textContent="";
+  OWNERS.forEach(ow=>{
+    const mine=ITEMS.map((it,i)=>({it,i})).filter(x=>x.it.o===ow.k);
+    if(!mine.length) return;
+    const sec=document.createElement("section");
+    sec.className="owner"; sec.dataset.owner=ow.k; sec.style.setProperty("--c",ow.c);
+    const openN=mine.filter(x=>{const q=state[id(x.i)]||{};return !x.it.done&&!q.s&&!q.n}).length;
+    sec.innerHTML=
+      '<div class="ohead"><h2>'+esc(ow.name)+'</h2><span class="who">'+esc(ow.who)+
+      '</span><span class="cnt">'+mine.length+' סעיפים · '+openN+' עוד לא סומנו</span></div>'+
+      '<p class="onote">'+esc(ow.note)+'</p>';
+    let topic="";
+    mine.forEach(({it,i})=>{
+      if(it.t!==topic){topic=it.t;const h=document.createElement("h3");h.className="topic";h.textContent=topic;sec.appendChild(h)}
+      sec.appendChild(itemEl(it,i,ow));
+    });
+    board.appendChild(sec);
+  });
+  meter(); tally(); applyFilter();
+}
+
+function itemEl(it,i,ow){
+  const st=(state[id(i)]||{});
+  const el=document.createElement("article");
+  el.className="item"; el.dataset.owner=ow.k; el.dataset.i=i;
+  el.style.setProperty("--c",ow.c);
+  const marked = it.done || !!st.s || !!st.n;
+  el.dataset.done = marked ? "1" : "0";
+  const sc = it.done ? "var(--st-done)" : (st.s==="ok" ? "var(--st-done)" : (st.s||st.n) ? "var(--st-work)" : "var(--st-open)");
+  const label = it.done ? "בוצע" : (st.s ? (STATUSES.find(x=>x[0]===st.s)||["",""])[1] : (st.n ? "הערה" : "פתוח"));
+  let h='<div class="irow"><span class="pill" style="--sc:'+sc+'">'+esc(label)+'</span>'+
+        '<span class="ttl">'+esc(it.h)+'</span></div>'+
+        '<p class="ask">'+esc(it.ask)+'</p>';
+  if(it.why) h+='<p class="why">'+esc(it.why)+'</p>';
+  if(it.opts) h+='<div class="opts"><span class="lb">אפשרויות</span><ul>'+it.opts.map(o=>'<li>'+esc(o)+'</li>').join("")+'</ul></div>';
+  if(it.rec) h+='<p class="rec"><b>ההמלצה שלנו:</b> '+esc(it.rec)+'</p>';
+  if(it.decided) h+='<div class="decided"><span class="lb">ההכרעה שלך, כלשונה</span><q>'+esc(it.decided)+'</q></div>';
+  if(it.table) h+='<div class="tw"><table><thead><tr>'+it.table[0].map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+it.table.slice(1).map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+  if(it.links) h+='<div class="links">'+it.links.map(l=>'<a href="'+S+l[1]+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join("")+'</div>';
+  if(!it.done){
+    h+='<div class="resp"><select aria-label="סטטוס">'+
+       STATUSES.map(s=>'<option value="'+s[0]+'"'+(st.s===s[0]?' selected':'')+'>'+esc(s[1])+'</option>').join("")+
+       '</select><textarea placeholder="הערה — גם הערה בלי סטטוס נחשבת תשובה ונכנסת להעתקה" aria-label="הערה">'+esc(st.n||"")+'</textarea></div>';
+  }
+  el.innerHTML=h;
+  const sel=el.querySelector("select"), ta=el.querySelector("textarea");
+  if(sel) sel.addEventListener("change",()=>save(i,sel.value,ta.value,el,it));
+  if(ta) ta.addEventListener("input",()=>{clearTimeout(ta._t);ta._t=setTimeout(()=>save(i,sel.value,ta.value,el,it),400)});
+  return el;
+}
+
+function save(i,s,n,el,it){
+  if(!s && !n) delete state[id(i)]; else state[id(i)]={s:s,n:n};
+  try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+  if(db){ try{ db.doc("board/answers").set({updated:new Date().toISOString(),answers:state}) }catch(e){} }
+  el.dataset.done=(s||n)?"1":"0";
+  const pill=el.querySelector(".pill");
+  pill.textContent = s ? (STATUSES.find(x=>x[0]===s)||["",""])[1] : (n ? "הערה" : "פתוח");
+  pill.style.setProperty("--sc", s==="ok"?"var(--st-done)": (s||n)?"var(--st-work)":"var(--st-open)");
+  meter(); tally(); counts();
+}
+
+function counts(){
+  document.querySelectorAll("section.owner").forEach(sec=>{
+    const k=sec.dataset.owner;
+    const mine=ITEMS.map((it,i)=>({it,i})).filter(x=>x.it.o===k);
+    const openN=mine.filter(x=>{const q=state[id(x.i)]||{};return !x.it.done&&!q.s&&!q.n}).length;
+    sec.querySelector(".cnt").textContent=mine.length+" סעיפים · "+openN+" עוד לא סומנו";
+  });
+}
+
+function meter(){
+  const m=document.getElementById("meter"); m.textContent="";
+  OWNERS.forEach(ow=>{
+    const mine=ITEMS.map((it,i)=>({it,i})).filter(x=>x.it.o===ow.k);
+    const closed=mine.filter(x=>{const q=state[id(x.i)]||{};return x.it.done||q.s||q.n}).length;
+    const d=document.createElement("div");
+    d.className="mcard"; d.style.setProperty("--c",ow.c);
+    d.innerHTML='<div class="n">'+closed+" / "+mine.length+'</div><div class="l">'+esc(ow.name)+
+                '</div><div class="bar"><i style="width:'+(mine.length?Math.round(closed/mine.length*100):0)+'%"></i></div>';
+    m.appendChild(d);
+  });
+}
+
+function tally(){
+  const total=ITEMS.length;
+  const closed=ITEMS.filter((it,i)=>{const q=state[id(i)]||{};return it.done||q.s||q.n}).length;
+  document.getElementById("tally").textContent="סומנו "+closed+" מתוך "+total+" סעיפים · נותרו "+(total-closed);
+}
+
+let filter="all";
+function applyFilter(){
+  document.querySelectorAll("section.owner").forEach(sec=>{
+    let any=false;
+    sec.querySelectorAll(".item").forEach(el=>{
+      const i=+el.dataset.i, it=ITEMS[i];
+      const q=state[id(i)]||{};const marked=it.done||!!q.s||!!q.n;
+      let show=true;
+      if(filter==="openonly") show=!marked;
+      else if(filter!=="all") show=(it.o===filter);
+      el.hidden=!show; if(show) any=true;
+    });
+    sec.querySelectorAll("h3.topic").forEach(h=>{
+      let n=h.nextElementSibling, vis=false;
+      while(n&&n.classList.contains("item")){ if(!n.hidden) vis=true; n=n.nextElementSibling }
+      h.hidden=!vis;
+    });
+    sec.hidden=!any;
+  });
+}
+document.getElementById("filters").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  filter=b.dataset.f;
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b)));
+  applyFilter();
+});
+
+function buildText(){
+  const L=["משוב על לוח הסגירות — אייל עמית","נכתב בתאריך "+new Date().toLocaleDateString("he-IL"),""];
+  OWNERS.forEach(ow=>{
+    const rows=ITEMS.map((it,i)=>({it,i})).filter(x=>{const q=state[id(x.i)]||{};return q.s||q.n});
+    const mine=rows.filter(x=>x.it.o===ow.k);
+    if(!mine.length) return;
+    L.push("## "+ow.name);
+    mine.forEach(({it,i})=>{
+      const st=state[id(i)];
+      L.push("· "+it.h+" — "+(st.s?(STATUSES.find(x=>x[0]===st.s)||["",""])[1]:"הערה"));
+      if(st.n) L.push("   "+st.n);
+    });
+    L.push("");
+  });
+  const un=ITEMS.filter((it,i)=>{const q=state[id(i)]||{};return !it.done&&!q.s&&!q.n});
+  if(un.length){L.push("## עוד לא סומנו — "+un.length+" סעיפים");un.forEach(it=>L.push("· "+it.h));}
+  return L.join("\n");
+}
+document.getElementById("btn-copy").addEventListener("click",()=>{
+  const t=buildText();
+  document.getElementById("out-text").value=t;
+  document.getElementById("out").style.display="flex";
+  copy(t);
+});
+document.getElementById("btn-copy2").addEventListener("click",()=>copy(document.getElementById("out-text").value));
+document.getElementById("btn-close").addEventListener("click",()=>{document.getElementById("out").style.display="none"});
+function copy(t){
+  const m=document.getElementById("out-msg");
+  const ta=document.getElementById("out-text"); ta.select();
+  navigator.clipboard?.writeText(t).then(
+    ()=>{m.textContent="הועתק ללוח";m.className="grow done-msg"},
+    ()=>{try{document.execCommand("copy");m.textContent="הועתק ללוח";m.className="grow done-msg"}
+         catch(e){m.textContent="בחר את הטקסט והעתק ידנית";m.className="grow"}}
+  );
+  setTimeout(()=>{m.textContent=""},5000);
+}
+document.getElementById("btn-clear").addEventListener("click",()=>{
+  if(!confirm("לאפס את כל הסימונים וההערות?")) return;
+  state={}; try{localStorage.removeItem(KEY)}catch(e){}
+  if(db){try{db.doc("board/answers").set({updated:new Date().toISOString(),answers:{}})}catch(e){}}
+  render();
+});
+
+ITEMS.forEach((it,i)=>{ if(it.st && !state[id(i)]) state[id(i)]={s:it.st,n:""} });
+try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+document.getElementById("hdr-count").textContent=ITEMS.length+" סעיפים";
+render();
+
+(async()=>{
+  try{
+    const d=await window.claude?.use?.("db"); if(!d) return;
+    db=d;
+    const doc=await d.doc("board/answers").get();
+    const saved=doc&&doc.answers;
+    if(saved&&Object.keys(saved).length&&!Object.keys(state).length){
+      state=saved; try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+      render();
+    }
+  }catch(e){}
+})();
+</script>
