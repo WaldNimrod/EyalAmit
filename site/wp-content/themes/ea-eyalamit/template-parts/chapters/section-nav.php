@@ -24,8 +24,9 @@ defined( 'ABSPATH' ) || exit;
 $ea_nav_items = ea_canonical_nav_items();
 ?>
 <nav class="nav" id="nav" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
-	<a class="nav__b" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'אייל עמית — דף הבית', 'ea-eyalamit' ); ?>">
+	<a class="nav__b" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'המרכז לטיפול בדיג׳רידו — דף הבית', 'ea-eyalamit' ); ?>">
 		<span class="nav__lg" aria-hidden="true"></span>
+		<span class="nav__wm"><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></span>
 	</a>
 
 	<?php /* WS-2.2 (A11Y-FIX-2026-09-18): burger moved before .nav__l so DOM/tab order

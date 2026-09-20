@@ -18,7 +18,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 ?>
 <dialog class="ea-nd" id="ea-nav-drawer" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
 	<div class="ea-nd__head">
-		<a class="ea-nd__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'אייל עמית', 'ea-eyalamit' ); ?></a>
+		<a class="ea-nd__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></a>
 		<button class="ea-nd__close" type="button" aria-label="<?php esc_attr_e( 'סגירת תפריט', 'ea-eyalamit' ); ?>">&times;</button>
 	</div>
 

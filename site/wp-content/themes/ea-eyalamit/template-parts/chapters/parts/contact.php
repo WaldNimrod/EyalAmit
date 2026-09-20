@@ -84,7 +84,6 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 
 			<div class="ea-cta-ab" data-ea-ab data-ab-experiment="contact_whatsapp_cta" data-ea-page="contact">
 				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="A" aria-label="<?php esc_attr_e( 'דברו איתי בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>"><?php esc_html_e( 'דברו איתי בוואטסאפ', 'ea-eyalamit' ); ?></a>
-				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="B" aria-label="<?php esc_attr_e( 'לתיאום שיחת היכרות בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>" hidden><?php esc_html_e( 'לתיאום שיחת היכרות בוואטסאפ', 'ea-eyalamit' ); ?></a>
 			</div>
 
 			<ul class="ea-contact-points">

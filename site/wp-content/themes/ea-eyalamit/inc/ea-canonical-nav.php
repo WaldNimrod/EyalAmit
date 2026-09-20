@@ -74,7 +74,7 @@ function ea_canonical_nav_items() {
 				/* section-nav.php's own first sub-row here is NOT "כלים ואביזרים —
 				   עמוד ראשי" — it is this distinct, more specific label. Byte-exact. */
 				array( 'key' => 'shop', 'label' => 'כלים בעבודת יד ואביזרים', 'href' => $h( '/shop/' ) ),
-				array( 'key' => 'repair', 'label' => 'תיקון וחידוש כלים', 'href' => $h( '/repair/' ) ),
+				array( 'key' => 'repair', 'label' => 'תיקון וחידוש כלי דיג׳רידו', 'href' => $h( '/repair/' ) ),
 				array( 'key' => 'didgeridoos', 'label' => 'כלי דיג׳רידו למכירה', 'href' => $h( '/didgeridoos/' ) ),
 				array( 'key' => 'bags', 'label' => 'תיקים לדיג׳רידו', 'href' => $h( '/bags/' ) ),
 				array( 'key' => 'stands-storage', 'label' => 'סטנדים לאחסון דיג׳רידו', 'href' => $h( '/stands-storage/' ) ),

@@ -5,7 +5,8 @@
  * Rewritten 2026-09-20 after S007-GROK research + independent attack review
  * (builder ≠ attacker). Text matches live staging facts measured that day:
  * CF7 contact fields, GA4 G-MRXESK7QJF, no checkout, no account, no cookie
- * banner statute. Banner (WP-EI-05 / D-E) stays until Eyal approves.
+ * banner statute. Wave A 2026-09-20 adds a first-visit informational notice
+ * (not GDPR consent). Banner (WP-EI-05 / D-E) stays until Eyal approves.
  *
  * NOT legal advice. No GDPR “right to be forgotten”. No invented cookie law.
  *
@@ -60,7 +61,7 @@ return array(
 			'args' => array(
 				'chap'  => 'קוקיז ומדידה',
 				'title' => 'עוגיות וכלי מדידה',
-				'body'  => '<p>באתר פועל <strong>Google Analytics 4</strong> (מזהה מדידה <code>G-MRXESK7QJF</code>), שירות של Google. הכלי אוסף נתוני שימוש סטטיסטיים ועשוי להשתמש בעוגיות או במזהים. בחלק מהעמודים נטענים גם גופנים מ־Google. Google פועל מחוץ לישראל.</p><p>ניתן לחסום או למחוק עוגיות בהגדרות הדפדפן. אין באנר הסכמה נפרד באתר כרגע; חובת היידוע מתקיימת במדיניות זו.</p>',
+				'body'  => '<p>באתר פועל <strong>Google Analytics 4</strong> (מזהה מדידה <code>G-MRXESK7QJF</code>), שירות של Google. הכלי אוסף נתוני שימוש סטטיסטיים ועשוי להשתמש בעוגיות או במזהים. בחלק מהעמודים נטענים גם גופנים מ־Google. Google פועל מחוץ לישראל.</p><p>ניתן לחסום או למחוק עוגיות בהגדרות הדפדפן. בכניסה הראשונה מוצג יידוע על השימוש בעוגיות ובמדידה; אין באנר הסכמה בסגנון GDPR ואין חסימת מדידה. פירוט מלא במדיניות זו.</p>',
 			),
 		),
 		array(

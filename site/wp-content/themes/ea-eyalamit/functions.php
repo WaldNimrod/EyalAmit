@@ -856,6 +856,11 @@ require_once get_stylesheet_directory() . '/inc/ea-canonical-nav.php';
  */
 require_once get_stylesheet_directory() . '/inc/ea-nav-drawer.php';
 
+/**
+ * Wave A 2026-09-20 — first-visit cookie/measurement notice (informational).
+ */
+require_once get_stylesheet_directory() . '/inc/ea-cookie-notice.php';
+
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once get_stylesheet_directory() . '/inc/cli/class-ea-faq-migrate-command.php';
 }

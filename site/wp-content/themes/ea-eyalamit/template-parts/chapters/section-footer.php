@@ -21,11 +21,13 @@ $h = static function ( $path ) {
 			<a href="<?php echo $h( '/lessons/' ); ?>">שיעורי דיג׳רידו</a>
 			<a href="<?php echo $h( '/sound-healing/' ); ?>">סאונד הילינג</a>
 			<a href="<?php echo $h( '/method/' ); ?>">השיטה cbDIDG</a>
+			<a href="<?php echo $h( '/shop/' ); ?>">כלים ואביזרים</a>
+			<a href="<?php echo $h( '/learning/' ); ?>">לימוד והכשרה</a>
 		</div>
 		<div>
 			<p class="foot__col-title">עוד</p>
-			<a href="<?php echo $h( '/blog/' ); ?>">בלוג</a>
-			<a href="<?php echo $h( '/books/' ); ?>">ספרים · מוזה</a>
+			<a href="<?php echo $h( '/blog/' ); ?>">בלוג דיג׳רידו</a>
+			<a href="<?php echo $h( '/books/' ); ?>">ספרים – מוזה הוצאה לאור</a>
 			<a href="<?php echo $h( '/eyal-amit/' ); ?>">אודות אייל</a>
 			<a href="<?php echo $h( '/contact/' ); ?>">צור קשר</a>
 		</div>

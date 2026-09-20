@@ -138,8 +138,13 @@ a{color:inherit}
    1.36:1). .nav__b:focus is 0,2,0, wins honestly. See _COMMUNICATION/team_10/
    A11Y-FIX-2026-09-18/. */
 .nav__b:focus,.nav__b:focus-visible{color:#fff}
-.nav__lg{width:40px;height:40px;background:url('../images/ea-logo-mark.png') center/contain no-repeat;filter:invert(1) sepia(.5) brightness(1.4)}
-/* .nav__b b removed 2026-09-18: team_00 dropped the wordmark, mark only. */
+.nav__lg{width:40px;height:40px;flex-shrink:0;background:url('../images/ea-logo-mark.png') center/contain no-repeat;filter:invert(1) sepia(.5) brightness(1.4)}
+/* Wave A 2026-09-20: Eyal — wordmark next to the mark is the centre name, not
+   a second «אייל עמית». Dropdown «אייל עמית» stays. Sizing from the locked
+   scale (--fs-2xs); no new px font-size. Hidden on mid desktop so the already-
+   full L1 row does not wrap. */ 
+.nav__wm{font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-2xs);line-height:1.25;max-width:11.5em;color:inherit;display:block}
+@media(min-width:1081px) and (max-width:1499px){.nav__wm{display:none}}
 .nav__l{display:flex;gap:24px;list-style:none;margin:0;padding:0}
 .nav__l a{color:rgba(255,255,255,.95);text-decoration:none;font-size:var(--fs-nav);font-weight:var(--fw-nav);position:relative;padding:4px 0;transition:color .2s}
 .nav__l a::after{content:"";position:absolute;bottom:0;right:0;left:0;height:1px;background:var(--terra-lt);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--e)}
@@ -461,10 +466,13 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 /* ================= UPGRADES (rebuild round) ================= */
 
 /* hero with media (Treatment) */
-.phero--media{padding:0;min-height:88vh;display:flex;align-items:flex-end}
+.phero--media{padding:0;min-height:88vh;display:flex;align-items:flex-end;overflow:visible}
 .phero--media .phero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .phero--media .phero__sc{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,14,9,.5),rgba(20,14,9,.2) 35%,rgba(20,14,9,.6) 72%,rgba(20,14,9,.95))}
-.phero--media .phero__in{padding-top:0;padding-bottom:clamp(56px,9vh,110px);width:100%}
+/* Wave A 2026-09-20: /lessons/ H1 sat at y=0 under the 72px fixed nav on 390px
+   (padding-top:0 + flex-end + overflow:hidden). Clear the bar; let a tall lede
+   grow the header instead of clipping into it. */
+.phero--media .phero__in{padding-block-start:calc(72px + 16px);padding-block-end:clamp(56px,9vh,110px);width:100%;box-sizing:border-box}
 .phero__trust{margin-top:18px;font-size:var(--fs-2xs);font-weight:var(--fw-light);letter-spacing:.3px;color:rgba(255,255,255,.66)}
 .phero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .phero__media-cue{position:absolute;z-index:2;bottom:24px;left:50%;transform:translateX(-50%);width:1px;height:48px;background:linear-gradient(rgba(208,138,94,0),var(--terra-lt))}
