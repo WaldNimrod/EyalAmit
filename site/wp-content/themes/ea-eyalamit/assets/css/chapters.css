@@ -800,7 +800,11 @@ a{color:inherit}
    .nav__dd/.nav__sub contents are never shown or reachable below 1181px at
    all, which is a stronger guarantee than the old visibility-delay trick.
    ============================================================ */
-.nav__burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:0}
+/* S007 M-12: was 42x42 — 2px under the 44x44 floor this mandate's own live
+   verification measured against, on the exact button that opens the shared
+   drawer. Pre-existing, not introduced by M-12; fixed here because this
+   mandate's own checklist named the number. */
+.nav__burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:0}
 .nav__burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s var(--e),opacity .25s}
 .nav__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
