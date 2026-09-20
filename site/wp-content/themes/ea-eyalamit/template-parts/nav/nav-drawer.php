@@ -5,7 +5,6 @@
  * @param array $args {
  *     @type array  $items      Nav tree: array of array('key','label','href'|null,'children'=>array(array('label','href','external'=>bool))).
  *     @type array  $foot_links Secondary footer links: array(array('href','label')).
- *     @type bool   $show_sound Whether to render the sound pill (only where a page actually wires one).
  * }
  *
  * @package ea_eyalamit
@@ -15,7 +14,6 @@ defined( 'ABSPATH' ) || exit;
 
 $items      = isset( $args['items'] ) ? $args['items'] : array();
 $foot_links = isset( $args['foot_links'] ) ? $args['foot_links'] : array();
-$show_sound = ! empty( $args['show_sound'] );
 $current    = isset( $args['active'] ) ? $args['active'] : '';
 ?>
 <dialog class="ea-nd" id="ea-nav-drawer" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
@@ -89,11 +87,6 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 
 	<div class="ea-nd__foot">
 		<div class="ea-nd__foot-utils">
-			<?php if ( $show_sound ) : ?>
-			<button class="ea-nd__pill ea-nd__sound" type="button" aria-pressed="false" aria-label="<?php esc_attr_e( 'הפעלת קול בסרטון', 'ea-eyalamit' ); ?>">
-				<span aria-hidden="true">♪</span><span><?php esc_html_e( 'שמע', 'ea-eyalamit' ); ?></span>
-			</button>
-			<?php endif; ?>
 			<a class="ea-nd__pill" href="<?php echo esc_url( home_url( '/en/' ) ); ?>" lang="en" aria-label="English — switch to English">EN</a>
 		</div>
 		<div class="ea-nd__foot-links">

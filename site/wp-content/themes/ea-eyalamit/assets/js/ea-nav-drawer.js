@@ -65,17 +65,6 @@
     if (a && dialog.contains(a)) close();
   });
 
-  /* sound pill: visual toggle only — see nav__tg on Chapters pages for the
-     one place this is actually wired to a video's audio track */
-  Array.prototype.forEach.call(dialog.querySelectorAll(".ea-nd__sound"), function (b) {
-    b.addEventListener("click", function () {
-      var on = b.getAttribute("aria-pressed") === "true";
-      b.setAttribute("aria-pressed", String(!on));
-      var lbl = b.querySelector("span:last-child");
-      if (lbl) lbl.textContent = !on ? "משמיע" : "שמע";
-    });
-  });
-
   var mq = window.matchMedia("(min-width:1024px)");
   (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(function () {
     if (mq.matches) close();

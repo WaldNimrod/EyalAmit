@@ -104,7 +104,6 @@ function ea_nav_drawer_render() {
 		array(
 			'items'      => ea_nav_drawer_items(),
 			'foot_links' => ea_nav_drawer_foot_links(),
-			'show_sound' => ! is_page( ea_nav_drawer_no_burger_pages() ),
 		)
 	);
 }

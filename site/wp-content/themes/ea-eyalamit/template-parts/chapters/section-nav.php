@@ -65,9 +65,6 @@ $ea_nav_items = ea_canonical_nav_items();
 	</ul>
 
 	<div class="nav__r">
-		<button class="nav__tg" id="soundtg" type="button" aria-pressed="false" aria-label="<?php esc_attr_e( 'הפעלת קול בסרטון', 'ea-eyalamit' ); ?>">
-			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 h4 l5-4 v14 l-5-4 H4 z"/><path d="M17 9 a4 4 0 0 1 0 6"/></svg>שמע
-		</button>
 		<a class="nav__en" href="<?php echo esc_url( home_url( '/en/' ) ); ?>" hreflang="en" lang="en">EN</a>
 	</div>
 </nav>

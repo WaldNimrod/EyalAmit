@@ -21,6 +21,11 @@ $cta_u  = ea_chapters_field( 'hero_cta_url' );
 		<video class="hero__media" muted loop playsinline preload="none"<?php echo $poster ? ' poster="' . esc_url( $poster ) . '"' : ''; ?>>
 			<source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
 		</video>
+		<?php /* S007-GROK 2026-09-20: sound toggle lives on the video, never in the nav.
+		   Rendered only when a real <video> exists. Accessible name + aria-pressed kept. */ ?>
+		<button class="hero__sound" id="soundtg" type="button" aria-pressed="false" aria-label="<?php esc_attr_e( 'הפעלת קול בסרטון', 'ea-eyalamit' ); ?>">
+			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 h4 l5-4 v14 l-5-4 H4 z"/><path d="M17 9 a4 4 0 0 1 0 6"/></svg><?php esc_html_e( 'שמע', 'ea-eyalamit' ); ?>
+		</button>
 	<?php elseif ( $poster ) : ?>
 		<img class="hero__media" src="<?php echo esc_url( $poster ); ?>" alt="" />
 	<?php endif; ?>

@@ -149,7 +149,7 @@
     });
   }
 
-  /* ---- sound toggle: mute/unmute the hero video ---- */
+  /* ---- sound toggle: mute/unmute the hero video (button is markup-only when a <video> exists) ---- */
   var sndBtn = document.getElementById('soundtg');
   var heroVid = document.querySelector('.hero__media');
   if (sndBtn && heroVid && heroVid.tagName === 'VIDEO') {
@@ -163,9 +163,6 @@
         if (p && p.catch) p.catch(function () {});
       }
     });
-  } else if (sndBtn && !heroVid) {
-    /* no hero video on this page: keep the button inert but non-misleading */
-    sndBtn.setAttribute('hidden', '');
   }
 
   /* ---- dedicated video block: click to play ---- */

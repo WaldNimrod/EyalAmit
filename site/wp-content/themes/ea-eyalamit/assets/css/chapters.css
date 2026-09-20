@@ -145,9 +145,6 @@ a{color:inherit}
 .nav__l a::after{content:"";position:absolute;bottom:0;right:0;left:0;height:1px;background:var(--terra-lt);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--e)}
 .nav__l a:hover{color:#fff}.nav__l a:hover::after{transform:scaleX(1)}
 .nav__r{display:flex;align-items:center;gap:12px}
-.nav__tg{display:flex;align-items:center;gap:7px;font-size:var(--fs-2xs);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:7px 14px;background:transparent;cursor:pointer;font-family:var(--bf);transition:border-color .2s,background .2s}
-.nav__tg:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.12)}
-.nav__tg svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6}
 .nav__en{font-size:var(--fs-2xs);letter-spacing:1px;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:7px 13px;text-decoration:none}
 .nav__en:hover{border-color:#fff;color:#fff}
 /* WS-2.1 (2026-09-18): same cascade collision as .nav__b above — .nav__en is
@@ -182,6 +179,13 @@ a{color:inherit}
 .hero__cues span{width:11px;height:11px;border-inline-end:1.5px solid rgba(255,255,255,.6);border-bottom:1.5px solid rgba(255,255,255,.6);transform:rotate(45deg);animation:bob 2.4s var(--e) infinite}
 @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(-3px,3px)}}
 @media(prefers-reduced-motion:reduce){.hero__cues span{animation:none}}
+/* S007-GROK 2026-09-20: sound control sits ON the hero video, never in the nav.
+   Corner (inline-start / block-end) so it misses centred H1/CTA and the cue chevrons.
+   Hit area ≥44px. Type size is the existing --fs-2xs token, not a new rung. */
+.hero__sound{position:absolute;z-index:4;inset-block-end:24px;inset-inline-start:24px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:10px 14px;font-family:var(--bf);font-size:var(--fs-2xs);color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.4);border-radius:100px;background:rgba(20,14,9,.55);cursor:pointer;transition:border-color .2s,background .2s}
+.hero__sound:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.35)}
+.hero__sound[aria-pressed="true"]{border-color:var(--terra-lt);background:rgba(181,102,61,.45);color:#fff}
+.hero__sound svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6;flex-shrink:0}
 
 /* ---- section base ---- */
 .sec{padding:var(--sec) 0;position:relative;overflow:hidden}
@@ -464,12 +468,6 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .phero__trust{margin-top:18px;font-size:var(--fs-2xs);font-weight:var(--fw-light);letter-spacing:.3px;color:rgba(255,255,255,.66)}
 .phero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .phero__media-cue{position:absolute;z-index:2;bottom:24px;left:50%;transform:translateX(-50%);width:1px;height:48px;background:linear-gradient(rgba(208,138,94,0),var(--terra-lt))}
-
-/* sound toggle in nav */
-.nav__tg{display:inline-flex;align-items:center;gap:7px;font-size:var(--fs-2xs);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:7px 14px;background:transparent;cursor:pointer;font-family:var(--bf);transition:border-color .2s,background .2s}
-.nav__tg:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.12)}
-.nav__tg[aria-pressed="true"]{border-color:var(--terra-lt);background:rgba(181,102,61,.18);color:#fff}
-.nav__tg svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 /* showcase steps — Method centerpiece: flowing connected timeline */
 .show{position:relative;margin-top:64px}
