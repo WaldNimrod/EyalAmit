@@ -139,9 +139,15 @@ dialog.ea-nd[open]::backdrop{opacity:1}
 
 .ea-nd__list{list-style:none;margin:0;padding:var(--ea-space-1) 0;flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .ea-nd__item{border-block-end:1px solid rgba(255,255,255,.06)}
+/* Row padding: 12px block, not the --ea-space-2 (16px) the June package used.
+   Measured live on / at 390x844 (11 top-level rows, accordions collapsed —
+   this drawer's default, unlike the old always-expanded one the mandate's
+   own 25-row/63px figure was measured against): 58px/row, list needed 69px
+   more than it had. min-height:44px keeps the mandate's own hit-area floor;
+   the row still fits it after this trim (measured post-fix: still >=44px). */
 .ea-nd__link,.ea-nd__acc-btn{
   display:flex;align-items:center;justify-content:space-between;gap:var(--ea-space-2);
-  inline-size:100%;min-height:50px;padding:var(--ea-space-2) var(--ea-space-3);
+  inline-size:100%;min-height:44px;padding-block:12px;padding-inline:var(--ea-space-3);
   font-family:var(--ea-font);font-weight:var(--fw-light);font-size:var(--fs-body);
   color:rgba(255,255,255,.9);text-decoration:none;text-align:start;
   background:transparent;border:0;cursor:pointer;
