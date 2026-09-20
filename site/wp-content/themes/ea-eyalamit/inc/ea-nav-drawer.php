@@ -43,6 +43,23 @@ function ea_nav_drawer_no_burger_pages() {
 }
 
 /**
+ * Marks the six GeneratePress orphan pages so ea-nav-drawer.css can hide
+ * their real .menu-toggle — found live, not assumed: a first version placed
+ * the standalone burger next to GP's toggle instead of replacing it, which
+ * leaves two triggers opening two different menus on the same page. «מגירה
+ * אחת לכל האתר» means one way in, not a second button beside the old one.
+ * No page-slug-* body class exists to hook without this (confirmed against
+ * live markup — GeneratePress only emits page-id-N here), so this adds one.
+ */
+function ea_nav_drawer_orphan_body_class( $classes ) {
+	if ( is_page( ea_nav_drawer_orphan_slugs() ) ) {
+		$classes[] = 'ea-nd-orphan';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'ea_nav_drawer_orphan_body_class' );
+
+/**
  * The shared nav tree. A third, independently-maintained copy of the site
  * tree — Chapters (section-nav.php) and Wave2 (block-topnav.php) already
  * each keep their own; unifying those is a separate, content-level decision

@@ -56,19 +56,28 @@ html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
   .ea-nd-burger__bars span:nth-child(3){top:12px}
 
   /* Fixed trigger for pages with no burger of their own today (the six
-     GeneratePress orphans, /en/). Bottom-inline-end on purpose, not a top
-     corner: GeneratePress's own real .menu-toggle already occupies the
-     top-inline-end area of its masthead on all six pages, and a first
-     version placed this burger directly on top of it — same screen
-     coordinates, GP's element winning every real hit-test, so clicks never
-     reached this button at all. Caught via elementFromPoint at the burger's
-     own center, not assumed working because showModal() itself worked fine
-     when called directly. Bottom-inline-end also keeps clear of the
-     WhatsApp float, which owns bottom-inline-start (style.css). */
+     GeneratePress orphans, /en/). Top-inline-end — the spot a visitor
+     already looks, and on the six orphans, GP's own real .menu-toggle's own
+     spot: ea-nd-orphan (added by inc/ea-nav-drawer.php) hides that toggle
+     via display:none right below, so this replaces it rather than sitting
+     beside it. A first version placed this burger at that same position
+     WITHOUT hiding GP's toggle: same coordinates, GP's element won every
+     real hit-test, so clicks never reached this button. A second version
+     moved the burger instead of hiding GP's — that stopped the collision
+     but left two triggers opening two different menus on the same six
+     pages, the opposite of "one drawer, one way in." This is the third:
+     GP's toggle hidden, this burger takes its place. */
   .ea-nd-burger--standalone{
-    position:fixed;inset-block-end:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
+    position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
     background:rgba(14,9,5,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   }
+
+  /* display:none, never opacity — GP's toggle must leave the tab order, not
+     just leave the screen (same rule this mandate applies to its own
+     drawer). Scoped to ea-nd-orphan so it cannot reach a page that still
+     needs GP's toggle (there is currently no such page in this theme, but
+     the class only exists on the six orphans regardless of that). */
+  body.ea-nd-orphan .menu-toggle{display:none}
 }
 
 @media (min-width:1024px){
