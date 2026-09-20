@@ -2123,3 +2123,28 @@
       padding: 0;
       margin: 0;
     }
+
+    /* WAF-V01 (2026-09-20): GP /about/ /press/ — wordmark beside site branding.
+       Same string and scale as Chapters .nav__wm; hidden mid-desktop like Chapters. */
+    body.ea-gp-wordmark .site-branding {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    body.ea-gp-wordmark .site-branding .main-title {
+      margin: 0;
+    }
+    body.ea-gp-wordmark .site-branding .nav__wm {
+      font-family: var(--ea-font);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-2xs);
+      line-height: 1.25;
+      max-width: 11.5em;
+      color: inherit;
+      display: block;
+    }
+    @media (min-width: 1081px) and (max-width: 1499px) {
+      body.ea-gp-wordmark .site-branding .nav__wm {
+        display: none;
+      }
+    }

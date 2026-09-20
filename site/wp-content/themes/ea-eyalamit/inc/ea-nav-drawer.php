@@ -144,3 +144,31 @@ function ea_nav_drawer_enqueue_assets() {
 	wp_enqueue_script( 'ea-nav-drawer', get_stylesheet_directory_uri() . '/assets/js/ea-nav-drawer.js', array(), $ver, true );
 }
 add_action( 'wp_enqueue_scripts', 'ea_nav_drawer_enqueue_assets', 3 );
+
+/**
+ * WAF-V01 (2026-09-20): GP /about/ and /press/ carry site-branding but no Chapters
+ * .nav__wm. Append the same centre-name string beside the GP title — no second nav.
+ *
+ * @param string[] $classes Body classes.
+ * @return string[]
+ */
+function ea_gp_wordmark_body_class( $classes ) {
+	if ( is_page( array( 'about', 'press' ) ) ) {
+		$classes[] = 'ea-gp-wordmark';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'ea_gp_wordmark_body_class', 100 );
+
+/**
+ * Render the Chapters wordmark beside GeneratePress site branding (WAF-V01).
+ */
+function ea_gp_render_header_wordmark() {
+	if ( ! is_page( array( 'about', 'press' ) ) ) {
+		return;
+	}
+	echo '<span class="nav__wm">';
+	esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' );
+	echo '</span>';
+}
+add_action( 'generate_after_logo', 'ea_gp_render_header_wordmark' );

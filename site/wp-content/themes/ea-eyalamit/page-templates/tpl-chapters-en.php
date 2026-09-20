@@ -146,8 +146,6 @@ $wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found 
 	<section class="sec" style="direction:ltr;text-align:left">
 		<div class="wrap center">
 			<h2 class="h2 r">Get in touch</h2>
-			<p class="lead r" style="margin-top:14px">Reach out on WhatsApp to ask a question or arrange a short introductory call.</p>
-			<p style="margin-top:28px"><a class="btn btn--terra" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener noreferrer">Talk on WhatsApp</a></p>
 			<p style="margin-top:14px">Or call/WhatsApp <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a> directly.</p>
 		</div>
 	</section>

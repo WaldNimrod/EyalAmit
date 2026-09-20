@@ -466,7 +466,7 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 /* ================= UPGRADES (rebuild round) ================= */
 
 /* hero with media (Treatment) */
-.phero--media{padding:0;min-height:88vh;display:flex;align-items:flex-end;overflow:visible}
+.phero--media{padding:0;min-height:88vh;display:flex;align-items:flex-end;overflow-x:clip;overflow-y:visible}
 .phero--media .phero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .phero--media .phero__sc{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,14,9,.5),rgba(20,14,9,.2) 35%,rgba(20,14,9,.6) 72%,rgba(20,14,9,.95))}
 /* Wave A 2026-09-20: /lessons/ H1 sat at y=0 under the 72px fixed nav on 390px
