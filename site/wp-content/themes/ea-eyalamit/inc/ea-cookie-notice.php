@@ -54,4 +54,4 @@ function ea_cookie_notice_render() {
 </dialog>
 	<?php
 }
-add_action( 'wp_footer', 'ea_cookie_notice_render', 20 );
+add_action( 'wp_footer', 'ea_cookie_notice_render', 5 );
