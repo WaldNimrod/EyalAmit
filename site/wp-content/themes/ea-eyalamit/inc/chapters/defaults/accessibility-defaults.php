@@ -68,8 +68,8 @@ defined( 'ABSPATH' ) || exit;
  * mu-plugins/ea-a11y-statement-modified-once.php again with a bumped flag so WordPress's
  * own `modified` field follows. The two must never disagree.
  */
-$ea_a11y_updated_iso = '2026-09-18';
-$ea_a11y_updated_he  = '18 בספטמבר 2026';
+$ea_a11y_updated_iso = '2026-09-21';
+$ea_a11y_updated_he  = '21 בספטמבר 2026';
 
 return array(
 	'phero' => array(
@@ -81,14 +81,6 @@ return array(
 		'cta_url'   => '',
 	),
 	'sections' => array(
-		/* D-E · team_00 2026-09-18 — the banner stays until Eyal approves the final wording. */
-		array(
-			'part' => 'pending-note',
-			'args' => array(
-				'title' => 'נוסח משפטי — טיוטת צוות, טרם אושרה סופית',
-				'note'  => 'הנוסח שלהלן נכתב על ידי הצוות כטיוטה עניינית ושמישה. הוא ממתין לבדיקה ולאישור סופיים של אייל / ייעוץ משפטי לפני שייחשב מחייב (WP-EI-05).',
-			),
-		),
 		array(
 			'part' => 'prose',
 			'args' => array(

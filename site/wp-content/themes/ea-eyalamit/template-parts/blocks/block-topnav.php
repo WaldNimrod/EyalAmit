@@ -83,15 +83,8 @@ $ea_topnav_items = array(
 				'label' => 'הכשרות למטפלים',
 			),
 			'courses-external'   => array(
-				/*
-				 * External courses URL (Scholar/חיצוני) — PENDING canonical URL
-				 * from team_00/Eyal. Placeholder '#' kept until supplied so the
-				 * item is visible without emitting a silent 404 to a WP route.
-				 * external courses URL — pending team_00/Eyal
-				 */
-				'href'     => '#',
-				'label'    => 'קורסים',
-				'external' => true,
+				'href'  => home_url( '/learning/courses-external/' ),
+				'label' => 'קורסים',
 			),
 			'lectures'           => array(
 				'href'  => home_url( '/lectures' ),

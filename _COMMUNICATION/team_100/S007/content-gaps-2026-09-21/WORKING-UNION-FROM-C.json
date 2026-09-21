@@ -1,0 +1,7 @@
+{
+  "relocatedTo": "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json",
+  "isWorkSsot": false,
+  "schema": "s007-work-ssot-stub-v1",
+  "note": "This file is a pointer, not live status. Edit S007-WORK-SSOT.json only. Former workingSchema was content-gaps-work-v1; Eyal C sha12 19d11db562f7 remains provenance on the SSOT.",
+  "formerRole": "WORKING-UNION-FROM-C"
+}

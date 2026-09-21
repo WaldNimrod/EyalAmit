@@ -1,10 +1,9 @@
 <?php
 /**
  * Plugin Name: EA S006 R2 W1 — Legacy 301 (five locked paths)
- * Description: 301 קבוע מחמש כתובות ישנות (סבב 2 גל 1) ליעדים נעולים ב-MAP-S006-R2-W1-301.
- *   לא נגע ב-ea-w209-legacy-301-redirects.php (GENERATED) ולא ב-ea-m2-site-tree-lock-sync-once.php.
- *   `/services/handmade-instruments/` רץ כאן בעדיפות 0 (קפיצה אחת אל /didgeridoos/)
- *   ומקדים את טבלת M2 (@1) שקודם הפנתה אל /tools-and-accessories/instruments/.
+ * Description: 301 overlay — S006 R2 W1 five paths, plus S007 about: /about/ and
+ *   /אייל-עמית-אודות/ → /eyal-amit/ (Nimrod 2026-09-21). Does not edit generated
+ *   ea-w209-legacy-301-redirects.php. /about/moksha/ unchanged.
  * Version: 1.0.0
  */
 
@@ -33,6 +32,8 @@ function ea_s006_r2_w1_legacy_301() {
 
 	/* S006 · מקור: INTAKE-NIMROD-R2-MAP-2026-08-24.md · נימרוד 24.8.2026 */
 	$map = array(
+		'/about/'                             => '/eyal-amit/',
+		'/אייל-עמית-אודות/'                   => '/eyal-amit/',
 		'/about/moksha/'                      => '/eyal-amit/mokesh-dahiman/',
 		'/tools-and-accessories/'             => '/shop/',
 		'/tools-and-accessories/instruments/' => '/didgeridoos/',

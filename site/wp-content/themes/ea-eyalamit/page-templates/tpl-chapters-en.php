@@ -2,17 +2,14 @@
 /**
  * Template Name: פרקים — EN landing (Chapters, LTR)
  *
- * English landing in the Chapters look — LTR, a self-contained minimal English
- * header/footer (NOT the Hebrew section-nav), reusing only proven Chapters atoms
- * (.phero / .sec / .wrap / .btn). PLACEHOLDER English copy — the final terse
- * English summary is pending Eyal (D-EYAL-EN-BODY-02, logged in the HUB).
- * Self-contained doc → keeps wp_head/wp_footer (SEO, hreflang, analytics).
+ * English landing in the Chapters look — LTR, a self-contained English
+ * header/footer (NOT the Hebrew section-nav), reusing Chapters atoms.
+ * Body copy: Eyal C3 (2026-09-21). Draft banner WP-EI-06 removed.
  *
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
-$wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found you through the English page' ) : 'https://wa.me/972524822842';
 ?><!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -90,65 +87,19 @@ $wa = function_exists( 'ea_wave2_wa_url' ) ? ea_wave2_wa_url( 'Hi Eyal, I found 
 </header>
 
 <main id="main" class="chapters-main" tabindex="-1" dir="ltr" style="direction:ltr;text-align:left">
-	<div class="wrap"><p class="ea-pending-inline ea-pending-inline--wide" role="status">
-		<span>Draft — English summary is a team draft awaiting Eyal's approval before launch (WP-EI-06) · טיוטה צוותית באנגלית הממתינה לאישור אייל</span>
-	</p></div>
 	<?php
-	get_template_part( 'template-parts/chapters/parts/phero', null, array(
-		'chap'      => 'Didgeridoo &amp; Breath',
-		'title'     => 'Eyal <em>Amit</em>',
-		'sub'       => 'Didgeridoo-based breath work, sound healing and lessons — Pardes Hanna, Israel.',
-		'media'     => ea_chapters_asset_url( 'assets/images/chapters/eyal-window.jpg' ),
-		'media_alt' => 'Eyal Amit playing the didgeridoo',
-		'cta_label' => 'Talk on WhatsApp',
-		'cta_url'   => $wa,
-	) );
+	$ea_phero = function_exists( 'ea_chapters_phero_overlay' ) ? ea_chapters_phero_overlay() : array();
+	get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
+
+	$ea_sections = function_exists( 'ea_chapters_page_sections' ) ? ea_chapters_page_sections() : array();
+	foreach ( $ea_sections as $ea_s ) {
+		if ( empty( $ea_s['part'] ) ) {
+			continue;
+		}
+		$ea_args = isset( $ea_s['args'] ) && is_array( $ea_s['args'] ) ? $ea_s['args'] : array();
+		get_template_part( 'template-parts/chapters/parts/' . $ea_s['part'], null, $ea_args );
+	}
 	?>
-
-	<section class="sec" style="direction:ltr;text-align:left">
-		<div class="wrap">
-			<span class="chap r">About</span>
-			<h2 class="h2 r">Working with breath through the didgeridoo</h2>
-			<div class="intro-body r" style="text-align:left">
-				<p>Eyal Amit has worked with the didgeridoo and breath since 1999. Over more than two decades of teaching, therapy, instrument-making and study — in Israel and abroad — he developed <strong>cbDIDG</strong>, a structured method that uses the didgeridoo as a practical tool for working with everyday breathing.</p>
-				<p>The method took shape gradually, growing out of Eyal's own study of breath — motivated in part by his own asthma — his apprenticeship with Mukesh Dahiman, and later study of body-breath disciplines such as tai chi, qigong, yoga and mindfulness. It rests on three principles: active work, not a passive experience; playing the didgeridoo is the practice tool, not the goal itself; and a cumulative process, not a one-time session.</p>
-				<p>The core idea is simple: the didgeridoo is not the goal — it is a working tool. Through it, and with personal guidance, one can develop deeper breath awareness, improve breathing patterns and ease symptoms linked to chronic stress. Sessions take place one-on-one at the studio in Pardes Hanna, Israel.</p>
-				<p>The full site is in Hebrew — <a class="tlink" href="/">visit the Hebrew site →</a></p>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec--alt" style="direction:ltr;text-align:left">
-		<div class="wrap">
-			<span class="chap r">The Lineage</span>
-			<h2 class="h2 r">Mukesh Dahiman</h2>
-			<div class="intro-body r" style="text-align:left">
-				<p>Eyal met Mukesh Dahiman — a didgeridoo-maker and teacher from Rishikesh, India — in 2000, and became one of his close students. What he carries forward is a patient, hands-on way of working rooted in listening to the breath.</p>
-				<p>Mukesh passed away in October 2020. His teaching lives on through his students, Eyal among them.</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec--alt" style="direction:ltr;text-align:left">
-		<div class="wrap">
-			<span class="chap r">What I offer</span>
-			<h2 class="h2 r">Ways to work together</h2>
-			<div class="intro-body r" style="text-align:left">
-				<p><strong>Didgeridoo breath therapy</strong> — active, personal work with everyday breathing, sound and body awareness.</p>
-				<p><strong>Private sound healing</strong> — a quiet personal journey in sound and vibration; a time to stop, listen and let the sound work.</p>
-				<p><strong>Didgeridoo lessons</strong> — learn to play from scratch, including circular breathing, at your own pace.</p>
-				<p><strong>Talks &amp; workshops</strong> — group breath-and-sound sessions for teams, events and organizations.</p>
-				<p>To ask a question or arrange an introductory call, reach out on WhatsApp below.</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec" style="direction:ltr;text-align:left">
-		<div class="wrap center">
-			<h2 class="h2 r">Get in touch</h2>
-			<p style="margin-top:14px">Or call/WhatsApp <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a> directly.</p>
-		</div>
-	</section>
 </main>
 
 <footer class="ea-en-foot">

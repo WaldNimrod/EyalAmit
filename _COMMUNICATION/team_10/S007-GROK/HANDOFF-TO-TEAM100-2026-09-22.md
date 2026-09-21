@@ -1,9 +1,13 @@
 # HANDOFF TO TEAM 100 — S007-GROK · דוח חי עד חזרת צוות 100
 
+> **זה תיעוד עבודה בין צוותים, לא מקור אמת.**  
+> מקור האמת היחיד לתור S007: [S007-WORK-SSOT.json](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json) (`schema: s007-work-ssot-v1`).  
+> בסתירה בין הטבלה הזו לבין הקובץ — **הקובץ מנצח**. מותר להוסיף כאן שורות כדי למצוא מידע. אסור לגזור סטטוס חי מהטבלה.
+
 **נמען:** צוות 100 (חוזר לפעולה בערך בערב שלישי 2026-09-22). קוראים את הקובץ הזה ראשון.  
 **מבצע עד אז:** קו הבנייה מול נימרוד (team_00) במשימות ישירות — בערך 48 שעות.  
 **Staging:** http://eyalamit-co-il-2026.s887.upress.link (HTTP; TLS לא תקין בכוונה).  
-**תמה חיה אחרונה:** 1.5.97 · **HEAD שנמסר כאן:** `c966b0f`
+**תמה חיה אחרונה:** 1.5.101 · **HEAD שנמסר כאן:** `20361b1` (working tree מלוכלך — לא commit)
 
 **כלל עדכון (team_00, 2026-09-20):** עם סיום כל סעיף — שורה בטבלה למטה. מה נדרש, מה בוצע, סטטוס, קומיט, איך נבדק, הערות. פער גלוי עדיף על שתיקה.
 
@@ -29,14 +33,26 @@
 | 12 | גל א · פופ יידוע עוגיות | דיאלוג ראשון, בלי חסימת GA4 | `<dialog>` + localStorage; מדיניות עודכנה | **סגור בסטייג'ינג — ממתין לאישור נימרוד** | `8f5c9c6` + `756347c` | דיאלוג נפתח; `gtag` function; «הבנתי» סוגר ולא חוזר | לא CMP. גל ב = יישום מלא |
 | 13 | תקיפת Composer על גל א | למצוא פספוסים לפי עמוד/רזולוציה; מאמת מאשרר או מפריך | 3 MISS מהתוקף + 2 אחים שפספס | **סגור כמדידה** | בלי שינוי תמה | CDP נפרד; ציד overflow | הכרעה: [WAVE-A-COMPOSER-ADJUDICATION-2026-09-20.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/WAVE-A-COMPOSER-ADJUDICATION-2026-09-20.md) · WAF-02 מאושר (רגרסיית overflow מ־`overflow:visible`). WAF-01/03 לא הפרת חוזה. עוגיות PASS (חשד שלהם הופרך). |
 | 14 | מנדט תיקוני WAF | נימרוד אישר לממש את כל התיקונים שהוצגו; מבצע=צוות 10; כאן אורקסטרציה+בקרה | תמה 1.5.97; FTP כפול | **סגור — אושרר במאמת נפרד** | `4270b68` + `c91a048` | CDP 390: `/lessons/` `/contact/` `/treatment/` sw=390 (לפני 610), overlap false, gap שיעורים +16. `/shop/` 0 «תיקון וחידוש כלים». `/en/` 2× wa.me נראים. `/about/` `/press/` וורדמרק חי ב־390/1920, מוסתר ב־1440. פוטר בלי tools-and-accessories | בונה: [Composer](0a92d102-66bb-4134-b99c-183fd5e1772f) · as-made: [WAVE-A-HOTFIX-ASMADE-2026-09-20.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/WAVE-A-HOTFIX-ASMADE-2026-09-20.md) |
+| 15 | גל ב · מפקד + סקיצות | 157 URL: פירורים, בלוקים כהים, שבירת H1, href ישנים, גובה סרגל, CMP | ארטיפקט + גלריית סקיצות. אין קוד/FTP | **סגור כמפקד — אישור נימרוד 2026-09-21 על 2/4א/17/7/8 + מרווח contact; טינט נדחה ואז אושר עדין** | מדידה על 1.5.97 | GET 157 בלי follow (141×200, 16×301) + CDP 390/1440 | [WAVE-B-CENSUS-2026-09-20.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/WAVE-B-CENSUS-2026-09-20.md) · [SKETCH-GALLERY.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-GALLERY.html) |
+| 16 | גל ב · יישום | פירורים, contact ivory, nowrap, סרגל 88→56, CMP, href ישנים, ~10% terra wash | תמה 1.5.99 חי | **סגור בסטייג'ינג — אושרר במאמת נפרד** | `bc583ee` | GET + CDP אחרי FTP | [WAVE-B-INDEPENDENT-VERIFY-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/WAVE-B-INDEPENDENT-VERIFY-2026-09-21.md) · טינט: [WAVE-B-TINT-VERIFY-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/WAVE-B-TINT-VERIFY-2026-09-21.md) |
+| 17 | בקרת מערכת אחרי 1.5.99 | תקיפה מעמיקה (ויזואלי+נגישות+מובייל+קונסולה) בסשן צוות 10 מקביל | `DEEP-AUDIT-ATTACK` נחת. P0 אין. DA-P1-01 Lorem נסגר ב-B1 | **נחת — שיירי P2 פתוחים** | מדידה על 1.5.99 ואז 1.5.100 | תוקף ≠ מאמת | [DEEP-AUDIT-ATTACK-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/DEEP-AUDIT-ATTACK-2026-09-21.md). פתוח: DA-WA-01 וואטסאפ צף, DA-P2-A2 EN lang, DA-P2-A3/A4 st3 |
+| 18 | חבילת מיידי מאייל | כל סעיפי «מיידי» בלי תפריט | תמה 1.5.100: YouTube, תודה, D1, FAQ-07, אסתמה, L1–L3, P016/P045 301, T19 | **סגור באתר — אימות PASS (A4 E2E PARTIAL)** | working tree dirty | GET 26/26 + CDP | [ASMADE](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/EYAL-IMMEDIATE-ASMADE-2026-09-21.md) · [VERIFY](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/EYAL-IMMEDIATE-VERIFY-2026-09-21.md) |
+| 19 | טופס אייל + טרקר + גלריה | לעדכן מה נסגר / מי מחכה למי, מול 1.5.100 | לוח ידני בטופס/גלריה — בוטל כמקור סטטוס | **הוחלף בשורה 20** | — | — | דפוס ריבוי קבצי סטטוס בוטל. |
+| 20 | תור העבודה S007 | מקור אמת אחד + שתי נגזרות | `S007-WORK-SSOT.json` schema v1; אקסל 20.9 ארכיון; לוח נימרוד + טופס אייל נגזרים ב־`s007_render_work_ssot.py` | **קובץ העבודה חי** | — | GET 19/19 closed no-follow + CDP 5 עמודים | [SSOT](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json) · [לוח](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/content-gaps-2026-09-21/GALLERY.html) · טופס Hub: http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html · מנדט אישור: [MANDATE-S007-WORK-SSOT-VERIFY-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/MANDATE-S007-WORK-SSOT-VERIFY-2026-09-21.md) |
+| 21 | `/services/` | אייל: למחוק. שיטת סגירה | ביטול פרסום **בלי 301**. תמה 1.5.101 | **סגור באתר** | working tree dirty | GET no-follow 404; אין Location; ילד `/services/didgeridoo-lessons/` 301 `/lessons/` | A1 + T-SERVICES-METHOD |
+| 22 | `/about/` מול `/eyal-amit/` | אייל: הארוך + שנת 2000. נימרוד אישר 301 | 301 `/about/` ו־`/אייל-עמית-אודות/` → `/eyal-amit/`; פסקת 2000 בעמוד הארוך; moksha בלי שינוי | **סגור באתר** | working tree dirty | GET 301 `X-EA-Redirect=s006-r2-w1`; `/eyal-amit/` מכיל «הקשר שלי עם מוקש התחיל בשנת 2000» | F1 F2 T-ABOUT-PERMALINK |
+| 23 | קורסים | עמוד «יעלה בקרוב» + תפריט + עץ בלוח | `/learning/courses-external/` · פריט «קורסים» תחת לימוד והכשרה · חריגה ממוקדת מחרגת תפריט | **סגור בתפריט; ממתין לאייל על קישורים** | working tree dirty | GET 200 «יעלה בקרוב»; בית מכיל href לקורסים | A5 waiting/eyal · E7 closed |
+| 24 | אנגלית | לפרסם עכשיו + פלייסהולדר לתמונות | נוסח אייל C3 ב־`/en/`; באנר Draft ירד; 5 מקומות Photo — to be chosen | **פורסם; ממתין לאייל על תמונות** | working tree dirty | GET 200 H1 Didgeridoo Healing Center; אין WP-EI-06; אין הערה לנמרוד | C3 waiting/eyal · T-EN-NOW closed |
+| 25 | אימות חבילת Q | מאמת במנוע אחר (צוות 10 על ביקורת עמוקה) | GET no-follow + qa_probe `/en/` + קורסים | **PASS · 0 FAIL** | מדידה על 1.5.101 החי | 1–5 PASS; CDP 375/1440 PASS | [VERIFY-S007-QPACK-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/VERIFY-S007-QPACK-2026-09-21.md) · מאמת: [gpt-5.2](24d53f5e-27ce-4412-be47-c5401dd467a6) |
 
 ---
 
 ## ממתינים (אין שורה חדשה עד שמגיע סעיף מנימרוד)
 
-- **אייל:** סימון L1/L2/L3 בטופס החי. באנר יורד רק היכן שכתב «אושר».
-- **נימרוד:** אישור חזותי של גל א + חבילת WAF (1.5.97). גל ב לא התחיל; מפקד קבוצה ב לא רץ.
-- **הקו הזה:** אחרי אישור הגל הזה — תוכנית נפרדת לקבוצה ב + יישום עוגיות מלא.
+- **אייל:** גלריות / כלי 939; כתבות היסטוריות אחרי סריקת האתר הישן; שלוש תמונות ל־`/learning/` (או שנציע); **קישור קורס כשיהיה באוויר**; **תמונות ל־`/en/`** (המקומות כבר בעמוד). תמונות ממליץ + קרוסלת סרטונים — הערות ישנות בדף הבית, לא בחבילת מיידי.
+- **נימרוד:** שיחת תפריט מול אייל (שאר L1; קורסים כבר חריגה ממוקדת); מדיניות ארכיון; באצ׳ הירו בלוג+QR; סקיצת «עכשיו באתר»; שיירי ביקורת (וואטסאפ צף, `lang` ב־EN).
+- **צוות 10:** לא מחכים להם לחבילה הזו — מומשה כאן כי צוות 10 על ביקורת עמוקה. אימות במנוע אחר.
+- **הקו הזה:** תור העבודה S007 חי (`S007-WORK-SSOT.json`, sha12 `ab4134ee3934`). שאלות פתוחות: Q-HERO-BATCH, Q-LEARNING-PHOTOS, Q-AUDIT-NEXT, Q-DA-NAV-BRIEF.
 - **צוות 100 / קלוד בערב שלישי:** ביקורת. לא אנחנו.
 
 ---

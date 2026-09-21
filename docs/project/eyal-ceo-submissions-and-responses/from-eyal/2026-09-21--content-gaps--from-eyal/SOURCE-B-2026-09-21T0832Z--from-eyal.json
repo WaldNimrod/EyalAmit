@@ -1,0 +1,1041 @@
+{
+  "exportType": "eyal-content-gaps",
+  "exportSchema": "content-gaps-v1",
+  "formDate": "2026-09-20",
+  "exportTimestamp": "2026-09-21T08:32:33.291Z",
+  "note": "Content answers only. These are NOT page approvals and must not be ingested as such.",
+  "contentAnswers": [
+    {
+      "id": "A1",
+      "pageKey": "R2-017",
+      "path": "/services/",
+      "title": "שירותים",
+      "choice": "למחוק",
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "pageKey": "R2-021",
+      "path": "/shows-heritage/",
+      "title": "הופעות ומורשת מופע",
+      "choice": "",
+      "note": "אם הבנתי נכון, התוכן הזה איננו מוצג לגולש, אלא נשמר בארכיון עבורי בלבד, נכון? אם נכון, אז בשביל מה אני צריך לשלוח תוכן לדף הזה?"
+    },
+    {
+      "id": "A3",
+      "pageKey": "R2-006",
+      "path": "/historical-articles/",
+      "title": "כתבות היסטוריות",
+      "choice": "אשלח תוכן",
+      "note": "הכתבות נמצאות באתר הישן בתצורה של קובץ jpg רגיל. ניתן למצוא אותן תחת הדף \"מופעים\" או \"הופעות\" או \"מופע הסיפורים\". בהמשך כשאעבור על כל גלריית התמונות באתר אני אמצא אותן ואקטלג אותן לדף \"כתבות היסטוריות\"."
+    },
+    {
+      "id": "A4",
+      "pageKey": "R2-023",
+      "path": "/thank-you/",
+      "title": "דף תודה אחרי טפסים",
+      "choice": "להשתמש ואשלח נוסח",
+      "note": "הנוסח:\nתודה שפנית אליי 🙏\nהפרטים התקבלו ואחזור אליך בהקדם."
+    },
+    {
+      "id": "A5",
+      "pageKey": "R2-007",
+      "path": "/learning/courses-external/",
+      "title": "קורסים — סקולר וחיצוני",
+      "choice": "אשלח קישורים",
+      "note": "אין עדיין קורס באוויר. כשיהיה מוכן אשלח קישור."
+    },
+    {
+      "id": "B1",
+      "pageKey": "R1-01",
+      "path": "/",
+      "title": "דף הבית — פרק הווידאו",
+      "choice": "אשלח קישור",
+      "note": "https://www.youtube.com/watch?v=wDQoJauqsRM"
+    },
+    {
+      "id": "B2",
+      "pageKey": "R1-27",
+      "path": "/galleries/",
+      "title": "גלריות",
+      "choice": "",
+      "note": "אני לא בטוח שהבנתי מה אתה רוצה. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא \"סינון מדיה - 939 תמונות\""
+    },
+    {
+      "id": "B3",
+      "pageKey": "R1-27",
+      "path": "/galleries/",
+      "title": "בחירת התמונות לגלריה הראשית",
+      "choice": "אבחר מהגלריה הזמנית",
+      "note": "כנ\"ל. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא \"סינון מדיה - 939 תמונות\""
+    },
+    {
+      "id": "C1",
+      "pageKey": "R1-06",
+      "path": "/learning/",
+      "title": "לימוד והכשרה",
+      "choice": "מאשר כמו שהוא",
+      "note": "1. את הדף הזה צריך לחבר ל\"לימוד והכשרה\" בסרגל העליון. \n2. לכל אחד משלושת הבלוקים בטקסט צריך להוסיף תמונה מייצגת ואסטטית: שיעורי דיג'רידו, הרצאות וסדנאות, הכשרת מטפלים."
+    },
+    {
+      "id": "C2",
+      "pageKey": "R1-07",
+      "path": "/learning/therapist-training/",
+      "title": "הכשרות למטפלים",
+      "choice": "מאשר כמו שהוא",
+      "note": ""
+    },
+    {
+      "id": "C3",
+      "pageKey": "R1-24",
+      "path": "/en/",
+      "title": "העמוד באנגלית",
+      "choice": "אשלח נוסח",
+      "note": "# Didgeridoo Healing Center\ncbDIDG Method - Eyal Amit\n\n## Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel\n\nFor more than 25 years, the didgeridoo has been at the center of my work with breath, sound and people.\n\nI use the instrument not only as something to play, but as a practical tool for developing breath awareness, coordination, presence and a deeper relationship with the body.\n\nOver the years, this work developed into **cbDIDG**, a structured method that brings together didgeridoo playing, breathing practice, sound and body awareness.\n\nToday, the Didgeridoo Healing Center in Pardes Hanna offers one-on-one breath work, didgeridoo lessons, private sound healing, workshops, talks, advanced learning and handmade instruments.\n\n**English-speaking visitors are welcome.**\n\n[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)\n\n---\n\n## More than learning an instrument\n\n### Working with breath through the didgeridoo\n\nThe didgeridoo is usually introduced as an ancient wind instrument.\n\nIn my work, I see it first and foremost as a **breath-training instrument**.\n\nPlaying requires coordination between breathing, lips, tongue, cheeks, throat and attention. The instrument provides immediate feedback. When the breath changes, the sound changes.\n\nThis makes the didgeridoo an unusually direct tool for exploring the way we breathe.\n\nMy approach is active.\n\nYou are not simply receiving a treatment while someone else plays. You learn, practice, listen, adjust and gradually develop skills you can continue using independently.\n\nThe goal is not musical performance.\n\n**The instrument is the practice tool. The breath is the work.**\n\n---\n\n# The cbDIDG Method\n\n## A structured method developed through more than two decades of practice\n\nOver the years I developed **cbDIDG**, my method for working with breathing through the didgeridoo.\n\nThe method grew gradually from several worlds that became connected through my own experience:\n\n* more than 25 years of playing and teaching didgeridoo\n* my apprenticeship with Mukesh Dahiman in India\n* years of building didgeridoos by hand\n* study and practice of tai chi, qigong, yoga and mindfulness\n* my background as an electronics engineer\n* my interest in physiology, acoustics and the mechanics of breathing\n* thousands of hours of individual work with students and clients\n\nThree principles are central to the method.\n\n### Active work\n\nThe person participates in the process.\n\nThe work is learned through practice rather than received passively.\n\n### The didgeridoo is the tool, not the goal\n\nLearning to produce sound, coordinate the breathing system and eventually develop circular breathing creates a practical framework for exploring breath patterns, control, awareness and attention.\n\nYou do not need to become a musician.\n\n### Change develops through repetition\n\nThis work is not built around a one-time experience.\n\nSkills develop through guided practice, repetition and gradual independent work.\n\n---\n\n# Why breath became my life's work\n\nMy relationship with breathing began long before I understood that it would eventually become my profession.\n\nWhen I was twelve, the apartment building where I lived in Givatayim caught fire. A friend from the building died in that fire, and the experience stayed with me.\n\nYears later, during my military service, I developed severe asthma and allergies.\n\nFor a long time I lived with wheezing, medication, inhalers and the feeling that breathing itself had become difficult.\n\nThen I encountered the didgeridoo.\n\nAt first, I was simply drawn to its sound.\n\nI wanted to understand how this strange instrument could produce a continuous, deep tone, so I began learning to play.\n\nOnly gradually did I begin to notice what the practice was asking me to do.\n\nSlow down.\n\nCoordinate.\n\nListen.\n\nPay attention.\n\nDevelop control without force.\n\nAnd, most importantly, build a completely different relationship with my own breath.\n\nMy personal experience with asthma and breathing was one of the forces that led me to study the subject more deeply.\n\nI do not present my experience as a medical promise for someone else.\n\nBut it shaped the question that has guided my work ever since:\n\n**What can happen when a person learns to work consciously, patiently and consistently with their own breathing?**\n\nThat question eventually became the foundation of my professional work.\n\n---\n\n# My teacher, Mukesh Dahiman\n\n## Craftsmanship, patience and a way of working\n\nI first met **Mukesh Dahiman** in Rishikesh, India, in 2000.\n\nMukesh was a didgeridoo maker, teacher and craftsman who came from a family tradition of woodworking. Over many years he devoted himself to building didgeridoos and teaching people who arrived in Rishikesh from around the world.\n\nI returned to study with him and became one of his close students.\n\nWhat I learned from Mukesh went far beyond the technical skills of making or playing an instrument.\n\nHis workshop taught me patience, craftsmanship, repetition, listening and respect for a process that cannot be rushed.\n\nThese principles remain deeply connected to the way I work today.\n\nMukesh passed away in October 2020.\n\nHis influence continues through the instruments I build, the way I teach and the knowledge I pass on to others.\n\n---\n\n# Ways to work with me\n\n## One-on-one didgeridoo breath work\n\nIndividual sessions are at the core of my work.\n\nWe begin by looking at the way you breathe and understanding what brings you to the studio.\n\nFrom there, I develop a personal practice process according to the individual.\n\nA session may include:\n\n* initial observation and assessment\n* a personalized practice plan\n* practical breathing exercises\n* didgeridoo-based exercises\n* coordination of lips, cheeks, tongue, diaphragm and airflow\n* sound and body awareness\n* development of independent practice skills\n* listening, attention and presence\n\nThe objective is gradually to give you more understanding and greater awareness of your own breathing.\n\nNo previous musical experience is required.\n\nSessions take place one-on-one at my studio in Pardes Hanna, Israel.\n\n---\n\n# Didgeridoo Lessons\n\n## Learn to play from the beginning\n\nYou can also come simply because you want to learn this extraordinary instrument.\n\nPrivate didgeridoo lessons are available from complete beginner level onward.\n\nLearning can include:\n\n* producing the basic drone\n* understanding airflow and breath control\n* circular breathing\n* rhythm\n* tongue techniques\n* vocal techniques\n* overtones\n* sound development\n* musical expression\n* developing a personal practice\n\nMy approach to teaching is detailed and gradual.\n\nComplex movements are broken down into simple components, practiced separately and then connected.\n\nFor many students, learning the didgeridoo becomes much more than learning another musical instrument.\n\nThe process naturally develops attention to breathing, concentration and body awareness.\n\n---\n\n# Private Sound Healing\n\n## A different way to experience the didgeridoo\n\nSound healing is a very different experience from active breath work.\n\nDuring a private didgeridoo sound session, you do not need to learn, play or practice.\n\nYou lie down and receive the sound.\n\nThe low drone, harmonics, rhythms and physical vibration of the didgeridoo create an immersive listening experience that many people experience as relaxing, grounding and meditative.\n\nSessions are available for individuals and couples.\n\n### Breath work or sound healing?\n\nThe distinction is important.\n\n**Didgeridoo breath work is active.**\nYou learn, practice and gradually build skills.\n\n**Sound healing is receptive.**\nYou listen and experience the sound.\n\nBoth involve the didgeridoo, but they are two very different forms of work.\n\n---\n\n# Workshops\n\n## Breath, sound and didgeridoo as a shared experience\n\nI lead experiential didgeridoo workshops for groups, organizations, private events and communities.\n\nParticipants do not need any previous musical experience.\n\nThe workshops combine explanation, live demonstration and active participation.\n\nThey offer a direct introduction to the relationship between breathing, sound, attention and the didgeridoo.\n\nWorkshops usually last approximately **90 to 120 minutes** and can be adapted to the group and setting.\n\nThey are suitable for:\n\n* private groups\n* organizations\n* company teams\n* retreats\n* wellness programs\n* community groups\n* special events\n\nThe emphasis is on participation and direct experience.\n\n---\n\n# Talks\n\n## Breath, health, sound and the story behind the instrument\n\nMy talks combine personal story, professional experience, research and live didgeridoo demonstrations.\n\nDepending on the audience, talks can explore themes connected to:\n\n* breathing and health\n* stress\n* sleep\n* sound and vibration\n* the nervous system\n* the didgeridoo\n* my personal journey with breathing\n* the path from electronics engineering to didgeridoo-based breath work\n\nUnlike workshops, talks are primarily designed for a listening audience.\n\nThey are available for companies, organizations, conferences, professional events, communities and private groups.\n\n---\n\n# Learning and Professional Training\n\n## Taking the work further\n\nAlongside individual work and group activities, the educational side of cbDIDG continues to grow.\n\nI offer and develop advanced learning opportunities for people who want to explore the field more deeply.\n\nThese may include:\n\n* advanced didgeridoo study\n* courses\n* professional education\n* therapeutic applications of didgeridoo practice\n* future practitioner training connected to the cbDIDG method\n\nSome programs are intended for experienced players or professionals, while others are suitable for people who simply want to deepen their understanding.\n\nFor current courses and training opportunities, contact me directly.\n\n---\n\n# What does research say about the didgeridoo?\n\nScientific research into didgeridoo-related practices is still limited.\n\nIt is therefore important to distinguish between promising findings and established medical evidence.\n\nSeveral studies are particularly interesting.\n\n## Snoring and obstructive sleep apnea\n\nA randomized controlled trial published in the *British Medical Journal* examined adults with snoring and moderate obstructive sleep apnea.\n\nParticipants in the didgeridoo group received lessons and practiced regularly for four months.\n\nCompared with the control group, the didgeridoo group showed improvements in:\n\n* daytime sleepiness\n* apnea-hypopnea index\n* their partners' reported sleep disturbance\n\nThe study included only 25 participants, so the findings are promising but should not be interpreted as definitive evidence.\n\n## Stress and relaxation\n\nA randomized study involving 74 university students compared a 30-minute live didgeridoo sound meditation with silent breath meditation.\n\nBoth groups reported increased relaxation.\n\nParticipants in the didgeridoo meditation group experienced significantly greater relaxation and lower acute self-perceived stress than participants in the silent meditation group.\n\n## Mood, stress and autonomic regulation\n\nAnother study followed 20 beginners through ten didgeridoo-based health promotion lessons.\n\nResearchers reported changes in measures related to:\n\n* mood\n* mental stress\n* pulse\n* salivary amylase\n* autonomic nervous system balance\n\nThese studies are part of a relatively small body of research.\n\nThey do not establish didgeridoo practice as a replacement for medical treatment, but they do support continued investigation into the instrument as a tool connected to breathing, sound and wellbeing.\n\n---\n\n# Handmade Didgeridoos\n\n## From wood to sound\n\nBuilding didgeridoos has been part of my life almost as long as playing them.\n\nI learned instrument making in India with Mukesh Dahiman and later continued developing my craft in Israel.\n\nMy background in electronics engineering also influenced the way I think about instruments.\n\nA didgeridoo is acoustically much more complex than it may appear.\n\nIts:\n\n* length\n* internal bore\n* geometry\n* diameter\n* resistance\n* material\n* shape\n\nall influence the way the instrument responds and the sound it produces.\n\nI build didgeridoos by hand, including instruments made from agave.\n\nThe studio also offers:\n\n* handmade didgeridoos\n* professional instruments\n* instrument repair\n* restoration\n* carrying bags\n* stands and accessories\n* guidance in choosing the right instrument\n\nIf you are looking for a didgeridoo, you are welcome to contact me and arrange a visit to the workshop.\n\n---\n\n# About Eyal Amit\n\nI have been working with the didgeridoo since **1999**.\n\nOver the years I have worked as a player, teacher, instrument maker and practitioner using the didgeridoo as a tool for working with breathing.\n\nMy original professional training was in electronics engineering.\n\nMy path later moved through woodworking, writing, publishing, performance and storytelling, but the didgeridoo gradually became the center of my professional life.\n\nToday I am the founder of the **Didgeridoo Healing Center** in Pardes Hanna and the developer of the **cbDIDG method**.\n\nFrom my studio I work with people individually, teach didgeridoo, build instruments and lead workshops, talks and sound healing sessions.\n\nWhat connects all of these activities is one simple idea:\n\n**Breathing is something we do every moment of our lives, but it is also something we can learn to observe, practice and understand more deeply.**\n\nThe didgeridoo gives us an unusual and powerful way to do that.\n\n---\n\n# The Didgeridoo Healing Center\n\n## Pardes Hanna, Israel\n\nThe center is located in Pardes Hanna, surrounded by a garden and designed as a quiet space for individual and group work.\n\nIt includes both the studio where I teach and work with people and the workshop where I build and repair didgeridoos.\n\nPeople come from different parts of Israel and from abroad for:\n\n* individual sessions\n* lessons\n* sound healing\n* workshops\n* professional learning\n* didgeridoo instruments\n\n**Sessions and lessons can be conducted in English.**\n\n---\n\n# Frequently Asked Questions\n\n## Do I need to know how to play the didgeridoo?\n\nNo.\n\nMost people begin with no previous experience.\n\nThe process starts with basic breathing, sound production and simple coordination.\n\n---\n\n## Do I need to own a didgeridoo before I start?\n\nNo.\n\nYou can begin with instruments available at the studio.\n\nIf you later decide to buy an instrument, I can help you understand what type of didgeridoo is suitable for you.\n\n---\n\n## Do I need musical experience?\n\nNo.\n\nMusical experience can be useful, but it is not necessary for breath work, beginner didgeridoo lessons or workshops.\n\n---\n\n## Is this medical treatment?\n\nThe work offered at the center is complementary and educational and is not a substitute for medical diagnosis or treatment.\n\nIf you have a medical condition, including a respiratory or sleep-related condition, you should continue to consult your physician or other qualified healthcare professional.\n\n---\n\n## Can didgeridoo practice replace CPAP or other medical treatment for sleep apnea?\n\nNo medical treatment should be stopped or changed without consultation with the healthcare professional responsible for your care.\n\nResearch into didgeridoo playing and obstructive sleep apnea is interesting, but it remains limited.\n\n---\n\n## Is didgeridoo breath work the same as sound healing?\n\nNo.\n\nDidgeridoo breath work is an active learning process.\n\nSound healing is primarily a receptive listening experience.\n\n---\n\n## Can complete beginners join a workshop?\n\nYes.\n\nThe workshops are designed so that participants with no background in music or didgeridoo can take part.\n\n---\n\n## Do you work in English?\n\nYes.\n\nPrivate sessions, didgeridoo lessons and selected workshops can be conducted in English.\n\n---\n\n## Where is the center?\n\nThe Didgeridoo Healing Center is located in **Pardes Hanna, Israel**.\n\n---\n\n# Not sure where to start?\n\nYou do not need to decide in advance whether you need breath work, a didgeridoo lesson, sound healing or another form of work.\n\nTell me a little about what brings you here.\n\nWe can decide together what makes the most sense for you.\n\n[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)\n\n**Phone / WhatsApp:**\n[+972 52 482 2842](tel:+972524822842)\n\n**Pardes Hanna, Israel**\n\n---\n\n# Explore the full website\n\nThe rest of the website is currently available in Hebrew.\n\nIf you read Hebrew, you can explore the full website for detailed information about:\n\n* the cbDIDG method\n* didgeridoo breath work\n* didgeridoo lessons\n* sound healing\n* workshops\n* talks\n* courses and training\n* handmade didgeridoos\n* articles and research\n* Mukesh Dahiman\n* Eyal Amit\n\n[**Visit the Hebrew website**](https://www.eyalamit.co.il/)\n\n__________________________\n\nהערה לנמרוד - כדי שהדף לא יהיה משעמם כדאי לשלב בו קצת תמונות."
+    },
+    {
+      "id": "D1",
+      "pageKey": "R1-12",
+      "path": "/didgeridoos/",
+      "title": "המלצות בעמוד הכלים למכירה",
+      "choice": "להסיר את הסקשן",
+      "note": ""
+    },
+    {
+      "id": "D2",
+      "pageKey": "R1-01",
+      "path": "/",
+      "title": "דף הבית — ההמלצה השש־עשרה",
+      "choice": "להשאיר 15",
+      "note": ""
+    },
+    {
+      "id": "D3",
+      "pageKey": "R1-25",
+      "path": "/faq/",
+      "title": "שאלות נפוצות — קישור שבור",
+      "choice": "אשלח כתובת",
+      "note": "http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/"
+    },
+    {
+      "id": "E1",
+      "pageKey": "R2-015",
+      "path": "/press/",
+      "title": "עיתונות",
+      "choice": "להשאיר מחוץ לתפריט",
+      "note": "תשאיר את הדף הזה מחוץ לתפריט. מבחינתי זה דף ארכיון שרק שומר עבורי דברים מההיסטוריה. אולי יום אחד אשתמש בחומרים האלה. שים לב שחסרים בדף הזה המון פרטים. יש עוד כתבות מהעיתונות שפורסמו אודות המופע. יש עוד המון המלצות על המופע שאינן מופיעות בדף. מציע שתסרוק שוב את האתר הישן, וגם את הדפים שקשורים למופע הסיפורים, מופעים, הופעות, ותכניס את הדברים החשובים לדף הארכיון הזה."
+    },
+    {
+      "id": "E2",
+      "pageKey": "R1-06",
+      "path": "/learning/",
+      "title": "לימוד והכשרה — העמוד הראשי",
+      "choice": "הכותרת תהיה קישור",
+      "note": "זה העמוד שצריך לעלות כשלוחצים על \"לימוד והכשרה\" בסרגל הראשי:\nhttp://eyalamit-co-il-2026.s887.upress.link/learning/"
+    },
+    {
+      "id": "E3",
+      "pageKey": "R2-017",
+      "path": "/services/",
+      "title": "שירותים — מקום בתפריט",
+      "choice": "להשאיר מחוץ לתפריט",
+      "note": ""
+    },
+    {
+      "id": "E4",
+      "pageKey": "R2-021",
+      "path": "/shows-heritage/",
+      "title": "הופעות ומורשת מופע — מקום בתפריט",
+      "choice": "להשאיר מחוץ לתפריט",
+      "note": "אשמח שאת כל החומרים מהמופע / מופע סיפורים / הופעות - תרכז הכל בדף הארכיון שדיברנו עליו קודם, איפה שמופיעות כל הכתבות ההיסטוריות. שים לב שבאתר הישן יש דף ייעודי שנקרא \"הופעות\" . הדף הזה כרגע לא מופיע בסרגל הראשי של האתר, אלא כדף פנימי."
+    },
+    {
+      "id": "E5",
+      "pageKey": "R2-006",
+      "path": "/historical-articles/",
+      "title": "כתבות היסטוריות — מקום בתפריט",
+      "choice": "להשאיר מחוץ לתפריט",
+      "note": "מבחינתי התוכן בדף הזה הוא ארכיון והוא איננו צריך להופיע לגולש. זה לעיני בלבד."
+    },
+    {
+      "id": "E6",
+      "pageKey": "R2-023",
+      "path": "/thank-you/",
+      "title": "דף תודה — מקום בתפריט",
+      "choice": "להשאיר מחוץ לתפריט",
+      "note": "הדף הזה מופיע לגולש רק אחרי שהוא שולח לי טופס צור קשר. את הנוסח לדף כבר שלחתי לך בקודם בסעיפים הקודמים."
+    },
+    {
+      "id": "E7",
+      "pageKey": "R2-007",
+      "path": "/learning/courses-external/",
+      "title": "קורסים — מקום בתפריט",
+      "choice": "להשאיר בתפריט",
+      "note": "עדיין אין קורס דיגיטלי באוויר אבל ברגע שיהיה אשלח קישור."
+    },
+    {
+      "id": "F1",
+      "pageKey": "R2-001",
+      "path": "/about/",
+      "title": "אודות אייל עמית — מול — אייל עמית",
+      "choice": "להשאיר את הארוך בלבד",
+      "note": ""
+    },
+    {
+      "id": "F2",
+      "pageKey": "R2-001",
+      "path": "/about/",
+      "title": "שני הפרטים שקיימים רק בעמוד הקצר",
+      "choice": "להעביר רק את השנה",
+      "note": "כן זה ממש חשוב. הקשר שלי עם מוקש התחיל בשנת 2000 וחשוב להדגיש זאת."
+    },
+    {
+      "id": "F3",
+      "pageKey": "R2-001",
+      "path": "/eyal-amit/",
+      "title": "איך כותבים אסתמה",
+      "choice": "אסתמה",
+      "note": ""
+    },
+    {
+      "id": "L1",
+      "pageKey": "R2-003",
+      "path": "/accessibility/",
+      "title": "הצהרת נגישות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "pageKey": "R2-016",
+      "path": "/privacy/",
+      "title": "מדיניות פרטיות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "pageKey": "R2-022",
+      "path": "/terms/",
+      "title": "תקנון ותנאי שימוש",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P001",
+      "pageKey": "R1-20",
+      "path": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P002",
+      "pageKey": "R1-20",
+      "path": "/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P003",
+      "pageKey": "R1-20",
+      "path": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P004",
+      "pageKey": "R1-20",
+      "path": "/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P005",
+      "pageKey": "R1-20",
+      "path": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P006",
+      "pageKey": "R1-20",
+      "path": "/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P007",
+      "pageKey": "R1-20",
+      "path": "/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P008",
+      "pageKey": "R1-20",
+      "path": "/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P009",
+      "pageKey": "R1-20",
+      "path": "/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P010",
+      "pageKey": "R1-20",
+      "path": "/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P011",
+      "pageKey": "R1-20",
+      "path": "/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P012",
+      "pageKey": "R1-20",
+      "path": "/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P013",
+      "pageKey": "R1-20",
+      "path": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%95%d7%a8%d7%94-%d7%95%d7%9e%d7%98%d7%a4%d7%9c-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P014",
+      "pageKey": "R1-20",
+      "path": "/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P015",
+      "pageKey": "R1-20",
+      "path": "/%d7%90%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%9c%d7%90-%d7%aa%d7%9e%d7%a6%d7%90%d7%95-%d7%91%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P016",
+      "pageKey": "R1-20",
+      "path": "/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P017",
+      "pageKey": "R1-20",
+      "path": "/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P018",
+      "pageKey": "R1-20",
+      "path": "/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P019",
+      "pageKey": "R1-20",
+      "path": "/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P020",
+      "pageKey": "R1-20",
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P021",
+      "pageKey": "R1-20",
+      "path": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P022",
+      "pageKey": "R1-20",
+      "path": "/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P023",
+      "pageKey": "R1-20",
+      "path": "/2228-2/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P024",
+      "pageKey": "R1-20",
+      "path": "/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P025",
+      "pageKey": "R1-20",
+      "path": "/%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P026",
+      "pageKey": "R1-20",
+      "path": "/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P027",
+      "pageKey": "R1-20",
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P028",
+      "pageKey": "R1-20",
+      "path": "/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P029",
+      "pageKey": "R1-20",
+      "path": "/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P030",
+      "pageKey": "R1-20",
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P031",
+      "pageKey": "R1-20",
+      "path": "/%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P032",
+      "pageKey": "R1-20",
+      "path": "/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P033",
+      "pageKey": "R1-20",
+      "path": "/%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P034",
+      "pageKey": "R1-20",
+      "path": "/100-100-100-%d7%aa%d7%95%d7%93%d7%94/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P035",
+      "pageKey": "R1-20",
+      "path": "/%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P036",
+      "pageKey": "R1-20",
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P037",
+      "pageKey": "R1-20",
+      "path": "/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P038",
+      "pageKey": "R1-20",
+      "path": "/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P039",
+      "pageKey": "R1-20",
+      "path": "/51-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%a7%d7%a1%d7%98%d7%a8%d7%99%d7%9d-%d7%96%d7%94-%d7%a0%d7%a2%d7%99%d7%9d/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P040",
+      "pageKey": "R1-20",
+      "path": "/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P041",
+      "pageKey": "R1-20",
+      "path": "/47-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%96%d7%9e%d7%9f-%d7%97%d7%9c%d7%95%d7%9d/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P042",
+      "pageKey": "R1-20",
+      "path": "/45-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%95%d7%a4%d7%95%d7%a8%d7%a6%d7%99%d7%95%d7%aa/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P043",
+      "pageKey": "R1-20",
+      "path": "/43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P044",
+      "pageKey": "R1-20",
+      "path": "/42-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%97%d7%93-%d7%91%d7%a1%d7%a4%d7%98%d7%9e%d7%91%d7%a8/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P045",
+      "pageKey": "R1-20",
+      "path": "/41-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%90%d7%a8%d7%98%d7%94-%d7%91%d7%90%d7%a8%d7%98%d7%94/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P046",
+      "pageKey": "R1-20",
+      "path": "/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P047",
+      "pageKey": "R1-20",
+      "path": "/36-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a9%d7%a7%d7%a9%d7%95%d7%a7%d7%94/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P048",
+      "pageKey": "R1-20",
+      "path": "/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P049",
+      "pageKey": "R1-20",
+      "path": "/32-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%9d-%d7%90%d7%99%d7%9f-%d7%90%d7%a0%d7%99-%d7%9c%d7%99-%d7%9e%d7%99-%d7%9c%d7%99/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P050",
+      "pageKey": "R1-20",
+      "path": "/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P051",
+      "pageKey": "R1-20",
+      "path": "/27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P052",
+      "pageKey": "R1-20",
+      "path": "/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-24-%d7%99%d7%9c%d7%93-%d7%90%d7%a1%d7%95%d7%a8-%d7%99%d7%9c%d7%93-%d7%9e%d7%95%d7%aa%d7%a8/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P053",
+      "pageKey": "R1-20",
+      "path": "/23-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%a6%d7%99%d7%99%d7%aa-%d7%90%d7%95-%d7%9c%d7%97%d7%a9%d7%95%d7%91/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "P054",
+      "pageKey": "R1-20",
+      "path": "/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q001",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr1/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q002",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr2/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q003",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr3/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q004",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr4/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q005",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr5/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q006",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr6/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q007",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr7/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q008",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr8/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q009",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr9/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q010",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr10/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q011",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr11/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q012",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr12/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q013",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr13/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q014",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr14/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q015",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr15/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q016",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr16/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q017",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr17/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q018",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr18/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q019",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr19/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q020",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr20/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q021",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr21/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q022",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr22/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q023",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr23/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q024",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr24/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q025",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr25/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q026",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr26/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q027",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr27/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q028",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr28/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q029",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr29/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q030",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr30/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q031",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr31/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q032",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr32/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q033",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr33/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q034",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr34/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q035",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr35/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q036",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr36/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q037",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr37/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q038",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr38/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q039",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr39/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q040",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr40/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q041",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr41/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q042",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr42/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q043",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr43/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q044",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr44/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q045",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr45/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q046",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr46/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q047",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr47/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "Q048",
+      "pageKey": "R1-QR",
+      "path": "/qr/qr48/",
+      "title": "",
+      "choice": "",
+      "note": ""
+    }
+  ]
+}

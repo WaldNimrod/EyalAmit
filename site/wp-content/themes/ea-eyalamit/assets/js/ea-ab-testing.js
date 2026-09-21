@@ -120,8 +120,13 @@
   });
 
   // W1-13: GA4 conversion event on a successful CF7 contact-form submission.
+  // EI-A4: redirect /contact/ submissions to /thank-you/.
   document.addEventListener('wpcf7mailsent', function () {
     track('generate_lead', { method: 'form' });
+    var path = (window.location.pathname || '').replace(/\/$/, '');
+    if (path === '/contact') {
+      window.location.href = '/thank-you/';
+    }
   });
 
   // WP-W2-17 T8 (AC-12 validation-plan §4 step 4): the tel: lead path had no

@@ -13,10 +13,9 @@
  * was exactly that kind of silent regularisation, and is fixed here to
  * match section-nav.php byte-for-byte instead).
  *
- * "קורסים" (external course link, section-nav.php's own href="#") is
- * deliberately omitted — already logged as P2-A1 in the accessibility open
- * package, and a control that goes nowhere must not be copied onto pages
- * that never had it.
+ * "קורסים" now points at /learning/courses-external/ («יעלה בקרוב»).
+ * Nimrod 2026-09-21: scoped exception to the main-nav hold — add this child
+ * only; do not restructure L1. The old href="#" omission (P2-A1) is closed.
  *
  * "home" IS in this list (the mobile drawer renders it as an explicit row),
  * but a desktop-style renderer with its own logo/brand-as-home link (every
@@ -61,7 +60,7 @@ function ea_canonical_nav_items() {
 			'href'     => null,
 			'children' => array(
 				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
-				/* "קורסים" (external course link) intentionally omitted — see file docblock. */
+				array( 'key' => 'courses-external', 'label' => 'קורסים', 'href' => $h( '/learning/courses-external/' ) ),
 				array( 'key' => 'lectures', 'label' => 'הרצאות', 'href' => $h( '/learning/lectures/' ) ),
 				array( 'key' => 'workshops', 'label' => 'סדנאות', 'href' => $h( '/learning/workshops/' ) ),
 			),
@@ -153,8 +152,7 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 				 * "לימוד והכשרה" / "אייל עמית": permanent category labels with no
 				 * overview page of their own (section-nav.php renders these as a
 				 * <button>, not a link, for the same reason) — not the same thing
-				 * as "קורסים"'s href="#", which stands in for a real destination
-				 * still pending from Eyal.
+				 * as a dead href="#". «קורסים» now has a real destination.
 				 *
 				 * First version of this used href="#" to match GP's dropdown-hover
 				 * CSS, which only reacts to :hover — measured live afterward:
