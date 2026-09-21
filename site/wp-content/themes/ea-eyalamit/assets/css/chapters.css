@@ -13,6 +13,7 @@
   --ivory:#fffffa; --ivory-2:#efeae1;
   --dark:#0E0905; --dark-2:#0E0905;
   --dark-grad:linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);
+  --ea-dark-warm-wash:linear-gradient(160deg,rgba(154,79,43,.10),rgba(154,79,43,.08));
   --terra:#B5663D; --terra-lt:#D08A5E; --terra-dk:#9A4F2B;
   --sand:#D8C7B5;
   --ink:#2f2013; --body:#67482d;
@@ -195,7 +196,7 @@ a{color:inherit}
 /* ---- section base ---- */
 .sec{padding:var(--sec) 0;position:relative;overflow:hidden}
 .sec--alt{background:var(--ivory-2)}
-.sec--dark{background:var(--dark-grad);color:#fff}
+.sec--dark{background-image:var(--ea-dark-warm-wash),var(--dark-grad);color:#fff}
 .sec--dark .h2{color:#fff}.sec--dark .lead{color:rgba(255,255,255,.82)}
 .sec--dark .chap{color:var(--terra-lt)}
 /* S006 · H-10 · פרק 07 עבר לרנדר דרך parts/prose.php על רקע כהה. ל-.intro-body p
@@ -286,7 +287,7 @@ a{color:inherit}
 .bleed__a{margin-top:18px;font-family:var(--bf);font-size:var(--fs-2xs);letter-spacing:2px;text-transform:uppercase;color:var(--terra-lt)}
 
 /* ---- 07 HOW TO START — dramatic dark image band ---- */
-.start{position:relative;overflow:hidden;background:var(--dark)}
+.start{position:relative;overflow:hidden;background-image:var(--ea-dark-warm-wash),var(--dark-grad)}
 .start__bg{position:absolute;inset:0}
 .start__bg img{width:100%;height:100%;object-fit:cover;opacity:.4}
 .start__sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,12,8,.85),rgba(18,12,8,.6) 50%,rgba(18,12,8,.9)),radial-gradient(80% 90% at 50% 40%,transparent,rgba(18,12,8,.7))}
@@ -430,7 +431,7 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .figr img{width:100%;height:100%;object-fit:cover;display:block}
 .figr--p img{aspect-ratio:4/5}.figr--l img{aspect-ratio:5/4}.figr--w img{aspect-ratio:16/10}
 .cap{font-size:var(--fs-2xs);color:var(--muted);margin-top:12px;padding-inline-start:12px;border-inline-start:1px solid var(--line)}
-.cta-band{position:relative;background:var(--dark-grad);color:#fff;text-align:center;padding:var(--sec) 48px;overflow:hidden}
+.cta-band{position:relative;background-image:var(--ea-dark-warm-wash),var(--dark-grad);color:#fff;text-align:center;padding:var(--sec) 48px;overflow:hidden}
 .cta-band .arcs{width:520px;height:520px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.13;filter:invert(1) sepia(.5) brightness(1.3)}
 .cta-band__in{position:relative;z-index:2;max-width:620px;margin-inline:auto}
 .cta-band__h{font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-h2);color:#fff;margin-bottom:14px}
