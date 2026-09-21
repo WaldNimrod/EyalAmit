@@ -19,7 +19,7 @@
 
 ## Git
 
-**Commit:** `35696ab`  
+**Commit:** `bc583ee`  
 **Message:** Wave B: warm 10% terra wash on mid-page dark bands, not terra fill
 
 ## FTP
