@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>גל ב — סקיצות לאישור לפני מימוש</title>
+<style>
+  :root{
+    --ivory:#fffffa; --ivory-2:#efeae1; --dark:#0E0905;
+    --dark-grad:linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);
+    --terra:#B5663D; --terra-lt:#D08A5E; --terra-dk:#9A4F2B;
+    --ink:#2f2013; --body:#67482d; --sand:#D8C7B5;
+    --fs-sm:15.3px; --fs-nav:18.36px; --fs-h1:clamp(1.7rem,4vw,2.6rem);
+    --bf:Heebo,-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#f3eee6;color:var(--ink);font:16px/1.5 var(--bf)}
+  header.page{padding:28px 32px;background:var(--dark);color:#fff}
+  header.page h1{margin:0 0 8px;font-size:22px;font-weight:600}
+  header.page p{margin:0;color:rgba(255,255,255,.78);max-width:70ch}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;padding:16px 32px;background:#fff;border-bottom:1px solid var(--sand)}
+  nav.toc a{color:var(--terra);text-decoration:none;border:1px solid var(--sand);padding:6px 12px;border-radius:999px;font-size:14px}
+  section.item{padding:32px;border-bottom:8px solid #e4d8c8}
+  section.item h2{margin:0 0 6px}
+  .note{color:var(--body);margin:0 0 18px;max-width:80ch}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  figure{margin:0;background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:10px 14px;font-size:13px;color:var(--body);background:var(--ivory-2)}
+  .mock{background:var(--ivory);border:1px dashed var(--terra);border-radius:12px;overflow:hidden}
+  .mock .label{background:var(--terra);color:#fff;font-size:12px;padding:6px 12px}
+  .crumb{font-size:var(--fs-sm);color:var(--body);padding:8px 0}
+  .crumb a{color:var(--terra);text-decoration:none}
+  .crumb span{color:var(--ink)}
+  .hero-mock{position:relative;min-height:280px;background:#1a120c;color:#fff;padding:88px 24px 40px}
+  .hero-mock h3{margin:12px 0 0;font-size:28px;font-weight:500;line-height:1.25}
+  .nowrap{white-space:nowrap}
+  .nav88{height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+    background:linear-gradient(180deg,rgba(14,9,5,.9),rgba(14,9,5,.3));color:#fff}
+  .nav56{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+    background:rgba(20,14,9,.95);color:#fff}
+  .nav88 .items,.nav56 .items{display:flex;gap:18px;font-size:var(--fs-nav);opacity:.95}
+  .band-dark{background:var(--dark-grad);color:#fff;padding:36px 28px;display:flex;justify-content:space-between;align-items:center}
+  .band-terra{background:var(--terra-dk);color:#fff;padding:36px 28px;display:flex;justify-content:space-between;align-items:center}
+  .band-gap{height:32px;background:var(--ivory)}
+  .foot{background:var(--dark);color:rgba(255,255,255,.7);padding:28px;font-size:14px}
+  .btn{border:0;border-radius:999px;padding:10px 18px;background:#fff;color:var(--ink);font:inherit;cursor:default}
+  .btn-terra{background:var(--terra);color:#fff}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+  .dialog{max-width:28rem;margin:24px auto;background:var(--ivory);border:1px solid var(--sand);border-radius:14px;padding:22px;box-shadow:0 24px 48px -28px rgba(20,14,9,.7)}
+  .dialog h3{margin:0 0 10px}
+  .cats{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+  .cat{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;background:var(--ivory-2);border-radius:8px;font-size:14px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+  th,td{border:1px solid var(--sand);padding:8px 10px;text-align:right}
+  th{background:var(--ivory-2)}
+  .wait{background:#fff3d6;border:1px solid #e0c36a;padding:14px 18px;border-radius:10px;margin:18px 32px}
+</style>
+</head>
+<body>
+<header class="page">
+  <h1>גל ב — סקיצות לאישור נימרוד</h1>
+  <p>לפני כל שורת קוד. דסקטופ 1440 / מובייל 390. «לפני» = צילום חי 1.5.97. «אחרי» = סקיצה, לא אתר. אם סקיצה נדחית — מתקנים סקיצה, לא סטייג'ינג.</p>
+</header>
+<p class="wait">אושר 2026-09-21: פירורים, nowrap, סרגל, CMP, קישורים 301, מרווח שנהב, וטינט עדין על בלוקים כהים (~10% terra על dark-grad). נדחה לצמיתות: מילוי terra-dk.</p>
+<nav class="toc">
+  <a href="#s2">2 פירורים</a>
+  <a href="#s3">3 בלוקים כהים</a>
+  <a href="#s4">4א כותרות</a>
+  <a href="#s17">17 סרגל</a>
+  <a href="#s7">7 עוגיות</a>
+  <a href="#s8">8 קישורים</a>
+</nav>
+
+<section class="item" id="s2">
+  <h2>2 — פירורים מעל H1</h2>
+  <p class="note">אין שביל חי היום. מוצע: בית / ענף / עמוד, מעל H1, רק פנימיים. בלי בית, בלי EN, בלי QR. טיפוגרפיה מטוקנים בלבד.</p>
+  <div class="grid">
+    <figure>
+      <img src="../wave-b-shots/clean-method-h1-390.png" alt="לפני: /method/ 390 בלי פירורים">
+      <figcaption>לפני · /method/ · 390 · H1 בלי שביל</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · מובייל 390 · סקיצה</div>
+      <div class="hero-mock">
+        <nav class="crumb" aria-label="פירורים">
+          <a href="#">בית</a> · <span>השיטה</span>
+        </nav>
+        <h3>שיטת <span class="nowrap">cbDIDG</span><br>של אייל עמית</h3>
+      </div>
+    </div>
+    <figure>
+      <img src="../wave-b-shots/clean-lessons-hero-390.png" alt="לפני: שיעורים בלי פירורים">
+      <figcaption>לפני · /lessons/ · 390</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · עומק 2 · סקיצה</div>
+      <div class="hero-mock">
+        <nav class="crumb" aria-label="פירורים">
+          <a href="#">בית</a> · <span>שיעורי דיג׳רידו</span>
+        </nav>
+        <h3>שיעורי נגינה בדיג׳רידו<br>לפי <span class="nowrap">שיטת cbDIDG</span><br>של אייל עמית</h3>
+      </div>
+    </div>
+  </div>
+  <p class="note">עומק 3 לדוגמה: בית · לימוד והכשרה · הכשרות למטפלים. אם השביל ארוך ב־390 הוא יורד לשורה שנייה, לא נחתך הצידה.</p>
+</section>
+
+<section class="item" id="s3">
+  <h2>3 — בלוקים כהים מול הפוטר (סקיצה מתוקנת)</h2>
+  <p class="note">נדחה: מילוי טרה-קוטה מלא (שינוי צבע). במקום זה — אותו <code>--dark-grad</code> עם טינט חם עדין (~10% terra על הגרדיאנט הקיים). הפוטר נשאר #0E0905 בלי טינט. צור קשר: מרווח שנהב 32px — אושר.</p>
+  <div class="grid">
+    <figure>
+      <img src="../wave-b-shots/clean-repair-cta-1440.png" alt="לפני: פס כהה באמצע /repair/">
+      <figcaption>לפני · /repair/ · כמעט-שחור, נראה כפוטר</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">נדחה · לא זו הסקיצה · מילוי terra-dk</div>
+      <div class="band-terra" style="opacity:.55"><span class="btn">לתיאום בדיקה לנגינה</span><strong>לא זה</strong></div>
+    </div>
+    <div class="mock">
+      <div class="label">סקיצה חדשה · טינט עדין על dark-grad הקיים</div>
+      <div style="background:var(--ivory-2);padding:28px 0 0;color:var(--body);text-align:right">
+        <p style="padding:0 28px">…רשימת תיקונים על שנהב…</p>
+        <div class="band-dark" style="background-image:linear-gradient(160deg,rgba(154,79,43,.10),rgba(154,79,43,.08)),linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%)">
+          <span class="btn">לתיאום בדיקה לנגינה</span>
+          <strong>תיקון וחידוש</strong>
+        </div>
+        <p style="padding:20px 28px">איך נראה תהליך התיקון?</p>
+      </div>
+    </div>
+    <figure>
+      <img src="../wave-b-shots/clean-contact-dark-1440.png" alt="לפני: CTA כהה דבוק לפוטר בצור קשר">
+      <figcaption>לפני · /contact/ · כהה דבוק לפוטר</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אושר · צור קשר · מרווח שנהב · פוטר לא משתנה</div>
+      <div class="band-dark">
+        <span class="btn btn-terra">דברו איתי בוואטסאפ</span>
+        <div>מעדיפים לכתוב ישירות?</div>
+      </div>
+      <div class="band-gap"></div>
+      <div class="foot">המרכז לטיפול בנשימה באמצעות דיג׳רידו · פוטר כהה כמו היום</div>
+    </div>
+  </div>
+</section>
+
+<section class="item" id="s4">
+  <h2>4א — nowrap על הביטוי, לא על כל ה־H1</h2>
+  <p class="note">המילה cbDIDG כבר לא נשברת היום. הסקיצה מדביקה רק את «שיטת cbDIDG». «של אייל עמית» רשאי לרדת. בלי שינוי --fs-h1.</p>
+  <div class="grid">
+    <figure>
+      <img src="../wave-b-shots/clean-method-h1-390.png" alt="לפני: שיטת cbDIDG בשורה, של אייל עמית בשורה הבאה">
+      <figcaption>לפני · /method/ 390 · טוקן שלם; «של אייל עמית» יורד</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · אותה שבירה מותרת + ביטוח nowrap</div>
+      <div class="hero-mock">
+        <h3><span class="nowrap">שיטת cbDIDG</span><br>של אייל עמית</h3>
+      </div>
+    </div>
+    <figure>
+      <img src="../wave-b-shots/clean-lessons-hero-390.png" alt="לפני: שיעורים שלוש שורות">
+      <figcaption>לפני · /lessons/ 390 · «לפי שיטת cbDIDG של» אז «אייל עמית»</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · «שיטת cbDIDG» יחידה אחת</div>
+      <div class="hero-mock">
+        <h3>שיעורי נגינה בדיג׳רידו<br>לפי <span class="nowrap">שיטת cbDIDG</span><br>של אייל עמית</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="item" id="s17">
+  <h2>17 — סרגל גבוה במנוחה, נכנס בגלילה</h2>
+  <p class="note">היום 72px תמיד; בגלילה רק הרקע מתכהה. מוצע 88 → 56. --fs-nav נעול. ריפוד הירו לפי 88 כדי ששיעורים לא יחזרו מאחורי הסרגל.</p>
+  <div class="grid">
+    <figure>
+      <img src="../wave-b-shots/clean-nav-rest-1440.png" alt="לפני: סרגל 72 שקוף-כהה על ההירו">
+      <figcaption>לפני · מנוחה 1440 · גובה 72</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · מנוחה 88px · אותו פונט סרגל</div>
+      <div class="nav88">
+        <div class="items"><span>טיפול בדיג׳רידו</span><span>השיטה</span><span>שיעורי דיג׳רידו</span></div>
+        <span>⊕ המרכז לטיפול בדיג׳רידו</span>
+      </div>
+      <div style="height:120px;background:#2a1c12;color:#fff;padding:24px">הירו · ריפוד עליון 104px (88+16)</div>
+    </div>
+    <figure>
+      <img src="../wave-b-shots/clean-nav-scrolled-1440.png" alt="לפני: סרגל 72 אטום אחרי גלילה">
+      <figcaption>לפני · אחרי גלילה 1440 · גובה עדיין 72, רקע אטום</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · גלילה 56px · data-s=1 כמו היום</div>
+      <div class="nav56">
+        <div class="items"><span>טיפול בדיג׳רידו</span><span>השיטה</span><span>שיעורי דיג׳רידו</span></div>
+        <span>⊕</span>
+      </div>
+      <div style="background:var(--ivory-2);padding:24px;color:var(--body)">תוכן העמוד · הסרגל נמוך יותר, הפונט זהה</div>
+    </div>
+  </div>
+</section>
+
+<section class="item" id="s7">
+  <h2>7 — CMP במקום יידוע גל א</h2>
+  <p class="note">דיאלוג אחד, לא באנר שני. הכרחי תמיד. מדידה (GA4 + גופנים) רק אחרי אישור. דחייה = לא טוענים gtag.js. נוסח מתוך מדיניות הפרטיות, לא GDPR.</p>
+  <div class="grid">
+    <figure>
+      <img src="../wave-b-shots/before-cookie-390.png" alt="לפני: דיאלוג הבנתי בלבד, GA4 כבר רץ">
+      <figcaption>לפני · יידוע גל א · כפתור «הבנתי» · gtag כבר function</figcaption>
+    </figure>
+    <div class="mock">
+      <div class="label">אחרי · כניסה ראשונה</div>
+      <div class="dialog">
+        <h3>שימוש בעוגיות ובמדידה</h3>
+        <p style="margin:0;font-size:15px;color:var(--ink)">באתר פועל Google Analytics 4 לאיסוף נתוני שימוש סטטיסטיים, ועשוי להשתמש בעוגיות או במזהים. בחלק מהעמודים נטענים גם גופנים מ־Google.</p>
+        <div class="cats">
+          <div class="cat"><span>הכרחי — תפעול האתר</span><strong>תמיד</strong></div>
+          <div class="cat"><span>מדידה — Analytics וגופנים</span><strong>כבוי</strong></div>
+        </div>
+        <p style="margin:0"><a href="#" style="color:var(--terra)">מדיניות הפרטיות</a></p>
+        <div class="row">
+          <button class="btn btn-terra" type="button">אישור מדידה</button>
+          <button class="btn" type="button">המשך בלי מדידה</button>
+        </div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="label">אחרי · נבחר אישור · אין דיאלוג · gtag נטען</div>
+      <div style="padding:40px;text-align:center;color:var(--body)">האתר כרגיל. בלי באנר תחתון. בלי דיאלוג שני.</div>
+    </div>
+    <div class="mock">
+      <div class="label">אחרי · נבחר דחייה · אין דיאלוג · gtag לא נטען</div>
+      <div style="padding:40px;text-align:center;color:var(--body)">האתר כרגיל. מדידה כבויה עד שינוי בפרטיות / חזרה על הבחירה.</div>
+    </div>
+  </div>
+</section>
+
+<section class="item" id="s8">
+  <h2>8 — קישורים ישנים (בלי סקיצה אם רק href)</h2>
+  <p class="note">אין שינוי מראה. פירוט מלא במפקד. כאן רק מה שמוצע להחליף אחרי אישור הטבלה.</p>
+  <table>
+    <thead><tr><th>מקור חי</th><th>יעד אחרי 301</th></tr></thead>
+    <tbody>
+      <tr><td>FAQ — נשים מנגנות</td><td>/blog/…נשים-מנגנות…</td></tr>
+      <tr><td>FAQ — כלים / תיקים / סטנדים / תיקון</td><td>/didgeridoos/ /bags/ /stand-floor/ /stands-storage/ /repair/</td></tr>
+      <tr><td>פוסט מוקש / ריברסינג / ספר / מוזה / צור קשר</td><td>/eyal-amit/mokesh-dahiman/ /treatment/ /books/vekatavta/ /books/ /contact/</td></tr>
+    </tbody>
+  </table>
+  <p class="note">חניה: תמונת צוותא 404, שלושה /shop/shows/, קישור הקורסים ל־www.eyalamit.co.il/, ו־/books/כושי-בלאנטיס/ (העמוד החי הוא /books/kushi-blantis/ — לא מחליפים בלי אישור מפורש).</p>
+</section>
+</body>
+</html>

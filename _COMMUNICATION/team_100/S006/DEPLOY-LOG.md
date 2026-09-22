@@ -69,3 +69,10 @@ tree is live. A line marked DIRTY shipped edits that were in no commit.
 - 2026-09-21T14:04:45+03:00 · `20361b1d6b1d` · main · theme 1.5.100 · 533 files · DIRTY: EI T19 v2 image fix
 - 2026-09-21T14:07:37+03:00 · `20361b1d6b1d` · main · theme 1.5.100 · 533 files · DIRTY: EI-T19 P008 v3 body_images fix
 - 2026-09-21T19:21:17+03:00 · `20361b1d6b1d` · main · theme 1.5.101 · 536 files · DIRTY: S007 Q-pack: services unpublish, about 301, courses coming-soon nav, EN publish+photo slots, theme 1.5.101
+- 2026-09-21T20:45:31+03:00 · `e8992be897c2` · main · theme 1.5.102 · 536 files · DIRTY: S007 learning photo-slots theme 1.5.102; Q-LEARNING-PHOTOS lock
+- 2026-09-21T20:56:03+03:00 · `e8992be897c2` · main · theme 1.5.103 · 536 files · DIRTY: S007 DA-NAV-01 burger inline-start theme 1.5.103; N1 awaiting Eyal
+- 2026-09-21T22:43:09+03:00 · `e8992be897c2` · main · theme 1.5.104 · 544 files · DIRTY: S007 phase1 archive E1/E4 found content into existing templates; tree already dirty from 1.5.103
+- 2026-09-21T22:55:38+03:00 · `e8992be897c2` · main · theme 1.5.105 · 544 files · DIRTY: S007 phase1 overflow fix on /historical-articles/ clipping grid; 1.5.105
+- 2026-09-22T01:36:16+03:00 · `e8992be897c2` · build/s007-align-sweep · theme 1.5.106 · 544 files · DIRTY: align-sweep on isolated 1.5.105 baseline
+- 2026-09-22T10:27:01+03:00 · `90e35319d486` · build/s007-open-round · theme 1.5.107 · 547 files
+- 2026-09-22T10:35:01+03:00 · `90e35319d486` · build/s007-open-round · theme 1.5.108 · 547 files · DIRTY: lang=he on EN brand+drawer after Composer FAIL; theme 1.5.108

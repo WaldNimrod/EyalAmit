@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סקיצה — עכשיו באתר בדף הבית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#fffffa; --ivory-2:#efeae1; --dark:#0E0905;
+    --dark-grad:linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);
+    --terra:#B5663D; --terra-lt:#D08A5E; --ink:#2f2013; --body:#67482d; --sand:#D8C7B5; --muted:#786651;
+    --fs-h1:2.7625rem; --fs-h2:1.540625rem; --fs-h3:1.16875rem; --fs-lead:1.221875rem;
+    --fs-body:1.0625rem; --fs-sm:0.95625rem; --fs-nav:1.1475rem; --fs-2xs:0.765rem; --fs-3xs:0.690625rem;
+    --sec:clamp(40px,6.2vw,88px);
+    --bf:Heebo,-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:#e8dfd2;color:var(--ink);font:var(--fs-body)/1.55 var(--bf)}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .chrome{background:var(--dark);color:#fff;padding:18px 28px 14px}
+  .chrome h1{margin:0 0 6px;font:600 20px/1.3 var(--bf)}
+  .chrome p{margin:0;color:rgba(255,255,255,.78);max-width:82ch;font-size:14px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;padding:10px 28px;background:#fff;border-bottom:1px solid var(--sand);position:sticky;top:0;z-index:40}
+  .tools button{font:500 14px var(--bf);border:1px solid var(--sand);background:#fff;color:var(--terra);border-radius:999px;padding:7px 14px;cursor:pointer}
+  .tools button[aria-current="true"]{background:var(--terra);color:#fff;border-color:var(--terra)}
+  .banner{background:#7a3b16;color:#fff;font-size:13px;padding:8px 28px}
+  .stage{padding:24px 16px 48px}
+  .phone{max-width:390px;margin-inline:auto;border:10px solid #1a120c;border-radius:28px;overflow:hidden;box-shadow:0 24px 48px -28px rgba(20,14,9,.7)}
+  body.vp-1440 .phone{max-width:1200px;border-width:0;border-radius:0;box-shadow:none}
+  .page{background:var(--ivory)}
+  .nav56{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(20,14,9,.96);color:#fff;font-size:13px}
+  body.vp-1440 .nav56{padding:0 44px}
+  .nav56 .items{display:none;gap:18px;font-size:var(--fs-nav);opacity:.92}
+  body.vp-1440 .nav56 .items{display:flex}
+  .wrap{max-width:1200px;margin-inline:auto;padding-inline:24px;position:relative}
+  body.vp-1440 .wrap{padding-inline:48px}
+  .sec{padding:var(--sec) 0;position:relative}
+  .sec--alt{background:var(--ivory-2)}
+  .chap{font-weight:500;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:block}
+  .h2{font-weight:600;font-size:var(--fs-h2);line-height:1.16;letter-spacing:-.3px;color:var(--ink);margin:0 0 18px;text-align:start}
+  .ghost{opacity:.55;pointer-events:none}
+  .ghost .h2{font-size:18px;margin:0}
+  .hero{min-height:220px;background:var(--dark-grad) center/cover;color:#fff;display:flex;align-items:flex-end;padding:40px 0 28px}
+  body.vp-1440 .hero{min-height:320px}
+  .hero h2{margin:0 0 8px;font-size:clamp(1.3rem,3vw,2rem);font-weight:600;max-width:32ch}
+  .hero p{margin:0;max-width:54ch;color:rgba(255,255,255,.82);font-size:var(--fs-sm)}
+  .intro-body{max-width:82ch;margin-inline:auto;color:var(--body)}
+  .videoblk{position:relative;aspect-ratio:16/9;background:#1a120c;border-radius:8px;overflow:hidden}
+  .videoblk img{width:100%;height:100%;object-fit:cover;opacity:.72}
+  .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;letter-spacing:.08em}
+  .play span{border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:10px 18px;background:rgba(20,14,9,.45)}
+  #spotlight{outline:3px solid var(--terra);outline-offset:-3px;background:var(--ivory);padding:12px 0}
+  #spotlight .wrap{padding-inline:12px}
+  body.vp-1440 #spotlight .wrap{padding-inline:16px}
+  .lead{max-width:54ch;margin:0 0 28px;color:var(--body);font-size:var(--fs-sm)}
+  .spot{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  body.vp-1440 .spot{grid-template-columns:repeat(4,1fr);gap:12px}
+  .scard{display:block;background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden;color:inherit}
+  .scard .ph{aspect-ratio:3/2;overflow:hidden;background:#1a120c}
+  .scard img{width:100%;height:100%;object-fit:cover}
+  .scard .tx{padding:10px 12px 12px}
+  .scard h3{margin:0 0 8px;font-size:var(--fs-h3);font-weight:600;line-height:1.3}
+  .scard .run{margin:0;font-size:var(--fs-sm);line-height:1.45;color:var(--body);font-weight:400}
+  .scard .run + .run{margin-top:2px}
+  .note{font-size:13px;color:var(--body);max-width:72ch;padding:0 28px 28px}
+  .note code{font:12px ui-monospace,Menlo,monospace;background:#fff;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body class="vp-1440">
+<header class="chrome">
+  <h1>סקיצה — רצועת «עכשיו באתר» בדף הבית</h1>
+  <p>בלי כותרת רצועה ובלי טקסט מקדים — רק כרטיסים. בכל כרטיס: תמונה, שם, שתי שורות טקסט רץ (לא כתובת). אייל בוחר לאן כל אחד מארבעתם מקשר, מכל עמודי האתר.</p>
+</header>
+<div class="tools">
+  <button type="button" data-vp="1440" aria-current="true">דסקטופ 1440</button>
+  <button type="button" data-vp="390">מובייל 390</button>
+</div>
+<p class="banner">סקיצה בלבד. לא האתר החי. לא מממשים עד אישור.</p>
+
+<div class="stage">
+  <div class="phone">
+    <div class="page">
+      <div class="nav56">
+        <span>אייל עמית</span>
+        <span class="items">טיפול · שיעורים · סאונד · לימוד · חנות · ספרים · בלוג · אייל · צור קשר · EN</span>
+        <span>☰</span>
+      </div>
+
+      <section class="hero ghost">
+        <div class="wrap">
+          <h2>המרכז לטיפול בנשימה באמצעות דיג'רידו</h2>
+          <p>01 הירו — קיים. לא משנים כאן.</p>
+        </div>
+      </section>
+
+      <section class="sec sec--alt ghost">
+        <div class="wrap">
+          <h2 class="h2">מה זה טיפול בנשימה באמצעות דיג'רידו</h2>
+          <div class="intro-body"><p>02 קיים. גוף 82ch. הרצועה החדשה לא נכנסת לכאן.</p></div>
+        </div>
+      </section>
+
+      <section class="sec ghost">
+        <div class="wrap">
+          <h2 class="h2">וידאו</h2>
+          <div class="videoblk">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg" alt="">
+            <div class="play"><span>03 YouTube — קיים</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="spotlight">
+        <div class="wrap">
+          <div class="spot">
+            <a class="scard" href="http://eyalamit-co-il-2026.s887.upress.link/shop/">
+              <div class="ph"><img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-01.jpg" alt=""></div>
+              <div class="tx">
+                <h3>כלי דיג׳רידו למכירה</h3>
+                <p class="run">כלים בעבודת יד, מעמדים ואביזרים מהסטודיו בפרדס חנה.</p>
+                <p class="run">מוכנים לשימוש, עם אפשרות לתיקון וחידוש.</p>
+              </div>
+            </a>
+            <a class="scard" href="http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/">
+              <div class="ph"><img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/kushi-01-blantis-1.jpg" alt=""></div>
+              <div class="tx">
+                <h3>כושי בלאנטיס</h3>
+                <p class="run">הספר הראשון. סיפורים מהדרך, מהכלי ומהחיים.</p>
+                <p class="run">בין הודו לישראל, בלי קיצור דרך.</p>
+              </div>
+            </a>
+            <a class="scard" href="http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/">
+              <div class="ph"><img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg" alt=""></div>
+              <div class="tx">
+                <h3>הכשרות למטפלים</h3>
+                <p class="run">מסלול למי שרוצה ללמוד את הדרך באופן מובנה.</p>
+                <p class="run">ולהמשיך ללמד ולטפל בעצמו.</p>
+              </div>
+            </a>
+            <a class="scard" href="http://eyalamit-co-il-2026.s887.upress.link/blog/">
+              <div class="ph"><img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-25.jpg" alt=""></div>
+              <div class="tx">
+                <h3>שבוע הנשימה בסטודיו</h3>
+                <p class="run">רשימה מהמרכז: תרגול, כלים, ומה שקורה בחצר.</p>
+                <p class="run">אייל בוחר איזה פוסט מופיע, מתי.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec sec--alt ghost">
+        <div class="wrap">
+          <h2 class="h2">טיפול בדיג'רידו או סאונד הילינג – מה ההבדל?</h2>
+          <p class="lead" style="margin:0">04 קיים — ממשיך מיד אחרי הרצועה.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<p class="note">
+  T-IA-SPOTLIGHT · ארבעה כרטיסים שווים: אייל בוחר יעד לכל אחד מכל האתר. בלי כותרת רצועה. פרק «הצצה» בהמשך העמוד נשאר.
+  קובץ: <code>file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-HOME-SPOTLIGHT.html</code>
+</p>
+<script>
+  document.querySelectorAll("[data-vp]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.body.classList.toggle("vp-1440", btn.dataset.vp === "1440");
+      document.querySelectorAll("[data-vp]").forEach(function(b){ b.removeAttribute("aria-current"); });
+      btn.setAttribute("aria-current","true");
+    });
+  });
+</script>
+</body>
+</html>

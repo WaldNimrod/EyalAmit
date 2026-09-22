@@ -47,20 +47,20 @@
   .nav-bar .l1{display:flex;gap:8px;flex-wrap:nowrap;overflow:hidden;opacity:.95}
   .nav-bar .l1 span{white-space:nowrap;padding:4px 2px}
   .nav-bar .l1 .dd::after{content:" ▾";font-size:9px;opacity:.7}
-  .tree{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-  .branch{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:12px 14px}
-  .branch h3{margin:0 0 8px;font-size:14px}
-  .branch ul{margin:0;padding:0 16px 0 0;color:var(--body);font-size:13px}
-  .branch .muted{color:#a08068;font-size:12px}
-  .ia-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media(max-width:1000px){.ia-grid{grid-template-columns:1fr}}
-  .ia-card{background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden}
-  .ia-card.rec{border-color:var(--terra);box-shadow:0 0 0 1px var(--terra)}
-  .ia-card .hd{background:var(--dark);color:#fff;padding:10px 14px;font-size:14px;font-weight:650}
-  .ia-card .bd{padding:12px 14px}
-  .ia-card .count{font-size:12px;color:var(--terra-dk);margin:0 0 8px}
-  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
-  .pill{background:var(--ivory-2);border-radius:999px;padding:4px 10px;font-size:12px}
+  .schema{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:16px 20px 20px;margin-top:14px;overflow:auto}
+  .schema h3{margin:0 0 10px;font-size:15px}
+  .schema ol{list-style:none;margin:0;padding:0;counter-reset:n}
+  .schema li{counter-increment:n;margin:0}
+  .schema .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:4px 0;line-height:1.4}
+  .schema .row::before{content:counters(n,".") ".";font-variant-numeric:tabular-nums;font-weight:650;color:var(--terra-dk);min-width:2.8em}
+  .schema > ol > li > .row{font-size:16px;padding:7px 0 5px;border-bottom:1px solid #f0e6da}
+  .schema ol ol{margin:2px 14px 8px 0;padding:0 16px 0 0;border-right:1px solid #d8c4b0}
+  .schema ol ol .row{font-size:14px;border:0;padding:3px 0}
+  .schema .lab{font-weight:650;color:var(--ink)}
+  .schema .href{font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--body);direction:ltr;unicode-bidi:embed}
+  .schema .note{font-size:12px;color:#8a6a52}
+  .schema.opts > ol > li > .row{border:0}
+  .schema.opts ol ol{border-right-color:#e4d4c4}
   .home-flow{display:flex;flex-direction:column;gap:8px;max-width:720px}
   .home-row{border-radius:10px;padding:12px 16px;background:#fff;border:1px dashed var(--sand);color:var(--body);font-size:13px}
   .home-row.hi{border:2px solid var(--terra);background:#fff8f2;color:var(--ink)}
@@ -81,12 +81,13 @@
 <body>
 <header class="page">
   <h1>לוח עבודה S007</h1>
-  <p>נגזר מ־תור העבודה. אין לערוך סטטוס כאן. generatedAt 2026-09-21T16:23Z · ssotSha12 ab4134ee3934 · תמה 1.5.101</p>
+  <p>נגזר מ־תור העבודה. אין לערוך סטטוס כאן. generatedAt 2026-09-22T07:38Z · ssotSha12 1b022d5a422e · תמה 1.5.108</p>
   <p>מקור: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json">S007-WORK-SSOT.json</a>
    · טופס אייל: <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html">s007-content-gaps.html</a></p>
 </header>
 <p class="wait"><strong>אין לערוך סטטוס בלוח הזה.</strong> סתירה מול קובץ העבודה — הקובץ מנצח. אקסל 20.9 הוא ארכיון. HANDOFF הוא שיחה.</p>
-<p class="hold-nav"><strong>חרגת תפריט:</strong> לא נוגעים ב־ea-canonical-nav.php / drawer / section-nav עד שיחת נימרוד–אייל.</p>
+<p class="hold-nav"><strong>חרגת תפריט:</strong> שאר L1 / parent href — סקשן אחד בטופס (חלק י · M1) ובלוח (#navtree). ייסגר ביחד אחרי שיחה עם אייל. חריגות ממוקדות שכבר חיות: «קורסים» תחת לימוד והכשרה; צדדי המבורגר (N1, ממתין לאישור אייל). אין שינוי ל־ea-canonical-nav.php בשלב הזה.</p>
+<p class="hold-nav"><strong>שלב 2 — בלוג ו-QR:</strong> ארכיון + QR אושרו. פוסט חדש — דוגמה מלאה לאישור: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-NEW-POST-DUMMY.html">פוסט דמה</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-BLOG-QR.html">גלריה</a> · <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/PHASE-2-BLOG-QR-AFTER-SKETCH.md">תוכנית שלב 2</a>. אין FTP תמה לשלב 2 עד אישור מבנה הפוסט החדש.</p>
 <nav class="toc">
   <a href="#q">שאלות</a>
   <a href="#navtree">עץ ותפריט</a>
@@ -98,13 +99,13 @@
 <section class="item" id="q">
   <h2>שאלות פתוחות אליך</h2>
   <p class="path">לא הכרעה שקטה. עד תשובה — waiting/nimrod בתור.</p>
-  <ol><li><span class='tag waitn'>nimrod</span> העתקת הירו מהמקור לכל P/Q בלי סקיצה לכל URL — מאשרים באצווה?</li><li><span class='tag waitn'>nimrod</span> שלוש תמונות ב-/learning/: מחכים ל-939 של אייל, או מציעים שלוש מהמדיה?</li><li><span class='tag waitn'>nimrod</span> שיירי ATTACK (וואטסאפ צף, כותרת מובייל, lang ב-EN, st3) — נכנסים לסבב הבא או נשארים אחרי ההשקה?</li><li><span class='tag waitn'>nimrod</span> DA-NAV-01: ב-21.9 ביקשת המבורגר מימין ולוגו משמאל. בריף גל א מיוני היה הפוך. איזה בריף חי?</li></ol>
-  <table><tr><th>status/waitingOn</th><th>כמה בלוח</th></tr><tr><td>closed/none</td><td>27</td></tr><tr><td>open/nimrod</td><td>11</td></tr><tr><td>waiting/eyal</td><td>5</td></tr><tr><td>waiting/nimrod</td><td>111</td></tr></table>
+  <ol></ol>
+  <table><tr><th>status/waitingOn</th><th>כמה בלוח</th></tr><tr><td>closed/none</td><td>41</td></tr><tr><td>open/nimrod</td><td>1</td></tr><tr><td>open/team10</td><td>2</td></tr><tr><td>waiting/eyal</td><td>14</td></tr><tr><td>waiting/nimrod</td><td>1</td></tr><tr><td>waiting/team10</td><td>101</td></tr></table>
 </section>
 
 <section class="item" id="navtree">
   <h2>עץ האתר כפי שהוא בתפריט היום</h2>
-  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»).</p>
+  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»). כל שאלות העץ נסגרות ביחד בטופס חלק י (M1).</p>
   <div class="nav-bar" aria-hidden="true">
     <span class="brand">אייל עמית</span>
     <div class="l1">
@@ -120,35 +121,99 @@
       <span>צור קשר</span>
     </div>
   </div>
-  <div class="tree" style="margin-top:14px">
-    <div class="branch"><h3>בית</h3><p class="muted">לוגו בלבד בדסקטופ. במגירה — שורה «בית».</p></div>
-    <div class="branch"><h3>טיפול בדיג׳רידו</h3><ul><li>טיפול בדיג׳רידו</li><li>נחירות ודום נשימה בשינה</li></ul></div>
-    <div class="branch"><h3>השיטה</h3><p class="muted">עמוד בודד /method/</p></div>
-    <div class="branch"><h3>שיעורי דיג׳רידו</h3><p class="muted">עמוד בודד /lessons/</p></div>
-    <div class="branch"><h3>סאונד הילינג</h3><p class="muted">עמוד בודד /sound-healing/</p></div>
-    <div class="branch"><h3>לימוד והכשרה</h3><p class="muted">כפתור, בלי קישור לאב</p><ul><li>הכשרות למטפלים</li><li>קורסים → /learning/courses-external/ — יעלה בקרוב</li><li>הרצאות</li><li>סדנאות</li></ul></div>
-    <div class="branch"><h3>כלים ואביזרים</h3><ul><li>כלים בעבודת יד ואביזרים</li><li>תיקון וחידוש</li><li>כלי דיג׳רידו למכירה</li><li>תיקים</li><li>סטנדים לאחסון</li><li>סטנד רצפתי לנגינה</li></ul></div>
-    <div class="branch"><h3>ספרים</h3><ul><li>מבצעים</li><li>צבע בכחול וזרוק לים</li><li>כושי בלאנטיס</li><li>וכתבת</li></ul></div>
-    <div class="branch"><h3>בלוג דיג׳רידו</h3><p class="muted">עמוד בודד /blog/</p></div>
-    <div class="branch"><h3>אייל עמית</h3><p class="muted">כפתור, בלי קישור לאב</p><ul><li>אודות אייל → /eyal-amit/</li><li>מוקש דהימן — לזכרו</li></ul></div>
-    <div class="branch"><h3>צור קשר</h3><p class="muted">עמוד בודד /contact/</p></div>
+  <div class="schema" aria-label="עץ התפריט הקנוני">
+    <h3>עץ מלא — רמה 1 בסרגל, רמה 2 בתפריט נפתח / במגירה</h3>
+    <ol>
+      <li>
+        <div class="row"><span class="lab">בית</span><span class="href">/</span><span class="note">לוגו בדסקטופ · במגירה שורה «בית»</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div></li>
+          <li><div class="row"><span class="lab">נחירות ודום נשימה בשינה</span><span class="href">/snoring-sleep-apnea/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">השיטה</span><span class="href">/method/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">שיעורי דיג׳רידו</span><span class="href">/lessons/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">סאונד הילינג</span><span class="href">/sound-healing/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">לימוד והכשרה</span><span class="note">כפתור — אין קישור לאב</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">הכשרות למטפלים</span><span class="href">/learning/therapist-training/</span></div></li>
+          <li><div class="row"><span class="lab">קורסים</span><span class="href">/learning/courses-external/</span><span class="note">יעלה בקרוב</span></div></li>
+          <li><div class="row"><span class="lab">הרצאות</span><span class="href">/learning/lectures/</span></div></li>
+          <li><div class="row"><span class="lab">סדנאות</span><span class="href">/learning/workshops/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">כלים ואביזרים</span><span class="href">/shop/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">כלים בעבודת יד ואביזרים</span><span class="href">/shop/</span></div></li>
+          <li><div class="row"><span class="lab">תיקון וחידוש כלי דיג׳רידו</span><span class="href">/repair/</span></div></li>
+          <li><div class="row"><span class="lab">כלי דיג׳רידו למכירה</span><span class="href">/didgeridoos/</span></div></li>
+          <li><div class="row"><span class="lab">תיקים לדיג׳רידו</span><span class="href">/bags/</span></div></li>
+          <li><div class="row"><span class="lab">סטנדים לאחסון דיג׳רידו</span><span class="href">/stands-storage/</span></div></li>
+          <li><div class="row"><span class="lab">סטנד רצפתי לנגינה</span><span class="href">/stand-floor/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ספרים</span><span class="href">/books/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">מבצעים</span><span class="href">/books/#books-bundle</span></div></li>
+          <li><div class="row"><span class="lab">צבע בכחול וזרוק לים</span><span class="href">/books/tsva-bekahol/</span></div></li>
+          <li><div class="row"><span class="lab">כושי בלאנטיס</span><span class="href">/books/kushi-blantis/</span></div></li>
+          <li><div class="row"><span class="lab">וכתבת</span><span class="href">/books/vekatavta/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">בלוג דיג׳רידו</span><span class="href">/blog/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">אייל עמית</span><span class="note">כפתור — אין קישור לאב</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">אודות אייל</span><span class="href">/eyal-amit/</span></div></li>
+          <li><div class="row"><span class="lab">מוקש דהימן — לזכרו</span><span class="href">/eyal-amit/mokesh-dahiman/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">צור קשר</span><span class="href">/contact/</span></div>
+      </li>
+    </ol>
   </div>
-  <div class="ia-grid" style="margin-top:16px">
-    <div class="ia-card"><div class="hd">אופציה א — ארבעה פתחים</div><div class="bd">
-      <p class="count">4 כפתורי L1 במקום 10</p>
-      <div class="pill-row"><span class="pill">טיפול ועבודה</span><span class="pill">ללמוד</span><span class="pill">חנות</span><span class="pill">אייל</span></div>
-      <p>הכי ברור לאורח חדש. דורש הרגל מחדש.</p>
-    </div></div>
-    <div class="ia-card"><div class="hd">אופציה ב — שישה</div><div class="bd">
-      <p class="count">6 כפתורי L1 — קיצוץ מתון</p>
-      <div class="pill-row"><span class="pill">טיפול ▾</span><span class="pill">שיעורים</span><span class="pill">סאונד</span><span class="pill">לימוד ▾</span><span class="pill">חנות ▾</span><span class="pill">אייל ▾</span></div>
-      <p>שומר על שלושת שירותי הליבה בשורה.</p>
-    </div></div>
-    <div class="ia-card rec"><div class="hd">אופציה ג — לחץ מהבית · מומלץ עכשיו</div><div class="bd">
-      <p class="count">התפריט נשאר כמו שהוא</p>
-      <div class="pill-row"><span class="pill">10 L1 ללא שינוי</span><span class="pill">+ רצועת «עכשיו באתר»</span></div>
-      <p>ברירת מחדל כל עוד אין שיחת תפריט.</p>
-    </div></div>
+  <div class="schema opts">
+    <h3>אופציות תפריט לשיחה — לא מממשים</h3>
+    <ol>
+      <li>
+        <div class="row"><span class="lab">א — ארבעה פתחים</span><span class="note">4 כפתורי L1 במקום 10. הכי ברור לאורח חדש. דורש הרגל מחדש.</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול ועבודה</span></div></li>
+          <li><div class="row"><span class="lab">ללמוד</span></div></li>
+          <li><div class="row"><span class="lab">חנות</span></div></li>
+          <li><div class="row"><span class="lab">אייל</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ב — שישה</span><span class="note">קיצוץ מתון. שומר על שלושת שירותי הליבה בשורה.</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול</span></div></li>
+          <li><div class="row"><span class="lab">שיעורים</span></div></li>
+          <li><div class="row"><span class="lab">סאונד</span></div></li>
+          <li><div class="row"><span class="lab">לימוד</span></div></li>
+          <li><div class="row"><span class="lab">חנות</span></div></li>
+          <li><div class="row"><span class="lab">אייל</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ג — לחץ מהבית · מומלץ עכשיו</span><span class="note">10 L1 ללא שינוי + רצועת «עכשיו באתר». ברירת מחדל כל עוד אין שיחת תפריט.</span></div>
+      </li>
+    </ol>
   </div>
 </section>
 <section class="item" id="spotlight">
@@ -177,21 +242,21 @@
 </section>
 
 <section class="item" id="T-NAV-HOLD" data-status="waiting" data-waiting="nimrod" data-kind="nav" data-surface="nimrod_board">
-  <h2>T-NAV-HOLD — חרגת תפריט ראשי <span class="tag nav">ממתין לנימרוד — שיחה מול אייל; קורסים כבר חריגה ממוקדת</span></h2>
+  <h2>T-NAV-HOLD — חרגת תפריט ראשי <span class="tag nav">ממתין לשיחה עם אייל — סקשן M1 בטופס; קורסים + המבורגר חריגות ממוקדות</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
   
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>חריגה ממוקדת 21.9: «קורסים» חזר תחת לימוד והכשרה ליעד אמיתי. לא נוגעים בשאר L1 / parent href / DA-NAV עד שיחה עם אייל. T1/T2/T3/E2.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>שאר L1 / parent href נסגרים ביחד ב-M1 אחרי שיחה. אין שינוי ל-ea-canonical-nav.php בשלב הזה. חריגות חיות: קורסים; צדדי המבורגר N1.</p></div>
   </div>
 </section>
-<section class="item" id="T-IA-SPOTLIGHT" data-status="waiting" data-waiting="nimrod" data-kind="nav" data-surface="nimrod_board">
-  <h2>T-IA-SPOTLIGHT — סקיצת «עכשיו באתר» בדף הבית <span class="tag nav">ממתין לנימרוד — סקיצה, לא קוד</span></h2>
+<section class="item" id="T-IA-SPOTLIGHT" data-status="closed" data-waiting="none" data-kind="nav" data-surface="nimrod_board">
+  <h2>T-IA-SPOTLIGHT — סקיצת «עכשיו באתר» בדף הבית <span class="tag done">נסגר — ארבעה כרטיסים חיים בדף הבית</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · #ea-now 4 cards · 2 runs each · 0 h2 in section · wrap 1200 · overflow 0 @390/1440</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ארבעה כרטיסים אחרי פרק הווידאו. אופציה ג (10 L1 ללא שינוי + רצועה). לא מממשים עד אישור.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>אחרי הווידאו. בלי כותרת רצועה. תמונה+שם+שתי שורות. אייל מחליף כל כרטיס מ-ACF/ברירות מחדל, לכל עמוד באתר.</p></div>
   </div>
 </section>
 <section class="item" id="T-SERVICES-METHOD" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
@@ -221,112 +286,139 @@
     <div class="box us"><h3>סיכום מהתור</h3><p>החלטת פרסום עכשיו בוצעה. תמונות נשארות אצל אייל ב-C3.</p></div>
   </div>
 </section>
-<section class="item" id="T-HERO-BATCH" data-status="waiting" data-waiting="nimrod" data-kind="ops" data-surface="nimrod_board">
-  <h2>T-HERO-BATCH — באצ׳ הירו בלוג + QR <span class="tag waitn">ממתין לנימרוד — העתקה מהמקור בלי סקיצה לכל URL?</span></h2>
+<section class="item" id="T-HERO-BATCH" data-status="waiting" data-waiting="team10" data-kind="ops" data-surface="nimrod_board">
+  <h2>T-HERO-BATCH — מדיניות הירו — QR ≠ בלוג <span class="tag waitn">נעול כמדיניות — צוות 10 אחרי יישור (דמה אושר 22.9)</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/blog/">/blog/</a> · ops · nimrod_board</p>
   
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>דפוס אחד. permalinks של QR לא זזים. חריגי גוף נפרדים (חלקם כבר ב-T19).</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>QR נפרד מהבלוג. QR: תבנית קבועה + תמונה ייחודית או לוגו. בלוג: תבנית אחידה. היסטורי: כבאתר הישן. ברירת מחדל: הירו לוגו בלי תמונה, לא דיוקן.</p></div>
   </div>
 </section>
-<section class="item" id="T-LEARNING-PHOTOS" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-LEARNING-PHOTOS — שלוש תמונות ב-/learning/ <span class="tag waitn">ממתין לנימרוד — לחכות ל-939 או להציע שלוש</span></h2>
+<section class="item" id="T-QR-TEMPLATE" data-status="open" data-waiting="team10" data-kind="visual" data-surface="nimrod_board">
+  <h2>T-QR-TEMPLATE — תבנית קבועה לעמודי QR <span class="tag q">סקיצה אושרה · מימוש אחרי תבנית בלוג (דמה אושר 22.9)</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/">/qr/qr1/</a> · visual · nimrod_board</p>
+  
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>permalink /qr/qrN/ לא זז. אותם כללי הירו. אחרי T-BLOG-TEMPLATE באותו עץ מבודד. אין FTP מהעץ הראשי.</p></div>
+  </div>
+</section>
+<section class="item" id="T-BLOG-TEMPLATE" data-status="open" data-waiting="team10" data-kind="visual" data-surface="nimrod_board">
+  <h2>T-BLOG-TEMPLATE — תבנית פוסט אחידה לבלוג <span class="tag q">נימרוד אישר דוגמת דמה 22.9 — מימוש אצל צוות 10 אחרי יישור</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/blog/">/blog/</a> · visual · nimrod_board</p>
+  
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>הירו ארכיון as-is אושר. פוסט חדש: JSON rows[] + 4 רקעים + מדיה 1–8 + סרט. קאנון יישור = דום נשימה. אין FTP מהעץ הראשי.</p></div>
+  </div>
+</section>
+<section class="item" id="T-ALIGN-SWEEP" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
+  <h2>T-ALIGN-SWEEP — יישור לכל האתר — CSS ואז מחיקת מחלקה כפולה <span class="tag done">נסגר — יישור חי מ-1.5.106, נשמר ב-1.5.108</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/2228-2/">/snoring-sleep-apnea/</a> · visual · nimrod_board</p>
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · /2228-2/ main=chapters-main wrap=1200 no ea-wave2-blog-single · /blog/ no ea-wave2-blog-archive wrap=1200 · / overflow 0 (Team 10 1.5.106 retained)</p>
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>CSS ואז מחיקת מחלקה כפולה. ea-wave2-blog-single ירד מ-52 פוסטים; ea-wave2-blog-archive מ-/blog/; .ea-post-content 82ch. בית לא נגע ביישור. עץ מבודד, FTP מצוות 10 ואז 110.</p></div>
+  </div>
+</section>
+<section class="item" id="T-LEARNING-PHOTOS" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
+  <h2>T-LEARNING-PHOTOS — שלוש תמונות ב-/learning/ <span class="tag done">נסגר — שלושה פלייסהולדרים חיים ב-/learning/</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">/learning/</a> · content_gap · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-21 GET 200 · 3× ea-photo-slot · ids learning-photo-lessons/lectures/training</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אייל אישר טקסט וביקש תמונה לכל אחד משלושת הבלוקים.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>השאלה נעולה. התמונות עצמן אצל אייל ב-C1.</p></div>
   </div>
 </section>
-<section class="item" id="T-AUDIT-SCOPE" data-status="waiting" data-waiting="nimrod" data-kind="a11y" data-surface="nimrod_board">
-  <h2>T-AUDIT-SCOPE — שיירי ביקורת עומק — בסבב הבא? <span class="tag waitn">ממתין לנימרוד — וואטסאפ צף, lang ב-EN, st3, כותרת מובייל</span></h2>
+<section class="item" id="T-AUDIT-SCOPE" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
+  <h2>T-AUDIT-SCOPE — שיירי ביקורת עומק — בסבב הבא? <span class="tag done">נעול לסבב הבא — הפריטים עצמם נשארים פתוחים</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-21 decision locked; N1 live 1.5.103; remaining DA-* still open on board</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ATTACK P0 אין. DA-P1-01 Lorem נסגר ב-B1. השאר P2. DA-NAV סותר בריף ישן של גל א.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>השאלה נעולה: השיירים נכנסים לסבב הבא, לא אחרי ההשקה. DA-NAV-01/N1 מומש כחריגה ממוקדת וממתין לאייל. שאר DA-* פתוחים עד מימוש הסבב.</p></div>
   </div>
 </section>
 <section class="item" id="EI-A4-E2E" data-status="open" data-waiting="nimrod" data-kind="ops" data-surface="nimrod_board">
-  <h2>EI-A4-E2E — הפניית טופס צור-קשר אל /thank-you/ — שליחה חיה <span class="tag q">פתוח — העמוד חי; שליחת טופס אמיתית לא נבדקה</span></h2>
+  <h2>EI-A4-E2E — הפניית טופס צור-קשר אל /thank-you/ — שליחה חיה <span class="tag q">JS חי ב-/contact/ — שליחה אמיתית לא נשלחה</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">/contact/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: not E2E</p>
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · ea-ab-testing.js?ver=1.5.108 loaded · CF7 not submitted</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>wpcf7mailsent ב-JS בלבד. VERIFY PARTIAL.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>ea-ab-testing.js נטען על עמוד Chapters /contact/. wpcf7mailsent → /thank-you/. לא שלחנו טופס חי (מייל לאייל).</p></div>
   </div>
 </section>
-<section class="item" id="DA-WA-01" data-status="open" data-waiting="nimrod" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-WA-01 — כפתור וואטסאפ צף <span class="tag q">פתוח — נמדד בביקורת 21.9</span></h2>
+<section class="item" id="DA-WA-01" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
+  <h2>DA-WA-01 — כפתור וואטסאפ צף <span class="tag done">נסגר — קצה תחילת קריאה, 44px במובייל</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · / 390 float 44×44 inset-inline-start 16px x≈302 RTL</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>left:22px, 54×54, מתחרה ב-CTA במובייל. לא WCAG 2.0.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>inset-inline-start. במובייל 44×44.</p></div>
   </div>
 </section>
-<section class="item" id="DA-P2-A2" data-status="open" data-waiting="nimrod" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A2 — /en/ — שפה של קטעים בעברית <span class="tag q">פתוח — SC 3.1.2</span></h2>
+<section class="item" id="DA-P2-A2" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
+  <h2>DA-P2-A2 — /en/ — שפה של קטעים בעברית <span class="tag done">נסגר — lang=he על ריצות עברית ב-/en/</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/">/en/</a> · a11y · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · nav.nav 27/27 lang=he · drawer 34/34 · float lang=he · overflow 0</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>html lang=en תקין. ריצות עברית בלי lang=he (תפריט/וואטסאפ).</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>nav ו-drawer ו-float מסומנים. html נשאר lang=en.</p></div>
   </div>
 </section>
-<section class="item" id="DA-P2-A3" data-status="open" data-waiting="nimrod" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A3 — סמלי צעדים st3 בלי aria-hidden <span class="tag q">פתוח — SC 1.1.1</span></h2>
+<section class="item" id="DA-P2-A3" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
+  <h2>DA-P2-A3 — סמלי צעדים st3 בלי aria-hidden <span class="tag done">נסגר — aria-hidden על אייקוני st3</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · 3× .st3__ic aria-hidden=true</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שלושה SVG דקורטיביים בלי aria-hidden.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>שלושת ה-SVG דקורטיביים מוסתרים מ-AT.</p></div>
   </div>
 </section>
-<section class="item" id="DA-P2-A4" data-status="open" data-waiting="nimrod" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A4 — צעדי «איך מתחילים» לא כרשימה <span class="tag q">פתוח — SC 1.3.1</span></h2>
+<section class="item" id="DA-P2-A4" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
+  <h2>DA-P2-A4 — צעדי «איך מתחילים» לא כרשימה <span class="tag done">נסגר — ul.steps3 / li.st3</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · ul.steps3 → 3 li.st3</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שלושה DIV אחים, לא ul/ol.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>איך מתחילים כרשימה אמיתית.</p></div>
   </div>
 </section>
-<section class="item" id="DA-NAV-01" data-status="open" data-waiting="nimrod" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-NAV-01 — צדדי כותרת מובייל (לוגו/תפריט) <span class="tag nav">פתוח — קריאת בעלים 21.9 סותרת בריף גל א מיוני</span></h2>
+<section class="item" id="DA-NAV-01" data-status="waiting" data-waiting="eyal" data-kind="visual" data-surface="nimrod_board">
+  <h2>DA-NAV-01 — צדדי כותרת מובייל (לוגו/תפריט) <span class="tag hold">מיושם לפי המלצה B — ממתין לאישור סופי מאייל (N1)</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>עברית חיה: המבורגר משמאל, לוגו מימין. בעלים ביקש הפוך. לא מכריעים בשקט.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>חריגה ממוקדת מצדדי כותרת בלבד. המבורגר inline-start, מגירה מאותו צד, לוגו ממול. לא DA-NAV-02/03/LOGO ולא שינוי L1. אישור אייל ב-N1.</p></div>
   </div>
 </section>
-<section class="item" id="DA-NAV-02" data-status="open" data-waiting="nimrod" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-NAV-02 — כותרת מובייל אחת לכל המשפחות <span class="tag nav">פתוח — ארבע טביעות כותרת חיות</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  
+<section class="item" id="DA-NAV-02" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
+  <h2>DA-NAV-02 — כותרת מובייל אחת לכל המשפחות <span class="tag done">נסגר — כותרת Chapters על GP ו-EN</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/">/</a> · visual · nimrod_board</p>
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · /press/ Chapters nav, GP header hidden, 1 burger · /en/ Chapters nav, ea-en-head hidden</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>Chapters מול GP about/press מול קורסים חיצוניים מול EN. לא נעלם מהתור.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>section-nav מוזרק ל-orphans+EN. GP header ו-ea-en-head מוסתרים. L1 לא נגע.</p></div>
   </div>
 </section>
-<section class="item" id="DA-NAV-03" data-status="open" data-waiting="nimrod" data-kind="nav" data-surface="nimrod_board">
-  <h2>DA-NAV-03 — כפתור EN בתוך התפריט, לא בצ׳יפ כותרת <span class="tag nav">פתוח — כפילות header + מגירה</span></h2>
+<section class="item" id="DA-NAV-03" data-status="closed" data-waiting="none" data-kind="nav" data-surface="nimrod_board">
+  <h2>DA-NAV-03 — כפתור EN בתוך התפריט, לא בצ׳יפ כותרת <span class="tag done">נסגר — צ׳יפ EN רק בדסקטופ; במגירה נשאר</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · / 390 .nav__en hidden · drawer EN pill remains</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>`.nav__en` חי בכותרת; במגירה כבר יש `.ea-nd__pill`. חרגת תפריט חלה עד שיחה.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>מתחת ל-1180 נסתר. מגירה: .ea-nd__pill. L1 לא נגע.</p></div>
   </div>
 </section>
-<section class="item" id="DA-LOGO-01" data-status="open" data-waiting="nimrod" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-LOGO-01 — לוגו = סימן בלבד, לא «eyal amit» <span class="tag q">פתוח — סותר WA-P03 שעבר בגל א</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/about/">/about/</a> · visual · nimrod_board</p>
-  
+<section class="item" id="DA-LOGO-01" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
+  <h2>DA-LOGO-01 — לוגו = סימן בלבד, לא «eyal amit» <span class="tag done">נסגר — סימן בלבד בכותרת</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/about/</a> · visual · nimrod_board</p>
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · .nav__wm not visible · /en/ ea-en-head hidden</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>GP about/press: טקסט מותג בלי סימן. EN: «Eyal Amit» בלי סימן.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>.nav__wm מוסתר. GP/EN מקבלים את כותרת Chapters.</p></div>
   </div>
 </section>
 <section class="item" id="DA-P1-01" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
@@ -338,22 +430,22 @@
     <div class="box us"><h3>סיכום מהתור</h3><p>הטקסט המזויף והמקום השמור ירדו עם הטמעת היוטיוב.</p></div>
   </div>
 </section>
-<section class="item" id="DA-P2-05" data-status="open" data-waiting="nimrod" data-kind="ops" data-surface="nimrod_board">
-  <h2>DA-P2-05 — כותרת עמוד החנות (איכות, לא 2.4.2) <span class="tag q">פתוח — «עמוד קטלוג ראשי»</span></h2>
+<section class="item" id="DA-P2-05" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
+  <h2>DA-P2-05 — כותרת עמוד החנות (איכות, לא 2.4.2) <span class="tag done">נסגר — כותרת המסמך = H1 החנות</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shop/">/shop/</a> · ops · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · title and H1 כלים בעבודת יד ואביזרים</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>לא כישל WCAG. H1 «כלים בעבודת יד ואביזרים».</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>pre_get_document_title: כלים בעבודת יד ואביזרים.</p></div>
   </div>
 </section>
-<section class="item" id="DA-P2-06" data-status="open" data-waiting="nimrod" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-P2-06 — שני wa.me בעמוד פוסט <span class="tag q">פתוח — קישור בפוסט + כפתור צף</span></h2>
+<section class="item" id="DA-P2-06" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
+  <h2>DA-P2-06 — שני wa.me בעמוד פוסט <span class="tag done">נסגר — וואטסאפ אחד בפוסט (הצף)</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/2228-2/">/2228-2/</a> · visual · nimrod_board</p>
-  
+  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · .ea-post-share copy only · 1 .ea-whatsapp-float</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אח של WAF-03. לא נעלם מהתור.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>קישור השיתוף wa.me ירד. נשאר העתקת קישור + הצף.</p></div>
   </div>
 </section>
 <section class="item" id="WA-SOUND" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
@@ -414,13 +506,13 @@
     <div class="box us"><h3>סיכום מהתור</h3><p>GET בלי follow: 404. אין 301. ילד /services/didgeridoo-lessons/ עדיין 301 ל-/lessons/.</p></div>
   </div>
 </section>
-<section class="item" id="A2" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>A2 — הופעות ומורשת מופע <span class="tag waitn">ממתין לנימרוד — כן, ארכיון ולא לגולש מהתפריט. לא נבקש ממך טקסט שיווקי</span></h2>
+<section class="item" id="A2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
+  <h2>A2 — הופעות ומורשת מופע <span class="tag done">נסגר — כן, ארכיון פנימי. לא נבקש טקסט שיווקי</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">/shows-heritage/</a> · content_gap · both</p>
-  
+  <p class='path'>live.check: 2026-09-21 GET /shows-heritage/ 200 bytes=62552 · homepage href count 0</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>—</strong></p><pre>אם הבנתי נכון, התוכן הזה איננו מוצג לגולש, אלא נשמר בארכיון עבורי בלבד, נכון? אם נכון, אז בשביל מה אני צריך לשלוח תוכן לדף הזה?</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ממתין לנימרוד — כן, ארכיון ולא לגולש מהתפריט. לא נבקש ממך טקסט שיווקי</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>ארכיון לעיניך, לא לגולש מהתפריט. אין בקשת תוכן. ריכוז חומר מופע נשאר ב-E4.</p></div>
   </div>
 </section>
 <section class="item" id="A3" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
@@ -479,14 +571,14 @@
     <div class="box us"><h3>סיכום מהתור</h3><p>ממתין לך — אותו כלי 939</p></div>
   </div>
 </section>
-<section class="item" id="C1" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>C1 — לימוד והכשרה <span class="tag waitn">הטקסט אושר. שלוש תמונות חסרות. חיבור לתפריט — שיחת נימרוד</span></h2>
+<section class="item" id="C1" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>C1 — לימוד והכשרה <span class="tag hold">ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">/learning/</a> · content_gap · both</p>
-  
+  <p class='path'>live.check: 2026-09-21 GET 200 · 3 photo-slots live · waiting on Eyal for images</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>מאשר כמו שהוא</strong></p><pre>1. את הדף הזה צריך לחבר ל&quot;לימוד והכשרה&quot; בסרגל העליון. 
 2. לכל אחד משלושת הבלוקים בטקסט צריך להוסיף תמונה מייצגת ואסטטית: שיעורי דיג&#x27;רידו, הרצאות וסדנאות, הכשרת מטפלים.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הטקסט אושר. שלוש תמונות חסרות. חיבור לתפריט — שיחת נימרוד</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>הטקסט אושר. שלושה מקומות לתמונה חיים בעמוד. חיבור לסרגל — חלק י (M1).</p></div>
   </div>
 </section>
 <section class="item" id="C2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
@@ -1086,50 +1178,50 @@ __________________________
     <div class="box us"><h3>סיכום מהתור</h3><p>FAQ general-12 → /learning/therapist-training/. אין cbDidg-therapy-training.</p></div>
   </div>
 </section>
-<section class="item" id="E1" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>E1 — עיתונות <span class="tag waitn">מחוץ לתפריט כפי שסימנת. סריקת האתר הישן לארכיון — ממתין לנימרוד</span></h2>
+<section class="item" id="E1" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>E1 — עיתונות <span class="tag hold">סריקה הועברה לארכיון. מקום בסרגל — חלק י</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/">/press/</a> · content_gap · both</p>
-  
+  <p class='path'>live.check: 2026-09-21 GET /press/ 200 theme 1.5.105 · 3 show clippings + «המלצות על המופע» + אברהם טל · homepage href 0</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>תשאיר את הדף הזה מחוץ לתפריט. מבחינתי זה דף ארכיון שרק שומר עבורי דברים מההיסטוריה. אולי יום אחד אשתמש בחומרים האלה. שים לב שחסרים בדף הזה המון פרטים. יש עוד כתבות מהעיתונות שפורסמו אודות המופע. יש עוד המון המלצות על המופע שאינן מופיעות בדף. מציע שתסרוק שוב את האתר הישן, וגם את הדפים שקשורים למופע הסיפורים, מופעים, הופעות, ותכניס את הדברים החשובים לדף הארכיון הזה.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>מחוץ לתפריט כפי שסימנת. סריקת האתר הישן לארכיון — ממתין לנימרוד</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>שלוש כתבות מופע + המלצות שמיות נוספו ל-/press/. מחוץ לתפריט כפי שסימנת. מקום בסרגל ייסגר ב-M1.</p></div>
   </div>
 </section>
-<section class="item" id="E2" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>E2 — לימוד והכשרה — העמוד הראשי <span class="tag waitn">תפריט — נימרוד ידבר איתך. לא נגענו בסרגל</span></h2>
+<section class="item" id="E2" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>E2 — לימוד והכשרה — העמוד הראשי <span class="tag hold">ייסגר ביחד בחלק י — סימנת קישור ל-/learning/; לא מיושם</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">/learning/</a> · content_gap · both</p>
   
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>הכותרת תהיה קישור</strong></p><pre>זה העמוד שצריך לעלות כשלוחצים על &quot;לימוד והכשרה&quot; בסרגל הראשי:
 http://eyalamit-co-il-2026.s887.upress.link/learning/</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>תפריט — נימרוד ידבר איתך. לא נגענו בסרגל</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>סימן: הכותרת תהיה קישור ל-/learning/. לא מיושם. אין שינוי ל-L1 עד שיחת M1.</p></div>
   </div>
 </section>
 <section class="item" id="E3" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E3 — שירותים — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט, והעמוד יירד בלי הפניה</span></h2>
+  <h2>E3 — שירותים — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט, והעמוד ירד בלי הפניה</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/services/">/services/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 canonical nav has no /services/; GET /services/ still 200 until unpublish</p>
+  <p class='path'>live.check: 2026-09-21 GET /services/ 404 no Location · homepage HTML has no /services/ href · absorbed in A1</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אייל: להשאיר מחוץ לתפריט. כבר המצב הקנוני. נבלע בהחלטת A1.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>אייל: להשאיר מחוץ לתפריט. נבלע בהחלטת A1. GET חי: 404 בלי Location. אין ב-L1.</p></div>
   </div>
 </section>
-<section class="item" id="E4" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>E4 — הופעות ומורשת מופע — מקום בתפריט <span class="tag waitn">ממתין לנימרוד — מדיניות ארכיון</span></h2>
+<section class="item" id="E4" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>E4 — הופעות ומורשת מופע — מקום בתפריט <span class="tag hold">חומר מופע רוכז בכתבות היסטוריות. מקום בסרגל — חלק י</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">/shows-heritage/</a> · content_gap · both</p>
-  
+  <p class='path'>live.check: 2026-09-21 GET /historical-articles/ 200 theme 1.5.105 · overflow remediations on clipping grid · «מופע הסיפורים» + GIVATAIM.jpg · homepage href 0</p>
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>אשמח שאת כל החומרים מהמופע / מופע סיפורים / הופעות - תרכז הכל בדף הארכיון שדיברנו עליו קודם, איפה שמופיעות כל הכתבות ההיסטוריות. שים לב שבאתר הישן יש דף ייעודי שנקרא &quot;הופעות&quot; . הדף הזה כרגע לא מופיע בסרגל הראשי של האתר, אלא כדף פנימי.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ממתין לנימרוד — מדיניות ארכיון</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>תיאור המופע, סריקות כתבות והמלצות שמיות חיים ב-/historical-articles/. /shows-heritage/ ריק בכוונה. מקום בסרגל ב-M1.</p></div>
   </div>
 </section>
-<section class="item" id="E5" data-status="waiting" data-waiting="nimrod" data-kind="content_gap" data-surface="both">
-  <h2>E5 — כתבות היסטוריות — מקום בתפריט <span class="tag waitn">ממתין לנימרוד — מדיניות ארכיון; החומר ממך אחרי סריקה</span></h2>
+<section class="item" id="E5" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>E5 — כתבות היסטוריות — מקום בתפריט <span class="tag hold">ייסגר ביחד בחלק י — סימנת מחוץ לתפריט, ארכיון לעיניך</span></h2>
   <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/historical-articles/">/historical-articles/</a> · content_gap · both</p>
   
   <div class="grid">
     <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>מבחינתי התוכן בדף הזה הוא ארכיון והוא איננו צריך להופיע לגולש. זה לעיני בלבד.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ממתין לנימרוד — מדיניות ארכיון; החומר ממך אחרי סריקה</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>סימן: ארכיון, לא לגולש מהתפריט. מקום בסרגל ייסגר ב-M1. תוכן כתבות אצל אייל ב-A3.</p></div>
   </div>
 </section>
 <section class="item" id="E6" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
@@ -1204,13 +1296,40 @@ http://eyalamit-co-il-2026.s887.upress.link/learning/</pre></div>
     <div class="box us"><h3>סיכום מהתור</h3><p>נוסח 20.9.</p></div>
   </div>
 </section>
+<section class="item" id="Q-HERO-ASK" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
+  <h2>Q-HERO-ASK — תמונות ייחודיות לעמודי הקודים המודפסים <span class="tag hold">ממתין לך — תמונה שונה לכל עמוד QR, או הירו לוגו בלי תמונה</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/">/qr/qr1/</a> · content_gap · both</p>
+  
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>לא נכפיל תמונה אחת על כל הקודים (בניגוד להמלצת נימרוד לתמונה ייחודית). עד תשובה: הירו מינימלי עם לוגו.</p></div>
+  </div>
+</section>
+<section class="item" id="M1" data-status="waiting" data-waiting="eyal" data-kind="nav" data-surface="both">
+  <h2>M1 — עץ התפריט הראשי — שיחה אחת <span class="tag hold">ממתין לשיחה — ייסגר ביחד. אין שינוי לסרגל עד אז</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · both</p>
+  <p class='path'>live.check: 2026-09-21 GET / 200 · homepage href /shows-heritage/ /press/ /historical-articles/ /services/ = 0 · learning parent href null</p>
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>סקשן אחד לכל שאלות העץ. L1 לא זז בשלב הזה. קורסים כבר בתפריט. לימוד והכשרה עדיין בלי קישור לאב.</p></div>
+  </div>
+</section>
+<section class="item" id="N1" data-status="waiting" data-waiting="eyal" data-kind="nav" data-surface="both">
+  <h2>N1 — כפתור התפריט במובייל <span class="tag hold">ממתין לך — אישור סופי. כבר מיושם לפי המלצה</span></h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · both</p>
+  <p class='path'>live.check: 2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332</p>
+  <div class="grid">
+    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
+    <div class="box us"><h3>סיכום מהתור</h3><p>המלצה B: המבורגר בצד תחילת הקריאה (עברית ימין, אנגלית שמאל). מגירה מאותו צד. לוגו ממול. מבנה התפריט לא השתנה. חריגה ממוקדת מחרגת L1.</p></div>
+  </div>
+</section>
 <section class="item" id="slim">
   <h2>בלוג ו-QR</h2>
   <table>
     <tr><th>id</th><th>כותרת</th><th>סטטוס מהתור</th></tr>
-    <tr><td>P001</td><td>צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P002</td><td>פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה</td><td><span class='tag waitn'>חריג קישורים נסגר. תמונת הירו מהמקור עדיין ממתינה לנימרוד</span></td></tr><tr><td>P003</td><td>ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג&#x27;רידו והעשייה </td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P004</td><td>עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג&#x27;רידו</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P005</td><td>טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P006</td><td>הכל אודות ריברסינג, נשימה מעגלית ו- דיג&#x27;רידו. האם נשימה מעגלית בדיג&#x27;רידו היא אות</td><td><span class='tag waitn'>חריג קישורים נסגר. תמונת הירו מהמקור עדיין ממתינה לנימרוד</span></td></tr><tr><td>P007</td><td>נגינה ונשימה מעגלית בדיג&#x27;רידו – ריפוי הנשימה והנשמה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P008</td><td>האם לנשים מותר לנגן בדיג&#x27;רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות</td><td><span class='tag waitn'>חריג תמונות נשים נסגר. תמונת הירו מהמקור עדיין ממתינה לנימרוד</span></td></tr><tr><td>P009</td><td>סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P010</td><td>תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P011</td><td>טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בד</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P012</td><td>מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P013</td><td>שליחות חיי – כתבה אודות המרכז לטיפול בדיג&#x27;רידו פרדס חנה – אייל עמית</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P014</td><td>וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P015</td><td>את הספר החדש שלי לא תמצאו ברשתות הספרים. למה?</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P016</td><td>הזמנה לסדרת מפגשים אינטימיים חדשה! &quot;סיפורים מהנייר&quot; עם אייל עמית</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P017</td><td>הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P018</td><td>כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P019</td><td>מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד </td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P020</td><td>שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 2</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P021</td><td>מופע הסיפורים של אייל עמית מגיע לתיאטרון הקאמרי!</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P022</td><td>מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P023</td><td>מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P024</td><td>מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינס</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P025</td><td>&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צר</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P026</td><td>דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P027</td><td>עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P028</td><td>&quot;פרדס חפלה&quot; – הסיפור החדש במופע הקרוב 13.9.14 בפרדס חנה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P029</td><td>2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P030</td><td>אקדח לתוך הראש</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P031</td><td>שם חדש למופע הסיפורים: &quot;עכשיו!!!!!&quot;  קבלו את שלושת הקליפים הרישמיים עם ה-&quot;עכשווי</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P032</td><td>ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P033</td><td>סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הי</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P034</td><td>100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P035</td><td>הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P036</td><td>הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P037</td><td>נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית. פוסט מ 2012</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P038</td><td>פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P039</td><td>(51) הטור של אייל עמית: אקסטרים זה נעים!</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P040</td><td>(49) הטור של אייל עמית: קומיק רליף</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P041</td><td>זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P042</td><td>(45) הטור של אייל עמית: פרופורציות</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P043</td><td>(43) הטור של אייל עמית: אדון סליחות</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P044</td><td>(42) הטור של אייל עמית: אחד בספטמבר</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P045</td><td>(41) הטור של אייל עמית: חארטה בארטה</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P046</td><td>(40) הטור של אייל עמית: פרסומת אחת וחזרנו</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P047</td><td>(36) הטור של אייל עמית: שיטת השקשוקה</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P048</td><td>(34) הטור של אייל עמית: הלב</td><td><span class='tag waitn'>חריג קישור כושי בלאנטיס נסגר. תמונת הירו מהמקור עדיין ממתינה לנימרוד</span></td></tr><tr><td>P049</td><td>(32) הטור של אייל עמית: אם אין אני לי – מי לי</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P050</td><td>(29) הטור של אייל עמית: רייב שבוע הספר</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P051</td><td>(27) הטור של אייל עמית: חכמת הפרצוף</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P052</td><td>(24) הטור של אייל עמית: ילד אסור ילד מותר</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P053</td><td>(23) הטור של אייל עמית: לציית או לחשוב</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>P054</td><td>(18) הטור של אייל עמית: מסך הברזל</td><td><span class='tag waitn'>ממתין לנימרוד — העתקת תמונת הירו מהאתר המקורי, באצווה</span></td></tr><tr><td>Q001</td><td>והקדמת – qr1</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q002</td><td>qr2 – אקדח לתוך הראש</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q003</td><td>qr3 – האלמנה השחורה</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q004</td><td>qr4 – בום-בום-בום על דלתי מרום</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q005</td><td>qr5 – אלכסון הוא אסון</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q006</td><td>qr6 – ספיבאק</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q007</td><td>qr7 – אחד לשלושה</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q008</td><td>qr8 – סופה במדבר</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q009</td><td>qr9 – טיפול שורש</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q010</td><td>qr10 – וואט איז דאט?</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q011</td><td>qr11 – חורשט זבזי</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q012</td><td>qr12 – אינדיאנה ג&#x27;ונס והמכרה הארור</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q013</td><td>qr13 – ואהבתָ</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q014</td><td>qr14 – גורילות בערפל האמזונס</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q015</td><td>qr15 – היקיקומורי</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q016</td><td>qr16 – דם על הידיים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q017</td><td>qr17 – יוגי לודג&#x27;</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q018</td><td>qr18 – אחד לשלושה טריליון</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q019</td><td>qr19 – הפיצה הכי טעימה שאכלתי בחיים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q020</td><td>qr20 – אבא, אני רעב</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q021</td><td>qr21 – ג&#x27;סי ראם!</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q022</td><td>qr22 – בולט אנט</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q023</td><td>qr23 – יום כן יום לא</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q024</td><td>qr24 – קוֹל פּוּט שוֹרט סטופ!</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q025</td><td>qr25 – גרין ווש</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q026</td><td>qr26 – כורסת הציפורניים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q027</td><td>qr27 – אמסטרדם</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q028</td><td>qr28 – נזכור ולא נשכח</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q029</td><td>qr29 – לעבור דירה</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q030</td><td>qr30 – פרדס חפלה</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q031</td><td>qr31 – פיפי במעלית</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q032</td><td>qr32 – נשימה מעגלית</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q033</td><td>qr33 – תאכלו ביצים, תהיו טייסים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q034</td><td>qr34 – תקום</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q035</td><td>qr35 – הגבר החדש</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q036</td><td>qr36 – חוני המעגל</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q037</td><td>qr37 – דרך השלום</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q038</td><td>qr38 – הבטחות או לא להיות</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q039</td><td>qr39 – תחשוב חיובי</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q040</td><td>qr40 – אבנים חמות</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q041</td><td>qr41 – לופ בטעם תות לימון</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q042</td><td>qr42 – הבטחות אחים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q043</td><td>qr43 – עכשיו!!!</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q044</td><td>qr44 – כולנו פרעושים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q045</td><td>qr45 – צום מיצים</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q046</td><td>qr46  – האומץ לאהוב את הפחד</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q047</td><td>qr47  – טיפול זוגי</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr><tr><td>Q048</td><td>qr48 -וסיימת</td><td><span class='tag waitn'>ממתין לנימרוד — הירו מהמקור. כתובת הקוד לא משתנה</span></td></tr>
+    <tr><td>P001</td><td>צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P002</td><td>פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P003</td><td>ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג&#x27;רידו והעשייה </td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P004</td><td>עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג&#x27;רידו</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P005</td><td>טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P006</td><td>הכל אודות ריברסינג, נשימה מעגלית ו- דיג&#x27;רידו. האם נשימה מעגלית בדיג&#x27;רידו היא אות</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P007</td><td>נגינה ונשימה מעגלית בדיג&#x27;רידו – ריפוי הנשימה והנשמה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P008</td><td>האם לנשים מותר לנגן בדיג&#x27;רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P009</td><td>סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P010</td><td>תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P011</td><td>טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בד</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P012</td><td>מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P013</td><td>שליחות חיי – כתבה אודות המרכז לטיפול בדיג&#x27;רידו פרדס חנה – אייל עמית</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P014</td><td>וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P015</td><td>את הספר החדש שלי לא תמצאו ברשתות הספרים. למה?</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P016</td><td>הזמנה לסדרת מפגשים אינטימיים חדשה! &quot;סיפורים מהנייר&quot; עם אייל עמית</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P017</td><td>הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P018</td><td>כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P019</td><td>מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד </td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P020</td><td>שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 2</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P021</td><td>מופע הסיפורים של אייל עמית מגיע לתיאטרון הקאמרי!</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P022</td><td>מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P023</td><td>מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P024</td><td>מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינס</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P025</td><td>&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צר</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P026</td><td>דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P027</td><td>עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P028</td><td>&quot;פרדס חפלה&quot; – הסיפור החדש במופע הקרוב 13.9.14 בפרדס חנה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P029</td><td>2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P030</td><td>אקדח לתוך הראש</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P031</td><td>שם חדש למופע הסיפורים: &quot;עכשיו!!!!!&quot;  קבלו את שלושת הקליפים הרישמיים עם ה-&quot;עכשווי</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P032</td><td>ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P033</td><td>סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הי</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P034</td><td>100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P035</td><td>הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P036</td><td>הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P037</td><td>נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית. פוסט מ 2012</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P038</td><td>פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P039</td><td>(51) הטור של אייל עמית: אקסטרים זה נעים!</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P040</td><td>(49) הטור של אייל עמית: קומיק רליף</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P041</td><td>זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P042</td><td>(45) הטור של אייל עמית: פרופורציות</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P043</td><td>(43) הטור של אייל עמית: אדון סליחות</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P044</td><td>(42) הטור של אייל עמית: אחד בספטמבר</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P045</td><td>(41) הטור של אייל עמית: חארטה בארטה</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P046</td><td>(40) הטור של אייל עמית: פרסומת אחת וחזרנו</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P047</td><td>(36) הטור של אייל עמית: שיטת השקשוקה</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P048</td><td>(34) הטור של אייל עמית: הלב</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P049</td><td>(32) הטור של אייל עמית: אם אין אני לי – מי לי</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P050</td><td>(29) הטור של אייל עמית: רייב שבוע הספר</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P051</td><td>(27) הטור של אייל עמית: חכמת הפרצוף</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P052</td><td>(24) הטור של אייל עמית: ילד אסור ילד מותר</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P053</td><td>(23) הטור של אייל עמית: לציית או לחשוב</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>P054</td><td>(18) הטור של אייל עמית: מסך הברזל</td><td><span class='tag waitn'>ארכיון מהאתר הישן כמו שהוא — לא מחליפים תמונות</span></td></tr><tr><td>Q001</td><td>והקדמת – qr1</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q002</td><td>qr2 – אקדח לתוך הראש</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q003</td><td>qr3 – האלמנה השחורה</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q004</td><td>qr4 – בום-בום-בום על דלתי מרום</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q005</td><td>qr5 – אלכסון הוא אסון</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q006</td><td>qr6 – ספיבאק</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q007</td><td>qr7 – אחד לשלושה</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q008</td><td>qr8 – סופה במדבר</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q009</td><td>qr9 – טיפול שורש</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q010</td><td>qr10 – וואט איז דאט?</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q011</td><td>qr11 – חורשט זבזי</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q012</td><td>qr12 – אינדיאנה ג&#x27;ונס והמכרה הארור</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q013</td><td>qr13 – ואהבתָ</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q014</td><td>qr14 – גורילות בערפל האמזונס</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q015</td><td>qr15 – היקיקומורי</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q016</td><td>qr16 – דם על הידיים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q017</td><td>qr17 – יוגי לודג&#x27;</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q018</td><td>qr18 – אחד לשלושה טריליון</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q019</td><td>qr19 – הפיצה הכי טעימה שאכלתי בחיים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q020</td><td>qr20 – אבא, אני רעב</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q021</td><td>qr21 – ג&#x27;סי ראם!</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q022</td><td>qr22 – בולט אנט</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q023</td><td>qr23 – יום כן יום לא</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q024</td><td>qr24 – קוֹל פּוּט שוֹרט סטופ!</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q025</td><td>qr25 – גרין ווש</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q026</td><td>qr26 – כורסת הציפורניים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q027</td><td>qr27 – אמסטרדם</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q028</td><td>qr28 – נזכור ולא נשכח</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q029</td><td>qr29 – לעבור דירה</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q030</td><td>qr30 – פרדס חפלה</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q031</td><td>qr31 – פיפי במעלית</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q032</td><td>qr32 – נשימה מעגלית</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q033</td><td>qr33 – תאכלו ביצים, תהיו טייסים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q034</td><td>qr34 – תקום</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q035</td><td>qr35 – הגבר החדש</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q036</td><td>qr36 – חוני המעגל</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q037</td><td>qr37 – דרך השלום</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q038</td><td>qr38 – הבטחות או לא להיות</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q039</td><td>qr39 – תחשוב חיובי</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q040</td><td>qr40 – אבנים חמות</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q041</td><td>qr41 – לופ בטעם תות לימון</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q042</td><td>qr42 – הבטחות אחים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q043</td><td>qr43 – עכשיו!!!</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q044</td><td>qr44 – כולנו פרעושים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q045</td><td>qr45 – צום מיצים</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q046</td><td>qr46  – האומץ לאהוב את הפחד</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q047</td><td>qr47  – טיפול זוגי</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr><tr><td>Q048</td><td>qr48 -וסיימת</td><td><span class='tag waitn'>תבנית QR קבועה · תמונה ייחודית או הירו לוגו · כתובת לא זזה</span></td></tr>
   </table>
 </section>
-<p class="wait">ssotSha12 ab4134ee3934 · 2026-09-21T16:23Z</p>
+<p class="wait">ssotSha12 1b022d5a422e · 2026-09-22T07:38Z</p>
 </body>
 </html>

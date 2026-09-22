@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סקיצה — פוסט חדש (מדיה מ־939 + סרט)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#fffffa; --ivory-2:#efeae1; --dark:#0E0905;
+    --dark-grad:linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);
+    --terra:#B5663D; --terra-lt:#D08A5E; --ink:#2f2013; --body:#67482d; --sand:#D8C7B5;
+    --fs-h1:2.7625rem; --fs-h2:1.540625rem; --fs-lead:1.221875rem; --fs-body:1.0625rem; --fs-2xs:.85rem;
+    --sec:88px; --bf:Heebo,-apple-system,Arial,sans-serif; --hf:"Frank Ruhl Libre",serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:#e8dfd2;color:var(--ink);font:var(--fs-body)/1.65 var(--bf)}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .chrome{background:var(--dark);color:#fff;padding:18px 28px 14px}
+  .chrome h1{margin:0 0 6px;font:600 20px/1.3 var(--bf)}
+  .chrome p{margin:0;color:rgba(255,255,255,.78);max-width:82ch;font-size:14px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;padding:10px 28px;background:#fff;border-bottom:1px solid var(--sand);position:sticky;top:0;z-index:40}
+  .tabs button{font:500 14px var(--bf);border:1px solid var(--sand);background:#fff;color:var(--terra);border-radius:999px;padding:7px 14px;cursor:pointer}
+  .tabs button[aria-current="true"]{background:var(--terra);color:#fff;border-color:var(--terra)}
+  .banner{background:#7a3b16;color:#fff;font-size:13px;padding:8px 28px}
+  body.mode-eyal .ops-only{display:none}
+  body.mode-ops .eyal-only{display:none}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px}
+  body.mode-eyal .layout{grid-template-columns:1fr}
+  @media(max-width:1100px){.layout{grid-template-columns:1fr}}
+  .recipe{background:#fff;border-inline-start:1px solid var(--sand);padding:18px 16px 40px;font-size:13px}
+  .recipe h2{margin:0 0 8px;font-size:16px}
+  .recipe table{width:100%;border-collapse:collapse;margin:10px 0 16px}
+  .recipe th,.recipe td{border:1px solid var(--sand);padding:5px 6px;text-align:right;vertical-align:top}
+  .recipe th{background:var(--ivory-2)}
+  .recipe code{font:11px ui-monospace,Menlo,monospace;background:var(--ivory-2);padding:1px 4px;border-radius:3px}
+  .slot{display:none}
+  body.mode-ops .slot{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:var(--terra);color:#fff;border-radius:999px;padding:1px 7px;margin-inline-end:6px;vertical-align:middle}
+  .nav56{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 44px;background:rgba(20,14,9,.96);color:#fff;font-size:13px}
+  .wrap{max-width:1200px;margin-inline:auto;padding-inline:48px;position:relative}
+  .sec{padding:var(--sec) 0;position:relative}
+  .sec--alt{background:var(--ivory-2)}
+  .sec--dark{background-image:var(--dark-grad);color:#fff}
+  .sec--dark .h2{color:#fff}
+  .chap{font-weight:500;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin-bottom:12px;display:block}
+  .h2{font-family:var(--hf);font-weight:600;font-size:var(--fs-h2);line-height:1.16;letter-spacing:-.3px;color:var(--ink);margin:0 0 18px;text-align:start}
+  .intro-body{max-width:82ch;margin-inline:auto}
+  .intro-body p{margin:0 0 14px;color:var(--body);font-size:var(--fs-body);line-height:1.7}
+  .intro-body .p-lead{font-size:var(--fs-lead);color:var(--ink)}
+  .phero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .phero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .phero__sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,9,.5),rgba(20,14,9,.2) 35%,rgba(20,14,9,.6) 72%,rgba(20,14,9,.95))}
+  .phero__in{position:relative;z-index:2;max-width:1200px;margin-inline:auto;padding:104px 48px clamp(56px,9vh,110px);width:100%}
+  .phero__h{font-family:var(--hf);font-weight:500;font-size:var(--fs-h1);line-height:1.12;max-width:32ch;margin:0 0 20px}
+  .phero__s{font-weight:300;font-size:var(--fs-lead);line-height:1.8;color:rgba(255,255,255,.86);max-width:54ch;margin:0}
+  .split2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);align-items:center}
+  @media(max-width:880px){.split2{grid-template-columns:1fr}}
+  .figr{border-radius:10px;overflow:hidden;margin:0;box-shadow:0 30px 60px -34px rgba(42,32,22,.55)}
+  .figr img{width:100%;aspect-ratio:5/4;object-fit:cover}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}
+  @media(max-width:880px){.gallery{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.gallery{grid-template-columns:1fr}}
+  .gfig{margin:0}
+  .gfig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+  .gfig__cap{font-size:var(--fs-2xs);color:var(--body);margin-top:8px}
+  .pfloat{margin:6px 0 18px;max-width:clamp(180px,30%,260px)}
+  .pfloat--s{float:inline-start;margin-inline-end:26px}
+  .pfloat img{width:100%;height:auto;border-radius:10px}
+  .intro-body::after{content:"";display:block;clear:both}
+  @media(max-width:720px){.pfloat,.pfloat--s{float:none;max-width:none;margin-inline:0}}
+  .videoblk{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--dark);margin-top:48px;box-shadow:0 40px 80px -40px rgba(42,32,22,.6)}
+  .videoblk img,.videoblk iframe,.videoblk video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .videoblk__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:88px;height:88px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(20,14,9,.3);backdrop-filter:blur(3px);cursor:pointer}
+  .videoblk__play::after{content:"";display:block;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin:0 auto;transform:translateX(3px)}
+  .videoblk__cap{position:absolute;right:22px;bottom:18px;z-index:2;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .cta-band{position:relative;background-image:var(--dark-grad);color:#fff;padding:clamp(72px,7vw,96px) 48px}
+  .cta-band--row .cta-in{max-width:1120px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:clamp(32px,5vw,72px);flex-wrap:wrap}
+  .cta-band p{margin:0;max-width:52ch;font-weight:300;color:rgba(255,255,255,.82)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:4px;padding:15px 36px;background:var(--terra);color:#fff;text-decoration:none;font-weight:500}
+  .quote{font-family:var(--hf);font-size:1.35rem;line-height:1.4;max-width:32ch;margin:0}
+  .foot{padding:28px 0 48px;font-size:14px;color:var(--body)}
+  .sitefoot{background:var(--dark);color:rgba(255,255,255,.7);padding:16px 22px;font-size:13px}
+  @media(max-width:720px){
+    :root{--sec:40px}
+    .wrap,.phero__in,.cta-band{padding-inline:24px}
+    .nav56{padding:0 16px}
+  }
+</style>
+</head>
+<body class="mode-eyal">
+<header class="chrome">
+  <h1>פוסט חדש — דוגמה עם מדיה אמיתית (לא לפרסום)</h1>
+  <p>התמונות מתוך <strong>סינון מדיה · 939</strong> שנשלח לאייל. הטקסט לורם איפסום. הסרט — סרט דף הבית. יישור כמו עמוד דום נשימה (wrap 1200 / גוף 82ch / H2 על ה־wrap). אין FTP תמה עד אישור.</p>
+</header>
+<nav class="tabs" aria-label="תצוגה">
+  <button type="button" data-mode="eyal" aria-current="true">לאייל — תחושה</button>
+  <button type="button" data-mode="ops">מבנה לשולחן</button>
+</nav>
+<p class="banner">תוכן דמה — לא לפרסום. מדגים עיצוב, מגוון שורות, ומקומות מדיה מלאים (הירו + 8 תמונות + סרט + CTA).</p>
+
+<div class="layout">
+  <div>
+    <div class="nav56"><span>המרכז לטיפול בדיג׳רידו</span><span>תפריט · EN</span></div>
+
+    <header class="phero">
+      <img class="phero__media" src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-18.jpg" alt="קשיש מנגן בקרן עץ ארוכה, מקל קטורת בחול">
+      <span class="phero__sc" aria-hidden="true"></span>
+      <div class="phero__in">
+        <span class="chap"><span class="slot">הירו</span>בלוג דיג׳רידו · 358ae7f4881c</span>
+        <h1 class="phero__h">שבוע הנשימה בסטודיו — פוסט דוגמה</h1>
+        <p class="phero__s">מאת אייל עמית · 21 בספטמבר 2026</p>
+      </div>
+    </header>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="intro-body" style="text-align:center">
+          <p class="p-lead"><strong>לורם איפסום דולור סיט אמט — משפט פתיחה ממורכז על מידת הקריאה, בלי H2.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--alt">
+      <div class="wrap">
+        <h2 class="h2"><span class="slot">H2 על ה־wrap</span>מה היה השבוע</h2>
+        <div class="intro-body">
+          <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טיאדום — גולר מונפרר מעפרר לרות.</p>
+          <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית צש בליעה, מנסוטו צמלח לכעיט דולור ואלעג ברומץ כלרשט מיחוצים. קלאצי סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט — לפתיעם ברשג — ולתיעם גדדיש.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="split2">
+          <div>
+            <h2 class="h2"><span class="slot">split img-01</span>תמונה אחת לצד הטקסט</h2>
+            <div class="intro-body">
+              <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. שורת split: טקסט + תמונה, על כל רוחב ה־wrap. לא גוף צר עם תמונה שגונבת שני שליש.</p>
+              <p>תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט — לפתיעם ברשג — ולתיעם גדדיש.</p>
+            </div>
+          </div>
+          <figure class="figr">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-24.jpg" alt="גבר מנגן בדיג'רידו בחדר הכלים">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--alt">
+      <div class="wrap">
+        <h2 class="h2"><span class="slot">video</span>סרט לדוגמה</h2>
+        <div class="intro-body">
+          <p>לורם איפסום דולור סיט אמט. כאן יושב סרט — אותו סרט שמופיע בדף הבית — כדי לראות את בלוק הווידאו בתוך התבנית, לא כקישור יתום.</p>
+        </div>
+        <div class="videoblk" id="sample-film">
+          <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg" alt="">
+          <button class="videoblk__play" type="button" aria-label="נגן סרטון"></button>
+          <span class="videoblk__cap">סרט הבית · wDQoJauqsRM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band cta-band--row">
+      <div class="cta-in">
+        <p>רוצים לשאול על שבוע כזה? אפשר לתאם שיחה, בלי התחייבות.</p>
+        <a class="btn" href="http://eyalamit-co-il-2026.s887.upress.link/contact/">לתיאום שיחת היכרות</a>
+      </div>
+    </section>
+
+    <section class="sec sec--dark">
+      <div class="wrap">
+        <p class="quote">«לורם איפסום דולור סיט אמט» — שורת ציטוט דמה על רקע כהה, אחד מארבעת סגנונות הרקע.</p>
+      </div>
+    </section>
+
+    <section class="sec sec--alt">
+      <div class="wrap">
+        <h2 class="h2"><span class="slot">gallery 2–4</span>רשת תמונות — סלוטים 2 עד 4</h2>
+        <div class="gallery">
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-12.jpeg" alt="שניים מנגנים בסטודיו">
+            <figcaption class="gfig__cap">שניים בחדר הכלים · 8e74385f4769</figcaption>
+          </figure>
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-07.jpeg" alt="כניסת הסטודיו">
+            <figcaption class="gfig__cap">הכניסה · e65b1cd4baf4</figcaption>
+          </figure>
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/DOK-WEB/IMG_0803.jpg" alt="לוח גיר ודיג'רידו על סלע">
+            <figcaption class="gfig__cap">חבילת אביב · 81c734fd1523</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <h2 class="h2"><span class="slot">float img-05</span>תמונה שצפה בתוך הקריאה</h2>
+        <div class="intro-body">
+          <figure class="pfloat pfloat--s">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-22.jpg" alt="תקריב פתח דיג'רידו">
+          </figure>
+          <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. התמונה לא תופסת טור. הטקסט ממשיך ב־82ch והתמונה הקטנה צפה בתוך המידה, עם עיטוף.</p>
+          <p>קוויז דומור ליאמום בלוקיא עיצתה לורם איפסום דולור סיט אמט. הועניב היושבב שערש שמחויט — שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף. זותה מנק הבקיץ אפאח דלאמת יבש, כאנה ניצאחו נמרגי שהכים תוק.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--alt">
+      <div class="wrap">
+        <h2 class="h2"><span class="slot">gallery 6–8</span>סלוטים 6 עד 8</h2>
+        <div class="gallery">
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-25.jpg" alt="מפגש על מזרנים">
+            <figcaption class="gfig__cap">מפגש · 5d71661a93dc</figcaption>
+          </figure>
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/images/chapters/home-peek/peek-03.jpeg" alt="קטורת וסמל אום">
+            <figcaption class="gfig__cap">קטורת בחצר · 313ee6c668ad</figcaption>
+          </figure>
+          <figure class="gfig">
+            <img src="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/תוכן לאתר 25.5.26/DOK-WEB/IMG_6511.jpg" alt="קבוצה בפריחה בין סלעים">
+            <figcaption class="gfig__cap">חבילת אביב · 066b80f54252</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <h2 class="h2">סגירה</h2>
+        <div class="intro-body">
+          <p>לורם איפסום דולור סיט אמט. פסקת סגירה על מידת הקריאה. הכפתור לא ממציאים לו עיצוב; הוא שורת cta נפרדת, כדי שאפשר להזיז אותה במערך.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band cta-band--row">
+      <div class="cta-in">
+        <p>אותו נוסח כפתור כמו למעלה. שכפול מותר, נוסח חדש — לא בלי מקור.</p>
+        <a class="btn" href="http://eyalamit-co-il-2026.s887.upress.link/contact/">לתיאום שיחת היכרות</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <p class="eyal-only">הטקסט כאן דמה (לורם איפסום). התמונות והסרט שייכים לאתר — נבחרו מתוך מאגר הסינון כדי שתרגישו את העיצוב, לא כדי לאשר את הבחירה הסופית לגלריות.</p>
+        <p class="ops-only">מזהי 939: הירו 358ae7f4881c · img-01 f549fa5ea823 · img-02 8e74385f4769 · img-03 e65b1cd4baf4 · img-04 81c734fd1523 · img-05 dd2b184f6e69 · img-06 5d71661a93dc · img-07 313ee6c668ad · img-08 066b80f54252 · סרט wDQoJauqsRM</p>
+      </div>
+    </footer>
+    <div class="sitefoot">המרכז לטיפול בדיג׳רידו · סקיצה בלבד</div>
+  </div>
+
+  <aside class="recipe ops-only">
+    <h2>איך זה בנוי</h2>
+    <p>סדר השורות = סדר המערך ב־JSON. יישור נעול על דום נשימה. מדיה רק מ־939.</p>
+    <table>
+      <tr><th>שורה</th><th>part / bg</th></tr>
+      <tr><td>הירו</td><td>phero--media</td></tr>
+      <tr><td>r01</td><td>prose / ivory</td></tr>
+      <tr><td>r02</td><td>prose / ivory-2</td></tr>
+      <tr><td>r03</td><td>split / ivory</td></tr>
+      <tr><td>r04</td><td>video / ivory-2</td></tr>
+      <tr><td>r05</td><td>cta</td></tr>
+      <tr><td>r06</td><td>quote / dark</td></tr>
+      <tr><td>r07</td><td>gallery 2–4</td></tr>
+      <tr><td>r08</td><td>prose + float</td></tr>
+      <tr><td>r09</td><td>gallery 6–8</td></tr>
+      <tr><td>r10–11</td><td>prose + cta</td></tr>
+    </table>
+    <p>JSON: <code>DUMMY-WEEK-OF-BREATH.json</code><br>הגדרות: <code>POST-TEMPLATE-SETTINGS.md</code></p>
+  </aside>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll(".tabs button");
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){
+      document.body.classList.remove("mode-eyal","mode-ops");
+      document.body.classList.add("mode-"+b.getAttribute("data-mode"));
+      buttons.forEach(function(x){ x.removeAttribute("aria-current"); });
+      b.setAttribute("aria-current","true");
+    });
+  });
+  var blk = document.getElementById("sample-film");
+  if (!blk) return;
+  blk.querySelector(".videoblk__play").addEventListener("click", function(){
+    blk.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/wDQoJauqsRM?autoplay=1" title="סרט לדוגמה" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  });
+})();
+</script>
+</body>
+</html>

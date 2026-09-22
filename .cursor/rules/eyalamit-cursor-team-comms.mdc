@@ -1,0 +1,30 @@
+---
+description: תקשורת בין צוותים ב-Cursor — קבצים ב-_COMMUNICATION, לא Task-resume, לא מייל AOS
+alwaysApply: true
+---
+
+# תקשורת בין צוותים ב-Cursor (EyalAmit)
+
+ברירת המחדל **אינה** מייל AOS ו**אינה** `Task`. AOS messaging במצב הנוכחי שבורה; Claude/Codex sibling-ping **לא קיים** כאן.
+
+## ברירת מחדל
+
+1. כתיבה לקובץ תחת `_COMMUNICATION/team_XX/` (Iron Rule #6).
+2. סשן צוות מקביל = **New Agent** באותו פרויקט + פרומט מודבק. זה סשן-אב מתמשך, לא סוכן משנה.
+3. אחרי הקמת הסשן: `move_agent_to_root` אל העץ שהוקצה לו (worktree אם יש).
+4. צוות מנהל (110) כותב `TO-TEAM10-<VERB>-…` וקורא `STATUS.md`. צוות מבצע דורס את STATUS. נימרוד מדביק שורת «קרא את הקובץ» — זה קו ההעראה ל-Glass. `cursor-agent`/SDK send מדבר ל-CLI, לא ללשונית Agents. `Task resume` על UUID של צ'אט = אסור.
+5. צוות 10 במשימת היישור: Plan ואז Agent (לא Plan לנצח, לא קפיצה ל-FTP בלי תוכנית).
+
+## אסור לעולם
+
+- `Task` עם `resume` על UUID של שיחת Agent קיימת (גם עם `interrupt=true`). זה ממנה מחדש הורה כילד ומעלים את הסשן מה-UI.
+- `Task` כתחליף לצוות 10/50/90 — Task הוא subagent חד-פעמי תחת הצ'אט הזה בלבד.
+- שילוח דרך `/api/messaging`, AOS INBOX, או «שלח הודעה ישירה לסשן».
+- לבקש UUID של צ'אט כדי «לפנג».
+
+## מותר
+
+- `Task` בלי `resume` למחקר/בדיקה קצרה **בתוך** אותו צוות, ואז לכתוב ממצא לקובץ.
+- `SearchConversations` — חיפוש בלבד, לא שליחה.
+
+פרוטוקול מלא: `_COMMUNICATION/team_110/PROTOCOL-CURSOR-INTER-SESSION-2026-09-22.md`
