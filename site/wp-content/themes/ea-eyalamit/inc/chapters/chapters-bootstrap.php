@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 $ea_chapters_dir = get_stylesheet_directory() . '/inc/chapters/';
 
+require_once get_stylesheet_directory() . '/inc/ea-blog-json.php';
 require_once $ea_chapters_dir . 'chapters-render.php';
 require_once $ea_chapters_dir . 'chapters-routing.php';
 require_once $ea_chapters_dir . 'chapters-enqueue.php';

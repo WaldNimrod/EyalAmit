@@ -320,8 +320,9 @@
 
 /* ── Related posts (2-up; titles-only per mockup Screen 2) ──────────────────── */
 .ea-related {
-	max-width: var(--ea-prose-width);
-	margin: 0 auto;
+	width: 100%;
+	max-width: none;
+	margin: 0;
 	padding: 0 var(--ea-space-4) var(--ea-space-8);
 	direction: rtl;
 }
@@ -336,6 +337,8 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: var(--ea-space-5);
+	max-width: 82ch;
+	margin-inline: auto;
 }
 
 @media (max-width: 560px) {

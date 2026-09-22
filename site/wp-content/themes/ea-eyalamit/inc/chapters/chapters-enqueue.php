@@ -17,7 +17,8 @@ defined( 'ABSPATH' ) || exit;
  * Enqueue Chapters assets on Chapters views.
  */
 function ea_chapters_enqueue_assets() {
-	if ( is_admin() || ! ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) ) ) {
+	$ea_blog_dummy = function_exists( 'ea_blog_json_dummy_preview_active' ) && ea_blog_json_dummy_preview_active();
+	if ( is_admin() || ! ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) || $ea_blog_dummy ) ) {
 		return;
 	}
 	$ver = wp_get_theme()->get( 'Version' );
@@ -96,7 +97,8 @@ add_action( 'wp_enqueue_scripts', 'ea_chapters_enqueue_assets', 100 );
  * @return string[]
  */
 function ea_chapters_body_class( $classes ) {
-	if ( ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) ) && ! in_array( 'ea-chapters', $classes, true ) ) {
+	$ea_blog_dummy = function_exists( 'ea_blog_json_dummy_preview_active' ) && ea_blog_json_dummy_preview_active();
+	if ( ( ea_chapters_is_view() || ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) || $ea_blog_dummy ) && ! in_array( 'ea-chapters', $classes, true ) ) {
 		$classes[] = 'ea-chapters';
 	}
 	return $classes;
@@ -154,7 +156,8 @@ add_action( 'wp_enqueue_scripts', 'ea_chapters_faq_toc_assets', 30 );
  * Blog archive/single assets (relocated from inc/wave2-w2-06.php after T6 deletion).
  */
 function ea_chapters_blog_assets() {
-	if ( is_admin() || ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) {
+	$ea_blog_dummy = function_exists( 'ea_blog_json_dummy_preview_active' ) && ea_blog_json_dummy_preview_active();
+	if ( is_admin() || ( ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) && ! $ea_blog_dummy ) {
 		return;
 	}
 	$ver = wp_get_theme()->get( 'Version' );
@@ -186,13 +189,14 @@ add_action( 'wp_enqueue_scripts', 'ea_chapters_blog_assets', 29 );
  * @return string[]
  */
 function ea_chapters_blog_body_class( $classes ) {
-	if ( ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) {
+	$ea_blog_dummy = function_exists( 'ea_blog_json_dummy_preview_active' ) && ea_blog_json_dummy_preview_active();
+	if ( ( ! function_exists( 'ea_chapters_is_blog_view' ) || ! ea_chapters_is_blog_view() ) && ! $ea_blog_dummy ) {
 		return $classes;
 	}
 	if ( is_home() && ! is_front_page() && ! in_array( 'ea-blog-archive-view', $classes, true ) ) {
 		$classes[] = 'ea-blog-archive-view';
 	}
-	if ( is_singular( 'post' ) && ! in_array( 'ea-blog-single-view', $classes, true ) ) {
+	if ( ( is_singular( 'post' ) || $ea_blog_dummy ) && ! in_array( 'ea-blog-single-view', $classes, true ) ) {
 		$classes[] = 'ea-blog-single-view';
 	}
 	return $classes;

@@ -21,16 +21,19 @@ $GLOBALS['ea_chapters_type'] = 'qr';
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 <main id="main" class="chapters-main" tabindex="-1">
 	<?php
-	get_template_part(
-		'template-parts/chapters/parts/phero',
-		null,
-		array(
-			'chap'  => 'QR',
-			'title' => get_the_title(),
-		)
-	);
 	while ( have_posts() ) :
 		the_post();
+		$ea_qr_phero_media = has_post_thumbnail() ? (string) get_the_post_thumbnail_url( get_the_ID(), 'large' ) : '';
+		get_template_part(
+			'template-parts/chapters/parts/phero',
+			null,
+			array(
+				'chap'      => 'QR',
+				'title'     => get_the_title(),
+				'media'     => $ea_qr_phero_media,
+				'media_alt' => esc_attr( get_the_title() ),
+			)
+		);
 		?>
 		<section class="sec">
 			<div class="wrap">
