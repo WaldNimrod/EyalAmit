@@ -15,10 +15,11 @@ defined( 'ABSPATH' ) || exit;
 $items      = isset( $args['items'] ) ? $args['items'] : array();
 $foot_links = isset( $args['foot_links'] ) ? $args['foot_links'] : array();
 $current    = isset( $args['active'] ) ? $args['active'] : '';
+$ea_he      = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_attr() : '';
 ?>
-<dialog class="ea-nd" id="ea-nav-drawer" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
+<dialog class="ea-nd" id="ea-nav-drawer"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput — static lang/dir attr ?> aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
 	<div class="ea-nd__head">
-		<a class="ea-nd__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></a>
+		<a class="ea-nd__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></a>
 		<button class="ea-nd__close" type="button" aria-label="<?php esc_attr_e( 'סגירת תפריט', 'ea-eyalamit' ); ?>">&times;</button>
 	</div>
 
@@ -39,7 +40,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 				}
 				?>
 	<li class="ea-nd__item">
-		<button class="ea-nd__acc-btn" type="button" aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $acc_id ); ?>">
+		<button class="ea-nd__acc-btn" type="button"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $acc_id ); ?>">
 			<span><?php echo esc_html( $item['label'] ); ?></span>
 			<span class="ea-nd__caret" aria-hidden="true">⌄</span>
 		</button>
@@ -48,7 +49,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 				<ul class="ea-nd__sublist" role="list">
 					<?php if ( ! empty( $item['href'] ) ) : ?>
 					<li>
-						<a class="ea-nd__sublink" href="<?php echo esc_url( $item['href'] ); ?>">
+						<a class="ea-nd__sublink" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 							<?php
 							echo esc_html(
 								sprintf(
@@ -63,7 +64,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 					<?php endif; ?>
 					<?php foreach ( $children as $child ) : ?>
 					<li>
-						<a class="ea-nd__sublink" href="<?php echo esc_url( $child['href'] ); ?>"<?php echo ! empty( $child['key'] ) && $child['key'] === $current ? ' aria-current="page"' : ''; ?><?php echo ! empty( $child['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+						<a class="ea-nd__sublink" href="<?php echo esc_url( $child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo ! empty( $child['key'] ) && $child['key'] === $current ? ' aria-current="page"' : ''; ?><?php echo ! empty( $child['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
 							<span><?php echo esc_html( $child['label'] ); ?></span>
 							<?php if ( ! empty( $child['external'] ) ) : ?>
 							<span class="ea-nd__ext"><?php esc_html_e( 'חיצוני ↗', 'ea-eyalamit' ); ?></span>
@@ -77,7 +78,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 	</li>
 			<?php else : ?>
 	<li class="ea-nd__item">
-		<a class="ea-nd__link" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $item['key'] === $current ? ' aria-current="page"' : ''; ?>>
+		<a class="ea-nd__link" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo $item['key'] === $current ? ' aria-current="page"' : ''; ?>>
 			<span><?php echo esc_html( $item['label'] ); ?></span>
 		</a>
 	</li>
@@ -91,7 +92,7 @@ $current    = isset( $args['active'] ) ? $args['active'] : '';
 		</div>
 		<div class="ea-nd__foot-links">
 			<?php foreach ( $foot_links as $fl ) : ?>
-			<a href="<?php echo esc_url( $fl['href'] ); ?>"><?php echo esc_html( $fl['label'] ); ?></a>
+			<a href="<?php echo esc_url( $fl['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $fl['label'] ); ?></a>
 			<?php endforeach; ?>
 		</div>
 	</div>

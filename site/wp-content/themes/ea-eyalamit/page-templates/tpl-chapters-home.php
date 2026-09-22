@@ -53,6 +53,8 @@ defined( 'ABSPATH' ) || exit;
 	// 03 — וידאו: שלד + פלייסהולדר 16:9. התוכן חסום (H-06).
 	get_template_part( 'template-parts/chapters/section', 'home-03-video' );
 
+	get_template_part( 'template-parts/chapters/section', 'home-spotlight' );
+
 	get_template_part( 'template-parts/chapters/section', '06-compare' );      // 04 — טיפול בדיג'רידו או סאונד הילינג
 	get_template_part( 'template-parts/chapters/section', '02-for-whom' );     // 05 — למי מתאים התהליך
 	get_template_part( 'template-parts/chapters/section', '07-how-to-start' ); // 06 — איך מתחילים

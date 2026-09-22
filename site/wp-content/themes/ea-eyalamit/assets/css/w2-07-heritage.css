@@ -105,3 +105,46 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
+
+/* ── /historical-articles archive (clipping scans) ─────────────
+   Newspaper JPGs are taller/wider than the book-gallery 16/7 lead cell.
+   Keep them in one column, shrink to the content box, do not crop. */
+.ea-historical-archive {
+	max-width: 100%;
+	overflow-x: clip;
+}
+.ea-historical-archive .ea-book-gallery__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--ea-space-4);
+	background: transparent;
+	max-width: 100%;
+}
+.ea-historical-archive .ea-book-gallery__item,
+.ea-historical-archive .ea-book-gallery__item:first-child {
+	aspect-ratio: auto;
+	grid-column: auto;
+	min-width: 0;
+	max-width: 100%;
+	display: block;
+	background: transparent;
+}
+.ea-historical-archive .ea-book-gallery__item img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+.ea-historical-archive .ea-press__item {
+	min-width: 0;
+}
+.ea-historical-archive .ea-press__item > .ea-press__link {
+	flex: 1 1 100%;
+	min-width: 0;
+	overflow-wrap: anywhere;
+	text-decoration: none;
+	cursor: default;
+}
+.ea-historical-archive .ea-content-section__body {
+	overflow-wrap: anywhere;
+}

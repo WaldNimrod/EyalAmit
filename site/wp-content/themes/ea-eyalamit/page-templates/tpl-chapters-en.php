@@ -37,6 +37,7 @@ defined( 'ABSPATH' ) || exit;
 .ea-en-foot{background:var(--dark-grad,#0E0905);color:rgba(255,255,255,.82);padding:48px 48px;text-align:center;font-size:.85rem}
 .ea-en-foot a{color:var(--terra-lt,#D08A5E);text-decoration:none}
 @media(max-width:600px){.ea-en-head,.ea-en-foot{padding-inline:24px}}
+@media(max-width:1023px){.ea-en-head{padding-inline-start:72px}}
 /* S007 M-13 (2026-09-20): team_00 — «אנגלית - יש להוסיף לתפריט». /en/ was the
    only published URL rendering no navigation at all. Canonical items, canonical
    (Hebrew) labels — team_00 has not ruled on translating them, so this does not
@@ -83,7 +84,7 @@ defined( 'ABSPATH' ) || exit;
 			<?php endforeach; ?>
 		<?php endforeach; ?>
 	</nav>
-	<a class="ea-en-head__lang" href="/">עברית →</a>
+	<a class="ea-en-head__lang" href="/" lang="he">עברית →</a>
 </header>
 
 <main id="main" class="chapters-main" tabindex="-1" dir="ltr" style="direction:ltr;text-align:left">
@@ -104,7 +105,7 @@ defined( 'ABSPATH' ) || exit;
 
 <footer class="ea-en-foot">
 	<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Eyal Amit · The Didgeridoo Breath Center · Pardes Hanna, Israel · <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a></p>
-	<p><a href="/">לאתר העברי / Hebrew site</a></p>
+	<p><a href="/"><span lang="he">לאתר העברי</span> / Hebrew site</a></p>
 </footer>
 
 <?php wp_footer(); ?>

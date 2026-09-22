@@ -22,18 +22,18 @@ defined( 'ABSPATH' ) || exit;
    a neighbouring assignment with it; see the memory note on regex deletions. */
 
 $ea_nav_items = ea_canonical_nav_items();
+$ea_he        = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_attr() : '';
 ?>
-<nav class="nav" id="nav" aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
-	<a class="nav__b" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'המרכז לטיפול בדיג׳רידו — דף הבית', 'ea-eyalamit' ); ?>">
+<nav class="nav" id="nav"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput — static lang/dir attr ?> aria-label="<?php esc_attr_e( 'תפריט ראשי', 'ea-eyalamit' ); ?>">
+	<a class="nav__b" href="<?php echo esc_url( home_url( '/' ) ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-label="<?php esc_attr_e( 'המרכז לטיפול בדיג׳רידו — דף הבית', 'ea-eyalamit' ); ?>">
 		<span class="nav__lg" aria-hidden="true"></span>
-		<span class="nav__wm"><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></span>
+		<span class="nav__wm" aria-hidden="true"><?php esc_html_e( 'המרכז לטיפול בדיג׳רידו', 'ea-eyalamit' ); ?></span>
 	</a>
 
-	<?php /* WS-2.2 (A11Y-FIX-2026-09-18): burger moved before .nav__l so DOM/tab order
-	matches the open-panel reality at mobile width — Tab from the burger must land inside
-	the menu it just opened, not past it. Visual position at both breakpoints is restored
-	via `order` in chapters.css (see .nav__burger, mobile media query) since CSS order
-	does not affect tab order. See _COMMUNICATION/team_10/A11Y-FIX-2026-09-18/. */ ?>
+	<?php /* WS-2.2 / DA-NAV-01 (2026-09-21): burger before .nav__l so DOM/tab order
+	still reaches the drawer trigger before L1 (tab order unaffected by CSS order).
+	At mobile width chapters.css places burger at inline-start and logo at inline-end
+	via order — physical right in RTL, left in LTR. Desktop DOM unchanged: logo | L1 | EN. */ ?>
 	<?php /* S007 M-12 (2026-09-20): opens the one shared drawer dialog (ea-nav-drawer.js
 	auto-wires any [data-ea-nav-trigger]), not the old .nav__l off-canvas panel. */ ?>
 	<button class="nav__burger" type="button" data-ea-nav-trigger aria-label="<?php esc_attr_e( 'תפריט', 'ea-eyalamit' ); ?>" aria-expanded="false">
@@ -49,18 +49,18 @@ $ea_nav_items = ea_canonical_nav_items();
 			<?php if ( $ea_children ) : ?>
 		<li>
 			<?php if ( $ea_item['href'] ) : ?>
-			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>"><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
+			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
 			<?php else : ?>
-			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false"><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></button>
+			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></button>
 			<?php endif; ?>
 			<ul class="nav__sub" role="list">
 				<?php foreach ( $ea_children as $ea_child ) : ?>
-				<li><a href="<?php echo esc_url( $ea_child['href'] ); ?>"><?php echo esc_html( $ea_child['label'] ); ?></a></li>
+				<li><a href="<?php echo esc_url( $ea_child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_child['label'] ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</li>
 			<?php else : ?>
-		<li><a href="<?php echo esc_url( $ea_item['href'] ); ?>"><?php echo esc_html( $ea_item['label'] ); ?></a></li>
+		<li><a href="<?php echo esc_url( $ea_item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?></a></li>
 			<?php endif; ?>
 		<?php endforeach; ?>
 	</ul>

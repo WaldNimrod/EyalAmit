@@ -46,15 +46,18 @@ html[dir="ltr"]{--ea-mnav-tx:100%}
   .ea-topnav > .ea-topnav__controls,
   .ea-topnav > .ea-topnav__burger{display:none}
 
-  /* closed-bar control cluster — sits at inline-end (left in RTL,
-     right in LTR). Internal flow LTR so the burger/sound/lang order
-     is deterministic regardless of page direction. */
+  /* closed-bar control cluster — sits at inline-start (physical right in RTL,
+     left in LTR). Internal flow LTR so burger/sound/lang order is deterministic;
+     row-reverse in RTL keeps burger on the physical start edge of the cluster. */
   .ea-mnav-controls{
     display:flex;
     direction:ltr;
     align-items:center;
     gap:var(--ea-space-1);
+    order:-1;
   }
+  html[dir="rtl"] .ea-mnav-controls{flex-direction:row-reverse}
+  .ea-topnav__brand{order:2;margin-inline-start:auto}
   .ea-mnav-tap{
     min-width:44px;min-height:44px;
     display:inline-flex;align-items:center;justify-content:center;

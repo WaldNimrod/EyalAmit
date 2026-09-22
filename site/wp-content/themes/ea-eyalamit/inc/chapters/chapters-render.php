@@ -284,6 +284,7 @@ function ea_chapters_repeater_specs( $type = null ) {
 		 * לפוסט הפייסבוק שלו). מקור: סקירה דף הבית.xlsx · C16. */
 		'testi_items'    => array( 'count' => 15, 'subs' => array( 'text', 'name', 'href', 'initial', 'avatar' ) ),
 		'start_steps'    => array( 'count' => 3, 'subs' => array( 'title', 'text' ) ),
+		'now_cards'      => array( 'count' => 4, 'subs' => array( 'image', 'title', 'line1', 'line2', 'url' ) ),
 	);
 	$by_type = array(
 		'method' => array(

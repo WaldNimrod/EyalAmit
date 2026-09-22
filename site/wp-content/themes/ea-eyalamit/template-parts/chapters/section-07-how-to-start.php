@@ -30,15 +30,15 @@ $icons = array(
 	<div class="start__in center">
 		<?php if ( ea_chapters_field( 'start_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'start_chap' ) ); ?></span><?php endif; ?>
 		<h2 class="h2 start__h r"><?php echo esc_html( ea_chapters_field( 'start_title' ) ); ?></h2>
-		<div class="steps3 r">
+		<ul class="steps3 r">
 			<?php foreach ( $steps as $i => $row ) : ?>
-				<div class="st3">
-					<span class="st3__ic"><?php echo $icons[ $i % count( $icons ) ]; // phpcs:ignore WordPress.Security.EscapeOutput — static trusted SVG ?></span>
+				<li class="st3">
+					<span class="st3__ic" aria-hidden="true"><?php echo $icons[ $i % count( $icons ) ]; // phpcs:ignore WordPress.Security.EscapeOutput — static trusted SVG ?></span>
 					<div class="st3__t"><?php echo esc_html( isset( $row['title'] ) ? $row['title'] : '' ); ?></div>
 					<p class="st3__p"><?php echo esc_html( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
-				</div>
+				</li>
 			<?php endforeach; ?>
-		</div>
+		</ul>
 		<?php if ( $cta_l ) : ?>
 			<div class="center" style="margin-top:48px"><a class="btn btn--terra r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a></div>
 		<?php endif; ?>

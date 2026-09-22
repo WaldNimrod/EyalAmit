@@ -861,6 +861,11 @@ require_once get_stylesheet_directory() . '/inc/ea-canonical-nav.php';
 require_once get_stylesheet_directory() . '/inc/ea-nav-drawer.php';
 
 /**
+ * Open-round 2026-09-22 — spotlight, DA chrome/a11y, contact thank-you enqueue.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-open-round.php';
+
+/**
  * Wave A 2026-09-20 — first-visit cookie/measurement notice (informational).
  */
 require_once get_stylesheet_directory() . '/inc/ea-cookie-notice.php';

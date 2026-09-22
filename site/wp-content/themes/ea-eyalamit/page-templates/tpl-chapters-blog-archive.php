@@ -45,7 +45,7 @@ if ( ! $blog_base ) {
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
-<main id="main" class="chapters-main ea-wave2-blog-archive" tabindex="-1">
+<main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, array(
 		'chap'      => 'הבלוג',

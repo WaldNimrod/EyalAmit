@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 
 <?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 
-<main id="main" class="chapters-main ea-wave2-blog-single" tabindex="-1">
+<main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -58,11 +58,9 @@ defined( 'ABSPATH' ) || exit;
 
 				<?php
 				$ea_share_url = get_permalink();
-				$ea_wa_href   = 'https://wa.me/?text=' . rawurlencode( get_the_title() . ' ' . $ea_share_url );
 				?>
 				<div class="ea-post-share">
 					<span class="ea-post-share__label"><?php esc_html_e( 'שיתוף:', 'ea-eyalamit' ); ?></span>
-					<a class="ea-post-share__link" href="<?php echo esc_url( $ea_wa_href ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'שיתוף ב-WhatsApp', 'ea-eyalamit' ); ?>"><span aria-hidden="true">WA</span></a>
 					<button type="button" class="ea-post-share__link" data-ea-copy-link="<?php echo esc_url( $ea_share_url ); ?>" aria-label="<?php esc_attr_e( 'העתקת קישור לפוסט', 'ea-eyalamit' ); ?>"><span aria-hidden="true">↗</span></button>
 				</div>
 			</div>
