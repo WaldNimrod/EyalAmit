@@ -45,8 +45,22 @@ FORM_HEADS = {
     "E": ("חלק ה · עמודים שאינם מופיעים בתפריט", ""),
     "F": ("חלק ו · שני עמודים על אייל — איזה מהם נשאר", ""),
     "L": ("חלק ח · שלושה עמודים משפטיים לאישור סופי", ""),
-    "P": ("חלק ז · פוסטי בלוג, אחד־אחד", "תמונת הירו מהאתר המקורי — באצווה. permalinks לא זזים."),
-    "Q": ("חלק ז־ב · עמודי קודים מודפסים", "אין לשבור permalink של QR."),
+    "P": (
+        "חלק ז · פוסטי בלוג, אחד־אחד",
+        "ארכיון: מממשים לפי האתר הישן, בלי החלפת תמונות. תבנית אחידה לפוסטים חדשים. בלי תמונה — הירו עם לוגו.",
+    ),
+    "Q": (
+        "חלק ז־ב · עמודי קודים מודפסים",
+        "משפחה נפרדת מהבלוג. אין לשבור permalink. תמונה ייחודית לכל עמוד, או הירו לוגו. לא מכפילים תמונה אחת.",
+    ),
+    "N": (
+        "חלק ט · כותרת מובייל",
+        "אישור סופי לצדדי כפתור התפריט. כבר מיושם לפי המלצה; אפשר לבקש להחזיר.",
+    ),
+    "M": (
+        "חלק י · עץ התפריט הראשי",
+        "ייסגר ביחד אחרי שיחה. לא למלא סעיפי עץ בנפרד. אין שינוי לסרגל עד אז.",
+    ),
 }
 
 
@@ -258,20 +272,20 @@ BOARD_CSS = """
   .nav-bar .l1{display:flex;gap:8px;flex-wrap:nowrap;overflow:hidden;opacity:.95}
   .nav-bar .l1 span{white-space:nowrap;padding:4px 2px}
   .nav-bar .l1 .dd::after{content:" ▾";font-size:9px;opacity:.7}
-  .tree{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-  .branch{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:12px 14px}
-  .branch h3{margin:0 0 8px;font-size:14px}
-  .branch ul{margin:0;padding:0 16px 0 0;color:var(--body);font-size:13px}
-  .branch .muted{color:#a08068;font-size:12px}
-  .ia-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media(max-width:1000px){.ia-grid{grid-template-columns:1fr}}
-  .ia-card{background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden}
-  .ia-card.rec{border-color:var(--terra);box-shadow:0 0 0 1px var(--terra)}
-  .ia-card .hd{background:var(--dark);color:#fff;padding:10px 14px;font-size:14px;font-weight:650}
-  .ia-card .bd{padding:12px 14px}
-  .ia-card .count{font-size:12px;color:var(--terra-dk);margin:0 0 8px}
-  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
-  .pill{background:var(--ivory-2);border-radius:999px;padding:4px 10px;font-size:12px}
+  .schema{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:16px 20px 20px;margin-top:14px;overflow:auto}
+  .schema h3{margin:0 0 10px;font-size:15px}
+  .schema ol{list-style:none;margin:0;padding:0;counter-reset:n}
+  .schema li{counter-increment:n;margin:0}
+  .schema .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:4px 0;line-height:1.4}
+  .schema .row::before{content:counters(n,".") ".";font-variant-numeric:tabular-nums;font-weight:650;color:var(--terra-dk);min-width:2.8em}
+  .schema > ol > li > .row{font-size:16px;padding:7px 0 5px;border-bottom:1px solid #f0e6da}
+  .schema ol ol{margin:2px 14px 8px 0;padding:0 16px 0 0;border-right:1px solid #d8c4b0}
+  .schema ol ol .row{font-size:14px;border:0;padding:3px 0}
+  .schema .lab{font-weight:650;color:var(--ink)}
+  .schema .href{font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--body);direction:ltr;unicode-bidi:embed}
+  .schema .note{font-size:12px;color:#8a6a52}
+  .schema.opts > ol > li > .row{border:0}
+  .schema.opts ol ol{border-right-color:#e4d4c4}
   .home-flow{display:flex;flex-direction:column;gap:8px;max-width:720px}
   .home-row{border-radius:10px;padding:12px 16px;background:#fff;border:1px dashed var(--sand);color:var(--body);font-size:13px}
   .home-row.hi{border:2px solid var(--terra);background:#fff8f2;color:var(--ink)}
@@ -292,7 +306,7 @@ BOARD_CSS = """
 SKETCH = r"""
 <section class="item" id="navtree">
   <h2>עץ האתר כפי שהוא בתפריט היום</h2>
-  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»).</p>
+  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»). כל שאלות העץ נסגרות ביחד בטופס חלק י (M1).</p>
   <div class="nav-bar" aria-hidden="true">
     <span class="brand">אייל עמית</span>
     <div class="l1">
@@ -308,35 +322,99 @@ SKETCH = r"""
       <span>צור קשר</span>
     </div>
   </div>
-  <div class="tree" style="margin-top:14px">
-    <div class="branch"><h3>בית</h3><p class="muted">לוגו בלבד בדסקטופ. במגירה — שורה «בית».</p></div>
-    <div class="branch"><h3>טיפול בדיג׳רידו</h3><ul><li>טיפול בדיג׳רידו</li><li>נחירות ודום נשימה בשינה</li></ul></div>
-    <div class="branch"><h3>השיטה</h3><p class="muted">עמוד בודד /method/</p></div>
-    <div class="branch"><h3>שיעורי דיג׳רידו</h3><p class="muted">עמוד בודד /lessons/</p></div>
-    <div class="branch"><h3>סאונד הילינג</h3><p class="muted">עמוד בודד /sound-healing/</p></div>
-    <div class="branch"><h3>לימוד והכשרה</h3><p class="muted">כפתור, בלי קישור לאב</p><ul><li>הכשרות למטפלים</li><li>קורסים → /learning/courses-external/ — יעלה בקרוב</li><li>הרצאות</li><li>סדנאות</li></ul></div>
-    <div class="branch"><h3>כלים ואביזרים</h3><ul><li>כלים בעבודת יד ואביזרים</li><li>תיקון וחידוש</li><li>כלי דיג׳רידו למכירה</li><li>תיקים</li><li>סטנדים לאחסון</li><li>סטנד רצפתי לנגינה</li></ul></div>
-    <div class="branch"><h3>ספרים</h3><ul><li>מבצעים</li><li>צבע בכחול וזרוק לים</li><li>כושי בלאנטיס</li><li>וכתבת</li></ul></div>
-    <div class="branch"><h3>בלוג דיג׳רידו</h3><p class="muted">עמוד בודד /blog/</p></div>
-    <div class="branch"><h3>אייל עמית</h3><p class="muted">כפתור, בלי קישור לאב</p><ul><li>אודות אייל → /eyal-amit/</li><li>מוקש דהימן — לזכרו</li></ul></div>
-    <div class="branch"><h3>צור קשר</h3><p class="muted">עמוד בודד /contact/</p></div>
+  <div class="schema" aria-label="עץ התפריט הקנוני">
+    <h3>עץ מלא — רמה 1 בסרגל, רמה 2 בתפריט נפתח / במגירה</h3>
+    <ol>
+      <li>
+        <div class="row"><span class="lab">בית</span><span class="href">/</span><span class="note">לוגו בדסקטופ · במגירה שורה «בית»</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div></li>
+          <li><div class="row"><span class="lab">נחירות ודום נשימה בשינה</span><span class="href">/snoring-sleep-apnea/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">השיטה</span><span class="href">/method/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">שיעורי דיג׳רידו</span><span class="href">/lessons/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">סאונד הילינג</span><span class="href">/sound-healing/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">לימוד והכשרה</span><span class="note">כפתור — אין קישור לאב</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">הכשרות למטפלים</span><span class="href">/learning/therapist-training/</span></div></li>
+          <li><div class="row"><span class="lab">קורסים</span><span class="href">/learning/courses-external/</span><span class="note">יעלה בקרוב</span></div></li>
+          <li><div class="row"><span class="lab">הרצאות</span><span class="href">/learning/lectures/</span></div></li>
+          <li><div class="row"><span class="lab">סדנאות</span><span class="href">/learning/workshops/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">כלים ואביזרים</span><span class="href">/shop/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">כלים בעבודת יד ואביזרים</span><span class="href">/shop/</span></div></li>
+          <li><div class="row"><span class="lab">תיקון וחידוש כלי דיג׳רידו</span><span class="href">/repair/</span></div></li>
+          <li><div class="row"><span class="lab">כלי דיג׳רידו למכירה</span><span class="href">/didgeridoos/</span></div></li>
+          <li><div class="row"><span class="lab">תיקים לדיג׳רידו</span><span class="href">/bags/</span></div></li>
+          <li><div class="row"><span class="lab">סטנדים לאחסון דיג׳רידו</span><span class="href">/stands-storage/</span></div></li>
+          <li><div class="row"><span class="lab">סטנד רצפתי לנגינה</span><span class="href">/stand-floor/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ספרים</span><span class="href">/books/</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">מבצעים</span><span class="href">/books/#books-bundle</span></div></li>
+          <li><div class="row"><span class="lab">צבע בכחול וזרוק לים</span><span class="href">/books/tsva-bekahol/</span></div></li>
+          <li><div class="row"><span class="lab">כושי בלאנטיס</span><span class="href">/books/kushi-blantis/</span></div></li>
+          <li><div class="row"><span class="lab">וכתבת</span><span class="href">/books/vekatavta/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">בלוג דיג׳רידו</span><span class="href">/blog/</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="lab">אייל עמית</span><span class="note">כפתור — אין קישור לאב</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">אודות אייל</span><span class="href">/eyal-amit/</span></div></li>
+          <li><div class="row"><span class="lab">מוקש דהימן — לזכרו</span><span class="href">/eyal-amit/mokesh-dahiman/</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">צור קשר</span><span class="href">/contact/</span></div>
+      </li>
+    </ol>
   </div>
-  <div class="ia-grid" style="margin-top:16px">
-    <div class="ia-card"><div class="hd">אופציה א — ארבעה פתחים</div><div class="bd">
-      <p class="count">4 כפתורי L1 במקום 10</p>
-      <div class="pill-row"><span class="pill">טיפול ועבודה</span><span class="pill">ללמוד</span><span class="pill">חנות</span><span class="pill">אייל</span></div>
-      <p>הכי ברור לאורח חדש. דורש הרגל מחדש.</p>
-    </div></div>
-    <div class="ia-card"><div class="hd">אופציה ב — שישה</div><div class="bd">
-      <p class="count">6 כפתורי L1 — קיצוץ מתון</p>
-      <div class="pill-row"><span class="pill">טיפול ▾</span><span class="pill">שיעורים</span><span class="pill">סאונד</span><span class="pill">לימוד ▾</span><span class="pill">חנות ▾</span><span class="pill">אייל ▾</span></div>
-      <p>שומר על שלושת שירותי הליבה בשורה.</p>
-    </div></div>
-    <div class="ia-card rec"><div class="hd">אופציה ג — לחץ מהבית · מומלץ עכשיו</div><div class="bd">
-      <p class="count">התפריט נשאר כמו שהוא</p>
-      <div class="pill-row"><span class="pill">10 L1 ללא שינוי</span><span class="pill">+ רצועת «עכשיו באתר»</span></div>
-      <p>ברירת מחדל כל עוד אין שיחת תפריט.</p>
-    </div></div>
+  <div class="schema opts">
+    <h3>אופציות תפריט לשיחה — לא מממשים</h3>
+    <ol>
+      <li>
+        <div class="row"><span class="lab">א — ארבעה פתחים</span><span class="note">4 כפתורי L1 במקום 10. הכי ברור לאורח חדש. דורש הרגל מחדש.</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול ועבודה</span></div></li>
+          <li><div class="row"><span class="lab">ללמוד</span></div></li>
+          <li><div class="row"><span class="lab">חנות</span></div></li>
+          <li><div class="row"><span class="lab">אייל</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ב — שישה</span><span class="note">קיצוץ מתון. שומר על שלושת שירותי הליבה בשורה.</span></div>
+        <ol>
+          <li><div class="row"><span class="lab">טיפול</span></div></li>
+          <li><div class="row"><span class="lab">שיעורים</span></div></li>
+          <li><div class="row"><span class="lab">סאונד</span></div></li>
+          <li><div class="row"><span class="lab">לימוד</span></div></li>
+          <li><div class="row"><span class="lab">חנות</span></div></li>
+          <li><div class="row"><span class="lab">אייל</span></div></li>
+        </ol>
+      </li>
+      <li>
+        <div class="row"><span class="lab">ג — לחץ מהבית · מומלץ עכשיו</span><span class="note">10 L1 ללא שינוי + רצועת «עכשיו באתר». ברירת מחדל כל עוד אין שיחת תפריט.</span></div>
+      </li>
+    </ol>
   </div>
 </section>
 <section class="item" id="spotlight">
@@ -416,7 +494,7 @@ def render_form(data: dict, sha: str, generated: str) -> str:
     wait_e = [it for it in items if it["status"] == "waiting" and it["waitingOn"] == "eyal"]
     wait_n = [it for it in items if it["waitingOn"] == "nimrod" and it["status"] != "closed"]
     parts = []
-    for letter in ("A", "B", "C", "D", "E", "F", "L", "P", "Q"):
+    for letter in ("A", "B", "C", "D", "E", "F", "L", "P", "Q", "N", "M"):
         chunk = by.get(letter) or []
         if not chunk:
             continue
@@ -436,7 +514,20 @@ def render_form(data: dict, sha: str, generated: str) -> str:
         )
 
     slim_closed = [it for it in closed if (it.get("form") or {}).get("slim")]
-    slim_wait = [it for it in items if (it.get("form") or {}).get("slim") and it["status"] != "closed"]
+    slim_p = [
+        it
+        for it in items
+        if (it.get("form") or {}).get("slim")
+        and it["status"] != "closed"
+        and (it.get("id") or "").startswith("P")
+    ]
+    slim_q = [
+        it
+        for it in items
+        if (it.get("form") or {}).get("slim")
+        and it["status"] != "closed"
+        and (it.get("id") or "").startswith("Q")
+    ]
     return f"""<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -465,11 +556,12 @@ def render_form(data: dict, sha: str, generated: str) -> str:
   <table>
     <tr><th>ממתין לך ({len(wait_e)})</th><th>תווית</th></tr>
     {rows(wait_e)}
+    {f"<tr><td colspan='2'>{len(slim_q)} עמודי QR אצל הצוות. בקשת התמונות הייחודיות אצלך בפריט «תמונות ייחודיות לעמודי הקודים».</td></tr>" if slim_q else ""}
+    {f"<tr><td colspan='2'>{len(slim_p)} פוסטי בלוג ארכיון אצל הצוות (מה שיש באתר הישן, בלי החלפת תמונות) — לא אצלך.</td></tr>" if slim_p else ""}
   </table>
   <table>
     <tr><th>ממתין לנימרוד ({len(wait_n)})</th><th>תווית</th></tr>
     {rows([it for it in wait_n if not (it.get("form") or {}).get("slim")])}
-    {f"<tr><td colspan='2'>{len(slim_wait)} פריטי בלוג/QR ממתינים להעתקת הירו מהמקור.</td></tr>" if slim_wait else ""}
   </table>
 </div>
 {''.join(parts)}
@@ -595,7 +687,8 @@ def render_board(data: dict, sha: str, generated: str) -> str:
    · טופס אייל: <a href="{FORM_LIVE}">s007-content-gaps.html</a></p>
 </header>
 <p class="wait"><strong>אין לערוך סטטוס בלוח הזה.</strong> סתירה מול קובץ העבודה — הקובץ מנצח. אקסל 20.9 הוא ארכיון. HANDOFF הוא שיחה.</p>
-<p class="hold-nav"><strong>חרגת תפריט:</strong> לא נוגעים ב־ea-canonical-nav.php / drawer / section-nav עד שיחת נימרוד–אייל.</p>
+<p class="hold-nav"><strong>חרגת תפריט:</strong> שאר L1 / parent href — סקשן אחד בטופס (חלק י · M1) ובלוח (#navtree). ייסגר ביחד אחרי שיחה עם אייל. חריגות ממוקדות שכבר חיות: «קורסים» תחת לימוד והכשרה; צדדי המבורגר (N1, ממתין לאישור אייל). אין שינוי ל־ea-canonical-nav.php בשלב הזה.</p>
+<p class="hold-nav"><strong>{esc((data.get("stage") or {}).get("titleHe") or "")}</strong> {esc((data.get("stage") or {}).get("nowHe") or "")} <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/TO-TEAM10-GO-BLOG-QR-2026-09-22.md">GO לצוות 10</a></p>
 <nav class="toc">
   <a href="#q">שאלות</a>
   <a href="#navtree">עץ ותפריט</a>
@@ -606,9 +699,10 @@ def render_board(data: dict, sha: str, generated: str) -> str:
 </nav>
 <section class="item" id="q">
   <h2>שאלות פתוחות אליך</h2>
-  <p class="path">לא הכרעה שקטה. עד תשובה — waiting/nimrod בתור.</p>
+  <p class="path">מה שפתוח עכשיו. שורה עם «nimrod» מחכה לתשובה שלך. שורה עם «team10» היא המשימה שכבר יצא לה GO.</p>
   <ol>{q_html}</ol>
   <table><tr><th>status/waitingOn</th><th>כמה בלוח</th></tr>{c_rows}</table>
+  <p class="path">המספר waiting/team10 כולל את קטלוג P ו-Q. אלה לא מאה משימות. הביצוע הוא שתי תבניות: פוסט, ואז QR.</p>
 </section>
 {SKETCH}
 <section class="item" id="extra">
@@ -622,6 +716,7 @@ def render_board(data: dict, sha: str, generated: str) -> str:
 {''.join(render_board_card(it) for it in both)}
 <section class="item" id="slim">
   <h2>בלוג ו-QR</h2>
+  <p class="path">שורות P ו-Q הן קטלוג, לא מאה משימות. שתי המשימות: T-BLOG-TEMPLATE ואז T-QR-TEMPLATE.</p>
   <table>
     <tr><th>id</th><th>כותרת</th><th>סטטוס מהתור</th></tr>
     {slim_rows}
