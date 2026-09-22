@@ -1,0 +1,113 @@
+/* Open-round 2026-09-22. Token sizes only — no component font-size. */
+
+/* T-IA-SPOTLIGHT — cards only, tight to the section edge. */
+#ea-now{
+	padding:12px 0;
+	background:var(--ivory,#fffffa);
+}
+#ea-now .wrap{
+	padding-inline:16px;
+}
+.ea-now{
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:12px;
+}
+.ea-now__card{
+	display:block;
+	background:#fff;
+	border:1px solid var(--sand,#D8C7B5);
+	border-radius:12px;
+	overflow:hidden;
+	color:inherit;
+	text-decoration:none;
+}
+.ea-now__ph{
+	aspect-ratio:3/2;
+	overflow:hidden;
+	background:var(--dark,#0E0905);
+}
+.ea-now__ph img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	display:block;
+}
+.ea-now__tx{padding:10px 12px 12px}
+.ea-now__t{
+	margin:0 0 8px;
+	font-family:var(--hf,inherit);
+	font-weight:var(--fw-semibold,600);
+	font-size:var(--fs-h3);
+	line-height:1.3;
+	color:var(--ink,#2f2013);
+}
+.ea-now__run{
+	margin:0;
+	font-size:var(--fs-sm);
+	line-height:1.45;
+	color:var(--body,#67482d);
+	font-weight:var(--fw-body,400);
+}
+.ea-now__run + .ea-now__run{margin-top:2px}
+@media(max-width:760px){
+	.ea-now{grid-template-columns:1fr 1fr;gap:10px}
+	#ea-now .wrap{padding-inline:12px}
+}
+
+/* DA-P2-A4 — steps as a list, same grid as .steps3 */
+ul.steps3{
+	list-style:none;
+	margin-top:56px;
+	padding:0;
+}
+ul.steps3 > li{
+	list-style:none;
+	margin:0;
+}
+
+/* DA-WA-01 — reading-start, not physical left; smaller on mobile. */
+html body .ea-whatsapp-float,
+html body.ea-chapters .ea-whatsapp-float{
+	left:auto;
+	right:auto;
+	inset-inline-start:16px;
+	inset-inline-end:auto;
+	inset-block-end:16px;
+}
+@media(max-width:768px){
+	html body .ea-whatsapp-float,
+	html body.ea-chapters .ea-whatsapp-float{
+		width:44px;
+		height:44px;
+		min-width:44px;
+		min-height:44px;
+	}
+	html body .ea-whatsapp-float__icon,
+	html body.ea-chapters .ea-whatsapp-float__icon{
+		width:18px;
+		height:18px;
+	}
+}
+
+/* DA-NAV-03 — EN chip desktop only; drawer pill stays. */
+@media(max-width:1180px){
+	.nav__en,
+	.nav__r{display:none !important}
+}
+
+/* DA-LOGO-01 — mark only in the header slot. */
+.nav__wm{display:none !important}
+
+/* DA-NAV-02 — hide GP / standalone chrome when Chapters nav is injected. */
+body.ea-open-round-chrome .site-header,
+body.ea-open-round-chrome .ea-nd-burger--standalone,
+body.ea-open-round-chrome .ea-en-head{
+	display:none !important;
+}
+body.ea-open-round-chrome .inside-header{padding-inline-start:0}
+body.ea-open-round-chrome .nav{
+	position:sticky;
+	top:0;
+	z-index:100;
+}

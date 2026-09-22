@@ -29,6 +29,19 @@ function ea_w2_07_is_press() {
 }
 
 /**
+ * True when on the /historical-articles page (default template; WP H1 retained).
+ *
+ * @return bool
+ */
+function ea_w2_07_is_historical_articles() {
+	if ( ! is_page() ) {
+		return false;
+	}
+	$post = get_queried_object();
+	return ( $post instanceof WP_Post ) && 'historical-articles' === $post->post_name && 0 === (int) $post->post_parent;
+}
+
+/**
  * True when on a QR page (tpl-qr.php assigned, child of `qr`).
  *
  * @return bool
@@ -123,11 +136,41 @@ function ea_w2_07_hide_gp_title( $show ) {
 add_filter( 'generate_show_title', 'ea_w2_07_hide_gp_title', 103 );
 
 /**
- * Enqueue the W2-07 CSS partial on W2-07 views.
+ * Ensure Wave2 atoms (and deps) load on pages outside the shell whitelist.
+ */
+function ea_w2_07_ensure_wave2_atoms() {
+	$uri = get_stylesheet_directory_uri();
+	$ver = wp_get_theme()->get( 'Version' );
+	if ( ! wp_style_is( 'ea-wave2-atoms', 'enqueued' ) ) {
+		wp_enqueue_style(
+			'ea-wave2-animations',
+			$uri . '/assets/css/ea-animations.css',
+			array( 'ea-wave2-tokens' ),
+			$ver
+		);
+		wp_enqueue_style(
+			'ea-wave2-atoms',
+			$uri . '/assets/css/ea-atoms.css',
+			array( 'ea-wave2-tokens', 'ea-wave2-animations' ),
+			$ver
+		);
+	}
+}
+
+/**
+ * Enqueue the W2-07 CSS partial on W2-07 views + /historical-articles.
  */
 function ea_w2_07_assets() {
-	if ( is_admin() || ! ea_w2_07_is_wave2_page() ) {
+	if ( is_admin() ) {
 		return;
+	}
+	$on_heritage = ea_w2_07_is_wave2_page();
+	$on_archive  = ea_w2_07_is_historical_articles();
+	if ( ! $on_heritage && ! $on_archive ) {
+		return;
+	}
+	if ( $on_archive ) {
+		ea_w2_07_ensure_wave2_atoms();
 	}
 	$uri = get_stylesheet_directory_uri();
 	$ver = wp_get_theme()->get( 'Version' );
@@ -137,6 +180,14 @@ function ea_w2_07_assets() {
 		array( 'ea-wave2-atoms' ),
 		$ver
 	);
+	if ( $on_archive ) {
+		wp_enqueue_style(
+			'ea-archive-content-sheet',
+			$uri . '/assets/css/ea-blog.css',
+			array( 'ea-wave2-atoms' ),
+			$ver
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ea_w2_07_assets', 28 );
 
@@ -184,6 +235,9 @@ function ea_w2_07_render_press() {
 					if ( '' === $title || '' === $url ) {
 						continue;
 					}
+					if ( str_starts_with( $url, '/' ) ) {
+						$url = home_url( $url );
+					}
 					$year = ( '' !== $date ) ? substr( $date, 0, 4 ) : '';
 					?>
 					<li class="ea-press__item ea-entrance">
@@ -208,7 +262,15 @@ function ea_w2_07_render_press() {
 	<?php
 	$press = ob_get_clean();
 	// FB Top-5 testimonials rendered on the heritage surface (AC-04).
-	return $press . ea_w2_07_render_fb_testimonials( 'ממליצים' );
+	$out = $press . ea_w2_07_render_fb_testimonials( 'ממליצים' );
+	$archive = ea_w2_07_show_archive_data();
+	if ( ! empty( $archive['testimonials'] ) && is_array( $archive['testimonials'] ) ) {
+		$out .= ea_w2_07_render_named_testimonials_accordion(
+			'המלצות על המופע',
+			(array) $archive['testimonials']
+		);
+	}
+	return $out;
 }
 
 /**
@@ -224,6 +286,239 @@ function ea_w2_07_inject_press( $content ) {
 	return ea_w2_07_render_press();
 }
 add_filter( 'the_content', 'ea_w2_07_inject_press', 9 );
+
+/* ============================================================
+   /historical-articles — show archive (verbatim old-site copy).
+============================================================ */
+
+/**
+ * Load show-archive export (E4 body, quotes, clippings, testimonials, blog links).
+ *
+ * @return array<string,mixed>
+ */
+function ea_w2_07_show_archive_data() {
+	static $cache = null;
+	if ( null !== $cache ) {
+		return $cache;
+	}
+	$path = get_stylesheet_directory() . '/inc/data/w2-07-show-archive.json';
+	if ( ! is_readable( $path ) ) {
+		$cache = array();
+		return $cache;
+	}
+	$json = json_decode( (string) file_get_contents( $path ), true );
+	$cache = is_array( $json ) ? $json : array();
+	return $cache;
+}
+
+/**
+ * Render named testimonials accordion ({name,text} rows, no FB links).
+ *
+ * @param string                         $heading
+ * @param array<int,array<string,string>> $items
+ * @return string
+ */
+function ea_w2_07_render_named_testimonials_accordion( $heading, $items ) {
+	return ea_w2_07_render_testimonials_accordion(
+		$heading,
+		$items,
+		array(
+			'section_class' => 'ea-show-testimonials',
+			'with_fb_links' => false,
+		)
+	);
+}
+
+/**
+ * Shared testimonials accordion markup (.ea-testimonial-acc).
+ *
+ * @param string                              $heading
+ * @param array<int,array<string,string>>     $items  Each {name,text} plus optional href, image.
+ * @param array<string,mixed>                 $args   with_fb_links, section_class.
+ * @return string
+ */
+function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array() ) {
+	$with_fb   = ! empty( $args['with_fb_links'] );
+	$sec_class = isset( $args['section_class'] ) ? (string) $args['section_class'] : 'ea-fb-testimonials';
+	if ( empty( $items ) ) {
+		return '';
+	}
+	ob_start();
+	?>
+	<section class="ea-section ea-section--testimonials <?php echo esc_attr( $sec_class ); ?>" data-block="testimonials-row" aria-label="<?php echo esc_attr( $heading ); ?>">
+		<div class="ea-section__inner">
+			<h2 class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+			<div class="ea-testimonials-accordion">
+				<?php foreach ( $items as $i => $item ) : ?>
+					<details class="ea-testimonial-acc ea-entrance"<?php echo 0 === (int) $i ? ' open' : ''; ?>>
+						<summary class="ea-testimonial-acc__summary">
+							<span class="ea-testimonial-acc__figure" aria-hidden="true">
+								<?php if ( ! empty( $item['image'] ) ) : ?>
+									<img class="ea-testimonial-card__avatar" src="<?php echo esc_url( $item['image'] ); ?>" alt="" loading="lazy" />
+								<?php else : ?>
+									<span class="ea-testimonial-card__avatar-placeholder"></span>
+								<?php endif; ?>
+							</span>
+							<span class="ea-testimonial-acc__name"><?php echo esc_html( (string) ( $item['name'] ?? '' ) ); ?></span>
+							<span class="ea-testimonial-acc__chevron" aria-hidden="true">⌄</span>
+						</summary>
+						<div class="ea-testimonial-acc__body">
+							<blockquote class="ea-testimonial-card__quote">
+								<p class="ea-testimonial-card__text"><?php echo nl2br( esc_html( (string) ( $item['text'] ?? '' ) ) ); ?></p>
+								<?php if ( $with_fb && ! empty( $item['href'] ) ) : ?>
+									<footer class="ea-testimonial-card__footer">
+										<a class="ea-testimonial-card__name ea-link"
+											href="<?php echo esc_url( $item['href'] ); ?>"
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label="<?php echo esc_attr( 'המלצת ' . ( $item['name'] ?? '' ) . ' בפייסבוק (נפתח בחלון חדש)' ); ?>">
+											<?php echo esc_html( (string) ( $item['name'] ?? '' ) ); ?>
+										</a>
+										<span class="ea-testimonial-card__hint" aria-hidden="true"> ↗</span>
+									</footer>
+								<?php endif; ?>
+							</blockquote>
+						</div>
+					</details>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+	return ob_get_clean();
+}
+
+/**
+ * Render /historical-articles archive blocks (WP page H1 unchanged).
+ *
+ * @return string
+ */
+function ea_w2_07_render_historical_articles() {
+	$data = ea_w2_07_show_archive_data();
+	if ( empty( $data ) ) {
+		return '';
+	}
+	$img_base = get_stylesheet_directory_uri() . '/assets/images/';
+	$heading  = isset( $data['heading'] ) ? (string) $data['heading'] : '';
+	$body     = ( isset( $data['body'] ) && is_array( $data['body'] ) ) ? $data['body'] : array();
+	$quotes   = ( isset( $data['pressQuotes'] ) && is_array( $data['pressQuotes'] ) ) ? $data['pressQuotes'] : array();
+	$clips    = ( isset( $data['clippings'] ) && is_array( $data['clippings'] ) ) ? $data['clippings'] : array();
+	$tests    = ( isset( $data['testimonials'] ) && is_array( $data['testimonials'] ) ) ? $data['testimonials'] : array();
+	$blog     = ( isset( $data['blogAlreadyOnStaging'] ) && is_array( $data['blogAlreadyOnStaging'] ) ) ? $data['blogAlreadyOnStaging'] : array();
+
+	ob_start();
+	?>
+	<div class="ea-historical-archive">
+		<?php if ( ! empty( $body ) ) : ?>
+		<section class="ea-content-section" data-block="show-archive-intro" aria-label="<?php echo esc_attr( '' !== $heading ? $heading : 'ארכיון מופע' ); ?>">
+			<div class="ea-content-section__inner">
+				<?php if ( '' !== $heading ) : ?>
+				<h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+				<?php endif; ?>
+				<div class="ea-content-section__body">
+					<?php foreach ( $body as $i => $p ) : ?>
+					<p<?php echo 0 === (int) $i ? ' class="lead"' : ''; ?>><?php echo esc_html( (string) $p ); ?></p>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $quotes ) ) : ?>
+		<section class="ea-section ea-press" data-block="show-press-quotes" aria-label="ציטוטי עיתונות על המופע">
+			<div class="ea-section__inner">
+				<h2 class="ea-section__heading ea-entrance--breath">בעיתונות</h2>
+				<ul class="ea-press__list">
+					<?php foreach ( $quotes as $q ) :
+						$text   = isset( $q['text'] ) ? trim( (string) $q['text'] ) : '';
+						$source = isset( $q['source'] ) ? trim( (string) $q['source'] ) : '';
+						if ( '' === $text ) {
+							continue;
+						}
+						?>
+					<li class="ea-press__item ea-entrance">
+						<p class="ea-press__link"><?php echo esc_html( $text ); ?></p>
+						<?php if ( '' !== $source ) : ?>
+						<span class="ea-press__source"><?php echo esc_html( $source ); ?></span>
+						<?php endif; ?>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</section>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $clips ) ) : ?>
+		<section class="ea-content-section ea-content-section--alt" data-block="show-clippings" aria-label="סריקות כתבות">
+			<div class="ea-book-gallery" role="group" aria-label="סריקות כתבות מהארכיון">
+				<div class="ea-book-gallery__grid">
+					<?php foreach ( $clips as $clip ) :
+						$file = isset( $clip['file'] ) ? ltrim( (string) $clip['file'], '/' ) : '';
+						if ( '' === $file ) {
+							continue;
+						}
+						$head = isset( $clip['heading'] ) ? (string) $clip['heading'] : '';
+						$alt  = isset( $clip['alt'] ) ? trim( (string) $clip['alt'] ) : '';
+						if ( '' === $alt ) {
+							$alt = $head;
+						}
+						?>
+					<div class="ea-book-gallery__item">
+						<img src="<?php echo esc_url( $img_base . $file ); ?>" alt="<?php echo esc_attr( $alt ); ?>" loading="lazy" />
+					</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+		<?php endif; ?>
+
+		<?php
+		if ( ! empty( $tests ) ) {
+			echo ea_w2_07_render_named_testimonials_accordion( 'המלצות על המופע', $tests ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- builder-escaped markup.
+		}
+		?>
+
+		<?php if ( ! empty( $blog ) ) : ?>
+		<section class="ea-section ea-press" data-block="show-blog-links" aria-label="כתבות בבלוג">
+			<div class="ea-section__inner">
+				<h2 class="ea-section__heading ea-entrance--breath">כתבות בבלוג</h2>
+				<ul class="ea-press__list">
+					<?php foreach ( $blog as $row ) :
+						$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+						$path  = isset( $row['path'] ) ? trim( (string) $row['path'] ) : '';
+						if ( '' === $title || '' === $path ) {
+							continue;
+						}
+						$href = home_url( $path );
+						?>
+					<li class="ea-press__item ea-entrance">
+						<a class="ea-press__link ea-text-link" href="<?php echo esc_url( $href ); ?>">
+							<?php echo esc_html( $title ); ?>
+						</a>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</section>
+		<?php endif; ?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+/**
+ * Append archive markup after the page H1/content shell on /historical-articles.
+ *
+ * @param string $content
+ * @return string
+ */
+function ea_w2_07_inject_historical_articles( $content ) {
+	if ( ! is_main_query() || ! in_the_loop() || ! ea_w2_07_is_historical_articles() ) {
+		return $content;
+	}
+	return $content . ea_w2_07_render_historical_articles();
+}
+add_filter( 'the_content', 'ea_w2_07_inject_historical_articles', 9 );
 
 /* ============================================================
    FB Top-5 testimonials — canonical source for Wave2 surfaces.
@@ -280,50 +575,14 @@ function ea_w2_07_fb_testimonials() {
  * @return string
  */
 function ea_w2_07_render_fb_testimonials( $heading = 'ממליצים' ) {
-	$items = ea_w2_07_fb_testimonials();
-	ob_start();
-	?>
-	<section class="ea-section ea-section--testimonials ea-fb-testimonials" data-block="testimonials-row" aria-label="<?php echo esc_attr( $heading ); ?>">
-		<div class="ea-section__inner">
-			<h2 class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
-			<div class="ea-testimonials-accordion">
-				<?php foreach ( $items as $i => $item ) : ?>
-					<details class="ea-testimonial-acc ea-entrance"<?php echo 0 === (int) $i ? ' open' : ''; ?>>
-						<summary class="ea-testimonial-acc__summary">
-							<span class="ea-testimonial-acc__figure" aria-hidden="true">
-								<?php if ( ! empty( $item['image'] ) ) : ?>
-									<img class="ea-testimonial-card__avatar" src="<?php echo esc_url( $item['image'] ); ?>" alt="" loading="lazy" />
-								<?php else : ?>
-									<span class="ea-testimonial-card__avatar-placeholder"></span>
-								<?php endif; ?>
-							</span>
-							<span class="ea-testimonial-acc__name"><?php echo esc_html( $item['name'] ); ?></span>
-							<span class="ea-testimonial-acc__chevron" aria-hidden="true">⌄</span>
-						</summary>
-						<div class="ea-testimonial-acc__body">
-							<blockquote class="ea-testimonial-card__quote">
-								<p class="ea-testimonial-card__text"><?php echo nl2br( esc_html( $item['text'] ) ); ?></p>
-								<?php if ( ! empty( $item['href'] ) ) : ?>
-									<footer class="ea-testimonial-card__footer">
-										<a class="ea-testimonial-card__name ea-link"
-											href="<?php echo esc_url( $item['href'] ); ?>"
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label="<?php echo esc_attr( 'המלצת ' . $item['name'] . ' בפייסבוק (נפתח בחלון חדש)' ); ?>">
-											<?php echo esc_html( $item['name'] ); ?>
-										</a>
-										<span class="ea-testimonial-card__hint" aria-hidden="true"> ↗</span>
-									</footer>
-								<?php endif; ?>
-							</blockquote>
-						</div>
-					</details>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
-	<?php
-	return ob_get_clean();
+	return ea_w2_07_render_testimonials_accordion(
+		$heading,
+		ea_w2_07_fb_testimonials(),
+		array(
+			'section_class' => 'ea-fb-testimonials',
+			'with_fb_links' => true,
+		)
+	);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

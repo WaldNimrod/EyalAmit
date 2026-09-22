@@ -31,9 +31,9 @@
 .ea-nd-burger,.ea-nd-burger *{box-sizing:border-box}
 
 /* physical slide edge from doc direction — dialog is always anchored to the
-   inline-end edge, so RTL slides from the left and LTR from the right */
-html[dir="rtl"]{--ea-nd-tx:-100%}
-html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
+   inline-start edge, so RTL slides from the right and LTR from the left */
+html[dir="rtl"]{--ea-nd-tx:100%}
+html[dir="ltr"],html:not([dir]){--ea-nd-tx:-100%}
 
 .ea-nd-burger{
   display:none;
@@ -56,8 +56,8 @@ html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
   .ea-nd-burger__bars span:nth-child(3){top:12px}
 
   /* Fixed trigger for pages with no burger of their own today (the six
-     GeneratePress orphans, /en/). Top-inline-end — the spot a visitor
-     already looks, and on the six orphans, GP's own real .menu-toggle's own
+     GeneratePress orphans, /en/). Top-inline-start — DA-NAV-01 (2026-09-21);
+     on the six orphans, GP's own real .menu-toggle's own
      spot: ea-nd-orphan (added by inc/ea-nav-drawer.php) hides that toggle
      via display:none right below, so this replaces it rather than sitting
      beside it. A first version placed this burger at that same position
@@ -68,9 +68,13 @@ html[dir="ltr"],html:not([dir]){--ea-nd-tx:100%}
      pages, the opposite of "one drawer, one way in." This is the third:
      GP's toggle hidden, this burger takes its place. */
   .ea-nd-burger--standalone{
-    position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:var(--ea-z-sticky,20);
+    position:fixed;inset-block-start:14px;inset-inline-start:14px;inset-inline-end:auto;z-index:var(--ea-z-sticky,20);
     background:rgba(14,9,5,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   }
+
+  /* DA-NAV-01 (2026-09-21): standalone burger at inline-start must not cover
+     GP site title on orphan pages. /en/ uses tpl-chapters-en.php padding instead. */
+  body.ea-nd-orphan .inside-header{padding-inline-start:56px}
 
   /* display:none, never opacity — GP's toggle must leave the tab order, not
      just leave the screen (same rule this mandate applies to its own
@@ -116,7 +120,7 @@ body.ea-nd-orphan.ea-wave2-shell .site-header{display:block}
    inferred). Only dialog.ea-nd[open] may ever set display. */
 dialog.ea-nd{
   display:none;
-  position:fixed;inset-block:0;inset-inline-end:0;inset-inline-start:auto;
+  position:fixed;inset-block:0;inset-inline-start:0;inset-inline-end:auto;
   margin:0;padding:0;border:0;max-width:none;max-height:100dvh;
   inline-size:min(86vw,360px);
   background:linear-gradient(180deg,#211e1b 0%,var(--ea-ink) 60%,#241d18 100%);

@@ -256,6 +256,38 @@ return array(
 	'cmp_b_cta'   => 'למידע נוסף על סאונד הילינג',
 	'cmp_b_url'   => '/sound-healing/',
 
+	/* T-IA-SPOTLIGHT — four equal slots; Eyal swaps image/title/lines/url on each. */
+	'now_cards' => array(
+		array(
+			'image' => 'assets/images/chapters/stands-storage/stand-01.jpg',
+			'title' => 'כלי דיג׳רידו למכירה',
+			'line1' => 'כלים בעבודת יד, מעמדים ואביזרים מהסטודיו בפרדס חנה.',
+			'line2' => 'מוכנים לשימוש, עם אפשרות לתיקון וחידוש.',
+			'url'   => '/shop/',
+		),
+		array(
+			'image' => 'assets/images/kushi-01-blantis-1.jpg',
+			'title' => 'כושי בלאנטיס',
+			'line1' => 'הספר הראשון. סיפורים מהדרך, מהכלי ומהחיים.',
+			'line2' => 'בין הודו לישראל, בלי קיצור דרך.',
+			'url'   => '/books/kushi-blantis/',
+		),
+		array(
+			'image' => 'assets/images/chapters/group-session-garden.jpg',
+			'title' => 'הכשרות למטפלים',
+			'line1' => 'מסלול למי שרוצה ללמוד את הדרך באופן מובנה.',
+			'line2' => 'ולהמשיך ללמד ולטפל בעצמו.',
+			'url'   => '/learning/therapist-training/',
+		),
+		array(
+			'image' => 'assets/images/chapters/home-peek/peek-25.jpg',
+			'title' => 'שבוע הנשימה בסטודיו',
+			'line1' => 'רשימה מהמרכז: תרגול, כלים, ומה שקורה בחצר.',
+			'line2' => 'אייל בוחר איזה פוסט מופיע, מתי.',
+			'url'   => '/blog/',
+		),
+	),
+
 	/* ── 06 HOW TO START (dark band · אייל SECTION 06) ── */
 	/* S006 · H-09 · תווית הפרק עודכנה 07 → 06 לפי מספור אייל. */
 	'start_chap'      => '',

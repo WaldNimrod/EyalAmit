@@ -4,10 +4,11 @@
    ============================================================= */
 
 /* ── Archive layout ───────────────────────────────────────── */
+/* S007 align-sweep: do NOT put max-width on this class when it also sits on
+   <main class="chapters-main"> — that cage (1200) clipped the phero. Chapters
+   `.wrap` (1200 / pad 48) is the measure. Legacy tpl-blog-archive.php still
+   uses this class alone; width cage removed so it cannot re-trap a Chapters main. */
 .ea-wave2-blog-archive {
-	max-width: var(--ea-content-width);
-	margin: 0 auto;
-	padding: var(--ea-space-8) var(--ea-space-4);
 	direction: rtl;
 }
 
@@ -162,10 +163,10 @@
 }
 
 /* ── Single post ──────────────────────────────────────────── */
+/* S007 align-sweep: max-width: var(--ea-prose-width) (960) on this class
+   caged chapters-main (hero + wrap). Proof: classList.remove released
+   main 960→1440 / wrap 896→1200 / phero 896→1440. Cage properties removed. */
 .ea-wave2-blog-single {
-	max-width: var(--ea-prose-width);
-	margin: 0 auto;
-	padding: var(--ea-space-8) var(--ea-space-4);
 	direction: rtl;
 }
 
@@ -259,12 +260,12 @@
 	background: linear-gradient(135deg, var(--ea-earth) 0%, var(--ea-chocolate) 55%, var(--ea-ink) 100%);
 }
 
-/* ── Reading measure cap (AC-D3) ───────────────────────────────────────────── */
-/* 66ch is a `ch` (relative font-measure) constraint, NOT a new token — the column
-   already caps at --ea-prose-width on .ea-wave2-blog-single; this tightens the
-   prose line-length for comfortable long-Hebrew reading. */
+/* ── Reading measure — Chapters canon (82ch = .intro-body / .prose) ─────────── */
+/* S007 align-sweep P-POST-66CH: after the 960 cage is gone, 66ch/624px remained.
+   Retarget to the locked snoring measure. Do not add a third wrapper class. */
 .ea-post-content {
-	max-width: 66ch;
+	max-width: 82ch;
+	margin-inline: auto;
 }
 
 /* ── Share row (WhatsApp + copy-link only) ─────────────────────────────────── */

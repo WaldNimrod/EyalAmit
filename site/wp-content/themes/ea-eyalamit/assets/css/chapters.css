@@ -832,12 +832,12 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1180px){
-  /* WS-2.2 (A11Y-FIX-2026-09-18): burger is first in DOM (section-nav.php) so
-     keyboard tab order reaches it before the menu; `order` restores its visual
-     position at the end of the header cluster (after sound/EN) without
-     touching tab order, which CSS order never affects. No-op at >1180px since
-     the burger is display:none there regardless of DOM/order position. */
-  .nav__burger{display:flex;order:1}
+  /* WS-2.2 / DA-NAV-01 (2026-09-21): burger at inline-start (physical right in
+     RTL, left in LTR); logo at inline-end via order. DOM/tab order unchanged
+     (logo then burger in section-nav.php) — CSS order does not affect tab
+     order. No-op at >1180px since the burger is display:none there. */
+  .nav__burger{display:flex;order:-1}
+  .nav__b{order:2;margin-inline-start:auto}
   .nav__l{display:none}
 }
 @media(prefers-reduced-motion:reduce){.nav__burger span{transition:none}}

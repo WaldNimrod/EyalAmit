@@ -34,6 +34,13 @@ return array(
 			),
 		),
 		array(
+			'part' => 'photo-slot',
+			'args' => array(
+				'id'    => 'learning-photo-lessons',
+				'label' => 'תמונה תיבחר · שיעורי דיג׳רידו',
+			),
+		),
+		array(
 			'part' => 'prose',
 			'args' => array(
 				'chap'  => 'לארגונים ולקבוצות',
@@ -42,11 +49,25 @@ return array(
 			),
 		),
 		array(
+			'part' => 'photo-slot',
+			'args' => array(
+				'id'    => 'learning-photo-lectures',
+				'label' => 'תמונה תיבחר · הרצאות וסדנאות',
+			),
+		),
+		array(
 			'part' => 'prose',
 			'args' => array(
 				'chap'  => 'מסלול עומק',
 				'title' => 'הכשרת מטפלים ומנחים בשיטת cbDIDG',
 				'body'  => '<p>מסלול הכשרה למי שמבקש ללמוד את הדרך באופן מובנה ומקצועי — ולהמשיך ללמד ולטפל בעצמו. חלק מחזון «הדור הבא» של התחום.</p><p><a class="btn btn--gd" href="/learning/therapist-training/">למסלול הכשרת מטפלים</a></p>',
+			),
+		),
+		array(
+			'part' => 'photo-slot',
+			'args' => array(
+				'id'    => 'learning-photo-training',
+				'label' => 'תמונה תיבחר · הכשרת מטפלים',
 			),
 		),
 		array(

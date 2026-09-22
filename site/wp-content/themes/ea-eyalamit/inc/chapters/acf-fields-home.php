@@ -159,6 +159,17 @@ function ea_chapters_register_home_fields() {
 			$txt( 'f_cmp_b_c', 'cmp_b_cta', 'כרטיס ב׳ — טקסט כפתור' ),
 			$txt( 'f_cmp_b_u', 'cmp_b_url', 'כרטיס ב׳ — קישור' ),
 
+			$tab( 'tab_now', 'עכשיו באתר' ),
+		),
+		$slots( 'now_cards', 4, array(
+			array( 'type' => 'image', 'name' => 'image', 'label' => 'תמונה' ),
+			array( 'type' => 'text', 'name' => 'title', 'label' => 'שם' ),
+			array( 'type' => 'textarea', 'name' => 'line1', 'label' => 'שורה 1', 'rows' => 2 ),
+			array( 'type' => 'textarea', 'name' => 'line2', 'label' => 'שורה 2', 'rows' => 2 ),
+			array( 'type' => 'text', 'name' => 'url', 'label' => 'קישור (כל עמוד באתר)' ),
+		), 'כרטיס' ),
+
+		array(
 			$tab( 'tab_start', '07 איך מתחילים' ),
 			$txt( 'f_start_chap', 'start_chap', 'תווית פרק' ),
 			$txt( 'f_start_title', 'start_title', 'כותרת' ),
