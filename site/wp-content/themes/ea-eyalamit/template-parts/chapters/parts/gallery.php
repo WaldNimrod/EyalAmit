@@ -20,13 +20,20 @@ defined( 'ABSPATH' ) || exit;
 $a     = isset( $args ) && is_array( $args ) ? $args : array();
 $items = ( isset( $a['items'] ) && is_array( $a['items'] ) ) ? $a['items'] : array();
 $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
+$ea_gal = 'gallery';
+if ( ! empty( $a['doc'] ) ) {
+	$ea_gal .= ' gallery--doc';
+}
+if ( ! empty( $a['portraits'] ) ) {
+	$ea_gal .= ' gallery--portraits';
+}
 ?>
 <section class="sec<?php echo $alt ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
 		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
-		<div class="gallery<?php echo ! empty( $a['doc'] ) ? ' gallery--doc' : ''; ?> r">
+		<div class="<?php echo esc_attr( $ea_gal ); ?> r">
 			<?php
 			foreach ( $items as $it ) :
 				$is_pending = ! empty( $it['pending'] );
@@ -49,9 +56,13 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 					<?php
 					continue;
 				endif;
+				$ea_galt = (string) ( $it['alt'] ?? '' );
+				if ( empty( $a['literal_alt'] ) && function_exists( 'ea_chapters_content_img_alt' ) ) {
+					$ea_galt = ea_chapters_content_img_alt( $src, $ea_galt );
+				}
 				?>
 				<figure class="gfig<?php echo $is_pending ? ' gfig--pending-img' : ''; ?>">
-					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $src, $it['alt'] ?? '' ) : ( $it['alt'] ?? '' ) ); ?>" loading="lazy">
+					<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( $ea_galt ); ?>" loading="lazy">
 					<?php if ( $is_pending ) : ?>
 						<span class="ea-pending-approval__badge" style="position:absolute;inset-block-start:10px;inset-inline-start:10px;z-index:2">ממתין לאישור</span>
 					<?php endif; ?>

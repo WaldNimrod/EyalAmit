@@ -2,8 +2,8 @@
   "schema": "s007-work-ssot-v1",
   "isWorkSsot": true,
   "titleHe": "תור העבודה S007",
-  "updated": "2026-09-22",
-  "themeLive": "1.5.109",
+  "updated": "2026-09-24",
+  "themeLive": "1.5.114",
   "staging": "http://eyalamit-co-il-2026.s887.upress.link",
   "rules": {
     "status": [
@@ -75,8 +75,17 @@
   "questions": [
     {
       "id": "Q-EYAL-BATCH",
-      "waitingOn": "nimrod",
-      "promptHe": "השער פתוח. סבב המידע החדש מאייל אפשר לקלוט עכשיו — מוסרים את הקבצים?"
+      "waitingOn": "none",
+      "status": "resolved",
+      "promptHe": "השער פתוח. סבב המידע החדש מאייל אפשר לקלוט עכשיו — מוסרים את הקבצים?",
+      "answerHe": "2026-09-23 הקבצים נקלטו. ההכרעות נכנסו לחלק י ולחיתוך 179."
+    },
+    {
+      "id": "Q-COLOR",
+      "waitingOn": "none",
+      "status": "resolved",
+      "promptHe": "גוונים: איזה חום מהפלטה מחליף את הבלוקים השחורים באמצע העמוד, והאם הטוקנים החיים נשארים או נצמדים לפלטה שננעלה. הסקיצה בלוח, עוגן color.",
+      "answerHe": "2026-09-23 השוקולד הוא דפוס הצטרפות (cta-band--choc), לא החלפת טוקנים גלובלית. הטוקנים נשארים."
     }
   ],
   "items": [
@@ -200,8 +209,8 @@
       "summaryHe": "ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/historical-articles/",
-        "check": "",
-        "date": ""
+        "check": "2026-09-24 GET 200 · ea-historical-archive with three headings · body still contains «אופציונלי — placeholder»",
+        "date": "2026-09-24"
       },
       "eyal": {
         "choice": "אשלח תוכן",
@@ -214,9 +223,9 @@
       "form": {
         "slim": false,
         "nowLabel": "מה מוצג היום",
-        "now": "אופציונלי — placeholder.",
+        "now": "הארכיון חי ומחוץ לסרגל: מופע הסיפורים, בעיתונות, המלצות. מעל הארכיון נשארה שורת גוף ישנה «אופציונלי — placeholder».",
         "needLabel": "מה חסר",
-        "need": "הכתבות עצמן, או החלטה שהעמוד אינו נחוץ. הסימון שלנו כבר אומר שהעמוד אופציונלי.",
+        "need": "הקטלוג המלא של שאר הכתבות, אחרי הסריקה שהבטחת. מקום בסרגל כבר הוכרע: מחוץ לתפריט.",
         "options": [
           {
             "value": "אשלח תוכן",
@@ -402,8 +411,8 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לך — דחית לכלי סינון המדיה 939",
-      "summaryHe": "ממתין לך — דחית לכלי סינון המדיה 939",
+      "stampHe": "הקובץ הגיע — 179 בלי עמוד מחכות לבחירה",
+      "summaryHe": "ייצוא 21.9 הגיע: 341 נחוץ. 179 בלי שם עמוד. החיתוך בגלריית העבודה. השיבוץ אחרי בחירה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/galleries/",
         "check": "",
@@ -452,8 +461,8 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לך — אותו כלי 939",
-      "summaryHe": "ממתין לך — אותו כלי 939",
+      "stampHe": "הקובץ הגיע — הבחירה מהחיתוך, לא מהכלי הריק",
+      "summaryHe": "אותו ייצוא כמו B2. לא נסגר: חסר שיוך ל-179 תמונות.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/galleries/",
         "check": "",
@@ -503,7 +512,7 @@
       "status": "waiting",
       "waitingOn": "eyal",
       "stampHe": "ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד",
-      "summaryHe": "הטקסט אושר. שלושה מקומות לתמונה חיים בעמוד. חיבור לסרגל — חלק י (M1).",
+      "summaryHe": "הטקסט אושר ב-21.9. שלושה פלייסהולדרים חיים. הקישור לסרגל נרשם ב-M1, לא שאלה פתוחה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/",
         "check": "2026-09-21 GET 200 · 3 photo-slots live · waiting on Eyal for images",
@@ -522,7 +531,7 @@
         "nowLabel": "מה מוצג היום",
         "now": "הטקסט שאושרת חי. ליד שלושת הבלוקים יש מקום ברור לתמונה: שיעורי דיג׳רידו, הרצאות וסדנאות, הכשרת מטפלים.",
         "needLabel": "מה חסר",
-        "need": "תמונה מייצגת ואסתטית לכל אחד משלושת הבלוקים, כמו שביקשת בהערה. החיבור לסרגל «לימוד והכשרה» — בחלק י (ייסגר ביחד אחרי שיחה).",
+        "need": "שלוש תמונות, כמו שביקשת. הטקסט אושר. קישור «לימוד והכשרה» כבר סומן ונרשם בשיחת הסרגל, לא כשאלה חדשה.",
         "options": [
           {
             "value": "אשלח תמונות",
@@ -806,10 +815,10 @@
       "path": "/press/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "סריקה הועברה לארכיון. מקום בסרגל — חלק י",
-      "summaryHe": "שלוש כתבות מופע + המלצות שמיות נוספו ל-/press/. מחוץ לתפריט כפי שסימנת. מקום בסרגל ייסגר ב-M1.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר — מחוץ לתפריט, כפי שסימנת ב-21.9",
+      "summaryHe": "הסריקה בארכיון העיתונות. מקום בסרגל הוכרע: מחוץ לתפריט. לא נפתח מחדש בחלק י.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/press/",
         "check": "2026-09-21 GET /press/ 200 theme 1.5.105 · 3 show clippings + «המלצות על המופע» + אברהם טל · homepage href 0",
@@ -827,8 +836,8 @@
         "slim": false,
         "nowLabel": "מה מוצג היום",
         "now": "עמוד ארכיון מחוץ לסרגל. נוספו שלוש כתבות על המופע (גבעתיים, מעריב, ידיעות) והמלצות שמיות מהאתר הישן. חמש המלצות סאונד הילינג נשארו.",
-        "needLabel": "מה נדרש",
-        "need": "מקום בתפריט — חלק י, לא כאן. אין פעולת תוכן ממך על הסריקה הזו.",
+        "needLabel": "מה נשאר",
+        "need": "נסגר. אין פעולה ממך.",
         "options": [
           {
             "value": "להוסיף לתפריט",
@@ -859,14 +868,14 @@
       "path": "/learning/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "ייסגר ביחד בחלק י — סימנת קישור ל-/learning/; לא מיושם",
-      "summaryHe": "סימן: הכותרת תהיה קישור ל-/learning/. לא מיושם. אין שינוי ל-L1 עד שיחת M1.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר כשאלה — סימנת קישור ל-/learning/. היישום בתוך M1",
+      "summaryHe": "התשובה נרשמה ב-21.9. הקישור על כותרת «לימוד והכשרה» עדיין לא בקוד, כי סדר הסרגל ממתין לשיחת M1. אין שאלה נפרדת.",
       "live": {
-        "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/",
-        "check": "",
-        "date": ""
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+        "check": "2026-09-24 GET / 200 · «לימוד והכשרה» is button.nav__dd, not a link to /learning/ · question closed; the link stays inside M1",
+        "date": "2026-09-24"
       },
       "eyal": {
         "choice": "הכותרת תהיה קישור",
@@ -880,8 +889,8 @@
         "slim": false,
         "nowLabel": "מה מוצג היום",
         "now": "בתפריט הראשי «לימוד והכשרה» היא כותרת שנפתחת לתת־פריטים, ואי אפשר ללחוץ עליה. העמוד עצמו קיים ומלא, ואין אליו קישור.",
-        "needLabel": "מה נדרש",
-        "need": "הסעיף הזה חלק משיחת עץ התפריט בחלק י. אין למלא בנפרד.",
+        "needLabel": "מה נשאר",
+        "need": "נסגר כשאלה. היישום יושב בשיחת הסרגל, לא כאן.",
         "options": [
           {
             "value": "הכותרת תהיה קישור",
@@ -961,10 +970,10 @@
       "path": "/shows-heritage/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "חומר מופע רוכז בכתבות היסטוריות. מקום בסרגל — חלק י",
-      "summaryHe": "תיאור המופע, סריקות כתבות והמלצות שמיות חיים ב-/historical-articles/. /shows-heritage/ ריק בכוונה. מקום בסרגל ב-M1.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר — מחוץ לתפריט. החומר רוכז בכתבות היסטוריות",
+      "summaryHe": "סימנת ב-21.9 להשאיר מחוץ לתפריט ולרכז בארכיון. זה מה שחי. לא שאלה פתוחה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
         "check": "2026-09-21 GET /historical-articles/ 200 theme 1.5.105 · overflow remediations on clipping grid · «מופע הסיפורים» + GIVATAIM.jpg · homepage href 0",
@@ -982,8 +991,8 @@
         "slim": false,
         "nowLabel": "מה מוצג היום",
         "now": "החומר שנמצא בסריקה רוכז בדף הכתבות ההיסטוריות. דף ההופעות בסרגל הפנימי נשאר ארכיון ריק, לא לגולש מהתפריט.",
-        "needLabel": "מה נדרש",
-        "need": "מקום בתפריט — חלק י, לא כאן.",
+        "needLabel": "מה נשאר",
+        "need": "נסגר. אין פעולה ממך.",
         "options": [
           {
             "value": "להוסיף כשיהיה תוכן",
@@ -1010,14 +1019,14 @@
       "path": "/historical-articles/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "ייסגר ביחד בחלק י — סימנת מחוץ לתפריט, ארכיון לעיניך",
-      "summaryHe": "סימן: ארכיון, לא לגולש מהתפריט. מקום בסרגל ייסגר ב-M1. תוכן כתבות אצל אייל ב-A3.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר — מחוץ לתפריט, ארכיון לעיניך. הכתבות עצמן ב-A3",
+      "summaryHe": "סימנת ב-21.9 שהעמוד לא לגולש מהתפריט. מקום בסרגל הוכרע. קטלוג הכתבות נשאר ב-A3.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/historical-articles/",
-        "check": "",
-        "date": ""
+        "check": "2026-09-24 GET /historical-articles/ 200 · archive headings מופע הסיפורים / בעיתונות / המלצות · homepage href historical-articles = 0 · leftover body line «אופציונלי — placeholder» still above the archive",
+        "date": "2026-09-24"
       },
       "eyal": {
         "choice": "להשאיר מחוץ לתפריט",
@@ -1030,9 +1039,9 @@
       "form": {
         "slim": false,
         "nowLabel": "מה מוצג היום",
-        "now": "העמוד ריק ואינו בתפריט. התוכן שלו נשאל בחלק א׳.",
-        "needLabel": "מה נדרש",
-        "need": "הסעיף הזה חלק משיחת עץ התפריט בחלק י. אין למלא בנפרד. הכתבות עצמן — בחלק א׳ כשתקטלג.",
+        "now": "עמוד ארכיון חי, מחוץ לסרגל. התוכן שנמצא בסריקה כבר שם. הקטלוג המלא נשאל בחלק א׳.",
+        "needLabel": "מה נשאר",
+        "need": "נסגר מצד התפריט. הכתבות עצמן — בחלק א׳.",
         "options": [
           {
             "value": "להוסיף כשיהיה תוכן",
@@ -3230,13 +3239,13 @@
       "kind": "content_gap",
       "surface": "both",
       "status": "waiting",
-      "waitingOn": "team10",
-      "stampHe": "היסטורי כמו שהיה — לא משימה נפרדת",
-      "summaryHe": "נשאר כבאתר הישן. לא מחליפים תמונות. התבנית החדשה היא T-BLOG-TEMPLATE לפוסטים חדשים בלבד.",
+      "waitingOn": "eyal",
+      "stampHe": "אין תמונת נושא גם באתר הישן. אייל ישלח אם יש. לא מעתיקים.",
+      "summaryHe": "ההערה «קח מהפוסט המקורי» לא ניתנת לביצוע: אין תמונת נושא גם באתר הישן. לא הומצאה תמונה. זה T-BLOG-HERO-OLD.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
-        "check": "",
-        "date": ""
+        "check": "2026-09-23 post 203 has no featured image; old site has none either",
+        "date": "2026-09-23"
       },
       "eyal": {
         "choice": "יש הערה",
@@ -6511,24 +6520,27 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לשיחה — ייסגר ביחד. אין שינוי לסרגל עד אז",
-      "summaryHe": "סקשן אחד לכל שאלות העץ. L1 לא זז בשלב הזה. קורסים כבר בתפריט. לימוד והכשרה עדיין בלי קישור לאב.",
+      "stampHe": "הסדר נרשם. הסרגל לא זז עד השיחה",
+      "summaryHe": "23.9 בבוקר אייל שלח סדר כפתורים מימין לשמאל, ביקש שורה אחת, הפרדה בין הלוגו לכפתור הראשון, וסרגל צר יותר בגלילה. שאל אם שאלות נפוצות ועדויות נכנסים לסרגל. התקנון כבר בפוטר. אין שינוי ל-ea-canonical-nav.php.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-21 GET / 200 · homepage href /shows-heritage/ /press/ /historical-articles/ /services/ = 0 · learning parent href null",
         "date": "2026-09-21"
       },
-      "eyal": null,
+      "eyal": {
+        "choice": "יש הערה על העץ",
+        "note": "23.9 בבוקר, מימין לשמאל: לוגו, אייל עמית, טיפול בדיג'רידו, שיעורי דיג'רידו, סאונד הילינג, השיטה, כלים ואביזרים, לימוד והכשרה, בלוג דיג'רידו, ספרים, צור קשר. להקטין את הפונט לשורה אחת. להצר עוד בגלילה. הפרדה ברורה יותר בין הלוגו לכפתור הראשון. שאל אם שאלות נפוצות ועדויות נכנסים לסרגל."
+      },
       "nimrod": {
         "decision": "one-nav-tree-section",
-        "note": "2026-09-21 נימרוד: כל שאלות מבנה עץ התפריט בסקשן אחד בטופס ובלוח. ייסגרו ביחד אחרי שיחה עם אייל. אין שינוי ל-L1 עכשיו."
+        "note": "2026-09-21 נימרוד: כל שאלות מבנה עץ התפריט בסקשן אחד. אין שינוי ל-L1 עד השיחה. 23.9: הסדר שהוא שלח נרשם, לא יושם."
       },
       "form": {
         "slim": false,
-        "nowLabel": "מה מוצג היום בסרגל",
-        "now": "עשרה כפתורים ברמה הראשונה. «קורסים» חי תחת לימוד והכשרה (עמוד יעלה בקרוב). «לימוד והכשרה» ו«אייל עמית» הם כותרות בלי קישור לאב. עיתונות, הופעות ומורשת, כתבות היסטוריות ושירותים אינם בסרגל.",
-        "needLabel": "מה נסגור בשיחה אחת",
-        "need": "הסעיפים האלה ייסגרו ביחד, לא אחד־אחד:\n• לימוד והכשרה בסרגל יוביל ל-/learning/ (סימנת שהכותרת תהיה קישור — עוד לא מיושם).\n• חיבור עמוד הלימוד לסרגל (הערה 1 בעמוד הלימוד) — אותו נושא.\n• עיתונות / הופעות / כתבות היסטוריות — סימנת להשאיר מחוץ לתפריט; נאשר בשיחה שלא נכנסים לסרגל.\n• שאר כפתורי האב וחריגת התפריט.\nצדדי כפתור התפריט במובייל הם חלק ט, לא כאן.",
+        "nowLabel": "מה כתבת, ומה מוצג היום",
+        "now": "היום מימין לשמאל אחרי הלוגו: טיפול, השיטה, שיעורים, סאונד הילינג, לימוד והכשרה, כלים, ספרים, בלוג, אייל עמית, צור קשר. «אייל עמית» ו«לימוד והכשרה» בלי קישור לאב. התקנון, השאלות הנפוצות והעדויות בפוטר, לא בסרגל. אחרי גלילה הסרגל כבר יורד ל-56px.",
+        "needLabel": "מה נשאר לשיחה",
+        "need": "הסדר שכתבת נרשם ולא יושם. נשאר לאשר אותו מול מה שחי, ולהכריע אם שאלות נפוצות ועדויות נכנסים לסרגל הראשי. הקטנת הפונט והיצרות נוספת בגלילה נוגעות לקאנון הגודל — לא משנים לפני השיחה.",
         "options": [
           {
             "value": "נדבר בשיחה",
@@ -6542,9 +6554,611 @@
         "dateHint": ""
       },
       "sources": [
-        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json"
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
       ],
       "section": "M"
+    },
+    {
+      "id": "M2",
+      "formId": "M2",
+      "trackerRow": null,
+      "titleHe": "תבנית פוסט חדש — שיחה",
+      "path": "/?ea_blog_dummy=week-of-breath-dummy",
+      "kind": "visual",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "לשיחה — יחד עם עץ התפריט",
+      "summaryHe": "התבנית חיה כדוגמה. פוסטים ישנים לא הומרו. השיחה עם אייל היא על המבנה, באותו חלק בטופס כמו עץ התפריט.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy",
+        "check": "2026-09-22 theme 1.5.109 · דמה לא מפורסמת · H1 שבוע הנשימה בסטודיו",
+        "date": "2026-09-22"
+      },
+      "eyal": null,
+      "nimrod": {
+        "decision": "talk-with-nav-tree",
+        "note": "2026-09-23 נימרוד: תבנית הפוסט נכנסת לטופס לאייל ביחס לחלק י (עץ האתר). שניהם נושאי שיחה."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה מוצג היום",
+        "now": "פוסט חדש נבנה מתבנית קבועה: הירו, ואז שורות — טקסט, טקסט עם תמונה, גלריה, ציטוט, סרט, וכפתור לפנייה. בלי תמונה ראשית ההירו כהה עם הלוגו, לא דיוקן. פוסטים שכבר באתר נשארים כמו שהיו. הקישור למעלה הוא דוגמה, לא פוסט שפורסם.",
+        "needLabel": "מה נסגור בשיחה, יחד עם העץ",
+        "need": "האם המבנה הזה מתאים לפוסטים חדשים. לא למלא בנפרד מעץ התפריט — אותו מפגש.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה על התבנית",
+            "label": "יש הערה על התבנית — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M3",
+      "formId": "M3",
+      "trackerRow": null,
+      "titleHe": "הסטת הכותרת מול גוף הטקסט",
+      "path": "/method/",
+      "kind": "visual",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "לשיחה — מכוון, לא פותחים את הקאנון לפניה",
+      "summaryHe": "אייל שאל אם הכותרת צמודה ימינה והטקסט מתחיל שמאלה זה בכוונה. נימרוד 23.9: סעיף בשיחה. הקאנון נשאר.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+        "check": "2026-09-23 code: H2 on wrap, body 82ch inside 1200",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": {
+        "decision": "talk-do-not-open-canon",
+        "note": "2026-09-23 נימרוד: להוסיף כסעיף לשיחה עם אייל. לא לפתוח את הקאנון עכשיו."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה מוצג היום",
+        "now": "בכל העמודים הכותרת רחבה יותר מהפסקה. הפסקה ממורכזת בתוך הרוחב, לכן היא מתחילה שמאלה מהכותרת. זה מכוון, כדי שהעין תבדיל בין כותרת לגוף.",
+        "needLabel": "מה נסגור בשיחה",
+        "need": "האם ההסטה הזו נוחה בקריאה, או שמפריעה. לא למלא בנפרד.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה",
+            "label": "יש הערה — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M4",
+      "formId": "M4",
+      "trackerRow": null,
+      "titleHe": "בלוק כפתור כהה שנראה כמו סוף דף",
+      "path": "/repair/",
+      "kind": "visual",
+      "surface": "both",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "הכרעה: שוקולד הוא דפוס הצטרפות. פס מלא נצבע. כפתור בלי משפט נשאר",
+      "summaryHe": "21.9 הבלוק נראה כמו סוף דף. 23.9: השוקולד #5C3A2E והחול #D8C7B5 הם הצטרפות, לא החלפת טוקנים. פס שכבר היה לו כותרת ופסקה עלה בתיקון, בשיטה, בסאונד הילינג ובלימוד. ספרים ודום נשימה נשארו כהים כי אין שם כותרת ופסקה, ולא הומצא משפט.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+        "check": "2026-09-23 theme 1.5.114 · method band rgb(92,58,46) · sand button · footer rgb(14,9,5) · overflow 0 at 390 and 1440 · books and snoring not recolored",
+        "date": "2026-09-23"
+      },
+      "eyal": {
+        "choice": "יש הערה",
+        "note": "23.9 בבוקר: הבלוקים השחורים נראים כמו פוטר. להחליף אותם בחום כלשהו מהפלטה שהוגשה."
+      },
+      "nimrod": {
+        "decision": "talk-cta-band",
+        "note": "2026-09-23 אחר הצהריים נימרוד: הגוון אצלו, לא אצל אייל. הסקיצה בלוח. לא מחליפים צבע לפני ההכרעה."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה כתבת, ומה מוצג היום",
+        "now": "פס שכבר היה לו כותרת ופסקה הוא שוקולד, והכפתור חול. זה בתיקון, בשיטה, בסאונד הילינג ובלימוד. בספרים ובדום נשימה נשאר בלוק כהה, כי שם יש כפתור בלי כותרת ולא הומצא משפט.",
+        "needLabel": "מה נשאר",
+        "need": "הכיוון נקלט. איזה חום — נבחר אצלנו מהפלטה, לא בטופס הזה.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה",
+            "label": "יש הערה — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json",
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M5",
+      "formId": "M5",
+      "trackerRow": null,
+      "titleHe": "מוקש דהימן — עבודה בפגישה",
+      "path": "/eyal-amit/mokesh-dahiman/",
+      "kind": "content_gap",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "לפגישה — רק וידאו הרקע של ההירו. הסרט בתוך העמוד נשאר",
+      "summaryHe": "בעמוד שני סרטים מאותו יוטיוב kf4NKSdYi9E. ביקש להסיר את וידאו הרקע בהירו ולהשאיר תמונה של מוקש לבדו, בלי סאונד. את הסרט המוטמע ליד פתיחת הטקסט הוא ביקש קודם לכן להשאיר. התמונה לא נבחרה. לא נוגעים לפני הפגישה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/mokesh-meeting.html",
+        "check": "2026-09-23 pack: excel quotes + 34 need images",
+        "date": "2026-09-23"
+      },
+      "eyal": {
+        "choice": "נדבר בשיחה",
+        "note": "21.9: בתמונת ההירו לא צריך להיות וידאו, אלא רק תמונה של מוקש ללא סאונד. להסיר את וידאו הרקע בהירו. הדיוקן של מוקש לבדו. הסרט בתוך העמוד לא הוזכר להסרה."
+      },
+      "nimrod": {
+        "decision": "meeting-direct",
+        "note": "2026-09-23 נימרוד: יש שני סרטים. הבקשה היא על רקע ההירו. הסרט המוטמע ליד הפתיחה נשאר עד שיאמר אחרת. התמונה נבחרת בפגישה."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה כתבת, ומה יש היום",
+        "now": "כתבת להסיר את וידאו הרקע בהירו ולהשאיר תמונה של מוקש לבדו, בלי סאונד. היום יש שני שימושים באותו סרט: רקע שקט בהירו, וסרט מוטמע ליד פתיחת הטקסט — את זה ביקשת קודם לשים שם. 34 תמונות שסימנת נמצאות בדף הפגישה.",
+        "needLabel": "מה נעשה בפגישה",
+        "need": "נבחר את התמונה להירו. הסרט שבתוך העמוד נשאר, אלא אם תאמר אחרת.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בפגישה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה",
+            "label": "יש הערה — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/mokesh-meeting.html"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M6",
+      "formId": "M6",
+      "trackerRow": null,
+      "titleHe": "סטנדים — דוגמה לשילוב תמונות",
+      "path": "/stands-storage/",
+      "kind": "visual",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "לשיחה — דוגמה לזרימה, לא גלריה אחידה",
+      "summaryHe": "נימרוד 23.9: העמוד ישמש דוגמה. חלק מהתמונות גדולות לאורך הטקסט, חלק בגלריה. שני הסוגים: תלייה ורצפתי. היישום נבחן יחד.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/",
+        "check": "2026-09-23 excel asks to scatter photos; 3 need images tagged wall vs floor",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": {
+        "decision": "example-page-mixed-images",
+        "note": "2026-09-23 נימרוד: להשתמש בעמוד כדוגמה איך נכון לשלב תמונות. זרימה, מגוון, מבנה ברור ומיושר. חלק גדול וחלק בגלריה. לבחון יחד."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה ביקשת ומה יש",
+        "now": "כתבת שהגלריה חתוכה ושוברת את הדף, ושצריך לפזר תמונות לאורך הטקסט. יש שני סוגים: סטנד לתלייה וסטנד רצפתי. שלוש תמונות סומנו עם ההבחנה הזו.",
+        "needLabel": "מה נבחן בשיחה",
+        "need": "העמוד הזה יהיה הדוגמה: חלק מהתמונות גדולות בתוך הסיפור, חלק נשארות גלריה מסודרת בסוף. לא מחליטים על שאר העמודים לפני שרואים את הדוגמה.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה",
+            "label": "יש הערה — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M7",
+      "formId": "M7",
+      "trackerRow": null,
+      "titleHe": "כותרות ההירו והכיתוב cbDIDG",
+      "path": "/",
+      "kind": "visual",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "לשיחה — נוגע בקאנון האות",
+      "summaryHe": "23.9 בבוקר: הכותרות הראשיות בהירו לא מסודרות, הפונט לא נראה טוב, ו-cbDIDG לא נראה יפה. לא פותחים את קאנון הגודל לפני השיחה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+        "check": "2026-09-23 note only; hero type unchanged",
+        "date": "2026-09-23"
+      },
+      "eyal": {
+        "choice": "נדבר בשיחה",
+        "note": "הכותרות הראשיות בהירו לא מסודרות טוב, וגם הפונט לא נראה טוב. cbDIDG לא נראה יפה בכלל."
+      },
+      "nimrod": {
+        "decision": "talk-do-not-open-canon",
+        "note": "2026-09-23 זה לא הסטת 82ch. זה מראה כותרת ההירו. קאנון האות נשאר סגור עד השיחה."
+      },
+      "form": {
+        "slim": false,
+        "nowLabel": "מה כתבת",
+        "now": "הכותרות הראשיות בהירו לא מסודרות, הפונט לא נראה טוב, ו-cbDIDG לא נראה יפה.",
+        "needLabel": "מה נסגור בשיחה",
+        "need": "נראה יחד דוגמה חיה. לא מחליפים פונט לפני השיחה.",
+        "options": [
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          },
+          {
+            "value": "יש הערה",
+            "label": "יש הערה — פירטתי למטה"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M8",
+      "formId": "M8",
+      "trackerRow": null,
+      "titleHe": "קרוסלת סרטונים בדף הבית ובדפים חשובים",
+      "path": "/",
+      "kind": "content_gap",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "ממתין לקבצי הסרטונים",
+      "summaryHe": "23.9 בבוקר: קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, מהאינסטגרם. הקבצים לא צורפו.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+        "check": "2026-09-23 no instagram carousel",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": {
+        "slim": false,
+        "nowLabel": "מה ביקשת",
+        "now": "קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, כדי שהאתר ייראה חי. כתבת שיש סרטונים מהאינסטגרם.",
+        "needLabel": "מה חסר",
+        "need": "הסרטונים עצמם, או קישורים. בלי זה אין מה להרכיב.",
+        "options": [
+          {
+            "value": "אשלח סרטונים",
+            "label": "אשלח סרטונים או קישורים"
+          },
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "M9",
+      "formId": "M9",
+      "trackerRow": null,
+      "titleHe": "מוזיקת רקע להירו, עם השתקה",
+      "path": "/",
+      "kind": "content_gap",
+      "surface": "both",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "ממתין לקובץ המוזיקה",
+      "summaryHe": "23.9 בבוקר: מוזיקת רקע להירו עם לחצן השתקה ברור. כתבת שתשלח קובץ בהמשך. הקובץ לא הגיע.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+        "check": "2026-09-23 no hero music",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": {
+        "slim": false,
+        "nowLabel": "מה ביקשת",
+        "now": "מוזיקת רקע להירו, עם לחצן ברור להשתיק. כתבת שתשלח את הקובץ בהמשך.",
+        "needLabel": "מה חסר",
+        "need": "קובץ המוזיקה.",
+        "options": [
+          {
+            "value": "אשלח קובץ",
+            "label": "אשלח את קובץ המוזיקה"
+          },
+          {
+            "value": "נדבר בשיחה",
+            "label": "נדבר בשיחה — לא ממלא בנפרד"
+          }
+        ],
+        "dateHint": ""
+      },
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "M"
+    },
+    {
+      "id": "T-CONTACT-23",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "צור קשר — הירו קצר ותמונת השפופרת",
+      "path": "/contact/",
+      "kind": "visual",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי בתמה 1.5.111",
+      "summaryHe": "המידע החדש שעלה לאתר: הירו כמחצית רק בעמוד הזה, תמונת הילד עם השפופרת ליד הטופס, תיבת הודעה קצרה. שאר ההירואים נשארו 88vh.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+        "check": "2026-09-23 theme 1.5.111 · phero--half 396/900 · submit bottom 898 · overflow 0 at 390 and 1440 · eyal-child-phone.jpg 200 · method hero 88vh · validator c8b0645c",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": {
+        "decision": "ship-contact-only",
+        "note": "2026-09-23 גל בלי אייל: רק צור קשר. גלריות ואקורדיון ספרים לא אושרו."
+      },
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/old-site-eyal-baby.jpg"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-GALLERY-ASSIGNED",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "גלריות לעמודים שכבר יש להם שיוך",
+      "path": "/lessons/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "ידוע — לא ממומש. אחרי דוגמת הסטנדים",
+      "summaryHe": "שיעורים 46, אודות 9, שלושת הספרים 9/9/3, תיקים כלים טיפול וסאונד הילינג עדיין בלי הגלריה שלהם. עמוד התיקון לבדו עלה עם תשע התמונות שאושרו בסקיצה. שאר העמודים לא נבנו: הסטנדים הם הדוגמה לזרימה, והיא בפגישה (M6).",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/media-filter.html",
+        "check": "2026-09-23 repair nine images live; other assigned galleries not built; stands example is the meeting (M6)",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": {
+        "decision": "after-stands-example",
+        "note": "2026-09-23 ברירת המחדל בתוכנית: לא בגל של צור קשר."
+      },
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/ea-media-filter-2026-09-21T13-51-27-450Z.json"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-BOOK-FOLD",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "שלושת הספרים — ארבע שורות ואז להמשך קריאה",
+      "path": "/books/kushi-blantis/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי — ארבע שורות ואז «להמשך קריאה», תמה 1.5.114",
+      "summaryHe": "אייל ביקש ארבע שורות גלויות ואז «להמשך קריאה». זה חי בשלושת הספרים. הגלריה בסוף העמוד נשארת לגל ב.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+        "check": "2026-09-23 theme 1.5.114 · prose-fold line-clamp 4 · «להמשך קריאה» visible · tsva and vekatavta also fold",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-COOKIE-COPY",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "נוסח הודעת העוגיות",
+      "path": "/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי — «שימוש בעוגיות», אישור מלא ודחייה מתאר. תמה 1.5.114",
+      "summaryHe": "23.9 בבוקר אייל נתן נוסח מלא: כותרת «שימוש בעוגיות», פסקה על Cookies, כפתורים «אישור» ו«דחייה», ו«אישור» מודגש. לא בטופס. עלה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+        "check": "2026-09-23 theme 1.5.114 · dialog copy matches Eyal · אישור filled · דחייה outline",
+        "date": "2026-09-23"
+      },
+      "eyal": {
+        "choice": "נוסח מלא",
+        "note": "שימוש בעוגיות. כדי לשפר את חוויית הגלישה, לתפעל את האתר ולנתח את השימוש בו, אנו משתמשים בקובצי Cookies ובטכנולוגיות דומות. מידע נוסף על השימוש במידע מופיע במדיניות הפרטיות. כפתורים: אישור, דחייה. אישור מודגש."
+      },
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-QR-SWAP",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "החלפות תוכן בשבעה עמודי QR",
+      "path": "/qr/qr6/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי בסטייג'ינג — שבעה עמודים, בלי גלישה אופקית",
+      "summaryHe": "QR6 וידאו Lak0__1Hqwc. QR8 טקסט כאן 11 ו-RH7Zv8Iqw4s. QR18 שני סרטונים ZrRFtY9z3wY ו-GYQxjlUO15U. QR23 zoKn9_3xUIc ו-gdavWTyCcy4. QR27 sIA_-7lBmGY במקום לואיס סי קיי. QR28 קישור NPR ותיקון, ווידאו Ht1Ub6Xl93g. QR31 -Jcqxr9Djjc ותמונה CR-7.jpg. הכתובות /qr/qrN/ לא השתנו.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/qr/qr6/",
+        "check": "2026-09-23 seven pages live; qr6 play loads Lak0__1Hqwc; qr31 CR-7 1200px; probe 390 and 1440 overflow 0",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-BLOG-HERO-OLD",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "תמונות נושא לבלוג מהאתר הישן",
+      "path": "/blog/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "waiting",
+      "waitingOn": "eyal",
+      "stampHe": "51 מתוך 52 הועתקו. פוסט אחד בלי מקור — הוא ישלח",
+      "summaryHe": "הועתקו תמונות נושא מהאתר הישן ל-51 פוסטים. בפוסט «נשימה מעגלית – סטודיו דיג'רידו לנגינה ובנייה בפרדס חנה» (2012) אין תמונת נושא גם באתר הישן. לא הומצאה תמונה. אייל אמר שישלח ידנית אם מקור חסר.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/?cat=79",
+        "check": "2026-09-23 card image legacy-post-237 rendered 1440x1571; post 203 has no old featured image",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-BLOG-CHIPS",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "לחצני נושא בבלוג",
+      "path": "/blog/",
+      "kind": "content_gap",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי — דיג'רידו 13, נשימה 8. בלי קטגוריה שלישית",
+      "summaryHe": "נוספו לחצנים דיג'רידו (13 פוסטים לפי כותרת) ונשימה (8). הסינון ?cat=79 מציג רק את פוסטי הנשימה. לא נפתחה קטגוריה נוספת. «כללי» עדיין 50 פוסטים — זו תצפית לפגישה, לא לחצן חדש.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/?cat=79",
+        "check": "2026-09-23 chips visible; breathing filter shows 8 posts",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-FOOTER-MOTION",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "כניסת פוטר כמו באתר הישן",
+      "path": "/",
+      "kind": "visual",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "חי — כניסה כמו באתר הישן, הצבע #0E0905. תמה 1.5.114",
+      "summaryHe": "23.9 בבוקר: הפוטר נכנס כמו באתר הישן. הצבע נשאר #0E0905. תנועה מופחתת מכבה את זה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+        "check": "2026-09-23 theme 1.5.114 · footer rgb(14,9,5) · position fixed · class uncover is-uncover",
+        "date": "2026-09-23"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
+    },
+    {
+      "id": "T-COLOR",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "גוונים — בלוק אמצע ופלטה",
+      "path": "/repair/",
+      "kind": "visual",
+      "surface": "nimrod_board",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "הכרעה: שוקולד הוא דפוס הצטרפות, לא החלפת טוקנים",
+      "summaryHe": "השוקולד #5C3A2E והחול #D8C7B5 חלים רק דרך cta-band--choc ו-btn--sand. הטוקנים לא הוחלפו. הפס המלא עלה בתיקון, בשיטה, בסאונד הילינג, ובלימוד (כולל הרצאות, סדנאות והכשרה). בית, דום נשימה וצור קשר לא נצבעו. כפתור בלי כותרת ופסקה לא קיבל משפט חדש.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+        "check": "2026-09-23 theme 1.5.114 · method band rgb(92,58,46) · sand rgb(216,199,181) text rgb(92,58,46) · body link stays terracotta · home and snoring have zero cta-band--choc",
+        "date": "2026-09-23"
+      },
+      "eyal": {
+        "choice": "חום מהפלטה",
+        "note": "להחליף את הבלוקים השחורים בחום כלשהו מהפלטה שהוגשה."
+      },
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/EYAL-SITE-COLOR-PALETTE.md",
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
+      ],
+      "section": "batch"
     },
     {
       "id": "T-NAV-HOLD",
@@ -6556,8 +7170,8 @@
       "surface": "nimrod_board",
       "status": "waiting",
       "waitingOn": "nimrod",
-      "stampHe": "ממתין לשיחה עם אייל — סקשן M1 בטופס; קורסים + המבורגר חריגות ממוקדות",
-      "summaryHe": "שאר L1 / parent href נסגרים ביחד ב-M1 אחרי שיחה. אין שינוי ל-ea-canonical-nav.php בשלב הזה. חריגות חיות: קורסים; צדדי המבורגר N1.",
+      "stampHe": "ממתין לשיחה — רק סדר הכפתורים מ-23.9 וקישור אב של לימוד. המבורגר וקורסים הוכרעו",
+      "summaryHe": "אין שינוי ל-ea-canonical-nav.php עד השיחה. המבורגר נסגר ב-21.9. קורסים כבר בתפריט. נשאר: הסדר שאייל שלח ב-23.9, וקישור הכותרת «לימוד והכשרה».",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "",
@@ -6848,8 +7462,8 @@
       "surface": "nimrod_board",
       "status": "closed",
       "waitingOn": "none",
-      "stampHe": "נעול לסבב הבא — הפריטים עצמם נשארים פתוחים",
-      "summaryHe": "השאלה נעולה: השיירים נכנסים לסבב הבא, לא אחרי ההשקה. DA-NAV-01/N1 מומש כחריגה ממוקדת וממתין לאייל. שאר DA-* פתוחים עד מימוש הסבב.",
+      "stampHe": "נעול — השאלה נענתה. המבורגר לא ממתין",
+      "summaryHe": "השאלה נעולה: השיירים נכנסו לסבב הבא. המבורגר נסגר ב-21.9. DA-NAV-02, DA-NAV-03 ו-DA-LOGO-01 נסגרו.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-21 decision locked; N1 live 1.5.103; remaining DA-* still open on board",
@@ -7015,10 +7629,10 @@
       "path": "/",
       "kind": "nav",
       "surface": "both",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "ממתין לך — אישור סופי. כבר מיושם לפי המלצה",
-      "summaryHe": "המלצה B: המבורגר בצד תחילת הקריאה (עברית ימין, אנגלית שמאל). מגירה מאותו צד. לוגו ממול. מבנה התפריט לא השתנה. חריגה ממוקדת מחרגת L1.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר — 21.9: המבורגר מימין בעברית, לוגו משמאל. חי מתמה 1.5.103",
+      "summaryHe": "השאלה נענתה ב-21.9 ומומשה. אין אישור נוסף. מבנה L1 לא השתנה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332",
@@ -7033,8 +7647,8 @@
         "slim": false,
         "nowLabel": "מה מוצג היום",
         "now": "מימשנו באתר הבדיקה: כפתור שלוש הפסים בצד תחילת הקריאה — בעברית מימין, באנגלית משמאל. התפריט נפתח מאותו צד. הלוגו בצד הנגדי. רשימת הפריטים בתפריט לא השתנתה.",
-        "needLabel": "מה מבקשים ממך",
-        "need": "אישור סופי, או בקשה להחזיר כמו שהיה (בעברית: תפריט משמאל ולוגו מימין).\n\nהנימוק להמלצה: כלל CSS אחד לשתי השפות (inline-start). זה מה שממשקי Material וטלפון עושים במצב עברית, וזה מה שנימרוד ביקש ב־21.9. האלטרנטיבה (תפריט משמאל בעברית) נפוצה באתרי חדשות ישראליים, אבל דורשת חריגה באנגלית — שם כפתור מימין עלה על קישור «עברית».",
+        "needLabel": "מה נשאר",
+        "need": "נסגר. אין פעולה ממך.",
         "options": [
           {
             "value": "מאשר כמו שהוא",
@@ -7065,10 +7679,10 @@
       "path": "/",
       "kind": "visual",
       "surface": "nimrod_board",
-      "status": "waiting",
-      "waitingOn": "eyal",
-      "stampHe": "מיושם לפי המלצה B — ממתין לאישור סופי מאייל (N1)",
-      "summaryHe": "חריגה ממוקדת מצדדי כותרת בלבד. המבורגר inline-start, מגירה מאותו צד, לוגו ממול. לא DA-NAV-02/03/LOGO ולא שינוי L1. אישור אייל ב-N1.",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "נסגר — המבורגר מימין בעברית, כפי שהוכרע ב-21.9",
+      "summaryHe": "מיושם. לא ממתין לאישור נוסף. לא DA-NAV-02/03/LOGO ולא שינוי סדר L1.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332",
@@ -7482,7 +8096,7 @@
       "waitingOn": "none",
       "resolvedAt": "2026-09-21",
       "promptHe": "DA-NAV-01: ב-21.9 ביקשת המבורגר מימין ולוגו משמאל. בריף גל א מיוני היה הפוך. איזה בריף חי?",
-      "decisionHe": "המלצה B — המבורגר ב-inline-start (עברית ימין, אנגלית שמאל), מגירה מאותו צד, לוגו בצד הנגדי. מיושם בסטייג'ינג. אישור סופי מאייל בטופס N1. לא נוגעים במבנה L1."
+      "decisionHe": "21.9: המבורגר ב-inline-start (עברית ימין, אנגלית שמאל), מגירה מאותו צד, לוגו בצד הנגדי. מיושם מתמה 1.5.103. אין אישור נוסף. מבנה L1 לא זז."
     },
     {
       "id": "Q-EI-A4",
@@ -7506,9 +8120,97 @@
       "decisionHe": "צוות 10 נעצר. המימוש אצל 110 על הצ'קאאוט הראשי. תמה 1.5.109 חיה."
     }
   ],
+  "batchDigest": {
+    "shipped": [
+      {
+        "he": "צור קשר: הירו כמחצית רק בעמוד הזה, תמונת הילד עם השפופרת ליד הטופס, תיבת הודעה קצרה. תמה 1.5.111.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+        "label": "צור קשר"
+      },
+      {
+        "he": "שבעה עמודי QR עודכנו בלי לשנות כתובת: סרטונים, טקסט כאן 11, קישור NPR, ותמונת אביב בקוסטה ריקה.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/qr/qr31/",
+        "label": "QR31"
+      },
+      {
+        "he": "בלוג: לחצני דיג'רידו (13) ונשימה (8). 51 תמונות נושא הועתקו מהאתר הישן.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/blog/",
+        "label": "בלוג"
+      },
+      {
+        "he": "נבדק ולא נדרש שינוי: סדר «למה את הספרים של מוזה» לפני «שלושה ספרים», וקישור השאלות הנפוצות להכשרות. שניהם כבר היו חיים."
+      },
+      {
+        "he": "תמה 1.5.114: עוגיות, קיפול שלושת הספרים, וכניסת פוטר. קאנון הדפוסים נעול.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/",
+        "label": "כושי בלאנטיס"
+      },
+      {
+        "he": "שוקולד וכפתור חול הם דפוס הצטרפות, לא החלפת טוקנים. חי בתיקון, בשיטה, בסאונד הילינג ובלימוד.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+        "label": "השיטה"
+      }
+    ],
+    "known": [
+      {
+        "he": "גלריות שעדיין לא נבנו: שיעורים 46, אודות 9, שלושת הספרים 9/9/3, תיקים, כלים, טיפול וסאונד הילינג. תיקון הכלים כבר חי עם תשע התמונות. השאר מחכה לדוגמת הסטנדים."
+      },
+      {
+        "he": "סטנדים: הדוגמה לזרימת תמונות (חלק גדול, חלק גלריה). לא נבנה. שיחה M6."
+      },
+      {
+        "he": "שלושת הספרים: הגלריה בסוף נשארת לגל ב. הקיפול כבר חי."
+      },
+      {
+        "he": "מוקש: להוריד רק את וידאו הרקע בהירו. הסרט המוטמע ליד הפתיחה נשאר. תמונת מוקש לבדו לא נבחרה. לא נבנה. פגישה M5."
+      },
+      {
+        "he": "בית ודום נשימה לא נצבעו מחדש. כפתור בלי כותרת ופסקה נשאר כהה, בלי משפט חדש."
+      },
+      {
+        "he": "הסטת הכותרת מול גוף 82ch. הקאנון נשאר. שיחה M3, לא תיקון."
+      },
+      {
+        "he": "כותרות ההירו והכיתוב cbDIDG. נוגע בקאנון האות. שיחה M7. לא נפתח."
+      },
+      {
+        "he": "סרגל: הסדר שהוא שלח נרשם ולא יושם. שאלות נפוצות ועדויות, פונט לשורה אחת, והיצרות נוספת בגלילה — M1. הסרגל נעול עד השיחה."
+      },
+      {
+        "he": "179 תמונות נחוץ בלי עמוד. החיתוך קיים. השיבוץ מחכה לשיוך שלו."
+      },
+      {
+        "he": "לוגו השיטה שסומן «לשים בהירו» — להתעלמות. אין מימוש."
+      },
+      {
+        "he": "טופס בחירת פסקה לכל ממליץ — אחרי שהתוכן יושב. לא בגל."
+      }
+    ],
+    "implement": [],
+    "returned": [
+      {
+        "he": "טופס חלק י: M4 ירד. פתוחים לשיחה: M1 עץ, M2 תבנית פוסט, M3 הסטה, M5 מוקש, M6 סטנדים, M7 כותרות הירו, M8 קרוסלת סרטונים, M9 מוזיקת רקע.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html#M1",
+        "label": "הטופס"
+      },
+      {
+        "he": "חיתוך 179 תמונות בלי עמוד, וכפתור «נחוץ בלי עמוד» בגלריית 939.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/media-filter-unassigned-need.html",
+        "label": "החיתוך"
+      },
+      {
+        "he": "דף הפגישה למוקש: הציטוטים ו-34 התמונות.",
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/mokesh-meeting.html",
+        "label": "מוקש"
+      },
+      {
+        "he": "עדיין אצלו לשלוח: קטלוג הכתבות ההיסטוריות (A3), קישורי קורסים (A5), שלוש תמונות ללמידה (C1), תמונה ייחודית לכל QR, ותמונת נושא לפוסט «נשימה מעגלית – סטודיו דיג'רידו» מ-2012 — אין מקור באתר הישן."
+      }
+    ]
+  },
   "stage": {
     "id": "S007-EYAL-BATCH",
-    "titleHe": "השער פתוח לקליטת סבב המידע החדש מאייל.",
-    "nowHe": "תמה 1.5.109 חיה על הסטייג'ינג. תבנית פוסט, רוחב קשורים, הירו QR ומדיניות ההירו נסגרו. P/Q נשארים היסטורי. צוות 10 בעצירה."
+    "titleHe": "תמה 1.5.114 חיה. דפוסים, עוגיות, ספרים ופוטר עלו.",
+    "nowHe": "השוקולד הוא דפוס הצטרפות, לא החלפת טוקנים. עוגיות, קיפול הספרים וכניסת הפוטר חיים. בית ודום נשימה לא נצבעו מחדש. 157 כתובות נבדקו ב־390 וב־1440: אפס גלישה אופקית, ואפס מדיה שבורה."
   }
 }

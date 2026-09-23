@@ -49,12 +49,25 @@ function ea_cookie_notice_render() {
 	?>
 <dialog class="ea-cookie" id="ea-cookie-notice" aria-labelledby="ea-cookie-title">
 	<div class="ea-cookie__panel">
-		<p class="ea-cookie__title" id="ea-cookie-title"><?php esc_html_e( 'שימוש בעוגיות ובמדידה', 'ea-eyalamit' ); ?></p>
-		<p class="ea-cookie__body"><?php esc_html_e( 'באתר פועל Google Analytics 4 לאיסוף נתוני שימוש סטטיסטיים, ועשוי להשתמש בעוגיות או במזהים. בחלק מהעמודים נטענים גם גופנים מ־Google.', 'ea-eyalamit' ); ?></p>
-		<p class="ea-cookie__body"><a class="ea-cookie__link" href="<?php echo $privacy; ?>"><?php esc_html_e( 'מדיניות הפרטיות', 'ea-eyalamit' ); ?></a></p>
+		<p class="ea-cookie__title" id="ea-cookie-title"><?php esc_html_e( 'שימוש בעוגיות', 'ea-eyalamit' ); ?></p>
+		<p class="ea-cookie__body"><?php
+			echo wp_kses(
+				sprintf(
+					/* translators: %s: privacy policy URL */
+					__( 'כדי לשפר את חוויית הגלישה, לתפעל את האתר ולנתח את השימוש בו, אנו משתמשים בקובצי Cookies ובטכנולוגיות דומות. מידע נוסף על השימוש במידע מופיע ב<a class="ea-cookie__link" href="%s">מדיניות הפרטיות</a>.', 'ea-eyalamit' ),
+					$privacy
+				),
+				array(
+					'a' => array(
+						'class' => array(),
+						'href'  => array(),
+					),
+				)
+			);
+		?></p>
 		<div class="ea-cookie__row">
-			<button type="button" class="ea-cookie__ack" data-ea-cookie-choice="accept"><?php esc_html_e( 'אישור מדידה', 'ea-eyalamit' ); ?></button>
-			<button type="button" class="ea-cookie__reject" data-ea-cookie-choice="reject"><?php esc_html_e( 'המשך בלי מדידה', 'ea-eyalamit' ); ?></button>
+			<button type="button" class="ea-cookie__ack" data-ea-cookie-choice="accept"><?php esc_html_e( 'אישור', 'ea-eyalamit' ); ?></button>
+			<button type="button" class="ea-cookie__reject" data-ea-cookie-choice="reject"><?php esc_html_e( 'דחייה', 'ea-eyalamit' ); ?></button>
 		</div>
 	</div>
 </dialog>

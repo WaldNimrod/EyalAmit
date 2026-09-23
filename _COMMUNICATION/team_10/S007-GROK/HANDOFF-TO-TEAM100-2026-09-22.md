@@ -7,7 +7,7 @@
 **נמען:** צוות 100 (חוזר לפעולה בערך בערב שלישי 2026-09-22). קוראים את הקובץ הזה ראשון.  
 **מבצע עד אז:** קו הבנייה מול נימרוד (team_00) במשימות ישירות — בערך 48 שעות.  
 **Staging:** http://eyalamit-co-il-2026.s887.upress.link (HTTP; TLS לא תקין בכוונה).  
-**תמה חיה אחרונה:** 1.5.101 · **HEAD שנמסר כאן:** `20361b1` (working tree מלוכלך — לא commit)
+**תמה חיה אחרונה:** 1.5.105 · **HEAD שנמסר כאן:** `e8992be` (working tree מלוכלך — לא commit)
 
 **כלל עדכון (team_00, 2026-09-20):** עם סיום כל סעיף — שורה בטבלה למטה. מה נדרש, מה בוצע, סטטוס, קומיט, איך נבדק, הערות. פער גלוי עדיף על שתיקה.
 
@@ -44,15 +44,21 @@
 | 23 | קורסים | עמוד «יעלה בקרוב» + תפריט + עץ בלוח | `/learning/courses-external/` · פריט «קורסים» תחת לימוד והכשרה · חריגה ממוקדת מחרגת תפריט | **סגור בתפריט; ממתין לאייל על קישורים** | working tree dirty | GET 200 «יעלה בקרוב»; בית מכיל href לקורסים | A5 waiting/eyal · E7 closed |
 | 24 | אנגלית | לפרסם עכשיו + פלייסהולדר לתמונות | נוסח אייל C3 ב־`/en/`; באנר Draft ירד; 5 מקומות Photo — to be chosen | **פורסם; ממתין לאייל על תמונות** | working tree dirty | GET 200 H1 Didgeridoo Healing Center; אין WP-EI-06; אין הערה לנמרוד | C3 waiting/eyal · T-EN-NOW closed |
 | 25 | אימות חבילת Q | מאמת במנוע אחר (צוות 10 על ביקורת עמוקה) | GET no-follow + qa_probe `/en/` + קורסים | **PASS · 0 FAIL** | מדידה על 1.5.101 החי | 1–5 PASS; CDP 375/1440 PASS | [VERIFY-S007-QPACK-2026-09-21.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/VERIFY-S007-QPACK-2026-09-21.md) · מאמת: [gpt-5.2](24d53f5e-27ce-4412-be47-c5401dd467a6) |
+| 26 | Q-AUDIT-NEXT | שיירי ATTACK — סבב הבא או אחרי ההשקה | נעול: **נכנסים לסבב הבא**. DA-* נשארים פתוחים עד מימוש. בריף DA-NAV עדיין ב-Q-DA-NAV-BRIEF | **נעול כהחלטה; לא מומש** | SSOT בלבד, בלי תמה | גזירת לוח+טופס מ-`S007-WORK-SSOT.json` | נימרוד 21.9: «נכנס לסבב כמובן». |
+| 27 | Q-HERO-BATCH | באצ׳ הירו בלוג+QR? | נעול: QR ≠ בלוג. QR תבנית קבועה + תמונה ייחודית או לוגו (בקשה בטופס, בלי הכפלה). בלוג תבנית אחידה. היסטורי כבאתר הישן. ברירת מחדל: הירו לוגו בלי תמונה | **נעול כמדיניות; לא מומש באתר** | SSOT + טופס Hub | גזירה מ-`S007-WORK-SSOT.json` | פריטים: Q-HERO-ASK waiting/eyal · T-QR-TEMPLATE · T-BLOG-TEMPLATE · 52P+48Q waiting/team10 |
+| 28 | Q-LEARNING-PHOTOS | 939 או להציע שלוש? | נעול: **פלייסהולדר בעמוד + בקשה בטופס**. תמה 1.5.102. C1 waiting/eyal | **סגור באתר (מקומות); ממתין לאייל על תמונות** | dirty `1.5.102` | GET 200 · 3× slots · qa_probe 375 PASS | מאמת: [gpt-5.2](c209fbf6-39d4-4507-acf6-666d495bf1b0) · כלל: פסיקה → SSOT → גזירה |
+| 29 | Q-DA-NAV-BRIEF | כיוון המבורגר — המלצה + מימוש + אישור סופי מאייל בטופס | המלצה **B** (inline-start). תמה 1.5.103. N1 waiting/eyal עם נימוק. L1 לא נגע | **סגור באתר; ממתין לאייל** | dirty `1.5.103` | CDP 390: HE burger x=302, drawer right=390; EN burger x=14, overlap false | בונה: [Composer](6cb3ce1b-e93a-41ba-b3b2-5cc8eb9f1eb0) · מאמת: [gpt-5.2](ed301ed3-f37e-4066-a3cd-f7779a2eae70) · [VERIFY](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/VERIFY-DA-NAV-BURGER-2026-09-21.md) |
+| 31 | שלב 1 פערים מאייל | סקשן עץ אחד (M1); נעילת A2; מפקד+העברת ארכיון E1/E4; סקיצת P/Q + תוכנית שלב 2; גזירה+אימות | M1 waiting/eyal בטופס חלק י; A2 closed; תמה **1.5.105**; סריקות מופע ב-`/press/` ו-`/historical-articles/`; סקיצה בלי FTP לשלב 2 | **סגור כשלב 1; עץ ממתין לשיחה; שלב 2 ממתין לאישור סקיצה** | dirty `1.5.105` · SSOT sha12 `57617ee727a7` | GET no-follow + qa_probe 375/1440 PASS אחרי תיקון גלישה · טופס Hub: חלק י, M1, A2 closed | בונה ארכיון: [Composer](9ad4b344-aba9-4f5e-8c86-adb6942135dd) · מאמת: [gpt-5.2](894409b3-2651-4e5f-9c6f-a0d24e0def6f) · ריטסט overflow: [gpt-5.2](f45239fe-f220-437c-9108-f792b4fac685) · [מפקד](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/ARCHIVE-CENSUS-E1-E4-2026-09-21.md) · [as-made](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/ASMADE-ARCHIVE-E1-E4-2026-09-21.md) · [verify](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/VERIFY-PHASE1-ARCHIVE-FORM-2026-09-21.md) · [סקיצה](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-BLOG-QR.html) |
+| 32 | יישור אתר (חוץ מהבית) | מיפוי 157 URL חוץ מ-`/`; דפוסים; ולידציה חוצת מנועים; מימוש אחרי PASS. השערה: תיקון CSS ואז מחיקת המחלקה הכפולה שפורשת — חובה להוכיח ב-`classList.remove` | פרומט+מנדט+פריט SSOT `T-ALIGN-SWEEP`. אין מימוש תמה בסשן הזה | **פתוח אצל צוות 10** | SSOT + ארטיפקטים | קאנון חי `/snoring-sleep-apnea/` · פוסט `/2228-2/` main 960 בגלל `ea-wave2-blog-single` | [פרומט להדבקה](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/PROMPT-TEAM10-ALIGN-SWEEP-PARALLEL-2026-09-21.md) · [מנדט](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/MANDATE-TEAM10-ALIGN-SWEEP-2026-09-21.md) · נימרוד: «תיקון css ואז מחיקת המחלקה הכפולה שפורשת. יש להוכיח» |
 
 ---
 
 ## ממתינים (אין שורה חדשה עד שמגיע סעיף מנימרוד)
 
-- **אייל:** גלריות / כלי 939; כתבות היסטוריות אחרי סריקת האתר הישן; שלוש תמונות ל־`/learning/` (או שנציע); **קישור קורס כשיהיה באוויר**; **תמונות ל־`/en/`** (המקומות כבר בעמוד). תמונות ממליץ + קרוסלת סרטונים — הערות ישנות בדף הבית, לא בחבילת מיידי.
-- **נימרוד:** שיחת תפריט מול אייל (שאר L1; קורסים כבר חריגה ממוקדת); מדיניות ארכיון; באצ׳ הירו בלוג+QR; סקיצת «עכשיו באתר»; שיירי ביקורת (וואטסאפ צף, `lang` ב־EN).
-- **צוות 10:** לא מחכים להם לחבילה הזו — מומשה כאן כי צוות 10 על ביקורת עמוקה. אימות במנוע אחר.
-- **הקו הזה:** תור העבודה S007 חי (`S007-WORK-SSOT.json`, sha12 `ab4134ee3934`). שאלות פתוחות: Q-HERO-BATCH, Q-LEARNING-PHOTOS, Q-AUDIT-NEXT, Q-DA-NAV-BRIEF.
+- **אייל:** **אישור סופי לצדדי המבורגר (N1)**; גלריות / כלי 939; **קטלוג JPG לכתבות היסטוריות (A3)**; **תמונה ייחודית לכל עמוד QR או הירו לוגו**; **שלוש תמונות ל־`/learning/`** (המקומות כבר בעמוד); **קישור קורס כשיהיה באוויר**; **תמונות ל־`/en/`**. סריקת האתר הישן ל-E1/E4 **הועברה** (חומר שנמצא). תמונות ממליץ + קרוסלת סרטונים — הערות ישנות בדף הבית, לא בחבילת מיידי.
+- **נימרוד:** **שיחת עץ תפריט מול אייל** (חלק י · M1; שאר L1; parent href). סקיצת בלוג/QR לשלב 2 — לאישור לפני מימוש. שיירי ביקורת **נעולים לסבב הבא**.
+- **צוות 10:** סשן מקביל **T-ALIGN-SWEEP** (יישור לכל האתר חוץ מהבית; CSS ואז מחיקת מחלקה כפולה אחרי הוכחה). תבנית QR / פוסט חדש — **אחרי אישור מבנה**, לא במקביל לסריקת היישור.
+- **הקו הזה:** תור העבודה S007 חי (`S007-WORK-SSOT.json`, sha12 `db29731d7bcb`, תמה חיה **1.5.105**). אין שאלות פתוחות ב-`questions[]`. כלל: כל פסיקה נרשמת ב-SSOT ואז נגזרים לוח וטופס — אין עריכת HTML ביד.
 - **צוות 100 / קלוד בערב שלישי:** ביקורת. לא אנחנו.
 
 ---

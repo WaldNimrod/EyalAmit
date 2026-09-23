@@ -631,6 +631,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
     lightboxEl.querySelector('.lightbox-next').addEventListener('click', function(){ navLightbox(1); });
   })();
 
+  var EYAL_LOOSE_NEED = new Set(["01505b20cfa0", "022c2e761f20", "024c63b726a2", "02c3a2c42bd9", "0315886a5f36", "0370680d767f", "038f113dd524", "05483e891ae5", "0561b2858a7a", "05e184e14142", "0636b900a7c1", "07b93f473834", "07c107f96281", "07f4ad77ef4e", "08da5270c18c", "09ad0aa027af", "0bb45aca5e64", "0bc81ab86c93", "0c4dcc501a6f", "118e7de9034b", "119a8719dda0", "1242e79fb6e6", "127e0bbc76d9", "12b79aeaad4b", "1439c23d91b5", "149a73d438fb", "16ffe0b7013a", "17d8e0437e07", "17e6db9a53a2", "180513833e67", "19541ad27596", "19792a21beb7", "1a0b077bb668", "1a48fef5d2bb", "1b3b124eaae5", "1b537b30245d", "1c51b927f4a9", "1c775aa7931c", "1c7ea302d48c", "1cc82663e556", "1d632dd61eb7", "1e6f65f21b68", "1ed135c03caa", "1ed1413089c2", "1f0334590157", "1f582de64c2b", "1fa8102bd14d", "200abe94b701", "20c99bdf6618", "20f04b4276cc", "214520159935", "219f59e11912", "221866e50890", "22488dacea18", "22a3b0fa468b", "2327f13cfe01", "235d14693cf7", "255c49c4014a", "2596c45be96c", "268e5ace3010", "271d35dbd08a", "27afdb446ab4", "288d5cec9824", "28e1b97c12c7", "2a68e60f2667", "2aefaf08ea24", "2afbbd4c0ce5", "2b1df019f02a", "2e5c8b53c527", "30cebb405afe", "330a54cc5ee8", "33ad7f097d26", "38704a2a40d0", "3965158ca143", "39849b7d926c", "3a58e12e0c2c", "3a74d8d5d2d6", "3b470b30e425", "3b4f7b56dbca", "3c09de723797", "3ca737f9bca1", "3d26eaaf7777", "3d9a60c5e89d", "3dbe16c6c7fd", "3ed12fd66fb0", "3fb22547b67a", "40b5f4b791dd", "410d60dfba2e", "41e82093712c", "42cd7c3a36d6", "4308eb35a7cb", "435e3d13357d", "447c87655433", "480c7f166bf5", "48383e408d35", "487c8abe6f2a", "4991aa574b08", "4a9c14e08c0f", "4b62e3aed030", "50c10b66c14f", "50eb7076e73c", "535cca0973a6", "5393613edfa4", "54316ec61ad1", "568e88ff9ff8", "57822bb682bd", "5c11f1b0aa09", "5c9424edf2aa", "5e0438e4e949", "5eba57dbc0a7", "619ac38bab3c", "61fefcd76fa7", "654bf63bc73f", "658667af9165", "65d6a7f221d4", "6784366d836f", "6b37fcdbf688", "6be2b195ac73", "6c18f361a94b", "6c51c2ca46d9", "6c8b32e9ddd1", "6c9693625cd6", "6cf4db72dba7", "6d2035a9e28f", "6d7026a55ab0", "6d89a7a32173", "6de30229b460", "719178a0c376", "721d1347401b", "746164cc571a", "7485e53ed998", "7601daf019a8", "7691044b01c8", "7e2e8d58dd7c", "802d7ccf75fa", "80c86899b4f9", "816228fc19e5", "81a5c378bd0d", "85158bf49b10", "89169977bc2f", "89cf95b8ca46", "8a0ce1dbeb8a", "8e1d19d4c13b", "8ffa42802ae9", "9480273d5c54", "94c6aab86886", "9adc4aefacc8", "9b230006f317", "9b98f99116ac", "a1855c40defb", "a29c0eb12cb4", "a38348c11605", "a3c29cc6ca84", "a64ff41a366d", "a66c37c31295", "ac1912663a57", "b4dba71d96e4", "b5990aae19f5", "b7d8a1582c97", "b7f7ff7c46c2", "bb0d1b125770", "bbc8964319c9", "bcab7cff4c6f", "bd7baa1823b4", "bec9b8590752", "c087a8d69943", "c20d16b23510", "c68ef1c73ad3", "d2cd674b9a85", "d42c1bf54125", "d80f711c8c25", "dcef0ae7cb66", "e26aa6748d8a", "e9b0fa67a1ed", "eaa2e6acb6ff", "ef3d200a4c17", "f1bcbea45b99", "f26f6d768cc4", "f9856ed57de2"]);
   // ---------- one gallery: own filter state + own windowed rendering ----------
   function createGallery(groupKey){
     var all = images.filter(function(im){ return im.collections.indexOf(groupKey) !== -1; });
@@ -663,7 +664,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
 
     var filterRow = document.createElement('div');
     filterRow.className = 'filter-row';
-    var filters = [['all','הכל'],['need','נחוץ'],['no','לא נחוץ'],['maybe','אולי'],['unset','לא סומן']];
+    var filters = [['all','הכל'],['need','נחוץ'],['no','לא נחוץ'],['maybe','אולי'],['unset','לא סומן'],['loose','נחוץ בלי עמוד']];
     var chips = {};
     filters.forEach(function(f){
       var chip = document.createElement('button');
@@ -704,6 +705,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
       filtered = all.filter(function(im){
         if (key === 'all') return true;
         var it = state.items[im.id];
+        if (key === 'loose') return EYAL_LOOSE_NEED.has(im.id);
         if (key === 'unset') return !it || !it.status;
         return it && it.status === key;
       });
@@ -723,6 +725,7 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
         : (filtered.length ? ('כל ' + filtered.length + ' נטענו') : 'אין תמונות בסינון הזה');
     }
 
+    gallery.applyFilter = applyFilter;
     gallery.getFiltered = function(){ return filtered; };
     // Jumping to a later section needs every earlier section fully rendered
     // first — otherwise the target's real position keeps growing as those
@@ -882,6 +885,20 @@ const MEDIA_DATA = {"images": [{"id": "006018b4d934", "sha256": "006018b4d934b90
 
   renderPagesSection();
   GROUP_ORDER.forEach(function(g){ createGallery(g); });
+  var looseBtn = document.createElement('button');
+  looseBtn.type = 'button';
+  looseBtn.className = 'section-nav-btn';
+  looseBtn.textContent = 'נחוץ בלי עמוד (' + EYAL_LOOSE_NEED.size + ')';
+  looseBtn.addEventListener('click', function(){
+    GROUP_ORDER.forEach(function(g){
+      if (galleriesByKey[g] && galleriesByKey[g].applyFilter) galleriesByKey[g].applyFilter('loose');
+    });
+    var first = document.querySelector('.gallery-section');
+    if (first) first.scrollIntoView({behavior:'auto', block:'start'});
+  });
+  var nav = document.getElementById('section-nav');
+  if (nav) nav.appendChild(looseBtn);
+
   refreshProgress();
 })();
 </script>

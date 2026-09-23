@@ -2,6 +2,9 @@
 
 תיקייה ל**קבצים מקוריים** מהלקוח (Word, PDF, סריקות חתומות).
 
+- [`2026-09-23--whatsapp-after-1158/`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/README.md) — וואטסאפ 18–22.9 אחרי ההודעה שכבר נקלטה.
+- [`2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx) — הערות עיצוב, תפריט, עוגיות ו־QR. הגיע 23.9 בבוקר.
+
 ## פורמט קנוני לתוכן מדויק (סוכנים + צוות)
 
 **מסמך מחייב להגדרת תוכן לפי עץ נעול ושדות תבנית:**  

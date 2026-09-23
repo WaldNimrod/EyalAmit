@@ -38,6 +38,26 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* Old-site uncover: the footer sits under the page and is revealed at the end.
+     Skip when the footer is taller than the viewport, or when motion is reduced. */
+  var foot = document.querySelector('footer.foot.uncover');
+  var mainEl = document.getElementById('main');
+  var sizeUncover = function () {
+    if (!foot || !mainEl) return;
+    var tooTall = foot.offsetHeight > window.innerHeight * 0.85;
+    if (reduce || tooTall) {
+      foot.classList.remove('is-uncover');
+      mainEl.style.marginBottom = '';
+      return;
+    }
+    foot.classList.add('is-uncover');
+    mainEl.style.marginBottom = foot.offsetHeight + 'px';
+  };
+  if (foot && mainEl) {
+    sizeUncover();
+    window.addEventListener('resize', sizeUncover);
+  }
+
   /* ---- submenu disclosure state (WS-3B / A11Y-FIX-2026-09-18) ----
    * The two `.nav__dd` <button>s (section-nav.php:42,73 — "לימוד והכשרה",
    * "אייל עמית") ship with a hardcoded aria-expanded="false" that never

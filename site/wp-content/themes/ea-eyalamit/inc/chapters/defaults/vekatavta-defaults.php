@@ -63,8 +63,9 @@ return array(
 		array(
 			'part' => 'prose',
 			'args' => array(
-				'collapsible'  => true,
-				'toggle_label' => 'קטע מתוך הספר – לקריאה',
+				'collapsible'   => true,
+				'preview_lines' => 4,
+				'toggle_label'  => 'להמשך קריאה',
 				/* S006 R1-19 VKT-03 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 03 · H2 */
 				'title' => 'קטע מתוך הספר',
 				/* S006 R1-19 VKT-03 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 03 */

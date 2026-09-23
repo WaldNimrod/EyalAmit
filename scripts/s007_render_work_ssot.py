@@ -58,8 +58,8 @@ FORM_HEADS = {
         "אישור סופי לצדדי כפתור התפריט. כבר מיושם לפי המלצה; אפשר לבקש להחזיר.",
     ),
     "M": (
-        "חלק י · עץ התפריט הראשי",
-        "ייסגר ביחד אחרי שיחה. לא למלא סעיפי עץ בנפרד. אין שינוי לסרגל עד אז.",
+        "חלק י · לשיחה",
+        "M4 נסגר: שוקולד כדפוס הצטרפות, ירד מהטופס. M1 הסדר נרשם. M5 רק וידאו הרקע. פתוחים: תבנית פוסט, הסטה, סטנדים, כותרות הירו, קרוסלת סרטונים, מוזיקת רקע.",
     ),
 }
 
@@ -247,6 +247,7 @@ BOARD_CSS = """
   nav.toc a{color:var(--terra);text-decoration:none;border:1px solid var(--sand);padding:6px 12px;border-radius:999px;font-size:13px}
   section.item{padding:28px 32px;border-bottom:8px solid #e4d8c8}
   section.item h2{margin:0 0 4px}
+  section.item h3{font-size:1rem;margin:18px 0 6px}
   .path{margin:0 0 14px;color:var(--body);font-size:14px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:900px){.grid{grid-template-columns:1fr}}
@@ -301,12 +302,23 @@ BOARD_CSS = """
   .filters{display:flex;flex-wrap:wrap;gap:8px;padding:0 32px 12px}
   .filters button{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--sand);background:#fff;cursor:pointer}
   .filters button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+  .shade-note{font-size:14px;color:var(--body);margin:0 0 14px}
+  .shade-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:0 0 18px}
+  .band{border-radius:12px;overflow:hidden;border:1px solid var(--sand);min-height:148px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between}
+  .band h3{margin:0 0 6px;font-size:18px;font-weight:650}
+  .band p{margin:0 0 12px;font-size:13px;line-height:1.45}
+  .band .btn{align-self:flex-start;border-radius:999px;padding:7px 14px;font-size:13px;border:1px solid transparent}
+  .band .meta{font-size:12px;letter-spacing:.02em}
+  .pair{display:flex;gap:8px;align-items:stretch}
+  .chip{flex:1;border-radius:10px;padding:12px;min-height:72px;border:1px solid var(--sand)}
+  .chip b{display:block;font-size:13px;margin-bottom:4px}
+  .chip span{font-size:12px;font-family:ui-monospace,Menlo,monospace}
 """
 
 SKETCH = r"""
 <section class="item" id="navtree">
   <h2>עץ האתר כפי שהוא בתפריט היום</h2>
-  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»). כל שאלות העץ נסגרות ביחד בטופס חלק י (M1).</p>
+  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»). המבורגר, עיתונות, הופעות וכתבות היסטוריות הוכרעו ב-21.9 וירדו מהטופס. בשיחה נשארים הסדר שאייל שלח ב-23.9, קישור האב של «לימוד והכשרה», ואם שאלות נפוצות ועדויות נכנסים לסרגל.</p>
   <div class="nav-bar" aria-hidden="true">
     <span class="brand">אייל עמית</span>
     <div class="l1">
@@ -436,6 +448,62 @@ SKETCH = r"""
     <div class="home-row">04 טיפול או סאונד הילינג (קיים)</div>
   </div>
 </section>
+<section class="item" id="color">
+  <h2>גוונים — נסגר</h2>
+  <p class="shade-note">ההכרעה: שוקולד #5C3A2E הוא דפוס הצטרפות על פס שכבר יש לו כותרת ופסקה, עם כפתור חול. חי בתיקון, בשיטה, בסאונד הילינג ובלימוד. הטוקנים לא הוחלפו. הפוטר נשאר #0E0905. כפתור בלי כותרת לא נצבע. הרשת למטה היא הרישום של ההשוואה, לא שאלה פתוחה.</p>
+  <h3>1. הבלוק באמצע העמוד</h3>
+  <p class="path">לא נצבעו .cta-band, .sec--dark ו-.start בכל האתר. רק cta-band--choc. דוגמה חיה: /method/ ו-/repair/.</p>
+  <div class="shade-grid">
+    <div class="band" style="background:#0E0905;color:rgba(255,255,255,.7)">
+      <div><h3 style="color:#fff">הפוטר, להשוואה</h3><p>אייל עמית · התקנון. זה מה שנשאר כהה.</p></div>
+      <div class="meta">#0E0905 · לא מועמד</div>
+    </div>
+    <div class="band" style="background:linear-gradient(160deg,rgba(154,79,43,.10),rgba(154,79,43,.08)),linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);color:#fff">
+      <div><h3>היום</h3><p style="color:rgba(255,255,255,.82)">כמעט שחור, עם שכבת חום דקה. נראה כמו הפוטר.</p><span class="btn" style="background:#B5663D;color:#fff">לתיאום בדיקה</span></div>
+      <div class="meta">#0B0703 → #2A1A0C</div>
+    </div>
+    <div class="band" style="background:#5C3A2E;color:#fff">
+      <div><h3>שוקולד</h3><p style="color:rgba(255,255,255,.88)">כותרות משנה בפלטה. הכי רחוק מהפוטר ועדיין כהה.</p><span class="btn" style="background:#fff;color:#5C3A2E">לתיאום בדיקה</span></div>
+      <div class="meta">#5C3A2E · לבן 10:1</div>
+    </div>
+    <div class="band" style="background:#8A5A44;color:#fff">
+      <div><h3>אדמה</h3><p style="color:rgba(255,255,255,.9)">טקסט משני בפלטה.</p><span class="btn" style="background:#fff;color:#8A5A44">לתיאום בדיקה</span></div>
+      <div class="meta">#8A5A44 · לבן 5.8:1</div>
+    </div>
+    <div class="band" style="background:#A44E2B;color:#fff">
+      <div><h3>טרקוטה</h3><p style="color:rgba(255,255,255,.9)">ההדגשה הראשית בפלטה שננעלה.</p><span class="btn" style="background:#fff;color:#A44E2B">לתיאום בדיקה</span></div>
+      <div class="meta">#A44E2B · לבן 5.7:1</div>
+    </div>
+    <div class="band" style="background:#AB3A2B;color:#fff">
+      <div><h3>לבנה</h3><p style="color:rgba(255,255,255,.9)">כפתור חזק בפלטה.</p><span class="btn" style="background:#fff;color:#AB3A2B">לתיאום בדיקה</span></div>
+      <div class="meta">#AB3A2B · לבן 6.2:1</div>
+    </div>
+    <div class="band" style="background:#9A4F2B;color:#fff">
+      <div><h3>החום הכהה החי</h3><p style="color:rgba(255,255,255,.9)">--terra-dk. קרוב לטרקוטה, לא אותו קוד.</p><span class="btn" style="background:#fff;color:#9A4F2B">לתיאום בדיקה</span></div>
+      <div class="meta">#9A4F2B · לבן 6.0:1</div>
+    </div>
+    <div class="band" style="background:#B5663D;color:#fff">
+      <div><h3>הכפתור החי</h3><p style="color:rgba(255,255,255,.92)">--terra. לבן עליו לא עובר לטקסט רגיל.</p><span class="btn" style="background:#2f2013;color:#fff">לתיאום בדיקה</span></div>
+      <div class="meta">#B5663D · לבן 4.3:1</div>
+    </div>
+  </div>
+  <h3>2. גוונים חיים מול הפלטה שננעלה</h3>
+  <p class="path">הפלטה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/EYAL-SITE-COLOR-PALETTE.md">EYAL-SITE-COLOR-PALETTE.md</a>. חול #D8C7B5 זהה. שאר הטוקנים נשארו כמו שהם. זו ההכרעה.</p>
+  <div class="shade-grid">
+    <div class="pair">
+      <div class="chip" style="background:#B5663D;color:#fff"><b>כפתור חי</b><span>#B5663D</span></div>
+      <div class="chip" style="background:#A44E2B;color:#fff"><b>טרקוטה בפלטה</b><span>#A44E2B</span></div>
+    </div>
+    <div class="pair">
+      <div class="chip" style="background:#2f2013;color:#fff"><b>דיו חי</b><span>#2f2013</span></div>
+      <div class="chip" style="background:#2E2B28;color:#fff"><b>דיו בפלטה</b><span>#2E2B28</span></div>
+    </div>
+    <div class="pair">
+      <div class="chip" style="background:#67482d;color:#fff"><b>גוף חי</b><span>#67482d</span></div>
+      <div class="chip" style="background:#8A5A44;color:#fff"><b>אדמה בפלטה</b><span>#8A5A44</span></div>
+    </div>
+  </div>
+</section>
 """
 
 
@@ -471,7 +539,7 @@ def render_form_item(it: dict) -> str:
             f"{esc(form['need'])}</div>"
         )
     return f"""
-<div class="item" data-id="{esc(it['id'])}" data-page="{esc(it.get('trackerRow') or '')}" data-path="{esc(it.get('path') or '')}" data-status="{esc(it['status'])}" data-waiting="{esc(it['waitingOn'])}">
+<div class="item" id="{esc(it['id'])}" data-id="{esc(it['id'])}" data-page="{esc(it.get('trackerRow') or '')}" data-path="{esc(it.get('path') or '')}" data-status="{esc(it['status'])}" data-waiting="{esc(it['waitingOn'])}">
   <h3>{esc(it['titleHe'])}</h3>
   <div class="st {stamp_class(it)}">{esc(stamp)}</div>
   <p class="path"><a href="{esc(live)}" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
@@ -495,7 +563,7 @@ def render_form(data: dict, sha: str, generated: str) -> str:
     wait_n = [it for it in items if it["waitingOn"] == "nimrod" and it["status"] != "closed"]
     parts = []
     for letter in ("A", "B", "C", "D", "E", "F", "L", "P", "Q", "N", "M"):
-        chunk = by.get(letter) or []
+        chunk = [it for it in (by.get(letter) or []) if it["status"] != "closed"]
         if not chunk:
             continue
         title, sub = FORM_HEADS.get(letter, (letter, ""))
@@ -547,7 +615,7 @@ def render_form(data: dict, sha: str, generated: str) -> str:
 <div class="note"><strong>האתר עדיין לא באוויר.</strong> הקישורים הם לאתר הבדיקה. אין לערוך סטטוס ביד בטופס הזה.</div>
 <div class="board" id="status-board">
   <h2>מצב נגזר</h2>
-  <p class="lede">תפריט ראשי לא נגענו. נימרוד ידבר איתך על זה בנפרד.</p>
+  <p class="lede">לשיחה, חלק י. מה שכבר ענית מסומן. מה שנסגר ירד מהטופס ונשאר בטבלת «נסגר». לא למלא בנפרד מה שכתוב «נדבר בשיחה».</p>
   <table>
     <tr><th>נסגר באתר הבדיקה ({len(closed)})</th><th>תווית מהתור</th></tr>
     {rows([it for it in closed if not (it.get("form") or {}).get("slim")])}
@@ -654,13 +722,51 @@ def render_board_card(it: dict) -> str:
 </section>"""
 
 
+def render_digest(data: dict) -> str:
+    digest = data.get("batchDigest") or {}
+    if not digest:
+        return ""
+
+    def items(key: str) -> str:
+        rows = []
+        for row in digest.get(key) or []:
+            text = esc(row.get("he") or "")
+            url = (row.get("url") or "").strip()
+            if url:
+                label = esc(row.get("label") or url)
+                text += f' — <a href="{esc(url)}">{label}</a>'
+            rows.append(f"<li>{text}</li>")
+        return "".join(rows)
+
+    blocks = []
+    for key, heading in (
+        ("shipped", "עודכן באתר"),
+        ("known", "ידוע ומחכה לשיחה או לשיוך"),
+        ("implement", "למימוש — הבקשה סגורה"),
+        ("returned", "הוחזר לאייל"),
+    ):
+        body = items(key)
+        if body:
+            blocks.append(f"<h3>{heading}</h3>\n  <ol>{body}</ol>")
+    inner = "\n  ".join(blocks)
+    return f"""
+<section class="item" id="batch">
+  <h2>המידע החדש</h2>
+  {inner}
+</section>"""
+
+
 def render_board(data: dict, sha: str, generated: str) -> str:
     items = board_items(data)
-    qs = data.get("questions") or []
+    qs = [
+        q
+        for q in (data.get("questions") or [])
+        if q.get("status") != "resolved" and q.get("waitingOn") not in (None, "", "none")
+    ]
     q_html = "".join(
         f"<li><span class='tag waitn'>{esc(q.get('waitingOn'))}</span> {esc(q.get('promptHe'))}</li>"
         for q in qs
-    )
+    ) or "<li>אין שאלות פתוחות אליך.</li>"
     c = counts(items)
     c_rows = "".join(f"<tr><td>{esc(k)}</td><td>{n}</td></tr>" for k, n in sorted(c.items()))
     extras = [it for it in items if it["surface"] != "both"]
@@ -687,11 +793,14 @@ def render_board(data: dict, sha: str, generated: str) -> str:
    · טופס אייל: <a href="{FORM_LIVE}">s007-content-gaps.html</a></p>
 </header>
 <p class="wait"><strong>אין לערוך סטטוס בלוח הזה.</strong> סתירה מול קובץ העבודה — הקובץ מנצח. אקסל 20.9 הוא ארכיון. HANDOFF הוא שיחה.</p>
-<p class="hold-nav"><strong>חרגת תפריט:</strong> שאר L1 / parent href — סקשן אחד בטופס (חלק י · M1) ובלוח (#navtree). ייסגר ביחד אחרי שיחה עם אייל. חריגות ממוקדות שכבר חיות: «קורסים» תחת לימוד והכשרה; צדדי המבורגר (N1, ממתין לאישור אייל). אין שינוי ל־ea-canonical-nav.php בשלב הזה.</p>
-<p class="hold-nav"><strong>{esc((data.get("stage") or {}).get("titleHe") or "")}</strong> {esc((data.get("stage") or {}).get("nowHe") or "")} <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/TO-TEAM10-GO-BLOG-QR-2026-09-22.md">GO לצוות 10</a></p>
+<p class="hold-nav"><strong>לשיחה:</strong> חלק י — M1 עץ (הסדר נרשם), M2 תבנית פוסט, M3 הסטת כותרת, M5 מוקש (רק וידאו הרקע), M6 סטנדים, M7 כותרות הירו, M8 קרוסלת סרטונים, M9 מוזיקת רקע. M4 נסגר: שוקולד כדפוס הצטרפות, לא בטופס. הסקיצה למטה (#navtree). דוגמת הפוסט: <a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy">שבוע הנשימה</a>. אין שינוי ל־ea-canonical-nav.php עד השיחה.</p>
+<p class="hold-nav"><strong>{esc((data.get("stage") or {}).get("titleHe") or "")}</strong> {esc((data.get("stage") or {}).get("nowHe") or "")}</p>
+{render_digest(data)}
 <nav class="toc">
+  <a href="#batch">ארבע הרשימות</a>
   <a href="#q">שאלות</a>
   <a href="#navtree">עץ ותפריט</a>
+  <a href="#color">גוונים</a>
   <a href="#spotlight">עכשיו באתר</a>
   <a href="#extra">תור פנימי</a>
   <a href="#both">סעיפי טופס</a>

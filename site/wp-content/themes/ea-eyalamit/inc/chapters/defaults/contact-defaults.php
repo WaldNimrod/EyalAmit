@@ -20,6 +20,7 @@ return array(
 		'media_alt' => 'הגינה והסטודיו בפרדס חנה',
 		'cta_label' => 'דברו איתי בוואטסאפ',
 		'cta_url'   => '#contact',
+		'mod'       => 'phero--half',
 	),
 
 	'sections' => array(

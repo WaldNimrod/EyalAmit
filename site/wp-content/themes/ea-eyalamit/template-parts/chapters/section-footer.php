@@ -15,10 +15,10 @@ $h = static function ( $path ) {
 <?php if ( function_exists( 'ea_chapters_type' ) && 'contact' === ea_chapters_type() ) : ?>
 <div class="ea-contact-foot-gap" aria-hidden="true"></div>
 <?php endif; ?>
-<footer class="foot">
+<footer class="foot uncover">
 	<span class="arcs" aria-hidden="true"></span>
 	<div class="foot__in">
-		<div>
+		<div class="r">
 			<p class="foot__col-title">מה מציעים</p>
 			<a href="<?php echo $h( '/treatment/' ); ?>">טיפול בדיג׳רידו</a>
 			<a href="<?php echo $h( '/lessons/' ); ?>">שיעורי דיג׳רידו</a>
@@ -27,14 +27,14 @@ $h = static function ( $path ) {
 			<a href="<?php echo $h( '/shop/' ); ?>">כלים ואביזרים</a>
 			<a href="<?php echo $h( '/learning/' ); ?>">לימוד והכשרה</a>
 		</div>
-		<div>
+		<div class="r">
 			<p class="foot__col-title">עוד</p>
 			<a href="<?php echo $h( '/blog/' ); ?>">בלוג דיג׳רידו</a>
 			<a href="<?php echo $h( '/books/' ); ?>">ספרים – מוזה הוצאה לאור</a>
 			<a href="<?php echo $h( '/eyal-amit/' ); ?>">אודות אייל</a>
 			<a href="<?php echo $h( '/contact/' ); ?>">צור קשר</a>
 		</div>
-		<div class="foot__brand">
+		<div class="foot__brand r">
 			<b>המרכז לטיפול בנשימה באמצעות דיג׳רידו</b>
 			<p>פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>
 			<p class="foot__nap"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
@@ -49,7 +49,7 @@ $h = static function ( $path ) {
 			</div>
 		</div>
 	</div>
-	<div class="foot__legal">
+	<div class="foot__legal r">
 		<p class="foot__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>
 		<p class="foot__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="<?php echo $h( '/accessibility/' ); ?>">הצהרת נגישות</a> · <a href="<?php echo $h( '/privacy/' ); ?>">מדיניות פרטיות</a></p>
 	</div>

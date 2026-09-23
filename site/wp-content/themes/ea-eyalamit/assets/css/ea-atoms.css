@@ -1212,11 +1212,23 @@
     }
     .ea-contact-portrait {
       display: block;
-      width: 180px;
-      aspect-ratio: 3 / 4;
+      width: 220px;
+      aspect-ratio: 15 / 14;
       border-radius: var(--ea-radius-img);
       overflow: hidden;
       background: var(--ea-bg-alt);
+    }
+    .ea-wave2-contact .ea-contact-section__heading { margin: 0 0 8px; }
+    .ea-wave2-contact .ea-contact-form__field { margin-bottom: 8px; }
+    .ea-wave2-contact .ea-contact-form--cf7 .ea-cf7-row { margin: 0 0 8px; }
+    .ea-wave2-contact .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-text,
+    .ea-wave2-contact .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-select,
+    .ea-wave2-contact .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea {
+      padding: 8px 12px;
+    }
+    .ea-wave2-contact .ea-contact-form--cf7 .wpcf7-form-control.wpcf7-textarea {
+      min-height: 0;
+      height: 4.25rem;
     }
     .ea-contact-portrait img {
       width: 100%;

@@ -35,9 +35,10 @@ verb: GO
 2. דמה JSON:  
    [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/post-template/DUMMY-WEEK-OF-BREATH.json](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/post-template/DUMMY-WEEK-OF-BREATH.json)
 3. היסטורי as-is. לא ממירים ל-JSON.
-4. אחר כך תבנית QR.  
+4. בלוק «קשורים» באותה תבנית פוסט: היום `.ea-related` ב-`ea-blog.css` הוא `max-width: var(--ea-prose-width)` (960px). נימרוד אישר 22.9 לכלול בתיקון הזה. הרוחב כמו גוף הפוסט: 82ch בתוך wrap 1200. בלי `font-size` חדש. חל גם על פוסט היסטורי שכבר חי, בלי להחליף לו תוכן או תמונות.
+5. אחר כך תבנית QR.  
    [file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/PHASE-2-BLOG-QR-AFTER-SKETCH.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/PHASE-2-BLOG-QR-AFTER-SKETCH.md)
-5. FTP רק מה-worktree החדש. bump מעל 1.5.108. אין FTP מהעץ הראשי.
+6. FTP רק מה-worktree החדש. bump מעל 1.5.108. אין FTP מהעץ הראשי.
 
 קאנון יישור = דום נשימה (wrap 1200 / 82ch). אין `font-size` בקומפוננטה.
 

@@ -31,20 +31,37 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 	<div class="wrap<?php echo $center ? ' center' : ''; ?>">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap<?php echo $center ? ' chap--c' : ''; ?> r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-		<?php if ( $collapsible ) : ?>
+		<?php
+		$ea_prose_html = wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) );
+		$ea_preview    = (int) ( $a['preview_lines'] ?? 0 );
+		?>
+		<?php if ( $collapsible && $ea_preview > 0 ) : ?>
+			<div class="prose-fold" style="<?php echo esc_attr( '--fold-lines:' . $ea_preview ); ?>">
+				<div class="prose-fold__peek intro-body"><?php echo $ea_prose_html; ?></div>
+				<details class="prose-acc prose-acc--fold">
+					<summary class="prose-acc__t"><?php echo esc_html( $a['toggle_label'] ?? 'להמשך קריאה' ); ?></summary>
+					<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo $ea_prose_html; ?></div>
+				</details>
+			</div>
+		<?php elseif ( $collapsible ) : ?>
 			<details class="prose-acc">
 				<summary class="prose-acc__t"><?php echo esc_html( $a['toggle_label'] ?? 'לחצו לקריאה' ); ?></summary>
-				<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
+				<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo $ea_prose_html; ?></div>
 			</details>
 		<?php else : ?>
 			<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>>
 				<?php
 				if ( ! empty( $a['float_image'] ) ) :
-					$ea_fs  = esc_url( $a['float_image'] );
-					$ea_fa  = esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $a['float_image'], $a['float_alt'] ?? '' ) : ( $a['float_alt'] ?? '' ) );
-					$ea_fsd = ( 'e' === ( $a['float_side'] ?? 's' ) ) ? 'e' : 's';
+					$ea_fs        = esc_url( $a['float_image'] );
+					$ea_fa_raw    = (string) ( $a['float_alt'] ?? '' );
+					if ( empty( $a['literal_alt'] ) && function_exists( 'ea_chapters_content_img_alt' ) ) {
+						$ea_fa_raw = ea_chapters_content_img_alt( $a['float_image'], $ea_fa_raw );
+					}
+					$ea_fa        = esc_attr( $ea_fa_raw );
+					$ea_fsd       = ( 'e' === ( $a['float_side'] ?? 's' ) ) ? 'e' : 's';
+					$ea_float_mod = ! empty( $a['float_mod'] ) ? sanitize_html_class( (string) $a['float_mod'] ) : '';
 					?>
-					<figure class="pfloat pfloat--<?php echo esc_attr( $ea_fsd ); ?>">
+					<figure class="pfloat pfloat--<?php echo esc_attr( $ea_fsd ); ?><?php echo '' !== $ea_float_mod ? ' ' . esc_attr( $ea_float_mod ) : ''; ?>">
 						<?php if ( ! empty( $a['float_zoom'] ) ) : ?>
 							<button type="button" class="zoom" data-zoom-src="<?php echo $ea_fs; ?>" data-zoom-alt="<?php echo $ea_fa; ?>">
 								<img src="<?php echo $ea_fs; ?>" alt="<?php echo $ea_fa; ?>" loading="lazy">

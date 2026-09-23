@@ -55,7 +55,7 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 
 					<div class="ea-contact-form__field">
 						<label class="ea-contact-form__label" for="ea-cf-message"><?php esc_html_e( 'הודעה', 'ea-eyalamit' ); ?><span class="ea-sr-only"><?php esc_html_e( '(שדה חובה)', 'ea-eyalamit' ); ?></span></label>
-						<textarea class="ea-contact-form__textarea" id="ea-cf-message" name="message" rows="5" required aria-required="true" aria-describedby="ea-cf-message-err"></textarea>
+						<textarea class="ea-contact-form__textarea" id="ea-cf-message" name="message" rows="3" required aria-required="true" aria-describedby="ea-cf-message-err"></textarea>
 						<span class="ea-contact-form__error" id="ea-cf-message-err" hidden><?php esc_html_e( 'נא להזין את תוכן הפנייה.', 'ea-eyalamit' ); ?></span>
 					</div>
 
@@ -65,9 +65,9 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 				<?php endif; ?>
 			</div>
 
-			<!-- Small photo of Eyal, next to the form (same portrait used on /eyal-amit/). -->
+			<!-- Child with a telephone receiver, from the old site. Contact page only. -->
 			<span class="ea-contact-portrait ea-entrance" aria-hidden="true">
-				<img src="<?php echo esc_url( ea_chapters_resolve_img( 'assets/images/chapters/eyal-portrait-garden.jpg' ) ); ?>" alt="" loading="lazy">
+				<img src="<?php echo esc_url( ea_chapters_resolve_img( 'assets/images/chapters/eyal-child-phone.jpg' ) ); ?>" alt="" loading="lazy">
 			</span>
 
 		</div>

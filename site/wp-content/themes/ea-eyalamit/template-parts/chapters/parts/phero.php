@@ -19,10 +19,22 @@ defined( 'ABSPATH' ) || exit;
 $a     = isset( $args ) && is_array( $args ) ? $args : array();
 $media = $a['media'] ?? '';
 $dark  = ! empty( $a['dark'] ) || '' === $media;
+$mod   = '';
+if ( ! empty( $a['mod'] ) ) {
+	$mod = implode(
+		' ',
+		array_filter( array_map( 'sanitize_html_class', preg_split( '/\s+/', (string) $a['mod'] ) ) )
+	);
+}
 ?>
-<header class="phero<?php echo $media ? ' phero--media' : ''; ?>">
-	<?php if ( $media ) : ?>
-		<img class="phero__media" src="<?php echo esc_url( $media ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $media, $a['media_alt'] ?? '' ) : ( $a['media_alt'] ?? '' ) ); ?>">
+<header class="phero<?php echo $media ? ' phero--media' : ''; ?><?php echo '' !== $mod ? ' ' . esc_attr( $mod ) : ''; ?>">
+	<?php if ( $media ) :
+		$ea_media_alt = (string) ( $a['media_alt'] ?? '' );
+		if ( empty( $a['literal_alt'] ) && function_exists( 'ea_chapters_content_img_alt' ) ) {
+			$ea_media_alt = ea_chapters_content_img_alt( $media, $ea_media_alt );
+		}
+		?>
+		<img class="phero__media" src="<?php echo esc_url( $media ); ?>" alt="<?php echo esc_attr( $ea_media_alt ); ?>">
 		<span class="phero__sc" aria-hidden="true"></span>
 	<?php endif; ?>
 	<span class="arcs" aria-hidden="true"></span>
