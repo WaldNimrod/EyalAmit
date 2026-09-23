@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סקיצת כיוון — תיקון וחידוש כלים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#D8C7B5;
+    --terra:#A44E2B;
+    --earth:#8A5A44;
+    --olive:#6E6F4A;
+    --ink:#2E2B28;
+    --choc:#5C3A2E;
+    --brick:#AB3A2B;
+    --footer:#0E0905;
+    --ivory:#fffffa;
+    --ivory-2:#efeae1;
+    --fs-body:1.0625rem;
+    --fs-h1:2.7625rem;
+    --fs-h2:1.540625rem;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ivory);color:var(--ink);font-family:Heebo,-apple-system,Arial,sans-serif;font-weight:300;font-size:var(--fs-body);line-height:1.65;overflow-x:hidden}
+  img{max-width:100%;height:auto}
+  a{color:var(--choc)}
+  .sk-top{background:var(--footer);color:#fff;padding:18px 28px}
+  .sk-top b{font-weight:500}
+  .sk-top p{margin:6px 0 0;color:rgba(255,255,255,.88);max-width:78ch}
+  .board{padding:36px 28px 8px;background:#fff;border-bottom:1px solid rgba(46,43,40,.12)}
+  .board h2,.page-label{font-weight:500;font-size:var(--fs-h2);margin:0 0 8px}
+  .board > p,.note{max-width:78ch;color:var(--earth);margin:0 0 18px}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0 0 28px}
+  .sw{border-radius:10px;overflow:hidden;border:1px solid rgba(46,43,40,.12);min-height:132px;display:flex;flex-direction:column}
+  .sw .fill{padding:16px 14px 12px;flex:1}
+  .sw .fill b{display:block;font-weight:500}
+  .sw .fill span{display:block;font-size:.92rem;margin-top:6px;line-height:1.45}
+  .sw .meta{background:#fff;color:var(--ink);padding:8px 14px;font-size:.82rem}
+  .sw.bad .fill{outline:3px solid #8a1f1f;outline-offset:-3px}
+  table{width:min(1100px,100%);border-collapse:collapse;margin:0 0 28px;font-size:.95rem}
+  th,td{text-align:start;padding:8px 10px;border-bottom:1px solid rgba(46,43,40,.12);vertical-align:top}
+  th{font-weight:500}
+  .page-label{padding:28px 28px 0}
+
+  .phero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .phero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .phero__sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,9,5,.35),rgba(14,9,5,.25) 40%,rgba(14,9,5,.82))}
+  .phero__in{position:relative;z-index:1;width:min(820px,100%);margin-inline:auto;padding:88px 48px 64px}
+  .phero h1{font-weight:500;font-size:var(--fs-h1);line-height:1.12;margin:0 0 14px}
+  .phero p{color:rgba(255,255,255,.92);max-width:62ch;margin:0 0 18px}
+  .btn-ghost{display:inline-block;padding:12px 22px;border:1px solid rgba(255,255,255,.85);color:#fff;text-decoration:none;border-radius:8px;font-weight:500}
+
+  .sec{padding:clamp(40px,6.2vw,88px) 48px}
+  .sec--soft{background:var(--ivory-2)}
+  .read{max-width:82ch;margin-inline:auto}
+  .read h2,.split h2,.cards-wrap h2{font-weight:500;font-size:var(--fs-h2);line-height:1.2;margin:0 0 16px;color:var(--ink)}
+  h2.read{font-weight:500;font-size:var(--fs-h2);line-height:1.2;margin:0 auto 16px;color:var(--ink);max-width:760px}
+  .read p,.split p{margin:0 0 .85em}
+  .read ul{margin:.2em 0 1em;padding-inline-start:1.2em}
+  .tlink{color:var(--choc);text-decoration:none;border-bottom:1px solid rgba(92,58,46,.4)}
+  .pfloat{float:inline-start;margin:6px 0 18px;margin-inline-end:28px;width:min(320px,38%)}
+  .pfloat img{width:100%;border-radius:12px}
+  .read::after{content:"";display:block;clear:both}
+
+  .split{max-width:1120px;margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:stretch}
+  .split__fig{position:relative;min-height:100%;border-radius:14px;overflow:hidden}
+  .split__fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .split--img-e .split__fig{order:2}
+
+  .cards-wrap{max-width:1120px;margin-inline:auto}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .card{background:#fff;border-radius:14px;padding:22px 22px 18px;border:1px solid rgba(46,43,40,.08)}
+  .card h3{margin:0 0 8px;font-size:1.12rem;font-weight:500}
+  .card p{margin:0;color:var(--ink)}
+
+  .cta{background:var(--choc);color:#fff;padding:clamp(64px,8vw,104px) 48px}
+  .cta__in{max-width:640px;margin-inline:auto;text-align:center}
+  .cta h2{margin:0 0 12px;font-weight:500;font-size:var(--fs-h2);line-height:1.25;color:#fff}
+  .cta p{margin:0 auto 22px;max-width:46ch;color:rgba(255,255,255,.92)}
+  .btn-on{display:inline-block;background:var(--sand);color:var(--choc);text-decoration:none;padding:13px 26px;border-radius:999px;font-weight:500}
+
+  .band{position:relative;min-height:520px;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .band__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .band__sc{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,9,5,.78),rgba(14,9,5,.45) 55%,rgba(14,9,5,.25))}
+  .band__in{position:relative;z-index:1;width:min(640px,100%);margin-inline-start:auto;margin-inline-end:8vw;padding:64px 48px}
+  .band h2{margin:0 0 12px;font-weight:500;font-size:var(--fs-h2);line-height:1.25;color:#fff}
+  .band p{margin:0 0 22px;max-width:42ch;color:rgba(255,255,255,.92)}
+
+  .faq-list{max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:10px}
+  .faq-list details{background:#fff;border-radius:12px;padding:14px 18px}
+  .faq-list summary{cursor:pointer;font-weight:500}
+  .faq-list p{margin:.6em 0 0}
+
+  .gal{padding:clamp(28px,4vw,48px) 48px clamp(48px,6vw,80px)}
+  .galgrid{max-width:1120px;margin-inline:auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+  .galgrid figure{margin:0;aspect-ratio:3/4;border-radius:14px;overflow:hidden}
+  .galgrid img{width:100%;height:100%;object-fit:cover}
+
+  .foot{background:var(--footer);color:rgba(255,255,255,.72);padding:64px 48px 40px}
+  .foot__in{max-width:1120px;margin-inline:auto}
+  .foot b{color:#fff;font-weight:500;display:block;margin-bottom:8px}
+  .foot small{display:block;margin-top:18px;color:rgba(255,255,255,.46)}
+
+  @media(max-width:720px){
+    :root{--fs-h1:2.01875rem;--fs-h2:1.4025rem}
+    .phero__in,.sec,.cta,.band__in,.gal,.foot,.board,.page-label{padding-inline:20px}
+    .pfloat{float:none;width:100%;margin-inline:0}
+    .split{grid-template-columns:1fr}
+    .split__fig{min-height:320px;order:0}
+    .split--img-e .split__fig{order:0}
+    .cards,.galgrid{grid-template-columns:1fr 1fr}
+    .band{min-height:460px}
+    .band__in{margin-inline:0}
+    .band__sc{background:linear-gradient(180deg,rgba(14,9,5,.3),rgba(14,9,5,.78))}
+  }
+</style>
+</head>
+<body>
+
+<header class="sk-top">
+  <b>סקיצה, סיבוב שני — לא האתר החי</b>
+  <p>טרקוטה <span dir="ltr">#A44E2B</span> ירדה מהפסים. הירו עם תמונה. תמונת אורך נשארת בתוך העמודה שלה. הקריאה לפעולה: כותרת, תת־כותרת וכפתור. הטקסט של אייל לא נכתב מחדש.</p>
+</header>
+
+<section class="board" id="palette">
+  <h2>פלטה — אחרי הפסילה</h2>
+  <p>נימרוד פסל את <span dir="ltr">#A44E2B</span> לפס הקריאה: בהיר מדי, והגוון לא יפה. הפס עכשיו שוקולד <span dir="ltr">#5C3A2E</span>, לבן עליו 10:1. הכפתור חול <span dir="ltr">#D8C7B5</span> עם טקסט שוקולד. הפוטר נשאר <span dir="ltr">#0E0905</span>. הטרקוטה נשארת בלוח כפסולה, לא כמילוי.</p>
+  <div class="swatches">
+    <article class="sw"><div class="fill" style="background:#5C3A2E;color:#fff"><b>שוקולד — על הפס</b><span>מילוי הקריאה לפעולה. כהה מהטרקוטה, עדיין חום מול הפוטר.</span></div><div class="meta">#5C3A2E · לבן 10:1</div></article>
+    <article class="sw bad"><div class="fill" style="background:#A44E2B;color:#fff"><b>טרקוטה — פסול לפס</b><span>הגוון של הסיבוב הקודם. לא חוזר כמילוי.</span></div><div class="meta">#A44E2B · לבן 5.67:1 · נפסל</div></article>
+    <article class="sw"><div class="fill" style="background:#D8C7B5;color:#2E2B28"><b>חול — כפתור על הפס</b><span>מילוי הכפתור. הטקסט עליו שוקולד.</span></div><div class="meta">#D8C7B5</div></article>
+    <article class="sw"><div class="fill" style="background:#0E0905;color:rgba(255,255,255,.75)"><b>פוטר</b><span>נשאר. לא צבע הפס.</span></div><div class="meta">#0E0905</div></article>
+    <article class="sw"><div class="fill" style="background:#8A5A44;color:#fff"><b>אדמה</b><span>הערות הלוח. לא הפס.</span></div><div class="meta">#8A5A44 · לבן 5.79:1</div></article>
+    <article class="sw"><div class="fill" style="background:#2E2B28;color:#fff"><b>דיו</b><span>כותרות וגוף על רקע בהיר.</span></div><div class="meta">#2E2B28</div></article>
+  </div>
+  <h2>איפה כל תמונה</h2>
+  <table>
+    <thead><tr><th>קובץ</th><th>איפה</th><th>למה</th></tr></thead>
+    <tbody>
+      <tr><td dir="ltr">EA-000239.jpeg</td><td>הירו, רקע מלא</td><td>שולחן העבודה לרוחב. ההירו לא ריק</td></tr>
+      <tr><td dir="ltr">EA-000298.jpg</td><td>הפסקה הראשונה, תמונה עומדת בצד</td><td>נשאר — סומן כיפה</td></tr>
+      <tr><td dir="ltr">EA-000214.jpeg</td><td>«מתי צריך תיקון», חצי־חצי</td><td>ממלא את חצי השורה, בלי שטח מת מתחת</td></tr>
+      <tr><td dir="ltr">EA-000238.jpeg</td><td>«איך נראה התהליך», עמודה בגובה הטקסט</td><td>תמונת אורך חתוכה לעמודה, הטקסט לא בורח מתחתיה</td></tr>
+      <tr><td dir="ltr">EA-000220.jpeg</td><td>שורת רקע: «יש לך דיג'רידו»</td><td>הסטודיו מאחורי הכותרת, התת־כותרת והכפתור</td></tr>
+      <tr><td dir="ltr">EA-000237.jpeg</td><td>גלריה</td><td rowspan="4">קטע אחד של כמה תמונות, לא תמונה בודדת בסוף</td></tr>
+      <tr><td dir="ltr">EA-000268.jpeg</td><td>גלריה</td></tr>
+      <tr><td dir="ltr">EA-000242.jpeg</td><td>גלריה</td></tr>
+      <tr><td dir="ltr">EA-000161.jpg</td><td>גלריה</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<p class="page-label">העמוד</p>
+
+<header class="phero">
+  <img class="phero__media" src="img/EA-000239.jpeg" alt="">
+  <span class="phero__sc" aria-hidden="true"></span>
+  <div class="phero__in">
+    <h1>תיקון וחידוש דיג'רידו</h1>
+    <p>שירות תיקון מקצועי לדיג'רידו - לטיפול בסדקים, שברים, עיוותים, שחיקה והתאמות מבנה המשפיעות על הצליל ועל זרימת האוויר בכלי.</p>
+    <a class="btn-ghost" href="http://eyalamit-co-il-2026.s887.upress.link/contact/">לתיאום בדיקה לכלי</a>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="read">
+    <figure class="pfloat"><img src="img/EA-000298.jpg" alt=""></figure>
+    <p>תהליך תיקון כלי דיג'רידו מבוסס על הבנה גיאומטרית-פיזיקלית של הכלי, אורך הצינור, קוטר, הפיה, הלוע, מבנה התעלה הפנימית ולחץ האוויר. כל אלה קובעים את האופן שבו הדיג'רידו מגיב לנשימה ולנגינה.</p>
+    <p>אייל עמית עוסק בבניית ותיקון דיג'רידו מעל שני עשורים (מאז 1999) ולמד את מלאכת בניית הכלים בהודו אצל <a class="tlink" href="http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/">מוקש דהימן</a>, מאסטר לבניית דיג'רידו.</p>
+    <p>הרקע של אייל כמהנדס אלקטרוניקה בא לידי ביטוי בהבנה של תדרים, זרימת אוויר, התנגדות, ואופן שבו הכלי מגיב לנשימה.</p>
+    <p>העבודה מתבצעת עם חומרים מהאיכות הגבוהה ביותר, ללא פשרות וללא קיצורי דרך בהתאם לסטנדרט העבודה ולרמת הדיוק הנדרשת בכל תיקון.</p>
+    <p>כל תיקון מתחיל בבדיקה של הכלי והבנה של הבעיה ומתבצע בהתאמה מדויקת למבנה ולמאפיינים האקוסטיים שלו.</p>
+  </div>
+</section>
+
+<section class="sec sec--soft">
+  <div class="split">
+    <div>
+      <h2>מתי דיג'רידו צריך תיקון?</h2>
+      <p>לא כל בעיה בכלי נראית מיד לעין במקרים רבים השינוי מורגש קודם כל בצליל, בתחושה או בהתנגדות האוויר.</p>
+      <p>אלו המצבים הנפוצים שבהם מומלץ לבדוק את הכלי:</p>
+      <ul>
+        <li>הופעה של סדק חיצוני או פנימי</li>
+        <li>שבר בעץ או באזור הפייה</li>
+        <li>שינוי בצליל - אובדן עומק, יציבות או תהודה</li>
+        <li>תחושת "בריחה" של אוויר בזמן נגינה</li>
+        <li>קושי לשמור על לחץ אוויר יציב</li>
+        <li>שחיקה או עיוות בפייה (wax)</li>
+        <li>שדרוג פיית דונג לפיית עץ</li>
+        <li>שינוי מבני בעקבות לחות, חום או תנאי אחסון</li>
+        <li>כלי ישן שלא עבר תחזוקה לאורך זמן</li>
+      </ul>
+      <p>גם אם לא בטוחים בדיקה קצרה יכולה למנוע נזק גדול יותר בהמשך.</p>
+    </div>
+    <figure class="split__fig"><img src="img/EA-000214.jpeg" alt=""></figure>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta__in">
+    <h2>כל תיקון מתחיל בבדיקה של הכלי</h2>
+    <p>גם אם לא בטוחים בדיקה קצרה יכולה למנוע נזק גדול יותר בהמשך.</p>
+    <a class="btn-on" href="http://eyalamit-co-il-2026.s887.upress.link/contact/">לתיאום בדיקה לכלי</a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="split split--img-e">
+    <figure class="split__fig"><img src="img/EA-000238.jpeg" alt=""></figure>
+    <div>
+      <h2>איך נראה תהליך התיקון?</h2>
+      <p>כל תיקון מתחיל בהבנה מדויקת של הכלי ולא בפתרון מהיר.</p>
+      <p>כך נראה התהליך:</p>
+      <p><strong>1. בדיקה ואבחון</strong> בדיקה פיזית של הכלי יחד עם הקשבה לצליל ולתגובה שלו לנשימה איתור סדקים, עיוותים ובעיות מבנה פנימיות</p>
+      <p><strong>2. הבנת המבנה האקוסטי</strong> ניתוח הקשר בין מבנה הכלי לבין הבעיה קוטר, אורך, התרחבות פנימית והתנהגות זרימת האוויר</p>
+      <p><strong>3. בחירת שיטת תיקון</strong> התאמת פתרון מדויק לכל כלי סגירת סדקים, חיזוק מבני, התאמות פייה או שינויים נקודתיים במבנה</p>
+      <p><strong>4. עבודה עם חומרים איכותיים</strong> שימוש בחומרי גלם ברמה הגבוהה ביותר ללא פשרות וללא קיצורי דרך בהתאם לסוג התיקון</p>
+      <p><strong>5. בדיקה וכיול סופי</strong> בדיקה חוזרת של הכלי לאחר התיקון צליל, תגובתיות וזרימת אוויר עד לחזרה לאיזון תקין</p>
+      <p>כל כלי מקבל התייחסות אישית</p>
+      <p>אין תיקון "סטנדרטי"</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--soft">
+  <div class="cards-wrap">
+    <h2>למה לתקן דיג'רידו כאן?</h2>
+    <p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p>
+    <p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p>
+    <div class="cards">
+      <article class="card"><h3>ניסיון של מעל שני עשורים</h3><p>עבודה יומיומית עם דיג'רידו - בנייה, תיקון וליווי נגנים</p></article>
+      <article class="card"><h3>למידה ישירה ממוקש דהימן</h3><p>מאסטר לבניית דיג'רידו, שממנו נלמדה מלאכת הבנייה והעבודה עם הכלי</p></article>
+      <article class="card"><h3>הבנה גיאומטרית-פיזיקלית של הכלי</h3><p>התייחסות למבנה הפנימי, לזרימת האוויר ולהשפעה שלהם על הצליל</p></article>
+      <article class="card"><h3>עבודה ידנית ללא קיצורי דרך</h3><p>שימוש בחומרים איכותיים בלבד, תוך התאמה מדויקת לכל כלי</p></article>
+      <article class="card"><h3>התאמה אישית לכל דיג'רידו</h3><p>אין פתרונות אחידים - כל כלי נבדק ומטופל לפי המאפיינים שלו</p></article>
+    </div>
+    <p style="margin-top:22px">התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p>
+    <p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="http://eyalamit-co-il-2026.s887.upress.link/method/">השיטה - עבודה עם נשימה ודיג'רידו</a></p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="read">שאלות נפוצות</h2>
+  <div class="faq-list">
+    <details open>
+      <summary>כמה זמן לוקח תיקון דיג'רידו?</summary>
+      <p>משך התיקון תלוי בסוג הבעיה. תיקונים פשוטים יכולים לקחת זמן קצר בעוד שתיקונים מורכבים דורשים זמן לייבוש, ייצוב ובדיקה</p>
+    </details>
+    <details>
+      <summary>האם כל דיג'רידו ניתן לתיקון?</summary>
+      <p>ברוב המקרים כן. גם כלים עם סדקים או שברים משמעותיים ניתנים לשיקום אך יש מצבים נדירים שבהם הנזק אינו מאפשר תיקון מלא</p>
+      <p>לעיתים משתלם יותר לרכוש כלי חדש מאשר להשקיע בתיקון כלי ישן</p>
+      <p>למידע נוסף על כלים חדשים בעבודת יד <a class="tlink" href="http://eyalamit-co-il-2026.s887.upress.link/tools-and-accessories/">כלים ואביזרים לדיג'רידו</a></p>
+    </details>
+    <details>
+      <summary>האם התיקון משנה את הצליל של הכלי?</summary>
+      <p>המטרה היא להחזיר את הכלי לאיזון המקורי שלו במקרים מסוימים אף ניתן לשפר יציבות, תגובתיות וזרימת אוויר</p>
+    </details>
+    <details>
+      <summary>כמה עולה תיקון דיג'רידו?</summary>
+      <p>המחיר משתנה בהתאם למצב הכלי וסוג העבודה הנדרש הצעת מחיר ניתנת לאחר בדיקה של הכלי, ללא התחייבות</p>
+    </details>
+    <details>
+      <summary>האם מקבלים הצעת מחיר לפני תחילת העבודה?</summary>
+      <p>כן. כל תיקון מתחיל בהערכת מצב ומתן הצעת מחיר ללא התחייבות מראש רק לאחר אישור - ניגשים לביצוע העבודה</p>
+    </details>
+    <details>
+      <summary>האם אפשר לשדרג את הכלי תוך כדי תיקון?</summary>
+      <p>כן. במקרים רבים ניתן לשלב התאמות כמו שדרוג פייה או חיזוק מבני בהתאם למצב הכלי ולצורך</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec sec--soft">
+  <div class="cards-wrap">
+    <h2>סוגי תיקונים נפוצים בדיג'רידו</h2>
+    <p>לא כל בעיה בכלי נראית אותו דבר וכל תיקון דורש גישה אחרת</p>
+    <p>אלו סוגי התיקונים הנפוצים:</p>
+    <div class="cards">
+      <article class="card"><h3>תיקון סדקים בעץ</h3><p>איטום וחיזוק סדקים חיצוניים ופנימיים תוך שמירה על יציבות מבנית וצליל תקין</p></article>
+      <article class="card"><h3>תיקון שברים</h3><p>שיקום אזורים שבורים וחיבור מחדש של חלקים בהתאם למבנה הכלי</p></article>
+      <article class="card"><h3>חיזוק מבנה פנימי</h3><p>התערבות מבוקרת בתוך חלל הכלי לצורך שיפור יציבות וזרימת אוויר</p></article>
+      <article class="card"><h3>שיקום או החלפת פייה (wax)</h3><p>תיקון, עיצוב מחדש או החלפה של פיית הדונג להתאמה מדויקת לנגינה</p></article>
+      <article class="card"><h3>שדרוג לפיית עץ</h3><p>מעבר מפיית דונג לפיית עץ יציבה ומדויקת יותר בהתאם להעדפה אישית</p></article>
+      <article class="card"><h3>התאמות זרימת אוויר</h3><p>שינויים עדינים במבנה הכלי המשפיעים על התנגדות, לחץ אוויר ותגובה לנשימה</p></article>
+      <article class="card"><h3>תיקון קוסמטי - חידוש צבע</h3><p>ריענון מראה הכלי ללא שינוי מבני כולל תיקוני גימור חיצוניים</p></article>
+      <article class="card"><h3>איטום וחידוש שכבות לכה</h3><p>הגנה על העץ ושיפור עמידות הכלי לאורך זמן תוך שמירה על תכונותיו האקוסטיות</p></article>
+      <article class="card"><h3>תחזוקה כללית לכלי ישן</h3><p>ניקוי, חיזוק והתאמות לכלים שלא טופלו לאורך זמן</p></article>
+    </div>
+    <p style="margin-top:22px">כל תיקון מתבצע בהתאם למבנה הספציפי של הכלי ולא לפי תבנית קבועה</p>
+  </div>
+</section>
+
+<section class="band">
+  <img class="band__media" src="img/EA-000220.jpeg" alt="">
+  <span class="band__sc" aria-hidden="true"></span>
+  <div class="band__in">
+    <h2>יש לך דיג'רידו שצריך בדיקה?</h2>
+    <p>אם הכלי נסדק, נשבר, איבד יציבות או פשוט לא נשמע כמו פעם אפשר להביא אותו לבדיקה ולקבל הערכת מצב מקצועית</p>
+    <p>הבדיקה כוללת אבחון של מצב הכלי הסבר על אפשרויות התיקון ומתן הצעת מחיר לפני תחילת העבודה</p>
+    <a class="btn-on" href="http://eyalamit-co-il-2026.s887.upress.link/contact/">לתיאום בדיקה לכלי</a>
+  </div>
+</section>
+
+<section class="gal" id="gallery">
+  <div class="galgrid">
+    <figure><img src="img/EA-000237.jpeg" alt="תיקון וחידוש דיג'רידו ישנים. סטודיו נשימה מעגלית. אייל עמית. פרדס חנה"></figure>
+    <figure><img src="img/EA-000268.jpeg" alt=""></figure>
+    <figure><img src="img/EA-000242.jpeg" alt="סדנת בנייה עצמית דיג'רידו אייל עמית סטודיו נשימה מעגלית פרדס חנה"></figure>
+    <figure><img src="img/EA-000161.jpg" alt=""></figure>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__in">
+    <b>אייל עמית</b>
+    <span>הפוטר #0E0905. הפס שמעליו שוקולד, לא הטרקוטה שנפסלה.</span>
+    <small>סקיצה, סיבוב שני · 23.9.2026 · לא קאנון לאתר</small>
+  </div>
+</footer>
+
+</body>
+</html>
