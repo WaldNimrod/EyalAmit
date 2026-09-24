@@ -148,9 +148,10 @@
 .ea-historical-archive .ea-content-section__body {
 	overflow-wrap: anywhere;
 }
-/* Layout only. No font-size and no colour token. Measure is capped so a
-   Hebrew line stays inside the 45–75 character band on a wide viewport.
-   Mobile width is the viewport itself; the locked type size is not changed. */
+/* Layout only. No font-size and no colour token. 28em of the locked
+   body size is the wide-viewport measure (about 60 Hebrew characters).
+   A narrower phone column cannot reach 45 characters without changing
+   the type size or overflowing, so the cap does not shrink type. */
 .ea-historical-archive .ea-content-section__inner,
 .ea-historical-archive .ea-section__inner {
 	max-width: 40rem;
@@ -159,7 +160,7 @@
 .ea-historical-archive .ea-press__link,
 .ea-historical-archive .ea-testimonial-card__text,
 .ea-historical-archive .ea-archive-h {
-	max-width: 38em;
+	max-width: 28em;
 }
 .ea-historical-archive .ea-archive-h {
 	margin: 1.15rem 0 0.4rem;
