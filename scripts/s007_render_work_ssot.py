@@ -553,17 +553,20 @@ def render_form_item(it: dict) -> str:
 
 
 def render_form(data: dict, sha: str, generated: str) -> str:
-    items = form_items(data)
+    # Eyal sees only what is waiting on him. Closed work and Nimrod's
+    # decisions stay on the board.
+    items = [
+        it
+        for it in form_items(data)
+        if it["status"] != "closed" and it.get("waitingOn") == "eyal"
+    ]
     by: dict[str, list[dict]] = {}
     for it in items:
         sec = (it.get("id") or "?")[0]
         by.setdefault(sec, []).append(it)
-    closed = [it for it in items if it["status"] == "closed"]
-    wait_e = [it for it in items if it["status"] == "waiting" and it["waitingOn"] == "eyal"]
-    wait_n = [it for it in items if it["waitingOn"] == "nimrod" and it["status"] != "closed"]
     parts = []
     for letter in ("A", "B", "C", "D", "E", "F", "L", "P", "Q", "N", "M"):
-        chunk = [it for it in (by.get(letter) or []) if it["status"] != "closed"]
+        chunk = by.get(letter) or []
         if not chunk:
             continue
         title, sub = FORM_HEADS.get(letter, (letter, ""))
@@ -572,30 +575,27 @@ def render_form(data: dict, sha: str, generated: str) -> str:
             parts.append(f'<p class="sub">{esc(sub)}</p>')
         parts.extend(render_form_item(it) for it in chunk)
 
+    meeting = [
+        f"<li>{esc(q.get('promptHe') or '')}</li>"
+        for q in (data.get("questions") or [])
+        if q.get("status") != "resolved" and q.get("waitingOn") == "nimrod"
+    ]
+    meeting_html = ""
+    if meeting:
+        meeting_html = (
+            "<h2>לפגישה, לא למילוי</h2>"
+            "<p class=\"sub\">הכרעות של נימרוד. אין כאן שאלון למילוי.</p>"
+            f"<ul>{''.join(meeting)}</ul>"
+        )
+
     def rows(lst: list[dict]) -> str:
         if not lst:
             return "<tr><td colspan='2'>אין</td></tr>"
         return "".join(
             f"<tr><td>{esc(it['id'])} · {esc(it['titleHe'])}</td><td>{esc(S.stamp_he(it))}</td></tr>"
             for it in lst
-            if not ((it.get("form") or {}).get("slim") and it["status"] != "closed")
+            if not (it.get("form") or {}).get("slim")
         )
-
-    slim_closed = [it for it in closed if (it.get("form") or {}).get("slim")]
-    slim_p = [
-        it
-        for it in items
-        if (it.get("form") or {}).get("slim")
-        and it["status"] != "closed"
-        and (it.get("id") or "").startswith("P")
-    ]
-    slim_q = [
-        it
-        for it in items
-        if (it.get("form") or {}).get("slim")
-        and it["status"] != "closed"
-        and (it.get("id") or "").startswith("Q")
-    ]
     return f"""<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -615,24 +615,14 @@ def render_form(data: dict, sha: str, generated: str) -> str:
 <div class="note"><strong>האתר עדיין לא באוויר.</strong> הקישורים הם לאתר הבדיקה. אין לערוך סטטוס ביד בטופס הזה.</div>
 <div class="board" id="status-board">
   <h2>מצב נגזר</h2>
-  <p class="lede">לשיחה, חלק י. מה שכבר ענית מסומן. מה שנסגר ירד מהטופס ונשאר בטבלת «נסגר». לא למלא בנפרד מה שכתוב «נדבר בשיחה».</p>
+  <p class="lede">רק מה שממתין לך למילוי. מה שנסגר לא מופיע. מה שממתין לנימרוד מופיע למטה כשורות לפגישה, בלי שאלון.</p>
   <table>
-    <tr><th>נסגר באתר הבדיקה ({len(closed)})</th><th>תווית מהתור</th></tr>
-    {rows([it for it in closed if not (it.get("form") or {}).get("slim")])}
-    {f"<tr><td colspan='2'>ועוד {len(slim_closed)} פוסטים/קודים שירדו או נסגרו (P016, P045 וכו׳).</td></tr>" if slim_closed else ""}
-  </table>
-  <table>
-    <tr><th>ממתין לך ({len(wait_e)})</th><th>תווית</th></tr>
-    {rows(wait_e)}
-    {f"<tr><td colspan='2'>{len(slim_q)} עמודי QR אצל הצוות. בקשת התמונות הייחודיות אצלך בפריט «תמונות ייחודיות לעמודי הקודים».</td></tr>" if slim_q else ""}
-    {f"<tr><td colspan='2'>{len(slim_p)} פוסטי בלוג ארכיון אצל הצוות (מה שיש באתר הישן, בלי החלפת תמונות) — לא אצלך.</td></tr>" if slim_p else ""}
-  </table>
-  <table>
-    <tr><th>ממתין לנימרוד ({len(wait_n)})</th><th>תווית</th></tr>
-    {rows([it for it in wait_n if not (it.get("form") or {}).get("slim")])}
+    <tr><th>ממתין לך ({len(items)})</th><th>תווית</th></tr>
+    {rows(items)}
   </table>
 </div>
 {''.join(parts)}
+{meeting_html}
 <div class="bar">
   <button type="button" id="save">שמירת JSON</button>
   <button type="button" class="ghost" id="copy">העתקה</button>
@@ -689,6 +679,45 @@ def render_form(data: dict, sha: str, generated: str) -> str:
     o.style.display='block'; o.value=txt; o.select();
     try{{ document.execCommand('copy'); flash('הועתק'); }}
     catch(e){{ flash('בחר את הטקסט למטה והעתק ידנית'); }}
+  }});
+  var draftKey='ea-s007-form-'+{json.dumps(sha)};
+  function draftSnapshot(){{
+    var answers={{}};
+    [].slice.call(document.querySelectorAll('.item')).forEach(function(el){{
+      var name=el.getAttribute('data-id');
+      if(!name) return;
+      var picked=el.querySelector('input[name="'+name+'"]:checked');
+      var ta=el.querySelector('textarea');
+      answers[name]={{choice:picked?picked.value:'', note:ta?ta.value:''}};
+    }});
+    return answers;
+  }}
+  function saveDraft(){{
+    try{{ localStorage.setItem(draftKey, JSON.stringify(draftSnapshot())); }}catch(e){{}}
+  }}
+  function loadDraft(){{
+    var raw=null;
+    try{{ raw=localStorage.getItem(draftKey); }}catch(e){{ return; }}
+    if(!raw) return;
+    var answers;
+    try{{ answers=JSON.parse(raw); }}catch(e){{ return; }}
+    Object.keys(answers).forEach(function(name){{
+      var row=answers[name]||{{}};
+      if(row.choice){{
+        var sel='input[name="'+name+'"][value="'+String(row.choice).replace(/"/g,'')+'"]';
+        var input=document.querySelector(sel);
+        if(input) input.checked=true;
+      }}
+      var ta=document.querySelector('.item[data-id="'+name+'"] textarea');
+      if(ta && typeof row.note==='string') ta.value=row.note;
+    }});
+  }}
+  loadDraft();
+  document.addEventListener('input', function(ev){{
+    if(ev.target && ev.target.closest && ev.target.closest('.item')) saveDraft();
+  }});
+  document.addEventListener('change', function(ev){{
+    if(ev.target && ev.target.closest && ev.target.closest('.item')) saveDraft();
   }});
 }})();
 </script>
@@ -756,6 +785,36 @@ def render_digest(data: dict) -> str:
 </section>"""
 
 
+def render_optimization(data: dict) -> str:
+    """Executive summary. Same section pattern as the rest of the board."""
+    opt = data.get("optimizationRound") or {}
+    rows = opt.get("rows") or []
+    if not rows:
+        return ""
+    cols = opt.get("columnsHe") or ["נושא", "מה אופיין", "מה עלה לאתר הבדיקה", "מה נשאר"]
+    head = "".join(f"<th>{esc(c)}</th>" for c in cols)
+    body = []
+    for row in rows:
+        body.append(
+            "<tr>"
+            f"<td><strong>{esc(row.get('topicHe'))}</strong></td>"
+            f"<td>{esc(row.get('specifiedHe'))}</td>"
+            f"<td>{esc(row.get('doneHe'))}</td>"
+            f"<td>{esc(row.get('leftHe'))}</td>"
+            "</tr>"
+        )
+    return f"""
+<section class="item" id="opt">
+  <h2>{esc(opt.get('titleHe') or 'תהליכי אופטימיזציה')}</h2>
+  <p class="path">{esc(opt.get('ledeHe') or '')}</p>
+  <table>
+    <tr>{head}</tr>
+    {''.join(body)}
+  </table>
+  <p class="path">{esc(opt.get('outHe') or '')}</p>
+</section>"""
+
+
 def render_board(data: dict, sha: str, generated: str) -> str:
     items = board_items(data)
     qs = [
@@ -795,8 +854,10 @@ def render_board(data: dict, sha: str, generated: str) -> str:
 <p class="wait"><strong>אין לערוך סטטוס בלוח הזה.</strong> סתירה מול קובץ העבודה — הקובץ מנצח. אקסל 20.9 הוא ארכיון. HANDOFF הוא שיחה.</p>
 <p class="hold-nav"><strong>לשיחה:</strong> חלק י — M1 עץ (הסדר נרשם), M2 תבנית פוסט, M3 הסטת כותרת, M5 מוקש (רק וידאו הרקע), M6 סטנדים, M7 כותרות הירו, M8 קרוסלת סרטונים, M9 מוזיקת רקע. M4 נסגר: שוקולד כדפוס הצטרפות, לא בטופס. הסקיצה למטה (#navtree). דוגמת הפוסט: <a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy">שבוע הנשימה</a>. אין שינוי ל־ea-canonical-nav.php עד השיחה.</p>
 <p class="hold-nav"><strong>{esc((data.get("stage") or {}).get("titleHe") or "")}</strong> {esc((data.get("stage") or {}).get("nowHe") or "")}</p>
+{render_optimization(data)}
 {render_digest(data)}
 <nav class="toc">
+  <a href="#opt">תהליכי אופטימיזציה</a>
   <a href="#batch">ארבע הרשימות</a>
   <a href="#q">שאלות</a>
   <a href="#navtree">עץ ותפריט</a>

@@ -40,7 +40,20 @@ function ea_w2_09_is_team80_chrome( $text ) {
 	if ( '' === $t ) {
 		return false;
 	}
-	return ( false !== strpos( $t, 'PLACEHOLDER' ) || false !== strpos( $t, 'צוות 80' ) );
+	if ( false !== strpos( $t, 'PLACEHOLDER' ) || false !== strpos( $t, 'צוות 80' ) ) {
+		return true;
+	}
+	// /shows-heritage/ stores «ניווט משני — placeholder.» as the share description.
+	if ( false !== stripos( $t, 'placeholder' ) ) {
+		return true;
+	}
+	// Body leftover on /historical-articles/: «אופציונלי — placeholder.»
+	// Case of the English word varies; the Hebrew word is the anchor.
+	if ( false !== stripos( $t, 'placeholder' ) && false !== strpos( $t, 'אופציונלי' ) ) {
+		return true;
+	}
+	// Staging note on /thank-you/ that was shipping as the share description.
+	return false !== strpos( $t, 'אם בשימוש' );
 }
 
 /**
@@ -87,6 +100,8 @@ function ea_w2_09_route_description() {
 		'press'          => 'אייל עמית בתקשורת — כתבות, ראיונות ואזכורים על המרכז לטיפול בנשימה באמצעות דיג׳רידו, שיטת cbDIDG והספרים.',
 		'shows-heritage' => 'מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה.',
 		'qr'             => 'עמודי ה-QR של אייל עמית — סרטוני הדרכה ותוכן נלווה לספרים ולכלים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו.',
+		// First sentence of the live archive (inc/data/w2-07-show-archive.json), not new copy.
+		'historical-articles' => 'מופע הסיפורים של אייל עמית. מופע מפתיע וראשון מסוגו בישראל בז\'אנר ה-"ספוקן סטוריז" שהושק לראשונה בשנת 2012.',
 	);
 
 	if ( is_home() && ! is_front_page() ) {
@@ -94,9 +109,16 @@ function ea_w2_09_route_description() {
 	}
 
 	if ( is_singular( 'post' ) ) {
-		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
-		if ( '' !== $excerpt ) {
+		$post = get_queried_object();
+		$excerpt = trim( wp_strip_all_tags( (string) get_the_excerpt( $post ) ) );
+		if ( '' !== $excerpt && ! ea_w2_09_is_team80_chrome( $excerpt ) ) {
 			return ea_w2_09_trim_description( $excerpt );
+		}
+		if ( $post instanceof WP_Post ) {
+			$from_body = ea_w2_09_trim_description( wp_trim_words( wp_strip_all_tags( (string) $post->post_content ), 30, '…' ) );
+			if ( '' !== $from_body && ! ea_w2_09_is_team80_chrome( $from_body ) ) {
+				return $from_body;
+			}
 		}
 	}
 
@@ -111,7 +133,14 @@ function ea_w2_09_route_description() {
 				? (string) get_post_field( 'post_name', $qr_obj->post_parent )
 				: '';
 			if ( 'qr' === $qr_parent_slug ) {
-				return ea_w2_09_trim_description( wp_trim_words( wp_strip_all_tags( (string) $qr_obj->post_content ), 30, '…' ) );
+				$from_body = ea_w2_09_trim_description( wp_trim_words( wp_strip_all_tags( (string) $qr_obj->post_content ), 30, '…' ) );
+				if ( '' !== $from_body && ! ea_w2_09_is_team80_chrome( $from_body ) ) {
+					return $from_body;
+				}
+				$title = html_entity_decode( wp_strip_all_tags( get_the_title( $qr_obj ) ), ENT_QUOTES, 'UTF-8' );
+				// wptexturize stores the dash as the entity &#8211;, which decode turns back into a dash.
+				$title = (string) preg_replace( '/^\s*qr\s*\d+\s*[-–—]\s*/iu', '', $title );
+				return ea_w2_09_trim_description( $title );
 			}
 			if ( 'qr' === $qr_obj->post_name && 0 === (int) $qr_obj->post_parent ) {
 				return isset( $map['qr'] ) ? $map['qr'] : '';
@@ -122,8 +151,19 @@ function ea_w2_09_route_description() {
 	if ( function_exists( 'ea_chapters_is_view' ) && ea_chapters_is_view()
 		&& function_exists( 'ea_chapters_defaults' ) ) {
 		$d = ea_chapters_defaults();
-		if ( ! empty( $d['phero']['sub'] ) ) {
+		if ( ! empty( $d['phero']['sub'] ) && ! ea_w2_09_is_team80_chrome( (string) $d['phero']['sub'] ) ) {
 			return ea_w2_09_trim_description( (string) $d['phero']['sub'] );
+		}
+		foreach ( (array) ( $d['sections'] ?? array() ) as $sec ) {
+			if ( ! is_array( $sec ) || ( $sec['part'] ?? '' ) !== 'prose' ) {
+				continue;
+			}
+			$body = (string) ( $sec['args']['body'] ?? '' );
+			$body = str_replace( array( '</p>', '<br>', '<br/>', '<br />' ), ' ', $body );
+			$body = ea_w2_09_trim_description( wp_strip_all_tags( $body ) );
+			if ( '' !== $body && ! ea_w2_09_is_team80_chrome( $body ) ) {
+				return $body;
+			}
 		}
 	}
 
@@ -132,7 +172,17 @@ function ea_w2_09_route_description() {
 	}
 	$obj  = get_queried_object();
 	$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
-	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+	if ( isset( $map[ $slug ] ) && '' !== $map[ $slug ] ) {
+		return $map[ $slug ];
+	}
+	// Last resort: the page's own words, never the site tagline and never chrome.
+	if ( $obj instanceof WP_Post ) {
+		$from_body = ea_w2_09_trim_description( wp_trim_words( wp_strip_all_tags( (string) $obj->post_content ), 30, '…' ) );
+		if ( '' !== $from_body && ! ea_w2_09_is_team80_chrome( $from_body ) ) {
+			return $from_body;
+		}
+	}
+	return '';
 }
 
 /**
@@ -177,6 +227,61 @@ add_action( 'wp_head', 'ea_w2_09_meta_description', 4 );
 add_filter( 'wpseo_metadesc', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
 add_filter( 'wpseo_opengraph_desc', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
 add_filter( 'wpseo_twitter_description', 'ea_w2_09_filter_yoast_chrome_desc', 20 );
+
+/**
+ * The six routes measured with a meta description and no og:description.
+ * Copy is whatever ea_w2_09_route_description() already returns for that page.
+ */
+function ea_w2_09_needs_og_description_fallback() {
+	if ( ! is_page() ) {
+		return false;
+	}
+	$obj = get_queried_object();
+	if ( ! ( $obj instanceof WP_Post ) ) {
+		return false;
+	}
+	$slug   = (string) $obj->post_name;
+	$parent = $obj->post_parent ? (string) get_post_field( 'post_name', $obj->post_parent ) : '';
+	if ( in_array( $slug, array( 'press', 'historical-articles' ), true ) ) {
+		return true;
+	}
+	if ( 'qr' === $slug && 0 === (int) $obj->post_parent ) {
+		return true;
+	}
+	return 'qr' === $parent && in_array( $slug, array( 'qr20', 'qr29', 'qr39' ), true );
+}
+
+/**
+ * Print og:description equal to the existing meta description on the six routes
+ * where Yoast emits none. Other pages already have the tag from Yoast.
+ */
+function ea_w2_09_opengraph_desc_tag() {
+	if ( ! ea_w2_09_needs_og_description_fallback() ) {
+		return;
+	}
+	$description = trim( wp_strip_all_tags( (string) ea_w2_09_route_description() ) );
+	if ( '' === $description ) {
+		return;
+	}
+	printf( '<meta property="og:description" content="%s" />' . "\n", esc_attr( $description ) );
+}
+add_action( 'wp_head', 'ea_w2_09_opengraph_desc_tag', 5 );
+
+/**
+ * /learning/therapist-training/ is noindex, so Yoast omits the canonical link.
+ * Siblings emit one self-referential tag. Emit the same, pointing at this URL.
+ */
+function ea_w2_09_therapist_training_canonical() {
+	if ( ! is_page( 'therapist-training' ) ) {
+		return;
+	}
+	$url = get_permalink();
+	if ( ! is_string( $url ) || '' === $url ) {
+		return;
+	}
+	printf( '<link rel="canonical" href="%s" />' . "\n", esc_url( $url ) );
+}
+add_action( 'wp_head', 'ea_w2_09_therapist_training_canonical', 1 );
 
 /**
  * Favicon fallback when no WP Site Icon is configured.

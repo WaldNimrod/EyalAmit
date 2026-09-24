@@ -74,7 +74,7 @@ function ea_w2_14e_mokesh_media_maybe_run() {
 	set_transient( 'ea_mokesh_media_lock', 1, 300 );
 
 	try {
-		$dir = trailingslashit( get_stylesheet_directory() ) . 'assets/images/mokesh/';
+		$dir = trailingslashit( get_stylesheet_directory() ) . 'assets/images/_archive/mokesh-june-replaced-august/';
 		if ( ! is_dir( $dir ) ) {
 			return;
 		}

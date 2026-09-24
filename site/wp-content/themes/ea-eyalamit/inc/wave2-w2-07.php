@@ -512,10 +512,51 @@ function ea_w2_07_render_historical_articles() {
  * @param string $content
  * @return string
  */
+/**
+ * Drop the leftover body sentence «אופציונלי — placeholder.» so it cannot
+ * render or leak into an excerpt. The archive blocks below stay.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function ea_w2_07_strip_optional_placeholder( $content ) {
+	if ( ! is_string( $content ) || false === stripos( $content, 'placeholder' ) ) {
+		return $content;
+	}
+	$stripped = preg_replace(
+		'#<p[^>]*>\s*אופציונלי\s*[—–\-]\s*placeholder\.?\s*</p>#iu',
+		'',
+		$content
+	);
+	return is_string( $stripped ) ? $stripped : $content;
+}
+add_filter( 'the_content', 'ea_w2_07_strip_optional_placeholder', 8 );
+
+/**
+ * /shows-heritage/ body is the internal line «ניווט משני — placeholder.»
+ * Drop the word. Do not replace it with new copy, and do not unpublish the page.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function ea_w2_07_strip_shows_heritage_placeholder( $content ) {
+	if ( ! is_string( $content ) || ! is_page( 'shows-heritage' ) ) {
+		return $content;
+	}
+	$stripped = preg_replace(
+		'#\s*[—–\-]\s*placeholder\.?#iu',
+		'.',
+		$content
+	);
+	return is_string( $stripped ) ? $stripped : $content;
+}
+add_filter( 'the_content', 'ea_w2_07_strip_shows_heritage_placeholder', 8 );
+
 function ea_w2_07_inject_historical_articles( $content ) {
 	if ( ! is_main_query() || ! in_the_loop() || ! ea_w2_07_is_historical_articles() ) {
 		return $content;
 	}
+	$content = ea_w2_07_strip_optional_placeholder( $content );
 	return $content . ea_w2_07_render_historical_articles();
 }
 add_filter( 'the_content', 'ea_w2_07_inject_historical_articles', 9 );

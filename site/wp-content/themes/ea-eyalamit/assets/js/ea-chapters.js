@@ -86,16 +86,12 @@
    * the single drawer flag (`nav[data-menu]`) that the burger handler below
    * already owns — see the two syncDrawerExpanded() calls added to it.
    *
-   * Deliberately NOT done (see 05-DONE-ARIA-AND-FORM-LANG.md for the full
-   * justification): no click/Escape/outside-click handling added for these
-   * two buttons — this hover/focus-within-driven popover already closes
-   * itself the instant hover/focus leaves, so there is no "stuck open"
-   * state for Escape to solve (unlike the dead nav's click-toggle, which
-   * needed one). The three `.nav__dd` <a> elements (section-nav.php:32,52,63)
-   * are left without aria-haspopup/aria-expanded — they are primary
-   * navigation links, not disclosure controls, and were not part of the
-   * measured defect (which is specifically the two buttons' hardcoded
-   * state); see the report for the full reasoning. */
+   * Deliberately NOT done: no click/Escape/outside-click handling — this
+   * hover/focus-within popover closes the instant hover/focus leaves, so
+   * there is no stuck-open state. The parent links stay links. They also
+   * carry aria-haspopup and aria-expanded (G-16, 2026-09-24) so a screen
+   * reader hears the submenu; this selector already syncs every
+   * .nav__dd[aria-haspopup="true"], including those anchors. */
   if (nav) {
     var ddToggles = nav.querySelectorAll('.nav__dd[aria-haspopup="true"]');
     var narrowMQ = window.matchMedia

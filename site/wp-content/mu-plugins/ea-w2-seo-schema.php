@@ -233,7 +233,7 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 			$slug = ( $obj && isset( $obj->post_name ) ) ? (string) $obj->post_name : '';
 			if ( 'mokesh-dahiman' === $slug ) {
 				$mokesh_id  = $site . '#/schema/person/mokesh-dahiman';
-				$mokesh_img = get_stylesheet_directory_uri() . '/assets/images/mokesh/mokesh-01.jpeg';
+				$mokesh_img = get_stylesheet_directory_uri() . '/assets/images/chapters/mokesh-gallery/mokesh-01.jpg';
 
 				$graph[] = array(
 					'@type'         => 'Person',
@@ -335,6 +335,10 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 				'type' => 'Article',
 				'name' => 'נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג\'רידו',
 			),
+			'historical-articles' => array(
+				'type' => 'CollectionPage',
+				'name' => 'מופע הסיפורים של אייל עמית',
+			),
 		);
 		if ( is_page() ) {
 			$ap_obj  = get_queried_object();
@@ -378,9 +382,111 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 			}
 		}
 
+		// Blog posts: Yoast usually emits BlogPosting. Add Article only when
+		// that node is absent, so the graph stays one engine.
+		if ( is_singular( 'post' )
+			&& ! ea_w2_seo_graph_has_type( $graph, 'Article' )
+			&& ! ea_w2_seo_graph_has_type( $graph, 'BlogPosting' ) ) {
+			$bp = get_queried_object();
+			if ( $bp instanceof WP_Post ) {
+				$bp_node = array(
+					'@type'            => 'Article',
+					'@id'              => get_permalink( $bp ) . '#/schema/article',
+					'headline'         => wp_strip_all_tags( get_the_title( $bp ) ),
+					'url'              => get_permalink( $bp ),
+					'mainEntityOfPage' => get_permalink( $bp ),
+					'datePublished'    => get_the_date( 'c', $bp ),
+					'dateModified'     => get_the_modified_date( 'c', $bp ),
+					'author'           => array( '@id' => $person_id ),
+					'publisher'        => array( '@id' => $biz_id ),
+				);
+				if ( has_post_thumbnail( $bp ) ) {
+					$bp_node['image'] = get_the_post_thumbnail_url( $bp, 'full' );
+				}
+				$bp_desc = function_exists( 'ea_w2_09_route_description' ) ? (string) ea_w2_09_route_description() : '';
+				if ( '' !== $bp_desc ) {
+					$bp_node['description'] = $bp_desc;
+				}
+				$graph[] = $bp_node;
+			}
+		}
+
+		// BreadcrumbList on inner routes. Skip when Yoast already emitted one,
+		// and skip a single-crumb home list.
+		if ( ! is_front_page() && ! ea_w2_seo_graph_has_type( $graph, 'BreadcrumbList' ) ) {
+			$crumbs = array(
+				array(
+					'@type'    => 'ListItem',
+					'position' => 1,
+					'name'     => function_exists( 'ea_nap' ) ? ea_nap( 'name' ) : 'אייל עמית',
+					'item'     => $site,
+				),
+			);
+			$pos = 2;
+			if ( is_singular( 'post' ) || ( is_home() && ! is_front_page() ) ) {
+				$crumbs[] = array(
+					'@type'    => 'ListItem',
+					'position' => $pos,
+					'name'     => 'בלוג',
+					'item'     => home_url( '/blog/' ),
+				);
+				$pos++;
+			}
+			if ( is_page() ) {
+				$page = get_queried_object();
+				if ( $page instanceof WP_Post && $page->post_parent ) {
+					foreach ( array_reverse( get_post_ancestors( $page ) ) as $aid ) {
+						$crumbs[] = array(
+							'@type'    => 'ListItem',
+							'position' => $pos,
+							'name'     => wp_strip_all_tags( get_the_title( $aid ) ),
+							'item'     => get_permalink( $aid ),
+						);
+						$pos++;
+					}
+				}
+			}
+			if ( is_singular() ) {
+				$here = get_permalink();
+				$crumbs[] = array(
+					'@type'    => 'ListItem',
+					'position' => $pos,
+					'name'     => wp_strip_all_tags( get_the_title() ),
+					'item'     => $here,
+				);
+				if ( count( $crumbs ) >= 2 ) {
+					$graph[] = array(
+						'@type'           => 'BreadcrumbList',
+						'@id'             => $here . '#/schema/breadcrumb',
+						'itemListElement' => $crumbs,
+					);
+				}
+			}
+		}
+
 		return $graph;
 	}
 	add_filter( 'wpseo_schema_graph', 'ea_w2_seo_schema_graph', 20, 2 );
+
+	/**
+	 * True when a Yoast graph piece already carries $type (string or list).
+	 *
+	 * @param array  $graph Graph pieces.
+	 * @param string $type  Schema.org type.
+	 * @return bool
+	 */
+	function ea_w2_seo_graph_has_type( $graph, $type ) {
+		foreach ( (array) $graph as $piece ) {
+			if ( ! is_array( $piece ) || ! isset( $piece['@type'] ) ) {
+				continue;
+			}
+			$have = $piece['@type'];
+			if ( $have === $type || ( is_array( $have ) && in_array( $type, $have, true ) ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Build a FAQPage schema node from ea_faq_query_items()-shaped rows.

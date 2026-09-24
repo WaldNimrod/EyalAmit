@@ -49,7 +49,7 @@ $ea_he        = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_at
 			<?php if ( $ea_children ) : ?>
 		<li>
 			<?php if ( $ea_item['href'] ) : ?>
-			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
+			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>" aria-haspopup="true" aria-expanded="false"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
 			<?php else : ?>
 			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></button>
 			<?php endif; ?>

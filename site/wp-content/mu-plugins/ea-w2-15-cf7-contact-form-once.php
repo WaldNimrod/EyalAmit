@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 // 3 = the dropdown gets a blank prompt, so it stops pre-selecting the first topic.
 // 4 = Hebrew validation messages (A11Y-FIX-2026-09-18, WS-3B task 2), see below.
 if ( ! defined( 'EA_W2_15_CF7_REV' ) ) {
-	define( 'EA_W2_15_CF7_REV', 4 );
+	define( 'EA_W2_15_CF7_REV', 5 );
 }
 
 /**
@@ -78,7 +78,9 @@ function ea_w2_15_cf7_ensure_form() {
 		'active'             => true,
 		'subject'            => '[your-subject] — פניה מטופס צור קשר באתר',
 		'sender'             => sprintf( '%s <wordpress@%s>', $blogname, $host ),
-		'recipient'          => $admin_email,
+		// Staging admin_email is not the published inbox. Mail goes to the address
+		// already used on the live site. Do not point this at a personal mailbox.
+		'recipient'          => 'info@eyalamit.co.il',
 		'body'               => "פנייה חדשה מאתר אייל עמית:\n\n"
 			. "שם: [your-name]\n"
 			. "טלפון: [your-phone]\n"

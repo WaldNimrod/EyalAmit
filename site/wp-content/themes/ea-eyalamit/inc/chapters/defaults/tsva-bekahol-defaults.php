@@ -93,7 +93,7 @@ return array(
 					array( 'image' => 'assets/images/chapters/tsva/tsva-10.jpg', 'alt' => 'גבר יחף יושב על הקרקע וקורא את הספר, אופניים ברקע' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-11.jpg', 'alt' => 'גבר מצייר קעקוע חינה על כף רגל' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-12.jpg', 'alt' => 'אישה שרועה על מיטה עם הספר בחיקה, קעקוע חינה על השוק' ),
-					array( 'image' => 'assets/images/chapters/tsva/tsva-13.jpg', 'alt' => 'גבר יושב ליד מדורה בצריף, קורא את הספר ומחייך' ),
+					array( 'image' => 'assets/images/chapters/tsva/tsva-13.jpg', 'alt' => 'שנת 2003 - מוקש אוחז בספר הראשון שלי שראה אור ב 2001' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-14.jpg', 'alt' => 'גבר יושב על גזע דקל מעל חוף ים, קורא את הספר' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-15.jpg', 'alt' => 'גביש קוורץ מונח על הספר בגינה' ),
 					array( 'image' => 'assets/images/chapters/tsva/tsva-16.jpg', 'alt' => 'שלט עץ למתחם פאצ\'ה מאמה בין דקלים, לצידו שלט הספר' ),

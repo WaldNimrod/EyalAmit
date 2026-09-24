@@ -41,11 +41,11 @@ return array(
 			'part' => 'gallery',
 			'args' => array(
 				'items' => array(
-					array( 'image' => 'assets/images/chapters/stands-storage/stand-01.jpg', 'alt' => "סטנד לאחסון דיג'רידו" ),
-					array( 'image' => 'assets/images/chapters/stands-storage/stand-02.jpg', 'alt' => "סטנד לאחסון דיג'רידו" ),
-					array( 'image' => 'assets/images/chapters/stands-storage/stand-03.jpg', 'alt' => "סטנד לאחסון דיג'רידו" ),
-					array( 'image' => 'assets/images/chapters/stands-storage/stand-04.jpg', 'alt' => "סטנד לאחסון דיג'רידו" ),
-					array( 'image' => 'assets/images/chapters/stands-storage/stand-05.jpg', 'alt' => "סטנד לאחסון דיג'רידו" ),
+					array( 'image' => 'assets/images/chapters/stands-storage/stand-01.jpg', 'alt' => 'סטנד רצפתי' ),
+					array( 'image' => 'assets/images/chapters/stands-storage/stand-02.jpg', 'alt' => 'זה סטנד רצפתי' ),
+					array( 'image' => 'assets/images/chapters/stands-storage/stand-03.jpg', 'alt' => 'סטנד רצפתי' ),
+					array( 'image' => 'assets/images/chapters/stands-storage/stand-04.jpg', 'alt' => 'סטנד רצפתי' ),
+					array( 'image' => 'assets/images/chapters/stands-storage/stand-05.jpg', 'alt' => 'סטנד לתלייה על הקיר' ),
 				),
 			),
 		),

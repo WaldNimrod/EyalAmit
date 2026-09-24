@@ -164,8 +164,40 @@ def build_m10_register(images: list, hash_to_id: dict) -> dict:
 
     # Every 'image'=>path[,'alt'=>text] and 'media'=>path,'media_alt'=>text
     # pair, with which defaults file (-> page) it came from.
-    pat_img = re.compile(r"'image'\s*=>\s*'([^']+)'(?:\s*,\s*'alt'\s*=>\s*'((?:[^'\\]|\\.)*)')?")
-    pat_media = re.compile(r"'media'\s*=>\s*'([^']+)'\s*,\s*'media_alt'\s*=>\s*'((?:[^'\\]|\\.)*)'")
+    # Single-quoted path, then optional alt in either quote style.
+    # Double quotes are required when Eyal's sentence contains an apostrophe.
+    pat_img = re.compile(
+        r"'image'\s*=>\s*'([^']+)'(?:\s*,\s*'alt'\s*=>\s*(?:'((?:[^'\\]|\\.)*)'|\"((?:[^\"\\]|\\.)*)\"))?"
+    )
+    pat_media = re.compile(
+        r"'media'\s*=>\s*'([^']+)'(?:\s*,\s*'media_alt'\s*=>\s*(?:'((?:[^'\\]|\\.)*)'|\"((?:[^\"\\]|\\.)*)\"))?"
+    )
+    # `$prefix . 'file.jpg'` is not a single quoted path. Resolve a filename
+    # that exists once under the theme images tree.
+    img_root = THEME_SRC / "assets" / "images"
+    name_to_rel: dict[str, str] = {}
+    dup_names: set[str] = set()
+    for p in img_root.rglob("*"):
+        if p.is_file() and p.suffix.lower() in IMG_EXT:
+            if p.name in name_to_rel:
+                dup_names.add(p.name)
+            else:
+                name_to_rel[p.name] = p.relative_to(THEME_SRC).as_posix()
+    for name in dup_names:
+        name_to_rel.pop(name, None)
+    pat_named = re.compile(
+        r"'([^']+\.(?:jpg|jpeg|png|webp|gif))'(?:\s*,\s*'alt'\s*=>\s*(?:'((?:[^'\\]|\\.)*)'|\"((?:[^\"\\]|\\.)*)\"))?",
+        re.I,
+    )
+
+    def _remember(digest: str | None, page: str, defaults_name: str, alt: str) -> None:
+        if not digest:
+            return
+        rendered_by_hash[digest].append({"page": page, "defaultsFile": defaults_name})
+        alt = alt.replace("\\'", "'").replace('\\"', '"').strip()
+        if alt and (digest not in alt_by_hash or len(alt) > len(alt_by_hash[digest])):
+            # Longest wins on conflict — same policy as the PHP alt helper.
+            alt_by_hash[digest] = alt
 
     rendered_by_hash: dict[str, list[dict]] = defaultdict(list)
     alt_by_hash: dict[str, str] = {}
@@ -175,18 +207,23 @@ def build_m10_register(images: list, hash_to_id: dict) -> dict:
         txt = f.read_text(encoding="utf-8")
         for pat in (pat_img, pat_media):
             for m in pat.finditer(txt):
-                rel, alt = m.group(1), (m.group(2) or "").replace("\\'", "'")
-                digest = sha256_of_theme_file(rel)
-                if not digest:
-                    continue
-                rendered_by_hash[digest].append({"page": page, "defaultsFile": f.name})
-                if alt.strip():
-                    # Longest wins on conflict — same policy as the PHP alt
-                    # helper's map (chapters-render.php M-10), for the same
-                    # reason: the fuller, freshly-authored description beats
-                    # an older terse one for the same photo.
-                    if digest not in alt_by_hash or len(alt) > len(alt_by_hash[digest]):
-                        alt_by_hash[digest] = alt
+                rel = m.group(1)
+                alt = m.group(2) or m.group(3) or ""
+                _remember(sha256_of_theme_file(rel), page, f.name, alt)
+        seen_names: set[str] = set()
+        for m in pat_named.finditer(txt):
+            name = m.group(1).split("/")[-1]
+            if name in seen_names:
+                continue
+            rel = name_to_rel.get(name)
+            if not rel:
+                continue
+            # A full quoted path was already recorded above.
+            if rel in txt and f"'{rel}'" in txt:
+                continue
+            seen_names.add(name)
+            alt = m.group(2) or m.group(3) or ""
+            _remember(sha256_of_theme_file(rel), page, f.name, alt)
 
     people_path = Path(__file__).parent / "m10" / "people.json"
     people_by_abspath = json.loads(people_path.read_text(encoding="utf-8")) if people_path.is_file() else {}
