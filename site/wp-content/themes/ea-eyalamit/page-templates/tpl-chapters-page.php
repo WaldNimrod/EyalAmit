@@ -43,7 +43,30 @@ $ea_phero = ea_chapters_phero_overlay();
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
 
+	/* Round C (2026-09-24), team_00: breadcrumb in the classic position —
+	   right-aligned, directly after the hero, before the main content. */
+	if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+		ea_breadcrumbs_render();
+	}
+
 	$ea_sections = ea_chapters_page_sections();
+
+	/* Round C (2026-09-24), team_00 mandate Task 2b: «חדש באתר» cards,
+	   immediately after the hero, on the books page too — one card per book
+	   plus a card for מבצעים. Reuses the exact same component the home page
+	   uses (template-parts/chapters/section-home-spotlight.php), parameterised
+	   with this page's own cards rather than forked into a second file; see
+	   ea_muzza_spotlight_cards() (inc/chapters/chapters-render.php) for where
+	   the book/מבצעים data comes from. Scoped to the muzza route only — every
+	   other type sharing this template is unaffected. */
+	if ( 'muzza' === ea_chapters_type() && function_exists( 'ea_muzza_spotlight_cards' ) ) {
+		get_template_part(
+			'template-parts/chapters/section',
+			'home-spotlight',
+			array( 'cards' => ea_muzza_spotlight_cards( $ea_sections ) )
+		);
+	}
+
 	foreach ( $ea_sections as $ea_s ) {
 		if ( empty( $ea_s['part'] ) ) {
 			continue;

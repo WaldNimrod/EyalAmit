@@ -66,26 +66,7 @@ $ea_he        = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_at
 			<?php if ( 'home' === $ea_item['key'] ) : ?>
 				<?php continue; // the logo above already carries this. ?>
 			<?php endif; ?>
-			<?php $ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array(); ?>
-			<?php if ( $ea_children ) : ?>
-		<li>
-			<?php if ( $ea_item['href'] ) : ?>
-			<a class="nav__dd" href="<?php echo esc_url( $ea_item['href'] ); ?>" aria-haspopup="true" aria-expanded="false"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></a>
-			<?php else : ?>
-			<button class="nav__dd" type="button" aria-haspopup="true" aria-expanded="false"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?><span class="nav__caret" aria-hidden="true">▾</span></button>
-			<?php endif; ?>
-			<ul class="nav__sub" role="list">
-				<?php foreach ( $ea_children as $ea_child ) : ?>
-					<?php if ( ! empty( $ea_child['hidden'] ) ) : ?>
-						<?php continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready). ?>
-					<?php endif; ?>
-				<li><a href="<?php echo esc_url( $ea_child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_child['label'] ); ?><?php if ( ! empty( $ea_child['label_emph'] ) ) : ?> <em><?php echo esc_html( $ea_child['label_emph'] ); ?></em><?php endif; ?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</li>
-			<?php else : ?>
-		<li><a href="<?php echo esc_url( $ea_item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_item['label'] ); ?></a></li>
-			<?php endif; ?>
+			<?php ea_render_nav_item_desktop( $ea_item, $ea_he ); // recursive — see inc/ea-canonical-nav.php ?>
 		<?php endforeach; ?>
 	</ul>
 

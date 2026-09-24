@@ -30,6 +30,12 @@ $ea_phero = ea_chapters_phero_overlay();
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, $ea_phero );
 
+	/* Round C (2026-09-24), team_00: breadcrumb in the classic position —
+	   right-aligned, directly after the hero, before the main content. */
+	if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+		ea_breadcrumbs_render();
+	}
+
 	$ea_sections = ea_chapters_page_sections();
 	foreach ( $ea_sections as $ea_s ) {
 		if ( empty( $ea_s['part'] ) ) {

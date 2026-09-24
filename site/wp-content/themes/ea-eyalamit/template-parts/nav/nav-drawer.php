@@ -25,67 +25,7 @@ $ea_he      = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_attr
 
 	<ul class="ea-nd__list" role="list">
 		<?php foreach ( $items as $item ) : ?>
-			<?php $children = isset( $item['children'] ) ? $item['children'] : array(); ?>
-			<?php if ( $children ) : ?>
-				<?php
-				$acc_id   = 'ea-nd-acc-' . sanitize_html_class( $item['key'] );
-				$is_active = ( $item['key'] === $current );
-				if ( ! $is_active ) {
-					foreach ( $children as $child ) {
-						if ( ! empty( $child['key'] ) && $child['key'] === $current ) {
-							$is_active = true;
-							break;
-						}
-					}
-				}
-				?>
-	<li class="ea-nd__item">
-		<button class="ea-nd__acc-btn" type="button"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $acc_id ); ?>">
-			<span><?php echo esc_html( $item['label'] ); ?></span>
-			<span class="ea-nd__caret" aria-hidden="true">⌄</span>
-		</button>
-		<div class="ea-nd__acc-panel" id="<?php echo esc_attr( $acc_id ); ?>">
-			<div class="ea-nd__acc-panel-in">
-				<ul class="ea-nd__sublist" role="list">
-					<?php if ( ! empty( $item['href'] ) ) : ?>
-					<li>
-						<a class="ea-nd__sublink" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-							<?php
-							echo esc_html(
-								sprintf(
-									/* translators: %s: parent menu label. */
-									__( '%s — עמוד ראשי', 'ea-eyalamit' ),
-									$item['label']
-								)
-							);
-							?>
-						</a>
-					</li>
-					<?php endif; ?>
-					<?php foreach ( $children as $child ) : ?>
-						<?php if ( ! empty( $child['hidden'] ) ) : ?>
-							<?php continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready). ?>
-						<?php endif; ?>
-					<li>
-						<a class="ea-nd__sublink" href="<?php echo esc_url( $child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo ! empty( $child['key'] ) && $child['key'] === $current ? ' aria-current="page"' : ''; ?><?php echo ! empty( $child['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
-							<span><?php echo esc_html( $child['label'] ); ?><?php if ( ! empty( $child['label_emph'] ) ) : ?> <em><?php echo esc_html( $child['label_emph'] ); ?></em><?php endif; ?></span>
-							<?php if ( ! empty( $child['external'] ) ) : ?>
-							<span class="ea-nd__ext"><?php esc_html_e( 'חיצוני ↗', 'ea-eyalamit' ); ?></span>
-							<?php endif; ?>
-						</a>
-					</li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		</div>
-	</li>
-			<?php else : ?>
-	<li class="ea-nd__item">
-		<a class="ea-nd__link" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo $item['key'] === $current ? ' aria-current="page"' : ''; ?>>
-			<span><?php echo esc_html( $item['label'] ); ?></span>
-		</a>
-	</li>
-			<?php endif; ?>
+			<?php ea_nav_drawer_render_item( $item, $current, $ea_he ); // recursive — see inc/ea-nav-drawer.php ?>
 		<?php endforeach; ?>
 	</ul>
 

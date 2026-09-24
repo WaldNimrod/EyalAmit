@@ -686,10 +686,34 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .nav__caret{font-size:.6em;opacity:.7;transition:transform .25s}  /* .6em on purpose: a glyph sized off its parent, not a type rung */
 .nav__l>li:hover .nav__caret{transform:rotate(180deg)}
 .nav__sub{position:absolute;top:calc(100% + 6px);right:0;min-width:230px;background:rgba(20,14,9,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-d);border-radius:12px;padding:9px;margin:0;list-style:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s var(--e),transform .25s var(--e),visibility .25s;z-index:70;box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
-.nav__l>li:hover .nav__sub,.nav__l>li:focus-within .nav__sub{opacity:1;visibility:visible;transform:none}
+/* Round C (2026-09-24): direct-child combinator, not descendant — hovering/
+   focusing the top-level <li> must reveal only ITS OWN immediate .nav__sub,
+   not every .nav__sub nested inside it (a "ספרים" level-3 panel is a
+   descendant of the "אייל עמית" <li> too). Level 3 gets its own reveal rule
+   below, keyed off its own <li>, so hovering "אייל עמית" no longer pops
+   every level-3 flyout open at once. */
+.nav__l>li:hover>.nav__sub,.nav__l>li:focus-within>.nav__sub{opacity:1;visibility:visible;transform:none}
 .nav__sub::before{content:"";position:absolute;top:-6px;right:24px;width:11px;height:11px;background:rgba(20,14,9,.97);border-top:1px solid var(--line-d);border-inline-start:1px solid var(--line-d);transform:rotate(45deg)}
 .nav__sub a{display:block;padding:10px 14px;border-radius:7px;font-size:var(--fs-nav);font-weight:var(--fw-sub);color:rgba(255,255,255,.8);text-decoration:none;white-space:nowrap;transition:background .18s,color .18s}
 .nav__sub a:hover{background:rgba(181,102,61,.2);color:#fff}
+/* Round C (2026-09-24) — third level ("ספרים" under "אייל עמית"): a nested
+   .nav__sub flies out to the side of its own <li> instead of dropping below
+   it (stacking two "below" panels would overlap level 2's own items). Same
+   dropdown mechanism (opacity/visibility/transform), same
+   aria-haspopup/aria-expanded pair assets/js/ea-chapters.js already syncs
+   generically — only the position and trigger differ. */
+.nav__sub li{position:relative}
+.nav__sub .nav__sub{top:0;right:calc(100% + 6px)}
+.nav__sub .nav__sub::before{display:none} /* the down-pointing arrow reads wrong on a sideways flyout; dropped rather than rotated to avoid a mis-aimed pointer */
+.nav__sub li:hover>.nav__sub,.nav__sub li:focus-within>.nav__sub{opacity:1;visibility:visible;transform:none}
+/* "מוקש דהימן - המורה שלי" (S007 M-14 follow-up) — team_00 round-C ruling:
+   the synthesized italic (Heebo ships no italic axis) read as a mess; two
+   real weights (--fw-xlight/200, --fw-thin/100) were rendered side by side
+   and team_00 chose the thin face. Token only — --fw-thin already exists in
+   ea-tokens.css (untouched by this rule); no font-size touched. Scoped to
+   any <em> inside a nav dropdown panel, so it covers "אודות אייל"'s sibling
+   row at any depth without a second copy of this rule. */
+.nav__sub em{font-style:normal;font-weight:var(--fw-thin)}
 /* S007 (2026-09-18, team_00): «איזור מת במעבר לתפריט משנה». .nav__sub sits at
    top:calc(100% + 6px), so the pointer crossed 6px of nothing on its way down and
    left both the <li> and the panel — the submenu closed mid-gesture. This bridges

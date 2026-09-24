@@ -33,10 +33,14 @@ $cta_u  = ea_chapters_field( 'hero_cta_url' );
 	<div class="hero__c">
 		<?php /* S006 · H-02 · שורת האמון של אייל היא שתי שורות (SECTION 01 → «### Trust line:»),
 			ולכן היא עוברת דרך ea_chapters_kses_e (מתיר <br>) ולא דרך esc_html שבלע את השבירה. */ ?>
+		<?php /* Round C (2026-09-24), team_00: the breadcrumb moves OUT of the hero
+			into the "classic position" — right-aligned, directly below the hero,
+			before the main content — the same on every page. Only used by the home
+			page, where breadcrumbs never render anyway (is_front_page()), so there
+			is nothing to relocate a call site for here; kept as a comment so a
+			future non-home caller of this partial does not silently reintroduce the
+			in-hero placement. */ ?>
 		<?php if ( $trust ) : ?><span class="hero__trust"><?php ea_chapters_kses_e( $trust ); ?></span><?php endif; ?>
-		<?php if ( function_exists( 'ea_breadcrumbs_render' ) ) : ?>
-			<?php ea_breadcrumbs_render( array( 'dark' => true ) ); ?>
-		<?php endif; ?>
 		<h1 class="hero__h"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_title' ) ); ?></h1>
 		<p class="hero__s"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_subtitle' ) ); ?></p>
 		<?php if ( $cta_l ) : ?>

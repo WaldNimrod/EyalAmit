@@ -39,10 +39,12 @@ if ( ! empty( $a['mod'] ) ) {
 	<?php endif; ?>
 	<span class="arcs" aria-hidden="true"></span>
 	<div class="phero__in">
+		<?php /* Round C (2026-09-24), team_00: the breadcrumb moves OUT of this
+			header into the classic position — right-aligned, directly below the
+			hero, before the main content — rendered by each calling template right
+			after this get_template_part() call, not in here. See the mandate's
+			Task 3; every caller of this partial was updated in the same round. */ ?>
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( function_exists( 'ea_breadcrumbs_render' ) ) : ?>
-			<?php ea_breadcrumbs_render( array( 'dark' => true ) ); ?>
-		<?php endif; ?>
 		<h1 class="phero__h"><?php ea_chapters_kses_e( $a['title'] ?? '' ); ?></h1>
 		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php ea_chapters_kses_e( $a['sub'] ); ?></p><?php endif; ?>
 		<?php if ( ! empty( $a['lede'] ) ) : ?><div class="phero__lede"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) $a['lede'] ) : (string) $a['lede'] ); ?></div><?php endif; ?>

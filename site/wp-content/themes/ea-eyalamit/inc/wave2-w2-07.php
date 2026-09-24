@@ -877,6 +877,15 @@ function ea_wave2_render_editorial_blocks( $ctx ) {
 	/* 1 — Ink editorial hero with the real portrait (single H1). */
 	ea_wave2_editorial_render_hero( isset( $c['hero'] ) ? (array) $c['hero'] : array() );
 
+	/* Round C (2026-09-24) — classic breadcrumb position: right-aligned,
+	   directly after the hero, before the main content. See the long
+	   comment inside ea_wave2_editorial_render_hero() above for why this
+	   call site used to be the one exception (no 'dark' arg) to the other
+	   three, and why that no longer matters post-move. */
+	if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+		ea_breadcrumbs_render();
+	}
+
 	/* 2 — meta strip (composition-only, existing type tokens). */
 	if ( ! empty( $c['meta'] ) ) {
 		ea_wave2_editorial_render_metastrip( (array) $c['meta'] );
@@ -969,9 +978,15 @@ function ea_wave2_editorial_render_hero( $h ) {
 	          <?php if ( '' !== $kicker ) : ?>
 	          <p class="ea-edhero__kicker"><?php echo esc_html( $kicker ); ?></p>
 	          <?php endif; ?>
-	          <?php if ( function_exists( 'ea_breadcrumbs_render' ) ) : ?>
-	          	<?php ea_breadcrumbs_render(); ?>
-	          <?php endif; ?>
+	          <?php /* Round C (2026-09-24), team_00: breadcrumb moved to the classic
+	            position — see ea_wave2_render_editorial_blocks() below, which now
+	            calls ea_breadcrumbs_render() right after this render_hero() call,
+	            not inside this header. NOTE — this was the one call site (of four)
+	            that shipped without array('dark'=>true), a known/open bug recorded
+	            for a meeting decision; moving it here does not fix that bug, but it
+	            DOES remove the reason it existed — every call site now sits outside
+	            its dark hero on a plain content background, so 'dark' is no longer
+	            needed anywhere. Flagged in this round's report per the mandate. */ ?>
 	          <h1 class="ea-edhero__title"><?php echo esc_html( $title ); ?></h1>
 	          <?php if ( '' !== $lead ) : ?>
 	          <p class="ea-edhero__lead"><?php echo esc_html( $lead ); ?></p>

@@ -33,6 +33,13 @@ $ea_share_url   = $ea_json_dummy ? home_url( '/' ) : ( is_singular( 'post' ) ? g
 	<?php
 	if ( $ea_json_data ) {
 		get_template_part( 'template-parts/chapters/parts/phero', null, ea_blog_json_phero_args( $ea_json_data ) );
+
+		/* Round C (2026-09-24), team_00: breadcrumb in the classic position —
+		   right-aligned, directly after the hero, before the main content. */
+		if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+			ea_breadcrumbs_render();
+		}
+
 		ea_blog_json_render_rows( $ea_json_data );
 
 		if ( ! $ea_json_dummy ) {
@@ -87,6 +94,12 @@ $ea_share_url   = $ea_json_dummy ? home_url( '/' ) : ( is_singular( 'post' ) ? g
 				'media'     => has_post_thumbnail() ? (string) get_the_post_thumbnail_url( get_the_ID(), 'large' ) : '',
 				'media_alt' => esc_attr( get_the_title() ),
 			) );
+
+			/* Round C (2026-09-24), team_00: breadcrumb in the classic position —
+			   right-aligned, directly after the hero, before the main content. */
+			if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+				ea_breadcrumbs_render();
+			}
 			?>
 
 		<section class="sec">

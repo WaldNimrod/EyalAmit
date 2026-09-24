@@ -1,13 +1,32 @@
 <?php
 /**
- * Home — «עכשיו באתר» (T-IA-SPOTLIGHT). Cards only. Eyal swaps every slot.
+ * «חדש באתר» card row (T-IA-SPOTLIGHT). Image + title + up to two lines.
  *
+ * Home page (T-IA-SPOTLIGHT's original spot, immediately after the hero):
+ * called with no $args — reads the ACF-or-default 'now_cards' rows exactly
+ * as before. Eyal swaps every slot there via ACF.
+ *
+ * Round C (2026-09-24): reused on the books page too (immediately after its
+ * own hero) — the mandate's own instruction was explicit: "Reuse it — do
+ * not copy the markup into a second file... If the component is hard-wired
+ * to the home page, make it accept its cards as a parameter rather than
+ * forking it." $args['cards'] overrides the ACF/default rows. The section
+ * id stays the literal "ea-now" (and its ea-open-round.css styling) on
+ * every page that uses this partial — ids only need to be unique within one
+ * document, and this partial never renders twice on the same page, so
+ * reusing it costs nothing and avoids a second, id-scoped copy of that CSS.
+ * Row shape is identical either way: image, title, line1, line2, url — see
+ * inc/chapters/acf-fields-home.php's 'now_cards' field group for the ACF
+ * side of that shape.
+ *
+ * @param array{cards?:array[]} $args
  * @package ea_eyalamit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$cards = ea_chapters_rows( 'now_cards' );
+$ea_spot_a = isset( $args ) && is_array( $args ) ? $args : array();
+$cards     = isset( $ea_spot_a['cards'] ) ? $ea_spot_a['cards'] : ea_chapters_rows( 'now_cards' );
 if ( empty( $cards ) ) {
 	return;
 }

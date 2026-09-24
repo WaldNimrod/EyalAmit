@@ -686,6 +686,93 @@ function ea_chapters_page_sections() {
 	return $out;
 }
 
+if ( ! function_exists( 'ea_muzza_spotlight_cards' ) ) :
+	/**
+	 * Books page «חדש באתר» cards — Round C (2026-09-24), team_00 mandate
+	 * Task 2b: "one card per book, plus a card for מבצעים", reusing
+	 * template-parts/chapters/section-home-spotlight.php (see that file's
+	 * own docblock) rather than a second markup file. Content-law rule this
+	 * round is judged on: card text is the theme's own existing book data
+	 * verbatim, never invented — so this reads the real 'bookcard' and
+	 * 'books-bundle' entries out of the already-resolved muzza $sections
+	 * (inc/chapters/defaults/muzza-defaults.php is the one place that data
+	 * lives) instead of a second hand-typed copy of the same three books.
+	 *
+	 * @param array[] $sections Result of ea_chapters_page_sections() on the muzza route.
+	 * @return array[] Rows shaped like 'now_cards': image, title, line1, line2, url.
+	 */
+	function ea_muzza_spotlight_cards( $sections ) {
+		$cards      = array();
+		$books      = array();
+		$bundle_ttl = '';
+		foreach ( (array) $sections as $sec ) {
+			$part = isset( $sec['part'] ) ? (string) $sec['part'] : '';
+			$args = isset( $sec['args'] ) && is_array( $sec['args'] ) ? $sec['args'] : array();
+			if ( 'bookcard' === $part && ! empty( $args['items'] ) ) {
+				$books = (array) $args['items'];
+			}
+			if ( 'prose' === $part && isset( $args['id'] ) && 'books-bundle' === $args['id'] ) {
+				$bundle_ttl = isset( $args['title'] ) ? (string) $args['title'] : '';
+			}
+		}
+		/*
+		 * The theme's own book data (muzza-defaults.php) stores one long
+		 * 'blurb' paragraph per book, not the two short lines this card
+		 * component takes — so each book's own blurb is split here at ITS OWN
+		 * existing sentence/clause boundaries (never rephrased). Keyed by the
+		 * book's own canonical url (stable, already unique per book). Every
+		 * split — including the exact clause dropped where one was — is
+		 * spelled out in _COMMUNICATION/team_10/DONE-ROUND-C-2026-09-24.md.
+		 */
+		$lines_by_url = array(
+			'/books/tsva-bekahol/'  => array(
+				'38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה',
+				'הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
+			),
+			'/books/kushi-blantis/' => array(
+				'רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי',
+				'הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
+			),
+			'/books/vekatavta/'     => array(
+				'46 סיפורים אמיתיים מחייו של אייל עמית',
+				'הספר ראה אור בשנת 2017',
+			),
+		);
+		foreach ( $books as $book ) {
+			$url   = isset( $book['url'] ) ? (string) $book['url'] : '';
+			$lines = isset( $lines_by_url[ $url ] ) ? $lines_by_url[ $url ] : array( '', '' );
+			$cards[] = array(
+				'image' => isset( $book['cover'] ) ? $book['cover'] : '',
+				'title' => isset( $book['title'] ) ? $book['title'] : '',
+				'line1' => $lines[0],
+				'line2' => $lines[1],
+				'url'   => $url,
+			);
+		}
+		/* «מבצעים» — points at the anchor that already exists on this page
+		   (#books-bundle, muzza-defaults.php's own prose section id). Title and
+		   line1 are that section's own existing copy verbatim; line2 is the
+		   same section's own price line with its <strong>/<del> markup
+		   stripped (tag-stripping, not rewriting — same technique
+		   ea_breadcrumbs_plain_title() already uses elsewhere in this theme).
+		   No cover image exists for this slot in the theme's own data
+		   (muzza-defaults.php's own comment: "תמונת שלושת הספרים = BK-06, לא
+		   רונדר (אין קובץ)") — ships without one, per the content-law rule
+		   for a missing source. */
+		$cards[] = array(
+			'image' => '',
+			'title' => '' !== $bundle_ttl ? $bundle_ttl : 'מבצעים',
+			'line1' => 'שלושת הספרים יחד במחיר מיוחד',
+			/* Tag-stripped, word order and numbers untouched, from
+			   muzza-defaults.php: <p class="p-display"><strong>150 ש"ח</strong>
+			   במקום <del>207 ש"ח</del></p>. */
+			'line2' => '150 ש״ח במקום 207 ש״ח',
+			'url'   => '/books/#books-bundle',
+		);
+		return $cards;
+	}
+endif;
+
 /**
  * Curated testimonials for the marquee, optionally by category.
  * Retired brand is rewritten on display (ea_fb_testimonials_publish_text).

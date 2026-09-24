@@ -27,3 +27,14 @@
 .ea-gp-dd-toggle:focus-visible {
   text-decoration: underline;
 }
+
+/* Round C (2026-09-24) — same "מוקש דהימן - המורה שלי" ruling as chapters.css
+   and ea-nav-drawer.css: a real thin weight (--fw-thin, existing token)
+   instead of a synthesized italic, no font-size touched. This is the third
+   renderer of the same nav tree (GeneratePress's own primary-menu fallback,
+   inc/ea-canonical-nav.php's ea_canonical_nav_gp_header_items()) — kept
+   consistent rather than left on the browser's UA-default italic. */
+.sub-menu em {
+  font-style: normal;
+  font-weight: var(--fw-thin);
+}

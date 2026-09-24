@@ -54,6 +54,12 @@ if ( ! $blog_base ) {
 		'media'     => ea_chapters_asset_url( 'assets/images/chapters/studio-mosaic.jpg' ),
 		'media_alt' => 'הסטודיו בפרדס חנה',
 	) );
+
+	/* Round C (2026-09-24), team_00: breadcrumb in the classic position —
+	   right-aligned, directly after the hero, before the main content. */
+	if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+		ea_breadcrumbs_render();
+	}
 	?>
 
 	<section class="sec">

@@ -34,6 +34,14 @@ $GLOBALS['ea_chapters_type'] = 'qr';
 				'media_alt' => esc_attr( get_the_title() ),
 			)
 		);
+
+		/* Round C (2026-09-24), team_00: one of the three measured breadcrumb
+		   gaps — the whole /qr/ printed-code family had none at all. Classic
+		   position — right-aligned, directly after the hero, before the main
+		   content — same as every other Chapters template. */
+		if ( function_exists( 'ea_breadcrumbs_render' ) ) {
+			ea_breadcrumbs_render();
+		}
 		?>
 		<section class="sec">
 			<div class="wrap">

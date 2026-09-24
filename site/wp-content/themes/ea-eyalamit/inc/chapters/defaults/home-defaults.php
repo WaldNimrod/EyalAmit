@@ -256,35 +256,57 @@ return array(
 	'cmp_b_cta'   => 'למידע נוסף על סאונד הילינג',
 	'cmp_b_url'   => '/sound-healing/',
 
-	/* T-IA-SPOTLIGHT — four equal slots; Eyal swaps image/title/lines/url on each. */
+	/*
+	 * T-IA-SPOTLIGHT — four equal slots; Eyal swaps image/title/lines/url on
+	 * each. Round C (2026-09-24), team_00 live-meeting dictate: re-pointed
+	 * to טיפול בנשימה / דום נשימה / שיעורים / תיקון כלים. Card titles are
+	 * team_00's own dictated labels (not this page's own H1 — those differ:
+	 * e.g. /repair/'s H1 is "תיקון וחידוש כלי דיג׳רידו", the card says
+	 * "תיקון כלים", team_00's own shorter word for the same target).
+	 * line1/line2 are each page's own existing meta description, split at
+	 * its own sentence/clause boundaries — content-law rule this round is
+	 * judged on: verbatim source text, truncated only at a clause boundary,
+	 * never rephrased. Every trim is reported in
+	 * _COMMUNICATION/team_10/DONE-ROUND-C-2026-09-24.md.
+	 */
 	'now_cards' => array(
 		array(
-			'image' => 'assets/images/chapters/stands-storage/stand-01.jpg',
-			'title' => 'כלי דיג׳רידו למכירה',
-			'line1' => 'כלים בעבודת יד, מעמדים ואביזרים מהסטודיו בפרדס חנה.',
-			'line2' => 'מוכנים לשימוש, עם אפשרות לתיקון וחידוש.',
-			'url'   => '/shop/',
+			'image' => 'assets/images/chapters/eyal-studio-play.jpg',
+			'title' => 'טיפול בנשימה',
+			/* Source: /treatment/ meta description (3 sentences) — first two used
+			   verbatim, third sentence dropped (only two line slots exist). */
+			'line1' => 'תהליך אישי לחיזוק מערכת הנשימה.',
+			'line2' => "למדו להחזיר שליטה וויסות למערכת הנשימה דרך הדיג'רידו.",
+			'url'   => '/treatment/',
 		),
 		array(
-			'image' => 'assets/images/kushi-01-blantis-1.jpg',
-			'title' => 'כושי בלאנטיס',
-			'line1' => 'הספר הראשון. סיפורים מהדרך, מהכלי ומהחיים.',
-			'line2' => 'בין הודו לישראל, בלי קיצור דרך.',
-			'url'   => '/books/kushi-blantis/',
+			'image' => 'assets/images/chapters/snoring/maccabi.jpg',
+			'title' => 'דום נשימה',
+			/* Source: /snoring-sleep-apnea/ meta description — line1 verbatim
+			   (its own complete first clause, a question). line2 truncated at the
+			   em-dash clause boundary, dropping the attribution tail "— מאת אייל
+			   עמית, פרדס חנה". */
+			'line1' => "האם דיג'רידו עוזר לנחירות ולדום נשימה בשינה?",
+			'line2' => 'מה מצא מחקר ה-BMJ (Puhan 2006), איך זה עובד ולמי זה מתאים',
+			'url'   => '/snoring-sleep-apnea/',
 		),
 		array(
-			'image' => 'assets/images/chapters/group-session-garden.jpg',
-			'title' => 'הכשרות למטפלים',
-			'line1' => 'מסלול למי שרוצה ללמוד את הדרך באופן מובנה.',
-			'line2' => 'ולהמשיך ללמד ולטפל בעצמו.',
-			'url'   => '/learning/therapist-training/',
+			'image' => 'assets/images/chapters/eyal-teaching.jpg',
+			'title' => 'שיעורים',
+			/* Source: /lessons/ meta description (3 sentences) — first two used
+			   verbatim, third sentence dropped (only two line slots exist). */
+			'line1' => "למדו לנגן בדיג'רידו אחד על אחד בפרדס חנה.",
+			'line2' => 'שליטה בנשימה מעגלית, מקצבים ואפקטים.',
+			'url'   => '/lessons/',
 		),
 		array(
-			'image' => 'assets/images/chapters/home-peek/peek-25.jpg',
-			'title' => 'שבוע הנשימה בסטודיו',
-			'line1' => 'רשימה מהמרכז: תרגול, כלים, ומה שקורה בחצר.',
-			'line2' => 'אייל בוחר איזה פוסט מופיע, מתי.',
-			'url'   => '/blog/',
+			'image' => 'assets/images/chapters/repair/EA-000239.jpeg',
+			'title' => 'תיקון כלים',
+			/* Source: /repair/ meta description (2 sentences) — both used
+			   verbatim, no trim. */
+			'line1' => "שירות תיקון דיג'רידו מקצועי: טיפול בסדקים, שברים ושדרוג פיות עץ.",
+			'line2' => 'עבודה מבוססת הבנה גיאומטרית-פיזיקלית של מבנה הכלי והסאונד.',
+			'url'   => '/repair/',
 		),
 	),
 

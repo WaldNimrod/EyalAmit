@@ -202,6 +202,26 @@ dialog.ea-nd[open]::backdrop{opacity:1}
 }
 .ea-nd__sublink:hover{background:rgba(255,255,255,.05);color:var(--ea-on-dark,#fff)}
 
+/* Round C (2026-09-24) — third level ("ספרים" under "אייל עמית", inc/ea-
+   canonical-nav.php): a level-2 item that itself has children (e.g.
+   "ספרים") renders as a nested accordion — button class list
+   ".ea-nd__acc-btn .ea-nd__sublink" (template-parts/nav/nav-drawer.php via
+   inc/ea-nav-drawer.php's ea_nav_drawer_render_item()) — reusing
+   .ea-nd__acc-btn for the open/close grid-rows mechanic + caret rotation
+   and .ea-nd__sublink (later in this file, so it wins the cascade for every
+   property both set) for size/colour/padding. Zero new font-size or colour
+   rules; only the level-3 sublist gets a touch more indent than level 2 so
+   the hierarchy still reads, using the same --ea-space-* tokens every other
+   indent in this file already uses. */
+.ea-nd__sublist--l3 .ea-nd__sublink{padding-inline-start:calc(var(--ea-space-5) + var(--ea-space-3))}
+button.ea-nd__sublink{width:100%}
+
+/* "מוקש דהימן - המורה שלי" — same round-C ruling as chapters.css's own copy
+   of this rule (search that file for the long form): real thin weight
+   (--fw-thin, 100, an existing token) replaces a synthesized italic. No
+   font-size touched. */
+.ea-nd em{font-style:normal;font-weight:var(--fw-thin)}
+
 .ea-nd__foot{border-block-start:1px solid rgba(255,255,255,.08);padding:var(--ea-space-3);flex:0 0 auto;
   display:flex;flex-direction:column;gap:var(--ea-space-3)}
 .ea-nd__foot-utils{display:flex;gap:var(--ea-space-1);align-items:center}

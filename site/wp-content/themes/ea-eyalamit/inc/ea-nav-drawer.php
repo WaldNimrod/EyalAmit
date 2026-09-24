@@ -79,6 +79,122 @@ function ea_nav_drawer_items() {
 	return ea_canonical_nav_items();
 }
 
+if ( ! function_exists( 'ea_nav_drawer_item_is_active' ) ) :
+	/**
+	 * Whether $item or any of its descendants (any depth) is the active item.
+	 *
+	 * @param array  $item    Nav item.
+	 * @param string $current Active item key.
+	 * @return bool
+	 */
+	function ea_nav_drawer_item_is_active( $item, $current ) {
+		if ( '' === $current ) {
+			return false;
+		}
+		if ( isset( $item['key'] ) && $item['key'] === $current ) {
+			return true;
+		}
+		foreach ( ( isset( $item['children'] ) ? $item['children'] : array() ) as $child ) {
+			if ( ea_nav_drawer_item_is_active( $child, $current ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+endif;
+
+if ( ! function_exists( 'ea_nav_drawer_render_item' ) ) :
+	/**
+	 * Render one drawer row — an accordion `<li>` when the item carries
+	 * children, a plain link `<li>` otherwise — recursing into 'children'
+	 * at any depth. Round C (2026-09-24): "ספרים" gained a third level
+	 * under "אייל עמית" in the canonical tree (inc/ea-canonical-nav.php);
+	 * this is what lets its own accordion open inside the level-2 panel
+	 * instead of a hand-coded third markup block — "a drawer that shows
+	 * only two levels while the desktop menu shows three is a worse
+	 * outcome than not shipping this" (Round C mandate).
+	 *
+	 * Reuses the exact classes the two-level version already had —
+	 * `.ea-nd__acc-btn` for the open/close mechanics (ea-nav-drawer.js
+	 * wires every `.ea-nd__acc-btn` it finds, regardless of nesting depth)
+	 * and `.ea-nd__sublink` for a nested opener's size/colour/padding —
+	 * so a level-3 opener needed zero new CSS rules for its own look, only
+	 * an extra indent for its own sublist (ea-nav-drawer.css
+	 * `.ea-nd__sublist--l3`).
+	 *
+	 * @param array  $item    Nav item: key,label,href,children?,hidden?,label_emph?,external?.
+	 * @param string $current Active item key (aria-current / auto-expand).
+	 * @param string $ea_he   Pre-rendered lang/dir attribute string (or '').
+	 * @param int    $depth   0 = top level, 1+ = inside an ancestor's panel.
+	 * @return void
+	 */
+	function ea_nav_drawer_render_item( $item, $current, $ea_he, $depth = 0 ) {
+		$children = isset( $item['children'] ) ? $item['children'] : array();
+		if ( $children ) {
+			$acc_id    = 'ea-nd-acc-' . sanitize_html_class( $item['key'] );
+			$is_active = ea_nav_drawer_item_is_active( $item, $current );
+			/* Depth 0 keeps its own top-row look (.ea-nd__item, with its divider
+			   border). A nested opener (e.g. "ספרים") gets NO .ea-nd__item — its
+			   plain-link siblings in the same sublist are bare <li>s with no
+			   divider either, and a nested accordion should read like one more
+			   row in that list, not like a second top-level section. Its button
+			   additionally carries .ea-nd__sublink so it inherits that class's
+			   smaller/lighter row style (later in the cascade, so it wins over
+			   .ea-nd__acc-btn's own sizing for the properties both set) without a
+			   single new font-size or color declaration anywhere. */
+			$li_class  = 0 === $depth ? ' class="ea-nd__item"' : '';
+			$btn_class = 0 === $depth ? 'ea-nd__acc-btn' : 'ea-nd__acc-btn ea-nd__sublink';
+			?>
+			<li<?php echo $li_class; // phpcs:ignore WordPress.Security.EscapeOutput — static class string ?>>
+				<button class="<?php echo esc_attr( $btn_class ); ?>" type="button"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-haspopup="true" aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $acc_id ); ?>">
+					<span><?php echo esc_html( $item['label'] ); ?></span>
+					<span class="ea-nd__caret" aria-hidden="true">⌄</span>
+				</button>
+				<div class="ea-nd__acc-panel" id="<?php echo esc_attr( $acc_id ); ?>">
+					<div class="ea-nd__acc-panel-in">
+						<ul class="ea-nd__sublist<?php echo $depth > 0 ? ' ea-nd__sublist--l3' : ''; ?>" role="list">
+							<?php if ( ! empty( $item['href'] ) ) : ?>
+							<li>
+								<a class="ea-nd__sublink" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+									<?php
+									echo esc_html(
+										sprintf(
+											/* translators: %s: parent menu label. */
+											__( '%s — עמוד ראשי', 'ea-eyalamit' ),
+											$item['label']
+										)
+									);
+									?>
+								</a>
+							</li>
+							<?php endif; ?>
+							<?php foreach ( $children as $child ) : ?>
+								<?php if ( ! empty( $child['hidden'] ) ) : ?>
+									<?php continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready). ?>
+								<?php endif; ?>
+								<?php ea_nav_drawer_render_item( $child, $current, $ea_he, $depth + 1 ); ?>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<?php
+		} else {
+			$link_class = 0 === $depth ? 'ea-nd__link' : 'ea-nd__sublink';
+			?>
+			<li<?php echo 0 === $depth ? ' class="ea-nd__item"' : ''; ?>>
+				<a class="<?php echo esc_attr( $link_class ); ?>" href="<?php echo esc_url( $item['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo ( ! empty( $item['key'] ) && $item['key'] === $current ) ? ' aria-current="page"' : ''; ?><?php echo ! empty( $item['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+					<span><?php echo esc_html( $item['label'] ); ?><?php if ( ! empty( $item['label_emph'] ) ) : ?> <em><?php echo esc_html( $item['label_emph'] ); ?></em><?php endif; ?></span>
+					<?php if ( ! empty( $item['external'] ) ) : ?>
+					<span class="ea-nd__ext"><?php esc_html_e( 'חיצוני ↗', 'ea-eyalamit' ); ?></span>
+					<?php endif; ?>
+				</a>
+			</li>
+			<?php
+		}
+	}
+endif;
+
 /** Secondary footer links — identical set to block-topnav.php's $ea_mnav_foot_links (team_00-approved 2026-08-17). */
 function ea_nav_drawer_foot_links() {
 	return array(
