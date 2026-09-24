@@ -172,7 +172,11 @@ a{color:inherit}
    content being clipped. min-height lets it grow; overflow:hidden stays for the video. */
 .hero{position:relative;height:auto;min-height:max(620px,100vh);overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,12,8,.55),rgba(18,12,8,.25) 35%,rgba(18,12,8,.55) 75%,rgba(18,12,8,.9))}
+/* Same shared scrim pattern as .phero__sc / .bleed__sc (team_00, 2026-09-24) —
+   this is the LIVE home hero's real scrim element (.hero, not the unused
+   Wave2 .ea-hero__overlay in ea-atoms.css); .hero__trust measured 3.15:1
+   under the previous gradient. */
+.hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,7,3,.22) 0%,rgba(11,7,3,.42) 50%,rgba(11,7,3,.72) 100%)}
 /* S007 (2026-09-18): the hero title carries one break, on the dash in the source.
    Measured at 1440: segment one needs 1032px at the shipped 59.2px, and the box gave
    680px — so the break could never be the only break. 880px box = 800px of content,
