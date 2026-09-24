@@ -62,6 +62,10 @@ $ea_he        = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_at
 	</button>
 
 	<ul class="nav__l" role="list">
+		<?php /* team_00 addendum, 2026-09-24: explicit monochrome home icon, first
+		item (right-most in RTL), before "אייל עמית" — inherits .nav__l a's own
+		color/hover/padding, no new CSS. See ea_canonical_nav_home_link(). */ ?>
+		<li><?php echo ea_canonical_nav_home_link( 'nav__home', $ea_he ); // phpcs:ignore WordPress.Security.EscapeOutput — built with esc_url()/esc_attr() inside ea_canonical_nav_home_link() ?></li>
 		<?php foreach ( $ea_nav_items as $ea_item ) : ?>
 			<?php if ( 'home' === $ea_item['key'] ) : ?>
 				<?php continue; // the logo above already carries this. ?>

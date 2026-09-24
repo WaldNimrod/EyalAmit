@@ -159,6 +159,47 @@ function ea_canonical_nav_items() {
 	return apply_filters( 'ea_canonical_nav_items', $items );
 }
 
+if ( ! function_exists( 'ea_canonical_nav_home_link' ) ) :
+	/**
+	 * The explicit visual "home" icon-link, prepended to level 1 in every
+	 * desktop/drawer renderer (team_00 addendum to the S007 task-0 mandate,
+	 * 2026-09-24). "home" was removed as a text item from this file's own
+	 * tree earlier today on the reasoning that the logo click and the
+	 * breadcrumb both already carry it; team_00 asked for this icon back as
+	 * an explicit route, in addition to those, not a replacement for the
+	 * canonical tree — so it is markup only, never added to
+	 * ea_canonical_nav_items() itself.
+	 *
+	 * One shared function so the three renderers that need it (Chapters
+	 * desktop nav, the GeneratePress header items filter, and the mobile
+	 * drawer) stay byte-identical instead of drifting like the tree itself
+	 * once did (see this file's own header comment on that history).
+	 *
+	 * Monochrome, `currentColor`-filled SVG — same pattern as the footer
+	 * social icons (template-parts/blocks/block-footer-social.php): fixed
+	 * viewBox/path, `aria-hidden="true" focusable="false"` on the <svg>, the
+	 * accessible name lives on the wrapping <a> instead. No font-size or
+	 * colour token touched; ea-tokens.css is unchanged.
+	 *
+	 * @param string $link_class CSS class for the <a> (matches the calling
+	 *                           renderer's own link class so it inherits that
+	 *                           renderer's existing color/hover/padding rules
+	 *                           — no new CSS needed).
+	 * @param string $ea_he      Pre-rendered lang/dir attribute string (or '').
+	 * @return string HTML for the <a> element (not escaped further by callers —
+	 *                fully built here with esc_url()/esc_attr()).
+	 */
+	function ea_canonical_nav_home_link( $link_class, $ea_he = '' ) {
+		return sprintf(
+			'<a class="%1$s" href="%2$s"%3$s aria-label="%4$s"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 3l8 7h-2v8h-5v-5h-2v5H6v-8H4l8-7z"/></svg></a>',
+			esc_attr( $link_class ),
+			esc_url( home_url( '/' ) ),
+			$ea_he, // phpcs:ignore WordPress.Security.EscapeOutput — static lang/dir attr, same pattern as every other renderer in this file.
+			esc_attr__( 'דף הבית', 'ea-eyalamit' )
+		);
+	}
+endif;
+
 if ( ! function_exists( 'ea_render_nav_item_desktop' ) ) :
 	/**
 	 * Render one Chapters desktop nav item — and, recursively, its own
@@ -243,7 +284,13 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 	if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
 		return $items;
 	}
-	$html = '';
+	/*
+	 * team_00 addendum, 2026-09-24: explicit monochrome home icon, first
+	 * item, before "אייל עמית" — see ea_canonical_nav_home_link() above. GP
+	 * markup here is a raw <li><a> string (not wp_nav_menu <li> objects), so
+	 * this prepends a plain <li> around the shared link markup.
+	 */
+	$html = '<li class="menu-item ea-gp-home">' . ea_canonical_nav_home_link( 'ea-gp-home__link' ) . '</li>';
 	foreach ( ea_canonical_nav_items() as $item ) {
 		if ( 'home' === $item['key'] ) {
 			continue; // GeneratePress's own header already shows the site logo/title as home.

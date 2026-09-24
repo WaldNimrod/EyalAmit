@@ -282,7 +282,11 @@ a{color:inherit}
 /* ---- full-bleed photo band (magazine rhythm + section separation) ---- */
 .bleed{position:relative;width:100%;height:clamp(340px,46vw,560px);overflow:hidden}
 .bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bleed__sc{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,12,8,.78),rgba(18,12,8,.2) 55%,rgba(18,12,8,.45))}
+/* Same shared scrim pattern as .phero__sc (team_00, 2026-09-24) — .bleed__a sits
+   over this photo band and measured worst 1.06 under the previous left-right
+   gradient. Bottom-up now, same three stops as every other instance of this
+   pattern. */
+.bleed__sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,7,3,.22) 0%,rgba(11,7,3,.42) 50%,rgba(11,7,3,.72) 100%)}
 .bleed__c{position:absolute;z-index:2;inset:0;display:flex;align-items:center}
 .bleed__in{max-width:1200px;margin-inline:auto;padding:0 48px;width:100%}
 .bleed__q{font-family:var(--serif);font-weight:var(--fw-regular);font-size:var(--fs-display);line-height:1.4;color:#fff;max-width:20ch;text-shadow:0 2px 30px rgba(0,0,0,.4)}
@@ -409,7 +413,15 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .phero__lede{margin-top:18px;max-width:60ch;font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.85;color:rgba(255,255,255,.86)}
 .phero__lede p{margin:0 0 14px}
 .phero__lede p:last-child{margin-bottom:0}
-.phero .chap{color:var(--terra-lt)}
+/* team_00-approved contrast fix (2026-09-24): .chap inside .phero measured
+   2.80:1 against the near-white background many hero instances actually render
+   (--terra-lt is tuned for a solid-dark background, which not every .phero has).
+   Same hue/saturation as --terra-lt, darker only — approved 5.55:1. This gives
+   .chap its OWN value here rather than editing the --terra-lt token, which
+   other elements (.nav__l a::after, .tlink, etc.) still use unchanged. Applies
+   only inside .phero; .sec--dark/.studio__t/.start keep --terra-lt because
+   those are solid near-black fills where it already passes. */
+.phero .chap{color:#9A572D}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
@@ -480,7 +492,14 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .phero--half.phero--media{min-height:44vh}
 .phero--half.phero--media .phero__in{padding-block-end:clamp(24px,4vh,40px)}
 .phero--media .phero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.phero--media .phero__sc{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,14,9,.5),rgba(20,14,9,.2) 35%,rgba(20,14,9,.6) 72%,rgba(20,14,9,.95))}
+/* team_00-approved contrast fix (2026-09-24): one graded scrim pattern shared by
+   every element that can sit on a photo — .phero__h, .phero__s here, plus
+   .bleed__a (assets/css/chapters.css .bleed__sc) and .ea-hero__trust
+   (assets/css/ea-atoms.css .ea-hero__overlay). Same three color stops
+   everywhere: rgba(11,7,3,.72) at the bottom fading to rgba(11,7,3,.22) at the
+   top — measured 4.74:1 worst case against a pure-white pixel. Text colour and
+   font-size tokens are untouched; only this background gradient changed. */
+.phero--media .phero__sc{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,7,3,.22) 0%,rgba(11,7,3,.42) 50%,rgba(11,7,3,.72) 100%)}
 /* Wave A 2026-09-20: /lessons/ H1 sat at y=0 under the 72px fixed nav on 390px
    (padding-top:0 + flex-end + overflow:hidden). Clear the bar; let a tall lede
    grow the header instead of clipping into it. */
@@ -1421,7 +1440,9 @@ body.nav-locked{overflow:hidden}
    .gfig, or the hairline .ea-faq-list. Chocolate and sand are the tokens that
    already exist (--ea-chocolate in ea-tokens.css, --sand in this file). */
 .phero--compact.phero--media{min-height:78vh}
-.phero--compact .phero__sc{background:linear-gradient(180deg,rgba(14,9,5,.35),rgba(14,9,5,.25) 40%,rgba(14,9,5,.82))}
+/* Same shared scrim pattern as .phero--media .phero__sc above — one treatment,
+   not a second gradient for the compact variant (team_00, 2026-09-24). */
+.phero--compact .phero__sc{background:linear-gradient(180deg,rgba(11,7,3,.22) 0%,rgba(11,7,3,.42) 50%,rgba(11,7,3,.72) 100%)}
 .phero--compact .arcs,
 .phero--compact .phero__media-cue{display:none}
 .btn--sand{background:var(--sand);color:var(--ea-chocolate);border-color:transparent;border-radius:999px;padding:13px 26px}

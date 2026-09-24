@@ -455,10 +455,14 @@
       );
     }
 
+    /* team_00-approved contrast fix (2026-09-24): same shared bottom-up scrim
+       pattern as .phero__sc / .bleed__sc (assets/css/chapters.css) — .ea-hero__trust
+       measured 3.15:1 under the previous flat 35% wash. Three stops, bottom
+       darkest, rgba(11,7,3,.72 -> .42 -> .22), 4.74:1 worst case. */
     .ea-hero__overlay {
       position: absolute;
       inset: 0;
-      background: rgba(46,43,40,0.35);
+      background: linear-gradient(180deg, rgba(11,7,3,.22) 0%, rgba(11,7,3,.42) 50%, rgba(11,7,3,.72) 100%);
       pointer-events: none;
     }
 

@@ -108,12 +108,32 @@ return array(
 
 		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 10
 		 * BK-03 · [לרכישת חבילת 3 הספרים](https://mrng.to/MTUiO3vkIg) — כפתור אחד.
-		 * title/body/temp_note הוסרו. בלוק הפרוזה הכפול ו-pending-note נמחקו. */
+		 * title/body/temp_note הוסרו. בלוק הפרוזה הכפול ו-pending-note נמחקו.
+		 *
+		 * Mandate S007 Task A (2026-09-24): cta_url no longer points at the
+		 * July Green-Invoice sample (mrng.to/MTUiO3vkIg) — that link belongs
+		 * to one specific book (kushi-blantis) and would charge a buyer for
+		 * the wrong product if used as this bundle offer's own link ("Do not
+		 * reuse the July sample URL as if it were the real link for an
+		 * offer"). No real per-offer Green-Invoice link exists yet, so this
+		 * is a visible, inert placeholder until Eyal sends one: cta_url
+		 * points at the section's own anchor (id 'books-bundle' below — a
+		 * no-op, never leaves this page or reaches a checkout), the button
+		 * uses the ghost/outline style (btn--gw) instead of the filled
+		 * primary (btn--terra) so it does not read as a live purchase
+		 * control, and temp_note renders the theme's own established
+		 * pending-link copy (.ea-pending-inline — same component and same
+		 * wording pattern already shipping on product-cta.php's gi_temp_note
+		 * for the shop pages) directly under the button. cta_label itself is
+		 * untouched — it is Eyal's own approved offer copy (content law) —
+		 * only the link target and the button's visual treatment changed. */
 		array(
 			'part' => 'cta',
 			'args' => array(
-				'cta_label' => 'לרכישת חבילת 3 הספרים', /* S006 · BK-03 · MUZZA.md SECTION 10 */
-				'cta_url'   => 'https://mrng.to/MTUiO3vkIg', /* S006 · BK-03 · MUZZA.md SECTION 10 */
+				'cta_label' => 'לרכישת חבילת 3 הספרים', /* S006 · BK-03 · MUZZA.md SECTION 10 — unchanged */
+				'cta_url'   => '#books-bundle',
+				'btn'       => 'btn--gw',
+				'temp_note' => 'קישור רכישה זמני — ממתין לקישור חשבונית ירוקה מאייל.',
 			),
 		),
 
