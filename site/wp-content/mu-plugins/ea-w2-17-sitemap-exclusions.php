@@ -68,6 +68,11 @@ function ea_w217_redirect_source_paths() {
 		'/tools-and-accessories/',
 		'/tools-and-accessories/instruments/',
 		'/tools-and-accessories/repair/',
+		/*
+		 * Wave 1 A1 (2026-09-25): /shows-heritage/ is a 301 to the home page.
+		 * The page shell stays published so Yoast would keep listing it.
+		 */
+		'/shows-heritage/',
 	);
 }
 

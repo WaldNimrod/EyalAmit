@@ -523,6 +523,7 @@ function ea_faq_query_items( array $cat_slugs = array() ) {
 			'q'          => get_the_title( $p ),
 			'a'          => (string) $p->post_content,
 			'categories' => $terms,
+			'seed_key'   => (string) get_post_meta( $p->ID, '_ea_faq_seed_key', true ),
 		);
 	}
 	return $out;
@@ -666,6 +667,28 @@ function ea_eyalamit_muzza_to_books_redirect() {
 	}
 }
 add_action( 'template_redirect', 'ea_eyalamit_muzza_to_books_redirect', 0 );
+
+/**
+ * Wave 1 A1 (2026-09-25): /shows-heritage/ 301s to the home page.
+ * Zero inbound links from the live pages. The URL 404s on production.
+ * The page shell stays published; the sitemap exclusion is separate.
+ */
+function ea_wave1_shows_heritage_301() {
+	if ( is_admin() ) {
+		return;
+	}
+	$req = isset( $_SERVER['REQUEST_URI'] )
+		? (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH )
+		: '';
+	if ( '' === $req ) {
+		return;
+	}
+	if ( '/shows-heritage/' === trailingslashit( $req ) ) {
+		wp_safe_redirect( home_url( '/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'ea_wave1_shows_heritage_301', 0 );
 
 /**
  * Rewrite any WP nav-menu item that still points at a legacy Muzza URL to its

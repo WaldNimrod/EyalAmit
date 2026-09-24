@@ -43,10 +43,26 @@ Seven more are **derived** to cover roles his combination does not name:
 --fs-h4      1.328125rem   21.25px    x1.25   card and sub-block titles
 --fs-lead    1.221875rem   19.55px    x1.15   hero sub-headings and ledes
 --fs-sm      0.95625rem    15.30px    x0.90   secondary text, buttons
---fs-xs      0.85rem       13.60px    x0.80   labels, form controls, footer links
+--fs-xs      0.85rem       13.60px    x0.80   labels, footer links
 --fs-2xs     0.765rem      12.24px    x0.72   tags, toggles, fine print
 --fs-3xs     0.690625rem   11.05px    x0.65   eyebrows, column titles
 ```
+
+**Authorised exception, Wave 1 A8, 2026-09-25, theme 1.5.127.** One new rung,
+form controls only:
+
+```
+--fs-field   1rem          16.00px    x0.94   CF7 text, select, textarea
+```
+
+`--fs-xs` stays 0.85rem. It is still used for labels, footer links, and the
+other roles that do not receive keyboard focus as a text field. iOS Safari
+zooms the page when a focused field is under 16px. 16px is `1rem` on the 16px
+root, so the rung is `1rem`, not a `px` declaration. It is applied only on
+`.wpcf7-form-control.wpcf7-text`, `.wpcf7-select`, and `.wpcf7-textarea` in
+`ea-atoms.css`. The canon comment that listed `--fs-xs` as «labels, form
+controls, footer links» already separated those roles; this rung is that
+separation, recorded here in the same change as the token.
 
 Weights:
 
@@ -150,7 +166,8 @@ toward the body anchor: h1 2.60→1.90, display 2.00→1.60, h2 1.45→1.32, h4 
 lead 1.15→1.10, h3 1.10→1.06 (ratios over the 17px body). **`--fs-nav` and everything from
 `--fs-body` down are unchanged.** Body text never shrinks on a phone — it is already the
 anchor and already the smallest comfortable reading size — and `--fs-nav`, `--fs-sm`, `--fs-xs`
-size controls and labels, where shrinking works against the 44px touch-target floor.
+size labels and secondary text, where shrinking works against the 44px touch-target floor.
+Form fields use `--fs-field` (16px) and are not part of that shrink.
 
 **Measured at 390×844, before and after:** the home hero title went from 248px tall over five
 wrapped lines to 145px over four; the blog post title from 347px over seven lines to 217px

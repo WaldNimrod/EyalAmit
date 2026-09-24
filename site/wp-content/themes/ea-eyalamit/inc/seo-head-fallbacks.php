@@ -64,19 +64,6 @@ function ea_w2_09_is_team80_chrome( $text ) {
  * @return string
  */
 function ea_w2_09_filter_yoast_chrome_desc( $desc ) {
-	// /shows-heritage/ body leftover is now «ניווט משני.» with the marker word
-	// already removed. The share card must use the route sentence that already
-	// exists. No new sentence.
-	if ( is_page( 'shows-heritage' ) ) {
-		$plain = trim( wp_strip_all_tags( html_entity_decode( (string) $desc, ENT_QUOTES, 'UTF-8' ) ) );
-		$plain = rtrim( $plain, ". \t" );
-		if ( 'ניווט משני' === $plain ) {
-			$fallback = ea_w2_09_route_description();
-			if ( '' !== $fallback ) {
-				return ea_w2_09_trim_description( $fallback );
-			}
-		}
-	}
 	// /shop/ and /contact/ store an internal marker (a spec-reference note on
 	// /shop/, a plugin name on /contact/) as the Yoast share-card description,
 	// while the real meta description (Yoast's own metadesc post meta, already
@@ -133,7 +120,6 @@ function ea_w2_09_route_description() {
 		'contact'        => 'צרו קשר עם אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו, רח\' עמל 8 ב\' פרדס חנה. וואטסאפ, טלפון וטופס.',
 		'testimonials'   => 'סרטונים, הקלטות, וכתבות על העבודה עם הנשימה והדיג׳רידו.',
 		'press'          => 'אייל עמית בתקשורת — כתבות, ראיונות ואזכורים על המרכז לטיפול בנשימה באמצעות דיג׳רידו, שיטת cbDIDG והספרים.',
-		'shows-heritage' => 'מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה.',
 		'qr'             => 'עמודי ה-QR של אייל עמית — סרטוני הדרכה ותוכן נלווה לספרים ולכלים, מהמרכז לטיפול בנשימה באמצעות דיג׳רידו.',
 		// First sentence of the live archive (inc/data/w2-07-show-archive.json), not new copy.
 		'historical-articles' => 'מופע הסיפורים של אייל עמית. מופע מפתיע וראשון מסוגו בישראל בז\'אנר ה-"ספוקן סטוריז" שהושק לראשונה בשנת 2012.',

@@ -77,6 +77,9 @@ defined( 'ABSPATH' ) || exit;
 		<a href="<?php echo esc_url( $ea_en_item['href'] ); ?>"><?php echo esc_html( $ea_en_item['label'] ); ?></a>
 			<?php endif; ?>
 			<?php foreach ( ( $ea_en_item['children'] ?? array() ) as $ea_en_child ) : ?>
+				<?php if ( ! empty( $ea_en_child['hidden'] ) ) : ?>
+					<?php continue; // same exclusion as the Hebrew nav — Eyal 2026-09-24, /learning/courses-external/ stays out. ?>
+				<?php endif; ?>
 				<?php if ( $ea_en_child['href'] === $ea_en_item['href'] ) : ?>
 					<?php continue; // a self-referencing overview row (e.g. shop, treatment) — already linked above as the parent. ?>
 				<?php endif; ?>

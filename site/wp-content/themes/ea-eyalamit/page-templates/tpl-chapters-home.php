@@ -65,6 +65,46 @@ defined( 'ABSPATH' ) || exit;
 	// 09 — הצצה נוספת לחוויה: טקסט מאושר + פלייסהולדר מדיה + CTA מ-C15.
 	get_template_part( 'template-parts/chapters/section', 'home-09-peek' );
 
+	/*
+	 * Wave 1 A2 — six corpus questions, read from the ea_faq CPT
+	 * (ea_faq_query_items), between the peek and the testimonials.
+	 * Do NOT emit FAQPage schema on this URL. Spec §15.3 restricts FAQPage
+	 * to the dedicated /faq/ page. The home page emits zero FAQPage nodes;
+	 * adding one here would duplicate the entity on the site's
+	 * highest-authority URL.
+	 */
+	$ea_home_faq_keys = array( 'treatment-01', 'treatment-02', 'treatment-03', 'general-01', 'general-05', 'general-17' );
+	$ea_home_faq_by   = array();
+	if ( function_exists( 'ea_faq_query_items' ) ) {
+		foreach ( ea_faq_query_items() as $ea_home_faq_row ) {
+			$ea_home_faq_key = isset( $ea_home_faq_row['seed_key'] ) ? (string) $ea_home_faq_row['seed_key'] : '';
+			if ( '' !== $ea_home_faq_key ) {
+				$ea_home_faq_by[ $ea_home_faq_key ] = $ea_home_faq_row;
+			}
+		}
+	}
+	$ea_home_faq_items = array();
+	foreach ( $ea_home_faq_keys as $ea_home_faq_key ) {
+		if ( empty( $ea_home_faq_by[ $ea_home_faq_key ] ) ) {
+			continue;
+		}
+		$ea_home_faq_items[] = array(
+			'q' => $ea_home_faq_by[ $ea_home_faq_key ]['q'],
+			'a' => $ea_home_faq_by[ $ea_home_faq_key ]['a'],
+		);
+	}
+	set_query_var(
+		'ea_faq_mini_ctx',
+		array(
+			'items'  => $ea_home_faq_items,
+			'footer' => array(
+				'label' => 'לכל השאלות הנפוצות',
+				'href'  => home_url( '/faq/' ),
+			),
+		)
+	);
+	get_template_part( 'template-parts/blocks/block', 'faq-mini' );
+
 	get_template_part( 'template-parts/chapters/section', '05-testimonials' ); // 10 — עדויות והמלצות
 	get_template_part( 'template-parts/chapters/section', '01-about' );        // 11 — אייל עמית
 

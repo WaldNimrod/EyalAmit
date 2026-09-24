@@ -69,6 +69,7 @@
   --fs-body:1.0625rem;      /* 1.00 · the anchor — running text          */
   --fs-sm:0.95625rem;      /* 0.90 · secondary text, buttons            */
   --fs-xs:0.85rem;      /* 0.80 · labels, form controls, footer links */
+  --fs-field:1rem;      /* 1.00 · form controls only. 16px so iOS does not zoom a focused field. Wave 1 A8, 2026-09-25. --fs-xs is unchanged. */
   --fs-2xs:0.765rem;    /* 0.72 · tags, toggles, fine print          */
   --fs-3xs:0.690625rem;    /* 0.65 · eyebrows, column titles            */
   /* WEIGHT SCALE — the same idea as the rungs above: one place, one name per value.

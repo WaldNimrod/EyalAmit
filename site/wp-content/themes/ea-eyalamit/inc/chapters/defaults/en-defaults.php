@@ -271,7 +271,7 @@ return array(
 			'part' => 'prose',
 			'args' => array(
 				'title' => 'Explore the full website',
-				'body' => '<p>The rest of the website is currently available in Hebrew.</p><p>If you read Hebrew, you can explore the full website for detailed information about:</p><ul><li>the cbDIDG method</li><li>didgeridoo breath work</li><li>didgeridoo lessons</li><li>sound healing</li><li>workshops</li><li>talks</li><li>courses and training</li><li>handmade didgeridoos</li><li>articles and research</li><li>Mukesh Dahiman</li><li>Eyal Amit</li></ul><p><a class="tlink" href="https://www.eyalamit.co.il/"><strong>Visit the Hebrew website</strong></a></p>',
+				'body' => '<p>The rest of the website is currently available in Hebrew.</p><p>If you read Hebrew, you can explore the full website for detailed information about:</p><ul><li>the cbDIDG method</li><li>didgeridoo breath work</li><li>didgeridoo lessons</li><li>sound healing</li><li>workshops</li><li>talks</li><li>courses and training</li><li>handmade didgeridoos</li><li>articles and research</li><li>Mukesh Dahiman</li><li>Eyal Amit</li></ul><p><a class="tlink" href="/"><strong>Visit the Hebrew website</strong></a></p>',
 			),
 		),
 	),

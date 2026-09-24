@@ -1411,7 +1411,7 @@
       background: var(--ea-bg);
       font-family: var(--ea-font);
       font-weight:var(--fw-light);
-      font-size:var(--fs-xs);
+      font-size:var(--fs-field);
       min-height: 44px;
       color: var(--ea-ink);
       direction: rtl;

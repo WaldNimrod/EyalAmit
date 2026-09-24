@@ -76,7 +76,7 @@ function ea_canonical_nav_items() {
 				/*
 				 * Round C (2026-09-24), team_00 live-meeting dictate: "ספרים" moves out
 				 * of level 1 and becomes a child here, after "גלריה" and before "צור
-				 * קשר", keeping its own four children — which therefore become level 3.
+				 * קשר", keeping its own children — which therefore become level 3.
 				 * This is the first item in the tree that nests three deep; every
 				 * renderer below (desktop dropdown, mobile drawer accordion) walks
 				 * 'children' recursively rather than assuming two levels, specifically
@@ -86,10 +86,13 @@ function ea_canonical_nav_items() {
 					'key'      => 'books',
 					'label'    => 'ספרים',
 					'href'     => $h( '/books/' ),
-					/* No overview row here — section-nav.php goes straight to "מבצעים".
-					   Not every parent-with-href gets a self-referencing first child;
-					   copying the shop/treatment pattern here would be an invention. */
 					'children' => array(
+						/* Wave 1 A9 (2026-09-25): the drawer renders a parent as a
+						   button with no href, so /books/ was reachable only via the
+						   fragment on «מבצעים». This row is the same convention the
+						   other four parents already use — the publisher name that
+						   already titles this page, pointing at the page itself. */
+						array( 'key' => 'books-muzza', 'label' => 'מוזה הוצאה לאור', 'href' => $h( '/books/' ) ),
 						array( 'key' => 'books-bundle', 'label' => 'מבצעים', 'href' => $h( '/books/#books-bundle' ) ),
 						array( 'key' => 'tsva-bekahol', 'label' => 'צבע בכחול וזרוק לים', 'href' => $h( '/books/tsva-bekahol/' ) ),
 						array( 'key' => 'kushi-blantis', 'label' => 'כושי בלאנטיס', 'href' => $h( '/books/kushi-blantis/' ) ),

@@ -330,7 +330,6 @@ if ( ! function_exists( 'ea_w2_seo_schema_graph' ) ) :
 		//     /shows-heritage/ (WP-S5-02 §2.3); Article on snoring pillar (AEO 2026-07-25). ---
 		$ea_article_pages = array(
 			'press'               => array( 'type' => 'CollectionPage', 'name' => 'עיתונות ותקשורת — אייל עמית' ),
-			'shows-heritage'      => array( 'type' => 'CollectionPage', 'name' => 'מורשת והופעות — אייל עמית' ),
 			'snoring-sleep-apnea' => array(
 				'type' => 'Article',
 				'name' => 'נחירות ודום נשימה בשינה: גישה טיפולית באמצעות דיג\'רידו',
