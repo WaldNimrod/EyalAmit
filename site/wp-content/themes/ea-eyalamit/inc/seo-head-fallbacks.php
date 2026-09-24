@@ -64,6 +64,41 @@ function ea_w2_09_is_team80_chrome( $text ) {
  * @return string
  */
 function ea_w2_09_filter_yoast_chrome_desc( $desc ) {
+	// /shows-heritage/ body leftover is now «ניווט משני.» with the marker word
+	// already removed. The share card must use the route sentence that already
+	// exists. No new sentence.
+	if ( is_page( 'shows-heritage' ) ) {
+		$plain = trim( wp_strip_all_tags( html_entity_decode( (string) $desc, ENT_QUOTES, 'UTF-8' ) ) );
+		$plain = rtrim( $plain, ". \t" );
+		if ( 'ניווט משני' === $plain ) {
+			$fallback = ea_w2_09_route_description();
+			if ( '' !== $fallback ) {
+				return ea_w2_09_trim_description( $fallback );
+			}
+		}
+	}
+	// /shop/ and /contact/ store an internal marker (a spec-reference note on
+	// /shop/, a plugin name on /contact/) as the Yoast share-card description,
+	// while the real meta description (Yoast's own metadesc post meta, already
+	// correct and already live in <meta name="description">) is untouched.
+	// Same shape as the /shows-heritage/ leak above — replace only the leak
+	// with the description the page already serves, never new copy.
+	if ( is_page( array( 'shop', 'contact' ) ) ) {
+		$known_leaks = array(
+			'shop'    => 'קטלוג ראשי — שימור slug shop לפי §7 M2.',
+			'contact' => 'טופס צור קשר — Fluent Forms.',
+		);
+		$obj  = get_queried_object();
+		$slug = ( $obj instanceof WP_Post ) ? (string) $obj->post_name : '';
+		$plain = trim( wp_strip_all_tags( html_entity_decode( (string) $desc, ENT_QUOTES, 'UTF-8' ) ) );
+		if ( isset( $known_leaks[ $slug ] ) && $plain === $known_leaks[ $slug ] ) {
+			$queried_id = (int) get_queried_object_id();
+			$real_meta  = $queried_id > 0 ? trim( (string) get_post_meta( $queried_id, '_yoast_wpseo_metadesc', true ) ) : '';
+			if ( '' !== $real_meta ) {
+				return ea_w2_09_trim_description( $real_meta );
+			}
+		}
+	}
 	if ( ! ea_w2_09_is_team80_chrome( $desc ) ) {
 		return $desc;
 	}

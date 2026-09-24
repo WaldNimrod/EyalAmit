@@ -606,7 +606,7 @@ function ea_chapters_phero_overlay() {
 	}
 	/* S006 R1-02…R1-05 + wave1 R1-10/16/21/22 + wave2 tools + wave3 books/faq/snoring
 	 * · seed from PHP defaults so ACF slots from the previous section order cannot overwrite. */
-	if ( in_array( ea_chapters_type(), array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external' ), true ) ) {
+	if ( in_array( ea_chapters_type(), array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external', 'galleries' ), true ) ) {
 		if ( ! empty( $phero['media'] ) ) {
 			$phero['media'] = ea_chapters_resolve_img( $phero['media'] );
 		}
@@ -648,7 +648,7 @@ function ea_chapters_page_sections() {
 		$part = isset( $sec['part'] ) ? (string) $sec['part'] : '';
 		$args = ( isset( $sec['args'] ) && is_array( $sec['args'] ) ) ? $sec['args'] : array();
 		/* S006 R1-02…R1-05 + wave1 R1-10/16/21/22 + wave2 tools + wave3 books/faq/snoring · seeded defaults only (see phero overlay). */
-		if ( in_array( $type, array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external' ), true ) ) {
+		if ( in_array( $type, array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external', 'galleries' ), true ) ) {
 			if ( isset( $map[ $part ]['scalars'] ) ) {
 				foreach ( $map[ $part ]['scalars'] as $arg => $kind ) {
 					if ( array_key_exists( $arg, $args ) && ( 'img' === $kind || 'file' === $kind ) ) {

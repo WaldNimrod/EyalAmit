@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
  * function now covers.
  */
 function ea_nav_drawer_orphan_slugs() {
-	return array( 'services', 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'about', 'press' );
+	return array( 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'press' );
 }
 
 /**

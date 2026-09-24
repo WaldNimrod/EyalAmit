@@ -60,7 +60,7 @@ function ea_open_round_chrome_slugs() {
 	if ( function_exists( 'ea_nav_drawer_orphan_slugs' ) ) {
 		$slugs = array_merge( ea_nav_drawer_orphan_slugs(), $slugs );
 	} else {
-		$slugs = array( 'services', 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'about', 'press', 'en' );
+		$slugs = array( 'shows-heritage', 'historical-articles', 'thank-you', 'courses-soon', 'press', 'en' );
 	}
 	return $slugs;
 }

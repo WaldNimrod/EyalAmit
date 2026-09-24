@@ -340,6 +340,10 @@ function ea_w2_07_render_named_testimonials_accordion( $heading, $items ) {
 function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array() ) {
 	$with_fb   = ! empty( $args['with_fb_links'] );
 	$sec_class = isset( $args['section_class'] ) ? (string) $args['section_class'] : 'ea-fb-testimonials';
+	$htag      = isset( $args['heading_tag'] ) ? strtolower( (string) $args['heading_tag'] ) : 'h2';
+	if ( ! in_array( $htag, array( 'h2', 'h3', 'h4' ), true ) ) {
+		$htag = 'h2';
+	}
 	if ( empty( $items ) ) {
 		return '';
 	}
@@ -347,7 +351,7 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 	?>
 	<section class="ea-section ea-section--testimonials <?php echo esc_attr( $sec_class ); ?>" data-block="testimonials-row" aria-label="<?php echo esc_attr( $heading ); ?>">
 		<div class="ea-section__inner">
-			<h2 class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+			<<?php echo esc_attr( $htag ); ?> class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></<?php echo esc_attr( $htag ); ?>>
 			<div class="ea-testimonials-accordion">
 				<?php foreach ( $items as $i => $item ) : ?>
 					<details class="ea-testimonial-acc ea-entrance"<?php echo 0 === (int) $i ? ' open' : ''; ?>>
@@ -404,43 +408,65 @@ function ea_w2_07_render_historical_articles() {
 	$quotes   = ( isset( $data['pressQuotes'] ) && is_array( $data['pressQuotes'] ) ) ? $data['pressQuotes'] : array();
 	$clips    = ( isset( $data['clippings'] ) && is_array( $data['clippings'] ) ) ? $data['clippings'] : array();
 	$tests    = ( isset( $data['testimonials'] ) && is_array( $data['testimonials'] ) ) ? $data['testimonials'] : array();
-	$blog     = ( isset( $data['blogAlreadyOnStaging'] ) && is_array( $data['blogAlreadyOnStaging'] ) ) ? $data['blogAlreadyOnStaging'] : array();
+	$stage    = ( isset( $data['stageImages'] ) && is_array( $data['stageImages'] ) ) ? $data['stageImages'] : array();
+	$blocks   = ( isset( $data['visitorBlocks'] ) && is_array( $data['visitorBlocks'] ) ) ? $data['visitorBlocks'] : array();
+	$press_h  = isset( $data['pressHeading'] ) ? (string) $data['pressHeading'] : '';
+	$tests_h  = isset( $data['testimonialsHeading'] ) ? (string) $data['testimonialsHeading'] : '';
 
 	ob_start();
 	?>
 	<div class="ea-historical-archive">
-		<?php if ( ! empty( $body ) ) : ?>
-		<section class="ea-content-section" data-block="show-archive-intro" aria-label="<?php echo esc_attr( '' !== $heading ? $heading : 'ארכיון מופע' ); ?>">
-			<div class="ea-content-section__inner">
-				<?php if ( '' !== $heading ) : ?>
-				<h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
-				<?php endif; ?>
-				<div class="ea-content-section__body">
-					<?php foreach ( $body as $i => $p ) : ?>
-					<p<?php echo 0 === (int) $i ? ' class="lead"' : ''; ?>><?php echo esc_html( (string) $p ); ?></p>
+		<?php if ( ! empty( $stage ) ) : ?>
+		<section class="ea-content-section ea-content-section--alt" data-block="show-stage">
+			<div class="ea-book-gallery" role="group">
+				<div class="ea-book-gallery__grid">
+					<?php foreach ( $stage as $shot ) :
+						$file = isset( $shot['file'] ) ? ltrim( (string) $shot['file'], '/' ) : '';
+						if ( '' === $file ) {
+							continue;
+						}
+						$alt = isset( $shot['alt'] ) ? trim( (string) $shot['alt'] ) : '';
+						?>
+					<div class="ea-book-gallery__item">
+						<img src="<?php echo esc_url( $img_base . $file ); ?>" alt="<?php echo esc_attr( $alt ); ?>" loading="lazy" />
+					</div>
 					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $quotes ) ) : ?>
-		<section class="ea-section ea-press" data-block="show-press-quotes" aria-label="ציטוטי עיתונות על המופע">
+		<?php if ( ! empty( $body ) ) : ?>
+		<section class="ea-content-section" data-block="show-archive-intro"<?php echo '' !== $heading ? ' aria-label="' . esc_attr( $heading ) . '"' : ''; ?>>
+			<div class="ea-content-section__inner">
+				<?php if ( '' !== $heading ) : ?>
+				<h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+				<?php endif; ?>
+				<div class="ea-content-section__body">
+					<?php foreach ( $body as $i => $p ) : ?>
+					<p<?php echo 0 === (int) $i ? ' class="lead"' : ''; ?>><?php echo nl2br( esc_html( (string) $p ), false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped, then br. ?></p>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $quotes ) && '' !== $press_h ) : ?>
+		<section class="ea-section ea-press" data-block="show-press-quotes" aria-label="<?php echo esc_attr( $press_h ); ?>">
 			<div class="ea-section__inner">
-				<h2 class="ea-section__heading ea-entrance--breath">בעיתונות</h2>
+				<h3 class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $press_h ); ?></h3>
 				<ul class="ea-press__list">
 					<?php foreach ( $quotes as $q ) :
-						$text   = isset( $q['text'] ) ? trim( (string) $q['text'] ) : '';
-						$source = isset( $q['source'] ) ? trim( (string) $q['source'] ) : '';
+						$text = isset( $q['paragraph'] ) ? trim( (string) $q['paragraph'] ) : '';
+						if ( '' === $text && isset( $q['text'] ) ) {
+							$text = trim( (string) $q['text'] );
+						}
 						if ( '' === $text ) {
 							continue;
 						}
 						?>
 					<li class="ea-press__item ea-entrance">
 						<p class="ea-press__link"><?php echo esc_html( $text ); ?></p>
-						<?php if ( '' !== $source ) : ?>
-						<span class="ea-press__source"><?php echo esc_html( $source ); ?></span>
-						<?php endif; ?>
 					</li>
 					<?php endforeach; ?>
 				</ul>
@@ -449,19 +475,15 @@ function ea_w2_07_render_historical_articles() {
 		<?php endif; ?>
 
 		<?php if ( ! empty( $clips ) ) : ?>
-		<section class="ea-content-section ea-content-section--alt" data-block="show-clippings" aria-label="סריקות כתבות">
-			<div class="ea-book-gallery" role="group" aria-label="סריקות כתבות מהארכיון">
+		<section class="ea-content-section ea-content-section--alt" data-block="show-clippings">
+			<div class="ea-book-gallery" role="group">
 				<div class="ea-book-gallery__grid">
 					<?php foreach ( $clips as $clip ) :
 						$file = isset( $clip['file'] ) ? ltrim( (string) $clip['file'], '/' ) : '';
 						if ( '' === $file ) {
 							continue;
 						}
-						$head = isset( $clip['heading'] ) ? (string) $clip['heading'] : '';
-						$alt  = isset( $clip['alt'] ) ? trim( (string) $clip['alt'] ) : '';
-						if ( '' === $alt ) {
-							$alt = $head;
-						}
+						$alt = isset( $clip['alt'] ) ? trim( (string) $clip['alt'] ) : '';
 						?>
 					<div class="ea-book-gallery__item">
 						<img src="<?php echo esc_url( $img_base . $file ); ?>" alt="<?php echo esc_attr( $alt ); ?>" loading="lazy" />
@@ -473,31 +495,42 @@ function ea_w2_07_render_historical_articles() {
 		<?php endif; ?>
 
 		<?php
-		if ( ! empty( $tests ) ) {
-			echo ea_w2_07_render_named_testimonials_accordion( 'המלצות על המופע', $tests ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- builder-escaped markup.
+		if ( ! empty( $tests ) && '' !== $tests_h ) {
+			echo ea_w2_07_render_testimonials_accordion( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- builder-escaped markup.
+				$tests_h,
+				$tests,
+				array(
+					'section_class' => 'ea-show-testimonials',
+					'with_fb_links' => false,
+					'heading_tag'   => 'h4',
+				)
+			);
 		}
 		?>
 
-		<?php if ( ! empty( $blog ) ) : ?>
-		<section class="ea-section ea-press" data-block="show-blog-links" aria-label="כתבות בבלוג">
-			<div class="ea-section__inner">
-				<h2 class="ea-section__heading ea-entrance--breath">כתבות בבלוג</h2>
-				<ul class="ea-press__list">
-					<?php foreach ( $blog as $row ) :
-						$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
-						$path  = isset( $row['path'] ) ? trim( (string) $row['path'] ) : '';
-						if ( '' === $title || '' === $path ) {
+		<?php if ( ! empty( $blocks ) ) : ?>
+		<section class="ea-content-section" data-block="show-visitor-comments">
+			<div class="ea-content-section__inner">
+				<div class="ea-content-section__body">
+					<?php foreach ( $blocks as $block ) :
+						$tag  = isset( $block['tag'] ) ? strtolower( (string) $block['tag'] ) : 'p';
+						$text = isset( $block['text'] ) ? trim( (string) $block['text'] ) : '';
+						if ( '' === $text || ! in_array( $tag, array( 'h2', 'h3', 'h4', 'p' ), true ) ) {
 							continue;
 						}
-						$href = home_url( $path );
-						?>
-					<li class="ea-press__item ea-entrance">
-						<a class="ea-press__link ea-text-link" href="<?php echo esc_url( $href ); ?>">
-							<?php echo esc_html( $title ); ?>
-						</a>
-					</li>
-					<?php endforeach; ?>
-				</ul>
+						if ( 'p' === $tag ) :
+							?>
+					<p><?php echo nl2br( esc_html( $text ), false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped, then br. ?></p>
+							<?php
+						else :
+							printf(
+								'<%1$s class="ea-archive-h">%2$s</%1$s>',
+								esc_attr( $tag ),
+								esc_html( $text )
+							);
+						endif;
+					endforeach; ?>
+				</div>
 			</div>
 		</section>
 		<?php endif; ?>

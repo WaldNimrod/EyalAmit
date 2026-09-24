@@ -13,9 +13,9 @@
  * was exactly that kind of silent regularisation, and is fixed here to
  * match section-nav.php byte-for-byte instead).
  *
- * "קורסים" now points at /learning/courses-external/ («יעלה בקרוב»).
- * Nimrod 2026-09-21: scoped exception to the main-nav hold — add this child
- * only; do not restructure L1. The old href="#" omission (P2-A1) is closed.
+ * "קורסים" (/learning/courses-external/, «יעלה בקרוב») is not a menu item.
+ * Eyal 2026-09-24: the page stays published and stays out of the menu.
+ * The «יעלה בקרוב» line on the page itself is unchanged.
  *
  * "home" IS in this list (the mobile drawer renders it as an explicit row),
  * but a desktop-style renderer with its own logo/brand-as-home link (every
@@ -60,7 +60,6 @@ function ea_canonical_nav_items() {
 			'href'     => null,
 			'children' => array(
 				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
-				array( 'key' => 'courses-external', 'label' => 'קורסים', 'href' => $h( '/learning/courses-external/' ) ),
 				array( 'key' => 'lectures', 'label' => 'הרצאות', 'href' => $h( '/learning/lectures/' ) ),
 				array( 'key' => 'workshops', 'label' => 'סדנאות', 'href' => $h( '/learning/workshops/' ) ),
 			),

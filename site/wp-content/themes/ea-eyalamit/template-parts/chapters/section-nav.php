@@ -14,6 +14,27 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/* Two callers can print this partial in one request (wp_body_open plus the
+   template). A second call returns no markup. Items and order stay as they are. */
+if ( ! function_exists( 'ea_chapters_nav_mark_once' ) ) {
+	/**
+	 * True the first time the primary nav is printed in this request.
+	 *
+	 * @return bool
+	 */
+	function ea_chapters_nav_mark_once() {
+		static $done = false;
+		if ( $done ) {
+			return false;
+		}
+		$done = true;
+		return true;
+	}
+}
+if ( ! ea_chapters_nav_mark_once() ) {
+	return;
+}
+
 /* The M-13 rewrite removed this file's local `$h = fn($path) => esc_url(home_url($path))`
    helper along with the hand-coded item list, but two call sites survived it — the logo
    href and the EN link — and `$h('/')` on an undefined variable is a fatal, not a notice.
