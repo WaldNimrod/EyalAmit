@@ -68,7 +68,7 @@ $ea_he      = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_attr
 						<?php endif; ?>
 					<li>
 						<a class="ea-nd__sublink" href="<?php echo esc_url( $child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo ! empty( $child['key'] ) && $child['key'] === $current ? ' aria-current="page"' : ''; ?><?php echo ! empty( $child['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
-							<span><?php echo esc_html( $child['label'] ); ?></span>
+							<span><?php echo esc_html( $child['label'] ); ?><?php if ( ! empty( $child['label_emph'] ) ) : ?> <em><?php echo esc_html( $child['label_emph'] ); ?></em><?php endif; ?></span>
 							<?php if ( ! empty( $child['external'] ) ) : ?>
 							<span class="ea-nd__ext"><?php esc_html_e( 'חיצוני ↗', 'ea-eyalamit' ); ?></span>
 							<?php endif; ?>

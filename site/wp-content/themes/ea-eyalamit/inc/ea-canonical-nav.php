@@ -55,7 +55,15 @@ function ea_canonical_nav_items() {
 			'href'     => $h( '/eyal-amit/' ),
 			'children' => array(
 				array( 'key' => 'about', 'label' => 'אודות אייל', 'href' => $h( '/eyal-amit/' ) ),
-				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן — לזכרו', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
+				/* team_00 dictate, 2026-09-24 (post-M14 follow-up): label changed from
+				   "מוקש דהימן — לזכרו" to "מוקש דהימן - המורה שלי", plain hyphen as
+				   dictated (not the em dash the old label used), with "המורה שלי" set
+				   slightly italic. The page's own title/H1 is unchanged — menu label only.
+				   'label_emph' is a separate field, not HTML in 'label': every renderer
+				   below runs esc_html() on both pieces independently and wraps the emph
+				   piece in its own <em> (italic is the element's UA-default style — no
+				   CSS file or token touched for this). */
+				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן -', 'label_emph' => 'המורה שלי', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
 				array( 'key' => 'testimonials', 'label' => 'המלצות', 'href' => $h( '/testimonials/' ) ),
 				array( 'key' => 'faq', 'label' => 'שאלות ותשובות', 'href' => $h( '/faq/' ) ),
 				array( 'key' => 'galleries', 'label' => 'גלריה', 'href' => $h( '/galleries/' ) ),
@@ -65,7 +73,11 @@ function ea_canonical_nav_items() {
 		array(
 			'key'      => 'treatments',
 			'label'    => 'טיפולים בדיג׳רידו',
-			'href'     => null,
+			/* team_00 follow-up, 2026-09-24 (post-M14): every level-1 parent now
+			   points at its own first child, same rule "אייל עמית" already followed
+			   — was null (rendered as a non-navigating <button>), now the first
+			   child's own href ('treatment' below), verified live returning 200. */
+			'href'     => $h( '/treatment/' ),
 			'children' => array(
 				array( 'key' => 'treatment', 'label' => 'טיפול נשימה באמצעות דיג׳רידו', 'href' => $h( '/treatment/' ) ),
 				array( 'key' => 'sound-healing', 'label' => 'סאונד הילינג', 'href' => $h( '/sound-healing/' ) ),
@@ -75,7 +87,9 @@ function ea_canonical_nav_items() {
 		array(
 			'key'      => 'lessons-training',
 			'label'    => 'שיעורים והכשרות',
-			'href'     => null,
+			/* Same follow-up as 'treatments' above — first child's href, verified
+			   live returning 200. */
+			'href'     => $h( '/lessons/' ),
 			'children' => array(
 				array( 'key' => 'lessons', 'label' => 'שיעורי דיג׳רידו פרטיים', 'href' => $h( '/lessons/' ) ),
 				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
@@ -162,10 +176,13 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 				$html .= sprintf( '<a href="%s">%s</a>', esc_url( $item['href'] ), esc_html( $item['label'] ) );
 			} else {
 				/*
-				 * "לימוד והכשרה" / "אייל עמית": permanent category labels with no
-				 * overview page of their own (section-nav.php renders these as a
-				 * <button>, not a link, for the same reason) — not the same thing
-				 * as a dead href="#". «קורסים» now has a real destination.
+				 * Kept for a future category with no page of its own (this is the
+				 * shared reason section-nav.php also has a <button> branch) — not the
+				 * same thing as a dead href="#". As of the 2026-09-24 follow-up every
+				 * current parent-with-children has an href (the last two, "טיפולים
+				 * בדיג׳רידו" and "שיעורים והכשרות", now point at their first child,
+				 * same rule "אייל עמית" already followed), so this branch is
+				 * presently unreached; left in place rather than deleted.
 				 *
 				 * First version of this used href="#" to match GP's dropdown-hover
 				 * CSS, which only reacts to :hover — measured live afterward:
@@ -196,10 +213,14 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 					continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready).
 				}
 				$html .= sprintf(
-					'<li class="menu-item"><a href="%s"%s>%s</a></li>',
+					'<li class="menu-item"><a href="%s"%s>%s%s</a></li>',
 					esc_url( $child['href'] ),
 					! empty( $child['external'] ) ? ' target="_blank" rel="noopener noreferrer"' : '',
-					esc_html( $child['label'] )
+					esc_html( $child['label'] ),
+					/* 'label_emph' (2026-09-24 follow-up): a separate field, run through
+					   its own esc_html(), never HTML placed inside 'label' — that would
+					   be escaped as literal tag text by this same esc_html() call above. */
+					! empty( $child['label_emph'] ) ? ' <em>' . esc_html( $child['label_emph'] ) . '</em>' : ''
 				);
 			}
 			$html .= '</ul></li>';

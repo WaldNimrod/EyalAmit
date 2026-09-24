@@ -75,6 +75,25 @@ function ea_breadcrumbs_href_path( $href ) {
 }
 
 /**
+ * A nav item/child's full text label. Nav entries may carry the visual
+ * emphasis piece (e.g. "מוקש דהימן -" + label_emph "המורה שלי") in a
+ * separate 'label_emph' field so the menu renderers can esc_html() and
+ * italicise it on its own (2026-09-24 follow-up) — a breadcrumb crumb has
+ * no italic treatment of its own, but it still needs the FULL sentence, not
+ * the truncated 'label' half with a dangling hyphen.
+ *
+ * @param array $entry Nav item or child array.
+ * @return string
+ */
+function ea_breadcrumbs_full_label( $entry ) {
+	$label = isset( $entry['label'] ) ? (string) $entry['label'] : '';
+	if ( ! empty( $entry['label_emph'] ) ) {
+		$label .= ' ' . (string) $entry['label_emph'];
+	}
+	return $label;
+}
+
+/**
  * Find a nav chain for the current path inside ea_canonical_nav_items().
  *
  * @param string   $path Request path.
@@ -90,7 +109,7 @@ function ea_breadcrumbs_find_nav_chain( $path, $items ) {
 		if ( $item_href && ea_breadcrumbs_href_path( $item_href ) === $path ) {
 			return array(
 				array(
-					'label' => (string) $item['label'],
+					'label' => ea_breadcrumbs_full_label( $item ),
 					'href'  => $item_href,
 				),
 			);
@@ -104,12 +123,12 @@ function ea_breadcrumbs_find_nav_chain( $path, $items ) {
 			$chain = array();
 			if ( ! empty( $item['label'] ) ) {
 				$chain[] = array(
-					'label' => (string) $item['label'],
+					'label' => ea_breadcrumbs_full_label( $item ),
 					'href'  => ! empty( $item['href'] ) ? (string) $item['href'] : null,
 				);
 			}
 			$chain[] = array(
-				'label' => (string) $child['label'],
+				'label' => ea_breadcrumbs_full_label( $child ),
 				'href'  => $child_href,
 			);
 			return $chain;
