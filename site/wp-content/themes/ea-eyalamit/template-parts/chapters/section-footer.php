@@ -42,10 +42,10 @@ $h = static function ( $path ) {
 				<a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a>
 			</p>
 			<div class="foot__soc">
-				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="פייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 h-2.5 a3 3 0 0 0-3 3 v3 H7 v3 h2.5 v7 h3 v-7 H15 l.5-3 h-3 V7 a1 1 0 0 1 1-1 H15 z"/></svg></a>
-				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,.7)" stroke="none"/></svg></a>
-				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="יוטיוב"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9 v6 l5-3 z" fill="rgba(255,255,255,.7)" stroke="none"/></svg></a>
-				<a href="<?php echo $h( '/contact/' ); ?>" aria-label="טיקטוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4 v9.5 a3.5 3.5 0 1 1-3-3.46 M14 7 a4 4 0 0 0 4 3.2"/></svg></a>
+				<a href="<?php echo esc_url( 'https://www.facebook.com/didgeridoo.studio.eyal.amit' ); ?>" target="_blank" rel="noopener" aria-label="פייסבוק של אייל עמית (נפתח בחלון חדש)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 h-2.5 a3 3 0 0 0-3 3 v3 H7 v3 h2.5 v7 h3 v-7 H15 l.5-3 h-3 V7 a1 1 0 0 1 1-1 H15 z"/></svg></a>
+				<a href="<?php echo esc_url( 'https://www.instagram.com/didgeridoo.therapy.center' ); ?>" target="_blank" rel="noopener" aria-label="אינסטגרם של אייל עמית (נפתח בחלון חדש)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,.7)" stroke="none"/></svg></a>
+				<a href="<?php echo esc_url( 'https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA' ); ?>" target="_blank" rel="noopener" aria-label="יוטיוב של אייל עמית (נפתח בחלון חדש)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9 v6 l5-3 z" fill="rgba(255,255,255,.7)" stroke="none"/></svg></a>
+				<a href="<?php echo esc_url( 'https://www.tiktok.com/@didgeridoo_therapy' ); ?>" target="_blank" rel="noopener" aria-label="טיקטוק של אייל עמית (נפתח בחלון חדש)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4 v9.5 a3.5 3.5 0 1 1-3-3.46 M14 7 a4 4 0 0 0 4 3.2"/></svg></a>
 			</div>
 		</div>
 	</div>

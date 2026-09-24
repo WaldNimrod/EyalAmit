@@ -41,29 +41,53 @@ function ea_canonical_nav_items() {
 		return esc_url( home_url( $path ) );
 	};
 	$items = array(
-		array( 'key' => 'home', 'label' => 'בית', 'href' => $h( '/' ) ),
+		/*
+		 * S007 M-14 (2026-09-24) — approved nav-tree rebuild, per
+		 * _COMMUNICATION/team_90/AUDIT-2026-09-24/MANDATE-TEAM10-NAV-TREE-2026-09-24.md
+		 * and its same-day amendment (adds testimonials/faq/galleries under
+		 * "אייל עמית"). "home" is removed outright: the logo covers it and the
+		 * breadcrumb always shows "בית" as its own first, hardcoded crumb
+		 * (see ea_breadcrumb_trail()) — that does not read this array's items.
+		 */
 		array(
-			'key'      => 'treatment',
-			'label'    => 'טיפול בדיג׳רידו',
-			'href'     => $h( '/treatment/' ),
+			'key'      => 'eyal-amit',
+			'label'    => 'אייל עמית',
+			'href'     => $h( '/eyal-amit/' ),
 			'children' => array(
-				array( 'key' => 'treatment', 'label' => 'טיפול בדיג׳רידו', 'href' => $h( '/treatment/' ) ),
-				array( 'key' => 'snoring-sleep-apnea', 'label' => 'נחירות ודום נשימה בשינה', 'href' => $h( '/snoring-sleep-apnea/' ) ),
+				array( 'key' => 'about', 'label' => 'אודות אייל', 'href' => $h( '/eyal-amit/' ) ),
+				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן — לזכרו', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
+				array( 'key' => 'testimonials', 'label' => 'המלצות', 'href' => $h( '/testimonials/' ) ),
+				array( 'key' => 'faq', 'label' => 'שאלות ותשובות', 'href' => $h( '/faq/' ) ),
+				array( 'key' => 'galleries', 'label' => 'גלריה', 'href' => $h( '/galleries/' ) ),
+				array( 'key' => 'contact', 'label' => 'צור קשר', 'href' => $h( '/contact/' ) ),
+			),
+		),
+		array(
+			'key'      => 'treatments',
+			'label'    => 'טיפולים בדיג׳רידו',
+			'href'     => null,
+			'children' => array(
+				array( 'key' => 'treatment', 'label' => 'טיפול נשימה באמצעות דיג׳רידו', 'href' => $h( '/treatment/' ) ),
+				array( 'key' => 'sound-healing', 'label' => 'סאונד הילינג', 'href' => $h( '/sound-healing/' ) ),
+				array( 'key' => 'snoring-sleep-apnea', 'label' => 'טיפול בנחירות ודום נשימה בשינה', 'href' => $h( '/snoring-sleep-apnea/' ) ),
+			),
+		),
+		array(
+			'key'      => 'lessons-training',
+			'label'    => 'שיעורים והכשרות',
+			'href'     => null,
+			'children' => array(
+				array( 'key' => 'lessons', 'label' => 'שיעורי דיג׳רידו פרטיים', 'href' => $h( '/lessons/' ) ),
+				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
+				/* Content not ready — Eyal 2026-09-24: "להשאיר מחוץ לתפריט". Kept in the
+				   tree (real page, real href) so it can be restored in one step; every
+				   renderer below skips an item flagged 'hidden'. */
+				array( 'key' => 'courses-external', 'label' => 'קורסים דיגיטליים', 'href' => $h( '/learning/courses-external/' ), 'hidden' => true ),
+				array( 'key' => 'lectures', 'label' => 'הרצאות', 'href' => $h( '/learning/lectures/' ) ),
+				array( 'key' => 'workshops', 'label' => 'סדנאות דיג׳רידו', 'href' => $h( '/learning/workshops/' ) ),
 			),
 		),
 		array( 'key' => 'method', 'label' => 'השיטה', 'href' => $h( '/method/' ) ),
-		array( 'key' => 'lessons', 'label' => 'שיעורי דיג׳רידו', 'href' => $h( '/lessons/' ) ),
-		array( 'key' => 'sound-healing', 'label' => 'סאונד הילינג', 'href' => $h( '/sound-healing/' ) ),
-		array(
-			'key'      => 'learning',
-			'label'    => 'לימוד והכשרה',
-			'href'     => null,
-			'children' => array(
-				array( 'key' => 'therapist-training', 'label' => 'הכשרות למטפלים', 'href' => $h( '/learning/therapist-training/' ) ),
-				array( 'key' => 'lectures', 'label' => 'הרצאות', 'href' => $h( '/learning/lectures/' ) ),
-				array( 'key' => 'workshops', 'label' => 'סדנאות', 'href' => $h( '/learning/workshops/' ) ),
-			),
-		),
 		array(
 			'key'      => 'shop',
 			'label'    => 'כלים ואביזרים',
@@ -94,16 +118,6 @@ function ea_canonical_nav_items() {
 			),
 		),
 		array( 'key' => 'blog', 'label' => 'בלוג דיג׳רידו', 'href' => $h( '/blog/' ) ),
-		array(
-			'key'      => 'eyal-amit',
-			'label'    => 'אייל עמית',
-			'href'     => null,
-			'children' => array(
-				array( 'key' => 'about', 'label' => 'אודות אייל', 'href' => $h( '/eyal-amit/' ) ),
-				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן — לזכרו', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
-			),
-		),
-		array( 'key' => 'contact', 'label' => 'צור קשר', 'href' => $h( '/contact/' ) ),
 	);
 
 	/**
@@ -178,6 +192,9 @@ function ea_canonical_nav_gp_header_items( $items, $args ) {
 			}
 			$html .= '<ul class="sub-menu">';
 			foreach ( $children as $child ) {
+				if ( ! empty( $child['hidden'] ) ) {
+					continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready).
+				}
 				$html .= sprintf(
 					'<li class="menu-item"><a href="%s"%s>%s</a></li>',
 					esc_url( $child['href'] ),

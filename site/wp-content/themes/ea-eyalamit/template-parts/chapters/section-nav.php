@@ -76,6 +76,9 @@ $ea_he        = function_exists( 'ea_open_round_he_attr' ) ? ea_open_round_he_at
 			<?php endif; ?>
 			<ul class="nav__sub" role="list">
 				<?php foreach ( $ea_children as $ea_child ) : ?>
+					<?php if ( ! empty( $ea_child['hidden'] ) ) : ?>
+						<?php continue; // S007 M-14: real page, kept in the tree, not rendered (content not ready). ?>
+					<?php endif; ?>
 				<li><a href="<?php echo esc_url( $ea_child['href'] ); ?>"<?php echo $ea_he; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( $ea_child['label'] ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>

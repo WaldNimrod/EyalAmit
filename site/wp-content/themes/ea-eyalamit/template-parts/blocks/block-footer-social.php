@@ -125,7 +125,7 @@ $ea_cfoot_info = array(
               </a>
               <!-- TikTok — added 2026-05-27 per Eyal -->
               <a class="ea-footer__social-link"
-                 href="https://www.tiktok.com/@didgeridoo_therapy?_r=1&amp;_t=ZS-96hl39iCAIG"
+                 href="https://www.tiktok.com/@didgeridoo_therapy"
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="טיקטוק של אייל עמית (נפתח בחלון חדש)"
