@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>השלמת תוכן — 20 בספטמבר 2026 — אייל עמית</title>
+<title>הטופס העדכני — 24 בספטמבר 2026 — אייל עמית</title>
 <style>
   :root{
     --ink:#16130f; --muted:#6b6257; --line:#e3ddd3; --paper:#fbf9f5; --card:#fff;
-    --accent:#8a5a2b; --warn:#9c3b1e; --ok:#3f6b42;
+    --accent:#8a5a2b; --warn:#9c3b1e; --ok:#3f6b42; --old:#6e4a86;
     --r:12px;
   }
   *{box-sizing:border-box}
@@ -28,14 +28,18 @@
   .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
         padding:16px 18px;margin:14px 0}
   .item h3{margin:0 0 2px;font-size:1.1rem}
-  .path{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+  .item h3 .tag{display:inline-block;font-size:.72rem;font-weight:700;color:#fff;background:var(--old);
+       border-radius:999px;padding:2px 9px;margin-inline-start:8px;vertical-align:middle}
+  .path{font-size:.86rem;color:var(--muted);margin:0 0 10px;word-break:break-all}
   .path a{color:var(--accent)}
   .now,.need{margin:8px 0;padding:9px 12px;border-radius:8px;font-size:.95rem}
   .now{background:#f4f1ea;border-right:3px solid var(--muted)}
   .need{background:#eef4ee;border-right:3px solid var(--ok)}
+  .flux{background:#fff5e8;border-right:3px solid var(--warn)}
   .lbl{font-weight:700;display:block;margin-bottom:2px;font-size:.82rem;
        letter-spacing:.02em;color:var(--muted)}
   .need .lbl{color:var(--ok)}
+  .flux .lbl{color:var(--warn)}
   .quote{font-style:italic}
   fieldset{border:0;margin:12px 0 0;padding:0}
   legend{font-weight:700;font-size:.9rem;margin-bottom:6px}
@@ -44,6 +48,12 @@
   .opt:hover{background:#f7f4ee}
   .opt input{margin:4px 0 0;width:19px;height:19px;flex:none;accent-color:var(--accent)}
   .opt span{flex:1}
+  .shot img{display:block;max-width:220px;height:auto;margin-top:14px}
+  .shot figcaption{margin-top:4px}
+  .samples{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+  .samples a{font-size:.88rem;background:#f4f1ea;border:1px solid var(--line);border-radius:999px;
+       padding:5px 12px;color:var(--accent);text-decoration:none}
+  .samples a:hover{background:#efe6d8}
   textarea{width:100%;min-height:62px;margin-top:8px;padding:9px 11px;
            border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.95rem;
            background:#fff;resize:vertical}
@@ -58,845 +68,425 @@
   .done{color:var(--ok);font-weight:700;margin-inline-start:10px}
   footer{margin-top:26px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);
          padding-top:14px}
-  .item--slim{padding:9px 12px;margin:5px 0}
-  .slim{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-  .slink{flex:1 1 300px;min-width:0;color:var(--accent);font-size:.95rem}
-  .dt{font-size:.8rem;color:var(--muted);white-space:nowrap}
-  .mini{display:inline-flex;align-items:center;gap:5px;font-size:.87rem;
-        border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer;min-height:38px}
-  .mini:hover{background:#f7f4ee}
-  .mini input{width:17px;height:17px;margin:0;accent-color:var(--accent)}
-  .item--slim textarea{min-height:38px;flex:1 1 180px;margin-top:0}
+  .meta{font-size:.82rem;color:var(--muted)}
   .board{background:#fff;border:2px solid var(--ink);border-radius:var(--r);padding:16px 18px;margin:18px 0}
   .board h2{border:0;margin:0 0 8px;padding:0;font-size:1.22rem}
   .board .lede{margin:0 0 12px}
-  .board table{width:100%;border-collapse:collapse;font-size:.92rem;margin:8px 0 14px}
-  .board th,.board td{border:1px solid var(--line);padding:7px 9px;text-align:right;vertical-align:top}
-  .board th{background:#f4f1ea}
   .st{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;margin:6px 0 4px;line-height:1.35}
-  .st-done{background:#e7f2e8;color:#3f6b42}
-  .st-wait-eyal{background:#fff5e8;color:#9c3b1e}
-  .st-wait-nim{background:#e8eef8;color:#2c4a6e}
-  .st-wait-t10{background:#efe6f4;color:#5a3a6e}
+  .st-open{background:#fff5e8;color:#9c3b1e}
   .st-hold{background:#f4f1ea;color:#6b6257}
-  .st-part{background:#efe6d8;color:#6b4420}
-  .meta{font-size:.82rem;color:var(--muted)}
+  /* notes table — B4 */
+  .ntable{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0}
+  .ntable th,.ntable td{border:1px solid var(--line);padding:6px;text-align:right;vertical-align:top}
+  .ntable th{background:#f4f1ea;font-size:.82rem}
+  .ntable td input,.ntable td textarea{width:100%;border:1px solid var(--line);border-radius:6px;
+       padding:6px 8px;font:inherit;font-size:.9rem;min-height:34px;background:#fff}
+  .ntable td textarea{min-height:44px;resize:vertical}
+  .ntable td.rm{width:34px;text-align:center;vertical-align:middle}
+  .ntable td.rm button{min-height:30px;padding:4px 8px;font-size:.85rem;background:#fff;color:var(--warn);
+       border-color:var(--warn)}
+  .addrow{background:#fff;color:var(--ink);margin-top:6px}
+  .fieldnote{font-size:.8rem;color:var(--muted);margin:2px 0 0}
   @media print{.bar,button,#out{display:none}.item{break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <h1>איפה נדרשת השלמת תוכן</h1>
-  <p class="date">אייל עמית · טופס השלמות · 20 בספטמבר 2026</p>
-  <p class="lede">נגזר מ־תור העבודה S007. אין לערוך סטטוס כאן — הסטטוס מגיע רק מקובץ העבודה.</p>
-  <p class="meta">generatedAt 2026-09-24T11:23Z · ssotSha12 a559fd2d6405 · תמה חיה 1.5.116</p>
+  <h1>הטופס העדכני — מה עוד נשאר עליך</h1>
+  <p class="date">אייל עמית · טופס עדכני · 24 בספטמבר 2026</p>
+  <p class="lede">נבנה מחדש בסוף הפגישה החיה. כל מה שסוכם היום בחדר כבר לא מופיע כאן כשאלה — רק מה שנשאר
+    עליך לבד בבית. מה שהיה בטופס הקודם ואינו כאן לא נמחק — הוא ענה, סוכם בחדר, או נשאר רשום בלוח
+    העבודה של הצוות; המיפוי המלא בדוח הבנאי.</p>
+  <p class="meta">גרסת התמה החיה באתר הבדיקה מצוינת בדוח הבנאי · חתימת תוכן הטופס 0547ed400c77</p>
 </header>
-<div class="note"><strong>האתר עדיין לא באוויר.</strong> הקישורים הם לאתר הבדיקה. אין לערוך סטטוס ביד בטופס הזה.</div>
-<div class="board" id="status-board">
-  <h2>מצב נגזר</h2>
-  <p class="lede">רק מה שממתין לך למילוי. מה שנסגר לא מופיע. מה שממתין לנימרוד מופיע למטה כשורות לפגישה, בלי שאלון.</p>
-  <table>
-    <tr><th>ממתין לך (17)</th><th>תווית</th></tr>
-    <tr><td>A3 · כתבות היסטוריות</td><td>ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת</td></tr><tr><td>A5 · קורסים — סקולר וחיצוני</td><td>העמוד בתפריט עם «יעלה בקרוב». ממתין לקישורים ממך</td></tr><tr><td>B2 · גלריות</td><td>הקובץ הגיע — 179 בלי עמוד מחכות לבחירה</td></tr><tr><td>B3 · בחירת התמונות לגלריה הראשית</td><td>הקובץ הגיע — הבחירה מהחיתוך, לא מהכלי הריק</td></tr><tr><td>C1 · לימוד והכשרה</td><td>ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד</td></tr><tr><td>C3 · העמוד באנגלית</td><td>פורסם באתר הבדיקה. ממתין לתמונות ממך</td></tr><tr><td>Q-HERO-ASK · תמונות ייחודיות לעמודי הקודים המודפסים</td><td>ממתין לך — תמונה שונה לכל עמוד QR, או הירו לוגו בלי תמונה</td></tr><tr><td>M1 · עץ התפריט הראשי — שיחה אחת</td><td>הסדר נרשם. הסרגל לא זז עד השיחה</td></tr><tr><td>M2 · תבנית פוסט חדש — שיחה</td><td>לשיחה — יחד עם עץ התפריט</td></tr><tr><td>M3 · הסטת הכותרת מול גוף הטקסט</td><td>לשיחה — מכוון, לא פותחים את הקאנון לפניה</td></tr><tr><td>M5 · מוקש דהימן — עבודה בפגישה</td><td>לפגישה — רק וידאו הרקע של ההירו. הסרט בתוך העמוד נשאר</td></tr><tr><td>M6 · סטנדים — דוגמה לשילוב תמונות</td><td>לשיחה — דוגמה לזרימה, לא גלריה אחידה</td></tr><tr><td>M7 · כותרות ההירו והכיתוב cbDIDG</td><td>לשיחה — נוגע בקאנון האות</td></tr><tr><td>M8 · קרוסלת סרטונים בדף הבית ובדפים חשובים</td><td>ממתין לקבצי הסרטונים</td></tr><tr><td>M9 · מוזיקת רקע להירו, עם השתקה</td><td>ממתין לקובץ המוזיקה</td></tr><tr><td>Q-REPAIR-ALT · כיתוב לחמש תמונות בעמוד התיקון</td><td>אין משפט קיים — לא הומצא כיתוב</td></tr>
-  </table>
-</div>
-<h2>חלק א · עמודים שאין בהם תוכן כלל <span class="cnt">— 2</span></h2><p class="sub">בכל אחד מהם המילה שמופיעה באתר היום היא סימון פנימי שלנו, לא טקסט לגולש.</p>
-<div class="item" id="A3" data-id="A3" data-page="R2-006" data-path="/historical-articles/" data-status="waiting" data-waiting="eyal">
-  <h3>כתבות היסטוריות</h3>
-  <div class="st st-wait-eyal">ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/historical-articles/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הארכיון חי ומחוץ לסרגל: מופע הסיפורים, בעיתונות, המלצות. שורת מציין-המקום ירדה מהעמוד ומהשיתוף.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>הקטלוג המלא של שאר הכתבות, אחרי הסריקה שהבטחת. מקום בסרגל כבר הוכרע: מחוץ לתפריט.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="A3" value="אשלח תוכן" checked><span>אשלח את הכתבות</span></label>
-<label class="opt"><input type="radio" name="A3" value="למחוק"><span>העמוד לא נחוץ — למחוק אותו</span></label>
-<label class="opt"><input type="radio" name="A3" value="עוד לא יודע"><span>עוד לא החלטתי</span></label>
-  </fieldset>
-  <textarea name="note-A3" placeholder="הערה">הכתבות נמצאות באתר הישן בתצורה של קובץ jpg רגיל. ניתן למצוא אותן תחת הדף &quot;מופעים&quot; או &quot;הופעות&quot; או &quot;מופע הסיפורים&quot;. בהמשך כשאעבור על כל גלריית התמונות באתר אני אמצא אותן ואקטלג אותן לדף &quot;כתבות היסטוריות&quot;.</textarea>
-</div>
-<div class="item" id="A5" data-id="A5" data-page="R2-007" data-path="/learning/courses-external/" data-status="waiting" data-waiting="eyal">
-  <h3>קורסים — סקולר וחיצוני</h3>
-  <div class="st st-wait-eyal">העמוד בתפריט עם «יעלה בקרוב». ממתין לקישורים ממך</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">העמוד בתפריט תחת «לימוד והכשרה ← קורסים», ועליו כתוב «יעלה בקרוב». בלי קישורי רכישה.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>הקישורים עצמם לקורסים החיצוניים, כשיהיה קורס באוויר.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="A5" value="אשלח קישורים" checked><span>אשלח את הקישורים והטקסט</span></label>
-<label class="opt"><input type="radio" name="A5" value="להשאיר מחוץ לתפריט"><span>להשאיר מחוץ לתפריט עד שיהיה תוכן</span></label>
-<label class="opt"><input type="radio" name="A5" value="למחוק"><span>העמוד לא נחוץ — למחוק אותו</span></label>
-  </fieldset>
-  <textarea name="note-A5" placeholder="הערה">אין עדיין קורס באוויר. כשיהיה מוכן אשלח קישור.</textarea>
-</div><h2>חלק ב · סקשנים בתוך עמודים חיים שמחכים לחומר <span class="cnt">— 2</span></h2>
-<div class="item" id="B2" data-id="B2" data-page="R1-27" data-path="/galleries/" data-status="waiting" data-waiting="eyal">
-  <h3>גלריות</h3>
-  <div class="st st-wait-eyal">הקובץ הגיע — 179 בלי עמוד מחכות לבחירה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">מבנה גלריה עם תמונות לדוגמה בלבד, ומעליו כתוב במפורש תוכן הגלריה, התמונות והכיתובים ממתינים להשלמה ולאישור מאייל.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>התמונות עצמן והכיתובים שלהן. הוכנה לך גלריה זמנית שמרכזת את כל התמונות הקיימות, כדי שהבחירה תהיה מתוך מה שיש ולא מהזיכרון. בחירת התמונות לגלריה הראשית נשאלת בנפרד בחלק ז׳.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="B2" value="אשלח תמונות וכיתובים"><span>אשלח תמונות וכיתובים</span></label>
-<label class="opt"><input type="radio" name="B2" value="לבחור מהקובץ הקיים"><span>קחו מהקובץ הקיים ואאשר את הבחירה</span></label>
-<label class="opt"><input type="radio" name="B2" value="להסיר את הגלריות"><span>להסיר את עמוד הגלריות בינתיים</span></label>
-  </fieldset>
-  <textarea name="note-B2" placeholder="הערה">אני לא בטוח שהבנתי מה אתה רוצה. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא &quot;סינון מדיה - 939 תמונות&quot;</textarea>
-</div>
-<div class="item" id="B3" data-id="B3" data-page="R1-27" data-path="/galleries/" data-status="waiting" data-waiting="eyal">
-  <h3>בחירת התמונות לגלריה הראשית</h3>
-  <div class="st st-wait-eyal">הקובץ הגיע — הבחירה מהחיתוך, לא מהכלי הריק</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הגלריה הראשית מציגה תצוגה לדוגמה בלבד. הוכנה לך גלריה זמנית שמרכזת את כל התמונות הקיימות, כדי שהבחירה תהיה מתוך מה שיש בפועל.</span></div>
-  <div class="need"><span class="lbl">מה נדרש</span>לסמן אילו תמונות מתוך הגלריה הזמנית נכנסות לגלריה הראשית, ובאיזה סדר.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="B3" value="אבחר מהגלריה הזמנית" checked><span>אעבור על הגלריה הזמנית ואסמן</span></label>
-<label class="opt"><input type="radio" name="B3" value="שתבחרו ואאשר"><span>בחרו אתם הצעה ואאשר אותה</span></label>
-<label class="opt"><input type="radio" name="B3" value="אשלח תמונות אחרות"><span>אשלח תמונות אחרות</span></label>
-  </fieldset>
-  <textarea name="note-B3" placeholder="הערה">כנ&quot;ל. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא &quot;סינון מדיה - 939 תמונות&quot;</textarea>
-</div><h2>חלק ג · עמודים שחיים בטקסט שהצוות כתב, לא בחומר שלך <span class="cnt">— 2</span></h2>
-<div class="item" id="C1" data-id="C1" data-page="R1-06" data-path="/learning/" data-status="waiting" data-waiting="eyal">
+<div class="note"><strong>אתר הבדיקה בלבד.</strong> הקישורים לעמודי האתר החדש הם לאתר הבדיקה (HTTP, התעודה
+  לא תקינה בכוונה). קישורי האתר הישן הם לאתר הישן, לפני הגיבוי והמחיקה. אין לערוך סטטוס ביד בטופס
+  הזה — הטופס נשמר אוטומטית בדפדפן שלך תוך כדי מילוי.</div>
+
+<h2>חלק א · המשך ביתי — שיעורי הבית שנשארו פתוחים <span class="cnt">— 8</span></h2>
+<p class="sub">כל אלה כבר עברו בירור. מה שחסר בהם הוא חומר ממך — תמונות, קובץ, או תשובה עובדתית —
+  לא דיון.</p>
+
+<div class="item" id="HW-C1" data-id="HW-C1">
   <h3>לימוד והכשרה</h3>
-  <div class="st st-wait-eyal">ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הטקסט שאושרת חי. ליד שלושת הבלוקים יש מקום ברור לתמונה: שיעורי דיג׳רידו, הרצאות וסדנאות, הכשרת מטפלים.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>שלוש תמונות, כמו שביקשת. הטקסט אושר. קישור «לימוד והכשרה» כבר סומן ונרשם בשיחת הסרגל, לא כשאלה חדשה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="C1" value="אשלח תמונות"><span>אשלח שלוש תמונות לבלוקים</span></label>
-<label class="opt"><input type="radio" name="C1" value="מאשר כמו שהוא" checked><span>קראתי — מאשר את הטקסט כמו שהוא</span></label>
-<label class="opt"><input type="radio" name="C1" value="אשלח טקסט"><span>אשלח טקסט משלי</span></label>
-<label class="opt"><input type="radio" name="C1" value="יש תיקונים"><span>יש תיקונים — פירטתי למטה</span></label>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/learning/</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הטקסט שאישרת חי בעמוד. ליד שלושת הבלוקים — שיעורי דיג׳רידו, הרצאות וסדנאות, הכשרת מטפלים — יש
+    מקום מוכן לתמונה.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>שלוש תמונות לשלושת הבלוקים. הטקסט עצמו כבר אושר ואינו נשאל שוב.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-C1" value="אשלח שלוש תמונות"><span>אשלח שלוש תמונות לשלושת הבלוקים</span></label>
+    <label class="opt"><input type="radio" name="HW-C1" value="אין לי תמונות כרגע"><span>אין לי תמונות לשלוח כרגע</span></label>
+    <label class="opt"><input type="radio" name="HW-C1" value="אחר"><span>אחר — פירטתי למטה</span></label>
   </fieldset>
-  <textarea name="note-C1" placeholder="הערה">1. את הדף הזה צריך לחבר ל&quot;לימוד והכשרה&quot; בסרגל העליון. 
-2. לכל אחד משלושת הבלוקים בטקסט צריך להוסיף תמונה מייצגת ואסטטית: שיעורי דיג&#x27;רידו, הרצאות וסדנאות, הכשרת מטפלים.</textarea>
+  <textarea name="note-HW-C1" placeholder="הערה"></textarea>
 </div>
-<div class="item" id="C3" data-id="C3" data-page="R1-24" data-path="/en/" data-status="waiting" data-waiting="eyal">
+
+<div class="item" id="HW-C3" data-id="HW-C3">
   <h3>העמוד באנגלית</h3>
-  <div class="st st-wait-eyal">פורסם באתר הבדיקה. ממתין לתמונות ממך</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הנוסח ששלחת מופיע בעמוד האנגלי. באנר הטיוטה ירד. הוכנו מקומות לתמונות, בלי להמציא תמונות.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>תמונות כשתהיינה מוכנות. המקומות כבר בעמוד.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="C3" value="מאשר כמו שהוא"><span>קראתי — מאשר את הנוסח כמו שהוא</span></label>
-<label class="opt"><input type="radio" name="C3" value="אשלח נוסח" checked><span>אשלח נוסח אנגלי משלי</span></label>
-<label class="opt"><input type="radio" name="C3" value="להסיר בינתיים"><span>להסיר את העמוד באנגלית בינתיים</span></label>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/en/</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">הנוסח האנגלי ששלחת חי בעמוד. הוכנו מקומות לתמונות, בלי להמציא תמונות.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>תמונות למקומות המוכנים בעמוד.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-C3" value="אשלח תמונות"><span>אשלח תמונות לעמוד האנגלי</span></label>
+    <label class="opt"><input type="radio" name="HW-C3" value="אין לי תמונות כרגע"><span>אין לי תמונות לשלוח כרגע</span></label>
+    <label class="opt"><input type="radio" name="HW-C3" value="אחר"><span>אחר — פירטתי למטה</span></label>
   </fieldset>
-  <textarea name="note-C3" placeholder="הערה"># Didgeridoo Healing Center
-cbDIDG Method - Eyal Amit
+  <textarea name="note-HW-C3" placeholder="הערה"></textarea>
+</div>
 
-## Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel
-
-For more than 25 years, the didgeridoo has been at the center of my work with breath, sound and people.
-
-I use the instrument not only as something to play, but as a practical tool for developing breath awareness, coordination, presence and a deeper relationship with the body.
-
-Over the years, this work developed into **cbDIDG**, a structured method that brings together didgeridoo playing, breathing practice, sound and body awareness.
-
-Today, the Didgeridoo Healing Center in Pardes Hanna offers one-on-one breath work, didgeridoo lessons, private sound healing, workshops, talks, advanced learning and handmade instruments.
-
-**English-speaking visitors are welcome.**
-
-[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)
-
----
-
-## More than learning an instrument
-
-### Working with breath through the didgeridoo
-
-The didgeridoo is usually introduced as an ancient wind instrument.
-
-In my work, I see it first and foremost as a **breath-training instrument**.
-
-Playing requires coordination between breathing, lips, tongue, cheeks, throat and attention. The instrument provides immediate feedback. When the breath changes, the sound changes.
-
-This makes the didgeridoo an unusually direct tool for exploring the way we breathe.
-
-My approach is active.
-
-You are not simply receiving a treatment while someone else plays. You learn, practice, listen, adjust and gradually develop skills you can continue using independently.
-
-The goal is not musical performance.
-
-**The instrument is the practice tool. The breath is the work.**
-
----
-
-# The cbDIDG Method
-
-## A structured method developed through more than two decades of practice
-
-Over the years I developed **cbDIDG**, my method for working with breathing through the didgeridoo.
-
-The method grew gradually from several worlds that became connected through my own experience:
-
-* more than 25 years of playing and teaching didgeridoo
-* my apprenticeship with Mukesh Dahiman in India
-* years of building didgeridoos by hand
-* study and practice of tai chi, qigong, yoga and mindfulness
-* my background as an electronics engineer
-* my interest in physiology, acoustics and the mechanics of breathing
-* thousands of hours of individual work with students and clients
-
-Three principles are central to the method.
-
-### Active work
-
-The person participates in the process.
-
-The work is learned through practice rather than received passively.
-
-### The didgeridoo is the tool, not the goal
-
-Learning to produce sound, coordinate the breathing system and eventually develop circular breathing creates a practical framework for exploring breath patterns, control, awareness and attention.
-
-You do not need to become a musician.
-
-### Change develops through repetition
-
-This work is not built around a one-time experience.
-
-Skills develop through guided practice, repetition and gradual independent work.
-
----
-
-# Why breath became my life&#x27;s work
-
-My relationship with breathing began long before I understood that it would eventually become my profession.
-
-When I was twelve, the apartment building where I lived in Givatayim caught fire. A friend from the building died in that fire, and the experience stayed with me.
-
-Years later, during my military service, I developed severe asthma and allergies.
-
-For a long time I lived with wheezing, medication, inhalers and the feeling that breathing itself had become difficult.
-
-Then I encountered the didgeridoo.
-
-At first, I was simply drawn to its sound.
-
-I wanted to understand how this strange instrument could produce a continuous, deep tone, so I began learning to play.
-
-Only gradually did I begin to notice what the practice was asking me to do.
-
-Slow down.
-
-Coordinate.
-
-Listen.
-
-Pay attention.
-
-Develop control without force.
-
-And, most importantly, build a completely different relationship with my own breath.
-
-My personal experience with asthma and breathing was one of the forces that led me to study the subject more deeply.
-
-I do not present my experience as a medical promise for someone else.
-
-But it shaped the question that has guided my work ever since:
-
-**What can happen when a person learns to work consciously, patiently and consistently with their own breathing?**
-
-That question eventually became the foundation of my professional work.
-
----
-
-# My teacher, Mukesh Dahiman
-
-## Craftsmanship, patience and a way of working
-
-I first met **Mukesh Dahiman** in Rishikesh, India, in 2000.
-
-Mukesh was a didgeridoo maker, teacher and craftsman who came from a family tradition of woodworking. Over many years he devoted himself to building didgeridoos and teaching people who arrived in Rishikesh from around the world.
-
-I returned to study with him and became one of his close students.
-
-What I learned from Mukesh went far beyond the technical skills of making or playing an instrument.
-
-His workshop taught me patience, craftsmanship, repetition, listening and respect for a process that cannot be rushed.
-
-These principles remain deeply connected to the way I work today.
-
-Mukesh passed away in October 2020.
-
-His influence continues through the instruments I build, the way I teach and the knowledge I pass on to others.
-
----
-
-# Ways to work with me
-
-## One-on-one didgeridoo breath work
-
-Individual sessions are at the core of my work.
-
-We begin by looking at the way you breathe and understanding what brings you to the studio.
-
-From there, I develop a personal practice process according to the individual.
-
-A session may include:
-
-* initial observation and assessment
-* a personalized practice plan
-* practical breathing exercises
-* didgeridoo-based exercises
-* coordination of lips, cheeks, tongue, diaphragm and airflow
-* sound and body awareness
-* development of independent practice skills
-* listening, attention and presence
-
-The objective is gradually to give you more understanding and greater awareness of your own breathing.
-
-No previous musical experience is required.
-
-Sessions take place one-on-one at my studio in Pardes Hanna, Israel.
-
----
-
-# Didgeridoo Lessons
-
-## Learn to play from the beginning
-
-You can also come simply because you want to learn this extraordinary instrument.
-
-Private didgeridoo lessons are available from complete beginner level onward.
-
-Learning can include:
-
-* producing the basic drone
-* understanding airflow and breath control
-* circular breathing
-* rhythm
-* tongue techniques
-* vocal techniques
-* overtones
-* sound development
-* musical expression
-* developing a personal practice
-
-My approach to teaching is detailed and gradual.
-
-Complex movements are broken down into simple components, practiced separately and then connected.
-
-For many students, learning the didgeridoo becomes much more than learning another musical instrument.
-
-The process naturally develops attention to breathing, concentration and body awareness.
-
----
-
-# Private Sound Healing
-
-## A different way to experience the didgeridoo
-
-Sound healing is a very different experience from active breath work.
-
-During a private didgeridoo sound session, you do not need to learn, play or practice.
-
-You lie down and receive the sound.
-
-The low drone, harmonics, rhythms and physical vibration of the didgeridoo create an immersive listening experience that many people experience as relaxing, grounding and meditative.
-
-Sessions are available for individuals and couples.
-
-### Breath work or sound healing?
-
-The distinction is important.
-
-**Didgeridoo breath work is active.**
-You learn, practice and gradually build skills.
-
-**Sound healing is receptive.**
-You listen and experience the sound.
-
-Both involve the didgeridoo, but they are two very different forms of work.
-
----
-
-# Workshops
-
-## Breath, sound and didgeridoo as a shared experience
-
-I lead experiential didgeridoo workshops for groups, organizations, private events and communities.
-
-Participants do not need any previous musical experience.
-
-The workshops combine explanation, live demonstration and active participation.
-
-They offer a direct introduction to the relationship between breathing, sound, attention and the didgeridoo.
-
-Workshops usually last approximately **90 to 120 minutes** and can be adapted to the group and setting.
-
-They are suitable for:
-
-* private groups
-* organizations
-* company teams
-* retreats
-* wellness programs
-* community groups
-* special events
-
-The emphasis is on participation and direct experience.
-
----
-
-# Talks
-
-## Breath, health, sound and the story behind the instrument
-
-My talks combine personal story, professional experience, research and live didgeridoo demonstrations.
-
-Depending on the audience, talks can explore themes connected to:
-
-* breathing and health
-* stress
-* sleep
-* sound and vibration
-* the nervous system
-* the didgeridoo
-* my personal journey with breathing
-* the path from electronics engineering to didgeridoo-based breath work
-
-Unlike workshops, talks are primarily designed for a listening audience.
-
-They are available for companies, organizations, conferences, professional events, communities and private groups.
-
----
-
-# Learning and Professional Training
-
-## Taking the work further
-
-Alongside individual work and group activities, the educational side of cbDIDG continues to grow.
-
-I offer and develop advanced learning opportunities for people who want to explore the field more deeply.
-
-These may include:
-
-* advanced didgeridoo study
-* courses
-* professional education
-* therapeutic applications of didgeridoo practice
-* future practitioner training connected to the cbDIDG method
-
-Some programs are intended for experienced players or professionals, while others are suitable for people who simply want to deepen their understanding.
-
-For current courses and training opportunities, contact me directly.
-
----
-
-# What does research say about the didgeridoo?
-
-Scientific research into didgeridoo-related practices is still limited.
-
-It is therefore important to distinguish between promising findings and established medical evidence.
-
-Several studies are particularly interesting.
-
-## Snoring and obstructive sleep apnea
-
-A randomized controlled trial published in the *British Medical Journal* examined adults with snoring and moderate obstructive sleep apnea.
-
-Participants in the didgeridoo group received lessons and practiced regularly for four months.
-
-Compared with the control group, the didgeridoo group showed improvements in:
-
-* daytime sleepiness
-* apnea-hypopnea index
-* their partners&#x27; reported sleep disturbance
-
-The study included only 25 participants, so the findings are promising but should not be interpreted as definitive evidence.
-
-## Stress and relaxation
-
-A randomized study involving 74 university students compared a 30-minute live didgeridoo sound meditation with silent breath meditation.
-
-Both groups reported increased relaxation.
-
-Participants in the didgeridoo meditation group experienced significantly greater relaxation and lower acute self-perceived stress than participants in the silent meditation group.
-
-## Mood, stress and autonomic regulation
-
-Another study followed 20 beginners through ten didgeridoo-based health promotion lessons.
-
-Researchers reported changes in measures related to:
-
-* mood
-* mental stress
-* pulse
-* salivary amylase
-* autonomic nervous system balance
-
-These studies are part of a relatively small body of research.
-
-They do not establish didgeridoo practice as a replacement for medical treatment, but they do support continued investigation into the instrument as a tool connected to breathing, sound and wellbeing.
-
----
-
-# Handmade Didgeridoos
-
-## From wood to sound
-
-Building didgeridoos has been part of my life almost as long as playing them.
-
-I learned instrument making in India with Mukesh Dahiman and later continued developing my craft in Israel.
-
-My background in electronics engineering also influenced the way I think about instruments.
-
-A didgeridoo is acoustically much more complex than it may appear.
-
-Its:
-
-* length
-* internal bore
-* geometry
-* diameter
-* resistance
-* material
-* shape
-
-all influence the way the instrument responds and the sound it produces.
-
-I build didgeridoos by hand, including instruments made from agave.
-
-The studio also offers:
-
-* handmade didgeridoos
-* professional instruments
-* instrument repair
-* restoration
-* carrying bags
-* stands and accessories
-* guidance in choosing the right instrument
-
-If you are looking for a didgeridoo, you are welcome to contact me and arrange a visit to the workshop.
-
----
-
-# About Eyal Amit
-
-I have been working with the didgeridoo since **1999**.
-
-Over the years I have worked as a player, teacher, instrument maker and practitioner using the didgeridoo as a tool for working with breathing.
-
-My original professional training was in electronics engineering.
-
-My path later moved through woodworking, writing, publishing, performance and storytelling, but the didgeridoo gradually became the center of my professional life.
-
-Today I am the founder of the **Didgeridoo Healing Center** in Pardes Hanna and the developer of the **cbDIDG method**.
-
-From my studio I work with people individually, teach didgeridoo, build instruments and lead workshops, talks and sound healing sessions.
-
-What connects all of these activities is one simple idea:
-
-**Breathing is something we do every moment of our lives, but it is also something we can learn to observe, practice and understand more deeply.**
-
-The didgeridoo gives us an unusual and powerful way to do that.
-
----
-
-# The Didgeridoo Healing Center
-
-## Pardes Hanna, Israel
-
-The center is located in Pardes Hanna, surrounded by a garden and designed as a quiet space for individual and group work.
-
-It includes both the studio where I teach and work with people and the workshop where I build and repair didgeridoos.
-
-People come from different parts of Israel and from abroad for:
-
-* individual sessions
-* lessons
-* sound healing
-* workshops
-* professional learning
-* didgeridoo instruments
-
-**Sessions and lessons can be conducted in English.**
-
----
-
-# Frequently Asked Questions
-
-## Do I need to know how to play the didgeridoo?
-
-No.
-
-Most people begin with no previous experience.
-
-The process starts with basic breathing, sound production and simple coordination.
-
----
-
-## Do I need to own a didgeridoo before I start?
-
-No.
-
-You can begin with instruments available at the studio.
-
-If you later decide to buy an instrument, I can help you understand what type of didgeridoo is suitable for you.
-
----
-
-## Do I need musical experience?
-
-No.
-
-Musical experience can be useful, but it is not necessary for breath work, beginner didgeridoo lessons or workshops.
-
----
-
-## Is this medical treatment?
-
-The work offered at the center is complementary and educational and is not a substitute for medical diagnosis or treatment.
-
-If you have a medical condition, including a respiratory or sleep-related condition, you should continue to consult your physician or other qualified healthcare professional.
-
----
-
-## Can didgeridoo practice replace CPAP or other medical treatment for sleep apnea?
-
-No medical treatment should be stopped or changed without consultation with the healthcare professional responsible for your care.
-
-Research into didgeridoo playing and obstructive sleep apnea is interesting, but it remains limited.
-
----
-
-## Is didgeridoo breath work the same as sound healing?
-
-No.
-
-Didgeridoo breath work is an active learning process.
-
-Sound healing is primarily a receptive listening experience.
-
----
-
-## Can complete beginners join a workshop?
-
-Yes.
-
-The workshops are designed so that participants with no background in music or didgeridoo can take part.
-
----
-
-## Do you work in English?
-
-Yes.
-
-Private sessions, didgeridoo lessons and selected workshops can be conducted in English.
-
----
-
-## Where is the center?
-
-The Didgeridoo Healing Center is located in **Pardes Hanna, Israel**.
-
----
-
-# Not sure where to start?
-
-You do not need to decide in advance whether you need breath work, a didgeridoo lesson, sound healing or another form of work.
-
-Tell me a little about what brings you here.
-
-We can decide together what makes the most sense for you.
-
-[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)
-
-**Phone / WhatsApp:**
-[+972 52 482 2842](tel:+972524822842)
-
-**Pardes Hanna, Israel**
-
----
-
-# Explore the full website
-
-The rest of the website is currently available in Hebrew.
-
-If you read Hebrew, you can explore the full website for detailed information about:
-
-* the cbDIDG method
-* didgeridoo breath work
-* didgeridoo lessons
-* sound healing
-* workshops
-* talks
-* courses and training
-* handmade didgeridoos
-* articles and research
-* Mukesh Dahiman
-* Eyal Amit
-
-[**Visit the Hebrew website**](https://www.eyalamit.co.il/)
-
-__________________________
-
-הערה לנמרוד - כדי שהדף לא יהיה משעמם כדאי לשלב בו קצת תמונות.</textarea>
-</div><h2>חלק ז · פוסטי בלוג, אחד־אחד <span class="cnt">— 1</span></h2><p class="sub">ארכיון: מממשים לפי האתר הישן, בלי החלפת תמונות. תבנית אחידה לפוסטים חדשים. בלי תמונה — הירו עם לוגו.</p>
-<div class="item item--slim" data-id="P037" data-page="R1-20" data-path="/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/" data-status="waiting" data-waiting="eyal">
-  <div class="slim">
-    <a class="slink" href="http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/" target="_blank" rel="noopener">נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית. פוסט מ 2012</a>
-    <span class="dt">2012-11-03</span>
-    <label class="mini"><input type="radio" name="P037" value="מאושר"><span>מאושר</span></label><label class="mini"><input type="radio" name="P037" value="יש הערה" checked><span>יש הערה</span></label>
-    <textarea name="note-P037" placeholder="הערה">1. את התמונה הראשית בהירו בבקשה קח מהפוסט באתר המקורי.</textarea>
-  </div>
-  <div class="st st-wait-eyal">אין תמונת נושא גם באתר הישן. אייל ישלח אם יש. לא מעתיקים.</div>
-</div><h2>חלק ז־ב · עמודי קודים מודפסים <span class="cnt">— 2</span></h2><p class="sub">משפחה נפרדת מהבלוג. אין לשבור permalink. תמונה ייחודית לכל עמוד, או הירו לוגו. לא מכפילים תמונה אחת.</p>
-<div class="item" id="Q-HERO-ASK" data-id="Q-HERO-ASK" data-page="R1-QR" data-path="/qr/qr1/" data-status="waiting" data-waiting="eyal">
+<div class="item" id="HW-QR-HERO" data-id="HW-QR-HERO">
   <h3>תמונות ייחודיות לעמודי הקודים המודפסים</h3>
-  <div class="st st-wait-eyal">ממתין לך — תמונה שונה לכל עמוד QR, או הירו לוגו בלי תמונה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">עמודי הקודים המודפסים (qr1–qr48) הם משפחה נפרדת מהבלוג. הכתובות בספרים לא זזות. עדיף תמונה שונה לכל עמוד. אין לנו סט תמונות ייחודיות, ולא נכפיל תמונה אחת על כל הקודים.</span></div>
-  <div class="need"><span class="lbl">מה מבקשים ממך</span>תמונה ייחודית לכל עמוד קוד, או סימון שאפשר להשאיר הירו מינימלי עם לוגו בלי תמונה. ברירת המחדל אצלנו עד שתבחר: הירו עם לוגו בלי תמונה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="Q-HERO-ASK" value="אשלח תמונות"><span>אשלח תמונה שונה לכל עמוד קוד</span></label>
-<label class="opt"><input type="radio" name="Q-HERO-ASK" value="הירו לוגו"><span>אפשר הירו עם לוגו בלי תמונה</span></label>
-<label class="opt"><input type="radio" name="Q-HERO-ASK" value="יש הערה"><span>יש הערה — פירטתי למטה</span></label>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/</a> (דוגמה — המשפחה כולה qr1–qr48)</p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">עמודי הקודים המודפסים (qr1–qr48) הם משפחה נפרדת מהבלוג. הכתובות בספרים לא זזות. אין לנו סט
+    תמונות ייחודיות, ולא נכפיל תמונה אחת על כל הקודים.</span></div>
+  <div class="need"><span class="lbl">מה מבקשים ממך</span>תמונה ייחודית לכל עמוד קוד, או אישור שאפשר להשאיר הירו מינימלי עם לוגו בלי תמונה.
+    ברירת המחדל עד שתבחר: הירו עם לוגו בלי תמונה.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-QR-HERO" value="אשלח תמונות"><span>אשלח תמונה שונה לכל עמוד קוד</span></label>
+    <label class="opt"><input type="radio" name="HW-QR-HERO" value="הירו לוגו"><span>אפשר הירו עם לוגו בלי תמונה</span></label>
+    <label class="opt"><input type="radio" name="HW-QR-HERO" value="אחר"><span>אחר — פירטתי למטה</span></label>
   </fieldset>
-  <textarea name="note-Q-HERO-ASK" placeholder="הערה"></textarea>
+  <textarea name="note-HW-QR-HERO" placeholder="הערה"></textarea>
 </div>
-<div class="item" id="Q-REPAIR-ALT" data-id="Q-REPAIR-ALT" data-page="" data-path="/repair/" data-status="waiting" data-waiting="eyal">
+
+<div class="item" id="HW-REPAIR-ALT" data-id="HW-REPAIR-ALT">
   <h3>כיתוב לחמש תמונות בעמוד התיקון</h3>
-  <div class="st st-wait-eyal">אין משפט קיים — לא הומצא כיתוב</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/repair/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/repair/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/repair/</a></p>
   <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">חמש התמונות מוצגות בלי כיתוב, כי אין משפט קיים.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>EA-000239, EA-000298, EA-000214, EA-000238, EA-000220. משפט קצר לכל אחת, אם יש.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="Q-REPAIR-ALT" value="מאושר"><span>מאושר</span></label>
-<label class="opt"><input type="radio" name="Q-REPAIR-ALT" value="יש הערה"><span>יש הערה</span></label>
-  </fieldset>
-  <textarea name="note-Q-REPAIR-ALT" placeholder="הערה"></textarea>
-</div><h2>חלק י · לשיחה <span class="cnt">— 8</span></h2><p class="sub">M4 נסגר: שוקולד כדפוס הצטרפות, ירד מהטופס. M1 הסדר נרשם. M5 רק וידאו הרקע. פתוחים: תבנית פוסט, הסטה, סטנדים, כותרות הירו, קרוסלת סרטונים, מוזיקת רקע.</p>
-<div class="item" id="M1" data-id="M1" data-page="" data-path="/" data-status="waiting" data-waiting="eyal">
-  <h3>עץ התפריט הראשי — שיחה אחת</h3>
-  <div class="st st-wait-eyal">הסדר נרשם. הסרגל לא זז עד השיחה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה כתבת, ומה מוצג היום</span><span class="quote">היום מימין לשמאל אחרי הלוגו: טיפול, השיטה, שיעורים, סאונד הילינג, לימוד והכשרה, כלים, ספרים, בלוג, אייל עמית, צור קשר. «אייל עמית» ו«לימוד והכשרה» בלי קישור לאב. התקנון, השאלות הנפוצות והעדויות בפוטר, לא בסרגל. אחרי גלילה הסרגל כבר יורד ל-56px.</span></div>
-  <div class="need"><span class="lbl">מה נשאר לשיחה</span>הסדר שכתבת נרשם ולא יושם. נשאר לאשר אותו מול מה שחי, ולהכריע אם שאלות נפוצות ועדויות נכנסים לסרגל הראשי. הקטנת הפונט והיצרות נוספת בגלילה נוגעות לקאנון הגודל — לא משנים לפני השיחה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M1" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M1" value="יש הערה על העץ" checked><span>יש הערה על העץ — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M1" placeholder="הערה">23.9 בבוקר, מימין לשמאל: לוגו, אייל עמית, טיפול בדיג&#x27;רידו, שיעורי דיג&#x27;רידו, סאונד הילינג, השיטה, כלים ואביזרים, לימוד והכשרה, בלוג דיג&#x27;רידו, ספרים, צור קשר. להקטין את הפונט לשורה אחת. להצר עוד בגלילה. הפרדה ברורה יותר בין הלוגו לכפתור הראשון. שאל אם שאלות נפוצות ועדויות נכנסים לסרגל.</textarea>
+  <div class="need"><span class="lbl">מה חסר</span>משפט קצר לכל תמונה, אם יש. אין חובה — תמונה בלי משפט קיים נשארת בלי כיתוב.</div>
+  <p class="fieldnote">כיתוב לכל תמונה בנפרד למטה, או הערה כללית לחמש התמונות באחר.</p>
+  <figure class='shot'><img src="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg" alt=""><figcaption><a href="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg">EA-000239</a></figcaption><textarea name="note-HW-REPAIR-ALT-EA-000239" placeholder="כיתוב (רשות)"></textarea></figure>
+  <figure class='shot'><img src="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000298.jpg" alt=""><figcaption><a href="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000298.jpg">EA-000298</a></figcaption><textarea name="note-HW-REPAIR-ALT-EA-000298" placeholder="כיתוב (רשות)"></textarea></figure>
+  <figure class='shot'><img src="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000214.jpeg" alt=""><figcaption><a href="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000214.jpeg">EA-000214</a></figcaption><textarea name="note-HW-REPAIR-ALT-EA-000214" placeholder="כיתוב (רשות)"></textarea></figure>
+  <figure class='shot'><img src="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000238.jpeg" alt=""><figcaption><a href="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000238.jpeg">EA-000238</a></figcaption><textarea name="note-HW-REPAIR-ALT-EA-000238" placeholder="כיתוב (רשות)"></textarea></figure>
+  <figure class='shot'><img src="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000220.jpeg" alt=""><figcaption><a href="http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000220.jpeg">EA-000220</a></figcaption><textarea name="note-HW-REPAIR-ALT-EA-000220" placeholder="כיתוב (רשות)"></textarea></figure>
+  <p class="fieldnote">אחר</p>
+  <textarea name="note-HW-REPAIR-ALT" placeholder="אחר — הערה כללית לחמש התמונות"></textarea>
 </div>
-<div class="item" id="M2" data-id="M2" data-page="" data-path="/?ea_blog_dummy=week-of-breath-dummy" data-status="waiting" data-waiting="eyal">
-  <h3>תבנית פוסט חדש — שיחה</h3>
-  <div class="st st-wait-eyal">לשיחה — יחד עם עץ התפריט</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">פוסט חדש נבנה מתבנית קבועה: הירו, ואז שורות — טקסט, טקסט עם תמונה, גלריה, ציטוט, סרט, וכפתור לפנייה. בלי תמונה ראשית ההירו כהה עם הלוגו, לא דיוקן. פוסטים שכבר באתר נשארים כמו שהיו. הקישור למעלה הוא דוגמה, לא פוסט שפורסם.</span></div>
-  <div class="need"><span class="lbl">מה נסגור בשיחה, יחד עם העץ</span>האם המבנה הזה מתאים לפוסטים חדשים. לא למלא בנפרד מעץ התפריט — אותו מפגש.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M2" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M2" value="יש הערה על התבנית"><span>יש הערה על התבנית — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M2" placeholder="הערה"></textarea>
-</div>
-<div class="item" id="M3" data-id="M3" data-page="" data-path="/method/" data-status="waiting" data-waiting="eyal">
-  <h3>הסטת הכותרת מול גוף הטקסט</h3>
-  <div class="st st-wait-eyal">לשיחה — מכוון, לא פותחים את הקאנון לפניה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/method/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">בכל העמודים הכותרת רחבה יותר מהפסקה. הפסקה ממורכזת בתוך הרוחב, לכן היא מתחילה שמאלה מהכותרת. זה מכוון, כדי שהעין תבדיל בין כותרת לגוף.</span></div>
-  <div class="need"><span class="lbl">מה נסגור בשיחה</span>האם ההסטה הזו נוחה בקריאה, או שמפריעה. לא למלא בנפרד.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M3" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M3" value="יש הערה"><span>יש הערה — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M3" placeholder="הערה"></textarea>
-</div>
-<div class="item" id="M5" data-id="M5" data-page="" data-path="/eyal-amit/mokesh-dahiman/" data-status="waiting" data-waiting="eyal">
-  <h3>מוקש דהימן — עבודה בפגישה</h3>
-  <div class="st st-wait-eyal">לפגישה — רק וידאו הרקע של ההירו. הסרט בתוך העמוד נשאר</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/mokesh-meeting.html" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה כתבת, ומה יש היום</span><span class="quote">כתבת להסיר את וידאו הרקע בהירו ולהשאיר תמונה של מוקש לבדו, בלי סאונד. היום יש שני שימושים באותו סרט: רקע שקט בהירו, וסרט מוטמע ליד פתיחת הטקסט — את זה ביקשת קודם לשים שם. 34 תמונות שסימנת נמצאות בדף הפגישה.</span></div>
-  <div class="need"><span class="lbl">מה נעשה בפגישה</span>נבחר את התמונה להירו. הסרט שבתוך העמוד נשאר, אלא אם תאמר אחרת.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M5" value="נדבר בשיחה" checked><span>נדבר בפגישה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M5" value="יש הערה"><span>יש הערה — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M5" placeholder="הערה">21.9: בתמונת ההירו לא צריך להיות וידאו, אלא רק תמונה של מוקש ללא סאונד. להסיר את וידאו הרקע בהירו. הדיוקן של מוקש לבדו. הסרט בתוך העמוד לא הוזכר להסרה.</textarea>
-</div>
-<div class="item" id="M6" data-id="M6" data-page="" data-path="/stands-storage/" data-status="waiting" data-waiting="eyal">
-  <h3>סטנדים — דוגמה לשילוב תמונות</h3>
-  <div class="st st-wait-eyal">לשיחה — דוגמה לזרימה, לא גלריה אחידה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/stands-storage/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה ביקשת ומה יש</span><span class="quote">כתבת שהגלריה חתוכה ושוברת את הדף, ושצריך לפזר תמונות לאורך הטקסט. יש שני סוגים: סטנד לתלייה וסטנד רצפתי. שלוש תמונות סומנו עם ההבחנה הזו.</span></div>
-  <div class="need"><span class="lbl">מה נבחן בשיחה</span>העמוד הזה יהיה הדוגמה: חלק מהתמונות גדולות בתוך הסיפור, חלק נשארות גלריה מסודרת בסוף. לא מחליטים על שאר העמודים לפני שרואים את הדוגמה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M6" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M6" value="יש הערה"><span>יש הערה — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M6" placeholder="הערה"></textarea>
-</div>
-<div class="item" id="M7" data-id="M7" data-page="" data-path="/" data-status="waiting" data-waiting="eyal">
-  <h3>כותרות ההירו והכיתוב cbDIDG</h3>
-  <div class="st st-wait-eyal">לשיחה — נוגע בקאנון האות</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה כתבת</span><span class="quote">הכותרות הראשיות בהירו לא מסודרות, הפונט לא נראה טוב, ו-cbDIDG לא נראה יפה.</span></div>
-  <div class="need"><span class="lbl">מה נסגור בשיחה</span>נראה יחד דוגמה חיה. לא מחליפים פונט לפני השיחה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M7" value="נדבר בשיחה" checked><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
-<label class="opt"><input type="radio" name="M7" value="יש הערה"><span>יש הערה — פירטתי למטה</span></label>
-  </fieldset>
-  <textarea name="note-M7" placeholder="הערה">הכותרות הראשיות בהירו לא מסודרות טוב, וגם הפונט לא נראה טוב. cbDIDG לא נראה יפה בכלל.</textarea>
-</div>
-<div class="item" id="M8" data-id="M8" data-page="" data-path="/" data-status="waiting" data-waiting="eyal">
+
+<div class="item" id="HW-VIDEO" data-id="HW-VIDEO">
   <h3>קרוסלת סרטונים בדף הבית ובדפים חשובים</h3>
-  <div class="st st-wait-eyal">ממתין לקבצי הסרטונים</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
-  <div class="now"><span class="lbl">מה ביקשת</span><span class="quote">קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, כדי שהאתר ייראה חי. כתבת שיש סרטונים מהאינסטגרם.</span></div>
-  <div class="need"><span class="lbl">מה חסר</span>הסרטונים עצמם, או קישורים. בלי זה אין מה להרכיב.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M8" value="אשלח סרטונים"><span>אשלח סרטונים או קישורים</span></label>
-<label class="opt"><input type="radio" name="M8" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/</a></p>
+  <div class="now"><span class="lbl">מה ביקשת</span><span class="quote">קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, כדי שהאתר ייראה חי. כתבת שיש סרטונים
+    מהאינסטגרם.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>הסרטונים עצמם, או קישורים אליהם. בלי זה אין מה להרכיב.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-VIDEO" value="אשלח סרטונים"><span>אשלח סרטונים או קישורים</span></label>
+    <label class="opt"><input type="radio" name="HW-VIDEO" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
+    <label class="opt"><input type="radio" name="HW-VIDEO" value="אחר"><span>אחר — פירטתי למטה</span></label>
   </fieldset>
-  <textarea name="note-M8" placeholder="הערה"></textarea>
+  <textarea name="note-HW-VIDEO" placeholder="הערה"></textarea>
 </div>
-<div class="item" id="M9" data-id="M9" data-page="" data-path="/" data-status="waiting" data-waiting="eyal">
+
+<div class="item" id="HW-MUSIC" data-id="HW-MUSIC">
   <h3>מוזיקת רקע להירו, עם השתקה</h3>
-  <div class="st st-wait-eyal">ממתין לקובץ המוזיקה</div>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">פתיחת העמוד באתר הבדיקה</a></p>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/</a></p>
   <div class="now"><span class="lbl">מה ביקשת</span><span class="quote">מוזיקת רקע להירו, עם לחצן ברור להשתיק. כתבת שתשלח את הקובץ בהמשך.</span></div>
   <div class="need"><span class="lbl">מה חסר</span>קובץ המוזיקה.</div>
-  <fieldset><legend>הסימון שלך (מ־21 בספטמבר)</legend>
-    <label class="opt"><input type="radio" name="M9" value="אשלח קובץ"><span>אשלח את קובץ המוזיקה</span></label>
-<label class="opt"><input type="radio" name="M9" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-MUSIC" value="אשלח קובץ"><span>אשלח את קובץ המוזיקה</span></label>
+    <label class="opt"><input type="radio" name="HW-MUSIC" value="נדבר בשיחה"><span>נדבר בשיחה — לא ממלא בנפרד</span></label>
+    <label class="opt"><input type="radio" name="HW-MUSIC" value="אחר"><span>אחר — פירטתי למטה</span></label>
   </fieldset>
-  <textarea name="note-M9" placeholder="הערה"></textarea>
+  <textarea name="note-HW-MUSIC" placeholder="הערה"></textarea>
 </div>
-<h2>לפגישה, לא למילוי</h2><p class="sub">הכרעות של נימרוד. אין כאן שאלון למילוי.</p><ul><li>עמוד ההופעות: המילה placeholder הוסרה מהגוף. העמוד נשאר מפורסם ובאינדקס. הסטטוס «סגור» לא נפתח מחדש. ההכרעה אצלך: להשאיר, לבטל פרסום, או לפתוח את A2 ו-E4.</li><li>בלוק שאלות בדף הבית לא נבנה. כמה שאלות מתוך 133 שכבר קיימות בעמוד השאלות, ואילו. אין שאלה חדשה עד שתגיד.</li><li>הצהרת הנגישות לא נגענו בה. היא ממתינה למיפוי הניגודיות ולנוסח שתאשר לפני הדבקה.</li><li>לעמוד הסטנד הרצפתי ולעמוד הספרים הראשי אין פריט עבודה. רישום, לא בנייה. ההכרעה אצלך.</li><li>לבניית נתוני העבודה אין אימות נפרד. תהליך, לא שינוי באתר. ההכרעה אצלך.</li><li>שבע־עשרה ההערות מ־18.9 בשעה 11:58 לא שמורות בארכיון. תיעוד, לא בנייה. ההכרעה אצלך.</li><li>שמונת סעיפי השיחה נשארים בטופס: M1, M2, M3, M5, M6, M7, M8, M9. לא הוחלט אם להוריד אותם. ההכרעה אצלך.</li><li>עמוד מוקש הישן: דריפט מהיום הראשון. לא נמחק ולא נכתב מחדש. מילה סופית של אייל בפגישה. נימרוד אישר לרשום את זה כסעיף פגישה ב־24.9.</li></ul>
+
+<div class="item" id="HW-2012-PHOTO" data-id="HW-2012-PHOTO">
+  <h3>תמונת הפוסט מ־2012 <span class="tag">אתר ישן</span></h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/" target="_blank" rel="noopener">נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית (פוסט מ־2012, עמוד קיים באתר החדש)</a></p>
+  <div class="now"><span class="lbl">מה נמדד</span><span class="quote">בפוסט המקורי מ־2012 באתר הישן אין תמונת נושא. זו הסיבה שהשאלה הזאת עולה מלכתחילה — אין תמונה
+    לקחת ממנה.</span></div>
+  <div class="need"><span class="lbl">מה מבקשים ממך</span>תמונה לשלוח, או אישור שהפוסט עולה בלי תמונת נושא. שתי התשובות סוגרות את הסעיף —
+    אין תשובה שלישית.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-2012-PHOTO" value="אשלח תמונה"><span>יש לי תמונה לשלוח</span></label>
+    <label class="opt"><input type="radio" name="HW-2012-PHOTO" value="אין תמונה"><span>אין תמונה — שיעלה בלי תמונת נושא</span></label>
+    <label class="opt"><input type="radio" name="HW-2012-PHOTO" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-HW-2012-PHOTO" placeholder="הערה"></textarea>
+</div>
+
+<div class="item" id="HW-B2-GALLERY-DUP" data-id="HW-B2-GALLERY-DUP">
+  <h3>עמוד הגלריות — האם התשובה שכבר ניתנה סוגרת גם את זה</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/galleries/</a></p>
+  <div class="now"><span class="lbl">מה נמדד</span><span class="quote">שתי שאלות נשאלו בעבר על אותו עמוד גלריות, בניסוח שונה. על השנייה — מקור התמונות — כבר ענית:
+    מהגלריה שבתחתית דף הבית של האתר הישן, וזה כבר בוצע בעמוד החי (149 תמונות).</span></div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>האם התשובה הזו סוגרת גם את השאלה הראשונה על העמוד, או שיש לך תוספת נפרדת לעמוד
+    הגלריות מעבר למה שכבר בוצע?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="HW-B2-GALLERY-DUP" value="סוגר"><span>כן — אותה תשובה, אין תוספת</span></label>
+    <label class="opt"><input type="radio" name="HW-B2-GALLERY-DUP" value="תוספת"><span>יש לי תוספת נפרדת — פירטתי למטה</span></label>
+    <label class="opt"><input type="radio" name="HW-B2-GALLERY-DUP" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-HW-B2-GALLERY-DUP" placeholder="הערה"></textarea>
+</div>
+
+<h2>חלק ב · קישורי רכישה — חשבונית ירוקה <span class="cnt">— 4</span></h2>
+<p class="sub">ההחלטה המחייבת מ־14 ביולי 2026 קבעה קנון יחיד: כפתור חשבונית ירוקה / Morning בעמוד
+  הספר, ו״URL מדויק לכל ספר/מוצר״ ממך. זה הסעיף הכי ותיק ברשימה — פתוח מאז. הקישור לדוגמה מ־יולי
+  (kushi-blantis) שימש עד היום את כל העמודים; הוא שייך לספר אחד בלבד ולא הוחלף עדיין בקישורים
+  אמיתיים.</p>
+
+<div class="item" id="GI-TSVA" data-id="GI-TSVA">
+  <h3>קישור רכישה — «צבע בכחול וזרוק לים»</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">עמוד הספר חי, בלי כפתור רכישה משלו.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>ה־URL המדויק של חשבונית ירוקה / Morning לספר הזה בלבד.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="GI-TSVA" value="אשלח קישור"><span>אשלח את קישור החשבונית הירוקה לספר הזה</span></label>
+    <label class="opt"><input type="radio" name="GI-TSVA" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-GI-TSVA" placeholder="קישור החשבונית הירוקה, או הערה"></textarea>
+</div>
+
+<div class="item" id="GI-KUSHI" data-id="GI-KUSHI">
+  <h3>קישור רכישה — «כושי בלאנטיס»</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">עמוד הספר חי, בלי כפתור רכישה משלו — גם אם קישור הדוגמה של יולי נמשך מספר זה, הוא אינו מוצג
+    כרגע כפתור רכישה בעמוד עצמו.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>ה־URL המדויק של חשבונית ירוקה / Morning לספר הזה.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="GI-KUSHI" value="אשלח קישור"><span>אשלח את קישור החשבונית הירוקה לספר הזה</span></label>
+    <label class="opt"><input type="radio" name="GI-KUSHI" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-GI-KUSHI" placeholder="קישור החשבונית הירוקה, או הערה"></textarea>
+</div>
+
+<div class="item" id="GI-VEKATAVTA" data-id="GI-VEKATAVTA">
+  <h3>קישור רכישה — «וכתבת»</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">עמוד הספר חי, בלי כפתור רכישה משלו.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>ה־URL המדויק של חשבונית ירוקה / Morning לספר הזה.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="GI-VEKATAVTA" value="אשלח קישור"><span>אשלח את קישור החשבונית הירוקה לספר הזה</span></label>
+    <label class="opt"><input type="radio" name="GI-VEKATAVTA" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-GI-VEKATAVTA" placeholder="קישור החשבונית הירוקה, או הערה"></textarea>
+</div>
+
+<div class="item" id="GI-BUNDLE" data-id="GI-BUNDLE">
+  <h3>קישור רכישה — חבילת 3 הספרים (מבצעים)</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/#books-bundle" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/books/#books-bundle</a></p>
+  <div class="now"><span class="lbl">מה מוצג היום</span><span class="quote">״חבילת 3 הספרים של אייל עמית״ — 150 ש״ח במקום 207 ש״ח. כפתור הרכישה מוצג כרגע כממתין בעיצוב
+    מובחן (לא כפתור רכישה תקין), כדי לא להשתמש בקישור הדוגמה של ספר אחר עבור המבצע.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>ה־URL המדויק של חשבונית ירוקה / Morning לחבילת שלושת הספרים.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="GI-BUNDLE" value="אשלח קישור"><span>אשלח את קישור החשבונית הירוקה לחבילה</span></label>
+    <label class="opt"><input type="radio" name="GI-BUNDLE" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-GI-BUNDLE" placeholder="קישור החשבונית הירוקה, או הערה"></textarea>
+</div>
+
+<h2>חלק ג · תוכן חסר <span class="cnt">— 1</span></h2>
+
+<div class="item" id="BLOG-COL41" data-id="BLOG-COL41">
+  <h3>טור מספר 41, «חארטה בארטה»</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/blog/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/blog/</a> (ארכיון הבלוג — הטור עצמו חסר ממנו)</p>
+  <div class="now"><span class="lbl">מה נמדד</span><span class="quote">הטורים הקיימים בבלוג החדש נבדקו אחד־אחד. טור 41, «חארטה בארטה», פשוט אינו שם — אין לו
+    מקבילה בבלוג החדש.</span></div>
+  <div class="need"><span class="lbl">מה חסר</span>תוכן הטור, כדי להעלות אותו לבלוג.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="BLOG-COL41" value="אשלח תוכן"><span>אשלח את תוכן הטור</span></label>
+    <label class="opt"><input type="radio" name="BLOG-COL41" value="לוותר"><span>הטור לא נחוץ — לוותר עליו</span></label>
+    <label class="opt"><input type="radio" name="BLOG-COL41" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-BLOG-COL41" placeholder="הערה"></textarea>
+</div>
+
+<h2>חלק ד · האתר הישן — עמודים שצריכים את עינך לפני המחיקה <span class="cnt">— 5</span></h2>
+<p class="sub">האתר הישן יורד גיבוי ואז יימחק. אלה חמש מחלקות עמודים בו שאין להן מקבילה באתר החדש.
+  לכל אחת: מה קיים היום, ומה מבוקש ממך — לשמר ולבנות מחדש, או לוותר במודע. אין המלצה כתובה כאן —
+  רק מצב ושאלה.</p>
+
+<div class="item" id="OLD-PORTFOLIO" data-id="OLD-PORTFOLIO">
+  <h3>עמודי תיק עבודות <span class="tag">אתר ישן</span></h3>
+  <div class="now"><span class="lbl">מה קיים היום</span><span class="quote">עשרים וחמישה עמודי «תיק עבודות» באתר הישן, כותרות באנגלית שאינן קשורות לדיג׳רידו, לנשימה
+    או לעיסוק שלך — נראה כתוכן דמו של תבנית וורדפרס, אבל «נראה כמו דמו» אינה מדידה. שלוש דוגמאות
+    לצפייה:</span></div>
+  <div class="samples">
+    <a href="https://www.eyalamit.co.il/Blog/portfolio_page/art-week-2014-malmo/" target="_blank" rel="noopener">Art Week 2014 Malmö</a>
+    <a href="https://www.eyalamit.co.il/Blog/portfolio_page/superdollz-showroom/" target="_blank" rel="noopener">SuperDollz Showroom</a>
+    <a href="https://www.eyalamit.co.il/Blog/portfolio_page/der-spiegel-cover-art/" target="_blank" rel="noopener">Der Spiegel Cover Art</a>
+  </div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>מבט על השלוש — אלה שלך, או תוכן שהתבנית הביאה איתה ואפשר לוותר עליו?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="OLD-PORTFOLIO" value="לשמר"><span>אלה שלי — לשמר ולבנות מחדש באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="OLD-PORTFOLIO" value="לוותר"><span>תוכן דמו של התבנית — אפשר לוותר על כל העשרים וחמישה</span></label>
+    <label class="opt"><input type="radio" name="OLD-PORTFOLIO" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-OLD-PORTFOLIO" placeholder="הערה"></textarea>
+</div>
+
+<div class="item" id="OLD-SHOWS" data-id="OLD-SHOWS">
+  <h3>שני עמודי «מופע לדוגמה», ועמוד מופע מתוארך אחד <span class="tag">אתר ישן</span></h3>
+  <div class="now"><span class="lbl">מה קיים היום</span><span class="quote">שלושה עמודי מופעים נוספים באתר הישן, מעבר לעמוד «כתבות היסטוריות» שכבר הועבר במלואו לאתר
+    החדש. אין להם מקבילה באתר החדש:</span></div>
+  <div class="samples">
+    <a href="https://www.eyalamit.co.il/Blog/shows/%d7%9e%d7%95%d7%a4%d7%a2-%d7%9c%d7%93%d7%95%d7%92%d7%9e%d7%94-4/" target="_blank" rel="noopener">מופע לדוגמה (4)</a>
+    <a href="https://www.eyalamit.co.il/Blog/shows/%d7%9e%d7%95%d7%a4%d7%a2-%d7%9c%d7%93%d7%95%d7%92%d7%9e%d7%94-2/" target="_blank" rel="noopener">מופע לדוגמה (2)</a>
+    <a href="https://www.eyalamit.co.il/Blog/shows/11-7/" target="_blank" rel="noopener">מופע 11-7 (מתוארך)</a>
+  </div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>מבט על השלושה — לשמר ולבנות עמוד מקביל באתר החדש, או לוותר במודע?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="OLD-SHOWS" value="לשמר"><span>לשמר ולבנות עמוד מקביל באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="OLD-SHOWS" value="לוותר"><span>לוותר במודע</span></label>
+    <label class="opt"><input type="radio" name="OLD-SHOWS" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-OLD-SHOWS" placeholder="הערה"></textarea>
+</div>
+
+<div class="item" id="OLD-GALLERIES" data-id="OLD-GALLERIES">
+  <h3>גלריות תמונות של הספרים, ואלבום אחד <span class="tag">אתר ישן</span></h3>
+  <div class="now"><span class="lbl">מה קיים היום</span><span class="quote">באתר הישן קיימות גלריות Envira נפרדות, ואלבום נפרד אחד. גלריית תמונות אינה עמוד מכירה של
+    ספר — אם רוצים את הגלריות עצמן, הן אינן קיימות באתר החדש.</span></div>
+  <div class="now"><span class="lbl">מדידה, ולא כמו שדווח קודם</span>נמדדו חיים שלוש גלריות עם שם ספר מפורש, ואלבום אחד — לא ארבע גלריות
+    כפי שדווח קודם. מדווח כפי שנמדד; אם יש גלריה רביעית היא לא אותרה במפת האתר הישן.</div>
+  <div class="samples">
+    <a href="https://www.eyalamit.co.il/Gallery/%d7%9b%d7%95%d7%a9%d7%99-%d7%91%d7%9c%d7%90%d7%a0%d7%98%d7%99%d7%a1-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener">גלריה — כושי בלאנטיס</a>
+    <a href="https://www.eyalamit.co.il/Gallery/%d7%9e%d7%98%d7%99%d7%99%d7%9c%d7%99%d7%9d-%d7%9e%d7%a6%d7%98%d7%9c%d7%9e%d7%99%d7%9d-%d7%a6%d7%91%d7%a2-%d7%91%d7%9b%d7%97%d7%95%d7%9c/" target="_blank" rel="noopener">גלריה — צבע בכחול</a>
+    <a href="https://www.eyalamit.co.il/Gallery/%d7%95%d7%9b%d7%aa%d7%91%d7%aa/" target="_blank" rel="noopener">גלריה — וכתבת</a>
+    <a href="https://www.eyalamit.co.il/album/16883/" target="_blank" rel="noopener">אלבום</a>
+  </div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>לשחזר את הגלריות והאלבום באתר החדש, או לוותר?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="OLD-GALLERIES" value="לשמר"><span>לשחזר את הגלריות והאלבום באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="OLD-GALLERIES" value="לוותר"><span>לוותר — הן לא נחוצות</span></label>
+    <label class="opt"><input type="radio" name="OLD-GALLERIES" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-OLD-GALLERIES" placeholder="הערה"></textarea>
+</div>
+
+<div class="item" id="OLD-PAPER-STORIES" data-id="OLD-PAPER-STORIES">
+  <h3>«סיפורים מהנייר עם אייל עמית» <span class="tag">אתר ישן</span></h3>
+  <p class="path"><a href="https://www.eyalamit.co.il/Blog/%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%a0%d7%99%d7%99%d7%a8-%d7%a2%d7%9d-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener">https://www.eyalamit.co.il/Blog/סיפורים-מהנייר-עם-אייל-עמית/</a></p>
+  <div class="now"><span class="lbl">מה קיים היום</span><span class="quote">הודעה על סדרת אירועים באתר הישן. אין לה מקבילה בשום מקום באתר החדש.</span></div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>לשמר ולבנות עמוד מקביל, או לוותר במודע?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="OLD-PAPER-STORIES" value="לשמר"><span>לשמר ולבנות עמוד מקביל באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="OLD-PAPER-STORIES" value="לוותר"><span>לוותר במודע</span></label>
+    <label class="opt"><input type="radio" name="OLD-PAPER-STORIES" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-OLD-PAPER-STORIES" placeholder="הערה"></textarea>
+</div>
+
+<div class="item" id="OLD-ARCHIVE" data-id="OLD-ARCHIVE">
+  <h3>שמונים וחמישה עמודי ארכיון (תגיות, קטגוריות, מחבר) <span class="tag">אתר ישן</span></h3>
+  <p class="path">דוגמה אחת מייצגת: <a href="https://www.eyalamit.co.il/Blog/tag/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener">https://www.eyalamit.co.il/Blog/tag/אייל-עמית/</a></p>
+  <div class="now"><span class="lbl">מה קיים היום</span><span class="quote">שמונים וחמישה עמודי ארכיון באתר הישן — תגיות, קטגוריות ועמודי מחבר. אלה עמודי רשימה
+    שוורדפרס מייצר אוטומטית, לא כתיבה שלך. כרטיס אחד לכל המחלקה, לא שמונים וחמישה כרטיסים.</span></div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>הכרעה אחת על כל המחלקה: להפנות אותה למקבילה הקרובה באתר החדש (למשל ארכיון הבלוג),
+    או לקבל את האובדן.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="OLD-ARCHIVE" value="להפנות"><span>להפנות למקבילה הקרובה ביותר באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="OLD-ARCHIVE" value="לוותר"><span>לקבל את האובדן — לא נחוץ</span></label>
+    <label class="opt"><input type="radio" name="OLD-ARCHIVE" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-OLD-ARCHIVE" placeholder="הערה"></textarea>
+</div>
+
+<h2>חלק ה · לאשרר משפטית <span class="cnt">— 3</span></h2>
+<p class="sub">נימרוד ציין בפגישה «שני המסמכים» — באתר מתפרסמים שלושה עמודים משפטיים, ושלושתם כאן
+  כדי שלא יתגלה חוסר בפגישה. אפשר להוריד את מה שלא נחוץ. האישור המבוקש הוא על הנכונות המשפטית
+  לעסק שלך — לא סקירת ניסוח או עיצוב. קרא כל מסמך בקישור שלו; אין כאן תקציר או פרשנות של
+  המשמעות המשפטית שלו.</p>
+
+<div class="item" id="LEGAL-ACCESS" data-id="LEGAL-ACCESS">
+  <h3>הצהרת נגישות</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/accessibility/</a></p>
+  <div class="flux"><span class="lbl">שים לב — הנוסח צפוי להשתנות לפני ההשקה</span>המסמך החי מפרט כיום, תחת «מגבלות ידועות», הסתייגות
+    לגבי בולטות סימון המיקוד בחלק מהפקדים. לפי רישום צוות 90 ההסתייגות הזו כבר תוקנה בפועל בתמה
+    1.5.115 — כלומר המסמך מחמיר עם עצמו יותר מהמציאות. המסמך גם ממתין לניסוח הסופי שלו עד הכרעת
+    הניגודיות. האישור המבוקש כאן הוא על המהות המשפטית, לא על הנוסח הסופי — הוא עוד ישתנה.</div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>אישור שהמסמך נכון מבחינה משפטית לעסק שלך.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="LEGAL-ACCESS" value="מאושר"><span>מאושר כמו שהוא</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-ACCESS" value="תיקונים"><span>יש לי תיקונים — פירטתי למטה</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-ACCESS" value="לבדוק עם עו"ד/רו"ח"><span>צריך שעורך הדין / רואה החשבון שלי יעיף מבט</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-ACCESS" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-LEGAL-ACCESS" placeholder="פירוט התיקונים, אם יש"></textarea>
+</div>
+
+<div class="item" id="LEGAL-PRIVACY" data-id="LEGAL-PRIVACY">
+  <h3>מדיניות פרטיות</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/privacy/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/privacy/</a></p>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>אישור שהמסמך נכון מבחינה משפטית לעסק שלך.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="LEGAL-PRIVACY" value="מאושר"><span>מאושר כמו שהוא</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-PRIVACY" value="תיקונים"><span>יש לי תיקונים — פירטתי למטה</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-PRIVACY" value="לבדוק עם עו"ד/רו"ח"><span>צריך שעורך הדין / רואה החשבון שלי יעיף מבט</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-PRIVACY" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-LEGAL-PRIVACY" placeholder="פירוט התיקונים, אם יש"></textarea>
+</div>
+
+<div class="item" id="LEGAL-TERMS" data-id="LEGAL-TERMS">
+  <h3>תקנון</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/terms/" target="_blank" rel="noopener">http://eyalamit-co-il-2026.s887.upress.link/terms/</a></p>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>אישור שהמסמך נכון מבחינה משפטית לעסק שלך.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="LEGAL-TERMS" value="מאושר"><span>מאושר כמו שהוא</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-TERMS" value="תיקונים"><span>יש לי תיקונים — פירטתי למטה</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-TERMS" value="לבדוק עם עו"ד/רו"ח"><span>צריך שעורך הדין / רואה החשבון שלי יעיף מבט</span></label>
+    <label class="opt"><input type="radio" name="LEGAL-TERMS" value="אחר"><span>אחר — פירטתי למטה</span></label>
+  </fieldset>
+  <textarea name="note-LEGAL-TERMS" placeholder="פירוט התיקונים, אם יש"></textarea>
+</div>
+
+<h2>חלק ו · הערות חופשיות</h2>
+<p class="sub">כל מה שלא מצא מקום למעלה. אפשר להוסיף שורות בלי הגבלה — הטבלה נשמרת אוטומטית
+  כמו שאר הטופס. אין אפשרות לצרף קובץ בעמוד סטטי זה — הדביקו קישור (לדוגמה מגוגל דרייב, וואטסאפ
+  או תמונה שהעליתם לענן) בעמודה האחרונה במקום צירוף קובץ.</p>
+<table class="ntable" id="notes-table">
+  <thead>
+    <tr><th style="width:16%">עמוד</th><th style="width:16%">נושא</th><th>פרטים</th><th style="width:22%">קובץ מצורף או קישור — הדביקו קישור, לא ניתן לצרף קובץ כאן</th><th></th></tr>
+  </thead>
+  <tbody id="notes-body"></tbody>
+</table>
+<button type="button" class="ghost addrow" id="add-note-row">+ הוספת שורה</button>
+
 <div class="bar">
   <button type="button" id="save">שמירת JSON</button>
   <button type="button" class="ghost" id="copy">העתקה</button>
   <span class="done" id="msg"></span>
   <textarea id="out" readonly></textarea>
 </div>
-<footer>מקור אמת: תור העבודה S007. ייצוא זה הוא תשובות תוכן בלבד, לא אישורי עמוד.</footer>
+<footer>מקור אמת לסטטוס: תור העבודה S007 ולוח העבודה של הצוות. ייצוא זה הוא תשובות תוכן בלבד, לא
+  אישורי עמוד. הטופס הקודם (20 בספטמבר) והשורות שהוסרו ממנו — נענו, סוכמו בחדר היום, או נשארות
+  ברשימת תור העבודה; המיפוי המלא נמצא בדוח הבנאי.</footer>
 </div>
 <script>
 (function(){
+  var CARD_IDS = ['HW-C1','HW-C3','HW-QR-HERO','HW-REPAIR-ALT','HW-VIDEO','HW-MUSIC','HW-2012-PHOTO','HW-B2-GALLERY-DUP',
+    'GI-TSVA','GI-KUSHI','GI-VEKATAVTA','GI-BUNDLE','BLOG-COL41',
+    'OLD-PORTFOLIO','OLD-SHOWS','OLD-GALLERIES','OLD-PAPER-STORIES','OLD-ARCHIVE',
+    'LEGAL-ACCESS','LEGAL-PRIVACY','LEGAL-TERMS'];
+  var FORM_SIG = '0547ed400c77';
+  var draftKey = 'ea-s007-form-' + FORM_SIG;
+
   function collect(){
     var items=[].slice.call(document.querySelectorAll('.item'));
     return {
-      exportType:"eyal-content-gaps",
-      exportSchema:"content-gaps-v1",
-      formDate:"2026-09-20",
-      ssotSha12:"a559fd2d6405",
+      exportType:"eyal-final-form",
+      exportSchema:"final-form-v1",
+      formDate:"2026-09-24",
+      formSig:FORM_SIG,
       exportTimestamp:new Date().toISOString(),
-      note:"Content answers only. These are NOT page approvals. Status lives only in S007-WORK-SSOT.json.",
+      note:"Content answers only. These are NOT page approvals. Status lives only in S007-WORK-SSOT.json / the board.",
       contentAnswers: items.map(function(el){
         var name=el.getAttribute('data-id');
         var picked=el.querySelector('input[name="'+name+'"]:checked');
-        var ta=el.querySelector('textarea');
+        var tas=[].slice.call(el.querySelectorAll('textarea'));
+        var note=tas.map(function(t){return t.value.trim();}).filter(Boolean).join('\n');
         return {
           id:name,
-          pageKey:el.getAttribute('data-page'),
-          path:el.getAttribute('data-path'),
-          title:(el.querySelector('h3')||el.querySelector('.slink')||{}).textContent||"",
+          title:(el.querySelector('h3')||{}).textContent||"",
           choice:picked?picked.value:"",
-          note:ta?ta.value.trim():""
+          note:note
         };
-      })
+      }),
+      notesTable: collectNotesRows()
     };
   }
   function jsonTxt(){ return JSON.stringify(collect(),null,2); }
@@ -908,7 +498,7 @@ __________________________
       var b=new Blob([txt],{type:'application/json'});
       var a=document.createElement('a');
       a.href=URL.createObjectURL(b);
-      a.download='eyal-content-gaps-2026-09-20.json';
+      a.download='eyal-final-form-2026-09-24.json';
       document.body.appendChild(a); a.click(); a.remove();
       flash('נשמר');
     }catch(e){
@@ -922,17 +512,73 @@ __________________________
     try{ document.execCommand('copy'); flash('הועתק'); }
     catch(e){ flash('בחר את הטקסט למטה והעתק ידנית'); }
   });
-  var draftKey='ea-s007-form-'+"a559fd2d6405";
+
+  /* ---- notes table (B4): unlimited rows, 4 fields, persists with the rest ---- */
+  var notesBody = document.getElementById('notes-body');
+  var rowSeq = 0;
+  function addNoteRow(vals){
+    vals = vals || {};
+    rowSeq++;
+    var tr = document.createElement('tr');
+    tr.setAttribute('data-row', String(rowSeq));
+    var fields = ['page','topic','details','link'];
+    var placeholders = {page:'עמוד', topic:'נושא', details:'פרטים', link:'קישור (לא קובץ)'};
+    fields.forEach(function(f){
+      var td = document.createElement('td');
+      var input;
+      if(f === 'details'){
+        input = document.createElement('textarea');
+      } else {
+        input = document.createElement('input');
+        input.type = 'text';
+      }
+      input.setAttribute('data-field', f);
+      input.placeholder = placeholders[f];
+      input.value = vals[f] || '';
+      td.appendChild(input);
+      tr.appendChild(td);
+    });
+    var tdRm = document.createElement('td');
+    tdRm.className = 'rm';
+    var rmBtn = document.createElement('button');
+    rmBtn.type = 'button';
+    rmBtn.textContent = '✕';
+    rmBtn.addEventListener('click', function(){ tr.remove(); saveDraft(); });
+    tdRm.appendChild(rmBtn);
+    tr.appendChild(tdRm);
+    notesBody.appendChild(tr);
+  }
+  function collectNotesRows(){
+    return [].slice.call(notesBody.querySelectorAll('tr')).map(function(tr){
+      var row = {};
+      [].slice.call(tr.querySelectorAll('[data-field]')).forEach(function(el){
+        row[el.getAttribute('data-field')] = el.value;
+      });
+      return row;
+    }).filter(function(row){
+      return row.page || row.topic || row.details || row.link;
+    });
+  }
+  document.getElementById('add-note-row').addEventListener('click', function(){ addNoteRow(); saveDraft(); });
+
+  /* ---- persistence: same mechanism as the previous form — localStorage under
+     a key that carries this form's own content signature, so a genuine content
+     change (like today's rebuild) naturally gets a new key instead of silently
+     mixing old and new answers, exactly like the previous form's ssotSha12-keyed
+     key already behaved. ---- */
   function draftSnapshot(){
     var answers={};
-    [].slice.call(document.querySelectorAll('.item')).forEach(function(el){
-      var name=el.getAttribute('data-id');
-      if(!name) return;
+    CARD_IDS.forEach(function(name){
+      var el = document.getElementById(name);
+      if(!el) return;
       var picked=el.querySelector('input[name="'+name+'"]:checked');
-      var ta=el.querySelector('textarea');
-      answers[name]={choice:picked?picked.value:'', note:ta?ta.value:''};
+      var notes={};
+      [].slice.call(el.querySelectorAll('textarea')).forEach(function(t){
+        if(t.name) notes[t.name]=t.value;
+      });
+      answers[name]={choice:picked?picked.value:'', notes:notes};
     });
-    return answers;
+    return { answers:answers, notesTable:collectNotesRows() };
   }
   function saveDraft(){
     try{ localStorage.setItem(draftKey, JSON.stringify(draftSnapshot())); }catch(e){}
@@ -940,9 +586,10 @@ __________________________
   function loadDraft(){
     var raw=null;
     try{ raw=localStorage.getItem(draftKey); }catch(e){ return; }
-    if(!raw) return;
-    var answers;
-    try{ answers=JSON.parse(raw); }catch(e){ return; }
+    if(!raw){ addNoteRow(); return; }
+    var draft;
+    try{ draft=JSON.parse(raw); }catch(e){ addNoteRow(); return; }
+    var answers = draft.answers || {};
     Object.keys(answers).forEach(function(name){
       var row=answers[name]||{};
       if(row.choice){
@@ -950,16 +597,24 @@ __________________________
         var input=document.querySelector(sel);
         if(input) input.checked=true;
       }
-      var ta=document.querySelector('.item[data-id="'+name+'"] textarea');
-      if(ta && typeof row.note==='string') ta.value=row.note;
+      var notes=row.notes||{};
+      Object.keys(notes).forEach(function(field){
+        var ta=document.querySelector('textarea[name="'+field+'"]');
+        if(ta && typeof notes[field]==='string') ta.value=notes[field];
+      });
     });
+    var rows = draft.notesTable || [];
+    if(rows.length){ rows.forEach(function(r){ addNoteRow(r); }); }
+    else { addNoteRow(); }
   }
   loadDraft();
   document.addEventListener('input', function(ev){
-    if(ev.target && ev.target.closest && ev.target.closest('.item')) saveDraft();
+    if(!ev.target) return;
+    if((ev.target.closest && ev.target.closest('.item')) || (ev.target.closest && ev.target.closest('#notes-table'))) saveDraft();
   });
   document.addEventListener('change', function(ev){
-    if(ev.target && ev.target.closest && ev.target.closest('.item')) saveDraft();
+    if(!ev.target) return;
+    if((ev.target.closest && ev.target.closest('.item')) || (ev.target.closest && ev.target.closest('#notes-table'))) saveDraft();
   });
 })();
 </script>
