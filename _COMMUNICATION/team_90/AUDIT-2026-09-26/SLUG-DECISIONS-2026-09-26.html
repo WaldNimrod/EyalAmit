@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טבלת החלטות סלאגים — 2026-09-26</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --fg: #1f1c18;
+    --muted: #6b645a;
+    --card: #ffffff;
+    --border: #e3ddd2;
+    --accent: #8a5a2b;
+    --row-hover: #f3efe6;
+    --ok-bg: #eef6ee;
+    --ok-border: #bfe0bf;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 0 60px 0;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 26px 22px; }
+  h1 { font-size: 1.5em; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); margin-top: 0; margin-bottom: 18px; font-size: 0.92em; }
+  .box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 0.92em;
+  }
+  .box p { margin: 6px 0; }
+  .box h2 { font-size: 1.02em; margin: 0 0 8px 0; }
+  table.decision {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.86em;
+    background: var(--card);
+    border: 1px solid var(--border);
+    margin-top: 10px;
+  }
+  table.decision col.c1 { width: 14%; }
+  table.decision col.c2 { width: 12%; }
+  table.decision col.c3 { width: 19%; }
+  table.decision col.c4 { width: 15%; }
+  table.decision col.c5 { width: 10%; }
+  table.decision col.c6 { width: 11%; }
+  table.decision col.c7 { width: 19%; }
+  table.decision th, table.decision td {
+    border: 1px solid var(--border);
+    padding: 7px 8px;
+    text-align: right;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  table.decision th { background: #efe8da; font-size: 0.92em; }
+  table.decision tr:hover { background: var(--row-hover); }
+  table.decision td.c-mark { white-space: normal; overflow: visible; }
+  .mark-cell label { display: inline-flex; align-items: center; gap: 3px; margin-inline-end: 10px; font-size: 0.95em; white-space: nowrap; }
+  .mark-cell { display: flex; flex-direction: column; gap: 4px; }
+  .mark-radios { display: flex; gap: 8px; }
+  .note-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.92em;
+    padding: 3px 6px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+  }
+  details { margin-top: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; }
+  details summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+  table.aux { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 0.82em; margin-top: 10px; }
+  table.aux col.a1 { width: 4%; }
+  table.aux col.a2 { width: 22%; }
+  table.aux col.a3 { width: 38%; }
+  table.aux col.a4 { width: 8%; }
+  table.aux col.a5 { width: 28%; }
+  table.aux th, table.aux td {
+    border: 1px solid var(--border);
+    padding: 5px 7px;
+    text-align: right;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  table.aux th { background: #efe8da; }
+  table.aux td.dslug, table.aux td.dprop { font-family: Consolas, monospace; font-size: 0.95em; }
+  footer { margin-top: 30px; color: var(--muted); font-size: 0.8em; border-top: 1px solid var(--border); padding-top: 14px; }
+  .copy-area { margin-top: 18px; }
+  .copy-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    cursor: pointer;
+  }
+  .copy-btn:hover { opacity: 0.9; }
+  .copy-status { margin-inline-start: 12px; font-size: 0.88em; color: var(--muted); }
+  #summary-preview {
+    width: 100%;
+    min-height: 140px;
+    margin-top: 10px;
+    font-family: Consolas, monospace;
+    font-size: 0.85em;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+  }
+  .save-note { font-size: 0.8em; color: var(--muted); margin-top: 4px; }
+  code { background: #f1ebe0; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>טבלת החלטות סלאגים — לקראת מעבר הדומיין</h1>
+<p class="subtitle">נבנה ב-2026-09-26 על-ידי צוות 90 (בקרה) · גרסה מצומצמת המבוססת על המדידה המלאה ב-<code>SLUG-REVIEW-TABLE-2026-09-26.html</code> ועל <code>RESEARCH-REDIRECTS-2026-09-26.md</code> (אותה תיקייה) · כאן רק מה שדורש בפועל את ההחלטה שלך.</p>
+
+<div class="box">
+<h2>מה לא ניתן למדוד</h2>
+<p>המדידה יכולה לומר מה קיים היום ומה מפנה למה — אבל לא יכולה לומר אילו כתובות מהאתר הישן באמת מדורגות בגוגל, וכמה תנועה כל אחת מביאה. המקור הסמכותי היחיד לכך הוא <b>Google Search Console</b> (או דיווח SEO אחר שיש לך) — לא נעשה כאן שום ניחוש דירוג, ולא נעשה שימוש בשום API דירוג חיצוני.</p>
+</div>
+
+<div class="box">
+<h2>מה הושמט מכאן, ולמה</h2>
+<p>מתוך 153 העמודים החיים ו-2 כללי ההפניה הנוספים שנמדדו במקור, נשארו כאן <b>2 שורות החלטה בלבד</b>. הושמט:</p>
+<p>· <b>97 עמודים נעולים</b> (49 עמודי QR מודפסים בספר, 34 סלאגים לטיניים תקינים, 14 סלאגים עבריים תקינים) — אין בהם שום פגם, אסור לגעת בהם, ולכן אינם מוצגים בכלל.</p>
+<p>· <b>19 כתובות שכבר מפנות (301) בעצמן</b> אל הסלאג הנכון והחי באתר החדש (כולל שתי שרשראות/כללים שאינם עמוד כלל) — ההפניה כבר עובדת, אין כאן שאלת שם פתוחה. שתיים מהן נושאות הערת הנדסה (שרשרת כפולה ב-<code dir="ltr">/instrument-repair/</code>, וכלל כפול-מקור מת ב-<code dir="ltr">/services/handmade-instruments/</code>) — אלו תיקוני קוד, לא החלטות שם, ומפורטות במחקר ההפניות.</p>
+<p>· <b>38 פוסטי בלוג עם סלאג קטוע/ממוספר</b> — לא הושמטו, אלא כונסו לשורת-כלל אחת (שורה 2 למטה), כי כולם אותה החלטה.</p>
+</div>
+
+<h2>שלוש ההחלטות</h2>
+<table class="decision">
+<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"><col class="c7"></colgroup>
+<thead>
+<tr>
+<th>כותרת העמוד</th>
+<th>סלוג נוכחי</th>
+<th>סלוג מוצע</th>
+<th>קטגוריה (למה זה כאן)</th>
+<th>פרמטרים</th>
+<th>הערות</th>
+<th>סימון</th>
+</tr>
+</thead>
+<tbody>
+<tr data-row="shop">
+<td class="c-title" title="כלים בעבודת יד ואביזרים — עמוד קטלוג ראשי">כלים בעבודת יד ואביזרים</td>
+<td class="c-cur" dir="ltr" title="/shop/">/shop/</td>
+<td class="c-prop" dir="ltr" title="אין הצעה — השם החלופי טרם נבחר">אין הצעה</td>
+<td class="c-cat" title="התנגשות סלאג עם /shop/ באתר הישן (WooCommerce) + חשיבות מסחרית — כבר בהחלטת אייל A17">התנגשות (א) + מסחרי (ה) — כבר A17</td>
+<td class="c-params" title="200 · לא הפניה · שישה קישורים בכל אחד מ-136 העמודים, והם נוצרים מחמש שורות קוד בלבד — חוב השינוי הוא חמש שורות, לא 819 עריכות">200 · לא הפניה · 5 שורות קוד</td>
+<td class="c-notes" title="השינוי כבר אושר; רק השם החלופי חסר — לא נפתח מחדש את השאלה אם לשנות">שינוי אושר; רק שם חסר</td>
+<td class="c-mark">
+  <div class="mark-cell">
+    <div class="mark-radios">
+      <label><input type="radio" name="mark-shop" value="approved"> מאושר</label>
+      <label><input type="radio" name="mark-shop" value="discuss"> דורש דיון</label>
+    </div>
+    <input type="text" class="note-input" data-row="shop" placeholder="הערה קצרה (רשות)">
+  </div>
+</td>
+</tr>
+<tr data-row="lang-policy">
+<td class="c-title" title="34 עמודי ליבה שכתובתם באותיות לטיניות — החלטת מדיניות אחת שחלה על כולם">34 עמודי ליבה בשם לטיני (כלל אחד)</td>
+<td class="c-cur" dir="ltr" title="/treatment/ · /lessons/ · /method/ · /repair/ · /bags/ · /didgeridoos/ · /books/ · /contact/ · /faq/ · /testimonials/ · /galleries/ · /blog/ ועוד">34 כתובות לטיניות</td>
+<td class="c-prop" dir="ltr" title="ההמלצה שלנו: להשאיר לטיני. אות הסלאג היא אות חלשה לדירוג לעומת הכותרת וה-H1 והתוכן, שכולם בעברית ממילא. כתובת עברית הופכת בשיתוף למחרוזת מקודדת ובלתי קריאה — בדיוק מה שראית בטבלה הקודמת.">המלצה: להשאיר לטיני</td>
+<td class="c-cat" title="מדיניות שפה לכתובות. לא סומן כפגם — זו החלטה אסטרטגית שנובעת ישירות מהעדיפות שהגדרת לשימור דירוג.">מדיניות שפה — נובע מעדיפות הדירוג</td>
+<td class="c-params" title="כולם 200 · אף אחד אינו הפניה · אלה עמודי השירות, הספרים, הכלים ויצירת הקשר">200 (כולם) · לא הפניה · עמודי ליבה</td>
+<td class="c-notes" title="החלטה זו היא ההורה של שורת הבלוג: אם תחליט לטיני בכל האתר, כלל הבלוג משתנה מ«הכותרת המלאה בעברית» לגזירה לטינית.">הורה לשורת הבלוג — משנה אותה</td>
+<td class="c-mark">
+  <div class="mark-cell">
+    <div class="mark-radios">
+      <label><input type="radio" name="mark-lang-policy" value="approved"> מאושר</label>
+      <label><input type="radio" name="mark-lang-policy" value="discuss"> דורש דיון</label>
+    </div>
+    <input type="text" class="note-input" data-row="lang-policy" placeholder="הערה קצרה (רשות)">
+  </div>
+</td>
+</tr>
+<tr data-row="blog-rule">
+<td class="c-title" title="38 פוסטי בלוג ישנים — כלל אחד, לא 38 החלטות">38 פוסטי בלוג ישנים (כלל אחד)</td>
+<td class="c-cur" dir="ltr" title="38 כתובות: קיטוע אמצע-מילה של וורדפרס, או מספר טור/סיומת טכנית מובילה — פירוט מתחת לטבלה">38 כתובות (ראו פירוט)</td>
+<td class="c-prop" dir="ltr" title="הכלל: הסלאג נגזר מהכותרת המלאה של הפוסט (title/H1), ללא קיטוע. דוגמה 1: /הזמנה-להשקת-הספר-החדש-וכתבתָ-אייל-עמ/ ← /הזמנה-להשקת-הספר-החדש-וכתבת-אייל-עמית-15-6-17-בפרדס-חנה/. דוגמה 2: /2-8-מופע-בצוותא-20-מהמקומות-באולם-חינם-לתוש/ ← /2-8-תופעת-יחיד-בצוותא-50-מהמקומות-באולם-חינם-לתושבי-הדרום/">כלל: סלאג = הכותרת המלאה (לא קטועה)</td>
+<td class="c-cat" title="סלאג לא קריא (ב) — קיטוע אוטומטי של וורדפרס, או מספר טור/מדור מהאתר הישן שנשאר בתחילת הכתובת">לא קריא (ב) — קיטוע / מספר טור</td>
+<td class="c-params" title="כולם 200 · אף אחד אינו הפניה · קישורים פנימיים בין 0 ל-100 (רוב הפוסטים: 0)">200 (כולם) · לא הפניה · 0–100 קישורים</td>
+<td class="c-notes" title="הרשימה המלאה של כל 38 הכתובות, כולל הצעה נגזרת לכל אחת שניתן היה לגזור, נמצאת בפירוט המתחת לטבלה">פירוט 38 הכתובות מתחת לטבלה</td>
+<td class="c-mark">
+  <div class="mark-cell">
+    <div class="mark-radios">
+      <label><input type="radio" name="mark-blog-rule" value="approved"> מאושר</label>
+      <label><input type="radio" name="mark-blog-rule" value="discuss"> דורש דיון</label>
+    </div>
+    <input type="text" class="note-input" data-row="blog-rule" placeholder="הערה קצרה (רשות)">
+  </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<details>
+<summary>פירוט 38 הכתובות שכלל פוסטי הבלוג חל עליהן (לחצו להרחבה)</summary>
+<p style="font-size:0.85em;color:var(--muted);margin-top:8px">לרפרנס בלבד — זו לא רשימה של 38 החלטות נפרדות, אלא היישום של הכלל היחיד שבשורה 2 לעיל על כל אחת מהכתובות. עמודת "הצעה" מוצגת רק היכן שניתן היה לגזור שם קצר וברור מהכותרת המלאה בלי לקצר/להמציא; בשאר השורות הכותרת עצמה ארוכה מדי לשם קצר, והכלל עדיין חל (הסלאג ייגזר מהכותרת המלאה כפי שהיא, גם אם ארוכה).</p>
+<table class="aux">
+<colgroup><col class="a1"><col class="a2"><col class="a3"><col class="a4"><col class="a5"></colgroup>
+<thead><tr><th>#</th><th>סלוג נוכחי (מפוענח)</th><th>כותרת מלאה (H1/Title)</th><th>קישורים</th><th>הצעה נגזרת מהכותרת</th></tr></thead>
+<tbody>
+<tr><td class="dn">1</td><td class="dslug" dir="ltr" title="/אייל-עמית-תופעת-יחיד-מופע-סיפורים-spoken-stories-15/">/אייל-עמית-תופעת-יחיד-מופע-סיפורים-spoken-stories-15/</td><td class="dh1" title="מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד – מופע סיפורים – spoken stories">מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד – מופע סיפורים – spoken stories</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">2</td><td class="dslug" dir="ltr" title="/ביקורות-גולשים-אודות-עכשיו-מופע-הסיפ/">/ביקורות-גולשים-אודות-עכשיו-מופע-הסיפ/</td><td class="dh1" title="ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד">ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">3</td><td class="dslug" dir="ltr" title="/דף-פייסבוק-חדש-למופע-הזמנה-לשני-המופעי/">/דף-פייסבוק-חדש-למופע-הזמנה-לשני-המופעי/</td><td class="dh1" title="דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה">דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">4</td><td class="dslug" dir="ltr" title="/הזמנה-להשקת-הספר-החדש-וכתבתָ-אייל-עמ/">/הזמנה-להשקת-הספר-החדש-וכתבתָ-אייל-עמ/</td><td class="dh1" title="הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה">הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="/הזמנה-להשקת-הספר-החדש-וכתבת-אייל-עמית-15-6-17-בפרדס-חנה/">/הזמנה-להשקת-הספר-החדש-וכתבת-אייל-עמית-15-6-17-בפרדס-חנה/</td></tr>
+<tr><td class="dn">5</td><td class="dslug" dir="ltr" title="/הטור-של-אייל-עמית-הספר-החדש-שלי-זקוק-ל/">/הטור-של-אייל-עמית-הספר-החדש-שלי-זקוק-ל/</td><td class="dh1" title="הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!">הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/הספר-החדש-שלי-יוצא-לאור-אשמח-לתמיכתכם-ב-הדסטארט/">/הספר-החדש-שלי-יוצא-לאור-אשמח-לתמיכתכם-ב-הדסטארט/</td></tr>
+<tr><td class="dn">6</td><td class="dslug" dir="ltr" title="/וסיפרתָּ-מופע-הספוקן-סטוריז-של-אייל-עמ/">/וסיפרתָּ-מופע-הספוקן-סטוריז-של-אייל-עמ/</td><td class="dh1" title="וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית">וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">7</td><td class="dslug" dir="ltr" title="/טיפול-בנשימה-באמצעות-דיגרידו-ללמוד-ל/">/טיפול-בנשימה-באמצעות-דיגרידו-ללמוד-ל/</td><td class="dh1" title="טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה">טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">8</td><td class="dslug" dir="ltr" title="/טיפול-בפוסט-טראומה-לחייל-משוחרר-מגולנ/">/טיפול-בפוסט-טראומה-לחייל-משוחרר-מגולנ/</td><td class="dh1" title="טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בדיג&#x27;רידו / אייל עמית">טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בדיג&#x27;רידו / אייל עמית</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">9</td><td class="dslug" dir="ltr" title="/כתבה-על-תופעת-יחיד-ב-המקומון-גבעתיים-ר/">/כתבה-על-תופעת-יחיד-ב-המקומון-גבעתיים-ר/</td><td class="dh1" title="כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול">כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">10</td><td class="dslug" dir="ltr" title="/מופע-הסיפורים-של-אייל-עמית-כתבה-מאת-רו/">/מופע-הסיפורים-של-אייל-עמית-כתבה-מאת-רו/</td><td class="dh1" title="מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15">מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">11</td><td class="dslug" dir="ltr" title="/מוקש-דהימן-מאסטר-דיגרידו-ציור-מקורי-ח/">/מוקש-דהימן-מאסטר-דיגרידו-ציור-מקורי-ח/</td><td class="dh1" title="מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס)">מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס)</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">12</td><td class="dslug" dir="ltr" title="/סדנת-דיגרידו-קבוצתית-מקיפה-וייחודית-ל/">/סדנת-דיגרידו-קבוצתית-מקיפה-וייחודית-ל/</td><td class="dh1" title="סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)">סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">13</td><td class="dslug" dir="ltr" title="/סרטים-מהחיים-מופע-הסיפורים-של-אייל-עמי/">/סרטים-מהחיים-מופע-הסיפורים-של-אייל-עמי/</td><td class="dh1" title="סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א.">סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א.</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">14</td><td class="dslug" dir="ltr" title="/עכשיו-מופע-הסיפורים-של-אייל-עמית-תופע/">/עכשיו-מופע-הסיפורים-של-אייל-עמית-תופע/</td><td class="dh1" title="שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית">שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">15</td><td class="dslug" dir="ltr" title="/עכשיו-מופע-הסיפורים-של-אייל-עמית-15-11-14-בת/">/עכשיו-מופע-הסיפורים-של-אייל-עמית-15-11-14-בת/</td><td class="dh1" title="עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה">עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">16</td><td class="dslug" dir="ltr" title="/עמית-ביָדִית-מופע-הסיפורים-של-אייל-עמי/">/עמית-ביָדִית-מופע-הסיפורים-של-אייל-עמי/</td><td class="dh1" title="הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית">הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">17</td><td class="dslug" dir="ltr" title="/פודקאסט-דיגרידו-ו-נשימה-אייל-עמית-2/">/פודקאסט-דיגרידו-ו-נשימה-אייל-עמית-2/</td><td class="dh1" title="צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית">צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</td><td class="dlinks">100</td><td class="dprop" dir="ltr" title="/צלילים-מרפאים-תדרים-מרפאים-סאונד-הילינג-דיג-רידו-אייל-עמית/">/צלילים-מרפאים-תדרים-מרפאים-סאונד-הילינג-דיג-רידו-אייל-עמית/</td></tr>
+<tr><td class="dn">18</td><td class="dslug" dir="ltr" title="/שנה-לחוק-הספרים-צניחה-של-35-במכירות-של-ספ/">/שנה-לחוק-הספרים-צניחה-של-35-במכירות-של-ספ/</td><td class="dh1" title="&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צרכנות דה-מרקר">&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צרכנות דה-מרקר</td><td class="dlinks">4</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">19</td><td class="dslug" dir="ltr" title="/שני-תאריכים-קרובים-למופע-הסיפורים-של-א/">/שני-תאריכים-קרובים-למופע-הסיפורים-של-א/</td><td class="dh1" title="מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד..">מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד..</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">20</td><td class="dslug" dir="ltr" title="/תלמידים-ומטופלים-ממליצים-על-המרכז-לטי/">/תלמידים-ומטופלים-ממליצים-על-המרכז-לטי/</td><td class="dh1" title="תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית">תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</td><td class="dlinks">2</td><td class="dprop" dir="ltr" title="/תלמידים-ומטופלים-ממליצים-על-המרכז-לטיפול-בדיג-רידו-אייל-עמית/">/תלמידים-ומטופלים-ממליצים-על-המרכז-לטיפול-בדיג-רידו-אייל-עמית/</td></tr>
+<tr><td class="dn">21</td><td class="dslug" dir="ltr" title="/100-100-100-תודה/">/100-100-100-תודה/</td><td class="dh1" title="100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!">100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/100-100-100-תודה/">/100-100-100-תודה/</td></tr>
+<tr><td class="dn">22</td><td class="dslug" dir="ltr" title="/18-הטור-של-אייל-עמית-מסך-הברזל/">/18-הטור-של-אייל-עמית-מסך-הברזל/</td><td class="dh1" title="(18) הטור של אייל עמית: מסך הברזל">(18) הטור של אייל עמית: מסך הברזל</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/18-הטור-של-אייל-עמית-מסך-הברזל/">/18-הטור-של-אייל-עמית-מסך-הברזל/</td></tr>
+<tr><td class="dn">23</td><td class="dslug" dir="ltr" title="/2-8-מופע-בצוותא-20-מהמקומות-באולם-חינם-לתוש/">/2-8-מופע-בצוותא-20-מהמקומות-באולם-חינם-לתוש/</td><td class="dh1" title="2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!">2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/2-8-תופעת-יחיד-בצוותא-50-מהמקומות-באולם-חינם-לתושבי-הדרום/">/2-8-תופעת-יחיד-בצוותא-50-מהמקומות-באולם-חינם-לתושבי-הדרום/</td></tr>
+<tr><td class="dn">24</td><td class="dslug" dir="ltr" title="/2228-2/">/2228-2/</td><td class="dh1" title="מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון">מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</td><td class="dlinks">1</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">25</td><td class="dslug" dir="ltr" title="/23-הטור-של-אייל-עמית-לציית-או-לחשוב/">/23-הטור-של-אייל-עמית-לציית-או-לחשוב/</td><td class="dh1" title="(23) הטור של אייל עמית: לציית או לחשוב">(23) הטור של אייל עמית: לציית או לחשוב</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/23-הטור-של-אייל-עמית-לציית-או-לחשוב/">/23-הטור-של-אייל-עמית-לציית-או-לחשוב/</td></tr>
+<tr><td class="dn">26</td><td class="dslug" dir="ltr" title="/27-הטור-של-אייל-עמית-חכמת-הפרצוף/">/27-הטור-של-אייל-עמית-חכמת-הפרצוף/</td><td class="dh1" title="(27) הטור של אייל עמית: חכמת הפרצוף">(27) הטור של אייל עמית: חכמת הפרצוף</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/27-הטור-של-אייל-עמית-חכמת-הפרצוף/">/27-הטור-של-אייל-עמית-חכמת-הפרצוף/</td></tr>
+<tr><td class="dn">27</td><td class="dslug" dir="ltr" title="/29-הטור-של-אייל-עמית-רייב-שבוע-הספר/">/29-הטור-של-אייל-עמית-רייב-שבוע-הספר/</td><td class="dh1" title="(29) הטור של אייל עמית: רייב שבוע הספר">(29) הטור של אייל עמית: רייב שבוע הספר</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/29-הטור-של-אייל-עמית-רייב-שבוע-הספר/">/29-הטור-של-אייל-עמית-רייב-שבוע-הספר/</td></tr>
+<tr><td class="dn">28</td><td class="dslug" dir="ltr" title="/32-הטור-של-אייל-עמית-אם-אין-אני-לי-מי-לי/">/32-הטור-של-אייל-עמית-אם-אין-אני-לי-מי-לי/</td><td class="dh1" title="(32) הטור של אייל עמית: אם אין אני לי – מי לי">(32) הטור של אייל עמית: אם אין אני לי – מי לי</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/32-הטור-של-אייל-עמית-אם-אין-אני-לי-מי-לי/">/32-הטור-של-אייל-עמית-אם-אין-אני-לי-מי-לי/</td></tr>
+<tr><td class="dn">29</td><td class="dslug" dir="ltr" title="/34-הטור-של-אייל-עמית-הלב/">/34-הטור-של-אייל-עמית-הלב/</td><td class="dh1" title="(34) הטור של אייל עמית: הלב">(34) הטור של אייל עמית: הלב</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/34-הטור-של-אייל-עמית-הלב/">/34-הטור-של-אייל-עמית-הלב/</td></tr>
+<tr><td class="dn">30</td><td class="dslug" dir="ltr" title="/36-הטור-של-אייל-עמית-שיטת-השקשוקה/">/36-הטור-של-אייל-עמית-שיטת-השקשוקה/</td><td class="dh1" title="(36) הטור של אייל עמית: שיטת השקשוקה">(36) הטור של אייל עמית: שיטת השקשוקה</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/36-הטור-של-אייל-עמית-שיטת-השקשוקה/">/36-הטור-של-אייל-עמית-שיטת-השקשוקה/</td></tr>
+<tr><td class="dn">31</td><td class="dslug" dir="ltr" title="/40-הטור-של-אייל-עמית-פרסומת-אחת-וחזרנו/">/40-הטור-של-אייל-עמית-פרסומת-אחת-וחזרנו/</td><td class="dh1" title="(40) הטור של אייל עמית: פרסומת אחת וחזרנו">(40) הטור של אייל עמית: פרסומת אחת וחזרנו</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/40-הטור-של-אייל-עמית-פרסומת-אחת-וחזרנו/">/40-הטור-של-אייל-עמית-פרסומת-אחת-וחזרנו/</td></tr>
+<tr><td class="dn">32</td><td class="dslug" dir="ltr" title="/42-הטור-של-אייל-עמית-אחד-בספטמבר/">/42-הטור-של-אייל-עמית-אחד-בספטמבר/</td><td class="dh1" title="(42) הטור של אייל עמית: אחד בספטמבר">(42) הטור של אייל עמית: אחד בספטמבר</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/42-הטור-של-אייל-עמית-אחד-בספטמבר/">/42-הטור-של-אייל-עמית-אחד-בספטמבר/</td></tr>
+<tr><td class="dn">33</td><td class="dslug" dir="ltr" title="/43-הטור-של-אייל-עמית-אדון-סליחות/">/43-הטור-של-אייל-עמית-אדון-סליחות/</td><td class="dh1" title="(43) הטור של אייל עמית: אדון סליחות">(43) הטור של אייל עמית: אדון סליחות</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/43-הטור-של-אייל-עמית-אדון-סליחות/">/43-הטור-של-אייל-עמית-אדון-סליחות/</td></tr>
+<tr><td class="dn">34</td><td class="dslug" dir="ltr" title="/45-הטור-של-אייל-עמית-פרופורציות/">/45-הטור-של-אייל-עמית-פרופורציות/</td><td class="dh1" title="(45) הטור של אייל עמית: פרופורציות">(45) הטור של אייל עמית: פרופורציות</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/45-הטור-של-אייל-עמית-פרופורציות/">/45-הטור-של-אייל-עמית-פרופורציות/</td></tr>
+<tr><td class="dn">35</td><td class="dslug" dir="ltr" title="/47-הטור-של-אייל-עמית-זמן-חלום/">/47-הטור-של-אייל-עמית-זמן-חלום/</td><td class="dh1" title="זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004">זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)">— (לפי הכלל: לגזור מהכותרת המלאה בעת היישום)</td></tr>
+<tr><td class="dn">36</td><td class="dslug" dir="ltr" title="/49-הטור-של-אייל-עמית-קומיק-רליף/">/49-הטור-של-אייל-עמית-קומיק-רליף/</td><td class="dh1" title="(49) הטור של אייל עמית: קומיק רליף">(49) הטור של אייל עמית: קומיק רליף</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/49-הטור-של-אייל-עמית-קומיק-רליף/">/49-הטור-של-אייל-עמית-קומיק-רליף/</td></tr>
+<tr><td class="dn">37</td><td class="dslug" dir="ltr" title="/51-הטור-של-אייל-עמית-אקסטרים-זה-נעים/">/51-הטור-של-אייל-עמית-אקסטרים-זה-נעים/</td><td class="dh1" title="(51) הטור של אייל עמית: אקסטרים זה נעים!">(51) הטור של אייל עמית: אקסטרים זה נעים!</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/51-הטור-של-אייל-עמית-אקסטרים-זה-נעים/">/51-הטור-של-אייל-עמית-אקסטרים-זה-נעים/</td></tr>
+<tr><td class="dn">38</td><td class="dslug" dir="ltr" title="/60-הטור-של-אייל-עמית-איי-אם-בק/">/60-הטור-של-אייל-עמית-איי-אם-בק/</td><td class="dh1" title="פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור">פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</td><td class="dlinks">0</td><td class="dprop" dir="ltr" title="/פרוייקט-מטיילים-מצטלמים-עם-הספרים-של-מוזה-הוצאה-לאור/">/פרוייקט-מטיילים-מצטלמים-עם-הספרים-של-מוזה-הוצאה-לאור/</td></tr>
+</tbody>
+</table>
+</details>
+
+<div class="copy-area">
+<button class="copy-btn" id="copy-btn" type="button">העתק סיכום סימונים ללוח</button>
+<span class="copy-status" id="copy-status"></span>
+<div class="save-note" id="save-note"></div>
+<textarea id="summary-preview" readonly></textarea>
+</div>
+
+<footer>
+<p>נבנה על-ידי צוות 90 (בקרה). הסימונים שלך נשמרים אוטומטית בדפדפן שלך (localStorage) — אם הדפדפן חוסם אחסון מקומי (למשל פתיחה ישירה מהדיסק בפרטיות מוגברת), הטבלה עדיין תעבוד, רק בלי שמירה בין ביקורים. המקור המלא: <code>SLUG-REVIEW-TABLE-2026-09-26.html</code> ו-<code>RESEARCH-REDIRECTS-2026-09-26.md</code>, אותה תיקייה.</p>
+</footer>
+
+</div>
+
+<script>
+(function() {
+  var STORAGE_KEY = 'ea-slug-decisions-2026-09-26';
+  var rows = Array.prototype.slice.call(document.querySelectorAll('tr[data-row]'));
+
+  function safeGetStorage() {
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function safeSetStorage(data) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function collectState() {
+    var data = {};
+    rows.forEach(function(tr) {
+      var id = tr.getAttribute('data-row');
+      var checked = tr.querySelector('input[type="radio"]:checked');
+      var note = tr.querySelector('.note-input');
+      data[id] = {
+        mark: checked ? checked.value : '',
+        note: note ? note.value : ''
+      };
+    });
+    return data;
+  }
+
+  function applyState(data) {
+    if (!data) return;
+    rows.forEach(function(tr) {
+      var id = tr.getAttribute('data-row');
+      var saved = data[id];
+      if (!saved) return;
+      if (saved.mark) {
+        var radio = tr.querySelector('input[type="radio"][value="' + saved.mark + '"]');
+        if (radio) radio.checked = true;
+      }
+      if (saved.note) {
+        var note = tr.querySelector('.note-input');
+        if (note) note.value = saved.note;
+      }
+    });
+  }
+
+  function save() {
+    var ok = safeSetStorage(collectState());
+    var noteEl = document.getElementById('save-note');
+    if (noteEl) {
+      noteEl.textContent = ok ? 'נשמר.' : 'לא ניתן לשמור באחסון המקומי בדפדפן זה — הסימונים לא ישרדו רענון עמוד.';
+    }
+  }
+
+  try {
+    var loaded = safeGetStorage();
+    if (loaded) applyState(loaded);
+  } catch (e) { /* ignore, render blank */ }
+
+  rows.forEach(function(tr) {
+    tr.addEventListener('change', save);
+    var note = tr.querySelector('.note-input');
+    if (note) note.addEventListener('input', save);
+  });
+
+  function markLabel(v) {
+    if (v === 'approved') return 'מאושר';
+    if (v === 'discuss') return 'דורש דיון';
+    return 'לא סומן';
+  }
+
+  function buildSummary() {
+    var lines = [];
+    lines.push('סיכום סימונים — טבלת סלאגים 2026-09-26');
+    lines.push('');
+    var n = 1;
+    rows.forEach(function(tr) {
+      var id = tr.getAttribute('data-row');
+      var titleCell = tr.querySelector('.c-title');
+      var curCell = tr.querySelector('.c-cur');
+      var title = titleCell ? (titleCell.getAttribute('title') || titleCell.textContent) : id;
+      var cur = curCell ? (curCell.getAttribute('title') || curCell.textContent) : '';
+      var checked = tr.querySelector('input[type="radio"]:checked');
+      var note = tr.querySelector('.note-input');
+      lines.push(n + ') ' + title + ' (' + cur + ')');
+      lines.push('   סימון: ' + markLabel(checked ? checked.value : ''));
+      lines.push('   הערה: ' + (note && note.value ? note.value : '—'));
+      lines.push('');
+      n++;
+    });
+    return lines.join('\n');
+  }
+
+  function fallbackCopy(text) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  var copyBtn = document.getElementById('copy-btn');
+  var statusEl = document.getElementById('copy-status');
+  var preview = document.getElementById('summary-preview');
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      var text = buildSummary();
+      if (preview) preview.value = text;
+      var done = function(ok) {
+        if (statusEl) statusEl.textContent = ok ? 'הועתק ללוח.' : 'לא הצלחנו להעתיק אוטומטית — הטקסט מוצג למטה, אפשר להעתיק ידנית.';
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() { done(true); }, function() { done(fallbackCopy(text)); });
+        } else {
+          done(fallbackCopy(text));
+        }
+      } catch (e) {
+        done(fallbackCopy(text));
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
