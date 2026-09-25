@@ -430,6 +430,14 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-10 · A file in the theme is not a file on the page.** Team 90 found a hardcoded, drifted copy
+  of the nav tree in `block-footer-social.php`, reported it to team_00 as "the footer on every page",
+  and built two board cards on it. **Measured afterwards: that file renders on exactly one URL**
+  (`/press/`). The footer live on ~150 pages is `section-footer.php`, with different column titles
+  and a different, cleaner link set — **its twelve links all return 200, so the "fourteen of sixteen
+  links cost a redirect hop" finding was true of one page, not of the site.** Grep finds a file;
+  only a fetch finds a page. **Both cards were corrected in place and the correction was stated to
+  team_00 before he acted on either.**
 - **M-09 · A box read before its reveal animation finished invents a defect.** `.cmpc__p` measured
   **1.18:1** while its ancestor card was still at `opacity: 0` with a pending transform — an
   un-fired scroll reveal. After waiting for the whole ancestor chain to reach effective opacity 1.0,
