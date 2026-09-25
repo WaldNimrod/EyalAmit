@@ -289,12 +289,20 @@ function ea_w2_09_opengraph_desc_tag() {
 add_action( 'wp_head', 'ea_w2_09_opengraph_desc_tag', 5 );
 
 /**
- * /learning/therapist-training/ is noindex, so Yoast omits the canonical link.
- * Siblings emit one self-referential tag. Emit the same, pointing at this URL.
+ * Yoast omits the canonical while /learning/therapist-training/ is meta-robots noindex.
+ * A14 (2026-09-26) clears that meta, after which Yoast emits the one canonical itself.
+ * This remains only for the noindex state, so a cleared page does not get a second tag.
  */
 function ea_w2_09_therapist_training_canonical() {
 	if ( ! is_page( 'therapist-training' ) ) {
 		return;
+	}
+	$obj = get_queried_object();
+	if ( $obj instanceof WP_Post ) {
+		$noindex = get_post_meta( $obj->ID, '_yoast_wpseo_meta-robots-noindex', true );
+		if ( '1' !== (string) $noindex ) {
+			return;
+		}
 	}
 	$url = get_permalink();
 	if ( ! is_string( $url ) || '' === $url ) {

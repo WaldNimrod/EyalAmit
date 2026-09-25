@@ -236,10 +236,13 @@ function ea_m2_site_tree_lock_sync_run() {
 		);
 	}
 
-	$tid = (int) $ids['therapist-training'];
-	if ( $tid > 0 ) {
-		update_post_meta( $tid, '_yoast_wpseo_meta-robots-noindex', '1' );
-	}
+	/*
+	 * A14 (team_00, 2026-09-26): do not write _yoast_wpseo_meta-robots-noindex.
+	 * The M2 run stored '1' on /learning/therapist-training/. Yoast 28 reads that
+	 * into the indexable and omits the URL from page-sitemap.xml. The stored
+	 * value is cleared by ea-a14-therapist-training-sitemap-once.php. Writing it
+	 * again here would drop the URL from the sitemap on the next sync reset.
+	 */
 
 	// קריאה.
 	if ( ! empty( $ids['home'] ) && ! empty( $ids['blog'] ) && ! is_wp_error( $ids['home'] ) && ! is_wp_error( $ids['blog'] ) ) {
