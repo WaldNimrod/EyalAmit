@@ -72,14 +72,30 @@ twice with two different captions.
 for that file, or with the neutral label «מוקש דהימן» where he wrote none. Do not invent a
 replacement. **Reconstruct:** §6 A-04, A-09.
 
-### G-02 · Breadcrumbs: asked twice, not delivered
-Eyal asked for breadcrumb **links** on 18.9 and again in the 23.9 design notes. What shipped is
-`BreadcrumbList` JSON-LD for search engines, plus `ea-breadcrumbs.css` loaded on every page — and
-**no breadcrumb element with links exists in the markup at all.**
+### G-02 · Breadcrumbs — ~~asked twice, not delivered~~ **REFUTED 2026-09-24. This finding was wrong.**
 
-Measured on `/books/tsva-bekahol/`, `/learning/lectures/`, `/repair/`: JSON-LD present on all
-three; zero `<nav|ol|ul|div>` breadcrumb container with links on any. The only non-schema
-"breadcrumb" string on the page is the stylesheet filename.
+> **STATUS: REFUTED — our own error. Do not re-open. Do not dispatch as a task.**
+> Superseded by `VERDICT-REMEASURE-AFTER-BUILD-2026-09-24.md` §5.
+
+**The original claim (kept verbatim for the record):** Eyal asked for breadcrumb **links** on 18.9
+and again in the 23.9 design notes; what shipped is `BreadcrumbList` JSON-LD plus
+`ea-breadcrumbs.css`, and **no breadcrumb element with links exists in the markup at all** — zero
+container with links on `/books/tsva-bekahol/`, `/learning/lectures/`, `/repair/`.
+
+**Why it is wrong.** team_110 refused this task and re-measured. Team 90 then re-measured
+independently in a real CDP-rendered browser, after layout settled, on the same three pages:
+`nav.ea-crumb` exists on all three, `display:block`, `visibility:visible`, painted box
+**1104 × 22.171875 px** — identical on all three, not zero. Links present and correct
+(`בית / ספרים`, `בית`, `בית / כלים ואביזרים`).
+
+**Provenance settled by git, not by argument.** `ea-crumb` entered `inc/ea-breadcrumbs.php` in
+commit `d3d82b9` on **2026-09-21** — three days *before* this audit claimed it did not exist — and
+commit `31ea7a0` did **not** touch that file. So the component was not built in response to the
+report; the report's measurement was wrong at the time it was written.
+
+**Method defect behind it:** see `M-07`. This is the **second** failure of our own lines on this
+same component in one day — the first was G-12's half-measurement of its two-colour row. **One
+component defeated this audit twice.**
 
 **He will look for this in the meeting.** **Reconstruct:** §6 A-05, A-10.
 
@@ -160,7 +176,21 @@ nothing at all. On the contact page. **Smallest correction:** point the dead one
 `wa.me` target as its twin — one line, `contact-defaults.php:22`. **Reconstruct:** §6 A-19, gap 1.
 
 ### G-12 · Contrast — corrected twice, now resolved into four distinct layers
-**Superseded by `CONTRAST-MAP-2026-09-24.md`, which is with team_00 for approval.**
+**Superseded by `CONTRAST-MAP-2026-09-24.md`.**
+
+> **STATUS CHANGED 2026-09-24 by team_00 — this is no longer awaiting an approval, and it is no
+> longer a pending build.** Ruling:
+> «המיפוי צריך להופיע בלוח עם דוגמאות — בפגישה נבחן את המצבים בפועל בדפדפן ונקבל החלטה.»
+>
+> **The map becomes a meeting item reviewed live in a browser**, nine element rows with openable
+> representative URLs, on the board as addressable sections, plus one summary line under
+> «לפגישה, לא למילוי» on Eyal's form. Specified as **task 20** in
+> `PROMPT-DISPATCH-SUPPLEMENT-2026-09-24.md`; bar in `ACCEPTANCE-CRITERIA` §20.
+>
+> **Consequence under the closure rule:** once rendered, contrast is **recorded for the meeting**
+> and therefore **closed** in the sense team_00 defined — not an unrecorded gap. It stays open only
+> as a decision. **Nothing about contrast is Team 90's to approve, and no contrast fix is in this
+> round.**
 
 This finding was wrong twice before it was right, and the history matters because each wrong
 version sounded convincing.
@@ -231,6 +261,57 @@ being wrong carries its own exposure. **Reconstruct:** §6 A-19, gap 8.
 
 ---
 
+### G-19 · `/thank-you/` renders the primary navigation twice — **visible in the room**
+The page emits `<nav class="nav" id="nav" aria-label="תפריט ראשי">` **twice, back to back**, the
+second beginning 4,422 bytes after the first with no wrapping container between them and nothing
+hiding either. **Both carry `id="nav"`**, which is invalid HTML and makes a screen reader announce
+two identical main menus.
+
+**Why it matters more than its size:** `/thank-you/` is the contact-form landing page. Anyone who
+submits the form in the meeting lands here.
+
+**Population, not anecdote:** found by sweeping all **153** published URLs enumerated from the WP
+REST API (not the sitemap — `page-sitemap.xml` holds ~87). 137 returned 200; **136 carry exactly
+one primary nav, `/thank-you/` carries two.** 16 URLs return 301, all legacy paths resolving to
+targets separately measured in the same population — correct behaviour, not a defect. Zero PHP
+error strings site-wide.
+
+**Template family:** the page runs on the `ea-nd-orphan` body class — one of the six URLs that
+render outside every Wave2 template whitelist, the family `CLAUDE.md` already warns was missed once
+this way. **Confirmed independently by Team 90 after the sweep reported it.**
+**Reconstruct:** re-fetch `/thank-you/` and count `<nav class="nav" id="nav"`; compare `/contact/`,
+which returns 1.
+
+### G-20 · The meeting rows are present on both surfaces but not usable at the meeting
+All nine routed rows **are** on Eyal's live form (under «לפגישה, לא למילוי», correctly with no
+input fields) **and** on the board. The closure rule's *presence* test passes and team_110's
+report on this point is accurate.
+
+**What fails is team_00's second requirement** — that a row carry the context and links to decide
+rather than guess. **Seven of eight carry no link to the page they discuss**; only `Q-REPAIR-ALT`
+links `/repair/`. `Q-SHOWS` refers to bare ids `A2`/`E4` with no gloss; `Q-G07` cites "the 17 notes
+of 18.9 11:58" with no source or link.
+
+**Structurally**, the board renders **86 items as addressable `<section class="item" id="…">`;
+these eight are `<li>` rows inside one shared list** — not linkable, not anchorable.
+
+**Measurement warning attached to this row:** searching the surfaces **by item id returns zero for
+all eight and is a false negative** — they are rendered as prose without their ids. Search by text.
+**Reconstruct:** §6 A-07, A-08.
+
+### G-21 · `/shows-heritage/` share card reads «ניווט משני.»
+The internal marker was removed from the visible body as instructed. But the page's
+`og:description` is now the literal string «ניווט משני.» — so sharing the URL in WhatsApp, which
+is how Eyal shares his pages (the reason G-09 existed), previews the words "secondary navigation".
+
+team_110 reported the marker removed "from the body and from the share card". **The first half is
+true; the second is technically accurate and practically misleading** — the marker is gone and what
+replaced it is not a description. Page body is two lines; `noindex` present; still in the sitemap.
+**Not a content-law breach** — nothing was invented. **Reconstruct:** fetch `/shows-heritage/`,
+read `og:description`.
+
+---
+
 ## 2. Reported, not yet verified
 
 From the derivation line. **Team 90 has not re-measured these.** Two of its sibling line's
@@ -295,6 +376,43 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   recommends closing it.
 - **R-13** — The CF7 `min-height: 44px` added in 1.5.115 is verified live: all four fields render
   exactly 44px, textarea 68px, submit 112×47.
+- **R-15 · The second navigation on three pages is NOT visible.** team_10 reported, while
+  implementing the new tree, that `/press/`, `/shows-heritage/` and `/historical-articles/` carry a
+  GeneratePress nav in addition to the Chapters nav. **Team 90's own earlier sweep missed this
+  entirely** — it counted only `nav.nav#nav`, so a second nav of a different shape was invisible to
+  it. **Same method defect as `M-07`: measuring one shape and concluding about the whole.**
+  **Re-measured in a rendered browser, six page × viewport combinations:** `nav#site-navigation` is
+  `display:block; visibility:visible; opacity:1` but its painted box is **0×0 at (0,0) in every
+  single one**. Nothing is drawn. `nav#nav` paints at 1280×88 and 390×88 as expected. Screenshots
+  confirm a single bar and a single hamburger. **No visible defect.**
+  **Two latent risks recorded, neither a defect today:**
+  (a) `display:block` with a 0×0 box is one CSS rule away from becoming a real second menu — on
+  `/press/` the rule `body.ea-nd-orphan.ea-wave2-shell .site-header{display:block}` already fires.
+  (b) team_10 also found `template-parts/blocks/block-topnav.php`, **a third frozen copy of the nav
+  tree**, currently rendered on no page it could find. **The theme's recurring defect is parallel
+  implementations of one component; this is the fourth instance found today.**
+  **Reassuring detail:** where the GP nav does exist in the DOM it carries **the same items in the
+  same order** as the new canonical tree — so it reads the single source, it is not stale.
+- **R-14 · The cookie banner does NOT block the site on a first visit.** Raised as a lead when the
+  dropdown lane found `elementFromPoint` returning `#ea-cookie-notice` at every nav coordinate and
+  had to delete the node to reach the menu. Chased with a dedicated render pass — `/` and
+  `/contact/`, at 1280×800, 768×1024 and 390×844, fresh profile each time.
+  **Refuted, and the mechanism explains the lead:** it is a native `<dialog>` opened with
+  `showModal()`, so it sits in the top layer and its full-viewport `::backdrop` takes the hit —
+  hits on the backdrop are attributed to the `<dialog>`. **Geometric overlap with the nav and the
+  hamburger is 0 px on all six combinations.** The page is inert *by design* while a modal is up,
+  which is correct behaviour, not a layering bug.
+  **Dismissal verified 6/6** by click and by Space; after it, nav, hamburger and hero CTA all
+  resolve to the real elements, and the dismissal survives the reload. Banner occupies 27.2% of the
+  mobile viewport, fits without clipping everywhere, carries an accessible name, and takes focus
+  natively on open.
+  **Two honest limits, neither a defect:** the tab cycle inside the dialog passes through `body`
+  for one silent stop per lap; and Enter-to-activate could not be tested, because this
+  chrome-headless-shell build does not deliver Enter's default click action through synthetic CDP
+  events *at all* — reproduced on a bare unrelated button, so it is a tooling limit, not a claim
+  about the site.
+  **On `/contact/` at mobile width the WhatsApp CTA sits visually under the banner panel** — true,
+  and irrelevant while the modal is up, since the whole page is inert regardless.
 
 ---
 
@@ -307,7 +425,27 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   pass checked only `.jpg` and cleared it; the alt line found `.jpeg` and misattributed it to
   `.jpg`. **Both were right and both were too narrow. Match on the full `src` path.**
 - **M-02 · A class name is not rendered UI.** The breadcrumb check first passed because
-  `ea-breadcrumbs.css` matched a regex for "breadcrumb". There is no breadcrumb UI at all.
+  `ea-breadcrumbs.css` matched a regex for "breadcrumb".
+  **⚠ M-02's own closing sentence used to read "There is no breadcrumb UI at all." That sentence
+  was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
+  stands; the *conclusion drawn from it* did not. Correcting a method defect with another
+  unverified assertion is how the error survived a whole day.
+- **M-08 · A no-redirect opener that silently follows.** A Team 90 script classified
+  `/therapist-training/` as **200** when `curl` measures it as a **301**. The custom
+  `HTTPRedirectHandler` subclass did not suppress the redirect, and the script reported the final
+  page's status as the original URL's. **It would have turned one real gap into two imaginary ones.**
+  Caught only because the result was cross-checked against a second tool. **Never close a finding on
+  a single measurement from a single tool.**
+- **M-07 · Absence is a measurement, and it needs a renderer like any other.** `G-02` asserted that
+  no breadcrumb element existed. It was derived from pattern-matching fetched HTML, never from a
+  rendered DOM. The element was there the whole time, painting at 22.17 px on every page checked,
+  shipped three days earlier in `d3d82b9`.
+  **Two asymmetries to keep:** proving a thing is *present* can sometimes be done in markup;
+  proving a thing is *absent* essentially cannot — the selector, the template family or the
+  extraction can each be wrong, and every one of those failures looks exactly like absence.
+  And a **negative** finding is the dangerous kind, because it dispatches work: a false positive
+  wastes a re-measurement, a false negative sends a builder to create something that already
+  exists. **team_110 refusing this task is the control that caught it, not our own process.**
 - **M-03 · A guard that runs in a fresh process checks nothing.** The first integrity pass
   reported "0 suspicious fetches" against an empty in-process cache. Re-run for real: 18 URLs, all
   200.
@@ -437,6 +575,69 @@ Lighthouse or performance scores measured on staging (they are artifacts of the 
 
 ## 8. Change log
 
+- **2026-09-25, entry 13 — WAVE 1 EXECUTED AND VERIFIED. Theme 1.5.127, commit `c018eab`.**
+  **Ten board cards closed on Team 90's own measurement, not on the builder's report.**
+  `A1` `/shows-heritage/` → 301 to home, out of the sitemap, its three cover-up patches removed ·
+  `A2` six corpus questions on the home page, **byte-identical**, **zero `FAQPage` on `/`**, and the
+  **two invented questions that sat dormant in `block-faq-mini.php` removed** · `A3` tracking items
+  added · `A4` a one-field procedure note, no governance project · **`A5` old-site links: 12 → zero
+  across all 153 published objects, and both images now served from the new domain** · `A6` the
+  Mukesh page untouched, moved to Eyal's form · `A7` one `alt` on both pages · `A8` a new
+  `--fs-field` rung at 16px with `--fs-xs` untouched and the canon updated in the same commit ·
+  `A9` «מוזה הוצאה לאור» added, `/books/` given its own drawer link, the `/en/` leak closed,
+  **31/31 menu links 200** · `A10` approved with nothing to build.
+  **Regression:** 153 objects, 136×200, **exactly one primary nav on every one**, zero PHP errors.
+  **The builder's claim that three pages render two primary navs is REFUTED** — measured in a
+  rendered browser at two viewports, the second nav paints **0×0**.
+  **New finding, not caused by Wave 1: `A14`** — `/learning/therapist-training/` is live and
+  self-canonical but **absent from the sitemap**, and no exclusion rule explains it.
+  **Two honest limits recorded:** Safari's zoom-on-focus is not reproducible in headless Chrome, so
+  the computed 16px is the governing proxy; and the twelve old-site URLs were never itemised in a
+  list, so repoint-versus-removal could not be checked per URL — only that zero remain.
+  **`M-08` added:** a Team 90 script reported a 301 as a 200 because its no-redirect opener silently
+  followed. Caught by cross-checking with `curl`. **One measurement is not a result.**
+
+
+- **2026-09-24, entry 12** — **team_00 reviewed the live form and ruled every meeting item off it.**
+  «הטופס זה נטו מה שאייל צריך להשלים לבד בבית לפני הפגישה. כל סעיפי הפגישה צריכים להופיע בלוח
+  שלי ולא בטופס של אייל.» **The content was not disputed — the placement was.**
+  This **resolves `Q-TALK-8`**, the question team_00 had left open since the morning, and it
+  resolves it wider than asked: not only the eight «לפגישה» rows come off, but **six of the eight
+  «לשיחה» items too.** Measured per row on the live form — `M1`, `M2`, `M3`, `M5`, `M6`, `M7` offer
+  only «נדבר בשיחה» or «יש הערה», i.e. **no option that delivers anything**; `M8` («אשלח סרטונים»)
+  and `M9` («אשלח קובץ») do, and stay. **Fourteen items move to the board; eleven remain.**
+  **The operative test is a property, not a list:** a row belongs on the form only if at least one
+  of its options hands something over. `G-20`'s usability requirement now applies to the board
+  alone. Specified as **task 21**, with **task 22** for the two rows whose control cannot express
+  the ask (`Q-REPAIR-ALT` — five captions, one binary, zero thumbnails in the whole form; `P037`).
+  Task 20's form line is withdrawn: contrast goes to the board only.
+- **2026-09-24, entry 11** — **team_00 ruled the contrast map onto the board, not into a build.**
+  «המיפוי צריך להופיע בלוח עם דוגמאות — בפגישה נבחן את המצבים בפועל בדפדפן ונקבל החלטה.»
+  G-12 restated accordingly; the map stops being a held build awaiting approval and becomes a
+  meeting item with openable examples. Specified as **task 20** in the supplement, with its bar in
+  `ACCEPTANCE-CRITERIA` §20, including two traps worth keeping: **element 5 must carry its range,
+  not its worst figure** (a bare worst-case would reopen the white breadcrumb text team_00 already
+  ruled fixed), and **element 3 is a one-line code bug, not a design choice** — it is recorded so
+  the room can tell the typo from the eight judgements.
+- **2026-09-24, entry 10** — **team_110's build returned and was re-measured against
+  `ACCEPTANCE-CRITERIA-2026-09-24.md`, which was not edited after the work came back.** Verdict in
+  `VERDICT-REMEASURE-AFTER-BUILD-2026-09-24.md`: **PASS**. All fourteen built tasks re-measured and
+  standing; the site-wide content-law sweep came back **clean** (710 imgs, 539 non-empty alts, zero
+  unsourced factual assertions) — the highest-risk check of the round.
+  **Three new gaps not on the task list: `G-19` (duplicated primary nav on `/thank-you/`),
+  `G-20` (meeting rows present on both surfaces but not usable), `G-21` (`/shows-heritage/` share
+  card reads «ניווט משני.»).**
+  **`G-02` REFUTED as our own error**, with `M-02` corrected and `M-07` added. `G-05`, `G-08`,
+  `G-09`, `G-11`, `G-15`, `G-16`, `G-17` and `G-01` all confirmed closed by re-measurement.
+  **⚠ CORRECTED at entry 13: this line originally listed `G-14` as closed. It is not.** The five
+  `/repair/` photographs still carry an empty `alt`, correctly — no source sentence exists and none
+  was invented. **`G-14` is RECORDED, not FIXED**, living on Eyal's form as `Q-REPAIR-ALT`. Under
+  team_00's closure rule that satisfies the definition of done, but calling it "closed" in our own
+  register was a bookkeeping error, caught by the 1.5.118 re-audit — not by us.
+  `G-NEW` (contact mail) stays open for want of the second receipt, by design.
+  Signature reconciled: live form, board, tracked form source and the SSOT all agree on
+  `a559fd2d6405`; the `b12bbf7f666f` recorded in this master at entry 7 and the `5935e526bd5d` in
+  team_110's report are both stale doc values with no effect on the site.
 - **2026-09-24, entry 9** — Contrast line's formal summary in. Layer 4 traced to a one-line code
   bug and verified by Team 90: of four `ea_breadcrumbs_render()` call sites, only
   `wave2-w2-07.php:940` omits `'dark' => true`. The line also disclosed three of its own

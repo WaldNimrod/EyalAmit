@@ -3,7 +3,7 @@
   "isWorkSsot": true,
   "titleHe": "תור העבודה S007",
   "updated": "2026-09-24",
-  "themeLive": "1.5.116",
+  "themeLive": "1.5.126",
   "staging": "http://eyalamit-co-il-2026.s887.upress.link",
   "rules": {
     "status": [
@@ -38,6 +38,7 @@
     "eyalFormAndBoardAreDerived": true,
     "derivedHtmlMustNotBeHandEdited": true,
     "rulingRecordHe": "כל פסיקה של נימרוד נרשמת קודם בקובץ הזה. לוח נימרוד וטופס אייל נגזרים רק מ-scripts/s007_render_work_ssot.py. אין לערוך סטטוס ב-HTML. בקשה או תוספת לטופס אייל = פריט כאן ואז גזירה ו-FTP של הקובץ הבודד (בלי rebuild מלא של ה-Hub).",
+    "formBoardComplement": "Eyal's form and Nimrod's board complement each other. A gap on the form is waiting on Eyal. A gap on the board is waiting on Nimrod. A gap on neither is an open gap — absence from both is not closure. Wave 1 (2026-09-25) edited both files directly: scripts/s007_render_work_ssot.py is stale and would overwrite them.",
     "excelTracker": "archive as of 2026-09-20 — not live status",
     "handoff": "inter-team conversation — not SSOT"
   },
@@ -91,25 +92,57 @@
       "id": "Q-SHOWS",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "עמוד ההופעות: המילה placeholder הוסרה מהגוף. העמוד נשאר מפורסם ובאינדקס. הסטטוס «סגור» לא נפתח מחדש. ההכרעה אצלך: להשאיר, לבטל פרסום, או לפתוח את A2 ו-E4."
+      "promptHe": "עמוד ההופעות: המילה placeholder הוסרה מהגוף. העמוד נשאר מפורסם ובאינדקס. הסטטוס «סגור» לא נפתח מחדש. ההכרעה אצלך: להשאיר, לבטל פרסום, או לפתוח את «הופעות ומורשת מופע» ו«הופעות ומורשת מופע — מקום בתפריט».",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/",
+          "label": "הופעות ומורשת מופע"
+        }
+      ]
     },
     {
       "id": "Q-FAQ-HOME",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "בלוק שאלות בדף הבית לא נבנה. כמה שאלות מתוך 133 שכבר קיימות בעמוד השאלות, ואילו. אין שאלה חדשה עד שתגיד."
+      "promptHe": "בלוק שאלות בדף הבית לא נבנה. כמה שאלות מתוך 133 שכבר קיימות בעמוד השאלות, ואילו. אין שאלה חדשה עד שתגיד.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/faq/",
+          "label": "/faq/"
+        }
+      ]
     },
     {
       "id": "Q-A11Y-STMT",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "הצהרת הנגישות לא נגענו בה. היא ממתינה למיפוי הניגודיות ולנוסח שתאשר לפני הדבקה."
+      "promptHe": "הצהרת הנגישות לא נגענו בה. היא ממתינה למיפוי הניגודיות ולנוסח שתאשר לפני הדבקה.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/accessibility/",
+          "label": "/accessibility/"
+        }
+      ]
     },
     {
       "id": "Q-G04",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "לעמוד הסטנד הרצפתי ולעמוד הספרים הראשי אין פריט עבודה. רישום, לא בנייה. ההכרעה אצלך."
+      "promptHe": "לעמוד הסטנד הרצפתי ולעמוד הספרים הראשי אין פריט עבודה. רישום, לא בנייה. ההכרעה אצלך.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+          "label": "/stand-floor/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+          "label": "/books/"
+        }
+      ]
     },
     {
       "id": "Q-G06",
@@ -121,19 +154,278 @@
       "id": "Q-G07",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "שבע־עשרה ההערות מ־18.9 בשעה 11:58 לא שמורות בארכיון. תיעוד, לא בנייה. ההכרעה אצלך."
+      "promptHe": "שבע־עשרה ההערות מ־18.9 בשעה 11:58 לא שמורות בארכיון. תיעוד, לא בנייה. ההכרעה אצלך.",
+      "links": [
+        {
+          "url": "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/MASTER-PRE-MEETING-AUDIT-2026-09-24.md",
+          "label": "MASTER-PRE-MEETING-AUDIT-2026-09-24.md"
+        }
+      ]
     },
     {
       "id": "Q-TALK-8",
-      "waitingOn": "nimrod",
-      "status": "open",
-      "promptHe": "שמונת סעיפי השיחה נשארים בטופס: M1, M2, M3, M5, M6, M7, M8, M9. לא הוחלט אם להוריד אותם. ההכרעה אצלך."
+      "waitingOn": "none",
+      "status": "resolved",
+      "answerHe": "2026-09-24 team_00 הכריע: כל סעיפי השיחה יורדים מטופס אייל. שישה מתוך השמונה (עץ התפריט, תבנית הפוסט, הסטת הכותרת, מוקש, סטנדים, כותרות ההירו) הוכרעו בפגישה עצמה וסגורים — אינם כרטיס בשום מקום. השניים שנותרו (קרוסלת סרטונים, מוזיקת רקע) הפכו לבקשות קובץ פשוטות בטופס אייל שנבנה מחדש: HW-VIDEO ו-HW-MUSIC.",
+      "promptHe": "ששת הסעיפים «עץ התפריט הראשי — שיחה אחת», «תבנית פוסט חדש — שיחה», «הסטת הכותרת מול גוף הטקסט», «מוקש דהימן — עבודה בפגישה», «סטנדים — דוגמה לשילוב תמונות» ו«כותרות ההירו והכיתוב cbDIDG» עברו מהטופס ללוח בסבב הקודם. בטופס נשארים רק «קרוסלת סרטונים בדף הבית ובדפים חשובים» ו«מוזיקת רקע להירו, עם השתקה» — לכל אחד מהם תוצר אמיתי לשלוח. לא הוחלט אם להוריד אותם. ההכרעה אצלך.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "עץ התפריט הראשי — שיחה אחת"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy",
+          "label": "תבנית פוסט חדש — שיחה"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/method/",
+          "label": "הסטת הכותרת מול גוף הטקסט"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "label": "מוקש דהימן — עבודה בפגישה"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/stands-storage/",
+          "label": "סטנדים — דוגמה לשילוב תמונות"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "כותרות ההירו והכיתוב cbDIDG"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "קרוסלת סרטונים בדף הבית ובדפים חשובים"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "מוזיקת רקע להירו, עם השתקה"
+        }
+      ]
     },
     {
       "id": "Q-MOKESH-OLD",
       "waitingOn": "nimrod",
       "status": "open",
-      "promptHe": "עמוד מוקש הישן: דריפט מהיום הראשון. לא נמחק ולא נכתב מחדש. מילה סופית של אייל בפגישה. נימרוד אישר לרשום את זה כסעיף פגישה ב־24.9."
+      "promptHe": "עמוד מוקש הישן: דריפט מהיום הראשון. לא נמחק ולא נכתב מחדש. מילה סופית של אייל בפגישה. נימרוד אישר לרשום את זה כסעיף פגישה ב־24.9.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "label": "/eyal-amit/mokesh-dahiman/"
+        }
+      ]
+    },
+    {
+      "id": "Q-MOKESH-EYAL-ALT",
+      "waitingOn": "nimrod",
+      "status": "open",
+      "promptHe": "אותו קובץ mokesh-eyal.jpg נושא שני כיתובים קיימים. בעמוד ההנצחה: «מוקש דהימן עם אייל עמית ברישיקש, הודו». בעמוד אודות: «אייל עמית עם המאסטר מוקש דהימן ברישיקש, הודו». לא נבחר אחד.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/",
+          "label": "/eyal-amit/mokesh-dahiman/"
+        },
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+          "label": "/eyal-amit/"
+        }
+      ]
+    },
+    {
+      "id": "Q-CONTRAST",
+      "waitingOn": "none",
+      "status": "resolved",
+      "answerHe": "2026-09-24 שתי ההכרעות אושרו ונבנו; .chap נמדד חי ב-5.55:1. מה שנשאר מהמפה הוא שתי שורות בלבד, לא כל התשע — B2 (כתובית על תמונה בהירה, לא נמדדה מחדש עד היום) ו-B3 (כרטיס ההשוואה בדף הבית, 4.22 מול 4.5). שתיהן עברו ללוח.",
+      "promptHe": "מפת הניגודיות על הלוח: תשע שורות לבדיקה בדפדפן בפגישה, ועוד שלוש שאינן כשל. החלטה, לא בנייה. אין שינוי צבע בסבב הזה.",
+      "links": [
+        {
+          "url": "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/content-gaps-2026-09-21/GALLERY.html#contrast",
+          "label": "הלוח · מפת ניגודיות"
+        }
+      ]
+    },
+    {
+      "id": "Q-IOS-ZOOM",
+      "waitingOn": "nimrod",
+      "status": "open",
+      "promptHe": "שדות הטופס בגודל 13.6 פיקסל. אייפון מגדיל את העמוד כששדה מתחת ל־16 פיקסל מקבל פוקוס. קאנון הטיפוגרפיה נועל את הטוקן. הכרעה שלך, לא משימת בנייה.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+          "label": "/contact/"
+        }
+      ]
+    },
+    {
+      "id": "Q-MAIL-2",
+      "waitingOn": "none",
+      "status": "resolved",
+      "answerHe": "2026-09-24 אייל אישר בפגישה את קבלת היעד השני. הופך לפריט אימות בלבד — B8 בלוח: היעד הרשום בקוד (mu-plugins/ea-w2-15-cf7-contact-form-once.php) הוא info@eyalamit.co.il, תואם. לא בוצעה בדיקת שליחה חיה נוספת.",
+      "promptHe": "יעד ראשון הגיע לתיבה. יעד שני אל info@eyalamit.co.il לא אושר. היעד בקוד לא שונה. לא נשלחה בדיקה נוספת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+          "label": "/contact/"
+        }
+      ]
+    }
+  ],
+  "contrastRows": [
+    {
+      "id": "Q-C01",
+      "titleHe": "קישור «בית» בתוך פירורי הלחם",
+      "bodyHe": "יחס גרוע 1.41:1 מול סף 4.5:1. טווח בעמודים שנדגמו 1.41–7.12:1. מופיע ב־100 מתוך 153 עמודים מפורסמים. נמדד בפיקסלים ב־58, לא הוסק. 36 מתוך 58 נכשלו בסף.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+          "label": "/sound-healing/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C02",
+      "titleHe": "התג הקטן מעל הכותרת",
+      "bodyHe": "יחס גרוע 1.04:1 מול סף 4.5:1. טווח 1.04–6.31:1. מופיע ב־116 מתוך 153. נמדד בפיקסלים ב־31, לא הוסק. 29 מתוך 31 נכשלו. זה האלמנט שעליו הייתה הדחיפה המקורית.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+          "label": "/contact/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C03",
+      "titleHe": "פירורי לחם בעמוד העיתונות — טקסט כהה על רקע כהה",
+      "bodyHe": "עמוד אחד. יחס 1.12:1 מול סף 4.5:1, לשלושת חלקי הפירור. באג של שורה אחת, לא הכרעת עיצוב. מארבע קריאות ל־ea_breadcrumbs_render(), רק inc/wave2-w2-07.php:940 בלי הארגומנט. section-hero.php:38, parts/phero.php:44 ו־parts/mokesh-hero.php:30 מעבירות array( 'dark' => true ).",
+      "directionHe": "כיוון מוצע: ארגומנט חסר, לא שינוי רקע. לא תוקן בסבב הזה.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/press/",
+          "label": "/press/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C04",
+      "titleHe": "שורת הייחוס מתחת לציטוט על תמונה מלאה",
+      "bodyHe": "יחס גרוע 1.06:1 מול סף 4.5:1. טווח 1.06–3.66:1. מופיע ב־6 מתוך 153. נמדד בפיקסלים ב־5, לא הוסק. 5 מתוך 5 נכשלו.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/treatment/",
+          "label": "/treatment/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C05",
+      "titleHe": "טקסט פירורי הלחם הלבן",
+      "bodyHe": "טווח .ea-crumb__item 2.38–12.63:1. טווח .ea-crumb__current 2.43–12.71:1. סף 4.5:1. עובר כמעט בכל מקום, ויורד רק מעל כתם בהיר בחלק מהתמונות. פירור ב־100 מתוך 153. מ־58 עמודי הרקע הכהה שנדגמו, בלי /press/: item נכשל ב־22, current ב־20. הטקסט הזה כבר הוכרע כמתוקן. מספר גרוע יחיד היה מטעה.",
+      "directionHe": "כיוון מוצע, אם בכלל: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/",
+          "label": "/eyal-amit/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C06",
+      "titleHe": "כותרת H1 בהירו הפנימי",
+      "bodyHe": "יחס גרוע 2.02:1 מול סף 3:1 (טקסט גדול). טווח 2.02–18.35:1. מופיע ב־149 מתוך 153. נמדד בפיקסלים ב־60, לא הוסק. 3 מתוך 60 נכשלו.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+          "label": "/lessons/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C07",
+      "titleHe": "כותרת המשנה בהירו הפנימי",
+      "bodyHe": "יחס גרוע 3.10:1 מול סף 4.5:1. טווח 3.10–13.81:1. מופיע ב־99 מתוך 153. נמדד בפיקסלים ב־59, לא הוסק. 4 מתוך 59 נכשלו.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+          "label": "/lessons/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C08",
+      "titleHe": "שורת האמון מעל סרטון ההירו בדף הבית",
+      "bodyHe": "יחס 3.15:1 מול סף 4.5:1. עמוד 1 מתוך 153. נמדד בפיקסלים ב־1, לא הוסק. 1 מתוך 1 נכשל.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C09",
+      "titleHe": "טקסט הגוף בכרטיס ההשוואה בדף הבית",
+      "bodyHe": "יחס 4.22:1 מול סף 4.5:1. חסר 0.28. עמוד 1 מתוך 153. נמדד בפיקסלים ב־1, לא הוסק. 1 מתוך 1 נכשל.",
+      "directionHe": "כיוון מוצע: שינוי רקע או מסך. לא טוקן צבע ולא סולם אות.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/",
+          "label": "/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C10",
+      "titleHe": "מה שעובר — לא לפתוח מחדש",
+      "bodyHe": "סעיף 2 במפה. .ea-crumb__item ו־.ea-crumb__current ב־/sound-healing/ אושרו כמתוקנים, תואם 15.91:1. .sec--dark .tlink סף 4.5:1 נמדד 5.77. .bookcard__cta 4.5:1, 5.94–5.95. .tmq__n 4.5:1, 5.95. .foot a 4.5:1, 6.26. .toc-inline__h 4.5:1, 6.89. .photo-band__in p 4.5:1, 6.98. .foot__col-title 4.5:1, 7.06. .foot__disc ו־.foot__base 4.5:1, 7.74. .nav__en 4.5:1, 7.86–14.22. .cta-band__p 4.5:1, 8.76–11.34. .cta-band__h 3.0:1, 10.00–16.35. .nav__b 4.5:1, 10.12–19.63. .photo-band .h2 3.0:1, 10.61. .sec--dark .lead 4.5:1, 12.19. .ea-faq-item__question 4.5:1, 13.11–15.66. .studio__p 4.5:1, 13.22. .dd__t 4.5:1, 15.66. .bookcard__t 4.5:1, 15.66–15.71. .ea-faq-category__heading 4.5:1, 15.66. .sec--dark .h2 3.0:1, 17.08–17.84. .start__h 3.0:1, 19.56. .studio__h 3.0:1, 19.81.",
+      "directionHe": "אין כיוון תיקון. השורה כדי שהחדר לא יפתח מחדש מה שנמדד כעובר.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/sound-healing/",
+          "label": "/sound-healing/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C11",
+      "titleHe": "גבולי — מסומן, לא נשפט",
+      "bodyHe": "סעיף 3 במפה. בתוך 1.2 מהסף, ועובר היום. .dd__tag סף 4.5:1, גרוע 4.63:1, 2.9% מעל הרצפה, 2 עמודים. .cmpc__t סף 4.5:1, גרוע 5.26:1, עמוד 1. .bleed__q סף 3.0:1, גרוע 3.25:1, 5 עמודים. .hero__h סף 3.0:1, גרוע 3.28:1, עמוד 1. .hero__s סף 4.5:1, גרוע 4.71:1, עמוד 1.",
+      "directionHe": "מסומן, לא נשפט. אין הכרעה.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "http://eyalamit-co-il-2026.s887.upress.link/lessons/",
+          "label": "/lessons/"
+        }
+      ]
+    },
+    {
+      "id": "Q-C12",
+      "titleHe": "לא נמדד — הוצהר, לא הושמט",
+      "bodyHe": "סעיף 4 במפה. תבנית ספר בודד קיימת בקוד ואין לה מופע באף אחד מ־153 העמודים המפורסמים. תוכן אקורדיון סגור לא נדגם כי הוא לא צבוע. מצבי hover לא נדגמו. בשני עמודי מוקש נדגמה תמונת הסטיל, לא הטריילר בזמן ניגון. הירו הווידאו בדף הבית נדגם בפריים אחד. רוחב מובייל לא נמדד. סלקטורים בלי התאמה חיה לא נמדדו כי אין מה למדוד. .dd__tag קיים ב־4 עמודים; הגלולה הממוספרת נמדדה ב־2.",
+      "directionHe": "הוצהר, לא הושמט. אין מדידה ואין תיקון.",
+      "decisionHe": "החלטה בפגישה, לא בנייה מאושרת.",
+      "links": [
+        {
+          "url": "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/CONTRAST-MAP-2026-09-24.md",
+          "label": "CONTRAST-MAP-2026-09-24.md"
+        }
+      ]
     }
   ],
   "items": [
@@ -253,16 +545,16 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת",
-      "summaryHe": "ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת",
+      "stampHe": "נענה",
+      "summaryHe": "נענה. הועבר התוכן מעמוד ההופעות ומעמוד תגובות הגולשים. פער: סליידר HpGallery אינו ב-HTML. כותרות הבלוג לא הודפסו. שתי כתוביות ידיעות אחרונות אינן בשני עמודי המקור ולכן ריקות. ב־320px שורת הגוף היא 34–37 תווים כי גודל האות נעול.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/historical-articles/",
-        "check": "2026-09-24 GET 200 · archive live, placeholder removed from body and from the share card",
+        "check": "2026-09-24 GET 200, no redirect. canonical לעצמו. אינו בתפריט. תמה 1.5.121. שורת גוף ב־1440: 62–66 תווים. ב־320: 34–37 תווים, בלי גלישה אופקית. סליידר HpGallery לא הועבר. שתי כתוביות ידיעות אחרונות רוקנו.",
         "date": "2026-09-24"
       },
       "eyal": {
         "choice": "אשלח תוכן",
-        "note": "הכתבות נמצאות באתר הישן בתצורה של קובץ jpg רגיל. ניתן למצוא אותן תחת הדף \"מופעים\" או \"הופעות\" או \"מופע הסיפורים\". בהמשך כשאעבור על כל גלריית התמונות באתר אני אמצא אותן ואקטלג אותן לדף \"כתבות היסטוריות\"."
+        "note": "יש לשמור את העמוד, קישור ציבורי, סלוג לבחירתכם, ללא קישור בתפריט, נגיש לי דרך הניהול בלבלד. \n\nכן חשוב לבצע לעמוד סבב דיוק ממשק - כרגע ממש לא נראה טוב ולא קריא. \n\n\n\nבהמלצות חסר תוכן וכו. לוודא שהעמוד תקין ומכיל את כל התוכן של עמוד ״מופעים״ או ״הופעות״ משהו דומה באתר הישן- .\n\nבנוסף. יש להוסיף לעמוד הזה המתעד למעשה את המופע ההיסטורי גם את כל התגובות והמידע הנוסף על המופע המופיע באתר הישן בעמוד ״תגובות-גולשים-אודות-״מופע-הסיפורים-של״ - למעשה העמוד הזה צריך להישאר בכתובת זמינה כחומר עבודה שלי פתוח למנוע וללא קישור בממשק המשתמש הראשי, הכול בעמוד אחד מעוצב ויפה."
       },
       "nimrod": {
         "decision": "historical-as-is",
@@ -273,7 +565,7 @@
         "nowLabel": "מה מוצג היום",
         "now": "הארכיון חי ומחוץ לסרגל: מופע הסיפורים, בעיתונות, המלצות. שורת מציין-המקום ירדה מהעמוד ומהשיתוף.",
         "needLabel": "מה חסר",
-        "need": "הקטלוג המלא של שאר הכתבות, אחרי הסריקה שהבטחת. מקום בסרגל כבר הוכרע: מחוץ לתפריט.",
+        "need": "הקטלוג המלא של שאר הכתבות, אחרי הסריקה שהבטחת. פער: סליידר הגלריה בעמוד ההופעות הישן אינו בקובץ העמוד, ולכן לא הועבר. ברוחב 320 שורת הטקסט קצרה מ-45 תווים בלי לשנות את גודל האות.",
         "options": [
           {
             "value": "אשלח תוכן",
@@ -294,7 +586,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "A"
+      "section": "A",
+      "answerMark": "answered"
     },
     {
       "id": "A4",
@@ -356,15 +649,15 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "העמוד בתפריט עם «יעלה בקרוב». ממתין לקישורים ממך",
-      "summaryHe": "עמוד /learning/courses-external/ חי, בתפריט תחת לימוד והכשרה. אין קורס באוויר.",
+      "stampHe": "נענה",
+      "summaryHe": "אייל: להשאיר מחוץ לתפריט. העמוד חי. «יעלה בקרוב» נשאר על העמוד.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/",
-        "check": "2026-09-21 GET 200 «יעלה בקרוב» · no G3 placeholder · nav href /learning/courses-external/",
-        "date": "2026-09-21"
+        "check": "2026-09-24 GET 200, no redirect. «יעלה בקרוב» נשאר. id=nav פעם אחת. קישורי התפריט הראשי 27 (היו 28) ב־/ · /learning/ · /historical-articles/ · /galleries/ · /contact/ · /learning/courses-external/. href של courses-external אינו בתפריט. תמה 1.5.121.",
+        "date": "2026-09-24"
       },
       "eyal": {
-        "choice": "אשלח קישורים",
+        "choice": "להשאיר מחוץ לתפריט",
         "note": "אין עדיין קורס באוויר. כשיהיה מוכן אשלח קישור."
       },
       "nimrod": {
@@ -374,7 +667,7 @@
       "form": {
         "slim": false,
         "nowLabel": "מה מוצג היום",
-        "now": "העמוד בתפריט תחת «לימוד והכשרה ← קורסים», ועליו כתוב «יעלה בקרוב». בלי קישורי רכישה.",
+        "now": "העמוד חי ומחוץ לתפריט. עליו כתוב «יעלה בקרוב». בלי קישורי רכישה.",
         "needLabel": "מה חסר",
         "need": "הקישורים עצמם לקורסים החיצוניים, כשיהיה קורס באוויר.",
         "options": [
@@ -397,7 +690,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "A"
+      "section": "A",
+      "answerMark": "answered"
     },
     {
       "id": "B1",
@@ -459,8 +753,8 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "הקובץ הגיע — 179 בלי עמוד מחכות לבחירה",
-      "summaryHe": "ייצוא 21.9 הגיע: 341 נחוץ. 179 בלי שם עמוד. החיתוך בגלריית העבודה. השיבוץ אחרי בחירה.",
+      "stampHe": "ממתין להכרעה בפגישה",
+      "summaryHe": "ממתין להכרעה בפגישה. אייל כתב שלא הבין, וציין כפילות עם בחירת הגלריה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/galleries/",
         "check": "",
@@ -468,7 +762,7 @@
       },
       "eyal": {
         "choice": "",
-        "note": "אני לא בטוח שהבנתי מה אתה רוצה. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא \"סינון מדיה - 939 תמונות\""
+        "note": "אני לא בטוח שהבנתי מה אתה רוצה. לכלסס נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא \"סינון מדיה - 939 תמונות\""
       },
       "nimrod": null,
       "form": {
@@ -497,7 +791,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "B"
+      "section": "B",
+      "answerMark": "meeting"
     },
     {
       "id": "B3",
@@ -509,22 +804,22 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "הקובץ הגיע — הבחירה מהחיתוך, לא מהכלי הריק",
-      "summaryHe": "אותו ייצוא כמו B2. לא נסגר: חסר שיוך ל-179 תמונות.",
+      "stampHe": "נענה",
+      "summaryHe": "נענה. 149 תמונות מגלריית תחתית דף הבית באתר הישן. שדה הכיתוב היה ריק; הכיתוב הוא כותרת הקובץ מהמקור.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/galleries/",
-        "check": "",
-        "date": ""
+        "check": "2026-09-24 GET 200. 149 תמונות, כולן HTTP 200, sha256 זהה לגלריית תחתית דף הבית באתר הישן. אפס תמונות דוגמה. הכיתוב הוא כותרת הקובץ מהמקור, כי שדה הכיתוב של הגלריה היה ריק.",
+        "date": "2026-09-24"
       },
       "eyal": {
         "choice": "אבחר מהגלריה הזמנית",
-        "note": "כנ\"ל. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא \"סינון מדיה - 939 תמונות\""
+        "note": "שימו לב - בדף הבית - בסוף העמוד של האתר הישן יש גלריה - אלו התמונות לעמוד הגלריות כרגע, בהמשך אני יוסיף ועדכן וישפר. לשלב זה לקחת משם. -בנוסף - שימו לב לכפילות עם השאלה הקודמת - יש רק עמוד גלריה אחד ושתי השאלות מתייחסות אליו בניסוח שונה."
       },
       "nimrod": null,
       "form": {
         "slim": false,
         "nowLabel": "מה מוצג היום",
-        "now": "הגלריה הראשית מציגה תצוגה לדוגמה בלבד. הוכנה לך גלריה זמנית שמרכזת את כל התמונות הקיימות, כדי שהבחירה תהיה מתוך מה שיש בפועל.",
+        "now": "הגלריה הראשית מציגה את התמונות מגלריית תחתית דף הבית של האתר הישן.",
         "needLabel": "מה נדרש",
         "need": "לסמן אילו תמונות מתוך הגלריה הזמנית נכנסות לגלריה הראשית, ובאיזה סדר.",
         "options": [
@@ -547,7 +842,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "B"
+      "section": "B",
+      "answerMark": "answered"
     },
     {
       "id": "C1",
@@ -557,9 +853,9 @@
       "path": "/learning/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד",
+      "stampHe": "פתוח",
       "summaryHe": "הטקסט אושר ב-21.9. שלושה פלייסהולדרים חיים. הקישור לסרגל נרשם ב-M1, לא שאלה פתוחה.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/",
@@ -568,7 +864,7 @@
       },
       "eyal": {
         "choice": "מאשר כמו שהוא",
-        "note": "1. את הדף הזה צריך לחבר ל\"לימוד והכשרה\" בסרגל העליון. \n2. לכל אחד משלושת הבלוקים בטקסט צריך להוסיף תמונה מייצגת ואסטטית: שיעורי דיג'רידו, הרצאות וסדנאות, הכשרת מטפלים."
+        "note": "תרם נבדק - נשאר פתוח לאייל לביצוע בבית - צריך להיות ברור - בדיקת תוכן לעמוד לימוד + בחירת תמונות לעמוד."
       },
       "nimrod": {
         "decision": "placeholders-plus-eyal-form",
@@ -604,7 +900,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "C"
+      "section": "C",
+      "answerMark": "open"
     },
     {
       "id": "C2",
@@ -664,9 +961,9 @@
       "path": "/en/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "פורסם באתר הבדיקה. ממתין לתמונות ממך",
+      "stampHe": "פתוח",
       "summaryHe": "נוסח אייל חי ב-/en/. חמישה מקומות לתמונה. בלי באנר טיוטה. בלי ההערה לנימרוד.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/en/",
@@ -675,7 +972,7 @@
       },
       "eyal": {
         "choice": "אשלח נוסח",
-        "note": "# Didgeridoo Healing Center\ncbDIDG Method - Eyal Amit\n\n## Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel\n\nFor more than 25 years, the didgeridoo has been at the center of my work with breath, sound and people.\n\nI use the instrument not only as something to play, but as a practical tool for developing breath awareness, coordination, presence and a deeper relationship with the body.\n\nOver the years, this work developed into **cbDIDG**, a structured method that brings together didgeridoo playing, breathing practice, sound and body awareness.\n\nToday, the Didgeridoo Healing Center in Pardes Hanna offers one-on-one breath work, didgeridoo lessons, private sound healing, workshops, talks, advanced learning and handmade instruments.\n\n**English-speaking visitors are welcome.**\n\n[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)\n\n---\n\n## More than learning an instrument\n\n### Working with breath through the didgeridoo\n\nThe didgeridoo is usually introduced as an ancient wind instrument.\n\nIn my work, I see it first and foremost as a **breath-training instrument**.\n\nPlaying requires coordination between breathing, lips, tongue, cheeks, throat and attention. The instrument provides immediate feedback. When the breath changes, the sound changes.\n\nThis makes the didgeridoo an unusually direct tool for exploring the way we breathe.\n\nMy approach is active.\n\nYou are not simply receiving a treatment while someone else plays. You learn, practice, listen, adjust and gradually develop skills you can continue using independently.\n\nThe goal is not musical performance.\n\n**The instrument is the practice tool. The breath is the work.**\n\n---\n\n# The cbDIDG Method\n\n## A structured method developed through more than two decades of practice\n\nOver the years I developed **cbDIDG**, my method for working with breathing through the didgeridoo.\n\nThe method grew gradually from several worlds that became connected through my own experience:\n\n* more than 25 years of playing and teaching didgeridoo\n* my apprenticeship with Mukesh Dahiman in India\n* years of building didgeridoos by hand\n* study and practice of tai chi, qigong, yoga and mindfulness\n* my background as an electronics engineer\n* my interest in physiology, acoustics and the mechanics of breathing\n* thousands of hours of individual work with students and clients\n\nThree principles are central to the method.\n\n### Active work\n\nThe person participates in the process.\n\nThe work is learned through practice rather than received passively.\n\n### The didgeridoo is the tool, not the goal\n\nLearning to produce sound, coordinate the breathing system and eventually develop circular breathing creates a practical framework for exploring breath patterns, control, awareness and attention.\n\nYou do not need to become a musician.\n\n### Change develops through repetition\n\nThis work is not built around a one-time experience.\n\nSkills develop through guided practice, repetition and gradual independent work.\n\n---\n\n# Why breath became my life's work\n\nMy relationship with breathing began long before I understood that it would eventually become my profession.\n\nWhen I was twelve, the apartment building where I lived in Givatayim caught fire. A friend from the building died in that fire, and the experience stayed with me.\n\nYears later, during my military service, I developed severe asthma and allergies.\n\nFor a long time I lived with wheezing, medication, inhalers and the feeling that breathing itself had become difficult.\n\nThen I encountered the didgeridoo.\n\nAt first, I was simply drawn to its sound.\n\nI wanted to understand how this strange instrument could produce a continuous, deep tone, so I began learning to play.\n\nOnly gradually did I begin to notice what the practice was asking me to do.\n\nSlow down.\n\nCoordinate.\n\nListen.\n\nPay attention.\n\nDevelop control without force.\n\nAnd, most importantly, build a completely different relationship with my own breath.\n\nMy personal experience with asthma and breathing was one of the forces that led me to study the subject more deeply.\n\nI do not present my experience as a medical promise for someone else.\n\nBut it shaped the question that has guided my work ever since:\n\n**What can happen when a person learns to work consciously, patiently and consistently with their own breathing?**\n\nThat question eventually became the foundation of my professional work.\n\n---\n\n# My teacher, Mukesh Dahiman\n\n## Craftsmanship, patience and a way of working\n\nI first met **Mukesh Dahiman** in Rishikesh, India, in 2000.\n\nMukesh was a didgeridoo maker, teacher and craftsman who came from a family tradition of woodworking. Over many years he devoted himself to building didgeridoos and teaching people who arrived in Rishikesh from around the world.\n\nI returned to study with him and became one of his close students.\n\nWhat I learned from Mukesh went far beyond the technical skills of making or playing an instrument.\n\nHis workshop taught me patience, craftsmanship, repetition, listening and respect for a process that cannot be rushed.\n\nThese principles remain deeply connected to the way I work today.\n\nMukesh passed away in October 2020.\n\nHis influence continues through the instruments I build, the way I teach and the knowledge I pass on to others.\n\n---\n\n# Ways to work with me\n\n## One-on-one didgeridoo breath work\n\nIndividual sessions are at the core of my work.\n\nWe begin by looking at the way you breathe and understanding what brings you to the studio.\n\nFrom there, I develop a personal practice process according to the individual.\n\nA session may include:\n\n* initial observation and assessment\n* a personalized practice plan\n* practical breathing exercises\n* didgeridoo-based exercises\n* coordination of lips, cheeks, tongue, diaphragm and airflow\n* sound and body awareness\n* development of independent practice skills\n* listening, attention and presence\n\nThe objective is gradually to give you more understanding and greater awareness of your own breathing.\n\nNo previous musical experience is required.\n\nSessions take place one-on-one at my studio in Pardes Hanna, Israel.\n\n---\n\n# Didgeridoo Lessons\n\n## Learn to play from the beginning\n\nYou can also come simply because you want to learn this extraordinary instrument.\n\nPrivate didgeridoo lessons are available from complete beginner level onward.\n\nLearning can include:\n\n* producing the basic drone\n* understanding airflow and breath control\n* circular breathing\n* rhythm\n* tongue techniques\n* vocal techniques\n* overtones\n* sound development\n* musical expression\n* developing a personal practice\n\nMy approach to teaching is detailed and gradual.\n\nComplex movements are broken down into simple components, practiced separately and then connected.\n\nFor many students, learning the didgeridoo becomes much more than learning another musical instrument.\n\nThe process naturally develops attention to breathing, concentration and body awareness.\n\n---\n\n# Private Sound Healing\n\n## A different way to experience the didgeridoo\n\nSound healing is a very different experience from active breath work.\n\nDuring a private didgeridoo sound session, you do not need to learn, play or practice.\n\nYou lie down and receive the sound.\n\nThe low drone, harmonics, rhythms and physical vibration of the didgeridoo create an immersive listening experience that many people experience as relaxing, grounding and meditative.\n\nSessions are available for individuals and couples.\n\n### Breath work or sound healing?\n\nThe distinction is important.\n\n**Didgeridoo breath work is active.**\nYou learn, practice and gradually build skills.\n\n**Sound healing is receptive.**\nYou listen and experience the sound.\n\nBoth involve the didgeridoo, but they are two very different forms of work.\n\n---\n\n# Workshops\n\n## Breath, sound and didgeridoo as a shared experience\n\nI lead experiential didgeridoo workshops for groups, organizations, private events and communities.\n\nParticipants do not need any previous musical experience.\n\nThe workshops combine explanation, live demonstration and active participation.\n\nThey offer a direct introduction to the relationship between breathing, sound, attention and the didgeridoo.\n\nWorkshops usually last approximately **90 to 120 minutes** and can be adapted to the group and setting.\n\nThey are suitable for:\n\n* private groups\n* organizations\n* company teams\n* retreats\n* wellness programs\n* community groups\n* special events\n\nThe emphasis is on participation and direct experience.\n\n---\n\n# Talks\n\n## Breath, health, sound and the story behind the instrument\n\nMy talks combine personal story, professional experience, research and live didgeridoo demonstrations.\n\nDepending on the audience, talks can explore themes connected to:\n\n* breathing and health\n* stress\n* sleep\n* sound and vibration\n* the nervous system\n* the didgeridoo\n* my personal journey with breathing\n* the path from electronics engineering to didgeridoo-based breath work\n\nUnlike workshops, talks are primarily designed for a listening audience.\n\nThey are available for companies, organizations, conferences, professional events, communities and private groups.\n\n---\n\n# Learning and Professional Training\n\n## Taking the work further\n\nAlongside individual work and group activities, the educational side of cbDIDG continues to grow.\n\nI offer and develop advanced learning opportunities for people who want to explore the field more deeply.\n\nThese may include:\n\n* advanced didgeridoo study\n* courses\n* professional education\n* therapeutic applications of didgeridoo practice\n* future practitioner training connected to the cbDIDG method\n\nSome programs are intended for experienced players or professionals, while others are suitable for people who simply want to deepen their understanding.\n\nFor current courses and training opportunities, contact me directly.\n\n---\n\n# What does research say about the didgeridoo?\n\nScientific research into didgeridoo-related practices is still limited.\n\nIt is therefore important to distinguish between promising findings and established medical evidence.\n\nSeveral studies are particularly interesting.\n\n## Snoring and obstructive sleep apnea\n\nA randomized controlled trial published in the *British Medical Journal* examined adults with snoring and moderate obstructive sleep apnea.\n\nParticipants in the didgeridoo group received lessons and practiced regularly for four months.\n\nCompared with the control group, the didgeridoo group showed improvements in:\n\n* daytime sleepiness\n* apnea-hypopnea index\n* their partners' reported sleep disturbance\n\nThe study included only 25 participants, so the findings are promising but should not be interpreted as definitive evidence.\n\n## Stress and relaxation\n\nA randomized study involving 74 university students compared a 30-minute live didgeridoo sound meditation with silent breath meditation.\n\nBoth groups reported increased relaxation.\n\nParticipants in the didgeridoo meditation group experienced significantly greater relaxation and lower acute self-perceived stress than participants in the silent meditation group.\n\n## Mood, stress and autonomic regulation\n\nAnother study followed 20 beginners through ten didgeridoo-based health promotion lessons.\n\nResearchers reported changes in measures related to:\n\n* mood\n* mental stress\n* pulse\n* salivary amylase\n* autonomic nervous system balance\n\nThese studies are part of a relatively small body of research.\n\nThey do not establish didgeridoo practice as a replacement for medical treatment, but they do support continued investigation into the instrument as a tool connected to breathing, sound and wellbeing.\n\n---\n\n# Handmade Didgeridoos\n\n## From wood to sound\n\nBuilding didgeridoos has been part of my life almost as long as playing them.\n\nI learned instrument making in India with Mukesh Dahiman and later continued developing my craft in Israel.\n\nMy background in electronics engineering also influenced the way I think about instruments.\n\nA didgeridoo is acoustically much more complex than it may appear.\n\nIts:\n\n* length\n* internal bore\n* geometry\n* diameter\n* resistance\n* material\n* shape\n\nall influence the way the instrument responds and the sound it produces.\n\nI build didgeridoos by hand, including instruments made from agave.\n\nThe studio also offers:\n\n* handmade didgeridoos\n* professional instruments\n* instrument repair\n* restoration\n* carrying bags\n* stands and accessories\n* guidance in choosing the right instrument\n\nIf you are looking for a didgeridoo, you are welcome to contact me and arrange a visit to the workshop.\n\n---\n\n# About Eyal Amit\n\nI have been working with the didgeridoo since **1999**.\n\nOver the years I have worked as a player, teacher, instrument maker and practitioner using the didgeridoo as a tool for working with breathing.\n\nMy original professional training was in electronics engineering.\n\nMy path later moved through woodworking, writing, publishing, performance and storytelling, but the didgeridoo gradually became the center of my professional life.\n\nToday I am the founder of the **Didgeridoo Healing Center** in Pardes Hanna and the developer of the **cbDIDG method**.\n\nFrom my studio I work with people individually, teach didgeridoo, build instruments and lead workshops, talks and sound healing sessions.\n\nWhat connects all of these activities is one simple idea:\n\n**Breathing is something we do every moment of our lives, but it is also something we can learn to observe, practice and understand more deeply.**\n\nThe didgeridoo gives us an unusual and powerful way to do that.\n\n---\n\n# The Didgeridoo Healing Center\n\n## Pardes Hanna, Israel\n\nThe center is located in Pardes Hanna, surrounded by a garden and designed as a quiet space for individual and group work.\n\nIt includes both the studio where I teach and work with people and the workshop where I build and repair didgeridoos.\n\nPeople come from different parts of Israel and from abroad for:\n\n* individual sessions\n* lessons\n* sound healing\n* workshops\n* professional learning\n* didgeridoo instruments\n\n**Sessions and lessons can be conducted in English.**\n\n---\n\n# Frequently Asked Questions\n\n## Do I need to know how to play the didgeridoo?\n\nNo.\n\nMost people begin with no previous experience.\n\nThe process starts with basic breathing, sound production and simple coordination.\n\n---\n\n## Do I need to own a didgeridoo before I start?\n\nNo.\n\nYou can begin with instruments available at the studio.\n\nIf you later decide to buy an instrument, I can help you understand what type of didgeridoo is suitable for you.\n\n---\n\n## Do I need musical experience?\n\nNo.\n\nMusical experience can be useful, but it is not necessary for breath work, beginner didgeridoo lessons or workshops.\n\n---\n\n## Is this medical treatment?\n\nThe work offered at the center is complementary and educational and is not a substitute for medical diagnosis or treatment.\n\nIf you have a medical condition, including a respiratory or sleep-related condition, you should continue to consult your physician or other qualified healthcare professional.\n\n---\n\n## Can didgeridoo practice replace CPAP or other medical treatment for sleep apnea?\n\nNo medical treatment should be stopped or changed without consultation with the healthcare professional responsible for your care.\n\nResearch into didgeridoo playing and obstructive sleep apnea is interesting, but it remains limited.\n\n---\n\n## Is didgeridoo breath work the same as sound healing?\n\nNo.\n\nDidgeridoo breath work is an active learning process.\n\nSound healing is primarily a receptive listening experience.\n\n---\n\n## Can complete beginners join a workshop?\n\nYes.\n\nThe workshops are designed so that participants with no background in music or didgeridoo can take part.\n\n---\n\n## Do you work in English?\n\nYes.\n\nPrivate sessions, didgeridoo lessons and selected workshops can be conducted in English.\n\n---\n\n## Where is the center?\n\nThe Didgeridoo Healing Center is located in **Pardes Hanna, Israel**.\n\n---\n\n# Not sure where to start?\n\nYou do not need to decide in advance whether you need breath work, a didgeridoo lesson, sound healing or another form of work.\n\nTell me a little about what brings you here.\n\nWe can decide together what makes the most sense for you.\n\n[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)\n\n**Phone / WhatsApp:**\n[+972 52 482 2842](tel:+972524822842)\n\n**Pardes Hanna, Israel**\n\n---\n\n# Explore the full website\n\nThe rest of the website is currently available in Hebrew.\n\nIf you read Hebrew, you can explore the full website for detailed information about:\n\n* the cbDIDG method\n* didgeridoo breath work\n* didgeridoo lessons\n* sound healing\n* workshops\n* talks\n* courses and training\n* handmade didgeridoos\n* articles and research\n* Mukesh Dahiman\n* Eyal Amit\n\n[**Visit the Hebrew website**](https://www.eyalamit.co.il/)\n\n__________________________\n\nהערה לנמרוד - כדי שהדף לא יהיה משעמם כדאי לשלב בו קצת תמונות."
+        "note": "תרם נבדק - נשאר פתוח לאייל לביצוע בבית - צריך להיות ברור - בדיקת תוכן לעמוד לימוד + בחירת תמונות לעמוד."
       },
       "nimrod": {
         "decision": "publish-now-photo-placeholders",
@@ -707,7 +1004,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "C"
+      "section": "C",
+      "answerMark": "open"
     },
     {
       "id": "D1",
@@ -1164,12 +1462,12 @@
       "surface": "both",
       "status": "closed",
       "waitingOn": "none",
-      "stampHe": "נסגר — קורסים חזר לתפריט",
-      "summaryHe": "פריט «קורסים» תחת לימוד והכשרה, יעד אמיתי, לא #.",
+      "stampHe": "ב-24.9 אייל הוציא את הקורסים מהתפריט",
+      "summaryHe": "ב-21.9 הפריט חזר לתפריט. ב-24.9 אייל ענה «להשאיר מחוץ לתפריט» והפריט ירד. העמוד חי.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/",
-        "check": "2026-09-21 GET / 200 href=.../learning/courses-external/ label קורסים",
-        "date": "2026-09-21"
+        "check": "2026-09-24 GET 200. href של courses-external אינו בתפריט הראשי. «יעלה בקרוב» נשאר על העמוד.",
+        "date": "2026-09-24"
       },
       "eyal": {
         "choice": "להשאיר בתפריט",
@@ -1182,7 +1480,7 @@
       "form": {
         "slim": false,
         "nowLabel": "מה מוצג היום",
-        "now": "«קורסים» חזר לתפריט ומוביל לעמוד «יעלה בקרוב».",
+        "now": "העמוד חי עם «יעלה בקרוב». הפריט אינו בתפריט.",
         "needLabel": "מה נשאר",
         "need": "נסגר מצד התפריט. הקישורים עצמם — בחלק א׳, כשיהיו מוכנים.",
         "options": [
@@ -3288,15 +3586,15 @@
       "surface": "both",
       "status": "waiting",
       "waitingOn": "eyal",
-      "stampHe": "אין תמונת נושא גם באתר הישן. אייל ישלח אם יש. לא מעתיקים.",
-      "summaryHe": "ההערה «קח מהפוסט המקורי» לא ניתנת לביצוע: אין תמונת נושא גם באתר הישן. לא הומצאה תמונה. זה T-BLOG-HERO-OLD.",
+      "stampHe": "ממתין להכרעה בפגישה",
+      "summaryHe": "ממתין להכרעה בפגישה. התשובה חוזרת על הוראה שכבר נמדדה: אין תמונת נושא גם באתר הישן.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
         "check": "2026-09-23 post 203 has no featured image; old site has none either",
         "date": "2026-09-23"
       },
       "eyal": {
-        "choice": "יש הערה",
+        "choice": "",
         "note": "1. את התמונה הראשית בהירו בבקשה קח מהפוסט באתר המקורי."
       },
       "nimrod": {
@@ -3311,12 +3609,12 @@
         "need": "",
         "options": [
           {
-            "value": "מאושר",
-            "label": "מאושר"
+            "value": "אשלח תמונה",
+            "label": "אשלח תמונה"
           },
           {
-            "value": "יש הערה",
-            "label": "יש הערה"
+            "value": "אין תמונה",
+            "label": "אין תמונה"
           }
         ],
         "dateHint": "2012-11-03"
@@ -3325,7 +3623,8 @@
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json",
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S006/tracker/EA-CONTENT-TRACKER-2026-09-20.csv"
       ],
-      "section": "P"
+      "section": "P",
+      "answerMark": "meeting"
     },
     {
       "id": "P038",
@@ -4165,16 +4464,19 @@
       "path": "/qr/qr1/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לך — תמונה שונה לכל עמוד QR, או הירו לוגו בלי תמונה",
+      "stampHe": "פתוח",
       "summaryHe": "לא נכפיל תמונה אחת על כל הקודים (בניגוד להמלצת נימרוד לתמונה ייחודית). עד תשובה: הירו מינימלי עם לוגו.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/",
         "check": "",
         "date": ""
       },
-      "eyal": null,
+      "eyal": {
+        "choice": "",
+        "note": ""
+      },
       "nimrod": {
         "decision": "ask-eyal-unique-qr-photos",
         "note": "2026-09-21 נימרוד: QR ≠ בלוג. QR — תבנית קבועה, עדיף תמונה שונה לכל עמוד; אין תמונות ייחודיות — בקשה בטופס, לא להכפיל תמונה אחת. בלוג — תבנית אחידה. היסטורי — מה שיש באתר הישן, בלי החלפת תמונות. בלי תמונה — הירו מינימלי עם לוגו בלבד."
@@ -4204,7 +4506,8 @@
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-21--content-gaps--from-eyal/SOURCE-C-2026-09-21T1001Z--from-eyal.json"
       ],
-      "section": "Q"
+      "section": "Q",
+      "answerMark": "open"
     },
     {
       "id": "Q001",
@@ -6599,7 +6902,8 @@
             "label": "יש הערה על העץ — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
@@ -6644,7 +6948,8 @@
             "label": "יש הערה על התבנית — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md"
@@ -6689,7 +6994,8 @@
             "label": "יש הערה — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json"
@@ -6786,7 +7092,8 @@
             "label": "יש הערה — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/mokesh-meeting.html"
@@ -6831,7 +7138,8 @@
             "label": "יש הערה — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--whatsapp-after-1158/eyal-s006-excel-answers-2026-09-21T11-06-38Z.json"
@@ -6879,7 +7187,8 @@
             "label": "יש הערה — פירטתי למטה"
           }
         ],
-        "dateHint": ""
+        "dateHint": "",
+        "meeting": true
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
@@ -6894,16 +7203,19 @@
       "path": "/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לקבצי הסרטונים",
+      "stampHe": "פתוח",
       "summaryHe": "23.9 בבוקר: קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, מהאינסטגרם. הקבצים לא צורפו.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-23 no instagram carousel",
         "date": "2026-09-23"
       },
-      "eyal": null,
+      "eyal": {
+        "choice": "",
+        "note": ""
+      },
       "nimrod": null,
       "form": {
         "slim": false,
@@ -6926,7 +7238,8 @@
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
       ],
-      "section": "M"
+      "section": "M",
+      "answerMark": "open"
     },
     {
       "id": "M9",
@@ -6936,16 +7249,19 @@
       "path": "/",
       "kind": "content_gap",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "ממתין לקובץ המוזיקה",
+      "stampHe": "פתוח",
       "summaryHe": "23.9 בבוקר: מוזיקת רקע להירו עם לחצן השתקה ברור. כתבת שתשלח קובץ בהמשך. הקובץ לא הגיע.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "2026-09-23 no hero music",
         "date": "2026-09-23"
       },
-      "eyal": null,
+      "eyal": {
+        "choice": "",
+        "note": ""
+      },
       "nimrod": null,
       "form": {
         "slim": false,
@@ -6968,7 +7284,8 @@
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/eyal-ceo-submissions-and-responses/from-eyal/2026-09-23--design-notes/2026-09-23--design-notes--from-eyal.docx"
       ],
-      "section": "M"
+      "section": "M",
+      "answerMark": "open"
     },
     {
       "id": "T-CONTACT-23",
@@ -7218,8 +7535,8 @@
       "surface": "nimrod_board",
       "status": "waiting",
       "waitingOn": "nimrod",
-      "stampHe": "ממתין לשיחה — רק סדר הכפתורים מ-23.9 וקישור אב של לימוד. המבורגר וקורסים הוכרעו",
-      "summaryHe": "אין שינוי ל-ea-canonical-nav.php עד השיחה. המבורגר נסגר ב-21.9. קורסים כבר בתפריט. נשאר: הסדר שאייל שלח ב-23.9, וקישור הכותרת «לימוד והכשרה».",
+      "stampHe": "ממתין לשיחה — סדר הכפתורים מ-23.9 וקישור אב של לימוד. קורסים יצא מהתפריט ב-24.9",
+      "summaryHe": "המבורגר נסגר ב-21.9. ב-24.9 «קורסים» יצא מהתפריט. נשאר: הסדר שאייל שלח ב-23.9, וקישור הכותרת «לימוד והכשרה».",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/",
         "check": "",
@@ -8084,9 +8401,9 @@
       "path": "/repair/",
       "kind": "a11y",
       "surface": "both",
-      "status": "waiting",
+      "status": "open",
       "waitingOn": "eyal",
-      "stampHe": "אין משפט קיים — לא הומצא כיתוב",
+      "stampHe": "פתוח",
       "summaryHe": "חמש תמונות תוכן נשארו בלי alt: EA-000239, EA-000298, EA-000214, EA-000238, EA-000220. בייצוא אין להן משפט של אייל, רק כותרת סטודיו. שתי תמונות בגלריה כבר נושאות את המשפט שהיה בנתוני התמה. EA-000268 ו-EA-000161 נשארו ריקות: לראשונה אין משפט, לשנייה ההערה היא מיקום בלבד.",
       "live": {
         "url": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
@@ -8102,12 +8419,85 @@
         "now": "חמש התמונות מוצגות בלי כיתוב, כי אין משפט קיים.",
         "nowLabel": "מה מוצג היום",
         "need": "EA-000239, EA-000298, EA-000214, EA-000238, EA-000220. משפט קצר לכל אחת, אם יש.",
-        "needLabel": "מה חסר"
+        "needLabel": "מה חסר",
+        "images": [
+          {
+            "id": "EA-000239",
+            "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg"
+          },
+          {
+            "id": "EA-000298",
+            "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000298.jpg"
+          },
+          {
+            "id": "EA-000214",
+            "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000214.jpeg"
+          },
+          {
+            "id": "EA-000238",
+            "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000238.jpeg"
+          },
+          {
+            "id": "EA-000220",
+            "url": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000220.jpeg"
+          }
+        ]
       },
       "sources": [
         "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/TASKS-FOR-BUILDERS-2026-09-24.md"
       ],
-      "section": "batch"
+      "section": "batch",
+      "answerMark": "open"
+    },
+    {
+      "id": "TRACK-STAND-FLOOR",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "סטנד רצפתי לנגינה",
+      "path": "/stand-floor/",
+      "kind": "ops",
+      "surface": "internal",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "רישום — העמוד חי, לא היה פריט",
+      "summaryHe": "Wave 1 A3. העמוד חי. נרשם למעקב. אין בקשת בנייה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/stand-floor/",
+        "check": "2026-09-25 in page-sitemap.xml",
+        "date": "2026-09-25"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/MANDATE-WAVE1-2026-09-25.md"
+      ],
+      "section": "track"
+    },
+    {
+      "id": "TRACK-BOOKS",
+      "formId": null,
+      "trackerRow": null,
+      "titleHe": "מוזה הוצאה לאור — שער הספרים",
+      "path": "/books/",
+      "kind": "ops",
+      "surface": "internal",
+      "status": "closed",
+      "waitingOn": "none",
+      "stampHe": "רישום — העמוד חי, לא היה פריט",
+      "summaryHe": "Wave 1 A3. העמוד חי. נרשם למעקב. אין בקשת בנייה.",
+      "live": {
+        "url": "http://eyalamit-co-il-2026.s887.upress.link/books/",
+        "check": "2026-09-25 in page-sitemap.xml",
+        "date": "2026-09-25"
+      },
+      "eyal": null,
+      "nimrod": null,
+      "form": null,
+      "sources": [
+        "file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/MANDATE-WAVE1-2026-09-25.md"
+      ],
+      "section": "track"
     }
   ],
   "liveValidatedAt": "2026-09-21T15:15:56Z",

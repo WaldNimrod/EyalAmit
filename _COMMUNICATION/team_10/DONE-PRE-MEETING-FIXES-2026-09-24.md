@@ -113,3 +113,114 @@ These are on both surfaces. They are Nimrod's calls.
 - `Q-MOKESH-OLD` — the old Mukesh page. Drift from the start of the work. Not deleted and not rewritten. Eyal's final word is the meeting item. Nimrod approved recording it on 2026-09-24, which closes the gap.
 
 The live form also shows the heading `לפגישה, לא למילוי` with those Nimrod rows and no inputs under them.
+
+## Supplement — three gaps from the re-measurement
+
+Theme header on the server file `style.css` is `1.5.117`. Asset links on `/thank-you/` carry `?ver=1.5.117`. Fetches do not follow redirects. Team 90 re-measures. This is not a sign-off.
+
+### 17 · Double navigation on `/thank-you/`
+
+Before the patch, `/thank-you/` was HTTP 200, body class `page-template-default`, and contained two `<nav class="nav" id="nav"`. The first sat after the skip link. The second sat immediately after the first `</nav>`.
+
+After the patch, one request prints that partial once. Counts of `<nav class="nav" id="nav"`:
+
+| URL | status | count |
+|---|---|---|
+| `http://eyalamit-co-il-2026.s887.upress.link/thank-you/` | 200 | 1 |
+| `http://eyalamit-co-il-2026.s887.upress.link/contact/` | 200 | 1 |
+| `http://eyalamit-co-il-2026.s887.upress.link/` | 200 | 1 |
+| `http://eyalamit-co-il-2026.s887.upress.link/repair/` | 200 | 1 |
+| `http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/` | 200 | 1 |
+
+Nav items, order, and `ea-canonical-nav.php` were not changed. The footer drawer is a different partial.
+
+### 18 · Meeting rows, links and titles
+
+`ssotSha12` is `dc9545689ecb`. The form was uploaded: `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html` — HTTP 200, contains `id="Q-SHOWS"` and that signature. No new input fields.
+
+The board file is `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/content-gaps-2026-09-21/GALLERY.html`. Each meeting question is its own `<section class="item" id="Q-…">`.
+
+- `Q-SHOWS` links to `http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/`. The bare ids are now the existing titles `הופעות ומורשת מופע` and `הופעות ומורשת מופע — מקום בתפריט`.
+- `Q-FAQ-HOME` links to `/` and `/faq/`.
+- `Q-A11Y-STMT` links to `/accessibility/`.
+- `Q-G04` links to `/stand-floor/` and `/books/`.
+- `Q-G06` has no page. No page was invented. The row stays without a page link.
+- `Q-G07` links only to `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/MASTER-PRE-MEETING-AUDIT-2026-09-24.md`. The list of 17 notes is not in the repo.
+- `Q-TALK-8` names the existing titles for M1, M2, M3, M5, M6, M7, M8, M9, each with the path already on that item. M4 stays closed and is not in the list.
+- `Q-MOKESH-OLD` links to `http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/`.
+
+### 19 · Share card on `/shows-heritage/`
+
+- URL: `http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/` — HTTP 200.
+- `og:description` and `meta name="description"` are the same string: `מורשת והופעות — הופעות, מופעי דיג׳רידו וסיפור המורשת של אייל עמית והמרכז לטיפול בנשימה בפרדס חנה.`
+- `ניווט משני` is not in the share value. Publish status and noindex were not changed. No second `og:description` tag was added.
+
+### Doubts — measured, recorded, not fixed
+
+- `mokesh-eyal.jpg` on `http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/` (HTTP 200) has alt `מוקש דהימן עם אייל עמית ברישיקש, הודו`.
+- The same file on `http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/` (HTTP 200) has alt `אייל עמית עם המאסטר מוקש דהימן ברישיקש, הודו`.
+- Neither sentence was rewritten. Recorded as `Q-MOKESH-EYAL-ALT` on the form and on the board.
+- `http://eyalamit-co-il-2026.s887.upress.link/services/` — HTTP 404, redirect not followed.
+- The slug `services` is still in `ea_nav_drawer_orphan_slugs()` and therefore still in `ea_open_round_chrome_slugs()`. It was not removed. Recorded as `Q-SERVICES-404` on both surfaces.
+
+## 20 · Contrast map on the board — not a build
+
+No colour, token, scrim, or CSS was changed. Numbers were copied from `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/CONTRAST-MAP-2026-09-24.md`. They were not re-measured.
+
+Board: `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/content-gaps-2026-09-21/GALLERY.html#contrast`.
+
+Contrast sections rendered: 12 addressable rows (`Q-C01`–`Q-C12`) plus the index section `id="contrast"`. Nine are the failures, worst first. Three more are what passes, borderline, and not measurable.
+
+Representative fetches, redirects not followed:
+
+| URL | status |
+|---|---|
+| `http://eyalamit-co-il-2026.s887.upress.link/sound-healing/` | 200 |
+| `http://eyalamit-co-il-2026.s887.upress.link/contact/` | 200 |
+
+Also fetched, same rule: `/press/` 200, `/lessons/` 200.
+
+Eyal's form has one line, `Q-CONTRAST`, under «לפגישה, לא למילוי», with no input. It points at the board. The twelve rows are not on the form. Live form `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html` — HTTP 200, `ssotSha12 219df6879ce9`, contains `id="Q-CONTRAST"`, does not contain `Q-C01`.
+
+Two figure notes, copied from the map rather than from the dispatch's shorter wording:
+
+- Row 5 current-page range in the map is `2.43–12.71:1`. The dispatch wrote `2.43–12:1`. The board uses `12.71`.
+- The map's opening sentence numbers the missing `dark` argument as item 2. The map body and this dispatch put that bug on row 3 (`/press/`, `wave2-w2-07.php:940`). The board follows the body. The bug was not fixed.
+
+## 21 · Meeting rows left the form
+
+team_00: the form is only what Eyal finishes alone at home. Meeting rows stay on the board.
+
+Live form `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html` — HTTP 200, `ssotSha12 fdff72aef859`. The heading `לפגישה, לא למילוי` is absent. `data-id="M1"` is absent.
+
+The eleven rows on that form, each with at least one option that hands something over:
+
+`A3`, `A5`, `B2`, `B3`, `C1`, `C3`, `P037`, `Q-HERO-ASK`, `Q-REPAIR-ALT`, `M8`, `M9`.
+
+`M8` still offers `אשלח סרטונים או קישורים`. `M9` still offers `אשלח את קובץ המוזיקה`. They sit under `קבצים לשליחה`, not under `לשיחה`.
+
+`M1`, `M2`, `M3`, `M5`, `M6`, `M7` are off the form. They are still sections on `file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/content-gaps-2026-09-21/GALLERY.html`. Wording, options, `waitingOn`, and status were not changed. Nothing was marked closed.
+
+The same board still has the meeting questions, including `Q-SHOWS`, `Q-FAQ-HOME`, `Q-A11Y-STMT`, `Q-G04`, `Q-G06`, `Q-G07`, `Q-TALK-8`, `Q-MOKESH-OLD`, `Q-MOKESH-EYAL-ALT`, `Q-SERVICES-404`, and the twelve contrast rows. `Q-CONTRAST` is on the board only.
+
+Two gaps that were defined and had no row are now on the board only:
+
+- `Q-IOS-ZOOM` — form fields are 13.6px; iPhone zooms a field under 16px. The type canon locks the token. Not a build.
+- `Q-MAIL-2` — the first test arrived. The second, to `info@eyalamit.co.il`, has no confirmed receipt. The recipient was not changed and no further test was sent.
+
+## 22 · Two controls that could not carry the answer
+
+`Q-REPAIR-ALT` stays on the form. It now shows five photographs and five empty text fields, one per file: `EA-000239`, `EA-000298`, `EA-000214`, `EA-000238`, `EA-000220`. No caption was written, including no placeholder. Two of the files fetched live: `EA-000239.jpeg` HTTP 200, `EA-000298.jpg` HTTP 200.
+
+`P037` stays on the form. Its old options were `מאושר` / `יש הערה`, which cannot say "I will send one" or "there isn't one". The title was not rewritten. The options are now `אשלח תמונה` and `אין תמונה`, taken from the existing stamp `אייל ישלח אם יש`.
+
+## `/services/` is not a meeting item
+
+The 404 is the close from 2026-09-21. Eyal chose delete. Nimrod approved unpublish with no redirect. `Q-SERVICES-404` was removed from the board. It was not a decision.
+
+The leftover was the slug `services` still named in `ea_nav_drawer_orphan_slugs()` and the fallback list in `ea_open_round_chrome_slugs()`. That slug is gone. Theme header on the server is `1.5.118`.
+
+Re-measured, redirects not followed:
+
+- `http://eyalamit-co-il-2026.s887.upress.link/services/` — HTTP 404, no `Location`.
+- `http://eyalamit-co-il-2026.s887.upress.link/services/didgeridoo-lessons/` — HTTP 301 to `/lessons/`. The child redirect was left as it was.

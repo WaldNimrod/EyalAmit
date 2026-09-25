@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<meta charset="utf-8">
+<title>ניגודיות — שתי ההחלטות, לפני ואחרי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#2f2013; --mut:#6b5f55; --line:#e0d8cf; --page:#fbf9f6; --card:#fff;
+         --ok:#1f7a4d; --okbg:#e8f5ee; --bad:#a3231a; --badbg:#fbeae8; }
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px 16px 72px;background:var(--page);color:var(--ink);
+       font:16px/1.6 'Heebo',-apple-system,Arial,sans-serif;max-width:940px;margin-inline:auto}
+  h1{font-size:25px;margin:0 0 4px}
+  h2{font-size:19px;margin:36px 0 6px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:20px 0 8px;color:var(--mut);font-weight:500}
+  .sub{color:var(--mut);font-size:14px;margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 12px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .col{flex:1 1 260px;min-width:240px}
+  /* the real site background for the eyebrow test */
+  .stage{background:rgb(255,255,250);border:1px solid var(--line);border-radius:8px;padding:18px 16px}
+  .chap{font-size:11.05px;font-weight:500;letter-spacing:.14em;margin:0 0 6px}
+  .h1s{font-size:32.3px;font-weight:300;line-height:1.12;margin:0}
+  .now{color:rgb(208,138,94)}
+  .optA{color:rgb(174,98,51)}
+  .optB{color:rgb(154,87,45)}
+  .ink{color:rgb(47,32,19)}
+  .tag{display:inline-block;font-size:12px;font-weight:500;border-radius:999px;padding:2px 9px;margin-inline-start:6px}
+  .t-ok{background:var(--okbg);color:var(--ok)}
+  .t-bad{background:var(--badbg);color:var(--bad)}
+  /* photo stage */
+  .photo{position:relative;border-radius:8px;overflow:hidden;min-height:190px;display:flex;align-items:flex-end;
+         background-image:url('http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg');
+         background-size:cover;background-position:center}
+  .photo .scrim{position:absolute;inset:0}
+  .s55 .scrim{background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.42) 55%,rgba(0,0,0,.22))}
+  .photo .txt{position:relative;padding:16px;color:#fff}
+  .photo .txt .k{font-size:11.05px;font-weight:500;letter-spacing:.14em;opacity:.95;margin:0 0 4px}
+  .photo .txt .t{font-size:32.3px;font-weight:300;line-height:1.1;margin:0 0 4px}
+  .photo .txt .s{font-size:18.7px;font-weight:300;margin:0;color:rgba(255,255,255,.86)}
+  code{font:13px/1.4 ui-monospace,Menlo,monospace;color:var(--mut);direction:ltr;unicode-bidi:embed}
+  ul{margin:8px 0;padding-inline-start:20px}
+  li{margin:3px 0}
+  a{color:#0b5fa5}
+  .note{color:var(--mut);font-size:14px;margin:8px 0 0}
+  .big{font-size:21px;font-weight:500}
+</style>
+
+<h1>ניגודיות — שתי ההחלטות</h1>
+<p class="sub">כל המספרים נמדדו על האתר החי. הרקע בדוגמאות הוא הרקע האמיתי של האתר,
+והגדלים הם הגדלים האמיתיים של האלמנטים. הסף הנדרש הוא 4.5 לטקסט רגיל.</p>
+
+<div class="card" style="background:var(--okbg);border-color:#bfe3cf">
+  <p style="margin:0"><span class="big">שלוש מתשע כבר נסגרו היום.</span><br>
+  פירורי הלחם עברו מתוך ההירו למקום הקלאסי, ובכך יצאו מהרקע הבעייתי.
+  נמדד עכשיו בשני עמודים כולל עמוד העיתונות: <b>15.66 מול 4.5 הנדרשים.</b>
+  זה סגר את קישור הפירור, את טקסט הפירור, ואת הבאג בעמוד העיתונות.</p>
+</div>
+
+<h2>החלטה 1 · התג הקטן מעל הכותרת</h2>
+<p class="note">זה האלמנט שדחפת עליו בחזרה במקור. הוא כבר <b>לא</b> על תמונה — הוא על הרקע הבהיר
+של האתר. כלומר זו בחירת גוון, לא בעיית תמונה.</p>
+
+<div class="row">
+  <div class="col"><div class="card">
+    <h3>היום</h3>
+    <div class="stage">
+      <p class="chap now">סאונד הילינג</p>
+      <p class="h1s ink">מפגש סאונד הילינג</p>
+    </div>
+    <p class="note"><code>rgb(208,138,94)</code> <span class="tag t-bad">2.80 — נכשל</span></p>
+  </div></div>
+
+  <div class="col"><div class="card">
+    <h3>אפשרות א — הגוון הכהה ביותר שעובר</h3>
+    <div class="stage">
+      <p class="chap optA">סאונד הילינג</p>
+      <p class="h1s ink">מפגש סאונד הילינג</p>
+    </div>
+    <p class="note"><code>rgb(174,98,51)</code> <span class="tag t-ok">4.56 — עובר</span></p>
+  </div></div>
+
+  <div class="col"><div class="card">
+    <h3>אפשרות ב — עם מרווח ביטחון</h3>
+    <div class="stage">
+      <p class="chap optB">סאונד הילינג</p>
+      <p class="h1s ink">מפגש סאונד הילינג</p>
+    </div>
+    <p class="note"><code>rgb(154,87,45)</code> <span class="tag t-ok">5.55 — עובר</span></p>
+  </div></div>
+</div>
+
+<div class="card">
+  <p class="note" style="margin:0"><b>שתי האפשרויות שומרות על אותו גוון ועל אותה רוויה בדיוק</b> —
+  רק כהות. כלומר זה נשאר הטרקוטה של המותג, לא צבע אחר.
+  <b>אפשרות א היא המינימום שעובר</b>, ואם תמונה או מסך כלשהו יזיזו את הרקע במעט היא עלולה לרדת מתחת.
+  <b>אפשרות ב נותנת מרווח.</b></p>
+  <p class="note"><b>איפה זה באתר:</b> התג מופיע ב־<b>116 מתוך 153 העמודים</b>.
+  נמדדו ישירות 31, ו־<b>29 מהם נכשלו</b>.
+  דוגמאות חיות לפתוח:
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">צור קשר</a> ·
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/sound-healing/">סאונד הילינג</a> ·
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/lessons/">שיעורים</a></p>
+</div>
+
+<h2>החלטה 2 · טקסט לבן על גבי תמונה</h2>
+<p class="note">ארבע השורות שנותרו הן אותה בעיה אחת: טקסט לבן על תמונה שלא ניתן לשלוט בה.
+התמונה למטה היא תמונת הירו אמיתית מהאתר.</p>
+
+<div class="row">
+  <div class="col"><div class="card">
+    <h3>היום — בלי מסך</h3>
+    <div class="photo">
+      <div class="txt">
+        <p class="k">סאונד הילינג</p>
+        <p class="t">מפגש בגינה</p>
+        <p class="s">תהליך אישי, בקצב שלך</p>
+      </div>
+    </div>
+    <p class="note">מעל אזור בהיר בתמונה הטקסט הלבן נעלם.
+    <span class="tag t-bad">נכשל בקצוות</span></p>
+  </div></div>
+
+  <div class="col"><div class="card">
+    <h3>עם מסך כהה־שקוף</h3>
+    <div class="photo s55">
+      <div class="scrim"></div>
+      <div class="txt">
+        <p class="k">סאונד הילינג</p>
+        <p class="t">מפגש בגינה</p>
+        <p class="s">תהליך אישי, בקצב שלך</p>
+      </div>
+    </div>
+    <p class="note">מדורג — כהה למטה, מתבהר למעלה.
+    <span class="tag t-ok">4.74 גם על הפיקסל הבהיר ביותר</span></p>
+  </div></div>
+</div>
+
+<div class="card">
+  <p class="note" style="margin:0"><b>המסך לא נוגע בצבע הטקסט ולא בטוקן.</b> הוא שכבה מתחת לטקסט,
+  ולכן אותו פתרון סוגר את כל ארבע השורות בבת אחת.</p>
+  <p class="note"><b>איפה זה באתר, לפי אלמנט:</b></p>
+  <ul>
+    <li><b>שורת הייחוס מתחת לציטוט</b> — 6 עמודים, 5 מתוך 5 שנמדדו נכשלו. הגרוע ביותר: 1.06.
+      <a href="http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/">מוקש דהימן</a> ·
+      <a href="http://eyalamit-co-il-2026.s887.upress.link/bags/">תיקים</a></li>
+    <li><b>כותרת ההירו הפנימי</b> — על 149 עמודים, אך <b>רק 3 מתוך 60 שנמדדו נכשלו</b>.
+      הסף כאן 3 ולא 4.5, כי האות גדולה.
+      <a href="http://eyalamit-co-il-2026.s887.upress.link/lessons/">שיעורים</a></li>
+    <li><b>כותרת המשנה בהירו</b> — על 99 עמודים, <b>4 מתוך 59 נכשלו</b>.
+      <a href="http://eyalamit-co-il-2026.s887.upress.link/repair/">תיקון וחידוש</a></li>
+    <li><b>שורת האמון בדף הבית</b> — עמוד אחד, 3.15.
+      <a href="http://eyalamit-co-il-2026.s887.upress.link/">דף הבית</a></li>
+  </ul>
+</div>
+
+<h2>ושורה אחת בפני עצמה</h2>
+<div class="card">
+  <p class="note" style="margin:0"><b>טקסט הגוף בכרטיס ההשוואה בדף הבית — 4.22 מול 4.5.</b>
+  מפספס בשמונה מאיות, בעמוד אחד. תיקון זעיר, לא החלטה עקרונית.
+  <a href="http://eyalamit-co-il-2026.s887.upress.link/">דף הבית</a></p>
+</div>
+
+<h2>מה שאני מבקש שתאשר</h2>
+<div class="card">
+  <p style="margin:0 0 6px"><b>1 · גוון התג</b> — אפשרות א או אפשרות ב.</p>
+  <p style="margin:0 0 6px"><b>2 · מסך מתחת לטקסט שעל תמונות</b> — כן או לא.</p>
+  <p class="note">שתיהן אינן נוגעות בטוקן צבע ואינן נוגעות בטוקן גודל אות.
+  התג משנה גוון של אלמנט אחד, והמסך הוא שכבת רקע.</p>
+</div>
+
+<p class="note" style="border-top:1px solid var(--line);padding-top:12px;margin-top:28px">
+צוות 90, בקרה. המספרים נמדדו מול הפיקסלים המצוירים בפועל.
+הערה אחת ביושר: מדידה בדפדפן של כותרות ההירו מחזירה מספר שגוי, כי הרקע הוא תמונה ולא צבע —
+המספרים כאן לקוחים מהמיפוי שנמדד מול הפיקסלים עצמם.</p>

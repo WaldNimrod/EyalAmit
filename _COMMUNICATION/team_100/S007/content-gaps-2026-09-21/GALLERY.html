@@ -3,1597 +3,245 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>לוח עבודה S007</title>
+<title>לוח עבודה — נימרוד</title>
 <style>
   :root{
     --ivory:#fffffa; --ivory-2:#efeae1; --dark:#0E0905;
     --terra:#B5663D; --terra-dk:#9A4F2B; --ink:#2f2013; --body:#67482d;
-    --sand:#D8C7B5; --ok:#dce9d4; --wait:#fff3d6; --ask:#f3e4d6;
+    --sand:#D8C7B5;
     --bf:Heebo,-apple-system,Arial,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:#f3eee6;color:var(--ink);font:16px/1.55 var(--bf)}
+  body{margin:0;background:#f3eee6;color:var(--ink);font:16px/1.6 var(--bf)}
   header.page{padding:28px 32px;background:var(--dark);color:#fff}
   header.page h1{margin:0 0 8px;font-size:22px;font-weight:600}
   header.page p{margin:0 0 6px;color:rgba(255,255,255,.78);max-width:86ch}
   header.page a{color:#E8C4A8}
-  .wait{background:#fff3d6;border:1px solid #e0c36a;padding:14px 18px;border-radius:10px;margin:18px 32px}
-  nav.toc{display:flex;flex-wrap:wrap;gap:8px;padding:8px 32px 20px;background:#fff;border-bottom:1px solid var(--sand)}
-  nav.toc a{color:var(--terra);text-decoration:none;border:1px solid var(--sand);padding:6px 12px;border-radius:999px;font-size:13px}
-  section.item{padding:28px 32px;border-bottom:8px solid #e4d8c8}
-  section.item h2{margin:0 0 4px}
-  section.item h3{font-size:1rem;margin:18px 0 6px}
-  .path{margin:0 0 14px;color:var(--body);font-size:14px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}}
-  .box{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:14px 16px}
-  .box h3{margin:0 0 8px;font-size:14px;color:var(--terra-dk)}
-  .box p,.box li{margin:0 0 8px}
-  .box ul{margin:0;padding:0 18px 0 0}
-  .eyal{background:#fff}
-  .us{background:#f7f3ed}
-  table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;margin:12px 0}
-  th,td{border:1px solid var(--sand);padding:8px 10px;text-align:right;vertical-align:top}
-  th{background:var(--ivory-2)}
-  .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--ivory-2);margin-left:6px}
-  .tag.go{background:var(--ok)}
-  .tag.done{background:#cfe8c8}
-  .tag.hold{background:var(--wait)}
-  .tag.q{background:#f4d4c4}
-  .tag.waitn{background:#dce6f4}
-  .tag.nav{background:#e8d0c4;color:#5a2e18}
-  .hold-nav{background:#f4e4d8;border:1px solid #c98962;padding:14px 18px;border-radius:10px;margin:18px 32px}
-  .nav-bar{display:flex;align-items:center;gap:10px;height:56px;padding:0 18px;background:rgba(20,14,9,.96);color:#fff;border-radius:10px 10px 0 0;overflow:hidden;font-size:13px}
-  .nav-bar .brand{font-weight:650;margin-left:8px;white-space:nowrap}
-  .nav-bar .l1{display:flex;gap:8px;flex-wrap:nowrap;overflow:hidden;opacity:.95}
-  .nav-bar .l1 span{white-space:nowrap;padding:4px 2px}
-  .nav-bar .l1 .dd::after{content:" ▾";font-size:9px;opacity:.7}
-  .schema{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:16px 20px 20px;margin-top:14px;overflow:auto}
-  .schema h3{margin:0 0 10px;font-size:15px}
-  .schema ol{list-style:none;margin:0;padding:0;counter-reset:n}
-  .schema li{counter-increment:n;margin:0}
-  .schema .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:4px 0;line-height:1.4}
-  .schema .row::before{content:counters(n,".") ".";font-variant-numeric:tabular-nums;font-weight:650;color:var(--terra-dk);min-width:2.8em}
-  .schema > ol > li > .row{font-size:16px;padding:7px 0 5px;border-bottom:1px solid #f0e6da}
-  .schema ol ol{margin:2px 14px 8px 0;padding:0 16px 0 0;border-right:1px solid #d8c4b0}
-  .schema ol ol .row{font-size:14px;border:0;padding:3px 0}
-  .schema .lab{font-weight:650;color:var(--ink)}
-  .schema .href{font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--body);direction:ltr;unicode-bidi:embed}
-  .schema .note{font-size:12px;color:#8a6a52}
-  .schema.opts > ol > li > .row{border:0}
-  .schema.opts ol ol{border-right-color:#e4d4c4}
-  .home-flow{display:flex;flex-direction:column;gap:8px;max-width:720px}
-  .home-row{border-radius:10px;padding:12px 16px;background:#fff;border:1px dashed var(--sand);color:var(--body);font-size:13px}
-  .home-row.hi{border:2px solid var(--terra);background:#fff8f2;color:var(--ink)}
-  .home-row.dark{background:#1a120c;color:#fff;border:0}
-  .spot{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
-  @media(max-width:800px){.spot{grid-template-columns:repeat(2,1fr)}}
-  .scard{background:#fff;border:1px solid var(--sand);border-radius:10px;overflow:hidden}
-  .scard .ph{height:88px;background:linear-gradient(160deg,#2A1A0C,#9A4F2B)}
-  .scard .tx{padding:8px 10px}
-  .scard h4{margin:0 0 4px;font-size:13px}
-  .scard p{margin:0;font-size:12px;color:var(--body)}
-  pre{white-space:pre-wrap;font:13px/1.45 ui-monospace,Menlo,monospace;margin:0;max-height:220px;overflow:auto;background:var(--ivory-2);padding:10px;border-radius:8px}
-  .filters{display:flex;flex-wrap:wrap;gap:8px;padding:0 32px 12px}
-  .filters button{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--sand);background:#fff;cursor:pointer}
-  .filters button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
-  .shade-note{font-size:14px;color:var(--body);margin:0 0 14px}
-  .shade-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:0 0 18px}
-  .band{border-radius:12px;overflow:hidden;border:1px solid var(--sand);min-height:148px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between}
-  .band h3{margin:0 0 6px;font-size:18px;font-weight:650}
-  .band p{margin:0 0 12px;font-size:13px;line-height:1.45}
-  .band .btn{align-self:flex-start;border-radius:999px;padding:7px 14px;font-size:13px;border:1px solid transparent}
-  .band .meta{font-size:12px;letter-spacing:.02em}
-  .pair{display:flex;gap:8px;align-items:stretch}
-  .chip{flex:1;border-radius:10px;padding:12px;min-height:72px;border:1px solid var(--sand)}
-  .chip b{display:block;font-size:13px;margin-bottom:4px}
-  .chip span{font-size:12px;font-family:ui-monospace,Menlo,monospace}
+  .section-head{padding:26px 32px 10px;background:#fff;border-bottom:1px solid var(--sand)}
+  .section-head h2{margin:0 0 4px;font-size:19px}
+  .section-head p{margin:0;color:var(--body);font-size:14px;max-width:80ch}
+  section.item{padding:26px 32px;border-bottom:8px solid #e4d8c8;background:#fff}
+  section.item:nth-of-type(even){background:#faf7f2}
+  section.item h2{margin:0 0 10px;font-size:17px;line-height:1.4}
+  section.item h2 .id{color:var(--terra-dk);font-weight:700;margin-left:2px}
+  .path{margin:0 0 12px;color:var(--body);font-size:14px}
+  .path a{color:var(--terra-dk)}
+  section.item p{margin:0 0 10px;max-width:90ch}
+  .need{background:#f7f3ed;border-right:3px solid var(--terra);border-radius:8px;padding:10px 14px;margin:12px 0 0}
+  .need b{color:var(--terra-dk)}
+  .meta{padding:16px 32px;color:var(--body);font-size:13px;background:#fff}
+  code{font:13px/1.4 ui-monospace,Menlo,monospace;background:var(--ivory-2);padding:1px 5px;border-radius:4px;direction:ltr;unicode-bidi:embed}
+
+  .item.done{background:#f3faf5;border-color:#bfe3cf}
+  .item.done h2{color:#1f7a4d}
+  .item.done h2::after{content:' ✓';font-weight:700}
+  .item .need{background:#fdf6e8;border-inline-start:3px solid #c99a3a;padding:8px 12px;border-radius:6px}
 </style>
 </head>
 <body>
 <header class="page">
-  <h1>לוח עבודה S007</h1>
-  <p>נגזר מ־תור העבודה. אין לערוך סטטוס כאן. generatedAt 2026-09-24T11:23Z · ssotSha12 a559fd2d6405 · תמה 1.5.116</p>
+  <h1>לוח עבודה — נימרוד</h1>
+<p style="color:#6b5f55;font-size:14px;margin:4px 0 18px">גל 1 הושלם ואומת ב-25.9 על תמה 1.5.127. <b>עשרה סעיפים נסגרו על מדידה, לא על דיווח.</b> מה שנשאר פתוח מסומן בצהוב תחת «נדרש».</p>
+  <p>נבנה מחדש ב-25 בספטמבר 2026, לפי הכרעת team_00 אחרי סגירת הפגישה ושילוח טופס אייל. שני
+  סקשנים בלבד: מה ממתין להכרעה שלך, ומה ממתין לצוותים בלי הכרעה חוסמת.</p>
   <p>מקור: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/S007-WORK-SSOT.json">S007-WORK-SSOT.json</a>
-   · טופס אייל: <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html">s007-content-gaps.html</a></p>
+   · טופס אייל (21 כרטיסים חיים): <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html">s007-content-gaps.html</a>
+   · מנדט: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/MANDATE-BOARD-REBUILD-2026-09-25.md">MANDATE-BOARD-REBUILD-2026-09-25.md</a></p>
 </header>
-<p class="wait"><strong>אין לערוך סטטוס בלוח הזה.</strong> סתירה מול קובץ העבודה — הקובץ מנצח. אקסל 20.9 הוא ארכיון. HANDOFF הוא שיחה.</p>
-<p class="hold-nav"><strong>לשיחה:</strong> חלק י — M1 עץ (הסדר נרשם), M2 תבנית פוסט, M3 הסטת כותרת, M5 מוקש (רק וידאו הרקע), M6 סטנדים, M7 כותרות הירו, M8 קרוסלת סרטונים, M9 מוזיקת רקע. M4 נסגר: שוקולד כדפוס הצטרפות, לא בטופס. הסקיצה למטה (#navtree). דוגמת הפוסט: <a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy">שבוע הנשימה</a>. אין שינוי ל־ea-canonical-nav.php עד השיחה.</p>
-<p class="hold-nav"><strong>תמה 1.5.115 חיה. תקציר סבב האופטימיזציה בראש הלוח.</strong> השוקולד הוא דפוס הצטרפות, לא החלפת טוקנים. עוגיות, קיפול הספרים וכניסת הפוטר חיים. בית ודום נשימה לא נצבעו מחדש. 157 כתובות נבדקו ב־390 וב־1440: אפס גלישה אופקית, ואפס מדיה שבורה.</p>
 
-<section class="item" id="opt">
-  <h2>תהליכי אופטימיזציה</h2>
-  <p class="path">תקציר מנהלים לסבב השלישי. באמנה הסדר קבוע: קודם טקסט לתמונות, אחר כך כותרת ותיאור לכל עמוד, אחר כך קידום, אחר כך נוחות בטלפון, ועמודים חדשים רק בסוף. מה שרץ קודם תחת אותו שם היה גל העיצוב, לא הסבב הזה.</p>
-  <table>
-    <tr><th>נושא</th><th>מה אופיין</th><th>מה עלה לאתר הבדיקה</th><th>מה נשאר</th></tr>
-    <tr><td><strong>טקסט לתמונות</strong></td><td>לחבר את מה שהאתר מציג עם ההערות שאייל כתב ב־21.9. משפט שאומר מי או מה בתמונה מחליף את הטקסט הגנרי. הערת מיקום לא נכתבת על התמונה.</td><td>המשפטים עלו לאתר הבדיקה. בגלריית מוקש: ג&#x27;מה, אניטה, הבנים, ענת והילדים, אייל וגיא, הגנגס, שלד הסטודיו, הביקתה, החצר. בבית: «אני ומוקש» וסיפור הדיג&#x27; שנגנב. בספר: מוקש אוחז בספר, 2003. בסטנדים: רצפתי, או תלייה על הקיר.</td><td>הערות מיקום לא נכתבו על התמונות. גלריית הבחירה נבנתה מחדש מהתמה ומהייצוא: תשע תמונות התיקון מסומנות משולבות בעמוד התיקון. 179 שסומנו נחוץ בלי עמוד נשארו בלי עמוד.</td></tr><tr><td><strong>כותרת ותיאור</strong></td><td>לכל אחת מ־157 הכתובות כותרת ותיאור משלה. למחוק מגוף הכתבות ההיסטוריות את השורה «אופציונלי — מציין מקום», כדי שלא תופיע בכרטיס השיתוף.</td><td>נבדקו 157 הכתובות. השורה נמחקה מהגוף ומהשיתוף. התיאור של הארכיון הוא המשפט הראשון שכבר חי בעמוד. שלושה עמודי קוד בלי תיאור קיבלו את שם הסיפור. עמוד התודה קיבל את משפט התודה עצמו.</td><td>הכתובת של שירותים ברשימה הישנה מחזירה עמוד שלא נמצא. לא נפתח עמוד. תיאור זהה בשני נתיבים הוא אותו עמוד פעמיים (אודות, ספרים), לא חוסר.</td></tr><tr><td><strong>קידום</strong></td><td>לכל עמוד כותרת, תיאור, כתובת אחת, כרטיס שיתוף, וסימון למנועי חיפוש: העסק, האדם, מוצר, שאלות, כתבה, פירורי לחם. לא למדוד ציון מהירות על אתר הבדיקה.</td><td>הסימון כבר היה חי: העסק, אייל, שאלות, מוצרים, כתבות, פירורים וכרטיס שיתוף. נוסף סימון «עמוד אוסף» לכתבות ההיסטוריות, בלי עותק שני. ציון מהירות לא נמדד.</td><td>מדידה אמיתית רק אחרי המעבר לאתר החי. אתר הבדיקה חסום לאינדוקס.</td></tr><tr><td><strong>טלפון ונגישות</strong></td><td>שהאתר יהיה נוח בטלפון, לא רק תקין. אחר כך חתימת נגישות אצל צוות הבדיקות. לא לחתום על זה כאן.</td><td>שדות הטופס בעמוד צור קשר בגובה 44 פיקסלים. נבדק ברוחב טלפון: אין גלילה הצידה. גודל האות לא שונה, כי סולם האותיות נעול.</td><td>החתימה אצל צוות הבדיקות. יש התנגשות: הטלפון מגדיל את העמוד כששדה קטן מקבל פוקוס, והסולם נועל את השדות על גודל קטן יותר. אם מזיזים את הסולם — זו החלטה שלך.</td></tr><tr><td><strong>עמודים חדשים</strong></td><td>אחרונים בסדר. לא לפני שלושת הנושאים הראשונים.</td><td>לא נפתחו עמודים.</td><td>קורסים עדיין «יעלה בקרוב».</td></tr>
-  </table>
-  <p class="path">לא שייך לסבב: סדר התפריט, סרטון הרקע של מוקש, פיזור הסטנדים, כותרות ההירו, קרוסלת הסרטונים ומוזיקת הרקע. אלה שיחה. אין מעבר לאתר החי מתוך הסבב.</p>
+<div class="section-head">
+  <h2>ממתין לנימרוד</h2>
+  <p>הכרעות שרק אתה יכול לקבל. שום דבר כאן לא יבוצע לפני שתסמן כיוון.</p>
+</div>
+
+<section class="item done" id="A1">
+  <h2><span class="id">A1</span> · עמוד ההופעות — נסגר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/</a></p>
+  <p>נמדד ב-1.5.127: הכתובת מחזירה <b>301</b> לדף הבית, ואינה במפת האתר. הוסרו גם שלושת הטלאים שנכתבו כדי לטייח גוף ריק — התיאור המסונתז, צומת הסכמה, ושורת מפת האתר. אפס קישורים נכנסים מ-136 העמודים החיים.</p>
 </section>
 
-<section class="item" id="batch">
-  <h2>המידע החדש</h2>
-  <h3>עודכן באתר</h3>
-  <ol><li>צור קשר: הירו כמחצית רק בעמוד הזה, תמונת הילד עם השפופרת ליד הטופס, תיבת הודעה קצרה. תמה 1.5.111. — <a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">צור קשר</a></li><li>שבעה עמודי QR עודכנו בלי לשנות כתובת: סרטונים, טקסט כאן 11, קישור NPR, ותמונת אביב בקוסטה ריקה. — <a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr31/">QR31</a></li><li>בלוג: לחצני דיג&#x27;רידו (13) ונשימה (8). 51 תמונות נושא הועתקו מהאתר הישן. — <a href="http://eyalamit-co-il-2026.s887.upress.link/blog/">בלוג</a></li><li>נבדק ולא נדרש שינוי: סדר «למה את הספרים של מוזה» לפני «שלושה ספרים», וקישור השאלות הנפוצות להכשרות. שניהם כבר היו חיים.</li><li>תמה 1.5.114: עוגיות, קיפול שלושת הספרים, וכניסת פוטר. קאנון הדפוסים נעול. — <a href="http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/">כושי בלאנטיס</a></li><li>שוקולד וכפתור חול הם דפוס הצטרפות, לא החלפת טוקנים. חי בתיקון, בשיטה, בסאונד הילינג ובלימוד. — <a href="http://eyalamit-co-il-2026.s887.upress.link/method/">השיטה</a></li></ol>
-  <h3>ידוע ומחכה לשיחה או לשיוך</h3>
-  <ol><li>גלריות שעדיין לא נבנו: שיעורים 46, אודות 9, שלושת הספרים 9/9/3, תיקים, כלים, טיפול וסאונד הילינג. תיקון הכלים כבר חי עם תשע התמונות. השאר מחכה לדוגמת הסטנדים.</li><li>סטנדים: הדוגמה לזרימת תמונות (חלק גדול, חלק גלריה). לא נבנה. שיחה M6.</li><li>שלושת הספרים: הגלריה בסוף נשארת לגל ב. הקיפול כבר חי.</li><li>מוקש: להוריד רק את וידאו הרקע בהירו. הסרט המוטמע ליד הפתיחה נשאר. תמונת מוקש לבדו לא נבחרה. לא נבנה. פגישה M5.</li><li>בית ודום נשימה לא נצבעו מחדש. כפתור בלי כותרת ופסקה נשאר כהה, בלי משפט חדש.</li><li>הסטת הכותרת מול גוף 82ch. הקאנון נשאר. שיחה M3, לא תיקון.</li><li>כותרות ההירו והכיתוב cbDIDG. נוגע בקאנון האות. שיחה M7. לא נפתח.</li><li>סרגל: הסדר שהוא שלח נרשם ולא יושם. שאלות נפוצות ועדויות, פונט לשורה אחת, והיצרות נוספת בגלילה — M1. הסרגל נעול עד השיחה.</li><li>179 תמונות נחוץ בלי עמוד. החיתוך קיים. השיבוץ מחכה לשיוך שלו.</li><li>לוגו השיטה שסומן «לשים בהירו» — להתעלמות. אין מימוש.</li><li>טופס בחירת פסקה לכל ממליץ — אחרי שהתוכן יושב. לא בגל.</li></ol>
-  <h3>הוחזר לאייל</h3>
-  <ol><li>טופס חלק י: M4 ירד. פתוחים לשיחה: M1 עץ, M2 תבנית פוסט, M3 הסטה, M5 מוקש, M6 סטנדים, M7 כותרות הירו, M8 קרוסלת סרטונים, M9 מוזיקת רקע. — <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-content-gaps.html#M1">הטופס</a></li><li>חיתוך 179 תמונות בלי עמוד, וכפתור «נחוץ בלי עמוד» בגלריית 939. — <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/media-filter-unassigned-need.html">החיתוך</a></li><li>דף הפגישה למוקש: הציטוטים ו-34 התמונות. — <a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/mokesh-meeting.html">מוקש</a></li><li>עדיין אצלו לשלוח: קטלוג הכתבות ההיסטוריות (A3), קישורי קורסים (A5), שלוש תמונות ללמידה (C1), תמונה ייחודית לכל QR, ותמונת נושא לפוסט «נשימה מעגלית – סטודיו דיג&#x27;רידו» מ-2012 — אין מקור באתר הישן.</li></ol>
-</section>
-<nav class="toc">
-  <a href="#opt">תהליכי אופטימיזציה</a>
-  <a href="#batch">ארבע הרשימות</a>
-  <a href="#q">שאלות</a>
-  <a href="#navtree">עץ ותפריט</a>
-  <a href="#color">גוונים</a>
-  <a href="#spotlight">עכשיו באתר</a>
-  <a href="#extra">תור פנימי</a>
-  <a href="#both">סעיפי טופס</a>
-  <a href="#slim">בלוג ו-QR</a>
-</nav>
-<section class="item" id="q">
-  <h2>שאלות פתוחות אליך</h2>
-  <p class="path">מה שפתוח עכשיו. שורה עם «nimrod» מחכה לתשובה שלך. שורה עם «team10» היא המשימה שכבר יצא לה GO.</p>
-  <ol><li><span class='tag waitn'>nimrod</span> עמוד ההופעות: המילה placeholder הוסרה מהגוף. העמוד נשאר מפורסם ובאינדקס. הסטטוס «סגור» לא נפתח מחדש. ההכרעה אצלך: להשאיר, לבטל פרסום, או לפתוח את A2 ו-E4.</li><li><span class='tag waitn'>nimrod</span> בלוק שאלות בדף הבית לא נבנה. כמה שאלות מתוך 133 שכבר קיימות בעמוד השאלות, ואילו. אין שאלה חדשה עד שתגיד.</li><li><span class='tag waitn'>nimrod</span> הצהרת הנגישות לא נגענו בה. היא ממתינה למיפוי הניגודיות ולנוסח שתאשר לפני הדבקה.</li><li><span class='tag waitn'>nimrod</span> לעמוד הסטנד הרצפתי ולעמוד הספרים הראשי אין פריט עבודה. רישום, לא בנייה. ההכרעה אצלך.</li><li><span class='tag waitn'>nimrod</span> לבניית נתוני העבודה אין אימות נפרד. תהליך, לא שינוי באתר. ההכרעה אצלך.</li><li><span class='tag waitn'>nimrod</span> שבע־עשרה ההערות מ־18.9 בשעה 11:58 לא שמורות בארכיון. תיעוד, לא בנייה. ההכרעה אצלך.</li><li><span class='tag waitn'>nimrod</span> שמונת סעיפי השיחה נשארים בטופס: M1, M2, M3, M5, M6, M7, M8, M9. לא הוחלט אם להוריד אותם. ההכרעה אצלך.</li><li><span class='tag waitn'>nimrod</span> עמוד מוקש הישן: דריפט מהיום הראשון. לא נמחק ולא נכתב מחדש. מילה סופית של אייל בפגישה. נימרוד אישר לרשום את זה כסעיף פגישה ב־24.9.</li></ol>
-  <table><tr><th>status/waitingOn</th><th>כמה בלוח</th></tr><tr><td>closed/none</td><td>60</td></tr><tr><td>waiting/eyal</td><td>19</td></tr><tr><td>waiting/nimrod</td><td>1</td></tr><tr><td>waiting/team10</td><td>99</td></tr></table>
-  <p class="path">המספר waiting/team10 כולל את קטלוג P ו-Q. אלה לא מאה משימות. הביצוע הוא שתי תבניות: פוסט, ואז QR.</p>
+<section class="item done" id="A2">
+  <h2><span class="id">A2</span> · בלוק השאלות בדף הבית — נסגר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">http://eyalamit-co-il-2026.s887.upress.link/</a></p>
+  <p>שש שאלות מהקורפוס, בין ההצצה להמלצות. נמדד: <b>שש מתוך שש זהות בייט-בייט</b> לקורפוס, שאלה ותשובה, כולל הקישורים שבתוך התשובות. <b>אפס סכמת FAQPage בדף הבית</b> (העמוד הייעודי ממשיך לפלוט אחת עם 133). אפס תגיות גלויות. <b>ושני הכיתובים המומצאים שישבו ברכיב הוסרו</b>.</p>
 </section>
 
-<section class="item" id="navtree">
-  <h2>עץ האתר כפי שהוא בתפריט היום</h2>
-  <p class="path">סקיצה לשיחה — לא אתר חי. מקור: ea_canonical_nav_items(). דסקטופ אחרי גלילה = 56px. עשרה כפתורי L1. «קורסים» = /learning/courses-external/ («יעלה בקרוב»). המבורגר, עיתונות, הופעות וכתבות היסטוריות הוכרעו ב-21.9 וירדו מהטופס. בשיחה נשארים הסדר שאייל שלח ב-23.9, קישור האב של «לימוד והכשרה», ואם שאלות נפוצות ועדויות נכנסים לסרגל.</p>
-  <div class="nav-bar" aria-hidden="true">
-    <span class="brand">אייל עמית</span>
-    <div class="l1">
-      <span class="dd">טיפול בדיג׳רידו</span>
-      <span>השיטה</span>
-      <span>שיעורי דיג׳רידו</span>
-      <span>סאונד הילינג</span>
-      <span class="dd">לימוד והכשרה</span>
-      <span class="dd">כלים ואביזרים</span>
-      <span class="dd">ספרים</span>
-      <span>בלוג דיג׳רידו</span>
-      <span class="dd">אייל עמית</span>
-      <span>צור קשר</span>
-    </div>
-  </div>
-  <div class="schema" aria-label="עץ התפריט הקנוני">
-    <h3>עץ מלא — רמה 1 בסרגל, רמה 2 בתפריט נפתח / במגירה</h3>
-    <ol>
-      <li>
-        <div class="row"><span class="lab">בית</span><span class="href">/</span><span class="note">לוגו בדסקטופ · במגירה שורה «בית»</span></div>
-      </li>
-      <li>
-        <div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">טיפול בדיג׳רידו</span><span class="href">/treatment/</span></div></li>
-          <li><div class="row"><span class="lab">נחירות ודום נשימה בשינה</span><span class="href">/snoring-sleep-apnea/</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">השיטה</span><span class="href">/method/</span></div>
-      </li>
-      <li>
-        <div class="row"><span class="lab">שיעורי דיג׳רידו</span><span class="href">/lessons/</span></div>
-      </li>
-      <li>
-        <div class="row"><span class="lab">סאונד הילינג</span><span class="href">/sound-healing/</span></div>
-      </li>
-      <li>
-        <div class="row"><span class="lab">לימוד והכשרה</span><span class="note">כפתור — אין קישור לאב</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">הכשרות למטפלים</span><span class="href">/learning/therapist-training/</span></div></li>
-          <li><div class="row"><span class="lab">קורסים</span><span class="href">/learning/courses-external/</span><span class="note">יעלה בקרוב</span></div></li>
-          <li><div class="row"><span class="lab">הרצאות</span><span class="href">/learning/lectures/</span></div></li>
-          <li><div class="row"><span class="lab">סדנאות</span><span class="href">/learning/workshops/</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">כלים ואביזרים</span><span class="href">/shop/</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">כלים בעבודת יד ואביזרים</span><span class="href">/shop/</span></div></li>
-          <li><div class="row"><span class="lab">תיקון וחידוש כלי דיג׳רידו</span><span class="href">/repair/</span></div></li>
-          <li><div class="row"><span class="lab">כלי דיג׳רידו למכירה</span><span class="href">/didgeridoos/</span></div></li>
-          <li><div class="row"><span class="lab">תיקים לדיג׳רידו</span><span class="href">/bags/</span></div></li>
-          <li><div class="row"><span class="lab">סטנדים לאחסון דיג׳רידו</span><span class="href">/stands-storage/</span></div></li>
-          <li><div class="row"><span class="lab">סטנד רצפתי לנגינה</span><span class="href">/stand-floor/</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">ספרים</span><span class="href">/books/</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">מבצעים</span><span class="href">/books/#books-bundle</span></div></li>
-          <li><div class="row"><span class="lab">צבע בכחול וזרוק לים</span><span class="href">/books/tsva-bekahol/</span></div></li>
-          <li><div class="row"><span class="lab">כושי בלאנטיס</span><span class="href">/books/kushi-blantis/</span></div></li>
-          <li><div class="row"><span class="lab">וכתבת</span><span class="href">/books/vekatavta/</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">בלוג דיג׳רידו</span><span class="href">/blog/</span></div>
-      </li>
-      <li>
-        <div class="row"><span class="lab">אייל עמית</span><span class="note">כפתור — אין קישור לאב</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">אודות אייל</span><span class="href">/eyal-amit/</span></div></li>
-          <li><div class="row"><span class="lab">מוקש דהימן — לזכרו</span><span class="href">/eyal-amit/mokesh-dahiman/</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">צור קשר</span><span class="href">/contact/</span></div>
-      </li>
-    </ol>
-  </div>
-  <div class="schema opts">
-    <h3>אופציות תפריט לשיחה — לא מממשים</h3>
-    <ol>
-      <li>
-        <div class="row"><span class="lab">א — ארבעה פתחים</span><span class="note">4 כפתורי L1 במקום 10. הכי ברור לאורח חדש. דורש הרגל מחדש.</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">טיפול ועבודה</span></div></li>
-          <li><div class="row"><span class="lab">ללמוד</span></div></li>
-          <li><div class="row"><span class="lab">חנות</span></div></li>
-          <li><div class="row"><span class="lab">אייל</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">ב — שישה</span><span class="note">קיצוץ מתון. שומר על שלושת שירותי הליבה בשורה.</span></div>
-        <ol>
-          <li><div class="row"><span class="lab">טיפול</span></div></li>
-          <li><div class="row"><span class="lab">שיעורים</span></div></li>
-          <li><div class="row"><span class="lab">סאונד</span></div></li>
-          <li><div class="row"><span class="lab">לימוד</span></div></li>
-          <li><div class="row"><span class="lab">חנות</span></div></li>
-          <li><div class="row"><span class="lab">אייל</span></div></li>
-        </ol>
-      </li>
-      <li>
-        <div class="row"><span class="lab">ג — לחץ מהבית · מומלץ עכשיו</span><span class="note">10 L1 ללא שינוי + רצועת «עכשיו באתר». ברירת מחדל כל עוד אין שיחת תפריט.</span></div>
-      </li>
-    </ol>
-  </div>
-</section>
-<section class="item" id="spotlight">
-  <h2>סקיצה — רצועת «עכשיו באתר» בדף הבית</h2>
-  <p class="path">לא «חדשות». ארבעה יעדים שאייל בוחר. לא מממשים עד אישור.</p>
-  <div class="home-flow">
-    <div class="home-row dark">01 הירו — כותרת + וידאו רקע (קיים)</div>
-    <div class="home-row">02 מה זה טיפול בנשימה (קיים)</div>
-    <div class="home-row">03 וידאו YouTube (חבילת מיידי)</div>
-    <div class="home-row hi">
-      <strong>חדש — «עכשיו באתר»</strong>
-      <div class="spot">
-        <div class="scard"><div class="ph"></div><div class="tx"><h4>כלי דיג׳רידו למכירה</h4><p>עמוד חנות פנימי</p></div></div>
-        <div class="scard"><div class="ph"></div><div class="tx"><h4>כושי בלאנטיס</h4><p>ספר</p></div></div>
-        <div class="scard"><div class="ph"></div><div class="tx"><h4>הכשרות למטפלים</h4><p>עמוד לימוד</p></div></div>
-        <div class="scard"><div class="ph"></div><div class="tx"><h4>פוסט מהבלוג</h4><p>אייל מחליף</p></div></div>
-      </div>
-    </div>
-    <div class="home-row">04 טיפול או סאונד הילינג (קיים)</div>
-  </div>
-</section>
-<section class="item" id="color">
-  <h2>גוונים — נסגר</h2>
-  <p class="shade-note">ההכרעה: שוקולד #5C3A2E הוא דפוס הצטרפות על פס שכבר יש לו כותרת ופסקה, עם כפתור חול. חי בתיקון, בשיטה, בסאונד הילינג ובלימוד. הטוקנים לא הוחלפו. הפוטר נשאר #0E0905. כפתור בלי כותרת לא נצבע. הרשת למטה היא הרישום של ההשוואה, לא שאלה פתוחה.</p>
-  <h3>1. הבלוק באמצע העמוד</h3>
-  <p class="path">לא נצבעו .cta-band, .sec--dark ו-.start בכל האתר. רק cta-band--choc. דוגמה חיה: /method/ ו-/repair/.</p>
-  <div class="shade-grid">
-    <div class="band" style="background:#0E0905;color:rgba(255,255,255,.7)">
-      <div><h3 style="color:#fff">הפוטר, להשוואה</h3><p>אייל עמית · התקנון. זה מה שנשאר כהה.</p></div>
-      <div class="meta">#0E0905 · לא מועמד</div>
-    </div>
-    <div class="band" style="background:linear-gradient(160deg,rgba(154,79,43,.10),rgba(154,79,43,.08)),linear-gradient(160deg,#0B0703 0%,#1C1109 55%,#2A1A0C 82%,#0B0703 100%);color:#fff">
-      <div><h3>היום</h3><p style="color:rgba(255,255,255,.82)">כמעט שחור, עם שכבת חום דקה. נראה כמו הפוטר.</p><span class="btn" style="background:#B5663D;color:#fff">לתיאום בדיקה</span></div>
-      <div class="meta">#0B0703 → #2A1A0C</div>
-    </div>
-    <div class="band" style="background:#5C3A2E;color:#fff">
-      <div><h3>שוקולד</h3><p style="color:rgba(255,255,255,.88)">כותרות משנה בפלטה. הכי רחוק מהפוטר ועדיין כהה.</p><span class="btn" style="background:#fff;color:#5C3A2E">לתיאום בדיקה</span></div>
-      <div class="meta">#5C3A2E · לבן 10:1</div>
-    </div>
-    <div class="band" style="background:#8A5A44;color:#fff">
-      <div><h3>אדמה</h3><p style="color:rgba(255,255,255,.9)">טקסט משני בפלטה.</p><span class="btn" style="background:#fff;color:#8A5A44">לתיאום בדיקה</span></div>
-      <div class="meta">#8A5A44 · לבן 5.8:1</div>
-    </div>
-    <div class="band" style="background:#A44E2B;color:#fff">
-      <div><h3>טרקוטה</h3><p style="color:rgba(255,255,255,.9)">ההדגשה הראשית בפלטה שננעלה.</p><span class="btn" style="background:#fff;color:#A44E2B">לתיאום בדיקה</span></div>
-      <div class="meta">#A44E2B · לבן 5.7:1</div>
-    </div>
-    <div class="band" style="background:#AB3A2B;color:#fff">
-      <div><h3>לבנה</h3><p style="color:rgba(255,255,255,.9)">כפתור חזק בפלטה.</p><span class="btn" style="background:#fff;color:#AB3A2B">לתיאום בדיקה</span></div>
-      <div class="meta">#AB3A2B · לבן 6.2:1</div>
-    </div>
-    <div class="band" style="background:#9A4F2B;color:#fff">
-      <div><h3>החום הכהה החי</h3><p style="color:rgba(255,255,255,.9)">--terra-dk. קרוב לטרקוטה, לא אותו קוד.</p><span class="btn" style="background:#fff;color:#9A4F2B">לתיאום בדיקה</span></div>
-      <div class="meta">#9A4F2B · לבן 6.0:1</div>
-    </div>
-    <div class="band" style="background:#B5663D;color:#fff">
-      <div><h3>הכפתור החי</h3><p style="color:rgba(255,255,255,.92)">--terra. לבן עליו לא עובר לטקסט רגיל.</p><span class="btn" style="background:#2f2013;color:#fff">לתיאום בדיקה</span></div>
-      <div class="meta">#B5663D · לבן 4.3:1</div>
-    </div>
-  </div>
-  <h3>2. גוונים חיים מול הפלטה שננעלה</h3>
-  <p class="path">הפלטה: <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/docs/project/EYAL-SITE-COLOR-PALETTE.md">EYAL-SITE-COLOR-PALETTE.md</a>. חול #D8C7B5 זהה. שאר הטוקנים נשארו כמו שהם. זו ההכרעה.</p>
-  <div class="shade-grid">
-    <div class="pair">
-      <div class="chip" style="background:#B5663D;color:#fff"><b>כפתור חי</b><span>#B5663D</span></div>
-      <div class="chip" style="background:#A44E2B;color:#fff"><b>טרקוטה בפלטה</b><span>#A44E2B</span></div>
-    </div>
-    <div class="pair">
-      <div class="chip" style="background:#2f2013;color:#fff"><b>דיו חי</b><span>#2f2013</span></div>
-      <div class="chip" style="background:#2E2B28;color:#fff"><b>דיו בפלטה</b><span>#2E2B28</span></div>
-    </div>
-    <div class="pair">
-      <div class="chip" style="background:#67482d;color:#fff"><b>גוף חי</b><span>#67482d</span></div>
-      <div class="chip" style="background:#8A5A44;color:#fff"><b>אדמה בפלטה</b><span>#8A5A44</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="item" id="extra">
-  <h2>סעיפים שאינם שאלת טופס</h2>
-  <p class="path">גלים, ביקורת, חרגת תפריט, ops.</p>
-</section>
-
-<section class="item" id="T-CONTACT-23" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-CONTACT-23 — צור קשר — הירו קצר ותמונת השפופרת <span class="tag done">חי בתמה 1.5.111</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">/contact/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.111 · phero--half 396/900 · submit bottom 898 · overflow 0 at 390 and 1440 · eyal-child-phone.jpg 200 · method hero 88vh · validator c8b0645c</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>המידע החדש שעלה לאתר: הירו כמחצית רק בעמוד הזה, תמונת הילד עם השפופרת ליד הטופס, תיבת הודעה קצרה. שאר ההירואים נשארו 88vh.</p></div>
-  </div>
-</section>
-<section class="item" id="T-GALLERY-ASSIGNED" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-GALLERY-ASSIGNED — גלריות לעמודים שכבר יש להם שיוך <span class="tag hold">ידוע — לא ממומש. אחרי דוגמת הסטנדים</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/media-filter.html">/lessons/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 repair nine images live; other assigned galleries not built; stands example is the meeting (M6)</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שיעורים 46, אודות 9, שלושת הספרים 9/9/3, תיקים כלים טיפול וסאונד הילינג עדיין בלי הגלריה שלהם. עמוד התיקון לבדו עלה עם תשע התמונות שאושרו בסקיצה. שאר העמודים לא נבנו: הסטנדים הם הדוגמה לזרימה, והיא בפגישה (M6).</p></div>
-  </div>
-</section>
-<section class="item" id="T-BOOK-FOLD" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-BOOK-FOLD — שלושת הספרים — ארבע שורות ואז להמשך קריאה <span class="tag done">חי — ארבע שורות ואז «להמשך קריאה», תמה 1.5.114</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/">/books/kushi-blantis/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.114 · prose-fold line-clamp 4 · «להמשך קריאה» visible · tsva and vekatavta also fold</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אייל ביקש ארבע שורות גלויות ואז «להמשך קריאה». זה חי בשלושת הספרים. הגלריה בסוף העמוד נשארת לגל ב.</p></div>
-  </div>
-</section>
-<section class="item" id="T-COOKIE-COPY" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-COOKIE-COPY — נוסח הודעת העוגיות <span class="tag done">חי — «שימוש בעוגיות», אישור מלא ודחייה מתאר. תמה 1.5.114</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.114 · dialog copy matches Eyal · אישור filled · דחייה outline</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>נוסח מלא</strong></p><pre>שימוש בעוגיות. כדי לשפר את חוויית הגלישה, לתפעל את האתר ולנתח את השימוש בו, אנו משתמשים בקובצי Cookies ובטכנולוגיות דומות. מידע נוסף על השימוש במידע מופיע במדיניות הפרטיות. כפתורים: אישור, דחייה. אישור מודגש.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר אייל נתן נוסח מלא: כותרת «שימוש בעוגיות», פסקה על Cookies, כפתורים «אישור» ו«דחייה», ו«אישור» מודגש. לא בטופס. עלה.</p></div>
-  </div>
-</section>
-<section class="item" id="T-QR-SWAP" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-QR-SWAP — החלפות תוכן בשבעה עמודי QR <span class="tag done">חי בסטייג&#x27;ינג — שבעה עמודים, בלי גלישה אופקית</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr6/">/qr/qr6/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 seven pages live; qr6 play loads Lak0__1Hqwc; qr31 CR-7 1200px; probe 390 and 1440 overflow 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>QR6 וידאו Lak0__1Hqwc. QR8 טקסט כאן 11 ו-RH7Zv8Iqw4s. QR18 שני סרטונים ZrRFtY9z3wY ו-GYQxjlUO15U. QR23 zoKn9_3xUIc ו-gdavWTyCcy4. QR27 sIA_-7lBmGY במקום לואיס סי קיי. QR28 קישור NPR ותיקון, ווידאו Ht1Ub6Xl93g. QR31 -Jcqxr9Djjc ותמונה CR-7.jpg. הכתובות /qr/qrN/ לא השתנו.</p></div>
-  </div>
-</section>
-<section class="item" id="T-BLOG-HERO-OLD" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-BLOG-HERO-OLD — תמונות נושא לבלוג מהאתר הישן <span class="tag hold">51 מתוך 52 הועתקו. פוסט אחד בלי מקור — הוא ישלח</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/blog/?cat=79">/blog/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 card image legacy-post-237 rendered 1440x1571; post 203 has no old featured image</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הועתקו תמונות נושא מהאתר הישן ל-51 פוסטים. בפוסט «נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה» (2012) אין תמונת נושא גם באתר הישן. לא הומצאה תמונה. אייל אמר שישלח ידנית אם מקור חסר.</p></div>
-  </div>
-</section>
-<section class="item" id="T-BLOG-CHIPS" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-BLOG-CHIPS — לחצני נושא בבלוג <span class="tag done">חי — דיג&#x27;רידו 13, נשימה 8. בלי קטגוריה שלישית</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/blog/?cat=79">/blog/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 chips visible; breathing filter shows 8 posts</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נוספו לחצנים דיג&#x27;רידו (13 פוסטים לפי כותרת) ונשימה (8). הסינון ?cat=79 מציג רק את פוסטי הנשימה. לא נפתחה קטגוריה נוספת. «כללי» עדיין 50 פוסטים — זו תצפית לפגישה, לא לחצן חדש.</p></div>
-  </div>
-</section>
-<section class="item" id="T-FOOTER-MOTION" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-FOOTER-MOTION — כניסת פוטר כמו באתר הישן <span class="tag done">חי — כניסה כמו באתר הישן, הצבע #0E0905. תמה 1.5.114</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.114 · footer rgb(14,9,5) · position fixed · class uncover is-uncover</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר: הפוטר נכנס כמו באתר הישן. הצבע נשאר #0E0905. תנועה מופחתת מכבה את זה.</p></div>
-  </div>
-</section>
-<section class="item" id="T-COLOR" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-COLOR — גוונים — בלוק אמצע ופלטה <span class="tag done">הכרעה: שוקולד הוא דפוס הצטרפות, לא החלפת טוקנים</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/method/">/repair/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.114 · method band rgb(92,58,46) · sand rgb(216,199,181) text rgb(92,58,46) · body link stays terracotta · home and snoring have zero cta-band--choc</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>חום מהפלטה</strong></p><pre>להחליף את הבלוקים השחורים בחום כלשהו מהפלטה שהוגשה.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>השוקולד #5C3A2E והחול #D8C7B5 חלים רק דרך cta-band--choc ו-btn--sand. הטוקנים לא הוחלפו. הפס המלא עלה בתיקון, בשיטה, בסאונד הילינג, ובלימוד (כולל הרצאות, סדנאות והכשרה). בית, דום נשימה וצור קשר לא נצבעו. כפתור בלי כותרת ופסקה לא קיבל משפט חדש.</p></div>
-  </div>
-</section>
-<section class="item" id="T-NAV-HOLD" data-status="waiting" data-waiting="nimrod" data-kind="nav" data-surface="nimrod_board">
-  <h2>T-NAV-HOLD — חרגת תפריט ראשי <span class="tag nav">ממתין לשיחה — רק סדר הכפתורים מ-23.9 וקישור אב של לימוד. המבורגר וקורסים הוכרעו</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
+<section class="item done" id="A3">
+  <h2><span class="id">A3</span> · שני עמודים בלי פריט עבודה — נסגר</h2>
   
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין שינוי ל-ea-canonical-nav.php עד השיחה. המבורגר נסגר ב-21.9. קורסים כבר בתפריט. נשאר: הסדר שאייל שלח ב-23.9, וקישור הכותרת «לימוד והכשרה».</p></div>
-  </div>
-</section>
-<section class="item" id="T-IA-SPOTLIGHT" data-status="closed" data-waiting="none" data-kind="nav" data-surface="nimrod_board">
-  <h2>T-IA-SPOTLIGHT — סקיצת «עכשיו באתר» בדף הבית <span class="tag done">נסגר — ארבעה כרטיסים חיים בדף הבית</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · #ea-now 4 cards · 2 runs each · 0 h2 in section · wrap 1200 · overflow 0 @390/1440</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אחרי הווידאו. בלי כותרת רצועה. תמונה+שם+שתי שורות. אייל מחליף כל כרטיס מ-ACF/ברירות מחדל, לכל עמוד באתר.</p></div>
-  </div>
-</section>
-<section class="item" id="T-SERVICES-METHOD" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
-  <h2>T-SERVICES-METHOD — שיטת מחיקת /services/ <span class="tag done">נסגר — 404 בלי 301</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/services/">/services/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET /services/ 404 · children 301 intact</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>למחוק</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ביטול פרסום הורה בלבד. ילדים נשארו.</p></div>
-  </div>
-</section>
-<section class="item" id="T-ABOUT-PERMALINK" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
-  <h2>T-ABOUT-PERMALINK — /about/ מול /eyal-amit/ <span class="tag done">נסגר — 301 + שנת 2000</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/about/">/about/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET /about/ 301 /eyal-amit/ · Hebrew slug 301 /eyal-amit/ · /about/moksha/ 301 /eyal-amit/mokesh-dahiman/</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר את הארוך בלבד</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין QR על /about/. הפניה אחת מהכתובת הקצרה ומהסלאג העברי.</p></div>
-  </div>
-</section>
-<section class="item" id="T-EN-NOW" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-EN-NOW — /en/ — טקסט עכשיו או אחרי תמונות <span class="tag done">נסגר — פורסם עם פלייסהולדר</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/">/en/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET /en/ 200 Eyal copy live, draft banner absent, 5 photo slots</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>החלטת פרסום עכשיו בוצעה. תמונות נשארות אצל אייל ב-C3.</p></div>
-  </div>
-</section>
-<section class="item" id="T-HERO-BATCH" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
-  <h2>T-HERO-BATCH — מדיניות הירו — QR ≠ בלוג <span class="tag done">נסגר — שתי התבניות חיות ב-1.5.109</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/">/blog/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.109 · validator gpt · qr1+qr48 phero without phero--media, no portrait · dummy ?ea_blog_dummy=week-of-breath-dummy H1+hero · P048 hero img naturalWidth 800 · overflow 0 at 390 and 1440</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין 101 משימות נפרדות. P/Q נשארים היסטורי, כתובת לא זזה. מדגם: פוסט עם תמונה, דמה, QR בלי תמונה.</p></div>
-  </div>
-</section>
-<section class="item" id="T-QR-TEMPLATE" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-QR-TEMPLATE — תבנית קבועה לעמודי QR <span class="tag done">נסגר — הירו אחיד, permalink לא זז</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/">/qr/qr1/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.109 · qr1 body 482 chars, qr48 body 1128 · header.phero without phero--media and without img.phero__media · overflow 0 at 390 and 1440</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>לכל 48 עמודי QR אין תמונה ראשית. הירו כהה בלי דיוקן. תוכן הגוף נשאר. כתובת /qr/qrN/ לא זזה.</p></div>
-  </div>
-</section>
-<section class="item" id="T-BLOG-TEMPLATE" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-BLOG-TEMPLATE — תבנית פוסט אחידה לבלוג <span class="tag done">נסגר — דמה חיה, היסטורי לא הומר</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy">/blog/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.109 · H1 שבוע הנשימה בסטודיו — פוסט דוגמה · noindex · 8 prose · 2 CTA · hero naturalWidth 4032 · overflow 0 at 390 and 1440</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>JSON ב-inc/data/blog. דמה לא מפורסמת ב-?ea_blog_dummy=week-of-breath-dummy. פוסטים ישנים נשארים the_content.</p></div>
-  </div>
-</section>
-<section class="item" id="T-ALIGN-SWEEP" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-ALIGN-SWEEP — יישור לכל האתר — CSS ואז מחיקת מחלקה כפולה <span class="tag done">נסגר — יישור חי מ-1.5.106, נשמר ב-1.5.108</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/2228-2/">/snoring-sleep-apnea/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · /2228-2/ main=chapters-main wrap=1200 no ea-wave2-blog-single · /blog/ no ea-wave2-blog-archive wrap=1200 · / overflow 0 (Team 10 1.5.106 retained)</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>CSS ואז מחיקת מחלקה כפולה. ea-wave2-blog-single ירד מ-52 פוסטים; ea-wave2-blog-archive מ-/blog/; .ea-post-content 82ch. בית לא נגע ביישור. עץ מבודד, FTP מצוות 10 ואז 110.</p></div>
-  </div>
-</section>
-<section class="item" id="T-LEARNING-PHOTOS" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>T-LEARNING-PHOTOS — שלוש תמונות ב-/learning/ <span class="tag done">נסגר — שלושה פלייסהולדרים חיים ב-/learning/</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">/learning/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 · 3× ea-photo-slot · ids learning-photo-lessons/lectures/training</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>השאלה נעולה. התמונות עצמן אצל אייל ב-C1.</p></div>
-  </div>
-</section>
-<section class="item" id="T-AUDIT-SCOPE" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
-  <h2>T-AUDIT-SCOPE — שיירי ביקורת עומק — בסבב הבא? <span class="tag done">נעול — השאלה נענתה. המבורגר לא ממתין</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 decision locked; N1 live 1.5.103; remaining DA-* still open on board</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>השאלה נעולה: השיירים נכנסו לסבב הבא. המבורגר נסגר ב-21.9. DA-NAV-02, DA-NAV-03 ו-DA-LOGO-01 נסגרו.</p></div>
-  </div>
-</section>
-<section class="item" id="EI-A4-E2E" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
-  <h2>EI-A4-E2E — הפניית טופס צור-קשר אל /thank-you/ — שליחה חיה <span class="tag done">נסגר — בדיקה אחת נשלחה, CF7 החזיר mail_sent</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">/contact/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 POST /wp-json/contact-form-7/v1/contact-forms/392/feedback → status mail_sent · message ההודעה נשלחה · invalid_fields []</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>טופס 392 ב-/contact/. שם: בדיקת מערכת. נושא: אחר. CF7: ההודעה נשלחה. ההפניה ל-/thank-you/ נשארת ב-JS על האירוע wpcf7mailsent; הקריאה הזו הייתה ל-API, בלי ניווט דפדפן ובלי שליחה שנייה.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-WA-01" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-WA-01 — כפתור וואטסאפ צף <span class="tag done">נסגר — קצה תחילת קריאה, 44px במובייל</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · / 390 float 44×44 inset-inline-start 16px x≈302 RTL</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>inset-inline-start. במובייל 44×44.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P2-A2" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A2 — /en/ — שפה של קטעים בעברית <span class="tag done">נסגר — lang=he על ריצות עברית ב-/en/</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/">/en/</a> · a11y · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · nav.nav 27/27 lang=he · drawer 34/34 · float lang=he · overflow 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>nav ו-drawer ו-float מסומנים. html נשאר lang=en.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P2-A3" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A3 — סמלי צעדים st3 בלי aria-hidden <span class="tag done">נסגר — aria-hidden על אייקוני st3</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · 3× .st3__ic aria-hidden=true</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שלושת ה-SVG דקורטיביים מוסתרים מ-AT.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P2-A4" data-status="closed" data-waiting="none" data-kind="a11y" data-surface="nimrod_board">
-  <h2>DA-P2-A4 — צעדי «איך מתחילים» לא כרשימה <span class="tag done">נסגר — ul.steps3 / li.st3</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · a11y · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · ul.steps3 → 3 li.st3</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>איך מתחילים כרשימה אמיתית.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-NAV-01" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-NAV-01 — צדדי כותרת מובייל (לוגו/תפריט) <span class="tag done">נסגר — המבורגר מימין בעברית, כפי שהוכרע ב-21.9</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>מיושם. לא ממתין לאישור נוסף. לא DA-NAV-02/03/LOGO ולא שינוי סדר L1.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-NAV-02" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-NAV-02 — כותרת מובייל אחת לכל המשפחות <span class="tag done">נסגר — כותרת Chapters על GP ו-EN</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · /press/ Chapters nav, GP header hidden, 1 burger · /en/ Chapters nav, ea-en-head hidden</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>section-nav מוזרק ל-orphans+EN. GP header ו-ea-en-head מוסתרים. L1 לא נגע.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-NAV-03" data-status="closed" data-waiting="none" data-kind="nav" data-surface="nimrod_board">
-  <h2>DA-NAV-03 — כפתור EN בתוך התפריט, לא בצ׳יפ כותרת <span class="tag done">נסגר — צ׳יפ EN רק בדסקטופ; במגירה נשאר</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · / 390 .nav__en hidden · drawer EN pill remains</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>מתחת ל-1180 נסתר. מגירה: .ea-nd__pill. L1 לא נגע.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-LOGO-01" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-LOGO-01 — לוגו = סימן בלבד, לא «eyal amit» <span class="tag done">נסגר — סימן בלבד בכותרת</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/about/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · .nav__wm not visible · /en/ ea-en-head hidden</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>.nav__wm מוסתר. GP/EN מקבלים את כותרת Chapters.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P1-01" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="nimrod_board">
-  <h2>DA-P1-01 — Lorem בדף הבית <span class="tag done">נסגר ב-B1</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הטקסט המזויף והמקום השמור ירדו עם הטמעת היוטיוב.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P2-05" data-status="closed" data-waiting="none" data-kind="ops" data-surface="nimrod_board">
-  <h2>DA-P2-05 — כותרת עמוד החנות (איכות, לא 2.4.2) <span class="tag done">נסגר — כותרת המסמך = H1 החנות</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shop/">/shop/</a> · ops · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · title and H1 כלים בעבודת יד ואביזרים</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>pre_get_document_title: כלים בעבודת יד ואביזרים.</p></div>
-  </div>
-</section>
-<section class="item" id="DA-P2-06" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>DA-P2-06 — שני wa.me בעמוד פוסט <span class="tag done">נסגר — וואטסאפ אחד בפוסט (הצף)</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/2228-2/">/2228-2/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.108 · .ea-post-share copy only · 1 .ea-whatsapp-float</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>קישור השיתוף wa.me ירד. נשאר העתקת קישור + הצף.</p></div>
-  </div>
-</section>
-<section class="item" id="WA-SOUND" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>WA-SOUND — כפתור שמע על הסרט <span class="tag done">נסגר — אושר נימרוד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>רק כשיש &lt;video&gt;, על ההירו, 44px, aria.</p></div>
-  </div>
-</section>
-<section class="item" id="WA-A" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>WA-A — גל א — לוגו, פוטר, וואטסאפ צור-קשר, תווית תיקון, הירו שיעורים, פופ יידוע <span class="tag done">נסגר באתר הבדיקה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>1.5.96 ואז תיקוני WAF 1.5.97. נימרוד אישר לממש את ה-WAF.</p></div>
-  </div>
-</section>
-<section class="item" id="WA-B" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>WA-B — גל ב — פירורים, contact ivory, nowrap, סרגל 56, CMP, href ישנים, טינט עדין <span class="tag done">נסגר באתר הבדיקה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>תמה 1.5.99. אימות נפרד PASS. טינט ~10% terra wash.</p></div>
-  </div>
-</section>
-<section class="item" id="M13-ONE-NAV" data-status="closed" data-waiting="none" data-kind="nav" data-surface="internal">
-  <h2>M13-ONE-NAV — ניווט אחד לכל האתר <span class="tag done">נסגר 20.9 — מנדט צוות 100</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · internal</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ea_canonical_nav_items בכל ה-URL. 137 CPT singles יצאו מפרסום, התוכן לא נמחק.</p></div>
-  </div>
-</section>
-<section class="item" id="TYPO-CANON" data-status="closed" data-waiting="none" data-kind="ops" data-surface="internal">
-  <h2>TYPO-CANON — קנון טיפוגרפיה — טוקנים בלבד <span class="tag done">נעול — team_00 2026-09-18</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · ops · internal</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שנים-עשר --fs-* + שישה --fw-*. אסור font-size בקומפוננטה.</p></div>
-  </div>
-</section>
-<section class="item" id="T-RELATED-960" data-status="closed" data-waiting="none" data-kind="visual" data-surface="nimrod_board">
-  <h2>T-RELATED-960 — בלוק קשורים בפוסט עדיין 960px <span class="tag done">נסגר — גריד 82ch בתוך wrap 1200</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/">/2228-2/</a> · visual · nimrod_board</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.109 at 1440 · section 1440 · wrap 1200 · grid 775.27px = 82ch · same on dummy · overflow 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הסקשן ברוחב המסך. ה-wrap 1200. הגריד 82ch. בלי font-size. חל גם על פוסט היסטורי.</p></div>
-  </div>
-</section>
-<section class="item" id="both">
-  <h2>סעיפי הטופס (לא slim)</h2>
+  <p>לעמוד הסטנד הרצפתי ולעמוד הספרים נוספו פריטי מעקב בתור העבודה. רישום, לא בנייה.</p>
 </section>
 
-<section class="item" id="A1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>A1 — שירותים <span class="tag done">נסגר באתר הבדיקה — ביטול פרסום בלי 301</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/services/">/services/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 404 no Location · child /services/didgeridoo-lessons/ 301 /lessons/ · no «עמוד הורה לשירותים»</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>למחוק</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>GET בלי follow: 404. אין 301. ילד /services/didgeridoo-lessons/ עדיין 301 ל-/lessons/.</p></div>
-  </div>
-</section>
-<section class="item" id="A2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>A2 — הופעות ומורשת מופע <span class="tag done">נסגר — כן, ארכיון פנימי. לא נבקש טקסט שיווקי</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">/shows-heritage/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /shows-heritage/ 200 bytes=62552 · homepage href count 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>—</strong></p><pre>אם הבנתי נכון, התוכן הזה איננו מוצג לגולש, אלא נשמר בארכיון עבורי בלבד, נכון? אם נכון, אז בשביל מה אני צריך לשלוח תוכן לדף הזה?</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ארכיון לעיניך, לא לגולש מהתפריט. אין בקשת תוכן. ריכוז חומר מופע נשאר ב-E4.</p></div>
-  </div>
-</section>
-<section class="item" id="A3" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>A3 — כתבות היסטוריות <span class="tag hold">ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/historical-articles/">/historical-articles/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-24 GET 200 · archive live, placeholder removed from body and from the share card</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אשלח תוכן</strong></p><pre>הכתבות נמצאות באתר הישן בתצורה של קובץ jpg רגיל. ניתן למצוא אותן תחת הדף &quot;מופעים&quot; או &quot;הופעות&quot; או &quot;מופע הסיפורים&quot;. בהמשך כשאעבור על כל גלריית התמונות באתר אני אמצא אותן ואקטלג אותן לדף &quot;כתבות היסטוריות&quot;.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ממתין לך — כתבות מהאתר הישן אחרי הסריקה שהבטחת</p></div>
-  </div>
-</section>
-<section class="item" id="A4" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>A4 — דף תודה אחרי טפסים <span class="tag done">נסגר באתר הבדיקה · נוסח אייל חי</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/thank-you/">/thank-you/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=58363 · CDP thank-you two Eyal lines</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשתמש ואשלח נוסח</strong></p><pre>הנוסח:
-תודה שפנית אליי 🙏
-הפרטים התקבלו ואחזור אליך בהקדם.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>שתי השורות חיים ב-/thank-you/. הפניית CF7 אחרי שליחה עדיין רק ב-JS — ראו EI-A4-E2E.</p></div>
-  </div>
-</section>
-<section class="item" id="A5" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>A5 — קורסים — סקולר וחיצוני <span class="tag hold">העמוד בתפריט עם «יעלה בקרוב». ממתין לקישורים ממך</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/">/learning/courses-external/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 «יעלה בקרוב» · no G3 placeholder · nav href /learning/courses-external/</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אשלח קישורים</strong></p><pre>אין עדיין קורס באוויר. כשיהיה מוכן אשלח קישור.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>עמוד /learning/courses-external/ חי, בתפריט תחת לימוד והכשרה. אין קורס באוויר.</p></div>
-  </div>
-</section>
-<section class="item" id="B1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>B1 — דף הבית — פרק הווידאו <span class="tag done">נסגר באתר הבדיקה — הסרטון מוטמע</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089 · CDP iframe youtube.com/embed/wDQoJauqsRM; no Lorem; אסתמה</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אשלח קישור</strong></p><pre>https://www.youtube.com/watch?v=wDQoJauqsRM</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>YouTube wDQoJauqsRM בפרק 03. אין Lorem.</p></div>
-  </div>
-</section>
-<section class="item" id="B2" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>B2 — גלריות <span class="tag hold">הקובץ הגיע — 179 בלי עמוד מחכות לבחירה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/">/galleries/</a> · content_gap · both</p>
+<section class="item done" id="A4">
+  <h2><span class="id">A4</span> · ממשל — נסגר כפתרון זמני</h2>
   
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>—</strong></p><pre>אני לא בטוח שהבנתי מה אתה רוצה. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא &quot;סינון מדיה - 939 תמונות&quot;</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>ייצוא 21.9 הגיע: 341 נחוץ. 179 בלי שם עמוד. החיתוך בגלריית העבודה. השיבוץ אחרי בחירה.</p></div>
-  </div>
+  <p>נוהל קצר נרשם כשדה <code>rules.formBoardComplement</code> בתור העבודה בלבד: פער בטופס ממתין לאייל, פער בלוח ממתין לנימרוד, <b>ופער שאינו באף אחד מהם הוא פער פתוח</b>. בלי מסמך חדש ובלי תהליך.</p>
 </section>
-<section class="item" id="B3" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>B3 — בחירת התמונות לגלריה הראשית <span class="tag hold">הקובץ הגיע — הבחירה מהחיתוך, לא מהכלי הריק</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/galleries/">/galleries/</a> · content_gap · both</p>
+
+<section class="item done" id="A5">
+  <h2><span class="id">A5</span> · קישורים לאתר הישן — נסגר</h2>
   
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אבחר מהגלריה הזמנית</strong></p><pre>כנ&quot;ל. לכל נושא התמונות והגלריות נתייחס בנפרד. הכנת לי דף מיוחד בשביל זה שנקרא &quot;סינון מדיה - 939 תמונות&quot;</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אותו ייצוא כמו B2. לא נסגר: חסר שיוך ל-179 תמונות.</p></div>
-  </div>
+  <p>לפני הגל: 12 עמודים חיים קישרו לאתר הישן, ושניים מהם משכו משם תמונה. <b>נמדד עכשיו: אפס</b> — בסריקה על כל 153 האובייקטים המפורסמים, בשתי שיטות חיפוש. <b>ושתי התמונות מוגשות מהדומיין החדש</b>, נמדד ישירות. זו הערה מספר 8 מתוך 17 שאייל שלח ב-18.9, שנשאלה שלוש פעמים ומעולם לא נפתחה לה משימה.</p>
 </section>
-<section class="item" id="C1" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>C1 — לימוד והכשרה <span class="tag hold">ממתין לך — שלוש תמונות. במקומן פלייסהולדר בעמוד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">/learning/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 · 3 photo-slots live · waiting on Eyal for images</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>מאשר כמו שהוא</strong></p><pre>1. את הדף הזה צריך לחבר ל&quot;לימוד והכשרה&quot; בסרגל העליון. 
-2. לכל אחד משלושת הבלוקים בטקסט צריך להוסיף תמונה מייצגת ואסטטית: שיעורי דיג&#x27;רידו, הרצאות וסדנאות, הכשרת מטפלים.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הטקסט אושר ב-21.9. שלושה פלייסהולדרים חיים. הקישור לסרגל נרשם ב-M1, לא שאלה פתוחה.</p></div>
-  </div>
+
+<section class="item done" id="A6">
+  <h2><span class="id">A6</span> · עמוד מוקש הישן — נסגר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/">http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/</a></p>
+  <p>העמוד לא נגעו בו. הכרטיס עבר לטופס של אייל עם אפשרויות והמלצה מנומקת — <code>W1-MUKESH</code>.</p>
 </section>
-<section class="item" id="C2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>C2 — הכשרות למטפלים <span class="tag done">נסגר — אישרת את הטקסט כמו שהוא</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/">/learning/therapist-training/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=62700</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>מאשר כמו שהוא</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין שינוי נוסח. הקישור מהשאלות הנפוצות חובר (D3). העמוד עדיין טיוטת צוות מבחינת עומק תוכן.</p></div>
-  </div>
-</section>
-<section class="item" id="C3" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>C3 — העמוד באנגלית <span class="tag hold">פורסם באתר הבדיקה. ממתין לתמונות ממך</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/">/en/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 Didgeridoo Healing Center · 5× Photo — to be chosen · no WP-EI-06 · no הערה לנמרוד</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אשלח נוסח</strong></p><pre># Didgeridoo Healing Center
-cbDIDG Method - Eyal Amit
 
-## Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel
-
-For more than 25 years, the didgeridoo has been at the center of my work with breath, sound and people.
-
-I use the instrument not only as something to play, but as a practical tool for developing breath awareness, coordination, presence and a deeper relationship with the body.
-
-Over the years, this work developed into **cbDIDG**, a structured method that brings together didgeridoo playing, breathing practice, sound and body awareness.
-
-Today, the Didgeridoo Healing Center in Pardes Hanna offers one-on-one breath work, didgeridoo lessons, private sound healing, workshops, talks, advanced learning and handmade instruments.
-
-**English-speaking visitors are welcome.**
-
-[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)
-
----
-
-## More than learning an instrument
-
-### Working with breath through the didgeridoo
-
-The didgeridoo is usually introduced as an ancient wind instrument.
-
-In my work, I see it first and foremost as a **breath-training instrument**.
-
-Playing requires coordination between breathing, lips, tongue, cheeks, throat and attention. The instrument provides immediate feedback. When the breath changes, the sound changes.
-
-This makes the didgeridoo an unusually direct tool for exploring the way we breathe.
-
-My approach is active.
-
-You are not simply receiving a treatment while someone else plays. You learn, practice, listen, adjust and gradually develop skills you can continue using independently.
-
-The goal is not musical performance.
-
-**The instrument is the practice tool. The breath is the work.**
-
----
-
-# The cbDIDG Method
-
-## A structured method developed through more than two decades of practice
-
-Over the years I developed **cbDIDG**, my method for working with breathing through the didgeridoo.
-
-The method grew gradually from several worlds that became connected through my own experience:
-
-* more than 25 years of playing and teaching didgeridoo
-* my apprenticeship with Mukesh Dahiman in India
-* years of building didgeridoos by hand
-* study and practice of tai chi, qigong, yoga and mindfulness
-* my background as an electronics engineer
-* my interest in physiology, acoustics and the mechanics of breathing
-* thousands of hours of individual work with students and clients
-
-Three principles are central to the method.
-
-### Active work
-
-The person participates in the process.
-
-The work is learned through practice rather than received passively.
-
-### The didgeridoo is the tool, not the goal
-
-Learning to produce sound, coordinate the breathing system and eventually develop circular breathing creates a practical framework for exploring breath patterns, control, awareness and attention.
-
-You do not need to become a musician.
-
-### Change develops through repetition
-
-This work is not built around a one-time experience.
-
-Skills develop through guided practice, repetition and gradual independent work.
-
----
-
-# Why breath became my life&#x27;s work
-
-My relationship with breathing began long before I understood that it would eventually become my profession.
-
-When I was twelve, the apartment building where I lived in Givatayim caught fire. A friend from the building died in that fire, and the experience stayed with me.
-
-Years later, during my military service, I developed severe asthma and allergies.
-
-For a long time I lived with wheezing, medication, inhalers and the feeling that breathing itself had become difficult.
-
-Then I encountered the didgeridoo.
-
-At first, I was simply drawn to its sound.
-
-I wanted to understand how this strange instrument could produce a continuous, deep tone, so I began learning to play.
-
-Only gradually did I begin to notice what the practice was asking me to do.
-
-Slow down.
-
-Coordinate.
-
-Listen.
-
-Pay attention.
-
-Develop control without force.
-
-And, most importantly, build a completely different relationship with my own breath.
-
-My personal experience with asthma and breathing was one of the forces that led me to study the subject more deeply.
-
-I do not present my experience as a medical promise for someone else.
-
-But it shaped the question that has guided my work ever since:
-
-**What can happen when a person learns to work consciously, patiently and consistently with their own breathing?**
-
-That question eventually became the foundation of my professional work.
-
----
-
-# My teacher, Mukesh Dahiman
-
-## Craftsmanship, patience and a way of working
-
-I first met **Mukesh Dahiman** in Rishikesh, India, in 2000.
-
-Mukesh was a didgeridoo maker, teacher and craftsman who came from a family tradition of woodworking. Over many years he devoted himself to building didgeridoos and teaching people who arrived in Rishikesh from around the world.
-
-I returned to study with him and became one of his close students.
-
-What I learned from Mukesh went far beyond the technical skills of making or playing an instrument.
-
-His workshop taught me patience, craftsmanship, repetition, listening and respect for a process that cannot be rushed.
-
-These principles remain deeply connected to the way I work today.
-
-Mukesh passed away in October 2020.
-
-His influence continues through the instruments I build, the way I teach and the knowledge I pass on to others.
-
----
-
-# Ways to work with me
-
-## One-on-one didgeridoo breath work
-
-Individual sessions are at the core of my work.
-
-We begin by looking at the way you breathe and understanding what brings you to the studio.
-
-From there, I develop a personal practice process according to the individual.
-
-A session may include:
-
-* initial observation and assessment
-* a personalized practice plan
-* practical breathing exercises
-* didgeridoo-based exercises
-* coordination of lips, cheeks, tongue, diaphragm and airflow
-* sound and body awareness
-* development of independent practice skills
-* listening, attention and presence
-
-The objective is gradually to give you more understanding and greater awareness of your own breathing.
-
-No previous musical experience is required.
-
-Sessions take place one-on-one at my studio in Pardes Hanna, Israel.
-
----
-
-# Didgeridoo Lessons
-
-## Learn to play from the beginning
-
-You can also come simply because you want to learn this extraordinary instrument.
-
-Private didgeridoo lessons are available from complete beginner level onward.
-
-Learning can include:
-
-* producing the basic drone
-* understanding airflow and breath control
-* circular breathing
-* rhythm
-* tongue techniques
-* vocal techniques
-* overtones
-* sound development
-* musical expression
-* developing a personal practice
-
-My approach to teaching is detailed and gradual.
-
-Complex movements are broken down into simple components, practiced separately and then connected.
-
-For many students, learning the didgeridoo becomes much more than learning another musical instrument.
-
-The process naturally develops attention to breathing, concentration and body awareness.
-
----
-
-# Private Sound Healing
-
-## A different way to experience the didgeridoo
-
-Sound healing is a very different experience from active breath work.
-
-During a private didgeridoo sound session, you do not need to learn, play or practice.
-
-You lie down and receive the sound.
-
-The low drone, harmonics, rhythms and physical vibration of the didgeridoo create an immersive listening experience that many people experience as relaxing, grounding and meditative.
-
-Sessions are available for individuals and couples.
-
-### Breath work or sound healing?
-
-The distinction is important.
-
-**Didgeridoo breath work is active.**
-You learn, practice and gradually build skills.
-
-**Sound healing is receptive.**
-You listen and experience the sound.
-
-Both involve the didgeridoo, but they are two very different forms of work.
-
----
-
-# Workshops
-
-## Breath, sound and didgeridoo as a shared experience
-
-I lead experiential didgeridoo workshops for groups, organizations, private events and communities.
-
-Participants do not need any previous musical experience.
-
-The workshops combine explanation, live demonstration and active participation.
-
-They offer a direct introduction to the relationship between breathing, sound, attention and the didgeridoo.
-
-Workshops usually last approximately **90 to 120 minutes** and can be adapted to the group and setting.
-
-They are suitable for:
-
-* private groups
-* organizations
-* company teams
-* retreats
-* wellness programs
-* community groups
-* special events
-
-The emphasis is on participation and direct experience.
-
----
-
-# Talks
-
-## Breath, health, sound and the story behind the instrument
-
-My talks combine personal story, professional experience, research and live didgeridoo demonstrations.
-
-Depending on the audience, talks can explore themes connected to:
-
-* breathing and health
-* stress
-* sleep
-* sound and vibration
-* the nervous system
-* the didgeridoo
-* my personal journey with breathing
-* the path from electronics engineering to didgeridoo-based breath work
-
-Unlike workshops, talks are primarily designed for a listening audience.
-
-They are available for companies, organizations, conferences, professional events, communities and private groups.
-
----
-
-# Learning and Professional Training
-
-## Taking the work further
-
-Alongside individual work and group activities, the educational side of cbDIDG continues to grow.
-
-I offer and develop advanced learning opportunities for people who want to explore the field more deeply.
-
-These may include:
-
-* advanced didgeridoo study
-* courses
-* professional education
-* therapeutic applications of didgeridoo practice
-* future practitioner training connected to the cbDIDG method
-
-Some programs are intended for experienced players or professionals, while others are suitable for people who simply want to deepen their understanding.
-
-For current courses and training opportunities, contact me directly.
-
----
-
-# What does research say about the didgeridoo?
-
-Scientific research into didgeridoo-related practices is still limited.
-
-It is therefore important to distinguish between promising findings and established medical evidence.
-
-Several studies are particularly interesting.
-
-## Snoring and obstructive sleep apnea
-
-A randomized controlled trial published in the *British Medical Journal* examined adults with snoring and moderate obstructive sleep apnea.
-
-Participants in the didgeridoo group received lessons and practiced regularly for four months.
-
-Compared with the control group, the didgeridoo group showed improvements in:
-
-* daytime sleepiness
-* apnea-hypopnea index
-* their partners&#x27; reported sleep disturbance
-
-The study included only 25 participants, so the findings are promising but should not be interpreted as definitive evidence.
-
-## Stress and relaxation
-
-A randomized study involving 74 university students compared a 30-minute live didgeridoo sound meditation with silent breath meditation.
-
-Both groups reported increased relaxation.
-
-Participants in the didgeridoo meditation group experienced significantly greater relaxation and lower acute self-perceived stress than participants in the silent meditation group.
-
-## Mood, stress and autonomic regulation
-
-Another study followed 20 beginners through ten didgeridoo-based health promotion lessons.
-
-Researchers reported changes in measures related to:
-
-* mood
-* mental stress
-* pulse
-* salivary amylase
-* autonomic nervous system balance
-
-These studies are part of a relatively small body of research.
-
-They do not establish didgeridoo practice as a replacement for medical treatment, but they do support continued investigation into the instrument as a tool connected to breathing, sound and wellbeing.
-
----
-
-# Handmade Didgeridoos
-
-## From wood to sound
-
-Building didgeridoos has been part of my life almost as long as playing them.
-
-I learned instrument making in India with Mukesh Dahiman and later continued developing my craft in Israel.
-
-My background in electronics engineering also influenced the way I think about instruments.
-
-A didgeridoo is acoustically much more complex than it may appear.
-
-Its:
-
-* length
-* internal bore
-* geometry
-* diameter
-* resistance
-* material
-* shape
-
-all influence the way the instrument responds and the sound it produces.
-
-I build didgeridoos by hand, including instruments made from agave.
-
-The studio also offers:
-
-* handmade didgeridoos
-* professional instruments
-* instrument repair
-* restoration
-* carrying bags
-* stands and accessories
-* guidance in choosing the right instrument
-
-If you are looking for a didgeridoo, you are welcome to contact me and arrange a visit to the workshop.
-
----
-
-# About Eyal Amit
-
-I have been working with the didgeridoo since **1999**.
-
-Over the years I have worked as a player, teacher, instrument maker and practitioner using the didgeridoo as a tool for working with breathing.
-
-My original professional training was in electronics engineering.
-
-My path later moved through woodworking, writing, publishing, performance and storytelling, but the didgeridoo gradually became the center of my professional life.
-
-Today I am the founder of the **Didgeridoo Healing Center** in Pardes Hanna and the developer of the **cbDIDG method**.
-
-From my studio I work with people individually, teach didgeridoo, build instruments and lead workshops, talks and sound healing sessions.
-
-What connects all of these activities is one simple idea:
-
-**Breathing is something we do every moment of our lives, but it is also something we can learn to observe, practice and understand more deeply.**
-
-The didgeridoo gives us an unusual and powerful way to do that.
-
----
-
-# The Didgeridoo Healing Center
-
-## Pardes Hanna, Israel
-
-The center is located in Pardes Hanna, surrounded by a garden and designed as a quiet space for individual and group work.
-
-It includes both the studio where I teach and work with people and the workshop where I build and repair didgeridoos.
-
-People come from different parts of Israel and from abroad for:
-
-* individual sessions
-* lessons
-* sound healing
-* workshops
-* professional learning
-* didgeridoo instruments
-
-**Sessions and lessons can be conducted in English.**
-
----
-
-# Frequently Asked Questions
-
-## Do I need to know how to play the didgeridoo?
-
-No.
-
-Most people begin with no previous experience.
-
-The process starts with basic breathing, sound production and simple coordination.
-
----
-
-## Do I need to own a didgeridoo before I start?
-
-No.
-
-You can begin with instruments available at the studio.
-
-If you later decide to buy an instrument, I can help you understand what type of didgeridoo is suitable for you.
-
----
-
-## Do I need musical experience?
-
-No.
-
-Musical experience can be useful, but it is not necessary for breath work, beginner didgeridoo lessons or workshops.
-
----
-
-## Is this medical treatment?
-
-The work offered at the center is complementary and educational and is not a substitute for medical diagnosis or treatment.
-
-If you have a medical condition, including a respiratory or sleep-related condition, you should continue to consult your physician or other qualified healthcare professional.
-
----
-
-## Can didgeridoo practice replace CPAP or other medical treatment for sleep apnea?
-
-No medical treatment should be stopped or changed without consultation with the healthcare professional responsible for your care.
-
-Research into didgeridoo playing and obstructive sleep apnea is interesting, but it remains limited.
-
----
-
-## Is didgeridoo breath work the same as sound healing?
-
-No.
-
-Didgeridoo breath work is an active learning process.
-
-Sound healing is primarily a receptive listening experience.
-
----
-
-## Can complete beginners join a workshop?
-
-Yes.
-
-The workshops are designed so that participants with no background in music or didgeridoo can take part.
-
----
-
-## Do you work in English?
-
-Yes.
-
-Private sessions, didgeridoo lessons and selected workshops can be conducted in English.
-
----
-
-## Where is the center?
-
-The Didgeridoo Healing Center is located in **Pardes Hanna, Israel**.
-
----
-
-# Not sure where to start?
-
-You do not need to decide in advance whether you need breath work, a didgeridoo lesson, sound healing or another form of work.
-
-Tell me a little about what brings you here.
-
-We can decide together what makes the most sense for you.
-
-[**Talk to Eyal on WhatsApp**](https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page)
-
-**Phone / WhatsApp:**
-[+972 52 482 2842](tel:+972524822842)
-
-**Pardes Hanna, Israel**
-
----
-
-# Explore the full website
-
-The rest of the website is currently available in Hebrew.
-
-If you read Hebrew, you can explore the full website for detailed information about:
-
-* the cbDIDG method
-* didgeridoo breath work
-* didgeridoo lessons
-* sound healing
-* workshops
-* talks
-* courses and training
-* handmade didgeridoos
-* articles and research
-* Mukesh Dahiman
-* Eyal Amit
-
-[**Visit the Hebrew website**](https://www.eyalamit.co.il/)
-
-__________________________
-
-הערה לנמרוד - כדי שהדף לא יהיה משעמם כדאי לשלב בו קצת תמונות.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נוסח אייל חי ב-/en/. חמישה מקומות לתמונה. בלי באנר טיוטה. בלי ההערה לנימרוד.</p></div>
-  </div>
-</section>
-<section class="item" id="D1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>D1 — המלצות בעמוד הכלים למכירה <span class="tag done">נסגר — סקשן ההמלצות ירד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/didgeridoos/">/didgeridoos/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=74432 · CDP no testimonials / no כל העדויות</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להסיר את הסקשן</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין קרוסלת המלצות ואין CTA לכל העדויות ב-/didgeridoos/.</p></div>
-  </div>
-</section>
-<section class="item" id="D2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>D2 — דף הבית — ההמלצה השש־עשרה <span class="tag done">נסגר — נשארו חמש־עשרה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=95089</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר 15</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אין פעולה. 15 המלצות בדף הבית נשארו.</p></div>
-  </div>
-</section>
-<section class="item" id="D3" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>D3 — שאלות נפוצות — קישור שבור <span class="tag done">נסגר — הקישור מוביל להכשרות</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/faq/">/faq/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=204863 · CDP a[href*=/learning/therapist-training/]</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אשלח כתובת</strong></p><pre>http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>FAQ general-12 → /learning/therapist-training/. אין cbDidg-therapy-training.</p></div>
-  </div>
-</section>
-<section class="item" id="E1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E1 — עיתונות <span class="tag done">נסגר — מחוץ לתפריט, כפי שסימנת ב-21.9</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/">/press/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /press/ 200 theme 1.5.105 · 3 show clippings + «המלצות על המופע» + אברהם טל · homepage href 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>תשאיר את הדף הזה מחוץ לתפריט. מבחינתי זה דף ארכיון שרק שומר עבורי דברים מההיסטוריה. אולי יום אחד אשתמש בחומרים האלה. שים לב שחסרים בדף הזה המון פרטים. יש עוד כתבות מהעיתונות שפורסמו אודות המופע. יש עוד המון המלצות על המופע שאינן מופיעות בדף. מציע שתסרוק שוב את האתר הישן, וגם את הדפים שקשורים למופע הסיפורים, מופעים, הופעות, ותכניס את הדברים החשובים לדף הארכיון הזה.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>הסריקה בארכיון העיתונות. מקום בסרגל הוכרע: מחוץ לתפריט. לא נפתח מחדש בחלק י.</p></div>
-  </div>
-</section>
-<section class="item" id="E2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E2 — לימוד והכשרה — העמוד הראשי <span class="tag done">נסגר כשאלה — סימנת קישור ל-/learning/. היישום בתוך M1</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/learning/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-24 GET / 200 · «לימוד והכשרה» is button.nav__dd, not a link to /learning/ · question closed; the link stays inside M1</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>הכותרת תהיה קישור</strong></p><pre>זה העמוד שצריך לעלות כשלוחצים על &quot;לימוד והכשרה&quot; בסרגל הראשי:
-http://eyalamit-co-il-2026.s887.upress.link/learning/</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>התשובה נרשמה ב-21.9. הקישור על כותרת «לימוד והכשרה» עדיין לא בקוד, כי סדר הסרגל ממתין לשיחת M1. אין שאלה נפרדת.</p></div>
-  </div>
-</section>
-<section class="item" id="E3" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E3 — שירותים — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט, והעמוד ירד בלי הפניה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/services/">/services/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /services/ 404 no Location · homepage HTML has no /services/ href · absorbed in A1</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אייל: להשאיר מחוץ לתפריט. נבלע בהחלטת A1. GET חי: 404 בלי Location. אין ב-L1.</p></div>
-  </div>
-</section>
-<section class="item" id="E4" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E4 — הופעות ומורשת מופע — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט. החומר רוכז בכתבות היסטוריות</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">/shows-heritage/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /historical-articles/ 200 theme 1.5.105 · overflow remediations on clipping grid · «מופע הסיפורים» + GIVATAIM.jpg · homepage href 0</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>אשמח שאת כל החומרים מהמופע / מופע סיפורים / הופעות - תרכז הכל בדף הארכיון שדיברנו עליו קודם, איפה שמופיעות כל הכתבות ההיסטוריות. שים לב שבאתר הישן יש דף ייעודי שנקרא &quot;הופעות&quot; . הדף הזה כרגע לא מופיע בסרגל הראשי של האתר, אלא כדף פנימי.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>סימנת ב-21.9 להשאיר מחוץ לתפריט ולרכז בארכיון. זה מה שחי. לא שאלה פתוחה.</p></div>
-  </div>
-</section>
-<section class="item" id="E5" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E5 — כתבות היסטוריות — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט, ארכיון לעיניך. הכתבות עצמן ב-A3</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/historical-articles/">/historical-articles/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-24 GET /historical-articles/ 200 · archive headings מופע הסיפורים / בעיתונות / המלצות · homepage href historical-articles = 0 · leftover body line «אופציונלי — placeholder» still above the archive</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>מבחינתי התוכן בדף הזה הוא ארכיון והוא איננו צריך להופיע לגולש. זה לעיני בלבד.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>סימנת ב-21.9 שהעמוד לא לגולש מהתפריט. מקום בסרגל הוכרע. קטלוג הכתבות נשאר ב-A3.</p></div>
-  </div>
-</section>
-<section class="item" id="E6" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E6 — דף תודה — מקום בתפריט <span class="tag done">נסגר — מחוץ לתפריט, אחרי טופס בלבד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/thank-you/">/thank-you/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=58363</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר מחוץ לתפריט</strong></p><pre>הדף הזה מופיע לגולש רק אחרי שהוא שולח לי טופס צור קשר. את הנוסח לדף כבר שלחתי לך בקודם בסעיפים הקודמים.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>כפי שסימנת. העמוד חי בנוסח שלך.</p></div>
-  </div>
-</section>
-<section class="item" id="E7" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>E7 — קורסים — מקום בתפריט <span class="tag done">נסגר — קורסים חזר לתפריט</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/courses-external/">/learning/courses-external/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET / 200 href=.../learning/courses-external/ label קורסים</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר בתפריט</strong></p><pre>עדיין אין קורס דיגיטלי באוויר אבל ברגע שיהיה אשלח קישור.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>פריט «קורסים» תחת לימוד והכשרה, יעד אמיתי, לא #.</p></div>
-  </div>
-</section>
-<section class="item" id="F1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>F1 — אודות אייל עמית — מול — אייל עמית <span class="tag done">נסגר — /about/ מפנה לעמוד הארוך</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/about/">/about/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /about/ 301 Location=/eyal-amit/ X-EA-Redirect=s006-r2-w1</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להשאיר את הארוך בלבד</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>301 /about/ → /eyal-amit/. הסלאג העברי הישן גם. העמוד הארוך נשאר בתפריט.</p></div>
-  </div>
-</section>
-<section class="item" id="F2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>F2 — שני הפרטים שקיימים רק בעמוד הקצר <span class="tag done">נסגר — שנת 2000 בעמוד הארוך</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/about/">/about/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET /eyal-amit/ 200 contains «הקשר שלי עם מוקש התחיל בשנת 2000»</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>להעביר רק את השנה</strong></p><pre>כן זה ממש חשוב. הקשר שלי עם מוקש התחיל בשנת 2000 וחשוב להדגיש זאת.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נוספה פסקה מאייל: הקשר עם מוקש התחיל בשנת 2000. עצי פרי לא הועברו.</p></div>
-  </div>
-</section>
-<section class="item" id="F3" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>F3 — איך כותבים אסתמה <span class="tag done">נסגר — אסתמה בתי״ו</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/">/eyal-amit/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=78295</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אסתמה</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אסתמה ב-defaults חיים. לא נוגעים בציטוטי לקוח / asthma.</p></div>
-  </div>
-</section>
-<section class="item" id="L1" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>L1 — הצהרת נגישות <span class="tag done">נסגר — אושר, באנר הטיוטה ירד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">/accessibility/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=65268 · CDP no ea-pending-note / טיוטה לאישור</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אושר</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נוסח 18.9. רכז עדיין בטלפון בלי שם אדם.</p></div>
-  </div>
-</section>
-<section class="item" id="L2" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>L2 — מדיניות פרטיות <span class="tag done">נסגר — אושר ולהשאיר מדידה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/privacy/">/privacy/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=63720</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אושר ולהשאיר מדידה</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>באנר ירד. Google מאחורי CMP.</p></div>
-  </div>
-</section>
-<section class="item" id="L3" data-status="closed" data-waiting="none" data-kind="content_gap" data-surface="both">
-  <h2>L3 — תקנון ותנאי שימוש <span class="tag done">נסגר — אושר, באנר הטיוטה ירד</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/terms/">/terms/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-21 GET 200 bytes=62846</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>אושר</strong></p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נוסח 20.9.</p></div>
-  </div>
-</section>
-<section class="item" id="Q-HERO-ASK" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>Q-HERO-ASK — תמונות ייחודיות לעמודי הקודים המודפסים <span class="tag hold">ממתין לך — תמונה שונה לכל עמוד QR, או הירו לוגו בלי תמונה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/">/qr/qr1/</a> · content_gap · both</p>
+<section class="item done" id="A7">
+  <h2><span class="id">A7</span> · הכיתוב הכפול — נסגר</h2>
   
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>לא נכפיל תמונה אחת על כל הקודים (בניגוד להמלצת נימרוד לתמונה ייחודית). עד תשובה: הירו מינימלי עם לוגו.</p></div>
-  </div>
+  <p>נמדד שזה <code>alt</code> בלבד ואינו טקסט נראה. <b>שני העמודים נושאים עכשיו את אותו כיתוב בדיוק</b>: «מוקש דהימן עם אייל עמית ברישיקש, הודו».</p>
 </section>
-<section class="item" id="M1" data-status="waiting" data-waiting="eyal" data-kind="nav" data-surface="both">
-  <h2>M1 — עץ התפריט הראשי — שיחה אחת <span class="tag hold">הסדר נרשם. הסרגל לא זז עד השיחה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · both</p>
-  <p class='path'>live.check: 2026-09-21 GET / 200 · homepage href /shows-heritage/ /press/ /historical-articles/ /services/ = 0 · learning parent href null</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>יש הערה על העץ</strong></p><pre>23.9 בבוקר, מימין לשמאל: לוגו, אייל עמית, טיפול בדיג&#x27;רידו, שיעורי דיג&#x27;רידו, סאונד הילינג, השיטה, כלים ואביזרים, לימוד והכשרה, בלוג דיג&#x27;רידו, ספרים, צור קשר. להקטין את הפונט לשורה אחת. להצר עוד בגלילה. הפרדה ברורה יותר בין הלוגו לכפתור הראשון. שאל אם שאלות נפוצות ועדויות נכנסים לסרגל.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר אייל שלח סדר כפתורים מימין לשמאל, ביקש שורה אחת, הפרדה בין הלוגו לכפתור הראשון, וסרגל צר יותר בגלילה. שאל אם שאלות נפוצות ועדויות נכנסים לסרגל. התקנון כבר בפוטר. אין שינוי ל-ea-canonical-nav.php.</p></div>
-  </div>
+
+<section class="item done" id="A8">
+  <h2><span class="id">A8</span> · הזום באייפון — נסגר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">http://eyalamit-co-il-2026.s887.upress.link/contact/</a></p>
+  <p>נוסף רונג ייעודי לפקדי טופס על 16 פיקסל. <b>הטוקן הקיים לא זז</b> — 52 השימושים האחרים נבדקו קובץ-קובץ וזהים. שלושת הפקדים נמדדו מצוירים ב-16 פיקסל בדסקטופ ובנייד. <b>ומסמך הקאנון עודכן באותו קומיט</b> — שינוי מוצהר ולא עקיפה.<br><b>מגבלה שנרשמת ביושר:</b> התנהגות הזום של ספארי אינה ניתנת לשחזור בדפדפן ללא ראש. גודל האות הוא התנאי הקובע, והוא מתקיים.</p>
 </section>
-<section class="item" id="M2" data-status="waiting" data-waiting="eyal" data-kind="visual" data-surface="both">
-  <h2>M2 — תבנית פוסט חדש — שיחה <span class="tag hold">לשיחה — יחד עם עץ התפריט</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/?ea_blog_dummy=week-of-breath-dummy">/?ea_blog_dummy=week-of-breath-dummy</a> · visual · both</p>
-  <p class='path'>live.check: 2026-09-22 theme 1.5.109 · דמה לא מפורסמת · H1 שבוע הנשימה בסטודיו</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>התבנית חיה כדוגמה. פוסטים ישנים לא הומרו. השיחה עם אייל היא על המבנה, באותו חלק בטופס כמו עץ התפריט.</p></div>
-  </div>
+
+<section class="item done" id="A9">
+  <h2><span class="id">A9</span> · נגישות מהתפריט — נסגר</h2>
+  
+  <p>נוספה שורת «מוזה הוצאה לאור» תחת ספרים, בדסקטופ ובמגירה. <b>עמוד הספרים קיבל קישור ישיר משלו במגירה</b> — קודם הגיעו אליו רק דרך עוגן. הדליפה בעמוד האנגלית נסגרה. <b>31 מתוך 31 קישורי התפריט מחזירים 200, אפס הפניות.</b><br>אי הקודים נשאר מכוון, <b>ואייל קיבל מפה לכל 48 העמודים בטופס</b> — <code>W1-QR-MAP</code>.</p>
 </section>
-<section class="item" id="M3" data-status="waiting" data-waiting="eyal" data-kind="visual" data-surface="both">
-  <h2>M3 — הסטת הכותרת מול גוף הטקסט <span class="tag hold">לשיחה — מכוון, לא פותחים את הקאנון לפניה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/method/">/method/</a> · visual · both</p>
-  <p class='path'>live.check: 2026-09-23 code: H2 on wrap, body 82ch inside 1200</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>אייל שאל אם הכותרת צמודה ימינה והטקסט מתחיל שמאלה זה בכוונה. נימרוד 23.9: סעיף בשיחה. הקאנון נשאר.</p></div>
-  </div>
+
+<section class="item" id="A11">
+  <h2><span class="id">A11</span> · האתר הישן — רצף המחיקה</h2>
+  <p class="path">אין כתובת חיה אחת — החלטת תהליך. מקור המספרים:
+  <a href="file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/OLD-SITE-MIGRATION-AUDIT-2026-09-24.md">OLD-SITE-MIGRATION-AUDIT-2026-09-24.md</a></p>
+  <p>הסדר המוסכם: גיבוי, ואז הכרעת החנות, ואז שני פערי התוכן האמיתיים, ואז אימות ההפניות,
+  <b>ואז</b> מחיקה. נמדד ב-100% מהאוכלוסייה, לא במדגם: <b>111 מתוך 250</b> כתובות הליבה מתות
+  (139 שורדות — 51 ישירות, 88 דרך הפניה שאומתה). מדגם של 100 מתוך 1,004 כתובות מדיה החזיר
+  <b>אפס שורדים</b>. חמש מחלקות ההכרעה (חנות, שני פערי תוכן, תיק עבודות, מופעים) נמצאות בטופס
+  של אייל; <b>סדר הביצוע הוא הכרעתך.</b></p>
+  <p class="need"><b>נדרש:</b> לאשר את סדר הביצוע (גיבוי → חנות → פערי תוכן → הפניות → מחיקה).</p>
 </section>
-<section class="item" id="M4" data-status="closed" data-waiting="none" data-kind="visual" data-surface="both">
-  <h2>M4 — בלוק כפתור כהה שנראה כמו סוף דף <span class="tag done">הכרעה: שוקולד הוא דפוס הצטרפות. פס מלא נצבע. כפתור בלי משפט נשאר</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/method/">/repair/</a> · visual · both</p>
-  <p class='path'>live.check: 2026-09-23 theme 1.5.114 · method band rgb(92,58,46) · sand button · footer rgb(14,9,5) · overflow 0 at 390 and 1440 · books and snoring not recolored</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>יש הערה</strong></p><pre>23.9 בבוקר: הבלוקים השחורים נראים כמו פוטר. להחליף אותם בחום כלשהו מהפלטה שהוגשה.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>21.9 הבלוק נראה כמו סוף דף. 23.9: השוקולד #5C3A2E והחול #D8C7B5 הם הצטרפות, לא החלפת טוקנים. פס שכבר היה לו כותרת ופסקה עלה בתיקון, בשיטה, בסאונד הילינג ובלימוד. ספרים ודום נשימה נשארו כהים כי אין שם כותרת ופסקה, ולא הומצא משפט.</p></div>
-  </div>
+
+<section class="item" id="A12">
+  <h2><span class="id">A12</span> · שישה קומיטים לא נדחפו</h2>
+  <p>נמדד עכשיו: <b>שישה</b> קומיטים יושבים מקומית בלבד, כולל גל 1 כולו. הדחיפה נחסמה על ידי
+  שכבת ההרשאות של הסביבה, ולא נעשה ניסיון לעקוף. <b>כל עבודת יומיים קיימת רק על המחשב הזה.</b></p>
+  <p class="need"><b>נדרש:</b> דחיפה. זו אינה תקלה באתר — זו חשיפה של הרישום.</p>
 </section>
-<section class="item" id="M5" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>M5 — מוקש דהימן — עבודה בפגישה <span class="tag hold">לפגישה — רק וידאו הרקע של ההירו. הסרט בתוך העמוד נשאר</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/mokesh-meeting.html">/eyal-amit/mokesh-dahiman/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-23 pack: excel quotes + 34 need images</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>נדבר בשיחה</strong></p><pre>21.9: בתמונת ההירו לא צריך להיות וידאו, אלא רק תמונה של מוקש ללא סאונד. להסיר את וידאו הרקע בהירו. הדיוקן של מוקש לבדו. הסרט בתוך העמוד לא הוזכר להסרה.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>בעמוד שני סרטים מאותו יוטיוב kf4NKSdYi9E. ביקש להסיר את וידאו הרקע בהירו ולהשאיר תמונה של מוקש לבדו, בלי סאונד. את הסרט המוטמע ליד פתיחת הטקסט הוא ביקש קודם לכן להשאיר. התמונה לא נבחרה. לא נוגעים לפני הפגישה.</p></div>
-  </div>
+
+<section class="item" id="A13">
+  <h2><span class="id">A13</span> · אלמנטי הקריאה לפעולה אינם אחידים</h2>
+  <p class="path">כל האתר. דוגמאות חיות: <a href="http://eyalamit-co-il-2026.s887.upress.link/method/">/method/</a>
+   · <a href="http://eyalamit-co-il-2026.s887.upress.link/repair/">/repair/</a></p>
+  <p>בלשונו של אייל: כפתור בצד שמאל, לוגו מאחור בצד ימין, כותרת ממורכזת, בלוק מיושר ימינה — לא
+  אחיד בין העמודים.</p>
+  <p class="need"><b>נדרש:</b> אישור למיפוי לפני שנוגעים בעיצוב — בדיוק כמו שהניגודיות עברה. אישור
+  המיפוי הוא ההכרעה כאן; המיפוי עצמו הוא B1.</p>
 </section>
-<section class="item" id="M6" data-status="waiting" data-waiting="eyal" data-kind="visual" data-surface="both">
-  <h2>M6 — סטנדים — דוגמה לשילוב תמונות <span class="tag hold">לשיחה — דוגמה לזרימה, לא גלריה אחידה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/stands-storage/">/stands-storage/</a> · visual · both</p>
-  <p class='path'>live.check: 2026-09-23 excel asks to scatter photos; 3 need images tagged wall vs floor</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>נימרוד 23.9: העמוד ישמש דוגמה. חלק מהתמונות גדולות לאורך הטקסט, חלק בגלריה. שני הסוגים: תלייה ורצפתי. היישום נבחן יחד.</p></div>
-  </div>
+
+<section class="item" id="A14">
+  <h2><span class="id">A14</span> · עמוד הכשרת המטפלים חסר ממפת האתר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/">http://eyalamit-co-il-2026.s887.upress.link/learning/therapist-training/</a></p>
+  <p>נמצא בעת אימות גל 1, <b>ואינו נגרם ממנו</b>. החשבון: 153 אובייקטים מפורסמים, 17 מחזירים
+  הפניה ולכן אינם זכאים, <b>136 אמורים להיות במפת האתר — יש 135</b>. החסר הוא העמוד הזה.
+  הוא חי, מחזיר 200, ונושא תג קנוני מצביע לעצמו.</p>
+  <p>גל 1 הוסיף החרגה אחת בלבד למפת האתר — עמוד ההופעות, עם הערה שמסבירה למה.
+  <b>עמוד ההכשרות אינו ברשימת ההחרגות כלל</b>, כלומר ההיעדרות אינה מוסברת.</p>
+  <p class="need"><b>נדרש:</b> להכריע אם זה מכוון. <b>זהו עמוד מסחרי</b> — הכשרות למטפלים —
+  והוא בלתי נראה למנועי החיפוש מבחינת מפת האתר.</p>
 </section>
-<section class="item" id="M7" data-status="waiting" data-waiting="eyal" data-kind="visual" data-surface="both">
-  <h2>M7 — כותרות ההירו והכיתוב cbDIDG <span class="tag hold">לשיחה — נוגע בקאנון האות</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · visual · both</p>
-  <p class='path'>live.check: 2026-09-23 note only; hero type unchanged</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p><strong>נדבר בשיחה</strong></p><pre>הכותרות הראשיות בהירו לא מסודרות טוב, וגם הפונט לא נראה טוב. cbDIDG לא נראה יפה בכלל.</pre></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר: הכותרות הראשיות בהירו לא מסודרות, הפונט לא נראה טוב, ו-cbDIDG לא נראה יפה. לא פותחים את קאנון הגודל לפני השיחה.</p></div>
-  </div>
+
+<div class="section-head">
+  <h2>נסגר</h2>
+</div>
+
+<section class="item done" id="A10">
+  <h2><span class="id">A10</span> · העמוד באנגלית בלי פירורי לחם — נסגר</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/en/">http://eyalamit-co-il-2026.s887.upress.link/en/</a></p>
+  <p>הוכרע: <code>/en/</code> הוא שורש כמו <code>/</code>. אין פירורי לחם, ואין מה לבנות.</p>
 </section>
-<section class="item" id="M8" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>M8 — קרוסלת סרטונים בדף הבית ובדפים חשובים <span class="tag hold">ממתין לקבצי הסרטונים</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-23 no instagram carousel</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר: קרוסלת סרטונים בדף הבית ובדפים הפנימיים החשובים, מהאינסטגרם. הקבצים לא צורפו.</p></div>
-  </div>
+
+<div class="section-head">
+  <h2>ממתין לצוותים</h2>
+  <p>עבודה שאנחנו חייבים, בלי הכרעה חוסמת.</p>
+</div>
+
+<section class="item" id="B1">
+  <h2><span class="id">B1</span> · מיפוי אלמנטי הקריאה לפעולה</h2>
+  <p class="path">כל האתר.</p>
+  <p>המיפוי שנדרש עבור A13: כל גרסת CTA, באילו עמודים היא מופיעה, ומה שונה ביניהן. <b>מדידה
+  בלבד — בלי עיצוב מחדש ובלי תיקון.</b></p>
+  <p class="need"><b>נדרש:</b> להפיק את המיפוי, אחרי אישור A13.</p>
 </section>
-<section class="item" id="M9" data-status="waiting" data-waiting="eyal" data-kind="content_gap" data-surface="both">
-  <h2>M9 — מוזיקת רקע להירו, עם השתקה <span class="tag hold">ממתין לקובץ המוזיקה</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · content_gap · both</p>
-  <p class='path'>live.check: 2026-09-23 no hero music</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>23.9 בבוקר: מוזיקת רקע להירו עם לחצן השתקה ברור. כתבת שתשלח קובץ בהמשך. הקובץ לא הגיע.</p></div>
-  </div>
+
+<section class="item" id="B2">
+  <h2><span class="id">B2</span> · כתובית אחת על תמונה בהירה עדיין מתחת לסף</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/learning/">http://eyalamit-co-il-2026.s887.upress.link/learning/</a></p>
+  <p>האלמנט: <code>.phero .chap</code> — התג מעל הכותרת בהירו-תמונה. team_10 דיווח על כך ביושר
+  אחרי שה-scrim עלה; team_90 לא מדד מחדש. <b>נמדד מחדש היום, פיקסל-פיקסל:</b> צבע הטקסט
+  <code>rgb(154,87,45)</code> הורכב מול הרקע האמיתי (<code>studio-didgs.jpg</code>) בשילוב שכבת
+  ה-scrim (<code>.phero__sc</code>) בכל נקודה בתוך גבולות הטקסט — 9,384 דגימות. <b>יחס הניגודיות
+  הגרוע ביותר: 1.00:1</b> (פיקסל תמונה <code>rgb(219,183,146)</code>, מורכב תחת אלפא scrim
+  0.469), מול סף 4.5:1. המדידה הקודמת של team_10 דיווחה אומדן של «בסביבות 1.9:1» בנקודה אחת;
+  זו מדידה ממצה יותר על פני כל תיבת הטקסט, לא רק נקודה אחת, ומראה פער חמור יותר.</p>
+  <p class="need"><b>נדרש:</b> לזהות תיקון (לא הכרעת נימרוד — עבודה טכנית).</p>
 </section>
-<section class="item" id="N1" data-status="closed" data-waiting="none" data-kind="nav" data-surface="both">
-  <h2>N1 — כפתור התפריט במובייל <span class="tag done">נסגר — 21.9: המבורגר מימין בעברית, לוגו משמאל. חי מתמה 1.5.103</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">/</a> · nav · both</p>
-  <p class='path'>live.check: 2026-09-21 theme 1.5.103 · / 390 RTL burger x=302 w=44 logo x=44 · drawer right=390 · /en/ burger x=14 no overlap lang · /press/ burger x=332</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>השאלה נענתה ב-21.9 ומומשה. אין אישור נוסף. מבנה L1 לא השתנה.</p></div>
-  </div>
+
+<section class="item" id="B3">
+  <h2><span class="id">B3</span> · טקסט כרטיס ההשוואה בדף הבית — 4.22 מול 4.5</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/">http://eyalamit-co-il-2026.s887.upress.link/</a></p>
+  <p><code>.cmpc__p</code> נמדד 4.22:1 מול סף 4.5:1 — חסר 0.28. הוצא במפורש מסבב הניגודיות
+  המאושר. קטן, ולא אמור ללכת לאיבוד.</p>
+  <p class="need"><b>נדרש:</b> לתקן בסבב תיקונים הבא.</p>
 </section>
-<section class="item" id="Q-REPAIR-ALT" data-status="waiting" data-waiting="eyal" data-kind="a11y" data-surface="both">
-  <h2>Q-REPAIR-ALT — כיתוב לחמש תמונות בעמוד התיקון <span class="tag hold">אין משפט קיים — לא הומצא כיתוב</span></h2>
-  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/repair/">/repair/</a> · a11y · both</p>
-  <p class='path'>live.check: 2026-09-24 empty alt left where no source sentence exists</p>
-  <div class="grid">
-    <div class="box eyal"><h3>אייל</h3><p>אין שורת טופס.</p></div>
-    <div class="box us"><h3>סיכום מהתור</h3><p>חמש תמונות תוכן נשארו בלי alt: EA-000239, EA-000298, EA-000214, EA-000238, EA-000220. בייצוא אין להן משפט של אייל, רק כותרת סטודיו. שתי תמונות בגלריה כבר נושאות את המשפט שהיה בנתוני התמה. EA-000268 ו-EA-000161 נשארו ריקות: לראשונה אין משפט, לשנייה ההערה היא מיקום בלבד.</p></div>
-  </div>
+
+<section class="item" id="B4">
+  <h2><span class="id">B4</span> · כתיבת ההפניות לאתר הישן</h2>
+  <p class="path">חסום עד הכרעת A11.</p>
+  <p>ההכרעות עצמן — של אייל ושל נימרוד. כתיבת כללי ההפניה ואימותם היא שלנו.</p>
+  <p class="need"><b>נדרש:</b> להמתין להכרעת A11, ואז לכתוב ולאמת.</p>
 </section>
-<section class="item" id="slim">
-  <h2>בלוג ו-QR</h2>
-  <p class="path">שורות P ו-Q הן קטלוג, לא מאה משימות. שתי המשימות: T-BLOG-TEMPLATE ואז T-QR-TEMPLATE.</p>
-  <table>
-    <tr><th>id</th><th>כותרת</th><th>סטטוס מהתור</th></tr>
-    <tr><td>P001</td><td>צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P002</td><td>פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P003</td><td>ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג&#x27;רידו והעשייה </td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P004</td><td>עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג&#x27;רידו</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P005</td><td>טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P006</td><td>הכל אודות ריברסינג, נשימה מעגלית ו- דיג&#x27;רידו. האם נשימה מעגלית בדיג&#x27;רידו היא אות</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P007</td><td>נגינה ונשימה מעגלית בדיג&#x27;רידו – ריפוי הנשימה והנשמה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P008</td><td>האם לנשים מותר לנגן בדיג&#x27;רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P009</td><td>סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P010</td><td>תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P011</td><td>טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בד</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P012</td><td>מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P013</td><td>שליחות חיי – כתבה אודות המרכז לטיפול בדיג&#x27;רידו פרדס חנה – אייל עמית</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P014</td><td>וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P015</td><td>את הספר החדש שלי לא תמצאו ברשתות הספרים. למה?</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P016</td><td>הזמנה לסדרת מפגשים אינטימיים חדשה! &quot;סיפורים מהנייר&quot; עם אייל עמית</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P017</td><td>הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P018</td><td>כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P019</td><td>מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד </td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P020</td><td>שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 2</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P021</td><td>מופע הסיפורים של אייל עמית מגיע לתיאטרון הקאמרי!</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P022</td><td>מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P023</td><td>מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P024</td><td>מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינס</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P025</td><td>&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צר</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P026</td><td>דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P027</td><td>עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P028</td><td>&quot;פרדס חפלה&quot; – הסיפור החדש במופע הקרוב 13.9.14 בפרדס חנה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P029</td><td>2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P030</td><td>אקדח לתוך הראש</td><td><span class='tag waitn'>היסטורי — כותרת עודכנה 22.9, תמונה לא הוחלפה</span></td></tr><tr><td>P031</td><td>שם חדש למופע הסיפורים: &quot;עכשיו!!!!!&quot;  קבלו את שלושת הקליפים הרישמיים עם ה-&quot;עכשווי</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P032</td><td>ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P033</td><td>סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הי</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P034</td><td>100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P035</td><td>הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P036</td><td>הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P037</td><td>נשימה מעגלית – סטודיו דיג&#x27;רידו לנגינה ובנייה בפרדס חנה – אייל עמית. פוסט מ 2012</td><td><span class='tag hold'>אין תמונת נושא גם באתר הישן. אייל ישלח אם יש. לא מעתיקים.</span></td></tr><tr><td>P038</td><td>פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P039</td><td>(51) הטור של אייל עמית: אקסטרים זה נעים!</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P040</td><td>(49) הטור של אייל עמית: קומיק רליף</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P041</td><td>זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P042</td><td>(45) הטור של אייל עמית: פרופורציות</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P043</td><td>(43) הטור של אייל עמית: אדון סליחות</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P044</td><td>(42) הטור של אייל עמית: אחד בספטמבר</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P045</td><td>(41) הטור של אייל עמית: חארטה בארטה</td><td><span class='tag done'>נסגר — הפוסט ירד, הכתובת מפנה לבלוג</span></td></tr><tr><td>P046</td><td>(40) הטור של אייל עמית: פרסומת אחת וחזרנו</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P047</td><td>(36) הטור של אייל עמית: שיטת השקשוקה</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P048</td><td>(34) הטור של אייל עמית: הלב</td><td><span class='tag waitn'>היסטורי — קישור כושי בלאנטיס חי, תמונה לא הוחלפה</span></td></tr><tr><td>P049</td><td>(32) הטור של אייל עמית: אם אין אני לי – מי לי</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P050</td><td>(29) הטור של אייל עמית: רייב שבוע הספר</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P051</td><td>(27) הטור של אייל עמית: חכמת הפרצוף</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P052</td><td>(24) הטור של אייל עמית: ילד אסור ילד מותר</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P053</td><td>(23) הטור של אייל עמית: לציית או לחשוב</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>P054</td><td>(18) הטור של אייל עמית: מסך הברזל</td><td><span class='tag waitn'>היסטורי כמו שהיה — לא משימה נפרדת</span></td></tr><tr><td>Q001</td><td>והקדמת – qr1</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q002</td><td>qr2 – אקדח לתוך הראש</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q003</td><td>qr3 – האלמנה השחורה</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q004</td><td>qr4 – בום-בום-בום על דלתי מרום</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q005</td><td>qr5 – אלכסון הוא אסון</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q006</td><td>qr6 – ספיבאק</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q007</td><td>qr7 – אחד לשלושה</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q008</td><td>qr8 – סופה במדבר</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q009</td><td>qr9 – טיפול שורש</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q010</td><td>qr10 – וואט איז דאט?</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q011</td><td>qr11 – חורשט זבזי</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q012</td><td>qr12 – אינדיאנה ג&#x27;ונס והמכרה הארור</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q013</td><td>qr13 – ואהבתָ</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q014</td><td>qr14 – גורילות בערפל האמזונס</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q015</td><td>qr15 – היקיקומורי</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q016</td><td>qr16 – דם על הידיים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q017</td><td>qr17 – יוגי לודג&#x27;</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q018</td><td>qr18 – אחד לשלושה טריליון</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q019</td><td>qr19 – הפיצה הכי טעימה שאכלתי בחיים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q020</td><td>qr20 – אבא, אני רעב</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q021</td><td>qr21 – ג&#x27;סי ראם!</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q022</td><td>qr22 – בולט אנט</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q023</td><td>qr23 – יום כן יום לא</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q024</td><td>qr24 – קוֹל פּוּט שוֹרט סטופ!</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q025</td><td>qr25 – גרין ווש</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q026</td><td>qr26 – כורסת הציפורניים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q027</td><td>qr27 – אמסטרדם</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q028</td><td>qr28 – נזכור ולא נשכח</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q029</td><td>qr29 – לעבור דירה</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q030</td><td>qr30 – פרדס חפלה</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q031</td><td>qr31 – פיפי במעלית</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q032</td><td>qr32 – נשימה מעגלית</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q033</td><td>qr33 – תאכלו ביצים, תהיו טייסים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q034</td><td>qr34 – תקום</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q035</td><td>qr35 – הגבר החדש</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q036</td><td>qr36 – חוני המעגל</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q037</td><td>qr37 – דרך השלום</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q038</td><td>qr38 – הבטחות או לא להיות</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q039</td><td>qr39 – תחשוב חיובי</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q040</td><td>qr40 – אבנים חמות</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q041</td><td>qr41 – לופ בטעם תות לימון</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q042</td><td>qr42 – הבטחות אחים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q043</td><td>qr43 – עכשיו!!!</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q044</td><td>qr44 – כולנו פרעושים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q045</td><td>qr45 – צום מיצים</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q046</td><td>qr46  – האומץ לאהוב את הפחד</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q047</td><td>qr47  – טיפול זוגי</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr><tr><td>Q048</td><td>qr48 -וסיימת</td><td><span class='tag waitn'>כתובת לא זזה — נכנס ל-T-QR-TEMPLATE</span></td></tr>
-  </table>
+
+<section class="item" id="B5">
+  <h2><span class="id">B5</span> · הצהרת הנגישות — ניסוח מעודכן להגשה</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/accessibility/">http://eyalamit-co-il-2026.s887.upress.link/accessibility/</a></p>
+  <p>הכרעת הניגודיות כבר התקבלה, אז אפשר לנסח עכשיו. הנוסח החי כרגע מגלה מגבלת אינדיקטור-פוקוס
+  שהרשומות שלנו אומרות שתוקנה בתמה 1.5.115 — ההצהרה מחמירה עם עצמה יותר מהמציאות.</p>
+  <p class="need"><b>נדרש:</b> לנסח טיוטה מעודכנת; נימרוד מאשר את הניסוח לפני הדבקה לאתר.</p>
 </section>
-<p class="wait">ssotSha12 a559fd2d6405 · 2026-09-24T11:23Z</p>
+
+<section class="item" id="B6">
+  <h2><span class="id">B6</span> · עותק שלישי וקפוא של עץ הניווט</h2>
+  <p class="path"><code>template-parts/blocks/block-topnav.php</code></p>
+  <p>נבדק בקוד היום: אין אף קריאת <code>get_template_part</code>/<code>include</code>/<code>require</code>
+  לקובץ הזה בכל התמה. הוא קיים על הדיסק ואינו נטען באף עמוד. <b>סיכון סמוי:</b> אם מישהו יחבר
+  אותו בחזרה, התפריט יתפצל לשני מקורות. חמישית מהמופע החוזר הזה בתמה.</p>
+  <p class="need"><b>נדרש:</b> אין פעולה מיידית — לתעד את הסיכון ולוודא שאיש לא מחבר את הקובץ
+  בטעות.</p>
+</section>
+
+<section class="item" id="B7">
+  <h2><span class="id">B7</span> · ניווט שני ב-DOM בשלושה עמודים</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/">http://eyalamit-co-il-2026.s887.upress.link/press/</a>
+   · <a href="http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/">http://eyalamit-co-il-2026.s887.upress.link/shows-heritage/</a>
+   · <a href="http://eyalamit-co-il-2026.s887.upress.link/historical-articles/">http://eyalamit-co-il-2026.s887.upress.link/historical-articles/</a></p>
+  <p>נמדד על-ידי team_90: <code>display:block</code> עם תיבה מצוירת 0×0 — בלתי נראה היום. אומת
+  היום בקוד המקור החי: סימון <code>main-navigation</code> (הניווט המובנה של הערכה) אכן קיים
+  ב-DOM בשלושת העמודים, לצד <code>.nav</code> הקנוני. בעמוד <code>/press/</code> כבר יורה כלל
+  CSS שחושף את המכל שלו — כלל אחד רחוק מתפריט שני גלוי.</p>
+  <p class="need"><b>נדרש:</b> להסיר את הסימון הכפול, או לנטרל אותו לצמיתות.</p>
+</section>
+
+<section class="item" id="B8">
+  <h2><span class="id">B8</span> · בדיקת הדואר השנייה</h2>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/contact/">http://eyalamit-co-il-2026.s887.upress.link/contact/</a></p>
+  <p>היעד הראשון הגיע לתיבה; אייל אישר את היעד השני בפגישה. <b>אומת בקוד היום:</b> היעד הרשום
+  ב-<code>mu-plugins/ea-w2-15-cf7-contact-form-once.php</code> הוא <code>info@eyalamit.co.il</code>
+  — תואם את מה שאייל אישר. לא בוצעה בדיקת שליחה חיה נוספת לאימות קבלה בפועל.</p>
+  <p class="need"><b>נדרש:</b> לתעד את האישור (בוצע כאן), ולשקול בדיקת שליחה חיה אחת לסגירת הסעיף
+  על ראיה, לא על זיכרון.</p>
+</section>
+
+<div class="meta">
+  <p>ssotSha12 ec5382616e13 · generatedAt 2026-09-25T00:00Z · תמה חיה 1.5.126</p>
+</div>
 </body>
 </html>
