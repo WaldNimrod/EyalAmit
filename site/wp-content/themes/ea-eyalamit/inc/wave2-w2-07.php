@@ -370,7 +370,16 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 							<blockquote class="ea-testimonial-card__quote">
 								<p class="ea-testimonial-card__text"><?php echo nl2br( esc_html( (string) ( $item['text'] ?? '' ) ) ); ?></p>
 								<?php if ( $with_fb && ! empty( $item['href'] ) ) : ?>
-									<footer class="ea-testimonial-card__footer">
+									<?php /* S007 footer-unify (2026-09-26): was <footer> — a citation block
+									         inside a blockquote, not a page landmark, but the site's own
+									         success gate counts literal <footer> elements per page and expects
+									         exactly one (the real site footer). A <div> keeps the same
+									         class/CSS and changes nothing visually. This is the third copy of
+									         this exact citation markup found in the theme (the other two are
+									         template-parts/blocks/block-testimonials-row.php and
+									         block-testimonials-carousel.php) — this one is what /press/ and
+									         /historical-articles/ actually render. */ ?>
+									<div class="ea-testimonial-card__footer">
 										<a class="ea-testimonial-card__name ea-link"
 											href="<?php echo esc_url( $item['href'] ); ?>"
 											target="_blank"
@@ -379,7 +388,7 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 											<?php echo esc_html( (string) ( $item['name'] ?? '' ) ); ?>
 										</a>
 										<span class="ea-testimonial-card__hint" aria-hidden="true"> ↗</span>
-									</footer>
+									</div>
 								<?php endif; ?>
 							</blockquote>
 						</div>

@@ -113,8 +113,17 @@ add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_footer_unified_everywhere
  * own documented extension point for a child theme supplying its own
  * footer — this does not touch parent theme files and does not affect the
  * wrapper markup/hooks around it (wp_footer() etc. still fire normally).
+ *
+ * Measured live 2026-09-26: generate_show_footer alone did not suppress it —
+ * the visible element was GeneratePress's separate "site-info" copyright bar
+ * (generate_construct_site_info(), hooked to 'generate_credits'), not the
+ * widgetised footer area generate_show_footer guards in this GP version.
+ * generate_show_credits is GP's own filter for that bar specifically; both
+ * are kept since which one applies can vary by GeneratePress version and
+ * neither does anything if its hook is absent.
  */
 add_filter( 'generate_show_footer', '__return_false' );
+add_filter( 'generate_show_credits', '__return_false' );
 
 /**
  * Load textdomain for child theme strings.
@@ -163,7 +172,23 @@ function ea_eyalamit_render_footer_legal_nav() {
 	);
 	echo '</nav>';
 }
-add_action( 'generate_before_footer', 'ea_eyalamit_render_footer_legal_nav', 6 );
+/*
+ * S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — unhooked 2026-09-26. This was
+ * a FIFTH independent footer content source (a WP-admin-editable nav menu:
+ * FAQ, galleries, testimonials, privacy, accessibility, terms), firing on
+ * generate_before_footer — i.e. on every page that reaches GeneratePress's
+ * own footer.php, unconditionally, regardless of which of this theme's four
+ * named footer render paths also ran. Measured live 2026-09-26 on /press/:
+ * it duplicated five of the six links now in ea_render_unified_footer()'s
+ * own columns/legal strip (FAQ, galleries, testimonials, privacy,
+ * accessibility) — exactly the "zero duplicated links between one footer
+ * region and another" defect this mandate exists to close. Left defined
+ * (not deleted) and its 'ea_footer_legal' menu location stays registered,
+ * in case team_00 wants it restored for its one non-duplicate item,
+ * "תקנון" (terms) — that page has no other footer link after this change;
+ * flagged in the DONE report rather than silently adding a "תקנון" link of
+ * my own to the legal strip, which the mandate did not ask for.
+ */
 
 /**
  * EN בהדר בלבד — לא בתפריט הראשי (site-tree st-en).
