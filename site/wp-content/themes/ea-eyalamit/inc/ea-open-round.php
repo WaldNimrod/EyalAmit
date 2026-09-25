@@ -89,6 +89,41 @@ function ea_open_round_inject_chapters_nav() {
 add_action( 'wp_body_open', 'ea_open_round_inject_chapters_nav', 20 );
 
 /**
+ * Do not emit GeneratePress's navigation on the two pages that still load
+ * the parent header.
+ *
+ * Measured 2026-09-26 on the 136 sitemap URLs (redirects not followed): only
+ * /press/ and /historical-articles/ lack the ea-chapters body class, and only
+ * those two contain id="site-navigation" (1) plus class main-navigation (2).
+ * /press/ is force-routed to page-templates/tpl-content.php, which calls
+ * get_header(). /historical-articles/ is not in ea_chapters_route_map(), so
+ * it falls through to GeneratePress page.php, which also calls get_header().
+ * Child header.php then loads the parent header. Body class nav-float-right
+ * selects generate_add_navigation_float_right(), which calls
+ * generate_navigation_position() and prints both
+ * nav.main-navigation#mobile-menu-control-wrapper and
+ * nav#site-navigation.main-navigation. The other 134 pages are Chapters
+ * documents and never call get_header(), so those hooks never run.
+ *
+ * The canonical nav#nav is already injected above. These remove_action calls
+ * are GeneratePress's own extension point for a child that supplies its own
+ * navigation (see the parent comments on generate_add_navigation_*). The
+ * site-header shell is left in place; only the navigation constructors are
+ * removed, so the markup is not emitted.
+ */
+function ea_open_round_unhook_gp_navigation() {
+	if ( ! is_page( array( 'press', 'historical-articles' ) ) ) {
+		return;
+	}
+	remove_action( 'generate_after_header_content', 'generate_add_navigation_float_right', 5 );
+	remove_action( 'generate_after_header', 'generate_add_navigation_after_header', 5 );
+	remove_action( 'generate_before_header', 'generate_add_navigation_before_header', 5 );
+	remove_action( 'generate_before_right_sidebar_content', 'generate_add_navigation_before_right_sidebar', 5 );
+	remove_action( 'generate_before_left_sidebar_content', 'generate_add_navigation_before_left_sidebar', 5 );
+}
+add_action( 'wp', 'ea_open_round_unhook_gp_navigation', 20 );
+
+/**
  * DA-P2-05 — visitor title matches the shop H1, not the WP admin name.
  *
  * @param string $title
