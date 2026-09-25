@@ -11,11 +11,11 @@
  * pages that render on page-template-default with none of this theme's
  * other footer partials at all.
  *
- * Every size/weight token below is an existing --fs-*/--fw-* rung from
- * ea-tokens.css; the background is the existing --ea-ink token. No new
- * font-size, no new colour token — only new rgba(255,255,255,N) opacities
- * on top of that one existing background colour, chosen so text still
- * clears 4.5:1 against it (measured, see the DONE report for the numbers).
+ * Every size/weight token below is an existing --fs-*, --fw-* or --ea-ink
+ * rung from ea-tokens.css. No new font-size, no new colour token — only
+ * new rgba(255,255,255,N) opacities on top of that one existing background
+ * colour, chosen so text still clears 4.5:1 against it (measured, see the
+ * DONE report for the numbers).
  */
 
 .ea-footer-sitemap {
