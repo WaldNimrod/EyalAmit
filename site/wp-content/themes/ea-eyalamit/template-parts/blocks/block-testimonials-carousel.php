@@ -60,7 +60,11 @@ $ea_tc_render_card = static function ( $item, $is_dupe ) {
 		</div>
 		<blockquote class="ea-testimonial-card__quote">
 			<p class="ea-testimonial-card__text"><?php echo nl2br( esc_html( $text ) ); ?></p>
-			<footer class="ea-testimonial-card__footer">
+			<?php /* S007 footer-unify (2026-09-26): was <footer> — a citation block inside a
+			         blockquote, not a page landmark, but the site's own success gate counts
+			         literal <footer> elements per page and expects exactly one (the real site
+			         footer). A <div> keeps the same class/CSS and changes nothing visually. */ ?>
+			<div class="ea-testimonial-card__footer">
 				<?php if ( '' !== $href ) : ?>
 				<a class="ea-testimonial-card__name ea-link"
 				   href="<?php echo esc_url( $href ); ?>"
@@ -73,7 +77,7 @@ $ea_tc_render_card = static function ( $item, $is_dupe ) {
 				<?php else : ?>
 				<span class="ea-testimonial-card__name"><?php echo esc_html( $name ); ?></span>
 				<?php endif; ?>
-			</footer>
+			</div>
 		</blockquote>
 	</article>
 	<?php

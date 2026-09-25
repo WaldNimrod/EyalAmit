@@ -1,0 +1,227 @@
+/**
+ * THE unified footer — S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md.
+ * Markup comes from ea_render_unified_footer() in inc/ea-canonical-nav.php
+ * — this sheet only styles it. Replaces both the old per-render-path
+ * hardcoded footer CSS (chapters.css's .foot* rules, which stay in that
+ * file but are no longer targeted by any markup this theme emits — dead,
+ * not deleted, to keep this change scoped to the footer) and the previous
+ * ea-footer-sitemap.css (deleted; that second row is gone).
+ *
+ * Enqueued unconditionally on every front-end view
+ * (ea_eyalamit_enqueue_footer_unified_everywhere() in functions.php, same
+ * reasoning as ea-tokens.css's own everywhere-enqueue): this is now the
+ * ONLY footer, so it has to reach pages that load none of this theme's
+ * other stylesheets at all (measured 2026-09-26: /historical-articles/).
+ *
+ * Every size/weight token below is an existing --fs-*/--fw-* rung from
+ * ea-tokens.css; every base colour is an existing token (--ea-ink, --ea-bg,
+ * --ea-text-body, --ea-on-dark, --ea-accent-strong). No new font-size, no
+ * new colour token — rgba(255,255,255,N) / rgba(0,0,0,N) are opacity
+ * layers on top of those existing base colours, same convention the
+ * previous sitemap-row CSS used (see its own removed header comment).
+ *
+ * Every descendant selector below is qualified with the .ea-ftr ancestor
+ * class, not just the bare element/class. On Chapters pages this footer's
+ * <footer> also carries the legacy `foot` class (to keep the existing
+ * sticky-reveal behaviour — see ea_render_unified_footer()'s own 'reveal'
+ * doc), and chapters.css's OWN ".foot a{...}" rule is (0,1,1) specificity —
+ * exactly the fight ea-footer-sitemap.css's own removed comment already
+ * documented losing once. Two-class-qualified selectors here are (0,2,*)
+ * and win regardless of stylesheet load order.
+ */
+
+.ea-ftr {
+	position: relative;
+	background: var(--ea-ink);
+	color: rgba(255, 255, 255, 0.68);
+	overflow: hidden;
+}
+
+.ea-ftr .ea-ftr__in {
+	max-width: 1200px;
+	margin-inline: auto;
+	padding: var(--ea-space-6, 48px) var(--ea-gutter, 24px) var(--ea-space-5, 40px);
+}
+
+/* ── 1 · the menu, as columns ─────────────────────────────────────────── */
+
+.ea-ftr .ea-ftr__nav {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--ea-space-5, 40px) var(--ea-space-4, 32px);
+}
+
+.ea-ftr .ea-ftr__col {
+	min-width: 0;
+}
+
+.ea-ftr .ea-ftr__col-title {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-3xs);
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.92);
+	text-decoration: none;
+	margin: 0 0 var(--ea-space-2, 16px);
+	padding-bottom: var(--ea-space-1, 8px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.ea-ftr .ea-ftr__col-title:hover,
+.ea-ftr .ea-ftr__col-title:focus-visible {
+	color: #fff;
+}
+
+.ea-ftr .ea-ftr__col-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--ea-space-1, 8px);
+}
+
+.ea-ftr .ea-ftr__col-list a {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-weight: var(--fw-light);
+	font-size: var(--fs-xs);
+	color: rgba(255, 255, 255, 0.68);
+	text-decoration: none;
+}
+.ea-ftr .ea-ftr__col-list a:hover,
+.ea-ftr .ea-ftr__col-list a:focus-visible {
+	color: #fff;
+}
+
+/* ── 2 · contact details, in their own block ──────────────────────────── */
+
+.ea-ftr .ea-ftr__contact {
+	margin-top: var(--ea-space-6, 48px);
+	padding-top: var(--ea-space-4, 32px);
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: var(--ea-space-4, 32px);
+}
+
+.ea-ftr .ea-ftr__contact-name {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-medium);
+	color: #fff;
+	margin: 0 0 var(--ea-space-1, 8px);
+}
+
+.ea-ftr .ea-ftr__contact-tag,
+.ea-ftr .ea-ftr__contact-nap,
+.ea-ftr .ea-ftr__contact-tel {
+	font-family: var(--ea-font, inherit);
+	font-size: var(--fs-xs);
+	color: rgba(255, 255, 255, 0.68);
+	line-height: 1.7;
+	max-width: 40ch;
+	margin: 0 0 var(--ea-space-1, 8px);
+}
+
+.ea-ftr .ea-ftr__contact-tel a {
+	color: rgba(255, 255, 255, 0.68);
+	text-decoration: none;
+	white-space: nowrap;
+}
+.ea-ftr .ea-ftr__contact-tel a:hover,
+.ea-ftr .ea-ftr__contact-tel a:focus-visible {
+	color: #fff;
+}
+
+.ea-ftr .ea-ftr__soc {
+	display: flex;
+	gap: 11px;
+	flex-wrap: wrap;
+}
+.ea-ftr .ea-ftr__soc a {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgba(255, 255, 255, 0.75);
+}
+.ea-ftr .ea-ftr__soc a:hover,
+.ea-ftr .ea-ftr__soc a:focus-visible {
+	border-color: var(--ea-accent);
+	color: #fff;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 3 · legal strip — LAST, centred, the only light-toned region ────── */
+
+.ea-ftr .ea-ftr__legal {
+	background: var(--ea-bg);
+	color: var(--ea-text-body);
+	text-align: center;
+	border-top: 1px solid var(--ea-line);
+}
+
+.ea-ftr .ea-ftr__legal-in {
+	max-width: 900px;
+	margin-inline: auto;
+	padding: var(--ea-space-4, 32px) var(--ea-gutter, 24px);
+}
+
+.ea-ftr .ea-ftr__disc {
+	font-family: var(--ea-font, inherit);
+	font-size: var(--fs-2xs);
+	line-height: 1.6;
+	color: var(--ea-text-body);
+	margin: 0 0 var(--ea-space-2, 16px);
+}
+
+.ea-ftr .ea-ftr__base {
+	font-family: var(--ea-font, inherit);
+	font-size: var(--fs-2xs);
+	color: var(--ea-muted);
+	margin: 0;
+}
+.ea-ftr .ea-ftr__base a {
+	color: var(--ea-accent-strong);
+	text-decoration: underline;
+}
+.ea-ftr .ea-ftr__base a:hover,
+.ea-ftr .ea-ftr__base a:focus-visible {
+	color: var(--ea-text);
+}
+
+/* ── focus floor — every link above gets a visible ring ───────────────── */
+.ea-ftr .ea-ftr__col-title:focus-visible,
+.ea-ftr .ea-ftr__col-list a:focus-visible,
+.ea-ftr .ea-ftr__contact-tel a:focus-visible,
+.ea-ftr .ea-ftr__soc a:focus-visible,
+.ea-ftr .ea-ftr__base a:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* ── responsive columns — same bucket widths already verified for this
+      component's predecessor (the footer sitemap row) at 390px ─────────── */
+@media (min-width: 480px) {
+	.ea-ftr .ea-ftr__nav {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 768px) {
+	.ea-ftr .ea-ftr__nav {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (min-width: 1024px) {
+	.ea-ftr .ea-ftr__nav {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}

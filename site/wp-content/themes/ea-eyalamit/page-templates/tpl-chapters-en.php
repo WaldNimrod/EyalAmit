@@ -106,22 +106,20 @@ defined( 'ABSPATH' ) || exit;
 	?>
 </main>
 
-<footer class="ea-en-foot">
-	<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Eyal Amit · The Didgeridoo Breath Center · Pardes Hanna, Israel · <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a></p>
-	<p><a href="/"><span lang="he">לאתר העברי</span> / Hebrew site</a></p>
-	<?php
-	/* S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — second footer row,
-	   the whole canonical nav tree as a plain sitemap of links. This is the
-	   theme's one live English page (self-contained; never reaches
-	   get_footer()), so it needs its own explicit call — the tree itself is
-	   Hebrew-only (see inc/ea-canonical-nav.php's header comment), and
-	   ea_render_canonical_nav_footer_sitemap() sets lang="he" dir="rtl" on
-	   its own <nav> for exactly this page. */
-	if ( function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) {
-		ea_render_canonical_nav_footer_sitemap();
-	}
-	?>
-</footer>
+<p style="text-align:center;padding:16px" lang="he" dir="rtl"><a class="ea-en-head__lang" href="/">לאתר העברי / Hebrew site</a></p>
+<?php
+/* S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — ONE footer, rendered once,
+   from ea_canonical_nav_items() (inc/ea-canonical-nav.php). Replaces this
+   page's own bespoke English <footer> — the tree/footer copy is
+   Hebrew-only (see inc/ea-canonical-nav.php's header comment), so
+   ea_render_unified_footer() sets lang="he" dir="rtl" on its own <footer>,
+   same as the sitemap row it replaces already did for exactly this page.
+   This is the theme's one live self-contained English page (never reaches
+   get_footer()), so it needs its own explicit call, same as before. */
+if ( function_exists( 'ea_render_unified_footer' ) ) {
+	ea_render_unified_footer();
+}
+?>
 
 <?php wp_footer(); ?>
 </body>

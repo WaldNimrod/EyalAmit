@@ -377,125 +377,283 @@ function ea_canonical_nav_gp_dropdown_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'ea_canonical_nav_gp_dropdown_assets', 3 );
 
-if ( ! function_exists( 'ea_render_canonical_nav_footer_sitemap_children' ) ) :
+if ( ! function_exists( 'ea_footer_unified_columns' ) ) :
 	/**
-	 * Render one <ul> level of the footer sitemap row (level 2, and — for
-	 * "ספרים" — level 3 nested inside it). Recurses so a future fourth level
-	 * needs no new markup block, same reasoning as
-	 * ea_render_nav_item_desktop() above.
+	 * Build the footer's column list from ea_canonical_nav_items() — ONE
+	 * source, two footer-only presentation overrides on top of it. Neither
+	 * override touches the tree array itself (that array also drives the
+	 * main desktop menu and the mobile drawer, which team_00 did not ask to
+	 * change); both are applied here, to a copy, at render time only.
 	 *
-	 * @param array  $ea_items List of nav items (see ea_canonical_nav_items()).
-	 * @param string $ea_class CSS class for this <ul> (differs by depth for styling).
-	 * @return void
+	 * Override 1 — team_00 (Nimrod), live dictate 2026-09-26, MANDATE-
+	 * FOOTER-UNIFY-2026-09-26.md: «ספרים כעמודה משלה». "ספרים" ("books") is
+	 * lifted out of its parent's children (in the tree today that parent is
+	 * "אייל עמית" — measured; the mandate text itself says "כלים ואביזרים",
+	 * which this file's own tree contradicts, see the DONE report) and
+	 * becomes its own top-level footer column, last in column order per
+	 * team_00's own enumeration ("...כלים ואביזרים · ספרים").
+	 *
+	 * Override 2 — team_00, follow-up dictate 2026-09-26: «השיטה ובלוג -
+	 * שבלוג יהיה בפוטר ילד של השיטה». "בלוג דיג׳רידו" ("blog") is a
+	 * top-level tree item with no children of its own; in the FOOTER ONLY
+	 * it is removed from the top-level column row and appended as a child
+	 * link under the "השיטה" ("method") column, which otherwise would have
+	 * been a single-link column. This is the reason the footer ends at six
+	 * columns, not seven, and none of them is a bare single link.
+	 *
+	 * Every other item, label, href, 'hidden' flag and 'label_emph' passes
+	 * through unchanged. No item is dropped; nothing here writes a label or
+	 * a URL that is not already in the tree.
+	 *
+	 * @return array[] Column list — same per-item shape as ea_canonical_nav_items(),
+	 *                  each with a flat (non-nested) 'children' array.
 	 */
-	function ea_render_canonical_nav_footer_sitemap_children( $ea_items, $ea_class ) {
-		echo '<ul class="' . esc_attr( $ea_class ) . '" role="list">';
-		foreach ( $ea_items as $ea_item ) {
-			if ( ! empty( $ea_item['hidden'] ) ) {
-				continue; // S007 M-14: real page, kept in the tree, not rendered here either.
+	function ea_footer_unified_columns() {
+		$ea_columns   = array();
+		$ea_books_col = null;
+		$ea_blog_item = null;
+
+		foreach ( ea_canonical_nav_items() as $ea_item ) {
+			if ( ! empty( $ea_item['hidden'] ) || 'home' === $ea_item['key'] ) {
+				continue;
 			}
-			$ea_grandchildren = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
-			echo '<li>';
-			printf(
-				'<a href="%s">%s%s</a>',
-				esc_url( $ea_item['href'] ),
-				esc_html( $ea_item['label'] ),
-				/* 'label_emph': a separate field, run through its own esc_html(), never
-				   HTML placed inside 'label' — same convention as every renderer above. */
-				! empty( $ea_item['label_emph'] ) ? ' <em>' . esc_html( $ea_item['label_emph'] ) . '</em>' : ''
-			);
-			if ( $ea_grandchildren ) {
-				ea_render_canonical_nav_footer_sitemap_children( $ea_grandchildren, 'ea-footer-sitemap__l3' );
+			if ( 'blog' === $ea_item['key'] ) {
+				$ea_blog_item = $ea_item; // Override 2 — held back, appended under "method" below.
+				continue;
 			}
-			echo '</li>';
+			$ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
+			if ( $ea_children ) {
+				$ea_kept = array();
+				foreach ( $ea_children as $ea_child ) {
+					if ( 'books' === $ea_child['key'] ) {
+						$ea_books_col = $ea_child; // Override 1 — held back, appended as its own column below.
+						continue;
+					}
+					$ea_kept[] = $ea_child;
+				}
+				$ea_item['children'] = $ea_kept;
+			}
+			$ea_columns[] = $ea_item;
 		}
-		echo '</ul>';
+
+		if ( $ea_blog_item ) {
+			foreach ( $ea_columns as &$ea_col ) {
+				if ( 'method' === $ea_col['key'] ) {
+					$ea_col['children']   = isset( $ea_col['children'] ) ? $ea_col['children'] : array();
+					$ea_col['children'][] = $ea_blog_item;
+				}
+			}
+			unset( $ea_col );
+		}
+
+		if ( $ea_books_col ) {
+			$ea_columns[] = $ea_books_col; // last column, per team_00's stated order.
+		}
+
+		return $ea_columns;
 	}
 endif;
 
-if ( ! function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) :
+if ( ! function_exists( 'ea_render_unified_footer_column' ) ) :
 	/**
-	 * The second footer row: the full canonical nav tree as a plain,
-	 * three-level sitemap of links, one column per level-1 item. Team_00
-	 * dictate 2026-09-26 (MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md): «כל עץ
-	 * התפריט פרוס כרשימת לינקים... כל תפריט בעמודה. לבן דק ועדין».
+	 * Render one footer column: the heading AND a flat list of its children.
 	 *
-	 * Renders from ea_canonical_nav_items() ONLY. The mandate's own warning
-	 * is that a hand-written copy here is exactly how the existing footer's
-	 * own "ניווט" column (block-footer-social.php) already drifted from the
-	 * tree. Every label/href printed is esc_html()/esc_url() straight off
-	 * the array; 'hidden' items are skipped; 'label_emph' is its own
-	 * escaped <em> — same convention as ea_render_nav_item_desktop() and
-	 * ea_canonical_nav_gp_header_items() above.
+	 * team_00 (Nimrod), 2026-09-26 follow-up dictate: «הכותרות בפוטר כולן גם
+	 * עם קישור עליהן» — every column heading is itself a link, to that
+	 * item's own href straight from the tree (never hardcoded, never
+	 * substituted). Every current top-level item has a real href (see this
+	 * file's own header comment on the 2026-09-24 "every parent points at
+	 * its own first child" follow-up), so no heading is ever left bare.
 	 *
-	 * Guarded to render at most once per request. This theme has more than
-	 * one footer render path (Chapters' section-footer.php, Wave2's
-	 * block-footer-social.php, tpl-chapters-en.php's own footer, and — for
-	 * pages that reach neither — the child footer.php gateway before it
-	 * falls through to GeneratePress's own footer), and a single page can
-	 * pass through more than one of those in one request — e.g.
-	 * tpl-content.php calls block-footer-social.php and then get_footer().
-	 * Without the guard that page gets the row twice.
+	 * No third level exists here (unlike the desktop dropdown/drawer):
+	 * after ea_footer_unified_columns()'s two overrides, no column's
+	 * children have children of their own, so this stays a flat two-level
+	 * render — heading link, then a plain list of leaf links.
 	 *
-	 * Styling lives entirely in assets/css/ea-footer-sitemap.css, enqueued
-	 * unconditionally (ea_eyalamit_enqueue_footer_sitemap_everywhere() in
-	 * functions.php) — this row has to reach the one live published page
-	 * that renders on page-template-default with none of this theme's other
-	 * footer partials at all (measured 2026-09-26: /historical-articles/).
-	 * Every size/weight/colour in that file is an existing --fs-*, --fw-*
-	 * or --ea-ink token; this adds none.
-	 *
+	 * @param array $ea_col One column — same shape as an ea_canonical_nav_items() item.
 	 * @return void
 	 */
-	function ea_render_canonical_nav_footer_sitemap() {
+	function ea_render_unified_footer_column( $ea_col ) {
+		$ea_children = isset( $ea_col['children'] ) ? $ea_col['children'] : array();
+		echo '<div class="ea-ftr__col">';
+		printf(
+			'<a class="ea-ftr__col-title" href="%s">%s%s</a>',
+			esc_url( $ea_col['href'] ),
+			esc_html( $ea_col['label'] ),
+			/* 'label_emph': a separate field, run through its own esc_html(), never
+			   HTML placed inside 'label' — same convention as every renderer above. */
+			! empty( $ea_col['label_emph'] ) ? ' <em>' . esc_html( $ea_col['label_emph'] ) . '</em>' : ''
+		);
+		if ( $ea_children ) {
+			echo '<ul class="ea-ftr__col-list" role="list">';
+			foreach ( $ea_children as $ea_child ) {
+				if ( ! empty( $ea_child['hidden'] ) ) {
+					continue; // S007 M-14: courses-external — real page, kept in the tree, not rendered.
+				}
+				printf(
+					'<li><a href="%s">%s%s</a></li>',
+					esc_url( $ea_child['href'] ),
+					esc_html( $ea_child['label'] ),
+					! empty( $ea_child['label_emph'] ) ? ' <em>' . esc_html( $ea_child['label_emph'] ) . '</em>' : ''
+				);
+			}
+			echo '</ul>';
+		}
+		echo '</div>';
+	}
+endif;
+
+if ( ! function_exists( 'ea_render_unified_footer' ) ) :
+	/**
+	 * THE footer. One block, rendered once per page, reached from all four
+	 * render paths this theme has (Chapters' section-footer.php, Wave2's
+	 * block-footer-social.php, tpl-chapters-en.php, and the child
+	 * footer.php gateway) — replaces both the old per-path hardcoded footer
+	 * columns (which had drifted from the tree in five places — see the
+	 * DONE report) AND this morning's separate sitemap row (MANDATE-
+	 * FOOTER-SITEMAP-ROW-2026-09-26.md), which duplicated nine of the ten
+	 * links in those old columns. Nimrod, 2026-09-26: «השורה השניה זה
+	 * כפילות וזה לא טוב... צריך שיכנס רק פעם אחת אחיד בעיצוב יפה».
+	 *
+	 * Layout, in DOM order (matches his own enumeration order):
+	 *   1. the menu, as columns — ea_footer_unified_columns() (the tree,
+	 *      with the two footer-only overrides documented on that function).
+	 *   2. contact details, in their own block — the existing brand/
+	 *      address/phone/social copy, unchanged content, moved here so it
+	 *      renders from ONE place instead of four.
+	 *   3. the legal strip, LAST, CENTRED, and the only light-toned part of
+	 *      the footer — everything above is on the dark ground. Content is
+	 *      the existing medical disclaimer + copyright + accessibility/
+	 *      privacy links (Chapters' own section-footer.php copy — chosen
+	 *      over Wave2's shorter copyright-only line because it is the one
+	 *      that already carries both legal links the mandate names).
+	 *
+	 * Guarded to render at most once per request — the same guard the
+	 * sitemap row used, for the same reason: a single page can reach more
+	 * than one of the four call sites (e.g. tpl-content.php calls
+	 * block-footer-social.php and then get_footer()).
+	 *
+	 * Styling lives entirely in assets/css/ea-footer-unified.css, enqueued
+	 * unconditionally (ea_eyalamit_enqueue_footer_unified_everywhere() in
+	 * functions.php) so this ONE footer renders identically regardless of
+	 * which of the four paths reaches it — including pages that load none
+	 * of this theme's other stylesheets (measured 2026-09-26:
+	 * /historical-articles/). Every size/weight/colour in that file is an
+	 * existing --fs-*, --fw-*, --ea-ink, --ea-bg or --ea-text-body token
+	 * (or an rgba() opacity layered on one of those, same convention the
+	 * sitemap row's own CSS used); this adds no new token.
+	 *
+	 * @param array $ea_args {
+	 *     @type bool $reveal Chapters-only sticky-reveal wrapper — adds the
+	 *                        `foot uncover` classes and the `.arcs` motif
+	 *                        span that assets/css/chapters.css and
+	 *                        assets/js/ea-chapters.js (`footer.foot.uncover`)
+	 *                        already key off. False on the other three
+	 *                        paths, which never loaded that CSS/JS anyway.
+	 * }
+	 * @return void
+	 */
+	function ea_render_unified_footer( $ea_args = array() ) {
 		static $ea_rendered = false;
 		if ( $ea_rendered ) {
 			return;
 		}
 		$ea_rendered = true;
-		/* lang/dir explicit here (not inherited) — the tree is Hebrew-only
-		   (see this file's own header comment) but this function is also
-		   called from tpl-chapters-en.php, an English/LTR page, so the
-		   Hebrew labels need their own bidi context wherever this lands. */
-		echo '<nav class="ea-footer-sitemap" lang="he" dir="rtl" aria-label="' . esc_attr__( 'מפת האתר', 'ea-eyalamit' ) . '">';
-		echo '<div class="ea-footer-sitemap__grid">';
-		foreach ( ea_canonical_nav_items() as $ea_item ) {
-			if ( ! empty( $ea_item['hidden'] ) || 'home' === $ea_item['key'] ) {
-				continue;
-			}
-			$ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
-			echo '<div class="ea-footer-sitemap__col">';
-			printf(
-				'<a class="ea-footer-sitemap__l1" href="%s">%s%s</a>',
-				esc_url( $ea_item['href'] ),
-				esc_html( $ea_item['label'] ),
-				! empty( $ea_item['label_emph'] ) ? ' <em>' . esc_html( $ea_item['label_emph'] ) . '</em>' : ''
-			);
-			if ( $ea_children ) {
-				ea_render_canonical_nav_footer_sitemap_children( $ea_children, 'ea-footer-sitemap__l2' );
-			}
-			echo '</div>';
+
+		$ea_args = wp_parse_args( $ea_args, array( 'reveal' => false ) );
+
+		$ea_footer_class = 'ea-ftr';
+		if ( $ea_args['reveal'] ) {
+			$ea_footer_class .= ' foot uncover';
 		}
-		echo '</div>';
+
+		/* lang/dir explicit here (not inherited) — the tree is Hebrew-only
+		   (see this file's own header comment) but this same function is
+		   also called from tpl-chapters-en.php, an English/LTR page, so the
+		   Hebrew content needs its own bidi context wherever it lands. */
+		echo '<footer class="' . esc_attr( $ea_footer_class ) . '" role="contentinfo" lang="he" dir="rtl">';
+		if ( $ea_args['reveal'] ) {
+			echo '<span class="arcs" aria-hidden="true"></span>';
+		}
+		echo '<div class="ea-ftr__in">';
+
+		echo '<nav class="ea-ftr__nav" aria-label="' . esc_attr__( 'ניווט בפוטר', 'ea-eyalamit' ) . '">';
+		foreach ( ea_footer_unified_columns() as $ea_col ) {
+			ea_render_unified_footer_column( $ea_col );
+		}
 		echo '</nav>';
+
+		// Contact block — existing copy (template-parts/chapters/section-footer.php), unchanged.
+		echo '<div class="ea-ftr__contact">';
+		echo '<b class="ea-ftr__contact-name">המרכז לטיפול בנשימה באמצעות דיג׳רידו</b>';
+		echo '<p class="ea-ftr__contact-tag">פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>';
+		echo '<p class="ea-ftr__contact-nap">' . esc_html( ea_nap( 'address_display' ) ) . '</p>';
+		printf(
+			'<p class="ea-ftr__contact-tel"><a href="tel:%s" dir="ltr">%s</a></p>',
+			esc_attr( ea_nap( 'phone_href' ) ),
+			esc_html( ea_nap( 'phone_display' ) )
+		);
+		echo '<div class="ea-ftr__soc">';
+		printf(
+			'<a href="%s" target="_blank" rel="noopener" aria-label="%s"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>',
+			esc_url( 'https://www.facebook.com/didgeridoo.studio.eyal.amit' ),
+			esc_attr__( 'פייסבוק של אייל עמית (נפתח בחלון חדש)', 'ea-eyalamit' )
+		);
+		printf(
+			'<a href="%s" target="_blank" rel="noopener" aria-label="%s"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>',
+			esc_url( 'https://www.instagram.com/didgeridoo.therapy.center' ),
+			esc_attr__( 'אינסטגרם של אייל עמית (נפתח בחלון חדש)', 'ea-eyalamit' )
+		);
+		printf(
+			'<a href="%s" target="_blank" rel="noopener" aria-label="%s"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>',
+			esc_url( 'https://www.youtube.com/@%D7%90%D7%99%D7%99%D7%9C%D7%A2%D7%9E%D7%99%D7%AA' ),
+			esc_attr__( 'יוטיוב של אייל עמית (נפתח בחלון חדש)', 'ea-eyalamit' )
+		);
+		printf(
+			'<a href="%s" target="_blank" rel="noopener" aria-label="%s"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.78a8.16 8.16 0 0 0 4.77 1.52V6.85a4.85 4.85 0 0 1-1.84-.16z"/></svg></a>',
+			esc_url( 'https://www.tiktok.com/@didgeridoo_therapy' ),
+			esc_attr__( 'טיקטוק של אייל עמית (נפתח בחלון חדש)', 'ea-eyalamit' )
+		);
+		echo '</div>'; // .ea-ftr__soc
+		echo '</div>'; // .ea-ftr__contact
+
+		echo '</div>'; // .ea-ftr__in
+
+		// Legal strip — LAST, centred, the only light-toned region. Existing copy (section-footer.php).
+		echo '<div class="ea-ftr__legal">';
+		echo '<div class="ea-ftr__legal-in">';
+		echo '<p class="ea-ftr__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>';
+		printf(
+			'<p class="ea-ftr__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="%s">הצהרת נגישות</a> · <a href="%s">מדיניות פרטיות</a></p>',
+			esc_url( home_url( '/accessibility/' ) ),
+			esc_url( home_url( '/privacy/' ) )
+		);
+		echo '</div>'; // .ea-ftr__legal-in
+		echo '</div>'; // .ea-ftr__legal
+
+		echo '</footer>';
 	}
 endif;
 
 /*
- * Universal safety net: the four explicit call sites above (Chapters'
- * section-footer.php, Wave2's block-footer-social.php, tpl-chapters-en.php,
- * and the child footer.php shell fallback) do not actually cover every path
- * — a page can reach the GeneratePress PARENT theme's own footer.php with
+ * Universal safety net — same mechanism the sitemap row it replaces used,
+ * for the same reason: the child footer.php gateway (inc/ea-canonical-nav.php
+ * caller: footer.php) calls ea_render_unified_footer() explicitly in its own
+ * shell branch, but when the GeneratePress PARENT theme's footer.php is
+ * readable (the live/staging case), THAT file is what actually runs, with
  * none of this theme's footer partials in the request at all. Measured
  * 2026-09-26: /historical-articles/ is the one live example among the 153
  * published pages/posts (it renders on page-template-default). The parent
  * theme's own footer.php is not in this repo (installed on the server, not
- * vendored — see AGENTS/CLAUDE notes on worktrees lacking gitignored deps),
- * so there is no safe fixed point inside it to call from directly.
- * wp_footer() fires on every WordPress front-end page immediately before
- * </body>, including this theme's own, so hooking it here reaches that page
- * without depending on the parent theme's internal structure. The function's
- * own render-once guard makes this inert everywhere the row already
- * rendered via one of the four direct calls above.
+ * vendored), so there is no safe fixed point inside it to call from
+ * directly. wp_footer() fires on every WordPress front-end page immediately
+ * before </body>, including this theme's own, so hooking it here reaches
+ * that page without depending on the parent theme's internal structure.
+ * generate_show_footer is also filtered to false (functions.php) so
+ * GeneratePress's own site-info <footer> never renders alongside this one —
+ * that pairing is what produced the double footer on /press/ (Wave2's own
+ * .ea-footer plus GP's .site-info; see the DONE report for the measurement).
+ * The function's own render-once guard makes this hook inert everywhere the
+ * footer already rendered via one of the three explicit calls above.
  */
-add_action( 'wp_footer', 'ea_render_canonical_nav_footer_sitemap' );
+add_action( 'wp_footer', 'ea_render_unified_footer' );

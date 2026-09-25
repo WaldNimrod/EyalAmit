@@ -78,28 +78,43 @@ function ea_eyalamit_enqueue_type_tokens_everywhere() {
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_type_tokens_everywhere', 3 );
 
 /**
- * S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — the new footer sitemap
- * row (ea_render_canonical_nav_footer_sitemap(), inc/ea-canonical-nav.php)
- * has to reach all 153 published pages/posts, including the ones that hit
- * none of this theme's other footer partials at all (measured 2026-09-26:
+ * S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — the ONE footer
+ * (ea_render_unified_footer(), inc/ea-canonical-nav.php) has to reach all
+ * 153 published pages/posts, including the ones that hit none of this
+ * theme's other footer partials at all (measured 2026-09-26:
  * /historical-articles/ renders on page-template-default with only
- * GeneratePress's own bare site-info footer). Same reasoning as
+ * GeneratePress's own site-info footer). Same reasoning as
  * ea_eyalamit_enqueue_type_tokens_everywhere() just above: load it
  * unconditionally rather than behind a template whitelist that a future
- * page can fall outside of.
+ * page can fall outside of. Replaces the previous
+ * ea_eyalamit_enqueue_footer_sitemap_everywhere() / ea-footer-sitemap.css —
+ * that second footer row is gone, this is the one footer's own stylesheet.
  */
-function ea_eyalamit_enqueue_footer_sitemap_everywhere() {
+function ea_eyalamit_enqueue_footer_unified_everywhere() {
 	if ( is_admin() ) {
 		return;
 	}
 	wp_enqueue_style(
-		'ea-footer-sitemap',
-		get_stylesheet_directory_uri() . '/assets/css/ea-footer-sitemap.css',
+		'ea-footer-unified',
+		get_stylesheet_directory_uri() . '/assets/css/ea-footer-unified.css',
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
 }
-add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_footer_sitemap_everywhere', 3 );
+add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_footer_unified_everywhere', 3 );
+
+/**
+ * S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — GeneratePress's own site-info
+ * footer (generate_construct_footer(), hooked to 'generate_footer') must
+ * never render next to the theme's own unified footer: measured 2026-09-26,
+ * that exact pairing was one source of /press/ painting two real footer
+ * landmarks in the same request (Wave2's own footer block, then GP's own
+ * site-info footer via get_footer()). generate_show_footer is GeneratePress's
+ * own documented extension point for a child theme supplying its own
+ * footer — this does not touch parent theme files and does not affect the
+ * wrapper markup/hooks around it (wp_footer() etc. still fire normally).
+ */
+add_filter( 'generate_show_footer', '__return_false' );
 
 /**
  * Load textdomain for child theme strings.
