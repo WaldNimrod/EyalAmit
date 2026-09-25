@@ -1,0 +1,127 @@
+/**
+ * Footer sitemap row — second footer row, S007 mandate
+ * MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md. Renders ea_canonical_nav_items()
+ * (inc/ea-canonical-nav.php) as a plain three-level link list, one column
+ * per level-1 item. Markup comes from ea_render_canonical_nav_footer_sitemap()
+ * in that same file — this sheet only styles it.
+ *
+ * Enqueued unconditionally on every front-end view (see
+ * ea_eyalamit_enqueue_footer_sitemap_everywhere() in functions.php), same
+ * reasoning as ea-tokens.css's own everywhere-enqueue: this row has to reach
+ * pages that render on page-template-default with none of this theme's
+ * other footer partials at all.
+ *
+ * Every size/weight token below is an existing --fs-*/--fw-* rung from
+ * ea-tokens.css; the background is the existing --ea-ink token. No new
+ * font-size, no new colour token — only new rgba(255,255,255,N) opacities
+ * on top of that one existing background colour, chosen so text still
+ * clears 4.5:1 against it (measured, see the DONE report for the numbers).
+ */
+
+.ea-footer-sitemap {
+	display: block;
+	background: var(--ea-ink);
+	padding: var(--ea-space-6, 48px) var(--ea-gutter, 24px) var(--ea-space-5, 40px);
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ea-footer-sitemap__grid {
+	max-width: var(--ea-prose-width, 960px);
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--ea-space-5, 40px) var(--ea-space-4, 32px);
+}
+
+.ea-footer-sitemap__col {
+	min-width: 0;
+}
+
+.ea-footer-sitemap__l1 {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-weight: var(--fw-thin);
+	font-size: var(--fs-xs);
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.92);
+	text-decoration: none;
+	margin: 0 0 var(--ea-space-2, 16px);
+	padding-bottom: var(--ea-space-1, 8px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.ea-footer-sitemap__l1:hover,
+.ea-footer-sitemap__l1:focus-visible {
+	color: #fff;
+}
+
+.ea-footer-sitemap__l2,
+.ea-footer-sitemap__l3 {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--ea-space-1, 8px);
+}
+
+.ea-footer-sitemap__l2 {
+	margin-top: var(--ea-space-1, 8px);
+}
+
+.ea-footer-sitemap__l2 > li > a {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-weight: var(--fw-light);
+	font-size: var(--fs-xs);
+	color: rgba(255, 255, 255, 0.68);
+	text-decoration: none;
+}
+.ea-footer-sitemap__l2 > li > a:hover,
+.ea-footer-sitemap__l2 > li > a:focus-visible {
+	color: #fff;
+}
+
+.ea-footer-sitemap__l3 {
+	margin: var(--ea-space-1, 8px) 0 0;
+	padding-inline-start: var(--ea-space-3, 24px);
+	border-inline-start: 1px solid rgba(255, 255, 255, 0.14);
+}
+.ea-footer-sitemap__l3 a {
+	display: block;
+	font-family: var(--ea-font, inherit);
+	font-weight: var(--fw-thin);
+	font-size: var(--fs-2xs);
+	color: rgba(255, 255, 255, 0.56);
+	text-decoration: none;
+}
+.ea-footer-sitemap__l3 a:hover,
+.ea-footer-sitemap__l3 a:focus-visible {
+	color: #fff;
+}
+
+.ea-footer-sitemap__l1:focus-visible,
+.ea-footer-sitemap__l2 > li > a:focus-visible,
+.ea-footer-sitemap__l3 a:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 2px;
+}
+
+/* 390px (the mandate's own check width) stays 1-column — matches the
+   existing .ea-cfoot sibling component's own <=479px bucket, so the two
+   footer rows collapse the same way at the same widths. */
+@media (min-width: 480px) {
+	.ea-footer-sitemap__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 768px) {
+	.ea-footer-sitemap__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (min-width: 1024px) {
+	.ea-footer-sitemap__grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}

@@ -109,6 +109,18 @@ defined( 'ABSPATH' ) || exit;
 <footer class="ea-en-foot">
 	<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Eyal Amit · The Didgeridoo Breath Center · Pardes Hanna, Israel · <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr"><?php echo esc_html( ea_nap( 'phone_schema' ) ); ?></a></p>
 	<p><a href="/"><span lang="he">לאתר העברי</span> / Hebrew site</a></p>
+	<?php
+	/* S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — second footer row,
+	   the whole canonical nav tree as a plain sitemap of links. This is the
+	   theme's one live English page (self-contained; never reaches
+	   get_footer()), so it needs its own explicit call — the tree itself is
+	   Hebrew-only (see inc/ea-canonical-nav.php's header comment), and
+	   ea_render_canonical_nav_footer_sitemap() sets lang="he" dir="rtl" on
+	   its own <nav> for exactly this page. */
+	if ( function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) {
+		ea_render_canonical_nav_footer_sitemap();
+	}
+	?>
 </footer>
 
 <?php wp_footer(); ?>

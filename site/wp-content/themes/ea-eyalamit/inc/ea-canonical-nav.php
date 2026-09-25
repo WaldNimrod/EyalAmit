@@ -376,3 +376,126 @@ function ea_canonical_nav_gp_dropdown_assets() {
 	wp_enqueue_script( 'ea-canonical-nav-gp-dropdown', get_stylesheet_directory_uri() . '/assets/js/ea-canonical-nav-gp-dropdown.js', array(), $ver, true );
 }
 add_action( 'wp_enqueue_scripts', 'ea_canonical_nav_gp_dropdown_assets', 3 );
+
+if ( ! function_exists( 'ea_render_canonical_nav_footer_sitemap_children' ) ) :
+	/**
+	 * Render one <ul> level of the footer sitemap row (level 2, and — for
+	 * "ספרים" — level 3 nested inside it). Recurses so a future fourth level
+	 * needs no new markup block, same reasoning as
+	 * ea_render_nav_item_desktop() above.
+	 *
+	 * @param array  $ea_items List of nav items (see ea_canonical_nav_items()).
+	 * @param string $ea_class CSS class for this <ul> (differs by depth for styling).
+	 * @return void
+	 */
+	function ea_render_canonical_nav_footer_sitemap_children( $ea_items, $ea_class ) {
+		echo '<ul class="' . esc_attr( $ea_class ) . '" role="list">';
+		foreach ( $ea_items as $ea_item ) {
+			if ( ! empty( $ea_item['hidden'] ) ) {
+				continue; // S007 M-14: real page, kept in the tree, not rendered here either.
+			}
+			$ea_grandchildren = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
+			echo '<li>';
+			printf(
+				'<a href="%s">%s%s</a>',
+				esc_url( $ea_item['href'] ),
+				esc_html( $ea_item['label'] ),
+				/* 'label_emph': a separate field, run through its own esc_html(), never
+				   HTML placed inside 'label' — same convention as every renderer above. */
+				! empty( $ea_item['label_emph'] ) ? ' <em>' . esc_html( $ea_item['label_emph'] ) . '</em>' : ''
+			);
+			if ( $ea_grandchildren ) {
+				ea_render_canonical_nav_footer_sitemap_children( $ea_grandchildren, 'ea-footer-sitemap__l3' );
+			}
+			echo '</li>';
+		}
+		echo '</ul>';
+	}
+endif;
+
+if ( ! function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) :
+	/**
+	 * The second footer row: the full canonical nav tree as a plain,
+	 * three-level sitemap of links, one column per level-1 item. Team_00
+	 * dictate 2026-09-26 (MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md): «כל עץ
+	 * התפריט פרוס כרשימת לינקים... כל תפריט בעמודה. לבן דק ועדין».
+	 *
+	 * Renders from ea_canonical_nav_items() ONLY. The mandate's own warning
+	 * is that a hand-written copy here is exactly how the existing footer's
+	 * own "ניווט" column (block-footer-social.php) already drifted from the
+	 * tree. Every label/href printed is esc_html()/esc_url() straight off
+	 * the array; 'hidden' items are skipped; 'label_emph' is its own
+	 * escaped <em> — same convention as ea_render_nav_item_desktop() and
+	 * ea_canonical_nav_gp_header_items() above.
+	 *
+	 * Guarded to render at most once per request. This theme has more than
+	 * one footer render path (Chapters' section-footer.php, Wave2's
+	 * block-footer-social.php, tpl-chapters-en.php's own footer, and — for
+	 * pages that reach neither — the child footer.php gateway before it
+	 * falls through to GeneratePress's own footer), and a single page can
+	 * pass through more than one of those in one request — e.g.
+	 * tpl-content.php calls block-footer-social.php and then get_footer().
+	 * Without the guard that page gets the row twice.
+	 *
+	 * Styling lives entirely in assets/css/ea-footer-sitemap.css, enqueued
+	 * unconditionally (ea_eyalamit_enqueue_footer_sitemap_everywhere() in
+	 * functions.php) — this row has to reach the one live published page
+	 * that renders on page-template-default with none of this theme's other
+	 * footer partials at all (measured 2026-09-26: /historical-articles/).
+	 * Every size/weight/colour in that file is an existing --fs-*, --fw-*
+	 * or --ea-ink token; this adds none.
+	 *
+	 * @return void
+	 */
+	function ea_render_canonical_nav_footer_sitemap() {
+		static $ea_rendered = false;
+		if ( $ea_rendered ) {
+			return;
+		}
+		$ea_rendered = true;
+		/* lang/dir explicit here (not inherited) — the tree is Hebrew-only
+		   (see this file's own header comment) but this function is also
+		   called from tpl-chapters-en.php, an English/LTR page, so the
+		   Hebrew labels need their own bidi context wherever this lands. */
+		echo '<nav class="ea-footer-sitemap" lang="he" dir="rtl" aria-label="' . esc_attr__( 'מפת האתר', 'ea-eyalamit' ) . '">';
+		echo '<div class="ea-footer-sitemap__grid">';
+		foreach ( ea_canonical_nav_items() as $ea_item ) {
+			if ( ! empty( $ea_item['hidden'] ) || 'home' === $ea_item['key'] ) {
+				continue;
+			}
+			$ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
+			echo '<div class="ea-footer-sitemap__col">';
+			printf(
+				'<a class="ea-footer-sitemap__l1" href="%s">%s%s</a>',
+				esc_url( $ea_item['href'] ),
+				esc_html( $ea_item['label'] ),
+				! empty( $ea_item['label_emph'] ) ? ' <em>' . esc_html( $ea_item['label_emph'] ) . '</em>' : ''
+			);
+			if ( $ea_children ) {
+				ea_render_canonical_nav_footer_sitemap_children( $ea_children, 'ea-footer-sitemap__l2' );
+			}
+			echo '</div>';
+		}
+		echo '</div>';
+		echo '</nav>';
+	}
+endif;
+
+/*
+ * Universal safety net: the four explicit call sites above (Chapters'
+ * section-footer.php, Wave2's block-footer-social.php, tpl-chapters-en.php,
+ * and the child footer.php shell fallback) do not actually cover every path
+ * — a page can reach the GeneratePress PARENT theme's own footer.php with
+ * none of this theme's footer partials in the request at all. Measured
+ * 2026-09-26: /historical-articles/ is the one live example among the 153
+ * published pages/posts (it renders on page-template-default). The parent
+ * theme's own footer.php is not in this repo (installed on the server, not
+ * vendored — see AGENTS/CLAUDE notes on worktrees lacking gitignored deps),
+ * so there is no safe fixed point inside it to call from directly.
+ * wp_footer() fires on every WordPress front-end page immediately before
+ * </body>, including this theme's own, so hooking it here reaches that page
+ * without depending on the parent theme's internal structure. The function's
+ * own render-once guard makes this inert everywhere the row already
+ * rendered via one of the four direct calls above.
+ */
+add_action( 'wp_footer', 'ea_render_canonical_nav_footer_sitemap' );

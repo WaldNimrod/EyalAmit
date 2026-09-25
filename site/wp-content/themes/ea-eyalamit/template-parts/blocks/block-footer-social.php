@@ -143,6 +143,17 @@ $ea_cfoot_info = array(
         <p class="ea-cfoot__copy">
           &copy; 2026 אייל עמית — המרכז לטיפול בנשימה באמצעות דיג׳רידו. כל הזכויות שמורות.
         </p>
+        <?php
+        /* S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — second footer
+           row, the whole canonical nav tree as a plain sitemap of links.
+           Renders from ea_canonical_nav_items() only; see
+           inc/ea-canonical-nav.php. Guarded there to render at most once
+           per request — some templates that reach this block also call
+           get_footer() afterward. */
+        if ( function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) {
+        	ea_render_canonical_nav_footer_sitemap();
+        }
+        ?>
       </div>
     </footer>
   </section><!-- /footer-social -->

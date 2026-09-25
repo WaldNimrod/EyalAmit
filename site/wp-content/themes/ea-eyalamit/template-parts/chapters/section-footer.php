@@ -53,4 +53,12 @@ $h = static function ( $path ) {
 		<p class="foot__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>
 		<p class="foot__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="<?php echo $h( '/accessibility/' ); ?>">הצהרת נגישות</a> · <a href="<?php echo $h( '/privacy/' ); ?>">מדיניות פרטיות</a></p>
 	</div>
+	<?php
+	/* S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — second footer row,
+	   the whole canonical nav tree as a plain sitemap of links. Renders from
+	   ea_canonical_nav_items() only; see inc/ea-canonical-nav.php. */
+	if ( function_exists( 'ea_render_canonical_nav_footer_sitemap' ) ) {
+		ea_render_canonical_nav_footer_sitemap();
+	}
+	?>
 </footer>

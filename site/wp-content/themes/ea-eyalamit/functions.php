@@ -78,6 +78,30 @@ function ea_eyalamit_enqueue_type_tokens_everywhere() {
 add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_type_tokens_everywhere', 3 );
 
 /**
+ * S007 · MANDATE-FOOTER-SITEMAP-ROW-2026-09-26.md — the new footer sitemap
+ * row (ea_render_canonical_nav_footer_sitemap(), inc/ea-canonical-nav.php)
+ * has to reach all 153 published pages/posts, including the ones that hit
+ * none of this theme's other footer partials at all (measured 2026-09-26:
+ * /historical-articles/ renders on page-template-default with only
+ * GeneratePress's own bare site-info footer). Same reasoning as
+ * ea_eyalamit_enqueue_type_tokens_everywhere() just above: load it
+ * unconditionally rather than behind a template whitelist that a future
+ * page can fall outside of.
+ */
+function ea_eyalamit_enqueue_footer_sitemap_everywhere() {
+	if ( is_admin() ) {
+		return;
+	}
+	wp_enqueue_style(
+		'ea-footer-sitemap',
+		get_stylesheet_directory_uri() . '/assets/css/ea-footer-sitemap.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ea_eyalamit_enqueue_footer_sitemap_everywhere', 3 );
+
+/**
  * Load textdomain for child theme strings.
  */
 function ea_eyalamit_setup() {
