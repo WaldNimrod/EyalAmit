@@ -2,8 +2,8 @@
   "schema": "s007-work-ssot-v1",
   "isWorkSsot": true,
   "titleHe": "תור העבודה S007",
-  "updated": "2026-09-24",
-  "themeLive": "1.5.126",
+  "updated": "2026-09-25",
+  "themeLive": "1.5.127",
   "staging": "http://eyalamit-co-il-2026.s887.upress.link",
   "rules": {
     "status": [
@@ -40,7 +40,8 @@
     "rulingRecordHe": "כל פסיקה של נימרוד נרשמת קודם בקובץ הזה. לוח נימרוד וטופס אייל נגזרים רק מ-scripts/s007_render_work_ssot.py. אין לערוך סטטוס ב-HTML. בקשה או תוספת לטופס אייל = פריט כאן ואז גזירה ו-FTP של הקובץ הבודד (בלי rebuild מלא של ה-Hub).",
     "formBoardComplement": "Eyal's form and Nimrod's board complement each other. A gap on the form is waiting on Eyal. A gap on the board is waiting on Nimrod. A gap on neither is an open gap — absence from both is not closure. Wave 1 (2026-09-25) edited both files directly: scripts/s007_render_work_ssot.py is stale and would overwrite them.",
     "excelTracker": "archive as of 2026-09-20 — not live status",
-    "handoff": "inter-team conversation — not SSOT"
+    "handoff": "inter-team conversation — not SSOT",
+    "handEditException": "2026-09-25 (team_00 ruling): scripts/s007_render_work_ssot.py is four rounds stale and running it would overwrite both derived files with an outdated version. Until it is rewritten, GALLERY.html and FORM-EYAL-CONTENT-GAPS-2026-09-20.html are edited by hand and this JSON is updated in the same commit. derivedHtmlMustNotBeHandEdited stays true as the target state; this is the recorded, scoped exception."
   },
   "archives": {
     "tracker": {
@@ -8500,7 +8501,7 @@
       "section": "track"
     }
   ],
-  "liveValidatedAt": "2026-09-21T15:15:56Z",
+  "liveValidatedAt": "2026-09-25T00:00:00Z",
   "cdpSpotCheck": {
     "date": "2026-09-21",
     "pass": true,
@@ -8681,8 +8682,8 @@
   },
   "stage": {
     "id": "S007-EYAL-BATCH",
-    "titleHe": "תמה 1.5.115 חיה. תקציר סבב האופטימיזציה בראש הלוח.",
-    "nowHe": "השוקולד הוא דפוס הצטרפות, לא החלפת טוקנים. עוגיות, קיפול הספרים וכניסת הפוטר חיים. בית ודום נשימה לא נצבעו מחדש. 157 כתובות נבדקו ב־390 וב־1440: אפס גלישה אופקית, ואפס מדיה שבורה."
+    "titleHe": "תמה 1.5.127 חיה. גל 1 נסגר, אומת, נדחף ונפרס.",
+    "nowHe": "גל 1 הושלם: אחד-עשר סעיפים נסגרו על מדידה של צוות 90 ולא על דיווח של בונה. 153 אובייקטים מפורסמים, 136 מחזירים 200, תפריט ראשי אחד בדיוק בכל עמוד, אפס שגיאות PHP. הקישורים לאתר הישן ירדו משנים-עשר לאפס. פתוחים שלוש הכרעות לנימרוד ושמונה סעיפי עבודה לצוותים."
   },
   "optimizationRound": {
     "titleHe": "תהליכי אופטימיזציה",

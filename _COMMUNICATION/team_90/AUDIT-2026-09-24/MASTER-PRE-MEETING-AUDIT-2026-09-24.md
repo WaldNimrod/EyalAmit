@@ -430,6 +430,12 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-09 · A box read before its reveal animation finished invents a defect.** `.cmpc__p` measured
+  **1.18:1** while its ancestor card was still at `opacity: 0` with a pending transform — an
+  un-fired scroll reveal. After waiting for the whole ancestor chain to reach effective opacity 1.0,
+  the value landed on **4.22:1**, reproducing the known figure and validating the harness.
+  **Settling the page is not the same as settling the element.** Scroll the element into view, then
+  poll its ancestors, then sample.
 - **M-08 · A no-redirect opener that silently follows.** A Team 90 script classified
   `/therapist-training/` as **200** when `curl` measures it as a **301**. The custom
   `HTTPRedirectHandler` subclass did not suppress the redirect, and the script reported the final
@@ -574,6 +580,36 @@ Lighthouse or performance scores measured on staging (they are artifacts of the 
 ---
 
 ## 8. Change log
+
+- **2026-09-26, entry 14 — THE RECORD LEFT THIS MACHINE, AND team_00 ANSWERED THE OPEN BOARD.**
+  **`A12` closed: the push went through.** Seven commits, `7423724..83d7db4`, remote head now equal
+  to local. The fifty changed files were scanned before the push: nothing under `local/`, no `.env`.
+  The earlier block was not reproducible — read access and write access both work now, and the
+  pre-push hook took the Git-Solo fast path. **The mandate's "do not attempt to push" was obeyed
+  until team_00 asked for it directly.**
+  **Deployment verified independently of the builder:** staging serves theme **1.5.127**, and three
+  Wave 1 artefacts were confirmed served, not merely committed — the new form-field rung, a home-page
+  corpus question, and the «מוזה הוצאה לאור» row.
+  **team_00 answered every open board decision.** `A11`: the backup and the deletion are his, not
+  ours; **the store is cancelled** and every store URL redirects to `/books/` (now `B9`); the old
+  site's English WordPress sample pages are **deletions, not redirects**; the redirect rules need
+  research first — **including an audit of every 301 that already exists** — and that research was
+  dispatched. `A13`: **no CTA variant is correct**, so the method is to fix one together and apply
+  its structure to all. `A14`: the page is a future page and its sitemap absence is deliberate.
+  `B8`: no second live mail test until the production domain.
+  **`A14` corrected on measurement.** team_00 described `/learning/therapist-training/` as having no
+  content. **It has content** — vision, audience, a contact CTA — **and it already states its own
+  incompleteness** in Eyal's words, inside a «ממתין לאישור» badge. **What is missing is the programme
+  detail, not the page.**
+  **New finding `A15`, from that check.** Measured across all 153 published objects: **five live
+  pages display an internal «ממתין לאישור» badge to the public**, three of them commercial service
+  pages, carrying «כאן ייכנס וידאו», «כאן ייכנס סרטון מפגש» and «אוסף המדיה בהשלמה». **The material
+  is already requested on Eyal's form; what is undecided is what ships on go-live day if it never
+  arrives.**
+  **`B2` corrected: 1.00:1 → 1.38:1** on the deployed theme, 1,152 painted-pixel samples. Still a
+  fail against 4.5:1. **1.00 would mean the text is exactly its background, which the theme does not
+  paint.** **`B3` confirmed unchanged at 4.22:1 — and it is two elements, not one.**
+  **`M-09` added.**
 
 - **2026-09-25, entry 13 — WAVE 1 EXECUTED AND VERIFIED. Theme 1.5.127, commit `c018eab`.**
   **Ten board cards closed on Team 90's own measurement, not on the builder's report.**
