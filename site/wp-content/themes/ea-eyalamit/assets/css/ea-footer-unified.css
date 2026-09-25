@@ -13,7 +13,7 @@
  * ONLY footer, so it has to reach pages that load none of this theme's
  * other stylesheets at all (measured 2026-09-26: /historical-articles/).
  *
- * Every size/weight token below is an existing --fs-*/--fw-* rung from
+ * Every size/weight token below is an existing --fs-* or --fw-* rung from
  * ea-tokens.css; every base colour is an existing token (--ea-ink, --ea-bg,
  * --ea-text-body, --ea-on-dark, --ea-accent-strong). No new font-size, no
  * new colour token — rgba(255,255,255,N) / rgba(0,0,0,N) are opacity
