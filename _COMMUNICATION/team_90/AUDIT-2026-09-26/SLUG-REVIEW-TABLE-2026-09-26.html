@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>טבלת סקירת כתובות — 2026-09-26</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --fg: #1f1c18;
+    --muted: #6b645a;
+    --card: #ffffff;
+    --border: #e3ddd2;
+    --accent: #8a5a2b;
+    --a-color: #b3261e;
+    --b-color: #9a6a00;
+    --d-color: #1a5fb4;
+    --e-color: #5c3d99;
+    --lock-color: #2e7d32;
+    --row-hover: #f3efe6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 0 60px 0;
+  }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+  h1 { font-size: 1.7em; margin-bottom: 4px; }
+  h2 { font-size: 1.25em; margin-top: 40px; border-right: 5px solid var(--accent); padding-right: 12px; }
+  .subtitle { color: var(--muted); margin-top: 0; margin-bottom: 24px; font-size: 0.95em; }
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 16px 0 4px 0;
+  }
+  .count-pill {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    min-width: 130px;
+    text-align: center;
+  }
+  .count-pill .n { font-size: 1.6em; font-weight: 700; display: block; }
+  .count-pill .l { font-size: 0.82em; color: var(--muted); }
+  .warn-box {
+    background: #fff6e8;
+    border: 1px solid #e8c98a;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .warn-box h2 { margin-top: 0; border: none; padding: 0; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.86em;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  caption { text-align: right; font-size: 0.85em; color: var(--muted); padding: 8px 4px; caption-side: top; }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: right;
+    vertical-align: top;
+  }
+  th {
+    background: #efe8da;
+    position: sticky;
+    top: 0;
+    font-size: 0.9em;
+  }
+  tr:hover { background: var(--row-hover); }
+  td.url { font-family: Consolas, monospace; font-size: 0.92em; max-width: 230px; word-break: break-all; }
+  td.url .rec-title { font-family: inherit; color: var(--muted); font-size: 0.85em; margin-top: 4px; }
+  td.status { white-space: nowrap; font-weight: 600; }
+  td.status .loc { font-weight: 400; font-family: Consolas, monospace; font-size: 0.82em; color: var(--muted); margin-top: 4px; white-space: normal; word-break: break-all; }
+  .status-200 { color: #2e7d32; }
+  .status-301 { color: #1a5fb4; }
+  .status-404 { color: #b3261e; }
+  td.why { min-width: 260px; }
+  td.sugg { min-width: 200px; }
+  td.num { text-align: center; font-weight: 600; }
+  code { background: #f1ebe0; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+  .tag {
+    display: inline-block;
+    font-size: 0.76em;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-inline-end: 5px;
+    margin-bottom: 3px;
+    color: #fff;
+  }
+  .tag-a { background: var(--a-color); }
+  .tag-b { background: var(--b-color); }
+  .tag-c { background: #7a7a7a; }
+  .tag-d { background: var(--d-color); }
+  .tag-e { background: var(--e-color); }
+  .tag-lock { background: var(--lock-color); }
+  tr.locked-row { background: #f2f7f2; }
+  tr.locked-row:hover { background: #e7f2e7; }
+  tr.manual-row { background: #f5f1fb; }
+  tr.manual-row:hover { background: #ece4f8; }
+  .warn { color: var(--a-color); font-weight: 600; }
+  .legend { margin: 14px 0 26px 0; font-size: 0.85em; color: var(--muted); }
+  .legend span { margin-inline-end: 14px; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 0.82em; border-top: 1px solid var(--border); padding-top: 16px; }
+  .toc { font-size: 0.85em; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>טבלת סקירת כתובות (Slugs) — קראת לפני המעבר לדומיין הראשי</h1>
+<p class="subtitle">נבנה ב-2026-09-26 על-ידי צוות 90 (בקרה) · מדידה בלבד, ללא החלטות · האתר החדש נמדד כ-<code dir="ltr">http://eyalamit-co-il-2026.s887.upress.link</code> (HTTP רגיל, תעודת TLS לא רלוונטית בכוונה בסביבת staging) · האתר הישן נמדד כ-<code dir="ltr">https://www.eyalamit.co.il</code></p>
+
+<div class="summary-card">
+<p><b>תקציר מנהלים.</b> באתר החדש מתפרסמים כיום <b>153 עמודים</b> (101 עמודי page + 52 פוסטים), שכולם נמדדו ישירות (GET מלא, ללא מעקב אחרי הפניות). מתוכם:</p>
+<div class="counts">
+  <div class="count-pill"><span class="n">97</span><span class="l">נעולים — אין צורך בהחלטה</span></div>
+  <div class="count-pill"><span class="n">49</span><span class="l">מתוכם: עמודי QR מודפסים בספר</span></div>
+  <div class="count-pill"><span class="n">56</span><span class="l">דורשים החלטת אייל/נמרוד</span></div>
+  <div class="count-pill"><span class="n">1</span><span class="l">התנגשות סלאג אמיתית (a) — /shop/, כבר A17</span></div>
+  <div class="count-pill"><span class="n">38</span><span class="l">סלאג לא קריא — קטוע/ממוספר (b)</span></div>
+  <div class="count-pill"><span class="n">19</span><span class="l">בעיית הפניה (d) — כולל 2 שאינן עמוד כלל</span></div>
+  <div class="count-pill"><span class="n">9</span><span class="l">חשיבות מסחרית + סלאג לא ברור (e)</span></div>
+</div>
+<p style="margin-bottom:0">
+בנוסף לאוכלוסיית ה-153, נמדדו ונכללו בטבלה <b>2 שורות נוספות</b> שאינן עמוד WP מפורסם כלל — אלא כלל הפניה בלבד שנמצא בבדיקה ישירה: שרשרת דו-קפיצתית קיימת (<code dir="ltr">/instrument-repair/</code>) וכלל הפניה שלא ניתן לאתר בקוד (<code dir="ltr">/product-category/books/</code>). שתיהן חיות היום ונמדדו ב-curl ב-2026-09-26.
+</p>
+<p style="margin-bottom:0; margin-top:10px; font-size:0.88em; color:var(--muted)">
+<b>שימו לב לפער קטן מול המדידה הקודמת:</b> המחקר הקודם (RESEARCH-REDIRECTS-2026-09-26) דיווח על "49 עמודי QR, 52 סלאגים לטיניים נקיים, 33 סלאגים בעברית, 19 עם מספר טור מוביל/סיומת זבל". המדידה כאן (שיטה שונה — סיווג אוטומטי על בסיס הסלאג המפוענח, לא ספירה ידנית) הניבה: 49 QR, 52 לטיני נקי (זהה), 32 עברי נקי + 19 עברי קטוע = 51 (במקום 33+19=52 — הפרש של 1 עמוד), ו-20 עם מספר/סיומת (במקום 19). ההפרש כנראה עמוד גבולי אחד שסווג אחרת בין שתי השיטות; לא זוהה ולא תוקן כאן — מצוין כפי שהוא.
+</p>
+</div>
+
+<div class="warn-box">
+<h2>הדבר האחד שלא ניתן למדוד: אילו כתובות מהאתר הישן באמת מדורגות</h2>
+<p>המדידה הזו, כמו כל מדידה שנעשית ישירות מול שני האתרים, יכולה לומר <b>מה קיים</b>, <b>מה מפנה למה</b>, ו<b>מה מקושר למה בתוך האתר</b> — אבל היא <b>לא יכולה לומר אילו כתובות מהאתר הישן מדורגות בגוגל, וכמה תנועה כל אחת מביאה</b>. זה לא נגזר מהאתרים עצמם.</p>
+<p>המקור הסמכותי היחיד לכך הוא <b>Google Search Console</b> (או כל דיווח SEO אחר שיש לאייל) — נתוני דירוג וחשיפה בפועל, לא מבנה האתר. <b>בלי הנתונים האלה, כל סדר עדיפויות למפת ה-301 (איזו כתובת "חשובה יותר" ולכן דחופה יותר להפניה נכונה) הוא הנחה, לא מדידה.</b> הטבלה למטה מסמנת בעיות סלאג ובעיות הפניה שנמדדו בפועל — היא לא, ולא יכולה להיות, סדר עדיפויות SEO. לא בוצע ניחוש דירוג, ולא נעשה שימוש בשום API דירוג חיצוני.</p>
+</div>
+
+<h2>מקרא</h2>
+<p class="legend">
+<span class="tag tag-a">א</span>התנגשות סלאג עם האתר הישן
+<span class="tag tag-b">ב</span>סלאג לא קריא (קטוע/ממוספר)
+<span class="tag tag-d">ד</span>הפניה בעייתית (מקור/יעד/שרשרת/לא-מתועד)
+<span class="tag tag-e">ה</span>חשיבות מסחרית + סלאג לא ברור מאליו
+<span class="tag tag-lock">ו</span>נעול — הסלאג תקין, אין לגעת
+</p>
+
+<h2>הטבלה המלאה — 58 שורות דורשות תשומת לב + 3 שורות נעולות מקובצות</h2>
+<table>
+<caption>סטטוס HTTP נמדד ללא מעקב אחרי הפניות (curl --max-redirs 0). כותרת H1 ותג title נמדדים מה-HTML החי; ב-301 אין גוף תשובה ולכן "לא נמדד". ספירת קישורים פנימיים = מספר הפעמים שהכתובת מקושרת מתוך 153 העמודים החיים שנסרקו (לא כולל תפריט חוזר לעצמו).</caption>
+<thead>
+<tr>
+<th>כתובת נוכחית</th>
+<th>סטטוס HTTP</th>
+<th>H1 בפועל</th>
+<th>תג Title</th>
+<th>למה מסומן</th>
+<th>מה זה היום</th>
+<th>קישורים פנימיים אליו</th>
+<th>הצעת שם</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="url" dir="ltr">/shop/<div class="rec-title" dir="rtl">עמוד קטלוג ראשי</div></td>
+<td class="status status-200">200</td>
+<td>כלים בעבודת יד ואביזרים</td>
+<td>כלים בעבודת יד ואביזרים - eyal amit</td>
+<td class="why"><span class="tag tag-a">התנגשות (א)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — כבר על השולחן כ-A17: כתובת זהה באתר הישן היא שורש WooCommerce; באתר החדש זהו עמוד תוכן חי (קטלוג כלים). אייל כבר קבע שהעמוד ישונה; השם החלופי טרם נבחר.</td>
+<td>עמוד קטלוג (לא חנות)</td>
+<td class="num">819</td>
+<td class="sugg">אין הצעה — כבר בהחלטת אייל (A17), השם החלופי טרם נבחר; לא מוצע כאן מחדש</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/about/moksha/<div class="rec-title" dir="rtl">מוקש דהימן — לזכרו</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /eyal-amit/mokesh-dahiman/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/eyal-amit/mokesh-dahiman/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzza/vekatavt/<div class="rec-title" dir="rtl">וכתבת</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/vekatavta/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד ספר</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/vekatavta/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzza/tsva-bechol-ve-zorek-layam/<div class="rec-title" dir="rtl">צבע בכחול וזרוק לים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/tsva-bekahol/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד ספר</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/tsva-bekahol/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzza/<div class="rec-title" dir="rtl">מוזה הוצאה לאור</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד תוכן</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzeh/vekatavt/<div class="rec-title" dir="rtl">וכתבת</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/vekatavta/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד ספר</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/vekatavta/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzeh/kushi-blantis/<div class="rec-title" dir="rtl">כושי בלאנטיס</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/kushi-blantis/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד ספר</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/kushi-blantis/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzeh/tsva-bechol-ve-zorek-layam/<div class="rec-title" dir="rtl">צבע בכחול וזרוק לים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/tsva-bekahol/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד ספר</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/tsva-bekahol/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/muzeh/<div class="rec-title" dir="rtl">מוזה הוצאה לאור</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד תוכן</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/books/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/tools-and-accessories/repair/<div class="rec-title" dir="rtl">תיקון וחידוש כלים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /repair/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד. חלק משרשרת דו-קפיצתית קיימת בפרודקשן: /instrument-repair/ ← עמוד זה ← /repair/ (ראו שורה נפרדת למטה).</td>
+<td>עמוד שירות</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/repair/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/tools-and-accessories/instruments/<div class="rec-title" dir="rtl">כלים בעבודת יד ואביזרים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /didgeridoos/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/didgeridoos/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/tools-and-accessories/<div class="rec-title" dir="rtl">כלים ואביזרים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /shop/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">2</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/shop/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/courses-soon/<div class="rec-title" dir="rtl">קורסים — בקרוב</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /learning/courses-external/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/learning/courses-external/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/shows-heritage/<div class="rec-title" dir="rtl">הופעות / מורשת מופע</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/hashita/<div class="rec-title" dir="rtl">השיטה</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /method/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/method/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/services/handmade-instruments/<div class="rec-title" dir="rtl">כלים בעבודת יד ואביזרים</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /didgeridoos/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד. <b>שים לב:</b> אותו מקור מוגדר פעמיים בקוד (ea-s006-r2-w1-legacy-301.php עדיפות 0, ומ-ea-m2-site-tree-lock-sync-once.php עדיפות 1) עם שני יעדים שונים — הכלל בעדיפות 1 הוא קוד מת (dead code) שלעולם לא רץ.</td>
+<td>עמוד</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/didgeridoos/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/services/didgeridoo-treatment-breath/<div class="rec-title" dir="rtl">טיפול בדיג&#x27;רידו / נשימה</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /treatment/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד שירות</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/treatment/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/services/didgeridoo-lessons/<div class="rec-title" dir="rtl">שיעורי דיג&#x27;רידו / נגינה</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /lessons/</div></td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td>לא נמדד (301 — הדף לא מגיש HTML)</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span><span class="tag tag-e">חשיבות מסחרית (ה)</span> — עמוד WP מפורסם שכתובתו-שלו מפנה (301) הלאה. מקור מתועד בקוד.</td>
+<td>עמוד שירות</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — כבר מפנה 301 אל <code>/lessons/</code>; השם הפעיל הוא של היעד</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/<div class="rec-title" dir="rtl">מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד – מופע סיפורים – spoken stories</div></td>
+<td class="status status-200">200</td>
+<td>מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית – תופעת יחיד – מופע סיפורים – spoken stories</td>
+<td>מופע &quot;ספיישל ברצלונה&quot;! 29.12.16 תיאטרון הידית פרדס חנה / אייל עמית - תופעת יחיד - מופע סיפורים - spoken stories - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/<div class="rec-title" dir="rtl">ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</div></td>
+<td class="status status-200">200</td>
+<td>ביקורות גולשים אודות: עכשיו!!!!! – מופע הסיפורים של אייל עמית – תופעת יחיד</td>
+<td>ביקורות גולשים אודות: עכשיו!!!!! - מופע הסיפורים של אייל עמית - תופעת יחיד - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/<div class="rec-title" dir="rtl">דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</div></td>
+<td class="status status-200">200</td>
+<td>דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה</td>
+<td>דף פייסבוק חדש למופע + הזמנה לשני המופעים הקרובים בת&quot;א ובפרדס חנה - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/<div class="rec-title" dir="rtl">הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</div></td>
+<td class="status status-200">200</td>
+<td>הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה</td>
+<td>הזמנה להשקת הספר החדש – &quot;וכתבתָ&quot; / אייל עמית 15.6.17 בפרדס חנה - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/הזמנה-להשקת-הספר-החדש-וכתבת-אייל-עמית-15-6-17-בפרדס-חנה/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%a9%d7%9c%d7%99-%d7%96%d7%a7%d7%95%d7%a7-%d7%9c/<div class="rec-title" dir="rtl">הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</div></td>
+<td class="status status-200">200</td>
+<td>הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט!</td>
+<td>הספר החדש שלי יוצא לאור!!!! אשמח לתמיכתכם ב-הדסטארט! - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/הספר-החדש-שלי-יוצא-לאור-אשמח-לתמיכתכם-ב-הדסטארט/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%95%d7%a1%d7%99%d7%a4%d7%a8%d7%aa%d6%b8%d6%bc-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%a4%d7%95%d7%a7%d7%9f-%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%96-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/<div class="rec-title" dir="rtl">וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית</div></td>
+<td class="status status-200">200</td>
+<td>וסיפרתָּ – מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית</td>
+<td>וסיפרתָּ - מופע פרידה!!! 14.10.17 מועדון היוניקורן פרדס חנה | מופע הספוקן סטוריז של אייל עמית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/<div class="rec-title" dir="rtl">טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</div></td>
+<td class="status status-200">200</td>
+<td>טיפול בנשימה באמצעות דיג&#x27;רידו – ללמוד לנשום נכון ביומיום וגם בלילה</td>
+<td>טיפול בנשימה באמצעות דיג&#x27;רידו - ללמוד לנשום נכון ביומיום וגם בלילה - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/<div class="rec-title" dir="rtl">טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בדיג&#x27;רידו / אייל עמית</div></td>
+<td class="status status-200">200</td>
+<td>טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו – המרכז לטיפול בדיג&#x27;רידו / אייל עמית</td>
+<td>טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג&#x27;רידו - המרכז לטיפול בדיג&#x27;רידו / אייל עמית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/<div class="rec-title" dir="rtl">כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</div></td>
+<td class="status status-200">200</td>
+<td>כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול</td>
+<td>כתבה על &quot;תופעת יחיד&quot; ב- המקומון גבעתיים רמת גן, 22.10.15, מני פרסול - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%90%d7%aa-%d7%a8%d7%95/<div class="rec-title" dir="rtl">מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</div></td>
+<td class="status status-200">200</td>
+<td>מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15</td>
+<td>מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול - מעריב תרבות 21.7.15 - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/<div class="rec-title" dir="rtl">מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס)</div></td>
+<td class="status status-200">200</td>
+<td>מוקש דהימן – מאסטר דיג&#x27;רידו – ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס)</td>
+<td>מוקש דהימן - מאסטר דיג&#x27;רידו - ציור מקורי חדש במרכז לטיפול בדיג&#x27;רידו (שמן על קנבס) - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/<div class="rec-title" dir="rtl">סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</div></td>
+<td class="status status-200">200</td>
+<td>סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים)</td>
+<td>סדנת דיג&#x27;רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג&#x27;רידו (רמת מתחילים) - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a1%d7%a8%d7%98%d7%99%d7%9d-%d7%9e%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/<div class="rec-title" dir="rtl">סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א.</div></td>
+<td class="status status-200">200</td>
+<td>סרטים מהחיים – מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א.</td>
+<td>סרטים מהחיים - מופע הסיפורים של אייל עמית: שני תאריכים קרובים: 5.4.14 תיאטרון הידית פרדס חנה, 10.4.14 צוותא2 ת&quot;א. - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2/<div class="rec-title" dir="rtl">שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית</div></td>
+<td class="status status-200">200</td>
+<td>שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית</td>
+<td>שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז&#x27;, 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/<div class="rec-title" dir="rtl">עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</div></td>
+<td class="status status-200">200</td>
+<td>עכשיו!!!! מופע הסיפורים של אייל עמית – 15.11.14 בתיאטרון הידית פרדס חנה</td>
+<td>עכשיו!!!! מופע הסיפורים של אייל עמית - 15.11.14 בתיאטרון הידית פרדס חנה - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a2%d7%9e%d7%99%d7%aa-%d7%91%d7%99%d6%b8%d7%93%d6%b4%d7%99%d7%aa-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99/<div class="rec-title" dir="rtl">הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</div></td>
+<td class="status status-200">200</td>
+<td>הופעת בכורה בתל אביב!!! 3/12/13  &#x27;סרטים מהחיים&#x27; – מופע הסיפורים של אייל עמית</td>
+<td>הופעת בכורה בתל אביב!!! 3/12/13 &#x27;סרטים מהחיים&#x27; - מופע הסיפורים של אייל עמית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/<div class="rec-title" dir="rtl">צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</div></td>
+<td class="status status-200">200</td>
+<td>צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו – אייל עמית</td>
+<td>צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג&#x27;רידו - אייל עמית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">100</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/צלילים-מרפאים-תדרים-מרפאים-סאונד-הילינג-דיג-רידו-אייל-עמית/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a9%d7%a0%d7%94-%d7%9c%d7%97%d7%95%d7%a7-%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%9d-%d7%a6%d7%a0%d7%99%d7%97%d7%94-%d7%a9%d7%9c-35-%d7%91%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa-%d7%a9%d7%9c-%d7%a1%d7%a4/<div class="rec-title" dir="rtl">&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צרכנות דה-מרקר</div></td>
+<td class="status status-200">200</td>
+<td>&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים – ועלייה חדה במחירים&quot; | צרכנות דה-מרקר</td>
+<td>&quot;שנה לחוק הספרים: צניחה של 35% במכירות של ספרים חדשים - ועלייה חדה במחירים&quot; | צרכנות דה-מרקר - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">4</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/<div class="rec-title" dir="rtl">מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד..</div></td>
+<td class="status status-200">200</td>
+<td>מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד..</td>
+<td>מה חושבים על המופע &quot;תופעת יחיד&quot; של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד.. - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/<div class="rec-title" dir="rtl">תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</div></td>
+<td class="status status-200">200</td>
+<td>תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו – אייל עמית</td>
+<td>תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג&#x27;רידו - אייל עמית - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">2</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/תלמידים-ומטופלים-ממליצים-על-המרכז-לטיפול-בדיג-רידו-אייל-עמית/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/100-100-100-%d7%aa%d7%95%d7%93%d7%94/<div class="rec-title" dir="rtl">100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</div></td>
+<td class="status status-200">200</td>
+<td>100% !!!!!!! 100%  !!!!!!!! 100%  !!!!!!!!  תודה  !!!!!!!!!</td>
+<td>100% !!!!!!! 100% !!!!!!!! 100% !!!!!!!! תודה !!!!!!!!! - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/100-100-100-תודה/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/18-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9e%d7%a1%d7%9a-%d7%94%d7%91%d7%a8%d7%96%d7%9c/<div class="rec-title" dir="rtl">(18) הטור של אייל עמית: מסך הברזל</div></td>
+<td class="status status-200">200</td>
+<td>(18) הטור של אייל עמית: מסך הברזל</td>
+<td>(18) הטור של אייל עמית: מסך הברזל - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/18-הטור-של-אייל-עמית-מסך-הברזל/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/<div class="rec-title" dir="rtl">2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</div></td>
+<td class="status status-200">200</td>
+<td>2.8 תופעת יחיד בצוותא – 50% מהמקומות באולם חינם לתושבי הדרום!</td>
+<td>2.8 תופעת יחיד בצוותא - 50% מהמקומות באולם חינם לתושבי הדרום! - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם. הכתובת קטועה באמצע מילה עברית — WordPress קיצר אותה אוטומטית והיא אינה שם קריא.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/2-8-תופעת-יחיד-בצוותא-50-מהמקומות-באולם-חינם-לתושבי-הדרום/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/2228-2/<div class="rec-title" dir="rtl">מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</div></td>
+<td class="status status-200">200</td>
+<td>מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון</td>
+<td>מופע הסיפורים של אייל עמית - תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">1</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/23-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%9c%d7%a6%d7%99%d7%99%d7%aa-%d7%90%d7%95-%d7%9c%d7%97%d7%a9%d7%95%d7%91/<div class="rec-title" dir="rtl">(23) הטור של אייל עמית: לציית או לחשוב</div></td>
+<td class="status status-200">200</td>
+<td>(23) הטור של אייל עמית: לציית או לחשוב</td>
+<td>(23) הטור של אייל עמית: לציית או לחשוב - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/23-הטור-של-אייל-עמית-לציית-או-לחשוב/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/27-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%97%d7%9b%d7%9e%d7%aa-%d7%94%d7%a4%d7%a8%d7%a6%d7%95%d7%a3/<div class="rec-title" dir="rtl">(27) הטור של אייל עמית: חכמת הפרצוף</div></td>
+<td class="status status-200">200</td>
+<td>(27) הטור של אייל עמית: חכמת הפרצוף</td>
+<td>(27) הטור של אייל עמית: חכמת הפרצוף - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/27-הטור-של-אייל-עמית-חכמת-הפרצוף/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/29-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a8%d7%99%d7%99%d7%91-%d7%a9%d7%91%d7%95%d7%a2-%d7%94%d7%a1%d7%a4%d7%a8/<div class="rec-title" dir="rtl">(29) הטור של אייל עמית: רייב שבוע הספר</div></td>
+<td class="status status-200">200</td>
+<td>(29) הטור של אייל עמית: רייב שבוע הספר</td>
+<td>(29) הטור של אייל עמית: רייב שבוע הספר - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/29-הטור-של-אייל-עמית-רייב-שבוע-הספר/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/32-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%9d-%d7%90%d7%99%d7%9f-%d7%90%d7%a0%d7%99-%d7%9c%d7%99-%d7%9e%d7%99-%d7%9c%d7%99/<div class="rec-title" dir="rtl">(32) הטור של אייל עמית: אם אין אני לי – מי לי</div></td>
+<td class="status status-200">200</td>
+<td>(32) הטור של אייל עמית: אם אין אני לי – מי לי</td>
+<td>(32) הטור של אייל עמית: אם אין אני לי - מי לי - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/32-הטור-של-אייל-עמית-אם-אין-אני-לי-מי-לי/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/34-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%94%d7%9c%d7%91/<div class="rec-title" dir="rtl">(34) הטור של אייל עמית: הלב</div></td>
+<td class="status status-200">200</td>
+<td>(34) הטור של אייל עמית: הלב</td>
+<td>(34) הטור של אייל עמית: הלב - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/34-הטור-של-אייל-עמית-הלב/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/36-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a9%d7%a7%d7%a9%d7%95%d7%a7%d7%94/<div class="rec-title" dir="rtl">(36) הטור של אייל עמית: שיטת השקשוקה</div></td>
+<td class="status status-200">200</td>
+<td>(36) הטור של אייל עמית: שיטת השקשוקה</td>
+<td>(36) הטור של אייל עמית: שיטת השקשוקה - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/36-הטור-של-אייל-עמית-שיטת-השקשוקה/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/<div class="rec-title" dir="rtl">(40) הטור של אייל עמית: פרסומת אחת וחזרנו</div></td>
+<td class="status status-200">200</td>
+<td>(40) הטור של אייל עמית: פרסומת אחת וחזרנו</td>
+<td>(40) הטור של אייל עמית: פרסומת אחת וחזרנו - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/40-הטור-של-אייל-עמית-פרסומת-אחת-וחזרנו/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/42-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%97%d7%93-%d7%91%d7%a1%d7%a4%d7%98%d7%9e%d7%91%d7%a8/<div class="rec-title" dir="rtl">(42) הטור של אייל עמית: אחד בספטמבר</div></td>
+<td class="status status-200">200</td>
+<td>(42) הטור של אייל עמית: אחד בספטמבר</td>
+<td>(42) הטור של אייל עמית: אחד בספטמבר - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/42-הטור-של-אייל-עמית-אחד-בספטמבר/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/43-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%93%d7%95%d7%9f-%d7%a1%d7%9c%d7%99%d7%97%d7%95%d7%aa/<div class="rec-title" dir="rtl">(43) הטור של אייל עמית: אדון סליחות</div></td>
+<td class="status status-200">200</td>
+<td>(43) הטור של אייל עמית: אדון סליחות</td>
+<td>(43) הטור של אייל עמית: אדון סליחות - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/43-הטור-של-אייל-עמית-אדון-סליחות/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/45-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%95%d7%a4%d7%95%d7%a8%d7%a6%d7%99%d7%95%d7%aa/<div class="rec-title" dir="rtl">(45) הטור של אייל עמית: פרופורציות</div></td>
+<td class="status status-200">200</td>
+<td>(45) הטור של אייל עמית: פרופורציות</td>
+<td>(45) הטור של אייל עמית: פרופורציות - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/45-הטור-של-אייל-עמית-פרופורציות/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/47-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%96%d7%9e%d7%9f-%d7%97%d7%9c%d7%95%d7%9d/<div class="rec-title" dir="rtl">זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004</div></td>
+<td class="status status-200">200</td>
+<td>זמן חלום (וידאו בלוג) – השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004</td>
+<td>זמן חלום (וידאו בלוג) - השקת הספר &#x27;כושי בלאנטיס&#x27; גג מסעדת הטאלי 24 רופי | אוגוסט 2004 - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">אין הצעה — הכותרת היא משפט מלא; שם קצר ידרוש המצאה שלא התבקשה</td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/49-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a7%d7%95%d7%9e%d7%99%d7%a7-%d7%a8%d7%9c%d7%99%d7%a3/<div class="rec-title" dir="rtl">(49) הטור של אייל עמית: קומיק רליף</div></td>
+<td class="status status-200">200</td>
+<td>(49) הטור של אייל עמית: קומיק רליף</td>
+<td>(49) הטור של אייל עמית: קומיק רליף - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/49-הטור-של-אייל-עמית-קומיק-רליף/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/51-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%a7%d7%a1%d7%98%d7%a8%d7%99%d7%9d-%d7%96%d7%94-%d7%a0%d7%a2%d7%99%d7%9d/<div class="rec-title" dir="rtl">(51) הטור של אייל עמית: אקסטרים זה נעים!</div></td>
+<td class="status status-200">200</td>
+<td>(51) הטור של אייל עמית: אקסטרים זה נעים!</td>
+<td>(51) הטור של אייל עמית: אקסטרים זה נעים! - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/51-הטור-של-אייל-עמית-אקסטרים-זה-נעים/</code></td>
+</tr>
+<tr>
+<td class="url" dir="ltr">/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/<div class="rec-title" dir="rtl">פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</div></td>
+<td class="status status-200">200</td>
+<td>פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור</td>
+<td>פרוייקט &quot;מטיילים מצטלמים&quot; עם הספרים של מוזה הוצאה לאור - eyal amit</td>
+<td class="why"><span class="tag tag-b">כתובת לא קריאה (ב)</span> — כתובת מתחילה במספר טור/מדור מהאתר הישן או נושאת סיומת מספרית טכנית (למשל "-2") שאינה קריאה כשם.</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">0</td>
+<td class="sugg">הצעה (מהכותרת המלאה, לא קטועה): <code>/פרוייקט-מטיילים-מצטלמים-עם-הספרים-של-מוזה-הוצאה-לאור/</code></td>
+</tr>
+<tr class="manual-row">
+<td class="url" dir="ltr">/instrument-repair/<div class="rec-title" dir="rtl">אין — אינו אובייקט WP מפורסם, זהו כלל הפניה בלבד</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /tools-and-accessories/repair/</div></td>
+<td>לא רלוונטי — אין עמוד</td>
+<td>לא רלוונטי — אין עמוד</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — קפיצה ראשונה בשרשרת דו-קפיצתית שכבר קיימת בפרודקשן היום, בלי שנוספה אף כתובת מהאתר הישן: <code dir="ltr">/instrument-repair/</code> ← <code dir="ltr">/tools-and-accessories/repair/</code> ← <code dir="ltr">/repair/</code>. נמדד ישירות (curl, 2026-09-26). אותו דבר בדיוק חל על <code dir="ltr">/services/instrument-repair/</code>.</td>
+<td>כלל הפניה (לא עמוד)</td>
+<td class="num">לא רלוונטי</td>
+<td class="sugg">אין הצעה — לא עמוד לשינוי שם; המלצת המחקר הקודם היא לקצר את השרשרת בקוד (לא בתחום טבלה זו)</td>
+</tr>
+<tr class="manual-row">
+<td class="url" dir="ltr">/product-category/books/<div class="rec-title" dir="rtl">אין — אינו אובייקט WP מפורסם, זהו כלל הפניה בלבד</div></td>
+<td class="status status-301">301<div class="loc" dir="ltr">&rarr; /books/</div></td>
+<td>לא רלוונטי — אין עמוד</td>
+<td>לא רלוונטי — אין עמוד</td>
+<td class="why"><span class="tag tag-d">הפניה (ד)</span> — ההפניה הזו <b>אינה ניתנת לאיתור בקוד</b> (נבדק: אין "product-category" באף mu-plugin או בתמה; ל-WooCommerce אין נוכחות באתר החדש, כך שגם ה-taxonomy עצמו לא קיים). מקור ההפניה אינו ידוע — ליבה של וורדפרס, קונפיגורציית host, או שארית ב-DB. לא ישרוד בהכרח דיפלוי חדש.</td>
+<td>כלל הפניה (לא עמוד)</td>
+<td class="num">לא רלוונטי</td>
+<td class="sugg">אין הצעה — אין עמוד לשינוי שם; יש לתעד את הכלל הזה במפורש לפני המעבר כי הוא לא ישרוד ריבנוי DB</td>
+</tr>
+<tr class="locked-row">
+<td class="url" dir="ltr">/qr/, /qr/qr1/ &hellip; /qr/qr48/<div class="rec-title" dir="rtl">49 עמודי QR</div></td>
+<td class="status status-200">200 (כולם)</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td class="why"><span class="tag tag-lock">נעול (ו)</span> — <b>מודפס בספרים פיזיים. אסור לשנות שם לעולם.</b> זהות בין הכתובת הישנה לחדשה (לא נדרשת הפניה כלל).</td>
+<td>עמוד QR (נעול)</td>
+<td class="num">&mdash;</td>
+<td class="sugg">אין הצעה — ואסור להציע: הכתובות קבועות מכוח הדפוס</td>
+</tr>
+<tr class="locked-row">
+<td class="url" dir="ltr">34 כתובות לטיניות תקינות<div class="rec-title" dir="rtl">כולל: home, method, treatment, lessons, books, didgeridoos, contact, sound-healing, faq, testimonials, privacy ועוד</div></td>
+<td class="status status-200">200 (רובן)</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td class="why"><span class="tag tag-lock">נעול (ו)</span> — סלאג לטיני קצר, קריא, יציב; לא נמצאה התנגשות, לא קטוע, לא מפנה. רשימה מלאה: <code dir="ltr">accessibility</code>, <code dir="ltr">bags</code>, <code dir="ltr">blog</code>, <code dir="ltr">books</code>, <code dir="ltr">contact</code>, <code dir="ltr">courses-external</code>, <code dir="ltr">didgeridoos</code>, <code dir="ltr">en</code>, <code dir="ltr">eyal-amit</code>, <code dir="ltr">faq</code>, <code dir="ltr">galleries</code>, <code dir="ltr">historical-articles</code>, <code dir="ltr">home</code>, <code dir="ltr">kushi-blantis</code>, <code dir="ltr">learning</code>, <code dir="ltr">lectures</code>, <code dir="ltr">lessons</code>, <code dir="ltr">method</code>, <code dir="ltr">mokesh-dahiman</code>, <code dir="ltr">press</code>, <code dir="ltr">privacy</code>, <code dir="ltr">repair</code>, <code dir="ltr">snoring-sleep-apnea</code>, <code dir="ltr">sound-healing</code>, <code dir="ltr">stand-floor</code>, <code dir="ltr">stands-storage</code>, <code dir="ltr">terms</code>, <code dir="ltr">testimonials</code>, <code dir="ltr">thank-you</code>, <code dir="ltr">therapist-training</code>, <code dir="ltr">treatment</code>, <code dir="ltr">tsva-bekahol</code>, <code dir="ltr">vekatavta</code>, <code dir="ltr">workshops</code></td>
+<td>עמודי תוכן/שירות/ספר</td>
+<td class="num">&mdash;</td>
+<td class="sugg">אין הצעה — אין צורך, השם כבר תקין</td>
+</tr>
+<tr class="locked-row">
+<td class="url" dir="ltr">14 כתובות עבריות ללא פגם דפוס<div class="rec-title" dir="rtl">פוסטי בלוג ישנים, עברית מלאה, לא קטועה ולא ממוספרת</div></td>
+<td class="status status-200">200 (רובן)</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td class="why"><span class="tag tag-lock">נעול (ו)</span> — לא נמצא קיצור אמצע-מילה, לא ממוספרת/סיומת טכנית, לא מתנגשת. <b>הערה מתודולוגית:</b> נבדקו אוטומטית רק שני דפוסי פגם (קיטוע וסיומת מספרית) — לא נבדק בהרחבה האם ניסוח הסלאג תואם סמנטית לכותרת הנוכחית בכל שורה; זו בדיקה שלא בוצעה במלואה (לא נמדד).</td>
+<td>פוסט בלוג (legacy)</td>
+<td class="num">&mdash;</td>
+<td class="sugg">אין הצעה — לא זוהה פגם מדיד</td>
+</tr>
+</tbody>
+</table>
+
+<footer>
+<p>נבנה על-ידי צוות 90 (בקרה) לקראת מעבר הדומיין. מדידה בלבד — אין כאן החלטות. שיטת המדידה: GET מלא ללא מעקב הפניות (curl, אומת מול curl -sI על שלוש כתובות לפני שימוש), אימות גודל גוף תגובה, html.unescape להשוואת טקסט עברי, השוואת קבוצות בשני הכיוונים. שרת ה-staging מוגש ב-HTTP רגיל בכוונה ותעודת ה-TLS שלו לא תקפה בכוונה — זה אינו ממצא.</p>
+</footer>
+
+</div>
+</body>
+</html>
