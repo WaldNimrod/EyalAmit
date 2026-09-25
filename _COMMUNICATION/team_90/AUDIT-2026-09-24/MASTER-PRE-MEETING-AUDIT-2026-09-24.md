@@ -430,6 +430,14 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-11 · A structural claim asserted from memory instead of from the array.** The footer mandate
+  told the builder that «ספרים» sits under «כלים ואביזרים» in `ea_canonical_nav_items()`. **It sits
+  under «אייל עמית»** — line 86, inside the first top-level block, which Team 90 had itself printed
+  hours earlier. **The builder refused the claim, measured the real structure and implemented that
+  instead**, and said so in its report. Had it obeyed, the footer would have been built on a
+  relationship that does not exist. **This is the second time in one day that Team 90 named a
+  location it had not re-read** — see `M-10`. **A structure is read at the moment of writing the
+  mandate, not recalled from a parse done earlier in the session.**
 - **M-10 · A file in the theme is not a file on the page.** Team 90 found a hardcoded, drifted copy
   of the nav tree in `block-footer-social.php`, reported it to team_00 as "the footer on every page",
   and built two board cards on it. **Measured afterwards: that file renders on exactly one URL**
