@@ -185,9 +185,9 @@ function ea_eyalamit_render_footer_legal_nav() {
  * region and another" defect this mandate exists to close. Left defined
  * (not deleted) and its 'ea_footer_legal' menu location stays registered,
  * in case team_00 wants it restored for its one non-duplicate item,
- * "תקנון" (terms) — that page has no other footer link after this change;
- * flagged in the DONE report rather than silently adding a "תקנון" link of
- * my own to the legal strip, which the mandate did not ask for.
+ * "תקנון" (terms). As of 1.5.137 that page is linked from the legal strip
+ * in ea_render_unified_footer() with the drawer label תקנון. This function
+ * stays unhooked.
  */
 
 /**

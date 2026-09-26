@@ -624,9 +624,10 @@ if ( ! function_exists( 'ea_render_unified_footer' ) ) :
 		echo '<div class="ea-ftr__legal-in">';
 		echo '<p class="ea-ftr__disc">המידע באתר זה אינו מהווה ייעוץ רפואי, אבחון או טיפול רפואי, ואינו מחליף פנייה לאיש מקצוע מוסמך. במקרים של מצב רפואי או נפשי, יש להתייעץ עם גורם רפואי מוסמך לפני תחילת התהליך.</p>';
 		printf(
-			'<p class="ea-ftr__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="%s">הצהרת נגישות</a> · <a href="%s">מדיניות פרטיות</a></p>',
+			'<p class="ea-ftr__base">&copy; 2026 אייל עמית · כל הזכויות שמורות · <a href="%s">הצהרת נגישות</a> · <a href="%s">מדיניות פרטיות</a> · <a href="%s">תקנון</a></p>',
 			esc_url( home_url( '/accessibility/' ) ),
-			esc_url( home_url( '/privacy/' ) )
+			esc_url( home_url( '/privacy/' ) ),
+			esc_url( home_url( '/terms/' ) )
 		);
 		echo '</div>'; // .ea-ftr__legal-in
 		echo '</div>'; // .ea-ftr__legal

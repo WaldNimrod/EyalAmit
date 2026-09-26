@@ -853,6 +853,11 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    /testimonials/ (page 73) has both but is one of the short older bands;
    the reset keeps its boxes where they were. */
 .cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
+/* Same clearance when the band has a paragraph and no heading (home final
+   CTA, /lessons/). Button-only bands have neither child and do not match.
+   Title-only bands do not match. The page-73 reset below stays on the
+   heading+paragraph selector only. */
+.cta-band--row .cta-band__txt:has(.cta-band__p):not(:has(.cta-band__h)){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
 /* The :has rule is (0,4,0). A bare body.page-id-73 reset is (0,3,1) and loses. */
 body.page-id-73 .cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:0}
 .cta-band--row .cta-band__h{text-align:right;margin-bottom:14px}
