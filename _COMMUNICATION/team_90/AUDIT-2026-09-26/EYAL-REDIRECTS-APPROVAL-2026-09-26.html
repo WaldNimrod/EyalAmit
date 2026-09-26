@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>אישור המפה — כתובות ישנות וכתובות חדשות — 26 בספטמבר 2026</title>
+<style>
+:root{
+  --ink:#16130f; --muted:#6b6257; --line:#e3ddd3; --paper:#fbf9f5; --card:#fff;
+  --accent:#8a5a2b; --warn:#9c3b1e; --ok:#3f6b42; --old:#6e4a86;
+  --r:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+     font-family:"Heebo","Assistant","Arial Hebrew",Arial,sans-serif;
+     font-size:17px;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:28px 18px 90px}
+header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:1.9rem;margin:0 0 6px;line-height:1.25}
+.date{font-weight:700;color:var(--accent)}
+.lede{color:var(--muted);margin:10px 0 0}
+.note{background:#fff5e8;border:1px solid #e8d3b4;border-radius:var(--r);
+      padding:14px 16px;margin:18px 0}
+.note strong{color:var(--warn)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+     padding:16px 18px;margin:18px 0}
+.box h2{margin:0 0 8px;font-size:1.15rem;border:0;padding:0}
+h2{font-size:1.32rem;margin:38px 0 4px;padding-top:18px;border-top:1px solid var(--line)}
+h2 .cnt{font-size:.8rem;color:var(--muted);font-weight:400}
+.sub{color:var(--muted);margin:0 0 16px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+      padding:16px 18px;margin:14px 0}
+.item h3{margin:0 0 2px;font-size:1.1rem}
+.item h3 .tag{display:inline-block;font-size:.72rem;font-weight:700;color:#fff;background:var(--old);
+     border-radius:999px;padding:2px 9px;margin-inline-start:8px;vertical-align:middle}
+.now,.need{margin:8px 0;padding:9px 12px;border-radius:8px;font-size:.95rem}
+.now{background:#f4f1ea;border-right:3px solid var(--muted)}
+.need{background:#eef4ee;border-right:3px solid var(--ok)}
+.lbl{font-weight:700;display:block;margin-bottom:2px;font-size:.82rem;
+     letter-spacing:.02em;color:var(--muted)}
+.need .lbl{color:var(--ok)}
+.examples{margin:8px 0 4px;padding:0;list-style:none}
+.examples li{background:#f4f1ea;border:1px solid var(--line);border-radius:999px;
+     display:inline-block;padding:5px 12px;margin:0 4px 6px 0;font-size:.88rem;color:var(--ink)}
+fieldset{border:0;margin:12px 0 0;padding:0}
+legend{font-weight:700;font-size:.9rem;margin-bottom:6px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:8px 10px;margin:4px 0;
+     border:1px solid var(--line);border-radius:8px;cursor:pointer;background:#fff}
+.opt:hover{background:#f7f4ee}
+.opt input{margin:4px 0 0;width:19px;height:19px;flex:none;accent-color:var(--accent)}
+.opt span{flex:1}
+textarea{width:100%;min-height:52px;margin-top:8px;padding:9px 11px;
+         border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.95rem;
+         background:#fff;resize:vertical}
+.bar{position:sticky;bottom:0;background:var(--paper);border-top:2px solid var(--ink);
+     padding:14px 0 10px;margin-top:34px}
+button{font:inherit;font-weight:700;padding:12px 20px;border-radius:10px;
+       border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;
+       min-height:48px}
+button.ghost{background:#fff;color:var(--ink)}
+#out{width:100%;min-height:180px;margin-top:12px;font-family:ui-monospace,Menlo,monospace;
+     font-size:12px;direction:ltr;text-align:left;display:none;white-space:pre}
+.done{color:var(--ok);font-weight:700;margin-inline-start:10px}
+footer{margin-top:26px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);
+       padding-top:14px}
+.decided{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;
+     background:#f4f1ea;color:var(--muted);margin-bottom:6px}
+@media print{.bar,button,#out{display:none}.item{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>מה קורה לכל כתובת ישנה, ואילו שמות חדשים לאשר</h1>
+  <p class="date">אייל עמית · לקראת מחיקת האתר הישן · 26 בספטמבר 2026</p>
+  <p class="lede">האתר הישן יורד גיבוי, ואחר כך יימחק. לפני זה צריך להחליט מה קורה למי שמגיע לכתובת
+    ישנה — בגוגל, מקישור ששמור אצל מישהו, או מפרסום ישן. במסמך הזה עשר קבוצות בלבד, לא אלף ומשהו
+    שורות. לכל קבוצה: מה היא, כמה כתובות בה עם דוגמאות אמיתיות, מה אנחנו מציעים שיקרה, ומה דעתך.
+    בסוף יש גם שתי החלטות קטנות על שמות בתוך האתר החדש עצמו.</p>
+</header>
+
+<div class="note"><strong>איך למלא.</strong> כל תשובה נשמרת אוטומטית בדפדפן שלך תוך כדי סימון. בסוף
+  העמוד יש כפתור שמעתיק את כל התשובות כטקסט רגיל, כדי שתוכל להדביק אותו במייל או בוואטסאפ.</div>
+
+<div class="box">
+<h2>דבר אחד שאי אפשר למדוד מהאתרים עצמם</h2>
+<p>אפשר למדוד מה קיים היום ולאן כל דבר יוביל. אי אפשר למדוד מהאתר עצמו אילו כתובות מהאתר הישן
+  באמת מופיעות בתוצאות חיפוש בגוגל, וכמה מבקרים כל אחת מביאה בפועל — וזה בדיוק המידע שקובע אילו
+  כתובות למטה הכי חשוב להגן עליהן בזהירות רבה יותר. יש לך גישה לחשבון Google Search Console של
+  האתר, או לדוח קידום אחר שמישהו הכין לך פעם? אם כן — שיתוף שלו (או ייצוא ממנו) יעזור לנו לדייק
+  בדיוק את הרשימה הזו.</p>
+</div>
+
+<div class="box">
+<h2>המספרים, בקצרה</h2>
+<p>באתר הישן <b>1,255 כתובות בסך הכול</b>: 251 עמודי תוכן, ו-1,004 קובצי תמונה. חמישים מתוך
+  העמודים הם דפי הקודים הממוספרים שבתוך הספרים המודפסים (qr1 עד qr48 ועוד שניים) — הם כבר קיימים
+  בכתובת כמעט זהה גם באתר החדש, ואין שם שום דבר להחליט. נשארות 201 כתובות תוכן, וכל 201 מתחלקות
+  לעשר קבוצות בלבד — אלה עשר ההחלטות שלמטה, לא 1,255 שורות.</p>
+</div>
+<h2>עשר קבוצות מהאתר הישן <span class="cnt">— 201 כתובות תוכן, בעשר החלטות</span></h2>
+
+<div class="item" id="g-home" data-id="home">
+  <h3>1. עמוד הבית</h3>
+  <div class="now"><span class="lbl">מה זה</span>כתובת אחת בלבד — עמוד הבית של האתר הישן עצמו. <b>(1 כתובות)</b></div>
+  
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>מי שמגיע לכתובת הבית הישנה יגיע ישירות לעמוד הבית של האתר החדש. הכתובת כבר מוכנה ועובדת.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="home" value="מאשר"><span>מאשר — אפשר להמשיך בדיוק כמו שמתואר</span></label>
+    <label class="opt"><input type="radio" name="home" value="חשוב-בגוגל"><span>זה חשוב לי בגוגל — תוודאו שלא מאבדים את זה</span></label>
+    <label class="opt"><input type="radio" name="home" value="למקום-אחר"><span>שלחו את זה לכתובת אחרת — כתבתי לאן, למטה</span></label>
+    <label class="opt"><input type="radio" name="home" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-core-pages" data-id="core-pages">
+  <h3>2. עמודי הליבה בעברית</h3>
+  <div class="now"><span class="lbl">מה זה</span>עמודי התוכן הקבועים של האתר הישן — יצירת קשר, תקנון, ותיאורי השירותים והסטודיו שלך. <b>(26 כתובות)</b></div>
+  <ul class="examples"><li>צור קשר</li><li>תקנון</li><li>דיג'רידו – המרכז לטיפול בדיג'רידו – סטודיו נשימה מעגלית – אייל עמית</li></ul>
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>רוב הכתובות האלה (24 מתוך 26) כבר מפנות בהצלחה לעמוד המקביל באתר החדש. שתיים מהן עדיין לא אותרו וטעונות בדיקה נוספת לפני שהאתר הישן יורד — כדי שלא יישארו בלי יעד.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="core-pages" value="מאשר"><span>מאשר — אפשר להמשיך בדיוק כמו שמתואר</span></label>
+    <label class="opt"><input type="radio" name="core-pages" value="חשוב-בגוגל"><span>זה חשוב לי בגוגל — תוודאו שלא מאבדים את זה</span></label>
+    <label class="opt"><input type="radio" name="core-pages" value="למקום-אחר"><span>שלחו את זה לכתובת אחרת — כתבתי לאן, למטה</span></label>
+    <label class="opt"><input type="radio" name="core-pages" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-store-books" data-id="store-books">
+  <h3>3. החנות ועמודי הספרים</h3>
+  <div class="now"><span class="lbl">מה זה</span>עמוד החנות הכללי, שני עמודי תשלום, ועמודי המוצרים של שלושת הספרים — כולל שני מבצעי חבילה. <b>(14 כתובות)</b></div>
+  <ul class="examples"><li>עמוד החנות הכללי ("חנות")</li><li>ספר "וכתבת"</li><li>ספר "כושי בלאנטיס"</li></ul>
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>בהתאם להחלטה שכבר התקבלה על סגירת החנות: כל הכתובות האלה יובילו לעמוד הספרים הכללי באתר החדש. שלוש מהן יובילו ישירות לעמוד הספר הנכון. שתי הכתובות של מבצעי החבילה (שני ספרים במחיר מיוחד, ושלושה ספרים במחיר מיוחד) יובילו לעמוד הספרים הכללי — אבל ההצעה המיוחדת עצמה לא תופיע שם, אלא אם תבנה אותה מחדש. זו החלטה שכדאי לקבל במודע, לא הפניה שמתקנים אחר כך.</div>
+  <div class="now"><span class="lbl">הערה</span>עמוד ארכיון כללי אחד של מערכת ההזמנות הישנה ייפול יחד עם שאר עמודי החנות — אין בו הזמנות בפועל לבדוק, ולכן הוא לא נבדק בנפרד.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="store-books" value="מאשר"><span>מאשר — אפשר להמשיך בדיוק כמו שמתואר</span></label>
+    <label class="opt"><input type="radio" name="store-books" value="חשוב-בגוגל"><span>זה חשוב לי בגוגל — תוודאו שלא מאבדים את זה</span></label>
+    <label class="opt"><input type="radio" name="store-books" value="למקום-אחר"><span>שלחו את זה לכתובת אחרת — כתבתי לאן, למטה</span></label>
+    <label class="opt"><input type="radio" name="store-books" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-blog-posts" data-id="blog-posts">
+  <h3>4. רשומות הבלוג</h3>
+  <div class="now"><span class="lbl">מה זה</span>כל הכתבות שפרסמת בבלוג של האתר הישן לאורך השנים — הטורים הממוספרים, סיפורי הופעות, וכתבות עיתונות. <b>(54 כתובות)</b></div>
+  <ul class="examples"><li>(18) הטור של אייל עמית: מסך הברזל</li><li>(41) הטור של אייל עמית: חארטה בארטה</li><li>זמן חלום (וידאו בלוג) – השקת הספר 'כושי בלאנטיס'</li></ul>
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>הכתובת של כל אחת מ-54 הכתבות כבר מוכנה לעבור אוטומטית לכתובת המקבילה בבלוג החדש. יוצא דופן אחד: הטור המספר 41, "חארטה בארטה" — תוכן הטור הזה כבר לא קיים בבלוג החדש בכלל, כך שהכתובת שלו תוביל לכתבה ריקה עד שתחליט אם לשחזר את התוכן או לוותר עליו (השאלה הזו כבר מופיעה בטופס התוכן הנפרד שלך; כאן רק מסמנים את הסיכון בכתובת עצמה).</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="blog-posts" value="מאשר"><span>מאשר — אפשר להמשיך בדיוק כמו שמתואר</span></label>
+    <label class="opt"><input type="radio" name="blog-posts" value="חשוב-בגוגל"><span>זה חשוב לי בגוגל — תוודאו שלא מאבדים את זה</span></label>
+    <label class="opt"><input type="radio" name="blog-posts" value="למקום-אחר"><span>שלחו את זה לכתובת אחרת — כתבתי לאן, למטה</span></label>
+    <label class="opt"><input type="radio" name="blog-posts" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-portfolio" data-id="portfolio">
+  <h3>5. עמודי תיק העבודות</h3>
+  <div class="now"><span class="lbl">מה זה</span>עשרים וחמישה עמודים באתר הישן תחת הכותרת "תיק עבודות", עם כותרות באנגלית. <b>(25 כתובות)</b></div>
+  <ul class="examples"><li>Art Week 2014 Malmö</li><li>SuperDollz Showroom</li><li>Der Spiegel Cover Art</li></ul>
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>הכותרות האלה אינן קשורות לדיג'רידו, לנשימה או לעיסוק שלך — נראה כתוכן לדוגמה שהגיע עם תבנית וורדפרס מוכנה, לא תוכן שכתבת. "נראה ככה" זו לא מדידה — לכן מבקשים ממך מבט אישי לפני שמוותרים על כל העשרים וחמישה. אם יוותרו, מי שמגיע לכתובת ישנה של אחד מהם יראה הודעה שהעמוד לא נמצא.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="portfolio" value="לשמר"><span>לשמר ולבנות מחדש באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="portfolio" value="לוותר"><span>לוותר במודע — אפשר למחוק</span></label>
+    <label class="opt"><input type="radio" name="portfolio" value="חשוב-בגוגל"><span>לפני שמוותרים — בדקו אם זה חשוב בגוגל</span></label>
+    <label class="opt"><input type="radio" name="portfolio" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-blog-lists" data-id="blog-lists">
+  <h3>6. קטגוריות ותגיות הבלוג</h3>
+  <div class="now"><span class="lbl">מה זה</span>שש קטגוריות בלוג וארבעים ושבע תגיות באתר הישן — רשימות שוורדפרס מייצר אוטומטית סביב הכתבות, לא כתיבה שלך. <b>(53 כתובות)</b></div>
+  
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>אלה עמודי רשימה טכניים, ואין לנו נתונים על השמות המדויקים שלהם — לא ממציאים כאן שמות. ההחלטה היא אחת בשביל כל ה-53: להפנות את כולן לארכיון הבלוג הכללי באתר החדש, או לקבל שהן ייעלמו.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="blog-lists" value="להפנות"><span>להפנות את כל הקבוצה לארכיון הכללי הקרוב ביותר</span></label>
+    <label class="opt"><input type="radio" name="blog-lists" value="לוותר"><span>לוותר על כל הקבוצה — לקבל את האובדן</span></label>
+    <label class="opt"><input type="radio" name="blog-lists" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-shows" data-id="shows">
+  <h3>7. עמודי המופעים</h3>
+  <div class="now"><span class="lbl">מה זה</span>ארבע כתובות נוספות מסוג "מופע" באתר הישן, מעבר לעמוד כתבות ההיסטוריה שכבר עבר במלואו לאתר החדש. <b>(4 כתובות)</b></div>
+  <ul class="examples"><li>שתיים מהן נקראות באתר הישן פשוטו כמשמעו "מופע לדוגמה"</li><li>השלישית מסומנת רק בתאריך, "11-7", בלי שם כלל</li></ul>
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>שני העמודים שנקראים "מופע לדוגמה" נראים כתוכן דוגמה שהגיע עם התבנית, לא מופע אמיתי שלך. העמוד השלישי, המתוארך, לא זוהה בוודאות. מבקשים ממך מבט על השלושה לפני שמוותרים.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="shows" value="לשמר"><span>לשמר ולבנות מחדש באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="shows" value="לוותר"><span>לוותר במודע — אפשר למחוק</span></label>
+    <label class="opt"><input type="radio" name="shows" value="חשוב-בגוגל"><span>לפני שמוותרים — בדקו אם זה חשוב בגוגל</span></label>
+    <label class="opt"><input type="radio" name="shows" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-galleries" data-id="galleries">
+  <h3>8. הגלריות</h3>
+  <div class="now"><span class="lbl">מה זה</span>שש כתובות של גלריות תמונות מהאתר הישן — חמש גלריות ואלבום תמונות אחד. <b>(6 כתובות)</b></div>
+  
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>שלוש מתוך השש זוהו בבדיקה ידנית בוודאות ככתובת עם שם ספר מפורש בכותרת (למשל גלריית "וכתבת"), ואלבום רביעי כללי. שתי הכתובות הנותרות לא זוהו בוודאות בבדיקה שנעשתה — נאמר כך במפורש, בלי לנחש. גלריית תמונות אינה עמוד מכירה של ספר — גם אם תשמור על עמודי הספרים, הגלריות עצמן אינן קיימות היום באתר החדש אלא אם תבקש לבנות אותן מחדש.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="galleries" value="לשמר"><span>לשמר ולבנות מחדש באתר החדש</span></label>
+    <label class="opt"><input type="radio" name="galleries" value="לוותר"><span>לוותר במודע — אפשר למחוק</span></label>
+    <label class="opt"><input type="radio" name="galleries" value="חשוב-בגוגל"><span>לפני שמוותרים — בדקו אם זה חשוב בגוגל</span></label>
+    <label class="opt"><input type="radio" name="galleries" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-leftover-archives" data-id="leftover-archives">
+  <h3>9. עמודי ארכיון שנותרו מתוספים שכבר לא בשימוש</h3>
+  <div class="now"><span class="lbl">מה זה</span>שמונה־עשרה כתובות רשימה אוטומטיות שנוצרו על ידי כמה תוספי וורדפרס ישנים שכבר אינם פעילים באתר (למשל קטגוריות של תיק עבודות, קטגוריות המלצות, קטגוריות שקופיות, ועמוד לפי שם מחבר). <b>(18 כתובות)</b></div>
+  
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>אלה כמעט בוודאות שאריות טכניות מתוספים שהוחלפו או הוסרו, לא תוכן שכתבת. ההחלטה היא אחת לכל השמונה־עשרה: להפנות את כולן לארכיון הכללי הקרוב ביותר, או לקבל שהן ייעלמו.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="leftover-archives" value="להפנות"><span>להפנות את כל הקבוצה לארכיון הכללי הקרוב ביותר</span></label>
+    <label class="opt"><input type="radio" name="leftover-archives" value="לוותר"><span>לוותר על כל הקבוצה — לקבל את האובדן</span></label>
+    <label class="opt"><input type="radio" name="leftover-archives" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="item" id="g-media" data-id="media">
+  <h3>10. קובצי המדיה</h3>
+  <div class="now"><span class="lbl">מה זה</span>אלף וארבעה קובצי תמונה מהאתר הישן — לא עמודים, אלא קבצי התמונה עצמם. <b>(1004 כתובות)</b></div>
+  
+  <div class="need"><span class="lbl">מה אנחנו מציעים</span>נבדקה מדגם של מאה קבצים מתוך האלף וארבעה, בשיטה זהה לכל שאר הבדיקות — אף אחד מהמאה לא שרד בכתובתו הישנה. זה מדגם, לא בדיקה של כל הקבצים, ונאמר כך במפורש. שאלה נפרדת שלא נבדקה: האם קובצי התמונה עצמם עדיין נגישים לך במקום אחר (למשל בגיבוי או בענן) — זה שונה משאלת הכתובת שהם יושבים עליה באתר.</div>
+  
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="media" value="מאשר-אובדן"><span>מאשר את האובדן — לא חשוב לי לשחזר תמונות ישנות</span></label>
+    <label class="opt"><input type="radio" name="media" value="יש-גיבוי"><span>יש לי גיבוי של תמונות חשובות ששווה לשחזר — כתבתי אילו למטה</span></label>
+    <label class="opt"><input type="radio" name="media" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<h2>שתי החלטות שם קטנות, בתוך האתר החדש עצמו <span class="cnt">— 2</span></h2>
+<p class="sub">אלה לא כתובות מהאתר הישן — הן שאלות על שם בתוך האתר החדש שכבר קיים. גם כאן: לכל
+  אחת יש כבר החלטה קודמת שאינה נפתחת מחדש, ורק החלק החסר מוצג.</p>
+
+<div class="item" id="d-shop-name" data-id="shop-name">
+  <h3>שם חדש לכתובת של עמוד הכלים והאביזרים</h3>
+  <span class="decided">כבר הוחלט לשנות — רק השם החדש חסר</span>
+  <div class="now"><span class="lbl">המצב היום</span>עמוד הכלים והאביזרים (שהיום נקרא בתפריט
+    "כלים בעבודת יד ואביזרים") יושב על אותה מילה בכתובת שהחנות הישנה צריכה לרשת אחריה, כדי שהחנות
+    שיורדת תוביל לעמוד הספרים בלי להתנגש עם עמוד קיים באתר החדש. לכן צריך לתת לעמוד הזה כתובת
+    אחרת מזו שיש לו היום. השם המוצג בתפריט לא חייב להשתנות — רק הכתובת מאחוריו.</div>
+  <div class="need"><span class="lbl">מה מבוקש ממך</span>מה השם החדש שתרצה שיהיה בכתובת של עמוד
+    הכלים והאביזרים?</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="shop-name" value="להשאיר-כלים-ואביזרים"><span>אפשר להשאיר את הכתובת קרובה לשם הנוכחי (כלים ואביזרים)</span></label>
+    <label class="opt"><input type="radio" name="shop-name" value="שם-חדש"><span>יש לי שם אחר שאני מעדיף — כתבתי אותו למטה</span></label>
+    <label class="opt"><input type="radio" name="shop-name" value="לדבר"><span>בואו נדבר על זה בשיחה</span></label>
+    <label class="opt"><input type="radio" name="shop-name" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="השם החדש שאתה מציע, או הערה"></textarea>
+</div>
+
+<div class="item" id="d-address-language" data-id="address-language">
+  <h3>כתובות באנגלית או בעברית</h3>
+  <span class="decided">המלצה מקצועית מוכנה — מחכה לאישור שלך</span>
+  <div class="now"><span class="lbl">המצב היום</span>כשלושים וארבעה עמודי ליבה באתר החדש (שירותים,
+    ספרים, כלים, יצירת קשר ועוד) יושבים על כתובת באותיות לועזיות (אנגלית) — גם כשהכותרת, הטקסט
+    והתמונות בעמוד עצמו כולם בעברית מלאה.</div>
+  <div class="need"><span class="lbl">ההמלצה שלנו, ולמה</span>להשאיר את הכתובות באנגלית. את הדירוג
+    בגוגל קובעים בעיקר הכותרת והתוכן — לא אותיות הכתובת — וכתובת בעברית הופכת כשמעתיקים אותה
+    לוואטסאפ או למייל למחרוזת ארוכה ולא קריאה.</div>
+  <fieldset><legend>הבחירה שלך</legend>
+    <label class="opt"><input type="radio" name="address-language" value="מאשר-אנגלית"><span>מאשר — הכתובות נשארות באנגלית</span></label>
+    <label class="opt"><input type="radio" name="address-language" value="מעדיף-עברית"><span>אני מעדיף כתובות בעברית, גם אם זה פוגע קצת בדירוג</span></label>
+    <label class="opt"><input type="radio" name="address-language" value="לדבר"><span>בואו נדבר על זה בשיחה</span></label>
+    <label class="opt"><input type="radio" name="address-language" value="אחר"><span>אחר</span></label>
+  </fieldset>
+  <textarea placeholder="הערה (רשות)"></textarea>
+</div>
+
+<div class="box">
+<p style="margin:0">כלל טכני נוסף כבר סוכם: איך בדיוק תיגזר הכתובת של כל אחת מהכתבות הישנות
+  בבלוג שכתובתן היום קטועה או מתחילה במספר. זה כבר הוכרע ואינו דורש את אישורך כאן — מוזכר רק כדי
+  שלא תתהה למה הוא לא מופיע כשאלה.</p>
+</div>
+
+<div class="bar">
+  <button type="button" id="copy-btn">העתקת כל התשובות כטקסט</button>
+  <span class="done" id="msg"></span>
+  <textarea id="out" readonly></textarea>
+</div>
+<footer>נבנה על-ידי צוות 90 (בקרה) מתוך מדידה ישירה של שני האתרים, 26 בספטמבר 2026. התשובות שלך
+  נשמרות אוטומטית בדפדפן הזה (localStorage) — אם הדפדפן חוסם אחסון מקומי, המסמך עדיין עובד, רק בלי
+  שמירה בין ביקורים.</footer>
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'ea-eyal-redirects-approval-2026-09-26';
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item[data-id]'));
+
+  function safeGet(){
+    try{
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }catch(e){ return null; }
+  }
+  function safeSet(data){
+    try{ window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); return true; }
+    catch(e){ return false; }
+  }
+  function collect(){
+    var data = {};
+    items.forEach(function(el){
+      var id = el.getAttribute('data-id');
+      var checked = el.querySelector('input[type="radio"]:checked');
+      var ta = el.querySelector('textarea');
+      data[id] = { choice: checked ? checked.value : '', note: ta ? ta.value : '' };
+    });
+    return data;
+  }
+  function apply(data){
+    if(!data) return;
+    items.forEach(function(el){
+      var id = el.getAttribute('data-id');
+      var saved = data[id];
+      if(!saved) return;
+      if(saved.choice){
+        var input = el.querySelector('input[type="radio"][value="'+saved.choice+'"]');
+        if(input) input.checked = true;
+      }
+      if(saved.note){
+        var ta = el.querySelector('textarea');
+        if(ta) ta.value = saved.note;
+      }
+    });
+  }
+  function save(){ safeSet(collect()); }
+  try{ apply(safeGet()); }catch(e){}
+  items.forEach(function(el){
+    el.addEventListener('change', save);
+    var ta = el.querySelector('textarea');
+    if(ta) ta.addEventListener('input', save);
+  });
+
+  function label(el){
+    var h3 = el.querySelector('h3');
+    return h3 ? h3.textContent.trim() : el.getAttribute('data-id');
+  }
+  function buildSummary(){
+    var lines = [];
+    lines.push('סיכום תשובות — אישור כתובות ישנות וכתובות חדשות, 26 בספטמבר 2026');
+    lines.push('');
+    var n = 1;
+    items.forEach(function(el){
+      var checked = el.querySelector('input[type="radio"]:checked');
+      var ta = el.querySelector('textarea');
+      var choiceLabel = '';
+      if(checked){
+        var optSpan = checked.closest('label');
+        choiceLabel = optSpan ? optSpan.textContent.trim() : checked.value;
+      }
+      lines.push(n + ') ' + label(el));
+      lines.push('   תשובה: ' + (choiceLabel || 'לא סומן'));
+      lines.push('   הערה: ' + (ta && ta.value ? ta.value.trim() : '—'));
+      lines.push('');
+      n++;
+    });
+    return lines.join('\n');
+  }
+  function fallbackCopy(text){
+    try{
+      var t = document.createElement('textarea');
+      t.value = text; t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.focus(); t.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(t);
+      return ok;
+    }catch(e){ return false; }
+  }
+  var btn = document.getElementById('copy-btn');
+  var msg = document.getElementById('msg');
+  var out = document.getElementById('out');
+  if(btn){
+    btn.addEventListener('click', function(){
+      var text = buildSummary();
+      if(out){ out.style.display='block'; out.value = text; }
+      function done(ok){ if(msg) msg.textContent = ok ? 'הועתק ללוח — אפשר להדביק במייל או בוואטסאפ.' : 'לא הצליח להעתיק אוטומטית — הטקסט מוצג למטה, אפשר להעתיק ידנית.'; }
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(fallbackCopy(text));});
+        } else { done(fallbackCopy(text)); }
+      }catch(e){ done(fallbackCopy(text)); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
