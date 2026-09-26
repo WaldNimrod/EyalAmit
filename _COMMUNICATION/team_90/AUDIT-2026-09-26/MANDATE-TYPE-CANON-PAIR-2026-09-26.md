@@ -20,8 +20,9 @@ opens either one learns it immediately.
 
 ### Document A — the artifact. For Nimrod and Eyal.
 
-`hub/dist/ea-content-types.html`, published live, **plus its tracked source in
-`_COMMUNICATION/team_100/S007/`** so it is under version control like the form and the board.
+Tracked source at `_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html`, published live
+via `hub/dist/ea-content-types.html`. **The tracked copy is the one in the workspace folder** —
+see "Where the pair lives" below, which supersedes any other path in this file.
 
 - Hebrew, right-to-left, opened in a browser by a non-developer.
 - **Per type: a designed, rendered example with sample content** — what the row actually looks like —
@@ -37,8 +38,8 @@ opens either one learns it immediately.
 
 ### Document B — the definitions. For sessions.
 
-`_COMMUNICATION/team_100/S007/S007-CONTENT-TYPES-CANON.md`, English, sitting beside the typography
-canon it mirrors in role.
+`_COMMUNICATION/team_100/EYAL-WORKSPACE/CONTENT-TYPES-CANON.md`, English. It mirrors the
+typography canon in role, but it lives in the workspace folder because it is part of the pack.
 
 - **An index first** — every type, one line each, linking down to its entry.
 - **Per type, everything a session needs to render one correctly without reading the theme:** the
