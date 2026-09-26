@@ -41,9 +41,9 @@ $ea_card_tag = 'h' . $ea_card_level;
 ?>
 <section class="sec<?php echo $alt ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
 		<div class="bookcards r">
 			<?php
 			foreach ( $items as $it ) :
@@ -69,7 +69,7 @@ $ea_card_tag = 'h' . $ea_card_level;
 						<?php if ( $cover ) : ?>
 							<img src="<?php echo esc_url( $cover ); ?>" alt="<?php echo esc_attr( $ttl ); ?>" loading="lazy">
 						<?php else : ?>
-							<span class="ph ph--d"><span><?php echo esc_html( $ttl ); ?></span></span>
+							<span class="ph ph--d"><span><?php echo ea_esc_visible_text( $ttl ); ?></span></span>
 						<?php endif; ?>
 					</span>
 					<?php /* A11Y 2026-09-18: <div>, not <span>. The card title above became a real
@@ -80,10 +80,10 @@ $ea_card_tag = 'h' . $ea_card_level;
 					.bookcard__b already declares display:flex (chapters.css:875), and <a> has a
 					transparent content model, so flow content inside it is fine. */ ?>
 					<div class="bookcard__b">
-						<?php if ( ! empty( $it['meta'] ) ) : ?><span class="bookcard__meta"><?php echo esc_html( $it['meta'] ); ?></span><?php endif; ?>
+						<?php if ( ! empty( $it['meta'] ) ) : ?><span class="bookcard__meta"><?php echo ea_esc_visible_text( $it['meta'] ); ?></span><?php endif; ?>
 						<?php printf( '<%1$s class="bookcard__t">%2$s</%1$s>', $ea_card_tag, esc_html( $ttl ) ); ?>
-						<?php if ( ! empty( $it['blurb'] ) ) : ?><span class="bookcard__blurb"><?php echo esc_html( $it['blurb'] ); ?></span><?php endif; ?>
-						<span class="bookcard__cta" aria-hidden="true"><?php echo esc_html( $cta ); ?><?php if ( $cta_arrow ) : ?><span class="bookcard__cta-ar" dir="ltr">←</span><?php endif; ?></span>
+						<?php if ( ! empty( $it['blurb'] ) ) : ?><span class="bookcard__blurb"><?php echo ea_esc_visible_text( $it['blurb'] ); ?></span><?php endif; ?>
+						<span class="bookcard__cta" aria-hidden="true"><?php echo ea_esc_visible_text( $cta ); ?><?php if ( $cta_arrow ) : ?><span class="bookcard__cta-ar" dir="ltr">←</span><?php endif; ?></span>
 					</div>
 				</a>
 			<?php endforeach; ?>

@@ -26,7 +26,7 @@ if ( empty( $quotes ) ) {
 	<div class="wrap">
 		<div class="ea-testi-cards__list">
 			<?php foreach ( $quotes as $ea_q ) : ?>
-				<blockquote class="ea-testi-cards__card"><?php echo wp_kses_post( $ea_q ); ?></blockquote>
+				<blockquote class="ea-testi-cards__card"><?php echo ea_chapters_prepare_body_html( $ea_q  ); ?></blockquote>
 			<?php endforeach; ?>
 		</div>
 	</div>

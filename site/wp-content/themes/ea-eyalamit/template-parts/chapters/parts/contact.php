@@ -100,8 +100,8 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 	<div class="wrap center">
 		<div class="ea-entrance ea-contact-nap" aria-label="<?php esc_attr_e( 'פרטי המרכז וכתובת', 'ea-eyalamit' ); ?>">
 			<h3 class="ea-contact-nap__h"><?php esc_html_e( "המרכז לטיפול בנשימה באמצעות דיג'רידו", 'ea-eyalamit' ); ?></h3>
-			<p class="ea-contact-nap__row"><?php echo esc_html( ea_nap( 'address_display' ) ); ?></p>
-			<p class="ea-contact-nap__row"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr" style="white-space:nowrap"><?php echo esc_html( ea_nap( 'phone_display' ) ); ?></a></p>
+			<p class="ea-contact-nap__row"><?php echo ea_esc_visible_text( ea_nap( 'address_display' ) ); ?></p>
+			<p class="ea-contact-nap__row"><?php esc_html_e( 'טלפון / וואטסאפ:', 'ea-eyalamit' ); ?> <a href="tel:<?php echo esc_attr( ea_nap( 'phone_href' ) ); ?>" dir="ltr" style="white-space:nowrap"><?php echo ea_esc_visible_text( ea_nap( 'phone_display' ) ); ?></a></p>
 			<p class="ea-contact-nap__row"><?php esc_html_e( "שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש", 'ea-eyalamit' ); ?></p>
 		</div>
 	</div>

@@ -41,29 +41,29 @@ $contact = home_url( '/contact?subject=product-' . rawurlencode( $slug ) );
 ?>
 <section class="sec<?php echo $alt ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-		<?php if ( ! empty( $a['body'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['body'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['body'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $a['body'] ); ?></p><?php endif; ?>
 
-		<p class="ea-product-price r" data-product-price style="margin-top:32px"><?php echo esc_html( $price ); ?></p>
+		<p class="ea-product-price r" data-product-price style="margin-top:32px"><?php echo ea_esc_visible_text( $price ); ?></p>
 		<?php if ( ! empty( $a['price_note'] ) ) : ?>
-			<p class="ea-product-price__note r"><?php echo esc_html( $a['price_note'] ); ?></p>
+			<p class="ea-product-price__note r"><?php echo ea_esc_visible_text( $a['price_note'] ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( '' !== $gi ) : ?>
 			<div class="ea-cta-ab r" data-ea-product-cta data-product-slug="<?php echo esc_attr( $slug ); ?>" data-cta-type="green_invoice">
 				<a class="ea-cta-pill ea-cta-pill--primary" href="<?php echo esc_url( $gi ); ?>" target="_blank" rel="noopener" data-ea-product-cta-link>
-					<?php echo esc_html( ! empty( $a['gi_label'] ) ? $a['gi_label'] : 'לרכישה מאובטחת' ); ?>
+					<?php echo ea_esc_visible_text( ! empty( $a['gi_label'] ) ? $a['gi_label'] : 'לרכישה מאובטחת' ); ?>
 				</a>
 			</div>
 			<?php if ( '' !== $gi && ! empty( $a['gi_temp'] ) ) : ?>
 				<p class="ea-pending-inline r" role="status">
-					<span><?php echo esc_html( ! empty( $a['gi_temp_note'] ) ? $a['gi_temp_note'] : 'קישור רכישה זמני — ממתין לקישור הסופי מאייל' ); ?></span>
+					<span><?php echo ea_esc_visible_text( ! empty( $a['gi_temp_note'] ) ? $a['gi_temp_note'] : 'קישור רכישה זמני — ממתין לקישור הסופי מאייל' ); ?></span>
 				</p>
 			<?php endif; ?>
 		<?php else : ?>
 			<div class="ea-cta-ab r" data-ea-product-cta data-product-slug="<?php echo esc_attr( $slug ); ?>" data-cta-type="contact" data-ea-page="product-<?php echo esc_attr( $slug ); ?>">
 				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__form" href="<?php echo esc_url( $contact ); ?>" data-ea-ab-form data-ea-product-cta-link>
-					<?php echo esc_html( ! empty( $a['contact_label'] ) ? $a['contact_label'] : 'לתיאום והתאמה' ); ?>
+					<?php echo ea_esc_visible_text( ! empty( $a['contact_label'] ) ? $a['contact_label'] : 'לתיאום והתאמה' ); ?>
 				</a>
 				<a class="ea-cta-pill ea-cta-pill--whatsapp ea-cta-ab__wa" href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ea-product-cta-link>
 					שליחת הודעה ב‑WhatsApp

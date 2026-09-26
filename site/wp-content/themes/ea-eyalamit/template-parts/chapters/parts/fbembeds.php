@@ -15,9 +15,9 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 ?>
 <section class="sec<?php echo $alt ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
 		<div class="fbgrid r">
 			<?php
 			foreach ( $items as $it ) :

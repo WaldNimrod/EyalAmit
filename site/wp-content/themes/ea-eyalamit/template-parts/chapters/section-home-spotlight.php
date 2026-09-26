@@ -50,9 +50,9 @@ if ( empty( $cards ) ) {
 					<?php endif; ?>
 				</div>
 				<div class="ea-now__tx">
-					<?php if ( $title ) : ?><h3 class="ea-now__t"><?php echo esc_html( $title ); ?></h3><?php endif; ?>
-					<?php if ( ! empty( $row['line1'] ) ) : ?><p class="ea-now__run"><?php echo esc_html( $row['line1'] ); ?></p><?php endif; ?>
-					<?php if ( ! empty( $row['line2'] ) ) : ?><p class="ea-now__run"><?php echo esc_html( $row['line2'] ); ?></p><?php endif; ?>
+					<?php if ( $title ) : ?><h3 class="ea-now__t"><?php echo ea_esc_visible_text( $title ); ?></h3><?php endif; ?>
+					<?php if ( ! empty( $row['line1'] ) ) : ?><p class="ea-now__run"><?php echo ea_esc_visible_text( $row['line1'] ); ?></p><?php endif; ?>
+					<?php if ( ! empty( $row['line2'] ) ) : ?><p class="ea-now__run"><?php echo ea_esc_visible_text( $row['line2'] ); ?></p><?php endif; ?>
 				</div>
 			</a>
 			<?php endforeach; ?>

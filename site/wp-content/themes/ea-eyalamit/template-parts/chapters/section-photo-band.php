@@ -16,7 +16,7 @@ $alt = ea_chapters_field( 'band_alt' );
 	<?php endif; ?>
 	<span class="bleed__sc" aria-hidden="true"></span>
 	<div class="bleed__c"><div class="bleed__in">
-		<p class="bleed__q r"><?php echo esc_html( ea_chapters_field( 'band_quote' ) ); ?></p>
-		<p class="bleed__a r"><?php echo esc_html( ea_chapters_field( 'band_attrib' ) ); ?></p>
+		<p class="bleed__q r"><?php echo ea_esc_visible_text( ea_chapters_field( 'band_quote' ) ); ?></p>
+		<p class="bleed__a r"><?php echo ea_esc_visible_text( ea_chapters_field( 'band_attrib' ) ); ?></p>
 	</div></div>
 </section>

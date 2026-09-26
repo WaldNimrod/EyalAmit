@@ -29,10 +29,10 @@ $heading = isset( $a['heading'] ) && '' !== (string) $a['heading'] ? (string) $a
 	<section class="sec ea-toc__sec">
 		<div class="wrap lede">
 			<nav class="toc-inline" aria-label="<?php echo esc_attr( 'תוכן העניינים' ); ?>">
-				<p class="toc-inline__h"><?php echo esc_html( $heading ); ?></p>
+				<p class="toc-inline__h"><?php echo ea_esc_visible_text( $heading ); ?></p>
 				<ol>
 					<?php foreach ( $items as $it ) : ?>
-						<li><a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><?php echo esc_html( $it['label'] ); ?></a></li>
+						<li><a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><?php echo ea_esc_visible_text( $it['label'] ); ?></a></li>
 					<?php endforeach; ?>
 				</ol>
 			</nav>
@@ -40,19 +40,19 @@ $heading = isset( $a['heading'] ) && '' !== (string) $a['heading'] ? (string) $a
 	</section>
 	<nav class="rail" aria-label="<?php echo esc_attr( 'ניווט מהיר בעמוד' ); ?>">
 		<?php foreach ( $items as $it ) : ?>
-			<a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><span><?php echo esc_html( $it['label'] ); ?></span><i aria-hidden="true"></i></a>
+			<a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><span><?php echo ea_esc_visible_text( $it['label'] ); ?></span><i aria-hidden="true"></i></a>
 		<?php endforeach; ?>
 	</nav>
-	<button class="toc-fab" type="button" aria-haspopup="dialog">☰ <?php echo esc_html( $heading ); ?></button>
+	<button class="toc-fab" type="button" aria-haspopup="dialog">☰ <?php echo ea_esc_visible_text( $heading ); ?></button>
 	<dialog class="sheet" aria-label="<?php echo esc_attr( 'תוכן העניינים' ); ?>">
 		<div class="sheet__in">
 			<div class="sheet__top">
-				<span class="sheet__t"><?php echo esc_html( $heading ); ?></span>
+				<span class="sheet__t"><?php echo ea_esc_visible_text( $heading ); ?></span>
 				<button class="sheet__x" type="button" aria-label="<?php echo esc_attr( 'סגירה' ); ?>">&times;</button>
 			</div>
 			<ol>
 				<?php foreach ( $items as $it ) : ?>
-					<li><a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><?php echo esc_html( $it['label'] ); ?></a></li>
+					<li><a href="<?php echo esc_url( '#' . $it['id'] ); ?>"><?php echo ea_esc_visible_text( $it['label'] ); ?></a></li>
 				<?php endforeach; ?>
 			</ol>
 		</div>

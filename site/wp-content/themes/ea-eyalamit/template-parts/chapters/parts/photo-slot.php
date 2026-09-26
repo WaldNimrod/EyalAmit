@@ -15,7 +15,7 @@ $label = isset( $a['label'] ) && '' !== $a['label'] ? (string) $a['label'] : 'Ph
 	<div class="wrap">
 		<figure class="ea-photo-slot">
 			<div class="ph" role="img" aria-label="<?php echo esc_attr( $label ); ?>">
-				<span><?php echo esc_html( $label ); ?></span>
+				<span><?php echo ea_esc_visible_text( $label ); ?></span>
 			</div>
 		</figure>
 	</div>

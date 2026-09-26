@@ -17,8 +17,8 @@ $iframe_title = $title ? $title : __( 'וידאו', 'ea-eyalamit' );
 ?>
 <section class="sec sec--alt" id="video">
 	<div class="wrap">
-		<?php if ( $chap ) : ?><span class="chap r"><?php echo esc_html( $chap ); ?></span><?php endif; ?>
-		<?php if ( $title ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $title ); ?></h2><?php endif; ?>
+		<?php if ( $chap ) : ?><span class="chap r"><?php echo ea_esc_visible_text( $chap ); ?></span><?php endif; ?>
+		<?php if ( $title ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $title ); ?></h2><?php endif; ?>
 		<div class="videoblk r r2" style="margin-top:48px">
 			<iframe
 				src="<?php echo esc_url( $embed ); ?>"

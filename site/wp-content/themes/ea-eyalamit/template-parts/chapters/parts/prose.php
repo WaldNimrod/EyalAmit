@@ -29,23 +29,23 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 ?>
 <section class="<?php echo esc_attr( $cls ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap<?php echo $center ? ' center' : ''; ?>">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap<?php echo $center ? ' chap--c' : ''; ?> r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap<?php echo $center ? ' chap--c' : ''; ?> r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
 		<?php
-		$ea_prose_html = wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) );
+		$ea_prose_html = ea_chapters_prepare_body_html( (string) ( $a['body'] ?? '' ) );
 		$ea_preview    = (int) ( $a['preview_lines'] ?? 0 );
 		?>
 		<?php if ( $collapsible && $ea_preview > 0 ) : ?>
 			<div class="prose-fold" style="<?php echo esc_attr( '--fold-lines:' . $ea_preview ); ?>">
 				<div class="prose-fold__peek intro-body"><?php echo $ea_prose_html; ?></div>
 				<details class="prose-acc prose-acc--fold">
-					<summary class="prose-acc__t"><?php echo esc_html( $a['toggle_label'] ?? 'להמשך קריאה' ); ?></summary>
+					<summary class="prose-acc__t"><?php echo ea_esc_visible_text( $a['toggle_label'] ?? 'להמשך קריאה' ); ?></summary>
 					<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo $ea_prose_html; ?></div>
 				</details>
 			</div>
 		<?php elseif ( $collapsible ) : ?>
 			<details class="prose-acc">
-				<summary class="prose-acc__t"><?php echo esc_html( $a['toggle_label'] ?? 'לחצו לקריאה' ); ?></summary>
+				<summary class="prose-acc__t"><?php echo ea_esc_visible_text( $a['toggle_label'] ?? 'לחצו לקריאה' ); ?></summary>
 				<div class="<?php echo esc_attr( $body_cls ); ?>"<?php echo $body_style; ?>><?php echo $ea_prose_html; ?></div>
 			</details>
 		<?php else : ?>
@@ -72,7 +72,7 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 						<?php endif; ?>
 					</figure>
 				<?php endif; ?>
-				<?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?>
+				<?php echo ea_chapters_prepare_body_html( (string) ( $a['body'] ?? '' ) ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

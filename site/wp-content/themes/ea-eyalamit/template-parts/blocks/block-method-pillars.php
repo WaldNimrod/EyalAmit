@@ -96,12 +96,12 @@ if ( array_key_exists( 'cta', $ea_pillars_ctx ) ) {
         <p class="ea-content-section__label"><?php echo esc_html( $ea_pillars_label ); ?></p>
         <?php endif; ?>
         <?php if ( '' !== $ea_pillars_heading ) : ?>
-        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $ea_pillars_heading ); ?></h2>
+        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $ea_pillars_heading ); ?></h2>
         <?php endif; ?>
         <?php if ( ! empty( $ea_pillars_intro ) ) : ?>
         <div class="ea-content-section__body">
           <?php foreach ( $ea_pillars_intro as $ea_pillars_p ) : ?>
-          <p><?php echo esc_html( (string) $ea_pillars_p ); ?></p>
+          <p><?php echo ea_esc_visible_text( (string) $ea_pillars_p ); ?></p>
           <?php endforeach; ?>
         </div>
         <?php endif; ?>

@@ -242,17 +242,17 @@ function ea_w2_07_render_press() {
 					?>
 					<li class="ea-press__item ea-entrance">
 						<?php if ( '' !== $year ) : ?>
-							<span class="ea-press__date"><?php echo esc_html( $year ); ?></span>
+							<span class="ea-press__date"><?php echo ea_esc_visible_text( $year ); ?></span>
 						<?php endif; ?>
 						<a class="ea-press__link ea-text-link"
 							href="<?php echo esc_url( $url ); ?>"
 							target="_blank"
 							rel="noopener noreferrer">
-							<?php echo esc_html( $title ); ?>
+							<?php echo ea_esc_visible_text( $title ); ?>
 							<span class="ea-press__hint" aria-hidden="true"> ↗</span>
 						</a>
 						<?php if ( '' !== $source ) : ?>
-							<span class="ea-press__source"><?php echo esc_html( $source ); ?></span>
+							<span class="ea-press__source"><?php echo ea_esc_visible_text( $source ); ?></span>
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
@@ -351,7 +351,7 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 	?>
 	<section class="ea-section ea-section--testimonials <?php echo esc_attr( $sec_class ); ?>" data-block="testimonials-row" aria-label="<?php echo esc_attr( $heading ); ?>">
 		<div class="ea-section__inner">
-			<<?php echo esc_attr( $htag ); ?> class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></<?php echo esc_attr( $htag ); ?>>
+			<<?php echo esc_attr( $htag ); ?> class="ea-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></<?php echo esc_attr( $htag ); ?>>
 			<div class="ea-testimonials-accordion">
 				<?php foreach ( $items as $i => $item ) : ?>
 					<details class="ea-testimonial-acc ea-entrance"<?php echo 0 === (int) $i ? ' open' : ''; ?>>
@@ -363,7 +363,7 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 									<span class="ea-testimonial-card__avatar-placeholder"></span>
 								<?php endif; ?>
 							</span>
-							<span class="ea-testimonial-acc__name"><?php echo esc_html( (string) ( $item['name'] ?? '' ) ); ?></span>
+							<span class="ea-testimonial-acc__name"><?php echo ea_esc_visible_text( (string) ( $item['name'] ?? '' ) ); ?></span>
 							<span class="ea-testimonial-acc__chevron" aria-hidden="true">⌄</span>
 						</summary>
 						<div class="ea-testimonial-acc__body">
@@ -385,7 +385,7 @@ function ea_w2_07_render_testimonials_accordion( $heading, $items, $args = array
 											target="_blank"
 											rel="noopener noreferrer"
 											aria-label="<?php echo esc_attr( 'המלצת ' . ( $item['name'] ?? '' ) . ' בפייסבוק (נפתח בחלון חדש)' ); ?>">
-											<?php echo esc_html( (string) ( $item['name'] ?? '' ) ); ?>
+											<?php echo ea_esc_visible_text( (string) ( $item['name'] ?? '' ) ); ?>
 										</a>
 										<span class="ea-testimonial-card__hint" aria-hidden="true"> ↗</span>
 									</div>
@@ -449,7 +449,7 @@ function ea_w2_07_render_historical_articles() {
 		<section class="ea-content-section" data-block="show-archive-intro"<?php echo '' !== $heading ? ' aria-label="' . esc_attr( $heading ) . '"' : ''; ?>>
 			<div class="ea-content-section__inner">
 				<?php if ( '' !== $heading ) : ?>
-				<h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+				<h2 class="ea-content-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></h2>
 				<?php endif; ?>
 				<div class="ea-content-section__body">
 					<?php foreach ( $body as $i => $p ) : ?>
@@ -463,7 +463,7 @@ function ea_w2_07_render_historical_articles() {
 		<?php if ( ! empty( $quotes ) && '' !== $press_h ) : ?>
 		<section class="ea-section ea-press" data-block="show-press-quotes" aria-label="<?php echo esc_attr( $press_h ); ?>">
 			<div class="ea-section__inner">
-				<h3 class="ea-section__heading ea-entrance--breath"><?php echo esc_html( $press_h ); ?></h3>
+				<h3 class="ea-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $press_h ); ?></h3>
 				<ul class="ea-press__list">
 					<?php foreach ( $quotes as $q ) :
 						$text = isset( $q['paragraph'] ) ? trim( (string) $q['paragraph'] ) : '';
@@ -475,7 +475,7 @@ function ea_w2_07_render_historical_articles() {
 						}
 						?>
 					<li class="ea-press__item ea-entrance">
-						<p class="ea-press__link"><?php echo esc_html( $text ); ?></p>
+						<p class="ea-press__link"><?php echo ea_esc_visible_text( $text ); ?></p>
 					</li>
 					<?php endforeach; ?>
 				</ul>
@@ -985,7 +985,7 @@ function ea_wave2_editorial_render_hero( $h ) {
 	      <div class="ea-edhero__inner">
 	        <div class="ea-edhero__text ea-entrance--breath">
 	          <?php if ( '' !== $kicker ) : ?>
-	          <p class="ea-edhero__kicker"><?php echo esc_html( $kicker ); ?></p>
+	          <p class="ea-edhero__kicker"><?php echo ea_esc_visible_text( $kicker ); ?></p>
 	          <?php endif; ?>
 	          <?php /* Round C (2026-09-24), team_00: breadcrumb moved to the classic
 	            position — see ea_wave2_render_editorial_blocks() below, which now
@@ -996,9 +996,9 @@ function ea_wave2_editorial_render_hero( $h ) {
 	            DOES remove the reason it existed — every call site now sits outside
 	            its dark hero on a plain content background, so 'dark' is no longer
 	            needed anywhere. Flagged in this round's report per the mandate. */ ?>
-	          <h1 class="ea-edhero__title"><?php echo esc_html( $title ); ?></h1>
+	          <h1 class="ea-edhero__title"><?php echo ea_esc_visible_text( $title ); ?></h1>
 	          <?php if ( '' !== $lead ) : ?>
-	          <p class="ea-edhero__lead"><?php echo esc_html( $lead ); ?></p>
+	          <p class="ea-edhero__lead"><?php echo ea_esc_visible_text( $lead ); ?></p>
 	          <?php endif; ?>
 	        </div>
 	        <?php if ( '' !== $img ) : ?>
@@ -1020,8 +1020,8 @@ function ea_wave2_editorial_render_metastrip( $items ) {
 	      <div class="ea-metastrip__inner">
 	        <?php foreach ( $items as $it ) : ?>
 	        <div class="ea-metastrip__cell">
-	          <p class="ea-metastrip__k"><?php echo esc_html( (string) ( $it['k'] ?? '' ) ); ?></p>
-	          <p class="ea-metastrip__v"><?php echo esc_html( (string) ( $it['v'] ?? '' ) ); ?></p>
+	          <p class="ea-metastrip__k"><?php echo ea_esc_visible_text( (string) ( $it['k'] ?? '' ) ); ?></p>
+	          <p class="ea-metastrip__v"><?php echo ea_esc_visible_text( (string) ( $it['v'] ?? '' ) ); ?></p>
 	        </div>
 	        <?php endforeach; ?>
 	      </div>
@@ -1047,15 +1047,15 @@ function ea_wave2_editorial_render_section( $s ) {
 	<section class="<?php echo esc_attr( $cls ); ?>"<?php echo '' !== $id ? ' id="' . esc_attr( $id ) . '"' : ''; ?> data-block="content-section" aria-label="<?php echo esc_attr( '' !== $heading ? $heading : 'תוכן' ); ?>">
 	      <div class="ea-content-section__inner">
 	        <?php if ( '' !== $label ) : ?>
-	        <p class="ea-content-section__label"><?php echo esc_html( $label ); ?></p>
+	        <p class="ea-content-section__label"><?php echo ea_esc_visible_text( $label ); ?></p>
 	        <?php endif; ?>
 	        <?php if ( '' !== $heading ) : ?>
-	        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+	        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></h2>
 	        <?php endif; ?>
 	        <?php if ( ! empty( $body ) ) : ?>
 	        <div class="ea-content-section__body">
 	          <?php foreach ( $body as $i => $p ) : ?>
-	          <p<?php echo ( $lead && 0 === (int) $i ) ? ' class="lead"' : ''; ?>><?php echo esc_html( (string) $p ); ?></p>
+	          <p<?php echo ( $lead && 0 === (int) $i ) ? ' class="lead"' : ''; ?>><?php echo ea_esc_visible_text( (string) $p ); ?></p>
 	          <?php endforeach; ?>
 	        </div>
 	        <?php endif; ?>
@@ -1082,29 +1082,29 @@ function ea_wave2_editorial_render_memorial( $m ) {
 	      <div class="ea-mokesh-grid">
 	        <div class="ea-mokesh-grid__text">
 	          <?php if ( '' !== $label ) : ?>
-	          <p class="ea-content-section__label"><?php echo esc_html( $label ); ?></p>
+	          <p class="ea-content-section__label"><?php echo ea_esc_visible_text( $label ); ?></p>
 	          <?php endif; ?>
 	          <?php if ( '' !== $heading ) : ?>
-	          <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+	          <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></h2>
 	          <?php endif; ?>
 	          <?php if ( ! empty( $body ) ) : ?>
 	          <div class="ea-content-section__body">
 	            <?php foreach ( $body as $p ) : ?>
-	            <p><?php echo esc_html( (string) $p ); ?></p>
+	            <p><?php echo ea_esc_visible_text( (string) $p ); ?></p>
 	            <?php endforeach; ?>
 	          </div>
 	          <?php endif; ?>
 	        </div>
 	        <div class="ea-mokesh-disc" role="img" aria-label="<?php echo esc_attr( trim( $disc_name . ' ' . $disc_year ) ); ?>">
-	          <p class="ea-mokesh-disc__nm"><?php echo esc_html( $disc_name ); ?></p>
+	          <p class="ea-mokesh-disc__nm"><?php echo ea_esc_visible_text( $disc_name ); ?></p>
 	          <?php if ( '' !== $disc_year ) : ?>
-	          <p class="ea-mokesh-disc__yr"><?php echo esc_html( $disc_year ); ?></p>
+	          <p class="ea-mokesh-disc__yr"><?php echo ea_esc_visible_text( $disc_year ); ?></p>
 	          <?php endif; ?>
 	        </div>
 	      </div>
 	      <?php if ( '' !== $pullquote ) : ?>
 	      <div class="ea-pullquote">
-	        <blockquote><?php echo esc_html( $pullquote ); ?></blockquote>
+	        <blockquote><?php echo ea_esc_visible_text( $pullquote ); ?></blockquote>
 	      </div>
 	      <?php endif; ?>
 	    </section>
@@ -1128,15 +1128,15 @@ function ea_wave2_editorial_render_studio( $st ) {
 	<section class="ea-content-section ea-content-section--alt" data-block="studio" aria-label="<?php echo esc_attr( '' !== $heading ? $heading : 'הסטודיו' ); ?>">
 	      <div class="ea-content-section__inner">
 	        <?php if ( '' !== $label ) : ?>
-	        <p class="ea-content-section__label"><?php echo esc_html( $label ); ?></p>
+	        <p class="ea-content-section__label"><?php echo ea_esc_visible_text( $label ); ?></p>
 	        <?php endif; ?>
 	        <?php if ( '' !== $heading ) : ?>
-	        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+	        <h2 class="ea-content-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></h2>
 	        <?php endif; ?>
 	        <?php if ( ! empty( $body ) ) : ?>
 	        <div class="ea-content-section__body">
 	          <?php foreach ( $body as $p ) : ?>
-	          <p><?php echo esc_html( (string) $p ); ?></p>
+	          <p><?php echo ea_esc_visible_text( (string) $p ); ?></p>
 	          <?php endforeach; ?>
 	        </div>
 	        <?php endif; ?>
@@ -1144,7 +1144,7 @@ function ea_wave2_editorial_render_studio( $st ) {
 	      <?php if ( ! empty( $cells ) ) : ?>
 	      <div class="ea-book-gallery" role="group" aria-label="<?php echo esc_attr( '' !== $g_label ? $g_label : 'גלריית תמונות' ); ?>">
 	        <?php if ( '' !== $g_label ) : ?>
-	        <span class="ea-book-gallery__label"><?php echo esc_html( $g_label ); ?></span>
+	        <span class="ea-book-gallery__label"><?php echo ea_esc_visible_text( $g_label ); ?></span>
 	        <?php endif; ?>
 	        <div class="ea-book-gallery__grid">
 	          <?php foreach ( $cells as $cell ) :
@@ -1156,13 +1156,13 @@ function ea_wave2_editorial_render_studio( $st ) {
 	            <?php if ( '' !== $cimg ) : ?>
 	            <img src="<?php echo esc_url( $cimg ); ?>" alt="<?php echo esc_attr( $calt ); ?>" loading="lazy" />
 	            <?php else : ?>
-	            <span class="ea-book-gallery__text"><?php echo esc_html( $ctxt ); ?></span>
+	            <span class="ea-book-gallery__text"><?php echo ea_esc_visible_text( $ctxt ); ?></span>
 	            <?php endif; ?>
 	          </div>
 	          <?php endforeach; ?>
 	        </div>
 	        <?php if ( '' !== $g_note ) : ?>
-	        <p class="ea-book-gallery__note"><?php echo esc_html( $g_note ); ?></p>
+	        <p class="ea-book-gallery__note"><?php echo ea_esc_visible_text( $g_note ); ?></p>
 	        <?php endif; ?>
 	      </div>
 	      <?php endif; ?>
@@ -1186,10 +1186,10 @@ function ea_wave2_editorial_render_books( $b ) {
 	<section class="ea-services-section" data-block="books-crosslink" aria-label="<?php echo esc_attr( '' !== $heading ? $heading : 'ספרים' ); ?>">
 	      <div class="ea-services-section__inner">
 	        <?php if ( '' !== $label ) : ?>
-	        <p class="ea-services-section__label"><?php echo esc_html( $label ); ?></p>
+	        <p class="ea-services-section__label"><?php echo ea_esc_visible_text( $label ); ?></p>
 	        <?php endif; ?>
 	        <?php if ( '' !== $heading ) : ?>
-	        <h2 class="ea-services-section__heading ea-entrance--breath"><?php echo esc_html( $heading ); ?></h2>
+	        <h2 class="ea-services-section__heading ea-entrance--breath"><?php echo ea_esc_visible_text( $heading ); ?></h2>
 	        <?php endif; ?>
 	        <?php if ( ! empty( $covers ) ) : ?>
 	        <div class="ea-books-row">
@@ -1203,11 +1203,11 @@ function ea_wave2_editorial_render_books( $b ) {
 	          <?php foreach ( $tiles as $tile ) : ?>
 	          <a class="ea-service-tile" href="<?php echo esc_url( (string) ( $tile['href'] ?? '#' ) ); ?>">
 	            <?php if ( ! empty( $tile['label'] ) ) : ?>
-	            <p class="ea-service-tile__label"><?php echo esc_html( (string) $tile['label'] ); ?></p>
+	            <p class="ea-service-tile__label"><?php echo ea_esc_visible_text( (string) $tile['label'] ); ?></p>
 	            <?php endif; ?>
-	            <h3 class="ea-service-tile__title"><?php echo esc_html( (string) ( $tile['title'] ?? '' ) ); ?></h3>
+	            <h3 class="ea-service-tile__title"><?php echo ea_esc_visible_text( (string) ( $tile['title'] ?? '' ) ); ?></h3>
 	            <?php if ( ! empty( $tile['desc'] ) ) : ?>
-	            <p class="ea-service-tile__desc"><?php echo esc_html( (string) $tile['desc'] ); ?></p>
+	            <p class="ea-service-tile__desc"><?php echo ea_esc_visible_text( (string) $tile['desc'] ); ?></p>
 	            <?php endif; ?>
 	          </a>
 	          <?php endforeach; ?>

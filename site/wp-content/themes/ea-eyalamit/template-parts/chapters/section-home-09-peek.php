@@ -25,9 +25,9 @@ $gallery  = ( isset( $defaults['peek_gallery'] ) && is_array( $defaults['peek_ga
 ?>
 <section class="sec" id="peek">
 	<div class="wrap">
-		<?php if ( $chap ) : ?><span class="chap r"><?php echo esc_html( $chap ); ?></span><?php endif; ?>
-		<?php if ( $title ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $title ); ?></h2><?php endif; ?>
-		<div class="intro-body r r2"><?php echo wp_kses_post( $body ); ?></div>
+		<?php if ( $chap ) : ?><span class="chap r"><?php echo ea_esc_visible_text( $chap ); ?></span><?php endif; ?>
+		<?php if ( $title ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $title ); ?></h2><?php endif; ?>
+		<div class="intro-body r r2"><?php echo ea_chapters_prepare_body_html( $body  ); ?></div>
 		<?php if ( ! empty( $gallery ) ) : ?>
 		<div class="gallery r" style="margin-top:32px">
 			<?php foreach ( $gallery as $it ) :
@@ -46,13 +46,13 @@ $gallery  = ( isset( $defaults['peek_gallery'] ) && is_array( $defaults['peek_ga
 			<figure class="gfig gfig--pending">
 				<div class="ea-pending-approval" role="status">
 					<span class="ea-pending-approval__badge">ממתין לאישור</span>
-					<p class="ea-pending-approval__title"><?php echo esc_html( $plabel ); ?></p>
+					<p class="ea-pending-approval__title"><?php echo ea_esc_visible_text( $plabel ); ?></p>
 				</div>
 			</figure>
 		</div>
 		<?php endif; ?>
 		<?php if ( $cta_l ) : ?>
-		<p class="r" style="margin-top:28px;text-align:left"><a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a></p>
+		<p class="r" style="margin-top:28px;text-align:left"><a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo ea_esc_visible_text( $cta_l ); ?></a></p>
 		<?php endif; ?>
 	</div>
 </section>

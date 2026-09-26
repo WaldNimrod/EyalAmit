@@ -14,9 +14,9 @@ $poster = $a['poster'] ?? '';
 <section class="sec sec--alt">
 	<div class="wrap">
 		<div style="max-width:760px">
-			<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-			<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-			<?php if ( ! empty( $a['body'] ) ) : ?><div class="intro-body r r2"><?php echo wp_kses_post( $a['body'] ); ?></div><?php endif; ?>
+			<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+			<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
+			<?php if ( ! empty( $a['body'] ) ) : ?><div class="intro-body r r2"><?php echo ea_chapters_prepare_body_html( $a['body']  ); ?></div><?php endif; ?>
 		</div>
 		<div class="videoblk r r2" style="margin-top:48px">
 			<?php if ( $poster ) : ?><img class="videoblk__poster" src="<?php echo esc_url( $poster ); ?>" alt="<?php echo esc_attr( function_exists( 'ea_chapters_content_img_alt' ) ? ea_chapters_content_img_alt( $poster, $a['alt'] ?? '' ) : ( $a['alt'] ?? '' ) ); ?>" loading="lazy"><?php endif; ?>
@@ -25,7 +25,7 @@ $poster = $a['poster'] ?? '';
 				<span class="videoblk__sc" aria-hidden="true"></span>
 				<button class="videoblk__play" type="button" aria-label="<?php esc_attr_e( 'נגן סרטון', 'ea-eyalamit' ); ?>"></button>
 			<?php endif; ?>
-			<?php if ( ! empty( $a['cap'] ) ) : ?><span class="videoblk__cap"><?php echo esc_html( $a['cap'] ); ?></span><?php endif; ?>
+			<?php if ( ! empty( $a['cap'] ) ) : ?><span class="videoblk__cap"><?php echo ea_esc_visible_text( $a['cap'] ); ?></span><?php endif; ?>
 		</div>
 	</div>
 </section>

@@ -61,7 +61,7 @@ $ea_faqm_footer = ( isset( $ea_faqm_ctx['footer'] ) && is_array( $ea_faqm_ctx['f
           <div class="ea-faq-item">
             <details class="ea-faq-item__details">
               <summary class="ea-faq-item__summary" aria-expanded="false">
-                <h3 class="ea-faq-item__question"><?php echo esc_html( $ea_faqm_q ); ?></h3>
+                <h3 class="ea-faq-item__question"><?php echo ea_esc_visible_text( $ea_faqm_q ); ?></h3>
                 <span class="ea-faq-item__icon" aria-hidden="true">
                   <svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
                     <path d="M2 5l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -69,7 +69,7 @@ $ea_faqm_footer = ( isset( $ea_faqm_ctx['footer'] ) && is_array( $ea_faqm_ctx['f
                 </span>
               </summary>
               <div class="ea-faq-item__answer">
-                <?php echo wp_kses_post( $ea_faqm_a ); ?>
+                <?php echo ea_chapters_prepare_body_html( $ea_faqm_a  ); ?>
               </div>
             </details>
           </div>

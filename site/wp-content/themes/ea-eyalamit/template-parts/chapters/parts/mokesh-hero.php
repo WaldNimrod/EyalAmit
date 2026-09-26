@@ -28,9 +28,9 @@ $yt_id = $a['yt_id'] ?? '';
 		<?php /* Round C (2026-09-24), team_00: breadcrumb moved to the classic
 			position — see tpl-chapters-mokesh.php, which now renders it right
 			after this get_template_part() call, not inside this header. */ ?>
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
 		<h1 class="phero__h"><?php ea_chapters_kses_e( $a['title'] ?? '' ); ?></h1>
-		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php echo esc_html( $a['sub'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php echo ea_esc_visible_text( $a['sub'] ); ?></p><?php endif; ?>
 	</div>
 	<?php if ( $yt_id ) : ?>
 		<button type="button" class="mokesh-hero__unmute" data-ea-mokesh-unmute aria-pressed="false" hidden>

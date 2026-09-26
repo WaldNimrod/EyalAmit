@@ -13,16 +13,16 @@ $dark  = ! empty( $a['dark'] );
 ?>
 <section class="sec<?php echo $dark ? ' sec--dark' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
-		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin:14px auto 0"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ?? '' ); ?></h2>
+		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin:14px auto 0"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
 		<div class="show<?php echo $dark ? ' show--ondark' : ''; ?> r">
 			<div class="show__track">
 				<?php foreach ( $items as $i => $it ) : ?>
 					<div class="shstep">
-						<span class="shstep__dot"><span><?php echo esc_html( (string) ( $i + 1 ) ); ?></span></span>
-						<h3 class="shstep__t"><?php echo esc_html( $it['title'] ?? '' ); ?></h3>
-						<p class="shstep__p"><?php echo esc_html( $it['text'] ?? '' ); ?></p>
+						<span class="shstep__dot"><span><?php echo ea_esc_visible_text( (string) ( $i + 1 ) ); ?></span></span>
+						<h3 class="shstep__t"><?php echo ea_esc_visible_text( $it['title'] ?? '' ); ?></h3>
+						<p class="shstep__p"><?php echo ea_esc_visible_text( $it['text'] ?? '' ); ?></p>
 					</div>
 				<?php endforeach; ?>
 			</div>

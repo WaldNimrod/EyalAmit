@@ -24,9 +24,9 @@ $ea_split = 'split2' . ( ! empty( $a['reversed'] ) ? ' split2--rev' : '' ) . ( !
 	<div class="wrap">
 		<div class="<?php echo esc_attr( $ea_split ); ?>">
 			<div class="r">
-				<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-				<h2 class="h2" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
-				<div class="intro-body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
+				<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+				<h2 class="h2" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $a['title'] ?? '' ); ?></h2>
+				<div class="intro-body"><?php echo ea_chapters_prepare_body_html( (string) ( $a['body'] ?? '' ) ); ?></div>
 			</div>
 			<?php
 			$ea_img_src     = esc_url( $a['image'] ?? '' );

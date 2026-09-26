@@ -53,13 +53,13 @@ $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items()
 	?>
 	<section class="ea-faq-list ea-faq-list--view-only" data-block="faq-list" data-faq-category="<?php echo esc_attr( implode( ' ', $ea_only_cats ) ); ?>"<?php echo '' !== $ea_view_id ? ' id="' . esc_attr( $ea_view_id ) . '"' : ''; ?>>
 		<div class="ea-faq-list__inner">
-			<?php if ( '' !== $ea_view_chap ) : ?><span class="chap chap--c r"><?php echo esc_html( $ea_view_chap ); ?></span><?php endif; ?>
-			<?php if ( '' !== $ea_view_title ) : ?><h2 class="h2 r"><?php echo esc_html( $ea_view_title ); ?></h2><?php endif; ?>
+			<?php if ( '' !== $ea_view_chap ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $ea_view_chap ); ?></span><?php endif; ?>
+			<?php if ( '' !== $ea_view_title ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $ea_view_title ); ?></h2><?php endif; ?>
 			<div class="ea-faq-category">
 				<?php foreach ( $ea_only_items as $item ) : ?>
 					<details class="ea-faq-item ea-entrance" data-category="<?php echo esc_attr( implode( ' ', $item['categories'] ) ); ?>">
-						<summary class="ea-faq-item__question"><?php printf( '<%1$s class="ea-faq-item__question-h">%2$s</%1$s>', $ea_view_only_q_tag, esc_html( $item['q'] ) ); ?></summary>
-						<div class="ea-faq-item__answer"><?php echo wp_kses_post( $item['a'] ); ?></div>
+						<summary class="ea-faq-item__question"><?php printf( '<%1$s class="ea-faq-item__question-h">%2$s</%1$s>', $ea_view_only_q_tag, ea_esc_visible_text( $item['q'] ) ); ?></summary>
+						<div class="ea-faq-item__answer"><?php echo ea_chapters_prepare_body_html( (string) $item['a'] ); ?></div>
 					</details>
 				<?php endforeach; ?>
 			</div>
@@ -87,7 +87,7 @@ $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items()
 			<ul class="ea-faq-toc__list">
 				<?php foreach ( $ea_faq_toc as $ea_toc_slug => $ea_toc_label ) : ?>
 					<li class="ea-faq-toc__item">
-						<a class="ea-faq-toc__link" href="#faq-topic-<?php echo esc_attr( $ea_toc_slug ); ?>" data-faq-toc-link="<?php echo esc_attr( $ea_toc_slug ); ?>"><?php echo esc_html( $ea_toc_label ); ?></a>
+						<a class="ea-faq-toc__link" href="#faq-topic-<?php echo esc_attr( $ea_toc_slug ); ?>" data-faq-toc-link="<?php echo esc_attr( $ea_toc_slug ); ?>"><?php echo ea_esc_visible_text( $ea_toc_label ); ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -103,7 +103,7 @@ $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items()
 			);
 			?>
 			<div class="ea-faq-category" id="faq-topic-<?php echo esc_attr( $cat_slug ); ?>" data-category="<?php echo esc_attr( $cat_slug ); ?>"<?php echo empty( $cat_items ) ? ' hidden' : ''; ?>>
-				<h2 class="ea-faq-category__heading"><?php echo esc_html( $cat_label ); ?></h2>
+				<h2 class="ea-faq-category__heading"><?php echo ea_esc_visible_text( $cat_label ); ?></h2>
 				<?php if ( empty( $cat_items ) ) : ?>
 					<p class="ea-faq-item__answer"><?php esc_html_e( 'תוכן בהכנה — אין עדיין שאלות מפורסמות בקטגוריה זו.', 'ea-eyalamit' ); ?></p>
 				<?php else : ?>
@@ -113,11 +113,11 @@ $faq_data       = function_exists( 'ea_faq_query_items' ) ? ea_faq_query_items()
 							data-category="<?php echo esc_attr( implode( ' ', $item['categories'] ) ); ?>"
 						>
 							<summary class="ea-faq-item__summary">
-								<h3 class="ea-faq-item__question"><?php echo esc_html( $item['q'] ); ?></h3>
+								<h3 class="ea-faq-item__question"><?php echo ea_esc_visible_text( $item['q'] ); ?></h3>
 								<span class="ea-faq-item__icon" aria-hidden="true">&#9662;</span>
 							</summary>
 							<div class="ea-faq-item__answer">
-								<?php echo wp_kses_post( $item['a'] ); ?>
+								<?php echo ea_chapters_prepare_body_html( (string) $item['a'] ); ?>
 							</div>
 						</details>
 					<?php endforeach; ?>

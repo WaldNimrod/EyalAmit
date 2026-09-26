@@ -216,7 +216,7 @@ function ea_w2_08_render() {
 			<span class="ea-en-hero__line ea-en-hero__line--2" aria-hidden="true"></span>
 			<div class="ea-en-hero__content">
 				<p class="ea-en-hero__kicker">The Center for Breath Therapy · Pardes Hanna, Israel</p>
-				<h1 class="ea-en-hero__title">Breath therapy through the didgeridoo — the cbDIDG method</h1>
+				<h1 class="ea-en-hero__title">Breath therapy through the didgeridoo — the <span lang="en">cbDIDG</span> method</h1>
 				<p class="ea-en-hero__subhead">Regaining control of your breath through active work with the didgeridoo, breathing practice, and personal guidance — a method built over two decades and inspired by an apprenticeship with master Mookesh Dhiman.</p>
 				<p class="ea-en-hero__trust">Eyal Amit · Active since 1999 · One of Israel's most experienced practitioners · Teaches, treats, and builds instruments by hand.</p>
 				<div class="ea-en-hero__cta-wrap">
@@ -232,7 +232,7 @@ function ea_w2_08_render() {
 				<h2 id="h-about" class="ea-en-section__heading">About Eyal</h2>
 				<div class="ea-en-prose">
 					<p>Eyal Amit has worked with the didgeridoo since 1999 and is one of the most experienced practitioners of the instrument in Israel.</p>
-					<p>He founded the Center for Breath Therapy — a circular-breathing studio in Pardes Hanna — to teach the didgeridoo as a tool with a real therapeutic effect on the body, the breath, and the mind. Over the years he has guided hundreds of people and developed the cbDIDG method, combining hands-on experience with ongoing inquiry.</p>
+					<p>He founded the Center for Breath Therapy — a circular-breathing studio in Pardes Hanna — to teach the didgeridoo as a tool with a real therapeutic effect on the body, the breath, and the mind. Over the years he has guided hundreds of people and developed the <span lang="en">cbDIDG</span> method, combining hands-on experience with ongoing inquiry.</p>
 					<p>Eyal is also an author and independent publisher. A former electronics engineer and stage performer, he created the long-running storytelling show &ldquo;One-Man Phenomenon,&rdquo; and for more than two decades has worked with the didgeridoo as a teacher, instrument builder, and breath therapist.</p>
 				</div>
 			</div>
@@ -241,10 +241,10 @@ function ea_w2_08_render() {
 		<!-- ── Block 4 — Method (cbDIDG) — alt + scannable principles list ── -->
 		<section id="method" class="ea-en-section ea-en-section--alt" data-block="method" aria-labelledby="h-method">
 			<div class="ea-en-section__inner">
-				<p class="ea-en-section__label">cbDIDG</p>
+				<p class="ea-en-section__label"><span lang="en">cbDIDG</span></p>
 				<h2 id="h-method" class="ea-en-section__heading">The Method</h2>
 				<div class="ea-en-prose">
-					<p><strong>cbDIDG</strong> is a structured method for working with the breath through playing the didgeridoo, guided one-on-one. The didgeridoo is not the goal — it is the tool through which you learn to work with your everyday breathing: to strengthen it, regulate it, and regain control over it.</p>
+					<p><strong><span lang="en">cbDIDG</span></strong> is a structured method for working with the breath through playing the didgeridoo, guided one-on-one. The didgeridoo is not the goal — it is the tool through which you learn to work with your everyday breathing: to strengthen it, regulate it, and regain control over it.</p>
 					<p><strong>Three principles guide the method:</strong></p>
 					<ul class="ea-en-list">
 						<li><strong>Active work.</strong> Unlike the passive experience of sound healing, you actively build control over your own breath through playing and consistent practice.</li>

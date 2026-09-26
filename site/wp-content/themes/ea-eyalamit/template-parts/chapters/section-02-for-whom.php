@@ -12,10 +12,10 @@ $lead  = ea_chapters_field( 'whom_lead' );
 ?>
 <section class="sec sec--alt" id="whom">
 	<div class="wrap center">
-		<?php if ( ea_chapters_field( 'whom_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'whom_chap' ) ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'whom_title' ) ); ?></h2>
+		<?php if ( ea_chapters_field( 'whom_chap' ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( ea_chapters_field( 'whom_chap' ) ); ?></span><?php endif; ?>
+		<h2 class="h2 r"><?php echo ea_esc_visible_text( ea_chapters_field( 'whom_title' ) ); ?></h2>
 		<?php if ( $lead ) : ?>
-			<p class="lead r" style="margin-top:14px"><?php echo esc_html( $lead ); ?></p>
+			<p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $lead ); ?></p>
 		<?php endif; ?>
 		<div class="whom">
 			<?php
@@ -31,7 +31,7 @@ $lead  = ea_chapters_field( 'whom_lead' );
 							<span class="ph"><span><?php esc_html_e( 'תמונה', 'ea-eyalamit' ); ?></span></span>
 						<?php endif; ?>
 					</span>
-					<p class="whom__p"><?php echo esc_html( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
+					<p class="whom__p"><?php echo ea_esc_visible_text( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>

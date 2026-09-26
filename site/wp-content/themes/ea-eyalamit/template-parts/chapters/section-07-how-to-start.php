@@ -28,19 +28,19 @@ $icons = array(
 	</div>
 	<span class="start__sc" aria-hidden="true"></span>
 	<div class="start__in center">
-		<?php if ( ea_chapters_field( 'start_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'start_chap' ) ); ?></span><?php endif; ?>
-		<h2 class="h2 start__h r"><?php echo esc_html( ea_chapters_field( 'start_title' ) ); ?></h2>
+		<?php if ( ea_chapters_field( 'start_chap' ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( ea_chapters_field( 'start_chap' ) ); ?></span><?php endif; ?>
+		<h2 class="h2 start__h r"><?php echo ea_esc_visible_text( ea_chapters_field( 'start_title' ) ); ?></h2>
 		<ul class="steps3 r">
 			<?php foreach ( $steps as $i => $row ) : ?>
 				<li class="st3">
 					<span class="st3__ic" aria-hidden="true"><?php echo $icons[ $i % count( $icons ) ]; // phpcs:ignore WordPress.Security.EscapeOutput — static trusted SVG ?></span>
-					<div class="st3__t"><?php echo esc_html( isset( $row['title'] ) ? $row['title'] : '' ); ?></div>
-					<p class="st3__p"><?php echo esc_html( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
+					<div class="st3__t"><?php echo ea_esc_visible_text( isset( $row['title'] ) ? $row['title'] : '' ); ?></div>
+					<p class="st3__p"><?php echo ea_esc_visible_text( isset( $row['text'] ) ? $row['text'] : '' ); ?></p>
 				</li>
 			<?php endforeach; ?>
 		</ul>
 		<?php if ( $cta_l ) : ?>
-			<div class="center" style="margin-top:48px"><a class="btn btn--terra r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a></div>
+			<div class="center" style="margin-top:48px"><a class="btn btn--terra r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo ea_esc_visible_text( $cta_l ); ?></a></div>
 		<?php endif; ?>
 	</div>
 </section>

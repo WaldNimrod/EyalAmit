@@ -20,12 +20,12 @@ if ( empty( $a['literal_alt'] ) && function_exists( 'ea_chapters_content_img_alt
 	<?php endif; ?>
 	<span class="photo-band__sc" aria-hidden="true"></span>
 	<div class="photo-band__in">
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
 		<?php if ( ! empty( $a['body'] ) ) : ?>
-			<?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) $a['body'] ) : (string) $a['body'] ); ?>
+			<?php echo ea_chapters_prepare_body_html( (string) $a['body'] ); ?>
 		<?php endif; ?>
 		<?php if ( ! empty( $a['cta_label'] ) ) : ?>
-			<a class="btn btn--sand" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"><?php echo esc_html( $a['cta_label'] ); ?></a>
+			<a class="btn btn--sand" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"><?php echo ea_esc_visible_text( $a['cta_label'] ); ?></a>
 		<?php endif; ?>
 	</div>
 </section>

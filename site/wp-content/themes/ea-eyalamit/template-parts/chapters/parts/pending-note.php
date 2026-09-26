@@ -13,12 +13,12 @@ if ( empty( $a['title'] ) ) { return; }
 ?>
 <section class="sec<?php echo ! empty( $a['alt'] ) ? ' sec--alt' : ''; ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
 		<div class="ea-pending-approval r" role="status" aria-live="polite">
 			<span class="ea-pending-approval__badge">ממתין לאישור</span>
-			<p class="ea-pending-approval__title"><?php echo esc_html( $a['title'] ); ?></p>
+			<p class="ea-pending-approval__title"><?php echo ea_esc_visible_text( $a['title'] ); ?></p>
 			<?php if ( ! empty( $a['note'] ) ) : ?>
-				<p class="ea-pending-approval__note"><?php echo wp_kses_post( $a['note'] ); ?></p>
+				<p class="ea-pending-approval__note"><?php echo ea_chapters_prepare_body_html( $a['note']  ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>

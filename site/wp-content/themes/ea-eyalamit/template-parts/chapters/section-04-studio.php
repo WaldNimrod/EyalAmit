@@ -16,13 +16,13 @@ $cta_u = ea_chapters_field( 'studio_cta_url' );
 	<div class="studio">
 		<div class="studio__t r">
 			<span class="arcs" aria-hidden="true"></span>
-			<?php if ( ea_chapters_field( 'studio_chap' ) ) : ?><span class="chap"><?php echo esc_html( ea_chapters_field( 'studio_chap' ) ); ?></span><?php endif; ?>
-			<h2 class="studio__h"><?php echo esc_html( ea_chapters_field( 'studio_title' ) ); ?></h2>
+			<?php if ( ea_chapters_field( 'studio_chap' ) ) : ?><span class="chap"><?php echo ea_esc_visible_text( ea_chapters_field( 'studio_chap' ) ); ?></span><?php endif; ?>
+			<h2 class="studio__h"><?php echo ea_esc_visible_text( ea_chapters_field( 'studio_title' ) ); ?></h2>
 			<?php /* S006 · H-04 · SECTION 08 הוא שלוש פסקאות אצל אייל, ולכן הטקסט עובר
 				דרך ea_chapters_kses_e (מתיר <br>) ולא דרך esc_html שבלע את הפיצול. */ ?>
 			<p class="studio__p"><?php ea_chapters_kses_e( ea_chapters_field( 'studio_body' ) ); ?></p>
 			<?php if ( $cta_l ) : ?>
-				<a class="btn btn--gw" href="<?php echo esc_url( $cta_u ); ?>" style="align-self:flex-start"><?php echo esc_html( $cta_l ); ?></a>
+				<a class="btn btn--gw" href="<?php echo esc_url( $cta_u ); ?>" style="align-self:flex-start"><?php echo ea_esc_visible_text( $cta_l ); ?></a>
 			<?php endif; ?>
 		</div>
 		<div class="studio__m r r2">

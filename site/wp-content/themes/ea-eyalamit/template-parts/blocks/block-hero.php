@@ -26,7 +26,13 @@ if ( ! is_array( $ea_hero_ctx ) ) {
 	$ea_hero_ctx = array();
 }
 
-$ea_hero_allowed_br = array( 'br' => array() );
+$ea_hero_allowed_br = array(
+	'br'   => array(),
+	'span' => array(
+		'class' => array(),
+		'lang'  => array(),
+	),
+);
 
 // Optional sr-only structural section label (e.g. the source's "HERO" marker).
 // Reuses the locked ea-sr-only atom — visually hidden, present for accessibility
@@ -110,7 +116,10 @@ if ( isset( $ea_hero_ctx['ctas'] ) && is_array( $ea_hero_ctx['ctas'] ) ) {
         <p class="ea-hero__kicker"><?php echo esc_html( $ea_hero_kicker ); ?></p>
         <?php endif; ?>
         <h1 class="ea-hero__title">
-          <?php echo wp_kses( $ea_hero_title, $ea_hero_allowed_br ); ?>
+          <?php
+          $ea_hero_title_out = function_exists( 'ea_mark_cbdidg_visible_html' ) ? ea_mark_cbdidg_visible_html( $ea_hero_title ) : $ea_hero_title;
+          echo wp_kses( $ea_hero_title_out, $ea_hero_allowed_br );
+          ?>
         </h1>
         <p class="ea-hero__subtitle">
           <?php echo wp_kses( $ea_hero_subtitle, $ea_hero_allowed_br ); ?>

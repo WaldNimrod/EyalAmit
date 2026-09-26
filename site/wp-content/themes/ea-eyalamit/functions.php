@@ -900,6 +900,8 @@ add_filter( 'generate_show_title', 'ea_eyalamit_books_v2_hide_title', 21 );
  * WP-W2-01 Stage B — frozen rollback + residual Wave2 deps (WP-CANON T6 §3.2).
  * WhatsApp float, ea-tokens/atoms enqueue, CF7 — still required by Chapters shell.
  */
+require_once get_stylesheet_directory() . '/inc/ea-cbdidg-lang.php';
+
 require_once get_stylesheet_directory() . '/inc/wave2-stage-b.php';
 
 /**

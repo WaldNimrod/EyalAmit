@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wrap">
 		<div class="about">
 			<div class="r">
-				<?php if ( ea_chapters_field( 'about_chap' ) ) : ?><span class="chap"><?php echo esc_html( ea_chapters_field( 'about_chap' ) ); ?></span><?php endif; ?>
-				<h2 class="h2" style="margin-bottom:22px"><?php echo esc_html( ea_chapters_field( 'about_title' ) ); ?></h2>
-				<div class="about__body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ea_chapters_field( 'about_body' ) ) : ea_chapters_field( 'about_body' ) ); ?></div>
+				<?php if ( ea_chapters_field( 'about_chap' ) ) : ?><span class="chap"><?php echo ea_esc_visible_text( ea_chapters_field( 'about_chap' ) ); ?></span><?php endif; ?>
+				<h2 class="h2" style="margin-bottom:22px"><?php echo ea_esc_visible_text( ea_chapters_field( 'about_title' ) ); ?></h2>
+				<div class="about__body"><?php echo ea_chapters_prepare_body_html( (string) ea_chapters_field( 'about_body' ) ); ?></div>
 			</div>
 			<div class="about__col">
 				<div class="collage">

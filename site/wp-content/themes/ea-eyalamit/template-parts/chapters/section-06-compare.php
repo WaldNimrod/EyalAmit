@@ -31,10 +31,10 @@ $cards = array(
 ?>
 <section class="sec" id="compare">
 	<div class="wrap center">
-		<?php if ( ea_chapters_field( 'cmp_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'cmp_chap' ) ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'cmp_title' ) ); ?></h2>
+		<?php if ( ea_chapters_field( 'cmp_chap' ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( ea_chapters_field( 'cmp_chap' ) ); ?></span><?php endif; ?>
+		<h2 class="h2 r"><?php echo ea_esc_visible_text( ea_chapters_field( 'cmp_title' ) ); ?></h2>
 		<?php if ( $lead ) : ?>
-			<p class="lead r" style="margin-top:14px"><?php echo esc_html( $lead ); ?></p>
+			<p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $lead ); ?></p>
 		<?php endif; ?>
 		<div class="cmp">
 			<?php foreach ( $cards as $c ) : ?>
@@ -46,13 +46,13 @@ $cards = array(
 					</span>
 					<span class="cmpc__sc" aria-hidden="true"></span>
 					<div class="cmpc__b">
-						<h3 class="cmpc__t"><?php echo esc_html( $c['title'] ); ?></h3>
+						<h3 class="cmpc__t"><?php echo ea_esc_visible_text( $c['title'] ); ?></h3>
 						<?php /* S006 · H-03 · טקסט הכרטיס בנוי לפי SECTION 04 (תוויות «מה זה:» /
 							«למי זה מתאים:» + שורה לכל שורה של אייל), ולכן עובר דרך
 							ea_chapters_kses_e (מתיר <br>/<strong>) ולא דרך esc_html. */ ?>
 						<p class="cmpc__p"><?php ea_chapters_kses_e( $c['text'] ); ?></p>
 						<?php if ( $c['cta'] ) : ?>
-							<a class="btn btn--gw" href="<?php echo esc_url( $c['url'] ); ?>"><?php echo esc_html( $c['cta'] ); ?></a>
+							<a class="btn btn--gw" href="<?php echo esc_url( $c['url'] ); ?>"><?php echo ea_esc_visible_text( $c['cta'] ); ?></a>
 						<?php endif; ?>
 					</div>
 				</div>

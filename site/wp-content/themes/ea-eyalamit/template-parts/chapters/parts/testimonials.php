@@ -75,12 +75,12 @@ $cards = static function () use ( $items, $grid ) {
 ?>
 <section class="sec sec--alt">
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
 	</div>
 	<?php if ( ! empty( $a['lead'] ) ) : ?>
 	<div class="wrap">
-		<div class="intro-body r" style="margin-bottom:22px"><?php echo wp_kses_post( $a['lead'] ); ?></div>
+		<div class="intro-body r" style="margin-bottom:22px"><?php echo ea_chapters_prepare_body_html( $a['lead']  ); ?></div>
 	</div>
 	<?php endif; ?>
 <?php if ( $grid ) : /* S006 · H-15 · רשת סטטית, בלי הכפלה ובלי חיתוך טקסט. */ ?>

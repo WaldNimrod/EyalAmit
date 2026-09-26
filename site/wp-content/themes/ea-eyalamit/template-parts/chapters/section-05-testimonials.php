@@ -72,8 +72,8 @@ $render_cards = static function () use ( $items ) {
 ?>
 <section class="sec sec--alt">
 	<div class="wrap center">
-		<?php if ( ea_chapters_field( 'testi_chap' ) ) : ?><span class="chap chap--c r"><?php echo esc_html( ea_chapters_field( 'testi_chap' ) ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( ea_chapters_field( 'testi_title' ) ); ?></h2>
+		<?php if ( ea_chapters_field( 'testi_chap' ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( ea_chapters_field( 'testi_chap' ) ); ?></span><?php endif; ?>
+		<h2 class="h2 r"><?php echo ea_esc_visible_text( ea_chapters_field( 'testi_title' ) ); ?></h2>
 	</div>
 	<div class="wrap">
 	<div class="testi-mq r" data-testi-mq role="region" aria-label="<?php esc_attr_e( 'עדויות והמלצות', 'ea-eyalamit' ); ?>">
@@ -92,7 +92,7 @@ $render_cards = static function () use ( $items ) {
 	</div>
 	<?php if ( $cta_l ) : ?>
 		<div class="wrap center" style="margin-top:40px">
-			<a class="btn btn--gd r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a>
+			<a class="btn btn--gd r" href="<?php echo esc_url( $cta_u ); ?>"><?php echo ea_esc_visible_text( $cta_l ); ?></a>
 		</div>
 	<?php endif; ?>
 </section>

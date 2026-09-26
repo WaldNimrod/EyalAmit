@@ -14,9 +14,9 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 ?>
 <section class="sec<?php echo $alt ? ' sec--alt' : ''; ?>">
 	<div class="wrap center">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<h2 class="h2 r"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
-		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ?? '' ); ?></h2>
+		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
 		<div class="reveals r">
 			<?php
 			foreach ( $items as $i => $it ) :
@@ -29,8 +29,8 @@ $alt   = array_key_exists( 'alt', $a ) ? ! empty( $a['alt'] ) : true;
 					<span class="rcard__sc" aria-hidden="true"></span>
 					<span class="rcard__hint" aria-hidden="true">+</span>
 					<div class="rcard__b">
-						<h3 class="rcard__t"><?php echo esc_html( $ttl ); ?></h3>
-						<?php if ( ! empty( $it['more'] ) ) : ?><div class="rcard__more"><p><?php echo esc_html( $it['more'] ); ?></p></div><?php endif; ?>
+						<h3 class="rcard__t"><?php echo ea_esc_visible_text( $ttl ); ?></h3>
+						<?php if ( ! empty( $it['more'] ) ) : ?><div class="rcard__more"><p><?php echo ea_esc_visible_text( $it['more'] ); ?></p></div><?php endif; ?>
 					</div>
 				</div>
 			<?php endforeach; ?>

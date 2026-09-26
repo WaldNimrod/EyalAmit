@@ -11,12 +11,12 @@ $items = ( isset( $a['items'] ) && is_array( $a['items'] ) ) ? $a['items'] : arr
 ?>
 <section class="sec<?php echo ! empty( $a['dark'] ) ? ' sec--dark' : ( ! empty( $a['alt'] ) ? ' sec--alt' : '' ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap<?php echo ! empty( $a['center'] ) ? ' center' : ''; ?>">
-		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap r"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo esc_html( $a['title'] ); ?></h2><?php endif; ?>
-		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin:14px 0 0"><?php echo esc_html( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
+		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin:14px 0 0"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
 		<ol class="tl r">
 			<?php foreach ( $items as $it ) : ?>
-				<li class="tl__n"><span class="tl__y"><?php echo esc_html( $it['year'] ?? '' ); ?></span><p class="tl__l"><?php echo esc_html( $it['text'] ?? '' ); ?></p></li>
+				<li class="tl__n"><span class="tl__y"><?php echo ea_esc_visible_text( $it['year'] ?? '' ); ?></span><p class="tl__l"><?php echo ea_esc_visible_text( $it['text'] ?? '' ); ?></p></li>
 			<?php endforeach; ?>
 		</ol>
 	</div>

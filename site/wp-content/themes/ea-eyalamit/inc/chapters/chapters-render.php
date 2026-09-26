@@ -822,6 +822,9 @@ function ea_chapters_testimonials( $cat = '' ) {
  */
 function ea_chapters_kses_e( $html ) {
 	$html = function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) $html ) : (string) $html;
+	if ( function_exists( 'ea_mark_cbdidg_visible_html' ) ) {
+		$html = ea_mark_cbdidg_visible_html( $html );
+	}
 	echo wp_kses(
 		(string) $html,
 		array(

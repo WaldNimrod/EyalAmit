@@ -14,7 +14,7 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 	<?php endif; ?>
 	<span class="bleed__sc" aria-hidden="true"></span>
 	<div class="bleed__c"><div class="bleed__in">
-		<p class="bleed__q r"><?php echo esc_html( $a['quote'] ?? '' ); ?></p>
-		<?php if ( ! empty( $a['attrib'] ) ) : ?><p class="bleed__a r"><?php echo esc_html( $a['attrib'] ); ?></p><?php endif; ?>
+		<p class="bleed__q r"><?php echo ea_esc_visible_text( $a['quote'] ?? '' ); ?></p>
+		<?php if ( ! empty( $a['attrib'] ) ) : ?><p class="bleed__a r"><?php echo ea_esc_visible_text( $a['attrib'] ); ?></p><?php endif; ?>
 	</div></div>
 </section>

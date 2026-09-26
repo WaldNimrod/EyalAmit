@@ -586,7 +586,7 @@ if ( ! function_exists( 'ea_render_unified_footer' ) ) :
 		// Contact block — existing copy (template-parts/chapters/section-footer.php), unchanged.
 		echo '<div class="ea-ftr__contact">';
 		echo '<b class="ea-ftr__contact-name">המרכז לטיפול בנשימה באמצעות דיג׳רידו</b>';
-		echo '<p class="ea-ftr__contact-tag">פרדס חנה, ישראל. שיטת cbDIDG, מאז 1999.</p>';
+		echo '<p class="ea-ftr__contact-tag">פרדס חנה, ישראל. שיטת ' . ( function_exists( 'ea_cbdidg_lang_markup' ) ? ea_cbdidg_lang_markup() : 'cbDIDG' ) . ', מאז 1999.</p>';
 		echo '<p class="ea-ftr__contact-nap">' . esc_html( ea_nap( 'address_display' ) ) . '</p>';
 		printf(
 			'<p class="ea-ftr__contact-tel"><a href="tel:%s" dir="ltr">%s</a></p>',

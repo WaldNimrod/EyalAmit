@@ -39,9 +39,9 @@ if ( function_exists( 'ea_chapters_resolve_img' ) ) {
 	<div class="wrap">
 		<div class="split2<?php echo ! empty( $a['reversed'] ) ? ' split2--rev' : ''; ?>">
 			<div class="r">
-				<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo esc_html( $a['chap'] ); ?></span><?php endif; ?>
-				<h2 class="h2" style="margin-bottom:18px"><?php echo esc_html( $a['title'] ?? '' ); ?></h2>
-				<div class="intro-body"><?php echo wp_kses_post( function_exists( 'ea_replace_retired_brand' ) ? ea_replace_retired_brand( (string) ( $a['body'] ?? '' ) ) : ( $a['body'] ?? '' ) ); ?></div>
+				<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
+				<h2 class="h2" style="margin-bottom:18px"><?php echo ea_esc_visible_text( $a['title'] ?? '' ); ?></h2>
+				<div class="intro-body"><?php echo ea_chapters_prepare_body_html( (string) ( $a['body'] ?? '' ) ); ?></div>
 			</div>
 			<figure class="split2__m r r2" style="margin:0">
 				<?php /* .figr keeps its own rounded, clipped box so `.figr img` still applies;
@@ -52,7 +52,7 @@ if ( function_exists( 'ea_chapters_resolve_img' ) ) {
 				<?php if ( $caps ) : ?>
 					<figcaption dir="ltr" style="margin-top:10px;font-family:var(--bf);font-size:.78rem;line-height:1.65;letter-spacing:.3px;color:var(--muted);text-align:left">
 						<?php foreach ( $caps as $line ) : ?>
-							<span style="display:block"><?php echo esc_html( $line ); ?></span>
+							<span style="display:block"><?php echo ea_esc_visible_text( $line ); ?></span>
 						<?php endforeach; ?>
 					</figcaption>
 				<?php endif; ?>

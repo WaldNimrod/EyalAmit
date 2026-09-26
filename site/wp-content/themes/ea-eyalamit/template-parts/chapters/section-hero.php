@@ -44,7 +44,7 @@ $cta_u  = ea_chapters_field( 'hero_cta_url' );
 		<h1 class="hero__h"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_title' ) ); ?></h1>
 		<p class="hero__s"><?php ea_chapters_kses_e( ea_chapters_field( 'hero_subtitle' ) ); ?></p>
 		<?php if ( $cta_l ) : ?>
-			<a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo esc_html( $cta_l ); ?></a>
+			<a class="btn btn--terra" href="<?php echo esc_url( $cta_u ); ?>"><?php echo ea_esc_visible_text( $cta_l ); ?></a>
 		<?php endif; ?>
 	</div>
 	<div class="hero__cues" aria-hidden="true"><span></span><span></span></div>
