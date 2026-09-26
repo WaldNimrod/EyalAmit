@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>קטלוג טיפוסי התוכן — אייל עמית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#2E2B28; --muted:#6F635A; --line:#e3ddd3; --paper:#FAF8F5; --card:#fff; --accent:#A44E2B; --accent-dk:#8A5A44; --sand:#D8C7B5; --warn:#9c3b1e; --ok:#3f6b42; --r:14px; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Heebo","Assistant",Arial,sans-serif;font-size:17px;line-height:1.7}
+  .wrap-outer{max-width:1040px;margin:0 auto;padding:0 20px 120px}
+  header.top{background:var(--ink);color:#fff;padding:34px 20px 26px}
+  header.top .in{max-width:1040px;margin:0 auto}
+  h1{font-family:"Frank Ruhl Libre",serif;font-size:1.9rem;margin:0 0 8px;line-height:1.25}
+  .meta{color:rgba(255,255,255,.75);font-size:.92rem;margin:0 0 4px}
+  .lede{color:rgba(255,255,255,.92);margin:14px 0 0;max-width:74ch}
+  .pairbox{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:14px 16px;margin-top:18px;font-size:.92rem;max-width:74ch}
+  .howto{background:#fff5e8;border:1px solid #e8d3b4;border-radius:var(--r);padding:18px 20px;margin:26px 0}
+  .howto b{color:var(--accent)}
+  .howto p{margin:0 0 10px}
+  .howto p:last-child{margin-bottom:0}
+  nav.idx{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin:26px 0}
+  nav.idx h2{font-size:1.1rem;margin:0 0 12px}
+  nav.idx .grp{margin-bottom:10px}
+  nav.idx .grp b{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px}
+  nav.idx .grid{display:flex;flex-wrap:wrap;gap:6px}
+  nav.idx a{font-size:.86rem;background:#f4f1ea;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--accent-dk);text-decoration:none}
+  nav.idx a:hover{background:#efe6d8}
+  section.group-h{margin:46px 0 6px}
+  section.group-h h2{font-family:"Frank Ruhl Libre",serif;font-size:1.35rem;border-top:2px solid var(--ink);padding-top:14px;margin:0}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0;margin:18px 0;overflow:hidden;scroll-margin-top:16px}
+  .tcard__head{padding:16px 20px 6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .tcard__badge{font-size:.72rem;font-weight:700;color:#fff;background:var(--accent-dk);border-radius:999px;padding:2px 10px;letter-spacing:.02em;white-space:nowrap}
+  .tcard__name{font-size:1.18rem;font-weight:600;margin:0}
+  .tcard__flag{font-size:.74rem;font-weight:700;border-radius:999px;padding:2px 10px;white-space:nowrap}
+  .tcard__flag--warn{background:#fff3d6;color:#8a5a1c}
+  .tcard__flag--new{background:#eef4ee;color:var(--ok)}
+  .frame-wrap{position:relative;overflow:hidden;background:#eee;margin:14px 20px;border-radius:10px;border:1px solid var(--line)}
+  .frame-wrap iframe{border:0;position:absolute;top:0;left:50%;transform-origin:top center;background:#fff;width:1280px}
+  .frame-wrap .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem}
+  .tcard__def{padding:8px 20px 20px;color:var(--ink)}
+  .tcard__def p{margin:0 0 10px}
+  .tcard__note{font-size:.9rem;color:var(--muted);background:#f4f1ea;border-radius:8px;padding:10px 12px;margin-top:4px}
+  .revsec{margin:52px 0}
+  .revsec h2{font-family:"Frank Ruhl Libre",serif;font-size:1.55rem;border-top:3px solid var(--ink);padding-top:16px;margin:0 0 6px}
+  .revsec .subtitle{color:var(--muted);margin:0 0 18px;max-width:74ch}
+  .revitem{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:14px 0}
+  .revitem h3{margin:0 0 8px;font-size:1.08rem}
+  .revitem p{margin:0 0 12px;color:var(--ink)}
+  .revitem .need{display:inline-block;font-size:.76rem;font-weight:700;border-radius:999px;padding:3px 12px;margin-bottom:10px}
+  .need--look{background:#eef4ee;color:var(--ok)}
+  .need--decide{background:#fff3d6;color:#8a5a1c}
+  .need--rule{background:#fbe6e2;color:var(--warn)}
+  .revitem .openlink{display:inline-block;margin-top:2px;font-size:.9rem;font-weight:600;color:#fff;background:var(--accent);border-radius:8px;padding:8px 16px;text-decoration:none}
+  .revitem .openlink:hover{background:var(--accent-dk)}
+  .revitem .openlink + .openlink{margin-inline-start:8px}
+  footer.bottom{margin-top:60px;padding-top:20px;border-top:2px solid var(--ink);color:var(--muted);font-size:.88rem}
+  footer.bottom p{margin:0 0 8px}
+  .pending-tag{display:inline-block;background:#fff3d6;color:#8a5a1c;font-size:.76rem;font-weight:700;border-radius:999px;padding:3px 12px;margin:0 20px 10px}
+  @media(max-width:640px){ h1{font-size:1.5rem} .tcard__head{padding:14px 14px 4px} .frame-wrap{margin:14px 14px} .tcard__def{padding:6px 14px 18px} .pending-tag{margin:0 14px 10px} }
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>קטלוג טיפוסי התוכן באתר</h1>
+  <p class="meta">אייל עמית ונימרוד ולד · 26 בספטמבר 2026 · נכון לגרסת תמה 1.5.138 (העדכון האחרון של פס הקריאה־לפעולה כבר עלה, שום דבר לא באמצע עבודה)</p>
+  <p class="lede">כל שורת תוכן באתר שייכת לאחד הטיפוסים ברשימה הזאת. לכל טיפוס יש כאן דוגמה מעוצבת עם תוכן לדוגמה,
+    בדיוק כפי שהיא נראית באתר עצמו, ופסקת הסבר קצרה. המסמך נבנה כדי שאפשר יהיה לבקש שינוי במשפט אחד:
+    <b>שורה מטיפוס א׳ עם תוכן ב׳ בעמוד ג׳ במיקום ד׳</b>.</p>
+  <div class="pairbox">לצמד הזה יש קובץ תאום — <a href="CONTENT-TYPES-CANON.md" style="color:#fff;text-decoration:underline">קובץ ההגדרות</a> המדויק
+    לשימוש הסביבה והסשנים, לא מיועד לקריאה שוטפת (הקישור פועל כשפותחים את שני הקבצים מאותה תיקייה; בעותק המתפרסם
+    לרשת קובץ ההגדרות אינו מתפרסם, כי הוא מיועד לעבודה טכנית ולא לדפדפן).
+    שני הקבצים תמיד מתעדכנים יחד: שינוי באחד בלי השני הוא פגם.</div>
+</div></header>
+
+<div class="wrap-outer">
+
+  <div class="howto">
+    <p><b>איך להשתמש בדף הזה.</b> גוללים לטיפוס המבוקש (או לוחצים על הקיצור באינדקס למטה), רואים איך השורה
+      נראית, וקוראים את פסקת ההסבר. אם השורה המבוקשת קרובה לאחד הטיפוסים אבל לא זהה לו — זו כנראה וריאציה
+      שכבר מתוארת בפסקה עצמה, לא טיפוס חדש.</p>
+    <p>בתחתית הדף שני פרקים נוספים: <b>מה עוד לא אחיד באתר</b> — מקומות שבהם אותו טיפוס נראה קצת אחרת מעמוד
+      לעמוד, ו<b>אזורים בלי טיפוס בכלל</b> — תוכן שעדיין אין לו תבנית משלו. שני הפרקים האלה הם רשימת עבודה
+      בשבילך: בכל שורה כתוב בדיוק מה מבקשים ממך — מבט, החלטה, או הכרעה — ויש קישור לעמוד החי כדי לראות
+      במו עינייך על מה מדובר.</p>
+  </div>
+
+  <nav class="idx" id="top-idx">
+    <h2>קפיצה מהירה</h2>
+    <div class="grp"><b>פתיחות עמוד</b><div class="grid" id="idx-openers"></div></div>
+    <div class="grp"><b>טקסט קריאה</b><div class="grid" id="idx-text"></div></div>
+    <div class="grp"><b>תמונות ומדיה</b><div class="grid" id="idx-media"></div></div>
+    <div class="grp"><b>כרטיסים ורשימות</b><div class="grid" id="idx-cards"></div></div>
+    <div class="grp"><b>קריאה לפעולה</b><div class="grid" id="idx-cta"></div></div>
+    <div class="grp"><b>שאלות נפוצות</b><div class="grid" id="idx-faq"></div></div>
+    <div class="grp"><b>אזורים ייעודיים — בלוג, QR, יצירת קשר, עיתונות</b><div class="grid" id="idx-special"></div></div>
+    <div class="grp"><b>רשימות עבודה</b><div class="grid">
+      <a href="#review-a">מה עוד לא אחיד</a><a href="#review-b">אזורים בלי טיפוס</a>
+    </div></div>
+  </nav>
+
+  <div id="types"></div>
+
+  <section class="revsec" id="review-a">
+    <h2>מה עוד לא אחיד באתר</h2>
+    <p class="subtitle">שמונה טיפוסים שבהם אותה שורה נראית אחרת מעמוד לעמוד — לא תקלה, אלא נקודה שמחכה
+      להכרעה שלך לפני שממשיכים הלאה. בכל שורה: מה בדיוק רואים, ואיפה אפשר לראות זאת בעצמכם.</p>
+    <div id="review-a-list"></div>
+  </section>
+
+  <section class="revsec" id="review-b">
+    <h2>אזורים בלי טיפוס</h2>
+    <p class="subtitle">כאן "שורה מטיפוס א׳" אין לה על מה להצביע — אין תבנית שמחלקת את התוכן לשורות.
+      חלק מהמקומות האלה כבר אושרו כתכנון (רק עוד לא נבנו), וחלק פשוט פתוחים.</p>
+    <div id="review-b-list"></div>
+  </section>
+
+  <footer class="bottom">
+    <p><b>תאריך ומספר גרסה:</b> 26 בספטמבר 2026, גרסת תמה 1.5.138.</p>
+    <p><b>כלל הצמד:</b> למסמך הזה יש תאום טכני שנערך תמיד יחד איתו. שינוי בטיפוס כאן בלי עדכון מקביל בקובץ
+      התאום הוא פגם, בדיוק כמו שינוי גודל טקסט בלי עדכון קובץ הטוקנים.</p>
+    <p>הדוגמאות בדף הזה מוצגות דרך גיליון העיצוב האמיתי של האתר, לא שחזור שלו — מה שרואים כאן הוא מה
+      שהאתר עצמו מצייר.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+var STAGE = "http://eyalamit-co-il-2026.s887.upress.link";
+var THEME = STAGE + "/wp-content/themes/ea-eyalamit";
+var TCSS = THEME + "/assets/css/ea-tokens.css";
+var CCSS = THEME + "/assets/css/chapters.css";
+var ORCSS = THEME + "/assets/css/ea-open-round.css";
+var BLOGCSS = THEME + "/assets/css/ea-blog.css";
+function IMG(p){ return THEME + "/assets/images/" + p; }
+var PEEK = function(n){
+  var pad = (n<10?"0"+n:""+n);
+  var ext = ({15:"jpg",17:"jpg",18:"jpg",19:"jpg",22:"jpg",23:"jpg",24:"jpg",25:"jpg",26:"jpg",27:"jpg",28:"jpg",29:"jpg"})[n] || "jpeg";
+  return IMG("chapters/home-peek/peek-"+pad+"."+ext);
+};
+var POSTER = THEME + "/assets/video/ea-home-hero-poster.jpg";
+var MP4 = THEME + "/assets/video/ea-home-hero-720-muted.mp4";
+var FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700&family=Heebo:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">';
+
+function frameDoc(body, extraCss, extraStyle){
+  extraCss = extraCss || [];
+  var links = [TCSS, CCSS].concat(extraCss).map(function(h){ return '<link rel="stylesheet" href="'+h+'">'; }).join('');
+  return '<!doctype html><html dir="rtl" lang="he"><head><meta charset="utf-8">'+FONTS+links+
+    '<style>*{box-sizing:border-box}html,body{margin:0}body{background:var(--ivory)}' +
+    '.r,.r2,.r3{opacity:1!important;transform:none!important}' + (extraStyle||'') + '</style></head><body>'+body+'</body></html>';
+}
+
+// ---------- Type bodies (real theme classes; sample content is real site copy or plain neutral placeholder) ----------
+
+var T = [];
+function add(o){ T.push(o); }
+
+add({ num:1, group:"openers", idx:"idx-openers", name:"הירו עמוד — עם תמונה", flag:null,
+  def:"כל עמוד פנימי נפתח בבאנר גדול עם תמונה מלאה, כותרת אחת גדולה בצד ימין, ושורת תת-כותרת מתחתיה. הכותרת תמיד מיושרת לימין, על גבי הצללה כהה שמבטיחה שהטקסט הלבן קריא על כל תמונה. זה הפתיח הרגיל של רוב עמודי הפנים — 74 עמודים נפתחים בדיוק ככה.",
+  note:"בעמודים בודדים (התיקון, יצירת קשר) הבאנר נמוך יותר מהרגיל, ובעמוד האנגלי הכותרת עוברת לצד שמאל. שלושת אלה ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<header class="phero phero--media"><img class="phero__media" src="'+PEEK(18)+'" alt=""><span class="phero__sc" aria-hidden="true"></span><span class="arcs" aria-hidden="true"></span>'+
+    '<div class="phero__in"><span class="chap">פרק</span><h1 class="phero__h">כותרת העמוד</h1><p class="phero__s">שורת פתיחה קצרה מתחת לכותרת הראשית</p></div></header>'
+  )});
+
+add({ num:2, group:"openers", idx:"idx-openers", name:"הירו הבית — עם סרטון", flag:null,
+  def:"רק בעמוד הבית: באנר במסך מלא עם סרטון רקע, כותרת אחת ממורכזת (לא לימין כמו בפנים), ושורת אמון קטנה מעליה.",
+  body: frameDoc(
+    '<header class="hero"><video class="hero__media" muted loop playsinline preload="none" poster="'+POSTER+'"><source src="'+MP4+'" type="video/mp4"></video>'+
+    '<div class="hero__scrim" aria-hidden="true"></div><div class="hero__c"><span class="hero__trust">שורת אמון לדוגמה</span><h1 class="hero__h">כותרת הבית</h1><p class="hero__s">שורת פתיחה מתחת לכותרת הראשית</p></div>'+
+    '<div class="hero__cues" aria-hidden="true"><span></span><span></span></div></header>'
+  )});
+
+add({ num:3, group:"openers", idx:"idx-openers", name:"הירו ייעודי עם סרטון רקע", flag:"ייחודי לעמוד אחד",
+  def:"אותו באנר עם תמונה כמו הטיפוס הראשון, אבל עם סרטון מתנגן ברקע במקום תמונה קבועה. בנוי במיוחד עבור עמוד אחד ולא לשימוש חוזר.",
+  body: frameDoc(
+    '<header class="phero phero--media mokesh-hero"><img class="phero__media" src="'+PEEK(19)+'" alt=""><span class="phero__sc" aria-hidden="true"></span>'+
+    '<div class="phero__in"><span class="chap">אייל עמית</span><h1 class="phero__h">כותרת ההירו הייעודי</h1><p class="phero__s">הירו עם סרטון רקע, בעמוד אחד בלבד</p></div></header>'
+  )});
+
+add({ num:4, group:"text", idx:"idx-text", name:"פסקת קריאה", flag:null,
+  def:"בלוק הטקסט הרגיל של האתר: כותרת משנה ואחריה פסקאות, על רוחב קריאה קבוע וממורכז בעמוד — לא נמתח לכל רוחב המסך. הטקסט תמיד מיושר לימין.",
+  note:"לפעמים הרקע מאחורי הבלוק כהה במקום קרם, ובשלושת עמודי הספרים הטקסט נחתך אחרי כמה שורות עם כפתור \"להמשך קריאה\". ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת המשנה</h2>'+
+    '<div class="intro-body"><p>טקסט לדוגמה. פסקת גוף רגילה על רוחב קריאה קבוע, מיושרת לימין ולא נמתחת לכל רוחב המסך.</p>'+
+    '<p>פסקה שנייה, כדי להראות איך נראה טור ארוך יותר.</p></div></div></section>'
+  )});
+
+add({ num:5, group:"text", idx:"idx-text", name:"פסקה עם \"המשך קריאה\"", flag:null,
+  def:"כמו פסקת הקריאה הרגילה, רק שרואים תחילה שורות ספורות בלבד, ומתחתן כפתור שפותח את שאר הטקסט. משמש היום רק בשלושת עמודי הספרים.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת עם קיפול</h2>'+
+    '<div class="prose-fold" style="--fold-lines:3"><div class="prose-fold__peek intro-body"><p>תחילת הטקסט מוצגת תמיד — כמה שורות בלבד, לפני שממשיכים לקרוא הלאה.</p></div>'+
+    '<details class="prose-acc prose-acc--fold"><summary class="prose-acc__t">להמשך קריאה</summary>'+
+    '<div class="intro-body"><p>תחילת הטקסט מוצגת תמיד — כמה שורות בלבד, לפני שממשיכים לקרוא הלאה.</p><p>וכאן ממשיך שאר הטקסט, אחרי לחיצה על הכפתור.</p></div></details></div>'+
+    '</div></section>'
+  )});
+
+add({ num:7, group:"text", idx:"idx-text", name:"תמונה צפה בתוך הטקסט", flag:null,
+  def:"תמונה קטנה שצפה בתוך עמודת הטקסט, כשהמשפטים ממשיכים להתעטף סביבה — לא שני טורים נפרדים, אלא תמונה אחת שיושבת בתוך הקריאה.",
+  note:"יש היום שני גדלים שונים לתמונה הצפה בשני עמודים שונים — אחד קטן ואחד גדול בהרבה. ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">תמונה בתוך הקריאה</h2>'+
+    '<div class="intro-body"><figure class="pfloat pfloat--s"><img src="'+PEEK(22)+'" alt=""></figure>'+
+    '<p>טקסט לדוגמה שממשיך להתפתל סביב התמונה הקטנה שצפה בתוך העמודה, בלי לפצל אותה לשני טורים.</p>'+
+    '<p>פסקה נוספת, כדי להראות את העיטוף לאורך כמה שורות.</p></div></div></section>'
+  )});
+
+add({ num:22, group:"text", idx:"idx-text", name:"רשימת מונחים מתקפלת", flag:null,
+  def:"רשימת שאלות או מונחים שכל אחד מהם נפתח בנפרד ללחיצה, ממורכזת בעמוד. משמש בשלושה עמודים בלבד.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap center"><span class="chap chap--c">פרק</span><h2 class="h2" style="text-align:center">כותרת מרכזית</h2>'+
+    '<div class="dd"><details class="dd__item"><summary class="dd__sum"><span class="dd__sum-main"><span class="dd__t">מונח לדוגמה</span></span><span class="dd__ic" aria-hidden="true"></span></summary><div class="dd__body">הסבר קצר לדוגמה.</div></details>'+
+    '<details class="dd__item dd__item--active" open><summary class="dd__sum"><span class="dd__sum-main"><span class="dd__t">מונח נוסף, פתוח כברירת מחדל</span></span><span class="dd__ic" aria-hidden="true"></span></summary><div class="dd__body">הסבר קצר לדוגמה, מוצג פתוח מלכתחילה.</div></details></div>'+
+    '</div></section>'
+  )});
+
+add({ num:23, group:"text", idx:"idx-text", name:"תפריט קפיצה בתוך העמוד", flag:"ייחודי לעמוד אחד",
+  def:"שורת קישורים קצרים בראש העמוד שקופצים לסעיפים בהמשך אותו עמוד. משמש היום בעמוד אחד בלבד.",
+  body: frameDoc(
+    '<div class="ea-toc"><section class="sec ea-toc__sec"><div class="wrap lede"><nav class="toc-inline"><p class="toc-inline__h">בעמוד הזה</p>'+
+    '<ol><li><a href="#">סעיף א</a></li><li><a href="#">סעיף ב</a></li><li><a href="#">סעיף ג</a></li></ol></nav></div></section></div>'
+  )});
+
+add({ num:6, group:"media", idx:"idx-media", name:"טקסט ותמונה זה לצד זה", flag:null,
+  def:"שני טורים שווים — טקסט מצד אחד ותמונה אחת מהצד השני, על כל רוחב העמוד. לא תמונה קטנה שגונבת מקום מהטקסט.",
+  note:"התמונה מופיעה בכמה יחסי-רוחב שונים בעמודים שונים (רחבה, מאונכת, או ממלאת את כל התא בלי חיתוך), ובעמוד אחד אפשר גם ללחוץ עליה להגדלה. ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><div class="split2"><div><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת לצד התמונה</h2>'+
+    '<div class="intro-body"><p>טקסט לדוגמה לצד תמונה יחידה, על שני טורים שווים.</p></div></div>'+
+    '<figure class="figr figr--l split2__m" style="margin:0"><img src="'+PEEK(24)+'" alt=""></figure></div></div></section>'
+  )});
+
+add({ num:10, group:"media", idx:"idx-media", name:"תמונה מלאה עם טקסט", flag:"ייחודי לעמוד אחד",
+  def:"תמונה שתופסת את כל רוחב המסך, עם בלוק טקסט וכפתור מונחים עליה בצד אחד. משמש היום רק בעמוד התיקון.",
+  body: frameDoc(
+    '<section class="photo-band"><img class="photo-band__media" src="'+PEEK(21)+'" alt=""><span class="photo-band__sc" aria-hidden="true"></span>'+
+    '<div class="photo-band__in"><h2 class="h2">כותרת על גבי התמונה</h2><p>טקסט קצר על גבי התמונה, בתוך בלוק טקסט למחצה-שקוף.</p><a class="btn btn--sand" href="#">כפתור לדוגמה</a></div></section>'
+  )});
+
+add({ num:11, group:"media", idx:"idx-media", name:"רשת תמונות", flag:null,
+  def:"רשת של תמונות בגודל אחיד, שלוש בשורה כברירת מחדל, לפעמים עם כיתוב קצר מתחת לתמונה.",
+  note:"בעמוד התיקון הרשת הזאת נראית אחרת — ארבע תמונות מאונכות וצרות בשורה במקום שלוש רחבות. ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap center"><span class="chap chap--c">פרק</span><h2 class="h2">גלריית תמונות</h2>'+
+    '<div class="gallery"><figure class="gfig"><img src="'+PEEK(1)+'" alt=""><figcaption class="gfig__cap">כיתוב לדוגמה</figcaption></figure>'+
+    '<figure class="gfig"><img src="'+PEEK(2)+'" alt=""></figure><figure class="gfig"><img src="'+PEEK(3)+'" alt=""></figure></div></div></section>'
+  )});
+
+add({ num:12, group:"media", idx:"idx-media", name:"תמונה מלאה עם ציטוט", flag:null,
+  def:"תמונה שתופסת את כל רוחב המסך עם ציטוט קצר עליה ושם המצטט מתחתיו. פס הפסקה בין קטעי תוכן, לא שורת תוכן בפני עצמה.",
+  body: frameDoc(
+    '<section class="bleed"><img src="'+PEEK(5)+'" alt=""><span class="bleed__sc" aria-hidden="true"></span>'+
+    '<div class="bleed__c"><div class="bleed__in"><p class="bleed__q">״ציטוט לדוגמה על גבי תמונה מלאה״</p><p class="bleed__a">שם לדוגמה</p></div></div></section>'
+  )});
+
+add({ num:26, group:"media", idx:"idx-media", name:"בלוק וידאו — סרטון פעיל", flag:null,
+  def:"טקסט קצר ומתחתיו מסגרת וידאו רחבה עם כפתור הפעלה עגול. כרגע הסרטון האמיתי מתנגן רק בעמוד הבית.",
+  note:"אותה מסגרת בדיוק מופיעה ריקה, עם תג \"ממתין לאישור\", בשלושה עמודים נוספים שמחכים לסרטון. ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap"><div style="max-width:760px"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת מעל הסרטון</h2>'+
+    '<div class="intro-body"><p>טקסט קצר לדוגמה מעל בלוק הווידאו.</p></div></div>'+
+    '<div class="videoblk" style="margin-top:48px"><img class="videoblk__poster" src="'+POSTER+'" alt=""><span class="videoblk__sc" aria-hidden="true"></span>'+
+    '<button class="videoblk__play" type="button" aria-label="נגן סרטון"></button><span class="videoblk__cap">כיתוב לדוגמה</span></div></div></section>'
+  )});
+
+add({ num:27, group:"media", idx:"idx-media", name:"בלוק וידאו — ממתין לתוכן", flag:"ממתין לתוכן",
+  def:"אותה מסגרת בדיוק כמו בלוק הווידאו הפעיל, אבל ריקה ומסומנת שהיא ממתינה לאישור — כי עדיין אין סרטון אמיתי למקום הזה.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap"><div style="max-width:760px"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת מעל הסרטון</h2>'+
+    '<div class="intro-body"><p>טקסט קצר לדוגמה מעל מקום הווידאו.</p></div></div>'+
+    '<div class="videoblk" style="margin-top:48px;position:relative;min-height:220px" role="img" aria-label="ממתין לסרטון"><div class="ea-pending-approval" role="status" style="position:absolute;inset:16px;margin:0">'+
+    '<span class="ea-pending-approval__badge">ממתין לאישור</span><p class="ea-pending-approval__title">מקום שמור לסרטון</p></div></div></div></section>'
+  )});
+
+add({ num:28, group:"media", idx:"idx-media", name:"שיבוצי פוסטים מפייסבוק", flag:"ייחודי לעמוד אחד",
+  def:"רשת של פוסטים מוטמעים מדף הפייסבוק, בעמוד אחד בלבד.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">מהפייסבוק שלנו</h2>'+
+    '<div class="fbgrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">'+
+    '<div style="background:var(--ivory-2,#efeae1);border:1px solid var(--line,#e3ddd3);border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--muted,#6f635a);font-size:.85rem">פוסט מהפייסבוק</div>'+
+    '<div style="background:var(--ivory-2,#efeae1);border:1px solid var(--line,#e3ddd3);border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--muted,#6f635a);font-size:.85rem">פוסט מהפייסבוק</div>'+
+    '<div style="background:var(--ivory-2,#efeae1);border:1px solid var(--line,#e3ddd3);border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--muted,#6f635a);font-size:.85rem">פוסט מהפייסבוק</div>'+
+    '</div></div></section>'
+  )});
+
+add({ num:29, group:"media", idx:"idx-media", name:"ציר זמן", flag:"ייחודי לעמוד אחד",
+  def:"שורת שנים ואירועים לצד כל שנה, בעמוד אחד בלבד.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">ציר הזמן</h2>'+
+    '<div class="tl" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line,#e3ddd3);padding-top:18px">'+
+    '<div><span class="tl__y">2010</span><p>אירוע לדוגמה</p></div><div><span class="tl__y">2015</span><p>אירוע לדוגמה</p></div>'+
+    '<div><span class="tl__y">2020</span><p>אירוע לדוגמה</p></div><div><span class="tl__y">2025</span><p>אירוע לדוגמה</p></div></div></div></section>'
+  )});
+
+add({ num:30, group:"media", idx:"idx-media", name:"מקום שמור לתמונה", flag:"ייחודי לשני עמודים",
+  def:"מסגרת ריקה בגודל קבוע שמייעדת מקום לתמונה עתידית, עם תווית שמסבירה מה אמור להיות שם. לא תקלה — שמורה בכוונה.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><figure class="ea-photo-slot"><div class="ph" role="img" aria-label="תמונה — תיבחר בהמשך"><span>תמונה — תיבחר בהמשך</span></div></figure></div></section>'
+  )});
+
+add({ num:36, group:"media", idx:"idx-media", name:"שיבוץ סרטון פשוט", flag:"ייחודי לעמוד אחד",
+  def:"מסגרת סרטון יוטיוב פשוטה בתוך הקריאה, ללא כפתור הפעלה מיוחד — בעמוד אחד בלבד.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><div class="split2"><div><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת ליד הסרטון</h2>'+
+    '<div class="intro-body"><p>טקסט לדוגמה ליד שיבוץ סרטון פשוט.</p></div></div>'+
+    '<figure class="figr figr--l split2__m" style="margin:0"><img src="'+PEEK(9)+'" alt=""></figure></div></div></section>'
+  )});
+
+add({ num:9, group:"cards", idx:"idx-cards", name:"כרטיסי נקודות", flag:"ייחודי לעמוד אחד",
+  def:"שני טורי כרטיסים לבנים שווים, כל כרטיס עם כותרת קצרה ופסקה. משמש היום רק בעמוד התיקון.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap"><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:18px">כותרת הכרטיסים</h2>'+
+    '<div class="point-cards"><div class="point-cards__grid">'+
+    '<article class="point-cards__card"><h3>כותרת כרטיס</h3><p>טקסט קצר לדוגמה בתוך כרטיס.</p></article>'+
+    '<article class="point-cards__card"><h3>כותרת כרטיס</h3><p>טקסט קצר לדוגמה בתוך כרטיס נוסף.</p></article>'+
+    '</div></div></div></section>'
+  )});
+
+add({ num:13, group:"cards", idx:"idx-cards", name:"כרטיסי \"למי זה מיועד\"", flag:"ייחודי לעמוד אחד",
+  def:"ארבע תמונות עגולות זו לצד זו, כל אחת עם שורת טקסט קצרה מתחתיה. רק בעמוד הבית.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap center"><span class="chap chap--c">פרק</span><h2 class="h2">למי זה מיועד</h2>'+
+    '<div class="whom">'+
+    '<div class="whom__i"><span class="whom__m"><img src="'+PEEK(6)+'" alt=""></span><p class="whom__p">קהל יעד לדוגמה</p></div>'+
+    '<div class="whom__i"><span class="whom__m"><img src="'+PEEK(7)+'" alt=""></span><p class="whom__p">קהל יעד לדוגמה</p></div>'+
+    '<div class="whom__i"><span class="whom__m"><img src="'+PEEK(8)+'" alt=""></span><p class="whom__p">קהל יעד לדוגמה</p></div>'+
+    '<div class="whom__i"><span class="whom__m"><img src="'+PEEK(10)+'" alt=""></span><p class="whom__p">קהל יעד לדוגמה</p></div>'+
+    '</div></div></section>'
+  )});
+
+add({ num:14, group:"cards", idx:"idx-cards", name:"שתי אפשרויות זו מול זו", flag:"ייחודי לעמוד אחד",
+  def:"שני כרטיסי תמונה גדולים זה לצד זה, כל אחד עם כותרת משלו — להשוואה בין שני מסלולים. רק בעמוד הבית.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap center"><span class="chap chap--c">פרק</span><h2 class="h2">שתי אפשרויות</h2>'+
+    '<div class="cmp"><div class="cmpc"><span class="cmpc__m"><img src="'+PEEK(11)+'" alt=""></span><span class="cmpc__sc" aria-hidden="true"></span><div class="cmpc__b"><h3 class="cmpc__t">מסלול א</h3></div></div>'+
+    '<div class="cmpc"><span class="cmpc__m"><img src="'+PEEK(13)+'" alt=""></span><span class="cmpc__sc" aria-hidden="true"></span><div class="cmpc__b"><h3 class="cmpc__t">מסלול ב</h3></div></div></div></div></section>'
+  )});
+
+add({ num:16, group:"cards", idx:"idx-cards", name:"טקסט ותצרף תמונות", flag:"ייחודי לעמוד אחד",
+  def:"טקסט מצד אחד ותצרף של שלוש תמונות מהצד השני — אחת גדולה ושתיים קטנות. רק בעמוד הבית.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><div class="about"><div><span class="chap">פרק</span><h2 class="h2" style="margin-bottom:22px">אודות</h2>'+
+    '<div class="about__body"><p>טקסט תיאור קצר לדוגמה.</p></div></div>'+
+    '<div class="about__col"><div class="collage"><span class="collage__big"><img src="'+PEEK(14)+'" alt=""></span>'+
+    '<span class="collage__sm"><img src="'+PEEK(15)+'" alt=""></span><span class="collage__sm"><img src="'+PEEK(16)+'" alt=""></span></div></div></div></div></section>'
+  )});
+
+add({ num:17, group:"cards", idx:"idx-cards", name:"טור כהה עם תמונה", flag:"ייחודי לעמוד אחד",
+  def:"רקע כהה עם טקסט וכפתור מצד אחד, ותמונה מלאה מהצד השני. רק בעמוד הבית.",
+  body: frameDoc(
+    '<section class="sec" style="padding:0"><div class="studio"><div class="studio__t"><span class="arcs" aria-hidden="true"></span><span class="chap">פרק</span>'+
+    '<h2 class="studio__h">כותרת הטור הכהה</h2><p class="studio__p">טקסט קצר לדוגמה על רקע כהה.</p>'+
+    '<a class="btn btn--gw" href="#" style="align-self:flex-start">כפתור לדוגמה</a></div>'+
+    '<div class="studio__m"><img src="'+PEEK(20)+'" alt=""></div></div></section>'
+  )});
+
+add({ num:18, group:"cards", idx:"idx-cards", name:"קרוסלת המלצות", flag:null,
+  def:"שורת כרטיסי ציטוט עם חצים לגלילה ימינה ושמאלה. חוזר על עצמו בחמישה עמודים שונים, עם ציטוטים שונים בכל אחד.",
+  body: frameDoc(
+    '<section class="sec sec--alt"><div class="wrap center"><span class="chap chap--c">פרק</span><h2 class="h2">מה אומרים עלינו</h2></div>'+
+    '<div class="wrap"><div class="testi-mq"><button type="button" class="testi-mq__btn testi-mq__btn--right" aria-label="הזזה ימינה"><span aria-hidden="true">›</span></button>'+
+    '<div class="testi-mq__viewport"><div class="testi-mq__track">'+
+    '<figure class="tmq"><span class="tmq__avatar" aria-hidden="true"></span><blockquote class="tmq__q">״ציטוט לדוגמה מתלמיד או מטופל.״</blockquote><figcaption class="tmq__n">שם לדוגמה</figcaption></figure>'+
+    '<figure class="tmq"><span class="tmq__avatar" aria-hidden="true"></span><blockquote class="tmq__q">״ציטוט נוסף לדוגמה.״</blockquote><figcaption class="tmq__n">שם לדוגמה</figcaption></figure>'+
+    '</div></div><button type="button" class="testi-mq__btn testi-mq__btn--left" aria-label="הזזה שמאלה"><span aria-hidden="true">‹</span></button></div></div></section>'
+  )});
+
+add({ num:19, group:"cards", idx:"idx-cards", name:"רשת המלצות", flag:"ייחודי לעמוד אחד",
+  def:"אותם כרטיסי ציטוט, אבל כרשת קבועה בלי חצים וגלילה — לעמוד שמרכז את כל ההמלצות במקום אחד.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><h2 class="h2" style="text-align:center">כל ההמלצות</h2>'+
+    '<div class="testi-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">'+
+    '<figure class="tmq tmq--full"><blockquote class="tmq__q">״ציטוט לדוגמה.״</blockquote><figcaption class="tmq__n">שם לדוגמה</figcaption></figure>'+
+    '<figure class="tmq tmq--full"><blockquote class="tmq__q">״ציטוט נוסף.״</blockquote><figcaption class="tmq__n">שם לדוגמה</figcaption></figure>'+
+    '<figure class="tmq tmq--full"><blockquote class="tmq__q">״ציטוט שלישי.״</blockquote><figcaption class="tmq__n">שם לדוגמה</figcaption></figure>'+
+    '</div></div></section>'
+  )});
+
+add({ num:20, group:"cards", idx:"idx-cards", name:"ציטוטי המלצה בתוך הקריאה", flag:"ייחודי לעמוד אחד",
+  def:"שני-שלושה ציטוטי המלצה קצרים על רקע בהיר, ברוחב מלא, בדיוק בנקודה בסיפור שבה הם רלוונטיים — לא בטור צדדי. רק בעמוד אחד.",
+  body: frameDoc(
+    '<section class="sec ea-testi-cards sec--alt"><div class="wrap"><div class="ea-testi-cards__list" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">'+
+    '<blockquote class="ea-testi-cards__card">״ציטוט לדוגמה בתוך הקריאה.״</blockquote>'+
+    '<blockquote class="ea-testi-cards__card">״ציטוט שני לדוגמה.״</blockquote></div></div></section>'
+  )});
+
+add({ num:24, group:"cards", idx:"idx-cards", name:"כרטיסי ספרים / מוצרים", flag:null,
+  def:"רשת כרטיסים לחיצים — תמונת כריכה, כותרת, שורת תיאור וקריאה לפעולה. כל כרטיס הוא קישור שלם אחד. משמש לספרים, לחנות ולעמוד הקודים המודפסים.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap center"><h2 class="h2" style="text-align:center">הספרים</h2>'+
+    '<div class="bookcards" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">'+
+    '<a class="bookcard" href="#"><span class="bookcard__cover"><img src="'+PEEK(4)+'" alt=""></span><div class="bookcard__b"><h3 class="bookcard__t">שם הספר</h3><span class="bookcard__blurb">שורת תיאור קצרה</span><span class="bookcard__cta">לעמוד הספר</span></div></a>'+
+    '<a class="bookcard" href="#"><span class="bookcard__cover"><img src="'+PEEK(12)+'" alt=""></span><div class="bookcard__b"><h3 class="bookcard__t">שם הספר</h3><span class="bookcard__blurb">שורת תיאור קצרה</span><span class="bookcard__cta">לעמוד הספר</span></div></a>'+
+    '<a class="bookcard" href="#"><span class="bookcard__cover"><img src="'+PEEK(23)+'" alt=""></span><div class="bookcard__b"><h3 class="bookcard__t">שם הספר</h3><span class="bookcard__blurb">שורת תיאור קצרה</span><span class="bookcard__cta">לעמוד הספר</span></div></a>'+
+    '</div></div></section>'
+  ), extraCss:[] });
+
+add({ num:25, group:"cards", idx:"idx-cards", name:"שורת \"חדש באתר\"", flag:null,
+  def:"ארבעה כרטיסי תמונה קטנים בשורה, כל אחד עם כותרת ושתי שורות טקסט. מופיע בעמוד הבית ובעמוד הספרים.",
+  body: frameDoc(
+    '<section class="sec"><div class="wrap"><div class="ea-now" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">'+
+    '<a href="#"><img src="'+PEEK(26)+'" alt=""><h3>כותרת לדוגמה</h3><p>שורה ראשונה</p></a>'+
+    '<a href="#"><img src="'+PEEK(27)+'" alt=""><h3>כותרת לדוגמה</h3><p>שורה ראשונה</p></a>'+
+    '<a href="#"><img src="'+PEEK(28)+'" alt=""><h3>כותרת לדוגמה</h3><p>שורה ראשונה</p></a>'+
+    '<a href="#"><img src="'+PEEK(29)+'" alt=""><h3>כותרת לדוגמה</h3><p>שורה ראשונה</p></a>'+
+    '</div></div></section>', [ORCSS]
+  )});
+
+add({ num:8, group:"cta", idx:"idx-cta", name:"פס קריאה לפעולה", flag:null,
+  def:"הטקסט תמיד בלוק בשליש המרכזי, מיושר לימין. ה-CTA שלנו בנוי משלושה שלישים — הימני רק לוגו, המרכזי טקסט מיושר לימין, השלישי כפתור ממורכז.",
+  note:"לפעמים השליש האמצעי ריק (רק כפתור), ולפעמים יש בו גם כותרת וגם טקסט — זו החלטת תוכן, לא שינוי בעיצוב. ברשימת העבודה למטה יש דוגמה לכל צורה.",
+  body: frameDoc(
+    '<section class="cta-band cta-band--row"><div class="cta-band__in"><span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>'+
+    '<div class="cta-band__txt"><h2 class="cta-band__h">כותרת ה-CTA</h2><p class="cta-band__p">שורת טקסט קצרה שמזמינה לפעולה.</p></div>'+
+    '<div class="cta-band__act"><a class="btn btn--terra" href="#">לתיאום שיחת היכרות</a></div></div></section>'
+  )});
+
+add({ num:15, group:"cta", idx:"idx-cta", name:"איך מתחילים — שלושה צעדים", flag:"ייחודי לעמוד אחד",
+  def:"רקע כהה עם תמונה, כותרת ממורכזת, ומתחתיה שלושה צעדים בשורה, וכפתור סגירה בתחתית. רק בעמוד הבית.",
+  body: frameDoc(
+    '<section class="start"><div class="start__bg" aria-hidden="true"><img src="'+PEEK(2)+'" alt=""></div><span class="start__sc" aria-hidden="true"></span>'+
+    '<div class="start__in center"><span class="chap chap--c">פרק</span><h2 class="h2 start__h">איך מתחילים</h2>'+
+    '<ul class="steps3"><li class="st3"><div class="st3__t">שלב ראשון</div><p class="st3__p">טקסט קצר לדוגמה.</p></li>'+
+    '<li class="st3"><div class="st3__t">שלב שני</div><p class="st3__p">טקסט קצר לדוגמה.</p></li>'+
+    '<li class="st3"><div class="st3__t">שלב שלישי</div><p class="st3__p">טקסט קצר לדוגמה.</p></li></ul>'+
+    '<div class="center" style="margin-top:48px"><a class="btn btn--terra" href="#">לתיאום שיחת היכרות</a></div></div></section>'
+  )});
+
+add({ num:21, group:"faq", idx:"idx-faq", name:"שאלות נפוצות", flag:null,
+  def:"רשימת שאלות, כל אחת נפתחת ללחיצה ומגלה תשובה. הצורה הזאת חוזרת ב-14 עמודים. יש גם עמוד מרוכז אחד עם כל השאלות מחולקות לנושאים, וגרסה מצומצמת של שש שאלות בעמוד הבית.",
+  note:"בעמוד התיקון הרשימה הזאת נראית אחרת — כרטיסים לבנים נפרדים במקום רשימה עם קווי הפרדה, והשאלה הראשונה כבר פתוחה. ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<section class="ea-faq-list"><div class="ea-faq-list__inner"><h2 class="h2">שאלות נפוצות</h2>'+
+    '<div class="ea-faq-category"><details class="ea-faq-item ea-entrance"><summary class="ea-faq-item__question">שאלה לדוגמה?</summary><div class="ea-faq-item__answer">תשובה לדוגמה.</div></details>'+
+    '<details class="ea-faq-item ea-entrance"><summary class="ea-faq-item__question">שאלה נוספת לדוגמה?</summary><div class="ea-faq-item__answer">תשובה לדוגמה.</div></details></div></div></section>'
+  )});
+
+add({ num:31, group:"special", idx:"idx-special", name:"יצירת קשר", flag:"ייחודי לעמוד אחד",
+  def:"טופס יצירת קשר לצד תמונה קטנה, מתחתיו פס כהה עם קישור לוואטסאפ, ובתחתית שורת פרטי התקשרות. אין לשורה הזאת תוכן ניתן להזנה — היא קבועה בעיצובה. רק בעמוד יצירת קשר.",
+  body: frameDoc(
+    '<section class="ea-wave2-contact"><div class="wrap" style="display:grid;grid-template-columns:1.3fr 1fr;gap:32px;padding:64px 0">'+
+    '<div><h2 class="h2">נשמח לשמוע ממך</h2><div class="intro-body" style="margin:16px 0"><p>שדה לדוגמה</p><p>שדה לדוגמה</p><p>שדה לדוגמה</p></div></div>'+
+    '<figure style="margin:0;border-radius:10px;overflow:hidden"><img src="'+PEEK(3)+'" alt="" style="width:100%;height:100%;object-fit:cover"></figure></div></section>'+
+    '<section class="ea-wave2-contact__cta" style="background:#1c1109;color:#fff;padding:40px 0;text-align:center"><div class="wrap"><a class="btn btn--terra" href="#">לוואטסאפ</a></div></section>'+
+    '<section class="ea-wave2-contact__nap" style="padding:24px 0;text-align:center;color:var(--body,#5a3826)"><div class="wrap"><p>שם העסק · כתובת לדוגמה · טלפון לדוגמה</p></div></section>'
+  )});
+
+add({ num:32, group:"special", idx:"idx-special", name:"רשימת עיתונות", flag:"ייחודי לשני עמודים",
+  def:"רשימה של אזכורים בתקשורת — שנה, מקור וקישור בכל שורה. עמוד נפרד לגמרי מיתר האתר, בלי הירו של פרק.",
+  body: frameDoc(
+    '<div class="wrap" style="padding:48px 0"><div class="ea-press">'+
+    '<div style="display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line,#e3ddd3);padding:12px 0"><span style="color:var(--muted,#6f635a)">2019</span><a href="#">כותרת כתבה לדוגמה — שם המקור</a></div>'+
+    '<div style="display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line,#e3ddd3);padding:12px 0"><span style="color:var(--muted,#6f635a)">2016</span><a href="#">כותרת כתבה לדוגמה — שם המקור</a></div>'+
+    '</div></div>', [BLOGCSS]
+  )});
+
+add({ num:33, group:"special", idx:"idx-special", name:"עמוד קוד מודפס (QR)", flag:"ראו הערה למטה",
+  def:"עמוד קצר שנפתח מסריקת קוד על גבי מוצר: כותרת אחת ועמודת קריאה יחידה מתחתיה. יש 48 עמודים כאלה, וצורת הפתיחה שלהם אחידה — אבל תוכן הגוף עצמו הוא טקסט חופשי שהועתק כמות שהוא מהאתר הישן, ולכן אי אפשר לבקש \"שורה מטיפוס X\" בתוך הטקסט הזה. פירוט מלא ברשימה \"אזורים בלי טיפוס\" למטה.",
+  body: frameDoc(
+    '<header class="phero"><div class="phero__in"><span class="chap">QR</span><h1 class="phero__h">כותרת העמוד המודפס</h1></div></header>'+
+    '<section class="sec"><div class="wrap"><div class="intro-body"><p>טקסט חופשי לדוגמה, כפי שהועתק מהאתר הישן — לא מחולק לשורות מוגדרות.</p></div></div></section>'
+  )});
+
+add({ num:34, group:"special", idx:"idx-special", name:"פוסט בלוג — ארכיון (קיים)", flag:null,
+  def:"כך נראה כל אחד מ-52 הפוסטים הקיימים היום: תמונה ראשית מלאה למעלה, ומתחתיה טקסט חופשי. זהו הטיפוס ה\"ארכיוני\" המכוון להיות סובלני — התמונה שהגיעה מהאתר הישן נשארת כמות שהיא, ולא מוחלפת. פוסט בלי תמונה ראשית אמור לקבל הירו עם סימן בית העסק במקום תמונה — זה עדיין לא קיים בפועל, ומופיע ברשימת העבודה למטה.",
+  body: frameDoc(
+    '<header class="phero phero--media"><img class="phero__media" src="'+PEEK(17)+'" alt=""><span class="phero__sc" aria-hidden="true"></span>'+
+    '<div class="phero__in"><span class="chap">בלוג</span><h1 class="phero__h">כותרת הפוסט</h1><p class="phero__s">מאת אייל עמית · תאריך לדוגמה</p></div></header>'+
+    '<section class="sec"><div class="wrap"><div class="ea-post-content intro-body"><p>טקסט חופשי לדוגמה, בדיוק כפי שנכתב בפוסט המקורי — לא מחולק לשורות מוגדרות.</p></div></div></section>', [BLOGCSS]
+  )});
+
+add({ num:35, group:"special", idx:"idx-special", name:"כרטיס פוסט בלוג", flag:null,
+  def:"כרטיס קטן שמייצג פוסט אחד — תמונה, כותרת ותאריך — ברשימת הבלוג ובפוסטים קשורים.",
+  body: frameDoc(
+    '<div class="wrap" style="padding:32px 0"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">'+
+    '<a class="ea-blog-card" href="#" style="display:block;text-decoration:none;color:inherit"><img src="'+PEEK(28)+'" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px"><h3 style="font-size:1rem;margin:10px 0 4px">כותרת פוסט לדוגמה</h3><span style="color:var(--muted,#6f635a);font-size:.85rem">תאריך לדוגמה</span></a>'+
+    '<a class="ea-blog-card" href="#" style="display:block;text-decoration:none;color:inherit"><img src="'+PEEK(29)+'" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px"><h3 style="font-size:1rem;margin:10px 0 4px">כותרת פוסט לדוגמה</h3><span style="color:var(--muted,#6f635a);font-size:.85rem">תאריך לדוגמה</span></a>'+
+    '<a class="ea-blog-card" href="#" style="display:block;text-decoration:none;color:inherit"><img src="'+PEEK(30)+'" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px"><h3 style="font-size:1rem;margin:10px 0 4px">כותרת פוסט לדוגמה</h3><span style="color:var(--muted,#6f635a);font-size:.85rem">תאריך לדוגמה</span></a>'+
+    '</div></div>', [BLOGCSS]
+  )});
+
+add({ num:37, group:"special", idx:"idx-special", name:"פוסט בלוג — תבנית חדשה", flag:"מאושר, טרם קיים באתר",
+  def:"תבנית פוסט חדשה שאושרה, ל שימוש בכל פוסט עתידי: תמונה ראשית (או סימן בית העסק אם אין תמונה), ואחריה רצף שורות בסדר קבוע — פתיחה ממורכזת, פסקה, תמונה לצד טקסט, סרטון, קריאה לפעולה, ציטוט, שתי רשתות תמונות, תמונה צפה בתוך טקסט, וסגירה. כל שורה בתבנית הזאת היא אחד הטיפוסים שכבר מופיעים למעלה בדף הזה — אין כאן שום עיצוב חדש. הדוגמה כאן היא תוכן דמה בלבד, כדי להראות את המבנה המאושר: אף פוסט אמיתי לא נכתב בתבנית הזאת עדיין.",
+  body: frameDoc(
+    '<div style="border:2px dashed #A44E2B;border-radius:12px;overflow:hidden">'+
+    '<header class="phero phero--media"><img class="phero__media" src="'+PEEK(18)+'" alt=""><span class="phero__sc" aria-hidden="true"></span>'+
+    '<div class="phero__in"><span class="chap">בלוג</span><h1 class="phero__h">שם הפוסט לדוגמה</h1><p class="phero__s">מאת אייל עמית · תאריך לדוגמה</p></div></header>'+
+    '<section class="sec"><div class="wrap"><div class="intro-body" style="text-align:center"><p><strong>פסקת פתיחה ממורכזת, בלי כותרת מעליה.</strong></p></div></div></section>'+
+    '<section class="sec sec--alt"><div class="wrap"><h2 class="h2">כותרת קטע</h2><div class="intro-body"><p>טקסט לדוגמה — פסקה רגילה.</p></div></div></section>'+
+    '<section class="sec"><div class="wrap"><div class="split2"><div><h2 class="h2" style="margin-bottom:18px">תמונה לצד טקסט</h2><div class="intro-body"><p>טקסט לדוגמה לצד תמונת התוכן.</p></div></div>'+
+    '<figure class="figr figr--l split2__m" style="margin:0"><img src="'+PEEK(24)+'" alt=""></figure></div></div></section>'+
+    '<section class="cta-band cta-band--row"><div class="cta-band__in"><span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>'+
+    '<div class="cta-band__txt"><p class="cta-band__p">רוצים לשאול על הפוסט הזה? אפשר לתאם שיחה.</p></div>'+
+    '<div class="cta-band__act"><a class="btn btn--terra" href="#">לתיאום שיחת היכרות</a></div></div></section>'+
+    '</div>'
+  )});
+
+// ---------- render ----------
+
+var groupTitles = {
+  openers: "פתיחות עמוד",
+  text: "טקסט קריאה",
+  media: "תמונות ומדיה",
+  cards: "כרטיסים ורשימות",
+  cta: "קריאה לפעולה",
+  faq: "שאלות נפוצות",
+  special: "אזורים ייעודיים — בלוג, QR, יצירת קשר, עיתונות"
+};
+
+var host = document.getElementById("types");
+var lastGroup = null;
+T.forEach(function(t){
+  if(t.group !== lastGroup){
+    lastGroup = t.group;
+    var gh = document.createElement("section");
+    gh.className = "group-h";
+    gh.innerHTML = "<h2>" + groupTitles[t.group] + "</h2>";
+    host.appendChild(gh);
+  }
+  var card = document.createElement("article");
+  card.className = "tcard";
+  card.id = "t" + t.num;
+  var flagHtml = t.flag ? '<span class="tcard__flag ' + (t.flag.indexOf("מאושר")===0?'tcard__flag--new':'tcard__flag--warn') + '">' + t.flag + '</span>' : '';
+  card.innerHTML =
+    '<div class="tcard__head"><span class="tcard__badge">טיפוס ' + t.num + '</span><h3 class="tcard__name">' + t.name + '</h3>' + flagHtml + '</div>' +
+    '<div class="frame-wrap"><div class="loading">טוען דוגמה…</div></div>' +
+    '<div class="tcard__def"><p>' + t.def + '</p>' + (t.note ? '<div class="tcard__note">' + t.note + '</div>' : '') + '</div>';
+  host.appendChild(card);
+
+  var wrap = card.querySelector(".frame-wrap");
+  var iframe = document.createElement("iframe");
+  iframe.className = "tframe";
+  iframe.setAttribute("scrolling", "no");
+  iframe.setAttribute("title", t.name);
+  wrap.style.height = "160px";
+  wrap.appendChild(iframe);
+  iframe.srcdoc = t.body;
+  iframe.addEventListener("load", function(){
+    var loading = wrap.querySelector(".loading");
+    if (loading) loading.remove();
+    fitFrame(iframe);
+  });
+
+  // index chip
+  var idxHost = document.getElementById(t.idx);
+  if (idxHost) {
+    var a = document.createElement("a");
+    a.href = "#t" + t.num;
+    a.textContent = t.num + ". " + t.name;
+    idxHost.appendChild(a);
+  }
+});
+
+function fitFrame(iframe){
+  try {
+    var doc = iframe.contentDocument;
+    if (!doc) return;
+    var h = Math.max(
+      doc.documentElement ? doc.documentElement.scrollHeight : 0,
+      doc.body ? doc.body.scrollHeight : 0
+    );
+    if (!h) h = 300;
+    var wrap = iframe.parentElement;
+    var scale = wrap.clientWidth / 1280;
+    if (!scale || scale <= 0) scale = 0.7;
+    iframe.style.height = h + "px";
+    iframe.style.transform = "translateX(-50%) scale(" + scale + ")";
+    wrap.style.height = Math.ceil(h * scale) + "px";
+    iframe.dataset.naturalHeight = h;
+  } catch (e) { /* cross-origin or not-yet-ready: leave default height */ }
+}
+window.addEventListener("resize", function(){
+  document.querySelectorAll("iframe.tframe").forEach(function(f){
+    if (f.dataset.naturalHeight) fitFrame(f);
+  });
+});
+
+// ---------- Review lists ----------
+
+var deviations = [
+  { t:"הירו עמוד", what:"הבאנר הפותח קצר משמעותית בשני עמודים לעומת כל שאר עמודי הפנים עם תמונה, ובעמוד האנגלי הכותרת עוברת לצד שמאל.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/repair/", url2:"http://eyalamit-co-il-2026.s887.upress.link/contact/" },
+  { t:"פס קריאה לפעולה", what:"באותו פס בדיוק — לפעמים יש כותרת וטקסט לצד הכפתור, ולפעמים רק כפתור עם מקום ריק לצדו. בעמוד אחד הכפתור חלול במקום מלא.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/method/", url2:"http://eyalamit-co-il-2026.s887.upress.link/books/" },
+  { t:"פסקת קריאה", what:"אותו בלוק טקסט יושב לפעמים על רקע בהיר, לפעמים על רקע כהה, ובשלושת עמודי הספרים הטקסט נחתך אחרי כמה שורות עם כפתור \"להמשך קריאה\".", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/lessons/", url2:"http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/" },
+  { t:"טקסט ותמונה זה לצד זה", what:"התמונה הנלווה לטקסט משתנה בצורתה — לפעמים רחבה, לפעמים מאונכת, ובעמוד אחד היא ממלאת את כל התא בלי חיתוך כלל. בעמוד אחד גם אפשר ללחוץ עליה להגדלה, מה שלא קורה בשום מקום אחר.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/repair/", url2:"http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/" },
+  { t:"תמונה צפה בתוך הטקסט", what:"התמונה הקטנה שצפה בתוך הקריאה גדולה ובולטת בהרבה בעמוד אחד לעומת עמוד אחר.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/repair/", url2:"http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/" },
+  { t:"שאלות נפוצות", what:"אותה רשימת שאלות נראית כרשימה עם קווי הפרדה ברוב העמודים, ובעמוד אחד היא נראית כמו כרטיסים לבנים נפרדים, עם השאלה הראשונה כבר פתוחה.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/repair/", url2:"http://eyalamit-co-il-2026.s887.upress.link/method/" },
+  { t:"רשת תמונות", what:"אותה רשת תמונות היא בדרך כלל שלוש תמונות רחבות בשורה, ובעמוד אחד היא ארבע תמונות צרות ומאונכות.", need:"decide", url:"http://eyalamit-co-il-2026.s887.upress.link/repair/", url2:"http://eyalamit-co-il-2026.s887.upress.link/galleries/" },
+  { t:"בלוק וידאו", what:"אותה מסגרת מציגה בעמוד הבית סרטון אמיתי שמתנגן, ובשלושה עמודים אחרים היא ריקה עם תג \"ממתין לאישור\" במקום.", need:"look", url:"http://eyalamit-co-il-2026.s887.upress.link/", url2:"http://eyalamit-co-il-2026.s887.upress.link/lessons/" }
+];
+
+var needLabel = { decide:"נדרשת ממך החלטה", look:"נדרש ממך מבט", rule:"נדרשת ממך הכרעה" };
+var needClass = { decide:"need--decide", look:"need--look", rule:"need--rule" };
+
+var revA = document.getElementById("review-a-list");
+deviations.forEach(function(d){
+  var div = document.createElement("div");
+  div.className = "revitem";
+  div.innerHTML =
+    '<span class="need ' + needClass[d.need] + '">' + needLabel[d.need] + '</span>' +
+    '<h3>' + d.t + '</h3><p>' + d.what + '</p>' +
+    '<a class="openlink" target="_blank" rel="noopener" href="' + d.url + '">פתיחת דוגמה ראשונה ↗</a>' +
+    (d.url2 ? '<a class="openlink" target="_blank" rel="noopener" href="' + d.url2 + '">פתיחת דוגמה שנייה ↗</a>' : '');
+  revA.appendChild(div);
+});
+
+var notypes = [
+  { t:"תוכן עמודי הקוד המודפס (QR)", what:"48 עמודים שנפתחים מסריקת קוד על גבי מוצר. צורת הפתיחה שלהם אחידה, אבל הטקסט בתוכם הוא גוש חופשי שהועתק כמות שהוא מהאתר הישן — אין בו חלוקה לשורות, ולכן אי אפשר לבקש \"שורה מטיפוס X\" בתוכם היום.", need:"rule", url:"http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/" },
+  { t:"תמונת פתיחה לעמודי הקוד המודפס", what:"התכנון המאושר קובע שעמוד עם תמונה ייחודית יקבל תמונה, ועמוד בלי תמונה יקבל סימן בית העסק בלבד במקום תמונה. כרגע כל 48 העמודים נפתחים באותה פתיחה כללית בלי תמונה ובלי הסימן.", need:"look", url:"http://eyalamit-co-il-2026.s887.upress.link/qr/qr1/" },
+  { t:"תמונת פתיחה לפוסט בלוג בלי תמונה ראשית", what:"המדיניות הנעולה קובעת שפוסט בלי תמונה ראשית יקבל הירו עם סימן בית העסק. כיום הפוסט היחיד בלי תמונה נפתח בפתיחה הכללית הרגילה, בלי הסימן.", need:"look", url:"http://eyalamit-co-il-2026.s887.upress.link/blog/" },
+  { t:"תבנית הפוסט החדשה", what:"התבנית שמתוארת למעלה תחת \"פוסט בלוג — תבנית חדשה\" אושרה על ידך, אבל אף פוסט אמיתי עדיין לא נכתב בה — אין דוגמה חיה אחת באתר.", need:"look", url:"http://eyalamit-co-il-2026.s887.upress.link/blog/" }
+];
+
+var revB = document.getElementById("review-b-list");
+notypes.forEach(function(d){
+  var div = document.createElement("div");
+  div.className = "revitem";
+  div.innerHTML =
+    '<span class="need ' + needClass[d.need] + '">' + needLabel[d.need] + '</span>' +
+    '<h3>' + d.t + '</h3><p>' + d.what + '</p>' +
+    '<a class="openlink" target="_blank" rel="noopener" href="' + d.url + '">פתיחת העמוד ↗</a>';
+  revB.appendChild(div);
+});
+
+})();
+</script>
+</body>
+</html>
