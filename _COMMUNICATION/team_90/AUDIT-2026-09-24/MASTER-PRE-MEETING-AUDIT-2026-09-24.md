@@ -430,6 +430,13 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-12 · Anti-aliased glyph edges read as a contrast failure on any text.** Sampling every pixel
+  inside a glyph's rect includes the edge pixels, which blend toward the background by design. Before
+  the filter was added, every CTA heading on this theme read between 1.1 and 2.7 regardless of its
+  real colour. **Filter to pixels near the element's own solid computed colour first, then take the
+  worst.** Paired with `M-09`: a scroll-revealed element must also be revealed before it is sampled,
+  or the same measurement returns ~1.0 for a different reason. **Both traps hit Team 90's own passes
+  today, and both belong in the QA harness notes rather than in one person's memory.**
 - **M-11 · A structural claim asserted from memory instead of from the array.** The footer mandate
   told the builder that «ספרים» sits under «כלים ואביזרים» in `ea_canonical_nav_items()`. **It sits
   under «אייל עמית»** — line 86, inside the first top-level block, which Team 90 had itself printed
