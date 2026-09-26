@@ -430,6 +430,14 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-15 · A report's title is not the state of the site.** The accessibility pass concluded that
+  `/books/vekatavta/` had been remediated because it found a file named `DONE-FORM-VEKATAVTA-ALT`.
+  **That report is about adding a question to Eyal's form, not about fixing anything** — and the six
+  images still carry empty alt text, measured the same evening. **Read the artefact, not its
+  filename; and where the claim is about the live site, measure the live site.**
+  In the same pass, a contact form was reported as having no programmatic labels because it has no
+  `for` attributes. **Its labels wrap their controls, which is a valid association, and
+  `aria-required` is present.** A missing attribute is not the same as a missing relationship.
 - **M-14 · Sampling a rounded element inside its rectangular box is what made one page unmeasurable.**
   The eyebrow label sits on a fully rounded pill. Recovering its background from the pill's bounding
   RECTANGLE pulls in the anti-aliased curved-edge pixels, where the pill's fill blends into the raw
