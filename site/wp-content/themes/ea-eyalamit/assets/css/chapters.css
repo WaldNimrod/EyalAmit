@@ -437,27 +437,30 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .phero__lede{margin-top:18px;max-width:60ch;font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.85;color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .phero__lede p{margin:0 0 14px}
 .phero__lede p:last-child{margin-bottom:0}
-/* team_00-approved contrast fix (2026-09-24): .chap inside .phero measured
-   2.80:1 against the near-white background many hero instances actually render
-   (--terra-lt is tuned for a solid-dark background, which not every .phero has).
-   Same hue/saturation as --terra-lt, darker only — approved 5.55:1. This gives
-   .chap its OWN value here rather than editing the --terra-lt token, which
-   other elements (.nav__l a::after, .tlink, etc.) still use unchanged. Applies
-   only inside .phero; .sec--dark/.studio__t/.start keep --terra-lt because
-   those are solid near-black fills where it already passes. */
-.phero .chap{color:#9A572D}
-/* Photo heroes only. #9A572D above was measured against a flat near-white ground.
-   On a photograph the same eyebrow sits on .phero__sc (the shared scrim, already
-   present — it had not been dropped). Painted pixels on /learning/: #9A572D is
-   1.15:1, --ea-on-dark (the heading's own colour on this scrim) is 6.37:1.
-   Non-photo .phero keeps #9A572D. */
-/* Specificity (0,3,0). The previous .phero--media .chap was (0,2,0), identical
-   to .phero .chap above, so any rule inserted between them silently restored
-   #9A572D on photo heroes. The extra class makes the winner independent of
-   source order. */
-/* Eyebrow on /sound-healing/ measured 4.46:1 at the worst glyph pixel (need 4.5).
-   The same 1px shadow already on .hero__trust. Not a darker photograph. */
-.phero.phero--media .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.55)}
+/* 2026-09-26 (closes the too-early 2026-09-24 fix below, kept for the record):
+   the 09-24 commit's premise was that "not every .phero has" a solid-dark
+   background — but .phero{background:var(--dark-grad)} above (line 416) is the
+   ONLY background rule this selector ever gets; nothing in this file lightens
+   it. Measuring all 52 currently-live non-media .phero pages (every /qr/qrN/
+   short link, /courses-soon/, /learning/courses-external/, one blog post)
+   found #9A572D failing on 100% of them, 3.12–3.20:1 (real glyph rects, painted
+   pixels, same method as the photo pages below) — not a near-miss, a uniform
+   fail, because the ground was never near-white to begin with.
+   Old rule (2026-09-24, team_00-approved on a false premise):
+     .phero .chap{color:#9A572D}                                    // 2.80:1 → "fixed" to 3.12–3.20:1, still failing
+     .phero.phero--media .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.55)}  // photo heroes only
+   That split also left two rules at identical (0,2,0)/(0,3,0)-but-order-sensitive
+   specificity in the .phero--media case (documented in git history) — collapsing
+   to the one rule below removes that fragility outright, not just re-orders it.
+   One rule now, every .phero background (dark-grad OR a photograph under
+   .phero__sc): --ea-on-dark, opaque white, is the only colour measured to clear
+   4.5:1 against both — 6.18–17.4:1 on the flat/dark-grad pages (still short of
+   4.5 in the gradient's lighter passages for --terra-lt, the sitewide dark-bg
+   kicker colour used by .sec--dark/.studio__t/.start — this is why .phero can't
+   reuse it) and, with the shadow strengthened from .55 to .70 alpha for margin
+   on the worst photo crops (was a recorded 4.46:1 near-miss on /sound-healing/,
+   never acted on), 4.9:1+ on every live photo hero measured 2026-09-26. */
+.phero .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.7)}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
