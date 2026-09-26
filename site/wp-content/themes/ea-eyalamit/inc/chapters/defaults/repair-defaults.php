@@ -70,7 +70,6 @@ return array(
 				'body'      => 'גם אם לא בטוחים בדיקה קצרה יכולה למנוע נזק גדול יותר בהמשך.',
 				'cta_label' => 'לתיאום בדיקה לכלי',
 				'cta_url'   => '/contact',
-				'stack'     => true,
 				'choc'      => true,
 				'btn'       => 'btn--sand',
 			),

@@ -49,7 +49,6 @@ return array(
 				'body'      => 'השאירו פרטים ותאמו שיחה — נעדכן אתכם כשמבנה המסלול והמועדים ייסגרו.',
 				'cta_label' => 'להשארת פרטים',
 				'cta_url'   => '/contact/',
-				'stack'     => true,
 				'choc'      => true,
 				'btn'       => 'btn--sand',
 			),

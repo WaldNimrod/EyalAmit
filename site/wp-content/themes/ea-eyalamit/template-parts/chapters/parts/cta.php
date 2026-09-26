@@ -2,7 +2,7 @@
 /**
  * Chapters part — horizontal CTA band with logo motif (.cta-band--row).
  * $args: title, body, cta_label, cta_url, cta2_label, cta2_url (optional — renders a second button for a split CTA), cta_slug (optional — see phero.php's identical convention), id,
- * stack (bool — column, no logo), choc (bool — chocolate fill), btn (optional class, default btn--terra).
+ * stack (bool — column, no logo), choc (bool — chocolate fill), sand (bool — --ea-sand fill, /method/ colour test only), btn (optional class, default btn--terra).
  *
  * @package ea_eyalamit
  */
@@ -12,6 +12,9 @@ $a = isset( $args ) && is_array( $args ) ? $args : array();
 $ea_band = 'cta-band' . ( ! empty( $a['stack'] ) ? ' cta-band--stack' : ' cta-band--row' );
 if ( ! empty( $a['choc'] ) ) {
 	$ea_band .= ' cta-band--choc';
+}
+if ( ! empty( $a['sand'] ) ) {
+	$ea_band .= ' cta-band--sand';
 }
 $ea_btn = ! empty( $a['btn'] ) ? sanitize_html_class( (string) $a['btn'] ) : 'btn--terra';
 ?>

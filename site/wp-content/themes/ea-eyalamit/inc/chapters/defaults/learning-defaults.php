@@ -77,7 +77,6 @@ return array(
 				'body'      => 'שיחת היכרות קצרה תעזור להבין יחד מה מתאים — שיעור אישי, סדנה, או מסלול הכשרה.',
 				'cta_label' => 'לתיאום שיחת היכרות',
 				'cta_url'   => '/contact/',
-				'stack'     => true,
 				'choc'      => true,
 				'btn'       => 'btn--sand',
 			),
