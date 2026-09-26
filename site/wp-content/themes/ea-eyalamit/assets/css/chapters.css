@@ -842,28 +842,60 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .mag-list__i:hover{padding-inline-start:14px}
 .mag-list__i:hover .mag-list__n{color:#fff}
 
-/* ===== horizontal CTA with logo rings ===== */
+/* ===== horizontal CTA — three equal columns =====
+   Physical columns, not writing-mode columns: the grid is direction:ltr so
+   column 1 is the left third, column 2 the middle, column 3 the right.
+   Right third: the logo mark only. Middle: the text, right-aligned inside
+   that third. Left: the button, centred inside that third.
+   The logo span is the first child of .cta-band__in (cta.php). Contact does
+   not use this block — its mark stays on the absolute .cta-band__logo--side
+   rule above, which this override does not match.
+   Below 880px (the same column-collapse breakpoint as .cta-rings and the
+   other multi-column chapters layouts) the three tracks become one column:
+   a small centred mark, then the text at full width, then the button. */
 .cta-band--row{text-align:right}
-.cta-band--row .cta-band__in{max-width:1120px;display:flex;align-items:center;justify-content:space-between;gap:clamp(32px,5vw,72px);flex-wrap:wrap}
-.cta-band--row .cta-band__txt{flex:1 1 460px}
-/* 2026-09-26. RTL space-between pins the text to inline-start, under
-   .cta-band__logo--side (right:-40px, width up to 440px). At 1440 the ink
-   overlapped the mark by 240px. The padding tracks that intrusion (~24px gap).
-   Only a band with both a heading and a paragraph — the long-body pages.
-   /testimonials/ (page 73) has both but is one of the short older bands;
-   the reset keeps its boxes where they were. */
-.cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
-/* Same clearance when the band has a paragraph and no heading (home final
-   CTA, /lessons/). Button-only bands have neither child and do not match.
-   Title-only bands do not match. The page-73 reset below stays on the
-   heading+paragraph selector only. */
-.cta-band--row .cta-band__txt:has(.cta-band__p):not(:has(.cta-band__h)){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
-/* The :has rule is (0,4,0). A bare body.page-id-73 reset is (0,3,1) and loses. */
-body.page-id-73 .cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:0}
+.cta-band--row .cta-band__in{
+  max-width:1120px;width:100%;
+  display:grid;direction:ltr;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  column-gap:24px;align-items:center;
+}
+.cta-band--row .cta-band__logo.cta-band__logo--side{
+  position:relative;z-index:1;
+  grid-column:3;grid-row:1;
+  top:auto;right:auto;bottom:auto;left:auto;
+  width:100%;max-width:none;height:100%;min-height:96px;
+  aspect-ratio:auto;transform:none;margin:0;
+  justify-self:stretch;align-self:stretch;
+  opacity:.26;pointer-events:none;
+}
+.cta-band--row .cta-band__txt{
+  grid-column:2;grid-row:1;min-width:0;
+  direction:rtl;text-align:right;align-self:center;
+}
 .cta-band--row .cta-band__h{text-align:right;margin-bottom:14px}
-.cta-band--row .cta-band__p{margin:0;text-align:right;max-width:52ch}
-.cta-band--row .cta-band__act{flex:0 0 auto}
-.cta-band__act-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+.cta-band--row .cta-band__p{margin:0;text-align:right;max-width:none}
+.cta-band--row .cta-band__act{
+  grid-column:1;grid-row:1;min-width:0;
+  direction:rtl;display:flex;justify-content:center;align-items:center;align-self:center;
+}
+.cta-band--row .cta-band__act-group{justify-content:center}
+.cta-band--row .cta-band__act .btn{max-width:100%;white-space:normal;text-align:center}
+.cta-band--row .ea-pending-inline{
+  grid-column:1 / -1;grid-row:2;justify-self:center;direction:rtl;max-width:100%;
+}
+@media(max-width:880px){
+  .cta-band.cta-band--row{padding-inline:20px}
+  .cta-band--row .cta-band__in{grid-template-columns:minmax(0,1fr);row-gap:22px;column-gap:0}
+  .cta-band--row .cta-band__logo.cta-band__logo--side{
+    position:relative;grid-column:1;grid-row:1;
+    width:min(140px,36vw);height:auto;min-height:0;aspect-ratio:1;
+    justify-self:center;align-self:center;
+  }
+  .cta-band--row .cta-band__txt{grid-column:1;grid-row:2}
+  .cta-band--row .cta-band__act{grid-column:1;grid-row:3}
+  .cta-band--row .ea-pending-inline{grid-column:1;grid-row:4}
+}
 .cta-rings{position:absolute;z-index:1;top:50%;left:-120px;width:560px;height:560px;transform:translateY(-50%);pointer-events:none;opacity:.5}
 .cta-rings i{position:absolute;border-radius:50%;border:1px solid var(--terra-lt);inset:0;opacity:.5}
 .cta-rings i:nth-child(2){inset:70px;opacity:.4}

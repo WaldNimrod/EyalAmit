@@ -19,10 +19,10 @@ if ( ! empty( $a['sand'] ) ) {
 $ea_btn = ! empty( $a['btn'] ) ? sanitize_html_class( (string) $a['btn'] ) : 'btn--terra';
 ?>
 <section class="<?php echo esc_attr( $ea_band ); ?>"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
-	<?php if ( empty( $a['stack'] ) ) : ?>
-		<span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>
-	<?php endif; ?>
 	<div class="cta-band__in">
+		<?php if ( empty( $a['stack'] ) ) : ?>
+			<span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>
+		<?php endif; ?>
 		<div class="cta-band__txt r">
 			<?php /* S006 · H-08 · הכותרת אופציונלית: ה-CTA הסופי של דף הבית (SECTION 12)
 				הוא פסקה + כפתור בלבד, ללא כותרת אצל אייל — עדיף לא לרנדר h2 ריק
