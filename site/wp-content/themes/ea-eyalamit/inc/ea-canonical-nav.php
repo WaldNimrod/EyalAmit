@@ -554,12 +554,6 @@ if ( ! function_exists( 'ea_render_unified_footer' ) ) :
 	 * @return void
 	 */
 	function ea_render_unified_footer( $ea_args = array() ) {
-		static $ea_rendered = false;
-		if ( $ea_rendered ) {
-			return;
-		}
-		$ea_rendered = true;
-
 		$ea_args = wp_parse_args( $ea_args, array( 'reveal' => false ) );
 
 		$ea_footer_class = 'ea-ftr';
@@ -657,4 +651,20 @@ endif;
  * The function's own render-once guard makes this hook inert everywhere the
  * footer already rendered via one of the three explicit calls above.
  */
-add_action( 'wp_footer', 'ea_render_unified_footer' );
+if ( ! function_exists( 'ea_render_unified_footer_wp_hook' ) ) :
+	/**
+	 * Sole invocation path for the unified footer (MANDATE-FOOTER-ONE-PATH-2026-09-27).
+	 * Chapters views set $GLOBALS['ea_unified_footer_reveal'] in section-footer.php
+	 * before wp_footer() so sticky-reveal classes match the old explicit call.
+	 *
+	 * @return void
+	 */
+	function ea_render_unified_footer_wp_hook() {
+		$ea_args = array();
+		if ( ! empty( $GLOBALS['ea_unified_footer_reveal'] ) ) {
+			$ea_args['reveal'] = true;
+		}
+		ea_render_unified_footer( $ea_args );
+	}
+endif;
+add_action( 'wp_footer', 'ea_render_unified_footer_wp_hook' );

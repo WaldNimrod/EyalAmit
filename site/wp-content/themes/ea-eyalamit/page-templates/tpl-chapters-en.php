@@ -107,20 +107,6 @@ defined( 'ABSPATH' ) || exit;
 </main>
 
 <p style="text-align:center;padding:16px" lang="he" dir="rtl"><a class="ea-en-head__lang" href="/">לאתר העברי / Hebrew site</a></p>
-<?php
-/* S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — ONE footer, rendered once,
-   from ea_canonical_nav_items() (inc/ea-canonical-nav.php). Replaces this
-   page's own bespoke English <footer> — the tree/footer copy is
-   Hebrew-only (see inc/ea-canonical-nav.php's header comment), so
-   ea_render_unified_footer() sets lang="he" dir="rtl" on its own <footer>,
-   same as the sitemap row it replaces already did for exactly this page.
-   This is the theme's one live self-contained English page (never reaches
-   get_footer()), so it needs its own explicit call, same as before. */
-if ( function_exists( 'ea_render_unified_footer' ) ) {
-	ea_render_unified_footer();
-}
-?>
-
 <?php wp_footer(); ?>
 </body>
 </html>

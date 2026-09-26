@@ -14,6 +14,4 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-if ( function_exists( 'ea_render_unified_footer' ) ) {
-	ea_render_unified_footer();
-}
+/* MANDATE-FOOTER-ONE-PATH-2026-09-27 — footer markup is rendered once on wp_footer. */

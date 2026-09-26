@@ -51,17 +51,8 @@ if ( is_string( $parent_footer ) && is_readable( $parent_footer ) ) {
 			   unhook + comment on its add_action in functions.php): it
 			   duplicated links this branch's own ea_render_unified_footer()
 			   call below now carries. */
-			/* S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — the ONE footer,
-			   only reached here if the GeneratePress parent theme is ever
-			   unreadable (this whole branch is otherwise dormant — see
-			   ea_eyalamit_enqueue_theme_shell_fallback() in functions.php;
-			   the live/staging case reaches the same function via the
-			   wp_footer safety net at the end of inc/ea-canonical-nav.php
-			   instead, since it's the parent's own footer.php that runs).
-			   Kept in step with the other three render paths regardless. */
-			if ( function_exists( 'ea_render_unified_footer' ) ) {
-				ea_render_unified_footer();
-			}
+			/* MANDATE-FOOTER-ONE-PATH-2026-09-27 — unified footer renders only
+			   from ea_render_unified_footer_wp_hook() on wp_footer (below). */
 			?>
 		</div>
 	</footer>

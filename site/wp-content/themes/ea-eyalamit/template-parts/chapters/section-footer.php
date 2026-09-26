@@ -20,7 +20,5 @@ defined( 'ABSPATH' ) || exit;
    sticky-reveal footer behaviour (assets/css/chapters.css .foot.uncover,
    assets/js/ea-chapters.js) — the mandate did not ask to change that, only
    the content/columns/legal styling. */
-if ( function_exists( 'ea_render_unified_footer' ) ) {
-	ea_render_unified_footer( array( 'reveal' => true ) );
-}
+$GLOBALS['ea_unified_footer_reveal'] = true;
 ?>
