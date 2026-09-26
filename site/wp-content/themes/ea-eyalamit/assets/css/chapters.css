@@ -464,10 +464,27 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    different, brighter strip of the same photo at narrower widths): 2228-2 at
    4.00:1 and the "ha-sefer ha-chadash" post at 4.47:1. .70 alpha was margin
    against the wrong axis (one page's worst photo) when the real variable is
-   viewport. .85 — the same alpha already used at 8px blur on .bleed__q in this
-   file, so nothing new to the theme — clears both mobile failures with room:
-   remeasured full population below. */
+   viewport. */
 .phero .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.85)}
+/* .85 (the same alpha already used at 8px blur on .bleed__q in this file)
+   cleared the "ha-sefer ha-chadash" mobile crop but not /2228-2/'s: that hero's
+   photo is a hand-and-chair shot with a large near-white press-clipping panel
+   baked into the image itself, and at 390px the eyebrow lands directly on that
+   panel — 4.16:1, still short, because a blur-only halo has a physical floor
+   against a background that's already near-white (the letters are 1–2px thin
+   strokes at this size, narrower than the 3px blur, so the shadow's peak
+   density under the stroke is already diluted below its nominal alpha).
+   Second, independent lever for exactly this case, photo heroes only: a small
+   solid backing behind the label — pre-approved as a fallback lever, and
+   already this theme's own pattern for a dark control sitting on unpredictable
+   photo content (.hero__sound, .mokesh-hero__unmute: same rgba(20,14,9,.x) ink,
+   same border-radius:100px pill). It composites under the text-shadow, not
+   instead of it, so the two stack: background, then shadow, then the opaque
+   glyph — reliable against literally any pixel the photo could put there,
+   including near-white. Flat/dark-grad .phero pages don't get it: they were
+   already 6.18–18+:1 with color alone and a pill there would be pure decoration
+   for no measured reason. */
+.phero--media .chap{display:inline-block;padding:3px 12px;background:rgba(20,14,9,.55);border-radius:100px}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
