@@ -76,6 +76,18 @@ document B.** In document A they appear only where they change what a human sees
 - Publish with `python3 scripts/ftp_publish_eyal_client_hub.py`; verify the live URL returns 200 and
   is byte-identical to the tracked source.
 
+## Where the pair lives — updated 2026-09-26
+
+**team_00 opened a dedicated folder for this and for what follows it:**
+`_COMMUNICATION/team_100/EYAL-WORKSPACE/`, with `README-INDEX.md` as its entry point.
+
+**Both documents of the pair are written into that folder from the start**, not moved there later.
+The artifact still publishes to `hub/dist/` for its live URL, but its tracked source lives here.
+
+**Three rules from that folder's index bind this mandate too:** every document states the date and
+the theme version it is true for · "not measured" is a legal value · and content law travels with
+the pack — the environment drafts a request, Eyal approves the words.
+
 ## Success criteria — Team 90 measures these
 
 - **Both documents exist, each links to the other, and each states the pairing rule.**
