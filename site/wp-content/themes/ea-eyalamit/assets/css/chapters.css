@@ -457,10 +457,17 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    4.5:1 against both — 6.18–17.4:1 on the flat/dark-grad pages (still short of
    4.5 in the gradient's lighter passages for --terra-lt, the sitewide dark-bg
    kicker colour used by .sec--dark/.studio__t/.start — this is why .phero can't
-   reuse it) and, with the shadow strengthened from .55 to .70 alpha for margin
-   on the worst photo crops (was a recorded 4.46:1 near-miss on /sound-healing/,
-   never acted on), 4.9:1+ on every live photo hero measured 2026-09-26. */
-.phero .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.7)}
+   reuse it), and, on photo heroes, cleared the recorded 4.46:1 near-miss on
+   /sound-healing/ at desktop with the shadow bumped from .55 to .70 alpha —
+   but a full 153-page sweep at BOTH the 1440 and 390 (mobile) viewports found
+   two photo pages that pass at 1440 and fail at 390 (object-fit:cover crops a
+   different, brighter strip of the same photo at narrower widths): 2228-2 at
+   4.00:1 and the "ha-sefer ha-chadash" post at 4.47:1. .70 alpha was margin
+   against the wrong axis (one page's worst photo) when the real variable is
+   viewport. .85 — the same alpha already used at 8px blur on .bleed__q in this
+   file, so nothing new to the theme — clears both mobile failures with room:
+   remeasured full population below. */
+.phero .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.85)}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
