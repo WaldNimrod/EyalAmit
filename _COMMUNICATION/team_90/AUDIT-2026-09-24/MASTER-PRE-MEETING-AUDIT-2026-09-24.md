@@ -430,6 +430,15 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   was false** — see `M-07` and the refuted `G-02`. The *lesson* (a stylesheet name is not UI)
   stands; the *conclusion drawn from it* did not. Correcting a method defect with another
   unverified assertion is how the error survived a whole day.
+- **M-14 · Sampling a rounded element inside its rectangular box is what made one page unmeasurable.**
+  The eyebrow label sits on a fully rounded pill. Recovering its background from the pill's bounding
+  RECTANGLE pulls in the anti-aliased curved-edge pixels, where the pill's fill blends into the raw
+  photograph behind it — pixels several px away from any letter, and nothing a reader ever sees.
+  **Inset the sampling clip by the element's own corner radius and the number changes completely:
+  the same page measured 4.17 with the rectangular clip and 9.00 without it.** This single mechanism
+  explains three of the four contradictory readings this page produced in one day — 3.80, 4.52 and
+  4.96 all cluster where the buggy clip lands. **A measurement repeated four times with four answers
+  is not a flaky page; it is one bug nobody had isolated.**
 - **M-13 · A sweep that names the pages it checked is not a sweep.** An alt-text pass reported every
   book page clean and concluded that the accessibility statement's disclosed exception was stale and
   could be removed. It had checked three of the four book pages. **The fourth, `/books/vekatavta/`,
