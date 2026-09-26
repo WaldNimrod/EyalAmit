@@ -287,10 +287,6 @@ a{color:inherit}
 /* 0.85 white measured 4.22:1 on both home cards after the reveal finished
    (worst pixel rgb(113,109,107)). --ea-on-dark on those same pixels is 5.12:1. */
 .cmpc__p{font-weight:var(--fw-light);font-size:var(--fs-sm);line-height:1.75;color:var(--ea-on-dark);max-width:40ch;margin-inline:auto;margin-bottom:20px}
-/* Home compare ghost button, white on the card photo, measured 2.85:1 (need 4.5).
-   Same shadow as .hero__trust. Scoped to these cards. */
-.cmpc .btn--gw{text-shadow:0 1px 3px rgba(0,0,0,.55)}
-
 /* ---- full-bleed photo band (magazine rhythm + section separation) ---- */
 .bleed{position:relative;width:100%;height:clamp(340px,46vw,560px);overflow:hidden}
 .bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -459,7 +455,9 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    to .phero .chap above, so any rule inserted between them silently restored
    #9A572D on photo heroes. The extra class makes the winner independent of
    source order. */
-.phero.phero--media .chap{color:var(--ea-on-dark)}
+/* Eyebrow on /sound-healing/ measured 4.46:1 at the worst glyph pixel (need 4.5).
+   The same 1px shadow already on .hero__trust. Not a darker photograph. */
+.phero.phero--media .chap{color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.55)}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
@@ -855,7 +853,8 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    /testimonials/ (page 73) has both but is one of the short older bands;
    the reset keeps its boxes where they were. */
 .cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
-body.page-id-73 .cta-band--row .cta-band__txt{padding-inline-start:0}
+/* The :has rule is (0,4,0). A bare body.page-id-73 reset is (0,3,1) and loses. */
+body.page-id-73 .cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:0}
 .cta-band--row .cta-band__h{text-align:right;margin-bottom:14px}
 .cta-band--row .cta-band__p{margin:0;text-align:right;max-width:52ch}
 .cta-band--row .cta-band__act{flex:0 0 auto}
