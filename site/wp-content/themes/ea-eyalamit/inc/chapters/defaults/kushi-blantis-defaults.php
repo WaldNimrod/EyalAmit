@@ -235,6 +235,7 @@ return array(
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 251 */
 				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
 				'cta_slug'  => 'kushi-blantis',
+				'sand'      => true,
 			),
 		),
 

@@ -145,6 +145,7 @@ return array(
 				'cta_label' => 'ליצירת קשר',
 				/* S006 · מקור: content 13.8.26/סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md · SECTION 09 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 

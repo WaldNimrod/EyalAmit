@@ -198,6 +198,7 @@ return array(
 				'cta_label' => "לתיאום והתאמה של תיק לדיג'רידו",
 				/* S006 · מקור: content 13.8.26/תיקים לדיג_רידו/bags for didg.md · SECTION 10 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 

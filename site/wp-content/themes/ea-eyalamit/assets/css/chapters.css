@@ -184,9 +184,12 @@ a{color:inherit}
    44.2px (h1=2.6 x body 17), so his number fits; the shipped 59.2px still will not. */
 .hero__c{position:relative;z-index:3;max-width:880px;padding:0 40px}
 .hero__trust{font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-xs);letter-spacing:1.1px;text-transform:uppercase;color:rgba(255,255,255,.93);text-shadow:0 1px 3px rgba(0,0,0,.55);margin-bottom:16px;display:block}
-.hero__h{font-family:var(--hf);text-wrap:normal;font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;margin-bottom:22px}
+.hero__h{font-family:var(--hf);text-wrap:normal;font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;margin-bottom:22px;text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .hero__h em{font-style:normal;color:var(--terra-lt)}
-.hero__s{font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.88);max-width:none;margin:0 auto 32px}
+/* 2026-09-26: rgba white .88 measured 3.08:1 (need 4.5) on the home video.
+   Solid --ea-on-dark alone was 3.49. The same shadow already on .hero__trust
+   lifted the glyph minimum to 4.68. */
+.hero__s{font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.6;color:var(--ea-on-dark);max-width:none;margin:0 auto 32px;text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .hero__cues{position:absolute;z-index:3;bottom:26px;left:0;right:0;display:flex;justify-content:center;gap:60px}
 .hero__cues span{width:11px;height:11px;border-inline-end:1.5px solid rgba(255,255,255,.6);border-bottom:1.5px solid rgba(255,255,255,.6);transform:rotate(45deg);animation:bob 2.4s var(--e) infinite}
 @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(-3px,3px)}}
@@ -284,6 +287,9 @@ a{color:inherit}
 /* 0.85 white measured 4.22:1 on both home cards after the reveal finished
    (worst pixel rgb(113,109,107)). --ea-on-dark on those same pixels is 5.12:1. */
 .cmpc__p{font-weight:var(--fw-light);font-size:var(--fs-sm);line-height:1.75;color:var(--ea-on-dark);max-width:40ch;margin-inline:auto;margin-bottom:20px}
+/* Home compare ghost button, white on the card photo, measured 2.85:1 (need 4.5).
+   Same shadow as .hero__trust. Scoped to these cards. */
+.cmpc .btn--gw{text-shadow:0 1px 3px rgba(0,0,0,.55)}
 
 /* ---- full-bleed photo band (magazine rhythm + section separation) ---- */
 .bleed{position:relative;width:100%;height:clamp(340px,46vw,560px);overflow:hidden}
@@ -295,8 +301,13 @@ a{color:inherit}
 .bleed__sc{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,7,3,.22) 0%,rgba(11,7,3,.42) 50%,rgba(11,7,3,.72) 100%)}
 .bleed__c{position:absolute;z-index:2;inset:0;display:flex;align-items:center}
 .bleed__in{max-width:1200px;margin-inline:auto;padding:0 48px;width:100%}
-.bleed__q{font-family:var(--serif);font-weight:var(--fw-regular);font-size:var(--fs-display);line-height:1.4;color:#fff;max-width:20ch;text-shadow:0 2px 30px rgba(0,0,0,.4)}
-.bleed__a{margin-top:18px;font-family:var(--bf);font-size:var(--fs-2xs);letter-spacing:2px;text-transform:uppercase;color:var(--terra-lt)}
+/* 2026-09-26: the 30px .4 shadow left /bags/ .bleed__q at 2.58 (need 3).
+   A tighter black shadow, same family as the ones already in this file,
+   measured 3.47 on the glyph mask. Not a new colour. */
+.bleed__q{font-family:var(--serif);font-weight:var(--fw-regular);font-size:var(--fs-display);line-height:1.4;color:#fff;max-width:20ch;text-shadow:0 0 8px rgba(0,0,0,.85)}
+/* --terra-lt on this photo measured 2.07 (need 4.5). --ea-on-dark on the
+   same pixels measured 5.80. Component colour, token untouched. */
+.bleed__a{margin-top:18px;font-family:var(--bf);font-size:var(--fs-2xs);letter-spacing:2px;text-transform:uppercase;color:var(--ea-on-dark)}
 
 /* ---- 07 HOW TO START — dramatic dark image band ---- */
 .start{position:relative;overflow:hidden;background-image:var(--ea-dark-warm-wash),var(--dark-grad)}
@@ -409,14 +420,25 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .phero{position:relative;background:var(--dark-grad);color:#fff;overflow:hidden;padding:calc(88px + var(--sec)) 0 var(--sec)}
 .phero .arcs{width:620px;height:620px;top:50%;left:-220px;transform:translateY(-50%);opacity:.12;filter:invert(1) sepia(.5) brightness(1.3)}
 .phero__in{position:relative;z-index:2;max-width:1200px;margin-inline:auto;padding:0 48px}
-.phero__h{font-family:var(--hf);text-wrap:normal;font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;max-width:32ch;margin-bottom:20px}
+/* 2026-09-26: /sound-healing/ H1 measured 2.94:1 (need 3) against the photo.
+   .hero__trust's shadow on the same white measured 4.45:1. */
+.phero__h{font-family:var(--hf);text-wrap:normal;font-weight:var(--fw-h1);font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.4px;color:#fff;max-width:32ch;margin-bottom:20px;text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .phero__h em{font-style:normal;color:var(--terra-lt)}
-.phero__s{font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.8;color:rgba(255,255,255,.86);max-width:54ch}
+/* Photo heroes only. --terra-lt on /learning/therapist-training/ «מטפלים ומנחים»
+   measured 1.59:1 (need 3). #9A572D and --terra-dk, the darker component values
+   already used for flat heroes, fell to ~1.0 on this photograph. --ea-on-dark
+   on the same glyph pixels measured 4.47:1. Own declaration, token untouched —
+   same move as .phero .chap below. Non-photo .phero keeps --terra-lt. */
+.phero--media .phero__h em{color:var(--ea-on-dark)}
+/* Alpha 1.0 (--ea-on-dark) is enough on most photo heroes. /eyal-amit/ and /faq/
+   stayed at 4.26 and 4.23 (need 4.5) until the same .hero__trust shadow, which
+   measured 5.43 and 5.50. */
+.phero__s{font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.8;color:var(--ea-on-dark);max-width:54ch;text-shadow:0 1px 3px rgba(0,0,0,.55)}
 /* S006 · M-03 · גוף רב-פסקאות בהירו (phero.lede). נגזרת M-01: הטקסט של אייל עבר לכאן
    מ-sections[0] ב-/shop/. עקבי עם .phero__s — אותו משקל, אותו צבע — ובמידה קטנה ממנו
    כדי שלא יתחרה בו. הגלובלי p{margin:0} (שורה 32) מאפס את המרווחים, ולכן הריווח בין
    הפסקאות נקבע כאן במפורש, והמרווח העליון של הראשונה הוא 0 מתוך אותה הצהרה. */
-.phero__lede{margin-top:18px;max-width:60ch;font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.85;color:rgba(255,255,255,.86)}
+.phero__lede{margin-top:18px;max-width:60ch;font-weight:var(--fw-light);font-size:var(--fs-lead);line-height:1.85;color:var(--ea-on-dark);text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .phero__lede p{margin:0 0 14px}
 .phero__lede p:last-child{margin-bottom:0}
 /* team_00-approved contrast fix (2026-09-24): .chap inside .phero measured
@@ -433,7 +455,11 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    present — it had not been dropped). Painted pixels on /learning/: #9A572D is
    1.15:1, --ea-on-dark (the heading's own colour on this scrim) is 6.37:1.
    Non-photo .phero keeps #9A572D. */
-.phero--media .chap{color:var(--ea-on-dark)}
+/* Specificity (0,3,0). The previous .phero--media .chap was (0,2,0), identical
+   to .phero .chap above, so any rule inserted between them silently restored
+   #9A572D on photo heroes. The extra class makes the winner independent of
+   source order. */
+.phero.phero--media .chap{color:var(--ea-on-dark)}
 /* ── Reading measure ───────────────────────────────────────────────────────────
    team_00 chose this on 20.9.2026, from three live screenshots of the same section:
    «ג רחב יותר» — the wider one.
@@ -822,6 +848,14 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .cta-band--row{text-align:right}
 .cta-band--row .cta-band__in{max-width:1120px;display:flex;align-items:center;justify-content:space-between;gap:clamp(32px,5vw,72px);flex-wrap:wrap}
 .cta-band--row .cta-band__txt{flex:1 1 460px}
+/* 2026-09-26. RTL space-between pins the text to inline-start, under
+   .cta-band__logo--side (right:-40px, width up to 440px). At 1440 the ink
+   overlapped the mark by 240px. The padding tracks that intrusion (~24px gap).
+   Only a band with both a heading and a paragraph — the long-body pages.
+   /testimonials/ (page 73) has both but is one of the short older bands;
+   the reset keeps its boxes where they were. */
+.cta-band--row .cta-band__txt:has(.cta-band__h):has(.cta-band__p){padding-inline-start:max(0px, calc(min(46vw, 440px) - 88px - max(0px, (100vw - 1216px) / 2) + 24px))}
+body.page-id-73 .cta-band--row .cta-band__txt{padding-inline-start:0}
 .cta-band--row .cta-band__h{text-align:right;margin-bottom:14px}
 .cta-band--row .cta-band__p{margin:0;text-align:right;max-width:52ch}
 .cta-band--row .cta-band__act{flex:0 0 auto}
@@ -1464,12 +1498,20 @@ body.nav-locked{overflow:hidden}
 .split2.split2--cover{align-items:stretch;gap:clamp(28px,4vw,56px)}
 .split2.split2--cover .split2__m{position:relative;min-height:100%;margin:0;border-radius:14px;overflow:hidden}
 .split2.split2--cover .split2__m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.cta-band--choc{background:var(--ea-chocolate);background-image:none}
-/* /method/ colour test only (team_00, 2026-09-26). Not applied to the other
-   chocolate bands. Existing tokens — no new colour. */
+/* CTA types, owner 2026-09-26. The row layout stays. Background and text
+   are the two types:
+   dark — the default .cta-band wash, white text. Mid-page bands.
+   sand — .cta-band--sand, --ea-sand ground, --ea-ink text. A band that sits
+   directly above the footer.
+   .cta-band--choc is retired. That brown fill was the brown-on-black
+   adjacency against the footer. Do not reintroduce it. */
 .cta-band--sand{background:var(--ea-sand);background-image:none;color:var(--ea-ink)}
 .cta-band--sand .cta-band__h,
 .cta-band--sand .cta-band__p{color:var(--ea-ink)}
+/* --terra-btn against --ea-sand measured 2.81:1 (need 3 at the boundary).
+   No darker filled .btn exists. A 1px border in the existing --ea-ink token
+   is 8.68:1 on sand. The fill stays --terra-btn; its white label stays 4.63:1. */
+.cta-band--sand .btn--terra{border-color:var(--ea-ink)}
 .cta-band--stack{text-align:center;padding:clamp(64px,8vw,104px) 48px}
 .cta-band--stack .cta-band__in{max-width:640px}
 .cta-band--stack .cta-band__h,

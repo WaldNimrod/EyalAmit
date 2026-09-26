@@ -189,6 +189,7 @@ return array(
 				'cta_label' => 'לתיאום הגעה ובחירת כלי',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 

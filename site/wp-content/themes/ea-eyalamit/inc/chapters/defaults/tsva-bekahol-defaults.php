@@ -233,6 +233,7 @@ return array(
 			'args' => array(
 				'cta_label' => 'לרכישת הספר המודפס',
 				'cta_url'   => '/contact/',
+				'sand'      => true,
 			),
 		),
 	),

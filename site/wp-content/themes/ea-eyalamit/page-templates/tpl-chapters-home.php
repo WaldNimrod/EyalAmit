@@ -115,6 +115,9 @@ defined( 'ABSPATH' ) || exit;
 			'body'      => ea_chapters_field( 'final_body' ),
 			'cta_label' => ea_chapters_field( 'final_cta_label' ),
 			'cta_url'   => ea_chapters_field( 'final_cta_url' ),
+			/* Directly above the footer — sand type (owner 2026-09-26).
+			   This band is not a defaults 'part', so the flag lives on the call. */
+			'sand'      => true,
 		) );
 	}
 	?>

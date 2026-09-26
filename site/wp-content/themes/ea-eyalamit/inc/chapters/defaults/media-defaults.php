@@ -102,6 +102,7 @@ return array(
 				'body'      => 'מוזמנים לפנות לתיאום שיחת היכרות.',
 				'cta_label' => 'ליצירת קשר',
 				'cta_url'   => '/contact/',
+				'sand'      => true,
 			),
 		),
 	),

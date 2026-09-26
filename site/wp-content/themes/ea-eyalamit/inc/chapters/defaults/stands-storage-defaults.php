@@ -176,6 +176,7 @@ return array(
 				'cta_label' => 'לתיאום והזמנה',
 				/* S006 · מקור: content 13.8.26/סטנדים לדיג_רידו לאחסון/stend for hanging.md · SECTION 10 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 
