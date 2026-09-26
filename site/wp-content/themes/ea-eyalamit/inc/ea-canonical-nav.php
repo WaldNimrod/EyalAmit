@@ -631,25 +631,38 @@ if ( ! function_exists( 'ea_render_unified_footer' ) ) :
 endif;
 
 /*
- * Universal safety net — same mechanism the sitemap row it replaces used,
- * for the same reason: the child footer.php gateway (inc/ea-canonical-nav.php
- * caller: footer.php) calls ea_render_unified_footer() explicitly in its own
- * shell branch, but when the GeneratePress PARENT theme's footer.php is
- * readable (the live/staging case), THAT file is what actually runs, with
- * none of this theme's footer partials in the request at all. Measured
- * 2026-09-26: /historical-articles/ is the one live example among the 153
- * published pages/posts (it renders on page-template-default). The parent
- * theme's own footer.php is not in this repo (installed on the server, not
- * vendored), so there is no safe fixed point inside it to call from
- * directly. wp_footer() fires on every WordPress front-end page immediately
- * before </body>, including this theme's own, so hooking it here reaches
- * that page without depending on the parent theme's internal structure.
- * generate_show_footer is also filtered to false (functions.php) so
- * GeneratePress's own site-info <footer> never renders alongside this one —
- * that pairing is what produced the double footer on /press/ (Wave2's own
- * .ea-footer plus GP's .site-info; see the DONE report for the measurement).
- * The function's own render-once guard makes this hook inert everywhere the
- * footer already rendered via one of the three explicit calls above.
+ * THE ONLY invocation path for the unified footer, since
+ * MANDATE-FOOTER-ONE-PATH-2026-09-27 (theme 1.5.143). Before that commit
+ * four templates also called ea_render_unified_footer() explicitly and a
+ * static render-once guard inside the function stopped a page printing it
+ * several times. All four calls and the guard are gone. Do not reintroduce
+ * either: an explicit call would now print a SECOND footer, because nothing
+ * dedupes any more.
+ *
+ * Why the hook rather than a call site: when the GeneratePress PARENT
+ * theme's footer.php is readable — the live and staging case — that file is
+ * what runs, and none of this theme's footer partials are in the request at
+ * all. Measured 2026-09-26: /historical-articles/ was the one live example
+ * among the 153 published pages/posts (it renders on page-template-default).
+ * The parent theme's footer.php is not vendored in this repo, so there is no
+ * safe fixed point inside it to call from. wp_footer() fires on every
+ * WordPress front-end page immediately before </body>, so hooking here
+ * reaches that page without depending on the parent theme's internals.
+ *
+ * Chapters views need the sticky-reveal variant. They cannot pass an
+ * argument through a hook, so section-footer.php sets
+ * $GLOBALS['ea_unified_footer_reveal'] before wp_footer() runs and the
+ * wrapper below reads it. Verified 2026-09-27 across the published
+ * population: the reveal classes appear on 150 URLs and are absent on
+ * exactly the three that never included section-footer.php
+ * (/historical-articles/, /en/, /press/).
+ *
+ * Separately, GeneratePress's own site-info <footer> must never render
+ * alongside this one — that pairing is what produced the double footer on
+ * /press/. functions.php filters generate_show_footer / generate_show_credits
+ * to false, but measured 2026-09-26 this GeneratePress version ignores both,
+ * so footer.php strips that one element out of the buffered parent output.
+ * See the comment there.
  */
 if ( ! function_exists( 'ea_render_unified_footer_wp_hook' ) ) :
 	/**
