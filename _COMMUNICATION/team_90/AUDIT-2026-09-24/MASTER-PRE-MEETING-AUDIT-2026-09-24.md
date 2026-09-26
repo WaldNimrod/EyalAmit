@@ -439,6 +439,12 @@ findings were wrong on file attribution today, so nothing here is actionable unt
   explains three of the four contradictory readings this page produced in one day — 3.80, 4.52 and
   4.96 all cluster where the buggy clip lands. **A measurement repeated four times with four answers
   is not a flaky page; it is one bug nobody had isolated.**
+  **Confirmed causally the same evening:** the two remaining "mobile failures" at 3.77 and 4.11 did
+  not reproduce — the pages measure 10.84 and 12.41 — and running the naive whole-box sample against
+  the same screenshots returns **2.95 and 3.50**, the same range. **A wrapped pill has more curved
+  edge per unit of text, so the artifact is worst exactly where the label wraps.** The census worst
+  across 114 pages and two viewports is **10.84 against a 4.5 threshold**: this element is not
+  marginal anywhere, and every reading that said otherwise came from the same clip.
 - **M-13 · A sweep that names the pages it checked is not a sweep.** An alt-text pass reported every
   book page clean and concluded that the accessibility statement's disclosed exception was stale and
   could be removed. It had checked three of the four book pages. **The fourth, `/books/vekatavta/`,
