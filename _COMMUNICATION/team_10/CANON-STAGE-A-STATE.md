@@ -135,7 +135,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
   to team_10, signature `wave1-20260925` frozen, additive only. **Team_00 to name who applies it.**
 - **O3 · Six-column grid scope.** Apply it now to the CTA redesign (D6), or record it as a
   principle and apply it to every component in stage B? **Team_00.**
-- **O4 · The old artifact.** `ea-content-types.html` is superseded as the visual source by the
+- **O4 · The old artifact.** team_00, 2026-09-27, on `ea-content-types.html`: «זה לא יפה ולא שימושי»; on the canon map: «זה בכיוון». The map is the direction; the artifact is kept only until he retires it. `ea-content-types.html` is superseded as the visual source by the
   map; its descriptions moved to `canon-map/tools/type-defs.json`. It stays published until
   team_00 retires it; both canon-pair files now point to the map.
 - **O5 · Deliverable 2** — not started. Its inputs: the approved types, D7, D11, D12, and the
