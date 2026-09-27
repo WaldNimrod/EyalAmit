@@ -1,0 +1,118 @@
+[
+ {
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/עכשיו-מופע-הסיפורים-של-אייל-עמית-תופע/",
+  "httpStatus": 200,
+  "navErr": null,
+  "title": "שמרו התאריכים! תופעת יחיד: 11/11/16 פסטיבל נאטראז', 22/12/16 בית ציוני אמריקה, 29/12/16 תיאטרון הידית - eyal amit",
+  "bodyLen": 42567,
+  "navCount": 1,
+  "footerCount": 1,
+  "phpErr": false,
+  "chapCount": 1,
+  "chaps": [
+   {
+    "idx": 0,
+    "color": "rgb(255, 255, 255)",
+    "textShadow": "rgba(0, 0, 0, 0.85) 0px 1px 3px",
+    "fontSize": "11.05px",
+    "fontWeight": "500",
+    "isMedia": true,
+    "blockRect": {
+     "x": 48,
+     "y": 343.859375,
+     "width": 294,
+     "height": 40.21875
+    },
+    "rects": [
+     {
+      "x": 79.96875,
+      "y": 348.859375,
+      "width": 250.03125,
+      "height": 12
+     },
+     {
+      "x": 235.96875,
+      "y": 365.96875,
+      "width": 94.03125,
+      "height": 12
+     }
+    ],
+    "text": "כללי · תופעת יחיד - מופע הסיפורים של אייל עמית"
+   }
+  ],
+  "pathA": "diag/p0_0_A.png",
+  "pathB": "diag/p0_0_B.png",
+  "topmostChecks": [
+   {
+    "idx": "0",
+    "topIsSelf": true
+   }
+  ],
+  "meta": {
+   "link": "http://eyalamit-co-il-2026.s887.upress.link/עכשיו-מופע-הסיפורים-של-אייל-עמית-תופע/",
+   "viewport": {
+    "width": 390,
+    "height": 844,
+    "mobile": true
+   }
+  }
+ },
+ {
+  "url": "http://eyalamit-co-il-2026.s887.upress.link/שני-תאריכים-קרובים-למופע-הסיפורים-של-א/",
+  "httpStatus": 200,
+  "navErr": null,
+  "title": "מה חושבים על המופע \"תופעת יחיד\" של אייל עמית: אלון נוימן, שי אביבי, מיכל ליבדינסקי, אברהם טל, ערן שטרן ועוד.. - eyal amit",
+  "bodyLen": 45361,
+  "navCount": 1,
+  "footerCount": 1,
+  "phpErr": false,
+  "chapCount": 1,
+  "chaps": [
+   {
+    "idx": 0,
+    "color": "rgb(255, 255, 255)",
+    "textShadow": "rgba(0, 0, 0, 0.85) 0px 1px 3px",
+    "fontSize": "11.05px",
+    "fontWeight": "500",
+    "isMedia": true,
+    "blockRect": {
+     "x": 48,
+     "y": 343.859375,
+     "width": 294,
+     "height": 40.21875
+    },
+    "rects": [
+     {
+      "x": 69.140625,
+      "y": 346.859375,
+      "width": 260.859375,
+      "height": 17
+     },
+     {
+      "x": 229.8125,
+      "y": 363.96875,
+      "width": 100.1875,
+      "height": 17
+     }
+    ],
+    "text": "כללי · תופעת יחיד - מופע הסיפורים של אייל עמית"
+   }
+  ],
+  "pathA": "diag/p1_1_A.png",
+  "pathB": "diag/p1_1_B.png",
+  "topmostChecks": [
+   {
+    "idx": "0",
+    "topIsSelf": true
+   }
+  ],
+  "meta": {
+   "link": "http://eyalamit-co-il-2026.s887.upress.link/שני-תאריכים-קרובים-למופע-הסיפורים-של-א/",
+   "viewport": {
+    "width": 390,
+    "height": 844,
+    "mobile": true
+   }
+  }
+ }
+]

@@ -1,0 +1,4 @@
+http://eyalamit-co-il-2026.s887.upress.link/עכשיו-מופע-הסיפורים-של-אייל-עמית-תופע/
+  naive whole-bbox worst (NO radius inset, NO ink filter): 2.947 at (48,357) bg=(152, 150, 148)
+http://eyalamit-co-il-2026.s887.upress.link/שני-תאריכים-קרובים-למופע-הסיפורים-של-א/
+  naive whole-bbox worst (NO radius inset, NO ink filter): 3.501 at (317,343) bg=(135, 137, 142)
