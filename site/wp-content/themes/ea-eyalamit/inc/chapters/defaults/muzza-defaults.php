@@ -38,6 +38,20 @@ return array(
 			),
 		),
 
+		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 03.5
+		 * Canon stage A (2026-09-27): this section existed in the approved source since
+		 * before the page was built, but was never carried into this defaults array —
+		 * found while diffing the two side by side. Body verbatim from the source; the
+		 * external link follows this file's own convention for one (tlink class, new
+		 * tab, noopener+noreferrer — see SECTION 05-07's book links below). No ###
+		 * heading in the source, so no title arg here, matching SECTION 03 above. */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'body' => '<p>אייל עמית הוא סופר ומוציא לאור, מהנדס אלקטרוניקה לשעבר ואיש במה לשעבר, שיצר במשך שנים את מופע הסיפורים "תופעת יחיד". במקביל לכתיבה, הוא עוסק למעלה משני עשורים בעבודה עם דיג\'רידו - כמורה, בונה ומטפל בנשימה, ומנהל את המרכז לטיפול בדיג\'רידו בפרדס חנה.</p><p><a class="tlink" href="https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA" target="_blank" rel="noopener noreferrer">לקריאה נוספת על אייל עמית בויקיפדיה</a></p>',
+			),
+		),
+
 		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 04
 		 * BK-01 · H2 מ-### כותרת נשאר. chap «מכירה ישירה» רוקן. גוף ככתבו. */
 		array(
