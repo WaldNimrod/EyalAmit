@@ -176,6 +176,31 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 /* Approved (team_00, D37): running text is block-justified in RTL, always, across the whole site — last line to the start
    (right). Shown on every approved and proposed example; the "today" examples stay as the site is. */
 .cm-appr p,.cm-appr li,.cm-prop p,.cm-prop li{text-align:justify;text-align-last:start}
+/* Approved (team_00, A-1): every example in the map and the sketches sits on the nearest canonical tone — the map only,
+   not the site. ivory-2 #efeae1 and the near-white #faf8f5 -> ivory; the dark gradients -> dark #2A1A0C.
+   Card surfaces (white cards) and backgrounds behind images are not section tones and stay. */
+.cm-spec :is(.sec--alt,.ea-faq-mini-section,.ea-press){background:#fffffa!important;background-image:none!important}
+.cm-spec :is(.sec--dark,.cta-band:not(.cta-band--sand),section.start,.videoblk,.studio__t){background:#2A1A0C!important;background-image:none!important}
+/* Approved (team_00, A-5): one "waiting for content" state for every image or video, in one bold colour that can never
+   be mistaken for content. */
+.cm-spec :is(.ph,.ea-pending-approval,.ea-now__ph){background:repeating-linear-gradient(135deg,#FFE4F0 0 14px,#FFD1E6 14px 28px)!important;
+  border:3px dashed #D6006F!important;box-shadow:none!important;color:#8A0047!important}
+.cm-spec :is(.ph span,.ea-pending-approval__badge){background:#D6006F!important;color:#fff!important;box-shadow:none!important;
+  font-weight:600;border-radius:100px;padding:6px 14px}
+.cm-spec :is(.ea-pending-approval__title,.ea-pending-approval__note){color:#8A0047!important}
+/* Proposal (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
+   ייצר כרטיס»): the folded text is a framed card in the paragraph's text columns; the peek fades out at the bottom;
+   a small outline pill at the card's left (end) edge opens it. */
+section.sec.cm-pr-c.cm-fold>.wrap>.prose-fold{grid-column:2/6;border:1px solid #d9c9b6;border-radius:12px;background:#fffffa;
+  padding:clamp(20px,2.4vw,32px) clamp(20px,2.6vw,36px) 16px}
+section.cm-fold .prose-fold__peek{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+section.cm-fold .prose-acc{border:0;display:flex;flex-direction:column}
+section.cm-fold .prose-acc__t{align-self:flex-end;display:inline-flex;gap:8px;padding:5px 14px!important;margin-top:6px;
+  border:1px solid #9A4F2B;border-radius:100px;font-family:Heebo,sans-serif;font-size:.85rem;font-weight:500;color:#9A4F2B}
+section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
+section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
+section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
+section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -188,6 +213,10 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
 .phero .cm-vid.phero__media{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+/* The home hero's video fills the whole banner (theme: .hero__media absolute) — the placeholder must too, or the
+   hero's flex row puts it beside the text and squeezes the text into a column (team_00 caught it). */
+.hero .cm-vid.hero__media{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;z-index:0}
+.hero .cm-vid__yt{display:none}.hero .cm-vid__lbl{bottom:auto;top:20px;inset-inline-start:60px}
 .cm-vid__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cm-vid::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(29,20,13,.35),rgba(154,79,43,.6))}
 .cm-vid__ic,.cm-vid__yt,.cm-vid__lbl{position:absolute;z-index:1}
@@ -239,7 +268,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </style></head>
 <body class="rtl wp-singular page-template page-template-page-templates page-template-tpl-service page-template-page-templatestpl-service-php page page-id-55 wp-embed-responsive wp-theme-generatepress wp-child-theme-ea-eyalamit no-sidebar nav-float-right separate-containers header-aligned-right dropdown-hover ea-wave2-shell ea-m4-polish ea-chapters">
 
-<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-g="g1" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-g="g2" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-g="g3" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-g="g4" data-href="ea-canon-map.html#g4" type="button">רשתות וכרטיסים</button><button class="cm-tab" data-g="g5" data-href="ea-canon-map.html#g5" type="button">קולות</button><button class="cm-tab" data-g="g6" data-href="ea-canon-map.html#g6" type="button">שאלות ומבנה</button><button class="cm-tab" data-g="g7" data-href="ea-canon-map.html#g7" type="button">מדיה</button><button class="cm-tab" data-g="g8" data-href="ea-canon-map.html#g8" type="button">קריאה לפעולה</button><button class="cm-tab" data-g="g9" data-href="ea-canon-map.html#g9" type="button">מעטפות</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg is-on" data-href="grid-proof.html" type="button">מה אושר</button><button class="cm-pg" data-href="palette-check.html" type="button">בדיקת גוונים</button><button class="cm-pg" data-href="merge.html" type="button">איחוד (הצעה)</button></span></nav>
+<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-g="g1" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-g="g2" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-g="g3" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-g="g4" data-href="ea-canon-map.html#g4" type="button">רשתות וכרטיסים</button><button class="cm-tab" data-g="g5" data-href="ea-canon-map.html#g5" type="button">קולות</button><button class="cm-tab" data-g="g6" data-href="ea-canon-map.html#g6" type="button">שאלות ומבנה</button><button class="cm-tab" data-g="g7" data-href="ea-canon-map.html#g7" type="button">מדיה</button><button class="cm-tab" data-g="g8" data-href="ea-canon-map.html#g8" type="button">קריאה לפעולה</button><button class="cm-tab" data-g="g9" data-href="ea-canon-map.html#g9" type="button">מעטפות</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg is-on" data-href="grid-proof.html" type="button">מה אושר</button><button class="cm-pg" data-href="palette-check.html" type="button">בדיקת גוונים</button><button class="cm-pg" data-href="merge.html" type="button">איחוד (הצעה)</button><button class="cm-pg" data-href="shared.html" type="button">משותף</button></span></nav>
 <main class="chapters-main"><div class="cm-proof-head"><h1>מה אושר — לפי טיפוס, וריאנט, שדה וכלל</h1><p><b>טיפוס</b> — בלוק עם מבנה משלו · <b>וריאנט</b> — בחירה לכל שימוש מרשימה סגורה · <b>וריאנט משותף</b> — חל על כל הטיפוסים שיש בהם אותו דבר · <b>שדה</b> — תוכן שממלאים · <b>כלל</b> — התנהגות אוטומטית, אף אחד לא בוחר</p><p>לכל דוגמה מזהה (למשל T-06.3) ולכל כלל כללי מזהה (R-1) — אפשר להפנות אליהם ישירות. הרשת (קווים ורודים) מוצגת מרוחב 761 פיקסלים ומעלה. טור 1 הוא הימני.</p><h2>כללים לכל האתר</h2><ul class="av-rules"><li id="R-1"><b>R-1</b> <b>רשת</b> — ששה טורים על רוחב התוכן, מרווח 10 פיקסלים. טור 1 הוא הימני. כל רכיב יושב על קווי הרשת.</li><li id="R-2"><b>R-2</b> <b>טקסט רץ</b> — יישור בלוק מימין לשמאל, השורה האחרונה לימין — תמיד, בכל האתר. לא כותרות, תוויות וכפתורים.</li><li id="R-3"><b>R-3</b> <b>כפתורים</b> — ריווח מצומצם סביב הטקסט בכל הכפתורים.</li><li id="R-4"><b>R-4</b> <b>טלפון</b> — מתחת ל-761 פיקסלים כל טיפוס עובר לטור אחד. כפתור ההירו ופס הקריאה לפעולה — משמאל.</li></ul></div><div class="cm-group" id="T-01"><span>T-01</span><h2>הירו</h2></div><div class="av-card"><dl><dt class="av-h">וריאנטים</dt><dd></dd><dt>גובה</dt><dd>גדול 92% · בינוני 66% · קטן 44% (מינימום — טקסט ארוך מגדיל)</dd><dt>מדיה</dt><dd>תמונה · סרטון · בלי</dd><dt>מיקום הכפתור</dt><dd>למטה · למעלה</dd><dt class="av-h">וריאנטים משותפים</dt><dd></dd><dt>התאמת תמונה</dt><dd>תמיד מילוי</dd><dt class="av-h">שדות</dt><dd>תווית · כותרת · תת-כותרת · מדיה · כפתור (תווית וקישור)</dd><dt class="av-h">כללים</dt><dd><ul><li>טקסט בטורים 1–4, כפתור בטורים 5–6 בשורה אחת</li><li>כפתור למטה — מיושר לתחתית; למעלה — ראשו בקו אחד עם ראש הכותרת</li><li>בטלפון: טור אחד, הכפתור משמאל</li></ul></dd></dl></div><div class="av-ex" id="T-01.1"><b>T-01.1</b> גובה: גדול · מדיה: סרטון · כפתור: למטה</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><header class="phero phero--media cm-h-l">
 <div aria-label="מקום לסרטון" class="cm-vid phero__media" role="img" style=""><img alt="" class="cm-vid__bg" src="/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg"/><span class="cm-vid__ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span><span class="cm-vid__yt"><svg viewbox="0 0 68 48"><path d="M66.5 7.5a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.5a8.5 8.5 0 0 0-6 6C0 12.8 0 24 0 24s0 11.2 1.5 16.5a8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35.2 68 24 68 24s0-11.2-1.5-16.5z" fill="#f00"></path><path d="M27 34l18-10-18-10z" fill="#fff"></path></svg></span><span class="cm-vid__lbl">מקום לסרטון</span></div>
 <span aria-hidden="true" class="phero__sc"></span>

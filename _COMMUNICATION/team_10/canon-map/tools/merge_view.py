@@ -93,7 +93,7 @@ def examples(s, tid, approved):
 
 
 s = BeautifulSoup(open(SRC, encoding="utf-8").read(), "lxml")
-names = {r["id"]: r.select_one(".c-name").get_text() for r in s.select(".cm-row")}
+names = {r["id"]: next(r.select_one(".c-name").stripped_strings) for r in s.select(".cm-row")}
 blocks, n_old = [], 0
 for nid, name, olds, variants, note in MERGE:
     absorbed = [o for o, _, _ in olds if o != nid]

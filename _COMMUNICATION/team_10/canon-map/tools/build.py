@@ -62,7 +62,8 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
    ("מאושר — גוון 4 מתוך 5: טרקוטה (דרגה אחת כהה יותר מצבע המותג) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-terra-dk")),
    ("מאושר — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
-  [(None, "kushi", ".prose-fold", 0, None, None)])
+  [(None, "kushi", ".prose-fold", 0, None, None),
+   ("הצעה לאישור — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; הטקסט דוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל", "kushi", ".prose-fold", 0, None, ("__PROPOSAL__", "cm-pr-c cm-fold"))])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
   [(None, "snoring", ".pfloat", 0, None, None), ("וריאנט: עומדת, גדולה", "repair", ".pfloat--standing", 0, None, None)])
 
@@ -504,6 +505,31 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 /* Approved (team_00, D37): running text is block-justified in RTL, always, across the whole site — last line to the start
    (right). Shown on every approved and proposed example; the "today" examples stay as the site is. */
 .cm-appr p,.cm-appr li,.cm-prop p,.cm-prop li{text-align:justify;text-align-last:start}
+/* Approved (team_00, A-1): every example in the map and the sketches sits on the nearest canonical tone — the map only,
+   not the site. ivory-2 #efeae1 and the near-white #faf8f5 -> ivory; the dark gradients -> dark #2A1A0C.
+   Card surfaces (white cards) and backgrounds behind images are not section tones and stay. */
+.cm-spec :is(.sec--alt,.ea-faq-mini-section,.ea-press){background:#fffffa!important;background-image:none!important}
+.cm-spec :is(.sec--dark,.cta-band:not(.cta-band--sand),section.start,.videoblk,.studio__t){background:#2A1A0C!important;background-image:none!important}
+/* Approved (team_00, A-5): one "waiting for content" state for every image or video, in one bold colour that can never
+   be mistaken for content. */
+.cm-spec :is(.ph,.ea-pending-approval){background:repeating-linear-gradient(135deg,#FFE4F0 0 14px,#FFD1E6 14px 28px)!important;
+  border:3px dashed #D6006F!important;box-shadow:none!important;color:#8A0047!important}
+.cm-spec :is(.ph span,.ea-pending-approval__badge){background:#D6006F!important;color:#fff!important;box-shadow:none!important;
+  font-weight:600;border-radius:100px;padding:6px 14px}
+.cm-spec :is(.ea-pending-approval__title,.ea-pending-approval__note){color:#8A0047!important}
+/* Proposal (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
+   ייצר כרטיס»): the folded text is a framed card in the paragraph's text columns; the peek fades out at the bottom;
+   a small outline pill at the card's left (end) edge opens it. */
+section.sec.cm-pr-c.cm-fold>.wrap>.prose-fold{grid-column:2/6;border:1px solid #d9c9b6;border-radius:12px;background:#fffffa;
+  padding:clamp(20px,2.4vw,32px) clamp(20px,2.6vw,36px) 16px}
+section.cm-fold .prose-fold__peek{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+section.cm-fold .prose-acc{border:0;display:flex;flex-direction:column}
+section.cm-fold .prose-acc__t{align-self:flex-end;display:inline-flex;gap:8px;padding:5px 14px!important;margin-top:6px;
+  border:1px solid #9A4F2B;border-radius:100px;font-family:Heebo,sans-serif;font-size:.85rem;font-weight:500;color:#9A4F2B}
+section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
+section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
+section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
+section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -516,6 +542,10 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
 .phero .cm-vid.phero__media{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+/* The home hero's video fills the whole banner (theme: .hero__media absolute) — the placeholder must too, or the
+   hero's flex row puts it beside the text and squeezes the text into a column (team_00 caught it). */
+.hero .cm-vid.hero__media{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;z-index:0}
+.hero .cm-vid__yt{display:none}.hero .cm-vid__lbl{bottom:auto;top:20px;inset-inline-start:60px}
 .cm-vid__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cm-vid::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(29,20,13,.35),rgba(154,79,43,.6))}
 .cm-vid__ic,.cm-vid__yt,.cm-vid__lbl{position:absolute;z-index:1}
@@ -547,7 +577,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 
 # The map and its temporary sketch pages share one top bar: the group tabs plus these page links.
 # Buttons, not <a>: the page's <base> would send a relative link to the staging host.
-PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "מה אושר"), ("palette-check.html", "בדיקת גוונים"), ("merge.html", "איחוד (הצעה)")]
+PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "מה אושר"), ("palette-check.html", "בדיקת גוונים"), ("merge.html", "איחוד (הצעה)"), ("shared.html", "משותף")]
 PAGES_NAV = ('<span class="cm-pgs">' + "".join(
     f'<button type="button" class="cm-pg{" is-on" if i == 0 else ""}" data-href="{h}">{n}</button>'
     for i, (h, n) in enumerate(PROOF_PAGES)) + '</span>')
@@ -590,7 +620,7 @@ html = f"""<!doctype html>
 <h1>מפת הקאנון — טיפוסי התוכן</h1>
 <p>שורה לכל טיפוס. לחיצה על שורה פותחת את התיאור המלא ואת הדוגמה בגודל מלא.</p>
 <p>כל דוגמה הועתקה כלשונה מהעמוד החי שמצוין בשורה — והעמוד הזה הוא הוכחת ההיתכנות שלה. דוגמה בתוכן דמה מסומנת במסגרת מקווקוות. כל סרטון מוצג כמקום שמור קבוע; בעמודים עצמם מוצג הסרטון האמיתי.</p>
-<p>נלכד {today} · גרסת תמה {ver} · מעוצב בגיליונות הסגנון האמיתיים של האתר.</p>
+<p>נלכד {today} · גרסת תמה {ver} · מעוצב בגיליונות הסגנון האמיתיים של האתר. הרקעים בכל הדוגמאות יושרו לגוון הקאנוני הקרוב, ו«ממתין לתוכן» מוצג במראה האחיד — במפה בלבד, לא באתר.</p>
 </header>
 <nav class="cm-tabs" aria-label="קבוצות">{"".join(tabs)}{PAGES_NAV}</nav>
 <main class="chapters-main">
