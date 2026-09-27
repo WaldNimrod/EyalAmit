@@ -9,6 +9,7 @@ so it covers exactly the columns the element itself uses.
 """
 import sys
 from bs4 import BeautifulSoup
+from proofnav import keep_nav
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 PICK = [("T-01", "cm-appr", ".phero__in", "הירו"), ("T-08", "cm-appr", ".cta-band__in", "פס קריאה לפעולה"), ("T-04", "cm-appr", "section > .wrap", "פסקת טקסט"), ("T-04", "cm-prop", "section > .wrap", "פסקת טקסט — חמשת הגוונים (הצעה)")]
@@ -29,8 +30,7 @@ for tid, kind, box, title in PICK:
             c.append(grid)
         blocks.append((str(label) if label else "") + str(spec))
 
-for x in s.select("header.cm-top, nav.cm-tabs, script"):
-    x.decompose()
+keep_nav(s, "grid-proof.html")
 main = s.find("main")
 main.clear()
 main.append(BeautifulSoup(

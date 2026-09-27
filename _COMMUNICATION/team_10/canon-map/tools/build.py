@@ -56,11 +56,11 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
    ("היום באתר — רקע כהה", "home", "section#session", 0, None, None),
    ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–5", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
    ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c")),
-   ("הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל), תווית וקישור בשוקולד", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-ivory")),
-   ("הצעה לאישור — גוון 2 מתוך 5: חול, תווית וקישור בשוקולד", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-sand")),
-   ("הצעה לאישור — גוון 3 מתוך 5: זית, טקסט לבן", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-olive")),
-   ("הצעה לאישור — גוון 4 מתוך 5: טרקוטה כהה (צבע המותג), טקסט לבן", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-terra-dk")),
-   ("הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום), טקסט בהיר", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-dark"))])
+   ("הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל) — קישור בטרקוטה", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-ivory")),
+   ("הצעה לאישור — גוון 2 מתוך 5: חול — טקסט חום כהה, קישור בחלודה", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-sand")),
+   ("הצעה לאישור — גוון 3 מתוך 5: זית (דרגה אחת כהה יותר) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-olive")),
+   ("הצעה לאישור — גוון 4 מתוך 5: טרקוטה (דרגה אחת כהה יותר מצבע המותג) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-terra-dk")),
+   ("הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
@@ -381,7 +381,10 @@ body{background:#f7f2ea}
 .cm-top p{margin:0 0 3px;font-size:.85rem;opacity:.8}
 .cm-tabs{position:sticky;top:0;z-index:200;display:flex;gap:4px;overflow-x:auto;background:#2a1d12;padding:8px 12px;font-family:Heebo,sans-serif;box-shadow:0 2px 8px #0003}
 .cm-tab{flex:0 0 auto;color:#e9dccb;background:none;border:0;font:inherit;font-size:.9rem;padding:7px 12px;border-radius:4px;cursor:pointer}
-.cm-tab:hover{background:#ffffff14}
+.cm-tab:hover,.cm-pg:hover{background:#ffffff14}
+.cm-pgs{display:flex;gap:4px;margin-inline-start:auto;padding-inline-start:12px;border-inline-start:1px solid #ffffff2e}
+.cm-pg{flex:0 0 auto;color:#e9dccb;background:none;border:1px dashed #ffffff40;font:inherit;font-size:.85rem;padding:6px 10px;border-radius:4px;cursor:pointer}
+.cm-pg.is-on{background:#e9dccb;color:#1d140d;border-style:solid}
 .cm-tab.is-on{background:#9a4f2b;color:#fff}
 .cm-panel{display:none}
 .cm-panel.is-on{display:block}
@@ -452,18 +455,20 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
-/* Proposal (T-04 backgrounds): five distinct palette tones, each with one text set that clears WCAG AA with a
-   10% margin on every role (tools/palette_check.py). Light tones: chocolate eyebrow and link; mid tones: all white. */
+/* Proposal (T-04 backgrounds): five distinct palette tones. team_00: each tone has its own full text set — the link
+   colour always differs from the running text, and the heading colour suits the background. Every role clears WCAG AA
+   with a 10% margin (tools/palette_check.py, FIVE). Olive and terracotta are one step darker than the palette swatch:
+   at the swatch value no link colour can differ from white text and still pass. */
 section.sec.cm-bg{background:var(--bg)!important;background-image:none!important}
 section.sec.cm-bg .chap{color:var(--t-eb)!important}
 section.sec.cm-bg .h2{color:var(--t-h)!important}
 section.sec.cm-bg .intro-body p,section.sec.cm-bg .intro-body li,section.sec.cm-bg .lead{color:var(--t-b)!important}
-section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-eb)!important;border-bottom-color:currentColor!important}
-section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
-section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
-section.sec.cm-bg-olive{--bg:#6E6F4A;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
-section.sec.cm-bg-terra-dk{--bg:#9A4F2B;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
-section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#fff;--t-b:#EBEBEA}
+section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-a)!important;border-bottom-color:currentColor!important}
+section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#9A4F2B;--t-h:#2f2013;--t-b:#67482d;--t-a:#9A4F2B}
+section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;--t-a:#7A3418}
+section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -502,7 +507,17 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 }
 """
 
-CM_JS = """
+# The map and its temporary sketch pages share one top bar: the group tabs plus these page links.
+# Buttons, not <a>: the page's <base> would send a relative link to the staging host.
+PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "הוכחת רשת"), ("palette-check.html", "בדיקת גוונים")]
+PAGES_NAV = ('<span class="cm-pgs">' + "".join(
+    f'<button type="button" class="cm-pg{" is-on" if i == 0 else ""}" data-href="{h}">{n}</button>'
+    for i, (h, n) in enumerate(PAGES)) + '</span>')
+PG_JS = """
+document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.addEventListener('click',function(){
+  location.href=location.href.split('#')[0].replace(/[^\\/]*$/,'')+b.dataset.href;});});
+"""
+CM_JS = PG_JS + """
 (function(){
   // Tabs are buttons, not #links: the page's <base> would send a #link to the staging host.
   var tabs=[].slice.call(document.querySelectorAll('.cm-tab')), panels=[].slice.call(document.querySelectorAll('.cm-panel'));
@@ -539,7 +554,7 @@ html = f"""<!doctype html>
 <p>כל דוגמה הועתקה כלשונה מהעמוד החי שמצוין בשורה — והעמוד הזה הוא הוכחת ההיתכנות שלה. דוגמה בתוכן דמה מסומנת במסגרת מקווקוות. כל סרטון מוצג כמקום שמור קבוע; בעמודים עצמם מוצג הסרטון האמיתי.</p>
 <p>נלכד {today} · גרסת תמה {ver} · מעוצב בגיליונות הסגנון האמיתיים של האתר.</p>
 </header>
-<nav class="cm-tabs" aria-label="קבוצות">{"".join(tabs)}</nav>
+<nav class="cm-tabs" aria-label="קבוצות">{"".join(tabs)}{PAGES_NAV}</nav>
 <main class="chapters-main">
 {chr(10).join(panels)}
 </main>

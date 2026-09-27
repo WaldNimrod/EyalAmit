@@ -8,6 +8,7 @@ link (normal-size text), 3:1 for the heading (large text).
 """
 import copy, sys
 from bs4 import BeautifulSoup
+from proofnav import keep_nav
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 NEED = {"eyebrow": 4.5, "heading": 3.0, "body": 4.5, "link": 4.5}
@@ -19,6 +20,14 @@ SETS = {
     "dark": ("בהיר — כמו היום ברקע הכהה", {"eyebrow": "#D08A5E", "heading": "#ffffff", "body": "#EBEBEA", "link": "#D08A5E"}),
     "white": ("לבן מלא (הצעה)", {"eyebrow": "#ffffff", "heading": "#ffffff", "body": "#ffffff", "link": "#ffffff"}),
 }
+# team_00 approved five tones; each has its own text set: link differs from body, heading suits the background.
+FIVE = [  # (name, bg, {role: colour})
+    ("ivory", "#fffffa", {"eyebrow": "#9A4F2B", "heading": "#2f2013", "body": "#67482d", "link": "#9A4F2B"}),
+    ("sand", "#D8C7B5", {"eyebrow": "#7A3418", "heading": "#2f2013", "body": "#4a3220", "link": "#7A3418"}),
+    ("olive", "#575838", {"eyebrow": "#F6D38A", "heading": "#FFE8C2", "body": "#ffffff", "link": "#F6D38A"}),
+    ("terra", "#874321", {"eyebrow": "#F6D38A", "heading": "#FFE8C2", "body": "#ffffff", "link": "#F6D38A"}),
+    ("dark", "#2A1A0C", {"eyebrow": "#D08A5E", "heading": "#FFE8C2", "body": "#EBEBEA", "link": "#D08A5E"}),
+]
 TONES = [  # (name, hex, source)
     ("ivory", "#fffffa", "Chapters"), ("ivory-2", "#efeae1", "Chapters"), ("sand", "#D8C7B5", "שניהם"),
     ("terra-lt", "#D08A5E", "Chapters"), ("terra", "#B5663D", "Chapters"), ("terracotta", "#A44E2B", "אייל"),
@@ -52,6 +61,13 @@ for spec in s.find(id="T-04").select(".cm-full > .cm-spec.cm-appr"):
         break
 assert base is not None
 
+five = []
+for name, bg, S in FIVE:
+    r = {k: ratio(S[k], bg) for k in NEED}
+    assert all(r[k] >= NEED[k] * MARGIN for k in NEED), (name, r)
+    assert S["link"].lower() != S["body"].lower(), name
+    five.append(f'<li><b>{name}</b> <code>{bg}</code> — ' + " · ".join(f"{ROLE_HE[k]} {r[k]:.2f}" for k in NEED) + "</li>")
+
 blocks, passed = [], 0
 for name, hexv, src in TONES:
     results = {}
@@ -78,13 +94,13 @@ for name, hexv, src in TONES:
                   f'<b>{name}</b> <code>{hexv}</code> <small>({src})</small> — {verdict}<br><small>{cells}</small></div>'
                   f'<div class="cm-spec{"" if use else " pc-forbidden"}">{sec}</div>')
 
-for x in s.select("header.cm-top, nav.cm-tabs, script"):
-    x.decompose()
+keep_nav(s, "palette-check.html")
 main = s.find("main")
 main.clear()
 intro = (f'<div class="cm-proof-head"><h1>בדיקת גוונים — זמני</h1><p>פסקת הטקסט המאושרת על כל גוון בשתי '
          f'המניפות (Chapters ואייל), עם יחס הניגודיות הנמדד לכל תפקיד טקסט. סף WCAG AA: 4.5 לתווית, טקסט וקישור; '
-         f'3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: {passed} מתוך {len(TONES)}.</b></p></div>')
+         f'3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: {passed} מתוך {len(TONES)}.</b></p>'
+         f'<p><b>חמשת הגוונים שנבחרו, כל אחד עם סט הטקסט שלו — כולם מעל הסף ב-10% לפחות:</b></p><ul>{"".join(five)}</ul></div>')
 main.append(BeautifulSoup(intro + "".join(blocks), "lxml").body)
 main.body.unwrap()
 css = s.new_tag("style")

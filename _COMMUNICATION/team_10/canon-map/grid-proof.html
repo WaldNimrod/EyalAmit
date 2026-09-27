@@ -66,7 +66,10 @@ body{background:#f7f2ea}
 .cm-top p{margin:0 0 3px;font-size:.85rem;opacity:.8}
 .cm-tabs{position:sticky;top:0;z-index:200;display:flex;gap:4px;overflow-x:auto;background:#2a1d12;padding:8px 12px;font-family:Heebo,sans-serif;box-shadow:0 2px 8px #0003}
 .cm-tab{flex:0 0 auto;color:#e9dccb;background:none;border:0;font:inherit;font-size:.9rem;padding:7px 12px;border-radius:4px;cursor:pointer}
-.cm-tab:hover{background:#ffffff14}
+.cm-tab:hover,.cm-pg:hover{background:#ffffff14}
+.cm-pgs{display:flex;gap:4px;margin-inline-start:auto;padding-inline-start:12px;border-inline-start:1px solid #ffffff2e}
+.cm-pg{flex:0 0 auto;color:#e9dccb;background:none;border:1px dashed #ffffff40;font:inherit;font-size:.85rem;padding:6px 10px;border-radius:4px;cursor:pointer}
+.cm-pg.is-on{background:#e9dccb;color:#1d140d;border-style:solid}
 .cm-tab.is-on{background:#9a4f2b;color:#fff}
 .cm-panel{display:none}
 .cm-panel.is-on{display:block}
@@ -137,18 +140,20 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
-/* Proposal (T-04 backgrounds): five distinct palette tones, each with one text set that clears WCAG AA with a
-   10% margin on every role (tools/palette_check.py). Light tones: chocolate eyebrow and link; mid tones: all white. */
+/* Proposal (T-04 backgrounds): five distinct palette tones. team_00: each tone has its own full text set — the link
+   colour always differs from the running text, and the heading colour suits the background. Every role clears WCAG AA
+   with a 10% margin (tools/palette_check.py, FIVE). Olive and terracotta are one step darker than the palette swatch:
+   at the swatch value no link colour can differ from white text and still pass. */
 section.sec.cm-bg{background:var(--bg)!important;background-image:none!important}
 section.sec.cm-bg .chap{color:var(--t-eb)!important}
 section.sec.cm-bg .h2{color:var(--t-h)!important}
 section.sec.cm-bg .intro-body p,section.sec.cm-bg .intro-body li,section.sec.cm-bg .lead{color:var(--t-b)!important}
-section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-eb)!important;border-bottom-color:currentColor!important}
-section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
-section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
-section.sec.cm-bg-olive{--bg:#6E6F4A;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
-section.sec.cm-bg-terra-dk{--bg:#9A4F2B;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
-section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#fff;--t-b:#EBEBEA}
+section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-a)!important;border-bottom-color:currentColor!important}
+section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#9A4F2B;--t-h:#2f2013;--t-b:#67482d;--t-a:#9A4F2B}
+section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;--t-a:#7A3418}
+section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -200,7 +205,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </style></head>
 <body class="rtl wp-singular page-template page-template-page-templates page-template-tpl-service page-template-page-templatestpl-service-php page page-id-55 wp-embed-responsive wp-theme-generatepress wp-child-theme-ea-eyalamit no-sidebar nav-float-right separate-containers header-aligned-right dropdown-hover ea-wave2-shell ea-m4-polish ea-chapters">
 
-
+<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-g="g1" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-g="g2" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-g="g3" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-g="g4" data-href="ea-canon-map.html#g4" type="button">רשתות וכרטיסים</button><button class="cm-tab" data-g="g5" data-href="ea-canon-map.html#g5" type="button">קולות</button><button class="cm-tab" data-g="g6" data-href="ea-canon-map.html#g6" type="button">שאלות ומבנה</button><button class="cm-tab" data-g="g7" data-href="ea-canon-map.html#g7" type="button">מדיה</button><button class="cm-tab" data-g="g8" data-href="ea-canon-map.html#g8" type="button">קריאה לפעולה</button><button class="cm-tab" data-g="g9" data-href="ea-canon-map.html#g9" type="button">מעטפות</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg is-on" data-href="grid-proof.html" type="button">הוכחת רשת</button><button class="cm-pg" data-href="palette-check.html" type="button">בדיקת גוונים</button></span></nav>
 <main class="chapters-main"><div class="cm-proof-head"><h1>הוכחת רשת — זמני</h1><p>ששת הטורים מצוירים על המיכל של כל רכיב, בתוך רוחב התוכן שלו. טור 1 הוא הימני. רק הרכיבים שעבדנו עליהם. הרשת מוצגת מרוחב 761 פיקסלים ומעלה — בטלפון הרכיבים בטור אחד.</p></div><div class="cm-group"><span>T-01</span><h2>הירו</h2></div><div class="cm-variant">מאושר — גדול, עם סרטון: הטקסט בטורים 1–4, הכפתור בטורים 5–6 בשורה אחת, מיושר לתחתית. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><header class="phero phero--media cm-h-l">
 <div aria-label="מקום לסרטון" class="cm-vid phero__media" role="img" style=""><img alt="" class="cm-vid__bg" src="/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg"/><span class="cm-vid__ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span><span class="cm-vid__yt"><svg viewbox="0 0 68 48"><path d="M66.5 7.5a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.5a8.5 8.5 0 0 0-6 6C0 12.8 0 24 0 24s0 11.2 1.5 16.5a8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35.2 68 24 68 24s0-11.2-1.5-16.5z" fill="#f00"></path><path d="M27 34l18-10-18-10z" fill="#fff"></path></svg></span><span class="cm-vid__lbl">מקום לסרטון</span></div>
 <span aria-hidden="true" class="phero__sc"></span>
@@ -272,32 +277,36 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <p>הדגש הוא על תרגול מעשי, חיבור לגוף ולנשימה ופיתוח יכולת עבודה עצמאית עם הדיג'רידו.</p>
 <p><a class="tlink" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a></p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-group"><span>T-04</span><h2>פסקת טקסט — חמשת הגוונים (הצעה)</h2></div><div class="cm-variant">הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל), תווית וקישור בשוקולד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-ivory">
+</section></div><div class="cm-group"><span>T-04</span><h2>פסקת טקסט — חמשת הגוונים (הצעה)</h2></div><div class="cm-variant">הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל) — קישור בטרקוטה</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-ivory">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-variant">הצעה לאישור — גוון 2 מתוך 5: חול, תווית וקישור בשוקולד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-sand">
+</section></div><div class="cm-variant">הצעה לאישור — גוון 2 מתוך 5: חול — טקסט חום כהה, קישור בחלודה</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-sand">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-variant">הצעה לאישור — גוון 3 מתוך 5: זית, טקסט לבן</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-olive">
+</section></div><div class="cm-variant">הצעה לאישור — גוון 3 מתוך 5: זית (דרגה אחת כהה יותר) — טקסט לבן, כותרת שמנת, קישור זהב</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-olive">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-variant">הצעה לאישור — גוון 4 מתוך 5: טרקוטה כהה (צבע המותג), טקסט לבן</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-terra-dk">
+</section></div><div class="cm-variant">הצעה לאישור — גוון 4 מתוך 5: טרקוטה (דרגה אחת כהה יותר מצבע המותג) — טקסט לבן, כותרת שמנת, קישור זהב</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-terra-dk">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-variant">הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום), טקסט בהיר</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-dark">
+</section></div><div class="cm-variant">הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-dark">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
 </section></div></main>
 
-</body>
+<script>
+document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.addEventListener('click',function(){
+  location.href=location.href.split('#')[0].replace(/[^\/]*$/,'')+b.dataset.href;});});
+
+</script></body>
 </html>

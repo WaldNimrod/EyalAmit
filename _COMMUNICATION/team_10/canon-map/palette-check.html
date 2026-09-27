@@ -66,7 +66,10 @@ body{background:#f7f2ea}
 .cm-top p{margin:0 0 3px;font-size:.85rem;opacity:.8}
 .cm-tabs{position:sticky;top:0;z-index:200;display:flex;gap:4px;overflow-x:auto;background:#2a1d12;padding:8px 12px;font-family:Heebo,sans-serif;box-shadow:0 2px 8px #0003}
 .cm-tab{flex:0 0 auto;color:#e9dccb;background:none;border:0;font:inherit;font-size:.9rem;padding:7px 12px;border-radius:4px;cursor:pointer}
-.cm-tab:hover{background:#ffffff14}
+.cm-tab:hover,.cm-pg:hover{background:#ffffff14}
+.cm-pgs{display:flex;gap:4px;margin-inline-start:auto;padding-inline-start:12px;border-inline-start:1px solid #ffffff2e}
+.cm-pg{flex:0 0 auto;color:#e9dccb;background:none;border:1px dashed #ffffff40;font:inherit;font-size:.85rem;padding:6px 10px;border-radius:4px;cursor:pointer}
+.cm-pg.is-on{background:#e9dccb;color:#1d140d;border-style:solid}
 .cm-tab.is-on{background:#9a4f2b;color:#fff}
 .cm-panel{display:none}
 .cm-panel.is-on{display:block}
@@ -137,6 +140,20 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
+/* Proposal (T-04 backgrounds): five distinct palette tones. team_00: each tone has its own full text set — the link
+   colour always differs from the running text, and the heading colour suits the background. Every role clears WCAG AA
+   with a 10% margin (tools/palette_check.py, FIVE). Olive and terracotta are one step darker than the palette swatch:
+   at the swatch value no link colour can differ from white text and still pass. */
+section.sec.cm-bg{background:var(--bg)!important;background-image:none!important}
+section.sec.cm-bg .chap{color:var(--t-eb)!important}
+section.sec.cm-bg .h2{color:var(--t-h)!important}
+section.sec.cm-bg .intro-body p,section.sec.cm-bg .intro-body li,section.sec.cm-bg .lead{color:var(--t-b)!important}
+section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-a)!important;border-bottom-color:currentColor!important}
+section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#9A4F2B;--t-h:#2f2013;--t-b:#67482d;--t-a:#9A4F2B}
+section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;--t-a:#7A3418}
+section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
+section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -192,8 +209,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </style></head>
 <body class="rtl wp-singular page-template page-template-page-templates page-template-tpl-service page-template-page-templatestpl-service-php page page-id-55 wp-embed-responsive wp-theme-generatepress wp-child-theme-ea-eyalamit no-sidebar nav-float-right separate-containers header-aligned-right dropdown-hover ea-wave2-shell ea-m4-polish ea-chapters">
 
-
-<main class="chapters-main"><div class="cm-proof-head"><h1>בדיקת גוונים — זמני</h1><p>פסקת הטקסט המאושרת על כל גוון בשתי המניפות (Chapters ואייל), עם יחס הניגודיות הנמדד לכל תפקיד טקסט. סף WCAG AA: 4.5 לתווית, טקסט וקישור; 3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: 11 מתוך 13.</b></p></div><div class="pc-label"><span class="pc-swatch" style="background:#fffffa"></span><b>ivory</b> <code>#fffffa</code> <small>(Chapters)</small> — <b class="pc-ok">מותר</b> <b class="pc-warn">— גבולי</b> — טקסט: כהה — כמו היום<br/><small>תווית 4.61 ⚠ גבולי · כותרת 15.66 · טקסט 8.24 · קישור 5.94</small></div><div class="cm-spec"><section class="sec cm-pr-c pc-sec" style="background:#fffffa;--pc-eyebrow:#B05F38;--pc-heading:#2f2013;--pc-body:#67482d;--pc-link:#9A4F2B">
+<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-g="g1" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-g="g2" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-g="g3" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-g="g4" data-href="ea-canon-map.html#g4" type="button">רשתות וכרטיסים</button><button class="cm-tab" data-g="g5" data-href="ea-canon-map.html#g5" type="button">קולות</button><button class="cm-tab" data-g="g6" data-href="ea-canon-map.html#g6" type="button">שאלות ומבנה</button><button class="cm-tab" data-g="g7" data-href="ea-canon-map.html#g7" type="button">מדיה</button><button class="cm-tab" data-g="g8" data-href="ea-canon-map.html#g8" type="button">קריאה לפעולה</button><button class="cm-tab" data-g="g9" data-href="ea-canon-map.html#g9" type="button">מעטפות</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg" data-href="grid-proof.html" type="button">הוכחת רשת</button><button class="cm-pg is-on" data-href="palette-check.html" type="button">בדיקת גוונים</button></span></nav>
+<main class="chapters-main"><div class="cm-proof-head"><h1>בדיקת גוונים — זמני</h1><p>פסקת הטקסט המאושרת על כל גוון בשתי המניפות (Chapters ואייל), עם יחס הניגודיות הנמדד לכל תפקיד טקסט. סף WCAG AA: 4.5 לתווית, טקסט וקישור; 3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: 11 מתוך 13.</b></p><p><b>חמשת הגוונים שנבחרו, כל אחד עם סט הטקסט שלו — כולם מעל הסף ב-10% לפחות:</b></p><ul><li><b>ivory</b> <code>#fffffa</code> — תווית 5.94 · כותרת 15.66 · טקסט 8.24 · קישור 5.94</li><li><b>sand</b> <code>#D8C7B5</code> — תווית 5.47 · כותרת 9.54 · טקסט 7.21 · קישור 5.47</li><li><b>olive</b> <code>#575838</code> — תווית 5.11 · כותרת 6.15 · טקסט 7.35 · קישור 5.11</li><li><b>terra</b> <code>#874321</code> — תווית 5.11 · כותרת 6.16 · טקסט 7.36 · קישור 5.11</li><li><b>dark</b> <code>#2A1A0C</code> — תווית 5.98 · כותרת 14.04 · טקסט 14.07 · קישור 5.98</li></ul></div><div class="pc-label"><span class="pc-swatch" style="background:#fffffa"></span><b>ivory</b> <code>#fffffa</code> <small>(Chapters)</small> — <b class="pc-ok">מותר</b> <b class="pc-warn">— גבולי</b> — טקסט: כהה — כמו היום<br/><small>תווית 4.61 ⚠ גבולי · כותרת 15.66 · טקסט 8.24 · קישור 5.94</small></div><div class="cm-spec"><section class="sec cm-pr-c pc-sec" style="background:#fffffa;--pc-eyebrow:#B05F38;--pc-heading:#2f2013;--pc-body:#67482d;--pc-link:#9A4F2B">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
@@ -260,5 +277,9 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </section></div></main>
 
-</body>
+<script>
+document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.addEventListener('click',function(){
+  location.href=location.href.split('#')[0].replace(/[^\/]*$/,'')+b.dataset.href;});});
+
+</script></body>
 </html>
