@@ -242,6 +242,47 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .tmq__n::before{display:none}
 .cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
 .cm-tq .tmq__q{grid-area:q;margin:0}
+/* Proposal (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
+.cm-q .ea-testi-cards__card{padding:12px 16px!important;border:0!important;background:transparent!important;border-radius:4px}
+.cm-q-frame .ea-testi-cards__card{border:1px solid #cdbba6!important}
+.cm-q-bg .ea-testi-cards__card{background:#f3ece2!important}
+.cm-q-line .ea-testi-cards__card{border-inline-start:2px solid #9A4F2B!important;border-radius:0;padding-block:4px!important}
+/* Proposal (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
+.cm-fb .fbgrid__item{border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
+.cm-fb__h{display:flex;flex-direction:column;gap:2px;text-align:start}
+.cm-fb__d{font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;letter-spacing:.4px;color:#9A4F2B}
+.cm-fb__t{margin:0;font-size:var(--fs-h3);font-weight:500;color:#2f2013}
+.cm-fb .fbgrid__frame{margin-inline:auto;background:#fff;border:1px solid #e6dccf!important;border-radius:4px;max-width:100%}
+/* Proposal (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
+   columns — the form in 1-4 with its fields paired, a side column in 5-6 with the portrait, WhatsApp and the details. */
+.cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:start}
+.cm-ct .ea-contact-form-row>.ea-entrance{grid-column:1/5;padding-inline-end:clamp(16px,3vw,40px)}
+.cm-ct .cm-ct__side{grid-column:5/7;display:flex;flex-direction:column;gap:14px}
+.cm-ct .cm-ct__side .ea-contact-portrait{display:block;width:100%;margin:0}
+.cm-ct .cm-ct__side .ea-contact-portrait img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;display:block}
+.cm-ct :is(.ea-contact-cta,.ea-contact-nap){border:1px solid #cdbba6;border-radius:4px;padding:14px;text-align:start;background:transparent;color:#2f2013;max-width:none;margin:0}
+.cm-ct :is(.ea-contact-cta .ea-contact-section__heading,.ea-contact-nap__h){font-size:var(--fs-h3)!important;margin:0 0 6px;color:#2f2013}
+.cm-ct :is(.ea-contact-cta .ea-contact-section__body,.ea-contact-nap__row,.ea-contact-points li){font-size:var(--fs-sm)!important;margin:0 0 4px;color:#67482d}
+.cm-ct .ea-contact-cta{margin:18px 0 0!important;width:auto!important;max-width:none!important;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:center}
+.cm-ct .ea-contact-cta>*{grid-column:1}
+.cm-ct .ea-contact-cta .ea-cta-ab{grid-column:2;grid-row:1/span 2;margin:0}
+.cm-ct .ea-contact-points{grid-column:1/-1;display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:4px 18px!important;margin:10px 0 0!important;padding:0!important;list-style:none}
+.cm-ct .ea-contact-points li{margin:0!important}
+.cm-ct .ea-cta-pill{padding:var(--cm-btn-pad-block) var(--cm-btn-pad-inline)!important;white-space:nowrap}
+.cm-ct .ea-cf7{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--cm-gap);row-gap:10px}
+.cm-ct .ea-cf7>*{grid-column:1/-1;margin:0!important}
+.cm-ct .ea-cf7>.ea-cf7-row:has(input[type=text],input[type=tel],input[type=email],select){grid-column:auto}
+.cm-ct .ea-cf7 textarea{min-height:96px;height:96px}
+.cm-ct :is(.ea-contact-form,.ea-contact-form--cf7,.wpcf7,.wpcf7-form){max-width:none!important;width:auto!important}
+.cm-ct .ea-cf7-submit{display:flex;justify-content:flex-end}
+.cm-ct.sec{padding-block:clamp(40px,4vw,56px)!important}
+/* Eyal (2026-09-17): the page is built from visually separated parts, the WhatsApp part dark; the trust points read as
+   headlines; placeholder-only fields; submit on the left. Kept — as zones on one grid row, in canonical tones. */
+.cm-ct .ea-contact-cta{background:#2A1A0C!important;border:0!important}
+.cm-ct .ea-contact-cta .ea-contact-section__heading{color:#FFE8C2!important}
+.cm-ct .ea-contact-cta .ea-contact-section__body{color:#EBEBEA!important}
+.cm-ct .ea-contact-cta .ea-cta-pill{background:#D08A5E!important;color:#1d140d!important;border-color:#D08A5E!important}
+.cm-ct .ea-contact-points li{text-align:start!important;text-align-last:auto!important;color:#fff!important;font-size:var(--fs-body)!important;font-weight:var(--fw-medium)}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -279,6 +320,12 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
+ .cm-ct .ea-contact-form-row{display:block!important}
+ .cm-ct .cm-ct__side{margin-top:24px}
+ .cm-ct .ea-cf7{grid-template-columns:1fr}
+ .cm-ct .ea-contact-form-row>.ea-entrance{padding-inline-end:0}
+ .cm-ct .ea-contact-cta{grid-template-columns:1fr}
+ .cm-ct .ea-contact-cta .ea-cta-ab{grid-column:1;grid-row:auto;margin-top:10px;display:flex;justify-content:flex-end}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
@@ -1956,7 +2003,21 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — 2 בשורה על הרשת, במסגרת דקה</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-frame">
+</section></div><div class="cm-variant">הצעה לאישור — ציטוט: ריווח קטן, מסגרת דקה בלבד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-frame">
+<div class="wrap">
+<div class="ea-testi-cards__list">
+<blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
+<blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — ציטוט: ריווח קטן, רקע עדין בלי מסגרת</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-bg">
+<div class="wrap">
+<div class="ea-testi-cards__list">
+<blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
+<blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — ציטוט: ריווח קטן, קו טרקוטה דק בצד בלבד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-line">
 <div class="wrap">
 <div class="ea-testi-cards__list">
 <blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
@@ -2472,19 +2533,19 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — 2 בשורה על הרשת</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6">
+</section></div><div class="cm-variant">הצעה לאישור — 2 בשורה על הרשת; כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-fb">
 <div class="wrap center">
 <span class="chap chap--c r">מהקהילה</span> <h2 class="h2 r">מתוך הפייסבוק</h2> <div class="fbgrid r">
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 1</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraelDidgCenter%2Fposts%2Fpfbid02G6viGTqgqTHFv36najD6n9T6yskVpC5UfWx1RzrbNTqNMfTYRKrJkzkqHH2taffXl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 2</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid033bDz4Wj8Pc6K3nF58VuXBUHkfoNKPZa4wTsxhPSUVHANHwZT3rAqj1oUAGXzwTm6l&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 3</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid0zekNyNV6dztxGnwQKaLg9GhSAwSsjMWR2jaqQtAkZMLAHWNhKem12AknNrsCAJZRl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 4</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgemma.calaf%2Fposts%2Fpfbid0gsUdiLtCCghgQp9RuyPncdb4NRojZ3k5LdxMqfeNPinvQd9x6Y7j6Jrp9VUThqiEl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
 </div>
@@ -2749,6 +2810,62 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <p class="ea-contact-nap__row">טלפון / וואטסאפ: <a dir="ltr" href="tel:+972524822842" style="white-space:nowrap">052-4822842</a></p>
 <p class="ea-contact-nap__row">שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש</p>
 </div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — יצירת קשר בשורה אחת על הרשת, נכנסת במסך אחד. טורים 1–4: הטופס (שדות בזוגות, בלי תוויות, כפתור שליחה משמאל) ומתחתיו אזור הוואטסאפ הכהה עם שלוש הנקודות ככותרות; טורים 5–6: התמונה של אייל עם השפופרת ופרטי הקשר. שלושה אזורים נפרדים, כמו שאייל ביקש</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-wave2-contact cm-ct" data-block="contact">
+<div class="wrap">
+<div class="ea-contact-form-row">
+
+<div class="ea-entrance">
+<h2 class="ea-contact-section__heading r">השאירו פנייה</h2>
+<div class="ea-contact-form ea-contact-form--cf7">
+<div class="wpcf7 no-js" data-wpcf7-id="392" dir="rtl" id="wpcf7-f392-o1" lang="he-IL">
+<div class="screen-reader-response"><p aria-atomic="true" aria-live="polite" role="status"></p> <ul></ul></div>
+<form action="#" aria-label="Contact form" class="wpcf7-form init ea-contact-form__form" data-status="init" method="post" novalidate="novalidate" onsubmit="return false">
+<fieldset class="hidden-fields-container"><input name="_wpcf7" type="hidden" value="392"/><input name="_wpcf7_version" type="hidden" value="6.1.7"/><input name="_wpcf7_locale" type="hidden" value="he_IL"/><input name="_wpcf7_unit_tag" type="hidden" value="wpcf7-f392-o1"/><input name="_wpcf7_container_post" type="hidden" value="0"/><input name="_wpcf7_posted_data_hash" type="hidden" value=""/>
+</fieldset>
+<div class="ea-cf7">
+<p class="ea-cf7-row"><label>שם מלא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-name"><input aria-invalid="false" aria-required="true" autocomplete="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" maxlength="400" name="your-name" placeholder="שם מלא" size="40" type="text" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>טלפון<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-phone"><input aria-invalid="false" autocomplete="tel" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" maxlength="400" name="your-phone" placeholder="טלפון" size="40" type="tel" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>אימייל<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-email"><input aria-invalid="false" aria-required="true" autocomplete="email" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" maxlength="400" name="your-email" placeholder="אימייל" size="40" type="email" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>נושא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-subject"><select aria-invalid="false" aria-required="true" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" name="your-subject"><option value="">בחרו נושא</option><option value="טיפול בדיג'רידו">טיפול בדיג'רידו</option><option value="שיעורי נגינה">שיעורי נגינה</option><option value="סאונד הילינג">סאונד הילינג</option><option value="רכישת כלי">רכישת כלי</option><option value="רכישת ספר">רכישת ספר</option><option value="תיקון כלי">תיקון כלי</option><option value="אחר">אחר</option></select></span></label>
+</p>
+<p class="ea-cf7-row"><label>הודעה<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-message"><textarea aria-invalid="false" class="wpcf7-form-control wpcf7-textarea" cols="40" maxlength="2000" name="your-message" placeholder="ספרו לנו במה נוכל לעזור" rows="10"></textarea></span></label>
+</p>
+<p class="ea-cf7-submit"><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שליחה"/>
+</p>
+</div><div aria-hidden="true" class="wpcf7-response-output"></div>
+</form>
+</div>
+</div> <div aria-label="דרכי התקשרות מהירות" class="ea-entrance ea-contact-cta r">
+<h2 class="ea-contact-section__heading">מעדיפים לכתוב ישירות?</h2>
+<p class="ea-contact-section__body">אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.</p>
+<div class="ea-cta-ab" data-ab-experiment="contact_whatsapp_cta" data-ea-ab="" data-ea-page="contact">
+<a aria-label="דברו איתי בוואטסאפ (נפתח בחלון חדש)" class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" data-ab-variant="A" data-ea-ab-wa="" href="https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%A6%D7%95%D7%A8%20%D7%94%D7%A7%D7%A9%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA" rel="noopener noreferrer" target="_blank">דברו איתי בוואטסאפ</a>
+</div>
+<ul class="ea-contact-points">
+<li>שיחת היכרות ראשונית ללא התחייבות</li>
+<li>ליווי אישי, אחד על אחד</li>
+<li>מענה אישי תוך יום עסקים אחד</li>
+</ul>
+</div></div>
+
+
+<aside class="cm-ct__side"><span aria-hidden="true" class="ea-contact-portrait ea-entrance">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-child-phone.jpg"/>
+</span><div aria-label="פרטי המרכז וכתובת" class="ea-entrance ea-contact-nap">
+<h3 class="ea-contact-nap__h">המרכז לטיפול בנשימה באמצעות דיג'רידו</h3>
+<p class="ea-contact-nap__row">רח' עמל 8 ב', פרדס חנה-כרכור</p>
+<p class="ea-contact-nap__row">טלפון / וואטסאפ: <a dir="ltr" href="tel:+972524822842" style="white-space:nowrap">052-4822842</a></p>
+<p class="ea-contact-nap__row">שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש</p>
+</div></aside></div>
 </div>
 </section></div></div></details></div></section>
 <section class="cm-panel" id="g9" data-group="מעטפות"><div class="cm-group"><span>קבוצה 9 מתוך 9</span><h2>מעטפות</h2></div><div class="cm-table" role="table"><div class="cm-thead" role="row"><span>מזהה</span><span>שם</span><span>תיאור</span><span>שימושים באתר</span><span>תצוגה</span></div><details class="cm-row" id="T-32"><summary class="cm-sum" role="row"><span class="c-id">T-32</span><span class="c-name">רשימת עיתונות<small class="cm-flag">ייחודי לשני עמודים</small></span><span class="c-desc">רשימה של אזכורים בתקשורת — שנה, מקור וקישור בכל שורה.</span><span class="c-use">2 עמודים</span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><section aria-label="אזכורים בתקשורת" class="ea-section ea-press" data-block="press">

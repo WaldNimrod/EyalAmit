@@ -242,6 +242,47 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .tmq__n::before{display:none}
 .cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
 .cm-tq .tmq__q{grid-area:q;margin:0}
+/* Proposal (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
+.cm-q .ea-testi-cards__card{padding:12px 16px!important;border:0!important;background:transparent!important;border-radius:4px}
+.cm-q-frame .ea-testi-cards__card{border:1px solid #cdbba6!important}
+.cm-q-bg .ea-testi-cards__card{background:#f3ece2!important}
+.cm-q-line .ea-testi-cards__card{border-inline-start:2px solid #9A4F2B!important;border-radius:0;padding-block:4px!important}
+/* Proposal (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
+.cm-fb .fbgrid__item{border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
+.cm-fb__h{display:flex;flex-direction:column;gap:2px;text-align:start}
+.cm-fb__d{font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;letter-spacing:.4px;color:#9A4F2B}
+.cm-fb__t{margin:0;font-size:var(--fs-h3);font-weight:500;color:#2f2013}
+.cm-fb .fbgrid__frame{margin-inline:auto;background:#fff;border:1px solid #e6dccf!important;border-radius:4px;max-width:100%}
+/* Proposal (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
+   columns — the form in 1-4 with its fields paired, a side column in 5-6 with the portrait, WhatsApp and the details. */
+.cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:start}
+.cm-ct .ea-contact-form-row>.ea-entrance{grid-column:1/5;padding-inline-end:clamp(16px,3vw,40px)}
+.cm-ct .cm-ct__side{grid-column:5/7;display:flex;flex-direction:column;gap:14px}
+.cm-ct .cm-ct__side .ea-contact-portrait{display:block;width:100%;margin:0}
+.cm-ct .cm-ct__side .ea-contact-portrait img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;display:block}
+.cm-ct :is(.ea-contact-cta,.ea-contact-nap){border:1px solid #cdbba6;border-radius:4px;padding:14px;text-align:start;background:transparent;color:#2f2013;max-width:none;margin:0}
+.cm-ct :is(.ea-contact-cta .ea-contact-section__heading,.ea-contact-nap__h){font-size:var(--fs-h3)!important;margin:0 0 6px;color:#2f2013}
+.cm-ct :is(.ea-contact-cta .ea-contact-section__body,.ea-contact-nap__row,.ea-contact-points li){font-size:var(--fs-sm)!important;margin:0 0 4px;color:#67482d}
+.cm-ct .ea-contact-cta{margin:18px 0 0!important;width:auto!important;max-width:none!important;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:center}
+.cm-ct .ea-contact-cta>*{grid-column:1}
+.cm-ct .ea-contact-cta .ea-cta-ab{grid-column:2;grid-row:1/span 2;margin:0}
+.cm-ct .ea-contact-points{grid-column:1/-1;display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:4px 18px!important;margin:10px 0 0!important;padding:0!important;list-style:none}
+.cm-ct .ea-contact-points li{margin:0!important}
+.cm-ct .ea-cta-pill{padding:var(--cm-btn-pad-block) var(--cm-btn-pad-inline)!important;white-space:nowrap}
+.cm-ct .ea-cf7{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--cm-gap);row-gap:10px}
+.cm-ct .ea-cf7>*{grid-column:1/-1;margin:0!important}
+.cm-ct .ea-cf7>.ea-cf7-row:has(input[type=text],input[type=tel],input[type=email],select){grid-column:auto}
+.cm-ct .ea-cf7 textarea{min-height:96px;height:96px}
+.cm-ct :is(.ea-contact-form,.ea-contact-form--cf7,.wpcf7,.wpcf7-form){max-width:none!important;width:auto!important}
+.cm-ct .ea-cf7-submit{display:flex;justify-content:flex-end}
+.cm-ct.sec{padding-block:clamp(40px,4vw,56px)!important}
+/* Eyal (2026-09-17): the page is built from visually separated parts, the WhatsApp part dark; the trust points read as
+   headlines; placeholder-only fields; submit on the left. Kept — as zones on one grid row, in canonical tones. */
+.cm-ct .ea-contact-cta{background:#2A1A0C!important;border:0!important}
+.cm-ct .ea-contact-cta .ea-contact-section__heading{color:#FFE8C2!important}
+.cm-ct .ea-contact-cta .ea-contact-section__body{color:#EBEBEA!important}
+.cm-ct .ea-contact-cta .ea-cta-pill{background:#D08A5E!important;color:#1d140d!important;border-color:#D08A5E!important}
+.cm-ct .ea-contact-points li{text-align:start!important;text-align-last:auto!important;color:#fff!important;font-size:var(--fs-body)!important;font-weight:var(--fw-medium)}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -279,6 +320,12 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
+ .cm-ct .ea-contact-form-row{display:block!important}
+ .cm-ct .cm-ct__side{margin-top:24px}
+ .cm-ct .ea-cf7{grid-template-columns:1fr}
+ .cm-ct .ea-contact-form-row>.ea-entrance{padding-inline-end:0}
+ .cm-ct .ea-contact-cta{grid-template-columns:1fr}
+ .cm-ct .ea-contact-cta .ea-cta-ab{grid-column:1;grid-row:auto;margin-top:10px;display:flex;justify-content:flex-end}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
@@ -1285,7 +1332,21 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-12.1"><b>G-12.1</b> הצעה · 2 בשורה על הרשת, במסגרת דקה · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-frame">
+</section></div><div class="av-ex sv-g" id="G-12.1"><b>G-12.1</b> הצעה · ציטוט: ריווח קטן, מסגרת דקה בלבד · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-frame">
+<div class="wrap" style="position:relative">
+<div class="ea-testi-cards__list">
+<blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
+<blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-12.2"><b>G-12.2</b> הצעה · ציטוט: ריווח קטן, רקע עדין בלי מסגרת · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-bg">
+<div class="wrap" style="position:relative">
+<div class="ea-testi-cards__list">
+<blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
+<blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-12.3"><b>G-12.3</b> הצעה · ציטוט: ריווח קטן, קו טרקוטה דק בצד בלבד · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-q cm-q-line">
 <div class="wrap" style="position:relative">
 <div class="ea-testi-cards__list">
 <blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
@@ -1309,19 +1370,19 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-13.1"><b>G-13.1</b> הצעה · 2 בשורה על הרשת · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6">
+</section></div><div class="av-ex sv-g" id="G-13.1"><b>G-13.1</b> הצעה · 2 בשורה על הרשת; כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה) · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-fb">
 <div class="wrap center" style="position:relative">
 <span class="chap chap--c r">מהקהילה</span> <h2 class="h2 r">מתוך הפייסבוק</h2> <div class="fbgrid r">
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 1</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraelDidgCenter%2Fposts%2Fpfbid02G6viGTqgqTHFv36najD6n9T6yskVpC5UfWx1RzrbNTqNMfTYRKrJkzkqHH2taffXl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 2</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid033bDz4Wj8Pc6K3nF58VuXBUHkfoNKPZa4wTsxhPSUVHANHwZT3rAqj1oUAGXzwTm6l&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 3</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid0zekNyNV6dztxGnwQKaLg9GhSAwSsjMWR2jaqQtAkZMLAHWNhKem12AknNrsCAJZRl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
-<div class="fbgrid__item">
+<div class="fbgrid__item"><div class="cm-fb__h"><span class="cm-fb__d">תאריך</span><h3 class="cm-fb__t">כותרת שלנו לפוסט 4</h3></div>
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgemma.calaf%2Fposts%2Fpfbid0gsUdiLtCCghgQp9RuyPncdb4NRojZ3k5LdxMqfeNPinvQd9x6Y7j6Jrp9VUThqiEl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
 </div>
 </div>
