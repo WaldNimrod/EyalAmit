@@ -127,7 +127,15 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    the editor picks it per element — **fill** crops the image to its box; **fit** shows it whole, in its own
    proportions.
 5. **Click-to-zoom** is the default for every image that is not a background (A-6).
-6. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
+6. **Table of contents by length** (team_00: «מאשר את כלל תוכן העניינים — כרגע בעלייה — כל העמודים מעל 1400
+   מקבלים תוכן»): at launch every page over **1,400 words** of body text gets a table of contents (T-23), columns
+   2–5. Census 2026-09-27 (35 live content pages; words counted inside `<main>` without hero, nav, breadcrumb,
+   footer; `canon-map/tools/toc_page_lengths.tsv`) — 13 pages: /faq/ (3,851 — jumps to its 16 categories),
+   /eyal-amit/mokesh-dahiman/ (3,450), /historical-articles/ (3,154 — legacy template, 5 headings),
+   /snoring-sleep-apnea/ (2,841 — already has one), /books/vekatavta/ (2,737), /books/kushi-blantis/ (2,560),
+   /books/tsva-bekahol/ (2,466), /en/ (2,456 — English label), /treatment/ (2,203), /method/ (1,743),
+   /learning/workshops/ (1,658), /lessons/ (1,440), /sound-healing/ (1,417).
+7. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
    columns wide, or a tall one, takes both.
 
 **Audit of every type against these rules (2026-09-27, map proposals and today's site):**
@@ -153,7 +161,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 | T-19 testimonial grid | 17 → exempt, 3 per row; round avatar, name, date | ✓ approved (O-15) |
 | T-20 quote cards | 2 → 3+3 | ✓ approved — thin frame, small padding (G-12.1) |
 | T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
-| T-23 TOC | one block | ✓ columns 2–5 (approved); length rule proposed (D45) |
+| T-23 TOC | one block, columns 2–5 | ✓ approved — **every page over 1,400 words gets a TOC at launch** (D55) |
 | T-24 book cards | 3 → 2+2+2, thin frame; the shop's open list → exempt | ✓ approved (O-10) |
 | T-25 spotlight | 4 → two rows of 2 (K-4.1, O-12) or 3+1+1+1 with equal-height cards, text at the bottom and the image filling everything above it — **fill only** (O-11) | ✓ approved |
 | T-26/27 video | heading 1–6, text 2–5, video 1–6 | ✓ approved (O-18) |
