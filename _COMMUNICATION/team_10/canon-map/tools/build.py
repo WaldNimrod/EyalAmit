@@ -37,6 +37,7 @@ group("פתיחות")
 t("T-01", "הירו", "phero", "גובה · מדיה (תמונה / סרטון / ללא) · תווית · כותרת · תת-כותרת · כפתור",
   [("מאושר — גדול, עם סרטון: הטקסט בטורים 1–4, הכפתור בטורים 5–6 בשורה אחת, מיושר לתחתית. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED_VIDEO__", "cm-h-l")),
    ("מאושר — גדול, עם תמונה (92%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l")),
+   ("מאושר — אותו הירו, הכפתור למעלה: ראש הכפתור בקו אחד עם ראש הכותרת (למשל דף הבית). בוחרים לפי הטקסט והתמונה", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l cm-btn-top")),
    ("מאושר — בינוני (66%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-m")),
    ("מאושר — קטן: 44%, גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__APPROVED__", "cm-h-s")),
    ("היום באתר — דף הבית (סרטון, כותרת ממורכזת)", "home", "header.hero", 0, None, None),
@@ -258,7 +259,7 @@ def specimen(label, page, css, idx, pred, tr):
         if sel == "__DUMMY__":
             el = dummy(el)
         elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__", "__APPROVED_VIDEO__"):
-            el["class"] = el.get("class", []) + [keep]
+            el["class"] = el.get("class", []) + keep.split()
             if sel in ("__PROPOSAL_VIDEO__", "__APPROVED_VIDEO__"):
                 for img in el.select("img.phero__media"):
                     img.replace_with(vph(img))
@@ -365,8 +366,8 @@ CM_CSS = """
 /* Buttons (team_00, all buttons): less padding around the label. Applied to approved and proposed examples. */
 :root{--cm-btn-pad-block:9px;--cm-btn-pad-inline:18px}
 .cm-appr .btn,.cm-prop .btn{padding:var(--cm-btn-pad-block) var(--cm-btn-pad-inline)!important}
-/* The six-column grid's gutter — one value (team_00: «ממש מינימלי»). */
-:root{--cm-gap:4px}
+/* The six-column grid's gutter — one value (team_00: 24 → 4 → 10px). */
+:root{--cm-gap:10px}
 .cm-spec{transform:translateZ(0);position:relative}
 .r,.r2,.r3,.r--fade,[class*="ea-entrance"]{opacity:1!important;transform:none!important;animation:none!important}
 body{background:#f7f2ea}
@@ -440,6 +441,9 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
+/* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
+header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
+header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
 /* Proposal (T-04): the text paragraph on the six-column grid. A = columns 2-5 (centred), B = columns 1-4 (right). */
 section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 section.sec.cm-pr-a>.wrap>*{grid-column:2/6}
