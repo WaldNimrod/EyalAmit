@@ -155,11 +155,11 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 | T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
 | T-23 TOC | one block | ✓ columns 2–5 (approved); length rule proposed (D45) |
 | T-24 book cards | 3 → 2+2+2, thin frame; the shop's open list → exempt | ✓ approved (O-10) |
-| T-25 spotlight | 4 → two rows of 2 (K-4.1) ✓ approved (O-12); 3+1+1+1 with text on the bottom line and fill-only images — proposal (O-11) | ✓ / proposal |
+| T-25 spotlight | 4 → two rows of 2 (K-4.1, O-12) or 3+1+1+1 with equal-height cards, text at the bottom and the image filling everything above it — **fill only** (O-11) | ✓ approved |
 | T-26/27 video | heading 1–6, text 2–5, video 1–6 | ✓ approved (O-18) |
 | T-28 Facebook posts | two free-running columns (masonry); our date and title per post | ✓ approved (O-16) |
 | T-29 timeline / T-32 press list | year lists | ✓ columns 2–5 (approved) |
-| T-31 contact | 4+2 | proposal |
+| T-31 contact | one row, 4+2: form with the dark WhatsApp block below it, portrait and details beside; both columns end on one line | ✓ approved (O-17); hero decision open |
 | T-35 blog cards | open list → exempt, 3 per row, thin frame | ✓ approved (O-13) |
 | T-36 inline video | inside the reading column | ✓ columns 2–5 (approved) |
 | T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
