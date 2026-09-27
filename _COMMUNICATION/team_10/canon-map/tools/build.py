@@ -64,17 +64,17 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
-  [(None, "snoring", ".pfloat", 0, None, None), ("גרסה: עומדת, גדולה", "repair", ".pfloat--standing", 0, None, None)])
+  [(None, "snoring", ".pfloat", 0, None, None), ("וריאנט: עומדת, גדולה", "repair", ".pfloat--standing", 0, None, None)])
 
 group("תמונה וטקסט")
 t("T-06", "טקסט ותמונה זה לצד זה", "split", "chap · title · body · image · alt · figr · reversed · soft · cover · zoom",
-  [(None, "method", ".split2", 0, None, None), ("גרסה: תמונה ממלאת", "repair", ".split2--cover", 0, None, None),
+  [(None, "method", ".split2", 0, None, None), ("וריאנט: תמונה ממלאת", "repair", ".split2--cover", 0, None, None),
    ("היום באתר — תמונה לאורך", "eyal", ".split2", 0, None, None),
-   ("הצעה לאישור — תמונה לרוחב (5:4), צד התמונה שמאל: טקסט בטורים 1–3, תמונה בטורים 4–6. טקסט קצר — הטקסט ממורכז לגובה התמונה", "method", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה לרוחב, צד התמונה ימין: תמונה בטורים 1–3, טקסט בטורים 4–6. טקסט ארוך — התמונה מיושרת למעלה", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — אותו דבר, עם שדה «המשך טקסט»: חלק מהטקסט הארוך עבר לטורים 2–5 מתחת לזוג", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp cm-sp-more")),
-   ("הצעה לאישור — תמונה לאורך (4:5), צד התמונה שמאל: טקסט בטורים 1–4, תמונה בטורים 5–6", "eyal", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה לאורך, צד התמונה ימין: תמונה בטורים 1–2, טקסט בטורים 3–6", "mokesh", ".split2", 5, None, ("__PROPOSAL__", "cm-sp"))])
+   ("מאושר — תמונה לרוחב (5:4), צד התמונה שמאל: טקסט בטורים 1–3, תמונה בטורים 4–6. טקסט קצר — הטקסט ממורכז לגובה התמונה", "method", ".split2", 0, None, ("__APPROVED__", "cm-sp")),
+   ("מאושר — תמונה לרוחב, צד התמונה ימין: תמונה בטורים 1–3, טקסט בטורים 4–6. טקסט ארוך — התמונה מיושרת למעלה", "eyal", ".split2", 1, None, ("__APPROVED__", "cm-sp")),
+   ("מאושר — אותו דבר, עם שדה «המשך טקסט»: חלק מהטקסט הארוך עבר לטורים 2–5 מתחת לזוג", "eyal", ".split2", 1, None, ("__APPROVED__", "cm-sp cm-sp-more")),
+   ("מאושר — תמונה לאורך (4:5), צד התמונה שמאל: טקסט בטורים 1–4, תמונה בטורים 5–6", "eyal", ".split2", 0, None, ("__APPROVED__", "cm-sp")),
+   ("מאושר — תמונה לאורך, צד התמונה ימין: תמונה בטורים 1–2, טקסט בטורים 3–6", "mokesh", ".split2", 5, None, ("__APPROVED__", "cm-sp"))])
 t("T-10", "פס תמונה עם טקסט", "photo-band", "title · body · image · alt · cta_label · cta_url",
   [(None, "repair", "section.photo-band", 0, None, None)])
 t("T-12", "ציטוט על תמונה", "bleed", "image · alt · quote · attrib",
@@ -96,7 +96,7 @@ t("T-24", "כרטיסי ספרים ומוצרים", "bookcard", "chap · title �
 t("T-25", "שורת זרקור", "ea-now", "cards[image, title, line1, line2, url]",
   [(None, "home", "section#ea-now", 0, None, None)])
 t("T-11", "רשת תמונות", "gallery", "chap · title · lead · alt · portraits · items[image, alt, cap, pending]",
-  [(None, "kushi", ".gallery", 0, None, None), ("גרסה: דיוקנאות", "repair", ".gallery--portraits", 0, None, None)])
+  [(None, "kushi", ".gallery", 0, None, None), ("וריאנט: דיוקנאות", "repair", ".gallery--portraits", 0, None, None)])
 t("T-35", "כרטיס בלוג", "ea-blog-card", "פוסט: כותרת · קישור · תמונה · תאריך",
   [(None, "blog", "article.ea-blog-card", 0, None, ("article.ea-blog-card", 3))])
 
@@ -111,8 +111,8 @@ t("T-20", "כרטיסי ציטוט", "testi-cards", "quotes[] · alt",
 group("שאלות ומבנה")
 t("T-21", "שאלות נפוצות", "faq", "chap · title · cat/cats או items[q, a] · cards · open_first",
   [(None, "method", "section.ea-faq-list", 0, None, None),
-   ("גרסה: כרטיסים", "repair", "section.ea-faq-list--cards", 0, None, None),
-   ("גרסה: מקוצר, דף הבית", "home", "section.ea-faq-mini-section", 0, None, None)])
+   ("וריאנט: כרטיסים", "repair", "section.ea-faq-list--cards", 0, None, None),
+   ("וריאנט: מקוצר, דף הבית", "home", "section.ea-faq-mini-section", 0, None, None)])
 t("T-22", "אקורדיון הגדרות", "dd", "chap · title · lead · dark · items[tag, title, body, active]",
   [(None, "lessons", "div.dd", 0, None, None)])
 t("T-23", "תוכן עניינים", "toc", "heading · items[id, label]",
@@ -482,7 +482,7 @@ section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;-
 section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
-/* Proposal (T-06 split, rule D30: «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»): text and image share the six columns,
+/* Approved (T-06 split, rule D30: «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»): text and image share the six columns,
    split by the image's shape. Landscape and cover: 3 + 3. Portrait: text 4, image 2. Reversed mirrors the sides.
    The text keeps a breathing space on the side facing the image, inside its own columns. */
 section.cm-sp .split2{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);--sp-air:clamp(16px,3vw,40px)}
@@ -501,6 +501,9 @@ section.cm-sp .split2{align-items:start}
 section.cm-sp .split2>:not(.split2__m){align-self:center}
 section.cm-sp .cm-sp-after{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);margin-top:clamp(28px,3vw,44px)}
 section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
+/* Approved (team_00, D37): running text is block-justified in RTL, always, across the whole site — last line to the start
+   (right). Shown on every approved and proposed example; the "today" examples stay as the site is. */
+.cm-appr p,.cm-appr li,.cm-prop p,.cm-prop li{text-align:justify;text-align-last:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}

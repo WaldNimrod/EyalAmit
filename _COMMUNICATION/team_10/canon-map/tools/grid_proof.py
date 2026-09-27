@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from proofnav import keep_nav
 
 SRC, OUT = sys.argv[1], sys.argv[2]
-PICK = [("T-01", "cm-appr", ".phero__in", "הירו"), ("T-08", "cm-appr", ".cta-band__in", "פס קריאה לפעולה"), ("T-04", "cm-appr", "section > .wrap", "פסקת טקסט"), ("T-06", "cm-prop", ".split2, .cm-sp-after", "טקסט ותמונה (הצעה)")]
+PICK = [("T-01", "cm-appr", ".phero__in", "הירו"), ("T-08", "cm-appr", ".cta-band__in", "פס קריאה לפעולה"), ("T-04", "cm-appr", "section > .wrap", "פסקת טקסט"), ("T-06", "cm-appr", ".split2, .cm-sp-after", "טקסט ותמונה")]
 
 s = BeautifulSoup(open(SRC, encoding="utf-8").read(), "lxml")
 blocks = []

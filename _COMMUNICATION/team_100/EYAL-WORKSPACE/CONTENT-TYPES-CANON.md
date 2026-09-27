@@ -69,7 +69,25 @@ is live today, deliberately loose) and [#37 — New post](#37-blog--new-post-blo
 pages keep their own shell type ([#33](#33-qr-article-shell)); their body content still has no
 row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a no-type area.
 
-### Tier 1 — content rows (37)
+### Canon terms and site-wide rules — APPROVED in canon stage A, 2026-09-27
+
+- **Terms** (team_00: «מה הטרמינולוגיה המדויקת שלנו?» · «בגדול» · «וריאנטים — זו המילה שלנו, כי היא לא באמת
+  עברית ולכן תתורגם נכון»). Four words, used the same way in the map, this file and every brief:
+  - **Type** (טיפוס) — a block with its own structure; has a T-number. Text-and-image is ONE type.
+  - **Variant** (וריאנט) — a choice made per use, from a closed list of values: hero height
+    (large / medium / small), hero media (image / video / none), hero button (bottom / top), split
+    image side (left / right), split image shape (landscape / portrait). A **shared variant** applies to
+    every type that carries the thing it controls: **background** (the five tones, type 4) and
+    **image fit** — **fill** (the image fills its box, cropped) or **fit** (the whole image, own
+    proportions) (team_00: «fill או fit — שוב זה פרמטר בטיפוס. לכולם, לא טיפוס נפרד»).
+  - **Field** (שדה) — content the editor fills: heading, text, image, continuation text.
+  - **Rule** (כלל) — automatic behaviour nobody chooses: the grid, image top alignment, one column on phones.
+  No other word ("version", "sub-pattern", "nuance") is used for these.
+- **Running text is block-justified, right-to-left, always, site-wide** (team_00: «טקסט רץ — יישור בלוק.
+  לא ימינה. כן RTL.» · «תמיד בכל האתר.»): `text-align: justify; text-align-last: start` on running-text
+  paragraphs and list items. Headings, eyebrows and buttons are not running text.
+
+## Tier 1 — content rows (37)
 
 1. [Page hero — `phero`](#1-page-hero--phero)
 2. [Home video hero — `hero`](#2-home-video-hero--hero)
@@ -245,6 +263,17 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 - **Variants:** cover, reversed, `figr` crop, and zoom are all declared inputs, not silent overrides. Mokesh's figcaption is bespoke to that one page.
 - **Exceptions:** The H2 carries the same inline `margin-bottom: 18px` as prose. **This type is on the [stage-A review list](#stage-a-review-list)** — crop shape and zoom availability vary visibly by page.
 - **Orphan?** `figr--w` is an unused input value; the part itself is live.
+
+- **APPROVED in canon stage A, 2026-09-27 (rule D30 «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»; team_00: «מאשר
+  את המרווח הנוסף — זה מעולה» · «כשהטקסט ארוך — תמונה מתיישרת למעלה» · «לאפשר שדה טקסט נוסף בסוף הטיפוס
+  למטה — טקסט 2–5» · «בגדול») — the target for stage B; not yet on the site:** text and image share
+  the six columns (10px gutter), split by the image-shape variant: **landscape 3 + 3**, **portrait
+  text 4 + image 2**. Image side is a variant (left default; right mirrors). The text keeps a
+  breathing space `clamp(16px,3vw,40px)` on the side facing the image, inside its own columns.
+  **Rule:** the image is always top-aligned; a short text is centred against the image. **Field
+  «continuation text»** (optional): running text under the pair, columns 2–5, like a paragraph —
+  the editor moves what does not fit beside the image. Image fill/fit is the shared variant (the
+  old `cover`). Below 760px: one column — text, image, continuation.
 
 <a id="7-floated-figure--pfloat"></a>
 ### 7. Floated figure — `pfloat`
