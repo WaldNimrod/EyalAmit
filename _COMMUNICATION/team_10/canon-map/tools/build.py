@@ -122,8 +122,8 @@ group("קריאה לפעולה")
 t("T-08", "פס קריאה לפעולה", "cta", "title · body · cta_label · cta_url · sand · btn",
   [("היום באתר — רקע חול", "method", "section.cta-band", 0, None, None),
    ("היום באתר — רקע כהה", "repair", "section.cta-band", 0, None, None),
-   ("הצעה — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט רחב (טורים 1–4), הכפתור משמאל ומיושר לתחתית (טורים 5–6)", "method", "section.cta-band", 0, None, ("__PROPOSAL__", "cm-cta-p")),
-   ("הצעה — רקע כהה: אותו מבנה", "repair", "section.cta-band", 0, None, ("__PROPOSAL__", "cm-cta-p"))],
+   ("מאושר — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט בטורים 2–4, הכפתור משמאל ומיושר לתחתית (טורים 5–6)", "method", "section.cta-band", 0, None, ("__APPROVED__", "cm-cta-p")),
+   ("מאושר — רקע כהה: אותו מבנה", "repair", "section.cta-band", 0, None, ("__APPROVED__", "cm-cta-p"))],
   note="מוצג בצורה המלאה בלבד — כפתור בלי כותרת ותת־כותרת אסור לפי החלטה סגורה.")
 t("T-15", "איך מתחילים", "start (דף הבית)", "start_bg · start_chap · start_title · start_steps[title, text] · start_cta_label · start_cta_url",
   [(None, "home", "section#start", 0, None, None)])
@@ -424,13 +424,13 @@ header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
 /* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
-   text columns 1-4, button 5-6, bottom-aligned; same six-column grid as the approved hero. */
+   text columns 2-4 (moved left, team_00), button 5-6, bottom-aligned; same six-column grid as the approved hero. */
 section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
 section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;position:relative}
 section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute;grid-column:auto;grid-row:auto;inset-block:50% auto;inset-inline-start:-4%;
   width:min(52%,520px);height:auto;aspect-ratio:1;min-height:0;transform:translateY(-50%);z-index:0;opacity:.16;
   -webkit-mask-image:linear-gradient(to left,#000 35%,transparent 90%);mask-image:linear-gradient(to left,#000 35%,transparent 90%)}
-section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
+section.cta-band.cm-cta-p .cta-band__txt{grid-column:2/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-end}
 /* Proposal (team_00): the hero button sits left, bottom-aligned, on the six-column grid — text cols 1-4, button cols 5-6. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:24px;align-items:end}

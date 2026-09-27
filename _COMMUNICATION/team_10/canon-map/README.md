@@ -114,6 +114,7 @@ typed fields and the technical keys an editor never sets.
 - **Show a proposal** → add an example with `("__PROPOSAL__", "<class>")` and scope its CSS
   to that class in `build.py`.
 - **After a theme change** → re-run all three; the stamps update themselves.
+- **Grid proof** (team_00: every sketch shows the six-column grid) → `python3 tools/grid_proof.py ea-canon-map.html grid-proof.html`. Temporary; covers the types already reviewed (edit `PICK` to add one). The overlay spans the element's own grid, so a design that is off-grid shows immediately.
 
 ## Verified at capture (team_10's claim; team_90 re-measures)
 

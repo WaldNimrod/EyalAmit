@@ -239,6 +239,19 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 - **Variants:** the grid is uniform across every band, including `/testimonials/` (page id 73), which used to be carved out (see Exceptions). Sand vs. dark and terra vs. `btn--gw` are declared inputs. A button-only band is still this type, not a degraded one.
 - **Exceptions:** at the start of the map's read, `chapters.css` still had `body.page-id-73 .cta-band--row … { padding-inline-start: 0 }`. **That rule is absent from deployed 1.5.138.** Measured, `/testimonials/` now uses the same 357px tracks as every other page — do not carry the page-73 exception forward from an older document. No other `page-id-` rule exists anywhere in the theme CSS for this type. The home band's `sand` flag is hardcoded in `tpl-chapters-home.php` (home's CTA is not called through the general defaults path). `btn--sand` is not a CTA button at all — it belongs to the photo-band type and is hardcoded there. **This type is on the [stage-A review list](#stage-a-review-list)** — the content-shape variance (empty middle third vs. full heading+body) is visible.
 - **Orphan?** The part itself is live. `--stack` and `--choc` are orphan modifiers (see [Orphans](#orphans)).
+- **APPROVED in canon stage A, 2026-09-27 (team_00: «CTA יותר טוב… כל הטקסט צריך לזוז יותר
+  לשמאל» · «מאשר גם להוסיף לטקסט עוד שבירת שורה») — the target for stage B; not yet on the site:**
+  - **Lower band:** vertical padding `clamp(40px,4vw,56px)` instead of `clamp(72px,7vw,96px)`.
+    Measured at 1440: light band 423→235px, dark 288→182px.
+  - **The logo is atmosphere, not a column:** large (up to 520px), about 16% opacity, behind the
+    text at the start (right) side, fading out toward the end (left).
+  - **Six-column grid:** text in columns 2–4 (not 1 — moved left, which also keeps the reading
+    line short), button in columns 5–6, its bottom level with the last line of text.
+    Proven with the grid overlay in `canon-map/grid-proof.html`.
+  - **Full form only:** heading + text + button (closed rule — no button without heading and
+    sub-heading). Below 760px: one column, button under the text.
+  - **Open:** the button is wider than one grid column and narrower than two, so its inner
+    edge ends in the gutter, not on a grid line — see the stage-A state file.
 
 <a id="9-point-cards--point-cards"></a>
 ### 9. Point cards — `point-cards`
