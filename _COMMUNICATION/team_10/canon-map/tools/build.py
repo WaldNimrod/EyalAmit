@@ -56,11 +56,11 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
    ("היום באתר — רקע כהה", "home", "section#session", 0, None, None),
    ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–5", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
    ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c")),
-   ("הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל) — קישור בטרקוטה", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-ivory")),
-   ("הצעה לאישור — גוון 2 מתוך 5: חול — טקסט חום כהה, קישור בחלודה", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-sand")),
-   ("הצעה לאישור — גוון 3 מתוך 5: זית (דרגה אחת כהה יותר) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-olive")),
-   ("הצעה לאישור — גוון 4 מתוך 5: טרקוטה (דרגה אחת כהה יותר מצבע המותג) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-terra-dk")),
-   ("הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-dark"))])
+   ("מאושר — גוון 1 מתוך 5: שמנת (הרקע הרגיל) — קישור בטרקוטה", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-ivory")),
+   ("מאושר — גוון 2 מתוך 5: חול — טקסט חום כהה, קישור בחלודה", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-sand")),
+   ("מאושר — גוון 3 מתוך 5: זית (דרגה אחת כהה יותר) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-olive")),
+   ("מאושר — גוון 4 מתוך 5: טרקוטה (דרגה אחת כהה יותר מצבע המותג) — טקסט לבן, כותרת שמנת, קישור זהב", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-terra-dk")),
+   ("מאושר — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
@@ -455,7 +455,7 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
-/* Proposal (T-04 backgrounds): five distinct palette tones. team_00: each tone has its own full text set — the link
+/* Approved (T-04 backgrounds, team_00 D34-D35): five distinct palette tones. team_00: each tone has its own full text set — the link
    colour always differs from the running text, and the heading colour suits the background. Every role clears WCAG AA
    with a 10% margin (tools/palette_check.py, FIVE). Olive and terracotta are one step darker than the palette swatch:
    at the swatch value no link colour can differ from white text and still pass. */
