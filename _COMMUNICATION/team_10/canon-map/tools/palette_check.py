@@ -61,6 +61,9 @@ for spec in s.find(id="T-04").select(".cm-full > .cm-spec.cm-appr"):
         break
 assert base is not None
 
+# Elements that are not tone backgrounds but sit at the threshold today (team_90, measured live, 2026-09-28).
+ELEMENTS = [("תווית על שמנת (היום)", "#B05F38", "#fffffa", 4.5), ("כפתור טרקוטה — לבן על #B05F38 (--terra-btn)", "#ffffff", "#B05F38", 4.5)]
+elems = "".join(f"<li>{n}: {ratio(a, b):.2f}{' ⚠ גבולי' if ratio(a, b) < t * MARGIN else ''}</li>" for n, a, b, t in ELEMENTS)
 five = []
 for name, bg, S in FIVE:
     r = {k: ratio(S[k], bg) for k in NEED}
@@ -100,6 +103,7 @@ main.clear()
 intro = (f'<div class="cm-proof-head"><h1>בדיקת גוונים — זמני</h1><p>פסקת הטקסט המאושרת על כל גוון בשתי '
          f'המניפות (Chapters ואייל), עם יחס הניגודיות הנמדד לכל תפקיד טקסט. סף WCAG AA: 4.5 לתווית, טקסט וקישור; '
          f'3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: {passed} מתוך {len(TONES)}.</b></p>'
+         f'<p><b>רכיבים גבוליים היום (לא רקע):</b></p><ul>{elems}</ul>'
          f'<p><b>חמשת הגוונים שנבחרו, כל אחד עם סט הטקסט שלו — כולם מעל הסף ב-10% לפחות:</b></p><ul>{"".join(five)}</ul></div>')
 main.append(BeautifulSoup(intro + "".join(blocks), "lxml").body)
 main.body.unwrap()
