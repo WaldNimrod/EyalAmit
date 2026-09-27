@@ -547,7 +547,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 
 # The map and its temporary sketch pages share one top bar: the group tabs plus these page links.
 # Buttons, not <a>: the page's <base> would send a relative link to the staging host.
-PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "הוכחת רשת"), ("palette-check.html", "בדיקת גוונים")]
+PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "מה אושר"), ("palette-check.html", "בדיקת גוונים")]
 PAGES_NAV = ('<span class="cm-pgs">' + "".join(
     f'<button type="button" class="cm-pg{" is-on" if i == 0 else ""}" data-href="{h}">{n}</button>'
     for i, (h, n) in enumerate(PROOF_PAGES)) + '</span>')
