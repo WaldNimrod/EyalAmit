@@ -89,6 +89,9 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D26 | T-04 text paragraph — two grid proposals | (shown, not yet ruled) | A: heading and text on columns 2–5 (centred, closest to today); B: columns 1–4 (right, on the hero's text line). Also fixed: the map's T-04 example was a split block by mistake (the first section on `/method/`); now a real text paragraph. |
 | D27 | Hero button, two positions | «צריך לאפשר שני מיקומים לכפתור — כמו עכשיו, למטה — או למעלה, הראש שלו מיושר לראש הכותרת. למשל דף הבית צריך את הכפתור למעלה. זה תלוי בטקסט ובתמונה.» | A field on T-01: bottom (default) or top. Measured: top variant — button top = title top (0px); bottom — button bottom = last text line (0px). |
 | D28 | Gutter, corrected | «טוב, צדקתם — צמצמנו מדי את המרווח בין העמודות — נחזור ל-10.» | **10px** (supersedes D22's 4px). One variable; measured in all nine grid-proof elements. |
+| D29 | Text paragraph approved | «לדעתי הגדרנו פעם כותרת ב-1, טקסט רץ אחריה ב-2.» then «הכותרת היא 1–6, הטקסט הוא 2–6 — זה בפסקה כמו שהצגתם לי.» | Replaces D26's A/B. Heading and eyebrow columns 1–6, text 2–6; measured edge for edge. Matches POST-TEMPLATE-SETTINGS §1 (lines 41–42). Canon type 4 updated. Two wrong T-04 captures fixed; full audit of all 65 map examples: clean. |
+| D30 | Image beside text (for T-06, next) | «כשיש תמונה ליד טקסט — כל ה-6 בחלוקה לפי התוכן וכיוון התמונה.» | Rule recorded; to be shown when T-06 is reviewed. |
+| D31 | Narrow screens | «במסך צר — הירו + CTA — כפתור תמיד מיושר לשמאל.» | Measured at 375: every hero and CTA button's left edge on the content's left edge. Canon types 1 and 8 updated. |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -101,9 +104,9 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 | T-01 | Hero — the one opening type | **approved** (D5, D15, D16, D18): three heights, button left, media = image / video / none |
 | ~~T-02~~ | retired — merged into T-01 (D18) | — |
 | ~~T-03~~ | retired — merged into T-02 (D13) | — |
-| T-04 | Prose row | **proposal** — A (cols 2–5) or B (cols 1–4), D26 |
+| T-04 | Prose row | **approved** (D29): heading 1–6, text 2–6 |
 | T-05 | Prose fold | captured |
-| T-06 | Split | captured — alignment follows D7 |
+| T-06 | Split | captured — next; rule D30 |
 | T-07 | Floated figure | captured |
 | T-08 | CTA band | **approved** (D6, D19): text cols 2–4, button 5–6, logo as background, lower band |
 | T-09 | Point cards | captured |

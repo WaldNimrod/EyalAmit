@@ -131,14 +131,15 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
+/* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
+   running text in columns 2-6. */
+section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
+section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/7;max-width:none;margin-inline:0}
+section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
-/* Proposal (T-04): the text paragraph on the six-column grid. A = columns 2-5 (centred), B = columns 1-4 (right). */
-section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
-section.sec.cm-pr-a>.wrap>*{grid-column:2/6}
-section.sec.cm-pr-b>.wrap>*{grid-column:1/5}
-section.sec.cm-pr-a .intro-body,section.sec.cm-pr-b .intro-body{max-width:none;margin-inline:0}
 /* Approved (team_00): hero text cols 1-4; the button spans columns 5-6 on one line (team_00 corrected from one cell), bottom-aligned. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:var(--cm-gap);align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
@@ -157,13 +158,14 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 @media(max-width:760px){
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
+ /* Narrow screens (team_00): the hero and CTA button always sits on the left. */
  header.phero[class*="cm-h-"] .phero__in{display:block}
- section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:block}
+ section.sec.cm-pr-c>.wrap{display:block}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
- section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
+ section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-end}
  section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px)}
- header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
+ header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-end}
  header.phero[class*="cm-h-"] .phero__cta .btn,section.cta-band.cm-cta-p .cta-band__act .btn{width:auto;padding-inline:36px}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}
@@ -294,66 +296,26 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 </div>
-</section></div><div class="cm-variant">היום באתר — רקע כהה</div><div class="cm-spec"><section class="sec sec--dark">
-<div class="wrap center">
-<h2 class="h2 r">מה לומדים בפועל</h2>
-<div class="lead r" style="margin:14px auto 0">הלימוד בנוי כתהליך הדרגתי, שבו כל שלב מתבסס על הקודם לו ומאפשר התקדמות יציבה וברורה - בקצב שמותאם לכל תלמיד.</div> <div class="dd r">
-<details class="dd__item dd__item--active" open="">
-<summary class="dd__sum">
-<span class="dd__sum-main">
-<span class="dd__tag">שלב 1</span> <span class="dd__t">הפקת הצליל והיכרות עם הכלי</span>
-</span>
-<span aria-hidden="true" class="dd__ic"></span>
-</summary>
-<div class="dd__body"><p>היכרות עם מבנה הדיג'רידו, עבודה על רטט שפתיים נכון והפקת הצליל הבסיסי.</p><p>זהו הבסיס שממנו הכל מתחיל.</p></div>
-</details>
-<details class="dd__item">
-<summary class="dd__sum">
-<span class="dd__sum-main">
-<span class="dd__tag">שלב 2</span> <span class="dd__t">פיתוח שליטה במערכת הנשימה</span>
-</span>
-<span aria-hidden="true" class="dd__ic"></span>
-</summary>
-<div class="dd__body"><p>עבודה הדרגתית על יצירת שליטה וחיזוק של מרכיבי הנשימה והנגינה - הסרעפת, השפתיים, הלשון והלחיים.</p><p>בשלב זה הגוף לומד את הפעולה הנכונה, ונבנית הקואורדינציה הנדרשת לנגינה.</p></div>
-</details>
-<details class="dd__item">
-<summary class="dd__sum">
-<span class="dd__sum-main">
-<span class="dd__tag">שלב 3</span> <span class="dd__t">הטמעת טכניקת הנשימה המעגלית</span>
-</span>
-<span aria-hidden="true" class="dd__ic"></span>
-</summary>
-<div class="dd__body"><p>לאחר שנבנית שליטה בסיסית, לומדים להטמיע את טכניקת הנשימה המעגלית - תיאום מדויק בין כל מרכיבי המערכת, המאפשר נגינה רציפה ללא עצירות.</p><p>זהו שלב מרכזי בתהליך שבו הכל מתחבר יחד.</p></div>
-</details>
-<details class="dd__item">
-<summary class="dd__sum">
-<span class="dd__sum-main">
-<span class="dd__tag">שלב 4</span> <span class="dd__t">יצירת רצף ושליטה בצליל</span>
-</span>
-<span aria-hidden="true" class="dd__ic"></span>
-</summary>
-<div class="dd__body"><p>עבודה על נגינה יציבה, חלקה ורציפה, שליטה בעוצמות ודיוק במעברים בין נשיפה לשאיפה.</p><p>בשלב זה רוב התלמידים כבר מגיעים ליכולת נגינה בסיסית יציבה, שמאפשרת להמשיך לתרגול עצמאי או לבחור להמשיך בשיעורים, להעמיק ולהתפתח בהמשך.</p></div>
-</details>
-<details class="dd__item">
-<summary class="dd__sum">
-<span class="dd__sum-main">
-<span class="dd__tag">המשך התקדמות</span> <span class="dd__t">למי שרוצה להעמיק</span>
-</span>
-<span aria-hidden="true" class="dd__ic"></span>
-</summary>
-<div class="dd__body"><p>מי שמעוניין להמשיך, יכול להתקדם לשלבים מתקדמים יותר הכוללים עבודה על מקצבים, אפקטים קוליים ופיתוח סגנון נגינה אישי.</p><p>ההתקדמות אינה מוגבלת למספר מפגשים קבוע, אלא מתנהלת בקצב אישי ובהתאם לרצון, למטרות ולמידת ההעמקה שכל אחד בוחר לעצמו.</p></div>
-</details>
+</section></div><div class="cm-variant">היום באתר — רקע כהה</div><div class="cm-spec"><section class="sec sec--dark" id="session">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">מה קורה במפגש טיפול בדיג'רידו</h2> <div class="intro-body r r2">
+<p>המפגש מתקיים בסביבה שקטה ונעימה, שמאפשרת לעצור ולהתמקד בנשימה.</p>
+<p>העבודה משלבת תרגול, הקשבה והדרכה אישית, בקצב שמתאים לכל אחד.</p>
+<p>הדגש הוא על תרגול מעשי, חיבור לגוף ולנשימה ופיתוח יכולת עבודה עצמאית עם הדיג'רידו.</p>
+<p><a class="tlink" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a></p> </div>
 </div>
-</div>
-</section></div><div class="cm-variant">הצעה א — על הרשת, ממורכז: כותרת וטקסט בטורים 2–5 (הכי קרוב למראה היום)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-a">
+</section></div><div class="cm-variant">מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–6</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-pr-c">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 </div>
-</section></div><div class="cm-variant">הצעה ב — על הרשת, מיושר לימין: כותרת וטקסט בטורים 1–4 (על אותו קו כמו טקסט ההירו)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-b">
+</section></div><div class="cm-variant">מאושר — אותו דבר על רקע כהה</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--dark cm-pr-c" id="session">
 <div class="wrap">
-<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
-<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<h2 class="h2 r" style="margin-bottom:18px">מה קורה במפגש טיפול בדיג'רידו</h2> <div class="intro-body r r2">
+<p>המפגש מתקיים בסביבה שקטה ונעימה, שמאפשרת לעצור ולהתמקד בנשימה.</p>
+<p>העבודה משלבת תרגול, הקשבה והדרכה אישית, בקצב שמתאים לכל אחד.</p>
+<p>הדגש הוא על תרגול מעשי, חיבור לגוף ולנשימה ופיתוח יכולת עבודה עצמאית עם הדיג'רידו.</p>
+<p><a class="tlink" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a></p> </div>
 </div>
 </section></div></div></details><details class="cm-row" id="T-05"><summary class="cm-sum" role="row"><span class="c-id">T-05</span><span class="c-name">פסקה מקופלת</span><span class="c-desc">כמו פסקת הקריאה הרגילה, רק שרואים תחילה שורות ספורות בלבד, ומתחתן כפתור שפותח את שאר הטקסט.</span><span class="c-use">3 עמודים</span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><section class="sec">
 <div class="wrap">

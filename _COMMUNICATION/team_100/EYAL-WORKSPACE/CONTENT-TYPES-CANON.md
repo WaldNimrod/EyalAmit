@@ -148,7 +148,7 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
     ruling), never past the content area. **Two button positions, chosen per page by its text
     and image:** bottom — level with the last line of text (the default; no button row under
     the text, so the text block sits lower); or top — its top level with the title's top
-    (e.g. the home page). Below 760px the button returns under the text.
+    (e.g. the home page). Below 760px the button returns under the text, **always on the left**.
   - **Media is a field: image, video or none** (team_00, 2026-09-27: «הירו — מאשר. ואז לא
     צריך גם במפה סקשן נפרד»). **Types 2 and 3 are merged into this type and retired**; the
     home page and the memorial page align to it in stage B. The duplicated video-hero code is
@@ -193,6 +193,15 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 - **Variants:** `sec--alt`, `sec--dark` (live on `/` and `/lessons/` — `/contact/`'s dark band is the separate contact part, not this one), `center`, the fold (type 5), the float (type 7). `/en/` measures `text-align: left` (whole page is LTR).
 - **Exceptions:** No `page-id-` rule. The inline `margin-bottom: 18px` on the H2, and `margin-inline: auto` when centered, are in the part's own PHP, so they apply on every use, not per page. **This type is on the [stage-A review list](#stage-a-review-list)** — the map counts it as not uniform because of the background/fold variance below.
 - **Orphan?** No. `parts/lead.php` (a separate, unused, centered statement type) is an orphan (see [Orphans](#orphans)).
+- **APPROVED in canon stage A, 2026-09-27 (team_00: «כותרת ב-1, טקסט רץ אחריה ב-2» · «הכותרת
+  היא 1–6, הטקסט הוא 2–6, זה בפסקה כמו שהצגתם לי») — the target for stage B; not yet on the
+  site:** on the six-column grid (10px gutter), the eyebrow and heading span columns 1–6
+  (from the right edge); the running text spans columns 2–6. This is the grid form of the
+  already-approved post alignment (POST-TEMPLATE-SETTINGS §1: heading on the full wrap,
+  wider than the body). Same on light, alternate and dark backgrounds. Below 760px: one
+  column. **Also fixed in the map:** its T-04 examples had captured a split block and a
+  definition accordion; both are now genuine prose rows (audit: all 65 map examples match
+  their type).
 
 <a id="5-prose-fold--prose-fold"></a>
 ### 5. Prose fold — `prose-fold`
@@ -251,7 +260,7 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
     button fills **exactly columns 5–6, on one line**, its bottom level with the last line of
     text. Proven with the grid overlay in `canon-map/grid-proof.html`.
   - **Full form only:** heading + text + button (closed rule — no button without heading and
-    sub-heading). Below 760px: one column, button under the text.
+    sub-heading). Below 760px: one column, button under the text, **always on the left**.
 
 <a id="9-point-cards--point-cards"></a>
 ### 9. Point cards — `point-cards`

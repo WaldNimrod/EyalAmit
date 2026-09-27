@@ -53,9 +53,9 @@ t("T-01", "הירו", "phero", "גובה · מדיה (תמונה / סרטון / 
 group("טקסט")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
   [("היום באתר", "method", "main > section.sec", 1, None, None),
-   ("היום באתר — רקע כהה", "lessons", "main > section.sec--dark", 0, None, None),
-   ("הצעה א — על הרשת, ממורכז: כותרת וטקסט בטורים 2–5 (הכי קרוב למראה היום)", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-a")),
-   ("הצעה ב — על הרשת, מיושר לימין: כותרת וטקסט בטורים 1–4 (על אותו קו כמו טקסט ההירו)", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-b"))])
+   ("היום באתר — רקע כהה", "home", "section#session", 0, None, None),
+   ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–6", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
+   ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
@@ -441,14 +441,15 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
+/* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
+   running text in columns 2-6. */
+section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
+section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/7;max-width:none;margin-inline:0}
+section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
-/* Proposal (T-04): the text paragraph on the six-column grid. A = columns 2-5 (centred), B = columns 1-4 (right). */
-section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
-section.sec.cm-pr-a>.wrap>*{grid-column:2/6}
-section.sec.cm-pr-b>.wrap>*{grid-column:1/5}
-section.sec.cm-pr-a .intro-body,section.sec.cm-pr-b .intro-body{max-width:none;margin-inline:0}
 /* Approved (team_00): hero text cols 1-4; the button spans columns 5-6 on one line (team_00 corrected from one cell), bottom-aligned. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:var(--cm-gap);align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
@@ -467,13 +468,14 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 @media(max-width:760px){
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
+ /* Narrow screens (team_00): the hero and CTA button always sits on the left. */
  header.phero[class*="cm-h-"] .phero__in{display:block}
- section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:block}
+ section.sec.cm-pr-c>.wrap{display:block}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
- section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
+ section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-end}
  section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px)}
- header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
+ header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-end}
  header.phero[class*="cm-h-"] .phero__cta .btn,section.cta-band.cm-cta-p .cta-band__act .btn{width:auto;padding-inline:36px}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}

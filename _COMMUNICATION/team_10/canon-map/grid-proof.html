@@ -131,14 +131,15 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
+/* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
+   running text in columns 2-6. */
+section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
+section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/7;max-width:none;margin-inline:0}
+section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
-/* Proposal (T-04): the text paragraph on the six-column grid. A = columns 2-5 (centred), B = columns 1-4 (right). */
-section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
-section.sec.cm-pr-a>.wrap>*{grid-column:2/6}
-section.sec.cm-pr-b>.wrap>*{grid-column:1/5}
-section.sec.cm-pr-a .intro-body,section.sec.cm-pr-b .intro-body{max-width:none;margin-inline:0}
 /* Approved (team_00): hero text cols 1-4; the button spans columns 5-6 on one line (team_00 corrected from one cell), bottom-aligned. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:var(--cm-gap);align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
@@ -157,13 +158,14 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 @media(max-width:760px){
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
+ /* Narrow screens (team_00): the hero and CTA button always sits on the left. */
  header.phero[class*="cm-h-"] .phero__in{display:block}
- section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:block}
+ section.sec.cm-pr-c>.wrap{display:block}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
- section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
+ section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-end}
  section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px)}
- header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
+ header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-end}
  header.phero[class*="cm-h-"] .phero__cta .btn,section.cta-band.cm-cta-p .cta-band__act .btn{width:auto;padding-inline:36px}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}
@@ -245,15 +247,18 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <a class="btn btn--terra" href="/contact">לתיאום בדיקה לכלי</a>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-group"><span>T-04</span><h2>פסקת טקסט</h2></div><div class="cm-variant">הצעה א — על הרשת, ממורכז: כותרת וטקסט בטורים 2–5 (הכי קרוב למראה היום)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-a">
+</section></div><div class="cm-group"><span>T-04</span><h2>פסקת טקסט</h2></div><div class="cm-variant">מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–6</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-pr-c">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
 <p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="cm-variant">הצעה ב — על הרשת, מיושר לימין: כותרת וטקסט בטורים 1–4 (על אותו קו כמו טקסט ההירו)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-b">
+</section></div><div class="cm-variant">מאושר — אותו דבר על רקע כהה</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--dark cm-pr-c" id="session">
 <div class="wrap">
-<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
-<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<h2 class="h2 r" style="margin-bottom:18px">מה קורה במפגש טיפול בדיג'רידו</h2> <div class="intro-body r r2">
+<p>המפגש מתקיים בסביבה שקטה ונעימה, שמאפשרת לעצור ולהתמקד בנשימה.</p>
+<p>העבודה משלבת תרגול, הקשבה והדרכה אישית, בקצב שמתאים לכל אחד.</p>
+<p>הדגש הוא על תרגול מעשי, חיבור לגוף ולנשימה ופיתוח יכולת עבודה עצמאית עם הדיג'רידו.</p>
+<p><a class="tlink" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a></p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
 </section></div></main>
 
