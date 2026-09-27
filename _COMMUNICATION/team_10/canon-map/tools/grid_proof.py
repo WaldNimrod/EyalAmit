@@ -94,6 +94,34 @@ for T in TYPES:
         blocks.append(f'<div class="av-ex" id="{exid}"><b>{exid}</b> {vals}</div>' + str(spec))
         n_ex += 1
 
+# Every other approved example in the map, by current type (canon_types.py), with the ruler on its content box.
+from canon_types import GROUPS
+done = {t["tid"] for t in TYPES}
+rowsrc = {r["id"]: r for r in s.select(".cm-row")}
+for _, types in GROUPS:
+    for tid, name, olds, *_ in types:
+        if tid.startswith("S-"):
+            continue
+        specs = [(o, sp) for o, _ in olds if o not in done and o in rowsrc
+                 for sp in rowsrc[o].select(".cm-full > .cm-spec.cm-appr")]
+        if not specs:
+            continue
+        blocks.append(f'<div class="cm-group" id="{tid}"><span>{tid}</span><h2>{name}</h2></div>')
+        for k, (o, spec) in enumerate(specs, 1):
+            lab = spec.find_previous_sibling(class_="cm-variant")
+            for c in spec.select("section > .wrap")[:1] or spec.select(".wrap")[:1] or spec.select(".start__in")[:1]:
+                c["style"] = (c.get("style", "") + ";position:relative").lstrip(";")
+                grid = s.new_tag("div", attrs={"class": "cm-grid", "aria-hidden": "true"})
+                for n in range(1, 7):
+                    i = s.new_tag("i")
+                    i.string = str(n)
+                    grid.append(i)
+                c.append(grid)
+            exid = f"{tid}.{k}"
+            txt = lab.get_text().replace("מאושר — ", "") if lab else ""
+            blocks.append(f'<div class="av-ex" id="{exid}"><b>{exid}</b> {txt}{" · היה " + o if o != tid else ""}</div>' + str(spec))
+            n_ex += 1
+
 rules = "".join(f'<li id="{i}"><b>{i}</b> <b>{t}</b> — {d}</li>' for i, t, d in RULES)
 head = ('<div class="cm-proof-head"><h1>מה אושר — לפי טיפוס, וריאנט, שדה וכלל</h1>'
         f'<p>{TERMS}</p><p>לכל דוגמה מזהה (למשל T-06.3) ולכל כלל כללי מזהה (R-1) — אפשר להפנות אליהם ישירות. '
@@ -129,5 +157,9 @@ css.string = """
 @media(max-width:760px){.cm-grid{display:none}}
 """
 s.head.append(css)
+pad = s.new_tag("script")
+pad.string = ("document.querySelectorAll('.cm-grid').forEach(function(g){var cs=getComputedStyle(g.parentElement);"
+              "if(cs.display==='grid')return;g.style.left=cs.paddingLeft;g.style.right=cs.paddingRight;});")
+s.body.append(pad)
 open(OUT, "w", encoding="utf-8").write(str(s))
 print("types:", len(TYPES), "examples:", n_ex)
