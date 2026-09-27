@@ -63,7 +63,7 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
    ("מאושר — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None),
-   ("הצעה לאישור — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; הטקסט דוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל", "kushi", ".prose-fold", 0, None, ("__PROPOSAL__", "cm-pr-c cm-fold"))])
+   ("הצעה לאישור — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; רואים פסקה של ממש (כעשר שורות) שדוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל", "kushi", ".prose-fold", 0, None, ("__PROPOSAL__", "cm-pr-c cm-fold"))])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
   [(None, "snoring", ".pfloat", 0, None, None), ("וריאנט: עומדת, גדולה", "repair", ".pfloat--standing", 0, None, None)])
 
@@ -216,12 +216,12 @@ def videos(el):
 # with the content padded inside. Appended to each type's examples as green proposals.
 P = "__PROPOSAL__"
 GRID_PROPOSALS = {
-    "T-11": [("הצעה לאישור — 3 בשורה (2 טורים לתמונה), רווח הרשת", "kushi", ".gallery", 0, None, (P, "cm-g6")),
-             ("הצעה לאישור — ארבעה דיוקנאות (K-4.2): גדול, שניים זה מעל זה, גדול — בלוק אחד, במילוי", "repair", ".gallery--portraits", 0, None, (P, "cm-g6 cm-k42"))],
-    "T-09": [("הצעה לאישור — חמישה כרטיסים: אחד גבוה ורביעייה לידו (K-5.3), במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-frame cm-k53"))],
-    "T-13": [("הצעה לאישור — ארבעה פריטים: שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22")),
-             ("הצעה לאישור — ארבעה פריטים (K-4.2): גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
-             ("הצעה לאישור — ארבעה פריטים (K-4.3): 1 גדול ו-3 קטנים (3+1+1+1) — במילוי; בהתאמה מחייב גדולה לרוחב וקטנות לאורך", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
+    "T-11": [("הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא, ואחריה 3 בשורה (תת-הכותרת — תוכן דמה)", "kushi", ".gallery", 0, None, (P, "cm-g6 cm-hs cm-gal")),
+             ("מאושר — ארבעה דיוקנאות (K-4.2): גדול, שניים זה מעל זה, גדול — בלוק אחד, במילוי", "repair", ".gallery--portraits", 0, None, ("__APPROVED__", "cm-g6 cm-k42"))],
+    "T-09": [("הצעה לאישור — התוכן הזה הוא נקודות, לא כרטיסים: רשימה סדורה של בולטים בטורים 2–5, לכל בולט סמל (מספר), כותרת וטקסט", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-pl"))],
+    "T-13": [("הצעה לאישור — בולטים עם תמונות: הטקסט גדול והתמונה רקע שלו (כמו במקור, reveals.php); כותרת מימין עם תת-כותרת (דמה); שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22 cm-hs cm-bul")),
+             ("הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.2: גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112 cm-hs cm-bul")),
+             ("הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.3: 1 גדול ו-3 קטנים (3+1+1+1), במילוי", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111 cm-hs cm-bul"))],
     "T-14": [("מאושר — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, ("__APPROVED__", "cm-g6"))],
     "T-15": [("מאושר — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, ("__APPROVED__", "cm-g6"))],
     "T-24": [("מאושר — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
@@ -302,6 +302,13 @@ def specimen(label, page, css, idx, pred, tr):
             el = dummy(el)
         elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__", "__APPROVED_VIDEO__"):
             el["class"] = el.get("class", []) + keep.split()
+            if "cm-hs" in keep.split():  # proposal: heading on the right with a subtitle (dummy when the content has none)
+                w = el.select_one(".wrap.center") or el.select_one(".wrap")
+                if w and "center" in w.get("class", []):
+                    w["class"] = [c for c in w["class"] if c != "center"]
+                h = w.select_one("h2") if w else None
+                if h and not (h.find_next_sibling() and "lead" in (h.find_next_sibling().get("class") or [])):
+                    h.insert_after(BeautifulSoup('<p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>', "lxml").p)
             if "cm-ct" in keep.split():  # proposal: the contact page's three rows become one row on the grid
                 row = el.select_one(".ea-contact-form-row")
                 side = BeautifulSoup('<aside class="cm-ct__side"></aside>', "lxml").aside
@@ -569,7 +576,7 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
    a small outline pill at the card's left (end) edge opens it. */
 section.sec.cm-pr-c.cm-fold>.wrap>.prose-fold{grid-column:2/6;border:1px solid #d9c9b6;border-radius:12px;background:#fffffa;
   padding:clamp(20px,2.4vw,32px) clamp(20px,2.6vw,36px) 16px}
-section.cm-fold .prose-fold__peek{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+section.cm-fold .prose-fold__peek{display:block!important;-webkit-line-clamp:unset!important;line-clamp:unset!important;max-height:15em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
 section.cm-fold .prose-acc{border:0;display:flex;flex-direction:column}
 section.cm-fold .prose-acc__t{align-self:flex-end;display:inline-flex;gap:8px;padding:5px 14px!important;margin-top:6px;
   border:1px solid #9A4F2B;border-radius:100px;font-family:Heebo,sans-serif;font-size:.85rem;font-weight:500;color:#9A4F2B}
@@ -628,6 +635,33 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-k53 .point-cards__grid{grid-auto-flow:row dense}
 .cm-k53 .point-cards__grid>:first-child{grid-column:span 2!important;grid-row:span 2}
 .cm-k53 .point-cards__grid>:not(:first-child){grid-column:span 2!important}
+/* Heading like the gallery (team_00: «הכותרת מימין — כולל תת-כותרת»). */
+.cm-hs .wrap{text-align:start}
+.cm-hs .wrap>.h2{margin-bottom:8px!important}
+.cm-hs .cm-sub{grid-column:1/-1!important;margin:0;color:#67482d;font-size:var(--fs-lead);max-width:none;text-align:start}
+/* O-2 gallery: a main image across the six columns, then three per row. */
+/* The main image is a photo (the first item here is a book cover, which cannot fill a wide frame). */
+.cm-gal .gallery>:nth-child(4){grid-column:1/-1!important;order:-1}
+.cm-gal .gallery>:nth-child(4) img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
+/* O-4 (team_00: «זה נקודות — רשימה סדורה, בולטים»): the point cards become an ordered list in columns 2-5. */
+.cm-pl .point-cards__grid{display:block!important;grid-column:2/6!important;counter-reset:pl;margin-block:8px!important}
+.cm-pl .point-cards__card{counter-increment:pl;position:relative;border:0!important;background:transparent!important;box-shadow:none!important;
+  padding:0 0 14px!important;padding-inline-start:52px!important;margin:0 0 14px!important;border-bottom:1px solid #e6dccf!important}
+.cm-pl .point-cards__card::before{content:counter(pl);position:absolute;inset-inline-start:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:#9A4F2B;color:#fff;display:flex;align-items:center;justify-content:center;font:600 var(--fs-sm)/1 Heebo,sans-serif}
+.cm-pl .point-cards__card h3{margin:4px 0 4px;font-size:var(--fs-h3)}
+.cm-pl .point-cards__card p{margin:0}
+/* O-5/6/7 (team_00: «יחס חשיבות הפוך — הטקסט גדול, והתמונות הן רקע… כל בולט מקבל תמונה»; the original part reveals.php
+   put the title on the image). Each item: its image fills the cell, the text sits large on it. */
+.cm-bul .whom{grid-template-rows:none!important;grid-auto-rows:260px!important}
+.cm-bul.cm-g4-2112 .whom{grid-auto-rows:200px!important}
+.cm-bul.cm-g4-3111 .whom{grid-auto-rows:380px!important}
+.cm-bul .whom__i{position:relative!important;display:block!important;border-radius:6px;overflow:hidden;grid-template-rows:none!important}
+.cm-bul.cm-g4-3111 .whom__i{grid-row:auto!important}
+.cm-bul .whom__m{position:absolute!important;inset:0;height:100%!important;margin:0!important;border-radius:0;box-shadow:none}
+.cm-bul .whom__i::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,20,13,0) 30%,rgba(29,20,13,.82))}
+.cm-bul .whom__p{position:absolute;inset-inline:0;bottom:0;z-index:1;margin:0;padding:18px;color:#fff!important;
+  font-family:Heebo,sans-serif;font-size:var(--fs-h3)!important;font-weight:500;line-height:1.4;text-align:start!important;text-align-last:auto!important}
 /* Card frame (team_00: «מסגרת דקה, שיושבת בדיוק על הגריד, ואז התוכן מרווח מעט פנימה»). */
 .cm-frame :is(.point-cards__card,.bookcard,.ea-now__card,.ea-blog-card,.tmq,.ea-testi-cards__card){
   border:1px solid #cdbba6!important;border-radius:4px!important;box-shadow:none!important;background:transparent!important;
@@ -736,6 +770,9 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6.cm-g4-3111 .ea-now{grid-auto-rows:auto}.cm-g6.cm-g4-3111 .ea-now__ph{aspect-ratio:3/2!important}
  .cm-g6[class*="cm-g4-"] .whom>.whom__i:nth-child(n){grid-column:1/-1!important;grid-row:auto!important;display:flex!important}
  .cm-g6[class*="cm-g4-"] .whom__m{flex:none;aspect-ratio:4/3!important;height:auto!important}
+ .cm-pl .point-cards__card{padding-inline-start:46px!important}
+ .cm-bul .whom{grid-auto-rows:220px!important}
+ .cm-gal .gallery>:nth-child(4) img{height:240px}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
