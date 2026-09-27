@@ -48,8 +48,9 @@ css.string = """
 .phero__in,.cta-band__in{position:relative}
 .cm-grid{position:absolute;inset:0;grid-column:1/-1!important;grid-row:auto!important;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
   column-gap:var(--cm-gap);direction:rtl;pointer-events:none;z-index:50}
-.cm-grid i{background:rgba(230,30,110,.10);outline:1px dashed rgba(230,30,110,.75);outline-offset:-1px;
-  font:600 .8rem/1 Heebo,sans-serif;font-style:normal;color:#e61e6e;text-align:center;padding-top:6px}
+/* A space-division ruler, not content cards (team_00): only the column edges are drawn. */
+.cm-grid i{border-inline:1px solid rgba(230,30,110,.8);font:600 .75rem/1 Heebo,sans-serif;font-style:normal;
+  color:#e61e6e;text-align:center;padding-top:4px;text-shadow:0 0 3px #fff}
 @media(max-width:760px){.cm-grid{display:none}}
 """
 s.head.append(css)
