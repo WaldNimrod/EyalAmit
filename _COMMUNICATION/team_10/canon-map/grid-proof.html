@@ -137,6 +137,18 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
+/* Proposal (T-04 backgrounds): five distinct palette tones, each with one text set that clears WCAG AA with a
+   10% margin on every role (tools/palette_check.py). Light tones: chocolate eyebrow and link; mid tones: all white. */
+section.sec.cm-bg{background:var(--bg)!important;background-image:none!important}
+section.sec.cm-bg .chap{color:var(--t-eb)!important}
+section.sec.cm-bg .h2{color:var(--t-h)!important}
+section.sec.cm-bg .intro-body p,section.sec.cm-bg .intro-body li,section.sec.cm-bg .lead{color:var(--t-b)!important}
+section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-eb)!important;border-bottom-color:currentColor!important}
+section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
+section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
+section.sec.cm-bg-olive{--bg:#6E6F4A;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
+section.sec.cm-bg-terra-dk{--bg:#9A4F2B;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
+section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#fff;--t-b:#EBEBEA}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -259,6 +271,31 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <p>העבודה משלבת תרגול, הקשבה והדרכה אישית, בקצב שמתאים לכל אחד.</p>
 <p>הדגש הוא על תרגול מעשי, חיבור לגוף ולנשימה ופיתוח יכולת עבודה עצמאית עם הדיג'רידו.</p>
 <p><a class="tlink" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a></p> </div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-group"><span>T-04</span><h2>פסקת טקסט — חמשת הגוונים (הצעה)</h2></div><div class="cm-variant">הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל), תווית וקישור בשוקולד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-ivory">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
+<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-variant">הצעה לאישור — גוון 2 מתוך 5: חול, תווית וקישור בשוקולד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-sand">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
+<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-variant">הצעה לאישור — גוון 3 מתוך 5: זית, טקסט לבן</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-olive">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
+<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-variant">הצעה לאישור — גוון 4 מתוך 5: טרקוטה כהה (צבע המותג), טקסט לבן</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-terra-dk">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
+<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-variant">הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום), טקסט בהיר</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-bg cm-bg-dark">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">לא כל עבודה עם דיג'רידו היא אותו דבר</h2> <div class="intro-body r r2">
+<p>לא כל עבודה עם דיג'רידו היא אותו דבר.</p><p>ב<a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> נכנסים לתהליך אישי ולומדים לעבוד באופן אקטיבי עם הנשימה היומיומית.</p><p>ב<a class="tlink" href="/sound-healing/">סאונד הילינג</a> חווים מפגש נקודתי של הקשבה פאסיבית לצליל.</p><p>וב<a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a> מתמקדים בלימוד נגינה ובהתפתחות מוזיקלית דרך הכלי.</p> </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
 </section></div></main>
 

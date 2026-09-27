@@ -55,7 +55,12 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
   [("היום באתר", "method", "main > section.sec", 1, None, None),
    ("היום באתר — רקע כהה", "home", "section#session", 0, None, None),
    ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–5", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
-   ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c"))])
+   ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c")),
+   ("הצעה לאישור — גוון 1 מתוך 5: שמנת (הרקע הרגיל), תווית וקישור בשוקולד", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-ivory")),
+   ("הצעה לאישור — גוון 2 מתוך 5: חול, תווית וקישור בשוקולד", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-sand")),
+   ("הצעה לאישור — גוון 3 מתוך 5: זית, טקסט לבן", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-olive")),
+   ("הצעה לאישור — גוון 4 מתוך 5: טרקוטה כהה (צבע המותג), טקסט לבן", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-terra-dk")),
+   ("הצעה לאישור — גוון 5 מתוך 5: כהה (כמו היום), טקסט בהיר", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
@@ -447,6 +452,18 @@ section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
 section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
+/* Proposal (T-04 backgrounds): five distinct palette tones, each with one text set that clears WCAG AA with a
+   10% margin on every role (tools/palette_check.py). Light tones: chocolate eyebrow and link; mid tones: all white. */
+section.sec.cm-bg{background:var(--bg)!important;background-image:none!important}
+section.sec.cm-bg .chap{color:var(--t-eb)!important}
+section.sec.cm-bg .h2{color:var(--t-h)!important}
+section.sec.cm-bg .intro-body p,section.sec.cm-bg .intro-body li,section.sec.cm-bg .lead{color:var(--t-b)!important}
+section.sec.cm-bg .intro-body a,section.sec.cm-bg .tlink{color:var(--t-eb)!important;border-bottom-color:currentColor!important}
+section.sec.cm-bg-ivory{--bg:#fffffa;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
+section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#5C3A2E;--t-h:#2f2013;--t-b:#67482d}
+section.sec.cm-bg-olive{--bg:#6E6F4A;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
+section.sec.cm-bg-terra-dk{--bg:#9A4F2B;--t-eb:#fff;--t-h:#fff;--t-b:#fff}
+section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#fff;--t-b:#EBEBEA}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
