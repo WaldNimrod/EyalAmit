@@ -185,7 +185,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 
 - **Approved:** T-01 hero (D5, D15–D18, D21, D24, D27, D31), T-08 CTA band (D6, D19, D23–D25, D31),
   T-04 text paragraph layout (D29, D32), all-button padding (D25), grid gutter 10px (D28).
-- **Resolved after the checkpoint:** D33 → D34–D35 (five paragraph tones, each with its own text set; approved). Next: T-06 split.
+- **Resolved after the checkpoint:** D33 → D34–D35 (five paragraph tones, each with its own text set; approved). Open items O1–O3, O5, O6, O9 below.
 - **Next type:** T-06 split (text beside image), under rule D30 — «כל ה-6 בחלוקה לפי התוכן וכיוון
   התמונה». Show today's split and grid proposals by image orientation (landscape / portrait /
   cover), with the grid overlay, desktop and phone.
