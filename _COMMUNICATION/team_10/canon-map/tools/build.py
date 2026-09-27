@@ -70,11 +70,11 @@ group("תמונה וטקסט")
 t("T-06", "טקסט ותמונה זה לצד זה", "split", "chap · title · body · image · alt · figr · reversed · soft · cover · zoom",
   [(None, "method", ".split2", 0, None, None), ("גרסה: תמונה ממלאת", "repair", ".split2--cover", 0, None, None),
    ("היום באתר — תמונה לאורך", "eyal", ".split2", 0, None, None),
-   ("הצעה לאישור — תמונה לרוחב: טקסט בטורים 1–3, תמונה בטורים 4–6", "method", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה לרוחב, הפוך: תמונה בטורים 1–3, טקסט בטורים 4–6", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה לאורך: טקסט בטורים 1–4, תמונה צרה בטורים 5–6", "eyal", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה לאורך, הפוך: תמונה בטורים 1–2, טקסט בטורים 3–6", "mokesh", ".split2", 5, None, ("__PROPOSAL__", "cm-sp")),
-   ("הצעה לאישור — תמונה ממלאת (בגובה הטקסט): טקסט בטורים 1–3, תמונה בטורים 4–6", "repair", ".split2--cover", 0, None, ("__PROPOSAL__", "cm-sp"))])
+   ("הצעה לאישור — תמונה לרוחב (5:4), צד התמונה שמאל: טקסט בטורים 1–3, תמונה בטורים 4–6. טקסט קצר — הטקסט ממורכז לגובה התמונה", "method", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה לרוחב, צד התמונה ימין: תמונה בטורים 1–3, טקסט בטורים 4–6. טקסט ארוך — התמונה מיושרת למעלה", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — אותו דבר, עם שדה «המשך טקסט»: חלק מהטקסט הארוך עבר לטורים 2–5 מתחת לזוג", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp cm-sp-more")),
+   ("הצעה לאישור — תמונה לאורך (4:5), צד התמונה שמאל: טקסט בטורים 1–4, תמונה בטורים 5–6", "eyal", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה לאורך, צד התמונה ימין: תמונה בטורים 1–2, טקסט בטורים 3–6", "mokesh", ".split2", 5, None, ("__PROPOSAL__", "cm-sp"))])
 t("T-10", "פס תמונה עם טקסט", "photo-band", "title · body · image · alt · cta_label · cta_url",
   [(None, "repair", "section.photo-band", 0, None, None)])
 t("T-12", "ציטוט על תמונה", "bleed", "image · alt · quote · attrib",
@@ -271,6 +271,13 @@ def specimen(label, page, css, idx, pred, tr):
             el = dummy(el)
         elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__", "__APPROVED_VIDEO__"):
             el["class"] = el.get("class", []) + keep.split()
+            if "cm-sp-more" in keep.split():  # proposal: split's «המשך טקסט» field, full reading width under the pair
+                body = el.select_one(".split2 .intro-body")
+                kids = [c for c in body.children if getattr(c, "name", None)]
+                more = BeautifulSoup('<div class="cm-sp-after"><div class="intro-body"></div></div>', "lxml").div
+                for c in kids[3:]:
+                    more.div.append(c.extract())
+                el.select_one(".split2").insert_after(more)
             if sel in ("__PROPOSAL_VIDEO__", "__APPROVED_VIDEO__"):
                 for img in el.select("img.phero__media"):
                     img.replace_with(vph(img))
@@ -488,6 +495,12 @@ section.cm-sp .split2:has(>.figr--p)>.split2__m{grid-column:5/7}
 section.cm-sp .split2.split2--rev:has(>.figr--p)>:not(.split2__m){grid-column:3/7}
 section.cm-sp .split2.split2--rev:has(>.figr--p)>.split2__m{grid-column:1/3}
 section.cm-sp .split2 .intro-body{max-width:none}
+/* team_00: a long text never leaves the image floating mid-height — the image sits at the top; a short text is
+   centred against the image. Optional «המשך טקסט» field: running text under the pair, columns 2-5 like a paragraph. */
+section.cm-sp .split2{align-items:start}
+section.cm-sp .split2>:not(.split2__m){align-self:center}
+section.cm-sp .cm-sp-after{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);margin-top:clamp(28px,3vw,44px)}
+section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -513,6 +526,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  header.phero[class*="cm-h-"] .phero__in{display:block}
  section.sec.cm-pr-c>.wrap{display:block}
  section.cm-sp .split2{grid-template-columns:minmax(0,1fr);row-gap:36px}
+ section.cm-sp .cm-sp-after{display:block}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
