@@ -47,7 +47,7 @@ css.string = """
 .cm-proof-head p{margin:0;font-size:.9rem;opacity:.85;max-width:90ch}
 .phero__in,.cta-band__in{position:relative}
 .cm-grid{position:absolute;inset:0;grid-column:1/-1!important;grid-row:auto!important;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
-  column-gap:24px;direction:rtl;pointer-events:none;z-index:50}
+  column-gap:var(--cm-gap);direction:rtl;pointer-events:none;z-index:50}
 .cm-grid i{background:rgba(230,30,110,.10);outline:1px dashed rgba(230,30,110,.75);outline-offset:-1px;
   font:600 .8rem/1 Heebo,sans-serif;font-style:normal;color:#e61e6e;text-align:center;padding-top:6px}
 @media(max-width:760px){.cm-grid{display:none}}

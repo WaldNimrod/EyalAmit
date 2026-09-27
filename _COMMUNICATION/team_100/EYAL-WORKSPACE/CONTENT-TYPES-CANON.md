@@ -143,10 +143,10 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
     Measured in the map: 1440×900 → 92% / 66% / 45%; 375×812 → 92% / 73% / 51% (text wraps).
     Today's four heights (88vh standard, 78vh `/repair/`, 44vh `/contact/`, text hero) are
     superseded.
-  - **Button left, bottom-aligned, on the six-column grid:** text in columns 1–4 (the right,
-    in RTL), button in columns 5–6, its bottom level with the last line of text — no button
-    row under the text, so the text block sits lower. Below 760px the button returns under
-    the text.
+  - **On the six-column grid:** text in columns 1–4 (the right, in RTL); the button is
+    **exactly one cell wide — column 5** («יישור בעברית = לימין»; it never spills past the
+    content area), its bottom level with the last line of text — no button row under the
+    text, so the text block sits lower. Below 760px the button returns under the text.
   - **Media is a field: image, video or none** (team_00, 2026-09-27: «הירו — מאשר. ואז לא
     צריך גם במפה סקשן נפרד»). **Types 2 and 3 are merged into this type and retired**; the
     home page and the memorial page align to it in stage B. The duplicated video-hero code is
@@ -246,12 +246,10 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
   - **The logo is atmosphere, not a column:** large (up to 520px), about 16% opacity, behind the
     text at the start (right) side, fading out toward the end (left).
   - **Six-column grid:** text in columns 2–4 (not 1 — moved left, which also keeps the reading
-    line short), button in columns 5–6, its bottom level with the last line of text.
-    Proven with the grid overlay in `canon-map/grid-proof.html`.
+    line short); the button is **exactly one cell wide — column 5**, right-aligned, its bottom
+    level with the last line of text. Proven with the grid overlay in `canon-map/grid-proof.html`.
   - **Full form only:** heading + text + button (closed rule — no button without heading and
     sub-heading). Below 760px: one column, button under the text.
-  - **Open:** the button is wider than one grid column and narrower than two, so its inner
-    edge ends in the gutter, not on a grid line — see the stage-A state file.
 
 <a id="9-point-cards--point-cards"></a>
 ### 9. Point cards — `point-cards`

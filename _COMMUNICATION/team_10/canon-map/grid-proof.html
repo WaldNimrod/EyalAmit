@@ -53,6 +53,8 @@ body{background-color:var(--base-2);color:var(--contrast);}a{color:var(--accent)
 /*# sourceURL=ea-eyalamit-style-inline-css */
 </style>
 <style>
+/* The six-column grid's gutter — one value (team_00: «ממש מינימלי»). */
+:root{--cm-gap:4px}
 .cm-spec{transform:translateZ(0);position:relative}
 .r,.r2,.r3,.r--fade,[class*="ea-entrance"]{opacity:1!important;transform:none!important;animation:none!important}
 body{background:#f7f2ea}
@@ -117,18 +119,20 @@ header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
 /* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
-   text columns 2-4 (moved left, team_00), button 5-6, bottom-aligned; same six-column grid as the approved hero. */
+   text columns 2-4 (moved left, team_00), button exactly column 5, bottom-aligned; same six-column grid as the approved hero. */
 section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
-section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;position:relative}
+section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:end;position:relative}
 section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute;grid-column:auto;grid-row:auto;inset-block:50% auto;inset-inline-start:-4%;
   width:min(52%,520px);height:auto;aspect-ratio:1;min-height:0;transform:translateY(-50%);z-index:0;opacity:.16;
   -webkit-mask-image:linear-gradient(to left,#000 35%,transparent 90%);mask-image:linear-gradient(to left,#000 35%,transparent 90%)}
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:2/5;grid-row:1;position:relative;z-index:1;align-self:end}
-section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-end}
-/* Proposal (team_00): the hero button sits left, bottom-aligned, on the six-column grid — text cols 1-4, button cols 5-6. */
-header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:24px;align-items:end}
+section.cta-band.cm-cta-p .cta-band__act{grid-column:5/6;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
+section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:normal;text-align:center;justify-content:center}
+/* Approved (team_00): hero text cols 1-4; the button is exactly one cell, column 5 (right-aligned in Hebrew), bottom-aligned. */
+header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:var(--cm-gap);align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
-header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align-self:end;justify-content:flex-end;margin-top:0}
+header.phero[class*="cm-h-"] .phero__cta{grid-column:5/6;grid-row:1/span 4;align-self:end;justify-content:flex-start;margin-top:0}
+header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:normal;text-align:center;justify-content:center}
 .cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
@@ -148,6 +152,7 @@ header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align
  section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
  section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px);inset-inline-start:-10%}
  header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
+ header.phero[class*="cm-h-"] .phero__cta .btn,section.cta-band.cm-cta-p .cta-band__act .btn{width:auto;padding-inline:36px}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}
  .cm-mini{width:112px;height:80px}.cm-mini__in{transform:scale(.0875)}
@@ -161,7 +166,7 @@ header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align
 .cm-proof-head p{margin:0;font-size:.9rem;opacity:.85;max-width:90ch}
 .phero__in,.cta-band__in{position:relative}
 .cm-grid{position:absolute;inset:0;grid-column:1/-1!important;grid-row:auto!important;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
-  column-gap:24px;direction:rtl;pointer-events:none;z-index:50}
+  column-gap:var(--cm-gap);direction:rtl;pointer-events:none;z-index:50}
 .cm-grid i{background:rgba(230,30,110,.10);outline:1px dashed rgba(230,30,110,.75);outline-offset:-1px;
   font:600 .8rem/1 Heebo,sans-serif;font-style:normal;color:#e61e6e;text-align:center;padding-top:6px}
 @media(max-width:760px){.cm-grid{display:none}}
@@ -169,7 +174,7 @@ header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align
 <body class="rtl wp-singular page-template page-template-page-templates page-template-tpl-service page-template-page-templatestpl-service-php page page-id-55 wp-embed-responsive wp-theme-generatepress wp-child-theme-ea-eyalamit no-sidebar nav-float-right separate-containers header-aligned-right dropdown-hover ea-wave2-shell ea-m4-polish ea-chapters">
 
 
-<main class="chapters-main"><div class="cm-proof-head"><h1>הוכחת רשת — זמני</h1><p>ששת הטורים מצוירים על המיכל של כל רכיב, בתוך רוחב התוכן שלו. טור 1 הוא הימני. רק הרכיבים שעבדנו עליהם. הרשת מוצגת מרוחב 761 פיקסלים ומעלה — בטלפון הרכיבים בטור אחד.</p></div><div class="cm-group"><span>T-01</span><h2>הירו</h2></div><div class="cm-variant">מאושר — גדול, עם סרטון: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><header class="phero phero--media cm-h-l">
+<main class="chapters-main"><div class="cm-proof-head"><h1>הוכחת רשת — זמני</h1><p>ששת הטורים מצוירים על המיכל של כל רכיב, בתוך רוחב התוכן שלו. טור 1 הוא הימני. רק הרכיבים שעבדנו עליהם. הרשת מוצגת מרוחב 761 פיקסלים ומעלה — בטלפון הרכיבים בטור אחד.</p></div><div class="cm-group"><span>T-01</span><h2>הירו</h2></div><div class="cm-variant">מאושר — גדול, עם סרטון: הטקסט בטורים 1–4, הכפתור ברוחב תא אחד (טור 5), מיושר לימין ולתחתית. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><header class="phero phero--media cm-h-l">
 <div aria-label="מקום לסרטון" class="cm-vid phero__media" role="img" style=""><img alt="" class="cm-vid__bg" src="/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg"/><span class="cm-vid__ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span><span class="cm-vid__yt"><svg viewbox="0 0 68 48"><path d="M66.5 7.5a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.5a8.5 8.5 0 0 0-6 6C0 12.8 0 24 0 24s0 11.2 1.5 16.5a8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35.2 68 24 68 24s0-11.2-1.5-16.5z" fill="#f00"></path><path d="M27 34l18-10-18-10z" fill="#fff"></path></svg></span><span class="cm-vid__lbl">מקום לסרטון</span></div>
 <span aria-hidden="true" class="phero__sc"></span>
 <span aria-hidden="true" class="arcs"></span>
@@ -201,7 +206,7 @@ header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align
 <span class="chap">צור קשר</span> <h1 class="phero__h">צור <em>קשר</em></h1>
 <p class="phero__s">ניתן ליצור קשר לתיאום שיחת היכרות, שאלות כלליות או כל פנייה אחרת.</p> <p class="phero__cta"><a class="btn btn--gw" href="https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%A6%D7%95%D7%A8%20%D7%94%D7%A7%D7%A9%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA">דברו איתי בוואטסאפ</a></p>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-<span aria-hidden="true" class="phero__media-cue"></span></header></div><div class="cm-group"><span>T-08</span><h2>פס קריאה לפעולה</h2></div><div class="cm-variant">מאושר — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט בטורים 2–4, הכפתור משמאל ומיושר לתחתית (טורים 5–6)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="cta-band cta-band--row cta-band--sand cm-cta-p">
+<span aria-hidden="true" class="phero__media-cue"></span></header></div><div class="cm-group"><span>T-08</span><h2>פס קריאה לפעולה</h2></div><div class="cm-variant">מאושר — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט בטורים 2–4, הכפתור ברוחב תא אחד בדיוק — טור 5, מיושר לימין ולתחתית</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="cta-band cta-band--row cta-band--sand cm-cta-p">
 <div class="cta-band__in">
 <span aria-hidden="true" class="cta-band__logo cta-band__logo--side"></span>
 <div class="cta-band__txt r">
