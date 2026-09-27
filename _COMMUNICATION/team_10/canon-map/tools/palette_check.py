@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 NEED = {"eyebrow": 4.5, "heading": 3.0, "body": 4.5, "link": 4.5}
+MARGIN = 1.10  # passes, but within 10% of the threshold: one small colour tweak away from failing (team_90)
 ROLE_HE = {"eyebrow": "תווית", "heading": "כותרת", "body": "טקסט", "link": "קישור"}
 SETS = {
     "light": ("כהה — כמו היום", {"eyebrow": "#B05F38", "heading": "#2f2013", "body": "#67482d", "link": "#9A4F2B"}),
@@ -63,8 +64,9 @@ for name, hexv, src in TONES:
     S = SETS[show][1]
     r = results[show][1]
     passed += bool(use)
-    cells = " · ".join(f'{ROLE_HE[k]} {r[k]:.2f}{"" if r[k] >= NEED[k] else " ✗"}' for k in NEED)
-    verdict = (f'<b class="pc-ok">מותר</b> — טקסט: {SETS[use][0]}' if use
+    cells = " · ".join(f'{ROLE_HE[k]} {r[k]:.2f}{"" if r[k] >= NEED[k] * MARGIN else (" ⚠ גבולי" if r[k] >= NEED[k] else " ✗")}' for k in NEED)
+    marginal = bool(use) and any(r[k] < NEED[k] * MARGIN for k in NEED)
+    verdict = (f'<b class="pc-ok">מותר</b>{" <b class=pc-warn>— גבולי</b>" if marginal else ""} — טקסט: {SETS[use][0]}' if use
                else f'<b class="pc-no">אסור</b> — גם הסט הטוב ביותר ({SETS[show][0]}) נכשל')
     sec = copy.copy(base)
     sec["class"] = [c for c in sec.get("class", []) if c not in ("sec--alt", "sec--dark")] + ["pc-sec"]
@@ -82,7 +84,7 @@ main = s.find("main")
 main.clear()
 intro = (f'<div class="cm-proof-head"><h1>בדיקת גוונים — זמני</h1><p>פסקת הטקסט המאושרת על כל גוון בשתי '
          f'המניפות (Chapters ואייל), עם יחס הניגודיות הנמדד לכל תפקיד טקסט. סף WCAG AA: 4.5 לתווית, טקסט וקישור; '
-         f'3 לכותרת (טקסט גדול). <b>מותרים: {passed} מתוך {len(TONES)}.</b></p></div>')
+         f'3 לכותרת (טקסט גדול). «גבולי» = עובר בפחות מ-10% מעל הסף — כל שינוי קטן בצבע מחייב להריץ את הבדיקה מחדש. <b>מותרים: {passed} מתוך {len(TONES)}.</b></p></div>')
 main.append(BeautifulSoup(intro + "".join(blocks), "lxml").body)
 main.body.unwrap()
 css = s.new_tag("style")
@@ -93,7 +95,7 @@ css.string = """
 .pc-label{font-family:Heebo,sans-serif;font-size:.9rem;color:#2f2013;padding:14px 24px 8px;background:#fff;border-top:1px solid #e6dccf}
 .pc-label code{direction:ltr;unicode-bidi:isolate;font-size:.8rem}
 .pc-swatch{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid #0003;vertical-align:-2px;margin-inline-end:6px}
-.pc-ok{color:#2d6b3f}.pc-no{color:#a3261b}
+.pc-ok{color:#2d6b3f}.pc-no{color:#a3261b}.pc-warn{color:#b3700a}
 .pc-sec .chap{color:var(--pc-eyebrow)!important}
 .pc-sec .h2{color:var(--pc-heading)!important}
 .pc-sec .intro-body p,.pc-sec .intro-body li{color:var(--pc-body)!important}
