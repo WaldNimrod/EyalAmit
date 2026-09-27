@@ -129,5 +129,4 @@ if ( $ea_related->have_posts() ) :
 endif;
 
 get_template_part( 'template-parts/blocks/block', 'contact-cta' );
-get_template_part( 'template-parts/blocks/block', 'footer-social' );
 get_footer();

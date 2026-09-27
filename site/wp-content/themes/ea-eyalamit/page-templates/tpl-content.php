@@ -55,5 +55,4 @@ get_header();
 	?>
 </main>
 <?php
-get_template_part( 'template-parts/blocks/block', 'footer-social' );
 get_footer();

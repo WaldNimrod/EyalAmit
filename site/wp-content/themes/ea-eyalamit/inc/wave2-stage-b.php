@@ -357,7 +357,6 @@ function ea_wave2_render_home_blocks( $include_chrome = true ) {
 	}
 	if ( $include_chrome ) {
 		echo '</main>';
-		get_template_part( 'template-parts/blocks/block', 'footer-social' );
 	}
 }
 

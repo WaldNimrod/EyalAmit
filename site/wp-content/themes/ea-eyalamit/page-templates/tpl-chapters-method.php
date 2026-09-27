@@ -22,7 +22,6 @@ $GLOBALS['ea_chapters_type'] = 'method';
 <?php wp_body_open(); ?>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'nav' );
 $ea_phero = ea_chapters_phero_overlay();
 ?>
 
@@ -48,7 +47,6 @@ $ea_phero = ea_chapters_phero_overlay();
 </main>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'footer' );
 wp_footer();
 ?>
 </body>

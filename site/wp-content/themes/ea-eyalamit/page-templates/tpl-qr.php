@@ -37,5 +37,4 @@ get_template_part( 'template-parts/blocks/block', 'topnav' );
 	?>
 </main>
 <?php
-get_template_part( 'template-parts/blocks/block', 'footer-social' );
 get_footer();

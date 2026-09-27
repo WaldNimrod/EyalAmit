@@ -12,6 +12,11 @@ defined( 'ABSPATH' ) || exit;
 <div class="ea-contact-foot-gap" aria-hidden="true"></div>
 <?php endif; ?>
 <?php
+/* MANDATE-INVOCATION-DEDUP-2026-09-27 — sole invocation is
+   ea_chapters_section_footer_wp_hook() on wp_footer priority 5
+   (inc/ea-canonical-nav.php). This partial only sets the sticky-reveal
+   flag and the contact-page foot-gap; unified footer markup is on wp_footer
+   priority 10. */
 /* S007 · MANDATE-FOOTER-UNIFY-2026-09-26.md — ONE footer, rendered once,
    from ea_canonical_nav_items() (inc/ea-canonical-nav.php). Replaces both
    the old hardcoded columns above (measured: they had drifted from the tree

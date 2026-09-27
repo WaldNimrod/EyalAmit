@@ -43,8 +43,6 @@ if ( ! $blog_base ) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
-
 <main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	get_template_part( 'template-parts/chapters/parts/phero', null, array(
@@ -112,7 +110,6 @@ if ( ! $blog_base ) {
 </main>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'footer' );
 wp_footer();
 ?>
 </body>

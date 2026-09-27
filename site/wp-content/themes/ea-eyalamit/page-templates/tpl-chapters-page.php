@@ -27,8 +27,6 @@ defined( 'ABSPATH' ) || exit;
 <?php wp_body_open(); ?>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'nav' );
-
 // WP-S4-05: phero + sections now flow through the ACF-or-default overlay
 // (chapters-render.php) instead of reading $ea_d['phero']/['sections'] raw — this
 // is what makes the page wp-admin-editable. Image resolution (incl. ACF
@@ -78,7 +76,6 @@ $ea_phero = ea_chapters_phero_overlay();
 </main>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'footer' );
 wp_footer();
 ?>
 </body>

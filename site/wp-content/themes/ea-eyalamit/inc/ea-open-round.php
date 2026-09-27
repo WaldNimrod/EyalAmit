@@ -78,17 +78,6 @@ function ea_open_round_body_class( $classes ) {
 add_filter( 'body_class', 'ea_open_round_body_class', 106 );
 
 /**
- * Inject Chapters nav on GP / EN pages (DA-NAV-02). GP header is then hidden in CSS.
- */
-function ea_open_round_inject_chapters_nav() {
-	if ( ! is_page( ea_open_round_chrome_slugs() ) ) {
-		return;
-	}
-	get_template_part( 'template-parts/chapters/section', 'nav' );
-}
-add_action( 'wp_body_open', 'ea_open_round_inject_chapters_nav', 20 );
-
-/**
  * Do not emit GeneratePress's navigation on the two pages that still load
  * the parent header.
  *

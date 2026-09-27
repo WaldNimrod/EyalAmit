@@ -27,8 +27,6 @@ $ea_share_url   = $ea_json_dummy ? home_url( '/' ) : ( is_singular( 'post' ) ? g
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
-
 <main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	if ( $ea_json_data ) {
@@ -177,7 +175,6 @@ $ea_share_url   = $ea_json_dummy ? home_url( '/' ) : ( is_singular( 'post' ) ? g
 </main>
 
 <?php
-get_template_part( 'template-parts/chapters/section', 'footer' );
 wp_footer();
 ?>
 </body>

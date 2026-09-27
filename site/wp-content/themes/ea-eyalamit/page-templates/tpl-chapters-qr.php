@@ -18,7 +18,6 @@ $GLOBALS['ea_chapters_type'] = 'qr';
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<?php get_template_part( 'template-parts/chapters/section', 'nav' ); ?>
 <main id="main" class="chapters-main" tabindex="-1">
 	<?php
 	while ( have_posts() ) :
@@ -54,7 +53,6 @@ $GLOBALS['ea_chapters_type'] = 'qr';
 	<?php endwhile; ?>
 </main>
 <?php
-get_template_part( 'template-parts/chapters/section', 'footer' );
 wp_footer();
 ?>
 </body>

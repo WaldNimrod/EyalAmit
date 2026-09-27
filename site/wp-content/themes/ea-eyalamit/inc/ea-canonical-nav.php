@@ -631,6 +631,79 @@ if ( ! function_exists( 'ea_render_unified_footer' ) ) :
 endif;
 
 /*
+ * THE ONLY invocation path for the primary nav (nav#nav), since
+ * MANDATE-INVOCATION-DEDUP-2026-09-27 (theme 1.5.144). Before that commit
+ * eight chapter templates called template-parts/chapters/section-nav.php
+ * explicitly and inc/ea-open-round.php injected the same partial again on
+ * wp_body_open for GP-orphan chrome pages — nine paths held together by
+ * ea_chapters_nav_mark_once() inside section-nav.php. All eight explicit
+ * calls, the open-round inject, and the mark-once guard are gone.
+ *
+ * wp_body_open fires on every front-end view that reaches a header (Chapters
+ * templates call it directly; GP-routed pages call it via get_header()), so
+ * this hook reaches the same 136 live URLs that already showed exactly one
+ * nav#nav. Priority 20 matches the old open-round inject so skip-link extras
+ * at 5 still run first.
+ */
+if ( ! function_exists( 'ea_render_primary_nav_wp_hook' ) ) :
+	/**
+	 * Sole invocation path for section-nav.php (MANDATE-INVOCATION-DEDUP-2026-09-27).
+	 *
+	 * @return void
+	 */
+	function ea_render_primary_nav_wp_hook() {
+		if ( is_admin() ) {
+			return;
+		}
+		get_template_part( 'template-parts/chapters/section', 'nav' );
+	}
+endif;
+add_action( 'wp_body_open', 'ea_render_primary_nav_wp_hook', 20 );
+
+/**
+ * Page templates that used to call template-parts/chapters/section-footer.php
+ * explicitly (contact foot-gap + sticky-reveal flag). /en/, /press/, and
+ * /historical-articles/ never called it — measured 2026-09-27.
+ *
+ * @return bool
+ */
+function ea_chapters_uses_section_footer_partial() {
+	$ea_tpl = get_page_template_slug();
+	$ea_list = array(
+		'page-templates/tpl-chapters-home.php',
+		'page-templates/tpl-chapters-page.php',
+		'page-templates/tpl-chapters-qr.php',
+		'page-templates/tpl-chapters-blog-single.php',
+		'page-templates/tpl-chapters-blog-archive.php',
+		'page-templates/tpl-chapters-mokesh.php',
+		'page-templates/tpl-chapters-method.php',
+	);
+	if ( $ea_tpl && in_array( $ea_tpl, $ea_list, true ) ) {
+		return true;
+	}
+	return is_front_page() && is_page();
+}
+
+/*
+ * THE ONLY invocation path for section-footer.php (contact gap + reveal flag),
+ * MANDATE-INVOCATION-DEDUP-2026-09-27. Seven templates used to call it before
+ * wp_footer(); now this wp_footer priority-5 hook runs the partial once so
+ * ea_render_unified_footer_wp_hook() at 10 still sees $GLOBALS set in time.
+ */
+if ( ! function_exists( 'ea_chapters_section_footer_wp_hook' ) ) :
+	/**
+	 * @return void
+	 */
+	function ea_chapters_section_footer_wp_hook() {
+		if ( is_admin() || ! ea_chapters_uses_section_footer_partial() ) {
+			return;
+		}
+		get_template_part( 'template-parts/chapters/section', 'footer' );
+	}
+endif;
+add_action( 'wp_footer', 'ea_chapters_section_footer_wp_hook', 5 );
+
+/*
  * THE ONLY invocation path for the unified footer, since
  * MANDATE-FOOTER-ONE-PATH-2026-09-27 (theme 1.5.143). Before that commit
  * four templates also called ea_render_unified_footer() explicitly and a
@@ -650,11 +723,11 @@ endif;
  * reaches that page without depending on the parent theme's internals.
  *
  * Chapters views need the sticky-reveal variant. They cannot pass an
- * argument through a hook, so section-footer.php sets
- * $GLOBALS['ea_unified_footer_reveal'] before wp_footer() runs and the
- * wrapper below reads it. Verified 2026-09-27 across the published
- * population: the reveal classes appear on 150 URLs and are absent on
- * exactly the three that never included section-footer.php
+ * argument through a hook, so ea_chapters_section_footer_wp_hook() (priority 5)
+ * loads section-footer.php, which sets $GLOBALS['ea_unified_footer_reveal'],
+ * before this callback runs at priority 10. Verified 2026-09-27 across the
+ * published population: the reveal classes appear on 150 URLs and are absent on
+ * exactly the three that never used section-footer.php
  * (/historical-articles/, /en/, /press/).
  *
  * Separately, GeneratePress's own site-info <footer> must never render

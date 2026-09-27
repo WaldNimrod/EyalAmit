@@ -14,4 +14,6 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-/* MANDATE-FOOTER-ONE-PATH-2026-09-27 — footer markup is rendered once on wp_footer. */
+/* MANDATE-FOOTER-ONE-PATH-2026-09-27 / MANDATE-INVOCATION-DEDUP-2026-09-27 —
+   footer markup is rendered once on wp_footer (ea_render_unified_footer_wp_hook).
+   This partial has zero call sites; kept so existing template names stay stable. */
