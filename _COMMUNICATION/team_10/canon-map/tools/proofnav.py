@@ -7,9 +7,14 @@ A group tab opens that group in the map; the page links switch between the map a
 
 def keep_nav(s, page):
     s.select_one("header.cm-top").decompose()  # the sketch page's own heading replaces the map's
-    for t in s.select(".cm-tab"):
-        t["data-href"] = "ea-canon-map.html#" + t["data-g"]
-        t["class"] = [c for c in t.get("class", []) if c != "is-on"]
+    from canon_types import GROUPS  # the map's current groups, not the capture source's old ones
+    nav = s.select_one("nav.cm-tabs")
+    for t in nav.select(".cm-tab"):
+        t.decompose()
+    for gi, (gname, _) in reversed(list(enumerate(GROUPS, 1))):
+        b = s.new_tag("button", attrs={"type": "button", "class": "cm-tab", "data-href": f"ea-canon-map.html#g{gi}"})
+        b.string = gname
+        nav.insert(0, b)
     for b in s.select(".cm-pg"):
         b["class"] = ["cm-pg"] + (["is-on"] if b["data-href"] == page else [])
     js = s.find("script").string

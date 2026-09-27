@@ -22,21 +22,20 @@ Team_00's process ruling: **work starts from a visual sketch, not from editing t
 Deriving definitions and text from an approved visual is the builders' job and goes
 through validation.
 
-## Structure
+## Structure (since 2026-09-27, after the merge — D49)
 
-- **Header** — capture date, theme version, and the three reading rules (copied verbatim /
-  dummy / video placeholder).
-- **Tab bar** — one tab per group; it stays pinned while scrolling and is the navigation
-  between groups. Nine groups: פתיחות · קריאה · תמונה וטקסט · רשתות וכרטיסים · קולות ·
-  שאלות ומבנה · מדיה · פעולה · מעטפות.
-- **One row per type.** Collapsed: ID · name (+ a flag such as «ייחודי לעמוד אחד») ·
-  one-line description · number of pages using it · live thumbnail.
-- **Click a row** → full description and note; then, side by side, **properties** — nine
-  fixed labels in a fixed order for every type (מבנה · גובה · רוחב · יישור · רקע · מדיה ·
-  כפתור · בטלפון · גרסאות) — and **fields**, a table of field · type · code name, with the
-  type from a closed list (טקסט קצר · טקסט ארוך (עם עיצוב) · תמונה · טקסט חלופי · קישור ·
-  כן/לא · בחירה מרשימה · מספר · רשימת פריטים · סרטון); then **every page on the site that
-  uses the type**; then every example at full size, variants labelled.
+- **Header** — what the map is, the reading rules, and the site-wide rules in one line each.
+- **Tab bar** — pinned. Eight groups of the **current** types: פתיחות · טקסט · תמונה וטקסט · כרטיסים · מדיה ·
+  פעולה · תבניות עמוד · משותף; on the left, the pages: המפה · הצעות פתוחות · חלוקות · מה אושר — רשת · בדיקת גוונים.
+- **One row per current type** (17: 14 types, 2 page templates P-1/P-2, 1 shared state S-1). Collapsed: ID ·
+  name + status (מאושר / מאושר בחלקו / פתוח) · definition · pages using it · live thumbnail.
+- **Click a row** → definition, which old types it merged, **variants** with their values, **rules**, **fields**,
+  every page that uses it; then the examples: every **approved** one (blue), then **today's site** for each old
+  type it absorbed, labelled with the variant it becomes (the feasibility proof).
+- **No proposals and no grid lines in the map.** Proposals live in `open.html` (numbered O-n) until ruled on;
+  grid lines live in the proof pages.
+- In every example the section backgrounds are normalised to the nearest canonical tone and placeholders use the
+  one «waiting for content» look — in the map only, never the site (A-1, A-5).
 
 ### Identifiers
 
@@ -89,34 +88,31 @@ atmosphere background) — team_00's ruling. Map only; the pages keep their real
 
 ## How it is built
 
-Nothing is hand-edited in the HTML. Three scripts in `tools/` regenerate it from the live site:
+Nothing is hand-edited in the HTML. From the repo root:
 
 ```bash
 python3 _COMMUNICATION/team_10/canon-map/tools/census.py
 python3 _COMMUNICATION/team_10/canon-map/tools/fetch.py
-python3 _COMMUNICATION/team_10/canon-map/tools/build.py _COMMUNICATION/team_10/canon-map/ea-canon-map.html
+python3 _COMMUNICATION/team_10/canon-map/tools/build.py _COMMUNICATION/team_10/canon-map/map-source.html
+sh _COMMUNICATION/team_10/canon-map/tools/rebuild_views.sh
 ```
 
-`census.py` enumerates every published page and post from the REST API, fetches each once
-**without following redirects** (a redirect shell is not a use — following it counts the
-target twice), and writes `tools/uses.json`: the pages using each type. Its detectors are
-explicit per type; a YouTube video pasted into a blog post's text is post content, not T-36.
-
-`fetch.py` saves the source pages into the working directory (run both from a scratch
-directory; sequential, gentle on staging). `build.py` holds the spec — one line per type:
-ID, name, type in code, fields, and the examples (source page + selector, and whether it
-is a live copy, a dummy or a proposal). Per type, `tools/type-defs.json` holds the
-plain-language description (moved from the retired `ea-content-types.html`, deleted 2026-09-27), the nine properties, the
-typed fields and the technical keys an editor never sets.
-
-- **Change a type's text, properties or fields** → `tools/type-defs.json`.
-- **Change an example or add a variant** → its line in `build.py`.
-- **Show a proposal** → add an example with `("__PROPOSAL__", "<class>")` and scope its CSS
-  to that class in `build.py`.
-- **After a theme change** → re-run all three; the stamps update themselves.
-- **Palette check** → `python3 tools/palette_check.py ea-canon-map.html palette-check.html`. Temporary; the approved text paragraph on every tone of both palettes with WCAG ratios per role and a verdict. Its tone list and text sets are at the top of the script.
-- **Approved view** («מה אושר», team_00: every sketch shows the six-column grid; everything approved laid out by type / variant / field / rule, every example numbered T-xx.n) → `python3 tools/grid_proof.py ea-canon-map.html grid-proof.html`. Add a type to `TYPES` when it is approved; site-wide rules are `RULES`. The overlay spans the element's own grid, so a design that is off-grid shows immediately. The map and its sketch pages share one top bar (`tools/proofnav.py`).
-- **Merge proposal** («איחוד», D40) → `python3 tools/merge_view.py ea-canon-map.html merge.html`. Temporary; which old types become variants of which type, and the cross-type findings A-n. Its spec is `MERGE`, `TEMPLATES` and `FINDINGS` at the top of the script.
+- `census.py` enumerates every published page and post from the REST API, fetches each once **without
+  following redirects**, and writes `tools/uses.json` (pages per old type ID).
+- `fetch.py` saves the source pages into the working directory (run it and `build.py` from a scratch directory).
+- `build.py` captures every example of every **old** type ID (T-01…T-37) — today's site, approved and proposed —
+  into `map-source.html`, the internal source every page reads. Its spec is one `t(...)` line per old type, the
+  appended `GRID_PROPOSALS`, and the CSS of every approved and proposed treatment.
+- `rebuild_views.sh` writes the pages from `map-source.html`:
+  - `canon_view.py` → `ea-canon-map.html`, the map. **Its types live in `tools/canon_types.py`** — name, which old
+    types it merges, status, definition, variants, fields, rules. Change a current type there.
+  - `open_view.py` → `open.html`, every open proposal (O-n) plus the decisions that have no picture.
+  - `grids_view.py` → `grids.html`, the locked grid compositions K-n.m.
+  - `grid_proof.py` → `grid-proof.html`, the approved types with the six-column ruler (T-xx.n) and rules R-n.
+  - `palette_check.py` → `palette-check.html`, contrast of every tone.
+- **Approve a proposal** → in `build.py` change its `__PROPOSAL__` to `__APPROVED__` and its label to «מאושר — …»,
+  update the status/rules in `canon_types.py`, rebuild: it leaves `open.html` and shows blue in the map.
+- **Add a proposal** → an example with `("__PROPOSAL__", "<class>")` in `build.py`, CSS scoped to the class.
 
 ## The grid (team_00's rulings, 2026-09-27)
 

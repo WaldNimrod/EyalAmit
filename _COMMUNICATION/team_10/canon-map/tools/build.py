@@ -230,10 +230,8 @@ GRID_PROPOSALS = {
     "T-35": [("הצעה לאישור — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, (P, "cm-g6 cm-frame"))],
     "T-18": [("הצעה לאישור — שלושה כרטיסים שלמים ברוחב התוכן (2 טורים לכרטיס), בלי חיתוך; בראש הכרטיס עיגול קטן, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
     "T-19": [("הצעה לאישור — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
-    "T-20": [("הצעה לאישור — ציטוט: ריווח קטן, מסגרת דקה בלבד", "snoring", "section.ea-testi-cards", 0, None, (P, "cm-g6 cm-q cm-q-frame")),
-             ("הצעה לאישור — ציטוט: ריווח קטן, רקע עדין בלי מסגרת", "snoring", "section.ea-testi-cards", 0, None, (P, "cm-g6 cm-q cm-q-bg")),
-             ("הצעה לאישור — ציטוט: ריווח קטן, קו טרקוטה דק בצד בלבד", "snoring", "section.ea-testi-cards", 0, None, (P, "cm-g6 cm-q cm-q-line"))],
-    "T-28": [("הצעה לאישור — 2 בשורה על הרשת; כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, (P, "cm-g6 cm-fb"))],
+    "T-20": [("מאושר — ציטוט: ריווח קטן ומסגרת דקה בלבד (G-12.1), 2 בשורה על הרשת", "snoring", "section.ea-testi-cards", 0, None, ("__APPROVED__", "cm-g6 cm-q cm-q-frame"))],
+    "T-28": [("הצעה לאישור — 2 טורים על הרשת, כל טור רץ בלי סנכרון לשני (הפוסט הבא מתחיל איפה שהקודם נגמר, לא טבלה); כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, (P, "cm-g6 cm-fb"))],
     "T-31": [("הצעה לאישור — יצירת קשר בשורה אחת על הרשת, נכנסת במסך אחד. טורים 1–4: הטופס (שדות בזוגות, בלי תוויות, כפתור שליחה משמאל) ומתחתיו אזור הוואטסאפ הכהה עם שלוש הנקודות ככותרות; טורים 5–6: התמונה של אייל עם השפופרת ופרטי הקשר. שלושה אזורים נפרדים, כמו שאייל ביקש", "contact", "section.ea-wave2-contact", 0, None, (P, "cm-ct"))],
     "T-27": [("הצעה לאישור — כמו כל פסקה: כותרת בטורים 1–6, הטקסט בטורים 2–5, הסרטון ברוחב מלא", "lessons", ".ea-pending-approval", 0, None, (P, "cm-g6 cm-vd"))],
 }
@@ -633,7 +631,9 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-q-bg .ea-testi-cards__card{background:#f3ece2!important}
 .cm-q-line .ea-testi-cards__card{border-inline-start:2px solid #9A4F2B!important;border-radius:0;padding-block:4px!important}
 /* Proposal (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
-.cm-fb .fbgrid__item{border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
+/* team_00: «2 בשורה שיהיה בגריד. כל עמודה רצה בלי סינכרון לשנייה — הבא מתחיל איפה שהקודם נגמר, ולא טבלה». */
+.cm-g6.cm-fb .fbgrid{display:block!important;columns:2;column-gap:var(--cm-gap)}
+.cm-fb .fbgrid__item{break-inside:avoid;margin:0 0 var(--cm-gap)!important;width:100%!important;border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
 .cm-fb__h{display:flex;flex-direction:column;gap:2px;text-align:start}
 .cm-fb__d{font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;letter-spacing:.4px;color:#9A4F2B}
 .cm-fb__t{margin:0;font-size:var(--fs-h3);font-weight:500;color:#2f2013}
@@ -705,6 +705,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
+ .cm-g6.cm-fb .fbgrid{columns:1}
  .cm-k42 .gallery>:nth-child(n){grid-column:span 1!important}.cm-k42 .gallery .gfig{height:220px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
@@ -730,7 +731,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 
 # The map and its temporary sketch pages share one top bar: the group tabs plus these page links.
 # Buttons, not <a>: the page's <base> would send a relative link to the staging host.
-PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "מה אושר"), ("palette-check.html", "בדיקת גוונים"), ("merge.html", "איחוד (הצעה)"), ("shared.html", "משותף"), ("grids.html", "חלוקות")]
+PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("open.html", "הצעות פתוחות"), ("grids.html", "חלוקות"), ("grid-proof.html", "מה אושר — רשת"), ("palette-check.html", "בדיקת גוונים")]
 PAGES_NAV = ('<span class="cm-pgs">' + "".join(
     f'<button type="button" class="cm-pg{" is-on" if i == 0 else ""}" data-href="{h}">{n}</button>'
     for i, (h, n) in enumerate(PROOF_PAGES)) + '</span>')

@@ -143,17 +143,17 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 | T-17 studio | split 3+3 | ⚠ not yet drawn (merged into T-06) |
 | T-18 testimonial carousel | open list → 3 per row, whole cards | proposal |
 | T-19 testimonial grid | 17 → exempt, 3 per row | proposal |
-| T-20 quote cards | 2 → 3+3 | proposal (three separators to choose) |
-| T-21 FAQ / T-22 definitions | text list | ⚠ decide: columns 2–5 like running text, or 1–6 |
-| T-23 TOC | one block | ⚠ decide its columns (TOC length rule proposed, D45) |
+| T-20 quote cards | 2 → 3+3 | ✓ approved — thin frame, small padding (G-12.1) |
+| T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
+| T-23 TOC | one block | ✓ columns 2–5 (approved); length rule proposed (D45) |
 | T-24 book cards | 3 → 2+2+2; the shop's open list → exempt | proposal |
 | T-25 spotlight | 4 → K-4.3 / K-4.1 | proposal (two options) |
 | T-26/27 video | heading 1–6, text 2–5, video 1–6 | proposal |
-| T-28 Facebook posts | 4 → 3+3 rows | proposal |
-| T-29 timeline / T-32 press list | year lists | ⚠ decide: columns 2–5 like running text |
+| T-28 Facebook posts | two free-running columns (masonry), 3 each | proposal |
+| T-29 timeline / T-32 press list | year lists | ✓ columns 2–5 (approved) |
 | T-31 contact | 4+2 | proposal |
 | T-35 blog cards | open list → exempt, 3 per row | proposal |
-| T-36 inline video | inside the reading column | ⚠ decide: columns 2–5 |
+| T-36 inline video | inside the reading column | ✓ columns 2–5 (approved) |
 | T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
 
 ## Tier 1 — content rows (37)
