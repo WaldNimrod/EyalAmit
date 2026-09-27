@@ -210,6 +210,35 @@ def videos(el):
     return el
 
 
+# Grid-discipline proposals (team_00, 2026-09-27: «אם הגריד שלנו הוא 6 — חלוקה ל-4 לא אפשרית… תמיד לפי הגריד, זה
+# המשמעת שלו. אין אלמנט לא מיושר לגריד»). Every divided element: 1, 2, 3 or 6 per row on the six columns and the
+# 10px gutter; four items are 2+2 rows, 2 small + 2 large, or 1 large + 3 small. Cards get a thin frame on the grid
+# with the content padded inside. Appended to each type's examples as green proposals.
+P = "__PROPOSAL__"
+GRID_PROPOSALS = {
+    "T-11": [("הצעה לאישור — 3 בשורה (2 טורים לתמונה), רווח הרשת", "kushi", ".gallery", 0, None, (P, "cm-g6")),
+             ("הצעה לאישור — דיוקנאות: 3 בשורה במקום 4", "repair", ".gallery--portraits", 0, None, (P, "cm-g6"))],
+    "T-09": [("הצעה לאישור — 2 בשורה (3 טורים לכרטיס), כרטיס במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-frame"))],
+    "T-13": [("הצעה לאישור — ארבעה פריטים: שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22")),
+             ("הצעה לאישור — ארבעה פריטים: 2 גדולים ו-2 קטנים בשורה אחת (2+1+1+2 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
+             ("הצעה לאישור — ארבעה פריטים: 1 גדול ו-3 קטנים בשורה אחת (3+1+1+1 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
+    "T-14": [("הצעה לאישור — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, (P, "cm-g6"))],
+    "T-15": [("הצעה לאישור — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, (P, "cm-g6"))],
+    "T-24": [("הצעה לאישור — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, (P, "cm-g6 cm-frame"))],
+    "T-25": [("הצעה לאישור — ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), ברוחב התוכן, במסגרת דקה", "home", "section#ea-now", 0, None, (P, "cm-g6 cm-g4-3111 cm-frame")),
+             ("הצעה לאישור — ארבעה כרטיסים: שתי שורות של 2", "home", "section#ea-now", 0, None, (P, "cm-g6 cm-g4-22 cm-frame"))],
+    "T-35": [("הצעה לאישור — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, (P, "cm-g6 cm-frame"))],
+    "T-18": [("הצעה לאישור — שלושה כרטיסים שלמים ברוחב התוכן (2 טורים לכרטיס), בלי חיתוך; בראש הכרטיס עיגול קטן, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
+    "T-19": [("הצעה לאישור — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
+    "T-20": [("הצעה לאישור — 2 בשורה על הרשת, במסגרת דקה", "snoring", "section.ea-testi-cards", 0, None, (P, "cm-g6 cm-frame"))],
+    "T-28": [("הצעה לאישור — 2 בשורה על הרשת", "mokesh", "div.fbgrid", 0, None, (P, "cm-g6"))],
+    "T-27": [("הצעה לאישור — כמו כל פסקה: כותרת בטורים 1–6, הטקסט בטורים 2–5, הסרטון ברוחב מלא", "lessons", ".ea-pending-approval", 0, None, (P, "cm-g6 cm-vd"))],
+}
+for item in G:
+    if item[0] in GRID_PROPOSALS:
+        item[4].extend(GRID_PROPOSALS[item[0]])
+
+
 def dummy(el):
     for p in el.find_all(["p", "li", "figcaption"]):
         p.string = "פסקת דמה. כאן יופיע גוף הטקסט של הפוסט."
@@ -530,6 +559,47 @@ section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
 section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
 section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
 section.cm-fold .prose-acc .intro-body{padding-bottom:0}
+/* Proposal (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
+.cm-g6 .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+.cm-g6 .wrap:has(>.ea-now){padding-inline:48px!important}
+.cm-g6 .wrap>*{grid-column:1/-1}
+.cm-g6 :is(.point-cards,.cm-vd .wrap>div:not([class])){display:contents}
+.cm-g6 .wrap :is(.intro-body,.lead,.point-cards__lead,.point-cards__after){grid-column:2/6;max-width:none;margin-inline:0}
+.cm-g6.cm-vd .wrap h2{grid-column:1/-1}
+.cm-g6 :is(.gallery,.point-cards__grid,.whom,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid){
+  display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:var(--cm-gap)!important;grid-column:1/-1;max-width:none!important;width:auto!important;margin-inline:0!important}
+.cm-g6 :is(.gallery,.steps3,.bookcards,.ea-blog-grid,.testi-grid)>*{grid-column:span 2!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6 :is(.point-cards__grid,.cmp,.ea-testi-cards__list,.fbgrid)>*{grid-column:span 3!important;width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6.cm-g4-22 :is(.whom,.ea-now)>*{grid-column:span 3!important}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
+.cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:nth-child(1){grid-column:span 3!important}
+.cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:not(:nth-child(1)){grid-column:span 1!important}
+.cm-g6 :is(.whom,.ea-now)>*{width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6 .whom__m{width:100%!important;height:auto!important;aspect-ratio:1}
+.cm-g6 .whom__m img{width:100%;height:100%;object-fit:cover}
+.cm-g6 .cmpc :is(p,li){text-align:justify;text-align-last:center}
+.cm-g6.start .start__in{width:min(1104px,100% - 32px);margin-inline:auto;padding-inline:0}
+.cm-g6 .start__h{font-size:var(--fs-h1)!important}
+/* Card frame (team_00: «מסגרת דקה, שיושבת בדיוק על הגריד, ואז התוכן מרווח מעט פנימה»). */
+.cm-frame :is(.point-cards__card,.bookcard,.ea-now__card,.ea-blog-card,.tmq,.ea-testi-cards__card){
+  border:1px solid #cdbba6!important;border-radius:4px!important;box-shadow:none!important;background:transparent!important;
+  padding:14px!important;box-sizing:border-box;transform:none!important}
+.cm-frame :is(.bookcard,.ea-now__card,.ea-blog-card) img{border-radius:2px}
+/* Testimonials: whole cards on the grid, never cut; a small round avatar with name and date on top. */
+.cm-tq .testi-mq{display:block;position:relative}
+.cm-tq .testi-mq__btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.cm-tq .testi-mq__btn--right{right:-44px}.cm-tq .testi-mq__btn--left{left:-44px}
+.cm-tq .testi-mq__viewport{container-type:inline-size;overflow:hidden;direction:rtl}
+.cm-tq .testi-mq__track{display:grid!important;grid-auto-flow:column;grid-auto-columns:calc((100cqw - 2 * var(--cm-gap)) / 3);
+  gap:var(--cm-gap)!important;width:auto!important;transform:none!important;direction:rtl}
+.cm-tq .tmq{display:grid!important;grid-template-columns:40px 1fr;grid-template-areas:"av n" "q q";column-gap:10px;row-gap:12px;align-content:start;flex:none!important;width:auto!important}
+.cm-tq .tmq__avatar{grid-area:av;width:40px!important;height:40px;aspect-ratio:1!important;border-radius:50%!important}
+.cm-tq .tmq__avatar svg{width:20px;height:20px}
+.cm-tq .tmq__n{grid-area:n;margin:0!important;align-self:center;text-align:start!important;letter-spacing:.3px}
+.cm-tq .tmq__n::before{display:none}
+.cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
+.cm-tq .tmq__q{grid-area:q;margin:0}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -560,6 +630,13 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  section.sec.cm-pr-c>.wrap{display:block}
  section.cm-sp .split2{grid-template-columns:minmax(0,1fr);row-gap:36px}
  section.cm-sp .cm-sp-after{display:block}
+ .cm-g6 .wrap{display:block}
+ .cm-g6 :is(.gallery,.point-cards__grid,.whom,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid){grid-template-columns:minmax(0,1fr)!important}
+ .cm-g6 :is(.gallery,.whom)>:nth-child(n),.cm-g6[class*="cm-g4"] :is(.whom,.ea-now)>:nth-child(n){grid-column:span 1!important}
+ .cm-g6 .gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
+ .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
+ .cm-tq .testi-mq__btn{display:none}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}

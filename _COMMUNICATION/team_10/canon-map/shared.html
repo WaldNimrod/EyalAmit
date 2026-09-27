@@ -183,7 +183,7 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 .cm-spec :is(.sec--dark,.cta-band:not(.cta-band--sand),section.start,.videoblk,.studio__t){background:#2A1A0C!important;background-image:none!important}
 /* Approved (team_00, A-5): one "waiting for content" state for every image or video, in one bold colour that can never
    be mistaken for content. */
-.cm-spec :is(.ph,.ea-pending-approval,.ea-now__ph){background:repeating-linear-gradient(135deg,#FFE4F0 0 14px,#FFD1E6 14px 28px)!important;
+.cm-spec :is(.ph,.ea-pending-approval){background:repeating-linear-gradient(135deg,#FFE4F0 0 14px,#FFD1E6 14px 28px)!important;
   border:3px dashed #D6006F!important;box-shadow:none!important;color:#8A0047!important}
 .cm-spec :is(.ph span,.ea-pending-approval__badge){background:#D6006F!important;color:#fff!important;box-shadow:none!important;
   font-weight:600;border-radius:100px;padding:6px 14px}
@@ -201,6 +201,47 @@ section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
 section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
 section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
 section.cm-fold .prose-acc .intro-body{padding-bottom:0}
+/* Proposal (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
+.cm-g6 .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+.cm-g6 .wrap:has(>.ea-now){padding-inline:48px!important}
+.cm-g6 .wrap>*{grid-column:1/-1}
+.cm-g6 :is(.point-cards,.cm-vd .wrap>div:not([class])){display:contents}
+.cm-g6 .wrap :is(.intro-body,.lead,.point-cards__lead,.point-cards__after){grid-column:2/6;max-width:none;margin-inline:0}
+.cm-g6.cm-vd .wrap h2{grid-column:1/-1}
+.cm-g6 :is(.gallery,.point-cards__grid,.whom,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid){
+  display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:var(--cm-gap)!important;grid-column:1/-1;max-width:none!important;width:auto!important;margin-inline:0!important}
+.cm-g6 :is(.gallery,.steps3,.bookcards,.ea-blog-grid,.testi-grid)>*{grid-column:span 2!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6 :is(.point-cards__grid,.cmp,.ea-testi-cards__list,.fbgrid)>*{grid-column:span 3!important;width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6.cm-g4-22 :is(.whom,.ea-now)>*{grid-column:span 3!important}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
+.cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:nth-child(1){grid-column:span 3!important}
+.cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:not(:nth-child(1)){grid-column:span 1!important}
+.cm-g6 :is(.whom,.ea-now)>*{width:auto!important;max-width:none!important;margin:0!important}
+.cm-g6 .whom__m{width:100%!important;height:auto!important;aspect-ratio:1}
+.cm-g6 .whom__m img{width:100%;height:100%;object-fit:cover}
+.cm-g6 .cmpc :is(p,li){text-align:justify;text-align-last:center}
+.cm-g6.start .start__in{width:min(1104px,100% - 32px);margin-inline:auto;padding-inline:0}
+.cm-g6 .start__h{font-size:var(--fs-h1)!important}
+/* Card frame (team_00: «מסגרת דקה, שיושבת בדיוק על הגריד, ואז התוכן מרווח מעט פנימה»). */
+.cm-frame :is(.point-cards__card,.bookcard,.ea-now__card,.ea-blog-card,.tmq,.ea-testi-cards__card){
+  border:1px solid #cdbba6!important;border-radius:4px!important;box-shadow:none!important;background:transparent!important;
+  padding:14px!important;box-sizing:border-box;transform:none!important}
+.cm-frame :is(.bookcard,.ea-now__card,.ea-blog-card) img{border-radius:2px}
+/* Testimonials: whole cards on the grid, never cut; a small round avatar with name and date on top. */
+.cm-tq .testi-mq{display:block;position:relative}
+.cm-tq .testi-mq__btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.cm-tq .testi-mq__btn--right{right:-44px}.cm-tq .testi-mq__btn--left{left:-44px}
+.cm-tq .testi-mq__viewport{container-type:inline-size;overflow:hidden;direction:rtl}
+.cm-tq .testi-mq__track{display:grid!important;grid-auto-flow:column;grid-auto-columns:calc((100cqw - 2 * var(--cm-gap)) / 3);
+  gap:var(--cm-gap)!important;width:auto!important;transform:none!important;direction:rtl}
+.cm-tq .tmq{display:grid!important;grid-template-columns:40px 1fr;grid-template-areas:"av n" "q q";column-gap:10px;row-gap:12px;align-content:start;flex:none!important;width:auto!important}
+.cm-tq .tmq__avatar{grid-area:av;width:40px!important;height:40px;aspect-ratio:1!important;border-radius:50%!important}
+.cm-tq .tmq__avatar svg{width:20px;height:20px}
+.cm-tq .tmq__n{grid-area:n;margin:0!important;align-self:center;text-align:start!important;letter-spacing:.3px}
+.cm-tq .tmq__n::before{display:none}
+.cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
+.cm-tq .tmq__q{grid-area:q;margin:0}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -231,6 +272,13 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  section.sec.cm-pr-c>.wrap{display:block}
  section.cm-sp .split2{grid-template-columns:minmax(0,1fr);row-gap:36px}
  section.cm-sp .cm-sp-after{display:block}
+ .cm-g6 .wrap{display:block}
+ .cm-g6 :is(.gallery,.point-cards__grid,.whom,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid){grid-template-columns:minmax(0,1fr)!important}
+ .cm-g6 :is(.gallery,.whom)>:nth-child(n),.cm-g6[class*="cm-g4"] :is(.whom,.ea-now)>:nth-child(n){grid-column:span 1!important}
+ .cm-g6 .gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
+ .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
+ .cm-tq .testi-mq__btn{display:none}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
@@ -252,6 +300,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 .av-card{font-family:Heebo,sans-serif;background:#fbf6ee;color:#2f2013;padding:12px 24px;border-bottom:1px solid #e6dccf}
 .mv-note{margin:0;font-size:.95rem;max-width:110ch}
 .cm-group span{letter-spacing:0!important}
+.sv-today{background:#6b5f55!important}
 .av-ex{font-family:Heebo,sans-serif;background:#3f7a52;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
 .av-ex b{background:#fff;color:#3f7a52;padding:1px 8px;border-radius:3px;margin-inline-end:8px;font-family:ui-monospace,Menlo,monospace;direction:ltr;unicode-bidi:isolate}
 .sv-btns p{display:flex;gap:14px;flex-wrap:wrap;margin:0}
@@ -285,7 +334,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </div>
-</section></div><div class="cm-group" id="G"><span>A-7 · לבדיקה</span><h2>כל הרשתות זו לצד זו</h2></div><div class="av-card"><p class="mv-note">כל רשת באתר היום, עם ששת הטורים של האתר מצוירים על רוחב התוכן. בפס של כל דוגמה — מה נמדד בדפדפן: כמה פריטים בשורה, הרווח ביניהם ורוחב פריט. כך רואים אילו רשתות יושבות על ששת הטורים ואילו לא.</p><p class="mv-note"><b>מה עולה מהמדידה (1440):</b> 13 רשתות, <b>שישה רווחים שונים</b> בין פריטים — 12, 16, 20, 24, 28 ו-40 פיקסלים. שתיים חורגות מרוחב התוכן: שורת הזרקור רחבה ממנו (1168 מול 1104), ושלושת הצעדים צרה ממנו (953). <b>ארבעה בשורה אינו יושב על ששה טורים</b> (טור וחצי לפריט) — רשת הדיוקנאות, «למי מתאים» ושורת הזרקור. על ששה טורים יושבים רק 2 בשורה (3 טורים לפריט), 3 בשורה (2 טורים) או 6 בשורה (טור אחד).</p></div><div class="av-ex sv-g" id="G-1"><b>G-1</b> T-11 «רשת תמונות» · 11 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
+</section></div><div class="cm-group" id="G"><span>A-7 · לבדיקה</span><h2>כל הרשתות זו לצד זו</h2></div><div class="av-card"><p class="mv-note">כל רשת באתר היום, עם ששת הטורים של האתר מצוירים על רוחב התוכן. בפס של כל דוגמה — מה נמדד בדפדפן: כמה פריטים בשורה, הרווח ביניהם ורוחב פריט. כך רואים אילו רשתות יושבות על ששת הטורים ואילו לא.</p><p class="mv-note"><b>מה עולה מהמדידה (1440):</b> 13 רשתות, <b>שישה רווחים שונים</b> בין פריטים — 12, 16, 20, 24, 28 ו-40 פיקסלים. שתיים חורגות מרוחב התוכן: שורת הזרקור רחבה ממנו (1168 מול 1104), ושלושת הצעדים צרה ממנו (953). <b>ארבעה בשורה אינו יושב על ששה טורים</b> (טור וחצי לפריט) — רשת הדיוקנאות, «למי מתאים» ושורת הזרקור. על ששה טורים יושבים רק 2 בשורה (3 טורים לפריט), 3 בשורה (2 טורים) או 6 בשורה (טור אחד).</p></div><div class="av-ex sv-g sv-today" id="G-1"><b>G-1</b> היום · T-11 «רשת תמונות» · 11 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
 <div class="wrap center" style="position:relative">
 <h2 class="h2 r">גלריה</h2> <div class="gallery r">
 <figure class="gfig">
@@ -353,7 +402,75 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </figure>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-2"><b>G-2</b> T-11 «רשת תמונות» · 11 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec">
+</section></div><div class="av-ex sv-g" id="G-1.1"><b>G-1.1</b> הצעה · 3 בשורה (2 טורים לתמונה), רווח הרשת · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">גלריה</h2> <div class="gallery r">
+<figure class="gfig">
+<img alt="כריכת הספר: רכב מכונף בתוך פרח לוטוס על רקע תכלת" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-04.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="כריכת הספר פרושה, צד קדמי ואחורי עם טקסט" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-05.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר מושך חבל ליד סירת עץ על החוף" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-07.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="אישה מחזיקה את הספר ליד נהר, מגדל אבן וגשר עץ ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="הספר מונח על לוח המחוונים, דרך מושלגת מבעד לשמשה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="הספר מונח על חוף אבנים, ים וצוקים לבנים ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/>
+</figure>
+<figure class="gfig">
+<img alt="גמל שוכב עם שמיכה צבעונית ואוכף מעוטר, הספר מונח עליו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="פרה מציצה מעל ספר פתוח, פרות נוספות ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-12.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר כורע בסככת פרות ומחזיק ספר פתוח" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-13.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="פרות בסככה מעל ספר פתוח ברקע הקדמי" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-14.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר עם משקפי שמש מחזיק את הספר מול מפרץ טורקיז וצוקים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-15.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר יושב על סלע ליד נהר בין הרים בדמדומים, מחזיק את הספר ודף נוסף" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-16.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר מדביק מדבקה על רכב מאזדה בלילה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-17.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר מחזיק את הספר על חוף חול לבן מול צוקים וסירה במים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-18.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר עם כאפייה קורא ספר פתוח ליד הים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-19.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="שתי נשים שוכבות על כריות בחוף מדברי, קוראות ספרים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-20.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="אישה קוראת את הספר בתוך סירה ירוקה על החוף, אדם נוסף שוכב לצידה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-21.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="אישה עם שיער מתולתל קוראת את הספר הפתוח" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-22.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="אישה יושבת על מבנה אבן ליד בריכת מים ירוקה, קוראת את הספר" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-24.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="תינוק שוכב עם מוצץ ובובת מיני מאוס, ספרים ובהם כושי בלאנטיס ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-25.jpg"/>
+</figure>
+<figure class="gfig">
+<img alt="גבר עם משקפיים מחזיק את הספר ותינוק בזרועותיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-26.jpg"/>
+</figure>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-1.2"><b>G-1.2</b> הצעה · דיוקנאות: 3 בשורה במקום 4 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6">
 <div class="wrap center" style="position:relative">
 <div class="gallery gallery--portraits r">
 <figure class="gfig">
@@ -370,7 +487,24 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </figure>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-3"><b>G-3</b> T-09 «כרטיסי נקודות» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
+</section></div><div class="av-ex sv-g sv-today" id="G-2"><b>G-2</b> היום · T-11 «רשת תמונות» · 11 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec">
+<div class="wrap center" style="position:relative">
+<div class="gallery gallery--portraits r">
+<figure class="gfig">
+<img alt="תיקון וחידוש דיג'רידו ישנים. סטודיו נשימה מעגלית. אייל עמית. פרדס חנה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000237.jpeg"/>
+</figure>
+<figure class="gfig">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000268.jpeg"/>
+</figure>
+<figure class="gfig">
+<img alt="סדנת בנייה עצמית דיג'רידו אייל עמית סטודיו נשימה מעגלית פרדס חנה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000242.jpeg"/>
+</figure>
+<figure class="gfig">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000161.jpg"/>
+</figure>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-3"><b>G-3</b> היום · T-09 «כרטיסי נקודות» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
 <div class="wrap" style="position:relative">
 <h2 class="h2 r" style="margin-bottom:18px">למה לתקן דיג'רידו כאן?</h2> <div class="point-cards">
 <div class="point-cards__lead intro-body"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>
@@ -389,7 +523,26 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <div class="point-cards__after intro-body"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="/method">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-4"><b>G-4</b> T-13 «למי מתאים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt" id="whom">
+</section></div><div class="av-ex sv-g" id="G-3.1"><b>G-3.1</b> הצעה · 2 בשורה (3 טורים לכרטיס), כרטיס במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame">
+<div class="wrap" style="position:relative">
+<h2 class="h2 r" style="margin-bottom:18px">למה לתקן דיג'רידו כאן?</h2> <div class="point-cards">
+<div class="point-cards__lead intro-body"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>
+<div class="point-cards__grid">
+<article class="point-cards__card">
+<h3>ניסיון של מעל שני עשורים</h3> <p>עבודה יומיומית עם דיג'רידו - בנייה, תיקון וליווי נגנים</p> </article>
+<article class="point-cards__card">
+<h3>למידה ישירה ממוקש דהימן</h3> <p>מאסטר לבניית דיג'רידו, שממנו נלמדה מלאכת הבנייה והעבודה עם הכלי</p> </article>
+<article class="point-cards__card">
+<h3>הבנה גיאומטרית-פיזיקלית של הכלי</h3> <p>התייחסות למבנה הפנימי, לזרימת האוויר ולהשפעה שלהם על הצליל</p> </article>
+<article class="point-cards__card">
+<h3>עבודה ידנית ללא קיצורי דרך</h3> <p>שימוש בחומרים איכותיים בלבד, תוך התאמה מדויקת לכל כלי</p> </article>
+<article class="point-cards__card">
+<h3>התאמה אישית לכל דיג'רידו</h3> <p>אין פתרונות אחידים - כל כלי נבדק ומטופל לפי המאפיינים שלו</p> </article>
+</div>
+<div class="point-cards__after intro-body"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="/method">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-4"><b>G-4</b> היום · T-13 «למי מתאים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt" id="whom">
 <div class="wrap center" style="position:relative">
 <h2 class="h2 r">למי מתאים התהליך</h2>
 <div class="whom">
@@ -419,7 +572,97 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-5"><b>G-5</b> T-14 «השוואה בין שניים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec" id="compare">
+</section></div><div class="av-ex sv-g" id="G-4.1"><b>G-4.1</b> הצעה · ארבעה פריטים: שתי שורות של 2 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-22" id="whom">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">למי מתאים התהליך</h2>
+<div class="whom">
+<div class="whom__i r">
+<span class="whom__m">
+<img alt="אייל עמית עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg"/>
+</span>
+<p class="whom__p">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>
+</div>
+<div class="whom__i r r2">
+<span class="whom__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<p class="whom__p">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>
+</div>
+<div class="whom__i r r3">
+<span class="whom__m">
+<img alt="אייל עמית ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+</span>
+<p class="whom__p">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>
+</div>
+<div class="whom__i r r4">
+<span class="whom__m">
+<img alt="דיוקן של אייל עמית" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg"/>
+</span>
+<p class="whom__p">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-4.2"><b>G-4.2</b> הצעה · ארבעה פריטים: 2 גדולים ו-2 קטנים בשורה אחת (2+1+1+2 טורים) · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-2112" id="whom">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">למי מתאים התהליך</h2>
+<div class="whom">
+<div class="whom__i r">
+<span class="whom__m">
+<img alt="אייל עמית עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg"/>
+</span>
+<p class="whom__p">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>
+</div>
+<div class="whom__i r r2">
+<span class="whom__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<p class="whom__p">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>
+</div>
+<div class="whom__i r r3">
+<span class="whom__m">
+<img alt="אייל עמית ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+</span>
+<p class="whom__p">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>
+</div>
+<div class="whom__i r r4">
+<span class="whom__m">
+<img alt="דיוקן של אייל עמית" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg"/>
+</span>
+<p class="whom__p">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-4.3"><b>G-4.3</b> הצעה · ארבעה פריטים: 1 גדול ו-3 קטנים בשורה אחת (3+1+1+1 טורים) · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-3111" id="whom">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">למי מתאים התהליך</h2>
+<div class="whom">
+<div class="whom__i r">
+<span class="whom__m">
+<img alt="אייל עמית עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg"/>
+</span>
+<p class="whom__p">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>
+</div>
+<div class="whom__i r r2">
+<span class="whom__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<p class="whom__p">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>
+</div>
+<div class="whom__i r r3">
+<span class="whom__m">
+<img alt="אייל עמית ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+</span>
+<p class="whom__p">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>
+</div>
+<div class="whom__i r r4">
+<span class="whom__m">
+<img alt="דיוקן של אייל עמית" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg"/>
+</span>
+<p class="whom__p">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-5"><b>G-5</b> היום · T-14 «השוואה בין שניים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec" id="compare">
 <div class="wrap center" style="position:relative">
 <h2 class="h2 r">טיפול בדיג'רידו או סאונד הילינג – מה ההבדל?</h2>
 <div class="cmp">
@@ -447,12 +690,40 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-6"><b>G-6</b> T-15 «איך מתחילים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="start" id="start">
+</section></div><div class="av-ex sv-g" id="G-5.1"><b>G-5.1</b> הצעה · 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז) · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6" id="compare">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">טיפול בדיג'רידו או סאונד הילינג – מה ההבדל?</h2>
+<div class="cmp">
+<div class="cmpc r">
+<span class="cmpc__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<span aria-hidden="true" class="cmpc__sc"></span>
+<div class="cmpc__b">
+<h3 class="cmpc__t">טיפול בדיג'רידו</h3>
+<p class="cmpc__p"><strong>מה זה:</strong><br/>עבודה אקטיבית ותהליכית עם הנשימה, שבה המטופל לומד לחזק ולווסת את מערכת הנשימה שלו.<br/>האפקט הוא לאורך זמן ולטווח הארוך.<br/>תוך כדי התהליך, הוא גם לומד לנגן בדיג'רידו.<br/><br/><strong>למי זה מתאים:</strong><br/>למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.<br/>למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.<br/>למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.<br/>למי שמעוניין לבדוק כיוון תרפויטי אלטרנטיבי, לא שגרתי, חווייתי ומהנה.</p>
+<a class="btn btn--gw" href="/treatment/">למידע נוסף על טיפול בדיג'רידו</a>
+</div>
+</div>
+<div class="cmpc r r2">
+<span class="cmpc__m">
+<img alt="דיג׳רידו ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/didgs-window.jpg"/>
+</span>
+<span aria-hidden="true" class="cmpc__sc"></span>
+<div class="cmpc__b">
+<h3 class="cmpc__t">סאונד הילינג</h3>
+<p class="cmpc__p"><strong>מה זה:</strong><br/>חוויה פאסיבית, בדרך כלל חד פעמית, של הקשבה לצליל.<br/>המטרה היא הרפיה ואיזון באמצעות תדרים וכלי נגינה שונים.<br/>האפקט הוא מיידי וקצר מועד.<br/><br/><strong>למי זה מתאים:</strong><br/>למי שמחפש חוויה עמוקה ומיידית של הרפיה.<br/>למי שרוצה לעצור, לצאת לרגע מהשגרה, להתנתק מהעומס ולהתחבר פנימה.<br/>למי שלא מחפש תהליך מתמשך אלא חוויה חזקה ונקודתית.<br/>למי שרוצה לשמוע ולחוש בגוף את הדיג'רידו בשיא עוצמתו ובחלל מותאם אקוסטית.<br/>למי שמעוניין במפגש אישי ופרטי, ולא קבוצתי, עם מקסימום תשומת לב ומינימום הפרעות חיצוניות.</p>
+<a class="btn btn--gw" href="/sound-healing/">למידע נוסף על סאונד הילינג</a>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-6"><b>G-6</b> היום · T-15 «איך מתחילים» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="start" id="start">
 <div aria-hidden="true" class="start__bg">
 <img alt="" class="r r--fade" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg"/>
 </div>
 <span aria-hidden="true" class="start__sc"></span>
-<div class="start__in center">
+<div class="start__in center" style="position:relative">
 <h2 class="h2 start__h r">איך מתחילים</h2>
 <ul class="steps3 r">
 <li class="st3">
@@ -472,8 +743,34 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </li>
 </ul>
 <div class="center" style="margin-top:48px"><a class="btn btn--terra r" href="/contact/">לתיאום שיחת היכרות</a></div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-6.1"><b>G-6.1</b> הצעה · 3 בשורה ברוחב התוכן; כותרת גדולה יותר · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="start cm-g6" id="start">
+<div aria-hidden="true" class="start__bg">
+<img alt="" class="r r--fade" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg"/>
 </div>
-</section></div><div class="av-ex sv-g" id="G-7"><b>G-7</b> T-24 «כרטיסי ספרים ומוצרים» · 3 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt" id="books">
+<span aria-hidden="true" class="start__sc"></span>
+<div class="start__in center" style="position:relative">
+<h2 class="h2 start__h r">איך מתחילים</h2>
+<ul class="steps3 r">
+<li class="st3">
+<span aria-hidden="true" class="st3__ic"><svg viewbox="0 0 24 24"><path d="M5 4 h3 l1.5 4 -2 1.5 a11 11 0 0 0 5 5 l1.5-2 4 1.5 v3 a2 2 0 0 1-2 2 A16 16 0 0 1 3 6 a2 2 0 0 1 2-2 z"></path></svg></span>
+<div class="st3__t">שיחת היכרות</div>
+<p class="st3__p">אפשר להתחיל בשיחת היכרות קצרה, להבין את הצורך ולבדוק התאמה.</p>
+</li>
+<li class="st3">
+<span aria-hidden="true" class="st3__ic"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15 9 l-2 5 -4 1 2-5 z"></path></svg></span>
+<div class="st3__t">שאלות וכיוון</div>
+<p class="st3__p">השיחה מאפשרת לשאול שאלות ולקבל כיוון ראשוני.</p>
+</li>
+<li class="st3">
+<span aria-hidden="true" class="st3__ic"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="16" x="4" y="5"></rect><path d="M4 9 h16 M9 3 v4 M15 3 v4"></path></svg></span>
+<div class="st3__t">ללא התחייבות</div>
+<p class="st3__p">אין צורך להתחייב מראש לתהליך.</p>
+</li>
+</ul>
+<div class="center" style="margin-top:48px"><a class="btn btn--terra r" href="/contact/">לתיאום שיחת היכרות</a></div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-7"><b>G-7</b> היום · T-24 «כרטיסי ספרים ומוצרים» · 3 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt" id="books">
 <div class="wrap center" style="position:relative">
 <div class="bookcards r">
 <a class="bookcard" href="/books/tsva-bekahol/">
@@ -502,7 +799,36 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </a>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-8"><b>G-8</b> T-25 «שורת זרקור» · 2 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec" id="ea-now">
+</section></div><div class="av-ex sv-g" id="G-7.1"><b>G-7.1</b> הצעה · 3 בשורה, כרטיס במסגרת דקה · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame" id="books">
+<div class="wrap center" style="position:relative">
+<div class="bookcards r">
+<a class="bookcard" href="/books/tsva-bekahol/">
+<span class="bookcard__cover">
+<img alt="צבע בכחול וזרוק לים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/tsva-bechol-cover.jpg"/>
+</span>
+<div class="bookcard__b">
+<h2 class="bookcard__t">צבע בכחול וזרוק לים</h2> <span class="bookcard__blurb">38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.</span> <span aria-hidden="true" class="bookcard__cta">לעמוד הספר צבע בכחול וזרוק לים</span>
+</div>
+</a>
+<a class="bookcard" href="/books/kushi-blantis/">
+<span class="bookcard__cover">
+<img alt="כושי בלאנטיס" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/kushi-blantis-cover.jpg"/>
+</span>
+<div class="bookcard__b">
+<h2 class="bookcard__t">כושי בלאנטיס</h2> <span class="bookcard__blurb">רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.</span> <span aria-hidden="true" class="bookcard__cta">לעמוד הספר כושי בלאנטיס</span>
+</div>
+</a>
+<a class="bookcard" href="/books/vekatavta/">
+<span class="bookcard__cover">
+<img alt="וכתבת" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/vekatavt-cover.jpg"/>
+</span>
+<div class="bookcard__b">
+<h2 class="bookcard__t">וכתבת</h2> <span class="bookcard__blurb">46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים. הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.</span> <span aria-hidden="true" class="bookcard__cta">לעמוד הספר וכתבת</span>
+</div>
+</a>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-8"><b>G-8</b> היום · T-25 «שורת זרקור» · 2 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec" id="ea-now">
 <div class="wrap" style="position:relative">
 <div class="ea-now">
 <a class="ea-now__card" href="/treatment/">
@@ -535,7 +861,73 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </a>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-9"><b>G-9</b> T-35 «כרטיס בלוג» · 53 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec">
+</section></div><div class="av-ex sv-g" id="G-8.1"><b>G-8.1</b> הצעה · ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), ברוחב התוכן, במסגרת דקה · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6 cm-g4-3111 cm-frame" id="ea-now">
+<div class="wrap" style="position:relative">
+<div class="ea-now">
+<a class="ea-now__card" href="/treatment/">
+<div class="ea-now__ph">
+<img alt="טיפול בנשימה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">טיפול בנשימה</h3> <p class="ea-now__run">תהליך אישי לחיזוק מערכת הנשימה.</p> <p class="ea-now__run">למדו להחזיר שליטה וויסות למערכת הנשימה דרך הדיג'רידו.</p> </div>
+</a>
+<a class="ea-now__card" href="/snoring-sleep-apnea/">
+<div class="ea-now__ph">
+<img alt="דום נשימה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/snoring/maccabi.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">דום נשימה</h3> <p class="ea-now__run">האם דיג'רידו עוזר לנחירות ולדום נשימה בשינה?</p> <p class="ea-now__run">מה מצא מחקר ה-BMJ (Puhan 2006), איך זה עובד ולמי זה מתאים</p> </div>
+</a>
+<a class="ea-now__card" href="/lessons/">
+<div class="ea-now__ph">
+<img alt="שיעורים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">שיעורים</h3> <p class="ea-now__run">למדו לנגן בדיג'רידו אחד על אחד בפרדס חנה.</p> <p class="ea-now__run">שליטה בנשימה מעגלית, מקצבים ואפקטים.</p> </div>
+</a>
+<a class="ea-now__card" href="/repair/">
+<div class="ea-now__ph">
+<img alt="תיקון כלים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">תיקון כלים</h3> <p class="ea-now__run">שירות תיקון דיג'רידו מקצועי: טיפול בסדקים, שברים ושדרוג פיות עץ.</p> <p class="ea-now__run">עבודה מבוססת הבנה גיאומטרית-פיזיקלית של מבנה הכלי והסאונד.</p> </div>
+</a>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-8.2"><b>G-8.2</b> הצעה · ארבעה כרטיסים: שתי שורות של 2 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6 cm-g4-22 cm-frame" id="ea-now">
+<div class="wrap" style="position:relative">
+<div class="ea-now">
+<a class="ea-now__card" href="/treatment/">
+<div class="ea-now__ph">
+<img alt="טיפול בנשימה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">טיפול בנשימה</h3> <p class="ea-now__run">תהליך אישי לחיזוק מערכת הנשימה.</p> <p class="ea-now__run">למדו להחזיר שליטה וויסות למערכת הנשימה דרך הדיג'רידו.</p> </div>
+</a>
+<a class="ea-now__card" href="/snoring-sleep-apnea/">
+<div class="ea-now__ph">
+<img alt="דום נשימה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/snoring/maccabi.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">דום נשימה</h3> <p class="ea-now__run">האם דיג'רידו עוזר לנחירות ולדום נשימה בשינה?</p> <p class="ea-now__run">מה מצא מחקר ה-BMJ (Puhan 2006), איך זה עובד ולמי זה מתאים</p> </div>
+</a>
+<a class="ea-now__card" href="/lessons/">
+<div class="ea-now__ph">
+<img alt="שיעורים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">שיעורים</h3> <p class="ea-now__run">למדו לנגן בדיג'רידו אחד על אחד בפרדס חנה.</p> <p class="ea-now__run">שליטה בנשימה מעגלית, מקצבים ואפקטים.</p> </div>
+</a>
+<a class="ea-now__card" href="/repair/">
+<div class="ea-now__ph">
+<img alt="תיקון כלים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg"/>
+</div>
+<div class="ea-now__tx">
+<h3 class="ea-now__t">תיקון כלים</h3> <p class="ea-now__run">שירות תיקון דיג'רידו מקצועי: טיפול בסדקים, שברים ושדרוג פיות עץ.</p> <p class="ea-now__run">עבודה מבוססת הבנה גיאומטרית-פיזיקלית של מבנה הכלי והסאונד.</p> </div>
+</a>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-9"><b>G-9</b> היום · T-35 «כרטיס בלוג» · 53 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec">
 <div class="wrap" style="position:relative">
 <nav aria-label="סינון לפי קטגוריה" class="ea-blog-filter">
 <a class="ea-blog-filter__item ea-blog-filter__item--active" href="/blog/">הכל</a>
@@ -609,7 +1001,234 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <a class="page-numbers" href="/blog/page/5/">5</a>
 <a class="next page-numbers" href="/blog/page/2/">←</a> </nav>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-10"><b>G-10</b> T-18 «המלצות בגלילה» · 5 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
+</section></div><div class="av-ex sv-g" id="G-9.1"><b>G-9.1</b> הצעה · 3 בשורה על הרשת, כרטיס במסגרת דקה · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6 cm-frame">
+<div class="wrap" style="position:relative">
+<nav aria-label="סינון לפי קטגוריה" class="ea-blog-filter">
+<a class="ea-blog-filter__item ea-blog-filter__item--active" href="/blog/">הכל</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=78">דיג'רידו</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=9">הוצאה לאור - ספרים</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=10">כללי</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=11">כתבה על תופעת יחיד מופע הסיפורים</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=79">נשימה</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=13">סיפורים מהספר 'וכתבת'</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=14">ספרים בהוצאת מוזה</a>
+<a class="ea-blog-filter__item" href="/blog/?cat=12">תופעת יחיד - מופע הסיפורים של אייל עמית</a>
+</nav>
+<div class="ea-blog-grid">
+<article class="ea-blog-card post-239 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10" id="post-239">
+<a aria-label="צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג'רידו – אייל עמית" class="ea-blog-card__link" href="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג'רידו – אייל עמית" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="600" loading="lazy" sizes="auto, (max-width: 448px) 100vw, 448px" src="/wp-content/uploads/2026/09/legacy-post-239.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-239.jpg 448w, /wp-content/uploads/2026/09/legacy-post-239-224x300.jpg 224w" width="448"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/">צלילים מרפאים, תדרים מרפאים, סאונד הילינג דיג'רידו – אייל עמית</a>
+</h2>
+<p class="ea-blog-card__excerpt">יש דברים שעובדים הרבה לפני שאנחנו מבינים אותם. קול הוא אחד מהם. תדר הוא לא רק רעיון רוחני, אלא כוח…</p>
+<time class="ea-blog-card__date" datetime="2026-01-12T15:36:31+00:00">
+			12.01.2026		</time>
+</div>
+</article>
+<article class="ea-blog-card post-238 post type-post status-publish format-standard has-post-thumbnail hentry category-10" id="post-238">
+<a aria-label="פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה" class="ea-blog-card__link" href="/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="1243" loading="lazy" sizes="auto, (max-width: 700px) 100vw, 700px" src="/wp-content/uploads/2025/08/449633618_10171106140875206_1091675749536197018_n-700x1243-1.jpg" srcset="/wp-content/uploads/2025/08/449633618_10171106140875206_1091675749536197018_n-700x1243-1.jpg 700w, /wp-content/uploads/2025/08/449633618_10171106140875206_1091675749536197018_n-700x1243-1-169x300.jpg 169w, /wp-content/uploads/2025/08/449633618_10171106140875206_1091675749536197018_n-700x1243-1-577x1024.jpg 577w" width="700"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%9b%d7%9c%d7%9c%d7%99/">כללי</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9e%d7%95%d7%93%d7%94-%d7%9c%d7%9e%d7%95%d7%a8%d7%99%d7%95-%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%95-%d7%95%d7%9e%d7%98/">פוסט תודה למורי, לתלמידי, למטופלי, ויותר מכל לתסריטאי המופרע שיושב לו שם למעלה</a>
+</h2>
+<p class="ea-blog-card__excerpt">לא יעזור כלום, אנחנו יכולים לשווק את עצמנו בפוסטים שנונים, בסרטוני וידאו יפייפיים ובעוד אלף ואחת דרכים, אבל השיווק הכי…</p>
+<time class="ea-blog-card__date" datetime="2025-08-12T23:27:13+00:00">
+			12.08.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-237 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-237">
+<a aria-label="ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג'רידו והעשייה הייחודית שלי במרכז לטיפול בנשימה באמצעות דיג'רידו" class="ea-blog-card__link" href="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג'רידו והעשייה הייחודית שלי במרכז לטיפול בנשימה באמצעות דיג'רידו" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="838" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-237-768x838.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-237-768x838.jpg 768w, /wp-content/uploads/2026/09/legacy-post-237-275x300.jpg 275w, /wp-content/uploads/2026/09/legacy-post-237-939x1024.jpg 939w, /wp-content/uploads/2026/09/legacy-post-237-1408x1536.jpg 1408w, /wp-content/uploads/2026/09/legacy-post-237.jpg 1440w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/">ראיון מלא (90 דקות) בפודקאסט של נווית צוף שטראוס בנושא הנשימה, דיג'רידו והעשייה הייחודית שלי במרכז לטיפול בנשימה באמצעות דיג'רידו</a>
+</h2>
+<p class="ea-blog-card__excerpt">עכשיו, יותר מאי פעם, זמן ממש טוב להפנות את תשומת הלב שלנו להזנה הגדולה והחשובה ביותר לגוף שלנו - הנשימה!…</p>
+<time class="ea-blog-card__date" datetime="2025-08-04T14:54:53+00:00">
+			04.08.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-236 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-236">
+<a aria-label="עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג'רידו" class="ea-blog-card__link" href="/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג'רידו" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="480" loading="lazy" sizes="auto, (max-width: 640px) 100vw, 640px" src="/wp-content/uploads/2026/09/legacy-post-236.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-236.jpg 640w, /wp-content/uploads/2026/09/legacy-post-236-300x225.jpg 300w" width="640"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9e%d7%97%d7%99%d7%99%d7%95-%d7%a9%d7%9c-%d7%9e%d7%95%d7%a8%d7%94-%d7%9c%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">עוד רגע מחייו של מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות דיג'רידו</a>
+</h2>
+<p class="ea-blog-card__excerpt">"תקשיב!!" עוצרת אותי הבוקר מישהי שאני לא מכיר באמצע הסופר. הקול שלה עבה וצרוד ובריח הניקוטין הבוקע מגופה אפשר כמעט…</p>
+<time class="ea-blog-card__date" datetime="2025-07-31T00:48:17+00:00">
+			31.07.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-235 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-235">
+<a aria-label="טיפול בנשימה באמצעות דיג'רידו – ללמוד לנשום נכון ביומיום וגם בלילה" class="ea-blog-card__link" href="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="טיפול בנשימה באמצעות דיג'רידו – ללמוד לנשום נכון ביומיום וגם בלילה" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="1315" loading="lazy" sizes="auto, (max-width: 640px) 100vw, 640px" src="/wp-content/uploads/2026/09/legacy-post-235.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-235.jpg 640w, /wp-content/uploads/2026/09/legacy-post-235-146x300.jpg 146w, /wp-content/uploads/2026/09/legacy-post-235-498x1024.jpg 498w" width="640"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/">טיפול בנשימה באמצעות דיג'רידו – ללמוד לנשום נכון ביומיום וגם בלילה</a>
+</h2>
+<p class="ea-blog-card__excerpt">להפחית חרדות, לשחרר את הסטרס הכרוני, להעצים את תחושת הנינוחות והשלווה, לשלוט בווליום המחשבות, להגביר את החוסן והביטחון העצמי. נשמע…</p>
+<time class="ea-blog-card__date" datetime="2025-05-05T16:43:03+00:00">
+			05.05.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-234 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-234">
+<a aria-label="הכל אודות ריברסינג, נשימה מעגלית ו- דיג'רידו. האם נשימה מעגלית בדיג'רידו היא אותה נשימה מעגלית משיטת הטיפול ריברסינג? התשובה היא לא. הנה ההסבר המלא:" class="ea-blog-card__link" href="/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="הכל אודות ריברסינג, נשימה מעגלית ו- דיג'רידו. האם נשימה מעגלית בדיג'רידו היא אותה נשימה מעגלית משיטת הטיפול ריברסינג? התשובה היא לא. הנה ההסבר המלא:" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="873" loading="lazy" sizes="auto, (max-width: 576px) 100vw, 576px" src="/wp-content/uploads/2025/04/E2808FE2808FD79CD79BD792D792D799D793D794.jpg" srcset="/wp-content/uploads/2025/04/E2808FE2808FD79CD79BD792D792D799D793D794.jpg 576w, /wp-content/uploads/2025/04/E2808FE2808FD79CD79BD792D792D799D793D794-198x300.jpg 198w" width="576"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a8%d7%99%d7%91%d7%a8%d7%a1%d7%99%d7%a0%d7%92-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">הכל אודות ריברסינג, נשימה מעגלית ו- דיג'רידו. האם נשימה מעגלית בדיג'רידו היא אותה נשימה מעגלית משיטת הטיפול ריברסינג? התשובה היא לא. הנה ההסבר המלא:</a>
+</h2>
+<p class="ea-blog-card__excerpt">גם בריברסינג וגם בדיג'רידו אנחנו עושים שימוש במערכת הנשימה שלנו, אך בניגוד למה שרבים חושבים ה"נשימה המעגלית" בדיג'רידו היא לא…</p>
+<time class="ea-blog-card__date" datetime="2025-04-14T12:39:26+00:00">
+			14.04.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-233 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-233">
+<a aria-label="נגינה ונשימה מעגלית בדיג'רידו – ריפוי הנשימה והנשמה" class="ea-blog-card__link" href="/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="נגינה ונשימה מעגלית בדיג'רידו – ריפוי הנשימה והנשמה" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="968" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-233-768x968.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-233-768x968.jpg 768w, /wp-content/uploads/2026/09/legacy-post-233-238x300.jpg 238w, /wp-content/uploads/2026/09/legacy-post-233-813x1024.jpg 813w, /wp-content/uploads/2026/09/legacy-post-233.jpg 1080w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%9e%d7%a2%d7%92%d7%9c%d7%99%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%a8%d7%99%d7%a4%d7%95%d7%99-%d7%a2%d7%a6/">נגינה ונשימה מעגלית בדיג'רידו – ריפוי הנשימה והנשמה</a>
+</h2>
+<p class="ea-blog-card__excerpt">הדיג'רידו עבורי הוא הרבה מעבר ל'כלי נגינה' קדום שמשמיע צלילים אקזוטיים. הדיג'רידו הוא כלי עוצמתי שמחבר אותנו חזרה למערכת הנשימה…</p>
+<time class="ea-blog-card__date" datetime="2025-02-10T12:27:59+00:00">
+			10.02.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-232 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10" id="post-232">
+<a aria-label="האם לנשים מותר לנגן בדיג'רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות" class="ea-blog-card__link" href="/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="האם לנשים מותר לנגן בדיג'רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="1315" loading="lazy" sizes="auto, (max-width: 640px) 100vw, 640px" src="/wp-content/uploads/2025/02/275302194_10168178567520206_2098729360236844113_n.jpg" srcset="/wp-content/uploads/2025/02/275302194_10168178567520206_2098729360236844113_n.jpg 640w, /wp-content/uploads/2025/02/275302194_10168178567520206_2098729360236844113_n-146x300.jpg 146w, /wp-content/uploads/2025/02/275302194_10168178567520206_2098729360236844113_n-498x1024.jpg 498w" width="640"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a0%d7%a9%d7%99%d7%9d-%d7%9e%d7%a0%d7%92%d7%a0%d7%95%d7%aa-%d7%91%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%90%d7%99%d7%a9%d7%94-%d7%9e%d7%a0%d7%92%d7%a0%d7%aa-%d7%91%d7%93%d7%99%d7%92/">האם לנשים מותר לנגן בדיג'רידו? פוסט מיוחד לסילוק דעות קדומות והחשש מעקרות</a>
+</h2>
+<p class="ea-blog-card__excerpt">לפגוש היום אישה שמנגנת בדיג'רידו זה בהחלט מראה נורמלי ושכיח, אבל האם ידעתן.ם שבעבר, בתרבות האבוריג'ינית, על הנשים נאסרה הנגינה…</p>
+<time class="ea-blog-card__date" datetime="2025-02-09T14:33:49+00:00">
+			09.02.2025		</time>
+</div>
+</article>
+<article class="ea-blog-card post-231 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-231">
+<a aria-label="סדנת דיג'רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג'רידו (רמת מתחילים)" class="ea-blog-card__link" href="/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="סדנת דיג'רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג'רידו (רמת מתחילים)" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="765" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-231-768x765.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-231-768x765.jpg 768w, /wp-content/uploads/2026/09/legacy-post-231-300x300.jpg 300w, /wp-content/uploads/2026/09/legacy-post-231-150x150.jpg 150w, /wp-content/uploads/2026/09/legacy-post-231.jpg 960w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%a1%d7%93%d7%a0%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a7%d7%91%d7%95%d7%a6%d7%aa%d7%99%d7%aa-%d7%9e%d7%a7%d7%99%d7%a4%d7%94-%d7%95%d7%99%d7%99%d7%97%d7%95%d7%93%d7%99%d7%aa-%d7%9c/">סדנת דיג'רידו קבוצתית מקיפה וייחודית לנשימה מעגלית בדיג'רידו (רמת מתחילים)</a>
+</h2>
+<p class="ea-blog-card__excerpt">מוזמנים ומוזמנות לסדנת דיג'רידו קבוצתית ייחודית באורך 3 שעות שתתקיים אצלי במרכז לטיפול בדיג'רידו בפרדס חנה. אם רציתם לפגוש את…</p>
+<time class="ea-blog-card__date" datetime="2024-09-11T07:52:28+00:00">
+			11.09.2024		</time>
+</div>
+</article>
+<article class="ea-blog-card post-230 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10" id="post-230">
+<a aria-label="תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג'רידו – אייל עמית" class="ea-blog-card__link" href="/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג'רידו – אייל עמית" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="960" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-230-768x960.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-230-768x960.jpg 768w, /wp-content/uploads/2026/09/legacy-post-230-240x300.jpg 240w, /wp-content/uploads/2026/09/legacy-post-230-819x1024.jpg 819w, /wp-content/uploads/2026/09/legacy-post-230-1229x1536.jpg 1229w, /wp-content/uploads/2026/09/legacy-post-230.jpg 1440w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%aa%d7%9c%d7%9e%d7%99%d7%93%d7%99%d7%9d-%d7%95%d7%9e%d7%98%d7%95%d7%a4%d7%9c%d7%99%d7%9d-%d7%9e%d7%9e%d7%9c%d7%99%d7%a6%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%9e%d7%a8%d7%9b%d7%96-%d7%9c%d7%98%d7%99/">תלמידים ומטופלים ממליצים על המרכז לטיפול בדיג'רידו – אייל עמית</a>
+</h2>
+<p class="ea-blog-card__excerpt">אלון גרזון רז: חשבתי שדידג' יכול להיות עוד כלי נגינה מגניב שאני יכול לנגן בו. וגיליתי עולם שלם של שקט…</p>
+<time class="ea-blog-card__date" datetime="2024-08-05T20:09:17+00:00">
+			05.08.2024		</time>
+</div>
+</article>
+<article class="ea-blog-card post-229 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10 category-79" id="post-229">
+<a aria-label="טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג'רידו – המרכז לטיפול בדיג'רידו / אייל עמית" class="ea-blog-card__link" href="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג'רידו – המרכז לטיפול בדיג'רידו / אייל עמית" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="1366" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-229-768x1366.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-229-768x1366.jpg 768w, /wp-content/uploads/2026/09/legacy-post-229-169x300.jpg 169w, /wp-content/uploads/2026/09/legacy-post-229-576x1024.jpg 576w, /wp-content/uploads/2026/09/legacy-post-229-864x1536.jpg 864w, /wp-content/uploads/2026/09/legacy-post-229.jpg 1077w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a4%d7%95%d7%a1%d7%98-%d7%98%d7%a8%d7%90%d7%95%d7%9e%d7%94-%d7%9c%d7%97%d7%99%d7%99%d7%9c-%d7%9e%d7%a9%d7%95%d7%97%d7%a8%d7%a8-%d7%9e%d7%92%d7%95%d7%9c%d7%a0/">טיפול בפוסט טראומה לחייל משוחרר מגולני באמצעות נשימה בדיג'רידו – המרכז לטיפול בדיג'רידו / אייל עמית</a>
+</h2>
+<p class="ea-blog-card__excerpt">  "הי אייל, קוראים לי ד', הגעתי אליך דרך האתר שלך. אני בן 25, נשוי טרי, חייל משוחרר מגולני ומתמודד…</p>
+<time class="ea-blog-card__date" datetime="2024-08-05T19:44:01+00:00">
+			05.08.2024		</time>
+</div>
+</article>
+<article class="ea-blog-card post-228 post type-post status-publish format-standard has-post-thumbnail hentry category-78 category-10" id="post-228">
+<a aria-label="מוקש דהימן – מאסטר דיג'רידו – ציור מקורי חדש במרכז לטיפול בדיג'רידו (שמן על קנבס)" class="ea-blog-card__link" href="/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/" tabindex="-1">
+<div class="ea-blog-card__thumb">
+<img alt="מוקש דהימן – מאסטר דיג'רידו – ציור מקורי חדש במרכז לטיפול בדיג'רידו (שמן על קנבס)" class="attachment-medium_large size-medium_large wp-post-image" decoding="async" height="1364" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="/wp-content/uploads/2026/09/legacy-post-228-768x1364.jpg" srcset="/wp-content/uploads/2026/09/legacy-post-228-768x1364.jpg 768w, /wp-content/uploads/2026/09/legacy-post-228-169x300.jpg 169w, /wp-content/uploads/2026/09/legacy-post-228-577x1024.jpg 577w, /wp-content/uploads/2026/09/legacy-post-228-865x1536.jpg 865w, /wp-content/uploads/2026/09/legacy-post-228.jpg 1153w" width="768"/> </div>
+</a>
+<div class="ea-blog-card__body">
+<span class="ea-blog-card__cat">
+<a href="/category/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95/">דיג'רידו</a>
+</span>
+<h2 class="ea-blog-card__title">
+<a href="/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/">מוקש דהימן – מאסטר דיג'רידו – ציור מקורי חדש במרכז לטיפול בדיג'רידו (שמן על קנבס)</a>
+</h2>
+<p class="ea-blog-card__excerpt">שלושה שבועות ראשונים למלחמת חרבות ברזל. כולם בחרדה ובהיסטריה. תעוקה בכל הגוף. הכאב והעצב בלתי נתפסים. גם לי קשה לנשום.…</p>
+<time class="ea-blog-card__date" datetime="2024-08-05T18:59:33+00:00">
+			05.08.2024		</time>
+</div>
+</article>
+</div>
+<nav aria-label="ניווט עמודים" class="ea-blog-pagination">
+<span aria-current="page" class="page-numbers current">1</span>
+<a class="page-numbers" href="/blog/page/2/">2</a>
+<a class="page-numbers" href="/blog/page/3/">3</a>
+<span class="page-numbers dots">…</span>
+<a class="page-numbers" href="/blog/page/5/">5</a>
+<a class="next page-numbers" href="/blog/page/2/">←</a> </nav>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-10"><b>G-10</b> היום · T-18 «המלצות בגלילה» · 5 עמודים · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
 <div class="wrap center" style="position:relative">
 <h2 class="h2 r">עדויות והמלצות</h2> <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
 <div class="wrap">
@@ -628,20 +1247,52 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </button>
 </div>
 </div>
-</section></div><div class="av-ex sv-g" id="G-11"><b>G-11</b> T-19 «רשת המלצות» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
+</section></div><div class="av-ex sv-g" id="G-10.1"><b>G-10.1</b> הצעה · שלושה כרטיסים שלמים ברוחב התוכן (2 טורים לכרטיס), בלי חיתוך; בראש הכרטיס עיגול קטן, שם ותאריך · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame cm-tq">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">עדויות והמלצות</h2> <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+<div class="wrap">
+<div class="intro-body r" style="margin-bottom:22px"><p>תמיד מרגש לקרוא מה אנשים מספרים על התהליך וחווים ואורך הדרך. יש מי שמגיעים מתוך רצון ללמוד לנגן בדיג'רידו, ומגלים תוך כדי תנועה תהליך עמוק יותר של עבודה עם הנשימה.</p><p>יש מי שמגיעים עם קושי בריאותי-נפשי-רגשי מסוים, ומגלים שינוי רוחבי באיכות החיים שמתפשט מעבר למה שציפו לו.</p><p>לאורך הדרך, אנשים מתארים חיבור מחודש לנשימה, שקט פנימי, יציבות ותחושת שליטה שלא היו שם קודם.</p><p>החוויה אינה נשארת בתוך המפגש, אלא ממשיכה אל תוך החיים עצמם ולטווח הארוך.</p></div>
+</div>
+<div class="wrap">
+<div aria-label="עדויות והמלצות" class="testi-mq r" data-testi-mq="" role="region">
+<button aria-label="הזזה ימינה" class="testi-mq__btn testi-mq__btn--right" type="button">
+<span aria-hidden="true">›</span>
+</button>
+<div class="testi-mq__viewport">
+<div class="testi-mq__track"><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">כמו רבים אחרים גם אני חשבתי שאני באה 'ללמוד דיג'רידו'.. לא היה לי שמץ של מושג איזה מסע עוצמתי אני הולכת לעבור. מעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש העמוס, ליטוף וחיבוק של הלב.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1E7ndvYyrp/" rel="noopener noreferrer" target="_blank">שירי אלקבץ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הסיפור שלי עם הנשימה מאוד מורכב. מה שאני לומדת מאייל בשנה האחרונה בשילוב עם מסע הריפוי שלי זה לנשום מחדש... להיות בנוכחות בנשימה, זה להיות בנוכחות בחיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1AdaytsL6w/" rel="noopener noreferrer" target="_blank">נוית צוף שטראוס<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אחרי שהפסקתי לעשן הרגשתי שזה הזמן לעשות משהו עם הנשימה, והנשמה. הבן אדם פירק את אמנות הנשימה בדיג' לגורמים הכי קטנים וברורים שניתן... אני כמובן ממליצה בחום על החוויה, שהיא הרבה מעבר ללמידה של כלי נשימה.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1DzVcWpAJH/" rel="noopener noreferrer" target="_blank">ענת קרמנר ויינשטיין<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אייל עמית הציל אותנו ובזכותו חזרנו כולנו לנשום... הקשר המיוחד בינו לבין הילד שלי נוצר ממש מהר ורק העמיק מאז וכמובן שהנשימה השתפרה באופן משמעותי בזכות התרגולים השבועיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/18Ua5NoWv4/" rel="noopener noreferrer" target="_blank">חיה עזריה<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הלימוד אצלך אייל... פתח לי עוד רובד נשימתי פנימה וחיבר אותי עוד לרפואה הפנימית שיש בכולנו. שולחת מפה המלצה מכל הלב והריאות, להגיע אלייך לסטודיו זו מתנה אדירה שכל אחת חייבת לעצמה.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Ks7D2HQD/" rel="noopener noreferrer" target="_blank">קרין טננצאפ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">שנית למדתי שאני בכלל לא יודעת לנשום נכון... מסתבר שרובנו לא יודעים לנשום נכון. ושלישית אני לומדת לנגן על הכלי המטורף הזההה... אבל אני בדרך, בתוך התהליך, ואני נהנית.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1H6Z937hZ1/" rel="noopener noreferrer" target="_blank">גלית מילר<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">חשבתי שדידג' יכול להיות עוד כלי נגינה מגניב שאני יכול לנגן בו. וגיליתי עולם שלם של שקט. פעם ראשונה בחיים שלמדתי לנשום נכון... תרגול הנשימה בדידג' פשוט מרגיע אותי.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1Cky28MdtH/" rel="noopener noreferrer" target="_blank">אלון גרזון רז<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">זו לא רק למידת כלי נגינה. זוהי דרך עוצמתית לגלות את כוחה של הנשימה. הוא לא רק מלמד, הוא מנחה אותי למסע פנימי שבו אני לומדת איך לנשום דרך הגוף, אל תוך הצליל, ואל תוך הנוכחות המלאה.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Z6mqzCuj/" rel="noopener noreferrer" target="_blank">אלכס פלופ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure></div>
+</div>
+<button aria-label="הזזה שמאלה" class="testi-mq__btn testi-mq__btn--left" type="button">
+<span aria-hidden="true">‹</span>
+</button>
+</div>
+</div>
+</section></div><div class="av-ex sv-g sv-today" id="G-11"><b>G-11</b> היום · T-19 «רשת המלצות» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
 <div class="wrap center" style="position:relative">
 <h2 class="h2 r">טיפול בדיג'רידו</h2> <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
 <div class="wrap">
 <div class="testi-grid r"><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש העמוס, ליטוף וחיבוק של הלב.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1E7ndvYyrp/" rel="noopener noreferrer" target="_blank">שירי אלקבץ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מליון מילים ופוסטים לא יספיקו לתאר את האדם המדהים הזה אייל עמית שהוא המורה שלי לנשימה מעגלית, בין היתר זה גם אומר שאני לומדת לנגן על דיג'רידו.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1AdaytsL6w/" rel="noopener noreferrer" target="_blank">נוית צוף שטראוס<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מעט מאד מסביבי יודעים שבחודשים האחרונים אני לומדת אצל אייל עמית, המורה, המאסטר, ההו כה משובח דיג' תמיד ריתק אותי, וכשקראתי בפוסטים של אייל על הקשר בין הנגינה בו לבין הנשימה הבנת…</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/19m2waNvQe/" rel="noopener noreferrer" target="_blank">רותי שליט<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">היא לא מושלמת בכלל עדיין, והצליל נקטע פה ושם, אבל - אתמול, אחרי שנה של אימונים, היא הגיעה: הנשימה המעגלית! איך אומר אייל?</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1E63Lr7iyJ/" rel="noopener noreferrer" target="_blank">רותי שליט<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">כבר 5 שבועות שאני מתייצבת בימי שני בבוקר אצל Eyal Amit האהוב בסטודיו. זו כנראה המתנה הכי טובה שנתתי לעצמי בחיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1DzVcWpAJH/" rel="noopener noreferrer" target="_blank">ענת קרמנר ויינשטיין<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הפוסט הזה הוא פוסט שיתוף ופרגון מכל ליבי ל- אייל עמית הפוסט שהלוואי ואני הייתי רואה כשהייתי צריכה.....</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/18Ua5NoWv4/" rel="noopener noreferrer" target="_blank">חיה עזריה<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">דמיינו עצמכם שוכבים על רצפת עץ נעימה וחמימה כרית רכה לראשכם, ריח קטורת מעורר זכרונות עתיקים עולה באפכם ומתוך האדמה עולה רטט עמוק, וויברציה מתנגנת וחודרת לגופכם כמו גבעול שצומח מ…</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1TNJeTs7Mo/" rel="noopener noreferrer" target="_blank">קרין טננצאפ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מניסיון …..</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Ks7D2HQD/" rel="noopener noreferrer" target="_blank">קרין טננצאפ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">יום אחד ראיתי פוסט של אייל עמית איש שאיני מכירה אך הפוסטים שלו תפסו אותי בעבר ועקבתי אחריו... בפוסט הוא דיבר על נשימה מעגלית דרך דיג'רידו...</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1H6Z937hZ1/" rel="noopener noreferrer" target="_blank">גלית מילר<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הנשימה, שקורית מעצמה ולרוב נלקחת כמובנת מאליה, משפיעה וקובעת את איכות חיינו.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1PDkhtFZ4t/" rel="noopener noreferrer" target="_blank">אלכס פסטרנק<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">חשבתי שדידג' יכול להיות עוד כלי נגינה מגניב שאני יכול לנגן בו. וגיליתי עולם שלם של שקט בנכנס לי לחיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1Cky28MdtH/" rel="noopener noreferrer" target="_blank">אלון גרזון רז<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">11 באוקטובר 2020, לפני שנה בדיוק, היה היום הראשון שלי ללא עישון.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1FosYpULUC/" rel="noopener noreferrer" target="_blank">ירון סאנצ'ו גושן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">ונשמת חוויה מעגלית נשימתית חייתית. כל מילה שנכתבה אמת סלה, לא אוסיף, חוצמזה שאני ממליצה בחום להתחבר לכלי ולאדם שהוא הכלי. זכיתי ללמוד ממנו לנשום.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1CYN2aJvR7/" rel="noopener noreferrer" target="_blank">אסתי קרמנר<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">משתף אתכם בכתבה על המורה הנפלא שלי לנשימה מעגלית אייל עמית שממלא אותי בהשראה עמוקה ומלמד אותי להתחבר ולהפיק את צלילי הבריאה המרפאים מתוכי. תודה רבה</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1DKp5Coss8/" rel="noopener noreferrer" target="_blank">דן ארליכמן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אייל עמית אנחנו רק בתחילתה של דרך מופלאה, דרך של מוסיקה ונשימה, דרך של קבלה והבנה שהחיים פשוטים יותר אם רק ננשום נכון מודה על ההכירות והלמידה ממך</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1FK5zMUyXC/" rel="noopener noreferrer" target="_blank">מירל רובין בהן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אני מאמינה בכל ליבי בכוחה של תקשורת חיובית ונוכחות מלאה, וזהו הבסיס לעבודה המרגשת שלי בטיפול בעזרת סוסים בחווה.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Z6mqzCuj/" rel="noopener noreferrer" target="_blank">אלכס פלופ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">איזה כייף זה לנשום!!!! אני באורות ✨️ ​אחרי שבועיים שלמים שבהם הרגשתי שאני ממש לא מצליחה לקחת אוויר – מלחץ, אלרגיה, עומס ועוד מיליון דברים 😩.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/r/15i2jRzwLVM/" rel="noopener noreferrer" target="_blank">אלכס פלופ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure></div>
 </div>
-</section></div><div class="av-ex sv-g" id="G-12"><b>G-12</b> T-20 «כרטיסי ציטוט» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec ea-testi-cards sec--alt">
+</section></div><div class="av-ex sv-g" id="G-11.1"><b>G-11.1</b> הצעה · 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame cm-tq">
+<div class="wrap center" style="position:relative">
+<h2 class="h2 r">טיפול בדיג'רידו</h2> <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+<div class="wrap">
+<div class="testi-grid r"><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מעבר לסידור הנשימה שמסדר את הנשמה, קיבלתי גם השקטה של הראש העמוס, ליטוף וחיבוק של הלב.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1E7ndvYyrp/" rel="noopener noreferrer" target="_blank">שירי אלקבץ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מליון מילים ופוסטים לא יספיקו לתאר את האדם המדהים הזה אייל עמית שהוא המורה שלי לנשימה מעגלית, בין היתר זה גם אומר שאני לומדת לנגן על דיג'רידו.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1AdaytsL6w/" rel="noopener noreferrer" target="_blank">נוית צוף שטראוס<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מעט מאד מסביבי יודעים שבחודשים האחרונים אני לומדת אצל אייל עמית, המורה, המאסטר, ההו כה משובח דיג' תמיד ריתק אותי, וכשקראתי בפוסטים של אייל על הקשר בין הנגינה בו לבין הנשימה הבנת…</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/19m2waNvQe/" rel="noopener noreferrer" target="_blank">רותי שליט<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">היא לא מושלמת בכלל עדיין, והצליל נקטע פה ושם, אבל - אתמול, אחרי שנה של אימונים, היא הגיעה: הנשימה המעגלית! איך אומר אייל?</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1E63Lr7iyJ/" rel="noopener noreferrer" target="_blank">רותי שליט<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">כבר 5 שבועות שאני מתייצבת בימי שני בבוקר אצל Eyal Amit האהוב בסטודיו. זו כנראה המתנה הכי טובה שנתתי לעצמי בחיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1DzVcWpAJH/" rel="noopener noreferrer" target="_blank">ענת קרמנר ויינשטיין<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הפוסט הזה הוא פוסט שיתוף ופרגון מכל ליבי ל- אייל עמית הפוסט שהלוואי ואני הייתי רואה כשהייתי צריכה.....</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/18Ua5NoWv4/" rel="noopener noreferrer" target="_blank">חיה עזריה<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">דמיינו עצמכם שוכבים על רצפת עץ נעימה וחמימה כרית רכה לראשכם, ריח קטורת מעורר זכרונות עתיקים עולה באפכם ומתוך האדמה עולה רטט עמוק, וויברציה מתנגנת וחודרת לגופכם כמו גבעול שצומח מ…</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1TNJeTs7Mo/" rel="noopener noreferrer" target="_blank">קרין טננצאפ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">מניסיון …..</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Ks7D2HQD/" rel="noopener noreferrer" target="_blank">קרין טננצאפ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">יום אחד ראיתי פוסט של אייל עמית איש שאיני מכירה אך הפוסטים שלו תפסו אותי בעבר ועקבתי אחריו... בפוסט הוא דיבר על נשימה מעגלית דרך דיג'רידו...</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1H6Z937hZ1/" rel="noopener noreferrer" target="_blank">גלית מילר<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">הנשימה, שקורית מעצמה ולרוב נלקחת כמובנת מאליה, משפיעה וקובעת את איכות חיינו.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1PDkhtFZ4t/" rel="noopener noreferrer" target="_blank">אלכס פסטרנק<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">חשבתי שדידג' יכול להיות עוד כלי נגינה מגניב שאני יכול לנגן בו. וגיליתי עולם שלם של שקט בנכנס לי לחיים.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1Cky28MdtH/" rel="noopener noreferrer" target="_blank">אלון גרזון רז<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">11 באוקטובר 2020, לפני שנה בדיוק, היה היום הראשון שלי ללא עישון.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/v/1FosYpULUC/" rel="noopener noreferrer" target="_blank">ירון סאנצ'ו גושן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">ונשמת חוויה מעגלית נשימתית חייתית. כל מילה שנכתבה אמת סלה, לא אוסיף, חוצמזה שאני ממליצה בחום להתחבר לכלי ולאדם שהוא הכלי. זכיתי ללמוד ממנו לנשום.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1CYN2aJvR7/" rel="noopener noreferrer" target="_blank">אסתי קרמנר<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">משתף אתכם בכתבה על המורה הנפלא שלי לנשימה מעגלית אייל עמית שממלא אותי בהשראה עמוקה ומלמד אותי להתחבר ולהפיק את צלילי הבריאה המרפאים מתוכי. תודה רבה</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1DKp5Coss8/" rel="noopener noreferrer" target="_blank">דן ארליכמן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אייל עמית אנחנו רק בתחילתה של דרך מופלאה, דרך של מוסיקה ונשימה, דרך של קבלה והבנה שהחיים פשוטים יותר אם רק ננשום נכון מודה על ההכירות והלמידה ממך</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/1FK5zMUyXC/" rel="noopener noreferrer" target="_blank">מירל רובין בהן<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">אני מאמינה בכל ליבי בכוחה של תקשורת חיובית ונוכחות מלאה, וזהו הבסיס לעבודה המרגשת שלי בטיפול בעזרת סוסים בחווה.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/p/18Z6mqzCuj/" rel="noopener noreferrer" target="_blank">אלכס פלופ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure><figure class="tmq tmq--full"><span aria-hidden="true" class="tmq__avatar"><svg fill="none" height="22" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 19.2c1.4-3.4 4-5.2 7.5-5.2s6.1 1.8 7.5 5.2"></path></svg></span><blockquote class="tmq__q">איזה כייף זה לנשום!!!! אני באורות ✨️ ​אחרי שבועיים שלמים שבהם הרגשתי שאני ממש לא מצליחה לקחת אוויר – מלחץ, אלרגיה, עומס ועוד מיליון דברים 😩.</blockquote><figcaption class="tmq__n"><a class="tmq__nl" href="https://www.facebook.com/share/r/15i2jRzwLVM/" rel="noopener noreferrer" target="_blank">אלכס פלופ<svg aria-hidden="true" class="tmq__link-ic" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></figcaption></figure></div>
+</div>
+</section></div><div class="av-ex sv-g sv-today" id="G-12"><b>G-12</b> היום · T-20 «כרטיסי ציטוט» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec ea-testi-cards sec--alt">
 <div class="wrap" style="position:relative">
 <div class="ea-testi-cards__list">
 <blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
 <blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-13"><b>G-13</b> T-28 «הטמעות פייסבוק» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
+</section></div><div class="av-ex sv-g" id="G-12.1"><b>G-12.1</b> הצעה · 2 בשורה על הרשת, במסגרת דקה · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec ea-testi-cards sec--alt cm-g6 cm-frame">
+<div class="wrap" style="position:relative">
+<div class="ea-testi-cards__list">
+<blockquote class="ea-testi-cards__card"><strong>"בדיקת השינה לא הדגימה תסמונת הפסקות נשימה בשינה."</strong></blockquote>
+<blockquote class="ea-testi-cards__card"><strong>"ב-2014 היו לי 250 הפסקות נשימה בלילה."</strong></blockquote>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g sv-today" id="G-13"><b>G-13</b> היום · T-28 «הטמעות פייסבוק» · עמוד אחד · <span class="sv-m">…</span></div><div class="cm-spec"><section class="sec sec--alt">
 <div class="wrap center" style="position:relative">
 <span class="chap chap--c r">מהקהילה</span> <h2 class="h2 r">מתוך הפייסבוק</h2> <div class="fbgrid r">
 <div class="fbgrid__item">
@@ -655,6 +1306,45 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 <div class="fbgrid__item">
 <iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgemma.calaf%2Fposts%2Fpfbid0gsUdiLtCCghgQp9RuyPncdb4NRojZ3k5LdxMqfeNPinvQd9x6Y7j6Jrp9VUThqiEl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="av-ex sv-g" id="G-13.1"><b>G-13.1</b> הצעה · 2 בשורה על הרשת · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6">
+<div class="wrap center" style="position:relative">
+<span class="chap chap--c r">מהקהילה</span> <h2 class="h2 r">מתוך הפייסבוק</h2> <div class="fbgrid r">
+<div class="fbgrid__item">
+<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraelDidgCenter%2Fposts%2Fpfbid02G6viGTqgqTHFv36najD6n9T6yskVpC5UfWx1RzrbNTqNMfTYRKrJkzkqHH2taffXl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
+</div>
+<div class="fbgrid__item">
+<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid033bDz4Wj8Pc6K3nF58VuXBUHkfoNKPZa4wTsxhPSUVHANHwZT3rAqj1oUAGXzwTm6l&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
+</div>
+<div class="fbgrid__item">
+<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feyal.amit.muzza%2Fposts%2Fpfbid0zekNyNV6dztxGnwQKaLg9GhSAwSsjMWR2jaqQtAkZMLAHWNhKem12AknNrsCAJZRl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
+</div>
+<div class="fbgrid__item">
+<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="true" class="fbgrid__frame" frameborder="0" height="640" loading="lazy" scrolling="no" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgemma.calaf%2Fposts%2Fpfbid0gsUdiLtCCghgQp9RuyPncdb4NRojZ3k5LdxMqfeNPinvQd9x6Y7j6Jrp9VUThqiEl&amp;show_text=true&amp;width=500&amp;locale=he_IL" style="border:none;overflow:hidden" title="פוסט פייסבוק" width="500"></iframe>
+</div>
+</div>
+<div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+</section></div><div class="cm-group" id="V"><span>וידאו</span><h2>בלוק וידאו — הטקסט כמו בכל פסקה</h2></div><div class="av-ex" id="V-1"><b>V-1</b> היום · T-27</div><div class="cm-spec"><section class="sec sec--alt" id="lessons-look">
+<div class="wrap">
+<div style="max-width:760px">
+<h2 class="h2 r" style="margin-bottom:18px">איך נראים השיעורים בפועל</h2> <div class="intro-body r r2"><p>השיעורים מתקיימים במפגשים אישיים אחד על אחד, בסטודיו של אייל עמית בפרדס חנה, בקצב שמותאם לכל תלמיד.</p><p>כל מפגש משלב בין תרגול מעשי, הכוונה מדויקת ועבודה הדרגתית על טכניקות הנגינה והנשימה.</p><p>בשלבים הראשונים מתמקדים בהפקת הצליל, בהיכרות עם הכלי ובהטמעת יסודות הנשימה המעגלית.</p><p>בהמשך מתקדמים לעבודה על רציפות, שליטה בצליל, מקצבים ואפקטים קוליים.</p><p>במהלך השיעור ניתן דגש על דיוק - תיקון טעויות בזמן אמת, התאמה אישית של התרגול, והכוונה שמאפשרת התקדמות יציבה וברורה.</p><p>בנוסף למפגשים עצמם, ניתנות הנחיות לתרגול עצמי בין שיעורים, כדי לבסס את היכולת ולהעמיק את השליטה בנגינה.</p></div> </div>
+<div aria-label="כאן ייכנס וידאו" class="videoblk r r2" role="img" style="margin-top:48px">
+<div class="ea-pending-approval" role="status" style="position:absolute;inset:16px;margin:0">
+<span class="ea-pending-approval__badge">ממתין לאישור</span>
+<p class="ea-pending-approval__title">כאן ייכנס וידאו</p>
+</div>
+</div>
+</div>
+</section></div><div class="av-ex" id="V-1.1"><b>V-1.1</b> הצעה · כמו כל פסקה: כותרת בטורים 1–6, הטקסט בטורים 2–5, הסרטון ברוחב מלא</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-vd" id="lessons-look">
+<div class="wrap" style="position:relative">
+<div style="max-width:760px">
+<h2 class="h2 r" style="margin-bottom:18px">איך נראים השיעורים בפועל</h2> <div class="intro-body r r2"><p>השיעורים מתקיימים במפגשים אישיים אחד על אחד, בסטודיו של אייל עמית בפרדס חנה, בקצב שמותאם לכל תלמיד.</p><p>כל מפגש משלב בין תרגול מעשי, הכוונה מדויקת ועבודה הדרגתית על טכניקות הנגינה והנשימה.</p><p>בשלבים הראשונים מתמקדים בהפקת הצליל, בהיכרות עם הכלי ובהטמעת יסודות הנשימה המעגלית.</p><p>בהמשך מתקדמים לעבודה על רציפות, שליטה בצליל, מקצבים ואפקטים קוליים.</p><p>במהלך השיעור ניתן דגש על דיוק - תיקון טעויות בזמן אמת, התאמה אישית של התרגול, והכוונה שמאפשרת התקדמות יציבה וברורה.</p><p>בנוסף למפגשים עצמם, ניתנות הנחיות לתרגול עצמי בין שיעורים, כדי לבסס את היכולת ולהעמיק את השליטה בנגינה.</p></div> </div>
+<div aria-label="כאן ייכנס וידאו" class="videoblk r r2" role="img" style="margin-top:48px">
+<div class="ea-pending-approval" role="status" style="position:absolute;inset:16px;margin:0">
+<span class="ea-pending-approval__badge">ממתין לאישור</span>
+<p class="ea-pending-approval__title">כאן ייכנס וידאו</p>
 </div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
@@ -803,14 +1493,14 @@ document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.add
 </script><script>
 // Measure each grid as the browser lays it out: items per row, gap and item width.
 // The ruler covers the content box only: pull it in by the container's own padding.
-document.querySelectorAll('.cm-grid').forEach(function(g){var cs=getComputedStyle(g.parentElement);
+document.querySelectorAll('.cm-grid').forEach(function(g){var cs=getComputedStyle(g.parentElement); if(cs.display==='grid')return;
   g.style.left=cs.paddingLeft;g.style.right=cs.paddingRight;});
 document.querySelectorAll('.sv-g').forEach(function(lab){
   var spec=lab.nextElementSibling, best=null;
   spec.querySelectorAll('*').forEach(function(e){
-    if(e.classList.contains('cm-grid'))return;
+    if(e.classList.contains('cm-grid')||e.classList.contains('wrap'))return;
     var d=getComputedStyle(e).display; if(d!=='grid'&&d!=='flex')return;
-    var k=[].filter.call(e.children,function(c){var r=c.getBoundingClientRect(); return r.width>150&&r.height>60&&!c.classList.contains('cm-grid')});
+    var k=[].filter.call(e.children,function(c){var r=c.getBoundingClientRect(); return r.width>150&&r.height>40&&!c.classList.contains('cm-grid')});
     if(k.length<2||e.getBoundingClientRect().width<400)return;
     var w=e.getBoundingClientRect().width; if(!best||w>best.w+1||(Math.abs(w-best.w)<=1&&k.length>best.k.length))best={e:e,k:k,w:w};
   });

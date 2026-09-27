@@ -86,13 +86,32 @@ blocks.append('<div class="cm-group" id="G"><span>A-7 · לבדיקה</span><h2>
               'שתיים חורגות מרוחב התוכן: שורת הזרקור רחבה ממנו (1168 מול 1104), ושלושת הצעדים צרה ממנו (953). '
               '<b>ארבעה בשורה אינו יושב על ששה טורים</b> (טור וחצי לפריט) — רשת הדיוקנאות, «למי מתאים» ושורת הזרקור. '
               'על ששה טורים יושבים רק 2 בשורה (3 טורים לפריט), 3 בשורה (2 טורים) או 6 בשורה (טור אחד).</p></div>')
+props = lambda t: [sp for sp in rows[t].select(".cm-full > .cm-spec.cm-prop") if sp.select_one("section.cm-g6, .cm-g6")]
+labels = lambda sp: sp.find_previous_sibling(class_="cm-variant").get_text().replace("הצעה לאישור — ", "")
+seen = set()
 for k, (tid, idx) in enumerate(GRIDS, 1):
     spec = today(tid)[idx]
-    for w in spec.select("section > .wrap")[:1] or spec.select(".wrap")[:1]:
+    for w in (spec.select("section > .wrap")[:1] or spec.select(".wrap")[:1] or spec.select(".start__in")[:1]):
         w["style"] = (w.get("style", "") + ";position:relative").lstrip(";")
         ruler(w)
-    blocks.append(f'<div class="av-ex sv-g" id="G-{k}"><b>G-{k}</b> {tid} «{name(tid)}» · {uses(tid)} · <span class="sv-m">…</span></div>'
+    blocks.append(f'<div class="av-ex sv-g sv-today" id="G-{k}"><b>G-{k}</b> היום · {tid} «{name(tid)}» · {uses(tid)} · <span class="sv-m">…</span></div>'
                   + str(spec))
+    if tid in seen:
+        continue
+    seen.add(tid)
+    for j, sp in enumerate(props(tid), 1):
+        for w in (sp.select("section > .wrap")[:1] or sp.select(".start__in")[:1]):
+            w["style"] = (w.get("style", "") + ";position:relative").lstrip(";")
+            ruler(w)
+        blocks.append(f'<div class="av-ex sv-g" id="G-{k}.{j}"><b>G-{k}.{j}</b> הצעה · {labels(sp)} · <span class="sv-m">…</span></div>' + str(sp))
+vd = props("T-27")
+blocks.append('<div class="cm-group" id="V"><span>וידאו</span><h2>בלוק וידאו — הטקסט כמו בכל פסקה</h2></div>')
+blocks.append('<div class="av-ex" id="V-1"><b>V-1</b> היום · T-27</div>' + str(today("T-27")[0]))
+for j, sp in enumerate(vd, 1):
+    for w in sp.select("section > .wrap")[:1]:
+        w["style"] = (w.get("style", "") + ";position:relative").lstrip(";")
+        ruler(w)
+    blocks.append(f'<div class="av-ex" id="V-1.{j}"><b>V-1.{j}</b> הצעה · {labels(sp)}</div>' + str(sp))
 
 blocks.append('<div class="cm-group" id="U"><span>A-8 · לבדיקה</span><h2>טיפוסים של עמוד אחד</h2></div>'
               '<div class="av-card"><p class="mv-note">שלושה טיפוסים שאין להם אח. אחרי הבדיקה מחליטים: להשאיר, לאחד או לוותר.</p></div>')
@@ -112,14 +131,14 @@ js = s.new_tag("script")
 js.string = """
 // Measure each grid as the browser lays it out: items per row, gap and item width.
 // The ruler covers the content box only: pull it in by the container's own padding.
-document.querySelectorAll('.cm-grid').forEach(function(g){var cs=getComputedStyle(g.parentElement);
+document.querySelectorAll('.cm-grid').forEach(function(g){var cs=getComputedStyle(g.parentElement); if(cs.display==='grid')return;
   g.style.left=cs.paddingLeft;g.style.right=cs.paddingRight;});
 document.querySelectorAll('.sv-g').forEach(function(lab){
   var spec=lab.nextElementSibling, best=null;
   spec.querySelectorAll('*').forEach(function(e){
-    if(e.classList.contains('cm-grid'))return;
+    if(e.classList.contains('cm-grid')||e.classList.contains('wrap'))return;
     var d=getComputedStyle(e).display; if(d!=='grid'&&d!=='flex')return;
-    var k=[].filter.call(e.children,function(c){var r=c.getBoundingClientRect(); return r.width>150&&r.height>60&&!c.classList.contains('cm-grid')});
+    var k=[].filter.call(e.children,function(c){var r=c.getBoundingClientRect(); return r.width>150&&r.height>40&&!c.classList.contains('cm-grid')});
     if(k.length<2||e.getBoundingClientRect().width<400)return;
     var w=e.getBoundingClientRect().width; if(!best||w>best.w+1||(Math.abs(w-best.w)<=1&&k.length>best.k.length))best={e:e,k:k,w:w};
   });
@@ -141,6 +160,7 @@ css.string = """
 .av-card{font-family:Heebo,sans-serif;background:#fbf6ee;color:#2f2013;padding:12px 24px;border-bottom:1px solid #e6dccf}
 .mv-note{margin:0;font-size:.95rem;max-width:110ch}
 .cm-group span{letter-spacing:0!important}
+.sv-today{background:#6b5f55!important}
 .av-ex{font-family:Heebo,sans-serif;background:#3f7a52;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
 .av-ex b{background:#fff;color:#3f7a52;padding:1px 8px;border-radius:3px;margin-inline-end:8px;font-family:ui-monospace,Menlo,monospace;direction:ltr;unicode-bidi:isolate}
 .sv-btns p{display:flex;gap:14px;flex-wrap:wrap;margin:0}
