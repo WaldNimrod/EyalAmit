@@ -1,0 +1,22 @@
+{
+ "measured_at": "2026-09-27T00:46:09+00:00",
+ "population_objects": 153,
+ "live_200": 136,
+ "redirects": 17,
+ "nav_not_exactly_one": [],
+ "footer_not_exactly_one": [],
+ "php_error_pages": [],
+ "reveal_class_present": 133,
+ "reveal_class_absent": 3,
+ "reveal_class_absent_urls": [
+  "http://eyalamit-co-il-2026.s887.upress.link/en/",
+  "http://eyalamit-co-il-2026.s887.upress.link/historical-articles/",
+  "http://eyalamit-co-il-2026.s887.upress.link/press/"
+ ],
+ "pages_missing_a_legal_link": [],
+ "images_with_no_alt_attribute": 2,
+ "theme_versions_served": {
+  "1.5.146": 136
+ },
+ "baseline_reason": "First baseline, taken 2026-09-27 after 1.5.146 restored the sticky-reveal footer on 53 pages. Every figure re-measured by team_90, not taken from a lane report."
+}
