@@ -131,8 +131,17 @@ t("T-33", "מעטפת עמוד קוד מודפס", "tpl-chapters-qr", "הפוס�
   [(None, "qr1", "main > header.phero", 0, None, None), (None, "qr1", "main > section.sec", 0, None, None)])
 t("T-34", "פוסט בלוג — ארכיון", "tpl-chapters-blog-single", "הפוסט: כותרת · קטגוריה · תאריך · תמונה ראשית · תוכן חופשי",
   [(None, "post", "main > header.phero", 0, None, None), (None, "post", "main > section.sec", 0, None, ("__BODY__", 6))])
-t("T-37", "פוסט בלוג — תבנית חדשה", "ea-post-v1 (JSON)", "hero · media[] · video · rows[part, bg, …]", [],
-  note="אין מופע חי באתר. התבנית אושרה בסקיצה ולא נבנתה — חסרה הוכחת היתכנות.")
+D = ("__DUMMY__", 0)
+t("T-37", "פוסט בלוג — תבנית חדשה", "ea-post-v1 (JSON)", "hero · media[] · video · rows[part, bg, …]",
+  [("שורה: hero", "method", "header.phero--media", 0, None, D),
+   ("שורה: prose", "method", "main > section.sec", 0, None, D),
+   ("שורה: split", "method", ".split2", 0, None, D),
+   ("שורה: gallery", "kushi", ".gallery", 0, None, D),
+   ("שורה: video", "home", "section#video", 0, None, D),
+   ("שורה: cta", "method", "section.cta-band", 0, None, D)],
+  note="אין מופע חי באתר — מוצג בתוכן דמה, בנוי מהחלקים האמיתיים של האתר לפי סדר השורות בסכימה המאושרת. "
+       "הצעה להוכחת היתכנות: הפוסט החדש הראשון שאייל יפרסם — בתבנית הזו, ולא המרה של פוסט קיים (פוסטים ישנים נשארים בארכיון כמות שהם). "
+       "כרגע אין בחומרים שאייל מסר תוכן שממתין לפוסט כזה.")
 
 HOST_RX = re.compile(r"https?:(?:\\?/){2}eyalamit-co-il-2026\.s887\.upress\.link")
 
@@ -149,6 +158,50 @@ def clean(el):
     for f in el.find_all("form"):
         f["action"] = "#"
         f["onsubmit"] = "return false"
+    return el
+
+
+FILM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>'
+YT = '<svg viewBox="0 0 68 48"><path d="M66.5 7.5a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.5a8.5 8.5 0 0 0-6 6C0 12.8 0 24 0 24s0 11.2 1.5 16.5a8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35.2 68 24 68 24s0-11.2-1.5-16.5z" fill="#f00"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg>'
+POSTER = "/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg"
+
+
+def vph(orig=None):
+    cls = " ".join((orig.get("class", []) if orig else []))
+    sty = (orig.get("style", "") if orig else "")
+    h = (f'<div class="cm-vid {cls}" style="{sty}" role="img" aria-label="מקום לסרטון">'
+         f'<img class="cm-vid__bg" src="{POSTER}" alt=""><span class="cm-vid__ic">{FILM}</span>'
+         f'<span class="cm-vid__yt">{YT}</span><span class="cm-vid__lbl">מקום לסרטון</span></div>')
+    return BeautifulSoup(h, "lxml").div
+
+
+def videos(el):
+    for v in el.find_all("video"):
+        v.replace_with(vph(v))
+    for f in el.find_all("iframe"):
+        if re.search(r"youtube|youtu\.be", f.get("src", "") + f.get("data-src", "")):
+            f.replace_with(vph(f))
+    for yt in el.select(".mokesh-hero__yt"):
+        yt.clear()
+        yt.append(vph())
+    return el
+
+
+def dummy(el):
+    for p in el.find_all(["p", "li", "figcaption"]):
+        p.string = "פסקת דמה. כאן יופיע גוף הטקסט של הפוסט."
+    for h in el.find_all(["h1", "h2", "h3", "h4"]):
+        h.string = "כותרת — תוכן דמה"
+    for e in el.select(".chap"):
+        e.string = "תווית"
+    for e in el.select(".phero__s, .phero__lede, .gfig__cap, .cta-band__p"):
+        e.string = "שורת משנה — תוכן דמה"
+    for a in el.find_all("a"):
+        a["href"] = "#"
+    for b in el.select(".btn"):
+        b.string = "כפתור — דמה"
+    for i in el.find_all("img"):
+        i["alt"] = "תמונת דמה"
     return el
 
 
@@ -179,73 +232,182 @@ for k in ["method", "home"]:
 
 body_cls = " ".join(SOUP["method"].body.get("class", []))
 
-parts, toc = [], []
-gi = 0
-for item in G:
+import json, os
+
+DEFS = {int(k): v for k, v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(OUT)), "tools", "type-defs.json"),
+                                               encoding="utf-8")).items()}
+
+
+def specimen(label, page, css, idx, pred, tr):
+    """Return (html, cut) for one captured example, rewritten for the map."""
+    el = grab(page, css, idx, pred)
+    cut = False
+    if tr:
+        sel, keep = tr
+        if sel == "__DUMMY__":
+            el = dummy(el)
+        elif sel == "__BODY__":
+            box = el.select_one(".ea-post-content") or el.select_one(".wrap")
+            kids = [c for c in box.children if getattr(c, "name", None)]
+            for c in kids[keep:]:
+                c.decompose()
+            cut = len(kids) > keep
+        else:
+            cards = el.select(sel)
+            for c in cards[keep:]:
+                c.decompose()
+            cut = len(cards) > keep
+    return videos(clean(el)), cut
+
+
+def mini(el):
+    """A live, scaled-down copy of the first example — no ids, no links, lazy images."""
+    m = copy.copy(el)
+    for x in m.find_all(True):
+        x.attrs.pop("id", None)
+        if x.name == "img":
+            x["loading"] = "lazy"
+    return rel(str(m))
+
+
+panels, tabs = [], []
+gi, rows = 0, None
+for item in G + [("GROUP", None)]:
     if item[0] == "GROUP":
+        if rows is not None:
+            panels.append(
+                f'<section class="cm-panel" id="g{gi}" data-group="{gtitle}">'
+                f'<div class="cm-group"><span>קבוצה {gi} מתוך 9</span><h2>{gtitle}</h2></div>'
+                f'<div class="cm-table" role="table"><div class="cm-thead" role="row">'
+                f'<span>מזהה</span><span>שם</span><span>תיאור</span><span>גרסאות</span><span>איפה באתר</span><span>תצוגה</span></div>'
+                + "".join(rows) + "</div></section>")
+        if item[1] is None:
+            break
         gi += 1
-        toc.append(f'<a href="#g{gi}">{item[1]}</a>')
-        parts.append(f'<div class="cm-group" id="g{gi}"><span>קבוצה {gi}</span><h2>{item[1]}</h2></div>')
+        gtitle = item[1]
+        tabs.append(f'<button type="button" class="cm-tab" data-g="g{gi}">{gtitle}</button>')
+        rows = []
         continue
     tid, name, part, inputs, caps, note = item
+    d = DEFS.get(int(tid[2:]), {})
+    real = [c for c in caps if not (c[5] and c[5][0] == "__DUMMY__")]
     srcs = []
-    for c in caps:
+    for c in real:
         if PAGES[c[1]] not in srcs:
             srcs.append(PAGES[c[1]])
-    proof = " · ".join(f'<a href="{p}" target="_blank">{p if len(p) < 40 else "פוסט בבלוג"}</a>' for p in srcs) or "—"
-    parts.append(
-        f'<div class="cm-type" id="{tid}"><div class="cm-type__head"><b class="cm-id">{tid}</b>'
-        f'<span class="cm-name">{name}</span><code class="cm-part">{part}</code></div>'
-        f'<div class="cm-meta"><span><i>שדות</i> <code>{inputs}</code></span>'
-        f'<span><i>הוכחת היתכנות</i> {proof}</span>'
-        f'<span><i>נלכד</i> {today} · תמה {ver}</span></div>'
-        + (f'<div class="cm-note">{note}</div>' if note else "") + "</div>")
-    for label, page, css, idx, pred, tr in caps:
-        el = grab(page, css, idx, pred)
-        cut = False
-        if tr:
-            sel, keep = tr
-            if sel == "__BODY__":
-                box = el.select_one(".ea-post-content") or el.select_one(".wrap")
-                kids = [c for c in box.children if getattr(c, "name", None)]
-                for c in kids[keep:]:
-                    c.decompose()
-                cut = len(kids) > keep
-            else:
-                cards = el.select(sel)
-                for c in cards[keep:]:
-                    c.decompose()
-                cut = len(cards) > keep
-        el = clean(el)
-        if label:
-            parts.append(f'<div class="cm-variant">{label}</div>')
-        parts.append('<div class="cm-spec">' + rel(str(el)) + '</div>')
+    where = (" · ".join(f'<a href="{p}" target="_blank">{p if len(p) < 40 else "פוסט בבלוג"}</a>' for p in srcs)
+             or '<span class="cm-unused">כרגע לא בשימוש באתר</span>')
+    body, first = [], None
+    for c in caps:
+        el, cut = specimen(*c)
+        if first is None:
+            first = el
+        if c[0]:
+            body.append(f'<div class="cm-variant">{c[0]}</div>')
+        dm = bool(c[5]) and c[5][0] == "__DUMMY__"
+        body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}">'
+                    + ('<span class="cm-dummy__badge">תוכן דמה — לא מופיע באתר</span>' if dm else "")
+                    + rel(str(el)) + "</div>")
         if cut:
-            parts.append('<div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div>')
+            body.append('<div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div>')
+    short = d.get("def", "").split(". ")[0].rstrip(".") + "."
+    nvar = len([c for c in caps if c[0]]) or 1
+    flag = f'<small class="cm-flag">{d["flag"]}</small>' if d.get("flag") else ""
+    rows.append(
+        f'<details class="cm-row" id="{tid}"><summary class="cm-sum" role="row">'
+        f'<span class="c-id">{tid}</span><span class="c-name">{name}{flag}</span>'
+        f'<span class="c-desc">{short}</span><span class="c-var">{nvar}</span>'
+        f'<span class="c-use">{where}</span>'
+        f'<span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in">{mini(first)}</span></span></span>'
+        f'</summary><div class="cm-full"><div class="cm-type">'
+        f'<p class="cm-def">{d.get("def", "")}</p>'
+        + (f'<p class="cm-def cm-def--note">{d["note"]}</p>' if d.get("note") else "")
+        + (f'<div class="cm-note">{note}</div>' if note else "")
+        + f'<div class="cm-meta"><span><i>טיפוס בקוד</i> <code>{part}</code></span>'
+        f'<span><i>שדות</i> <code>{inputs}</code></span>'
+        f'<span><i>הוכחת היתכנות</i> {where}</span>'
+        f'<span><i>נלכד</i> {today} · תמה {ver}</span></div></div>'
+        + "".join(body) + "</div></details>")
 
 CM_CSS = """
-.cm-spec{transform:translateZ(0)}
+.cm-spec{transform:translateZ(0);position:relative}
 .r,.r2,.r3,.r--fade,[class*="ea-entrance"]{opacity:1!important;transform:none!important;animation:none!important}
-.cm-top{background:#1d140d;color:#f3ece2;padding:28px 24px 22px;font-family:Heebo,sans-serif}
-.cm-top h1{margin:0 0 6px;font-size:1.6rem;font-weight:500;color:#f3ece2}
-.cm-top p{margin:0 0 4px;font-size:.9rem;opacity:.8}
-.cm-toc{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:.9rem}
-.cm-toc a{color:#d9a47f;text-decoration:none}
-.cm-group{background:#9a4f2b;color:#fff;padding:22px 24px 18px;margin-top:56px;font-family:Heebo,sans-serif}
+body{background:#f7f2ea}
+.cm-top{background:#1d140d;color:#f3ece2;padding:24px 24px 18px;font-family:Heebo,sans-serif}
+.cm-top h1{margin:0 0 6px;font-size:1.5rem;font-weight:500;color:#f3ece2}
+.cm-top p{margin:0 0 3px;font-size:.85rem;opacity:.8}
+.cm-tabs{position:sticky;top:0;z-index:200;display:flex;gap:4px;overflow-x:auto;background:#2a1d12;padding:8px 12px;font-family:Heebo,sans-serif;box-shadow:0 2px 8px #0003}
+.cm-tab{flex:0 0 auto;color:#e9dccb;background:none;border:0;font:inherit;font-size:.9rem;padding:7px 12px;border-radius:4px;cursor:pointer}
+.cm-tab:hover{background:#ffffff14}
+.cm-tab.is-on{background:#9a4f2b;color:#fff}
+.cm-panel{display:none}
+.cm-panel.is-on{display:block}
+.cm-group{background:#9a4f2b;color:#fff;padding:18px 24px 14px;font-family:Heebo,sans-serif}
 .cm-group span{font-size:.75rem;letter-spacing:2px;opacity:.85}
-.cm-group h2{margin:4px 0 0;font-size:1.5rem;font-weight:500;color:#fff}
-.cm-type{background:#efe7dc;border-top:3px solid #9a4f2b;padding:14px 24px;margin-top:40px;font-family:Heebo,sans-serif;font-size:.85rem;color:#2f2013}
-.cm-type__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
-.cm-id{font-size:1rem;color:#9a4f2b}
-.cm-name{font-size:1.1rem;font-weight:600}
-.cm-part,.cm-meta code{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;direction:ltr;unicode-bidi:isolate;background:#fff8;padding:1px 5px;border-radius:3px}
-.cm-meta{display:flex;flex-direction:column;gap:3px;margin-top:8px}
+.cm-group h2{margin:4px 0 0;font-size:1.4rem;font-weight:500;color:#fff}
+.cm-table{font-family:Heebo,sans-serif;color:#2f2013;background:#fff}
+.cm-thead,.cm-sum{display:grid;grid-template-columns:64px 190px 1fr 64px 170px 176px;gap:14px;align-items:center;padding:10px 20px}
+.cm-thead{background:#efe7dc;font-size:.75rem;font-weight:600;color:#6b5f55;position:sticky;top:48px;z-index:150}
+.cm-row{border-bottom:1px solid #e6dccf}
+.cm-sum{cursor:pointer;list-style:none;font-size:.88rem}
+.cm-sum::-webkit-details-marker{display:none}
+.cm-sum:hover{background:#faf6f0}
+.cm-row[open]>.cm-sum{background:#efe7dc;position:sticky;top:48px;z-index:140}
+.c-id{font-weight:700;color:#9a4f2b}
+.c-name{font-weight:600}
+.cm-flag{display:block;font-weight:400;font-size:.72rem;color:#8a5a12}
+.c-desc{color:#4b3e33;line-height:1.5}
+.c-var{text-align:center}
+.c-use{font-size:.8rem;word-break:break-word}
+.c-use a,.cm-meta a{color:#9a4f2b}
+.cm-mini{display:block;width:176px;height:110px;overflow:hidden;position:relative;border:1px solid #e6dccf;border-radius:4px;background:#f7f2ea}
+.cm-mini__in{position:absolute;top:0;right:0;width:1280px;transform:scale(.1375);transform-origin:top right;pointer-events:none}
+.cm-full{border-top:3px solid #9a4f2b}
+.cm-type{background:#f3ede4;padding:16px 24px;font-size:.88rem;color:#2f2013}
+.cm-def{margin:0 0 8px;font-size:.95rem;line-height:1.65;max-width:80ch}
+.cm-def--note{font-size:.85rem;color:#6b5f55}
+.cm-part,.cm-meta code{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;direction:ltr;unicode-bidi:isolate;background:#fff9;padding:1px 5px;border-radius:3px}
+.cm-meta{display:flex;flex-direction:column;gap:3px;margin-top:10px}
 .cm-meta i{font-style:normal;opacity:.65;margin-inline-end:6px}
-.cm-meta a{color:#9a4f2b}
-.cm-note{margin-top:8px;padding:6px 10px;background:#fff3d6;border-inline-start:3px solid #c98a2b}
+.cm-note{margin:8px 0;padding:6px 10px;background:#fff3d6;border-inline-start:3px solid #c98a2b;max-width:80ch}
+.cm-unused{background:#fff3d6;color:#8a5a12;padding:1px 8px;border-radius:3px;font-weight:600}
 .cm-variant{font-family:Heebo,sans-serif;font-size:.8rem;color:#9a4f2b;padding:10px 24px 4px;border-top:1px dashed #9a4f2b55;margin-top:18px}
 .cm-cut{font-family:Heebo,sans-serif;font-size:.8rem;text-align:center;color:#8a7a6a;padding:8px}
-@media(max-width:600px){.cm-type,.cm-group,.cm-top,.cm-variant{padding-inline:16px}}
+.cm-dummy{outline:3px dashed #c98a2b;outline-offset:-3px}
+.cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
+.cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
+.hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
+.cm-vid__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cm-vid::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(29,20,13,.35),rgba(154,79,43,.6))}
+.cm-vid__ic,.cm-vid__yt,.cm-vid__lbl{position:absolute;z-index:1}
+.cm-vid__yt{top:50%;left:50%;transform:translate(-50%,-50%);width:76px}
+.cm-vid__ic{top:14px;inset-inline-start:16px;width:32px;color:#f3ece2}
+.cm-vid__lbl{bottom:14px;inset-inline-start:16px;color:#f3ece2;font:500 .9rem Heebo,sans-serif}
+@media(max-width:760px){
+ .cm-thead{display:none}
+ .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
+ .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-var{display:none}.c-thumb{grid-area:thumb}
+ .cm-mini{width:112px;height:80px}.cm-mini__in{transform:scale(.0875)}
+ .cm-row[open]>.cm-sum{top:44px}
+ .cm-type,.cm-group,.cm-top,.cm-variant{padding-inline:16px}
+}
+"""
+
+CM_JS = """
+(function(){
+  // Tabs are buttons, not #links: the page's <base> would send a #link to the staging host.
+  var tabs=[].slice.call(document.querySelectorAll('.cm-tab')), panels=[].slice.call(document.querySelectorAll('.cm-panel'));
+  function show(g,row){
+    if(!document.getElementById(g)) g=panels[0].id;
+    panels.forEach(function(p){p.classList.toggle('is-on',p.id===g)});
+    tabs.forEach(function(t){var on=t.dataset.g===g;t.classList.toggle('is-on',on);if(on&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'nearest'});});
+    if(row){row.open=true;row.scrollIntoView();} else window.scrollTo(0,0);
+    try{history.replaceState(null,'',location.pathname+location.search+'#'+(row?row.id:g));}catch(e){}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.g);});});
+  var h=location.hash.slice(1), el=h&&document.getElementById(h);
+  if(el&&el.classList.contains('cm-row')) show(el.closest('.cm-panel').id,el); else show(h);
+})();
 """
 
 html = f"""<!doctype html>
@@ -264,14 +426,15 @@ html = f"""<!doctype html>
 <body class="{body_cls}">
 <header class="cm-top">
 <h1>מפת הקאנון — טיפוסי התוכן</h1>
-<p>שלד ראשון. כל דוגמה הועתקה כלשונה, מבנה ותוכן, מהעמוד החי שמצוין מעליה — והעמוד הזה הוא הוכחת ההיתכנות שלה.</p>
-<p>נלכד {today} · גרסת תמה {ver} · עוצב בגיליונות הסגנון האמיתיים של האתר.</p>
-<p>סרטוני יוטיוב לא מתנגנים כשהקובץ נפתח מהמחשב — רק כשהמפה מוגשת משרת.</p>
-<nav class="cm-toc">{" ".join(toc)}</nav>
+<p>שורה לכל טיפוס. לחיצה על שורה פותחת את התיאור המלא ואת הדוגמה בגודל מלא.</p>
+<p>כל דוגמה הועתקה כלשונה מהעמוד החי שמצוין בשורה — והעמוד הזה הוא הוכחת ההיתכנות שלה. דוגמה בתוכן דמה מסומנת במסגרת מקווקוות. כל סרטון מוצג כמקום שמור קבוע; בעמודים עצמם מוצג הסרטון האמיתי.</p>
+<p>נלכד {today} · גרסת תמה {ver} · מעוצב בגיליונות הסגנון האמיתיים של האתר.</p>
 </header>
+<nav class="cm-tabs" aria-label="קבוצות">{"".join(tabs)}</nav>
 <main class="chapters-main">
-{chr(10).join(parts)}
+{chr(10).join(panels)}
 </main>
+<script>{CM_JS}</script>
 </body>
 </html>
 """
