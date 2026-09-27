@@ -106,7 +106,9 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    - **2** — 3+3 (K-2.1), or 4+2 either way (K-2.2, K-2.3). **Struck:** 1+5.
    - **3** — 2+2+2 (K-3.1), or one tall item (two columns × two rows) beside two half-height items of four
      columns, the tall one on either side (K-3.2, K-3.3).
-   - **4** — two rows of 3+3 (K-4.1); 2+1+1+2 (K-4.2); 3+1+1+1 or 1+1+1+3 (K-4.3, K-4.4).
+   - **4** — two rows of 3+3 (K-4.1); large, two small stacked one above the other, large — 2+2+2 as one
+     block (K-4.2, team_00: «שני הקטנים צריכים להיות אחד מעל השני, לא ליד השני, שזה יתיישר לבלוק»);
+     3+1+1+1 or 1+1+1+3 (K-4.3, K-4.4).
      **Struck:** three thirds and one below.
    - **5** — one row 2+1+1+1+1 or 1+1+1+1+2 (K-5.1, K-5.2); or one tall item beside a quartet of 2-column
      half-height items, either side (K-5.3, K-5.4).
@@ -114,6 +116,12 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    - **More than 10, or an unknown count** (blog, gallery, testimonials, search): exempt — pick one per-row
      count that fits the grid (1, 2, 3 or 6) and let the last row fall as it falls.
    Row height is uniform within a composition; a tall item spans two rows.
+   **One image-sizing mode per composition, and every composition is one clean block** (team_00: «זוכרים
+   שהגדרנו וריאנטים של דרך יישור התמונה — אז כל דפוס: או כך או כך, אבל אי אפשר חצי-חצי. בסוף זה צריך כולם
+   לשבת יפה»): either every image is **fill** (cropped to its cell — every row's images share top and bottom
+   edges, captions start on one line), or every image is **fit** — and then a composition is allowed only when
+   the image shapes give equal heights (e.g. 3+1+1+1 needs the large image landscape and the small ones
+   portrait: «מחייב תמונה גדולה רוחבית וקטנות לאורך»). Never mixed.
 4. **Image sizing is a variant of every type that has an image** (team_00: «כל אלמנט — לא כל תמונה — המשתמש
    בוחר fill או fit / full size» · «בשפה שלנו — כל טיפוס שיש לו תמונה — יש וריאנט לדרך חישוב גודל התמונות»):
    the editor picks it per element — **fill** crops the image to its box; **fit** shows it whole, in its own

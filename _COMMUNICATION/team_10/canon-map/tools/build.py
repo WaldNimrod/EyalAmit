@@ -217,11 +217,11 @@ def videos(el):
 P = "__PROPOSAL__"
 GRID_PROPOSALS = {
     "T-11": [("הצעה לאישור — 3 בשורה (2 טורים לתמונה), רווח הרשת", "kushi", ".gallery", 0, None, (P, "cm-g6")),
-             ("הצעה לאישור — ארבעה דיוקנאות: 2+1+1+2 (K-4.2), גובה אחיד", "repair", ".gallery--portraits", 0, None, (P, "cm-g6 cm-k42"))],
+             ("הצעה לאישור — ארבעה דיוקנאות (K-4.2): גדול, שניים זה מעל זה, גדול — בלוק אחד, במילוי", "repair", ".gallery--portraits", 0, None, (P, "cm-g6 cm-k42"))],
     "T-09": [("הצעה לאישור — חמישה כרטיסים: אחד גבוה ורביעייה לידו (K-5.3), במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-frame cm-k53"))],
     "T-13": [("הצעה לאישור — ארבעה פריטים: שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22")),
-             ("הצעה לאישור — ארבעה פריטים: 2 גדולים ו-2 קטנים בשורה אחת (2+1+1+2 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
-             ("הצעה לאישור — ארבעה פריטים: 1 גדול ו-3 קטנים בשורה אחת (3+1+1+1 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
+             ("הצעה לאישור — ארבעה פריטים (K-4.2): גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
+             ("הצעה לאישור — ארבעה פריטים (K-4.3): 1 גדול ו-3 קטנים (3+1+1+1) — במילוי; בהתאמה מחייב גדולה לרוחב וקטנות לאורך", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
     "T-14": [("הצעה לאישור — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, (P, "cm-g6"))],
     "T-15": [("הצעה לאישור — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, (P, "cm-g6"))],
     "T-24": [("הצעה לאישור — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, (P, "cm-g6 cm-frame"))],
@@ -589,20 +589,36 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-g6 :is(.gallery,.steps3,.bookcards,.ea-blog-grid,.testi-grid)>*{grid-column:span 2!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important}
 .cm-g6 :is(.point-cards__grid,.cmp,.ea-testi-cards__list,.fbgrid)>*{grid-column:span 3!important;width:auto!important;max-width:none!important;margin:0!important}
 .cm-g6.cm-g4-22 :is(.whom,.ea-now)>*{grid-column:span 3!important}
-.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
-.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
+/* K-4.2 (team_00: «שני הקטנים צריכים להיות אחד מעל השני, לא ליד השני, שזה יתיישר לבלוק»): large, two small stacked, large. */
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(1){grid-column:1/3!important;grid-row:1/3}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(2){grid-column:3/5!important;grid-row:1}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(3){grid-column:3/5!important;grid-row:2}
+.cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(4){grid-column:5/7!important;grid-row:1/3}
 .cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:nth-child(1){grid-column:span 3!important}
 .cm-g6.cm-g4-3111 :is(.whom,.ea-now)>:not(:nth-child(1)){grid-column:span 1!important}
 .cm-g6 :is(.whom,.ea-now)>*{width:auto!important;max-width:none!important;margin:0!important}
 .cm-g6 .whom__m{width:100%!important;height:auto!important;aspect-ratio:1}
+/* Fill mode (team_00: one image-sizing mode per composition; in fill every row is one clean block). */
+.cm-g6[class*="cm-g4-"] .whom{grid-auto-rows:minmax(0,300px)}
+.cm-g6.cm-g4-2112 .whom{grid-auto-rows:240px}
+.cm-g6[class*="cm-g4-"] .whom__i{display:flex!important;flex-direction:column;min-height:0}
+.cm-g6[class*="cm-g4-"] .whom__m{flex:1 1 auto;min-height:0;aspect-ratio:auto!important;margin-bottom:8px}
+.cm-g6[class*="cm-g4-"] .whom__p{margin:0;flex:none}
+/* One-row compositions: image and caption rows shared across the row (subgrid), so every image ends on one line. */
+.cm-g6.cm-g4-3111 .whom{grid-template-rows:280px auto;grid-auto-rows:auto;row-gap:8px}
+.cm-g6.cm-g4-3111 .whom__i{display:grid!important;grid-row:1/3;grid-template-rows:subgrid;row-gap:8px}
+.cm-g6.cm-g4-3111 .whom__m{margin:0;height:100%!important}
 .cm-g6 .whom__m img{width:100%;height:100%;object-fit:cover}
 .cm-g6 .cmpc :is(p,li){text-align:justify;text-align-last:center}
 .cm-g6.start .start__in{width:min(1104px,100% - 32px);margin-inline:auto;padding-inline:0}
 .cm-g6 .start__h{font-size:var(--fs-h1)!important}
 /* Locked compositions applied (D46): K-4.2 and K-5.3. */
-.cm-k42 .gallery>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
-.cm-k42 .gallery>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
-.cm-k42 .gallery .gfig{height:380px}.cm-k42 .gallery .gfig img{width:100%;height:100%;aspect-ratio:auto!important;object-fit:cover}
+.cm-k42 .gallery{grid-template-rows:220px 220px}
+.cm-k42 .gallery>:nth-child(1){grid-column:1/3!important;grid-row:1/3}
+.cm-k42 .gallery>:nth-child(2){grid-column:3/5!important;grid-row:1}
+.cm-k42 .gallery>:nth-child(3){grid-column:3/5!important;grid-row:2}
+.cm-k42 .gallery>:nth-child(4){grid-column:5/7!important;grid-row:1/3}
+.cm-k42 .gallery .gfig{height:100%}.cm-k42 .gallery .gfig img{width:100%;height:100%;aspect-ratio:auto!important;object-fit:cover}
 .cm-k53 .point-cards__grid{grid-auto-flow:row dense}
 .cm-k53 .point-cards__grid>:first-child{grid-column:span 2!important;grid-row:span 2}
 .cm-k53 .point-cards__grid>:not(:first-child){grid-column:span 2!important}
@@ -706,7 +722,10 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
  .cm-g6.cm-fb .fbgrid{columns:1}
- .cm-k42 .gallery>:nth-child(n){grid-column:span 1!important}.cm-k42 .gallery .gfig{height:220px}
+ .cm-g6[class*="cm-g4-"] .whom{grid-template-rows:none!important;grid-auto-rows:auto!important}
+ .cm-g6[class*="cm-g4-"] .whom>.whom__i:nth-child(n){grid-column:1/-1!important;grid-row:auto!important;display:flex!important}
+ .cm-g6[class*="cm-g4-"] .whom__m{flex:none;aspect-ratio:4/3!important;height:auto!important}
+ .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}
