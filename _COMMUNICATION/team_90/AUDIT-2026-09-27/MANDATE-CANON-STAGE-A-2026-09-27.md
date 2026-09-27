@@ -187,6 +187,13 @@ properly-shaped entry to a defaults array is not that.**
   came from Nimrod. **No invented copy, not even as an example.** Eyal's delivered material is
   under `docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. If you cannot find real
   text, **ask Nimrod — do not write a sentence for him.**
+
+  **One boundary, because the two rules look like they collide.** Content law governs **anything
+  that reaches the live site.** The artifact's 37 examples are a different thing: the pair mandate
+  allows **plainly generic placeholder text** there, and several examples use it today
+  («כותרת העמוד», «כיתוב לדוגמה»). **Leave those alone unless Nimrod rules otherwise — and never
+  copy one onto a page.** An example that reads as real copy is the actual danger, not an example
+  that reads as obviously fake.
 - **Off limits without his explicit permission:** `/eyal-amit/mokesh-dahiman/` (the memorial —
   approved at the meeting, the most sensitive page on the site), the legal pages, the home page,
   **and the eight deviation pages he is meant to judge untouched — which includes `/repair/`.**
@@ -221,9 +228,13 @@ over a PHP constant, a template part over a copied block, `get_template_part` ov
 **The reason is not purity — it is that an error in data is a recoverable paragraph and an error
 in code is an outage**, and Eyal will be updating this site with agents.
 
-**Make the output implementable.** The test of your canon entry is not that it is accurate but
-that a session can build from it without opening the theme. **If an entry cannot be implemented
-from its own text, it is not finished.**
+**Make the output implementable.** The test of a canon entry is not that it is accurate but that
+a session can build from it without having to go **read the theme to work out what the type even
+is**. **If an entry cannot be implemented from its own text, it is not finished.**
+
+**This is not a ban on editing theme files.** Route B in 4.3 edits `{type}-defaults.php` and that
+is the site's real mechanism, not a defect. **The rule is about the canon being self-sufficient as
+a description, not about which files you may touch.**
 
 **Reuse what exists.** `ea_chapters_is_blog_view()`, `ea_canonical_nav_items()`,
 `ea_render_unified_footer()`, the `--fs-*` tokens, the existing text-shadow pattern, the hero
