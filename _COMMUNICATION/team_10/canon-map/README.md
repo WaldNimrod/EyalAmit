@@ -115,7 +115,8 @@ typed fields and the technical keys an editor never sets.
   to that class in `build.py`.
 - **After a theme change** → re-run all three; the stamps update themselves.
 - **Palette check** → `python3 tools/palette_check.py ea-canon-map.html palette-check.html`. Temporary; the approved text paragraph on every tone of both palettes with WCAG ratios per role and a verdict. Its tone list and text sets are at the top of the script.
-- **Approved view** («מה אושר», team_00: every sketch shows the six-column grid; everything approved laid out by type / variant / field / rule, every example numbered T-xx.n) → `python3 tools/grid_proof.py ea-canon-map.html grid-proof.html`. Add a type to `TYPES` when it is approved; site-wide rules are `RULES`. The overlay spans the element's own grid, so a design that is off-grid shows immediately. The map and both sketch pages share one top bar (`tools/proofnav.py`).
+- **Approved view** («מה אושר», team_00: every sketch shows the six-column grid; everything approved laid out by type / variant / field / rule, every example numbered T-xx.n) → `python3 tools/grid_proof.py ea-canon-map.html grid-proof.html`. Add a type to `TYPES` when it is approved; site-wide rules are `RULES`. The overlay spans the element's own grid, so a design that is off-grid shows immediately. The map and its sketch pages share one top bar (`tools/proofnav.py`).
+- **Merge proposal** («איחוד», D40) → `python3 tools/merge_view.py ea-canon-map.html merge.html`. Temporary; which old types become variants of which type, and the cross-type findings A-n. Its spec is `MERGE`, `TEMPLATES` and `FINDINGS` at the top of the script.
 
 ## The grid (team_00's rulings, 2026-09-27)
 
