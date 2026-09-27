@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from proofnav import keep_nav
 
 SRC, OUT = sys.argv[1], sys.argv[2]
-PICK = [("T-01", "cm-appr", ".phero__in", "הירו"), ("T-08", "cm-appr", ".cta-band__in", "פס קריאה לפעולה"), ("T-04", "cm-appr", "section > .wrap", "פסקת טקסט")]
+PICK = [("T-01", "cm-appr", ".phero__in", "הירו"), ("T-08", "cm-appr", ".cta-band__in", "פס קריאה לפעולה"), ("T-04", "cm-appr", "section > .wrap", "פסקת טקסט"), ("T-06", "cm-prop", ".split2", "טקסט ותמונה (הצעה)")]
 
 s = BeautifulSoup(open(SRC, encoding="utf-8").read(), "lxml")
 blocks = []
@@ -45,8 +45,8 @@ css.string = """
 .cm-proof-head{font-family:Heebo,sans-serif;background:#1d140d;color:#f3ece2;padding:20px 24px}
 .cm-proof-head h1{margin:0 0 6px;font-size:1.4rem;font-weight:500;color:#f3ece2}
 .cm-proof-head p{margin:0;font-size:.9rem;opacity:.85;max-width:90ch}
-.phero__in,.cta-band__in{position:relative}
-.cm-grid{position:absolute;inset:0;grid-column:1/-1!important;grid-row:auto!important;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+.phero__in,.cta-band__in,.split2{position:relative}
+.cm-grid{position:absolute;inset:0;grid-column:1/-1!important;grid-row:auto!important;padding:0!important;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
   column-gap:var(--cm-gap);direction:rtl;pointer-events:none;z-index:50}
 /* A space-division ruler, not content cards (team_00): only the column edges are drawn. */
 .cm-grid i{border-inline:1px solid rgba(230,30,110,.8);font:600 .75rem/1 Heebo,sans-serif;font-style:normal;

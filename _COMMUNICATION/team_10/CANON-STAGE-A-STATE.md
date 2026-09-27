@@ -110,7 +110,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 | ~~T-03~~ | retired — merged into T-02 (D13) | — |
 | T-04 | Prose row | **approved** (D29, D32): heading 1–6, text 2–5. Backgrounds: five tones approved (D34); per-tone text sets approved (D35) |
 | T-05 | Prose fold | captured |
-| T-06 | Split | captured — next; rule D30 |
+| T-06 | Split | **proposal** (rule D30): six-column split by image shape — landscape and cover 3+3, portrait text 4 + image 2, reversed mirrors; text keeps breathing space facing the image; one column below 760px. Five examples in the map and grid proof |
 | T-07 | Floated figure | captured |
 | T-08 | CTA band | **approved** (D6, D19): text cols 2–4, button 5–6, logo as background, lower band |
 | T-09 | Point cards | captured |

@@ -8,7 +8,7 @@ OUT = sys.argv[1]
 PAGES = {"home": "/", "method": "/method/", "repair": "/repair/", "contact": "/contact/", "books": "/books/",
          "kushi": "/books/kushi-blantis/", "snoring": "/snoring-sleep-apnea/", "lessons": "/lessons/",
          "testimonials": "/testimonials/", "learning": "/learning/", "mokesh": "/eyal-amit/mokesh-dahiman/",
-         "press": "/press/", "qr1": "/qr/qr1/", "bags": "/bags/", "blog": "/blog/",
+         "press": "/press/", "eyal": "/eyal-amit/", "qr1": "/qr/qr1/", "bags": "/bags/", "blog": "/blog/",
          "post": "/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/"}
 SOUP = {k: BeautifulSoup(open(k + ".html", encoding="utf-8").read(), "lxml") for k in PAGES}
 
@@ -68,7 +68,13 @@ t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_ima
 
 group("תמונה וטקסט")
 t("T-06", "טקסט ותמונה זה לצד זה", "split", "chap · title · body · image · alt · figr · reversed · soft · cover · zoom",
-  [(None, "method", ".split2", 0, None, None), ("גרסה: תמונה ממלאת", "repair", ".split2--cover", 0, None, None)])
+  [(None, "method", ".split2", 0, None, None), ("גרסה: תמונה ממלאת", "repair", ".split2--cover", 0, None, None),
+   ("היום באתר — תמונה לאורך", "eyal", ".split2", 0, None, None),
+   ("הצעה לאישור — תמונה לרוחב: טקסט בטורים 1–3, תמונה בטורים 4–6", "method", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה לרוחב, הפוך: תמונה בטורים 1–3, טקסט בטורים 4–6", "eyal", ".split2", 1, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה לאורך: טקסט בטורים 1–4, תמונה צרה בטורים 5–6", "eyal", ".split2", 0, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה לאורך, הפוך: תמונה בטורים 1–2, טקסט בטורים 3–6", "mokesh", ".split2", 5, None, ("__PROPOSAL__", "cm-sp")),
+   ("הצעה לאישור — תמונה ממלאת (בגובה הטקסט): טקסט בטורים 1–3, תמונה בטורים 4–6", "repair", ".split2--cover", 0, None, ("__PROPOSAL__", "cm-sp"))])
 t("T-10", "פס תמונה עם טקסט", "photo-band", "title · body · image · alt · cta_label · cta_url",
   [(None, "repair", "section.photo-band", 0, None, None)])
 t("T-12", "ציטוט על תמונה", "bleed", "image · alt · quote · attrib",
@@ -469,6 +475,19 @@ section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;-
 section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
+/* Proposal (T-06 split, rule D30: «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»): text and image share the six columns,
+   split by the image's shape. Landscape and cover: 3 + 3. Portrait: text 4, image 2. Reversed mirrors the sides.
+   The text keeps a breathing space on the side facing the image, inside its own columns. */
+section.cm-sp .split2{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);--sp-air:clamp(16px,3vw,40px)}
+section.cm-sp .split2>:not(.split2__m){grid-column:1/4;grid-row:1;padding-inline-end:var(--sp-air)}
+section.cm-sp .split2>.split2__m{grid-column:4/7;grid-row:1}
+section.cm-sp .split2.split2--rev>:not(.split2__m){grid-column:4/7;padding-inline-end:0;padding-inline-start:var(--sp-air)}
+section.cm-sp .split2.split2--rev>.split2__m{grid-column:1/4}
+section.cm-sp .split2:has(>.figr--p)>:not(.split2__m){grid-column:1/5}
+section.cm-sp .split2:has(>.figr--p)>.split2__m{grid-column:5/7}
+section.cm-sp .split2.split2--rev:has(>.figr--p)>:not(.split2__m){grid-column:3/7}
+section.cm-sp .split2.split2--rev:has(>.figr--p)>.split2__m{grid-column:1/3}
+section.cm-sp .split2 .intro-body{max-width:none}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -493,6 +512,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  /* Narrow screens (team_00): the hero and CTA button always sits on the left. */
  header.phero[class*="cm-h-"] .phero__in{display:block}
  section.sec.cm-pr-c>.wrap{display:block}
+ section.cm-sp .split2{grid-template-columns:minmax(0,1fr);row-gap:36px}
+ section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
  section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-end}
@@ -509,10 +530,10 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 
 # The map and its temporary sketch pages share one top bar: the group tabs plus these page links.
 # Buttons, not <a>: the page's <base> would send a relative link to the staging host.
-PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "הוכחת רשת"), ("palette-check.html", "בדיקת גוונים")]
+PROOF_PAGES = [("ea-canon-map.html", "המפה"), ("grid-proof.html", "הוכחת רשת"), ("palette-check.html", "בדיקת גוונים")]
 PAGES_NAV = ('<span class="cm-pgs">' + "".join(
     f'<button type="button" class="cm-pg{" is-on" if i == 0 else ""}" data-href="{h}">{n}</button>'
-    for i, (h, n) in enumerate(PAGES)) + '</span>')
+    for i, (h, n) in enumerate(PROOF_PAGES)) + '</span>')
 PG_JS = """
 document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.addEventListener('click',function(){
   location.href=location.href.split('#')[0].replace(/[^\\/]*$/,'')+b.dataset.href;});});

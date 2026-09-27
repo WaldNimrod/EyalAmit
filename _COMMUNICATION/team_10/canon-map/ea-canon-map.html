@@ -154,6 +154,19 @@ section.sec.cm-bg-sand{--bg:#D8C7B5;--t-eb:#7A3418;--t-h:#2f2013;--t-b:#4a3220;-
 section.sec.cm-bg-olive{--bg:#575838;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-terra-dk{--bg:#874321;--t-eb:#F6D38A;--t-h:#FFE8C2;--t-b:#fff;--t-a:#F6D38A}
 section.sec.cm-bg-dark{--bg:#2A1A0C;--t-eb:#D08A5E;--t-h:#FFE8C2;--t-b:#EBEBEA;--t-a:#D08A5E}
+/* Proposal (T-06 split, rule D30: «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»): text and image share the six columns,
+   split by the image's shape. Landscape and cover: 3 + 3. Portrait: text 4, image 2. Reversed mirrors the sides.
+   The text keeps a breathing space on the side facing the image, inside its own columns. */
+section.cm-sp .split2{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);--sp-air:clamp(16px,3vw,40px)}
+section.cm-sp .split2>:not(.split2__m){grid-column:1/4;grid-row:1;padding-inline-end:var(--sp-air)}
+section.cm-sp .split2>.split2__m{grid-column:4/7;grid-row:1}
+section.cm-sp .split2.split2--rev>:not(.split2__m){grid-column:4/7;padding-inline-end:0;padding-inline-start:var(--sp-air)}
+section.cm-sp .split2.split2--rev>.split2__m{grid-column:1/4}
+section.cm-sp .split2:has(>.figr--p)>:not(.split2__m){grid-column:1/5}
+section.cm-sp .split2:has(>.figr--p)>.split2__m{grid-column:5/7}
+section.cm-sp .split2.split2--rev:has(>.figr--p)>:not(.split2__m){grid-column:3/7}
+section.cm-sp .split2.split2--rev:has(>.figr--p)>.split2__m{grid-column:1/3}
+section.cm-sp .split2 .intro-body{max-width:none}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -178,6 +191,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  /* Narrow screens (team_00): the hero and CTA button always sits on the left. */
  header.phero[class*="cm-h-"] .phero__in{display:block}
  section.sec.cm-pr-c>.wrap{display:block}
+ section.cm-sp .split2{grid-template-columns:minmax(0,1fr);row-gap:36px}
+ section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
  section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-end}
@@ -435,6 +450,78 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </section></div><div class="cm-variant">גרסה: תמונה ממלאת</div><div class="cm-spec"><section class="sec sec--alt">
+<div class="wrap">
+<div class="split2 split2--cover">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">מתי דיג'רידו צריך תיקון?</h2>
+<div class="intro-body"><p>לא כל בעיה בכלי נראית מיד לעין במקרים רבים השינוי מורגש קודם כל בצליל, בתחושה או בהתנגדות האוויר.</p><p>אלו המצבים הנפוצים שבהם מומלץ לבדוק את הכלי:</p><ul><li>הופעה של סדק חיצוני או פנימי</li><li>שבר בעץ או באזור הפייה</li><li>שינוי בצליל - אובדן עומק, יציבות או תהודה</li><li>תחושת "בריחה" של אוויר בזמן נגינה</li><li>קושי לשמור על לחץ אוויר יציב</li><li>שחיקה או עיוות בפייה (wax)</li><li>שדרוג פיית דונג לפיית עץ</li><li>שינוי מבני בעקבות לחות, חום או תנאי אחסון</li><li>כלי ישן שלא עבר תחזוקה לאורך זמן</li></ul><p>גם אם לא בטוחים בדיקה קצרה יכולה למנוע נזק גדול יותר בהמשך.</p></div>
+</div>
+<figure class="split2__m" style="margin:0">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000214.jpeg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">היום באתר — תמונה לאורך</div><div class="cm-spec"><section class="sec">
+<div class="wrap">
+<div class="split2">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">המורים שעיצבו את הדרך</h2>
+<div class="intro-body"><p>לאורך השנים זכיתי ללמוד ממורים משמעותיים, שכל אחד מהם השאיר בי משהו אחר.</p><p>המורה המרכזי בחיי היה <a class="tlink" href="/eyal-amit/mokesh-dahiman/">מוקש דהימן</a>, מאסטר דיג'רידו מרישיקש שבהודו. מוקש הגיע ממשפחה של אמנים ונגרים, הקדיש עשרות שנים לבניית דיג'רידו ולהפצת הידע סביב הכלי, והפך עבורי למורה דרך הרבה מעבר לטכניקה. אצלו למדתי בנייה, נגינה, נשימה, הקשבה, סבלנות וכבוד למסורת.</p><p>הקשר שלי עם מוקש התחיל בשנת 2000.</p><p>לצד מוקש למדתי מיורם סיון, מחלוצי תחום הדיג'רידו בישראל; מתמיר אלוני, מאסטר לטאי צ'י וצ'י קונג; מטל מידן, מורתי לראג'ה יוגה במסורת הבריגהו יוגה; מאלה טולנאי, מורתי למיינדפולנס; מלילה וניגם חפר, אצלם למדתי יסודות בפסיכותרפיה; ומשיר סופר, במסגרת הכשרת מטפלים בקערות טיבטיות.</p><p>כל המפגשים האלה נכנסו עם השנים אל אותה מעבדה אישית ומקצועית שבה חקרתי נשימה, צליל, תרגול, גוף ותודעה.</p></div>
+</div>
+<figure class="figr figr--p split2__m r r2" style="margin:0">
+<img alt="מוקש דהימן עם אייל עמית ברישיקש, הודו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/mokesh-eyal.jpg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — תמונה לרוחב: טקסט בטורים 1–3, תמונה בטורים 4–6</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-sp">
+<div class="wrap">
+<div class="split2">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">מהי שיטת <span lang="en">cbDIDG</span></h2>
+<div class="intro-body"><p>שיטת <span lang="en">cbDIDG</span> היא שיטה לעבודה עם הנשימה, המתבצעת דרך נגינה בדיג'רידו וליווי אישי, כחלק מתהליך של <a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> או במסגרת של <a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a>.</p><p>העבודה אינה מתמקדת רק בלימוד נגינה או בטכניקה, אלא בשיפור דפוסי הנשימה היומיומיים.</p><p>דרך הכלי, התרגול וההקשבה למה שקורה בגוף, נבנית בהדרגה שליטה, יציבות ויכולת ויסות של מערכת הנשימה.</p><p>הדיג'רידו משמש ככלי עבודה - לא כמטרה בפני עצמה.</p></div>
+</div>
+<figure class="figr figr--l split2__m r r2" style="margin:0">
+<img alt="אייל עמית מתרגל נשימה דרך הדיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — תמונה לרוחב, הפוך: תמונה בטורים 1–3, טקסט בטורים 4–6</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-sp">
+<div class="wrap">
+<div class="split2 split2--rev">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">המרכז לטיפול בנשימה באמצעות דיג'רידו בפרדס חנה</h2>
+<div class="intro-body"><p>אחרי שנים של הוראה, טיפול, בניית כלים ולימוד בארץ ובעולם, רציתי ליצור מקום אחד שבו כל חלקי הדרך נפגשים. כך נולד <strong>המרכז לטיפול בנשימה באמצעות דיג'רידו בפרדס חנה</strong>.</p><p>המרכז נמצא בחצר הבית, בתוך מרחב שקט וירוק שנבנה לאורך השנים סביב העבודה עם הנשימה והכלי. יש בו סטודיו למפגשים אישיים וללימוד, בית מלאכה לבניית ותיקון דיג'רידו, חצר ואוהל טיפי שמשמשים למפגש, שיחה, התכווננות והקשבה.</p><p>כיום מתקיימים במרכז כמה מסלולים שונים, וכל אחד מהם נותן מענה לצורך אחר:</p><ul><li><a class="tlink" href="/treatment/">טיפול בנשימה באמצעות דיג'רידו</a> - תהליך אישי, פעיל ומונחה, המבוסס על למידה ותרגול.</li><li><a class="tlink" href="/lessons/">שיעורי דיג'רידו</a> - למי שרוצה ללמוד לנגן, לפתח טכניקה, נשימה מעגלית וצליל יציב.</li><li><a class="tlink" href="/sound-healing/">סאונד הילינג</a> - מפגש הקשבה פסיבי יותר, שבו הדיג'רידו משתלב עם כלי סאונד נוספים לטובת שקט, הרפיה והעמקה.</li><li><a class="tlink" href="/shop/">בניית כלים, תיקון וחידוש</a> - המשך ישיר למלאכת היד שלמדתי ממוקש ולחיבור שלי בין חומר, מבנה וצליל.</li></ul><p>אל המרכז מגיעים אנשים מכל רחבי הארץ. חלקם רוצים ללמוד לנגן, חלקם מחפשים דרך לעבוד עם הנשימה, סטרס כרוני, נחירות או דום נשימה בשינה, ואחרים פשוט מרגישים שהם צריכים לעצור רגע ולחזור להקשיב לגוף.</p><p>המרכז לא בנוי סביב חוויה חד פעמית. הוא נועד להיות מקום של תהליך, תרגול והעמקה.</p></div>
+</div>
+<figure class="figr figr--l split2__m r r2" style="margin:0">
+<img alt="פנים הסטודיו בפרדס חנה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — תמונה לאורך: טקסט בטורים 1–4, תמונה צרה בטורים 5–6</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-sp">
+<div class="wrap">
+<div class="split2">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">המורים שעיצבו את הדרך</h2>
+<div class="intro-body"><p>לאורך השנים זכיתי ללמוד ממורים משמעותיים, שכל אחד מהם השאיר בי משהו אחר.</p><p>המורה המרכזי בחיי היה <a class="tlink" href="/eyal-amit/mokesh-dahiman/">מוקש דהימן</a>, מאסטר דיג'רידו מרישיקש שבהודו. מוקש הגיע ממשפחה של אמנים ונגרים, הקדיש עשרות שנים לבניית דיג'רידו ולהפצת הידע סביב הכלי, והפך עבורי למורה דרך הרבה מעבר לטכניקה. אצלו למדתי בנייה, נגינה, נשימה, הקשבה, סבלנות וכבוד למסורת.</p><p>הקשר שלי עם מוקש התחיל בשנת 2000.</p><p>לצד מוקש למדתי מיורם סיון, מחלוצי תחום הדיג'רידו בישראל; מתמיר אלוני, מאסטר לטאי צ'י וצ'י קונג; מטל מידן, מורתי לראג'ה יוגה במסורת הבריגהו יוגה; מאלה טולנאי, מורתי למיינדפולנס; מלילה וניגם חפר, אצלם למדתי יסודות בפסיכותרפיה; ומשיר סופר, במסגרת הכשרת מטפלים בקערות טיבטיות.</p><p>כל המפגשים האלה נכנסו עם השנים אל אותה מעבדה אישית ומקצועית שבה חקרתי נשימה, צליל, תרגול, גוף ותודעה.</p></div>
+</div>
+<figure class="figr figr--p split2__m r r2" style="margin:0">
+<img alt="מוקש דהימן עם אייל עמית ברישיקש, הודו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/mokesh-eyal.jpg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — תמונה לאורך, הפוך: תמונה בטורים 1–2, טקסט בטורים 3–6</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-sp">
+<div class="wrap">
+<div class="split2 split2--rev">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">ומה היום</h2>
+<div class="intro-body"><p>בשנת 2026, שש שנים לאחר פטירתו של מוקש, טסתי להודו לבקר את המשפחה ולסגור מעגל שנשאר אצלי בלב פתוח מאז פטירתו. השנים של הקורונה והמלחמה הבלתי נגמרת עם כל שכנינו במזרח התיכון מנעו ממני לטוס. עם יד על הלב, אני חושב שגם נמנעתי וחששתי מהנסיעה הזו. חששתי מאוד להגיע לרישיקש שאחרי מוקש..</p><p>אחרי טבילה במים של מוקש (המקום הספציפי גל גדת הגנגס בה מוקש נהג לטבול), עריכת טקסי פרידה פרטיים וביקור בכל המקדשים, מערות ומקומות הקדושים שמוקש אהב לבקר ולקחת אותי אליהם, המעגל הושלם. נוכחותו הפיזית של מוקש תמיד תחסר לי, אך לפחות ליבי עתה שקט. הפרידה הושלמה. המעגל נסגר.</p></div>
+</div>
+<figure class="figr figr--p split2__m r r2" style="margin:0">
+<img alt="מוקש דהימן" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/mokesh-gallery/mokesh-16.jpg"/>
+</figure>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — תמונה ממלאת (בגובה הטקסט): טקסט בטורים 1–3, תמונה בטורים 4–6</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-sp">
 <div class="wrap">
 <div class="split2 split2--cover">
 <div class="r">
