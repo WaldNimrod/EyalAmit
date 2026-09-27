@@ -24,7 +24,7 @@ YOUR MANDATE IS A FILE. Read it first, in full. It is the brief; this prompt is 
 
 Then read, in this order, before planning anything:
   _COMMUNICATION/team_100/EYAL-WORKSPACE/CONTENT-TYPES-CANON.md
-  _COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html
+  _COMMUNICATION/team_10/canon-map/ea-canon-map.html
   _COMMUNICATION/team_90/AUDIT-2026-09-27/EDIT-LEVELS-2026-09-27.md
   _COMMUNICATION/team_90/AUDIT-2026-09-27/EDITING-SURFACES-MAP-2026-09-27.md
   _COMMUNICATION/team_90/PROTOCOL-VERIFY-AND-FIX.md

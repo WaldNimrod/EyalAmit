@@ -80,10 +80,11 @@ inputs is a type that will not survive stage ב.
    definitions file, written for sessions. Per type: renderer file and line range, CSS file and
    line range, exact classes, **exact inputs as the renderer's `$args`**, measured layout rules,
    which pages use it, variants, exceptions, and whether it is an orphan.
-2. **`_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html`** — the artifact for Nimrod
-   and Eyal. 37 examples. **Each is local markup injected with `iframe.srcdoc` (line 544) and
-   styled by the live theme stylesheets**, which the `STAGE` variable (line 134) prefixes. It is
-   not fetching pages. Plain language, no class names. Published at the hub.
+2. **`_COMMUNICATION/team_10/canon-map/ea-canon-map.html`** — the artifact for Nimrod and Eyal.
+   One row per type, specimens copied verbatim from live pages and styled by the live
+   stylesheets through a single `<base>` line. **RETIRED 2026-09-27 and replaced by it:** the old
+   `ea-content-types.html`, on Nimrod's ruling «פורש — המפה מחליפה אותו!!! למחוק». That file is
+   gone from the workspace, from `hub/dist/` and from the server. Do not look for it.
 
 **Then the state of the ground:**
 
@@ -288,11 +289,11 @@ If your change is meant to move a number, re-baseline with the **full** invocati
 - **Do not touch `_COMMUNICATION/team_100/S007/` or `hub/dist/`** — Eyal's live form and the
   published hub. **His form signature `wave1-20260925` is frozen; changing it erases his saved
   draft, which exists nowhere else.**
-  **Consequence you must not work around:** the canon artifact is published at
-  `hub/dist/ea-content-types.html`. **You edit the workspace copy; team_90 copies it into
-  `hub/dist/` and runs `scripts/ftp_publish_eyal_client_hub.py`.** Say in your report when a
-  publish is due. **Do not publish it yourself and do not leave it unsaid** — otherwise the live
-  catalog Nimrod and Eyal open stays on the old file.
+  **Consequence you must not work around:** anything Eyal or Nimrod opens is served from
+  `hub/dist/` by `scripts/ftp_publish_eyal_client_hub.py`, **and team_90 runs it — never you.**
+  Say in your report when a publish is due. **Do not publish it yourself and do not leave it
+  unsaid**, otherwise what they open stays on the old file. The canon map is not published yet;
+  when Nimrod rules that it should be, team_90 publishes it.
   **One exception you may need:** type 37's schema lives in
   `_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md`. **Read it; do not edit it.** If it
   needs changing, say so in the report.
