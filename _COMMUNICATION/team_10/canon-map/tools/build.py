@@ -122,7 +122,10 @@ t("T-36", "וידאו מוקש", "mokesh-video", "yt_id · title",
 
 group("קריאה לפעולה")
 t("T-08", "פס קריאה לפעולה", "cta", "title · body · cta_label · cta_url · sand · btn",
-  [(None, "method", "section.cta-band", 0, None, None)],
+  [("היום באתר — רקע חול", "method", "section.cta-band", 0, None, None),
+   ("היום באתר — רקע כהה", "repair", "section.cta-band", 0, None, None),
+   ("הצעה — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט רחב (טורים 1–4), הכפתור משמאל ומיושר לתחתית (טורים 5–6)", "method", "section.cta-band", 0, None, ("__PROPOSAL__", "cm-cta-p")),
+   ("הצעה — רקע כהה: אותו מבנה", "repair", "section.cta-band", 0, None, ("__PROPOSAL__", "cm-cta-p"))],
   note="מוצג בצורה המלאה בלבד — כפתור בלי כותרת ותת־כותרת אסור לפי החלטה סגורה.")
 t("T-15", "איך מתחילים", "start (דף הבית)", "start_bg · start_chap · start_title · start_steps[title, text] · start_cta_label · start_cta_url",
   [(None, "home", "section#start", 0, None, None)])
@@ -422,6 +425,15 @@ body{background:#f7f2ea}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
+/* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
+   text columns 1-4, button 5-6, bottom-aligned; same six-column grid as the approved hero. */
+section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
+section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;position:relative}
+section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute;grid-column:auto;grid-row:auto;inset-block:50% auto;inset-inline-start:-4%;
+  width:min(52%,520px);height:auto;aspect-ratio:1;min-height:0;transform:translateY(-50%);z-index:0;opacity:.16;
+  -webkit-mask-image:linear-gradient(to left,#000 35%,transparent 90%);mask-image:linear-gradient(to left,#000 35%,transparent 90%)}
+section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
+section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-end}
 /* Proposal (team_00): the hero button sits left, bottom-aligned, on the six-column grid — text cols 1-4, button cols 5-6. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:24px;align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
@@ -440,6 +452,10 @@ header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
  header.phero[class*="cm-h-"] .phero__in{display:block}
+ section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
+ section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
+ section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
+ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px);inset-inline-start:-10%}
  header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}

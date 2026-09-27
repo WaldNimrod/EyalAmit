@@ -67,7 +67,7 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D3 | Types with no live instance | Show with dummy content, clearly marked; mark «כרגע לא בשימוש» instead of the proof link; propose an example to implement, for approval. | Done for T-37. Proposal in §4. |
 | D4 | Videos in the map | A placeholder is fine, even preferred — image with a film icon, YouTube logo, our atmosphere background; the same for every video; map only. | Done. |
 | D5 | Hero heights (T-01) | «שני הקצוות מתקבלים — אבל לא כל גודל מתקבל.» Exactly three: large, medium, small. Large: «כמעט מסך מלא בפרופורציה נפוצה, כשיש סרגלים פתוחים». Small: the existing small end. Medium: from what is common/average on the site. **Every page aligns to one of the three.** | Proposal shown in the map: 92svh / 66svh / 44svh (min). **Awaiting approval.** |
-| D6 | CTA band (T-08) | Less vertical padding. The logo is not a content column — a large, partly transparent background with a fade («רק אווירה, לא תוכן»). Button aligned to the bottom, not the centre. Wider middle column. | Not yet shown as a proposal. |
+| D6 | CTA band (T-08) | Less vertical padding. The logo is not a content column — a large, partly transparent background with a fade («רק אווירה, לא תוכן»). Button aligned to the bottom, not the centre. Wider middle column. | Proposal in the map on a light and a dark band, on the same six-column grid as the approved hero (text 1–4, button 5–6). Measured 1440: light 423→235px tall, text column 357→739px, button bottom level with the text; dark 288→182px. Phone: button under the text, no sideways scroll. **Awaiting approval.** |
 | D7 | Six-column grid (system-wide) | Content width (not screen width) is divided into six equal parts; every alignment, column split and table sits on that grid by default — 3+3, 2+2+2, 1+5 — «כאילו יש סרגל קבוע מלמעלה למטה». | Principle recorded. Scope open — O3. |
 | D8 | Videos on pages | «כל עמוד מקבל סרט משלו.» Check what already exists before asking Eyal anything. | Lessons, sound healing: Eyal said a video is coming (r19 LSN-02, SH-01); delivery tracked by form cards PH-LESSONS-VIDEO / PH-SOUND-HEALING-VIDEO. **Treatment: Eyal deferred it to phase 2–3 (r19 T-02)** — update card PH-TREATMENT-VIDEO to show that and ask his final choice. See O2. |
 | D9 | Memorial-page examples | T-02 (its memorial instance), T-28, T-29, T-36 come from `/eyal-amit/mokesh-dahiman/`: «כרגע להשאיר — זה זמני — נגיע אליהם.» | Kept, to revisit. |
@@ -94,7 +94,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 | T-05 | Prose fold | captured |
 | T-06 | Split | captured — alignment follows D7 |
 | T-07 | Floated figure | captured |
-| T-08 | CTA band | **ruled** (D6, D10, D11) |
+| T-08 | CTA band | **proposal** shown (D6 on the six-column grid) — awaiting approval |
 | T-09 | Point cards | captured |
 | T-10 | Photo band | captured |
 | T-11 | Gallery | captured |
