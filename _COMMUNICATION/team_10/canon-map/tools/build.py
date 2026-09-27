@@ -228,7 +228,7 @@ GRID_PROPOSALS = {
     "T-25": [("מאושר — ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), במסגרת דקה; הטקסט מיושר לתחתית, התמונה ממלאת את כל האזור שמעליו — רק מילוי בטיפוס הזה", "home", "section#ea-now", 0, None, ("__APPROVED__", "cm-g6 cm-g4-3111 cm-frame")),
              ("מאושר — ארבעה כרטיסים: שתי שורות של 2", "home", "section#ea-now", 0, None, ("__APPROVED__", "cm-g6 cm-g4-22 cm-frame"))],
     "T-35": [("מאושר — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
-    "T-18": [("הצעה לאישור — שלושה כרטיסים שלמים ברוחב התוכן (2 טורים לכרטיס), בלי חיתוך; בראש הכרטיס עיגול קטן, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
+    "T-18": [("הצעה לאישור — כותרת כמו בפסקת טקסט; שלושה כרטיסים שלמים ברוחב התוכן; חצים עדינים בלי מסגרת במרכז מעל, נקודות בשורה למטה; בראש הכרטיס עיגול, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
     "T-19": [("מאושר — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, ("__APPROVED__", "cm-g6 cm-frame cm-tq"))],
     "T-20": [("מאושר — ציטוט: ריווח קטן ומסגרת דקה בלבד (G-12.1), 2 בשורה על הרשת", "snoring", "section.ea-testi-cards", 0, None, ("__APPROVED__", "cm-g6 cm-q cm-q-frame"))],
     "T-28": [("מאושר — 2 טורים על הרשת, כל טור רץ בלי סנכרון לשני (הפוסט הבא מתחיל איפה שהקודם נגמר, לא טבלה); כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, ("__APPROVED__", "cm-g6 cm-fb"))],
@@ -302,6 +302,19 @@ def specimen(label, page, css, idx, pred, tr):
             el = dummy(el)
         elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__", "__APPROVED_VIDEO__"):
             el["class"] = el.get("class", []) + keep.split()
+            if "cm-tq" in keep.split():  # proposal: heading like a paragraph; quiet arrows centred above, dots below
+                for w in el.select(".wrap.center"):
+                    w["class"] = [c for c in w["class"] if c != "center"]
+                mq = el.select_one(".testi-mq")
+                if mq:
+                    nav = BeautifulSoup('<div class="cm-tq__nav"></div>', "lxml").div
+                    for b in mq.select(".testi-mq__btn"):
+                        nav.append(b.extract())
+                    mq.insert_before(nav)
+                    pages = max(1, -(-len(mq.select(".tmq")) // 3))
+                    mq.insert_after(BeautifulSoup('<div class="cm-tq__dots" aria-hidden="true">'
+                                                  + "".join(f'<i{" class=on" if k == 0 else ""}></i>' for k in range(pages))
+                                                  + "</div>", "lxml").div)
             if "cm-hs" in keep.split():  # proposal: heading on the right with a subtitle (dummy when the content has none)
                 w = el.select_one(".wrap.center") or el.select_one(".wrap")
                 if w and "center" in w.get("class", []):
@@ -669,8 +682,15 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-frame :is(.bookcard,.ea-now__card,.ea-blog-card) img{border-radius:2px}
 /* Testimonials: whole cards on the grid, never cut; a small round avatar with name and date on top. */
 .cm-tq .testi-mq{display:block;position:relative}
-.cm-tq .testi-mq__btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
-.cm-tq .testi-mq__btn--right{right:-44px}.cm-tq .testi-mq__btn--left{left:-44px}
+/* team_00: «הכפתורים לא יפים ומפריעים בצדדים — במקום זה נקודות בשורה למטה, וחצים עדינים בלי מסגרת לשני הצדדים, במרכז, מעל». */
+.cm-tq .wrap>.h2{text-align:start}
+.cm-tq__nav{grid-column:1/-1;display:flex;justify-content:center;gap:28px;margin:0 0 12px}
+.cm-tq__nav .testi-mq__btn{position:static!important;transform:none!important;border:0!important;background:none!important;box-shadow:none!important;
+  width:auto!important;height:auto!important;padding:4px 8px!important;color:#9A4F2B;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.75}
+.cm-tq__nav .testi-mq__btn:hover{opacity:1}
+.cm-tq__dots{grid-column:1/-1;display:flex;justify-content:center;gap:8px;margin-top:16px}
+.cm-tq__dots i{width:7px;height:7px;border-radius:50%;background:#cdbba6}
+.cm-tq__dots i.on{background:#9A4F2B}
 .cm-tq .testi-mq__viewport{container-type:inline-size;overflow:hidden;direction:rtl}
 .cm-tq .testi-mq__track{display:grid!important;grid-auto-flow:column;grid-auto-columns:calc((100cqw - 2 * var(--cm-gap)) / 3);
   gap:var(--cm-gap)!important;width:auto!important;transform:none!important;direction:rtl}
@@ -764,7 +784,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 .gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
- .cm-tq .testi-mq__btn{display:none}
+ .cm-tq__nav{display:none}
  .cm-g6.cm-fb .fbgrid{columns:1}
  .cm-g6[class*="cm-g4-"] .whom{grid-template-rows:none!important;grid-auto-rows:auto!important}
  .cm-g6.cm-g4-3111 .ea-now{grid-auto-rows:auto}.cm-g6.cm-g4-3111 .ea-now__ph{aspect-ratio:3/2!important}
