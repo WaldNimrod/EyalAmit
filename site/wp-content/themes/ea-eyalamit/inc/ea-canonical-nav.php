@@ -663,9 +663,18 @@ add_action( 'wp_body_open', 'ea_render_primary_nav_wp_hook', 20 );
 /**
  * Views that used to call template-parts/chapters/section-footer.php before
  * wp_footer() (contact foot-gap + sticky-reveal flag). /en/, /press/, and
- * /historical-articles/ never called it — measured 2026-09-27. QR children
- * under /qr/{slug}/ reach tpl-chapters-qr.php via pattern routing, not via
- * get_page_template_slug() on the child — include them explicitly.
+ * /historical-articles/ never called it — measured 2026-09-27.
+ *
+ * Both branches below ask the SAME question the routers ask, by calling the
+ * routers' own predicates. Do not add a third, parallel predicate here: the
+ * first version of this function tested is_singular('post') against
+ * get_page_template_slug(), which reads the _wp_page_template meta. That meta
+ * is set on pages, not on posts — posts reach tpl-chapters-blog-single.php
+ * through the template_include filter in inc/chapters/chapters-routing.php,
+ * which stores nothing. So the test was false for every post, and 53 pages
+ * (all 52 blog posts plus the blog archive) silently lost the sticky-reveal
+ * footer in 1.5.144/1.5.145. Measured live: 133 pages carried .foot.uncover
+ * before, 80 after. Ask the router, never the meta.
  *
  * @return bool
  */
@@ -676,18 +685,10 @@ function ea_chapters_uses_section_footer_partial() {
 	if ( function_exists( 'ea_chapters_is_view' ) && ea_chapters_is_view() ) {
 		return true;
 	}
-	if ( is_singular( 'post' ) ) {
-		$ea_tpl = get_page_template_slug();
-		if ( in_array(
-			$ea_tpl,
-			array(
-				'page-templates/tpl-chapters-blog-single.php',
-				'page-templates/tpl-chapters-blog-archive.php',
-			),
-			true
-		) ) {
-			return true;
-		}
+	// Same predicate ea_chapters_blog_template_include() routes on, and the
+	// same ea_chapters_enabled() gate, so the two cannot drift apart.
+	if ( function_exists( 'ea_chapters_is_blog_view' ) && ea_chapters_is_blog_view() ) {
+		return ! function_exists( 'ea_chapters_enabled' ) || ea_chapters_enabled();
 	}
 	return false;
 }
