@@ -35,7 +35,7 @@ def t(tid, name, part, inputs, caps, note=None): G.append((tid, name, part, inpu
 
 group("פתיחות")
 t("T-01", "הירו", "phero", "גובה · מדיה (תמונה / סרטון / ללא) · תווית · כותרת · תת-כותרת · כפתור",
-  [("מאושר — גדול, עם סרטון: הטקסט בטורים 1–4, הכפתור ברוחב תא אחד (טור 5), מיושר לימין ולתחתית. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED_VIDEO__", "cm-h-l")),
+  [("מאושר — גדול, עם סרטון: הטקסט בטורים 1–4, הכפתור בטורים 5–6 בשורה אחת, מיושר לתחתית. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED_VIDEO__", "cm-h-l")),
    ("מאושר — גדול, עם תמונה (92%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l")),
    ("מאושר — בינוני (66%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-m")),
    ("מאושר — קטן: 44%, גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__APPROVED__", "cm-h-s")),
@@ -51,8 +51,10 @@ t("T-01", "הירו", "phero", "גובה · מדיה (תמונה / סרטון / 
 
 group("טקסט")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
-  [(None, "method", "main > section.sec", 0, None, None),
-   ("גרסה: רקע כהה", "lessons", "main > section.sec--dark", 0, None, None)])
+  [("היום באתר", "method", "main > section.sec", 1, None, None),
+   ("היום באתר — רקע כהה", "lessons", "main > section.sec--dark", 0, None, None),
+   ("הצעה א — על הרשת, ממורכז: כותרת וטקסט בטורים 2–5 (הכי קרוב למראה היום)", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-a")),
+   ("הצעה ב — על הרשת, מיושר לימין: כותרת וטקסט בטורים 1–4 (על אותו קו כמו טקסט ההירו)", "method", "main > section.sec", 1, None, ("__PROPOSAL__", "cm-pr-b"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
@@ -122,7 +124,7 @@ group("קריאה לפעולה")
 t("T-08", "פס קריאה לפעולה", "cta", "title · body · cta_label · cta_url · sand · btn",
   [("היום באתר — רקע חול", "method", "section.cta-band", 0, None, None),
    ("היום באתר — רקע כהה", "repair", "section.cta-band", 0, None, None),
-   ("מאושר — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע במקום עמודה, הטקסט בטורים 2–4, הכפתור ברוחב תא אחד בדיוק — טור 5, מיושר לימין ולתחתית", "method", "section.cta-band", 0, None, ("__APPROVED__", "cm-cta-p")),
+   ("מאושר — רקע חול: פס נמוך יותר, הלוגו גדול ודהוי ברקע, צמוד לקצה המסך, הטקסט בטורים 1–4, הכפתור בטורים 5–6, בשורה אחת, מיושר לתחתית", "method", "section.cta-band", 0, None, ("__APPROVED__", "cm-cta-p")),
    ("מאושר — רקע כהה: אותו מבנה", "repair", "section.cta-band", 0, None, ("__APPROVED__", "cm-cta-p"))],
   note="מוצג בצורה המלאה בלבד — כפתור בלי כותרת ותת־כותרת אסור לפי החלטה סגורה.")
 t("T-15", "איך מתחילים", "start (דף הבית)", "start_bg · start_chap · start_title · start_steps[title, text] · start_cta_label · start_cta_url",
@@ -142,7 +144,7 @@ t("T-34", "פוסט בלוג — ארכיון", "tpl-chapters-blog-single", "ה�
 D = ("__DUMMY__", 0)
 t("T-37", "פוסט בלוג — תבנית חדשה", "ea-post-v1 (JSON)", "hero · media[] · video · rows[part, bg, …]",
   [("שורה: hero", "method", "header.phero--media", 0, None, D),
-   ("שורה: prose", "method", "main > section.sec", 0, None, D),
+   ("שורה: prose", "method", "main > section.sec", 1, None, D),
    ("שורה: split", "method", ".split2", 0, None, D),
    ("שורה: gallery", "kushi", ".gallery", 0, None, D),
    ("שורה: video", "home", "section#video", 0, None, D),
@@ -360,6 +362,9 @@ for item in G + [("GROUP", None)]:
         + "".join(body) + "</div></details>")
 
 CM_CSS = """
+/* Buttons (team_00, all buttons): less padding around the label. Applied to approved and proposed examples. */
+:root{--cm-btn-pad-block:9px;--cm-btn-pad-inline:18px}
+.cm-appr .btn,.cm-prop .btn{padding:var(--cm-btn-pad-block) var(--cm-btn-pad-inline)!important}
 /* The six-column grid's gutter — one value (team_00: «ממש מינימלי»). */
 :root{--cm-gap:4px}
 .cm-spec{transform:translateZ(0);position:relative}
@@ -426,20 +431,25 @@ header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
 /* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
-   text columns 2-4 (moved left, team_00), button exactly column 5, bottom-aligned; same six-column grid as the approved hero. */
+   text columns 1-4, button spans columns 5-6 on one line, bottom-aligned; the logo is pinned to the screen edge; same six-column grid as the approved hero. */
 section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
 section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:end;position:relative}
-section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute;grid-column:auto;grid-row:auto;inset-block:50% auto;inset-inline-start:-4%;
+section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute;grid-column:auto;grid-row:auto;inset-block:50% auto;inset-inline-start:calc((100% - 100vw) / 2);
   width:min(52%,520px);height:auto;aspect-ratio:1;min-height:0;transform:translateY(-50%);z-index:0;opacity:.16;
   -webkit-mask-image:linear-gradient(to left,#000 35%,transparent 90%);mask-image:linear-gradient(to left,#000 35%,transparent 90%)}
-section.cta-band.cm-cta-p .cta-band__txt{grid-column:2/5;grid-row:1;position:relative;z-index:1;align-self:end}
-section.cta-band.cm-cta-p .cta-band__act{grid-column:5/6;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
-section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:normal;text-align:center;justify-content:center}
-/* Approved (team_00): hero text cols 1-4; the button is exactly one cell, column 5 (right-aligned in Hebrew), bottom-aligned. */
+section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
+section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
+section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
+/* Proposal (T-04): the text paragraph on the six-column grid. A = columns 2-5 (centred), B = columns 1-4 (right). */
+section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
+section.sec.cm-pr-a>.wrap>*{grid-column:2/6}
+section.sec.cm-pr-b>.wrap>*{grid-column:1/5}
+section.sec.cm-pr-a .intro-body,section.sec.cm-pr-b .intro-body{max-width:none;margin-inline:0}
+/* Approved (team_00): hero text cols 1-4; the button spans columns 5-6 on one line (team_00 corrected from one cell), bottom-aligned. */
 header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:var(--cm-gap);align-items:end}
 header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
-header.phero[class*="cm-h-"] .phero__cta{grid-column:5/6;grid-row:1/span 4;align-self:end;justify-content:flex-start;margin-top:0}
-header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:normal;text-align:center;justify-content:center}
+header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align-self:end;justify-content:flex-start;margin-top:0}
+header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
 .cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
@@ -454,10 +464,11 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
  header.phero[class*="cm-h-"] .phero__in{display:block}
+ section.sec.cm-pr-a>.wrap,section.sec.cm-pr-b>.wrap{display:block}
  section.cta-band.cm-cta-p .cta-band__in{grid-template-columns:minmax(0,1fr)}
  section.cta-band.cm-cta-p .cta-band__txt,section.cta-band.cm-cta-p .cta-band__act{grid-column:1}
  section.cta-band.cm-cta-p .cta-band__act{grid-row:2;justify-content:flex-start}
- section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px);inset-inline-start:-10%}
+ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{width:min(80%,320px)}
  header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
  header.phero[class*="cm-h-"] .phero__cta .btn,section.cta-band.cm-cta-p .cta-band__act .btn{width:auto;padding-inline:36px}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
