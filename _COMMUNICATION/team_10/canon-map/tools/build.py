@@ -39,7 +39,7 @@ t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media �
    ("גרסה: קומפקטי", "repair", "header.phero--compact", 0, None, None),
    ("גרסה: חצי גובה", "contact", "header.phero--half", 0, None, None),
    ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None),
-   ("הצעה — גדול: כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
+   ("הצעה — גדול: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
    ("הצעה — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-m")),
    ("הצעה — קטן: 44% מהגובה הנראה. זה גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג כאן עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__PROPOSAL__", "cm-h-s")),
    ("הצעה — אותו באנר עם סרטון במקום תמונה (גדול). כך הירו הווידאו הופך לאותו טיפוס — המדיה היא שדה", "method", "header.phero--media", 0, None, ("__PROPOSAL_VIDEO__", "cm-h-l"))])
@@ -418,6 +418,10 @@ body{background:#f7f2ea}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
+/* Proposal (team_00): the hero button sits left, bottom-aligned, on the six-column grid — text cols 1-4, button cols 5-6. */
+header.phero[class*="cm-h-"] .phero__in{display:grid;grid-template-columns:repeat(6,1fr);column-gap:24px;align-items:end}
+header.phero[class*="cm-h-"] .phero__in>:not(.phero__cta){grid-column:1/5}
+header.phero[class*="cm-h-"] .phero__cta{grid-column:5/7;grid-row:1/span 4;align-self:end;justify-content:flex-end;margin-top:0}
 .cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
@@ -431,6 +435,8 @@ header.phero.cm-h-s{min-height:44svh!important}
 @media(max-width:760px){
  .cm-thead{display:none}
  .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
+ header.phero[class*="cm-h-"] .phero__in{display:block}
+ header.phero[class*="cm-h-"] .phero__cta{margin-top:28px;justify-content:flex-start}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
  .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}
  .cm-mini{width:112px;height:80px}.cm-mini__in{transform:scale(.0875)}
