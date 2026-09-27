@@ -35,8 +35,13 @@ today · whether a change is safe · what was already measured and what the numb
 deploy · what broke last time and why. **Ask before searching for an hour.** Much of what you
 need has already been measured this week and the numbers are in `_COMMUNICATION/team_90/`.
 
-**Never guess at either kind.** A guessed technical fact wastes a day; a guessed design decision
-reaches the client.
+**And a third case the split does not cover: a contradiction between two documents, or between a
+document and this mandate.** That is neither a taste question nor a code lookup. **Take it to
+Nimrod first, with both quotes**, and do not resolve it by picking the one you prefer. Several
+documents here were written days apart and the site moves daily.
+
+**Never guess at any of the three.** A guessed technical fact wastes a day; a guessed design
+decision reaches the client; a silently resolved contradiction becomes the new wrong answer.
 
 ---
 
@@ -76,8 +81,9 @@ inputs is a type that will not survive stage ב.
    line range, exact classes, **exact inputs as the renderer's `$args`**, measured layout rules,
    which pages use it, variants, exceptions, and whether it is an orphan.
 2. **`_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html`** — the artifact for Nimrod
-   and Eyal. 37 rendered examples, each drawn by the **live theme CSS** in an iframe. Plain
-   language, no class names. Published at the hub.
+   and Eyal. 37 examples. **Each is local markup injected with `iframe.srcdoc` (line 544) and
+   styled by the live theme stylesheets**, which the `STAGE` variable (line 134) prefixes. It is
+   not fetching pages. Plain language, no class names. Published at the hub.
 
 **Then the state of the ground:**
 
@@ -87,22 +93,29 @@ inputs is a type that will not survive stage ב.
 4. **`_COMMUNICATION/team_90/PROTOCOL-VERIFY-AND-FIX.md`** — the standing verification procedure.
    **It replaces closing conditions written in prose. Follow it.**
 5. **`_COMMUNICATION/team_90/AUDIT-2026-09-24/SESSION-STATE-2026-09-24.md`** — the entry point:
-   current state, open items, and the fifteen measurement traps.
+   current state and open items. **It summarises six measurement traps; the full fifteen are in**
+   `_COMMUNICATION/team_90/AUDIT-2026-09-24/MASTER-PRE-MEETING-AUDIT-2026-09-24.md`.
+   **Its earlier ruling that the canon is a later stage was superseded on 2026-09-27 when Nimrod
+   opened this session — the file now says so, and stages ב and ג remain later.**
 
 ### Four facts you would otherwise discover the hard way
 
 - **The pair says it is true for theme 1.5.138. The live theme is 1.5.147.** Part of your job is
   re-verifying its geometry claims. **"Not measured" is a legal value in that file — keep it so.**
-- **Page content does not live in the database.** ~156,000 Hebrew characters sit in 35 PHP files
-  under `inc/chapters/defaults/`. The Chapters templates never call `the_content()`.
+- **Core page content does not live in the database.** 155,673 Hebrew characters sit in 35 PHP
+  files under `inc/chapters/defaults/`. `tpl-chapters-page.php`, `-method.php` and `-mokesh.php`
+  never call `the_content()`. **Two Chapters templates do, and this matters:**
+  `tpl-chapters-qr.php:47` and `tpl-chapters-blog-single.php:105`. **The 48 QR pages and the
+  blog posts are ordinary database content and edit normally** — measured, 42 of 49 and 50 of 52.
 - **ACF is installed and the overlay works** — but it is frozen for 21 page types by
   `ea_chapters_seeded_only_types()` in `inc/chapters/chapters-render.php`. Measured 2026-09-27:
   **zero stored ACF values on any frozen page**, and lifting the freeze for one type does restore
   editing. That function is filterable, so a type can be unfrozen for a test without editing code
   twice.
-- **The artifact pulls all 37 examples from the staging host** through a single `STAGE` variable,
-  plus 20 hardcoded URLs. **It breaks silently at the domain cutover.** If you touch that file,
-  do not add a twenty-second one.
+- **The artifact depends on the staging host in 21 places:** the `STAGE` variable that prefixes
+  every stylesheet and image, plus **20 hardcoded URLs in the review lists** (lines 588–595,
+  614–617). **At the domain cutover the examples lose their styling and those 20 links die.**
+  If you touch that file, do not add a twenty-first hardcoded URL.
 
 ---
 
@@ -133,29 +146,67 @@ from, and fixing those links is part of this.**
 
 ### 4.3 The one hard deliverable — a real example on a real page
 
-**At least one type, rendered on a real live page, with real content, done the way the site is
-actually meant to be built.**
+**At least one type, rendered on a real live page, with real content, through the mechanism the
+site actually uses.** This is the acceptance test for the stage.
 
-This is the acceptance test for the whole stage: **if the canon is accurate, someone should be
-able to build from it without opening the theme. Prove that by doing it.**
+**Before you plan it, understand how content reaches an inner page.** This is the part a builder
+gets wrong, so it is spelled out:
+
+- An inner Chapters page renders **only the sections already listed in its own
+  `inc/chapters/defaults/{type}-defaults.php`.** `ea_chapters_page_sections()` walks that array.
+- **ACF can replace the value of a slot that already exists in that array. It cannot add a row.**
+  The admin field names are `phero_{arg}` and `s{N}_{arg}` — built in
+  `inc/chapters/acf-fields-inner.php` — **not the `$args` names the canon records.** The canon
+  says `title`; the field is `s3_title`. **That gap is itself a canon finding: write it down.**
+- An empty ACF value keeps the seeded default, which is why lifting the freeze changes nothing
+  until a value is entered.
+- **The freeze filter removes a type from the frozen list for every page of that type**, not for
+  one page.
+
+**Therefore there are exactly two honest routes, and you pick one with Nimrod:**
+
+**Route A — change an existing slot through ACF.** Available today on the pages that are already
+unfrozen: **`/learning/`, `/learning/therapist-training/`, `/learning/lectures/`,
+`/learning/workshops/`, `/thank-you/`.** No code, no deploy, fully reversible. **This proves the
+overlay works and that the canon entry describes the right field.** It does not prove a type can
+be constructed from its entry.
+
+**Route B — add a section to a defaults array.** This is the only way to put a type on a page that
+does not already have it. **It is PHP in the theme, and that is the site's real mechanism, not a
+shortcut** — do not avoid it out of a misreading of "use a real field". **But it is also a code
+change on a live site, so: one page, one section, committed with explicit paths, deployed on a
+clean tree, and captured before and after.**
+
+**What "a hardcoded patch" means here, since the distinction matters:** pasting markup into a
+template, adding a `page-id-` CSS rule, or special-casing one URL in a renderer. **Adding a
+properly-shaped entry to a defaults array is not that.**
 
 **Rules for the example:**
 
-- **Real content only.** Content law on this project: only what exists on the site, what came from
-  Eyal, or what came from Nimrod. **No invented copy, not even as an example.** Eyal's delivered
-  material is under `docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. If you cannot
-  find real text for the example, **ask Nimrod — do not write a sentence for him.**
-- **Not on a sensitive page.** Off limits without explicit permission: `/eyal-amit/mokesh-dahiman/`
-  (the memorial — its content was approved at the meeting and is the most sensitive page on the
-  site), the legal pages, and the home page.
-- **Through the mechanism, not around it.** If the right way is an ACF field, use the field. If it
-  needs the freeze lifted for one type, lift it through the filter and say so. **A hardcoded patch
-  that happens to look right is a failure of this deliverable, not a shortcut.**
-- **Propose the page and the type to Nimrod before you build it.** One short message: which page,
-  which type, which real content, and why that pair proves the canon.
-- **Zero visible change anywhere else.** The gate is how you show that.
+- **Real content only.** Content law: only what exists on the site, what came from Eyal, or what
+  came from Nimrod. **No invented copy, not even as an example.** Eyal's delivered material is
+  under `docs/project/eyal-ceo-submissions-and-responses/from-eyal/`. If you cannot find real
+  text, **ask Nimrod — do not write a sentence for him.**
+- **Off limits without his explicit permission:** `/eyal-amit/mokesh-dahiman/` (the memorial —
+  approved at the meeting, the most sensitive page on the site), the legal pages, the home page,
+  **and the eight deviation pages he is meant to judge untouched — which includes `/repair/`.**
+- **Type 37 is out of scope for the example.** It has zero live instances and needs a renderer
+  that does not exist; building it is a multi-file job and therefore outside stage A.
+- **Propose page, type, route and the exact real content to Nimrod before you build.** One short
+  message.
 
----
+**How you show it did not break anything else — and the gate alone is not enough:**
+
+**The gate checks population counts, one nav, one footer, the reveal class, PHP error strings,
+legal links and missing `alt`. It does not diff page bodies.** Exit 0 is compatible with a
+rewritten page. So:
+
+1. **Capture the rendered HTML of the page you are changing, and of three others sharing its
+   type, before you touch anything.**
+2. Make the change.
+3. **Diff all four.** The one you meant to change shows exactly the intended difference; the other
+   three are byte-identical.
+4. **And run the gate either side**, for everything the diff cannot see.
 
 ## 5 · Working principles
 
@@ -194,8 +245,12 @@ shape, one primary nav and one footer per page, the footer reveal class by count
 list, zero PHP errors, all three legal links on every page, images with no alt attribute.
 
 **Exit 0 pass · 1 drift · 2 could not measure.** A drift is a regression until measured otherwise.
-If your change is meant to move a number, re-baseline **with `--reason`** — the script refuses
-without one, which is the point.
+If your change is meant to move a number, re-baseline with the **full** invocation:
+
+    python3 scripts/qa/ea_regression_gate.py --update-baseline --reason "..."
+
+**`--reason` on its own does nothing and is silently ignored** — it only has meaning together with
+`--update-baseline`, and the script refuses that pair without it.
 
 **And the four rules from the protocol, because they are what this exists to enforce:**
 
@@ -222,6 +277,14 @@ without one, which is the point.
 - **Do not touch `_COMMUNICATION/team_100/S007/` or `hub/dist/`** — Eyal's live form and the
   published hub. **His form signature `wave1-20260925` is frozen; changing it erases his saved
   draft, which exists nowhere else.**
+  **Consequence you must not work around:** the canon artifact is published at
+  `hub/dist/ea-content-types.html`. **You edit the workspace copy; team_90 copies it into
+  `hub/dist/` and runs `scripts/ftp_publish_eyal_client_hub.py`.** Say in your report when a
+  publish is due. **Do not publish it yourself and do not leave it unsaid** — otherwise the live
+  catalog Nimrod and Eyal open stays on the old file.
+  **One exception you may need:** type 37's schema lives in
+  `_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md`. **Read it; do not edit it.** If it
+  needs changing, say so in the report.
 - **Deploy with `python3 scripts/ftp_deploy_site_wp_content.py`.** It refuses a dirty `site/` —
   that refusal is a safety interlock. **`--allow-dirty` is forbidden.** Commit first, then deploy.
   A lane bypassed this and left 49 files live and uncommitted.

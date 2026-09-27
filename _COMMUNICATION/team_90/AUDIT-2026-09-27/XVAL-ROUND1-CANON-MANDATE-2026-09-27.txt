@@ -1,0 +1,119 @@
+The package is not safe to hand to a builder. The hard deliverable points at the wrong lever, and two required documents contradict the mandate on whether this session should even start and whether lifting the freeze is safe.
+
+## 1. Factual errors
+
+**“The Chapters templates never call `the_content()`.”** (`MANDATE-CANON-STAGE-A-2026-09-27.md` lines 96–97.) Two of the eight Chapters templates do:
+
+```47:47:site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-qr.php
+				<div class="intro-body r r2"><?php the_content(); ?></div>
+```
+
+```105:105:site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-blog-single.php
+				<div class="ea-post-content"><?php the_content(); ?></div>
+```
+
+`tpl-chapters-page.php` renders seeded sections and does not call `the_content()`. Blog posts and the 48 QR articles are database content. The “~156,000 Hebrew characters in 35 PHP files” half is close: 35 files under `site/wp-content/themes/ea-eyalamit/inc/chapters/defaults/`, 155,673 Hebrew letters. The absolute sentence about templates is false, and it will make the builder treat QR and blog as PHP-seeded pages.
+
+**“The artifact pulls all 37 examples from the staging host through a single `STAGE` variable, plus 20 hardcoded URLs.”** (mandate lines 103–105.) There are 37 `add({...})` calls, one `var STAGE` (line 134), and 20 full staging URLs in the review arrays (lines 588–595 and 614–617). The examples are not fetched pages. Each iframe is local markup:
+
+```544:544:_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html
+  iframe.srcdoc = t.body;
+```
+
+`STAGE` only prefixes CSS and image URLs (lines 135–147). A domain cutover breaks styling and those 20 links. It does not break because 37 pages failed to load. The same wrong mechanism is copied from `README-INDEX.md` lines 50–51. Several example bodies are placeholder Hebrew (`כותרת העמוד`, `קהל יעד לדוגמה`, `כיתוב לדוגמה`), so “drawn by the live theme CSS” is true for the stylesheet and false for the copy.
+
+**“Two of the four areas currently link to the general blog archive.”** (mandate lines 130–132.) True of the HTML only: lines 616 and 617 both use `.../blog/`. False of the definitions file. The no-image row is a bracket, not an archive URL:
+
+```780:780:_COMMUNICATION/team_100/EYAL-WORKSPACE/CONTENT-TYPES-CANON.md
+| Blog "no featured image" hero — approved, not built | ... | http://eyalamit-co-il-2026.s887.upress.link/[the 2012 Pardes Hanna studio post] (see `/blog/` for the current link) | ...
+```
+
+The real post is named in `_COMMUNICATION/team_90/AUDIT-2026-09-26/TYPE-MAP-2026-09-26.md` line 54 (REST title «נשימה מעגלית - סטודיו דיג'רידו… פוסט מ 2012») and given post id 203 in `_COMMUNICATION/team_110/WAVE-A-STATUS-2026-09-23.md` line 13. The mandate does not include that slug.
+
+**“Re-baseline with `--reason` — the script refuses without one.”** (mandate lines 197–198.) The script refuses `--update-baseline` without `--reason` (`scripts/qa/ea_regression_gate.py` lines 225–230). `--reason` alone is accepted and ignored; the baseline does not change and there is no refusal. The usage line is `--update-baseline --reason "..."`.
+
+**“`SESSION-STATE-2026-09-24.md` … current state … and the fifteen measurement traps.”** (mandate lines 89–90.) That file’s site line is theme **1.5.142**, 136 live URLs (lines 54–55). `style.css` line 7 is **1.5.147**. The fifteen traps are not in that file. Lines 169–183 summarize six of them and point at `_COMMUNICATION/team_90/AUDIT-2026-09-24/MASTER-PRE-MEETING-AUDIT-2026-09-24.md`. The protocol (lines 84–86) points at the master. The mandate points at the summary.
+
+**“Zero visible change anywhere else. The gate is how you show that.”** (mandate line 156.) The gate’s checks are population counts, one `#nav`, one `<footer>`, the `uncover` class by count and URL list, PHP error strings, three legal-path substrings, and the count of `<img>` tags with no `alt=` (`ea_regression_gate.py` lines 183–195). It does not compare page bodies, section markup, or CSS. Exit 0 is compatible with a rewritten page. `FAMILY_PAGES` (lines 49–56) is unused dead code; the legal-link check really does run on every HTTP 200, so that part of the mandate’s gate description is right.
+
+These claims check out, so they are not errors: canon is 816 lines; the index is 37 types and the HTML has 37 `add()` calls; Tier 2 (9) and the orphans section are absent from the HTML; the freeze list is 21 slugs in `ea_chapters_seeded_only_types()` at `chapters-render.php` lines 606–610, wrapped in `apply_filters`; live theme in `style.css` is 1.5.147 against the canon’s 1.5.138; the 8-deviation and 4-area tables match the canon; “100 of 135 search descriptions” matches `_COMMUNICATION/team_90/AUDIT-2026-09-27/MACHINE-WRITTEN-CONTENT-SWEEP-2026-09-27.md` line 44 (135 descriptions, 136 live pages); `ea_chapters_is_blog_view`, `ea_canonical_nav_items`, and `ea_render_unified_footer` exist; deploy refuses a dirty `site/` unless `--allow-dirty` is passed.
+
+## 2. Missing context
+
+A builder on day one does not have the actual insert path. Inner pages render only the sections already listed in `inc/chapters/defaults/{type}-defaults.php`. `ea_chapters_page_sections()` walks that array and overlays ACF (`chapters-render.php` lines 668–681). An empty ACF value keeps the seed (`ea_chapters_field_or` / the empty-skip at lines 579–580). There is no admin control that adds a part the defaults file does not already contain. The field names the admin stores are `phero_{arg}` and `s{N}_{arg}`, built in `site/wp-content/themes/ea-eyalamit/inc/chapters/acf-fields-inner.php` lines 247–267. The canon records the renderer’s `$args` (`title`, `body`, `media`). It does not record `s3_body`.
+
+The pages where that overlay already runs, and which are not home and not the legal pages, are the ones `EDIT-LEVELS-2026-09-27.md` lines 66–68 leaves unfrozen: thank-you, learning, therapist-training, lectures, workshops. The mandate never names them. It names the freeze, which covers the pages a builder will actually reach for (`repair`, `method`, the books, `snoring-sleep-apnea`).
+
+Publishing is unspecified. The live catalog is `hub/dist/ea-content-types.html` (the directory exists locally; `hub/dist/` is gitignored). The pair mandate (`MANDATE-TYPE-CANON-PAIR-2026-09-26.md` lines 23–24 and 77–78) says publish that file with `scripts/ftp_publish_eyal_client_hub.py` and check the live URL is byte-identical to the workspace source. This mandate forbids touching `hub/dist/` (line 222) and names no one else to copy and publish. Editing the workspace HTML leaves `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/ea-content-types.html` on the old file.
+
+The surfaces map still says the freeze must not be lifted. Lines 77–79 and 107–112 say stored ACF values were not measured and removal can resurrect old section-order content, and they cite line numbers 609 and 651 as two copied arrays. Those lines are now the single array and the docblock of `ea_chapters_page_sections()`. The correction is `EDIT-LEVELS-2026-09-27.md` lines 10–28, and the function comment at `chapters-render.php` lines 596–598. The mandate lists both files and does not say the map’s freeze warning is dead.
+
+Type 37’s schema lives in `_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md`, which the mandate puts under “do not touch `_COMMUNICATION/team_100/S007/`”. Sharpening that entry until it is implementable collides with that ban, and the mandate never says so.
+
+## 3. Contradictions
+
+**Start now, or do not start.** The mandate opens stage A today. `SESSION-STATE-2026-09-24.md` lines 98–100 and 201–204 say the canon is a later stage, after the rest is closed and Eyal returns the form. The prompt tells the builder to read that file before planning, and to follow the mandate exactly.
+
+**Lifting the freeze is safe, or it is not.** Mandate lines 98–102 and the function comment say zero stored ACF values and the filter is the test lever. The surfaces map, required reading, says the opposite and tells the reader not to assume.
+
+**Stage ג is stage A.** Mandate section 2 lists ג as its own stage and then says it is part of א. The canon heading is “Stage-A review list” while lines 750–752 say “stage C is this list.” The decisions are in scope; the labels are not stable.
+
+**Content law versus the artifact.** This mandate: no invented copy, not even as an example (lines 144–147). The pair mandate lines 33–34 and 69–70: sample content may be plainly generic placeholder, and definition text is ours to write. The HTML is full of placeholders. A builder applying this mandate to the artifact will try to replace them; a builder copying the artifact onto a page will ship them.
+
+**“Ask team_90 before measuring” versus “re-verify the geometry yourself.”** Mandate line 35 says ask team_90 for what was already measured. Lines 94–95 and 120 assign the 1.5.147 re-measurement to this builder. Both are in the same brief.
+
+**The prompt’s reading list drops a file the mandate requires.** Mandate section 3 item 3 is the surfaces map and the edit-levels note. The prompt’s five documents omit the map and include the session state that says not to start.
+
+## 4. The deliverable
+
+As written, a careful builder will not get a real example through the real mechanism, and a confident one will ship a hardcoded patch and believe it complied.
+
+What the site actually does: a Chapters inner page shows the parts named in its defaults file. ACF can replace non-empty fields on those existing slots, and only when the page’s type is absent from `ea_chapters_seeded_only_types()`. The filter removes a type from that list for every page of that type. It does not add a row. Home-only types read their own field keys and the home page is off limits. Mokesh is off limits. The legal pages are the other large unfrozen group, and they are off limits.
+
+The mandate’s instructions aim at the filter and at “a real field rather than a PHP constant,” and they call a hardcoded patch a failure. The only way to put a type onto a page that does not already contain it is a new entry in the defaults array, which is PHP in the theme. That is the mechanism, and the mandate’s wording makes it look like the forbidden shortcut. The canon does not contain the `s{N}_` names, so “build from the canon without opening the theme” is not true of any inner-page type.
+
+The likely compliant-looking failure: edit `repair-defaults.php` or paste a section into a template, deploy, run the gate, see exit 0, and report the example. The gate will not show that `/repair/`’s other sections changed, and `/repair/` is one of the eight deviation pages Nimrod is supposed to judge untouched.
+
+Type 37 is the only type with zero live instances. It is also the one that requires a renderer that does not exist (`CONTENT-TYPES-CANON.md` lines 555–563). Building it is “many files,” which section 2 says means the session has left the mandate. The deliverable does not say “do not pick 37.”
+
+An achievable reading, which the mandate never states: on one already-unfrozen page (learning, lectures, workshops, therapist-training, or thank-you), change one existing slot through its ACF field, using text that is already on the site. That proves the overlay. It does not prove a session can construct the type from the canon entry.
+
+## 5. Question routing
+
+These land in both buckets:
+
+- “Do I lift the freeze on `repair` for the example?” Safety and the measured residue are team_90’s. Whether stage A may change a deviation page before Nimrod has ruled on it is his. The mandate tells the builder to lift the freeze if needed and also to propose the page first. One question, two owners, and the useful answer is the combination.
+- “Are the prose row and the fold one type?” The ruling is a design decision. The evidence is a measurement the builder was also told not to redo if team_90 already has the number.
+- “May the artifact keep `כותרת העמוד`?” This mandate forbids it. The pair mandate allows generic placeholders. That is a rule conflict. Substance for Nimrod, document authority for team_90.
+- A geometry mismatch at 1.5.147 that implies a token change. Tokens are locked and need Nimrod. Which declaration moved is team_90.
+
+These land in neither bucket as the split is written:
+
+- “Session state says do not start the canon. This mandate says start. Which do I obey?” That is a conflict between two team_90 documents and an order from Nimrod. It is not a taste question and it is not a code lookup.
+- “Who copies the sharpened HTML into `hub/dist/ea-content-types.html` and publishes it, given I am forbidden to touch `hub/dist/`?” “How to deploy” sounds like team_90, and team_90’s previous answer is the step this mandate bans. The split has no slot for “the mandate contradicts itself.”
+
+## 6. Risk
+
+1. **A theme edit deployed as the example.** The builder adds a part in PHP or starts the type-37 renderer, deploys with `ftp_deploy_site_wp_content.py`, and treats gate exit 0 as “nothing else moved.” A PHP error in `chapters-render.php` or a defaults file takes down every Chapters page. The gate only notices if the HTML then contains `Fatal error`, `Parse error`, `Warning:`, or `Notice:`.
+
+2. **The shared tree on `main`.** Team_90 is in the same working copy. The deploy refuses a dirty `site/`. Either the session is blocked all day on someone else’s dirty tree, or a commit/deploy picks up the other lane’s files. The canon pair is the file both of them have a reason to open.
+
+3. **A day spent on the wrong lever, then a bad proposal Nimrod can reasonably approve.** The brief spends its concrete guidance on the freeze filter and forbids the defaults-array edit that actually inserts a type. The builder either stalls asking team_90 whether the surfaces map or the edit-levels note is true, or proposes a `/repair/` patch that matches the brief’s vocabulary and gets a yes.
+
+## 7. The prompt
+
+It is not self-sufficient, and its length invites skipping the file it says to open. The pasted block already contains the stage definition, the routing split, the gate, content law, the constraint list, the off-limits pages, and the start sequence. The design note underneath the paste says a prompt that restates the mandate is how a nuance gets dropped. That note is not pasted into the session. The nuances that are only in the mandate — version skew, the freeze, the four facts, the 8+4 list, both files in one commit, “not measured” — are exactly what a session working from the prompt will not have when it writes the Hebrew opening Nimrod sees.
+
+The ordered reading list omits `EDITING-SURFACES-MAP-2026-09-27.md` and includes the session state that says this work is not supposed to start yet. Step 4 (“do not change a file before he answers”) is the right brake. It does not stop a wrong example proposal in step 3.
+
+Cut the duplicated constraint essay down to “section 7 of the mandate, follow it, do not restate it.” Add, inside the pasted block: the deliverable is an existing slot on an unfrozen non-home, non-legal page, through ACF, and type 37 is out of scope for the live example; `EDIT-LEVELS` wins over the surfaces map on the freeze; session-state’s “canon is later” and “theme 1.5.142” are stale; the fifteen traps are in the master audit; rebaseline is `--update-baseline --reason`.
+
+## Three changes before this package is used
+
+1. **Rewrite section 4.3 around the real insert path.** State that ACF only overlays slots already present in the defaults file, give the five legal pages that are actually unfrozen, name `acf-fields-inner.php` and the `phero_` / `s{N}_` keys, define a defaults-array edit as the mechanism when a part is missing, and forbid type 37 and `/repair/` as the example. Replace “the gate shows zero visible change” with a before/after capture of the one URL plus an explicit check the gate does not have.
+
+2. **Correct the facts that send the builder to the wrong file.** `the_content()` on the QR and blog-single templates; srcdoc versus `STAGE`; the Pardes Hanna slug from the type map; `--update-baseline --reason`; a one-line stamp that session-state’s start-gate and 1.5.142 are stale, that the surfaces map’s “do not lift the freeze” paragraphs are superseded by the edit-levels note, and that the fifteen traps are in the master audit.
+
+3. **Fix routing and publish in the prompt itself.** Contradictions between this mandate, the session state, and the pair mandate go to Nimrod before any technical question. Name who copies `ea-content-types.html` into `hub/dist/` and runs the hub publish. Shorten the pasted restatement so the session has to open the mandate for the deliverable.
+
+[exited with code 0]
