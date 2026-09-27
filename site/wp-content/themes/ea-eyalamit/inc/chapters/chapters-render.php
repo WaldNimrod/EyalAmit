@@ -590,6 +590,27 @@ function ea_chapters_merge_list_rows( $rows, $defaults, $sub_map ) {
 }
 
 /**
+ * Page types frozen to their seeded PHP defaults: the ACF overlay is skipped for them.
+ *
+ * Introduced as a content freeze during S006/wave1-3 (2026-08-17 → 2026-09-24) so that ACF slots
+ * saved under an earlier section order could not overwrite re-ordered seeded sections. Measured
+ * 2026-09-27 across the 16 of these pages that resolve to a post: **zero stored ACF values**, so
+ * the residue the freeze guards against does not currently exist.
+ *
+ * Extracted into one filterable function so the freeze can be lifted per type — by the canon
+ * reset round, or for a single page under test — without editing this file twice and without the
+ * two copies of the list drifting apart, which is this theme's signature defect.
+ *
+ * @return string[]
+ */
+function ea_chapters_seeded_only_types() {
+	return (array) apply_filters(
+		'ea_chapters_seeded_only_types',
+		array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external', 'galleries' )
+	);
+}
+
+/**
  * Overlay ACF phero_{arg} scalar fields onto the seeded $d['phero'] array (flat
  * naming, aligned with method's existing phero_* convention — phero is a top-level
  * key, not part of the sections[] index space). Safe no-op (returns the seeded
@@ -606,7 +627,7 @@ function ea_chapters_phero_overlay() {
 	}
 	/* S006 R1-02…R1-05 + wave1 R1-10/16/21/22 + wave2 tools + wave3 books/faq/snoring
 	 * · seed from PHP defaults so ACF slots from the previous section order cannot overwrite. */
-	if ( in_array( ea_chapters_type(), array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external', 'galleries' ), true ) ) {
+	if ( in_array( ea_chapters_type(), ea_chapters_seeded_only_types(), true ) ) {
 		if ( ! empty( $phero['media'] ) ) {
 			$phero['media'] = ea_chapters_resolve_img( $phero['media'] );
 		}
@@ -648,7 +669,7 @@ function ea_chapters_page_sections() {
 		$part = isset( $sec['part'] ) ? (string) $sec['part'] : '';
 		$args = ( isset( $sec['args'] ) && is_array( $sec['args'] ) ) ? $sec['args'] : array();
 		/* S006 R1-02…R1-05 + wave1 R1-10/16/21/22 + wave2 tools + wave3 books/faq/snoring · seeded defaults only (see phero overlay). */
-		if ( in_array( $type, array( 'treatment', 'method', 'lessons', 'sound-healing', 'shop', 'muzza', 'about', 'mokesh', 'didgeridoos', 'bags', 'stands-storage', 'stand-floor', 'repair', 'kushi-blantis', 'tsva-bekahol', 'vekatavta', 'faq', 'snoring-sleep-apnea', 'en', 'courses-external', 'galleries' ), true ) ) {
+		if ( in_array( $type, ea_chapters_seeded_only_types(), true ) ) {
 			if ( isset( $map[ $part ]['scalars'] ) ) {
 				foreach ( $map[ $part ]['scalars'] as $arg => $kind ) {
 					if ( array_key_exists( $arg, $args ) && ( 'img' === $kind || 'file' === $kind ) ) {
