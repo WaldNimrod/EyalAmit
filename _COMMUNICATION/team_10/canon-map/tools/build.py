@@ -222,18 +222,18 @@ GRID_PROPOSALS = {
     "T-13": [("הצעה לאישור — ארבעה פריטים: שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22")),
              ("הצעה לאישור — ארבעה פריטים (K-4.2): גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
              ("הצעה לאישור — ארבעה פריטים (K-4.3): 1 גדול ו-3 קטנים (3+1+1+1) — במילוי; בהתאמה מחייב גדולה לרוחב וקטנות לאורך", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
-    "T-14": [("הצעה לאישור — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, (P, "cm-g6"))],
-    "T-15": [("הצעה לאישור — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, (P, "cm-g6"))],
-    "T-24": [("הצעה לאישור — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, (P, "cm-g6 cm-frame"))],
-    "T-25": [("הצעה לאישור — ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), ברוחב התוכן, במסגרת דקה", "home", "section#ea-now", 0, None, (P, "cm-g6 cm-g4-3111 cm-frame")),
-             ("הצעה לאישור — ארבעה כרטיסים: שתי שורות של 2", "home", "section#ea-now", 0, None, (P, "cm-g6 cm-g4-22 cm-frame"))],
-    "T-35": [("הצעה לאישור — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, (P, "cm-g6 cm-frame"))],
+    "T-14": [("מאושר — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, ("__APPROVED__", "cm-g6"))],
+    "T-15": [("מאושר — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, ("__APPROVED__", "cm-g6"))],
+    "T-24": [("מאושר — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
+    "T-25": [("הצעה לאישור — ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), במסגרת דקה; הטקסט מיושר לתחתית, התמונה ממלאת את כל האזור שמעליו — רק מילוי בטיפוס הזה", "home", "section#ea-now", 0, None, (P, "cm-g6 cm-g4-3111 cm-frame")),
+             ("מאושר — ארבעה כרטיסים: שתי שורות של 2", "home", "section#ea-now", 0, None, ("__APPROVED__", "cm-g6 cm-g4-22 cm-frame"))],
+    "T-35": [("מאושר — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
     "T-18": [("הצעה לאישור — שלושה כרטיסים שלמים ברוחב התוכן (2 טורים לכרטיס), בלי חיתוך; בראש הכרטיס עיגול קטן, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
-    "T-19": [("הצעה לאישור — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
+    "T-19": [("מאושר — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, ("__APPROVED__", "cm-g6 cm-frame cm-tq"))],
     "T-20": [("מאושר — ציטוט: ריווח קטן ומסגרת דקה בלבד (G-12.1), 2 בשורה על הרשת", "snoring", "section.ea-testi-cards", 0, None, ("__APPROVED__", "cm-g6 cm-q cm-q-frame"))],
-    "T-28": [("הצעה לאישור — 2 טורים על הרשת, כל טור רץ בלי סנכרון לשני (הפוסט הבא מתחיל איפה שהקודם נגמר, לא טבלה); כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, (P, "cm-g6 cm-fb"))],
+    "T-28": [("מאושר — 2 טורים על הרשת, כל טור רץ בלי סנכרון לשני (הפוסט הבא מתחיל איפה שהקודם נגמר, לא טבלה); כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, ("__APPROVED__", "cm-g6 cm-fb"))],
     "T-31": [("הצעה לאישור — יצירת קשר בשורה אחת על הרשת, נכנסת במסך אחד. טורים 1–4: הטופס (שדות בזוגות, בלי תוויות, כפתור שליחה משמאל) ומתחתיו אזור הוואטסאפ הכהה עם שלוש הנקודות ככותרות; טורים 5–6: התמונה של אייל עם השפופרת ופרטי הקשר. שלושה אזורים נפרדים, כמו שאייל ביקש", "contact", "section.ea-wave2-contact", 0, None, (P, "cm-ct"))],
-    "T-27": [("הצעה לאישור — כמו כל פסקה: כותרת בטורים 1–6, הטקסט בטורים 2–5, הסרטון ברוחב מלא", "lessons", ".ea-pending-approval", 0, None, (P, "cm-g6 cm-vd"))],
+    "T-27": [("מאושר — כמו כל פסקה: כותרת בטורים 1–6, הטקסט בטורים 2–5, הסרטון ברוחב מלא", "lessons", ".ea-pending-approval", 0, None, ("__APPROVED__", "cm-g6 cm-vd"))],
 }
 for item in G:
     if item[0] in GRID_PROPOSALS:
@@ -589,6 +589,12 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-g6 :is(.gallery,.steps3,.bookcards,.ea-blog-grid,.testi-grid)>*{grid-column:span 2!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important}
 .cm-g6 :is(.point-cards__grid,.cmp,.ea-testi-cards__list,.fbgrid)>*{grid-column:span 3!important;width:auto!important;max-width:none!important;margin:0!important}
 .cm-g6.cm-g4-22 :is(.whom,.ea-now)>*{grid-column:span 3!important}
+/* O-11 (team_00: «טקסט מיושר לחלק התחתון, תמונה חייבת למלא את כל האזור שלה — רק fill לטיפוס זה»). */
+.cm-g6.cm-g4-3111 .ea-now{grid-auto-rows:400px}
+.cm-g6.cm-g4-3111 .ea-now__card{display:flex!important;flex-direction:column;height:100%;box-sizing:border-box}
+.cm-g6.cm-g4-3111 .ea-now__ph{flex:1 1 auto;min-height:0;aspect-ratio:auto!important}
+.cm-g6.cm-g4-3111 .ea-now__ph img{height:100%;object-fit:cover}
+.cm-g6.cm-g4-3111 .ea-now__tx{flex:none;padding:10px 0 0}
 /* K-4.2 (team_00: «שני הקטנים צריכים להיות אחד מעל השני, לא ליד השני, שזה יתיישר לבלוק»): large, two small stacked, large. */
 .cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(1){grid-column:1/3!important;grid-row:1/3}
 .cm-g6.cm-g4-2112 :is(.whom,.ea-now)>:nth-child(2){grid-column:3/5!important;grid-row:1}
@@ -656,7 +662,11 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-fb .fbgrid__frame{margin-inline:auto;background:#fff;border:1px solid #e6dccf!important;border-radius:4px;max-width:100%}
 /* Proposal (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
    columns — the form in 1-4 with its fields paired, a side column in 5-6 with the portrait, WhatsApp and the details. */
-.cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:start}
+.cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:stretch}
+/* team_00: «בלוק חום מימין — ליישר למטה לעמודה שמאל — שיסתיים למטה בקו ישר». */
+.cm-ct .ea-contact-form-row>.ea-entrance{display:flex;flex-direction:column}
+.cm-ct .ea-contact-form-row>.ea-entrance>.ea-contact-cta{margin-top:auto!important}
+.cm-ct .cm-ct__side .ea-contact-nap{flex:1 1 auto}
 .cm-ct .ea-contact-form-row>.ea-entrance{grid-column:1/5;padding-inline-end:clamp(16px,3vw,40px)}
 .cm-ct .cm-ct__side{grid-column:5/7;display:flex;flex-direction:column;gap:14px}
 .cm-ct .cm-ct__side .ea-contact-portrait{display:block;width:100%;margin:0}
@@ -723,6 +733,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-tq .testi-mq__btn{display:none}
  .cm-g6.cm-fb .fbgrid{columns:1}
  .cm-g6[class*="cm-g4-"] .whom{grid-template-rows:none!important;grid-auto-rows:auto!important}
+ .cm-g6.cm-g4-3111 .ea-now{grid-auto-rows:auto}.cm-g6.cm-g4-3111 .ea-now__ph{aspect-ratio:3/2!important}
  .cm-g6[class*="cm-g4-"] .whom>.whom__i:nth-child(n){grid-column:1/-1!important;grid-row:auto!important;display:flex!important}
  .cm-g6[class*="cm-g4-"] .whom__m{flex:none;aspect-ratio:4/3!important;height:auto!important}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
@@ -730,7 +741,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}
  .cm-ct .ea-cf7{grid-template-columns:1fr}
- .cm-ct .ea-contact-form-row>.ea-entrance{padding-inline-end:0}
+ .cm-ct .ea-contact-form-row>.ea-entrance{padding-inline-end:0;display:block}
+ .cm-ct .ea-contact-form-row>.ea-entrance>.ea-contact-cta{margin-top:18px!important}
  .cm-ct .ea-contact-cta{grid-template-columns:1fr}
  .cm-ct .ea-contact-cta .ea-cta-ab{grid-column:1;grid-row:auto;margin-top:10px;display:flex;justify-content:flex-end}
  section.cm-sp .split2>*,section.cm-sp .split2.split2--rev>*,section.cm-sp .split2:has(>.figr--p)>*,section.cm-sp .split2.split2--rev:has(>.figr--p)>*{grid-column:1!important;grid-row:auto!important;padding-inline:0!important}

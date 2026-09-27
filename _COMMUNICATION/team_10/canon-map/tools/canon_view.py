@@ -15,7 +15,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 USES = json.load(open(os.path.join(HERE, "uses.json"), encoding="utf-8"))
 DEFS = {int(k): v for k, v in json.load(open(os.path.join(HERE, "type-defs.json"), encoding="utf-8")).items()}
 
-from canon_types import GROUPS, SITE_RULES, A, P, O
+from canon_types import GROUPS, SITE_RULES, A, P, O, buttons_html
+EXTRA = {"S-2": buttons_html}
 STATUS_CLS = {A: "st-a", P: "st-p", O: "st-o"}
 
 s = BeautifulSoup(open(SRC, encoding="utf-8").read(), "lxml")
@@ -46,8 +47,11 @@ for gi, (gname, types) in enumerate(GROUPS, 1):
         uses_html = ('<ul class="cm-uses">' + "".join(f"<li>{link(p)}</li>" for p in used[:10]) + "</ul>"
                      + (f'<details class="cm-more"><summary>ועוד {n - 10}</summary><ul class="cm-uses">'
                         + "".join(f"<li>{link(p)}</li>" for p in used[10:]) + "</ul></details>" if n > 10 else "")) if n else ""
-        own = approved(olds[0][0]) or today(olds[0][0])
+        own = (approved(olds[0][0]) or today(olds[0][0])) if olds else []
         ex, first = [], (own[0] if own else None)
+        if tid in EXTRA:
+            ex.append(EXTRA[tid]())
+            first = first or BeautifulSoup(EXTRA[tid](), "lxml").select_one(".cm-spec")
         for o, becomes in olds:
             for sp in approved(o):
                 first = first or sp

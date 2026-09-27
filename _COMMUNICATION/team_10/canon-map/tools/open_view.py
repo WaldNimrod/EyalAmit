@@ -26,6 +26,20 @@ rows = {r["id"]: r for r in s.select(".cm-row")}
 oldname = lambda t: next(rows[t].select_one(".c-name").stripped_strings)
 label = lambda sp: sp.find_previous_sibling(class_="cm-variant").get_text().replace("הצעה לאישור — ", "")
 
+import json, os
+IDS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "open_ids.json")
+IDS = json.load(open(IDS_PATH, encoding="utf-8"))
+
+
+def oid(o, sp):
+    top = [c for c in sp.children if getattr(c, "name", None) and "cm-dummy__badge" not in (c.get("class") or [])][0]
+    key = o + "|" + " ".join(c for c in top.get("class", []) if c.startswith("cm-"))
+    if key not in IDS:
+        IDS[key] = IDS["_next"]
+        IDS["_next"] += 1
+    return IDS[key]
+
+
 blocks, n = [], 0
 dec = "".join(f'<li><b>{k}</b> <b>{t}</b> — {d}</li>' for k, t, d in DECISIONS)
 for tid, name, olds in GROUPS_LITE:
@@ -35,8 +49,9 @@ for tid, name, olds in GROUPS_LITE:
     blocks.append(f'<div class="cm-group" id="{tid}"><span>{tid}</span><h2>{name}</h2></div>')
     for o, sp in props:
         n += 1
+        k = oid(o, sp)
         was = f" · היה {o} «{oldname(o)}»" if o != tid else ""
-        blocks.append(f'<div class="av-ex" id="O-{n}"><b>O-{n}</b> {label(sp)}{was}</div>{sp}')
+        blocks.append(f'<div class="av-ex" id="O-{k}"><b>O-{k}</b> {label(sp)}{was}</div>{sp}')
 
 
 def rgb(h):
@@ -51,21 +66,8 @@ def ratio(a, b):
     return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
 
 
-BUTTONS = [("שמנת", "#fffffa", "#2f2013", "#9A4F2B", "#ffffff"), ("חול", "#D8C7B5", "#2f2013", "#7A3418", "#ffffff"),
-           ("זית", "#575838", "#FFE8C2", "#F6D38A", "#2f2013"), ("טרקוטה", "#874321", "#FFE8C2", "#F6D38A", "#2f2013"),
-           ("כהה", "#2A1A0C", "#FFE8C2", "#D08A5E", "#1d140d")]
-blocks.append('<div class="cm-group" id="B"><span>משותף</span><h2>כפתורים על חמשת הגוונים</h2></div>')
-for tone, bg, h, b, t in BUTTONS:
-    n += 1
-    blocks.append(
-        f'<div class="av-ex" id="O-{n}"><b>O-{n}</b> כפתור בצבע הקישור של הגוון — רקע {tone} · מלא {ratio(t, b):.2f} · מתאר {ratio(b, bg):.2f}</div>'
-        f'<div class="cm-spec cm-prop"><section class="sec" style="background:{bg}"><div class="wrap">'
-        f'<h2 class="h2" style="color:{h};margin:0 0 20px">כותרת לדוגמה על רקע {tone}</h2>'
-        f'<p style="display:flex;gap:14px;margin:0"><a class="btn" style="background:{b};color:{t};border:1.5px solid {b}">כפתור מלא</a>'
-        f'<a class="btn" style="background:transparent;color:{b};border:1.5px solid {b}">כפתור מתאר</a></p></div></section></div>')
-
 head = ('<div class="cm-proof-head"><h1>הצעות פתוחות</h1>'
-        f'<p>כל מה שעוד לא נסגר — {n} הצעות עם תמונה, לכל אחת מזהה O-n. מה שמאושר עובר למפה ויוצא מכאן.</p>'
+        f'<p>כל מה שעוד לא נסגר — {n} הצעות עם תמונה. המזהה O-n של הצעה קבוע ולא משתנה; מה שמאושר עובר למפה ויוצא מכאן, והמספר שלו לא חוזר.</p>'
         f'<h2>החלטות בלי תמונה</h2><ul class="av-rules">{dec}</ul></div>')
 keep_nav(s, "open.html")
 main = s.find("main")
@@ -86,4 +88,5 @@ css.string = """
 """
 s.head.append(css)
 open(OUT, "w", encoding="utf-8").write(str(s))
+json.dump(IDS, open(IDS_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print("open proposals:", n)

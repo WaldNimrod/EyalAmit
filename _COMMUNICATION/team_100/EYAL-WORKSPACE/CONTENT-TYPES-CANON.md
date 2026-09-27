@@ -145,22 +145,22 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 | T-11 gallery | 21 images → exempt, 3 per row; 4 portraits → K-4.2 | proposal fixed (portraits were 3 + 1 — struck) |
 | T-12 quote on image | full-bleed image, quote on the grid | ⚠ quote not yet placed on columns |
 | T-13 who-for | 4 → K-4.1 / K-4.2 / K-4.3 | proposal (three options shown) |
-| T-14 compare | 2 → 3+3 | proposal |
-| T-15 steps | 3 → 2+2+2 | proposal |
+| T-14 compare | 2 → 3+3; centred text justified | ✓ approved (O-8) |
+| T-15 steps | 3 → 2+2+2, content width, larger heading | ✓ approved (O-9) |
 | T-16 about collage | split 3+3; three images inside → K-3.2 | ⚠ not yet drawn |
 | T-17 studio | split 3+3 | ⚠ not yet drawn (merged into T-06) |
 | T-18 testimonial carousel | open list → 3 per row, whole cards | proposal |
-| T-19 testimonial grid | 17 → exempt, 3 per row | proposal |
+| T-19 testimonial grid | 17 → exempt, 3 per row; round avatar, name, date | ✓ approved (O-15) |
 | T-20 quote cards | 2 → 3+3 | ✓ approved — thin frame, small padding (G-12.1) |
 | T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
 | T-23 TOC | one block | ✓ columns 2–5 (approved); length rule proposed (D45) |
-| T-24 book cards | 3 → 2+2+2; the shop's open list → exempt | proposal |
-| T-25 spotlight | 4 → K-4.3 / K-4.1 | proposal (two options) |
-| T-26/27 video | heading 1–6, text 2–5, video 1–6 | proposal |
-| T-28 Facebook posts | two free-running columns (masonry), 3 each | proposal |
+| T-24 book cards | 3 → 2+2+2, thin frame; the shop's open list → exempt | ✓ approved (O-10) |
+| T-25 spotlight | 4 → two rows of 2 (K-4.1) ✓ approved (O-12); 3+1+1+1 with text on the bottom line and fill-only images — proposal (O-11) | ✓ / proposal |
+| T-26/27 video | heading 1–6, text 2–5, video 1–6 | ✓ approved (O-18) |
+| T-28 Facebook posts | two free-running columns (masonry); our date and title per post | ✓ approved (O-16) |
 | T-29 timeline / T-32 press list | year lists | ✓ columns 2–5 (approved) |
 | T-31 contact | 4+2 | proposal |
-| T-35 blog cards | open list → exempt, 3 per row | proposal |
+| T-35 blog cards | open list → exempt, 3 per row, thin frame | ✓ approved (O-13) |
 | T-36 inline video | inside the reading column | ✓ columns 2–5 (approved) |
 | T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
 
