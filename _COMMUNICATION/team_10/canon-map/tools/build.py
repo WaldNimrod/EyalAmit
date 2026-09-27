@@ -42,10 +42,12 @@ t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media �
    ("הצעה — גדול: כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
    ("הצעה — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-m")),
    ("הצעה — קטן: כמו עמוד יצירת הקשר היום (44% מהגובה הנראה). זה גובה מינימלי — כאן הטקסט ארוך יותר ולכן הבאנר גדל ל־50%", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-s"))])
-t("T-02", "הירו וידאו — דף הבית", "hero", "hero_video · hero_poster · hero_trust · hero_title · hero_subtitle · hero_cta_label · hero_cta_url",
-  [(None, "home", "header.hero", 0, None, None)])
-t("T-03", "הירו וידאו — מוקש", "mokesh-hero", "chap · title · sub · media · media_alt · yt_id",
-  [(None, "mokesh", "header.mokesh-hero", 0, None, None)])
+t("T-02", "הירו וידאו", "hero / mokesh-hero", "וידאו · תמונת פתיחה · כותרת · תת-כותרת · כפתור",
+  [("מופע היום: דף הבית", "home", "header.hero", 0, None, None),
+   ("מופע היום: עמוד מוקש", "mokesh", "header.mokesh-hero", 0, None, None)],
+  note="תבנית אחת (נימרוד, 27.9: «זה כפילות… מבחינתנו זו תבנית אחת ושני העמודים צריכים לעמוד בה»). "
+       "T-03 אוחד לכאן והמספר שלו לא ישמש שוב. שני הקבצים הכפולים בקוד — בטיפול צוות 90. "
+       "היום שני המופעים שונים: בדף הבית הכותרת ממורכזת, בעמוד מוקש לימין — איזה יישור מקבלת התבנית טרם הוכרע.")
 
 group("קריאה")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
@@ -237,6 +239,7 @@ body_cls = " ".join(SOUP["method"].body.get("class", []))
 
 import json, os
 
+USES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(OUT)), "tools", "uses.json"), encoding="utf-8"))
 DEFS = {int(k): v for k, v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(OUT)), "tools", "type-defs.json"),
                                                encoding="utf-8")).items()}
 
@@ -284,7 +287,7 @@ for item in G + [("GROUP", None)]:
                 f'<section class="cm-panel" id="g{gi}" data-group="{gtitle}">'
                 f'<div class="cm-group"><span>קבוצה {gi} מתוך 9</span><h2>{gtitle}</h2></div>'
                 f'<div class="cm-table" role="table"><div class="cm-thead" role="row">'
-                f'<span>מזהה</span><span>שם</span><span>תיאור</span><span>גרסאות</span><span>איפה באתר</span><span>תצוגה</span></div>'
+                f'<span>מזהה</span><span>שם</span><span>תיאור</span><span>שימושים באתר</span><span>תצוגה</span></div>'
                 + "".join(rows) + "</div></section>")
         if item[1] is None:
             break
@@ -295,13 +298,18 @@ for item in G + [("GROUP", None)]:
         continue
     tid, name, part, inputs, caps, note = item
     d = DEFS.get(int(tid[2:]), {})
-    real = [c for c in caps if not (c[5] and c[5][0] in ("__DUMMY__", "__PROPOSAL__"))]
-    srcs = []
-    for c in real:
-        if PAGES[c[1]] not in srcs:
-            srcs.append(PAGES[c[1]])
-    where = (" · ".join(f'<a href="{p}" target="_blank">{p if len(p) < 40 else "פוסט בבלוג"}</a>' for p in srcs)
-             or '<span class="cm-unused">כרגע לא בשימוש באתר</span>')
+    used = USES.get(tid, [])
+    n = len(used)
+    count = f"{n} עמודים" if n > 1 else ("עמוד אחד" if n == 1 else '<span class="cm-unused">כרגע לא בשימוש באתר</span>')
+    link = lambda p: f'<a href="{p}" target="_blank">{p}</a>'
+    if n == 0:
+        uses_html = '<span class="cm-unused">כרגע לא בשימוש באתר</span>'
+    elif n <= 10:
+        uses_html = "<ul class=\"cm-uses\">" + "".join(f"<li>{link(p)}</li>" for p in used) + "</ul>"
+    else:
+        uses_html = ("<ul class=\"cm-uses\">" + "".join(f"<li>{link(p)}</li>" for p in used[:10]) + "</ul>"
+                     f'<details class="cm-more"><summary>ועוד {n - 10}</summary><ul class="cm-uses">'
+                     + "".join(f"<li>{link(p)}</li>" for p in used[10:]) + "</ul></details>")
     body, first = [], None
     for c in caps:
         el, cut = specimen(*c)
@@ -318,22 +326,29 @@ for item in G + [("GROUP", None)]:
         if cut:
             body.append('<div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div>')
     short = d.get("def", "").split(". ")[0].rstrip(".") + "."
-    nvar = len([c for c in caps if c[0] and not (c[5] and c[5][0] == "__PROPOSAL__")]) or 1
     flag = f'<small class="cm-flag">{d["flag"]}</small>' if d.get("flag") else ""
+    props = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in d.get("props", []))
+    fields = d.get("fields", [])
+    fields_html = ("<table class=\"cm-fields\"><thead><tr><th>שדה</th><th>סוג</th><th>שם בקוד</th></tr></thead><tbody>"
+                   + "".join(f"<tr><td>{a}</td><td>{b}</td><td><code>{c}</code></td></tr>" for a, b, c in fields)
+                   + "</tbody></table>") if fields else '<p class="cm-muted">אין שדות לעריכה — התוכן קבוע.</p>'
+    tech = d.get("technical") or []
     rows.append(
         f'<details class="cm-row" id="{tid}"><summary class="cm-sum" role="row">'
         f'<span class="c-id">{tid}</span><span class="c-name">{name}{flag}</span>'
-        f'<span class="c-desc">{short}</span><span class="c-var">{nvar}</span>'
-        f'<span class="c-use">{where}</span>'
+        f'<span class="c-desc">{short}</span><span class="c-use">{count}</span>'
         f'<span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in">{mini(first)}</span></span></span>'
         f'</summary><div class="cm-full"><div class="cm-type">'
         f'<p class="cm-def">{d.get("def", "")}</p>'
         + (f'<p class="cm-def cm-def--note">{d["note"]}</p>' if d.get("note") else "")
         + (f'<div class="cm-note">{note}</div>' if note else "")
-        + f'<div class="cm-meta"><span><i>טיפוס בקוד</i> <code>{part}</code></span>'
-        f'<span><i>שדות</i> <code>{inputs}</code></span>'
-        f'<span><i>הוכחת היתכנות</i> {where}</span>'
-        f'<span><i>נלכד</i> {today} · תמה {ver}</span></div></div>'
+        + f'<div class="cm-cols"><section><h3>מאפיינים</h3><dl class="cm-props">{props}</dl></section>'
+        f'<section><h3>שדות</h3>{fields_html}'
+        + (f'<p class="cm-muted">שדות טכניים שהעורך לא ממלא: <code>{" · ".join(tech)}</code></p>' if tech else "")
+        + f'</section></div>'
+        f'<section><h3>שימושים באתר — {count}</h3>{uses_html}</section>'
+        f'<p class="cm-muted">טיפוס בקוד: <code>{part}</code> · נלכד {today} · תמה {ver} · '
+        f'ספירת השימושים: כל {USES["_meta"]["live"]} העמודים החיים, {USES["_meta"]["date"]}</p></div>'
         + "".join(body) + "</div></details>")
 
 CM_CSS = """
@@ -353,7 +368,7 @@ body{background:#f7f2ea}
 .cm-group span{font-size:.75rem;letter-spacing:2px;opacity:.85}
 .cm-group h2{margin:4px 0 0;font-size:1.4rem;font-weight:500;color:#fff}
 .cm-table{font-family:Heebo,sans-serif;color:#2f2013;background:#fff}
-.cm-thead,.cm-sum{display:grid;grid-template-columns:64px 190px 1fr 64px 170px 176px;gap:14px;align-items:center;padding:10px 20px}
+.cm-thead,.cm-sum{display:grid;grid-template-columns:64px 200px 1fr 120px 176px;gap:14px;align-items:center;padding:10px 20px}
 .cm-thead{background:#efe7dc;font-size:.75rem;font-weight:600;color:#6b5f55;position:sticky;top:48px;z-index:150}
 .cm-row{border-bottom:1px solid #e6dccf}
 .cm-sum{cursor:pointer;list-style:none;font-size:.88rem}
@@ -364,7 +379,6 @@ body{background:#f7f2ea}
 .c-name{font-weight:600}
 .cm-flag{display:block;font-weight:400;font-size:.72rem;color:#8a5a12}
 .c-desc{color:#4b3e33;line-height:1.5}
-.c-var{text-align:center}
 .c-use{font-size:.8rem;word-break:break-word}
 .c-use a,.cm-meta a{color:#9a4f2b}
 .cm-mini{display:block;width:176px;height:110px;overflow:hidden;position:relative;border:1px solid #e6dccf;border-radius:4px;background:#f7f2ea}
@@ -375,6 +389,19 @@ body{background:#f7f2ea}
 .cm-def--note{font-size:.85rem;color:#6b5f55}
 .cm-part,.cm-meta code{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;direction:ltr;unicode-bidi:isolate;background:#fff9;padding:1px 5px;border-radius:3px}
 .cm-meta{display:flex;flex-direction:column;gap:3px;margin-top:10px}
+.cm-type h3{font-size:.95rem;font-weight:600;margin:16px 0 6px;color:#9a4f2b}
+.cm-cols{display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.cm-props{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:0}
+.cm-props dt{font-weight:600;color:#6b5f55}
+.cm-props dd{margin:0}
+.cm-fields{border-collapse:collapse;width:100%;font-size:.84rem;background:#fff}
+.cm-fields th,.cm-fields td{border:1px solid #e6dccf;padding:4px 8px;text-align:start;vertical-align:top}
+.cm-fields th{background:#efe7dc;font-weight:600}
+.cm-fields code,.cm-muted code{font-family:ui-monospace,Menlo,monospace;font-size:.76rem;direction:ltr;unicode-bidi:isolate}
+.cm-uses{margin:0;padding-inline-start:18px;columns:2;font-size:.84rem}
+.cm-uses a{color:#9a4f2b}
+.cm-more summary{cursor:pointer;color:#9a4f2b;font-size:.84rem;margin-top:4px}
+.cm-muted{color:#8a7a6a;font-size:.8rem;margin:10px 0 0}
 .cm-meta i{font-style:normal;opacity:.65;margin-inline-end:6px}
 .cm-note{margin:8px 0;padding:6px 10px;background:#fff3d6;border-inline-start:3px solid #c98a2b;max-width:80ch}
 .cm-unused{background:#fff3d6;color:#8a5a12;padding:1px 8px;border-radius:3px;font-weight:600}
@@ -397,10 +424,11 @@ header.phero.cm-h-s{min-height:44svh!important}
 .cm-vid__lbl{bottom:14px;inset-inline-start:16px;color:#f3ece2;font:500 .9rem Heebo,sans-serif}
 @media(max-width:760px){
  .cm-thead{display:none}
+ .cm-cols{grid-template-columns:1fr}.cm-uses{columns:1}
  .cm-sum{grid-template-columns:1fr 112px;grid-template-areas:"id thumb" "name thumb" "desc thumb" "use use";gap:4px 12px;padding:12px 16px}
- .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-var{display:none}.c-thumb{grid-area:thumb}
+ .c-id{grid-area:id}.c-name{grid-area:name}.c-desc{grid-area:desc;font-size:.82rem}.c-use{grid-area:use}.c-thumb{grid-area:thumb}
  .cm-mini{width:112px;height:80px}.cm-mini__in{transform:scale(.0875)}
- .cm-row[open]>.cm-sum{top:44px}
+ .cm-row[open]>.cm-sum{position:static}
  .cm-type,.cm-group,.cm-top,.cm-variant{padding-inline:16px}
 }
 """

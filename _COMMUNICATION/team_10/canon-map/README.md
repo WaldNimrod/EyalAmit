@@ -30,15 +30,20 @@ through validation.
   between groups. Nine groups: פתיחות · קריאה · תמונה וטקסט · רשתות וכרטיסים · קולות ·
   שאלות ומבנה · מדיה · פעולה · מעטפות.
 - **One row per type.** Collapsed: ID · name (+ a flag such as «ייחודי לעמוד אחד») ·
-  one-line description · number of variants · where it lives on the site · live thumbnail.
-- **Click a row** → full description, the note, the technical block (type in code, fields,
-  feasibility proof, capture stamp), then every example at full size, variants labelled.
+  one-line description · number of pages using it · live thumbnail.
+- **Click a row** → full description and note; then, side by side, **properties** — nine
+  fixed labels in a fixed order for every type (מבנה · גובה · רוחב · יישור · רקע · מדיה ·
+  כפתור · בטלפון · גרסאות) — and **fields**, a table of field · type · code name, with the
+  type from a closed list (טקסט קצר · טקסט ארוך (עם עיצוב) · תמונה · טקסט חלופי · קישור ·
+  כן/לא · בחירה מרשימה · מספר · רשימת פריטים · סרטון); then **every page on the site that
+  uses the type**; then every example at full size, variants labelled.
 
 ### Identifiers
 
 `T-01` … `T-37`, the canon's own numbering — the same numbers as
 `CONTENT-TYPES-CANON.md` and the old artifact. **An ID is permanent.** A type that is
-split gets a new ID; a retired ID is never reused. The ID is the "type A" of the request
+split gets a new ID; a retired ID is never reused. **Retired: `T-03`** — merged into `T-02`
+on 2026-09-27 (one video-hero template; 36 types remain). The ID is the "type A" of the request
 format team_00 defined for Eyal's maintenance environment: «שורה מטיפוס A עם תוכן B בעמוד C
 במיקום X».
 
@@ -46,7 +51,7 @@ format team_00 defined for Eyal's maintenance environment: «שורה מטיפו
 
 | Kind | Marking | Rule |
 |---|---|---|
-| Live copy | none | Structure **and content** copied verbatim from the page named in the row. That page is the type's **feasibility proof**. |
+| Live copy | none | Structure **and content** copied verbatim from one of the pages that use the type. Every page in the row's uses list is a **feasibility proof**. |
 | Dummy | dashed amber frame + «תוכן דמה — לא מופיע באתר» | Only for a type with no live instance. Generic, obviously fake text built from the real parts. The row says «כרגע לא בשימוש באתר» instead of a proof link, and carries a proposal for where to implement it. |
 | Proposal | solid green frame + «הצעה לאישור — עדיין לא באתר» | A change awaiting team_00's approval, styled **in the map only**. Nothing on the site changes until stage B. |
 
@@ -84,28 +89,35 @@ atmosphere background) — team_00's ruling. Map only; the pages keep their real
 
 ## How it is built
 
-Nothing is hand-edited in the HTML. Two scripts in `tools/` regenerate it from the live site:
+Nothing is hand-edited in the HTML. Three scripts in `tools/` regenerate it from the live site:
 
 ```bash
+python3 _COMMUNICATION/team_10/canon-map/tools/census.py
 python3 _COMMUNICATION/team_10/canon-map/tools/fetch.py
 python3 _COMMUNICATION/team_10/canon-map/tools/build.py _COMMUNICATION/team_10/canon-map/ea-canon-map.html
 ```
 
+`census.py` enumerates every published page and post from the REST API, fetches each once
+**without following redirects** (a redirect shell is not a use — following it counts the
+target twice), and writes `tools/uses.json`: the pages using each type. Its detectors are
+explicit per type; a YouTube video pasted into a blog post's text is post content, not T-36.
+
 `fetch.py` saves the source pages into the working directory (run both from a scratch
 directory; sequential, gentle on staging). `build.py` holds the spec — one line per type:
 ID, name, type in code, fields, and the examples (source page + selector, and whether it
-is a live copy, a dummy or a proposal). Plain-language descriptions live in
-`tools/type-defs.json` (moved there from `ea-content-types.html`).
+is a live copy, a dummy or a proposal). Per type, `tools/type-defs.json` holds the
+plain-language description (moved from `ea-content-types.html`), the nine properties, the
+typed fields and the technical keys an editor never sets.
 
-- **Change a type's text** → `tools/type-defs.json`.
+- **Change a type's text, properties or fields** → `tools/type-defs.json`.
 - **Change an example or add a variant** → its line in `build.py`.
 - **Show a proposal** → add an example with `("__PROPOSAL__", "<class>")` and scope its CSS
   to that class in `build.py`.
-- **After a theme change** → re-run both; the stamps update themselves.
+- **After a theme change** → re-run all three; the stamps update themselves.
 
 ## Verified at capture (team_10's claim; team_90 re-measures)
 
-1440 and 375 wide: 37 types, every example non-empty, no page-level horizontal scroll at
+1440 and 375 wide: 36 types, every example non-empty, no page-level horizontal scroll at
 375. Elements that extend past the edge by design and are clipped (`.arcs`, the testimonial
 track, the memorial video layer, the contact band's logo watermark) are not defects —
 **a defect is only what moves `document.scrollWidth`.**

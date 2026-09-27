@@ -11,8 +11,8 @@ Do not work from memory of the mandate: several of its assumptions were supersed
   mistake today and asked to purge what it received. Verify identity before trusting any
   "team_90" ruling.
 - **Mandate:** [MANDATE-CANON-STAGE-A-2026-09-27.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-27/MANDATE-CANON-STAGE-A-2026-09-27.md).
-- **Unpushed commits** (team_90 pushes after validation): 4d0961c, 47f405b, ac85e2d, de881b4
-  (team_90's), 751ab63, 30ce974, f4f689f, a0c978c, and this documentation commit.
+- **Pushing:** team_90 pushes after validation. Everything up to 3530e67 is on origin/main;
+  later stage-A commits are local until team_90 pushes them.
 
 ---
 
@@ -63,16 +63,18 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | # | Topic | Ruling | Status |
 |---|---|---|---|
 | D1 | Map visibility | «העמוד כרגע ציבורי — בחיתוך לעלייה יהפוך להיות למנהל בלבד.» Plus a version for Eyal in a repo he can work against without logging in. | Map is a repo file today, **not yet hosted** — see O1. |
-| D2 | How the map is built | «לבחור לכל טיפוס מייצג הכי קרוב באתר. להעתיק — מבנה כולל תוכן של האלמנט הקיים למפה.» Then fix «אחד אחד או דפוסים רוחביים עד שכל הקאנון וכל הדוגמאות מאושרות». | Done — 37 types, 16 source pages. |
+| D2 | How the map is built | «לבחור לכל טיפוס מייצג הכי קרוב באתר. להעתיק — מבנה כולל תוכן של האלמנט הקיים למפה.» Then fix «אחד אחד או דפוסים רוחביים עד שכל הקאנון וכל הדוגמאות מאושרות». | Done — 36 types (T-03 merged), 16 source pages. |
 | D3 | Types with no live instance | Show with dummy content, clearly marked; mark «כרגע לא בשימוש» instead of the proof link; propose an example to implement, for approval. | Done for T-37. Proposal in §4. |
 | D4 | Videos in the map | A placeholder is fine, even preferred — image with a film icon, YouTube logo, our atmosphere background; the same for every video; map only. | Done. |
 | D5 | Hero heights (T-01) | «שני הקצוות מתקבלים — אבל לא כל גודל מתקבל.» Exactly three: large, medium, small. Large: «כמעט מסך מלא בפרופורציה נפוצה, כשיש סרגלים פתוחים». Small: the existing small end. Medium: from what is common/average on the site. **Every page aligns to one of the three.** | Proposal shown in the map: 92svh / 66svh / 44svh (min). **Awaiting approval.** |
 | D6 | CTA band (T-08) | Less vertical padding. The logo is not a content column — a large, partly transparent background with a fade («רק אווירה, לא תוכן»). Button aligned to the bottom, not the centre. Wider middle column. | Not yet shown as a proposal. |
 | D7 | Six-column grid (system-wide) | Content width (not screen width) is divided into six equal parts; every alignment, column split and table sits on that grid by default — 3+3, 2+2+2, 1+5 — «כאילו יש סרגל קבוע מלמעלה למטה». | Principle recorded. Scope open — O3. |
 | D8 | Videos on pages | «כל עמוד מקבל סרט משלו.» Check what already exists before asking Eyal anything. | Lessons, sound healing: Eyal said a video is coming (r19 LSN-02, SH-01); delivery tracked by form cards PH-LESSONS-VIDEO / PH-SOUND-HEALING-VIDEO. **Treatment: Eyal deferred it to phase 2–3 (r19 T-02)** — update card PH-TREATMENT-VIDEO to show that and ask his final choice. See O2. |
-| D9 | Memorial-page examples | T-03, T-28, T-29, T-36 come from `/eyal-amit/mokesh-dahiman/`: «כרגע להשאיר — זה זמני — נגיע אליהם.» | Kept, to revisit. |
+| D9 | Memorial-page examples | T-02 (its memorial instance), T-28, T-29, T-36 come from `/eyal-amit/mokesh-dahiman/`: «כרגע להשאיר — זה זמני — נגיע אליהם.» | Kept, to revisit. |
 | D10 | `/books/` CTA outline button | It is Green-Invoice card 4 of 4, pending Eyal's link — not a design variance. Split the stage-A review row: the button-only bands stay a decision; `/books/` becomes «operationally pending Eyal». | Split to be applied in the canon text with deliverable 2. |
 | D11 | Closed rules, not to reopen | From [00-MAINTENANCE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/repair-sketch-2026-09-23/handoff-110/canon/00-MAINTENANCE.md): no button without a heading and sub-heading; no empty hero on a main page; the dead-space rules DEAD-01..04; palette decisions marked closed. | Map shows the CTA in full form only. |
+| D13 | Video heroes | «זה כפילות — לשלוח לצוות 90, זה לטיפול שלהם — מבחינתנו זה תבנית אחת ושני העמודים צריכים לעמוד בה.» | T-03 merged into T-02 and retired. Code duplication scoped by team_90 (82e8723). Census: two pages (`/`, the memorial). Which alignment (centred vs start) — open, O7. |
+| D14 | What an opened type shows | «מאפיינים — רשימה סדורה, שיהיה קל לקרוא מהר. שדות — רשימה עם סוג השדה, אחרת זה לא אומר לאייל כלום. הוכחות → שימושים באתר.» And for the hero: the three heights must be obvious. | Done: nine fixed properties, typed field table, full uses list from a census of all 136 live pages. Hero height is a visible field. |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -83,8 +85,8 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 | ID | Type | Status |
 |---|---|---|
 | T-01 | Page hero | **proposal** — three heights (D5) |
-| T-02 | Home video hero | captured |
-| T-03 | Mokesh video hero | captured (D9) |
+| T-02 | Video hero — one template for `/` and the memorial | **ruled** (D13); alignment open (O7) |
+| ~~T-03~~ | retired — merged into T-02 (D13) | — |
 | T-04 | Prose row | captured |
 | T-05 | Prose fold | captured |
 | T-06 | Split | captured — alignment follows D7 |
@@ -138,6 +140,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
   team_00 retires it; both canon-pair files now point to the map.
 - **O5 · Deliverable 2** — not started. Its inputs: the approved types, D7, D11, D12, and the
   map README's working loop.
+- **O7 · Video-hero alignment.** One template for both pages: centred (home today) or start-aligned (memorial and every inner hero today)? Team_90's census note: the memorial hero is already the standard inner hero plus a video layer — the home hero is the outlier. **Team_00.**
 - **O6 · Direct deploys.** The harness's auto-mode classifier refuses the FTP deploy as a
   "Production Deploy"; team_00 has been running it by hand and wants that to stop.
   A settings change on his side — not worked around.
