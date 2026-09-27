@@ -1,8 +1,8 @@
 {
- "measured_at": "2026-09-27T00:46:09+00:00",
- "population_objects": 153,
+ "measured_at": "2026-09-27T07:26:54+00:00",
+ "population_objects": 152,
  "live_200": 136,
- "redirects": 17,
+ "redirects": 16,
  "nav_not_exactly_one": [],
  "footer_not_exactly_one": [],
  "php_error_pages": [],
@@ -16,7 +16,7 @@
  "pages_missing_a_legal_link": [],
  "images_with_no_alt_attribute": 2,
  "theme_versions_served": {
-  "1.5.146": 136
+  "1.5.147": 136
  },
- "baseline_reason": "First baseline, taken 2026-09-27 after 1.5.146 restored the sticky-reveal footer on 53 pages. Every figure re-measured by team_90, not taken from a lane report."
+ "baseline_reason": "Page 181 (/about/moksha/) moved to private on team_00's ruling of 2026-09-27: the memorial page is the most sensitive on the site and its approved content is /eyal-amit/mokesh-dahiman/; any other text on the subject is archive only, meaning visible in wp-admin to Eyal and closed to visitors and search engines. Measured first: the 112 words on page 181 match ea_w2_02_moksha_html() in the seeder mu-plugin at 107/107 fragments, so they were machine-written by us in May 2026 and never approved. Population therefore 152 objects and 16 redirects; the 136 live URLs are unchanged."
 }
