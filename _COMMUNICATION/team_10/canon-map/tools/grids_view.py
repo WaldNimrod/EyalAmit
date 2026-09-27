@@ -6,7 +6,8 @@ team_00's definitions: 1 — full width. 2 — half/half, or 4+2 either way (1+5
 two; two small and two large; one large and three small (three thirds and one below is struck). 5 — one large and four
 small, the large first or last (tried both as one row and as a tall one), or one tall beside a quartet of halves.
 More than 5 — no template of its own (team_00: «לא צריך תבנית למעל 5. 6 זה 3+3 או 4+2 וכו׳»): rows built from the
-layouts above; over 10 items the remainder can be a simple tail.
+layouts above. A list of more than 10, or of unknown length (blog, gallery, testimonials), is exempt: pick a
+per-row count that fits the grid (1, 2, 3 or 6) and leave the remainder as it falls (team_00).
 
     python3 tools/grids_view.py ea-canon-map.html grids.html
 """
@@ -57,7 +58,7 @@ for title, rows in LAYOUTS:
 head = ('<div class="cm-proof-head"><h1>חלוקות הרשת — כל האפשרויות לפי מספר פריטים</h1>'
         '<p>כל פריט יושב על ששת הטורים; גובה שורה אחיד, ופריט גבוה תופס שתי שורות. נפסלו: 1+5 בשניים, ו«שלושה שלישים ואחד מתחת» '
         'בארבעה. כל אפשרות עם מזהה — מאשרים, פוסלים, ואז כל טיפוס שמחלק פריטים (כרטיסים, תמונות, המלצות וכו׳) יורש מהרשימה. '
-        'בטלפון: שני טורים; פריט רחב (3 טורים ומעלה) או גבוה תופס את שניהם. <b>מעל חמישה אין תבנית משלו</b> — מרכיבים משורות שברשימה (שישה = 3+3 או 4+2 וכו׳); מעל עשרה מותר זנב פשוט.</p></div>')
+        'בטלפון: שני טורים; פריט רחב (3 טורים ומעלה) או גבוה תופס את שניהם. <b>מעל חמישה אין תבנית משלו</b> — מרכיבים משורות שברשימה (שישה = 3+3 או 4+2 וכו׳). <b>רשימה של יותר מעשרה, או שמספרה לא ידוע מראש</b> (בלוג, גלריה, המלצות): פטורה — בוחרים מספר בשורה שעומד ברשת (1, 2, 3 או 6) וזהו; השארית נשארת כמו שהיא.</p></div>')
 
 keep_nav(s, "grids.html")
 main = s.find("main")
