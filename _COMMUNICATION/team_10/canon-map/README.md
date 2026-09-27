@@ -114,7 +114,25 @@ typed fields and the technical keys an editor never sets.
 - **Show a proposal** → add an example with `("__PROPOSAL__", "<class>")` and scope its CSS
   to that class in `build.py`.
 - **After a theme change** → re-run all three; the stamps update themselves.
+- **Palette check** → `python3 tools/palette_check.py ea-canon-map.html palette-check.html`. Temporary; the approved text paragraph on every tone of both palettes with WCAG ratios per role and a verdict. Its tone list and text sets are at the top of the script.
 - **Grid proof** (team_00: every sketch shows the six-column grid) → `python3 tools/grid_proof.py ea-canon-map.html grid-proof.html`. Temporary; covers the types already reviewed (edit `PICK` to add one). The overlay spans the element's own grid, so a design that is off-grid shows immediately.
+
+## The grid (team_00's rulings, 2026-09-27)
+
+Six equal columns over the component's **content width** (not the screen), numbered from the
+right: column 1 is the rightmost. Gutter **10px**, one variable (`--cm-gap`). It is a ruler that
+divides the space, not a set of content cards — the grid proof draws only column edges. Every
+sketch from now on is shown with it (`grid-proof.html`). Approved placements so far: hero —
+text 1–4, button 5–6 (bottom or top); CTA band — text 1–4, button 5–6; text paragraph —
+heading 1–6, text 2–5. A button always fills its columns on one line; on a phone it goes under
+the text, on the left.
+
+## Map pitfall, found and fixed once
+
+A selector like `main > section.sec` picks the first matching section, which on some pages is a
+different type (a split, an accordion). T-04 captured the wrong type twice. **After changing any
+capture, audit every example against its type's signature** (the check lives in the stage-A
+state file's history; 65 of 65 clean at the last run).
 
 ## Verified at capture (team_10's claim; team_90 re-measures)
 

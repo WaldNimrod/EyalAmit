@@ -1,6 +1,6 @@
 # Canon stage A — state, decisions, and what runs next
 
-**Updated 2026-09-27, theme 1.5.150. Entry point for any session continuing canon stage A.**
+**Updated 2026-09-27 (checkpoint before compaction), theme 1.5.150. Entry point for any session continuing canon stage A.**
 Read this, then the map's [README](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/README.md),
 then open the [map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html).
 Do not work from memory of the mandate: several of its assumptions were superseded today (§6).
@@ -177,10 +177,29 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 - **The artifact as the paired visual document** is superseded by the map (O4).
 - **Map vs. site edits:** stage A changes no page (§1). The theme is touched only in stage B.
 
-## 7 · How the next session runs
+## 7 · Where we stopped, and how the next session runs
 
-Go type by type or by cross-cutting pattern, in the order team_00 chooses (T-01 and T-08
-are furthest along). For each: follow the loop in the map README — show, get approval by
-eye on desktop and phone, record the ruling here in his words, update the map and
-`CONTENT-TYPES-CANON.md` together, hand to team_90. Update §4's status and this file's date
-in the same commit.
+**Checkpoint, 2026-09-27 (team_00: «אחרי הפסקה נגדיר נקודת עצירה, תיעוד, שמירת מצב, דחיסה ואז נמשיך»).**
+
+- **Approved:** T-01 hero (D5, D15–D18, D21, D24, D27, D31), T-08 CTA band (D6, D19, D23–D25, D31),
+  T-04 text paragraph layout (D29, D32), all-button padding (D25), grid gutter 10px (D28).
+- **Waiting on team_00:** D33 — paragraph backgrounds (11 of 13 tones allowed with two added text
+  sets; terra-lt and terra forbidden). Open items O1–O3, O5, O6, O9 below.
+- **Next type:** T-06 split (text beside image), under rule D30 — «כל ה-6 בחלוקה לפי התוכן וכיוון
+  התמונה». Show today's split and grid proposals by image orientation (landscape / portrait /
+  cover), with the grid overlay, desktop and phone.
+- **Working files:** `canon-map/ea-canon-map.html` (the map), `grid-proof.html` and
+  `palette-check.html` (temporary, generated). Build sources: `tools/` — `build.py` is the spec
+  and CSS; `type-defs.json` the texts, properties and fields; `uses.json` the census.
+  **The builder is edited in the session scratchpad as `build_head.py` + `build_tail.py` and
+  concatenated into `tools/build.py`; after compaction edit `tools/build.py` directly** (the
+  scratchpad copy will be gone). `fetch.py` must be re-run first to recreate the source pages.
+- **How we work (settled):** Nimrod judges by eye; every change is shown in the map (and the
+  grid proof) before it is recorded; his words go into §3; approved rules go into
+  `CONTENT-TYPES-CANON.md` in the same commit (pairing rule); team_90 measures. Short turns,
+  images sent directly (`SendUserFile`), because the map file he has open is a snapshot.
+
+Go type by type or by cross-cutting pattern, in the order team_00 chooses. For each: follow the
+loop in the map README, record the ruling here in his words, update the map and
+`CONTENT-TYPES-CANON.md` together, hand to team_90. Update §4's status and this file's date in
+the same commit.
