@@ -296,6 +296,7 @@ footer{margin-top:26px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 </div>
 
 <div class="bar">
+  <button type="button" id="export-btn">ייצוא התשובות לקובץ</button>
   <button type="button" id="copy-btn">העתקת כל התשובות כטקסט</button>
   <span class="done" id="msg"></span>
   <textarea id="out" readonly></textarea>
@@ -388,6 +389,47 @@ footer{margin-top:26px;color:var(--muted);font-size:.85rem;border-top:1px solid 
       document.body.removeChild(t);
       return ok;
     }catch(e){ return false; }
+  }
+
+  /* A file export beside the text copy. The clipboard summary is for reading;
+     this is the machine-readable answer we ingest. Without it the redirect
+     decisions come back as free Hebrew prose and have to be retyped, which is
+     where transcription errors enter a legal/SEO mapping. */
+  var expBtn = document.getElementById('export-btn');
+  if(expBtn){
+    expBtn.addEventListener('click', function(){
+      var answers = [];
+      items.forEach(function(el){
+        var id = el.getAttribute('data-id');
+        var checked = el.querySelector('input[type="radio"]:checked');
+        var ta = el.querySelector('textarea');
+        answers.push({
+          id: id,
+          title: label(el),
+          choice: checked ? checked.value : '',
+          note: ta ? ta.value.trim() : ''
+        });
+      });
+      var payload = {
+        exportType: 'eyal-redirects-approval',
+        exportSchema: 'redirects-approval-v1',
+        documentDate: '2026-09-26',
+        exportTimestamp: new Date().toISOString(),
+        answers: answers
+      };
+      var txt = JSON.stringify(payload, null, 1);
+      try{
+        var b = new Blob([txt], {type:'application/json'});
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(b);
+        a.download = 'eyal-redirects-approval.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        if(msg) msg.textContent = '\u05d4\u05e7\u05d5\u05d1\u05e5 \u05d9\u05e8\u05d3 \u2014 \u05d9\u05e9 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05d0\u05d5\u05ea\u05d5 \u05d0\u05dc\u05d9\u05e0\u05d5.';
+      }catch(e){
+        if(out){ out.style.display='block'; out.value = txt; }
+        if(msg) msg.textContent = '\u05dc\u05d0 \u05e0\u05d9\u05ea\u05df \u05dc\u05d4\u05d5\u05e8\u05d9\u05d3 \u2014 \u05d4\u05d8\u05e7\u05e1\u05d8 \u05de\u05d5\u05e6\u05d2 \u05dc\u05de\u05d8\u05d4 \u05dc\u05d4\u05e2\u05ea\u05e7\u05d4.';
+      }
+    });
   }
   var btn = document.getElementById('copy-btn');
   var msg = document.getElementById('msg');

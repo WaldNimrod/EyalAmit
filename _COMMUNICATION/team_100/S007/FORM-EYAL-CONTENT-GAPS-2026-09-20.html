@@ -946,7 +946,7 @@
     var items=[].slice.call(document.querySelectorAll('.item'));
     return {
       exportType:"eyal-final-form",
-      exportSchema:"final-form-v1",
+      exportSchema:"final-form-v2",
       formDate:"2026-09-24",
       formSig:FORM_SIG,
       exportTimestamp:new Date().toISOString(),
@@ -955,12 +955,23 @@
         var name=el.getAttribute('data-id');
         var picked=el.querySelector('input[name="'+name+'"]:checked');
         var tas=[].slice.call(el.querySelectorAll('textarea'));
+        /* Cards carry up to several named textareas — one per image, one per CTA
+           band. Joining them into a single string loses which answer belongs to
+           which image, and that attribution cannot be recovered from the export.
+           So each field is kept under its own name in `fields`, and `note` stays
+           as the joined string purely so older readers do not break. */
+        var fields={};
+        tas.forEach(function(t){
+          var v=t.value.trim();
+          if(v){ fields[t.getAttribute('name')||('note-'+name)]=v; }
+        });
         var note=tas.map(function(t){return t.value.trim();}).filter(Boolean).join('\n');
         return {
           id:name,
           title:(el.querySelector('h3')||{}).textContent||"",
           choice:picked?picked.value:"",
-          note:note
+          note:note,
+          fields:fields
         };
       }),
       notesTable: collectNotesRows()
