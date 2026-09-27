@@ -964,6 +964,12 @@ require_once get_stylesheet_directory() . '/inc/ea-cookie-notice.php';
  */
 require_once get_stylesheet_directory() . '/inc/ea-breadcrumbs.php';
 
+/**
+ * S007 2026-09-27 — tell the editor on the edit screen where a page's content really comes from.
+ * Admin only; adds nothing to the front end.
+ */
+require_once get_stylesheet_directory() . '/inc/ea-admin-content-origin.php';
+
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once get_stylesheet_directory() . '/inc/cli/class-ea-faq-migrate-command.php';
 }
