@@ -661,27 +661,35 @@ endif;
 add_action( 'wp_body_open', 'ea_render_primary_nav_wp_hook', 20 );
 
 /**
- * Page templates that used to call template-parts/chapters/section-footer.php
- * explicitly (contact foot-gap + sticky-reveal flag). /en/, /press/, and
- * /historical-articles/ never called it — measured 2026-09-27.
+ * Views that used to call template-parts/chapters/section-footer.php before
+ * wp_footer() (contact foot-gap + sticky-reveal flag). /en/, /press/, and
+ * /historical-articles/ never called it — measured 2026-09-27. QR children
+ * under /qr/{slug}/ reach tpl-chapters-qr.php via pattern routing, not via
+ * get_page_template_slug() on the child — include them explicitly.
  *
  * @return bool
  */
 function ea_chapters_uses_section_footer_partial() {
-	$ea_tpl = get_page_template_slug();
-	$ea_list = array(
-		'page-templates/tpl-chapters-home.php',
-		'page-templates/tpl-chapters-page.php',
-		'page-templates/tpl-chapters-qr.php',
-		'page-templates/tpl-chapters-blog-single.php',
-		'page-templates/tpl-chapters-blog-archive.php',
-		'page-templates/tpl-chapters-mokesh.php',
-		'page-templates/tpl-chapters-method.php',
-	);
-	if ( $ea_tpl && in_array( $ea_tpl, $ea_list, true ) ) {
+	if ( is_page( array( 'en', 'press', 'historical-articles' ) ) ) {
+		return false;
+	}
+	if ( function_exists( 'ea_chapters_is_view' ) && ea_chapters_is_view() ) {
 		return true;
 	}
-	return is_front_page() && is_page();
+	if ( is_singular( 'post' ) ) {
+		$ea_tpl = get_page_template_slug();
+		if ( in_array(
+			$ea_tpl,
+			array(
+				'page-templates/tpl-chapters-blog-single.php',
+				'page-templates/tpl-chapters-blog-archive.php',
+			),
+			true
+		) ) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /*
