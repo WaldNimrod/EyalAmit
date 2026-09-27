@@ -3,9 +3,18 @@
  * Chapters /muzza/ (מוזה הוצאה לאור — ספרים HUB) — seeded content defaults.
  * Sourced from MUZZA.md; #/external links preserved, /muzeh/... rewritten to
  * the canonical /books/<slug>/ routes. The retired studio brand is not used.
- * DEV-NOTES scaffolding is omitted. Text carries the FULL approved source copy VERBATIM.
+ * DEV-NOTES scaffolding is omitted.
  *
- * S006 R1-16 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md
+ * Corrected 2026-09-27 (canon stage A): the claim below that this file carries the
+ * FULL source verbatim is NOT true as of commit 4bc5f5c (2026-08-21) — Eyal's own
+ * 19.8 book notes (r19-eyal-answers.json, pageKey R1-16) trimmed MUZZA.md's SECTION
+ * 03.5 (the "about Eyal" bio) and SECTION 12 (the closing note, merged into
+ * SECTION 09 instead) deliberately. Diffing this file against MUZZA.md directly
+ * will therefore always show those two sections "missing" — that is correct, not
+ * a gap. See the comment above SECTION 04 below for the fuller account.
+ *
+ * S006 R1-16 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md — superseded on
+ * the two points above by Eyal's later 19.8 notes; everything else here still matches it.
  * BK-01 · BK-02 · BK-03 · 2026-08-18 — media BK-04/05/06 left as-is (Eyal).
  *
  * @package ea_eyalamit
@@ -38,19 +47,18 @@ return array(
 			),
 		),
 
-		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 03.5
-		 * Canon stage A (2026-09-27): this section existed in the approved source since
-		 * before the page was built, but was never carried into this defaults array —
-		 * found while diffing the two side by side. Body verbatim from the source; the
-		 * external link follows this file's own convention for one (tlink class, new
-		 * tab, noopener+noreferrer — see SECTION 05-07's book links below). No ###
-		 * heading in the source, so no title arg here, matching SECTION 03 above. */
-		array(
-			'part' => 'prose',
-			'args' => array(
-				'body' => '<p>אייל עמית הוא סופר ומוציא לאור, מהנדס אלקטרוניקה לשעבר ואיש במה לשעבר, שיצר במשך שנים את מופע הסיפורים "תופעת יחיד". במקביל לכתיבה, הוא עוסק למעלה משני עשורים בעבודה עם דיג\'רידו - כמורה, בונה ומטפל בנשימה, ומנהל את המרכז לטיפול בדיג\'רידו בפרדס חנה.</p><p><a class="tlink" href="https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%9C_%D7%A2%D7%9E%D7%99%D7%AA" target="_blank" rel="noopener noreferrer">לקריאה נוספת על אייל עמית בויקיפדיה</a></p>',
-			),
-		),
+		/* Canon stage A (2026-09-27): a session (team_10) re-added a "SECTION 03.5" prose
+		 * block here, reading MUZZA.md (25.5.26) at face value against this file's own
+		 * header comment claiming "FULL approved source copy VERBATIM." That comment is
+		 * stale. Commit 4bc5f5c (2026-08-21, "apply Eyal 19.8 book notes") deliberately
+		 * removed this exact section — and the closing SECTION 12 block below it — per
+		 * Eyal's own later instruction in
+		 * _COMMUNICATION/team_100/S006/tracker/r19-eyal-answers.json, pageKey R1-16
+		 * ("ספרים"): «מתחת להירו להשאיר רק את הטקסט הזה: …» (leave ONLY this text under
+		 * the hero), naming just the SECTION-03 intro — not this bio block. Re-adding it
+		 * was reverted the same day once the removal's own history surfaced; it is
+		 * intentionally absent. Do not re-add it from MUZZA.md again without a newer,
+		 * explicit instruction from Eyal or Nimrod overriding the 19.8 note above. */
 
 		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 04
 		 * BK-01 · H2 מ-### כותרת נשאר. chap «מכירה ישירה» רוקן. גוף ככתבו. */
