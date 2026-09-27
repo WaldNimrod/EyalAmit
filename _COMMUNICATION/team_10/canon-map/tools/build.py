@@ -41,11 +41,13 @@ t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media �
    ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None),
    ("הצעה — גדול: כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
    ("הצעה — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-m")),
-   ("הצעה — קטן: כמו עמוד יצירת הקשר היום (44% מהגובה הנראה). זה גובה מינימלי — כאן הטקסט ארוך יותר ולכן הבאנר גדל ל־50%", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-s"))])
+   ("הצעה — קטן: 44% מהגובה הנראה. זה גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג כאן עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__PROPOSAL__", "cm-h-s")),
+   ("הצעה — אותו באנר עם סרטון במקום תמונה (גדול). כך הירו הווידאו הופך לאותו טיפוס — המדיה היא שדה", "method", "header.phero--media", 0, None, ("__PROPOSAL_VIDEO__", "cm-h-l"))])
 t("T-02", "הירו וידאו", "hero / mokesh-hero", "וידאו · תמונת פתיחה · כותרת · תת-כותרת · כפתור",
   [("מופע היום: דף הבית", "home", "header.hero", 0, None, None),
    ("מופע היום: עמוד מוקש", "mokesh", "header.mokesh-hero", 0, None, None)],
-  note="תבנית אחת (נימרוד, 27.9: «זה כפילות… מבחינתנו זו תבנית אחת ושני העמודים צריכים לעמוד בה»). "
+  note="הצעה: לאחד לתוך T-01 — אותו באנר, כשהמדיה היא סרטון במקום תמונה (ראו את ההצעה האחרונה ב-T-01). אחרי אישור, T-02 יוצא משימוש. "
+       "עד אז: תבנית אחת (נימרוד, 27.9: «זה כפילות… מבחינתנו זו תבנית אחת ושני העמודים צריכים לעמוד בה»). "
        "T-03 אוחד לכאן והמספר שלו לא ישמש שוב. שני הקבצים הכפולים בקוד — בטיפול צוות 90. "
        "היום שני המופעים שונים: בדף הבית הכותרת ממורכזת, בעמוד מוקש לימין — איזה יישור מקבלת התבנית טרם הוכרע.")
 
@@ -252,8 +254,11 @@ def specimen(label, page, css, idx, pred, tr):
         sel, keep = tr
         if sel == "__DUMMY__":
             el = dummy(el)
-        elif sel == "__PROPOSAL__":
+        elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__"):
             el["class"] = el.get("class", []) + [keep]
+            if sel == "__PROPOSAL_VIDEO__":
+                for img in el.select("img.phero__media"):
+                    img.replace_with(vph(img))
         elif sel == "__BODY__":
             box = el.select_one(".ea-post-content") or el.select_one(".wrap")
             kids = [c for c in box.children if getattr(c, "name", None)]
@@ -318,7 +323,7 @@ for item in G + [("GROUP", None)]:
         if c[0]:
             body.append(f'<div class="cm-variant">{c[0]}</div>')
         dm = bool(c[5]) and c[5][0] == "__DUMMY__"
-        pr = bool(c[5]) and c[5][0] == "__PROPOSAL__"
+        pr = bool(c[5]) and c[5][0] in ("__PROPOSAL__", "__PROPOSAL_VIDEO__")
         body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}{" cm-prop" if pr else ""}">'
                     + ('<span class="cm-dummy__badge">תוכן דמה — לא מופיע באתר</span>' if dm else "")
                     + ('<span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span>' if pr else "")
@@ -409,13 +414,14 @@ body{background:#f7f2ea}
 .cm-cut{font-family:Heebo,sans-serif;font-size:.8rem;text-align:center;color:#8a7a6a;padding:8px}
 .cm-dummy{outline:3px dashed #c98a2b;outline-offset:-3px}
 .cm-prop{outline:3px solid #3f7a52;outline-offset:-3px}
-.cm-prop__badge{background:#3f7a52;color:#fff}
+.cm-dummy__badge.cm-prop__badge{background:#3f7a52;color:#fff}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
 .cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
+.phero .cm-vid.phero__media{position:absolute;inset:0;height:100%;aspect-ratio:auto}
 .cm-vid__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cm-vid::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(29,20,13,.35),rgba(154,79,43,.6))}
 .cm-vid__ic,.cm-vid__yt,.cm-vid__lbl{position:absolute;z-index:1}

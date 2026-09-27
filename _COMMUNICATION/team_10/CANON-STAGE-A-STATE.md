@@ -75,6 +75,7 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D11 | Closed rules, not to reopen | From [00-MAINTENANCE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/repair-sketch-2026-09-23/handoff-110/canon/00-MAINTENANCE.md): no button without a heading and sub-heading; no empty hero on a main page; the dead-space rules DEAD-01..04; palette decisions marked closed. | Map shows the CTA in full form only. |
 | D13 | Video heroes | «זה כפילות — לשלוח לצוות 90, זה לטיפול שלהם — מבחינתנו זה תבנית אחת ושני העמודים צריכים לעמוד בה.» | T-03 merged into T-02 and retired. Code duplication scoped by team_90 (82e8723). Census: two pages (`/`, the memorial). Which alignment (centred vs start) — open, O7. |
 | D14 | What an opened type shows | «מאפיינים — רשימה סדורה, שיהיה קל לקרוא מהר. שדות — רשימה עם סוג השדה, אחרת זה לא אומר לאייל כלום. הוכחות → שימושים באתר.» And for the hero: the three heights must be obvious. | Done: nine fixed properties, typed field table, full uses list from a census of all 136 live pages. Hero height is a visible field. |
+| D15 | Hero review order | «נתחיל מגבהי ההירו וגם איחוד של הוידאו הירו לטיפוס אחד.» | Shown in the map under T-01: 92svh / 66svh / 44svh (min), plus the same hero with a video in place of the image. Measured: desktop 1440×900 → 92% / 66% / 45%; phone 375×812 → 92% / 73% / 51% — on a phone the text wraps and sets the lower two heights. **Awaiting approval.** |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -84,7 +85,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 
 | ID | Type | Status |
 |---|---|---|
-| T-01 | Page hero | **proposal** — three heights (D5) |
+| T-01 | Page hero | **proposal** — three heights (D5) + media as a field: image / video / none, absorbing T-02 (D15) |
 | T-02 | Video hero — one template for `/` and the memorial | **ruled** (D13); alignment open (O7) |
 | ~~T-03~~ | retired — merged into T-02 (D13) | — |
 | T-04 | Prose row | captured |
