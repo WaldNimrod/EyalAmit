@@ -77,6 +77,7 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D14 | What an opened type shows | «מאפיינים — רשימה סדורה, שיהיה קל לקרוא מהר. שדות — רשימה עם סוג השדה, אחרת זה לא אומר לאייל כלום. הוכחות → שימושים באתר.» And for the hero: the three heights must be obvious. | Done: nine fixed properties, typed field table, full uses list from a census of all 136 live pages. Hero height is a visible field. |
 | D15 | Hero review order | «נתחיל מגבהי ההירו וגם איחוד של הוידאו הירו לטיפוס אחד.» | Shown in the map under T-01: 92svh / 66svh / 44svh (min), plus the same hero with a video in place of the image. Measured: desktop 1440×900 → 92% / 66% / 45%; phone 375×812 → 92% / 73% / 51% — on a phone the text wraps and sets the lower two heights. **Awaiting approval.** |
 | D16 | Hero button | «בהירו — הכפתור — לא שורה מתחת — אלא שמאלה לטור 3 בערך, ואז כל הטקסט יורד למטה.» | Shown on all four T-01 proposals: text in grid columns 1–4 (right), button in 5–6 (left), button bottom level with the last text line; the button row below is gone, so the text sits lower. Phone: button returns below the text. Measured 1440×900 and 375×812. **Awaiting approval.** |
+| D17 | Hero approved; tab names | «מאשר את הגבהים ואת הכפתור.» And the tab «קריאה» (text paragraphs) read as «קריאה לפעולה» — «שוב דריפט תרגום». | Heights 92/66/44svh (min) and the button rule approved and written into CONTENT-TYPES-CANON.md type 1. Tabs renamed: «קריאה» → «טקסט», «פעולה» → «קריאה לפעולה». The video-as-media merge is not yet ruled on. |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -86,7 +87,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 
 | ID | Type | Status |
 |---|---|---|
-| T-01 | Page hero | **proposal** — three heights (D5) + media as a field: image / video / none, absorbing T-02 (D15) |
+| T-01 | Page hero | **approved**: three heights, button left (D5, D15, D16). **Proposal still open:** media as a field, absorbing T-02 |
 | T-02 | Video hero — one template for `/` and the memorial | **ruled** (D13); alignment open (O7) |
 | ~~T-03~~ | retired — merged into T-02 (D13) | — |
 | T-04 | Prose row | captured |

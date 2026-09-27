@@ -135,6 +135,20 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 - **Variants:** `--media` vs. text hero is structural (same file, driven by whether `media` is set), not a silent override. `--compact` and `--half` are declared `mod` values. `/en/` is LTR: same hero, `dir="ltr"` and inline `direction:ltr;text-align:left` set on `<main>` by `tpl-chapters-en.php`, so title/eyebrow measure `text-align: left`.
 - **Exceptions:** No `page-id-` CSS rule anywhere. `/learning/courses-external/` renders a hero with title «קורסים» and sub «יעלה בקרוב» and an empty `sections` array — a deliberate parking page, not a broken hero. **This type is not uniform** (flagged in the [stage-A review list](#stage-a-review-list) — the compact and half variants read very differently on screen from the standard photo hero).
 - **Orphan?** No. The unrelated Wave 2 file `block-hero.php` is a true orphan (see [Orphans](#orphans)).
+- **APPROVED in canon stage A, 2026-09-27 (team_00: «מאשר את הגבהים ואת הכפתור») — the target
+  for stage B; not yet on the site:**
+  - **Exactly three heights; every page aligns to one.** Large `92svh` · medium `66svh` ·
+    small `44svh`. Each is a *minimum*: longer text grows the banner. `svh` is the viewport
+    height with the browser toolbars shown — team_00's «כמעט מסך מלא… כשיש סרגלים פתוחים».
+    Measured in the map: 1440×900 → 92% / 66% / 45%; 375×812 → 92% / 73% / 51% (text wraps).
+    Today's four heights (88vh standard, 78vh `/repair/`, 44vh `/contact/`, text hero) are
+    superseded.
+  - **Button left, bottom-aligned, on the six-column grid:** text in columns 1–4 (the right,
+    in RTL), button in columns 5–6, its bottom level with the last line of text — no button
+    row under the text, so the text block sits lower. Below 760px the button returns under
+    the text.
+  - **Still a proposal:** media as a field (image / video / none), which folds type 2 into
+    this type. See the canon map, T-01 and T-02.
 
 <a id="2-home-video-hero--hero"></a>
 ### 2. Home video hero — `hero`

@@ -39,9 +39,9 @@ t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media �
    ("גרסה: קומפקטי", "repair", "header.phero--compact", 0, None, None),
    ("גרסה: חצי גובה", "contact", "header.phero--half", 0, None, None),
    ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None),
-   ("הצעה — גדול: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
-   ("הצעה — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-m")),
-   ("הצעה — קטן: 44% מהגובה הנראה. זה גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג כאן עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__PROPOSAL__", "cm-h-s")),
+   ("מאושר — גדול: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l")),
+   ("מאושר — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-m")),
+   ("מאושר — קטן: 44% מהגובה הנראה. זה גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג כאן עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__APPROVED__", "cm-h-s")),
    ("הצעה — אותו באנר עם סרטון במקום תמונה (גדול). כך הירו הווידאו הופך לאותו טיפוס — המדיה היא שדה", "method", "header.phero--media", 0, None, ("__PROPOSAL_VIDEO__", "cm-h-l"))])
 t("T-02", "הירו וידאו", "hero / mokesh-hero", "וידאו · תמונת פתיחה · כותרת · תת-כותרת · כפתור",
   [("מופע היום: דף הבית", "home", "header.hero", 0, None, None),
@@ -51,7 +51,7 @@ t("T-02", "הירו וידאו", "hero / mokesh-hero", "וידאו · תמונת
        "T-03 אוחד לכאן והמספר שלו לא ישמש שוב. שני הקבצים הכפולים בקוד — בטיפול צוות 90. "
        "היום שני המופעים שונים: בדף הבית הכותרת ממורכזת, בעמוד מוקש לימין — איזה יישור מקבלת התבנית טרם הוכרע.")
 
-group("קריאה")
+group("טקסט")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
   [(None, "method", "main > section.sec", 0, None, None),
    ("גרסה: רקע כהה", "lessons", "main > section.sec--dark", 0, None, None)])
@@ -120,7 +120,7 @@ t("T-30", "מקום שמור לתמונה", "photo-slot", "label",
 t("T-36", "וידאו מוקש", "mokesh-video", "yt_id · title",
   [(None, "mokesh", "main > section.sec iframe", 0, lambda e: "fbgrid__frame" not in e.get("class", []), None)])
 
-group("פעולה")
+group("קריאה לפעולה")
 t("T-08", "פס קריאה לפעולה", "cta", "title · body · cta_label · cta_url · sand · btn",
   [(None, "method", "section.cta-band", 0, None, None)],
   note="מוצג בצורה המלאה בלבד — כפתור בלי כותרת ותת־כותרת אסור לפי החלטה סגורה.")
@@ -254,7 +254,7 @@ def specimen(label, page, css, idx, pred, tr):
         sel, keep = tr
         if sel == "__DUMMY__":
             el = dummy(el)
-        elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__"):
+        elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__"):
             el["class"] = el.get("class", []) + [keep]
             if sel == "__PROPOSAL_VIDEO__":
                 for img in el.select("img.phero__media"):
@@ -324,9 +324,11 @@ for item in G + [("GROUP", None)]:
             body.append(f'<div class="cm-variant">{c[0]}</div>')
         dm = bool(c[5]) and c[5][0] == "__DUMMY__"
         pr = bool(c[5]) and c[5][0] in ("__PROPOSAL__", "__PROPOSAL_VIDEO__")
-        body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}{" cm-prop" if pr else ""}">'
+        ap = bool(c[5]) and c[5][0] == "__APPROVED__"
+        body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}{" cm-prop" if pr else ""}{" cm-appr" if ap else ""}">'
                     + ('<span class="cm-dummy__badge">תוכן דמה — לא מופיע באתר</span>' if dm else "")
                     + ('<span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span>' if pr else "")
+                    + ('<span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span>' if ap else "")
                     + rel(str(el)) + "</div>")
         if cut:
             body.append('<div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div>')
@@ -414,6 +416,8 @@ body{background:#f7f2ea}
 .cm-cut{font-family:Heebo,sans-serif;font-size:.8rem;text-align:center;color:#8a7a6a;padding:8px}
 .cm-dummy{outline:3px dashed #c98a2b;outline-offset:-3px}
 .cm-prop{outline:3px solid #3f7a52;outline-offset:-3px}
+.cm-appr{outline:3px solid #2d5f8a;outline-offset:-3px}
+.cm-dummy__badge.cm-appr__badge{background:#2d5f8a;color:#fff}
 .cm-dummy__badge.cm-prop__badge{background:#3f7a52;color:#fff}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
