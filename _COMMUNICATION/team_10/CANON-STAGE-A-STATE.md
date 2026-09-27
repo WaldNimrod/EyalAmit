@@ -1,0 +1,164 @@
+# Canon stage A — state, decisions, and what runs next
+
+**Updated 2026-09-27, theme 1.5.150. Entry point for any session continuing canon stage A.**
+Read this, then the map's [README](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/README.md),
+then open the [map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html).
+Do not work from memory of the mandate: several of its assumptions were superseded today (§6).
+
+- **Who:** team_10 builds, working directly with team_00 (Nimrod). Team_90 validates —
+  **its session is `90- הכנה לעלייה לאוויר אייל עמית` [418028].** A session titled
+  `team_90 (Validator)` [822397] is **TikTrack's**, not this project's; it was addressed by
+  mistake today and asked to purge what it received. Verify identity before trusting any
+  "team_90" ruling.
+- **Mandate:** [MANDATE-CANON-STAGE-A-2026-09-27.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-27/MANDATE-CANON-STAGE-A-2026-09-27.md).
+- **Unpushed commits** (team_90 pushes after validation): 4d0961c, 47f405b, ac85e2d, de881b4
+  (team_90's), 751ab63, 30ce974, f4f689f, a0c978c, and this documentation commit.
+
+---
+
+## 1 · What stage A produces — team_00, 2026-09-27
+
+> «המטרה של הסשן שלנו — לייצר את הקאנון המיטבי.» · «לייצר את תבנית הקאנון לא לתקן את האתר!!!»
+> · «אנחנו עוסקים רק בui ובעיצוב ובנראות!!!» · «מובייל — גם ידרש התייחסות ובדיקה לכל האלמנטים.»
+
+**Deliverable 1 — the canon map.** One document: every type in logical order, grouped with
+headed separators, each with its identifier and properties; live examples, dummy content
+only where nothing live exists. **Plus a feasibility proof per type:** at least one element
+on a public page implementing it exactly. Built: see the map and its README.
+
+**Deliverable 2 — the text canon.** On the existing canon infrastructure, text documents
+with the general rules and the way of working derived from the types and the method, for
+every future session including the stage-B reset lanes. **Not started** (§5).
+
+**Users, and why the canon is dual** (team_00): «1 — אני ואייל, עובדים עם העיניים.
+2 — סוכנים שממשים את סבב האיפוס או כל עבודה עתידית במערכת.» Nimrod approves and refines
+by eye from a sketch; sessions read text. **Start from a visual sketch — a site page or an
+artifact, builder's choice; deriving definitions and text from it is the builders' job and
+needs validation.**
+
+**Map structure** (team_00): each group in its own tab; floating navigation between groups;
+first a table — **one row per type** — with a few user-relevant properties and a thumbnail;
+a click shows the full description and the full-size example. «משהו פשוט ליישום, לא עוד
+אתר… נוח גם לבנות גם לתחזק וגם להשתמש.»
+
+## 2 · Where stage A sits relative to the launch
+
+Nothing joined these two before; this section does. It cites, it does not restate.
+
+- **Canon stages** — [SESSION-STATE-2026-09-24.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-24/SESSION-STATE-2026-09-24.md),
+  «שלושת השלבים של הקאנון», lines 98–110: **א** Nimrod refines the canon (this) · **ב** a
+  site-wide reset round against the corrected canon · **ג** the deviations and no-type areas
+  are adjudicated visually **as part of א**, not after it.
+- **Launch sequence** — [CUTOVER-LIST-2026-09-27.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-27/CUTOVER-LIST-2026-09-27.md),
+  §ז «סדר הביצוע, ומי מבצע כל שלב» (line 101) and §ח «בדיקות קבלה אחרי המעבר» (line 133).
+  The gate, in team_00's words: **«האתר לא יעלה לפני 301 של אייל וזה מה שיעקב.»**
+- **The join:** stage A does not block the launch and the launch does not block stage A —
+  stage A changes no page. **Stage B changes pages, so it must not run inside the launch
+  window** (between «בדיקות סופיות» and the post-launch acceptance checks) without team_00
+  deciding that explicitly. The map carries one host line; changing it is one item on the
+  cutover list (team_90 added it). At cutover the map becomes admin-only (§3).
+
+## 3 · Decisions, in team_00's words
+
+| # | Topic | Ruling | Status |
+|---|---|---|---|
+| D1 | Map visibility | «העמוד כרגע ציבורי — בחיתוך לעלייה יהפוך להיות למנהל בלבד.» Plus a version for Eyal in a repo he can work against without logging in. | Map is a repo file today, **not yet hosted** — see O1. |
+| D2 | How the map is built | «לבחור לכל טיפוס מייצג הכי קרוב באתר. להעתיק — מבנה כולל תוכן של האלמנט הקיים למפה.» Then fix «אחד אחד או דפוסים רוחביים עד שכל הקאנון וכל הדוגמאות מאושרות». | Done — 37 types, 16 source pages. |
+| D3 | Types with no live instance | Show with dummy content, clearly marked; mark «כרגע לא בשימוש» instead of the proof link; propose an example to implement, for approval. | Done for T-37. Proposal in §4. |
+| D4 | Videos in the map | A placeholder is fine, even preferred — image with a film icon, YouTube logo, our atmosphere background; the same for every video; map only. | Done. |
+| D5 | Hero heights (T-01) | «שני הקצוות מתקבלים — אבל לא כל גודל מתקבל.» Exactly three: large, medium, small. Large: «כמעט מסך מלא בפרופורציה נפוצה, כשיש סרגלים פתוחים». Small: the existing small end. Medium: from what is common/average on the site. **Every page aligns to one of the three.** | Proposal shown in the map: 92svh / 66svh / 44svh (min). **Awaiting approval.** |
+| D6 | CTA band (T-08) | Less vertical padding. The logo is not a content column — a large, partly transparent background with a fade («רק אווירה, לא תוכן»). Button aligned to the bottom, not the centre. Wider middle column. | Not yet shown as a proposal. |
+| D7 | Six-column grid (system-wide) | Content width (not screen width) is divided into six equal parts; every alignment, column split and table sits on that grid by default — 3+3, 2+2+2, 1+5 — «כאילו יש סרגל קבוע מלמעלה למטה». | Principle recorded. Scope open — O3. |
+| D8 | Videos on pages | «כל עמוד מקבל סרט משלו.» Check what already exists before asking Eyal anything. | Lessons, sound healing: Eyal said a video is coming (r19 LSN-02, SH-01); delivery tracked by form cards PH-LESSONS-VIDEO / PH-SOUND-HEALING-VIDEO. **Treatment: Eyal deferred it to phase 2–3 (r19 T-02)** — update card PH-TREATMENT-VIDEO to show that and ask his final choice. See O2. |
+| D9 | Memorial-page examples | T-03, T-28, T-29, T-36 come from `/eyal-amit/mokesh-dahiman/`: «כרגע להשאיר — זה זמני — נגיע אליהם.» | Kept, to revisit. |
+| D10 | `/books/` CTA outline button | It is Green-Invoice card 4 of 4, pending Eyal's link — not a design variance. Split the stage-A review row: the button-only bands stay a decision; `/books/` becomes «operationally pending Eyal». | Split to be applied in the canon text with deliverable 2. |
+| D11 | Closed rules, not to reopen | From [00-MAINTENANCE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/repair-sketch-2026-09-23/handoff-110/canon/00-MAINTENANCE.md): no button without a heading and sub-heading; no empty hero on a main page; the dead-space rules DEAD-01..04; palette decisions marked closed. | Map shows the CTA in full form only. |
+| D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
+
+## 4 · Type status
+
+**Legend:** captured = live copy in the map, not yet reviewed · proposal = a change is shown
+for approval · ruled = team_00 gave direction, not yet shown · approved = done for stage A.
+
+| ID | Type | Status |
+|---|---|---|
+| T-01 | Page hero | **proposal** — three heights (D5) |
+| T-02 | Home video hero | captured |
+| T-03 | Mokesh video hero | captured (D9) |
+| T-04 | Prose row | captured |
+| T-05 | Prose fold | captured |
+| T-06 | Split | captured — alignment follows D7 |
+| T-07 | Floated figure | captured |
+| T-08 | CTA band | **ruled** (D6, D10, D11) |
+| T-09 | Point cards | captured |
+| T-10 | Photo band | captured |
+| T-11 | Gallery | captured |
+| T-12 | Bleed quote | captured |
+| T-13 | Whom cards | captured |
+| T-14 | Compare pair | captured |
+| T-15 | How to start | captured |
+| T-16 | Portrait collage | captured |
+| T-17 | Studio split | captured |
+| T-18 | Testimonial marquee | captured |
+| T-19 | Testimonial grid | captured |
+| T-20 | Testimonial cards | captured |
+| T-21 | FAQ | captured |
+| T-22 | Definition accordion | captured |
+| T-23 | Table of contents | captured |
+| T-24 | Book / product cards | captured |
+| T-25 | Spotlight row | captured |
+| T-26 | Video block | **ruled** (D8) — own video per page |
+| T-27 | Video placeholder | **ruled** (D8) |
+| T-28 | Facebook embeds | captured (D9) |
+| T-29 | Timeline | captured (D9) |
+| T-30 | Photo slot | captured |
+| T-31 | Contact rows | captured |
+| T-32 | Press list | captured |
+| T-33 | QR article shell | captured |
+| T-34 | Blog — archive post | captured |
+| T-35 | Blog card | captured |
+| T-36 | Mokesh video embed | captured (D9) |
+| T-37 | Blog — new post | dummy, «כרגע לא בשימוש». **Proposal:** the first new post Eyal publishes is built in this template — not a conversion of an old post (old posts stay as-is in the archive). No delivered material is waiting for such a post today. |
+
+## 5 · Open items
+
+- **O1 · Hosting the map.** It is a repo file; team_00 ruled it public now and admin-only at
+  cutover. Simplest known path: publish it the way the old artifact is published (team_90's
+  `hub/dist/` + `scripts/ftp_publish_eyal_client_hub.py`). Team_90 also documented a
+  WordPress-page route and the `private` status mechanism. **Team_00 to choose.**
+- **O2 · Treatment video card.** Proposed wording (Hebrew, for Eyal): «באוגוסט ציינת שסרטון
+  למפגש טיפול יידחה לשלב שני או שלישי. בדקנו ולא מצאנו עדכון מאז. האם זה עדיין נכון מבחינתך,
+  או שברצונך לספק סרטון כבר עכשיו? אם כן, איך תעדיף למסור אותו — קובץ להעלאה, קישור ליוטיוב,
+  שיחה על זה, או משהו אחר.» The form lives under `_COMMUNICATION/team_100/S007/` — off-limits
+  to team_10, signature `wave1-20260925` frozen, additive only. **Team_00 to name who applies it.**
+- **O3 · Six-column grid scope.** Apply it now to the CTA redesign (D6), or record it as a
+  principle and apply it to every component in stage B? **Team_00.**
+- **O4 · The old artifact.** `ea-content-types.html` is superseded as the visual source by the
+  map; its descriptions moved to `canon-map/tools/type-defs.json`. It stays published until
+  team_00 retires it; both canon-pair files now point to the map.
+- **O5 · Deliverable 2** — not started. Its inputs: the approved types, D7, D11, D12, and the
+  map README's working loop.
+- **O6 · Direct deploys.** The harness's auto-mode classifier refuses the FTP deploy as a
+  "Production Deploy"; team_00 has been running it by hand and wants that to stop.
+  A settings change on his side — not worked around.
+
+## 6 · Where the mandate turned out wrong, or was superseded (mandate §9)
+
+- **§4.3 "one live example".** The attempted example (`/books/`, MUZZA.md §03.5) re-added a
+  section that Eyal had removed on purpose in his 19.8 notes (commit 4bc5f5c); it was
+  reverted the same day (47f405b) and the file's stale "verbatim" claim corrected.
+  **Lesson: a cited source document is not the authority once Eyal has issued a later
+  instruction — check the file's history before calling an absence a gap.** Team_00 then
+  redefined the proof: **a feasibility proof per type**, which the map provides.
+- **"The eight deviation pages"** (§4.3) do not exist as a list — Table A has eight *types*
+  naming 13 URLs.
+- **The artifact as the paired visual document** is superseded by the map (O4).
+- **Map vs. site edits:** stage A changes no page (§1). The theme is touched only in stage B.
+
+## 7 · How the next session runs
+
+Go type by type or by cross-cutting pattern, in the order team_00 chooses (T-01 and T-08
+are furthest along). For each: follow the loop in the map README — show, get approval by
+eye on desktop and phone, record the ruling here in his words, update the map and
+`CONTENT-TYPES-CANON.md` together, hand to team_90. Update §4's status and this file's date
+in the same commit.

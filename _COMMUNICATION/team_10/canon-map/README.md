@@ -1,0 +1,111 @@
+# Canon map — what it is, how it is used, how it is built
+
+**Date: 2026-09-27. True for theme version 1.5.150.** Owner: team_10 (canon stage A, working
+directly with team_00). Validation: team_90 (`90- הכנה לעלייה לאוויר אייל עמית` [418028]).
+Current state and decisions: [CANON-STAGE-A-STATE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/CANON-STAGE-A-STATE.md).
+
+## What it is
+
+[ea-canon-map.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html)
+is the **one central document of canon stage A** (team_00, 2026-09-27): every content type
+on the site, in logical order, grouped, each with its identifier, its properties, and a
+full-size example.
+
+It serves two kinds of user, and that is why the canon is dual:
+
+| User | Works with | Uses the map for |
+|---|---|---|
+| Nimrod, Eyal | their eyes | approving and refining each type visually, from a sketch |
+| Sessions and agents (stage-B reset lanes, all future work) | text | the ID, fields and source of every type; the rules in the text canon |
+
+Team_00's process ruling: **work starts from a visual sketch, not from editing the site.**
+Deriving definitions and text from an approved visual is the builders' job and goes
+through validation.
+
+## Structure
+
+- **Header** — capture date, theme version, and the three reading rules (copied verbatim /
+  dummy / video placeholder).
+- **Tab bar** — one tab per group; it stays pinned while scrolling and is the navigation
+  between groups. Nine groups: פתיחות · קריאה · תמונה וטקסט · רשתות וכרטיסים · קולות ·
+  שאלות ומבנה · מדיה · פעולה · מעטפות.
+- **One row per type.** Collapsed: ID · name (+ a flag such as «ייחודי לעמוד אחד») ·
+  one-line description · number of variants · where it lives on the site · live thumbnail.
+- **Click a row** → full description, the note, the technical block (type in code, fields,
+  feasibility proof, capture stamp), then every example at full size, variants labelled.
+
+### Identifiers
+
+`T-01` … `T-37`, the canon's own numbering — the same numbers as
+`CONTENT-TYPES-CANON.md` and the old artifact. **An ID is permanent.** A type that is
+split gets a new ID; a retired ID is never reused. The ID is the "type A" of the request
+format team_00 defined for Eyal's maintenance environment: «שורה מטיפוס A עם תוכן B בעמוד C
+במיקום X».
+
+### Three kinds of example, each visibly marked
+
+| Kind | Marking | Rule |
+|---|---|---|
+| Live copy | none | Structure **and content** copied verbatim from the page named in the row. That page is the type's **feasibility proof**. |
+| Dummy | dashed amber frame + «תוכן דמה — לא מופיע באתר» | Only for a type with no live instance. Generic, obviously fake text built from the real parts. The row says «כרגע לא בשימוש באתר» instead of a proof link, and carries a proposal for where to implement it. |
+| Proposal | solid green frame + «הצעה לאישור — עדיין לא באתר» | A change awaiting team_00's approval, styled **in the map only**. Nothing on the site changes until stage B. |
+
+**Videos:** every video in the map is one fixed placeholder (film icon, YouTube mark, site
+atmosphere background) — team_00's ruling. Map only; the pages keep their real videos.
+
+## Rules
+
+1. **Content law.** Live copies are verbatim — never trimmed inside a sentence, adapted or
+   "improved". A long body may be cut *between* blocks, with a visible cut line. Dummy text
+   never reaches a real page.
+2. **The map never changes the site.** Proposals are map-scoped CSS. Site changes happen in
+   stage B, from the approved canon.
+3. **One host line.** The staging host appears exactly once, in `<base href>`. Every
+   stylesheet and image is relative to it. At the domain cutover that line is the whole
+   change. (Consequence: in-page `#links` would resolve to the host — so the tabs are
+   buttons driven by script, not links.)
+4. **Stamp everything.** Capture date and theme version on the page and in every row. Never
+   capture a URL with a query string (the staging typography tuner overrides the locked
+   tokens via `?ty=`).
+5. **Every type needs a feasibility proof** — at least one element on a public page
+   implementing it exactly. None → dummy + «כרגע לא בשימוש» + a proposal.
+6. **Mobile is part of every check.** Nothing is approved on desktop alone.
+
+## The working loop, per type or per cross-cutting pattern
+
+1. Show the current state in the map (live copy), and if a change is wanted, the change as
+   a **proposal** next to it.
+2. Team_00 approves or refines **by eye**, desktop and phone.
+3. Record the decision — his words — in `CANON-STAGE-A-STATE.md`, and update the type's
+   row (description, fields, note) in the map.
+4. Update the type's entry in `CONTENT-TYPES-CANON.md` in the same commit (pairing rule).
+5. Team_90 re-measures. A builder's report is a claim.
+6. The approved canon goes to stage B, which resets the site to it.
+
+## How it is built
+
+Nothing is hand-edited in the HTML. Two scripts in `tools/` regenerate it from the live site:
+
+```bash
+python3 _COMMUNICATION/team_10/canon-map/tools/fetch.py
+python3 _COMMUNICATION/team_10/canon-map/tools/build.py _COMMUNICATION/team_10/canon-map/ea-canon-map.html
+```
+
+`fetch.py` saves the source pages into the working directory (run both from a scratch
+directory; sequential, gentle on staging). `build.py` holds the spec — one line per type:
+ID, name, type in code, fields, and the examples (source page + selector, and whether it
+is a live copy, a dummy or a proposal). Plain-language descriptions live in
+`tools/type-defs.json` (moved there from `ea-content-types.html`).
+
+- **Change a type's text** → `tools/type-defs.json`.
+- **Change an example or add a variant** → its line in `build.py`.
+- **Show a proposal** → add an example with `("__PROPOSAL__", "<class>")` and scope its CSS
+  to that class in `build.py`.
+- **After a theme change** → re-run both; the stamps update themselves.
+
+## Verified at capture (team_10's claim; team_90 re-measures)
+
+1440 and 375 wide: 37 types, every example non-empty, no page-level horizontal scroll at
+375. Elements that extend past the edge by design and are clipped (`.arcs`, the testimonial
+track, the memorial video layer, the contact band's logo watermark) are not defects —
+**a defect is only what moves `document.scrollWidth`.**

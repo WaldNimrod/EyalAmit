@@ -1,5 +1,14 @@
 # Content-types canon — definitions file (for sessions)
 
+> **2026-09-27, canon stage A (team_10 with team_00):** the visual side of the canon is now the
+> [canon map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html)
+> — one row per type, real examples captured at theme 1.5.150, same IDs as this file
+> (type N here = `T-N` there). It supersedes `ea-content-types.html` as the visual source;
+> that file stays published until team_00 retires it. Stage-A rulings and per-type status:
+> [CANON-STAGE-A-STATE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/CANON-STAGE-A-STATE.md).
+> **This file's entries are updated as each type is approved there — until then, the
+> version stamp below still applies.**
+
 **Date: 2026-09-26. True for theme version 1.5.138.** The call-to-action rebuild has landed;
 nothing is in flight. Re-verify this file's geometry claims if the theme version changes.
 
