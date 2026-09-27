@@ -92,6 +92,8 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D29 | Text paragraph approved | «לדעתי הגדרנו פעם כותרת ב-1, טקסט רץ אחריה ב-2.» then «הכותרת היא 1–6, הטקסט הוא 2–6 — זה בפסקה כמו שהצגתם לי.» | Replaces D26's A/B. Heading and eyebrow columns 1–6, text 2–6; measured edge for edge. Matches POST-TEMPLATE-SETTINGS §1 (lines 41–42). Canon type 4 updated. Two wrong T-04 captures fixed; full audit of all 65 map examples: clean. |
 | D30 | Image beside text (for T-06, next) | «כשיש תמונה ליד טקסט — כל ה-6 בחלוקה לפי התוכן וכיוון התמונה.» | Rule recorded; to be shown when T-06 is reviewed. |
 | D31 | Narrow screens | «במסך צר — הירו + CTA — כפתור תמיד מיושר לשמאל.» | Measured at 375: every hero and CTA button's left edge on the content's left edge. Canon types 1 and 8 updated. |
+| D32 | Paragraph text, corrected | «פסקה: טקסט — 2-5. לא 2-6. מתקן.» | Text columns 2–5 (supersedes D29's 2–6). Heading stays 1–6. |
+| D33 | Paragraph backgrounds | «יש לאפשר מספר גוונים קאנוניים מתוך המניפה, ולוודא יחס טקסט-רקע העומד בנגישות והקונטקסט הדרוש לכולם. מה שעושה בעיות — פשוט להגדיר כאסור. תציגו לי לכמה הגענו טובים עם המניפה הקיימת.» | Measured all 13 tones of both palettes (Chapters + Eyal's) × 4 roles (eyebrow/body/link ≥4.5, heading ≥3). With today's two text sets: **3 of 13** pass. With two added text sets (chocolate eyebrow+link on light tones; all-white on saturated): **11 of 13**. Forbidden: terra-lt, terra. **Live findings** (sent to team_90): ivory-2 (every `sec--alt`) fails on its eyebrow today (3.86); sand fails eyebrow (2.81) and links (3.62). `palette-check.html`. **Awaiting approval.** |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -104,7 +106,7 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 | T-01 | Hero — the one opening type | **approved** (D5, D15, D16, D18): three heights, button left, media = image / video / none |
 | ~~T-02~~ | retired — merged into T-01 (D18) | — |
 | ~~T-03~~ | retired — merged into T-02 (D13) | — |
-| T-04 | Prose row | **approved** (D29): heading 1–6, text 2–6 |
+| T-04 | Prose row | **approved** (D29, D32): heading 1–6, text 2–5. Backgrounds: proposal D33 |
 | T-05 | Prose fold | captured |
 | T-06 | Split | captured — next; rule D30 |
 | T-07 | Floated figure | captured |

@@ -54,7 +54,7 @@ group("טקסט")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
   [("היום באתר", "method", "main > section.sec", 1, None, None),
    ("היום באתר — רקע כהה", "home", "section#session", 0, None, None),
-   ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–6", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
+   ("מאושר — הכותרת בטורים 1–6, הטקסט הרץ בטורים 2–5", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c")),
    ("מאושר — אותו דבר על רקע כהה", "home", "section#session", 0, None, ("__APPROVED__", "cm-pr-c"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None)])
@@ -442,10 +442,10 @@ section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:rel
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
 /* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
-   running text in columns 2-6. */
+   running text in columns 2-5 (team_00 corrected 2-6). */
 section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
-section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/7;max-width:none;margin-inline:0}
+section.sec.cm-pr-c>.wrap>.intro-body,section.sec.cm-pr-c>.wrap>.lead{grid-column:2/6;max-width:none;margin-inline:0}
 section.sec.cm-pr-c>.wrap>.h2,section.sec.cm-pr-c>.wrap>.chap{text-align:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
