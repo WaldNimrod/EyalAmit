@@ -217,8 +217,8 @@ def videos(el):
 P = "__PROPOSAL__"
 GRID_PROPOSALS = {
     "T-11": [("הצעה לאישור — 3 בשורה (2 טורים לתמונה), רווח הרשת", "kushi", ".gallery", 0, None, (P, "cm-g6")),
-             ("הצעה לאישור — דיוקנאות: 3 בשורה במקום 4", "repair", ".gallery--portraits", 0, None, (P, "cm-g6"))],
-    "T-09": [("הצעה לאישור — 2 בשורה (3 טורים לכרטיס), כרטיס במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-frame"))],
+             ("הצעה לאישור — ארבעה דיוקנאות: 2+1+1+2 (K-4.2), גובה אחיד", "repair", ".gallery--portraits", 0, None, (P, "cm-g6 cm-k42"))],
+    "T-09": [("הצעה לאישור — חמישה כרטיסים: אחד גבוה ורביעייה לידו (K-5.3), במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-frame cm-k53"))],
     "T-13": [("הצעה לאישור — ארבעה פריטים: שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22")),
              ("הצעה לאישור — ארבעה פריטים: 2 גדולים ו-2 קטנים בשורה אחת (2+1+1+2 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112")),
              ("הצעה לאישור — ארבעה פריטים: 1 גדול ו-3 קטנים בשורה אחת (3+1+1+1 טורים)", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111"))],
@@ -601,6 +601,13 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-g6 .cmpc :is(p,li){text-align:justify;text-align-last:center}
 .cm-g6.start .start__in{width:min(1104px,100% - 32px);margin-inline:auto;padding-inline:0}
 .cm-g6 .start__h{font-size:var(--fs-h1)!important}
+/* Locked compositions applied (D46): K-4.2 and K-5.3. */
+.cm-k42 .gallery>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
+.cm-k42 .gallery>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
+.cm-k42 .gallery .gfig{height:380px}.cm-k42 .gallery .gfig img{width:100%;height:100%;aspect-ratio:auto!important;object-fit:cover}
+.cm-k53 .point-cards__grid{grid-auto-flow:row dense}
+.cm-k53 .point-cards__grid>:first-child{grid-column:span 2!important;grid-row:span 2}
+.cm-k53 .point-cards__grid>:not(:first-child){grid-column:span 2!important}
 /* Card frame (team_00: «מסגרת דקה, שיושבת בדיוק על הגריד, ואז התוכן מרווח מעט פנימה»). */
 .cm-frame :is(.point-cards__card,.bookcard,.ea-now__card,.ea-blog-card,.tmq,.ea-testi-cards__card){
   border:1px solid #cdbba6!important;border-radius:4px!important;box-shadow:none!important;background:transparent!important;
@@ -698,6 +705,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
+ .cm-k42 .gallery>:nth-child(n){grid-column:span 1!important}.cm-k42 .gallery .gfig{height:220px}
+ .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}
  .cm-ct .ea-cf7{grid-template-columns:1fr}

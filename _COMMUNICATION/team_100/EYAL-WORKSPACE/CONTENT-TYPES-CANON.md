@@ -86,6 +86,73 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 - **Running text is block-justified, right-to-left, always, site-wide** (team_00: «טקסט רץ — יישור בלוק.
   לא ימינה. כן RTL.» · «תמיד בכל האתר.»): `text-align: justify; text-align-last: start` on running-text
   paragraphs and list items. Headings, eyebrows and buttons are not running text.
+  Centred running text is justified too, its last line centred (team_00: «טקסט בלוק, בעיקר חשוב ביישור מרכז»).
+
+### Grid rules — APPROVED AND LOCKED in canon stage A, 2026-09-27
+
+team_00: «אם הגריד שלנו הוא 6 — חלוקה ל-4 לא אפשרית… נכון לכל האלמנטים שמחולקים — תמיד לפי הגריד, זה
+המשמעת שלו. אין אלמנט לא מיושר לגריד.» · «מאשר. לנעול ולעבור על כל התבניות שלנו לוודא שהן עומדות בכלל.»
+Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and `canon-map/grid-proof.html`.
+
+1. **The grid.** Six equal columns on the content width (1104px at 1440: `.wrap` 1200 minus 48px padding each
+   side), gutter **10px** (`--cm-gap`), column 1 is the right-hand one. Every element's edges sit on column
+   lines. **No element is off the grid.** A full-bleed image (hero, photo band, quote on image, the CTA logo)
+   may run to the screen edge; the text on it still sits on the grid. The gutter may grow to 15px site-wide if
+   ever needed — never by moving single elements.
+2. **Text on the grid.** Eyebrow and heading: columns 1–6. Running text: columns **2–5** — in a paragraph, a
+   split's continuation text, a video block, the lead and closing text of a card grid.
+3. **Dividing items — by count, from a closed list** (a known list of 1–10 items):
+   - **1** — full width (K-1.1) or centred on columns 2–5 (K-1.2).
+   - **2** — 3+3 (K-2.1), or 4+2 either way (K-2.2, K-2.3). **Struck:** 1+5.
+   - **3** — 2+2+2 (K-3.1), or one tall item (two columns × two rows) beside two half-height items of four
+     columns, the tall one on either side (K-3.2, K-3.3).
+   - **4** — two rows of 3+3 (K-4.1); 2+1+1+2 (K-4.2); 3+1+1+1 or 1+1+1+3 (K-4.3, K-4.4).
+     **Struck:** three thirds and one below.
+   - **5** — one row 2+1+1+1+1 or 1+1+1+1+2 (K-5.1, K-5.2); or one tall item beside a quartet of 2-column
+     half-height items, either side (K-5.3, K-5.4).
+   - **6–10** — no layout of their own: built from the rows above (6 = 3+3 or 4+2, etc.).
+   - **More than 10, or an unknown count** (blog, gallery, testimonials, search): exempt — pick one per-row
+     count that fits the grid (1, 2, 3 or 6) and let the last row fall as it falls.
+   Row height is uniform within a composition; a tall item spans two rows.
+4. **Image fit is chosen per element**, not per site or per type (team_00: «כל אלמנט — לא כל תמונה — המשתמש
+   בוחר fill או fit / full size»): **fill** crops the image to its box; **fit** shows it whole.
+5. **Click-to-zoom** is the default for every image that is not a background (A-6).
+6. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
+   columns wide, or a tall one, takes both.
+
+**Audit of every type against these rules (2026-09-27, map proposals and today's site):**
+
+| Type | Rule it uses | Status |
+|---|---|---|
+| T-01 hero | text 1–4, button 5–6 | ✓ approved |
+| T-04 paragraph | heading 1–6, text 2–5 | ✓ approved |
+| T-05 fold | card on 2–5 | proposal on the grid |
+| T-06 split | 2 items: 3+3 / 4+2 either way | ✓ approved |
+| T-07 float image | floats inside the text column | ⚠ off the grid by nature — next stage (A-3): one size, two columns |
+| T-08 CTA band | 4+2 | ✓ approved |
+| T-09 point cards | 5 cards → K-5.3 | proposal fixed (was 2 per row with one left over — struck) |
+| T-10 photo band | full-bleed image, text on the grid | ⚠ text block not yet placed on columns |
+| T-11 gallery | 21 images → exempt, 3 per row; 4 portraits → K-4.2 | proposal fixed (portraits were 3 + 1 — struck) |
+| T-12 quote on image | full-bleed image, quote on the grid | ⚠ quote not yet placed on columns |
+| T-13 who-for | 4 → K-4.1 / K-4.2 / K-4.3 | proposal (three options shown) |
+| T-14 compare | 2 → 3+3 | proposal |
+| T-15 steps | 3 → 2+2+2 | proposal |
+| T-16 about collage | split 3+3; three images inside → K-3.2 | ⚠ not yet drawn |
+| T-17 studio | split 3+3 | ⚠ not yet drawn (merged into T-06) |
+| T-18 testimonial carousel | open list → 3 per row, whole cards | proposal |
+| T-19 testimonial grid | 17 → exempt, 3 per row | proposal |
+| T-20 quote cards | 2 → 3+3 | proposal (three separators to choose) |
+| T-21 FAQ / T-22 definitions | text list | ⚠ decide: columns 2–5 like running text, or 1–6 |
+| T-23 TOC | one block | ⚠ decide its columns (TOC length rule proposed, D45) |
+| T-24 book cards | 3 → 2+2+2; the shop's open list → exempt | proposal |
+| T-25 spotlight | 4 → K-4.3 / K-4.1 | proposal (two options) |
+| T-26/27 video | heading 1–6, text 2–5, video 1–6 | proposal |
+| T-28 Facebook posts | 4 → 3+3 rows | proposal |
+| T-29 timeline / T-32 press list | year lists | ⚠ decide: columns 2–5 like running text |
+| T-31 contact | 4+2 | proposal |
+| T-35 blog cards | open list → exempt, 3 per row | proposal |
+| T-36 inline video | inside the reading column | ⚠ decide: columns 2–5 |
+| T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
 
 ## Tier 1 — content rows (37)
 

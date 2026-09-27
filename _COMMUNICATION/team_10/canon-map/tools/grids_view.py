@@ -20,7 +20,7 @@ SRC, OUT = sys.argv[1], sys.argv[2]
 # Each layout: (id, label, [(col_span, row_span), ...]). Row height is one unit; a tall item spans two.
 L = lambda *a: list(a)
 LAYOUTS = [
-    ("1 פריט", [("K-1.1", "רוחב מלא", L((6, 1)))]),
+    ("1 פריט", [("K-1.1", "רוחב מלא", L((6, 1))), ("K-1.2", "ממורכז — טורים 2–5", L(("c", 1)))]),
     ("2 פריטים", [("K-2.1", "חצי וחצי — 3+3", L((3, 1), (3, 1))),
                   ("K-2.2", "4+2 — הגדול מימין", L((4, 1), (2, 1))),
                   ("K-2.3", "2+4 — הגדול משמאל", L((2, 1), (4, 1)))]),
@@ -48,15 +48,17 @@ for title, rows in LAYOUTS:
         kid, label, items = row[0], row[1], row[-1]
         cells = []
         for n, (c, r) in enumerate(items):
-            cells.append(f'<figure class="kg__i" style="grid-column:span {c};grid-row:span {r}" data-c="{c}">'
+            col = "2/6" if c == "c" else f"span {c}"
+            c = 4 if c == "c" else c
+            cells.append(f'<figure class="kg__i" style="grid-column:{col};grid-row:span {r}" data-c="{c}">'
                          f'<img src="{imgs[n % len(imgs)]}" alt=""><b>{n + 1}</b></figure>')
         ruler = '<div class="cm-grid" aria-hidden="true">' + "".join(f"<i>{k}</i>" for k in range(1, 7)) + "</div>"
         blocks.append(f'<div class="av-ex" id="{kid}"><b>{kid}</b> {label}</div>'
-                      f'<div class="cm-spec cm-prop"><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg">{"".join(cells)}</div>{ruler}</div>'
+                      f'<div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg">{"".join(cells)}</div>{ruler}</div>'
                       f'</div></section></div>')
 
-head = ('<div class="cm-proof-head"><h1>חלוקות הרשת — כל האפשרויות לפי מספר פריטים</h1>'
-        '<p>כל פריט יושב על ששת הטורים; גובה שורה אחיד, ופריט גבוה תופס שתי שורות. נפסלו: 1+5 בשניים, ו«שלושה שלישים ואחד מתחת» '
+head = ('<div class="cm-proof-head"><h1>חלוקות הרשת — מאושר ונעול</h1>'
+        '<p><b>מאושר ונעול (team_00, 27.9).</b> כל פריט יושב על ששת הטורים; גובה שורה אחיד, ופריט גבוה תופס שתי שורות. נפסלו: 1+5 בשניים, ו«שלושה שלישים ואחד מתחת» '
         'בארבעה. כל אפשרות עם מזהה — מאשרים, פוסלים, ואז כל טיפוס שמחלק פריטים (כרטיסים, תמונות, המלצות וכו׳) יורש מהרשימה. '
         'בטלפון: שני טורים; פריט רחב (3 טורים ומעלה) או גבוה תופס את שניהם. <b>מעל חמישה אין תבנית משלו</b> — מרכיבים משורות שברשימה (שישה = 3+3 או 4+2 וכו׳). <b>רשימה של יותר מעשרה, או שמספרה לא ידוע מראש</b> (בלוג, גלריה, המלצות): פטורה — בוחרים מספר בשורה שעומד ברשת (1, 2, 3 או 6) וזהו; השארית נשארת כמו שהיא.</p></div>')
 
@@ -71,8 +73,8 @@ css.string = """
 .cm-proof-head h1{margin:0 0 6px;font-size:1.4rem;font-weight:500;color:#f3ece2}
 .cm-proof-head p{margin:0;font-size:.9rem;opacity:.9;max-width:110ch}
 .cm-group span{letter-spacing:0!important}
-.av-ex{font-family:Heebo,sans-serif;background:#3f7a52;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
-.av-ex b{background:#fff;color:#3f7a52;padding:1px 8px;border-radius:3px;margin-inline-end:8px;font-family:ui-monospace,Menlo,monospace;direction:ltr;unicode-bidi:isolate}
+.av-ex{font-family:Heebo,sans-serif;background:#2d5f8a;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
+.av-ex b{background:#fff;color:#2d5f8a;padding:1px 8px;border-radius:3px;margin-inline-end:8px;font-family:ui-monospace,Menlo,monospace;direction:ltr;unicode-bidi:isolate}
 .kg-box{position:relative}
 .kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:170px;grid-auto-flow:row dense;gap:var(--cm-gap)}
 .kg__i{position:relative;margin:0;overflow:hidden;border-radius:4px;background:#e6dccf}

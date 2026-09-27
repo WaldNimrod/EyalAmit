@@ -223,6 +223,13 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-g6 .cmpc :is(p,li){text-align:justify;text-align-last:center}
 .cm-g6.start .start__in{width:min(1104px,100% - 32px);margin-inline:auto;padding-inline:0}
 .cm-g6 .start__h{font-size:var(--fs-h1)!important}
+/* Locked compositions applied (D46): K-4.2 and K-5.3. */
+.cm-k42 .gallery>:is(:nth-child(1),:nth-child(4)){grid-column:span 2!important}
+.cm-k42 .gallery>:is(:nth-child(2),:nth-child(3)){grid-column:span 1!important}
+.cm-k42 .gallery .gfig{height:380px}.cm-k42 .gallery .gfig img{width:100%;height:100%;aspect-ratio:auto!important;object-fit:cover}
+.cm-k53 .point-cards__grid{grid-auto-flow:row dense}
+.cm-k53 .point-cards__grid>:first-child{grid-column:span 2!important;grid-row:span 2}
+.cm-k53 .point-cards__grid>:not(:first-child){grid-column:span 2!important}
 /* Card frame (team_00: «מסגרת דקה, שיושבת בדיוק על הגריד, ואז התוכן מרווח מעט פנימה»). */
 .cm-frame :is(.point-cards__card,.bookcard,.ea-now__card,.ea-blog-card,.tmq,.ea-testi-cards__card){
   border:1px solid #cdbba6!important;border-radius:4px!important;box-shadow:none!important;background:transparent!important;
@@ -320,6 +327,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6 :is(.point-cards__grid,.cmp,.steps3,.bookcards,.ea-now,.ea-blog-grid,.testi-grid,.ea-testi-cards__list,.fbgrid)>*{grid-column:1!important}
  .cm-tq .testi-mq__track{grid-auto-columns:100cqw}
  .cm-tq .testi-mq__btn{display:none}
+ .cm-k42 .gallery>:nth-child(n){grid-column:span 1!important}.cm-k42 .gallery .gfig{height:220px}
+ .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}
  .cm-ct .ea-cf7{grid-template-columns:1fr}
@@ -517,7 +526,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </figure>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-1.2"><b>G-1.2</b> הצעה · דיוקנאות: 3 בשורה במקום 4 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6">
+</section></div><div class="av-ex sv-g" id="G-1.2"><b>G-1.2</b> הצעה · ארבעה דיוקנאות: 2+1+1+2 (K-4.2), גובה אחיד · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-g6 cm-k42">
 <div class="wrap center" style="position:relative">
 <div class="gallery gallery--portraits r">
 <figure class="gfig">
@@ -570,7 +579,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <div class="point-cards__after intro-body"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="/method">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>
 </div>
 <div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
-</section></div><div class="av-ex sv-g" id="G-3.1"><b>G-3.1</b> הצעה · 2 בשורה (3 טורים לכרטיס), כרטיס במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame">
+</section></div><div class="av-ex sv-g" id="G-3.1"><b>G-3.1</b> הצעה · חמישה כרטיסים: אחד גבוה ורביעייה לידו (K-5.3), במסגרת דקה; טקסט הפתיחה והסיום בטורים 2–5 · <span class="sv-m">…</span></div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame cm-k53">
 <div class="wrap" style="position:relative">
 <h2 class="h2 r" style="margin-bottom:18px">למה לתקן דיג'רידו כאן?</h2> <div class="point-cards">
 <div class="point-cards__lead intro-body"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>
