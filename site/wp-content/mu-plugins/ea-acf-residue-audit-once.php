@@ -89,7 +89,9 @@ function ea_acf_residue_report() {
 		'no_matching_default'   => 0,
 	);
 
-	foreach ( $map as $slug => $type ) {
+	foreach ( $map as $slug => $entry ) {
+		// Map values are array{template,type}, not plain strings.
+		$type = is_array( $entry ) ? ( isset( $entry['type'] ) ? (string) $entry['type'] : '' ) : (string) $entry;
 		if ( ! in_array( $type, $bypassed, true ) ) {
 			continue;
 		}
@@ -111,7 +113,9 @@ function ea_acf_residue_report() {
 			ARRAY_A
 		);
 
-		$defaults = ea_acf_residue_flatten( ea_chapters_defaults( $type ) );
+		// ea_chapters_defaults() reads the CURRENT request's type; the per-type reader is _for().
+		$seed     = function_exists( 'ea_chapters_defaults_for' ) ? ea_chapters_defaults_for( $type ) : array();
+		$defaults = ea_acf_residue_flatten( $seed );
 
 		$fields = array();
 		foreach ( $meta as $m ) {
