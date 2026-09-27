@@ -5,8 +5,9 @@
  * the canonical /books/<slug>/ routes. The retired studio brand is not used.
  * DEV-NOTES scaffolding is omitted.
  *
- * Corrected 2026-09-27 (canon stage A): the claim below that this file carries the
- * FULL source verbatim is NOT true as of commit 4bc5f5c (2026-08-21) — Eyal's own
+ * Corrected 2026-09-27 (canon stage A): this file used to claim it carries the
+ * FULL source verbatim (that line is deleted now). It stopped being true at commit
+ * 4bc5f5c (2026-08-21) — Eyal's own
  * 19.8 book notes (r19-eyal-answers.json, pageKey R1-16) trimmed MUZZA.md's SECTION
  * 03.5 (the "about Eyal" bio) and SECTION 12 (the closing note, merged into
  * SECTION 09 instead) deliberately. Diffing this file against MUZZA.md directly
