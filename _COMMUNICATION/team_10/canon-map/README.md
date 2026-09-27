@@ -106,7 +106,7 @@ explicit per type; a YouTube video pasted into a blog post's text is post conten
 directory; sequential, gentle on staging). `build.py` holds the spec — one line per type:
 ID, name, type in code, fields, and the examples (source page + selector, and whether it
 is a live copy, a dummy or a proposal). Per type, `tools/type-defs.json` holds the
-plain-language description (moved from `ea-content-types.html`), the nine properties, the
+plain-language description (moved from the retired `ea-content-types.html`, deleted 2026-09-27), the nine properties, the
 typed fields and the technical keys an editor never sets.
 
 - **Change a type's text, properties or fields** → `tools/type-defs.json`.

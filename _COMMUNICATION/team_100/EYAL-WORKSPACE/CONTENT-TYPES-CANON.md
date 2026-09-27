@@ -3,8 +3,8 @@
 > **2026-09-27, canon stage A (team_10 with team_00):** the visual side of the canon is now the
 > [canon map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html)
 > — one row per type, real examples captured at theme 1.5.150, same IDs as this file
-> (type N here = `T-N` there). It supersedes `ea-content-types.html` as the visual source;
-> that file stays published until team_00 retires it. Stage-A rulings and per-type status:
+> (type N here = `T-N` there). **`ea-content-types.html` was retired and deleted on team_00's
+> ruling, 2026-09-27: «פורש — המפה מחליפה אותו!!! למחוק».** Stage-A rulings and per-type status:
 > [CANON-STAGE-A-STATE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/CANON-STAGE-A-STATE.md).
 > **This file's entries are updated as each type is approved there — until then, the
 > version stamp below still applies.**
@@ -12,13 +12,14 @@
 **Date: 2026-09-26. True for theme version 1.5.138.** The call-to-action rebuild has landed;
 nothing is in flight. Re-verify this file's geometry claims if the theme version changes.
 
-**Paired document:** [ea-content-types.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html)
-— the artifact for Nimrod and Eyal, published live at the hub. **Pairing rule: these two
-documents are edited together. Changing one without the other is a defect,** the same way a
-token change without its canon entry is a defect in this project. The artifact carries the
-picture and the plain-language definition; this file carries the renderer, the CSS, the exact
-classes, the exact inputs, the variants and the exceptions — everything a session needs to
-render a type correctly without opening the theme.
+**Paired document:** the [canon map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html) — the visual side, for Nimrod and Eyal.
+**Pairing rule: these two are edited together. Changing one without the other is a defect,**
+the same way a token change without its canon entry is a defect in this project. The map
+carries the picture, the plain-language definition, the properties, the typed fields and the
+uses on the site; this file carries the renderer, the CSS, the exact classes, the exact
+inputs, the variants and the exceptions. (Until 2026-09-27 the visual side was
+`ea-content-types.html`; it is deleted, and any reference to it in older documents is
+historical.)
 
 **Source:** derived from [TYPE-MAP-2026-09-26.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-26/TYPE-MAP-2026-09-26.md),
 per [MANDATE-TYPE-CANON-PAIR-2026-09-26.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_90/AUDIT-2026-09-26/MANDATE-TYPE-CANON-PAIR-2026-09-26.md).
