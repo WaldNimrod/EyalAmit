@@ -38,7 +38,10 @@ t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media �
   [("עם תמונה — הגובה הנפוץ", "method", "header.phero--media", 0, None, None),
    ("גרסה: קומפקטי", "repair", "header.phero--compact", 0, None, None),
    ("גרסה: חצי גובה", "contact", "header.phero--half", 0, None, None),
-   ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None)])
+   ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None),
+   ("הצעה — גדול: כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-l")),
+   ("הצעה — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-m")),
+   ("הצעה — קטן: כמו עמוד יצירת הקשר היום (44% מהגובה הנראה). זה גובה מינימלי — כאן הטקסט ארוך יותר ולכן הבאנר גדל ל־50%", "method", "header.phero--media", 0, None, ("__PROPOSAL__", "cm-h-s"))])
 t("T-02", "הירו וידאו — דף הבית", "hero", "hero_video · hero_poster · hero_trust · hero_title · hero_subtitle · hero_cta_label · hero_cta_url",
   [(None, "home", "header.hero", 0, None, None)])
 t("T-03", "הירו וידאו — מוקש", "mokesh-hero", "chap · title · sub · media · media_alt · yt_id",
@@ -246,6 +249,8 @@ def specimen(label, page, css, idx, pred, tr):
         sel, keep = tr
         if sel == "__DUMMY__":
             el = dummy(el)
+        elif sel == "__PROPOSAL__":
+            el["class"] = el.get("class", []) + [keep]
         elif sel == "__BODY__":
             box = el.select_one(".ea-post-content") or el.select_one(".wrap")
             kids = [c for c in box.children if getattr(c, "name", None)]
@@ -290,7 +295,7 @@ for item in G + [("GROUP", None)]:
         continue
     tid, name, part, inputs, caps, note = item
     d = DEFS.get(int(tid[2:]), {})
-    real = [c for c in caps if not (c[5] and c[5][0] == "__DUMMY__")]
+    real = [c for c in caps if not (c[5] and c[5][0] in ("__DUMMY__", "__PROPOSAL__"))]
     srcs = []
     for c in real:
         if PAGES[c[1]] not in srcs:
@@ -305,13 +310,15 @@ for item in G + [("GROUP", None)]:
         if c[0]:
             body.append(f'<div class="cm-variant">{c[0]}</div>')
         dm = bool(c[5]) and c[5][0] == "__DUMMY__"
-        body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}">'
+        pr = bool(c[5]) and c[5][0] == "__PROPOSAL__"
+        body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}{" cm-prop" if pr else ""}">'
                     + ('<span class="cm-dummy__badge">תוכן דמה — לא מופיע באתר</span>' if dm else "")
+                    + ('<span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span>' if pr else "")
                     + rel(str(el)) + "</div>")
         if cut:
             body.append('<div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div>')
     short = d.get("def", "").split(". ")[0].rstrip(".") + "."
-    nvar = len([c for c in caps if c[0]]) or 1
+    nvar = len([c for c in caps if c[0] and not (c[5] and c[5][0] == "__PROPOSAL__")]) or 1
     flag = f'<small class="cm-flag">{d["flag"]}</small>' if d.get("flag") else ""
     rows.append(
         f'<details class="cm-row" id="{tid}"><summary class="cm-sum" role="row">'
@@ -374,6 +381,11 @@ body{background:#f7f2ea}
 .cm-variant{font-family:Heebo,sans-serif;font-size:.8rem;color:#9a4f2b;padding:10px 24px 4px;border-top:1px dashed #9a4f2b55;margin-top:18px}
 .cm-cut{font-family:Heebo,sans-serif;font-size:.8rem;text-align:center;color:#8a7a6a;padding:8px}
 .cm-dummy{outline:3px dashed #c98a2b;outline-offset:-3px}
+.cm-prop{outline:3px solid #3f7a52;outline-offset:-3px}
+.cm-prop__badge{background:#3f7a52;color:#fff}
+header.phero.cm-h-l{min-height:92svh!important}
+header.phero.cm-h-m{min-height:66svh!important}
+header.phero.cm-h-s{min-height:44svh!important}
 .cm-dummy__badge{position:absolute;top:10px;inset-inline-end:10px;z-index:30;background:#c98a2b;color:#1d140d;font:600 .8rem Heebo,sans-serif;padding:4px 10px;border-radius:3px}
 .cm-vid{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d140d}
 .hero .cm-vid,.mokesh-hero__yt .cm-vid{height:100%;aspect-ratio:auto}
