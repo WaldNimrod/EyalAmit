@@ -114,8 +114,10 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    - **More than 10, or an unknown count** (blog, gallery, testimonials, search): exempt — pick one per-row
      count that fits the grid (1, 2, 3 or 6) and let the last row fall as it falls.
    Row height is uniform within a composition; a tall item spans two rows.
-4. **Image fit is chosen per element**, not per site or per type (team_00: «כל אלמנט — לא כל תמונה — המשתמש
-   בוחר fill או fit / full size»): **fill** crops the image to its box; **fit** shows it whole.
+4. **Image sizing is a variant of every type that has an image** (team_00: «כל אלמנט — לא כל תמונה — המשתמש
+   בוחר fill או fit / full size» · «בשפה שלנו — כל טיפוס שיש לו תמונה — יש וריאנט לדרך חישוב גודל התמונות»):
+   the editor picks it per element — **fill** crops the image to its box; **fit** shows it whole, in its own
+   proportions.
 5. **Click-to-zoom** is the default for every image that is not a background (A-6).
 6. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
    columns wide, or a tall one, takes both.
