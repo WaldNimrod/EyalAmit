@@ -34,22 +34,20 @@ def group(title): G.append(("GROUP", title))
 def t(tid, name, part, inputs, caps, note=None): G.append((tid, name, part, inputs, caps, note))
 
 group("פתיחות")
-t("T-01", "הירו עמוד", "phero", "chap · title · sub · lede · media · media_alt · cta_label · cta_url · dark · mod",
-  [("עם תמונה — הגובה הנפוץ", "method", "header.phero--media", 0, None, None),
-   ("גרסה: קומפקטי", "repair", "header.phero--compact", 0, None, None),
-   ("גרסה: חצי גובה", "contact", "header.phero--half", 0, None, None),
-   ("גרסה: בלי תמונה", "bags", "main > header.phero", 0, None, None),
-   ("מאושר — גדול: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l")),
-   ("מאושר — בינוני: באמצע בין שני הקצוות (66% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-m")),
-   ("מאושר — קטן: 44% מהגובה הנראה. זה גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג כאן עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__APPROVED__", "cm-h-s")),
-   ("הצעה — אותו באנר עם סרטון במקום תמונה (גדול). כך הירו הווידאו הופך לאותו טיפוס — המדיה היא שדה", "method", "header.phero--media", 0, None, ("__PROPOSAL_VIDEO__", "cm-h-l"))])
-t("T-02", "הירו וידאו", "hero / mokesh-hero", "וידאו · תמונת פתיחה · כותרת · תת-כותרת · כפתור",
-  [("מופע היום: דף הבית", "home", "header.hero", 0, None, None),
-   ("מופע היום: עמוד מוקש", "mokesh", "header.mokesh-hero", 0, None, None)],
-  note="הצעה: לאחד לתוך T-01 — אותו באנר, כשהמדיה היא סרטון במקום תמונה (ראו את ההצעה האחרונה ב-T-01). אחרי אישור, T-02 יוצא משימוש. "
-       "עד אז: תבנית אחת (נימרוד, 27.9: «זה כפילות… מבחינתנו זו תבנית אחת ושני העמודים צריכים לעמוד בה»). "
-       "T-03 אוחד לכאן והמספר שלו לא ישמש שוב. שני הקבצים הכפולים בקוד — בטיפול צוות 90. "
-       "היום שני המופעים שונים: בדף הבית הכותרת ממורכזת, בעמוד מוקש לימין — איזה יישור מקבלת התבנית טרם הוכרע.")
+t("T-01", "הירו", "phero", "גובה · מדיה (תמונה / סרטון / ללא) · תווית · כותרת · תת-כותרת · כפתור",
+  [("מאושר — גדול, עם סרטון: כפתור משמאל ומיושר לתחתית, הטקסט יורד. כמעט מסך מלא עם סרגלי הדפדפן פתוחים (92% מהגובה הנראה)", "method", "header.phero--media", 0, None, ("__APPROVED_VIDEO__", "cm-h-l")),
+   ("מאושר — גדול, עם תמונה (92%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-l")),
+   ("מאושר — בינוני (66%)", "method", "header.phero--media", 0, None, ("__APPROVED__", "cm-h-m")),
+   ("מאושר — קטן: 44%, גובה מינימלי — טקסט ארוך מגדיל אותו. מוצג עם התוכן הקצר של עמוד יצירת הקשר", "contact", "header.phero--half", 0, None, ("__APPROVED__", "cm-h-s")),
+   ("היום באתר — דף הבית (סרטון, כותרת ממורכזת)", "home", "header.hero", 0, None, None),
+   ("היום באתר — עמוד מוקש (סרטון יוטיוב)", "mokesh", "header.mokesh-hero", 0, None, None),
+   ("היום באתר — עמוד פנימי עם תמונה (88%)", "method", "header.phero--media", 0, None, None),
+   ("היום באתר — קומפקטי (78%)", "repair", "header.phero--compact", 0, None, None),
+   ("היום באתר — חצי גובה (44%)", "contact", "header.phero--half", 0, None, None),
+   ("היום באתר — בלי תמונה", "bags", "main > header.phero", 0, None, None)],
+  note="טיפוס אחד לכל פתיחות העמודים, כולל דף הבית ועמוד מוקש (נימרוד, 27.9: «הירו — מאשר. ואז לא צריך גם במפה סקשן נפרד»). "
+       "T-02 ו-T-03 אוחדו לכאן והמספרים שלהם לא ישמשו שוב. המדיה היא שדה: תמונה, סרטון או ללא. "
+       "הכפילות בקוד (שני קבצי הירו וידאו) — בטיפול צוות 90.")
 
 group("טקסט")
 t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · alt · dark · id",
@@ -257,9 +255,9 @@ def specimen(label, page, css, idx, pred, tr):
         sel, keep = tr
         if sel == "__DUMMY__":
             el = dummy(el)
-        elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__"):
+        elif sel in ("__PROPOSAL__", "__PROPOSAL_VIDEO__", "__APPROVED__", "__APPROVED_VIDEO__"):
             el["class"] = el.get("class", []) + [keep]
-            if sel == "__PROPOSAL_VIDEO__":
+            if sel in ("__PROPOSAL_VIDEO__", "__APPROVED_VIDEO__"):
                 for img in el.select("img.phero__media"):
                     img.replace_with(vph(img))
         elif sel == "__BODY__":
@@ -327,7 +325,7 @@ for item in G + [("GROUP", None)]:
             body.append(f'<div class="cm-variant">{c[0]}</div>')
         dm = bool(c[5]) and c[5][0] == "__DUMMY__"
         pr = bool(c[5]) and c[5][0] in ("__PROPOSAL__", "__PROPOSAL_VIDEO__")
-        ap = bool(c[5]) and c[5][0] == "__APPROVED__"
+        ap = bool(c[5]) and c[5][0] in ("__APPROVED__", "__APPROVED_VIDEO__")
         body.append(f'<div class="cm-spec{" cm-dummy" if dm else ""}{" cm-prop" if pr else ""}{" cm-appr" if ap else ""}">'
                     + ('<span class="cm-dummy__badge">תוכן דמה — לא מופיע באתר</span>' if dm else "")
                     + ('<span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span>' if pr else "")

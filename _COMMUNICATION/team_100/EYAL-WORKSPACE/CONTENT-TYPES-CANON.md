@@ -147,11 +147,15 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
     in RTL), button in columns 5–6, its bottom level with the last line of text — no button
     row under the text, so the text block sits lower. Below 760px the button returns under
     the text.
-  - **Still a proposal:** media as a field (image / video / none), which folds type 2 into
-    this type. See the canon map, T-01 and T-02.
+  - **Media is a field: image, video or none** (team_00, 2026-09-27: «הירו — מאשר. ואז לא
+    צריך גם במפה סקשן נפרד»). **Types 2 and 3 are merged into this type and retired**; the
+    home page and the memorial page align to it in stage B. The duplicated video-hero code is
+    team_90's (scope 82e8723).
 
 <a id="2-home-video-hero--hero"></a>
 ### 2. Home video hero — `hero`
+
+> **RETIRED 2026-09-27 — merged into type 1** (one hero; media is a field). Kept below as the record of what the home page renders today.
 
 - **Renderer:** [`template-parts/chapters/section-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-hero.php), whole file (48 lines). **CSS:** `chapters.css` lines 173–195. Not an `$args` part — reads Chapters fields directly.
 - **Classes:** `.hero`, `.hero__media` (video or poster `<img>`), `.hero__sound` (mute/unmute toggle, only rendered when a real `<video>` exists), `.hero__scrim`, `.hero__c`, `.hero__trust`, `.hero__h`, `.hero__s`, `.hero__cues`. The map's name `hero--video` is not a live class — the class is plain `hero`.
@@ -164,6 +168,8 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
 
 <a id="3-mokesh-video-hero--mokesh-hero"></a>
 ### 3. Mokesh video hero — `mokesh-hero`
+
+> **RETIRED 2026-09-27 — merged into type 1.** Kept below as the record of what the memorial page renders today.
 
 - **Renderer:** [`template-parts/chapters/parts/mokesh-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-hero.php) (the file's own docblock says it is page-specific, not reusable). Emits `phero phero--media mokesh-hero`. **CSS:** inherits `.phero.phero--media` from `chapters.css`; no separate rule block of its own found.
 - **Classes:** `.phero.phero--media.mokesh-hero`, plus `.mokesh-hero__yt` for the YouTube background layer.

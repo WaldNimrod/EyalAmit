@@ -59,8 +59,8 @@ def in_main(s, css):
 
 
 DETECT = {
-    "T-01": lambda s: bool(in_main(s, "header.phero:not(.mokesh-hero)")),
-    "T-02": lambda s: bool(in_main(s, "header.hero, header.mokesh-hero")),
+    # One hero type since 2026-09-27: the inner hero, the home video hero and the memorial hero.
+    "T-01": lambda s: bool(in_main(s, "header.phero, header.hero")),
     "T-04": lambda s: (not s.select_one("body.ea-qr")) and any(
         not e.find_parent(class_=["split2", "point-cards", "prose-fold"]) for e in in_main(s, "section.sec .intro-body")),
     "T-05": lambda s: bool(in_main(s, ".prose-fold")),
