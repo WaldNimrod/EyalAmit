@@ -821,6 +821,7 @@ so nobody reconciles the two documents later by guessing:
   (approved, unbuilt). The printed-code population (type 33's body content) remains untyped and
   is carried on the [stage-A review list](#stage-a-review-list).
 
-**Date and version, restated: 2026-09-26, theme 1.5.138. Pairing rule, restated: this file and**
-**[ea-content-types.html](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-content-types.html)**
-**are edited together. A change to one without the other is a defect.**
+**Date and version, restated: this file's entries are as measured on 2026-09-26, theme 1.5.138,
+until each is re-approved in stage A. Pairing rule, restated: this file and the
+[canon map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html)
+are edited together. A change to one without the other is a defect.**
