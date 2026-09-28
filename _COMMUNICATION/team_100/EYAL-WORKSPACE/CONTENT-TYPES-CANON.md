@@ -135,7 +135,8 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    /snoring-sleep-apnea/ (2,841 — already has one), /books/vekatavta/ (2,737), /books/kushi-blantis/ (2,560),
    /books/tsva-bekahol/ (2,466), /en/ (2,456 — English label), /treatment/ (2,203), /method/ (1,743),
    /learning/workshops/ (1,658), /lessons/ (1,440), /sound-healing/ (1,417).
-7. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
+7. **An eyebrow never repeats its heading** (D61) — on /contact/ the hero eyebrow «צור קשר» over the H1 «צור קשר» is removed.
+8. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
    columns wide, or a tall one, takes both.
 
 **Audit of every type against these rules (2026-09-27, map proposals and today's site):**
@@ -167,7 +168,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 | T-26/27 video | heading 1–6, text 2–5, video 1–6 | ✓ approved (O-18) |
 | T-28 Facebook posts | two free-running columns (masonry); our date and title per post | ✓ approved (O-16) |
 | T-29 timeline / T-32 press list | year lists | ✓ columns 2–5 (approved) |
-| T-31 contact | one row, 4+2: form with the dark WhatsApp block below it, portrait and details beside; both columns end on one line | ✓ approved (O-17); hero decision open |
+| T-31 contact | one row, 4+2: form with the dark WhatsApp block below it, portrait and details beside; both columns end on one line; hero = the small height (44%) with no eyebrow — as compact as the canon allows | ✓ approved (O-17, D61) |
 | T-35 blog cards | open list → exempt, 3 per row, thin frame | ✓ approved (O-13) |
 | T-36 inline video | inside the reading column | ✓ columns 2–5 (approved) |
 | T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
