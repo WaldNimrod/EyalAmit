@@ -87,6 +87,8 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
   לא ימינה. כן RTL.» · «תמיד בכל האתר.»): `text-align: justify; text-align-last: start` on running-text
   paragraphs and list items. Headings, eyebrows and buttons are not running text.
   Centred running text is justified too, its last line centred (team_00: «טקסט בלוק, בעיקר חשוב ביישור מרכז»).
+  **Display text is not running text** (D63, Q-2a «א»): subtitles and text set on an image (the image bullets) are
+  start-aligned, not justified. The CTA band's paragraph is running text and is justified (Q-2b «ב»).
 
 ### Grid rules — APPROVED AND LOCKED in canon stage A, 2026-09-27
 
@@ -99,6 +101,10 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    lines. **No element is off the grid.** A full-bleed image (hero, photo band, quote on image, the CTA logo)
    may run to the screen edge; the text on it still sits on the grid. The gutter may grow to 15px site-wide if
    ever needed — never by moving single elements.
+   **Allowed exceptions** (D63, visual choices Q-1 «א», Q-4 «א»): (a) the text-and-image breathing space — the text
+   box sits on the grid and keeps an inner margin on the side facing the image; (b) a button outside the hero and the
+   CTA band is as wide as its label and starts on its column line. **The CTA band sits on the content width 1104**
+   like every other row (Q-3 «ב»; it was 1120).
 2. **Text on the grid.** Eyebrow and heading: columns 1–6. Running text: columns **2–5** — in a paragraph, a
    split's continuation text, a video block, the lead and closing text of a card grid.
 3. **Dividing items — by count, from a closed list** (a known list of 1–10 items):
@@ -126,6 +132,8 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    בוחר fill או fit / full size» · «בשפה שלנו — כל טיפוס שיש לו תמונה — יש וריאנט לדרך חישוב גודל התמונות»):
    the editor picks it per element — **fill** crops the image to its box; **fit** shows it whole, in its own
    proportions.
+   **Always fill, outside the variant** (D63, Q-6 «א»): background images (hero, photo band, video poster), the
+   testimonial avatar and the contact portrait.
 5. **Click-to-zoom** is the default for every image that is not a background (A-6).
 6. **Table of contents by length** (team_00: «מאשר את כלל תוכן העניינים — כרגע בעלייה — כל העמודים מעל 1400
    מקבלים תוכן»): at launch every page over **1,400 words** of body text gets a table of contents (T-23), columns
@@ -135,8 +143,10 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
    /snoring-sleep-apnea/ (2,841 — already has one), /books/vekatavta/ (2,737), /books/kushi-blantis/ (2,560),
    /books/tsva-bekahol/ (2,466), /en/ (2,456 — English label), /treatment/ (2,203), /method/ (1,743),
    /learning/workshops/ (1,658), /lessons/ (1,440), /sound-healing/ (1,417).
-7. **An eyebrow never repeats its heading** (D61) — on /contact/ the hero eyebrow «צור קשר» over the H1 «צור קשר» is removed.
-8. **Phone (below 761px).** Each type goes to one column. Image grids go to two columns; an item three or more
+7. **Video only where it belongs** (D63, team_00: «לא לכל עמוד יש וידאו — רק עמודים ספציפיים מקבלים»): only specific
+   pages get a video, and each one gets its own — never a shared clip.
+7b. **An eyebrow never repeats its heading** (D61) — on /contact/ the hero eyebrow «צור קשר» over the H1 «צור קשר» is removed.
+8. **Phone (760px and narrower).** Each type goes to one column. Image grids go to two columns; an item three or more
    columns wide, or a tall one, takes both.
 
 **Audit of every type against these rules (2026-09-27, map proposals and today's site):**
@@ -252,7 +262,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
     ruling), never past the content area. **Two button positions, chosen per page by its text
     and image:** bottom — level with the last line of text (the default; no button row under
     the text, so the text block sits lower); or top — its top level with the title's top
-    (e.g. the home page). Below 760px the button returns under the text, **always on the left**.
+    (e.g. the home page). At 760px and narrower the button returns under the text, **always on the left**.
   - **Media is a field: image, video or none** (team_00, 2026-09-27: «הירו — מאשר. ואז לא
     צריך גם במפה סקשן נפרד»). **Types 2 and 3 are merged into this type and retired**; the
     home page and the memorial page align to it in stage B. The duplicated video-hero code is
@@ -302,7 +312,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
   site:** on the six-column grid (10px gutter), the eyebrow and heading span columns 1–6
   (from the right edge); the running text spans **columns 2–5** (team_00 corrected 2–6). This is the grid form of the
   already-approved post alignment (POST-TEMPLATE-SETTINGS §1: heading on the full wrap,
-  wider than the body). Same on light, alternate and dark backgrounds. Below 760px: one
+  wider than the body). Same on light, alternate and dark backgrounds. At 760px and narrower: one
   column. **Also fixed in the map:** its T-04 examples had captured a split block and a
   definition accordion; both are now genuine prose rows (audit: all 65 map examples match
   their type).
@@ -359,7 +369,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
   **Rule:** the image is always top-aligned; a short text is centred against the image. **Field
   «continuation text»** (optional): running text under the pair, columns 2–5, like a paragraph —
   the editor moves what does not fit beside the image. Image fill/fit is the shared variant (the
-  old `cover`). Below 760px: one column — text, image, continuation.
+  old `cover`). At 760px and narrower: one column — text, image, continuation.
 
 <a id="7-floated-figure--pfloat"></a>
 ### 7. Floated figure — `pfloat`
@@ -394,7 +404,7 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
     button fills **exactly columns 5–6, on one line**, its bottom level with the last line of
     text. Proven with the grid overlay in `canon-map/grid-proof.html`.
   - **Full form only:** heading + text + button (closed rule — no button without heading and
-    sub-heading). Below 760px: one column, button under the text, **always on the left**.
+    sub-heading). At 760px and narrower: one column, button under the text, **always on the left**.
 
 <a id="9-point-cards--point-cards"></a>
 ### 9. Point cards — `point-cards`
@@ -755,7 +765,7 @@ in the artifact without this qualifier attached.
   - `video { youtube?, file?, poster?, cap? }` — at least one source.
   - `rows[]`, in display order — each `{ id, part, bg, title?, body?, center?, images?, float?, zoom?, cta_label?, cta_url? }`.
     - `part` ∈ `prose | split | gallery | photo-slot | cta | quote | video` — mapping to `parts/prose.php`, `parts/split.php`, `parts/gallery.php`, `parts/photo-slot.php`, `parts/cta.php`, `parts/testi-cards.php` (or a `<blockquote>` inside prose), `parts/videoblk.php` respectively.
-    - `bg` ∈ `ivory | ivory-2 | dark | cta` — mapping to `.sec`, `.sec.sec--alt`, `.sec.sec--dark`, `.cta-band.cta-band--row` respectively. No fifth background without a new SSOT decision.
+    - `bg` ∈ the five canonical tones (ivory · sand · olive · terracotta · dark, D34) or `cta`, each with its own text set (type 4); ivory-2 and the old `.sec--alt` are retired (D41 A-1).
   - **team_00's own count, "fields 1–13," maps onto this schema as: the hero (1) + the eleven ordered rows `r01`–`r11` in the approved dummy (2–12) + the shared media pool (13).** This canon states that reading explicitly rather than inventing a different 13-item list — the settings file itself does not number fields 1–13 anywhere.
 - **Layout rules — the locked alignment canon (§1 of the settings file, measured live on `/snoring-sleep-apnea/`, 2026-09-20):** `.wrap` is `max-width:1200px; padding-inline:48px` (not a narrow centered card, ~920px, as an earlier sketch draft tried); the H2 sits on the full `.wrap` width, `text-align:start`, wider than the body column beneath it (that offset is intentional, not a bug to fix); the reading column is 82ch centered inside the wrap (~212px each side at 1200px), never 65ch flush to an edge; a split row uses the two columns across the full wrap width, never a narrowed one-third text column; a small in-text image uses `float_image` so text wraps it, never a column that steals width for the whole story height; gallery and CTA rows run the full wrap width; the hero's `.phero__in` is 1200px, H1 up to 32ch, sub up to 54ch, `text-align:start` — never a centered card.
 - **Pages:** zero. The dummy JSON (`DUMMY-WEEK-OF-BREATH.json`) and its matching sketch exist only as approved references, not as a published or even draft post.
@@ -817,6 +827,9 @@ in the artifact without this qualifier attached.
 - **Defined:** `.btn` at line 102. `--terra` (line 104, filled), `--gw` (line 106, outline light-on-dark), `--gd` (line 108, outline terracotta-on-ivory), `--sand` (line 1530, sand fill, chocolate text, pill radius).
 - **Inputs:** whichever class the caller passes. CTA defaults to `--terra`, second button (unused) is always `--gw`. Hero CTA is always `--gw`. Photo-band is always `--sand`. Studio and the books bundle pass `--gw`.
 - **Rules, measured:** a CTA button ~56px tall, centered in the left third. Sample widths: 152px («ליצירת קשר») to 225px (the books bundle). Padding `15px 36px`, `inline-flex`.
+- **APPROVED in canon stage A, 2026-09-28 — buttons on the five tones** (D51 «כל הכפתורים — מאושר»): a button
+  takes the link colour of the tone it sits on — filled (text in the tone's contrast colour) or outline; every
+  ratio passes AA. On images: filled terracotta or white outline. Padding 9px / 18px (D25). Map row S-2.
 - **APPROVED in canon stage A, 2026-09-27 — all buttons (team_00: «פחות ריווח סביב הטקסט בכל
   הכפתורים. זה בכל מקרה»):** padding `9px 18px` instead of `15px 36px` (a button measures 44px
   tall instead of ~56). In the hero and the CTA band a button fills exactly grid columns 5–6

@@ -124,7 +124,7 @@ body{background:#f7f2ea}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
-/* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
+/* Approved (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
    text columns 1-4, button spans columns 5-6 on one line, bottom-aligned; the logo is pinned to the screen edge; same six-column grid as the approved hero. */
 section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
 section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:end;position:relative}
@@ -134,7 +134,7 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
-/* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
+/* Approved (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
    running text in columns 2-5 (team_00 corrected 2-6). */
 section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
@@ -188,7 +188,7 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 .cm-spec :is(.ph span,.ea-pending-approval__badge){background:#D6006F!important;color:#fff!important;box-shadow:none!important;
   font-weight:600;border-radius:100px;padding:6px 14px}
 .cm-spec :is(.ea-pending-approval__title,.ea-pending-approval__note){color:#8A0047!important}
-/* Proposal (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
+/* Approved (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
    ייצר כרטיס»): the folded text is a framed card in the paragraph's text columns; the peek fades out at the bottom;
    a small outline pill at the card's left (end) edge opens it. */
 section.sec.cm-pr-c.cm-fold>.wrap>.prose-fold{grid-column:2/6;border:1px solid #d9c9b6;border-radius:12px;background:#fffffa;
@@ -201,7 +201,7 @@ section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
 section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
 section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
 section.cm-fold .prose-acc .intro-body{padding-bottom:0}
-/* Proposal (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
+/* Approved (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
 .cm-g6 .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 .cm-g6 .wrap:has(>.ea-now){padding-inline:48px!important}
 .cm-g6 .wrap>*{grid-column:1/-1}
@@ -313,12 +313,12 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .tmq__n::before{display:none}
 .cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
 .cm-tq .tmq__q{grid-area:q;margin:0}
-/* Proposal (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
+/* Approved (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
 .cm-q .ea-testi-cards__card{padding:12px 16px!important;border:0!important;background:transparent!important;border-radius:4px}
 .cm-q-frame .ea-testi-cards__card{border:1px solid #cdbba6!important}
 .cm-q-bg .ea-testi-cards__card{background:#f3ece2!important}
 .cm-q-line .ea-testi-cards__card{border-inline-start:2px solid #9A4F2B!important;border-radius:0;padding-block:4px!important}
-/* Proposal (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
+/* Approved (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
 /* team_00: «2 בשורה שיהיה בגריד. כל עמודה רצה בלי סינכרון לשנייה — הבא מתחיל איפה שהקודם נגמר, ולא טבלה». */
 .cm-g6.cm-fb .fbgrid{display:block!important;columns:2;column-gap:var(--cm-gap)}
 .cm-fb .fbgrid__item{break-inside:avoid;margin:0 0 var(--cm-gap)!important;width:100%!important;border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
@@ -326,7 +326,7 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-fb__d{font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;letter-spacing:.4px;color:#9A4F2B}
 .cm-fb__t{margin:0;font-size:var(--fs-h3);font-weight:500;color:#2f2013}
 .cm-fb .fbgrid__frame{margin-inline:auto;background:#fff;border:1px solid #e6dccf!important;border-radius:4px;max-width:100%}
-/* Proposal (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
+/* Approved (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
    columns — the form in 1-4 with its fields paired, a side column in 5-6 with the portrait, WhatsApp and the details. */
 .cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:stretch}
 /* team_00: «בלוק חום מימין — ליישר למטה לעמודה שמאל — שיסתיים למטה בקו ישר». */
@@ -360,6 +360,30 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-ct .ea-contact-cta .ea-contact-section__body{color:#EBEBEA!important}
 .cm-ct .ea-contact-cta .ea-cta-pill{background:#D08A5E!important;color:#1d140d!important;border-color:#D08A5E!important}
 .cm-ct .ea-contact-points li{text-align:start!important;text-align-last:auto!important;color:#fff!important;font-size:var(--fs-body)!important;font-weight:var(--fw-medium)}
+/* Approved (D49, D55): reading blocks in columns 2-5 — accordion, TOC, year lists, press, template bodies. */
+section.cm-25 .wrap,.cm-25>.wrap,.cm-25 .wrap.center{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);text-align:start}
+.cm-25 .wrap>*{grid-column:2/6!important;max-width:none!important;margin-inline:0!important}
+.cm-25 .wrap>:is(.h2,.chap,h2){grid-column:1/-1!important;text-align:start!important}
+/* The FAQ list and the press list have their own inner box instead of .wrap: the same six columns on 1104. */
+.cm-25:is(.ea-faq-list,.ea-press){max-width:none!important;margin:0!important;background:#fffffa;padding-block:clamp(40px,5vw,72px)}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner){display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);
+  width:min(1104px,calc(100% - 96px))!important;max-width:none!important;margin-inline:auto!important;padding-inline:0!important;text-align:start}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>*{grid-column:2/6!important;max-width:none!important;margin-inline:0!important}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>:is(.h2,.chap,h2){grid-column:1/-1!important;text-align:start!important}
+/* The TOC's floating rail, button and sheet are page chrome, not the block — hidden in the map example. */
+.cm-spec .ea-toc :is(.rail,.toc-fab,dialog){display:none!important}
+/* Year numbers on ivory in the approved link colour (the live #B5663D measures 4.24 — fails). */
+.cm-25 .tl__y{color:#9A4F2B!important}
+/* Text on image: a deeper scrim so every line passes over any photo. */
+.cm-bul .whom__i::after{background:linear-gradient(180deg,rgba(29,20,13,.05) 20%,rgba(29,20,13,.9) 75%)!important}
+/* Validation fixes (D63). */
+header.phero[class*="cm-h-"] .phero__s{max-width:none!important}
+header.phero.cm-h-s .chap{display:none}
+.cm-g6.start .start__in{max-width:none!important;width:min(1104px,calc(100% - 96px))!important;padding-inline:0!important;box-sizing:border-box}
+/* Q-3 B: the CTA band on the content width 1104, the site grid. */
+section.cta-band.cm-cta-p .cta-band__in{max-width:1104px!important;width:min(1104px,calc(100% - 96px))!important;padding-inline:0!important;margin-inline:auto!important;box-sizing:border-box}
+/* Q-2b B: the CTA paragraph is running text — justified. Q-2a A: text on images is display text — start. */
+section.cta-band.cm-cta-p .cta-band__p{text-align:justify;text-align-last:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -405,7 +429,14 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-pl .point-cards__card{padding-inline-start:46px!important}
  .cm-bul .whom{grid-auto-rows:220px!important}
  .cm-gal .gallery>:first-child img{height:240px}
+ .cm-bul .whom>.whom__i{min-height:220px}
+ .cm-gal .gallery>:first-child{grid-column:1/-1!important}
+
+ .cm-25 .wrap>*,.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>*{grid-column:1/-1!important}
+ .cm-25 :is(.ea-faq-list__inner,.ea-section__inner){width:auto!important;padding-inline:16px!important}
+ .cm-g6.start .start__in{width:auto!important;padding-inline:16px!important}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
+ .cm-k42 .gallery>.gfig:is(:nth-child(1),:nth-child(4)){grid-column:1/-1!important}.cm-k42 .gallery>.gfig:is(:nth-child(1),:nth-child(4)){height:300px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}
@@ -2180,6 +2211,39 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </details>
 </div>
 </div>
+</section></div><div class="cm-variant">מאושר — בטורים 2–5, כמו טקסט רץ (העיצוב — בסבב הבא)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="ea-faq-list ea-faq-list--view-only cm-25" data-block="faq-list">
+<div class="ea-faq-list__inner">
+<h2 class="h2 r">שאלות נפוצות על השיטה</h2> <div class="ea-faq-category">
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">מה ההבדל בין שיטת <span lang="en">cbDIDG</span> לבין שיטות נשימה אחרות כמו ריברסינג או בוטייקו?</summary>
+<div class="ea-faq-item__answer"><p>בשיטות רבות העבודה עם הנשימה נעשית דרך תרגול מודע של הנשימה בלבד.</p><p>בשיטת <span lang="en">cbDIDG</span> העבודה מתבצעת דרך נגינה בדיג'רידו, כך שהנשימה הופכת לפעולה מוחשית עם משוב מיידי של צליל.</p><p>הנגינה יוצרת עניין, מיקוד ורצף תרגול, ומאפשרת להתמיד לאורך זמן.</p><p>זהו הבדל משמעותי, במיוחד עבור אנשים שמתקשים להישאר בתרגול נשימה “יבש” בלבד.</p><p>עבור אנשים עם קושי בריכוז או צורך בגירוי מתמשך, האלמנט המוזיקלי הופך את התרגול לנגיש ואפקטיבי יותר.</p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">מה ההבדל בין נשימה מעגלית בדיג'רידו לבין נשימה מעגלית בריברסינג?</summary>
+<div class="ea-faq-item__answer"><p>למרות השם הדומה, מדובר בשתי גישות שונות לחלוטין.</p><p>נשימה מעגלית בדיג'רידו היא טכניקה פיזית שמאפשרת להפיק צליל רציף על ידי שילוב בו זמני בין נשיפה מהפה ושאיפה מהאף.</p><p>לעומת זאת, בריברסינג מדובר בתהליך נשימתי רציף שמטרתו לרוב לעורר חוויה רגשית או תודעתית, דרך נשימה עצימה או רגועה שאין בה עצירות.</p><p>חשוב להבין שמדובר בשני שימושים שונים לחלוטין בנשימה:</p><p>ריברסינג לא מלמד לנגן בדיג'רידו, ונשימה מעגלית בדיג'רידו אינה תהליך ריברסינג.</p><p>בשיטת <span lang="en">cbDIDG</span> הנשימה המעגלית היא כלי תרגול, והמטרה היא להשפיע על דפוסי הנשימה היומיומיים - לאורך היום וגם בזמן השינה.</p><p>למידע נוסף והסבר מעמיק, ניתן לקרוא כאן:</p><p><a class="tlink" href="/ריברסינג-נשימה-מעגלית-דיגרידו/">ריברסינג, נשימה מעגלית ודיג'רידו</a></p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">האם צריך לדעת לנגן בדיג'רידו כדי להתחיל?</summary>
+<div class="ea-faq-item__answer"><p>לא. הלימוד מתחיל מהבסיס, ואין צורך בידע קודם. הנגינה עצמה נלמדת כחלק מהתהליך, ובהדרגה הופכת לכלי עבודה ממשי עם הנשימה.</p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">כמה זמן לוקח לראות שינוי?</summary>
+<div class="ea-faq-item__answer"><p>כל מקרה לגופו. זה תלוי עם מה מגיעים, מה המטרה, מה רמת השליטה ההתחלתית, ועד כמה קיימת קואורדינציה ושליטה במערכת הנשימה.</p><p>יש מי שמספיקים להם כמה מפגשים בודדים כדי להרגיש שינוי, ויש מי שזקוקים לתהליך ממושך יותר.</p><p>כך או כך, מדובר בתהליך הדרגתי שמבוסס על תרגול, התמדה והעמקה, ולא בחוויה חד פעמית.</p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">האם השיטה יכולה לעזור לנחירות או דום נשימה בשינה?</summary>
+<div class="ea-faq-item__answer"><p>יש אנשים שמגיעים לשיטה בדיוק מתוך קושי כזה.</p><p>קיים מחקר רפואי שנערך בשווייץ, שמצא כי תרגול בדיג'רידו עשוי להפחית סימפטומים הקשורים בנחירות ובדום נשימה בשינה.</p><p>מכיוון שהעבודה בשיטה מתמקדת בשיפור השליטה בנשימה, בחיזוק ובוויסות של מערכת הנשימה, היא יכולה להיות רלוונטית גם במקרים כאלה.</p><p>עם זאת, כל מקרה נבחן לגופו במפגש הראשון, ואין כאן הבטחה אחידה או פתרון זהה לכולם.</p><p>חשוב לציין כי במרוצת השנים מטופלים רבים דיווחו על הקלה משמעותית בסימפטומים, וחלקם אף הצליחו להיגמל משינה עם מכשיר CPAP - כמובן לאחר בדיקת שינה במעבדה ובאישור רופא.</p><p><a class="tlink" href="https://www.bmj.com/content/332/7536/266">לקריאה על המחקר ב־BMJ</a></p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">האם השיטה מתאימה גם למקרים שאינם קשורים ישירות לנשימה, כמו מערכת העיכול, מערכת העצבים או המערכת ההורמונלית?</summary>
+<div class="ea-faq-item__answer"><p>למרות שהעבודה בשיטה מתמקדת בנשימה, חשוב להבין שהנשימה מחוברת ומשפיעה על כל מערכות הגוף.</p><p>היא פועלת כמראה למצב הגופני והתודעתי, ולכן כאשר עובדים עליה בצורה מדויקת, ההשפעה אינה נשארת רק ברמת הנשימה, אלא יכולה לבוא לידי ביטוי גם במערכות נוספות.</p><p>עם זאת, השיטה אינה מטפלת ישירות בכל מערכת בנפרד, אלא דרך העבודה על הנשימה, שמשפיעה באופן רחב יותר על הגוף כולו.</p></div>
+</details>
+<details class="ea-faq-item ea-entrance">
+<summary class="ea-faq-item__question">למי זה לא מתאים?</summary>
+<div class="ea-faq-item__answer"><p>השיטה מיועדת למבוגרים מגיל 17 ומעלה.</p><p>היא אינה מתאימה לנשים בהריון, וכן לאנשים המתמודדים עם מצבים פסיכיאטריים מורכבים.</p><p>בנוסף, היא פחות מתאימה למי שמחפש פתרון מהיר ללא תרגול, או למי שאינו מוכן לקחת חלק פעיל בתהליך לאורך זמן.</p><p>למידע נוסף ושאלות נוספות ניתן לעבור ל־ <a class="tlink" href="/faq/">עמוד השאלות הנפוצות המלא</a></p></div>
+</details>
+</div>
+</div>
 </section></div><div class="cm-variant">וריאנט: כרטיסים</div><div class="cm-spec"><section class="ea-faq-list ea-faq-list--view-only ea-faq-list--cards" data-block="faq-list">
 <div class="ea-faq-list__inner">
 <h2 class="h2 r">שאלות נפוצות</h2> <div class="ea-faq-category">
@@ -2516,6 +2580,62 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </ol>
 </div>
 </dialog>
+</div></div><div class="cm-variant">מאושר — בטורים 2–5; מופיע בכל עמוד של יותר מ-1,400 מילים</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><div class="ea-toc cm-25">
+<section class="sec ea-toc__sec">
+<div class="wrap lede">
+<nav aria-label="תוכן העניינים" class="toc-inline">
+<p class="toc-inline__h">בעמוד הזה</p>
+<ol>
+<li><a href="#הקשר-בין-דיגרידו-נחירות-ודום-נשימה">מה הקשר בין דיג'רידו, נחירות ודום נשימה?</a></li>
+<li><a href="#מה-מצא-המחקר">מה מצא המחקר?</a></li>
+<li><a href="#נחירות-הן-לא-תמיד-רק-נחירות">נחירות הן לא תמיד רק נחירות</a></li>
+<li><a href="#אילו-פתרונות-קיימים-היום">אילו פתרונות קיימים היום?</a></li>
+<li><a href="#מה-מתרגלים-בדיגרידו">מה בעצם מתרגלים בדיג'רידו?</a></li>
+<li><a href="#איך-אני-עובד">איך אני עובד?</a></li>
+<li><a href="#הסיפור-של-יוני">הסיפור של יוני</a></li>
+<li><a href="#למי-הגישה-מתאימה">למי הגישה יכולה להתאים?</a></li>
+<li><a href="#דיגרידו-ו-cpap">האם דיג'רידו יכול להחליף CPAP?</a></li>
+<li><a href="#שאלות-נפוצות">שאלות שאני שומע הרבה</a></li>
+<li><a href="#איך-יודעים-אם-זה-מתאים">איך יודעים אם זה יכול להתאים גם לכם?</a></li>
+</ol>
+</nav>
+</div>
+</section>
+<nav aria-label="ניווט מהיר בעמוד" class="rail">
+<a href="#הקשר-בין-דיגרידו-נחירות-ודום-נשימה"><span>מה הקשר בין דיג'רידו, נחירות ודום נשימה?</span><i aria-hidden="true"></i></a>
+<a href="#מה-מצא-המחקר"><span>מה מצא המחקר?</span><i aria-hidden="true"></i></a>
+<a href="#נחירות-הן-לא-תמיד-רק-נחירות"><span>נחירות הן לא תמיד רק נחירות</span><i aria-hidden="true"></i></a>
+<a href="#אילו-פתרונות-קיימים-היום"><span>אילו פתרונות קיימים היום?</span><i aria-hidden="true"></i></a>
+<a href="#מה-מתרגלים-בדיגרידו"><span>מה בעצם מתרגלים בדיג'רידו?</span><i aria-hidden="true"></i></a>
+<a href="#איך-אני-עובד"><span>איך אני עובד?</span><i aria-hidden="true"></i></a>
+<a href="#הסיפור-של-יוני"><span>הסיפור של יוני</span><i aria-hidden="true"></i></a>
+<a href="#למי-הגישה-מתאימה"><span>למי הגישה יכולה להתאים?</span><i aria-hidden="true"></i></a>
+<a href="#דיגרידו-ו-cpap"><span>האם דיג'רידו יכול להחליף CPAP?</span><i aria-hidden="true"></i></a>
+<a href="#שאלות-נפוצות"><span>שאלות שאני שומע הרבה</span><i aria-hidden="true"></i></a>
+<a href="#איך-יודעים-אם-זה-מתאים"><span>איך יודעים אם זה יכול להתאים גם לכם?</span><i aria-hidden="true"></i></a>
+</nav>
+<button aria-haspopup="dialog" class="toc-fab" type="button">☰ בעמוד הזה</button>
+<dialog aria-label="תוכן העניינים" class="sheet">
+<div class="sheet__in">
+<div class="sheet__top">
+<span class="sheet__t">בעמוד הזה</span>
+<button aria-label="סגירה" class="sheet__x" type="button">×</button>
+</div>
+<ol>
+<li><a href="#הקשר-בין-דיגרידו-נחירות-ודום-נשימה">מה הקשר בין דיג'רידו, נחירות ודום נשימה?</a></li>
+<li><a href="#מה-מצא-המחקר">מה מצא המחקר?</a></li>
+<li><a href="#נחירות-הן-לא-תמיד-רק-נחירות">נחירות הן לא תמיד רק נחירות</a></li>
+<li><a href="#אילו-פתרונות-קיימים-היום">אילו פתרונות קיימים היום?</a></li>
+<li><a href="#מה-מתרגלים-בדיגרידו">מה בעצם מתרגלים בדיג'רידו?</a></li>
+<li><a href="#איך-אני-עובד">איך אני עובד?</a></li>
+<li><a href="#הסיפור-של-יוני">הסיפור של יוני</a></li>
+<li><a href="#למי-הגישה-מתאימה">למי הגישה יכולה להתאים?</a></li>
+<li><a href="#דיגרידו-ו-cpap">האם דיג'רידו יכול להחליף CPAP?</a></li>
+<li><a href="#שאלות-נפוצות">שאלות שאני שומע הרבה</a></li>
+<li><a href="#איך-יודעים-אם-זה-מתאים">איך יודעים אם זה יכול להתאים גם לכם?</a></li>
+</ol>
+</div>
+</dialog>
 </div></div></div></details><details class="cm-row" id="T-29"><summary class="cm-sum" role="row"><span class="c-id">T-29</span><span class="c-name">ציר זמן<small class="cm-flag">ייחודי לעמוד אחד</small></span><span class="c-desc">שורת שנים ואירועים לצד כל שנה, בעמוד אחד בלבד.</span><span class="c-use">עמוד אחד</span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><section class="sec sec--alt">
 <div class="wrap">
 <span class="chap r">ציר זמן</span> <h2 class="h2 r">תחנות בדרכו של מוקש</h2> <ol class="tl r">
@@ -2530,6 +2650,19 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </ol>
 </div>
 </section></span></span></span></summary><div class="cm-full"><div class="cm-type"><p class="cm-def">שורת שנים ואירועים לצד כל שנה, בעמוד אחד בלבד.</p><div class="cm-cols"><section><h3>מאפיינים</h3><dl class="cm-props"><dt>מבנה</dt><dd>תווית, כותרת, פתיח ושורת שנים עם אירוע לכל שנה</dd><dt>גובה</dt><dd>לפי התוכן</dd><dt>רוחב</dt><dd>רוחב התוכן: ארבעה טורים של 276 פיקסלים</dd><dt>יישור</dt><dd>לא נמדד; אפשר ממורכז</dd><dt>רקע</dt><dd>בהיר / חלופי / כהה</dd><dt>מדיה</dt><dd>אין</dd><dt>כפתור</dt><dd>אין</dd><dt>בטלפון</dt><dd>לא נמדד</dd><dt>וריאנטים</dt><dd>אין</dd></dl></section><section><h3>שדות</h3><table class="cm-fields"><thead><tr><th>שדה</th><th>סוג</th><th>שם בקוד</th></tr></thead><tbody><tr><td>תווית מעל הכותרת</td><td>טקסט קצר</td><td><code>chap</code></td></tr><tr><td>כותרת</td><td>טקסט קצר</td><td><code>title</code></td></tr><tr><td>פתיח</td><td>טקסט ארוך (עם עיצוב)</td><td><code>lead</code></td></tr><tr><td>רקע כהה</td><td>כן/לא</td><td><code>dark</code></td></tr><tr><td>רקע חלופי</td><td>כן/לא</td><td><code>alt</code></td></tr><tr><td>ממורכז</td><td>כן/לא</td><td><code>center</code></td></tr><tr><td>שנים — כל פריט: שנה, טקסט</td><td>רשימת פריטים</td><td><code>items</code></td></tr></tbody></table><p class="cm-muted">שדות טכניים שהעורך לא ממלא: <code>id</code></p></section></div><section><h3>שימושים באתר — עמוד אחד</h3><ul class="cm-uses"><li><a href="/eyal-amit/mokesh-dahiman/" target="_blank">/eyal-amit/mokesh-dahiman/</a></li></ul></section><p class="cm-muted">טיפוס בקוד: <code>timeline</code> · נלכד 2026-09-28 · תמה 1.5.150 · ספירת השימושים: כל 136 העמודים החיים, 2026-09-27</p></div><div class="cm-spec"><section class="sec sec--alt">
+<div class="wrap">
+<span class="chap r">ציר זמן</span> <h2 class="h2 r">תחנות בדרכו של מוקש</h2> <ol class="tl r">
+<li class="tl__n"><span class="tl__y">סוף שנות השישים</span><p class="tl__l">להקת הביטלס מגיעה לאשרם של מהרישי ברישיקש ויחד אתם נפתח לרווחה שער התיירות המערבית. מוקש, עדיין נער צעיר מקסטה של אמנים-נגרים, נקרא למשימה ביחד עם אביו.</p></li>
+<li class="tl__n"><span class="tl__y">תחילת שנות השבעים</span><p class="tl__l">תייר אוסטרלי מגיע למלון עם גזע במבוק ארוך ועבה ומשמיע את צליל ה-אום. מוקש מטמיע את טכניקת הנשימה המעגלית בדקות, ומחליט להקדיש את חייו לדיג'רידו.</p></li>
+<li class="tl__n"><span class="tl__y">בית המלאכה</span><p class="tl__l">מוקש מקים בית מלאכה קטן וצנוע בחצר ביתו, מרחק הליכה מגדת הגנגס, ובמשך עשרות שנים בונה ביד כלי דיג'רידו ומלמד אלפי מטיילים.</p></li>
+<li class="tl__n"><span class="tl__y">2000</span><p class="tl__l">אייל עמית פוגש את מוקש, לומד ממנו לאורך השנים והופך לתלמידו הקרוב ולאחד ממשיכי דרכו.</p></li>
+<li class="tl__n"><span class="tl__y">2013</span><p class="tl__l">העבודה על הסטודיו החדש בקוטלי, 1000 מטר מעל רישיקש, מתחילה — אך נעצרת כשהכסף שגוייס אינו מספיק.</p></li>
+<li class="tl__n"><span class="tl__y">2019</span><p class="tl__l">הבנייה בקוטלי מתחדשת. מאיש מזדקן ועייף הופך מוקש בין רגע לפועל בניין חרוץ ומסור.</p></li>
+<li class="tl__n"><span class="tl__y">24.3.2020</span><p class="tl__l">פורצת מגפת הקורונה והודו כולה נכנסת לסגר של שנה. הפרוייקט בקוטלי נעצר ובריאותו של מוקש מידרדרת.</p></li>
+<li class="tl__n"><span class="tl__y">11.10.2020</span><p class="tl__l">בבוקר ה- 11.10.2020 עזב מוקש את גופו. טקס שריפתו נערך על גדת הגנגס סמוך לביתו.</p></li>
+</ol>
+</div>
+</section></div><div class="cm-variant">מאושר — בטורים 2–5, כמו טקסט רץ (העיצוב — בסבב הבא)</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--alt cm-25">
 <div class="wrap">
 <span class="chap r">ציר זמן</span> <h2 class="h2 r">תחנות בדרכו של מוקש</h2> <ol class="tl r">
 <li class="tl__n"><span class="tl__y">סוף שנות השישים</span><p class="tl__l">להקת הביטלס מגיעה לאשרם של מהרישי ברישיקש ויחד אתם נפתח לרווחה שער התיירות המערבית. מוקש, עדיין נער צעיר מקסטה של אמנים-נגרים, נקרא למשימה ביחד עם אביו.</p></li>
@@ -3377,6 +3510,216 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </li>
 </ul>
 </div>
+</section></div><div class="cm-variant">מאושר — בטורים 2–5, כמו טקסט רץ</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section aria-label="אזכורים בתקשורת" class="ea-section ea-press cm-25" data-block="press">
+<div class="ea-section__inner">
+<h2 class="ea-section__heading ea-entrance--breath">אזכורים בתקשורת</h2>
+<p class="ea-press__intro">אזכורים, כתבות וראיונות לאורך השנים. הקישורים נפתחים בלשונית חדשה.</p>
+<ul class="ea-press__list">
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2016</span>
+<a class="ea-press__link ea-text-link" href="https://www.eventer.co.il/x25b3" rel="noopener noreferrer" target="_blank">
+							או בקופה האינטרנטית כאן&gt;&gt;							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Eventer</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2016</span>
+<a class="ea-press__link ea-text-link" href="https://he.wikipedia.org/wiki/%D7%A2%D7%99%D7%A8_%D7%94%D7%90%D7%9C%D7%95%D7%94%D7%99%D7%9D_(%D7%A1%D7%A8%D7%98)" rel="noopener noreferrer" target="_blank">
+							עיר האלוהים							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ויקיפדיה העברית</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2015</span>
+<a class="ea-press__link ea-text-link" href="/כתבה-על-תופעת-יחיד-ב-המקומון-גבעתיים-ר/" rel="noopener noreferrer" target="_blank">
+							מופע הסיפורים של אייל עמית / כתבה מאת מ. פרסול / המקומון גבעתיים ר״ג							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">המקומון גבעתיים ר״ג</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2015</span>
+<a class="ea-press__link ea-text-link" href="/מופע-הסיפורים-של-אייל-עמית-כתבה-מאת-רו/" rel="noopener noreferrer" target="_blank">
+							מופע הסיפורים של אייל עמית / כתבה מאת רואי פרסול – מעריב תרבות 21.7.15							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">מעריב תרבות</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2015</span>
+<a class="ea-press__link ea-text-link" href="/2228-2/" rel="noopener noreferrer" target="_blank">
+							מופע הסיפורים של אייל עמית – תופעת יחיד | כתבה מאת שי מרקוביץ / ידיעות השרון							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ידיעות אחרונות</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2015</span>
+<a class="ea-press__link ea-text-link" href="https://www.eventer.co.il/74rb3" rel="noopener noreferrer" target="_blank">
+							להזמנת כרטיסים באינטרנט&gt;&gt;							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Eventer</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2014</span>
+<a class="ea-press__link ea-text-link" href="http://tickets.tzavta.co.il/TemplatesPage/hazmen_cards.aspx?id=2798&amp;fr=1" rel="noopener noreferrer" target="_blank">
+							או באתר צוותא&gt;&gt;							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">צוותא</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2014</span>
+<a class="ea-press__link ea-text-link" href="http://www.tzavta.co.il/entertainment.asp?p=909" rel="noopener noreferrer" target="_blank">
+							כתבה / אזכור תקשורתי - צוותא							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">צוותא</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2013</span>
+<a class="ea-press__link ea-text-link" href="http://www.headstart.co.il/projectcomments.aspx?id=6940" rel="noopener noreferrer" target="_blank">
+							התגובות המדהימות שלכם							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Headstart</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2013</span>
+<a class="ea-press__link ea-text-link" href="http://www.headstart.co.il/projectsupporters.aspx?id=6940" rel="noopener noreferrer" target="_blank">
+							ב-ז-כ-ו-ת-כ-ם							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Headstart</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2013</span>
+<a class="ea-press__link ea-text-link" href="http://www.headstart.co.il/cat-93-%D7%92%D7%99%D7%99%D7%A1%D7%95_%D7%91%D7%94%D7%A6%D7%9C%D7%97%D7%94.aspx" rel="noopener noreferrer" target="_blank">
+							דף שבו מרוכזים כל הפרוייקטים שגוייסו בהצלחה							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Headstart</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2013</span>
+<a class="ea-press__link ea-text-link" href="http://www.headstart.co.il/project.aspx?id=6940" rel="noopener noreferrer" target="_blank">
+							כתבה / אזכור תקשורתי - Headstart							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Headstart</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2013</span>
+<a class="ea-press__link ea-text-link" href="http://www.headstart.co.il/project.aspx?id=6520" rel="noopener noreferrer" target="_blank">
+							הצליחה לגייס							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Headstart</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2012</span>
+<a class="ea-press__link ea-text-link" href="http://he.wikipedia.org/wiki/%D7%A9%D7%A2%D7%9C%D7%AA" rel="noopener noreferrer" target="_blank">
+							ויקפדיה							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ויקיפדיה העברית</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2010</span>
+<a class="ea-press__link ea-text-link" href="http://pini.ynet.co.il/?id=6&amp;seasonNum=2" rel="noopener noreferrer" target="_blank">
+							לצפייה בעונה השנייה ב- YNET							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ynet</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2010</span>
+<a class="ea-press__link ea-text-link" href="http://www.ynet.co.il/home/0,7340,L-8858,00.html" rel="noopener noreferrer" target="_blank">
+							לצפייה בעונה הראשונה ב-							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ynet</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://news.walla.co.il/?w=/1/1582785" rel="noopener noreferrer" target="_blank">
+							כתבה / אזכור תקשורתי - וואלה							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">וואלה</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://en.wikipedia.org/wiki/Greenwash" rel="noopener noreferrer" target="_blank">
+							greenwash							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Wikipedia</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://www.ynet.co.il/articles/1,7340,L-2593177,00.html" rel="noopener noreferrer" target="_blank">
+							ביו-תות							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ynet</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://www.mako.co.il/tv-starisborn/season7-articles/Article-9b6c49fa45ff221004.htm&amp;sCh=a57c2c500f1e0210&amp;pId=1806317738" rel="noopener noreferrer" target="_blank">
+							כוכב נולד.							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">mako (כוכב נולד / קשת)</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://he.wikipedia.org/wiki/%D7%90%D7%91%D7%90_%D7%A2%D7%A9%D7%99%D7%A8_%D7%90%D7%91%D7%90_%D7%A2%D7%A0%D7%99" rel="noopener noreferrer" target="_blank">
+							אבא עשיר אבא עני							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ויקיפדיה העברית</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%91%D7%A8%D7%98_%D7%A7%D7%99%D7%95%D7%A1%D7%90%D7%A7%D7%99" rel="noopener noreferrer" target="_blank">
+							רוברט קיוסאקי							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ויקיפדיה העברית</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://www.local-blog.co.il/home/?p=5611" rel="noopener noreferrer" target="_blank">
+							על מה מדובר							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">הבלוג המקומי (local-blog)</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://he.wikipedia.org/wiki/%D7%A2%D7%99%D7%99%D7%A4%D7%95%D7%AA" rel="noopener noreferrer" target="_blank">
+							הגבר העייף							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">ויקיפדיה העברית</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://en.wikipedia.org/wiki/Zanzibar" rel="noopener noreferrer" target="_blank">
+							'זנזיבר'							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Wikipedia</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://en.wikipedia.org/wiki/Hikikomori" rel="noopener noreferrer" target="_blank">
+							בויקיפדיה							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Wikipedia</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://www.local-blog.co.il/home/?p=3521" rel="noopener noreferrer" target="_blank">
+							כאן.							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">הבלוג המקומי (local-blog)</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="http://www.linktone.co.il/linkton.php?lt_id=TVRNME1nPT0rSQ==&amp;br_id=284" rel="noopener noreferrer" target="_blank">
+							סינגל חדש							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">Linktone</span>
+</li>
+<li class="ea-press__item ea-entrance">
+<span class="ea-press__date">2009</span>
+<a class="ea-press__link ea-text-link" href="https://www.haaretz.co.il/hasite/objects/pages/PrintArticle.jhtml?itemNo=543387" rel="noopener noreferrer" target="_blank">
+							רובה-לייזר							<span aria-hidden="true" class="ea-press__hint"> ↗</span>
+</a>
+<span class="ea-press__source">הארץ</span>
+</li>
+</ul>
+</div>
 </section></div></div></details><details class="cm-row" id="T-33"><summary class="cm-sum" role="row"><span class="c-id">T-33</span><span class="c-name">מעטפת עמוד קוד מודפס<small class="cm-flag">ראו הערה למטה</small></span><span class="c-desc">עמוד קצר שנפתח מסריקת קוד על גבי מוצר: כותרת אחת ועמודת קריאה יחידה מתחתיה.</span><span class="c-use">48 עמודים</span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><header class="phero">
 <span aria-hidden="true" class="arcs"></span>
 <div class="phero__in">
@@ -3388,6 +3731,24 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <span class="chap">QR</span> <h1 class="phero__h">והקדמת – qr1</h1>
 </div>
 </header></div><div class="cm-spec"><section class="sec">
+<div class="wrap">
+<div class="intro-body r r2"><div></div>
+<div></div>
+<div></div>
+<div>זה פשוט מאוד.</div>
+<div>46 סיפורים – רובם מהבלוג שכתבתי במשך 5 שנים, חלקם ממופע הסיפורים שלי וחלקם חדשים דנדשים.</div>
+<div>כולם מחיי הפרטיים.</div>
+<div></div>
+<div>רק אם בא לכם, בסוף כל סיפור מופיע קוד QR לסריקה בנייד, או כתובת אינטרנט קצרה להקלדה, שיעבירו אתכם לדף נסתר באתר. בדף הזה תמצאו תוספת לאותו סיפור שקראתם, או וידאו חזק מהרשת שקשור לנושא. בדף הזה יש גם אפשרות להגיב, לפגוש אנשים אחרים שכמוכם קראו את הסיפור הזה וסרקו את הקוד. גם אני אהיה שם ואשמח לפגוש אתכם.</div>
+<div></div>
+<div>באהבה ובתודה גדולה.</div>
+<div>אייל</div>
+</div>
+<p class="r" style="margin-top:var(--ea-space-8, 32px)">
+<a class="tlink" href="/qr/">← כל דפי ה-QR</a>
+</p>
+</div>
+</section></div><div class="cm-variant">מאושר — גוף העמוד כמו פסקת טקסט: כותרת 1–6, טקסט 2–5</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-25">
 <div class="wrap">
 <div class="intro-body r r2"><div></div>
 <div></div>
@@ -3456,7 +3817,54 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <button aria-label="העתקת קישור לפוסט" class="ea-post-share__link" data-ea-copy-link="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/" type="button"><span aria-hidden="true">↗</span></button>
 </div>
 </div>
-</section></div><div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div></div></details><details class="cm-row" id="T-37"><summary class="cm-sum" role="row"><span class="c-id">T-37</span><span class="c-name">פוסט בלוג — תבנית חדשה<small class="cm-flag">מאושר, טרם קיים באתר</small></span><span class="c-desc">תבנית פוסט חדשה שאושרה, ל שימוש בכל פוסט עתידי: תמונה ראשית (או סימן בית העסק אם אין תמונה), ואחריה רצף שורות בסדר קבוע — פתיחה ממורכזת, פסקה, תמונה לצד טקסט, סרטון, קריאה לפעולה, ציטוט, שתי רשתות תמונות, תמונה צפה בתוך טקסט, וסגירה.</span><span class="c-use"><span class="cm-unused">כרגע לא בשימוש באתר</span></span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><header class="phero phero--media">
+</section></div><div class="cm-cut">— קוצר כאן לצורך המפה. ההמשך בעמוד המקור —</div><div class="cm-variant">מאושר — גוף הפוסט כמו פסקת טקסט: כותרת 1–6, טקסט 2–5</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-25">
+<div class="wrap">
+<div class="ea-post-content"><div class="xdj266r x14z9mp xat24cr x1lziwak x1vvkbs x126k92a">
+<div dir="auto" style="text-align: right;">יש דברים שעובדים הרבה לפני שאנחנו מבינים אותם. קול הוא אחד מהם.</div>
+<div dir="auto" style="text-align: right;">תדר הוא לא רק רעיון רוחני, אלא כוח ממשי שפועל בעולם שלנו כל הזמן.</div>
+<div dir="auto" style="text-align: right;">דבורים למשל, משתמשות בתדרי רטט כנפיים מדויקים כדי לארגן את הכוורת,</div>
+<div dir="auto" style="text-align: right;">לתקשר, ואפילו לייצר דבש.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">יש ניסויים שבהם תדרים מסוימים הצליחו להשפיע על תאים חיים, אפילו על תאים סרטניים – לא דרך כימיה ולא דרך פעולה פולשנית, אלא דרך תהודה. משהו בתא מקבל תדר שלא מתאים לו והוא משתנה.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">ואפילו אש אפשר לכבות בעזרת קול. גלי קול בתדר נמוך מסוגלים לנתק את החמצן מהלהבה. בלי מים, בלי מאבק, רק שינוי התנאים שמאפשרים לאש להמשיך לבעור.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">יש תדרים שמסוגלים להרים חפצים באוויר. לא בכוח, אלא באיזון. החומר פשוט מגיב לרטט שמדויק עבורו.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">יש תדרים שמשפיעים ישירות על המוח. מאטים גלי חשיבה, מורידים דריכות,</div>
+<div dir="auto">ומאפשרים למערכת העצבים לעבור ממצב הישרדות למצב ויסות.</div>
+<div dir="auto">הגוף שלנו הוא מערכת חיה של רטטים. מים, נשימה, דופק, עצבים. וכשהקצב יוצא מאיזון משהו בנו מתכווץ, נדרך, נאחז, נכנס למתח.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">הדיג’רידו הוא לא רק כלי נגינה, הוא בעיקר כלי תדר שמדבר ישירות עם הגוף. הצליל הנמוך שלו, ההמהום הייחודי והאינסופי הזה שלו, כמו זמזום כוורת דבורים, פוגש ומרטיט כל תא ותא בגופנו. לא מתקנים, לא מרפאים בכוח, צריך רק להסכים להקשיב.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">הדיג’רידו לא דוחף שינוי, הוא יוצר תנאים, וכשהתנאים משתנים, הגוף יודע לעשות את שלו.</div>
+<div dir="auto">מערכת העצבים, מערכת העיכול, מערכת הנשימה, הלב, הדם, ההורמונים, המוח – כולם מערכות שחיות בקצב, וכשהקצב מתכוונן ומסתנכרן משהו עמוק נרגע.</div>
+<div dir="auto">זה לא קסם, זו תהודה.</div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a" style="text-align: right;">
+<div dir="auto">אם משהו בדברים כאן פוגש אתכם, אם הגוף שלכם מבקש רגע של הקשבה אחרת ובא לכם לצאת למסע ולצלול אל תוך עולמו המרתק והמופלא של אחד מכלי התדר הקדומים ביותר בהיסטוריה האנושית, מוזמנים ליצור עמי קשר בפרטי.</div>
+<div dir="auto">אייל עמית</div>
+<div dir="auto">המרכז לטיפול בדיג'רידו – <span class="html-span xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x1hl2dhg x16tdsg8 x1vvkbs"><span dir="ltr"><a class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk xt0psk2 x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xkrqix3 x1sur9pj x1fey0fg x1s688f" href="https://l.facebook.com/l.php?u=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Fphone%3D972524822842%26fbclid%3DIwYnJpZBExSjI4Q290MzdIMk1OVUhwYXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6Xi4R4Lb6tvB7W_Tej9VYeEcJOr8TZO3Bx48LhOMUvcB5I9ftW25f9bkBiXg%26brid%3D6c_5S7BIDkWBJ2IgC2LNcA&amp;h=AT3k7FSFeXVw5Zpq6VztmpF9eeBZawj5yI9yLSw9WvmKoXLRdjp72UiMKIjC-Mb2M4ZhkKMWtEbq3kgfmldVCleshfXCX8B4cESmY3bmVONSwvpfeJwsL292RwGNwZWBLuI&amp;__tn__=-UK-R&amp;c[0]=AT2wXp6baY-t2I8mMAFftNnOvXujIec1lUgWS2nA8vi-QGT_K9UGwv3clSCQyl7IZnVya9PfdmNibTuIb7iJdv1w0oJnpVnE6cGyfow7of4G_4d2WooBNL3T1aGD2zXkv6vKrFPVuJnwI6QzMf95aEK07Ox35uyqzDkEYuQgMdltn-1VJ1EDwUTkoMuche8WN3x__NiPS0fxhAlz-s_yzg" rel="nofollow noopener noreferrer" role="link" tabindex="0" target="_blank">052-482-2842</a></span></span></div>
+</div>
+<div class="x14z9mp xat24cr x1lziwak x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"><span class="html-span xexx8yu xyri2b x18d9i69 x1c1uobl x1hl2dhg x16tdsg8 x1vvkbs x3nfvp2 x1j61x8r x1fcty0u xdj266r xat24cr xm2jcoa x1mpyi22 xxymvpz xlup9mm x1kky2od"><img alt="🙏" class="xz74otr x15mokao x1ga7v0g x16uus16 xbiv7yw alignright" decoding="async" height="16" src="/wp-content/uploads/ea-legacy/static.xx.fbcdn.net/65db6735f7-1f64f.png" width="16"/></span></div>
+</div>
+<p><strong>אייל עמית</strong>, מורה לנשימה נכונה ומלווה תהליכי ריפוי באמצעות נשימה בדיג'רידו בשיטה ייחודית שפיתח, המביא עמו ניסיון של 26 שנים בתחום הדיג'רידו, הוא מוותיקי הנגנים, הבנאים, המורים והמטפלים בדידג'רידו בישראל ותלמידו הקרוב של המאסטר ההודי מוקש דהימן בשני העשורים האחרונים.</p>
+<p>את <strong>המרכז לטיפול בדיג'רידו – המרכז לטיפול בנשימה באמצעות דיג'רידו פרדס חנה</strong> הקים במטרה לקדם, להפיץ וללמד את איכויותיו התרפויטיות של הדיג'רידו בתחומי הגוף, הנפש והתודעה</p>
+<p data-wahfont="16"><strong>דידג'רידו</strong> הוא כלי נשיפה קדום בעל תו אחד שפותח על ידי תושביה המקוריים של אוסטרליה, האבוריג'ינים. בשני העשורים האחרונים בוצעו מחקרים מדעיים רבים אודות השפעותיו התרפויטיות והוכחה יעילותו ככלי טיפולי בהתמודדות עם מצבי הסטרס הכרוני והסימפטומים הנלווים אליו.</p>
+</div>
+<div class="ea-post-share">
+<span class="ea-post-share__label">שיתוף:</span>
+<button aria-label="העתקת קישור לפוסט" class="ea-post-share__link" data-ea-copy-link="/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-2/" type="button"><span aria-hidden="true">↗</span></button>
+</div>
+</div>
+</section></div></div></details><details class="cm-row" id="T-37"><summary class="cm-sum" role="row"><span class="c-id">T-37</span><span class="c-name">פוסט בלוג — תבנית חדשה<small class="cm-flag">מאושר, טרם קיים באתר</small></span><span class="c-desc">תבנית פוסט חדשה שאושרה, ל שימוש בכל פוסט עתידי: תמונה ראשית (או סימן בית העסק אם אין תמונה), ואחריה רצף שורות בסדר קבוע — פתיחה ממורכזת, פסקה, תמונה לצד טקסט, סרטון, קריאה לפעולה, ציטוט, שתי רשתות תמונות, תמונה צפה בתוך טקסט, וסגירה.</span><span class="c-use"><span class="cm-unused">כרגע לא בשימוש באתר</span></span><span class="c-thumb"><span class="cm-mini"><span class="cm-mini__in"><header class="phero phero--media">
 <img alt="תמונת דמה" class="phero__media" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
 <span aria-hidden="true" class="phero__sc"></span>
 <span aria-hidden="true" class="arcs"></span>

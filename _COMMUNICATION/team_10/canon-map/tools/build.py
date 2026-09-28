@@ -112,14 +112,17 @@ t("T-20", "כרטיסי ציטוט", "testi-cards", "quotes[] · alt",
 group("שאלות ומבנה")
 t("T-21", "שאלות נפוצות", "faq", "chap · title · cat/cats או items[q, a] · cards · open_first",
   [(None, "method", "section.ea-faq-list", 0, None, None),
+   ("מאושר — בטורים 2–5, כמו טקסט רץ (העיצוב — בסבב הבא)", "method", "section.ea-faq-list", 0, None, ("__APPROVED__", "cm-25")),
    ("וריאנט: כרטיסים", "repair", "section.ea-faq-list--cards", 0, None, None),
    ("וריאנט: מקוצר, דף הבית", "home", "section.ea-faq-mini-section", 0, None, None)])
 t("T-22", "אקורדיון הגדרות", "dd", "chap · title · lead · dark · items[tag, title, body, active]",
   [(None, "lessons", "div.dd", 0, None, None)])
 t("T-23", "תוכן עניינים", "toc", "heading · items[id, label]",
-  [(None, "snoring", "div.ea-toc", 0, None, None)])
+  [(None, "snoring", "div.ea-toc", 0, None, None),
+   ("מאושר — בטורים 2–5; מופיע בכל עמוד של יותר מ-1,400 מילים", "snoring", "div.ea-toc", 0, None, ("__APPROVED__", "cm-25"))])
 t("T-29", "ציר זמן", "timeline", "chap · title · lead · items[year, text]",
-  [(None, "mokesh", "ol.tl", 0, None, None)])
+  [(None, "mokesh", "ol.tl", 0, None, None),
+   ("מאושר — בטורים 2–5, כמו טקסט רץ (העיצוב — בסבב הבא)", "mokesh", "ol.tl", 0, None, ("__APPROVED__", "cm-25"))])
 
 group("מדיה")
 t("T-26", "וידאו", "videoblk", "chap · title · body · poster · video · cap",
@@ -149,11 +152,14 @@ t("T-31", "יצירת קשר", "contact", "אין שדות — טופס, פס ו
 
 group("מעטפות")
 t("T-32", "רשימת עיתונות", "ea-press", "רשימה קבועה: שנה · מקור · קישור · כותרת",
-  [(None, "press", "section.ea-press", 0, None, None)])
+  [(None, "press", "section.ea-press", 0, None, None),
+   ("מאושר — בטורים 2–5, כמו טקסט רץ", "press", "section.ea-press", 0, None, ("__APPROVED__", "cm-25"))])
 t("T-33", "מעטפת עמוד קוד מודפס", "tpl-chapters-qr", "הפוסט: כותרת · תמונה ראשית · תוכן חופשי",
-  [(None, "qr1", "main > header.phero", 0, None, None), (None, "qr1", "main > section.sec", 0, None, None)])
+  [(None, "qr1", "main > header.phero", 0, None, None), (None, "qr1", "main > section.sec", 0, None, None),
+   ("מאושר — גוף העמוד כמו פסקת טקסט: כותרת 1–6, טקסט 2–5", "qr1", "main > section.sec", 0, None, ("__APPROVED__", "cm-25"))])
 t("T-34", "פוסט בלוג — ארכיון", "tpl-chapters-blog-single", "הפוסט: כותרת · קטגוריה · תאריך · תמונה ראשית · תוכן חופשי",
-  [(None, "post", "main > header.phero", 0, None, None), (None, "post", "main > section.sec", 0, None, ("__BODY__", 6))])
+  [(None, "post", "main > header.phero", 0, None, None), (None, "post", "main > section.sec", 0, None, ("__BODY__", 6)),
+   ("מאושר — גוף הפוסט כמו פסקת טקסט: כותרת 1–6, טקסט 2–5", "post", "main > section.sec", 0, None, ("__APPROVED__", "cm-25"))])
 D = ("__DUMMY__", 0)
 t("T-37", "פוסט בלוג — תבנית חדשה", "ea-post-v1 (JSON)", "hero · media[] · video · rows[part, bg, …]",
   [("שורה: hero", "method", "header.phero--media", 0, None, D),
@@ -549,7 +555,7 @@ body{background:#f7f2ea}
 header.phero.cm-h-l{min-height:92svh!important}
 header.phero.cm-h-m{min-height:66svh!important}
 header.phero.cm-h-s{min-height:44svh!important}
-/* Proposal (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
+/* Approved (team_00, CTA): less height; the logo is atmosphere, not a column — large, faded, behind the text;
    text columns 1-4, button spans columns 5-6 on one line, bottom-aligned; the logo is pinned to the screen edge; same six-column grid as the approved hero. */
 section.cta-band.cm-cta-p{padding-block:clamp(40px,4vw,56px);position:relative;overflow:hidden}
 section.cta-band.cm-cta-p .cta-band__in{direction:rtl;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:end;position:relative}
@@ -559,7 +565,7 @@ section.cta-band.cm-cta-p .cta-band__logo.cta-band__logo--side{position:absolute
 section.cta-band.cm-cta-p .cta-band__txt{grid-column:1/5;grid-row:1;position:relative;z-index:1;align-self:end}
 section.cta-band.cm-cta-p .cta-band__act{grid-column:5/7;grid-row:1;position:relative;z-index:1;align-self:end;justify-content:flex-start}
 section.cta-band.cm-cta-p .cta-band__act .btn{width:100%;box-sizing:border-box;padding-inline:12px;white-space:nowrap;text-align:center;justify-content:center}
-/* Proposal (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
+/* Approved (T-04), per team_00's earlier definition (POST-TEMPLATE-SETTINGS §1): heading and eyebrow in columns 1-6;
    running text in columns 2-5 (team_00 corrected 2-6). */
 section.sec.cm-pr-c>.wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 section.sec.cm-pr-c>.wrap>*{grid-column:1/-1}
@@ -613,7 +619,7 @@ section.cm-sp .cm-sp-after>.intro-body{grid-column:2/6;max-width:none;margin:0}
 .cm-spec :is(.ph span,.ea-pending-approval__badge){background:#D6006F!important;color:#fff!important;box-shadow:none!important;
   font-weight:600;border-radius:100px;padding:6px 14px}
 .cm-spec :is(.ea-pending-approval__title,.ea-pending-approval__note){color:#8A0047!important}
-/* Proposal (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
+/* Approved (T-05 fold, team_00: «ההמשך קריאה לא מזמין ולא ממוקם טוב לעברית… כפתור קטן ועדין ומשמאל, מסגרת שזה
    ייצר כרטיס»): the folded text is a framed card in the paragraph's text columns; the peek fades out at the bottom;
    a small outline pill at the card's left (end) edge opens it. */
 section.sec.cm-pr-c.cm-fold>.wrap>.prose-fold{grid-column:2/6;border:1px solid #d9c9b6;border-radius:12px;background:#fffffa;
@@ -626,7 +632,7 @@ section.cm-fold .prose-acc__t:hover{background:#9A4F2B;color:#fff}
 section.cm-fold .prose-acc__t::after{width:6px;height:6px;border-color:currentColor;margin-top:-3px}
 section.cm-fold .prose-acc[open] .prose-acc__t{order:2;margin-top:14px}
 section.cm-fold .prose-acc .intro-body{padding-bottom:0}
-/* Proposal (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
+/* Approved (grid discipline): the section's content box is the six columns; text blocks in 2-5 like a paragraph. */
 .cm-g6 .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap)}
 .cm-g6 .wrap:has(>.ea-now){padding-inline:48px!important}
 .cm-g6 .wrap>*{grid-column:1/-1}
@@ -738,12 +744,12 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .tmq__n::before{display:none}
 .cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
 .cm-tq .tmq__q{grid-area:q;margin:0}
-/* Proposal (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
+/* Approved (T-20 quote, team_00: «פחות padding, מסגרת, רקע או משהו עדין אחר שיפריד»): three quiet separators. */
 .cm-q .ea-testi-cards__card{padding:12px 16px!important;border:0!important;background:transparent!important;border-radius:4px}
 .cm-q-frame .ea-testi-cards__card{border:1px solid #cdbba6!important}
 .cm-q-bg .ea-testi-cards__card{background:#f3ece2!important}
 .cm-q-line .ea-testi-cards__card{border-inline-start:2px solid #9A4F2B!important;border-radius:0;padding-block:4px!important}
-/* Proposal (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
+/* Approved (T-28, team_00: «לכל רשומה כותרת שלנו, תאריך, ואז הפוסט בתוך מסגרת — קצת יותר עדין ומיוחד, לא סתם על הדף»). */
 /* team_00: «2 בשורה שיהיה בגריד. כל עמודה רצה בלי סינכרון לשנייה — הבא מתחיל איפה שהקודם נגמר, ולא טבלה». */
 .cm-g6.cm-fb .fbgrid{display:block!important;columns:2;column-gap:var(--cm-gap)}
 .cm-fb .fbgrid__item{break-inside:avoid;margin:0 0 var(--cm-gap)!important;width:100%!important;border:1px solid #cdbba6;border-radius:4px;background:#fbf6ee;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
@@ -751,7 +757,7 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-fb__d{font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;letter-spacing:.4px;color:#9A4F2B}
 .cm-fb__t{margin:0;font-size:var(--fs-h3);font-weight:500;color:#2f2013}
 .cm-fb .fbgrid__frame{margin-inline:auto;background:#fff;border:1px solid #e6dccf!important;border-radius:4px;max-width:100%}
-/* Proposal (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
+/* Approved (T-31 contact, team_00: «לסדר חכם יותר, שייכנס במסך אחד ויעמוד בבקשות של אייל, וגם בגריד»): one row on the six
    columns — the form in 1-4 with its fields paired, a side column in 5-6 with the portrait, WhatsApp and the details. */
 .cm-ct .ea-contact-form-row{max-width:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);align-items:stretch}
 /* team_00: «בלוק חום מימין — ליישר למטה לעמודה שמאל — שיסתיים למטה בקו ישר». */
@@ -785,6 +791,30 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-ct .ea-contact-cta .ea-contact-section__body{color:#EBEBEA!important}
 .cm-ct .ea-contact-cta .ea-cta-pill{background:#D08A5E!important;color:#1d140d!important;border-color:#D08A5E!important}
 .cm-ct .ea-contact-points li{text-align:start!important;text-align-last:auto!important;color:#fff!important;font-size:var(--fs-body)!important;font-weight:var(--fw-medium)}
+/* Approved (D49, D55): reading blocks in columns 2-5 — accordion, TOC, year lists, press, template bodies. */
+section.cm-25 .wrap,.cm-25>.wrap,.cm-25 .wrap.center{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);text-align:start}
+.cm-25 .wrap>*{grid-column:2/6!important;max-width:none!important;margin-inline:0!important}
+.cm-25 .wrap>:is(.h2,.chap,h2){grid-column:1/-1!important;text-align:start!important}
+/* The FAQ list and the press list have their own inner box instead of .wrap: the same six columns on 1104. */
+.cm-25:is(.ea-faq-list,.ea-press){max-width:none!important;margin:0!important;background:#fffffa;padding-block:clamp(40px,5vw,72px)}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner){display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--cm-gap);
+  width:min(1104px,calc(100% - 96px))!important;max-width:none!important;margin-inline:auto!important;padding-inline:0!important;text-align:start}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>*{grid-column:2/6!important;max-width:none!important;margin-inline:0!important}
+.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>:is(.h2,.chap,h2){grid-column:1/-1!important;text-align:start!important}
+/* The TOC's floating rail, button and sheet are page chrome, not the block — hidden in the map example. */
+.cm-spec .ea-toc :is(.rail,.toc-fab,dialog){display:none!important}
+/* Year numbers on ivory in the approved link colour (the live #B5663D measures 4.24 — fails). */
+.cm-25 .tl__y{color:#9A4F2B!important}
+/* Text on image: a deeper scrim so every line passes over any photo. */
+.cm-bul .whom__i::after{background:linear-gradient(180deg,rgba(29,20,13,.05) 20%,rgba(29,20,13,.9) 75%)!important}
+/* Validation fixes (D63). */
+header.phero[class*="cm-h-"] .phero__s{max-width:none!important}
+header.phero.cm-h-s .chap{display:none}
+.cm-g6.start .start__in{max-width:none!important;width:min(1104px,calc(100% - 96px))!important;padding-inline:0!important;box-sizing:border-box}
+/* Q-3 B: the CTA band on the content width 1104, the site grid. */
+section.cta-band.cm-cta-p .cta-band__in{max-width:1104px!important;width:min(1104px,calc(100% - 96px))!important;padding-inline:0!important;margin-inline:auto!important;box-sizing:border-box}
+/* Q-2b B: the CTA paragraph is running text — justified. Q-2a A: text on images is display text — start. */
+section.cta-band.cm-cta-p .cta-band__p{text-align:justify;text-align-last:start}
 /* Approved (team_00): the hero button has two positions — bottom (default) or top, its top level with the title's top. */
 header.phero.cm-btn-top[class*="cm-h-"] .phero__cta{align-self:start}
 header.phero.cm-btn-top[class*="cm-h-"] .phero__in:has(>.chap) .phero__cta{grid-row:2/span 3}
@@ -830,7 +860,14 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-pl .point-cards__card{padding-inline-start:46px!important}
  .cm-bul .whom{grid-auto-rows:220px!important}
  .cm-gal .gallery>:first-child img{height:240px}
+ .cm-bul .whom>.whom__i{min-height:220px}
+ .cm-gal .gallery>:first-child{grid-column:1/-1!important}
+
+ .cm-25 .wrap>*,.cm-25 :is(.ea-faq-list__inner,.ea-section__inner)>*{grid-column:1/-1!important}
+ .cm-25 :is(.ea-faq-list__inner,.ea-section__inner){width:auto!important;padding-inline:16px!important}
+ .cm-g6.start .start__in{width:auto!important;padding-inline:16px!important}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
+ .cm-k42 .gallery>.gfig:is(:nth-child(1),:nth-child(4)){grid-column:1/-1!important}.cm-k42 .gallery>.gfig:is(:nth-child(1),:nth-child(4)){height:300px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
  .cm-ct .cm-ct__side{margin-top:24px}

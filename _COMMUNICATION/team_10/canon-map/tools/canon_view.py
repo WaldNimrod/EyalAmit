@@ -43,10 +43,14 @@ for gi, (gname, types) in enumerate(GROUPS, 1):
         used = sorted({u for o, _ in olds for u in USES.get(o, [])})
         n = len(used)
         count = f"{n} עמודים" if n > 1 else ("עמוד אחד" if n == 1 else "כרגע לא בשימוש")
+        if tid == "S-2":  # every button on the site; no old id to census
+            count = "כמעט כל עמוד"
         link = lambda p: f'<a href="{p}" target="_blank">{p}</a>'
         uses_html = ('<ul class="cm-uses">' + "".join(f"<li>{link(p)}</li>" for p in used[:10]) + "</ul>"
                      + (f'<details class="cm-more"><summary>ועוד {n - 10}</summary><ul class="cm-uses">'
                         + "".join(f"<li>{link(p)}</li>" for p in used[10:]) + "</ul></details>" if n > 10 else "")) if n else ""
+        if tid == "S-2":
+            uses_html = "<p>כל כפתור באתר — כמעט בכל עמוד. אין מזהה ישן לספור אותו לפיו.</p>"
         own = (approved(olds[0][0]) or today(olds[0][0])) if olds else []
         ex, first = [], (own[0] if own else None)
         if tid in EXTRA:

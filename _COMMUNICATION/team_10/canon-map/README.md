@@ -27,7 +27,7 @@ through validation.
 - **Header** — what the map is, the reading rules, and the site-wide rules in one line each.
 - **Tab bar** — pinned. Eight groups of the **current** types: פתיחות · טקסט · תמונה וטקסט · כרטיסים · מדיה ·
   פעולה · תבניות עמוד · משותף; on the left, the pages: המפה · הצעות פתוחות · חלוקות · מה אושר — רשת · בדיקת גוונים.
-- **One row per current type** (17: 14 types, 2 page templates P-1/P-2, 1 shared state S-1). Collapsed: ID ·
+- **One row per current type** (18: 14 types, 2 page templates P-1/P-2, 2 shared rows S-1 «ממתין לתוכן» and S-2 buttons). Collapsed: ID ·
   name + status (מאושר / מאושר בחלקו / פתוח) · definition · pages using it · live thumbnail.
 - **Click a row** → definition, which old types it merged, **variants** with their values, **rules**, **fields**,
   every page that uses it; then the examples: every **approved** one (blue), then **today's site** for each old
@@ -42,7 +42,7 @@ through validation.
 `T-01` … `T-37`, the canon's own numbering — the same numbers as
 `CONTENT-TYPES-CANON.md` and the old artifact. **An ID is permanent.** A type that is
 split gets a new ID; a retired ID is never reused. **Retired: `T-03`** — merged into `T-02`
-on 2026-09-27 (one video-hero template; 36 types remain). The ID is the "type A" of the request
+on 2026-09-27 (one video-hero template; 35 old IDs remain — merged into 18 current rows since D49). The ID is the "type A" of the request
 format team_00 defined for Eyal's maintenance environment: «שורה מטיפוס A עם תוכן B בעמוד C
 במיקום X».
 
@@ -133,7 +133,7 @@ state file's history; 65 of 65 clean at the last run).
 
 ## Verified at capture (team_10's claim; team_90 re-measures)
 
-1440 and 375 wide: 36 types, every example non-empty, no page-level horizontal scroll at
+1440 and 375 wide: 35 old type IDs (18 current rows), every example non-empty, no page-level horizontal scroll at
 375. Elements that extend past the edge by design and are clipped (`.arcs`, the testimonial
 track, the memorial video layer, the contact band's logo watermark) are not defects —
 **a defect is only what moves `document.scrollWidth`.**
