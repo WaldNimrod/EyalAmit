@@ -63,7 +63,7 @@ t("T-04", "פסקת קריאה", "prose", "chap · title · body · center · al
    ("מאושר — גוון 5 מתוך 5: כהה (כמו היום) — כותרת שמנת, קישור טרקוטה בהיר", "method", "main > section.sec", 1, None, ("__APPROVED__", "cm-pr-c cm-bg cm-bg-dark"))])
 t("T-05", "פסקה מקופלת", "prose (collapsible)", "collapsible · preview_lines · toggle_label + שדות פסקת הקריאה",
   [(None, "kushi", ".prose-fold", 0, None, None),
-   ("הצעה לאישור — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; רואים פסקה של ממש (כעשר שורות) שדוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל", "kushi", ".prose-fold", 0, None, ("__PROPOSAL__", "cm-pr-c cm-fold"))])
+   ("מאושר — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; רואים פסקה של ממש (כעשר שורות) שדוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל", "kushi", ".prose-fold", 0, None, ("__APPROVED__", "cm-pr-c cm-fold"))])
 t("T-07", "תמונה צפה בתוך הטקסט", "prose (float_*)", "float_image · float_alt · float_zoom · float_side · float_mod",
   [(None, "snoring", ".pfloat", 0, None, None), ("וריאנט: עומדת, גדולה", "repair", ".pfloat--standing", 0, None, None)])
 
@@ -216,19 +216,20 @@ def videos(el):
 # with the content padded inside. Appended to each type's examples as green proposals.
 P = "__PROPOSAL__"
 GRID_PROPOSALS = {
-    "T-11": [("הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא, ואחריה 3 בשורה (תת-הכותרת — תוכן דמה)", "kushi", ".gallery", 0, None, (P, "cm-g6 cm-hs cm-gal")),
+    "T-11": [("הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא; אחריה שורות של 3 תמונות לרוחב (4:3), ובסוף שורות של 3 תמונות לאורך (3:4) — כל שורה בצורה אחת (תת-הכותרת — תוכן דמה)", "kushi", ".gallery", 0, None, (P, "cm-g6 cm-hs cm-gal")),
              ("מאושר — ארבעה דיוקנאות (K-4.2): גדול, שניים זה מעל זה, גדול — בלוק אחד, במילוי", "repair", ".gallery--portraits", 0, None, ("__APPROVED__", "cm-g6 cm-k42"))],
-    "T-09": [("הצעה לאישור — התוכן הזה הוא נקודות, לא כרטיסים: רשימה סדורה של בולטים בטורים 2–5, לכל בולט סמל (מספר), כותרת וטקסט", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-pl"))],
-    "T-13": [("הצעה לאישור — בולטים עם תמונות: הטקסט גדול והתמונה רקע שלו (כמו במקור, reveals.php); כותרת מימין עם תת-כותרת (דמה); שתי שורות של 2", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-22 cm-hs cm-bul")),
-             ("הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.2: גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-2112 cm-hs cm-bul")),
-             ("הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.3: 1 גדול ו-3 קטנים (3+1+1+1), במילוי", "home", "section#whom", 0, None, (P, "cm-g6 cm-g4-3111 cm-hs cm-bul"))],
+    "T-09": [("הצעה לאישור — בולטים, וריאנט מספרים: רשימה סדורה בטורים 2–5, לכל בולט מספר, כותרת וטקסט", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-pl")),
+             ("הצעה לאישור — בולטים, וריאנט לוגו: אותה רשימה, ולכל בולט סמל הלוגו במקום מספר", "repair", ".point-cards", 0, None, (P, "cm-g6 cm-pl cm-pl-logo"))],
+    "T-13": [("מאושר — בולטים עם תמונות: הטקסט גדול והתמונה רקע שלו (כמו במקור, reveals.php); כותרת מימין עם תת-כותרת (דמה); שתי שורות של 2", "home", "section#whom", 0, None, ("__APPROVED__", "cm-g6 cm-g4-22 cm-hs cm-bul")),
+             ("מאושר — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.2: גדול, שני קטנים זה מעל זה, גדול — בלוק אחד", "home", "section#whom", 0, None, ("__APPROVED__", "cm-g6 cm-g4-2112 cm-hs cm-bul")),
+             ("מאושר — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.3: 1 גדול ו-3 קטנים (3+1+1+1), במילוי", "home", "section#whom", 0, None, ("__APPROVED__", "cm-g6 cm-g4-3111 cm-hs cm-bul"))],
     "T-14": [("מאושר — 2 בשורה על הרשת; טקסט ממורכז ביישור בלוק (השורה האחרונה במרכז)", "home", "section#compare", 0, None, ("__APPROVED__", "cm-g6"))],
     "T-15": [("מאושר — 3 בשורה ברוחב התוכן; כותרת גדולה יותר", "home", "section#start", 0, None, ("__APPROVED__", "cm-g6"))],
     "T-24": [("מאושר — 3 בשורה, כרטיס במסגרת דקה", "books", "section#books", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
     "T-25": [("מאושר — ארבעה כרטיסים: 1 גדול ו-3 קטנים (3+1+1+1), במסגרת דקה; הטקסט מיושר לתחתית, התמונה ממלאת את כל האזור שמעליו — רק מילוי בטיפוס הזה", "home", "section#ea-now", 0, None, ("__APPROVED__", "cm-g6 cm-g4-3111 cm-frame")),
              ("מאושר — ארבעה כרטיסים: שתי שורות של 2", "home", "section#ea-now", 0, None, ("__APPROVED__", "cm-g6 cm-g4-22 cm-frame"))],
     "T-35": [("מאושר — 3 בשורה על הרשת, כרטיס במסגרת דקה", "blog", "article.ea-blog-card", 0, None, ("__APPROVED__", "cm-g6 cm-frame"))],
-    "T-18": [("הצעה לאישור — כותרת כמו בפסקת טקסט; שלושה כרטיסים שלמים ברוחב התוכן; חצים עדינים בלי מסגרת במרכז מעל, נקודות בשורה למטה; בראש הכרטיס עיגול, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
+    "T-18": [("הצעה לאישור — כותרת כמו בפסקת טקסט; שלושה כרטיסים שלמים ברוחב התוכן; חצים עדינים בלי מסגרת במרכז, צמודים מעל הכרטיסים, נקודות בשורה למטה; בראש הכרטיס עיגול, שם ותאריך", "method", ".testi-mq", 0, None, (P, "cm-g6 cm-frame cm-tq"))],
     "T-19": [("מאושר — 3 בשורה על הרשת; בראש הכרטיס עיגול קטן, שם ותאריך", "testimonials", ".testi-grid", 0, None, ("__APPROVED__", "cm-g6 cm-frame cm-tq"))],
     "T-20": [("מאושר — ציטוט: ריווח קטן ומסגרת דקה בלבד (G-12.1), 2 בשורה על הרשת", "snoring", "section.ea-testi-cards", 0, None, ("__APPROVED__", "cm-g6 cm-q cm-q-frame"))],
     "T-28": [("מאושר — 2 טורים על הרשת, כל טור רץ בלי סנכרון לשני (הפוסט הבא מתחיל איפה שהקודם נגמר, לא טבלה); כל פוסט בכרטיס עדין: תאריך וכותרת שלנו, ומתחתם הפוסט בתוך מסגרת פנימית (כותרות ותאריכים — תוכן דמה)", "mokesh", "div.fbgrid", 0, None, ("__APPROVED__", "cm-g6 cm-fb"))],
@@ -315,6 +316,24 @@ def specimen(label, page, css, idx, pred, tr):
                     mq.insert_after(BeautifulSoup('<div class="cm-tq__dots" aria-hidden="true">'
                                                   + "".join(f'<i{" class=on" if k == 0 else ""}></i>' for k in range(pages))
                                                   + "</div>", "lxml").div)
+            if "cm-gal" in keep.split():  # proposal: one shape per row — landscapes first, portraits last
+                import os
+                from PIL import Image
+                site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "site")
+                g = el.select_one(".gallery")
+                figs = [f for f in g.children if getattr(f, "name", None)]
+                def portrait(f):
+                    im = f.select_one("img")
+                    fp = os.path.normpath(site + "/wp-content" + im["src"].split("?")[0].split("/wp-content", 1)[-1]) if im else ""
+                    try:
+                        w, h = Image.open(fp).size
+                        return h > w * 1.05
+                    except Exception:
+                        return False
+                por = [f for f in figs if portrait(f)]
+                for f in por:
+                    f["class"] = f.get("class", []) + ["cm-por"]
+                    g.append(f.extract())
             if "cm-hs" in keep.split():  # proposal: heading on the right with a subtitle (dummy when the content has none)
                 w = el.select_one(".wrap.center") or el.select_one(".wrap")
                 if w and "center" in w.get("class", []):
@@ -656,6 +675,10 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 /* The main image is a photo (the first item here is a book cover, which cannot fill a wide frame). */
 .cm-gal .gallery>:nth-child(4){grid-column:1/-1!important;order:-1}
 .cm-gal .gallery>:nth-child(4) img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
+/* O-2: one shape per row (team_00: a portrait in a landscape row breaks it). */
+.cm-gal .gallery .cm-por img{aspect-ratio:3/4!important;width:100%;height:auto;object-fit:cover}
+/* O-4 logo variant: the logo mark instead of the number. */
+.cm-pl-logo .point-cards__card::before{content:""!important;background:url(/wp-content/themes/ea-eyalamit/assets/images/ea-logo-mark.png) center/70% no-repeat #f3ece2!important}
 /* O-4 (team_00: «זה נקודות — רשימה סדורה, בולטים»): the point cards become an ordered list in columns 2-5. */
 .cm-pl .point-cards__grid{display:block!important;grid-column:2/6!important;counter-reset:pl;margin-block:8px!important}
 .cm-pl .point-cards__card{counter-increment:pl;position:relative;border:0!important;background:transparent!important;box-shadow:none!important;
@@ -684,7 +707,8 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .testi-mq{display:block;position:relative}
 /* team_00: «הכפתורים לא יפים ומפריעים בצדדים — במקום זה נקודות בשורה למטה, וחצים עדינים בלי מסגרת לשני הצדדים, במרכז, מעל». */
 .cm-tq .wrap>.h2{text-align:start}
-.cm-tq__nav{grid-column:1/-1;display:flex;justify-content:center;gap:28px;margin:0 0 12px}
+.cm-tq__nav{grid-column:1/-1;display:flex;justify-content:center;gap:28px;margin:32px 0 -2px}
+.cm-tq .testi-mq{margin-top:0!important}
 .cm-tq__nav .testi-mq__btn{position:static!important;transform:none!important;border:0!important;background:none!important;box-shadow:none!important;
   width:auto!important;height:auto!important;padding:4px 8px!important;color:#9A4F2B;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.75}
 .cm-tq__nav .testi-mq__btn:hover{opacity:1}

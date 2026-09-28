@@ -260,6 +260,10 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 /* The main image is a photo (the first item here is a book cover, which cannot fill a wide frame). */
 .cm-gal .gallery>:nth-child(4){grid-column:1/-1!important;order:-1}
 .cm-gal .gallery>:nth-child(4) img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
+/* O-2: one shape per row (team_00: a portrait in a landscape row breaks it). */
+.cm-gal .gallery .cm-por img{aspect-ratio:3/4!important;width:100%;height:auto;object-fit:cover}
+/* O-4 logo variant: the logo mark instead of the number. */
+.cm-pl-logo .point-cards__card::before{content:""!important;background:url(/wp-content/themes/ea-eyalamit/assets/images/ea-logo-mark.png) center/70% no-repeat #f3ece2!important}
 /* O-4 (team_00: «זה נקודות — רשימה סדורה, בולטים»): the point cards become an ordered list in columns 2-5. */
 .cm-pl .point-cards__grid{display:block!important;grid-column:2/6!important;counter-reset:pl;margin-block:8px!important}
 .cm-pl .point-cards__card{counter-increment:pl;position:relative;border:0!important;background:transparent!important;box-shadow:none!important;
@@ -288,7 +292,8 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .testi-mq{display:block;position:relative}
 /* team_00: «הכפתורים לא יפים ומפריעים בצדדים — במקום זה נקודות בשורה למטה, וחצים עדינים בלי מסגרת לשני הצדדים, במרכז, מעל». */
 .cm-tq .wrap>.h2{text-align:start}
-.cm-tq__nav{grid-column:1/-1;display:flex;justify-content:center;gap:28px;margin:0 0 12px}
+.cm-tq__nav{grid-column:1/-1;display:flex;justify-content:center;gap:28px;margin:32px 0 -2px}
+.cm-tq .testi-mq{margin-top:0!important}
 .cm-tq__nav .testi-mq__btn{position:static!important;transform:none!important;border:0!important;background:none!important;box-shadow:none!important;
   width:auto!important;height:auto!important;padding:4px 8px!important;color:#9A4F2B;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.75}
 .cm-tq__nav .testi-mq__btn:hover{opacity:1}
@@ -608,7 +613,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </details>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; רואים פסקה של ממש (כעשר שורות) שדוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec cm-pr-c cm-fold">
+</section></div><div class="cm-variant">מאושר — הקטע המקופל הוא כרטיס במסגרת עדינה בטורים 2–5; רואים פסקה של ממש (כעשר שורות) שדוהה בתחתית, וכפתור קטן ועדין «להמשך קריאה» משמאל</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-pr-c cm-fold">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">קטע מתוך הספר – לקריאה</h2> <div class="prose-fold" style="--fold-lines:4">
 <div class="prose-fold__peek intro-body"><p>(קטע מתוך חלק א')</p><p>על סמטת הדלתות הבוחנות<br/>"כל אדם הוא אדריכל של גורלו". אפיוס קלאודיוס</p><p>___________________________________</p><p>הפעם הראשונה בחיי שראיתי אוראקל, היתה בסרט 'הסיפור שאינו נגמר'. אטריו הגיבור ניצב שם באומץ לב, מול שני פסלי ספינקס ענקיים, בגובה מאה מטר. היה זה האוראקל הדרומי. מין ישות כזאת. נביא שמסוגל לענות על כל שאלה שתשאל. הדרך אל האוראקל אינה פשוטה. אטריו היה צריך לטוס ששה עשר אלף קילומטרים על גבו של דרקון ולעבור דרך שני שערים, כדי להגיע אליו. משני צדיו של השער הראשון ניצבו פסלי ספינקס אדירים בצבע זהב, ששמרו על הפתח. הספינקס מסוגל להסתכל ישר אל תוך לבך ולראות את האמת. רק אדם שבטוח בעצמו, יוכל לעבור דרכם. מי שנמצא אצלו חשש ולו הקטן ביותר, מוצא את מותו מקרני הלייזר הקטלניות, שהספינקסים שולחים דרך עיניהם המפחידות.</p><p>השער השני, בדרך אל האוראקל, הוא ראי קסם. שם עליך להתייצב מול דמותך האמיתית. אנשים טובים מגלים לפתע שהם רעים, אמיצים הופכים לפחדנים וחכמים מגלים שהם בעצם טיפשים. זהו מבחן לא פשוט בכלל ורוב האנשים בורחים משם בריצה, כל עוד נפשם בם.</p><p>אז למה להגיע למקום כזה? למה בכלל לסכן את עצמך? כי כשאין ברירה אז אין ברירה. כשאתה חייב לקבל תשובה על שאלה, שאיש לא יוכל לענות לך עליה, אתה מוצא עצמך מול שני השערים, בדרך אל האוראקל הדרומי.</p><p>ככה לפחות זה היה בסרט. עד שלא פגשתי אוראקל כזה בעצמי, חשבתי שהם כולם נראים אותו דבר.</p><p>את האוראקל שלי פגשתי אחרי הליכה של כמעט שעה בסמטאות אבן צרות, שלאורכן ניצבו מאות ואולי אלפי דלתות עץ מעוטרות גילופים. הסמטאות היו חשוכות למדי והשתרכו לאורך עשרות קילומטרים, כשריח חריף של שתן וצואת פרות נדף מכל עבר. יכולתי להישבע שאלה סמטאות העיר העתיקה של וראנסי שבהודו, מקום שמזכיר קצת במראהו את הקסבות הצרות בירושלים. לא היה לי מושג איך הגעתי לשם ואם באמת היתה זו העיר וראנסי, אך בייחוד הציקה לי השאלה מדוע אני מסתובב שם ערום.</p><p>ערום לגמרי.</p><p>בהתחלה הייתי בטוח שזה חלום וניסיתי להתעורר בכל דרך אפשרית. כשצבטתי את עצמי בכוח וצעקתי מרוב כאב והיסטריה, קלטתי שלושה דברים: אני לגמרי במציאות, אני לגמרי ערום ואני לגמרי לבדי בסמטאות שנראות כמו וראנסי.</p><p>דממה בלתי הגיונית שררה במקום. אם לא הייתי שומע את נשימותיי המבוהלות, הייתי בטוח שהתחרשתי.</p><p>"לפחות המקום חשוך," ניסיתי להרגיע את עצמי ולהבין מה קורה. יכולתי להרגיש את הלב מפרפר בטירוף, ממש בועט לי בבית החזה, כאילו מנסה לצאת. לא ידעתי מה לעשות. לרוץ לאורך הסמטאות, לחפש שוטר ואולי למצוא מקום להסתתר, או לדפוק על איזו דלת. לרגע הייתי בטוח שחטפו אותי. פשוט לא ידעתי מה לחשוב. הרי בעבר שמעתי כבר סיפורים על אנשים, שהתעוררו פתאום באיזו פינת רחוב וגילו תפרים במקום שפעם היתה להם כליה. בזריזות סרקתי את גופי. העברתי עליו את כפות ידיי, בניסיון למצוא סימן או צלקת.</p><p>"הכל נראה בסדר," אישרתי לעצמי ושלחתי מבטים מבוהלים לצדדים. הדבר היחיד שיכולתי לחשוב עליו, היה למצוא משהו לכסות לי את הישבן.</p><p>ומהר.</p><p>"נשארו חמישים דקות," נשמעה לפתע הודעה קולית, כמו בסופרמרקט. היה זה קול של אשה מבוגרת וצרודה. באותו רגע התכווצתי כולי וניסיתי להיצמד אל הקיר מימיני. רק אחרי בדיקה יסודית לכל הצדדים, הבנתי שאני עדיין לבדי במקום.</p><p>"עוד חמישים דקות מה?" שאלתי את עצמי ובלי להתמהמה רגע נוסף, התחלתי לפסוע על קצות האצבעות, כשאני משתדל לכסות, עד כמה שניתן, את איבריי החשופים ולהיצמד בגופי לקירות. מצד אחד רציתי לפגוש מישהו, שיגיד לי מה קורה פה, אך מצד שני לא הייתי יודע היכן לקבור את עצמי, מרוב בושה.</p><p>המשכתי לשוטט בין הסמטאות החשוכות, כשמדי פעם אני עוצר ובוחן את הדלתות. הראשונה שעצרתי מולה, היתה דלת שמעליה התנוסס שלט גדול. מצאתי עצמי עומד שם מול אותה דלת בפה פעור ופשוט לא מאמין למראה עיניי.</p><p>"מקדונלד?!" קראתי בפליאה וגבותיי התרוממו בהשתאות. ככל שהתאמצתי, לא הבנתי מה הקשר בין השלט הזה, למקום בו אני נמצא.</p><p>"פיצה האט?!" קראתי שוב בקול, בוחן את הדלת השניה וגופי מצטמרר כולו.</p><p>"פיצה האט? בוראנסי? מה זו הבדיחה הזו?" שאלתי את עצמי בהלם טוטלי, סורק את שאר הדלתות. בזה אחר זה הופיעו כל סוגי הג'אנק-פוד שאי פעם הומצאו ונפרשו לנגד עיניי. כל סוגי ההמבורגרים, נקניקיות, פיצות, שווארמה, קרפ צרפתי, צ'יקן-באגט, פרוזן-יוגורט, פיתות, בורקסים, מלוואחים, גלידות, עוגות... והריח, איזה ריח היה שם... ריח של צ'יפס וחמאת פופקורן, מעורבים בריח נקניקיות ובצל מטוגן. ריח של שוקולד חלב ואגוזים קלויים, מעורב בקוקוס וריבת חלב.</p><p>אפילו שלא הייתי רעב כלל וגם בהלם מוחלט, הרגשתי כבר איך הרוק מתחיל להיאסף לי בחלל הפה. אם לא הייתי ערום, אני משוכנע שכבר הייתי בוחר אחת מהדלתות האלה. אחרי דקות ארוכות של הליכה, סמטת הג'אנק פוד הסתיימה.</p><p>"נשארו ארבעים דקות!" נשמעה שוב הכריזה ולבי החסיר פעימה.</p><p>"מה קשור עכשיו בית כנסת ספרדי?" שאלתי את עצמי בתדהמה, מביט בשלט שמעל הדלת ולא מאמין.</p><p>"מה זה המקום המטורף הזה?" שאלתי שוב ושוב וניסיתי להצניע עד כמה שיכולתי את איבריי החשופים. היו שם אינספור דלתות. לנגד עיניי נפרשו כל סוגי הדתות בעולם ובמרווחים של מטרים ספורים בלבד אלה מאלה. סוגים שונים של כנסיות ומסגדים, מאות סוגים של בתי תפילה, מנזרים, פולחנים, כתות, מקדשים עתיקים ואפילו מודרניים. באמת שלא הצלחתי להבין במה מדובר, אך גם לא נשארתי שם יותר מדי זמן כדי לגלות. לא יודע איך, לא יודע למה, פשוט תפסתי את רגליי והתחלתי לרוץ, כשמאות בתי תפילה קדושים, חולפים על פניי בזה אחר זה.</p><p>"נשארו שלושים דקות!" נשמעה שוב הכריזה וגופי התכסה זיעה קרה. לא היה לי מושג לאן אני רץ. הייתי בהלם. הייתי פשוט בהיסטריה. לפעמים שברתי שמאלה, לפעמים ימינה. פשוט רצתי עד שנגמר לי האוויר, מתנשף כמו בהמה ומזיע כמו מוסכניק ביום חמסין. עצרתי. מולי ניצבו אינספור דלתות נוספות, בעוד הסמטאות נותרו שוממות מאדם. מצאתי שם עשרות דלתות של קריאה בקלפי טָארוֹט. כמה דלתות של אסטרולוגיה, של נומרולוגיה, טיפול בהילות ובקריסטלים, טיפול בפעמונים טיבטיים ובדיקור סיני. דלתות של תקשור עם חוצנים ואפילו כמה דלתות עם סיאנס. נראה שלא יהיה לזה סוף. המשכתי להסתובב שם עוד רגעים אחדים, כשאני פשוט לא מצליח לתפוס במה מדובר. מה זו הספירה לאחור הזאת, מה הקשר לעיר וראנסי ומעל לכל, מה לכל הרוחות אני עושה שם.</p><p>"נשארו עשרים דקות!" השמיעה באדישות המבוגרת הצרודה. בניגוד לה, אני כבר איבדתי את עשתונותיי.</p></div>
@@ -890,7 +895,26 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <div class="point-cards__after intro-body"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="/method">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — התוכן הזה הוא נקודות, לא כרטיסים: רשימה סדורה של בולטים בטורים 2–5, לכל בולט סמל (מספר), כותרת וטקסט</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-pl">
+</section></div><div class="cm-variant">הצעה לאישור — בולטים, וריאנט מספרים: רשימה סדורה בטורים 2–5, לכל בולט מספר, כותרת וטקסט</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-pl">
+<div class="wrap">
+<h2 class="h2 r" style="margin-bottom:18px">למה לתקן דיג'רידו כאן?</h2> <div class="point-cards">
+<div class="point-cards__lead intro-body"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>
+<div class="point-cards__grid">
+<article class="point-cards__card">
+<h3>ניסיון של מעל שני עשורים</h3> <p>עבודה יומיומית עם דיג'רידו - בנייה, תיקון וליווי נגנים</p> </article>
+<article class="point-cards__card">
+<h3>למידה ישירה ממוקש דהימן</h3> <p>מאסטר לבניית דיג'רידו, שממנו נלמדה מלאכת הבנייה והעבודה עם הכלי</p> </article>
+<article class="point-cards__card">
+<h3>הבנה גיאומטרית-פיזיקלית של הכלי</h3> <p>התייחסות למבנה הפנימי, לזרימת האוויר ולהשפעה שלהם על הצליל</p> </article>
+<article class="point-cards__card">
+<h3>עבודה ידנית ללא קיצורי דרך</h3> <p>שימוש בחומרים איכותיים בלבד, תוך התאמה מדויקת לכל כלי</p> </article>
+<article class="point-cards__card">
+<h3>התאמה אישית לכל דיג'רידו</h3> <p>אין פתרונות אחידים - כל כלי נבדק ומטופל לפי המאפיינים שלו</p> </article>
+</div>
+<div class="point-cards__after intro-body"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class="tlink" href="/method">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>
+</div>
+</div>
+</section></div><div class="cm-variant">הצעה לאישור — בולטים, וריאנט לוגו: אותה רשימה, ולכל בולט סמל הלוגו במקום מספר</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-pl cm-pl-logo">
 <div class="wrap">
 <h2 class="h2 r" style="margin-bottom:18px">למה לתקן דיג'רידו כאן?</h2> <div class="point-cards">
 <div class="point-cards__lead intro-body"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>
@@ -969,7 +993,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — בולטים עם תמונות: הטקסט גדול והתמונה רקע שלו (כמו במקור, reveals.php); כותרת מימין עם תת-כותרת (דמה); שתי שורות של 2</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-22 cm-hs cm-bul" id="whom">
+</section></div><div class="cm-variant">מאושר — בולטים עם תמונות: הטקסט גדול והתמונה רקע שלו (כמו במקור, reveals.php); כותרת מימין עם תת-כותרת (דמה); שתי שורות של 2</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--alt cm-g6 cm-g4-22 cm-hs cm-bul" id="whom">
 <div class="wrap">
 <h2 class="h2 r">למי מתאים התהליך</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>
 <div class="whom">
@@ -999,7 +1023,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.2: גדול, שני קטנים זה מעל זה, גדול — בלוק אחד</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-2112 cm-hs cm-bul" id="whom">
+</section></div><div class="cm-variant">מאושר — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.2: גדול, שני קטנים זה מעל זה, גדול — בלוק אחד</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--alt cm-g6 cm-g4-2112 cm-hs cm-bul" id="whom">
 <div class="wrap">
 <h2 class="h2 r">למי מתאים התהליך</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>
 <div class="whom">
@@ -1029,7 +1053,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </div>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.3: 1 גדול ו-3 קטנים (3+1+1+1), במילוי</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-g4-3111 cm-hs cm-bul" id="whom">
+</section></div><div class="cm-variant">מאושר — בולטים עם תמונות, הטקסט גדול על התמונה; K-4.3: 1 גדול ו-3 קטנים (3+1+1+1), במילוי</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec sec--alt cm-g6 cm-g4-3111 cm-hs cm-bul" id="whom">
 <div class="wrap">
 <h2 class="h2 r">למי מתאים התהליך</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>
 <div class="whom">
@@ -1515,7 +1539,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </figure>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא, ואחריה 3 בשורה (תת-הכותרת — תוכן דמה)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-hs cm-gal">
+</section></div><div class="cm-variant">הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא; אחריה שורות של 3 תמונות לרוחב (4:3), ובסוף שורות של 3 תמונות לאורך (3:4) — כל שורה בצורה אחת (תת-הכותרת — תוכן דמה)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-hs cm-gal">
 <div class="wrap">
 <h2 class="h2 r">גלריה</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p> <div class="gallery r">
 <figure class="gfig">
@@ -1524,9 +1548,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <figure class="gfig">
 <img alt="כריכת הספר פרושה, צד קדמי ואחורי עם טקסט" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-05.jpg"/>
 </figure>
-<figure class="gfig">
-<img alt="גבר מושך חבל ליד סירת עץ על החוף" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-07.jpg"/>
-</figure>
+
 <figure class="gfig">
 <img alt="אישה מחזיקה את הספר ליד נהר, מגדל אבן וגשר עץ ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/>
 </figure>
@@ -1548,21 +1570,15 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <figure class="gfig">
 <img alt="פרות בסככה מעל ספר פתוח ברקע הקדמי" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-14.jpg"/>
 </figure>
-<figure class="gfig">
-<img alt="גבר עם משקפי שמש מחזיק את הספר מול מפרץ טורקיז וצוקים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-15.jpg"/>
-</figure>
+
 <figure class="gfig">
 <img alt="גבר יושב על סלע ליד נהר בין הרים בדמדומים, מחזיק את הספר ודף נוסף" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-16.jpg"/>
 </figure>
 <figure class="gfig">
 <img alt="גבר מדביק מדבקה על רכב מאזדה בלילה" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-17.jpg"/>
 </figure>
-<figure class="gfig">
-<img alt="גבר מחזיק את הספר על חוף חול לבן מול צוקים וסירה במים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-18.jpg"/>
-</figure>
-<figure class="gfig">
-<img alt="גבר עם כאפייה קורא ספר פתוח ליד הים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-19.jpg"/>
-</figure>
+
+
 <figure class="gfig">
 <img alt="שתי נשים שוכבות על כריות בחוף מדברי, קוראות ספרים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-20.jpg"/>
 </figure>
@@ -1575,13 +1591,21 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 <figure class="gfig">
 <img alt="אישה יושבת על מבנה אבן ליד בריכת מים ירוקה, קוראת את הספר" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-24.jpg"/>
 </figure>
-<figure class="gfig">
-<img alt="תינוק שוכב עם מוצץ ובובת מיני מאוס, ספרים ובהם כושי בלאנטיס ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-25.jpg"/>
-</figure>
+
 <figure class="gfig">
 <img alt="גבר עם משקפיים מחזיק את הספר ותינוק בזרועותיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-26.jpg"/>
 </figure>
-</div>
+<figure class="gfig cm-por">
+<img alt="גבר מושך חבל ליד סירת עץ על החוף" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-07.jpg"/>
+</figure><figure class="gfig cm-por">
+<img alt="גבר עם משקפי שמש מחזיק את הספר מול מפרץ טורקיז וצוקים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-15.jpg"/>
+</figure><figure class="gfig cm-por">
+<img alt="גבר מחזיק את הספר על חוף חול לבן מול צוקים וסירה במים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-18.jpg"/>
+</figure><figure class="gfig cm-por">
+<img alt="גבר עם כאפייה קורא ספר פתוח ליד הים" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-19.jpg"/>
+</figure><figure class="gfig cm-por">
+<img alt="תינוק שוכב עם מוצץ ובובת מיני מאוס, ספרים ובהם כושי בלאנטיס ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-25.jpg"/>
+</figure></div>
 </div>
 </section></div><div class="cm-variant">מאושר — ארבעה דיוקנאות (K-4.2): גדול, שניים זה מעל זה, גדול — בלוק אחד, במילוי</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר — ייושם באתר בסבב האיפוס</span><section class="sec cm-g6 cm-k42">
 <div class="wrap center">
@@ -2032,7 +2056,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </button>
 </div>
 </div>
-</section></div><div class="cm-variant">הצעה לאישור — כותרת כמו בפסקת טקסט; שלושה כרטיסים שלמים ברוחב התוכן; חצים עדינים בלי מסגרת במרכז מעל, נקודות בשורה למטה; בראש הכרטיס עיגול, שם ותאריך</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame cm-tq">
+</section></div><div class="cm-variant">הצעה לאישור — כותרת כמו בפסקת טקסט; שלושה כרטיסים שלמים ברוחב התוכן; חצים עדינים בלי מסגרת במרכז, צמודים מעל הכרטיסים, נקודות בשורה למטה; בראש הכרטיס עיגול, שם ותאריך</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-frame cm-tq">
 <div class="wrap">
 <h2 class="h2 r">עדויות והמלצות</h2> </div>
 <div class="wrap">

@@ -1,6 +1,6 @@
 {
   "_note": "Stable O-numbers for open proposals (team_00 refers to them by number). Key: old type ID + the proposal's cm- classes. A new proposal gets the next number; a number is never reused.",
-  "_next": 24,
+  "_next": 25,
   "T-05|cm-pr-c cm-fold": 1,
   "T-11|cm-g6 cm-k42": 3,
   "T-25|cm-g6 cm-g4-3111 cm-frame": 11,
@@ -10,5 +10,6 @@
   "T-09|cm-g6 cm-pl": 4,
   "T-13|cm-g6 cm-g4-22 cm-hs cm-bul": 5,
   "T-13|cm-g6 cm-g4-2112 cm-hs cm-bul": 6,
-  "T-13|cm-g6 cm-g4-3111 cm-hs cm-bul": 7
+  "T-13|cm-g6 cm-g4-3111 cm-hs cm-bul": 7,
+  "T-09|cm-g6 cm-pl cm-pl-logo": 24
 }
