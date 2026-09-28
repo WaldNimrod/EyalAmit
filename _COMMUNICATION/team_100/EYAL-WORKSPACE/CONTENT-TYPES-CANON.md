@@ -8,6 +8,12 @@
 > [CANON-STAGE-A-STATE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/CANON-STAGE-A-STATE.md).
 > **This file's entries are updated as each type is approved there — until then, the
 > version stamp below still applies.**
+>
+> **2026-09-28 — reorganised by the 18 current types** (D63 Q-8; team_00: «18 טיפוסים — מאושר»).
+> The main section is now [Types](#types): one entry per current type of the map, in the map's group order,
+> with its status, what it merges, its variants, fields, rules, its approved blocks and the implementation
+> facts. The 37 old row types are kept, unedited except for their moved approved blocks, in the
+> [appendix](#appendix-historical-37) as history. "Type N here = `T-N` there" now describes the appendix only.
 
 **Date: 2026-09-26. True for theme version 1.5.138.** The call-to-action rebuild has landed;
 nothing is in flight. Re-verify this file's geometry claims if the theme version changes.
@@ -62,14 +68,32 @@ team_00's ruling below. The printed-code population is unchanged: still no row-t
 
 ## Index
 
+**Current canon:** [Canon terms and site-wide rules](#canon-terms) · [Grid rules](#grid-rules) ·
+[Types — the 18 current types](#types).
+
+**Record of today's site and history:** [Tier 2 — elements inside the rows](#tier-2-elements) ·
+[Orphans](#orphans) · [Stage-A review list — SUPERSEDED](#stage-a-review-list) ·
+[Where this supersedes the 2026-09-23 canon](#where-this-supersedes-the-2026-09-23-canon) ·
+[Appendix — the 37 row types before the merge](#appendix-historical-37).
+
 **Blog note, read this first:** the 52 published posts are **not** typeless. Team_00 ruled there
 are two blog types: [#34 — Archive post](#34-blog--archive-post-existing-ea-post-content) (what
 is live today, deliberately loose) and [#37 — New post](#37-blog--new-post-block-template-approved-not-built)
 (approved, block-based, **not yet built — zero live instances**). The 48 printed-code (`/qr/qrN/`)
 pages keep their own shell type ([#33](#33-qr-article-shell)); their body content still has no
 row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a no-type area.
+Since the merge the two blog types are the variants archive / new of [P-2 Blog post](#type-p-2), and the
+printed-code shell is [P-1](#type-p-1).
 
-### Canon terms and site-wide rules — APPROVED in canon stage A, 2026-09-27
+### Tier 2 — elements inside the rows (9)
+
+[Eyebrow](#eyebrow--chap) · [Heading](#heading) · [Sub / lede](#sub--lede) · [Body prose](#body-prose)
+· [Buttons](#buttons) · [Logo watermark](#logo-watermark) · [Scrim](#scrim)
+· [Pending-approval badge](#pending-approval-badge) · [Image and caption](#image-and-caption)
+
+
+<a id="canon-terms"></a>
+## Canon terms and site-wide rules — APPROVED in canon stage A, 2026-09-27
 
 - **Terms** (team_00: «מה הטרמינולוגיה המדויקת שלנו?» · «בגדול» · «וריאנטים — זו המילה שלנו, כי היא לא באמת
   עברית ולכן תתורגם נכון»). Four words, used the same way in the map, this file and every brief:
@@ -90,7 +114,8 @@ row-type, and they stay on the [stage-A review list](#stage-a-review-list) as a 
   **Display text is not running text** (D63, Q-2a «א»): subtitles and text set on an image (the image bullets) are
   start-aligned, not justified. The CTA band's paragraph is running text and is justified (Q-2b «ב»).
 
-### Grid rules — APPROVED AND LOCKED in canon stage A, 2026-09-27
+<a id="grid-rules"></a>
+## Grid rules — APPROVED AND LOCKED in canon stage A, 2026-09-27
 
 team_00: «אם הגריד שלנו הוא 6 — חלוקה ל-4 לא אפשרית… נכון לכל האלמנטים שמחולקים — תמיד לפי הגריד, זה
 המשמעת שלו. אין אלמנט לא מיושר לגריד.» · «מאשר. לנעול ולעבור על כל התבניות שלנו לוודא שהן עומדות בכלל.»
@@ -149,106 +174,83 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 8. **Phone (760px and narrower).** Each type goes to one column. Image grids go to two columns; an item three or more
    columns wide, or a tall one, takes both.
 
-**Audit of every type against these rules (2026-09-27, map proposals and today's site):**
+**Audit of every type against these rules (2026-09-27, map proposals and today's site; rows re-cut 2026-09-28 to the 18 current types — the rule text is the approved audit's, per old type):**
 
-| Type | Rule it uses | Status |
-|---|---|---|
-| T-01 hero | text 1–4, button 5–6 | ✓ approved |
-| T-04 paragraph | heading 1–6, text 2–5 | ✓ approved |
-| T-05 fold | a framed card on 2–5; a real paragraph (~10 lines) fading out; small outline «להמשך קריאה» on the left | ✓ approved (O-1) |
-| T-06 split | 2 items: 3+3 / 4+2 either way | ✓ approved |
-| T-07 float image | floats inside the text column | ⚠ off the grid by nature — next stage (A-3): one size, two columns |
-| T-08 CTA band | 4+2 | ✓ approved |
-| T-09 point cards | content is points, not cards → ordered bullets on 2–5; variant numbers (O-4) or the transparent logo mark (O-24) | ✓ approved |
-| T-10 photo band | full-bleed image, text on the grid | ⚠ text block not yet placed on columns |
-| T-11 gallery | heading start-aligned + subtitle; main photo across 6 columns; open list 3 per row, one shape per row (landscapes 4:3 first, portraits 3:4 last); 4 portraits → K-4.2 | ✓ approved (O-2, O-3) |
-| T-12 quote on image | full-bleed image, quote on the grid | ⚠ quote not yet placed on columns |
-| T-13 who-for | bullets with images — the text large on its image; heading + subtitle; 4 → K-4.1 / K-4.2 / K-4.3 | ✓ approved (O-5–O-7) |
-| T-14 compare | 2 → 3+3; centred text justified | ✓ approved (O-8) |
-| T-15 steps | 3 → 2+2+2, content width, larger heading | ✓ approved (O-9) |
-| T-16 about collage | split 3+3; three images inside → K-3.2 | ⚠ not yet drawn |
-| T-17 studio | split 3+3 | ⚠ not yet drawn (merged into T-06) |
-| T-18 testimonial carousel | 3 whole cards on the content width; heading like a paragraph; quiet arrows centred just above, page dots below; round avatar, bold name, date, small source link at the bottom | ✓ approved (O-14) |
-| T-19 testimonial grid | 17 → exempt, 3 per row; round avatar, name, date | ✓ approved (O-15) |
-| T-20 quote cards | 2 → 3+3 | ✓ approved — thin frame, small padding (G-12.1) |
-| T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
-| T-23 TOC | one block, columns 2–5 | ✓ approved — **every page over 1,400 words gets a TOC at launch** (D55) |
-| T-24 book cards | 3 → 2+2+2, thin frame; the shop's open list → exempt | ✓ approved (O-10) |
-| T-25 spotlight | 4 → two rows of 2 (K-4.1, O-12) or 3+1+1+1 with equal-height cards, text at the bottom and the image filling everything above it — **fill only** (O-11) | ✓ approved |
-| T-26/27 video | heading 1–6, text 2–5, video 1–6 | ✓ approved (O-18) |
-| T-28 Facebook posts | two free-running columns (masonry); our date and title per post | ✓ approved (O-16) |
-| T-29 timeline / T-32 press list | year lists | ✓ columns 2–5 (approved) |
-| T-31 contact | one row, 4+2: form with the dark WhatsApp block below it, portrait and details beside; both columns end on one line; hero = the small height (44%) with no eyebrow — as compact as the canon allows | ✓ approved (O-17, D61) |
-| T-35 blog cards | open list → exempt, 3 per row, thin frame | ✓ approved (O-13) |
-| T-36 inline video | inside the reading column | ✓ columns 2–5 (approved) |
-| T-33 / T-34 / T-37 page templates | body text 2–5 | follows T-04 |
-
-## Tier 1 — content rows (37)
-
-1. [Page hero — `phero`](#1-page-hero--phero)
-2. [Home video hero — `hero`](#2-home-video-hero--hero)
-3. [Mokesh video hero — `mokesh-hero`](#3-mokesh-video-hero--mokesh-hero)
-4. [Prose row — `sec` + `intro-body`](#4-prose-row--sec--intro-body)
-5. [Prose fold — `prose-fold`](#5-prose-fold--prose-fold)
-6. [Split — `split2`](#6-split--split2)
-7. [Floated figure — `pfloat`](#7-floated-figure--pfloat)
-8. [CTA band — `cta-band`](#8-cta-band--cta-band)
-9. [Point cards — `point-cards`](#9-point-cards--point-cards)
-10. [Photo band — `photo-band`](#10-photo-band--photo-band)
-11. [Gallery — `gallery`](#11-gallery--gallery)
-12. [Bleed quote — `bleed`](#12-bleed-quote--bleed)
-13. [Whom cards — `whom`](#13-whom-cards--whom)
-14. [Compare pair — `cmp`](#14-compare-pair--cmp)
-15. [How to start — `start`](#15-how-to-start--start)
-16. [Portrait collage — `collage` inside `about`](#16-portrait-collage--collage-inside-about)
-17. [Studio split — `studio`](#17-studio-split--studio)
-18. [Testimonial marquee — `testi-mq`](#18-testimonial-marquee--testi-mq)
-19. [Testimonial grid — `testi-grid`](#19-testimonial-grid--testi-grid)
-20. [Testimonial cards — `ea-testi-cards`](#20-testimonial-cards--ea-testi-cards)
-21. [FAQ (three renderers, one family)](#21-faq)
-22. [Definition accordion — `dd`](#22-definition-accordion--dd)
-23. [Table of contents — `ea-toc`](#23-table-of-contents--ea-toc)
-24. [Book / product cards — `bookcards`](#24-book--product-cards--bookcards)
-25. [Spotlight row — `ea-now`](#25-spotlight-row--ea-now)
-26. [Video block — `videoblk`](#26-video-block--videoblk)
-27. [Video placeholder — `videoblk` + pending box](#27-video-placeholder--videoblk--pending-box)
-28. [Facebook embeds — `fbgrid`](#28-facebook-embeds--fbgrid)
-29. [Timeline — `tl`](#29-timeline--tl)
-30. [Photo slot — `ea-photo-slot`](#30-photo-slot--ea-photo-slot)
-31. [Contact rows](#31-contact-rows)
-32. [Press list — `ea-press`](#32-press-list--ea-press)
-33. [QR article shell](#33-qr-article-shell)
-34. [Blog — Archive post (existing, `ea-post-content`)](#34-blog--archive-post-existing-ea-post-content)
-35. [Blog card — `ea-blog-card`](#35-blog-card--ea-blog-card)
-36. [Mokesh video embed — plain iframe](#36-mokesh-video-embed--plain-iframe)
-37. [Blog — New post (block template, approved, not built)](#37-blog--new-post-block-template-approved-not-built)
-
-### Tier 2 — elements inside the rows (9)
-
-[Eyebrow](#eyebrow--chap) · [Heading](#heading) · [Sub / lede](#sub--lede) · [Body prose](#body-prose)
-· [Buttons](#buttons) · [Logo watermark](#logo-watermark) · [Scrim](#scrim)
-· [Pending-approval badge](#pending-approval-badge) · [Image and caption](#image-and-caption)
-
-### Other sections
-
-[Orphans](#orphans) · [Stage-A review list](#stage-a-review-list) · [Where this supersedes the 2026-09-23 canon](#where-this-supersedes-the-2026-09-23-canon)
+| Type | Old IDs it covers | Rule it uses | Status |
+|---|---|---|---|
+| [T-01 hero](#type-t-01) | T-01 (T-02, T-03 retired into it, D13, D18) | text 1–4, button 5–6 | ✓ approved |
+| [T-04 text paragraph](#type-t-04) | T-04, T-05, T-07 | heading 1–6, text 2–5 · fold (T-05): a framed card on 2–5; a real paragraph (~10 lines) fading out; small outline «להמשך קריאה» on the left (O-1) · float image (T-07): floats inside the text column | ◐ partly approved — float image off the grid by nature, next stage (A-3): one size, two columns |
+| [T-21 accordion](#type-t-21) | T-21, T-22 | text list, columns 2–5 | ◐ partly approved — columns 2–5 approved; design next round |
+| [T-29 year list](#type-t-29) | T-29, T-32 | year lists, columns 2–5 | ◐ partly approved — columns approved; design beyond the columns not yet drawn |
+| [T-23 table of contents](#type-t-23) | T-23 | one block, columns 2–5 | ✓ approved — **every page over 1,400 words gets a TOC at launch** (D55) |
+| [T-06 text and image](#type-t-06) | T-06, T-16, T-17 | 2 items: 3+3 / 4+2 either way · collage (T-16): split 3+3, three images inside → K-3.2 · studio (T-17): split 3+3 | ◐ partly approved — collage and dark-with-button variants not yet drawn |
+| [T-10 full-width photo band](#type-t-10) | T-10, T-12 | full-bleed image, text (T-10) or quote (T-12) on the grid | ⚠ open — text block and quote not yet placed on columns; not drawn |
+| [T-11 image grid](#type-t-11) | T-11 | heading start-aligned + subtitle; main photo across 6 columns; open list 3 per row, one shape per row (landscapes 4:3 first, portraits 3:4 last); 4 portraits → K-4.2 | ✓ approved (O-2, O-3) |
+| [T-09 cards](#type-t-09) | T-09, T-13, T-14, T-15, T-24, T-25, T-35 | points (T-09) → ordered bullets on 2–5, numbers (O-4) or the transparent logo mark (O-24) · who-for (T-13) → bullets with images, text large on the image; 4 → K-4.1 / K-4.2 / K-4.3 · compare (T-14) 2 → 3+3, centred text justified · steps (T-15) 3 → 2+2+2, content width, larger heading · book cards (T-24) 3 → 2+2+2, thin frame; the shop's open list exempt · spotlight (T-25) 4 → two rows of 2 (K-4.1) or 3+1+1+1, equal-height cards, text at the bottom, image fills above — fill only · blog cards (T-35) open list → exempt, 3 per row, thin frame | ✓ approved (O-4, O-5–O-13, O-24) |
+| [T-18 testimonials](#type-t-18) | T-18, T-19, T-20 | carousel (T-18): 3 whole cards on the content width; heading like a paragraph; quiet arrows centred just above, page dots below; round avatar, bold name, date, small source link at the bottom · grid (T-19): 17 → exempt, 3 per row; round avatar, name, date · quote cards (T-20): 2 → 3+3, thin frame, small padding (G-12.1) | ✓ approved (O-14, O-15, G-12.1) |
+| [T-28 Facebook posts](#type-t-28) | T-28 | two free-running columns (masonry); our date and title per post | ✓ approved (O-16) |
+| [T-26 video](#type-t-26) | T-26, T-27, T-36 | heading 1–6, text 2–5, video 1–6 · inline video (T-36) inside the reading column, 2–5 | ✓ approved (O-18) — Q-5 (T-27 home) still open (D63) |
+| [T-08 CTA band](#type-t-08) | T-08 | 4+2, on the content width 1104 | ✓ approved |
+| [T-31 contact](#type-t-31) | T-31 | one row, 4+2: form with the dark WhatsApp block below it, portrait and details beside; both columns end on one line; hero = the small height (44%) with no eyebrow — as compact as the canon allows | ✓ approved (O-17, D61) |
+| [P-1 printed-code page](#type-p-1) | T-33 | body text 2–5 | ✓ approved — follows T-04 |
+| [P-2 blog post](#type-p-2) | T-34, T-37 | body text 2–5 | ✓ approved — follows T-04; variant «new» not in use on the site |
+| [S-2 buttons](#type-s-2) | — (shared) | in the hero and the CTA band: columns 5–6, one line; elsewhere: label width, starting on its column line (Q-4) | ✓ approved |
+| [S-1 waiting for content](#type-s-1) | T-30, T-27 | one look site-wide | ✓ approved |
 
 ---
 
-## Tier 1 — content rows
+<a id="types"></a>
+## Types — the 18 current types (canon stage A, after the merge)
 
-<a id="1-page-hero--phero"></a>
-### 1. Page hero — `phero`
+**This is the current canon** (team_00, D63: «18 טיפוסים — מאושר»). Source of the list, the
+definitions, variants, fields and rules: [`canon-map/tools/canon_types.py`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/tools/canon_types.py)
+(`GROUPS`), translated to English; rulings: [CANON-STAGE-A-STATE.md](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/CANON-STAGE-A-STATE.md) §3.
+The merge (D40, D49): similar old types became **variants** of one type; a merged type keeps
+its lowest old number and the others retire. 14 types + 2 page templates (P-1, P-2) + 2
+shared entries (S-1, S-2) = 18. Status count (D62): **approved 13, partly approved 4, open 1.**
 
-- **Renderer:** [`template-parts/chapters/parts/phero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/phero.php) lines 18–56.
-  **CSS:** [`assets/css/chapters.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/chapters.css) lines 416–460 (base), 526–545 (`--media`), 528–529 (`--half`), 1524–1529 (`--compact`).
-- **Classes:** `.phero` (base, text hero), `.phero--media` (photo hero, added when `media` is non-empty), `.phero--compact` (78vh, via `mod`), `.phero--half` (44vh, via `mod`), `.phero__in`, `.phero__h`, `.phero__s`, `.phero__lede`, `.phero__cta`, `.phero__sc` (scrim), `.phero__media-cue`, `.arcs` (ring motif).
-- **Inputs (exact, from the renderer's `$args`):** `chap` (eyebrow string), `title` (H1, limited HTML via `ea_chapters_kses_e`), `sub` (subhead, limited HTML), `lede` (optional multi-paragraph HTML body under the sub, via `wp_kses_post` — **not** the same escaping as `sub`, so it is the only field here that keeps `<p>` breaks), `media` (image URL — empty means text hero, non-empty adds `phero--media`), `media_alt`, `literal_alt` (bool — keep an empty alt empty instead of auto-filling it), `cta_label`, `cta_url`, `cta_slug` (optional — marks the button as an external, GA4-tracked purchase link: `target=_blank rel=noopener` + `data-ea-book-purchase` + `data-ea-book-slug` + an "(opens in a new tab)" aria-label suffix; do not pass for internal links), `dark` (bool), `mod` (free class string, sanitized per token — this is how `phero--compact` and `phero--half` are actually applied).
-- **Layout rules, measured.** Photo hero: flex, content bottom-anchored, `min-height: 88vh` (measured 792px at a 900px-tall viewport). Full viewport width. Title `text-align: start` (physical right in RTL), title box ~787px wide. Scrim (`.phero__sc`) is the same bottom-weighted gradient family as the home hero. Compact (`--compact` + `--media`): 702px = 78vh; arc motif and bottom cue are `display:none`. Half (`--half` + `--media`): 396px = 44vh. Text hero (no `media`): does not use a viewport fraction at all — `min-height: 0`, `display: block`; measured 363px on `/qr/qr1/`. Button, when present, is always `btn btn--gw` (outline), never the filled terracotta.
-- **Pages:** 133 of 136. Absent on `/` (video hero instead), `/press/`, `/historical-articles/`. `phero--media` (88vh): 74 pages. `phero--compact`: `/repair/` only. `phero--half`: `/contact/` only. Text hero (no photo): `/bags/`, `/didgeridoos/`, `/galleries/`, `/learning/courses-external/`, `/shop/`, `/snoring-sleep-apnea/`, `/stand-floor/`, `/stands-storage/`, `/thank-you/`, all 48 `/qr/qrN/` pages, and one blog post with no featured image (see the archive blog type).
-- **Variants:** `--media` vs. text hero is structural (same file, driven by whether `media` is set), not a silent override. `--compact` and `--half` are declared `mod` values. `/en/` is LTR: same hero, `dir="ltr"` and inline `direction:ltr;text-align:left` set on `<main>` by `tpl-chapters-en.php`, so title/eyebrow measure `text-align: left`.
-- **Exceptions:** No `page-id-` CSS rule anywhere. `/learning/courses-external/` renders a hero with title «קורסים» and sub «יעלה בקרוב» and an empty `sections` array — a deliberate parking page, not a broken hero. **This type is not uniform** (flagged in the [stage-A review list](#stage-a-review-list) — the compact and half variants read very differently on screen from the standard photo hero).
-- **Orphan?** No. The unrelated Wave 2 file `block-hero.php` is a true orphan (see [Orphans](#orphans)).
+Each entry: status · what it merges · definition · variants · fields · rules · approved blocks
+(moved here from the old per-type sections, team_00's words kept) · implementation facts
+(condensed from the old sections — today's site, theme 1.5.138, **not** the target). The full
+old record of every merged type is in the [appendix](#appendix-historical-37).
+Site-wide rules (grid, text columns, compositions, image fit, zoom, phone) are in
+[Grid rules](#grid-rules) and [Canon terms and site-wide rules](#canon-terms) and apply to every
+type below without being repeated.
+
+**Order, as in the map:** Openings · Text · Image and text · Cards · Media · Action · Page templates · Shared.
+
+| Group | Types |
+|---|---|
+| Openings | [T-01 Hero](#type-t-01) |
+| Text | [T-04 Text paragraph](#type-t-04) · [T-21 Accordion](#type-t-21) · [T-29 Year list](#type-t-29) · [T-23 Table of contents](#type-t-23) |
+| Image and text | [T-06 Text and image](#type-t-06) · [T-10 Full-width photo band](#type-t-10) · [T-11 Image grid](#type-t-11) |
+| Cards | [T-09 Cards](#type-t-09) · [T-18 Testimonials](#type-t-18) · [T-28 Facebook posts](#type-t-28) |
+| Media | [T-26 Video](#type-t-26) |
+| Action | [T-08 CTA band](#type-t-08) · [T-31 Contact](#type-t-31) |
+| Page templates | [P-1 Printed-code page (QR)](#type-p-1) · [P-2 Blog post](#type-p-2) |
+| Shared | [S-2 Buttons](#type-s-2) · [S-1 Waiting for content](#type-s-1) |
+
+---
+
+### Openings
+
+<a id="type-t-01"></a>
+#### T-01 — Hero
+
+- **Status:** approved (D5, D15–D18, D21, D24, D27, D31; contact hero D61).
+- **Merges:** T-01 (page hero). The old home video hero (T-02) and memorial video hero (T-03) were merged into it and retired earlier (D13, D18); `canon_types.py` therefore lists T-01 alone.
+- **Definition:** every page opens with one banner: filling media — image, video or none — with the eyebrow, title and subtitle over it, anchored to the bottom, and the button on the left.
+- **Variants:**
+  - Height — large 92% · medium 66% · small 44% (minimum — longer text grows it).
+  - Media — image · video · none.
+  - Button position — bottom · top.
+- **Fields:** eyebrow · title · subtitle · media · button (label and link).
+- **Rules:**
+  - Text in columns 1–4, button in columns 5–6, on one line.
+  - On a phone: one column, the button on the left.
+  - The eyebrow does not repeat the title (D61; on /contact/ the duplicate eyebrow is removed).
+  - The background image is always **fill**, outside the image-fit variant (D63 Q-6).
+  - The subtitle is display text: start-aligned, not justified (D63 Q-2a).
 - **APPROVED in canon stage A, 2026-09-27 (team_00: «מאשר את הגבהים ואת הכפתור») — the target
   for stage B; not yet on the site:**
   - **Exactly three heights; every page aligns to one.** Large `92svh` · medium `66svh` ·
@@ -267,46 +269,32 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
     צריך גם במפה סקשן נפרד»). **Types 2 and 3 are merged into this type and retired**; the
     home page and the memorial page align to it in stage B. The duplicated video-hero code is
     team_90's (scope 82e8723).
+- **Implementation facts (today's site):**
+  - Old T-01 page hero: [`parts/phero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/phero.php) lines 18–56; `chapters.css` lines 416–460, 526–545, 1524–1529. Classes `.phero`, `.phero--media`, `.phero--compact`, `.phero--half`, `.phero__in/__h/__s/__lede/__cta/__sc`. Inputs `chap`, `title`, `sub`, `lede`, `media`, `media_alt`, `literal_alt`, `cta_label`, `cta_url`, `cta_slug` (external GA4-tracked purchase link), `dark`, `mod`. Live on 133 of 136 pages. `/en/` is LTR. Full record: [old #1](#1-page-hero--phero).
+  - Old T-02 home video hero: [`section-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-hero.php); classes `.hero`, `.hero__media`, `.hero__sound`, `.hero__scrim`; Chapters fields `hero_video`, `hero_poster`, `hero_trust`, `hero_cta_label`, `hero_cta_url`, `hero_title`, `hero_subtitle`. `/` only. Full record: [old #2](#2-home-video-hero--hero).
+  - Old T-03 memorial video hero: [`parts/mokesh-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-hero.php); `.phero.phero--media.mokesh-hero` + `.mokesh-hero__yt`; inputs `chap`, `title`, `sub`, `media`, `media_alt`, `yt_id`. `/eyal-amit/mokesh-dahiman/` only. Full record: [old #3](#3-mokesh-video-hero--mokesh-hero).
 
-<a id="2-home-video-hero--hero"></a>
-### 2. Home video hero — `hero`
+---
 
-> **RETIRED 2026-09-27 — merged into type 1** (one hero; media is a field). Kept below as the record of what the home page renders today.
+### Text
 
-- **Renderer:** [`template-parts/chapters/section-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-hero.php), whole file (48 lines). **CSS:** `chapters.css` lines 173–195. Not an `$args` part — reads Chapters fields directly.
-- **Classes:** `.hero`, `.hero__media` (video or poster `<img>`), `.hero__sound` (mute/unmute toggle, only rendered when a real `<video>` exists), `.hero__scrim`, `.hero__c`, `.hero__trust`, `.hero__h`, `.hero__s`, `.hero__cues`. The map's name `hero--video` is not a live class — the class is plain `hero`.
-- **Inputs (exact field keys, read from the renderer):** `hero_video` (resolved via `ea_chapters_asset_url`), `hero_poster` (via `ea_chapters_img`), `hero_trust` (the trust line, allows `<br>`), `hero_cta_label`, `hero_cta_url`, `hero_title` (the page's single H1), `hero_subtitle`. No video source falls back to the poster `<img>`.
-- **Layout rules, measured.** 1440×900: fills viewport, `min-height: max(620px, 100vh)`, flex, centered, `text-align: center`. H1 box 716×99, centered. At 390×844: fills viewport, H1 box 310×145. Scrim `.hero__scrim` matches `.phero__sc`'s gradient family. Video `object-fit: cover`.
-- **Pages:** `/` only.
-- **Variants:** None — one page.
-- **Exceptions:** None beyond being home-only. Not `phero--compact`, not `phero--media` — a separate file and class family.
-- **Orphan?** No.
+<a id="type-t-04"></a>
+#### T-04 — Text paragraph
 
-<a id="3-mokesh-video-hero--mokesh-hero"></a>
-### 3. Mokesh video hero — `mokesh-hero`
-
-> **RETIRED 2026-09-27 — merged into type 1.** Kept below as the record of what the memorial page renders today.
-
-- **Renderer:** [`template-parts/chapters/parts/mokesh-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-hero.php) (the file's own docblock says it is page-specific, not reusable). Emits `phero phero--media mokesh-hero`. **CSS:** inherits `.phero.phero--media` from `chapters.css`; no separate rule block of its own found.
-- **Classes:** `.phero.phero--media.mokesh-hero`, plus `.mokesh-hero__yt` for the YouTube background layer.
-- **Inputs:** `chap`, `title`, `sub`, `media` (poster / no-JS fallback image), `media_alt`, `yt_id`.
-- **Layout rules, measured.** On `/eyal-amit/mokesh-dahiman/`: 1440×792 (the ordinary 88vh media hero box), scrim present, title `text-align: start`. The YouTube layer sits on top as extra markup; its own play/pause geometry was not measured separately.
-- **Pages:** `/eyal-amit/mokesh-dahiman/` only.
-- **Variants:** None — one page, by design (a declared bespoke, not a silent override of `phero.php`).
-- **Exceptions:** None beyond the above.
-- **Orphan?** No.
-
-<a id="4-prose-row--sec--intro-body"></a>
-### 4. Prose row — `sec` + `intro-body`
-
-- **Renderer:** [`template-parts/chapters/parts/prose.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/prose.php) lines 14–76. **CSS:** `.intro-body` at `chapters.css` line 603.
-- **Classes:** `.sec` (base), `.sec--alt` (adds `alt`), `.sec--dark` (adds `dark`; `dark` wins over `alt` if both are passed), `.intro-body`, `.center` (on `.wrap`, when `center` is true), `.chap`/`.chap--c`, `.h2`, `.pfloat`/`.pfloat--s`/`.pfloat--e` (see the float type), `.prose-fold`, `.prose-acc`/`.prose-acc--fold` (see the fold type).
-- **Inputs (exact):** `chap`, `title`, `body` (HTML via `wp_kses_post`), `center` (bool), `alt` (bool), `dark` (bool — takes priority over `alt`), `id`, `float_image`, `float_alt`, `float_zoom` (bool — wraps the float in a zoom button), `float_side` (`s` inline-start default, or `e` inline-end — **`e` has zero live uses**), `float_mod` (free class; the only live value is `pfloat--standing`), `literal_alt`, `collapsible` (bool), `toggle_label` (default «לחצו לקריאה», or «להמשך קריאה» when paired with `preview_lines`), `preview_lines` (int — see the fold type).
-- **Layout rules, measured.** Reading column `max-width: 82ch`, `margin-inline: auto`. Measured 775–776px at 1440 when not inside a split. `text-align: start` (physical right), not centered as a block. Heading is `.h2` with an inline `margin-bottom: 18px` from the PHP itself (present on every use, not a per-page override). `center` adds `margin-inline: auto` on the column. `dark`/`alt` are background modifiers on the `<section>` only — they do not change the column shape.
-- **Pages:** the column itself (`.intro-body`) also appears inside split, point-cards and the QR shell, so a raw class count over-reports this part specifically. Confirmed renders of this exact part: home (3 columns) and 24 designed inner pages — `/accessibility/`, `/bags/`, `/books/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/didgeridoos/`, `/en/`, `/eyal-amit/`, `/eyal-amit/mokesh-dahiman/`, `/learning/`, `/learning/lectures/`, `/learning/therapist-training/`, `/learning/workshops/`, `/lessons/`, `/method/`, `/privacy/`, `/repair/`, `/snoring-sleep-apnea/`, `/sound-healing/`, `/stand-floor/`, `/stands-storage/`, `/terms/`, `/treatment/`. No prose column at all: `/blog/`, `/contact/`, `/faq/`, `/galleries/`, `/historical-articles/`, `/learning/courses-external/`, `/press/`, `/shop/`, `/testimonials/`.
-- **Variants:** `sec--alt`, `sec--dark` (live on `/` and `/lessons/` — `/contact/`'s dark band is the separate contact part, not this one), `center`, the fold (type 5), the float (type 7). `/en/` measures `text-align: left` (whole page is LTR).
-- **Exceptions:** No `page-id-` rule. The inline `margin-bottom: 18px` on the H2, and `margin-inline: auto` when centered, are in the part's own PHP, so they apply on every use, not per page. **This type is on the [stage-A review list](#stage-a-review-list)** — the map counts it as not uniform because of the background/fold variance below.
-- **Orphan?** No. `parts/lead.php` (a separate, unused, centered statement type) is an orphan (see [Orphans](#orphans)).
+- **Status:** partly approved. Missing: the floated-image variant is approved in principle only — implementation in the next stage (D41 A-3, D62).
+- **Merges:** T-04 (prose row) · T-05 → variant: fold «להמשך קריאה» · T-07 → variant: floated image.
+- **Definition:** the site's text block: eyebrow, heading and paragraphs. The fold and the floated image are its variants.
+- **Variants:**
+  - Background (shared) — ivory · sand · olive · terracotta · dark.
+  - Fold — none · with: a card in a subtle frame, a real paragraph that fades out, a small button on the left.
+  - Floated image — none · with: one size, two columns (approved in principle; implementation in the next stage).
+- **Fields:** eyebrow · heading · text · number of visible lines · floated image.
+- **Rules:**
+  - Heading and eyebrow in columns 1–6, running text in columns 2–5.
+  - Block justification.
+  - Every background has its own set of text colours; the link colour differs from the text.
+  - Fold — approved (O-1; D42, D56, D58): a framed card on 2–5; a real paragraph (~10 lines) fading out; a small outline «להמשך קריאה» on the left.
+  - Floated image — off the grid by nature today; next stage (A-3): one size, two columns.
 - **APPROVED in canon stage A, 2026-09-27 (team_00: «כותרת ב-1, טקסט רץ אחריה ב-2» · «פסקה: טקסט 2–5,
   לא 2–6. מתקן.») — the target for stage B; not yet on the
   site:** on the six-column grid (10px gutter), the eyebrow and heading span columns 1–6
@@ -335,31 +323,81 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
     (4.5 eyebrow/body/link, 3 heading) by at least 10%; `tools/palette_check.py` asserts it (list
     `FIVE`). No other background is canonical; terra-lt `#D08A5E` and terra `#B5663D` fail outright.
     In the map: the five T-04 examples framed "approved"; evidence `canon-map/palette-check.html`.
+- **Implementation facts (today's site):**
+  - Old T-04 prose row: [`parts/prose.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/prose.php) lines 14–76; `.intro-body` at `chapters.css` line 603. Classes `.sec`, `.sec--alt`, `.sec--dark`, `.intro-body`, `.center`, `.chap`/`.chap--c`, `.h2`. Inputs `chap`, `title`, `body`, `center`, `alt`, `dark`, `id`, plus the fold and float inputs below. Reading column 82ch (~776px at 1440). Full record: [old #4](#4-prose-row--sec--intro-body).
+  - Old T-05 fold: same `prose.php` lines 38–44; `chapters.css` 705–706; classes `.prose-fold`, `.prose-fold__peek`, `.prose-acc.prose-acc--fold`, `.prose-acc__t`; inputs `collapsible`, `preview_lines` (sets `--fold-lines`), `toggle_label`. The three book pages only. Full record: [old #5](#5-prose-fold--prose-fold).
+  - Old T-07 floated figure: inside `prose.php` (`float_*` inputs); `chapters.css` 1508–1514, 1531–1532; classes `.pfloat`, `.pfloat--s`, `.pfloat--e` (unused), `.pfloat--standing`; inputs `float_image`, `float_alt`, `float_zoom`, `float_side`, `float_mod`. `/repair/` and `/snoring-sleep-apnea/` only. Full record: [old #7](#7-floated-figure--pfloat).
 
-<a id="5-prose-fold--prose-fold"></a>
-### 5. Prose fold — `prose-fold`
+<a id="type-t-21"></a>
+#### T-21 — Accordion
 
-- **Renderer:** same `prose.php`, lines 38–44, active when `collapsible` and `preview_lines` are both set. **CSS:** `chapters.css` lines 705–706.
-- **Classes:** `.prose-fold` (peek wrapper, `--fold-lines` custom property), `.prose-fold__peek.intro-body`, `.prose-acc.prose-acc--fold` (a `<details>`), `.prose-acc__t` (the `<summary>`).
-- **Inputs:** `collapsible` (bool), `preview_lines` (int — sets `--fold-lines`, default clamp is 4 lines in CSS if unset elsewhere), `toggle_label` (default «להמשך קריאה» in this branch).
-- **Layout rules.** The peek is a CSS line-clamp to `--fold-lines` lines. Opening the `<details>` hides the peek via `:has(.prose-acc[open])`. Viewport line-count itself was not measured.
-- **Pages:** the three book pages only — `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`.
-- **Variants:** none beyond `preview_lines`.
-- **Exceptions:** none.
-- **Orphan?** No.
+- **Status:** partly approved. Approved: columns 2–5 (D49). Missing: the design — next round (D49: «שאלות נפוצות ואקורדיון וכו׳ — סבב הבא»).
+- **Merges:** T-21 → content: questions and answers · T-22 → content: terms with a tag.
+- **Definition:** a list in which every item opens on click — a question or a term.
+- **Variants:**
+  - Content — questions · terms.
+  - Scope — full, by topic · regular · shortened (home).
+- **Fields:** eyebrow · heading · items (question/term, answer/explanation).
+- **Rules:**
+  - In columns 2–5, like running text (approved).
+  - The design — in the next round.
+- **Implementation facts (today's site):**
+  - Old T-21 FAQ — three renderers, one CSS family: full bank [`blocks/block-faq-list.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-list.php) (`/faq/`, category TOC `.ea-faq-toc`); view-only [`parts/faq-inline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faq-inline.php) (inputs `chap`, `title`, `id`, `items[{q, a}]`, `cards`, `open_first`) and [`parts/faqblock.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faqblock.php) (`cat`/`cats`, `chap`, `title`, `id`) on 14 pages; mini [`blocks/block-faq-mini.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-mini.php) on `/`. Cards look `.ea-faq-list--cards` on `/repair/`. Full record: [old #21](#21-faq).
+  - Old T-22 definition accordion: [`parts/dd.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/dd.php); `.dd`, a stack of `<details>`; inputs `chap`, `title`, `lead`, `dark`, `id`, `items[{tag, title, body, active}]`. `/lessons/`, `/snoring-sleep-apnea/`, `/treatment/`. Full record: [old #22](#22-definition-accordion--dd).
 
-<a id="6-split--split2"></a>
-### 6. Split — `split2`
+<a id="type-t-29"></a>
+#### T-29 — Year list
 
-- **Renderer:** [`template-parts/chapters/parts/split.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/split.php) lines 16–21 and full file. **CSS:** `chapters.css` lines 482–487. The Mokesh portrait reuses this grid via `mokesh-portrait.php`, which adds a figcaption the generic part cannot.
-- **Classes:** `.split2`, `.split2--rev` (reversed order), `.split2--cover` (image fills the column, no crop, no `figr` class at all), `.figr` + `.figr--l` (5/4, default) / `.figr--p` (4/5, portrait) / `.figr--w` (16/10 — **zero live uses**), `.intro-body`, `.zoom`/`.zoom__hint` (opens the image full-size; only rendered when `zoom` is true).
-- **Inputs (exact):** `chap`, `title`, `body` (HTML), `image`, `alt`, `literal_alt`, `figr` (`l`|`p`|`w`, default `l` — ignored when `cover` is true), `reversed` (bool), `soft` (bool — adds `sec--alt` to the section; unrelated to the image's own `alt`), `cover` (bool), `zoom` (bool), `id`. Note: the historic `pairs_with_cards` flag was removed 2026-09-20 (team_00 rejected it on screenshots) — do not reintroduce it.
-- **Layout rules, measured.** Two equal columns at 1440: `/method/` 516px + 516px; `/repair/` 524px + 524px (cover). `object-fit: cover` on the image. At 390, `/repair/` collapsed to one 294px column. `reversed` changes order only. `cover` drops the aspect-ratio crop entirely. `zoom` is live only on `/snoring-sleep-apnea/` (2 controls) — the map's name `split--doc` is this `zoom` flag, not a separate class.
-- **Pages:** 8 — `/eyal-amit/` (2, one reversed), `/eyal-amit/mokesh-dahiman/` (6, two reversed — via the portrait part), `/lessons/` (1), `/method/` (1), `/repair/` (2, both `--cover`, one reversed), `/snoring-sleep-apnea/` (1, with zoom), `/sound-healing/` (1), `/treatment/` (1). `--cover`: `/repair/` only. `figr--p`: `/eyal-amit/` and Mokesh. `figr--l`: the other seven. `figr--w`: zero.
-- **Variants:** cover, reversed, `figr` crop, and zoom are all declared inputs, not silent overrides. Mokesh's figcaption is bespoke to that one page.
-- **Exceptions:** The H2 carries the same inline `margin-bottom: 18px` as prose. **This type is on the [stage-A review list](#stage-a-review-list)** — crop shape and zoom availability vary visibly by page.
-- **Orphan?** `figr--w` is an unused input value; the part itself is live.
+- **Status:** partly approved. Approved: columns 2–5 (D49). Missing: the design beyond the columns — not yet drawn, next round.
+- **Merges:** T-29 → item: year and event · T-32 → item: year, source and link.
+- **Definition:** a list in which every line is a year and what happened in it — a timeline or mentions in the press.
+- **Variants:** Item — year and event · year, source and link.
+- **Fields:** eyebrow · heading · items (year, text, link).
+- **Rules:**
+  - In columns 2–5, like running text (approved).
+  - The design beyond the columns — not yet drawn, next round.
+  - Latent site finding (D63): timeline years `#B5663D` on ivory = 4.24 (fails) — for team_90.
+  - The memorial-page example is temporary (D9).
+- **Implementation facts (today's site):**
+  - Old T-29 timeline: [`parts/timeline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/timeline.php); `chapters.css` line 228; `.tl`; inputs `chap`, `title`, `lead`, `dark`, `alt`, `center`, `id`, `items[{year, text}]`. `/eyal-amit/mokesh-dahiman/` only. Full record: [old #29](#29-timeline--tl).
+  - Old T-32 press list: [`inc/wave2-w2-07.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/inc/wave2-w2-07.php) ~line 225 (plain content template, not a Chapters part); [`w2-07-heritage.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/w2-07-heritage.css) lines 64–88; `.ea-press`; a fixed list (year, source, link, title). `/press/` and `/historical-articles/`. Full record: [old #32](#32-press-list--ea-press).
 
+<a id="type-t-23"></a>
+#### T-23 — Table of contents
+
+- **Status:** approved (D49, D55).
+- **Merges:** T-23.
+- **Definition:** links at the top of a long page that jump to its chapters.
+- **Variants:** none.
+- **Fields:** heading · items (chapter, label).
+- **Rules:**
+  - In columns 2–5 (approved).
+  - Every page of more than 1,400 words gets a table of contents (approved, for the launch) — 13 pages; see `tools/toc_page_lengths.tsv` and [Grid rules](#grid-rules) §6. /faq/ jumps to categories; /en/ takes an English label; /historical-articles/ is the legacy template (D55).
+- **Implementation facts (today's site):** [`parts/toc.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/toc.php); `chapters.css` 1363–1372 plus the `:has(> .phero + .ea-toc)` block ~1433–1479; `.ea-toc`; inputs `items[{id, label}]` (empty → nothing), `heading`. Live on `/snoring-sleep-apnea/` only. Full record: [old #23](#23-table-of-contents--ea-toc).
+
+---
+
+### Image and text
+
+<a id="type-t-06"></a>
+#### T-06 — Text and image
+
+- **Status:** partly approved. Missing: the collage-of-three-images variant and the dark-column-with-button variant are not yet drawn (D62).
+- **Merges:** T-06 (split) · T-16 → variant: collage of three images · T-17 → variant: dark background, with a button.
+- **Definition:** text and image side by side, across the six columns, divided by the image's shape.
+- **Variants:**
+  - Image shape — landscape: 3+3 · portrait: text 4, image 2.
+  - Image side — left · right.
+  - Images — one · collage of three.
+  - Button — none · with.
+  - Image size (shared) — fill · fit.
+- **Fields:** eyebrow · heading · text · image · continuation text (optional).
+- **Rules:**
+  - Breathing space on the text side facing the image — an allowed exception: the box sits on the grid (D63 Q-1).
+  - The image is always at the top; a short text is centred to its height.
+  - Continuation text: under the pair, in columns 2–5.
+  - On a phone: text, image, continuation.
+  - The collage of three images and the dark column with a button — not yet drawn (collage: split 3+3, three images inside → K-3.2).
 - **APPROVED in canon stage A, 2026-09-27 (rule D30 «כל ה-6 בחלוקה לפי התוכן וכיוון התמונה»; team_00: «מאשר
   את המרווח הנוסף — זה מעולה» · «כשהטקסט ארוך — תמונה מתיישרת למעלה» · «לאפשר שדה טקסט נוסף בסוף הטיפוס
   למטה — טקסט 2–5» · «בגדול») — the target for stage B; not yet on the site:** text and image share
@@ -370,30 +408,162 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
   «continuation text»** (optional): running text under the pair, columns 2–5, like a paragraph —
   the editor moves what does not fit beside the image. Image fill/fit is the shared variant (the
   old `cover`). At 760px and narrower: one column — text, image, continuation.
+- **Implementation facts (today's site):**
+  - Old T-06 split: [`parts/split.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/split.php); `chapters.css` 482–487. Classes `.split2`, `.split2--rev`, `.split2--cover`, `.figr` + `.figr--l`/`--p`/`--w` (unused), `.zoom`. Inputs `chap`, `title`, `body`, `image`, `alt`, `literal_alt`, `figr`, `reversed`, `soft`, `cover`, `zoom`, `id`. The removed `pairs_with_cards` flag must not be reintroduced. 8 pages; the memorial portrait reuses the grid via `mokesh-portrait.php`. Full record: [old #6](#6-split--split2).
+  - Old T-16 portrait collage: [`section-01-about.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-01-about.php); `.about`, `.collage`, `.collage__big`, `.collage__sm`; fields `about_chap`, `about_title`, `about_body`, `about_img1..3` + `_alt`. `/` only. Full record: [old #16](#16-portrait-collage--collage-inside-about).
+  - Old T-17 studio split: [`section-04-studio.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-04-studio.php); `chapters.css` 257–265; `.studio`, `.studio__t/__h/__p/__m`, hardcoded `.btn.btn--gw`; fields `studio_image`, `studio_alt`, `studio_chap`, `studio_title`, `studio_body`, `studio_cta_label`, `studio_cta_url`. `/` only. Full record: [old #17](#17-studio-split--studio).
 
-<a id="7-floated-figure--pfloat"></a>
-### 7. Floated figure — `pfloat`
+<a id="type-t-10"></a>
+#### T-10 — Full-width photo band
 
-- **Renderer:** inside `prose.php` (the `float_*` inputs) — not its own file. **CSS:** `chapters.css` lines 1508–1514 and 1531–1532 (`--standing`).
-- **Classes:** `.pfloat`, `.pfloat--s` (inline-start, i.e. floats to the physical right in RTL — the live default), `.pfloat--e` (inline-end — **zero live uses**), `.pfloat--standing` (larger size, via `float_mod`).
-- **Inputs:** `float_image`, `float_alt`, `float_zoom` (bool), `float_side` (`s` default, `e` unused), `float_mod` (free class — only live value is `pfloat--standing`).
-- **Layout rules, measured.** Default float: `max-width: clamp(180px, 30%, 260px)`, `float: inline-start`. On `/snoring-sleep-apnea/`: measured 146×26 — a small image, not a portrait. Standing (`/repair/`): 295px at 1440 (CSS cap `min(320px, 38%)`), 12px image radius; at 390 it becomes 294px, `float: none` (the CSS drops the float under the mobile breakpoint entirely).
-- **Pages:** `pfloat` (either size): `/repair/` and `/snoring-sleep-apnea/` only. `pfloat--standing`: `/repair/` only.
-- **Variants:** the two live sizes (default cap vs. standing) are declared, not silent — `/repair/` uses standing on purpose, `/snoring-sleep-apnea/` keeps the older small float on purpose (matches the 2026-09-23 canon's own instruction on this one point).
-- **Exceptions:** none beyond the modifier itself. **This type is on the [stage-A review list](#stage-a-review-list)** — the two floats read as different sizes of prominence.
-- **Orphan?** the `e` side is an unused input value.
+- **Status:** open — not yet drawn; next round (D53, D62).
+- **Merges:** T-10 → content: heading, text and button · T-12 → content: quote and name.
+- **Definition:** an image across the full width of the screen with text on it.
+- **Variants:** Content on the image — heading, text and button · quote and name.
+- **Fields:** image · heading · text · button · quote · name.
+- **Rules:**
+  - The image runs to the screen edge; the text on it sits on the grid (text block and quote not yet placed on columns).
+  - The background image is always **fill** (D63 Q-6).
+  - Text on an image is display text: start-aligned (D63 Q-2a).
+  - Not yet drawn — next round.
+- **Implementation facts (today's site):**
+  - Old T-10 photo band: [`parts/photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-band.php); `chapters.css` 1569–1586; `.photo-band`, `.photo-band__media/__sc/__in`, hardcoded `.btn.btn--sand`; inputs `title`, `body`, `image`, `alt`, `literal_alt`, `cta_label`, `cta_url`, `id`. `/repair/` only. Full record: [old #10](#10-photo-band--photo-band).
+  - Old T-12 bleed quote: [`parts/bleed.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bleed.php) and home's [`section-photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-photo-band.php) (same `.bleed` markup, misleading filename); `chapters.css` 291–306; `.bleed`, `.bleed__sc/__c/__in/__q/__a`; inputs `image`, `alt`, `quote`, `attrib` (home: fields `band_image`, `band_alt`, `band_quote`, `band_attrib`). 4 pages. Full record: [old #12](#12-bleed-quote--bleed).
 
-<a id="8-cta-band--cta-band"></a>
-### 8. CTA band — `cta-band`
+<a id="type-t-11"></a>
+#### T-11 — Image grid
 
-- **Renderer:** [`template-parts/chapters/parts/cta.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/cta.php), full file (48 lines). **CSS:** `chapters.css` lines 845–898 (the three-column rule), 1539–1555 (`--sand`, and the unused `--stack`).
-- **Classes:** `.cta-band`, `.cta-band--row` (the only live layout — every band is this), `.cta-band--stack` (declared, **zero live uses**), `.cta-band--choc` (declared, **zero live uses, marked retired in the CSS comment at line 1541**), `.cta-band--sand`, `.cta-band__in`, `.cta-band__logo.cta-band__logo--side` (see the logo element), `.cta-band__txt`, `.cta-band__h`, `.cta-band__p`, `.cta-band__act`, `.cta-band__act-group` (added when a second button is present), `.ea-pending-inline` (the `temp_note` line).
-- **Inputs (exact):** `title`, `body`, `cta_label`, `cta_url`, `cta2_label`, `cta2_url` (a second button, always rendered with class `btn--gw` — **zero live uses**), `cta_slug` (external purchase link, same convention as `phero.php`), `id`, `stack` (bool — column layout, drops the logo — **zero live uses**), `choc` (bool — **zero live uses, retired**), `sand` (bool — sand-fill, ink text), `btn` (button class override, default `btn--terra`), `temp_note` (a pending-approval line under the band, live only on `/books/`).
-- **Layout rules, measured (1.5.138, current/stable).** Three equal thirds. Grid is `direction: ltr` so track 1 is the physical left, track 2 the middle, track 3 the physical right; the text itself inside track 2 is `direction: rtl; text-align: right`. Right third: logo mark only (`aria-hidden`, decorative). Middle third: text. Left third: button, `justify-content: center`. At 1440, every measured band (home, `/method/`, `/testimonials/`, `/bags/`, `/repair/`, `/learning/`, `/books/`, `/books/kushi-blantis/`, all three on `/snoring-sleep-apnea/`) used identical tracks: 357px + 357px + 357px inside a 1120px row. Logo at x≈923, text at x≈541, button at x≈160. At 390 the same bands collapse to one column: logo 140px centered, then text full-width, then the centered button. That collapse is the stylesheet's own rule below 880px, not a per-page override. `--sand` replaces the dark wash with the sand ground and ink text; it does not touch the grid.
-- **Pages:** 29 bands on 19 pages, every one `cta-band--row`. Content shape (data, not CSS): 8 bands have heading+body+button; 2 are body-only (home, `/lessons/`); 2 are heading-only (one each on the Kushi and Tsva book pages); the remaining 17 are button-only with an empty middle third. 13 pages add `--sand`. `/books/` uses `btn--gw` (outline) instead of the terracotta default. `cta2_label` (second button): zero pages. `temp_note`: `/books/` only.
-- **Variants:** the grid is uniform across every band, including `/testimonials/` (page id 73), which used to be carved out (see Exceptions). Sand vs. dark and terra vs. `btn--gw` are declared inputs. A button-only band is still this type, not a degraded one.
-- **Exceptions:** at the start of the map's read, `chapters.css` still had `body.page-id-73 .cta-band--row … { padding-inline-start: 0 }`. **That rule is absent from deployed 1.5.138.** Measured, `/testimonials/` now uses the same 357px tracks as every other page — do not carry the page-73 exception forward from an older document. No other `page-id-` rule exists anywhere in the theme CSS for this type. The home band's `sand` flag is hardcoded in `tpl-chapters-home.php` (home's CTA is not called through the general defaults path). `btn--sand` is not a CTA button at all — it belongs to the photo-band type and is hardcoded there. **This type is on the [stage-A review list](#stage-a-review-list)** — the content-shape variance (empty middle third vs. full heading+body) is visible.
-- **Orphan?** The part itself is live. `--stack` and `--choc` are orphan modifiers (see [Orphans](#orphans)).
+- **Status:** approved (O-2, O-3 — D56, D58, D62).
+- **Merges:** T-11 (gallery).
+- **Definition:** a grid of images, sometimes with a caption.
+- **Variants:**
+  - Image shape — landscape · portrait.
+  - Image size (shared) — fill · fit.
+- **Fields:** eyebrow · heading · lead · images (image, caption).
+- **Rules:**
+  - Up to 10 images — by the locked compositions.
+  - More than 10 — a fixed number per row (1, 2, 3 or 6).
+  - Heading start-aligned with a subtitle; a main image at full width (across six columns).
+  - Every row in one shape: landscape 4:3, portrait 3:4 — landscapes first, portraits at the end. Four portraits → K-4.2.
+  - Phone: two columns (site rule).
+- **Implementation facts (today's site):** [`parts/gallery.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/gallery.php); home's [`section-home-09-peek.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-09-peek.php) emits the same classes. `chapters.css` 1177–1194, 1575–1590. Classes `.gallery`, `.gallery--doc` (unused), `.gallery--portraits`, `.gfig`, `.gfig--pending`, `.gfig--pending-img`, `.gfig__cap`. Inputs `chap`, `title`, `lead`, `alt`, `id`, `doc`, `portraits`, `items[{image, alt, cap, pending, pending_label}]`, `literal_alt`. 11 pages. Full record: [old #11](#11-gallery--gallery).
+
+---
+
+### Cards
+
+<a id="type-t-09"></a>
+#### T-09 — Cards
+
+- **Status:** approved (D51, D52, D56, D58, D60, D62).
+- **Merges:** T-09 → image: none · T-13 → display: bullets with images — the text large on its image (D56) · T-14 → image: wide with text on it · T-15 → background: image · item: a step with an icon · T-24 → image: cover · the whole card is a link · T-25 → image: 3:2 · the whole card is a link · T-35 → image: 3:2 · date · the whole card is a link.
+- **Definition:** a grid of equal items. The differences are the image's shape and whether the card is clickable.
+- **Variants:**
+  - Display — cards · bullets (number or logo) · bullets with an image.
+  - Image — none · round · 3:2 · cover 3:4 · wide with text on it.
+  - Link — none · the whole card is a link.
+  - Image size (shared) — fill · fit.
+- **Fields:** eyebrow · heading · lead · items (image, heading, text, link) · closing text.
+- **Rules:**
+  - Division by the number of items — the locked compositions; an open list — a fixed number per row.
+  - Lead and closing text in columns 2–5.
+  - A thin frame on the grid lines, the content padded inward (approved).
+  - Spotlight row: the text aligned to the bottom and the image filling the whole area above it — fill only (approved).
+  - «Who is it for»: bullets with images — the text large on the image; heading start-aligned with a subtitle.
+- **Per merged old type (from the approved audit):**
+  - T-09 point cards: the content is points, not cards → ordered bullets on 2–5, each a numbered icon + title + text; variant numbers (O-4) or the transparent logo mark `ea-logo-mark.png`, no circle or fill (O-24, D59); logo 26px, 6px lower (D60).
+  - T-13 who-for: bullets with images — each image fills its cell, its text large on it; heading + subtitle; 4 → K-4.1 / K-4.2 / K-4.3 (O-5–O-7).
+  - T-14 compare: 2 → 3+3; centred text justified (O-8).
+  - T-15 steps: 3 → 2+2+2, content width, larger heading (O-9).
+  - T-24 book cards: 3 → 2+2+2, thin frame; the shop's open list → exempt (O-10).
+  - T-25 spotlight: 4 → two rows of 2 (K-4.1, O-12) or 3+1+1+1 with equal-height cards, text at the bottom, image filling everything above — fill only (O-11).
+  - T-35 blog cards: open list → exempt, 3 per row, thin frame (O-13).
+- **Implementation facts (today's site):**
+  - Old T-09: [`parts/point-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/point-cards.php); `chapters.css` 1555–1560; `.point-cards`, `__lead`, `__grid`, `__card`, `__after`; inputs `chap`, `title`, `id`, `lead`, `after`, `items[{title, text}]`. `/repair/` only. [Old #9](#9-point-cards--point-cards).
+  - Old T-13: [`section-02-for-whom.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-02-for-whom.php); `.whom`, `.whom__i/__m/__p`, `.ph`; fields `whom_chap`, `whom_title`, `whom_lead`, `whom_items[{image, alt, text}]`. `/` only. The unused `parts/reveals.php` put the title on the image (D56). [Old #13](#13-whom-cards--whom).
+  - Old T-14: [`section-06-compare.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-06-compare.php); `.cmp`, `.cmpc`, `.cmpc__m/__sc/__b/__t`; fields `cmp_chap`, `cmp_title`, `cmp_lead`, `cmp_a_*` / `cmp_b_*` (image, alt, title, text, cta, url) — exactly two cards. `/` only. [Old #14](#14-compare-pair--cmp).
+  - Old T-15: [`section-07-how-to-start.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-07-how-to-start.php); `.start`, `.steps3`, `.st3`; fields `start_bg`, `start_steps[{title, text}]` (icons fixed by index), `start_chap`, `start_title`, `start_cta_label`, `start_cta_url`. `/` only. [Old #15](#15-how-to-start--start).
+  - Old T-24: [`parts/bookcard.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bookcard.php); `chapters.css` 1148–1168; `.bookcards`, whole card one `<a>`; inputs `chap`, `title`, `lead`, `alt`, `id`, `cta_label`, `card_heading_level`, `items[{cover, title, blurb, url, meta, cta}]`. `/books/`, `/shop/`, `/qr/`. [Old #24](#24-book--product-cards--bookcards).
+  - Old T-25: [`section-home-spotlight.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-spotlight.php); [`ea-open-round.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-open-round.css) 6–36; `.ea-now`; `$args['cards']` `{image, title, line1, line2, url}` or field `now_cards`. `/` and `/books/`. [Old #25](#25-spotlight-row--ea-now).
+  - Old T-35: [`blocks/block-blog-card.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-blog-card.php); `.ea-blog-card`; the loop's post (title, link, thumbnail, date). 52 posts + `/blog/`. [Old #35](#35-blog-card--ea-blog-card).
+
+<a id="type-t-18"></a>
+#### T-18 — Testimonials
+
+- **Status:** approved (O-14, O-15, G-12.1 — D49, D51, D57, D58, D60, D62).
+- **Merges:** T-18 → layout: carousel · T-19 → layout: grid · T-20 → layout: inside the reading.
+- **Definition:** quote cards from patients and students.
+- **Variants:** Layout — carousel · grid · inside the reading.
+- **Fields:** eyebrow · heading · lead · testimonials (text, name, date, link).
+- **Rules:**
+  - Always a whole card, never cut.
+  - Inside the reading: small padding and a thin frame (approved; G-12.1).
+  - At the top of the card a circle, name and date (approved in the grid). The avatar is always **fill** (D63 Q-6).
+  - Carousel: three whole cards on the content width, quiet arrows above (no frame, right above the cards), dots below; heading like a text paragraph (columns 1–6), lead 2–5. Phone: arrows hidden, dots kept (D57, D58).
+  - A prominent name, and a small link «לקריאה במקור» at the bottom, aligned across the row (D60).
+  - Grid: an open list (17) → exempt, 3 per row.
+- **Implementation facts (today's site):**
+  - Old T-18 marquee: [`parts/testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testimonials.php) + home's [`section-05-testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-05-testimonials.php); `chapters.css` 1055–1077; `.testi-mq`, `.testi-mq__btn`; inputs `chap`, `title`, `lead`, `cat`, `items[{text, name, href}]`, `layout`, `archive`; home reads `testi_items`, falls back to `ea-testimonials-fb.json`. 5 pages. [Old #18](#18-testimonial-marquee--testi-mq).
+  - Old T-19 grid: the same file's grid branch (`layout`); `chapters.css` line 1142; `.testi-grid`. `/testimonials/` (three grids). [Old #19](#19-testimonial-grid--testi-grid).
+  - Old T-20 cards: [`parts/testi-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testi-cards.php); `chapters.css` 1593–1600; `.ea-testi-cards`; inputs `quotes`, `id`, `alt`. `/snoring-sleep-apnea/` only. [Old #20](#20-testimonial-cards--ea-testi-cards).
+
+<a id="type-t-28"></a>
+#### T-28 — Facebook posts
+
+- **Status:** approved (O-16 — D49, D51).
+- **Merges:** T-28.
+- **Definition:** posts embedded from Facebook.
+- **Variants:** none.
+- **Fields:** eyebrow · heading · posts (link, our title, date).
+- **Rules:**
+  - Two columns on the grid, each column running without sync to the other (approved) — team_00: «כל עמודה רצה בלי סנכרון לשנייה — הבא מתחיל איפה שהקודם נגמר, ולא טבלה».
+  - Every post in a subtle card: the date and our title, and the post under them.
+  - The memorial-page example is temporary (D9).
+- **Implementation facts (today's site):** [`parts/fbembeds.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/fbembeds.php); `.fbgrid`; inputs `chap`, `title`, `lead`, `alt`, `id`, `items[{href, title}]` (the date is a new field, D44). Inline iframe `style="border:none;overflow:hidden"`. `/eyal-amit/mokesh-dahiman/` only. [Old #28](#28-facebook-embeds--fbgrid).
+
+---
+
+### Media
+
+<a id="type-t-26"></a>
+#### T-26 — Video
+
+- **Status:** approved (O-18 — D49, D51; D63 Q-7). Still open: Q-5 (T-27 on the home page), per D63.
+- **Merges:** T-26 → with heading and text · T-36 → without a heading — inside the reading · T-27 → a video that has not arrived yet.
+- **Definition:** a video, alone or with a heading and text.
+- **Variants:** Heading and text — with · without.
+- **Fields:** eyebrow · heading · text · video · poster image.
+- **Rules:**
+  - Heading in columns 1–6, text in 2–5, the video at full width (approved).
+  - Only specific pages get a video — and each its own (D8; D63 Q-7: «לא לכל עמוד יש וידאו — רק עמודים ספציפיים מקבלים»).
+  - A video inside the reading — in columns 2–5 (approved).
+  - A video that has not arrived yet — the «waiting for content» state ([S-1](#type-s-1)).
+  - The poster is always **fill** (D63 Q-6).
+- **Implementation facts (today's site):**
+  - Old T-26 video block: [`parts/videoblk.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk.php) and home's [`section-home-03-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-03-video.php); `.videoblk`; inputs `chap`, `title`, `body`, `poster`, `video`, `cap`, `alt`. A real embed on `/` only. [Old #26](#26-video-block--videoblk).
+  - Old T-27 placeholder: [`parts/videoblk-placeholder.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk-placeholder.php); `.videoblk` + `.ea-pending-approval`; inputs `chap`, `title`, `body`, `box`, `id`. `/lessons/`, `/sound-healing/`, `/treatment/`. [Old #27](#27-video-placeholder--videoblk--pending-box).
+  - Old T-36 inline video: [`parts/mokesh-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-video.php); a `.figr` with a plain 16/9 iframe; inputs `yt_id`, `title`. Memorial page only. [Old #36](#36-mokesh-video-embed--plain-iframe).
+
+---
+
+### Action
+
+<a id="type-t-08"></a>
+#### T-08 — CTA band
+
+- **Status:** approved (D6, D19, D23–D25, D31; D63 Q-2b, Q-3).
+- **Merges:** T-08.
+- **Definition:** a low band: text and a button, and the logo large and faded in the background.
+- **Variants:** Background — sand · dark.
+- **Fields:** heading · text · button (label and link).
+- **Rules:**
+  - Text in columns 1–4, button in columns 5–6, on one line.
+  - On a phone: one column, the button on the left.
+  - On the content width 1104, on the site's grid (D63 Q-3; it was 1120).
+  - The logo pinned to the screen's edge.
+  - Always heading + text + button (closed rule D11).
+  - The paragraph is block-justified (D63 Q-2b).
+  - `/books/` outline button: Green-Invoice card 4 of 4, pending Eyal's link — operational, not a design variance (D10).
 - **APPROVED in canon stage A, 2026-09-27 (team_00: «CTA יותר טוב… כל הטקסט צריך לזוז יותר
   לשמאל» · «מאשר גם להוסיף לטקסט עוד שבירת שורה») — the target for stage B; not yet on the site:**
   - **Lower band:** vertical padding `clamp(40px,4vw,56px)` instead of `clamp(72px,7vw,96px)`.
@@ -405,377 +575,117 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
     text. Proven with the grid overlay in `canon-map/grid-proof.html`.
   - **Full form only:** heading + text + button (closed rule — no button without heading and
     sub-heading). At 760px and narrower: one column, button under the text, **always on the left**.
+- **Implementation facts (today's site):** [`parts/cta.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/cta.php); `chapters.css` 845–898, 1539–1555. Classes `.cta-band`, `.cta-band--row` (every live band), `--stack` and `--choc` (unused, `--choc` retired), `--sand`, `__in`, `__logo--side`, `__txt`, `__h`, `__p`, `__act`, `__act-group`, `.ea-pending-inline`. Inputs `title`, `body`, `cta_label`, `cta_url`, `cta2_label`/`cta2_url` (unused), `cta_slug`, `id`, `stack`, `choc`, `sand`, `btn` (default `btn--terra`), `temp_note`. 29 bands on 19 pages; home's `sand` flag is hardcoded in `tpl-chapters-home.php`. [Old #8](#8-cta-band--cta-band).
 
-<a id="9-point-cards--point-cards"></a>
-### 9. Point cards — `point-cards`
+<a id="type-t-31"></a>
+#### T-31 — Contact
 
-- **Renderer:** [`template-parts/chapters/parts/point-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/point-cards.php), full file. **CSS:** `chapters.css` lines 1555–1560.
-- **Classes:** `.point-cards`, `.point-cards__lead` (`.intro-body` also applied), `.point-cards__grid`, `.point-cards__card`, `.point-cards__after` (`.intro-body` also applied). Section is always `.sec.sec--alt`.
-- **Inputs (exact):** `chap`, `title`, `id`, `lead` (HTML, optional intro above the grid), `after` (HTML, optional closing note below the grid), `items[{title, text}]` (a card with both empty is skipped entirely, not rendered blank).
-- **Layout rules, measured.** White cards, two columns, always — even at 390. `/repair/` at 1440: 544px + 544px. At 390: still two columns, 139px + 139px (matches the two grids seen on that page).
-- **Pages:** `/repair/` only (two separate grids on that one page).
-- **Variants:** none — one page.
-- **Exceptions:** the H2 has the same inline `margin-bottom: 18px` convention. No `page-id-` rule.
-- **Orphan?** No. Not the same thing as the home "whom" cards (type 13).
-
-<a id="10-photo-band--photo-band"></a>
-### 10. Photo band — `photo-band`
-
-- **Renderer:** [`template-parts/chapters/parts/photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-band.php), full file. **CSS:** `chapters.css` lines 1569–1586.
-- **Classes:** `.photo-band`, `.photo-band__media`, `.photo-band__sc` (scrim), `.photo-band__in`, `.h2` for the title, `.btn.btn--sand` (the button — hardcoded class, not an input).
-- **Inputs (exact):** `title`, `body` (HTML), `image`, `alt`, `literal_alt`, `cta_label`, `cta_url`, `id`. The button's class is **not** exposed as an input — the PHP always writes `btn btn--sand`.
-- **Layout rules, measured.** Full-bleed photo, scrim, text block. At 1440: `.photo-band__in` measured 640×384, `text-align: start`, positioned with `margin-inline-end: 8vw` and `width: min(640px, 100%)` (the 8vw offset itself was not re-measured as an x-coordinate). At 390: text block 390×408, scrim switches to a top-to-bottom gradient.
-- **Pages:** `/repair/` only.
-- **Variants:** none — one page.
-- **Exceptions:** the sand button is hardcoded, so this row cannot take a different button color. Home's "how to start" band (type 15) is a visually similar but structurally different type — do not conflate them.
-- **Orphan?** No.
-
-<a id="11-gallery--gallery"></a>
-### 11. Gallery — `gallery`
-
-- **Renderer:** [`template-parts/chapters/parts/gallery.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/gallery.php), full file. **CSS:** `chapters.css` lines 1177–1194 (base), 1186–1189 (`--doc`), 1575–1590 (`--portraits`). Home's peek section ([`section-home-09-peek.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-09-peek.php)) emits the same `.gallery`/`.gfig` classes without going through this file — it is the same type, not a second one.
-- **Classes:** `.gallery`, `.gallery--doc` (**zero live uses**), `.gallery--portraits`, `.gfig`, `.gfig--pending` (empty pending slot), `.gfig--pending-img` (pending badge over an existing image), `.gfig__cap`, `.ea-pending-approval`/`.ea-pending-approval__badge`/`__title`/`__note` (see the pending-badge element).
-- **Inputs (exact):** `chap`, `title`, `lead`, `alt` (bool, section background — default **true**), `id`, `doc` (bool — **zero live uses**), `portraits` (bool), `items[{image, alt, cap, pending, pending_label}]`, `literal_alt`. An item with `pending: true` and no image renders the glowing "ממתין לאישור" slot instead of being skipped.
-- **Layout rules, measured.** Default: three columns, image `aspect-ratio: 4/3`, `object-fit: cover`. Home, Mokesh, and the Kushi book at 1440: 357px × 3. `--portraits` (`/repair/`): four columns of 267px at 1440, aspect `3/4`; at 390, two columns of 141px. Caption (`.gfig__cap`) overlays the bottom of the figure.
-- **Pages:** 11 — `/` (via the peek section, same classes), `/bags/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/eyal-amit/`, `/eyal-amit/mokesh-dahiman/`, `/galleries/` (149 figures), `/repair/` (`--portraits`), `/stands-storage/`, `/testimonials/`. `--doc`: zero pages. `--portraits`: `/repair/` only.
-- **Variants:** the 4:3 three-column grid is the default everywhere except the one declared `--portraits` page. `--doc` is an unused input.
-- **Exceptions:** none per page. Pending slots are an item-level flag, not a page-level one. **This type is on the [stage-A review list](#stage-a-review-list)** — the portrait grid on `/repair/` looks visibly different (narrower, taller, four not three).
-- **Orphan?** `--doc` is an unused modifier; the part itself is live.
-
-<a id="12-bleed-quote--bleed"></a>
-### 12. Bleed quote — `bleed`
-
-- **Renderer:** [`template-parts/chapters/parts/bleed.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bleed.php), full file. Home's version is a separate file, [`section-photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-photo-band.php), which emits the identical `.bleed` markup and is the same type, not a second one (its filename is misleading — it is not the `photo-band` type). **CSS:** `chapters.css` lines 291–306.
-- **Classes:** `.bleed`, `.bleed__sc`, `.bleed__c`, `.bleed__in`, `.bleed__q`, `.bleed__a`.
-- **Inputs (part):** `image`, `alt`, `quote`, `attrib`. Home's own section instead reads Chapters fields `band_image`, `band_alt`, `band_quote`, `band_attrib` directly (no `$args`).
-- **Layout rules, measured.** Full-bleed photo, `height: clamp(340px, 46vw, 560px)`, `object-fit: cover`, scrim (same gradient family as the heroes). Quote `.bleed__q`: display size, white, `max-width: 20ch`, `text-align: start`. On `/`: 340×48. On Mokesh (longer quote, same rule): 383×95. Attribution is a small uppercase line beneath.
-- **Pages:** 4 — `/`, `/bags/`, `/eyal-amit/mokesh-dahiman/`, `/treatment/`.
-- **Variants:** none beyond quote length changing box height, which is the rule doing its job, not an override.
-- **Exceptions:** none.
-- **Orphan?** No.
-
-<a id="13-whom-cards--whom"></a>
-### 13. Whom cards — `whom`
-
-- **Renderer:** [`template-parts/chapters/section-02-for-whom.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-02-for-whom.php), full file. **CSS:** `chapters.css` line 237. The map's name `whom-cards` is not the live class — it is `.whom`.
-- **Classes:** `.sec.sec--alt`, `.whom`, `.whom__i` (item), `.whom__m` (media slot), `.ph` (placeholder text when an item has no image), `.whom__p` (caption line).
-- **Inputs (exact field keys):** `whom_chap`, `whom_title`, `whom_lead`, and repeater `whom_items[{image, alt, text}]`.
-- **Layout rules, measured.** Four equal columns at 1440: 258px × 4, centered section heading. At 390: one column, 294px. Each item: a photo over a short line.
-- **Pages:** `/` only.
-- **Variants:** none — one page. Not `point-cards` (type 9) and not `reveals.php` (an orphan, see [Orphans](#orphans)).
-- **Exceptions:** none.
-- **Orphan?** No.
-
-<a id="14-compare-pair--cmp"></a>
-### 14. Compare pair — `cmp`
-
-- **Renderer:** [`template-parts/chapters/section-06-compare.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-06-compare.php), full file. **CSS:** `chapters.css` line 279. The map's name `cmp-pair` is not the live class — it is `.cmp`.
-- **Classes:** `.cmp`, `.cmpc` (card), `.cmpc__m` (media), `.cmpc__sc` (scrim), `.cmpc__b` (body), `.cmpc__t` (title).
-- **Inputs (exact field keys):** `cmp_chap`, `cmp_title`, `cmp_lead`, and two fixed cards — `cmp_a_image`, `cmp_a_alt`, `cmp_a_title`, `cmp_a_text`, `cmp_a_cta`, `cmp_a_url`; the same six keys again prefixed `cmp_b_`. Not a repeater — exactly two cards, hardcoded in the renderer.
-- **Layout rules, measured.** Two equal columns at 1440: 540px + 540px. At 390: one column. Centered heading.
-- **Pages:** `/` only.
-- **Variants:** none — one page.
-- **Exceptions:** none. The unrelated Wave 2 `block-service-comparison.php` is a separate, unused file (see [Orphans](#orphans)).
-- **Orphan?** No.
-
-<a id="15-how-to-start--start"></a>
-### 15. How to start — `start`
-
-- **Renderer:** [`template-parts/chapters/section-07-how-to-start.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-07-how-to-start.php), full file. **CSS:** `chapters.css` lines 309–315 (band), 316 (`.steps3`).
-- **Classes:** `.start`, `.start__bg`, `.start__sc`, `.start__in`, `.start__h`, `.steps3`, `.st3`/`.st3__ic`/`.st3__t`/`.st3__p`.
-- **Inputs (exact field keys):** `start_bg` (background image), `start_steps` (repeater rows, `{title, text}` each — icon is chosen by index from three fixed SVGs baked into the template, not an input), `start_chap`, `start_title`, `start_cta_label`, `start_cta_url`.
-- **Layout rules, measured.** Dark image band, centered text (`.start__in`, 1100px wide at 1440). Three step columns at 1440: 302px × 3. At 390: one column. Button is hardcoded `btn btn--terra`, centered, with an inline `margin-top: 48px` wrapper — not `photo-band`'s sand button.
-- **Pages:** `/` only.
-- **Variants:** none — one page.
-- **Exceptions:** the inline margin on the button wrapper, in the template on every use (only home, so moot in practice).
-- **Orphan?** No. `parts/steps.php` (class `show`/`shstep`) is a separate, unused file (see [Orphans](#orphans)).
-
-<a id="16-portrait-collage--collage-inside-about"></a>
-### 16. Portrait collage — `collage` inside `about`
-
-- **Renderer:** [`template-parts/chapters/section-01-about.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-01-about.php), full file. **CSS:** `chapters.css` lines 219–223 (`.about`) plus the adjacent `.collage` rule. Map's name `portrait-trio`. A timeline used to live here and is explicitly not rendered (the file's own comment says so).
-- **Classes:** `.about`, `.about__col`, `.about__body`, `.collage`, `.collage__big`, `.collage__sm`.
-- **Inputs (exact field keys):** `about_chap`, `about_title`, `about_body` (HTML, passed through `ea_replace_retired_brand`), `about_img1`/`about_img1_alt`, `about_img2`/`about_img2_alt`, `about_img3`/`about_img3_alt`. Not a generic `$args` part — three fixed image slots, not a repeater.
-- **Layout rules.** Stylesheet: text column + collage in `grid-template-columns: 1fr 1.05fr`, one column under 900px. Collage itself: `1.5fr 1fr`, two rows (one large image, two small). Measured at 1440: collage box 535×391, tracks 312px + 208px. Bio text alignment was not isolated from the neighboring prose column on the same page.
-- **Pages:** `/` only.
-- **Variants:** none — one page.
-- **Exceptions:** the H2 has inline `margin-bottom: 22px` (not the usual 18px — a genuine off-scale annotation, not a defect, since it is declared in the part itself). Not the same thing as `gallery--portraits`.
-- **Orphan?** No.
-
-<a id="17-studio-split--studio"></a>
-### 17. Studio split — `studio`
-
-- **Renderer:** [`template-parts/chapters/section-04-studio.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-04-studio.php), full file. **CSS:** `chapters.css` lines 257–265.
-- **Classes:** `.sec` (with inline `style="padding:0"`), `.studio`, `.studio__t`, `.arcs`, `.chap`, `.studio__h`, `.studio__p`, `.btn.btn--gw` (hardcoded), `.studio__m`.
-- **Inputs (exact field keys):** `studio_image`, `studio_alt`, `studio_chap`, `studio_title`, `studio_body` (HTML, allows `<br>` via `ea_chapters_kses_e`), `studio_cta_label`, `studio_cta_url`. The button class (`btn--gw`) and its `align-self:flex-start` are hardcoded, not inputs.
-- **Layout rules.** Stylesheet only (not measured in this pass): grid `.9fr 1.1fr`, `min-height: 460px`, dark text column, image `object-fit: cover` on the other side, text `max-width: 42ch`. Collapse breakpoint not measured.
-- **Pages:** `/` only.
-- **Variants:** none — one page.
-- **Exceptions:** the two inline styles (section padding, button alignment) live in the template, so they apply wherever this file is used — only home today.
-- **Orphan?** No. Not the same as `split2`.
-
-<a id="18-testimonial-marquee--testi-mq"></a>
-### 18. Testimonial marquee — `testi-mq`
-
-- **Renderer:** [`template-parts/chapters/parts/testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testimonials.php) and the home wrapper [`section-05-testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-05-testimonials.php). **CSS:** `chapters.css` lines 1055–1077.
-- **Classes:** `.testi-mq`, `.testi-mq__btn`, `.testi-mq__btn--left` (`order: 3`, so "next" lands on the correct physical side under RTL scroll math).
-- **Inputs (exact):** `chap`, `title`, `lead` (HTML), `cat`, `items[{text, name, href}]`, `layout` (chooses marquee vs. grid, type 19), `archive`. Home's wrapper reads `testi_items` first (its 15 approved rows), falling back to the Facebook corpus (`ea-testimonials-fb.json`, via `ea_fb_testimonials_all()`) only when `testi_items` is empty; also `testi_cta_label`/`testi_cta_url` for the link to `/testimonials/`.
-- **Layout rules.** A row of cards, previous/next buttons, no auto-scroll. Track is `direction: ltr` on purpose (keeps the scroll math from fighting RTL). Card width and gap were not measured.
-- **Pages:** 5 — `/`, `/lessons/`, `/method/`, `/sound-healing/`, `/treatment/`.
-- **Variants:** same markup on all five; whether a page's quotes are the shared 48-item corpus or its own `items` list is a content difference, not a layout one.
-- **Exceptions:** none in CSS. The map's name `ea-testi-cards` for the home testimonials is a misattribution — home is this marquee, not type 20.
-- **Orphan?** The Wave 2 carousel/row blocks are unused (see [Orphans](#orphans)); this marquee is the live implementation.
-
-<a id="19-testimonial-grid--testi-grid"></a>
-### 19. Testimonial grid — `testi-grid`
-
-- **Renderer:** same `testimonials.php`, the grid branch, selected by the `layout` input. **CSS:** `chapters.css` line 1142.
-- **Classes:** `.testi-grid` (or equivalent grid class emitted by the same file's grid branch).
-- **Inputs:** same as the marquee; `/testimonials/` uses three separate `testimonials` part calls with the grid layout, rather than one call with three groups.
-- **Layout rules.** Stylesheet: three columns, `direction: rtl`, `text-align: right`, 24px gap. Column widths not measured in the viewport.
-- **Pages:** `/testimonials/` only (three grids on that one page).
-- **Variants:** one page, three repeats of the same grid.
-- **Exceptions:** none. The removed page-73 CTA exception (type 8) did not target this grid.
-- **Orphan?** No.
-
-<a id="20-testimonial-cards--ea-testi-cards"></a>
-### 20. Testimonial cards — `ea-testi-cards`
-
-- **Renderer:** [`template-parts/chapters/parts/testi-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testi-cards.php), full file. **CSS:** `chapters.css` lines 1593–1600.
-- **Classes:** `.ea-testi-cards` (or the container class from this file), card items with an ivory ground and a terracotta inline-start border.
-- **Inputs (exact):** `quotes` (array of HTML strings — the part adds no heading, name, or label of its own), `id`, `alt`.
-- **Layout rules, measured.** Two columns at 1440. `/snoring-sleep-apnea/`: 542px + 542px. Breakpoint to one column under 880px was not measured.
-- **Pages:** `/snoring-sleep-apnea/` only.
-- **Variants:** none — one page.
-- **Exceptions:** none.
-- **Orphan?** No.
-
-<a id="21-faq"></a>
-### 21. FAQ
-
-Three renderers, one visual family — document all three together, they share CSS.
-
-- **Full bank.** Renderer [`template-parts/blocks/block-faq-list.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-list.php). Inputs via `$args`: `ea_faq_only_category`, `ea_faq_only_categories`, `ea_faq_view_chap`, `ea_faq_view_title`, `ea_faq_view_id`. With no filter, renders the whole `ea_faq` CPT with a category table-of-contents (`.ea-faq-toc`) and one group per category. **Pages:** `/faq/` only.
-- **View-only.** Renderers [`template-parts/chapters/parts/faq-inline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faq-inline.php) and [`faqblock.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faqblock.php) (which delegates into the block). Inline's inputs: `chap`, `title`, `id`, `items[{q, a}]`, `cards` (bool, adds `--cards`), `open_first` (bool). `faqblock`'s inputs: `cat`/`cats`, `chap`, `title`, `id` — items come from the CPT, not from `items`. **Pages:** 14 — `/bags/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/didgeridoos/`, `/learning/lectures/`, `/learning/workshops/`, `/lessons/`, `/method/`, `/repair/`, `/sound-healing/`, `/stand-floor/`, `/stands-storage/`, `/treatment/`.
-- **Mini.** Renderer [`template-parts/blocks/block-faq-mini.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-mini.php), class `.ea-faq-mini-section`. Context `ea_faq_mini_ctx`: `heading`, `aria_label`, `items[{q, a}]`, `footer{label, href}`. Home passes six corpus questions plus a link to `/faq/`. **Pages:** `/` only. It contains an inner `.ea-faq-list`, so a naive class search double-counts home.
-- **Classes (shared family):** `.ea-faq-toc`, the question-row flex line (question + toggle icon), `.ea-faq-list--cards` (max-width 760px, white rounded cards, borders removed).
-- **Layout rules, measured.** The question row is a max-width 820px list. `/faq/` and `/method/` had no item pre-opened. `/repair/`'s cards variant had the first item open — this is the `open_first`/`active`-style behavior of that one page, not a global rule; the 2026-09-23 canon's "first question open" claim is true only of the cards variant on `/repair/`.
-- **Variants:** plain view-only is uniform; cards and mini are declared variants; open-by-default is an input, not the default state.
-- **Exceptions:** none per page id. **This type is on the [stage-A review list](#stage-a-review-list)** — the cards look visibly different from the plain list.
-- **Orphan?** No.
-
-<a id="22-definition-accordion--dd"></a>
-### 22. Definition accordion — `dd`
-
-- **Renderer:** [`template-parts/chapters/parts/dd.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/dd.php), full file. Map's name on the snoring page: `deflist`.
-- **Classes:** `.dd` (or equivalent container from this file), rendered as a stack of `<details>`.
-- **Inputs (exact):** `chap`, `title`, `lead` (HTML), `dark` (bool), `id`, `items[{tag, title, body, active}]` — `active` opens that one row by default.
-- **Layout rules.** Centered heading. Viewport column widths: not measured.
-- **Pages:** 3 — `/lessons/`, `/snoring-sleep-apnea/`, `/treatment/`.
-- **Variants:** same markup on all three; which row opens is the per-item `active` flag.
-- **Exceptions:** none found.
-- **Orphan?** No.
-
-<a id="23-table-of-contents--ea-toc"></a>
-### 23. Table of contents — `ea-toc`
-
-- **Renderer:** [`template-parts/chapters/parts/toc.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/toc.php), full file. **CSS:** `chapters.css` lines 1363–1372, plus the `:has(> .phero + .ea-toc)` block at ~1433–1479, which restyles the toc for a dark hero context.
-- **Classes:** `.ea-toc`, structural classes for the inline list / rail / mobile-sheet presentations of the same list.
-- **Inputs:** `items[{id, label}]` (empty → renders nothing), `heading`.
-- **Layout rules, measured.** On `/snoring-sleep-apnea/`, the inline list: 1066×321, `text-align: start`. The `:has()` rule fires only when this part is the element immediately after `.phero` — a structural condition, not a page id, and it will fire on any future page with that exact order. Rail and sheet geometry: not measured.
-- **Pages:** `/snoring-sleep-apnea/` only.
-- **Variants:** none — one page.
-- **Exceptions:** the `:has()` pairing above.
-- **Orphan?** No.
-
-<a id="24-book--product-cards--bookcards"></a>
-### 24. Book / product cards — `bookcards`
-
-- **Renderer:** [`template-parts/chapters/parts/bookcard.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bookcard.php), full file. **CSS:** `chapters.css` lines 1148–1168.
-- **Classes:** `.bookcards` (or equivalent grid class), whole card is one `<a>`.
-- **Inputs (exact):** `chap`, `title`, `lead`, `alt`, `id`, `cta_label` (default «לעמוד הספר ←»), `card_heading_level`, `items[{cover, title, blurb, url, meta, cta}]`.
-- **Layout rules, measured.** `/books/` at 1440: three columns, ~349px, `text-align: right`, cover ratio 3/4. Breakpoints (two columns under 880px, one under 560px) not measured.
-- **Pages:** 3 — `/books/` (the books), `/shop/` (5 cards), `/qr/` (the QR hub page — not the individual `/qr/qrN/` articles).
-- **Variants:** same grid; `cta_label` changes with context (books vs. shop vs. QR hub).
-- **Exceptions:** none.
-- **Orphan?** No. `parts/product-cta.php` (price + purchase buttons) is a separate, unused file (see [Orphans](#orphans)).
-
-<a id="25-spotlight-row--ea-now"></a>
-### 25. Spotlight row — `ea-now`
-
-- **Renderer:** [`template-parts/chapters/section-home-spotlight.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-spotlight.php), full file. **CSS:** [`assets/css/ea-open-round.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-open-round.css) lines 6–36.
-- **Classes:** `.ea-now` (section id is always the literal string `ea-now`, on every page that uses this partial — safe because it never renders twice per document).
-- **Inputs (exact):** optional `$args['cards']`, each `{image, title, line1, line2, url}`. With no `$args`, reads Chapters field `now_cards`. `/books/` explicitly overrides with `ea_muzza_spotlight_cards()` (books + the bundle) rather than forking the file.
-- **Layout rules, measured.** Four columns at 1440 (283px × 4) on both `/` and `/books/`. At 390 on home: two columns of 178px. Image ratio 3/2, `object-fit: cover`. Title plus up to two lines.
-- **Pages:** `/` and `/books/`.
-- **Variants:** same grid on both; the cards differ because the input differs, not the layout.
-- **Exceptions:** none.
-- **Orphan?** No.
-
-<a id="26-video-block--videoblk"></a>
-### 26. Video block — `videoblk`
-
-- **Renderer:** [`template-parts/chapters/parts/videoblk.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk.php) and home's [`section-home-03-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-03-video.php).
-- **Classes:** `.videoblk`.
-- **Inputs (part):** `chap`, `title`, `body` (HTML), `poster`, `video`, `cap`, `alt`. Home's own section reads its fields directly and embeds a YouTube iframe.
-- **Layout rules.** A 16/9 frame, `max-width: 760px` on the title column, inline `margin-top: 48px` on the frame from the PHP. Player chrome not measured.
-- **Pages:** the class is on 4 — `/` (a real, playing YouTube embed), `/lessons/`, `/sound-healing/`, `/treatment/`. The last three currently carry `ea-pending-approval` and render the placeholder variant (type 27) because their defaults have no `video` URL yet — treat `/` as this type and the other three as the placeholder.
-- **Variants:** the frame class is shared; a playing embed and a pending box are two content states inside the same shell, not two shells.
-- **Exceptions:** home's iframe has inline `position:absolute;inset:0;…`. The blog JSON mapper (type 37) can also inject a YouTube iframe with inline styles into a body; no published post does this yet. **This type is on the [stage-A review list](#stage-a-review-list)** — a real, playable video on one page vs. an empty pending box on three others is visible.
-- **Orphan?** No.
-
-<a id="27-video-placeholder--videoblk--pending-box"></a>
-### 27. Video placeholder — `videoblk` + pending box
-
-- **Renderer:** [`template-parts/chapters/parts/videoblk-placeholder.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk-placeholder.php), full file.
-- **Classes:** `.videoblk` (same shell as type 26), `.ea-pending-approval` (absolutely positioned inside it).
-- **Inputs:** `chap`, `title`, `body`, `box` (the accessible name of the empty frame), `id`. No video URL — that is the point of this variant.
-- **Layout rules.** Same 16/9 frame as the video block; not separately measured beyond the class co-occurrence.
-- **Pages:** `/lessons/`, `/sound-healing/`, `/treatment/`.
-- **Variants:** same pattern on all three.
-- **Exceptions:** inline positioning on the pending box, in the part, applying to every use.
-- **Orphan?** No.
-
-<a id="28-facebook-embeds--fbgrid"></a>
-### 28. Facebook embeds — `fbgrid`
-
-- **Renderer:** [`template-parts/chapters/parts/fbembeds.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/fbembeds.php), full file.
-- **Classes:** `.fbgrid` (or equivalent container).
-- **Inputs:** `chap`, `title`, `lead`, `alt`, `id`, `items[{href, title}]`.
-- **Layout rules.** A grid of Facebook post iframes; column count not measured.
-- **Pages:** `/eyal-amit/mokesh-dahiman/` only.
-- **Variants:** none — one page.
-- **Exceptions:** iframe `style="border:none;overflow:hidden"`, inline in the part.
-- **Orphan?** No.
-
-<a id="29-timeline--tl"></a>
-### 29. Timeline — `tl`
-
-- **Renderer:** [`template-parts/chapters/parts/timeline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/timeline.php), full file. **CSS:** `chapters.css` line 228.
-- **Classes:** `.tl` (or equivalent container).
-- **Inputs:** `chap`, `title`, `lead`, `dark`, `alt`, `center`, `id`, `items[{year, text}]`.
-- **Layout rules, measured.** On the Mokesh page at 1440: four columns of 276px, top border, years as markers. Mobile collapse not measured.
-- **Pages:** `/eyal-amit/mokesh-dahiman/` only. Home's about section explicitly does **not** render a timeline (its own code comment says so).
-- **Variants:** none — one page.
-- **Exceptions:** none found.
-- **Orphan?** No.
-
-<a id="30-photo-slot--ea-photo-slot"></a>
-### 30. Photo slot — `ea-photo-slot`
-
-- **Renderer:** [`template-parts/chapters/parts/photo-slot.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-slot.php), full file. **CSS:** `chapters.css` lines 130–131.
-- **Classes:** `.ea-photo-slot`, `.ph` (the empty box carrying the label).
-- **Inputs:** `label` (visible text and the aria name; default "Photo — to be chosen"), `id`.
-- **Layout rules, measured.** A 16/9 reservation. On `/learning/` and `/en/`: 1104×621 at 1440 (exactly 16/9). Label text sits inside `.ph`. On `/en/` it follows the LTR page (`text-align: left`).
-- **Pages:** `/learning/` (3 slots) and `/en/` (5 slots) — 8 slots total, two pages.
-- **Variants:** same frame; the label string is the input. These are standing reservations, not missing images inside a gallery.
-- **Exceptions:** none beyond page direction on `/en/`.
-- **Orphan?** No.
-
-<a id="31-contact-rows"></a>
-### 31. Contact rows
-
-- **Renderer:** [`template-parts/chapters/parts/contact.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/contact.php), full file — three sections in one file.
-- **Classes:** `.ea-wave2-contact` (the form, beside a small photo), `.ea-wave2-contact__cta` (dark WhatsApp band, `data-block="contact-cta"`), `.ea-wave2-contact__nap` (name/address/phone line).
-- **Inputs:** none. The part takes no `title`/`body` — it reads NAP helper functions and a hardcoded CF7 shortcode directly.
-- **Layout rules.** Per the file's own comment: three stacked rows — form beside a photo, dark WhatsApp band, then the NAP line. The half-height page hero above these three rows is the page hero (type 1, `--half`), not part of this type. Form column widths not measured.
-- **Pages:** `/contact/` only.
-- **Variants:** none — one page.
-- **Exceptions:** `ea_wave2_render_whatsapp_float()` returns immediately when `is_page('contact')` — the floating WhatsApp button every other page gets is absent here (a PHP page check, not a CSS `page-id` rule). The phone link has inline `white-space: nowrap`.
-- **Orphan?** No. `block-contact-cta.php` is a separate, unused Wave 2 file (see [Orphans](#orphans)).
-
-<a id="32-press-list--ea-press"></a>
-### 32. Press list — `ea-press`
-
-- **Renderer:** rendered by [`inc/wave2-w2-07.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/inc/wave2-w2-07.php) around line 225, on the plain content template (not a Chapters part). **CSS:** [`assets/css/w2-07-heritage.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/w2-07-heritage.css) lines 64–88.
-- **Classes:** `.ea-press`, `.ea-editorial`, `.ea-editorial-press` (body classes); `/historical-articles/` additionally uses `.ea-historical-archive` and four `.ea-content-section` blocks.
-- **Inputs:** not an `$args` part — a fixed list of mentions (year, source, link, title). Links open in a new tab.
-- **Layout rules, measured.** Each row a flex line, baseline-aligned, date then link. `/press/` at 1440: one item 960×94, `text-align: start`. This page has no `phero` and no Chapters hero at all.
-- **Pages:** `/press/` (the list) and `/historical-articles/` (a press-quote block reusing `.ea-press`, plus the archive sections — a different page shape overall, not the press index).
-- **Variants:** the row markup matches on both; the surrounding page differs.
-- **Exceptions:** both pages sit outside the Chapters router on purpose (`/press/` is forced to `tpl-content.php`). No `page-id-` CSS.
-- **Orphan?** No.
-
-<a id="33-qr-article-shell"></a>
-### 33. QR article shell
-
-- **Renderer:** [`page-templates/tpl-chapters-qr.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-qr.php) lines 27–51. Not a chapter part. The hub page `/qr/` is a normal Chapters page using `bookcards` (type 24), not this shell.
-- **Classes:** `.phero` (text hero, no photo — see the pending change below), `.intro-body` (one column), body class `.ea-qr`. A hardcoded back link «כל דפי ה-QR».
-- **Inputs:** from the post itself — title (the H1), featured image if present (**none of the 48 currently have one**), and `the_content()` dropped whole into one `.intro-body`. Eyebrow is the literal string `QR`.
-- **Layout rules, measured.** `/qr/qr1/` at 1440: text hero 363px tall (no photo, no 88vh), one reading column 776px wide, `text-align: start`. Inside `the_content`, the HTML is migrated as-is and was not decomposed into row types — a heading inside it is not a prose-part heading.
-- **Pages:** `/qr/qr1/` through `/qr/qr48/` (48 pages). All 48: `phero` + exactly one `.intro-body` + `.ea-qr`.
-- **Variants:** the shell is uniform across all 48; the migrated body inside it is free content, not a type — **this is the reason the printed-code population stays on the [stage-A review list](#stage-a-review-list)** as a no-type area even though the shell itself is documented here.
-- **Exceptions:** the back link has inline `margin-top: var(--ea-space-8, 32px)` in the template, on every QR child. **Pending change, approved not built:** [`SKETCH-BLOG-QR.html`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-BLOG-QR.html) (approved) specifies that a QR page with a unique photo gets a photo hero, and one with none gets a **logo hero**, not the current plain text hero — the same rule as the blog's archive/new-post types below. Zero of the 48 pages implement this today; all 48 currently render the plain text hero. This is recorded on the [stage-A review list](#stage-a-review-list), not treated as already true.
-- **Orphan?** The legacy `tpl-qr.php` (which called the orphaned `block-topnav.php`) is not what these live URLs render.
-
-<a id="34-blog--archive-post-existing-ea-post-content"></a>
-### 34. Blog — Archive post (existing, `ea-post-content`)
-
-**This is what every one of the 52 published posts renders today.** Team_00 named this the
-"Archive" type: deliberately loose, so the old posts need minimum work to be acceptable — do
-not tighten it into the New Post schema (type 37).
-
-- **Renderer:** [`page-templates/tpl-chapters-blog-single.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-blog-single.php) lines 90–107, the branch that runs when no JSON row document exists for the post (every post today — see type 37). **CSS:** [`assets/css/ea-blog.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-blog.css) lines 207–217.
-- **Classes:** `.phero.phero--media` (or plain `.phero`, see below) for the hero, `.ea-post-content` for the body.
-- **Inputs:** the post object itself — title, categories (hero eyebrow), author, date, featured image, `the_content` (free HTML), tags, a copy-link share control. No row-type argument of any kind.
-- **Layout rules, measured.** One sampled post (`/100-100-100-תודה/`) at 1440: media hero 792px (88vh), then `.ea-post-content` 776×2371, `text-align: start`. Images inside it are `max-width: 100%`.
-- **Pages:** all 52 published posts. 51 have `phero--media`. **The historic-as-is rule (policy, locked):** the hero image carried over from the old site is never replaced, even where it is dated or low-quality.
-- **Variants:** the shell is uniform; the body is free HTML, exactly like the QR body (type 33) — this is why "a row of type A inside a blog post" has no row-slot mechanism to point at for these 52 posts, even though the shell itself is this named type.
-- **Exceptions/known gap — approved, not built:** the locked policy (`PHASE-2-BLOG-QR-AFTER-SKETCH.md`, §2/§4) says **a post with no featured image gets a logo hero, not a portrait hero and not the generic text hero.** Measured today: the one post without a featured image (the 2012 Pardes Hanna studio post) renders the ordinary text hero from `phero.php` — no logo mark, because that hero variant does not exist yet anywhere in the renderer. This is recorded on the [stage-A review list](#stage-a-review-list) as an implementation gap, not presented as already true.
-- **Orphan?** No. `tpl-blog-single.php` (the pre-Chapters legacy template, topnav + contact-cta) is not what these 52 URLs render (see [Orphans](#orphans)).
-
-<a id="35-blog-card--ea-blog-card"></a>
-### 35. Blog card — `ea-blog-card`
-
-- **Renderer:** [`template-parts/blocks/block-blog-card.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-blog-card.php), full file. Called from the Chapters blog single (related posts) and the Chapters archive.
-- **Classes:** `.ea-blog-card`.
-- **Inputs:** the current post in the loop — title, link, thumbnail, date. No `$args`.
-- **Layout rules.** A card in the archive grid / the related-posts row; box model not measured.
-- **Pages:** 53 — all 52 posts (as related cards) plus `/blog/` (the archive grid).
-- **Variants:** same partial everywhere; not measured for layout drift.
-- **Exceptions:** none found.
-- **Orphan?** No. The pre-Chapters legacy archive template that also calls this file is not the live template — the Chapters archive is.
-
-<a id="36-mokesh-video-embed--plain-iframe"></a>
-### 36. Mokesh video embed — plain iframe
-
-- **Renderer:** [`template-parts/chapters/parts/mokesh-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-video.php), full file (its own comment says it is not reusable). Emits a `.figr` with a plain inline 16/9 iframe — no unique class.
-- **Classes:** `.figr` (reused from the split type).
-- **Inputs:** `yt_id`, `title` (the iframe's accessible name).
-- **Layout rules.** A plain iframe, not a second YouTube API player (the hero already uses the API). Frame size not measured as its own node.
-- **Pages:** wired only from `mokesh-defaults.php`, on `/eyal-amit/mokesh-dahiman/`.
-- **Variants:** none — one page, by design.
-- **Exceptions:** inline `max-width:760px; aspect-ratio:16/9` on the wrapper, in the part.
-- **Orphan?** No. Bespoke.
-
-<a id="37-blog--new-post-block-template-approved-not-built"></a>
-### 37. Blog — New post (block template, approved, not built)
-
-**Zero live instances. No dummy or demo post exists on the site.** This entry documents an
-**approved decision, not a render** — team_00 approved the sketch on 2026-09-22, and this is
-what a session must build toward, not what exists today. Do not present this as live anywhere
-in the artifact without this qualifier attached.
-
-- **Renderer:** not yet written. Planned per [`POST-TEMPLATE-SETTINGS.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6: a JSON content file at `site/wp-content/themes/ea-eyalamit/inc/data/blog/{slug}.json`, read by a PHP renderer (also not yet written) that maps each row's `part` value to the **existing** files in `template-parts/chapters/parts/` — this type is a composite of already-documented types, not a new visual component, and the settings file is explicit that no new CSS class or `chapters.css` edit is permitted for a single post.
-- **Classes:** none of its own. Reuses `.phero`/`.phero--media`, `.sec`/`.sec--alt`/`.sec--dark`, `.intro-body`, `.split2`/`.figr`, `.gallery`/`.gfig`, `.pfloat`, `.videoblk`, `.cta-band--row`, `.btn` — i.e., types 1, 4, 6, 7, 8, 11, 26 above, in whatever order the JSON's `rows[]` array specifies.
-- **Inputs — the approved schema (`ea-post-v1`, from §7 of the settings file, verbatim):**
-  - Post-level: `slug`, `title`, `category`, `date`, `author`.
-  - `hero { chap, image, imageAlt }` — **empty `image` is the trigger for a logo hero, not a portrait** (same rule as the archive gap above, and the QR gap in type 33 — none of the three is built yet).
-  - `media[]` — up to 8 items, `{ id, file, alt, cap, pending }`, `id` matching `^img-0[1-8]$`.
-  - `video { youtube?, file?, poster?, cap? }` — at least one source.
-  - `rows[]`, in display order — each `{ id, part, bg, title?, body?, center?, images?, float?, zoom?, cta_label?, cta_url? }`.
-    - `part` ∈ `prose | split | gallery | photo-slot | cta | quote | video` — mapping to `parts/prose.php`, `parts/split.php`, `parts/gallery.php`, `parts/photo-slot.php`, `parts/cta.php`, `parts/testi-cards.php` (or a `<blockquote>` inside prose), `parts/videoblk.php` respectively.
-    - `bg` ∈ the five canonical tones (ivory · sand · olive · terracotta · dark, D34) or `cta`, each with its own text set (type 4); ivory-2 and the old `.sec--alt` are retired (D41 A-1).
-  - **team_00's own count, "fields 1–13," maps onto this schema as: the hero (1) + the eleven ordered rows `r01`–`r11` in the approved dummy (2–12) + the shared media pool (13).** This canon states that reading explicitly rather than inventing a different 13-item list — the settings file itself does not number fields 1–13 anywhere.
-- **Layout rules — the locked alignment canon (§1 of the settings file, measured live on `/snoring-sleep-apnea/`, 2026-09-20):** `.wrap` is `max-width:1200px; padding-inline:48px` (not a narrow centered card, ~920px, as an earlier sketch draft tried); the H2 sits on the full `.wrap` width, `text-align:start`, wider than the body column beneath it (that offset is intentional, not a bug to fix); the reading column is 82ch centered inside the wrap (~212px each side at 1200px), never 65ch flush to an edge; a split row uses the two columns across the full wrap width, never a narrowed one-third text column; a small in-text image uses `float_image` so text wraps it, never a column that steals width for the whole story height; gallery and CTA rows run the full wrap width; the hero's `.phero__in` is 1200px, H1 up to 32ch, sub up to 54ch, `text-align:start` — never a centered card.
-- **Pages:** zero. The dummy JSON (`DUMMY-WEEK-OF-BREATH.json`) and its matching sketch exist only as approved references, not as a published or even draft post.
-- **Variants:** the `part` and `bg` vocabularies above are the only declared variants; nothing else is approved.
-- **Exceptions:** none yet — there is nothing live to except. **Recorded on the [stage-A review list](#stage-a-review-list)** as the central "approved but not built" gap.
-- **Orphan?** No — the opposite of an orphan: a decision with no renderer yet, rather than a renderer with no use.
+- **Status:** approved (O-17 — D45, D52, D61).
+- **Merges:** T-31.
+- **Definition:** a form, WhatsApp and the contact details.
+- **Variants:** none.
+- **Fields:** fixed — no editable fields.
+- **Rules:**
+  - One row on the grid, 4+2: the form with the dark WhatsApp block under it; the image and the contact details beside.
+  - Both columns end on one straight line.
+  - The hero: small (44%), no eyebrow — as compact as the canon allows (approved; D61: «צור קשר — לצמצם מה שאפשר בלי לשבור קאנון, וזה נשאר כך»).
+  - The contact portrait is always **fill** (D63 Q-6).
+- **Implementation facts (today's site):** [`parts/contact.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/contact.php) — three sections in one file: `.ea-wave2-contact` (form beside a photo), `.ea-wave2-contact__cta` (dark WhatsApp band), `.ea-wave2-contact__nap`. No inputs — NAP helper functions and a hardcoded CF7 shortcode. `ea_wave2_render_whatsapp_float()` skips `/contact/`. The hero eyebrow comes from `contact-defaults.php:22` `chap` (D59). `/contact/` only. [Old #31](#31-contact-rows).
 
 ---
 
+### Page templates
+
+A page template is not a type (D40 A-9, «מאשר שכבה שנייה»): it is a whole page, and its body is built from the types above.
+
+<a id="type-p-1"></a>
+#### P-1 — Printed-code page (QR)
+
+- **Status:** approved (D62).
+- **Merges:** T-33 (QR article shell).
+- **Definition:** a template of a whole page opened by scanning a code on a product: a heading and a reading column.
+- **Variants:** none.
+- **Fields:** title · main image · content.
+- **Rules:** the body — like a text paragraph, in columns 2–5.
+- **Carried from the old record, not re-ruled in stage A:** the approved-not-built hero rule of [`SKETCH-BLOG-QR.html`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-BLOG-QR.html) — a QR page with a unique photo gets a photo hero, one with none a **logo hero**; 0 of 48 implement it today.
+- **Implementation facts (today's site):** [`page-templates/tpl-chapters-qr.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-qr.php) lines 27–51; `.phero` (text hero), one `.intro-body`, body class `.ea-qr`, hardcoded back link «כל דפי ה-QR»; eyebrow is the literal `QR`; body is `the_content()` migrated as-is. `/qr/qr1/`–`/qr/qr48/`. The hub `/qr/` uses cards (T-09), not this template. [Old #33](#33-qr-article-shell).
+
+<a id="type-p-2"></a>
+#### P-2 — Blog post
+
+- **Status:** approved (D3, D62).
+- **Merges:** T-34 → variant: archive · T-37 → variant: new.
+- **Definition:** a template of a whole page: a banner followed by a sequence of types.
+- **Variants:** Source — archive · new (currently not in use on the site).
+- **Fields:** title · category · date · author · main image · content.
+- **Rules:** the body — like a text paragraph, in columns 2–5.
+- **Carried from the old record, not re-ruled in stage A:**
+  - Archive: deliberately loose — do not tighten it into the new-post schema; the hero image carried over from the old site is never replaced (historic-as-is, locked).
+  - A post with no featured image gets a **logo hero** (`PHASE-2-BLOG-QR-AFTER-SKETCH.md` §2/§4) — approved, not built.
+  - New: the approved `ea-post-v1` schema of [`POST-TEMPLATE-SETTINGS.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §7; zero live instances; proposal (state file §4): the first new post Eyal publishes is built in this template, old posts stay in the archive.
+- **Implementation facts (today's site):**
+  - Archive (old T-34): [`page-templates/tpl-chapters-blog-single.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-blog-single.php) lines 90–107; [`ea-blog.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-blog.css) 207–217; `.phero`/`.phero--media` + `.ea-post-content`; inputs = the post object. All 52 posts. [Old #34](#34-blog--archive-post-existing-ea-post-content).
+  - New (old T-37): renderer not yet written — a JSON file per post at `site/wp-content/themes/ea-eyalamit/inc/data/blog/{slug}.json` mapped to the existing parts; no new CSS class permitted. Dummy: [`DUMMY-WEEK-OF-BREATH.json`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/post-template/DUMMY-WEEK-OF-BREATH.json). [Old #37](#37-blog--new-post-block-template-approved-not-built).
+
+---
+
+### Shared
+
+<a id="type-s-2"></a>
+#### S-2 — Buttons
+
+- **Status:** approved (D25, D51; D63 Q-4).
+- **Merges:** no old row type — shared by every type that carries a button (map row S-2).
+- **Definition:** every button on the site: it takes the link colour of the tone it sits on — filled or outline.
+- **Variants:** Style (shared) — filled · outline.
+- **Fields:** label · link.
+- **Rules:**
+  - Tight padding around the text: 9px top and bottom, 18px at the sides.
+  - Outside the hero and the CTA band — as wide as its label, starting on the column line (allowed exception, D63 Q-4).
+  - On a phone — the hero's and the CTA band's buttons on the left.
+  - Every ratio passes the accessibility standard.
+- **Colours on the five tones** (`BUTTONS` in `canon_types.py`):
+
+  | Tone | Background | Heading | Button colour | Text on the filled button |
+  |---|---|---|---|---|
+  | ivory | `#fffffa` | `#2f2013` | `#9A4F2B` | `#ffffff` |
+  | sand | `#D8C7B5` | `#2f2013` | `#7A3418` | `#ffffff` |
+  | olive | `#575838` | `#FFE8C2` | `#F6D38A` | `#2f2013` |
+  | terracotta | `#874321` | `#FFE8C2` | `#F6D38A` | `#2f2013` |
+  | dark | `#2A1A0C` | `#FFE8C2` | `#D08A5E` | `#1d140d` |
+
+- **APPROVED in canon stage A, 2026-09-28 — buttons on the five tones** (D51 «כל הכפתורים — מאושר»): a button
+  takes the link colour of the tone it sits on — filled (text in the tone's contrast colour) or outline; every
+  ratio passes AA. On images: filled terracotta or white outline. Padding 9px / 18px (D25). Map row S-2.
+- **APPROVED in canon stage A, 2026-09-27 — all buttons (team_00: «פחות ריווח סביב הטקסט בכל
+  הכפתורים. זה בכל מקרה»):** padding `9px 18px` instead of `15px 36px` (a button measures 44px
+  tall instead of ~56). In the hero and the CTA band a button fills exactly grid columns 5–6
+  on one line. Not yet on the site.
+- **Today's terra button** (D54): white on `#B05F38` (`--terra-btn`, `chapters.css:1041` overrides line 104) = 4.63 — a marginal pass; do not darken its background or lighten its text.
+- **Implementation facts (today's site):** `.btn` at `chapters.css` line 102; `--terra` (104, filled), `--gw` (106, outline light-on-dark), `--gd` (108, outline terracotta-on-ivory), `--sand` (1530). Hardcoded in the photo band (`--sand`), the hero (`--gw`), studio (`--gw`) and steps (`--terra`). Full record: [Tier 2 · Buttons](#buttons).
+
+<a id="type-s-1"></a>
+#### S-1 — Waiting for content
+
+- **Status:** approved (D41 A-5). Still open: Q-5 (T-27 on the home page), per D63.
+- **Merges:** T-30 → a reserved place for an image · T-27 → a video that has not arrived yet.
+- **Definition:** a state, not a type: every image or video that has not arrived yet — pink stripes, a dashed frame and a prominent tag.
+- **Variants:** none.
+- **Fields:** description — what should be here.
+- **Rules:** one look across the whole site, in a colour that is not in the palette (D41 A-5: pink stripes, dashed `#D6006F` frame, bold pill).
+- **Implementation facts (today's site):**
+  - Old T-30 photo slot: [`parts/photo-slot.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-slot.php); `chapters.css` 130–131; `.ea-photo-slot`, `.ph`; inputs `label`, `id`. `/learning/` (3) and `/en/` (5). [Old #30](#30-photo-slot--ea-photo-slot).
+  - Old T-27 video placeholder: see [T-26](#type-t-26) and [old #27](#27-video-placeholder--videoblk--pending-box).
+  - Today's three pending forms (gallery badge, `pending-note.php`, CTA `temp_note`) — [Tier 2 · Pending-approval badge](#pending-approval-badge).
+
+---
+
+<a id="tier-2-elements"></a>
 ## Tier 2 — elements inside the rows
+
+> **Record of today's site (theme 1.5.138), not the target.** The current rules for these elements live in
+> [Canon terms](#canon-terms), [Grid rules](#grid-rules) and the [Types](#types) (buttons: [S-2](#type-s-2);
+> pending badge: [S-1](#type-s-1)).
 
 <a id="eyebrow--chap"></a>
 ### Eyebrow — `chap`
@@ -827,13 +737,7 @@ in the artifact without this qualifier attached.
 - **Defined:** `.btn` at line 102. `--terra` (line 104, filled), `--gw` (line 106, outline light-on-dark), `--gd` (line 108, outline terracotta-on-ivory), `--sand` (line 1530, sand fill, chocolate text, pill radius).
 - **Inputs:** whichever class the caller passes. CTA defaults to `--terra`, second button (unused) is always `--gw`. Hero CTA is always `--gw`. Photo-band is always `--sand`. Studio and the books bundle pass `--gw`.
 - **Rules, measured:** a CTA button ~56px tall, centered in the left third. Sample widths: 152px («ליצירת קשר») to 225px (the books bundle). Padding `15px 36px`, `inline-flex`.
-- **APPROVED in canon stage A, 2026-09-28 — buttons on the five tones** (D51 «כל הכפתורים — מאושר»): a button
-  takes the link colour of the tone it sits on — filled (text in the tone's contrast colour) or outline; every
-  ratio passes AA. On images: filled terracotta or white outline. Padding 9px / 18px (D25). Map row S-2.
-- **APPROVED in canon stage A, 2026-09-27 — all buttons (team_00: «פחות ריווח סביב הטקסט בכל
-  הכפתורים. זה בכל מקרה»):** padding `9px 18px` instead of `15px 36px` (a button measures 44px
-  tall instead of ~56). In the hero and the CTA band a button fills exactly grid columns 5–6
-  on one line. Not yet on the site.
+- **Approved rules:** moved to [S-2 Buttons](#type-s-2) (2026-09-28 reorganisation, D63 Q-8).
 - **Pages:** `--terra`: 19 pages. `--gw`: 21 pages. `--gd`: 5 — `/`, `/eyal-amit/`, `/learning/`, `/learning/workshops/`, `/method/`. `--sand`: `/repair/` only (on the photo-band, not a CTA).
 - **Variants:** each variant is uniform; which one a row uses is an input, except where a part hardcodes it (photo-band, hero, studio, start).
 - **Exceptions:** the hardcoding above. `--sand` is live, but not inside a chocolate CTA as the 2026-09-23 canon claimed — that CTA variant does not exist on the site.
@@ -948,7 +852,30 @@ footer, [`section-footer.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co
 ---
 
 <a id="stage-a-review-list"></a>
-## Stage-A review list
+## Stage-A review list — SUPERSEDED (closed 2026-09-28)
+
+> **SUPERSEDED — every item on this list has been ruled in canon stage A (D17–D62) or is replaced by the
+> [Types](#types) section.** The list was the input to stage A; it is kept below unchanged as history. Do not
+> work from it. Where an item's answer is "not re-ruled", the old record is carried into the current type
+> as it stood, and says so there.
+
+**How each item closed:**
+
+- **A · Page hero (#1)** — heights: D5, D15, D17 (exactly three, 92/66/44svh, every page aligns to one); the video heroes merged: D13, D18; `/contact/` at 44%: D61. → [T-01](#type-t-01). The `/en/` mirroring is the LTR page direction, not a design variant; no D-row addresses it.
+- **A · CTA band (#8)** — content shape: full form only (D11 closed rule; T-08 rule «always heading + text + button»); layout: D6, D19, D23, D24, D31; the `/books/` outline button is operational, pending Eyal (D10). → [T-08](#type-t-08), [S-2](#type-s-2).
+- **A · Prose row (#4)** — backgrounds: D33–D35 (five tones, a shared variant with per-tone text sets); the fold: D42, D56, D58 (O-1 approved, a variant); layout: D29, D32. → [T-04](#type-t-04).
+- **A · Split (#6)** — crop: D30, D36 (image shape is a variant; fill/fit a shared variant, the old `cover`); zoom: D41 A-6 (click-to-zoom is the default for every non-background image). → [T-06](#type-t-06), [Grid rules](#grid-rules) §4–5.
+- **A · Floated figure (#7)** — D41 A-3: one size, two columns — approved in principle, implemented in the next stage (D62). → [T-04](#type-t-04), still partly approved.
+- **A · FAQ (#21)** — D49: columns 2–5 approved; the design (cards vs. list) is in the next round. → [T-21](#type-t-21), still partly approved.
+- **A · Gallery (#11)** — D56, D58, D62 (O-2, O-3): one shape per row; four portraits → K-4.2. → [T-11](#type-t-11).
+- **A · Video block (#26)** — D8, D63 Q-7 (only specific pages get a video, each its own); the pending box is the shared state (D41 A-5). → [T-26](#type-t-26), [S-1](#type-s-1). Q-5 (T-27 home) is still open (D63).
+- **B · Printed-code page bodies** — superseded by [P-1](#type-p-1): a page template, not a type (D40 A-9, «מאשר שכבה שנייה»), whose body follows the text paragraph, columns 2–5 (D62).
+- **B · Printed-code hero rule (logo hero)** — not re-ruled in stage A; carried into [P-1](#type-p-1) as the old record states it.
+- **B · Blog "no featured image" hero** — not re-ruled in stage A; carried into [P-2](#type-p-2) as the old record states it.
+- **B · Blog — New post (#37)** — D3 (shown with dummy content, «כרגע לא בשימוש»), D62 (approved): the variant «new» of [P-2](#type-p-2).
+
+**The original list follows unchanged, as history.**
+
 
 **team_00's ruling (2026-09-26): this canon is the input to a reset round, not only a
 description of what exists.** Stage A is him reviewing the canon and adding precisions; stage B
@@ -988,6 +915,9 @@ detail a stage-B session needs to act once he has ruled:
 <a id="where-this-supersedes-the-2026-09-23-canon"></a>
 ## Where this supersedes the 2026-09-23 canon
 
+> Type numbers in this section are the old 37 (see the [appendix](#appendix-historical-37)); their current
+> homes are listed in the [Grid rules audit](#grid-rules).
+
 Per the map, and confirmed here: where the earlier
 [`S007-PATTERN-CANON-2026-09-23.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007-PATTERN-CANON-2026-09-23.md)
 disagrees with the measured map, **the map wins, and this file carries that resolution forward**
@@ -1018,3 +948,601 @@ so nobody reconciles the two documents later by guessing:
 until each is re-approved in stage A. Pairing rule, restated: this file and the
 [canon map](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/canon-map/ea-canon-map.html)
 are edited together. A change to one without the other is a defect.**
+
+---
+
+<a id="appendix-historical-37"></a>
+## Appendix — Historical — the 37 row types before the merge (2026-09-27)
+
+> **HISTORY, NOT CURRENT.** These are the 37 row types as documented on 2026-09-26 (theme 1.5.138), before
+> team_00 merged them into the 18 current types (D40, D49; approved D63). Kept for the implementation record:
+> renderers, classes, inputs, measurements and pages of today's site. Where an entry says "type N" it means
+> the old number. Every approved block that stood here has moved to its current type in [Types](#types);
+> each entry names its current home. Do not build from this appendix without reading the current type first.
+
+### Index of the 37 old types
+
+1. [Page hero — `phero`](#1-page-hero--phero)
+2. [Home video hero — `hero`](#2-home-video-hero--hero)
+3. [Mokesh video hero — `mokesh-hero`](#3-mokesh-video-hero--mokesh-hero)
+4. [Prose row — `sec` + `intro-body`](#4-prose-row--sec--intro-body)
+5. [Prose fold — `prose-fold`](#5-prose-fold--prose-fold)
+6. [Split — `split2`](#6-split--split2)
+7. [Floated figure — `pfloat`](#7-floated-figure--pfloat)
+8. [CTA band — `cta-band`](#8-cta-band--cta-band)
+9. [Point cards — `point-cards`](#9-point-cards--point-cards)
+10. [Photo band — `photo-band`](#10-photo-band--photo-band)
+11. [Gallery — `gallery`](#11-gallery--gallery)
+12. [Bleed quote — `bleed`](#12-bleed-quote--bleed)
+13. [Whom cards — `whom`](#13-whom-cards--whom)
+14. [Compare pair — `cmp`](#14-compare-pair--cmp)
+15. [How to start — `start`](#15-how-to-start--start)
+16. [Portrait collage — `collage` inside `about`](#16-portrait-collage--collage-inside-about)
+17. [Studio split — `studio`](#17-studio-split--studio)
+18. [Testimonial marquee — `testi-mq`](#18-testimonial-marquee--testi-mq)
+19. [Testimonial grid — `testi-grid`](#19-testimonial-grid--testi-grid)
+20. [Testimonial cards — `ea-testi-cards`](#20-testimonial-cards--ea-testi-cards)
+21. [FAQ (three renderers, one family)](#21-faq)
+22. [Definition accordion — `dd`](#22-definition-accordion--dd)
+23. [Table of contents — `ea-toc`](#23-table-of-contents--ea-toc)
+24. [Book / product cards — `bookcards`](#24-book--product-cards--bookcards)
+25. [Spotlight row — `ea-now`](#25-spotlight-row--ea-now)
+26. [Video block — `videoblk`](#26-video-block--videoblk)
+27. [Video placeholder — `videoblk` + pending box](#27-video-placeholder--videoblk--pending-box)
+28. [Facebook embeds — `fbgrid`](#28-facebook-embeds--fbgrid)
+29. [Timeline — `tl`](#29-timeline--tl)
+30. [Photo slot — `ea-photo-slot`](#30-photo-slot--ea-photo-slot)
+31. [Contact rows](#31-contact-rows)
+32. [Press list — `ea-press`](#32-press-list--ea-press)
+33. [QR article shell](#33-qr-article-shell)
+34. [Blog — Archive post (existing, `ea-post-content`)](#34-blog--archive-post-existing-ea-post-content)
+35. [Blog card — `ea-blog-card`](#35-blog-card--ea-blog-card)
+36. [Mokesh video embed — plain iframe](#36-mokesh-video-embed--plain-iframe)
+37. [Blog — New post (block template, approved, not built)](#37-blog--new-post-block-template-approved-not-built)
+
+<a id="1-page-hero--phero"></a>
+### 1. Page hero — `phero`
+
+> **Historical.** Now part of [T-01 Hero](#type-t-01).
+
+- **Renderer:** [`template-parts/chapters/parts/phero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/phero.php) lines 18–56.
+  **CSS:** [`assets/css/chapters.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/chapters.css) lines 416–460 (base), 526–545 (`--media`), 528–529 (`--half`), 1524–1529 (`--compact`).
+- **Classes:** `.phero` (base, text hero), `.phero--media` (photo hero, added when `media` is non-empty), `.phero--compact` (78vh, via `mod`), `.phero--half` (44vh, via `mod`), `.phero__in`, `.phero__h`, `.phero__s`, `.phero__lede`, `.phero__cta`, `.phero__sc` (scrim), `.phero__media-cue`, `.arcs` (ring motif).
+- **Inputs (exact, from the renderer's `$args`):** `chap` (eyebrow string), `title` (H1, limited HTML via `ea_chapters_kses_e`), `sub` (subhead, limited HTML), `lede` (optional multi-paragraph HTML body under the sub, via `wp_kses_post` — **not** the same escaping as `sub`, so it is the only field here that keeps `<p>` breaks), `media` (image URL — empty means text hero, non-empty adds `phero--media`), `media_alt`, `literal_alt` (bool — keep an empty alt empty instead of auto-filling it), `cta_label`, `cta_url`, `cta_slug` (optional — marks the button as an external, GA4-tracked purchase link: `target=_blank rel=noopener` + `data-ea-book-purchase` + `data-ea-book-slug` + an "(opens in a new tab)" aria-label suffix; do not pass for internal links), `dark` (bool), `mod` (free class string, sanitized per token — this is how `phero--compact` and `phero--half` are actually applied).
+- **Layout rules, measured.** Photo hero: flex, content bottom-anchored, `min-height: 88vh` (measured 792px at a 900px-tall viewport). Full viewport width. Title `text-align: start` (physical right in RTL), title box ~787px wide. Scrim (`.phero__sc`) is the same bottom-weighted gradient family as the home hero. Compact (`--compact` + `--media`): 702px = 78vh; arc motif and bottom cue are `display:none`. Half (`--half` + `--media`): 396px = 44vh. Text hero (no `media`): does not use a viewport fraction at all — `min-height: 0`, `display: block`; measured 363px on `/qr/qr1/`. Button, when present, is always `btn btn--gw` (outline), never the filled terracotta.
+- **Pages:** 133 of 136. Absent on `/` (video hero instead), `/press/`, `/historical-articles/`. `phero--media` (88vh): 74 pages. `phero--compact`: `/repair/` only. `phero--half`: `/contact/` only. Text hero (no photo): `/bags/`, `/didgeridoos/`, `/galleries/`, `/learning/courses-external/`, `/shop/`, `/snoring-sleep-apnea/`, `/stand-floor/`, `/stands-storage/`, `/thank-you/`, all 48 `/qr/qrN/` pages, and one blog post with no featured image (see the archive blog type).
+- **Variants:** `--media` vs. text hero is structural (same file, driven by whether `media` is set), not a silent override. `--compact` and `--half` are declared `mod` values. `/en/` is LTR: same hero, `dir="ltr"` and inline `direction:ltr;text-align:left` set on `<main>` by `tpl-chapters-en.php`, so title/eyebrow measure `text-align: left`.
+- **Exceptions:** No `page-id-` CSS rule anywhere. `/learning/courses-external/` renders a hero with title «קורסים» and sub «יעלה בקרוב» and an empty `sections` array — a deliberate parking page, not a broken hero. **This type is not uniform** (flagged in the [stage-A review list](#stage-a-review-list) — the compact and half variants read very differently on screen from the standard photo hero).
+- **Orphan?** No. The unrelated Wave 2 file `block-hero.php` is a true orphan (see [Orphans](#orphans)).
+- **Approved rules:** moved to [T-01 Hero](#type-t-01) (2026-09-28 reorganisation, D63 Q-8).
+
+<a id="2-home-video-hero--hero"></a>
+### 2. Home video hero — `hero`
+
+> **Historical.** Now part of [T-01 Hero](#type-t-01).
+
+> **RETIRED 2026-09-27 — merged into type 1** (one hero; media is a field). Kept below as the record of what the home page renders today.
+
+- **Renderer:** [`template-parts/chapters/section-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-hero.php), whole file (48 lines). **CSS:** `chapters.css` lines 173–195. Not an `$args` part — reads Chapters fields directly.
+- **Classes:** `.hero`, `.hero__media` (video or poster `<img>`), `.hero__sound` (mute/unmute toggle, only rendered when a real `<video>` exists), `.hero__scrim`, `.hero__c`, `.hero__trust`, `.hero__h`, `.hero__s`, `.hero__cues`. The map's name `hero--video` is not a live class — the class is plain `hero`.
+- **Inputs (exact field keys, read from the renderer):** `hero_video` (resolved via `ea_chapters_asset_url`), `hero_poster` (via `ea_chapters_img`), `hero_trust` (the trust line, allows `<br>`), `hero_cta_label`, `hero_cta_url`, `hero_title` (the page's single H1), `hero_subtitle`. No video source falls back to the poster `<img>`.
+- **Layout rules, measured.** 1440×900: fills viewport, `min-height: max(620px, 100vh)`, flex, centered, `text-align: center`. H1 box 716×99, centered. At 390×844: fills viewport, H1 box 310×145. Scrim `.hero__scrim` matches `.phero__sc`'s gradient family. Video `object-fit: cover`.
+- **Pages:** `/` only.
+- **Variants:** None — one page.
+- **Exceptions:** None beyond being home-only. Not `phero--compact`, not `phero--media` — a separate file and class family.
+- **Orphan?** No.
+
+<a id="3-mokesh-video-hero--mokesh-hero"></a>
+### 3. Mokesh video hero — `mokesh-hero`
+
+> **Historical.** Now part of [T-01 Hero](#type-t-01).
+
+> **RETIRED 2026-09-27 — merged into type 1.** Kept below as the record of what the memorial page renders today.
+
+- **Renderer:** [`template-parts/chapters/parts/mokesh-hero.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-hero.php) (the file's own docblock says it is page-specific, not reusable). Emits `phero phero--media mokesh-hero`. **CSS:** inherits `.phero.phero--media` from `chapters.css`; no separate rule block of its own found.
+- **Classes:** `.phero.phero--media.mokesh-hero`, plus `.mokesh-hero__yt` for the YouTube background layer.
+- **Inputs:** `chap`, `title`, `sub`, `media` (poster / no-JS fallback image), `media_alt`, `yt_id`.
+- **Layout rules, measured.** On `/eyal-amit/mokesh-dahiman/`: 1440×792 (the ordinary 88vh media hero box), scrim present, title `text-align: start`. The YouTube layer sits on top as extra markup; its own play/pause geometry was not measured separately.
+- **Pages:** `/eyal-amit/mokesh-dahiman/` only.
+- **Variants:** None — one page, by design (a declared bespoke, not a silent override of `phero.php`).
+- **Exceptions:** None beyond the above.
+- **Orphan?** No.
+
+<a id="4-prose-row--sec--intro-body"></a>
+### 4. Prose row — `sec` + `intro-body`
+
+> **Historical.** Now part of [T-04 Text paragraph](#type-t-04).
+
+- **Renderer:** [`template-parts/chapters/parts/prose.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/prose.php) lines 14–76. **CSS:** `.intro-body` at `chapters.css` line 603.
+- **Classes:** `.sec` (base), `.sec--alt` (adds `alt`), `.sec--dark` (adds `dark`; `dark` wins over `alt` if both are passed), `.intro-body`, `.center` (on `.wrap`, when `center` is true), `.chap`/`.chap--c`, `.h2`, `.pfloat`/`.pfloat--s`/`.pfloat--e` (see the float type), `.prose-fold`, `.prose-acc`/`.prose-acc--fold` (see the fold type).
+- **Inputs (exact):** `chap`, `title`, `body` (HTML via `wp_kses_post`), `center` (bool), `alt` (bool), `dark` (bool — takes priority over `alt`), `id`, `float_image`, `float_alt`, `float_zoom` (bool — wraps the float in a zoom button), `float_side` (`s` inline-start default, or `e` inline-end — **`e` has zero live uses**), `float_mod` (free class; the only live value is `pfloat--standing`), `literal_alt`, `collapsible` (bool), `toggle_label` (default «לחצו לקריאה», or «להמשך קריאה» when paired with `preview_lines`), `preview_lines` (int — see the fold type).
+- **Layout rules, measured.** Reading column `max-width: 82ch`, `margin-inline: auto`. Measured 775–776px at 1440 when not inside a split. `text-align: start` (physical right), not centered as a block. Heading is `.h2` with an inline `margin-bottom: 18px` from the PHP itself (present on every use, not a per-page override). `center` adds `margin-inline: auto` on the column. `dark`/`alt` are background modifiers on the `<section>` only — they do not change the column shape.
+- **Pages:** the column itself (`.intro-body`) also appears inside split, point-cards and the QR shell, so a raw class count over-reports this part specifically. Confirmed renders of this exact part: home (3 columns) and 24 designed inner pages — `/accessibility/`, `/bags/`, `/books/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/didgeridoos/`, `/en/`, `/eyal-amit/`, `/eyal-amit/mokesh-dahiman/`, `/learning/`, `/learning/lectures/`, `/learning/therapist-training/`, `/learning/workshops/`, `/lessons/`, `/method/`, `/privacy/`, `/repair/`, `/snoring-sleep-apnea/`, `/sound-healing/`, `/stand-floor/`, `/stands-storage/`, `/terms/`, `/treatment/`. No prose column at all: `/blog/`, `/contact/`, `/faq/`, `/galleries/`, `/historical-articles/`, `/learning/courses-external/`, `/press/`, `/shop/`, `/testimonials/`.
+- **Variants:** `sec--alt`, `sec--dark` (live on `/` and `/lessons/` — `/contact/`'s dark band is the separate contact part, not this one), `center`, the fold (type 5), the float (type 7). `/en/` measures `text-align: left` (whole page is LTR).
+- **Exceptions:** No `page-id-` rule. The inline `margin-bottom: 18px` on the H2, and `margin-inline: auto` when centered, are in the part's own PHP, so they apply on every use, not per page. **This type is on the [stage-A review list](#stage-a-review-list)** — the map counts it as not uniform because of the background/fold variance below.
+- **Orphan?** No. `parts/lead.php` (a separate, unused, centered statement type) is an orphan (see [Orphans](#orphans)).
+- **Approved rules:** moved to [T-04 Text paragraph](#type-t-04) (2026-09-28 reorganisation, D63 Q-8).
+
+<a id="5-prose-fold--prose-fold"></a>
+### 5. Prose fold — `prose-fold`
+
+> **Historical.** Now part of [T-04 Text paragraph](#type-t-04).
+
+- **Renderer:** same `prose.php`, lines 38–44, active when `collapsible` and `preview_lines` are both set. **CSS:** `chapters.css` lines 705–706.
+- **Classes:** `.prose-fold` (peek wrapper, `--fold-lines` custom property), `.prose-fold__peek.intro-body`, `.prose-acc.prose-acc--fold` (a `<details>`), `.prose-acc__t` (the `<summary>`).
+- **Inputs:** `collapsible` (bool), `preview_lines` (int — sets `--fold-lines`, default clamp is 4 lines in CSS if unset elsewhere), `toggle_label` (default «להמשך קריאה» in this branch).
+- **Layout rules.** The peek is a CSS line-clamp to `--fold-lines` lines. Opening the `<details>` hides the peek via `:has(.prose-acc[open])`. Viewport line-count itself was not measured.
+- **Pages:** the three book pages only — `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`.
+- **Variants:** none beyond `preview_lines`.
+- **Exceptions:** none.
+- **Orphan?** No.
+
+<a id="6-split--split2"></a>
+### 6. Split — `split2`
+
+> **Historical.** Now part of [T-06 Text and image](#type-t-06).
+
+- **Renderer:** [`template-parts/chapters/parts/split.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/split.php) lines 16–21 and full file. **CSS:** `chapters.css` lines 482–487. The Mokesh portrait reuses this grid via `mokesh-portrait.php`, which adds a figcaption the generic part cannot.
+- **Classes:** `.split2`, `.split2--rev` (reversed order), `.split2--cover` (image fills the column, no crop, no `figr` class at all), `.figr` + `.figr--l` (5/4, default) / `.figr--p` (4/5, portrait) / `.figr--w` (16/10 — **zero live uses**), `.intro-body`, `.zoom`/`.zoom__hint` (opens the image full-size; only rendered when `zoom` is true).
+- **Inputs (exact):** `chap`, `title`, `body` (HTML), `image`, `alt`, `literal_alt`, `figr` (`l`|`p`|`w`, default `l` — ignored when `cover` is true), `reversed` (bool), `soft` (bool — adds `sec--alt` to the section; unrelated to the image's own `alt`), `cover` (bool), `zoom` (bool), `id`. Note: the historic `pairs_with_cards` flag was removed 2026-09-20 (team_00 rejected it on screenshots) — do not reintroduce it.
+- **Layout rules, measured.** Two equal columns at 1440: `/method/` 516px + 516px; `/repair/` 524px + 524px (cover). `object-fit: cover` on the image. At 390, `/repair/` collapsed to one 294px column. `reversed` changes order only. `cover` drops the aspect-ratio crop entirely. `zoom` is live only on `/snoring-sleep-apnea/` (2 controls) — the map's name `split--doc` is this `zoom` flag, not a separate class.
+- **Pages:** 8 — `/eyal-amit/` (2, one reversed), `/eyal-amit/mokesh-dahiman/` (6, two reversed — via the portrait part), `/lessons/` (1), `/method/` (1), `/repair/` (2, both `--cover`, one reversed), `/snoring-sleep-apnea/` (1, with zoom), `/sound-healing/` (1), `/treatment/` (1). `--cover`: `/repair/` only. `figr--p`: `/eyal-amit/` and Mokesh. `figr--l`: the other seven. `figr--w`: zero.
+- **Variants:** cover, reversed, `figr` crop, and zoom are all declared inputs, not silent overrides. Mokesh's figcaption is bespoke to that one page.
+- **Exceptions:** The H2 carries the same inline `margin-bottom: 18px` as prose. **This type is on the [stage-A review list](#stage-a-review-list)** — crop shape and zoom availability vary visibly by page.
+- **Orphan?** `figr--w` is an unused input value; the part itself is live.
+
+- **Approved rules:** moved to [T-06 Text and image](#type-t-06) (2026-09-28 reorganisation, D63 Q-8).
+
+<a id="7-floated-figure--pfloat"></a>
+### 7. Floated figure — `pfloat`
+
+> **Historical.** Now part of [T-04 Text paragraph](#type-t-04).
+
+- **Renderer:** inside `prose.php` (the `float_*` inputs) — not its own file. **CSS:** `chapters.css` lines 1508–1514 and 1531–1532 (`--standing`).
+- **Classes:** `.pfloat`, `.pfloat--s` (inline-start, i.e. floats to the physical right in RTL — the live default), `.pfloat--e` (inline-end — **zero live uses**), `.pfloat--standing` (larger size, via `float_mod`).
+- **Inputs:** `float_image`, `float_alt`, `float_zoom` (bool), `float_side` (`s` default, `e` unused), `float_mod` (free class — only live value is `pfloat--standing`).
+- **Layout rules, measured.** Default float: `max-width: clamp(180px, 30%, 260px)`, `float: inline-start`. On `/snoring-sleep-apnea/`: measured 146×26 — a small image, not a portrait. Standing (`/repair/`): 295px at 1440 (CSS cap `min(320px, 38%)`), 12px image radius; at 390 it becomes 294px, `float: none` (the CSS drops the float under the mobile breakpoint entirely).
+- **Pages:** `pfloat` (either size): `/repair/` and `/snoring-sleep-apnea/` only. `pfloat--standing`: `/repair/` only.
+- **Variants:** the two live sizes (default cap vs. standing) are declared, not silent — `/repair/` uses standing on purpose, `/snoring-sleep-apnea/` keeps the older small float on purpose (matches the 2026-09-23 canon's own instruction on this one point).
+- **Exceptions:** none beyond the modifier itself. **This type is on the [stage-A review list](#stage-a-review-list)** — the two floats read as different sizes of prominence.
+- **Orphan?** the `e` side is an unused input value.
+
+<a id="8-cta-band--cta-band"></a>
+### 8. CTA band — `cta-band`
+
+> **Historical.** Now part of [T-08 CTA band](#type-t-08).
+
+- **Renderer:** [`template-parts/chapters/parts/cta.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/cta.php), full file (48 lines). **CSS:** `chapters.css` lines 845–898 (the three-column rule), 1539–1555 (`--sand`, and the unused `--stack`).
+- **Classes:** `.cta-band`, `.cta-band--row` (the only live layout — every band is this), `.cta-band--stack` (declared, **zero live uses**), `.cta-band--choc` (declared, **zero live uses, marked retired in the CSS comment at line 1541**), `.cta-band--sand`, `.cta-band__in`, `.cta-band__logo.cta-band__logo--side` (see the logo element), `.cta-band__txt`, `.cta-band__h`, `.cta-band__p`, `.cta-band__act`, `.cta-band__act-group` (added when a second button is present), `.ea-pending-inline` (the `temp_note` line).
+- **Inputs (exact):** `title`, `body`, `cta_label`, `cta_url`, `cta2_label`, `cta2_url` (a second button, always rendered with class `btn--gw` — **zero live uses**), `cta_slug` (external purchase link, same convention as `phero.php`), `id`, `stack` (bool — column layout, drops the logo — **zero live uses**), `choc` (bool — **zero live uses, retired**), `sand` (bool — sand-fill, ink text), `btn` (button class override, default `btn--terra`), `temp_note` (a pending-approval line under the band, live only on `/books/`).
+- **Layout rules, measured (1.5.138, current/stable).** Three equal thirds. Grid is `direction: ltr` so track 1 is the physical left, track 2 the middle, track 3 the physical right; the text itself inside track 2 is `direction: rtl; text-align: right`. Right third: logo mark only (`aria-hidden`, decorative). Middle third: text. Left third: button, `justify-content: center`. At 1440, every measured band (home, `/method/`, `/testimonials/`, `/bags/`, `/repair/`, `/learning/`, `/books/`, `/books/kushi-blantis/`, all three on `/snoring-sleep-apnea/`) used identical tracks: 357px + 357px + 357px inside a 1120px row. Logo at x≈923, text at x≈541, button at x≈160. At 390 the same bands collapse to one column: logo 140px centered, then text full-width, then the centered button. That collapse is the stylesheet's own rule below 880px, not a per-page override. `--sand` replaces the dark wash with the sand ground and ink text; it does not touch the grid.
+- **Pages:** 29 bands on 19 pages, every one `cta-band--row`. Content shape (data, not CSS): 8 bands have heading+body+button; 2 are body-only (home, `/lessons/`); 2 are heading-only (one each on the Kushi and Tsva book pages); the remaining 17 are button-only with an empty middle third. 13 pages add `--sand`. `/books/` uses `btn--gw` (outline) instead of the terracotta default. `cta2_label` (second button): zero pages. `temp_note`: `/books/` only.
+- **Variants:** the grid is uniform across every band, including `/testimonials/` (page id 73), which used to be carved out (see Exceptions). Sand vs. dark and terra vs. `btn--gw` are declared inputs. A button-only band is still this type, not a degraded one.
+- **Exceptions:** at the start of the map's read, `chapters.css` still had `body.page-id-73 .cta-band--row … { padding-inline-start: 0 }`. **That rule is absent from deployed 1.5.138.** Measured, `/testimonials/` now uses the same 357px tracks as every other page — do not carry the page-73 exception forward from an older document. No other `page-id-` rule exists anywhere in the theme CSS for this type. The home band's `sand` flag is hardcoded in `tpl-chapters-home.php` (home's CTA is not called through the general defaults path). `btn--sand` is not a CTA button at all — it belongs to the photo-band type and is hardcoded there. **This type is on the [stage-A review list](#stage-a-review-list)** — the content-shape variance (empty middle third vs. full heading+body) is visible.
+- **Orphan?** The part itself is live. `--stack` and `--choc` are orphan modifiers (see [Orphans](#orphans)).
+- **Approved rules:** moved to [T-08 CTA band](#type-t-08) (2026-09-28 reorganisation, D63 Q-8).
+
+<a id="9-point-cards--point-cards"></a>
+### 9. Point cards — `point-cards`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/parts/point-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/point-cards.php), full file. **CSS:** `chapters.css` lines 1555–1560.
+- **Classes:** `.point-cards`, `.point-cards__lead` (`.intro-body` also applied), `.point-cards__grid`, `.point-cards__card`, `.point-cards__after` (`.intro-body` also applied). Section is always `.sec.sec--alt`.
+- **Inputs (exact):** `chap`, `title`, `id`, `lead` (HTML, optional intro above the grid), `after` (HTML, optional closing note below the grid), `items[{title, text}]` (a card with both empty is skipped entirely, not rendered blank).
+- **Layout rules, measured.** White cards, two columns, always — even at 390. `/repair/` at 1440: 544px + 544px. At 390: still two columns, 139px + 139px (matches the two grids seen on that page).
+- **Pages:** `/repair/` only (two separate grids on that one page).
+- **Variants:** none — one page.
+- **Exceptions:** the H2 has the same inline `margin-bottom: 18px` convention. No `page-id-` rule.
+- **Orphan?** No. Not the same thing as the home "whom" cards (type 13).
+
+<a id="10-photo-band--photo-band"></a>
+### 10. Photo band — `photo-band`
+
+> **Historical.** Now part of [T-10 Full-width photo band](#type-t-10).
+
+- **Renderer:** [`template-parts/chapters/parts/photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-band.php), full file. **CSS:** `chapters.css` lines 1569–1586.
+- **Classes:** `.photo-band`, `.photo-band__media`, `.photo-band__sc` (scrim), `.photo-band__in`, `.h2` for the title, `.btn.btn--sand` (the button — hardcoded class, not an input).
+- **Inputs (exact):** `title`, `body` (HTML), `image`, `alt`, `literal_alt`, `cta_label`, `cta_url`, `id`. The button's class is **not** exposed as an input — the PHP always writes `btn btn--sand`.
+- **Layout rules, measured.** Full-bleed photo, scrim, text block. At 1440: `.photo-band__in` measured 640×384, `text-align: start`, positioned with `margin-inline-end: 8vw` and `width: min(640px, 100%)` (the 8vw offset itself was not re-measured as an x-coordinate). At 390: text block 390×408, scrim switches to a top-to-bottom gradient.
+- **Pages:** `/repair/` only.
+- **Variants:** none — one page.
+- **Exceptions:** the sand button is hardcoded, so this row cannot take a different button color. Home's "how to start" band (type 15) is a visually similar but structurally different type — do not conflate them.
+- **Orphan?** No.
+
+<a id="11-gallery--gallery"></a>
+### 11. Gallery — `gallery`
+
+> **Historical.** Now part of [T-11 Image grid](#type-t-11).
+
+- **Renderer:** [`template-parts/chapters/parts/gallery.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/gallery.php), full file. **CSS:** `chapters.css` lines 1177–1194 (base), 1186–1189 (`--doc`), 1575–1590 (`--portraits`). Home's peek section ([`section-home-09-peek.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-09-peek.php)) emits the same `.gallery`/`.gfig` classes without going through this file — it is the same type, not a second one.
+- **Classes:** `.gallery`, `.gallery--doc` (**zero live uses**), `.gallery--portraits`, `.gfig`, `.gfig--pending` (empty pending slot), `.gfig--pending-img` (pending badge over an existing image), `.gfig__cap`, `.ea-pending-approval`/`.ea-pending-approval__badge`/`__title`/`__note` (see the pending-badge element).
+- **Inputs (exact):** `chap`, `title`, `lead`, `alt` (bool, section background — default **true**), `id`, `doc` (bool — **zero live uses**), `portraits` (bool), `items[{image, alt, cap, pending, pending_label}]`, `literal_alt`. An item with `pending: true` and no image renders the glowing "ממתין לאישור" slot instead of being skipped.
+- **Layout rules, measured.** Default: three columns, image `aspect-ratio: 4/3`, `object-fit: cover`. Home, Mokesh, and the Kushi book at 1440: 357px × 3. `--portraits` (`/repair/`): four columns of 267px at 1440, aspect `3/4`; at 390, two columns of 141px. Caption (`.gfig__cap`) overlays the bottom of the figure.
+- **Pages:** 11 — `/` (via the peek section, same classes), `/bags/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/eyal-amit/`, `/eyal-amit/mokesh-dahiman/`, `/galleries/` (149 figures), `/repair/` (`--portraits`), `/stands-storage/`, `/testimonials/`. `--doc`: zero pages. `--portraits`: `/repair/` only.
+- **Variants:** the 4:3 three-column grid is the default everywhere except the one declared `--portraits` page. `--doc` is an unused input.
+- **Exceptions:** none per page. Pending slots are an item-level flag, not a page-level one. **This type is on the [stage-A review list](#stage-a-review-list)** — the portrait grid on `/repair/` looks visibly different (narrower, taller, four not three).
+- **Orphan?** `--doc` is an unused modifier; the part itself is live.
+
+<a id="12-bleed-quote--bleed"></a>
+### 12. Bleed quote — `bleed`
+
+> **Historical.** Now part of [T-10 Full-width photo band](#type-t-10).
+
+- **Renderer:** [`template-parts/chapters/parts/bleed.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bleed.php), full file. Home's version is a separate file, [`section-photo-band.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-photo-band.php), which emits the identical `.bleed` markup and is the same type, not a second one (its filename is misleading — it is not the `photo-band` type). **CSS:** `chapters.css` lines 291–306.
+- **Classes:** `.bleed`, `.bleed__sc`, `.bleed__c`, `.bleed__in`, `.bleed__q`, `.bleed__a`.
+- **Inputs (part):** `image`, `alt`, `quote`, `attrib`. Home's own section instead reads Chapters fields `band_image`, `band_alt`, `band_quote`, `band_attrib` directly (no `$args`).
+- **Layout rules, measured.** Full-bleed photo, `height: clamp(340px, 46vw, 560px)`, `object-fit: cover`, scrim (same gradient family as the heroes). Quote `.bleed__q`: display size, white, `max-width: 20ch`, `text-align: start`. On `/`: 340×48. On Mokesh (longer quote, same rule): 383×95. Attribution is a small uppercase line beneath.
+- **Pages:** 4 — `/`, `/bags/`, `/eyal-amit/mokesh-dahiman/`, `/treatment/`.
+- **Variants:** none beyond quote length changing box height, which is the rule doing its job, not an override.
+- **Exceptions:** none.
+- **Orphan?** No.
+
+<a id="13-whom-cards--whom"></a>
+### 13. Whom cards — `whom`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/section-02-for-whom.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-02-for-whom.php), full file. **CSS:** `chapters.css` line 237. The map's name `whom-cards` is not the live class — it is `.whom`.
+- **Classes:** `.sec.sec--alt`, `.whom`, `.whom__i` (item), `.whom__m` (media slot), `.ph` (placeholder text when an item has no image), `.whom__p` (caption line).
+- **Inputs (exact field keys):** `whom_chap`, `whom_title`, `whom_lead`, and repeater `whom_items[{image, alt, text}]`.
+- **Layout rules, measured.** Four equal columns at 1440: 258px × 4, centered section heading. At 390: one column, 294px. Each item: a photo over a short line.
+- **Pages:** `/` only.
+- **Variants:** none — one page. Not `point-cards` (type 9) and not `reveals.php` (an orphan, see [Orphans](#orphans)).
+- **Exceptions:** none.
+- **Orphan?** No.
+
+<a id="14-compare-pair--cmp"></a>
+### 14. Compare pair — `cmp`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/section-06-compare.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-06-compare.php), full file. **CSS:** `chapters.css` line 279. The map's name `cmp-pair` is not the live class — it is `.cmp`.
+- **Classes:** `.cmp`, `.cmpc` (card), `.cmpc__m` (media), `.cmpc__sc` (scrim), `.cmpc__b` (body), `.cmpc__t` (title).
+- **Inputs (exact field keys):** `cmp_chap`, `cmp_title`, `cmp_lead`, and two fixed cards — `cmp_a_image`, `cmp_a_alt`, `cmp_a_title`, `cmp_a_text`, `cmp_a_cta`, `cmp_a_url`; the same six keys again prefixed `cmp_b_`. Not a repeater — exactly two cards, hardcoded in the renderer.
+- **Layout rules, measured.** Two equal columns at 1440: 540px + 540px. At 390: one column. Centered heading.
+- **Pages:** `/` only.
+- **Variants:** none — one page.
+- **Exceptions:** none. The unrelated Wave 2 `block-service-comparison.php` is a separate, unused file (see [Orphans](#orphans)).
+- **Orphan?** No.
+
+<a id="15-how-to-start--start"></a>
+### 15. How to start — `start`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/section-07-how-to-start.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-07-how-to-start.php), full file. **CSS:** `chapters.css` lines 309–315 (band), 316 (`.steps3`).
+- **Classes:** `.start`, `.start__bg`, `.start__sc`, `.start__in`, `.start__h`, `.steps3`, `.st3`/`.st3__ic`/`.st3__t`/`.st3__p`.
+- **Inputs (exact field keys):** `start_bg` (background image), `start_steps` (repeater rows, `{title, text}` each — icon is chosen by index from three fixed SVGs baked into the template, not an input), `start_chap`, `start_title`, `start_cta_label`, `start_cta_url`.
+- **Layout rules, measured.** Dark image band, centered text (`.start__in`, 1100px wide at 1440). Three step columns at 1440: 302px × 3. At 390: one column. Button is hardcoded `btn btn--terra`, centered, with an inline `margin-top: 48px` wrapper — not `photo-band`'s sand button.
+- **Pages:** `/` only.
+- **Variants:** none — one page.
+- **Exceptions:** the inline margin on the button wrapper, in the template on every use (only home, so moot in practice).
+- **Orphan?** No. `parts/steps.php` (class `show`/`shstep`) is a separate, unused file (see [Orphans](#orphans)).
+
+<a id="16-portrait-collage--collage-inside-about"></a>
+### 16. Portrait collage — `collage` inside `about`
+
+> **Historical.** Now part of [T-06 Text and image](#type-t-06).
+
+- **Renderer:** [`template-parts/chapters/section-01-about.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-01-about.php), full file. **CSS:** `chapters.css` lines 219–223 (`.about`) plus the adjacent `.collage` rule. Map's name `portrait-trio`. A timeline used to live here and is explicitly not rendered (the file's own comment says so).
+- **Classes:** `.about`, `.about__col`, `.about__body`, `.collage`, `.collage__big`, `.collage__sm`.
+- **Inputs (exact field keys):** `about_chap`, `about_title`, `about_body` (HTML, passed through `ea_replace_retired_brand`), `about_img1`/`about_img1_alt`, `about_img2`/`about_img2_alt`, `about_img3`/`about_img3_alt`. Not a generic `$args` part — three fixed image slots, not a repeater.
+- **Layout rules.** Stylesheet: text column + collage in `grid-template-columns: 1fr 1.05fr`, one column under 900px. Collage itself: `1.5fr 1fr`, two rows (one large image, two small). Measured at 1440: collage box 535×391, tracks 312px + 208px. Bio text alignment was not isolated from the neighboring prose column on the same page.
+- **Pages:** `/` only.
+- **Variants:** none — one page.
+- **Exceptions:** the H2 has inline `margin-bottom: 22px` (not the usual 18px — a genuine off-scale annotation, not a defect, since it is declared in the part itself). Not the same thing as `gallery--portraits`.
+- **Orphan?** No.
+
+<a id="17-studio-split--studio"></a>
+### 17. Studio split — `studio`
+
+> **Historical.** Now part of [T-06 Text and image](#type-t-06).
+
+- **Renderer:** [`template-parts/chapters/section-04-studio.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-04-studio.php), full file. **CSS:** `chapters.css` lines 257–265.
+- **Classes:** `.sec` (with inline `style="padding:0"`), `.studio`, `.studio__t`, `.arcs`, `.chap`, `.studio__h`, `.studio__p`, `.btn.btn--gw` (hardcoded), `.studio__m`.
+- **Inputs (exact field keys):** `studio_image`, `studio_alt`, `studio_chap`, `studio_title`, `studio_body` (HTML, allows `<br>` via `ea_chapters_kses_e`), `studio_cta_label`, `studio_cta_url`. The button class (`btn--gw`) and its `align-self:flex-start` are hardcoded, not inputs.
+- **Layout rules.** Stylesheet only (not measured in this pass): grid `.9fr 1.1fr`, `min-height: 460px`, dark text column, image `object-fit: cover` on the other side, text `max-width: 42ch`. Collapse breakpoint not measured.
+- **Pages:** `/` only.
+- **Variants:** none — one page.
+- **Exceptions:** the two inline styles (section padding, button alignment) live in the template, so they apply wherever this file is used — only home today.
+- **Orphan?** No. Not the same as `split2`.
+
+<a id="18-testimonial-marquee--testi-mq"></a>
+### 18. Testimonial marquee — `testi-mq`
+
+> **Historical.** Now part of [T-18 Testimonials](#type-t-18).
+
+- **Renderer:** [`template-parts/chapters/parts/testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testimonials.php) and the home wrapper [`section-05-testimonials.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-05-testimonials.php). **CSS:** `chapters.css` lines 1055–1077.
+- **Classes:** `.testi-mq`, `.testi-mq__btn`, `.testi-mq__btn--left` (`order: 3`, so "next" lands on the correct physical side under RTL scroll math).
+- **Inputs (exact):** `chap`, `title`, `lead` (HTML), `cat`, `items[{text, name, href}]`, `layout` (chooses marquee vs. grid, type 19), `archive`. Home's wrapper reads `testi_items` first (its 15 approved rows), falling back to the Facebook corpus (`ea-testimonials-fb.json`, via `ea_fb_testimonials_all()`) only when `testi_items` is empty; also `testi_cta_label`/`testi_cta_url` for the link to `/testimonials/`.
+- **Layout rules.** A row of cards, previous/next buttons, no auto-scroll. Track is `direction: ltr` on purpose (keeps the scroll math from fighting RTL). Card width and gap were not measured.
+- **Pages:** 5 — `/`, `/lessons/`, `/method/`, `/sound-healing/`, `/treatment/`.
+- **Variants:** same markup on all five; whether a page's quotes are the shared 48-item corpus or its own `items` list is a content difference, not a layout one.
+- **Exceptions:** none in CSS. The map's name `ea-testi-cards` for the home testimonials is a misattribution — home is this marquee, not type 20.
+- **Orphan?** The Wave 2 carousel/row blocks are unused (see [Orphans](#orphans)); this marquee is the live implementation.
+
+<a id="19-testimonial-grid--testi-grid"></a>
+### 19. Testimonial grid — `testi-grid`
+
+> **Historical.** Now part of [T-18 Testimonials](#type-t-18).
+
+- **Renderer:** same `testimonials.php`, the grid branch, selected by the `layout` input. **CSS:** `chapters.css` line 1142.
+- **Classes:** `.testi-grid` (or equivalent grid class emitted by the same file's grid branch).
+- **Inputs:** same as the marquee; `/testimonials/` uses three separate `testimonials` part calls with the grid layout, rather than one call with three groups.
+- **Layout rules.** Stylesheet: three columns, `direction: rtl`, `text-align: right`, 24px gap. Column widths not measured in the viewport.
+- **Pages:** `/testimonials/` only (three grids on that one page).
+- **Variants:** one page, three repeats of the same grid.
+- **Exceptions:** none. The removed page-73 CTA exception (type 8) did not target this grid.
+- **Orphan?** No.
+
+<a id="20-testimonial-cards--ea-testi-cards"></a>
+### 20. Testimonial cards — `ea-testi-cards`
+
+> **Historical.** Now part of [T-18 Testimonials](#type-t-18).
+
+- **Renderer:** [`template-parts/chapters/parts/testi-cards.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/testi-cards.php), full file. **CSS:** `chapters.css` lines 1593–1600.
+- **Classes:** `.ea-testi-cards` (or the container class from this file), card items with an ivory ground and a terracotta inline-start border.
+- **Inputs (exact):** `quotes` (array of HTML strings — the part adds no heading, name, or label of its own), `id`, `alt`.
+- **Layout rules, measured.** Two columns at 1440. `/snoring-sleep-apnea/`: 542px + 542px. Breakpoint to one column under 880px was not measured.
+- **Pages:** `/snoring-sleep-apnea/` only.
+- **Variants:** none — one page.
+- **Exceptions:** none.
+- **Orphan?** No.
+
+<a id="21-faq"></a>
+### 21. FAQ
+
+> **Historical.** Now part of [T-21 Accordion](#type-t-21).
+
+Three renderers, one visual family — document all three together, they share CSS.
+
+- **Full bank.** Renderer [`template-parts/blocks/block-faq-list.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-list.php). Inputs via `$args`: `ea_faq_only_category`, `ea_faq_only_categories`, `ea_faq_view_chap`, `ea_faq_view_title`, `ea_faq_view_id`. With no filter, renders the whole `ea_faq` CPT with a category table-of-contents (`.ea-faq-toc`) and one group per category. **Pages:** `/faq/` only.
+- **View-only.** Renderers [`template-parts/chapters/parts/faq-inline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faq-inline.php) and [`faqblock.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/faqblock.php) (which delegates into the block). Inline's inputs: `chap`, `title`, `id`, `items[{q, a}]`, `cards` (bool, adds `--cards`), `open_first` (bool). `faqblock`'s inputs: `cat`/`cats`, `chap`, `title`, `id` — items come from the CPT, not from `items`. **Pages:** 14 — `/bags/`, `/books/kushi-blantis/`, `/books/tsva-bekahol/`, `/books/vekatavta/`, `/didgeridoos/`, `/learning/lectures/`, `/learning/workshops/`, `/lessons/`, `/method/`, `/repair/`, `/sound-healing/`, `/stand-floor/`, `/stands-storage/`, `/treatment/`.
+- **Mini.** Renderer [`template-parts/blocks/block-faq-mini.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-faq-mini.php), class `.ea-faq-mini-section`. Context `ea_faq_mini_ctx`: `heading`, `aria_label`, `items[{q, a}]`, `footer{label, href}`. Home passes six corpus questions plus a link to `/faq/`. **Pages:** `/` only. It contains an inner `.ea-faq-list`, so a naive class search double-counts home.
+- **Classes (shared family):** `.ea-faq-toc`, the question-row flex line (question + toggle icon), `.ea-faq-list--cards` (max-width 760px, white rounded cards, borders removed).
+- **Layout rules, measured.** The question row is a max-width 820px list. `/faq/` and `/method/` had no item pre-opened. `/repair/`'s cards variant had the first item open — this is the `open_first`/`active`-style behavior of that one page, not a global rule; the 2026-09-23 canon's "first question open" claim is true only of the cards variant on `/repair/`.
+- **Variants:** plain view-only is uniform; cards and mini are declared variants; open-by-default is an input, not the default state.
+- **Exceptions:** none per page id. **This type is on the [stage-A review list](#stage-a-review-list)** — the cards look visibly different from the plain list.
+- **Orphan?** No.
+
+<a id="22-definition-accordion--dd"></a>
+### 22. Definition accordion — `dd`
+
+> **Historical.** Now part of [T-21 Accordion](#type-t-21).
+
+- **Renderer:** [`template-parts/chapters/parts/dd.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/dd.php), full file. Map's name on the snoring page: `deflist`.
+- **Classes:** `.dd` (or equivalent container from this file), rendered as a stack of `<details>`.
+- **Inputs (exact):** `chap`, `title`, `lead` (HTML), `dark` (bool), `id`, `items[{tag, title, body, active}]` — `active` opens that one row by default.
+- **Layout rules.** Centered heading. Viewport column widths: not measured.
+- **Pages:** 3 — `/lessons/`, `/snoring-sleep-apnea/`, `/treatment/`.
+- **Variants:** same markup on all three; which row opens is the per-item `active` flag.
+- **Exceptions:** none found.
+- **Orphan?** No.
+
+<a id="23-table-of-contents--ea-toc"></a>
+### 23. Table of contents — `ea-toc`
+
+> **Historical.** Now part of [T-23 Table of contents](#type-t-23).
+
+- **Renderer:** [`template-parts/chapters/parts/toc.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/toc.php), full file. **CSS:** `chapters.css` lines 1363–1372, plus the `:has(> .phero + .ea-toc)` block at ~1433–1479, which restyles the toc for a dark hero context.
+- **Classes:** `.ea-toc`, structural classes for the inline list / rail / mobile-sheet presentations of the same list.
+- **Inputs:** `items[{id, label}]` (empty → renders nothing), `heading`.
+- **Layout rules, measured.** On `/snoring-sleep-apnea/`, the inline list: 1066×321, `text-align: start`. The `:has()` rule fires only when this part is the element immediately after `.phero` — a structural condition, not a page id, and it will fire on any future page with that exact order. Rail and sheet geometry: not measured.
+- **Pages:** `/snoring-sleep-apnea/` only.
+- **Variants:** none — one page.
+- **Exceptions:** the `:has()` pairing above.
+- **Orphan?** No.
+
+<a id="24-book--product-cards--bookcards"></a>
+### 24. Book / product cards — `bookcards`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/parts/bookcard.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/bookcard.php), full file. **CSS:** `chapters.css` lines 1148–1168.
+- **Classes:** `.bookcards` (or equivalent grid class), whole card is one `<a>`.
+- **Inputs (exact):** `chap`, `title`, `lead`, `alt`, `id`, `cta_label` (default «לעמוד הספר ←»), `card_heading_level`, `items[{cover, title, blurb, url, meta, cta}]`.
+- **Layout rules, measured.** `/books/` at 1440: three columns, ~349px, `text-align: right`, cover ratio 3/4. Breakpoints (two columns under 880px, one under 560px) not measured.
+- **Pages:** 3 — `/books/` (the books), `/shop/` (5 cards), `/qr/` (the QR hub page — not the individual `/qr/qrN/` articles).
+- **Variants:** same grid; `cta_label` changes with context (books vs. shop vs. QR hub).
+- **Exceptions:** none.
+- **Orphan?** No. `parts/product-cta.php` (price + purchase buttons) is a separate, unused file (see [Orphans](#orphans)).
+
+<a id="25-spotlight-row--ea-now"></a>
+### 25. Spotlight row — `ea-now`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/chapters/section-home-spotlight.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-spotlight.php), full file. **CSS:** [`assets/css/ea-open-round.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-open-round.css) lines 6–36.
+- **Classes:** `.ea-now` (section id is always the literal string `ea-now`, on every page that uses this partial — safe because it never renders twice per document).
+- **Inputs (exact):** optional `$args['cards']`, each `{image, title, line1, line2, url}`. With no `$args`, reads Chapters field `now_cards`. `/books/` explicitly overrides with `ea_muzza_spotlight_cards()` (books + the bundle) rather than forking the file.
+- **Layout rules, measured.** Four columns at 1440 (283px × 4) on both `/` and `/books/`. At 390 on home: two columns of 178px. Image ratio 3/2, `object-fit: cover`. Title plus up to two lines.
+- **Pages:** `/` and `/books/`.
+- **Variants:** same grid on both; the cards differ because the input differs, not the layout.
+- **Exceptions:** none.
+- **Orphan?** No.
+
+<a id="26-video-block--videoblk"></a>
+### 26. Video block — `videoblk`
+
+> **Historical.** Now part of [T-26 Video](#type-t-26).
+
+- **Renderer:** [`template-parts/chapters/parts/videoblk.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk.php) and home's [`section-home-03-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/section-home-03-video.php).
+- **Classes:** `.videoblk`.
+- **Inputs (part):** `chap`, `title`, `body` (HTML), `poster`, `video`, `cap`, `alt`. Home's own section reads its fields directly and embeds a YouTube iframe.
+- **Layout rules.** A 16/9 frame, `max-width: 760px` on the title column, inline `margin-top: 48px` on the frame from the PHP. Player chrome not measured.
+- **Pages:** the class is on 4 — `/` (a real, playing YouTube embed), `/lessons/`, `/sound-healing/`, `/treatment/`. The last three currently carry `ea-pending-approval` and render the placeholder variant (type 27) because their defaults have no `video` URL yet — treat `/` as this type and the other three as the placeholder.
+- **Variants:** the frame class is shared; a playing embed and a pending box are two content states inside the same shell, not two shells.
+- **Exceptions:** home's iframe has inline `position:absolute;inset:0;…`. The blog JSON mapper (type 37) can also inject a YouTube iframe with inline styles into a body; no published post does this yet. **This type is on the [stage-A review list](#stage-a-review-list)** — a real, playable video on one page vs. an empty pending box on three others is visible.
+- **Orphan?** No.
+
+<a id="27-video-placeholder--videoblk--pending-box"></a>
+### 27. Video placeholder — `videoblk` + pending box
+
+> **Historical.** Now part of [T-26 Video](#type-t-26) and [S-1 Waiting for content](#type-s-1).
+
+- **Renderer:** [`template-parts/chapters/parts/videoblk-placeholder.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/videoblk-placeholder.php), full file.
+- **Classes:** `.videoblk` (same shell as type 26), `.ea-pending-approval` (absolutely positioned inside it).
+- **Inputs:** `chap`, `title`, `body`, `box` (the accessible name of the empty frame), `id`. No video URL — that is the point of this variant.
+- **Layout rules.** Same 16/9 frame as the video block; not separately measured beyond the class co-occurrence.
+- **Pages:** `/lessons/`, `/sound-healing/`, `/treatment/`.
+- **Variants:** same pattern on all three.
+- **Exceptions:** inline positioning on the pending box, in the part, applying to every use.
+- **Orphan?** No.
+
+<a id="28-facebook-embeds--fbgrid"></a>
+### 28. Facebook embeds — `fbgrid`
+
+> **Historical.** Now part of [T-28 Facebook posts](#type-t-28).
+
+- **Renderer:** [`template-parts/chapters/parts/fbembeds.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/fbembeds.php), full file.
+- **Classes:** `.fbgrid` (or equivalent container).
+- **Inputs:** `chap`, `title`, `lead`, `alt`, `id`, `items[{href, title}]`.
+- **Layout rules.** A grid of Facebook post iframes; column count not measured.
+- **Pages:** `/eyal-amit/mokesh-dahiman/` only.
+- **Variants:** none — one page.
+- **Exceptions:** iframe `style="border:none;overflow:hidden"`, inline in the part.
+- **Orphan?** No.
+
+<a id="29-timeline--tl"></a>
+### 29. Timeline — `tl`
+
+> **Historical.** Now part of [T-29 Year list](#type-t-29).
+
+- **Renderer:** [`template-parts/chapters/parts/timeline.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/timeline.php), full file. **CSS:** `chapters.css` line 228.
+- **Classes:** `.tl` (or equivalent container).
+- **Inputs:** `chap`, `title`, `lead`, `dark`, `alt`, `center`, `id`, `items[{year, text}]`.
+- **Layout rules, measured.** On the Mokesh page at 1440: four columns of 276px, top border, years as markers. Mobile collapse not measured.
+- **Pages:** `/eyal-amit/mokesh-dahiman/` only. Home's about section explicitly does **not** render a timeline (its own code comment says so).
+- **Variants:** none — one page.
+- **Exceptions:** none found.
+- **Orphan?** No.
+
+<a id="30-photo-slot--ea-photo-slot"></a>
+### 30. Photo slot — `ea-photo-slot`
+
+> **Historical.** Now part of [S-1 Waiting for content](#type-s-1).
+
+- **Renderer:** [`template-parts/chapters/parts/photo-slot.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/photo-slot.php), full file. **CSS:** `chapters.css` lines 130–131.
+- **Classes:** `.ea-photo-slot`, `.ph` (the empty box carrying the label).
+- **Inputs:** `label` (visible text and the aria name; default "Photo — to be chosen"), `id`.
+- **Layout rules, measured.** A 16/9 reservation. On `/learning/` and `/en/`: 1104×621 at 1440 (exactly 16/9). Label text sits inside `.ph`. On `/en/` it follows the LTR page (`text-align: left`).
+- **Pages:** `/learning/` (3 slots) and `/en/` (5 slots) — 8 slots total, two pages.
+- **Variants:** same frame; the label string is the input. These are standing reservations, not missing images inside a gallery.
+- **Exceptions:** none beyond page direction on `/en/`.
+- **Orphan?** No.
+
+<a id="31-contact-rows"></a>
+### 31. Contact rows
+
+> **Historical.** Now part of [T-31 Contact](#type-t-31).
+
+- **Renderer:** [`template-parts/chapters/parts/contact.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/contact.php), full file — three sections in one file.
+- **Classes:** `.ea-wave2-contact` (the form, beside a small photo), `.ea-wave2-contact__cta` (dark WhatsApp band, `data-block="contact-cta"`), `.ea-wave2-contact__nap` (name/address/phone line).
+- **Inputs:** none. The part takes no `title`/`body` — it reads NAP helper functions and a hardcoded CF7 shortcode directly.
+- **Layout rules.** Per the file's own comment: three stacked rows — form beside a photo, dark WhatsApp band, then the NAP line. The half-height page hero above these three rows is the page hero (type 1, `--half`), not part of this type. Form column widths not measured.
+- **Pages:** `/contact/` only.
+- **Variants:** none — one page.
+- **Exceptions:** `ea_wave2_render_whatsapp_float()` returns immediately when `is_page('contact')` — the floating WhatsApp button every other page gets is absent here (a PHP page check, not a CSS `page-id` rule). The phone link has inline `white-space: nowrap`.
+- **Orphan?** No. `block-contact-cta.php` is a separate, unused Wave 2 file (see [Orphans](#orphans)).
+
+<a id="32-press-list--ea-press"></a>
+### 32. Press list — `ea-press`
+
+> **Historical.** Now part of [T-29 Year list](#type-t-29).
+
+- **Renderer:** rendered by [`inc/wave2-w2-07.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/inc/wave2-w2-07.php) around line 225, on the plain content template (not a Chapters part). **CSS:** [`assets/css/w2-07-heritage.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/w2-07-heritage.css) lines 64–88.
+- **Classes:** `.ea-press`, `.ea-editorial`, `.ea-editorial-press` (body classes); `/historical-articles/` additionally uses `.ea-historical-archive` and four `.ea-content-section` blocks.
+- **Inputs:** not an `$args` part — a fixed list of mentions (year, source, link, title). Links open in a new tab.
+- **Layout rules, measured.** Each row a flex line, baseline-aligned, date then link. `/press/` at 1440: one item 960×94, `text-align: start`. This page has no `phero` and no Chapters hero at all.
+- **Pages:** `/press/` (the list) and `/historical-articles/` (a press-quote block reusing `.ea-press`, plus the archive sections — a different page shape overall, not the press index).
+- **Variants:** the row markup matches on both; the surrounding page differs.
+- **Exceptions:** both pages sit outside the Chapters router on purpose (`/press/` is forced to `tpl-content.php`). No `page-id-` CSS.
+- **Orphan?** No.
+
+<a id="33-qr-article-shell"></a>
+### 33. QR article shell
+
+> **Historical.** Now part of [P-1 Printed-code page (QR)](#type-p-1).
+
+- **Renderer:** [`page-templates/tpl-chapters-qr.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-qr.php) lines 27–51. Not a chapter part. The hub page `/qr/` is a normal Chapters page using `bookcards` (type 24), not this shell.
+- **Classes:** `.phero` (text hero, no photo — see the pending change below), `.intro-body` (one column), body class `.ea-qr`. A hardcoded back link «כל דפי ה-QR».
+- **Inputs:** from the post itself — title (the H1), featured image if present (**none of the 48 currently have one**), and `the_content()` dropped whole into one `.intro-body`. Eyebrow is the literal string `QR`.
+- **Layout rules, measured.** `/qr/qr1/` at 1440: text hero 363px tall (no photo, no 88vh), one reading column 776px wide, `text-align: start`. Inside `the_content`, the HTML is migrated as-is and was not decomposed into row types — a heading inside it is not a prose-part heading.
+- **Pages:** `/qr/qr1/` through `/qr/qr48/` (48 pages). All 48: `phero` + exactly one `.intro-body` + `.ea-qr`.
+- **Variants:** the shell is uniform across all 48; the migrated body inside it is free content, not a type — **this is the reason the printed-code population stays on the [stage-A review list](#stage-a-review-list)** as a no-type area even though the shell itself is documented here.
+- **Exceptions:** the back link has inline `margin-top: var(--ea-space-8, 32px)` in the template, on every QR child. **Pending change, approved not built:** [`SKETCH-BLOG-QR.html`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_10/S007-GROK/wave-b-sketches/SKETCH-BLOG-QR.html) (approved) specifies that a QR page with a unique photo gets a photo hero, and one with none gets a **logo hero**, not the current plain text hero — the same rule as the blog's archive/new-post types below. Zero of the 48 pages implement this today; all 48 currently render the plain text hero. This is recorded on the [stage-A review list](#stage-a-review-list), not treated as already true.
+- **Orphan?** The legacy `tpl-qr.php` (which called the orphaned `block-topnav.php`) is not what these live URLs render.
+
+<a id="34-blog--archive-post-existing-ea-post-content"></a>
+### 34. Blog — Archive post (existing, `ea-post-content`)
+
+> **Historical.** Now part of [P-2 Blog post](#type-p-2).
+
+**This is what every one of the 52 published posts renders today.** Team_00 named this the
+"Archive" type: deliberately loose, so the old posts need minimum work to be acceptable — do
+not tighten it into the New Post schema (type 37).
+
+- **Renderer:** [`page-templates/tpl-chapters-blog-single.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/page-templates/tpl-chapters-blog-single.php) lines 90–107, the branch that runs when no JSON row document exists for the post (every post today — see type 37). **CSS:** [`assets/css/ea-blog.css`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/assets/css/ea-blog.css) lines 207–217.
+- **Classes:** `.phero.phero--media` (or plain `.phero`, see below) for the hero, `.ea-post-content` for the body.
+- **Inputs:** the post object itself — title, categories (hero eyebrow), author, date, featured image, `the_content` (free HTML), tags, a copy-link share control. No row-type argument of any kind.
+- **Layout rules, measured.** One sampled post (`/100-100-100-תודה/`) at 1440: media hero 792px (88vh), then `.ea-post-content` 776×2371, `text-align: start`. Images inside it are `max-width: 100%`.
+- **Pages:** all 52 published posts. 51 have `phero--media`. **The historic-as-is rule (policy, locked):** the hero image carried over from the old site is never replaced, even where it is dated or low-quality.
+- **Variants:** the shell is uniform; the body is free HTML, exactly like the QR body (type 33) — this is why "a row of type A inside a blog post" has no row-slot mechanism to point at for these 52 posts, even though the shell itself is this named type.
+- **Exceptions/known gap — approved, not built:** the locked policy (`PHASE-2-BLOG-QR-AFTER-SKETCH.md`, §2/§4) says **a post with no featured image gets a logo hero, not a portrait hero and not the generic text hero.** Measured today: the one post without a featured image (the 2012 Pardes Hanna studio post) renders the ordinary text hero from `phero.php` — no logo mark, because that hero variant does not exist yet anywhere in the renderer. This is recorded on the [stage-A review list](#stage-a-review-list) as an implementation gap, not presented as already true.
+- **Orphan?** No. `tpl-blog-single.php` (the pre-Chapters legacy template, topnav + contact-cta) is not what these 52 URLs render (see [Orphans](#orphans)).
+
+<a id="35-blog-card--ea-blog-card"></a>
+### 35. Blog card — `ea-blog-card`
+
+> **Historical.** Now part of [T-09 Cards](#type-t-09).
+
+- **Renderer:** [`template-parts/blocks/block-blog-card.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/blocks/block-blog-card.php), full file. Called from the Chapters blog single (related posts) and the Chapters archive.
+- **Classes:** `.ea-blog-card`.
+- **Inputs:** the current post in the loop — title, link, thumbnail, date. No `$args`.
+- **Layout rules.** A card in the archive grid / the related-posts row; box model not measured.
+- **Pages:** 53 — all 52 posts (as related cards) plus `/blog/` (the archive grid).
+- **Variants:** same partial everywhere; not measured for layout drift.
+- **Exceptions:** none found.
+- **Orphan?** No. The pre-Chapters legacy archive template that also calls this file is not the live template — the Chapters archive is.
+
+<a id="36-mokesh-video-embed--plain-iframe"></a>
+### 36. Mokesh video embed — plain iframe
+
+> **Historical.** Now part of [T-26 Video](#type-t-26).
+
+- **Renderer:** [`template-parts/chapters/parts/mokesh-video.php`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/site/wp-content/themes/ea-eyalamit/template-parts/chapters/parts/mokesh-video.php), full file (its own comment says it is not reusable). Emits a `.figr` with a plain inline 16/9 iframe — no unique class.
+- **Classes:** `.figr` (reused from the split type).
+- **Inputs:** `yt_id`, `title` (the iframe's accessible name).
+- **Layout rules.** A plain iframe, not a second YouTube API player (the hero already uses the API). Frame size not measured as its own node.
+- **Pages:** wired only from `mokesh-defaults.php`, on `/eyal-amit/mokesh-dahiman/`.
+- **Variants:** none — one page, by design.
+- **Exceptions:** inline `max-width:760px; aspect-ratio:16/9` on the wrapper, in the part.
+- **Orphan?** No. Bespoke.
+
+<a id="37-blog--new-post-block-template-approved-not-built"></a>
+### 37. Blog — New post (block template, approved, not built)
+
+> **Historical.** Now part of [P-2 Blog post](#type-p-2).
+
+**Zero live instances. No dummy or demo post exists on the site.** This entry documents an
+**approved decision, not a render** — team_00 approved the sketch on 2026-09-22, and this is
+what a session must build toward, not what exists today. Do not present this as live anywhere
+in the artifact without this qualifier attached.
+
+- **Renderer:** not yet written. Planned per [`POST-TEMPLATE-SETTINGS.md`](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6: a JSON content file at `site/wp-content/themes/ea-eyalamit/inc/data/blog/{slug}.json`, read by a PHP renderer (also not yet written) that maps each row's `part` value to the **existing** files in `template-parts/chapters/parts/` — this type is a composite of already-documented types, not a new visual component, and the settings file is explicit that no new CSS class or `chapters.css` edit is permitted for a single post.
+- **Classes:** none of its own. Reuses `.phero`/`.phero--media`, `.sec`/`.sec--alt`/`.sec--dark`, `.intro-body`, `.split2`/`.figr`, `.gallery`/`.gfig`, `.pfloat`, `.videoblk`, `.cta-band--row`, `.btn` — i.e., types 1, 4, 6, 7, 8, 11, 26 above, in whatever order the JSON's `rows[]` array specifies.
+- **Inputs — the approved schema (`ea-post-v1`, from §7 of the settings file, verbatim):**
+  - Post-level: `slug`, `title`, `category`, `date`, `author`.
+  - `hero { chap, image, imageAlt }` — **empty `image` is the trigger for a logo hero, not a portrait** (same rule as the archive gap above, and the QR gap in type 33 — none of the three is built yet).
+  - `media[]` — up to 8 items, `{ id, file, alt, cap, pending }`, `id` matching `^img-0[1-8]$`.
+  - `video { youtube?, file?, poster?, cap? }` — at least one source.
+  - `rows[]`, in display order — each `{ id, part, bg, title?, body?, center?, images?, float?, zoom?, cta_label?, cta_url? }`.
+    - `part` ∈ `prose | split | gallery | photo-slot | cta | quote | video` — mapping to `parts/prose.php`, `parts/split.php`, `parts/gallery.php`, `parts/photo-slot.php`, `parts/cta.php`, `parts/testi-cards.php` (or a `<blockquote>` inside prose), `parts/videoblk.php` respectively.
+    - `bg` ∈ the five canonical tones (ivory · sand · olive · terracotta · dark, D34) or `cta`, each with its own text set (type 4); ivory-2 and the old `.sec--alt` are retired (D41 A-1).
+  - **team_00's own count, "fields 1–13," maps onto this schema as: the hero (1) + the eleven ordered rows `r01`–`r11` in the approved dummy (2–12) + the shared media pool (13).** This canon states that reading explicitly rather than inventing a different 13-item list — the settings file itself does not number fields 1–13 anywhere.
+- **Layout rules — the locked alignment canon (§1 of the settings file, measured live on `/snoring-sleep-apnea/`, 2026-09-20):** `.wrap` is `max-width:1200px; padding-inline:48px` (not a narrow centered card, ~920px, as an earlier sketch draft tried); the H2 sits on the full `.wrap` width, `text-align:start`, wider than the body column beneath it (that offset is intentional, not a bug to fix); the reading column is 82ch centered inside the wrap (~212px each side at 1200px), never 65ch flush to an edge; a split row uses the two columns across the full wrap width, never a narrowed one-third text column; a small in-text image uses `float_image` so text wraps it, never a column that steals width for the whole story height; gallery and CTA rows run the full wrap width; the hero's `.phero__in` is 1200px, H1 up to 32ch, sub up to 54ch, `text-align:start` — never a centered card.
+- **Pages:** zero. The dummy JSON (`DUMMY-WEEK-OF-BREATH.json`) and its matching sketch exist only as approved references, not as a published or even draft post.
+- **Variants:** the `part` and `bg` vocabularies above are the only declared variants; nothing else is approved.
+- **Exceptions:** none yet — there is nothing live to except. **Recorded on the [stage-A review list](#stage-a-review-list)** as the central "approved but not built" gap.
+- **Orphan?** No — the opposite of an orphan: a decision with no renderer yet, rather than a renderer with no use.
