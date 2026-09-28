@@ -145,20 +145,20 @@ Visual reference: `canon-map/grids.html` (every composition, numbered K-n.m) and
 |---|---|---|
 | T-01 hero | text 1–4, button 5–6 | ✓ approved |
 | T-04 paragraph | heading 1–6, text 2–5 | ✓ approved |
-| T-05 fold | card on 2–5 | proposal on the grid |
+| T-05 fold | a framed card on 2–5; a real paragraph (~10 lines) fading out; small outline «להמשך קריאה» on the left | ✓ approved (O-1) |
 | T-06 split | 2 items: 3+3 / 4+2 either way | ✓ approved |
 | T-07 float image | floats inside the text column | ⚠ off the grid by nature — next stage (A-3): one size, two columns |
 | T-08 CTA band | 4+2 | ✓ approved |
-| T-09 point cards | 5 cards → K-5.3 | proposal fixed (was 2 per row with one left over — struck) |
+| T-09 point cards | content is points, not cards → ordered bullets on 2–5; variant numbers (O-4) or the transparent logo mark (O-24) | ✓ approved |
 | T-10 photo band | full-bleed image, text on the grid | ⚠ text block not yet placed on columns |
-| T-11 gallery | 21 images → exempt, 3 per row; 4 portraits → K-4.2 | proposal fixed (portraits were 3 + 1 — struck) |
+| T-11 gallery | heading start-aligned + subtitle; main photo across 6 columns; open list 3 per row, one shape per row (landscapes 4:3 first, portraits 3:4 last); 4 portraits → K-4.2 | ✓ approved (O-2, O-3) |
 | T-12 quote on image | full-bleed image, quote on the grid | ⚠ quote not yet placed on columns |
-| T-13 who-for | 4 → K-4.1 / K-4.2 / K-4.3 | proposal (three options shown) |
+| T-13 who-for | bullets with images — the text large on its image; heading + subtitle; 4 → K-4.1 / K-4.2 / K-4.3 | ✓ approved (O-5–O-7) |
 | T-14 compare | 2 → 3+3; centred text justified | ✓ approved (O-8) |
 | T-15 steps | 3 → 2+2+2, content width, larger heading | ✓ approved (O-9) |
 | T-16 about collage | split 3+3; three images inside → K-3.2 | ⚠ not yet drawn |
 | T-17 studio | split 3+3 | ⚠ not yet drawn (merged into T-06) |
-| T-18 testimonial carousel | open list → 3 per row, whole cards | proposal |
+| T-18 testimonial carousel | 3 whole cards on the content width; heading like a paragraph; quiet arrows centred just above, page dots below; round avatar, bold name, date, small source link at the bottom | ✓ approved (O-14) |
 | T-19 testimonial grid | 17 → exempt, 3 per row; round avatar, name, date | ✓ approved (O-15) |
 | T-20 quote cards | 2 → 3+3 | ✓ approved — thin frame, small padding (G-12.1) |
 | T-21 FAQ / T-22 definitions | text list | ✓ columns 2–5 (approved); design next round |
