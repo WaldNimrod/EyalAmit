@@ -125,6 +125,7 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D62 | All open proposals approved | «כל הפתוחים מאושרים. יש לסמן נכון במפה, לוודא שכל הטיפוסים מתועדים מדויק. אחרי זה אנחנו פותחים בסבב בדיקה וולידציה למפה שלנו… מספר נתיבים, עדשות ומנועים… כשנהיה בטוחים ב-100% שהמפה מדויקת, כולל הדוגמה, הרפרנס באתר — אחד לכל טיפוס — התאמה לכללים וכו׳. לאחר אישור — נוכל לעבור לשלב ההטמעה באתר… דורש תיאום עם צוות 90 — בתהליך דיוק העיצוב צריכים להתרחש עוד כמה תיקונים רוחביים שתוכננו.» | O-2, O-4, O-24, O-14 approved; `open.html` empty. Map statuses: approved 13 of 18 (+cards, gallery, testimonials); partly 4 with the reason in their rules — paragraph (float image: next stage), accordion (design next round), year lists (not drawn beyond the columns), text-and-image (collage and dark-with-button variants not drawn); open 1 — photo band (not drawn). Next: validation round of the map (plan proposed to team_00), then implementation with team_90. |
 | D63 | Validation decisions, by picture | «כל החלטה יש להביא לי עם קישור לצפייה או סקיצה המציגה את ההבדלים — האישור הוא ויזואלי, לא בטקסט.» → «ש-1 א, ש-2א א, ש-2ב ב, ש-3 ב, ש-4 א, ש-6 א» · «לא לכל עמוד יש וידאו — רק עמודים ספציפיים מקבלים.» · «18 טיפוסים — מאושר.» | From `decisions.html`: Q-1 breathing space kept (allowed exception, box on the grid); Q-2a text on images = display text, start-aligned; Q-2b CTA paragraph justified; Q-3 CTA band on 1104; Q-4 label-width buttons start on their column line (exception); Q-6 background images, avatar and contact portrait always fill. Q-7 video only on specific pages, each its own. Q-8 the canon file is reorganised by the 18 types (in progress). Q-5 (T-27 home) still open. Fixes applied under existing rulings (28 from lanes 1/3/4): phone who-for hidden; hero subtitle on grid; contact eyebrow; steps 1104; gallery phone spans; CTA 1104; blue examples added for TOC, accordion, year lists, press, P-1/P-2 bodies; button rules; T-08 rules; S-2 uses; T-29 reason; 760px wording; P-2 «new» unused mark; stale «Proposal» comments; README counts. Re-check with the lane-3/4 checker: 3 remaining fix findings are the image-bullet justification (resolved by Q-2a in the canon text) + T-27 (Q-5). New latent site finding: timeline years #B5663D on ivory = 4.24 (fails) — for team_90. |
 | D64 | Q-5; reset plan | «1 א, 2 מאושר» (on `pending.html`) | Q-5 A: T-27 lives only under S-1 «ממתין לתוכן» (removed from T-26). The reset plan approved and built: `tools/classify.py` walks all live pages row by row (census detectors per row) → `tools/reset-rows.json`; `reset.html` (tools/reset_view.py) is the decision page. First run: 35 content pages, 380 rows — 301 green, 44 yellow (34 are hero height/button, the rest compositions and bullet variants; the recommended option is pre-selected), 35 red (21 CTA bands without heading+text, 7 unrecognised rows on /press/ and /testimonials/, 5 photo bands and 2 undrawn split variants); templates switch automatically: 52 posts, 49 QR pages. Pages over 1,400 words get a TOC row added (D55). Choices persist in the browser; «העתק תשובות» copies «id=choice» lines for the chat. |
+| D65 | Pause for Eyal | «מעולה — קומיט, פוש, לוודא שהשרת עם גרסה עדכנית. אנחנו עוצרים כאן וממתינים לאייל. גם את הבחירה הסופית באיפוס — נבצע ישירות איתו, שלא נעבוד פעמיים.» | Stage paused. The reset choices (`reset.html`) will be made together with Eyal, not by team_00 alone. Open when work resumes: validation lane 2 (map vs live site, team_90 — the site's team_90 session must be reopened); implementation with team_90 merged with their planned cross-cutting fixes; latent live finding: timeline years #B5663D on ivory = 4.24. |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
 ## 4 · Type status
@@ -210,26 +211,24 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 
 ## 7 · Where we stopped, and how the next session runs
 
-**Checkpoint, 2026-09-27 (team_00: «אחרי הפסקה נגדיר נקודת עצירה, תיעוד, שמירת מצב, דחיסה ואז נמשיך»).**
+**Checkpoint, 2026-09-28 — paused for Eyal (D65: «אנחנו עוצרים כאן וממתינים לאייל. גם את הבחירה הסופית באיפוס — נבצע ישירות איתו»).**
 
-- **Approved:** T-01 hero (D5, D15–D18, D21, D24, D27, D31), T-08 CTA band (D6, D19, D23–D25, D31),
-  T-04 text paragraph layout (D29, D32), all-button padding (D25), grid gutter 10px (D28).
-- **Resolved after the checkpoint:** D33 → D34–D35 (five paragraph tones, each with its own text set; approved). Open items O1–O3, O5, O6, O9 below.
-- **Next type:** T-06 split (text beside image), under rule D30 — «כל ה-6 בחלוקה לפי התוכן וכיוון
-  התמונה». Show today's split and grid proposals by image orientation (landscape / portrait /
-  cover), with the grid overlay, desktop and phone.
-- **Working files:** `canon-map/ea-canon-map.html` (the map), `grid-proof.html` and
-  `palette-check.html` (temporary, generated). Build sources: `tools/` — `build.py` is the spec
-  and CSS; `type-defs.json` the texts, properties and fields; `uses.json` the census.
-  **The builder is edited in the session scratchpad as `build_head.py` + `build_tail.py` and
-  concatenated into `tools/build.py`; after compaction edit `tools/build.py` directly** (the
-  scratchpad copy will be gone). `fetch.py` must be re-run first to recreate the source pages.
-- **How we work (settled):** Nimrod judges by eye; every change is shown in the map (and the
-  grid proof) before it is recorded; his words go into §3; approved rules go into
-  `CONTENT-TYPES-CANON.md` in the same commit (pairing rule); team_90 measures. Short turns,
-  images sent directly (`SendUserFile`), because the map file he has open is a snapshot.
-
-Go type by type or by cross-cutting pattern, in the order team_00 chooses. For each: follow the
-loop in the map README, record the ruling here in his words, update the map and
-`CONTENT-TYPES-CANON.md` together, hand to team_90. Update §4's status and this file's date in
-the same commit.
+- **The canon is closed for this stage.** 18 current types (D49, D63 Q-8): 13 approved, 4 partly approved (paragraph —
+  float image next stage; accordion — design next round; year lists — design beyond columns not drawn; text-and-image —
+  collage and dark-with-button variants not drawn), 1 open (photo band — not drawn). Grid rules locked (D46–D48, D50,
+  D63). `open.html` is empty. The written canon, `CONTENT-TYPES-CANON.md`, is organised by the 18 types.
+- **Validation (D62–D63):** lane 1 (Grok, rulings vs map) and lanes 3–4 (independent checker, `canon-validation/check_map.py`,
+  re-runnable) — all findings fixed or ruled by picture on `decisions.html`. **Lane 2 (map vs the live site) not run**:
+  it needs the site's team_90 session («90- הכנה לעלייה לאוויר אייל עמית»), which was not reachable on 2026-09-28.
+- **Reset (D64):** `reset.html` — every live row classified (301 green / 44 yellow / 35 red; recommended option
+  pre-selected). **To be decided with Eyal, not before** (D65). Re-run `tools/classify.py --cached` (or without the flag
+  to refetch) if the site changed since 2026-09-28, then `tools/reset_view.py`.
+- **After the reset choices:** implementation with team_90, merged with their planned cross-cutting fixes. Known latent
+  live finding to pass on: timeline years `#B5663D` on ivory = 4.24:1 (fails).
+- **Where things are:** start at `canon-map/README.md` («How it is built»). Current types: `tools/canon_types.py`.
+  Pages: map, `pending.html` (what waits for team_00), `reset.html`, `open.html`, `grids.html`, `decisions.html`,
+  `grid-proof.html`, `palette-check.html` — all generated by `tools/rebuild_views.sh` from `map-source.html`
+  (`tools/build.py`, run from a scratch dir holding the pages `tools/fetch.py` saved).
+- **How we work (settled):** Nimrod decides by eye — every decision is brought as a picture or a link (A/B), never as
+  text alone; his words go into §3; approved rules into `CONTENT-TYPES-CANON.md` in the same commit; numbered IDs on
+  everything so he can answer by ID; images sent directly with `SendUserFile`.
