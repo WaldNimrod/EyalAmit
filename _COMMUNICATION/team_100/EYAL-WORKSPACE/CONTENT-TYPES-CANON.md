@@ -460,7 +460,7 @@ type below without being repeated.
 - **Definition:** a grid of equal items. The differences are the image's shape and whether the card is clickable.
 - **Variants:**
   - Display — cards · bullets (number or logo) · bullets with an image.
-  - Image — none · round · 3:2 · cover 3:4 · wide with text on it.
+  - Display — cards · bullets (number or logo) · bullets with images. Image — none · 3:2 · cover 3:4 · wide with text on it.
   - Link — none · the whole card is a link.
   - Image size (shared) — fill · fit.
 - **Fields:** eyebrow · heading · lead · items (image, heading, text, link) · closing text.
