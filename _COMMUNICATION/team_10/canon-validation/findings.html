@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ממצאי בדיקת המפה</title>
+<style>
+:root{--bg:#fbf6ee;--ink:#2f2013;--mut:#6b5f55;--acc:#9A4F2B;--line:#e6dccf;--q:#fff4dc;--ok:#2d5f8a}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Heebo,system-ui,sans-serif}
+header{background:#1d140d;color:#f3ece2;padding:22px 24px}
+header h1{margin:0 0 6px;font-weight:500;font-size:1.45rem}
+header p{margin:0;opacity:.85;max-width:110ch}
+main{max-width:1100px;margin:0 auto;padding:16px}
+h2{font-weight:600;font-size:1.15rem;margin:28px 0 10px;color:var(--acc)}
+.q{background:var(--q);border:1px solid #e8d3a6;border-radius:6px;padding:14px 16px;margin:0 0 12px}
+.q b.id,.f b.id{font-family:ui-monospace,Menlo,monospace;background:var(--ink);color:#fff;padding:1px 7px;border-radius:3px;margin-inline-end:8px;direction:ltr;unicode-bidi:isolate}
+.q .rec{margin-top:6px;color:var(--ok)}
+.q .src,.f .src{color:var(--mut);font-size:.85rem}
+.f{border-bottom:1px solid var(--line);padding:10px 2px}
+.f b.id{background:var(--acc)}
+.sev{font-size:.78rem;padding:1px 6px;border-radius:3px;margin-inline-start:6px;background:#efe3c9}
+.sev.b{background:#a3261b;color:#fff}
+.pass{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+</style>
+</head>
+<body>
+<header>
+<h1>ממצאי בדיקת מפת הקאנון — לאישור</h1>
+<p>שלושה נתיבים מתוך ארבעה חזרו: נתיב 1 (Grok, ההחלטות מול המפה) ונתיבים 3–4 (בודק עצמאי: כללים בדפדפן, שלמות ובנייה מחדש).
+נתיב 2 (המפה מול האתר, צוות 90) ממתין לסשן של הצוות. מקובץ לשני חלקים: <b>8 שאלות שדורשות החלטה שלך</b>, ו־<b>28 ממצאים שאני מתקן לפי ההחלטות שכבר נתת</b> — בלי שאלה.
+אפשר לענות לפי מזהה, למשל «ש-1 כן, ש-2 לא».</p>
+</header>
+<main>
+
+<h2>חלק א — שאלות להחלטה שלך (8)</h2>
+
+<div class="q"><b class="id">ש-1</b> <b>מרווח הנשימה בטקסט ותמונה מול «אין אלמנט מחוץ לרשת».</b> הטקסט מתרחק 16–40 פיקסלים מהתמונה בתוך הטורים שלו, ולכן קצה הטקסט הגלוי לא על קו רשת. גם ביצירת קשר.
+<div class="rec">המלצה: חריגה מותרת ומתועדת — הקופסה על הרשת, הריווח הפנימי מותר.</div><div class="src">L3-14, L3-15</div></div>
+
+<div class="q"><b class="id">ש-2</b> <b>טקסט תצוגה — יישור בלוק או לימין?</b> תת־כותרות, טקסט גדול על תמונה (בולטים של «למי מתאים»), פסקת פס הקריאה לפעולה.
+<div class="rec">המלצה: תת־כותרת וטקסט על תמונה = טקסט תצוגה, מיושר לימין. פסקה בפס הקריאה לפעולה = טקסט רץ, ביישור בלוק.</div><div class="src">L3-5, L3-6, L3-7, L3-10, L3-19, L3-20</div></div>
+
+<div class="q"><b class="id">ש-3</b> <b>פס הקריאה לפעולה בנוי על רוחב 1120 ולא 1104</b> — הטקסט והכפתור זזים 8 ו־2.6 פיקסלים מקווי הרשת של שאר האתר.
+<div class="rec">המלצה: להעביר את הפס לרוחב התוכן 1104, כמו כל האתר.</div><div class="src">L3-9 (וגם O9 הפתוח מקובץ המצב)</div></div>
+
+<div class="q"><b class="id">ש-4</b> <b>כפתורים ברוחב התווית</b> (לא בהירו ולא בפס הקריאה לפעולה) לא יושבים על קווי רשת.
+<div class="rec">המלצה: חריגה מותרת — כפתור לפי התווית מיושר לתחילת הטור שלו; רק הירו ופס הקריאה לפעולה ממלאים טורים.</div><div class="src">L3-16, L3-17</div></div>
+
+<div class="q"><b class="id">ש-5</b> <b>«סרטון שעוד לא הגיע» רשום בשני טיפוסים</b> — וידאו וגם «ממתין לתוכן».
+<div class="rec">המלצה: רק ב«ממתין לתוכן» — זה מצב, לא וריאנט של וידאו.</div><div class="src">L4-1, L1-7, L1-8</div></div>
+
+<div class="q"><b class="id">ש-6</b> <b>וריאנט מילוי / התאמה לכל טיפוס עם תמונה</b> — חסר בהירו, בווידאו, ביצירת קשר ובעיגול של ההמלצות.
+<div class="rec">המלצה: תמונת רקע (הירו, פס תמונה, פוסטר וידאו) ועיגול ההמלצה — תמיד מילוי, מחוץ לוריאנט. תמונת יצירת קשר — מקבלת את הוריאנט.</div><div class="src">L1-16</div></div>
+
+<div class="q"><b class="id">ש-7</b> <b>«כל עמוד מקבל סרט משלו»</b> (החלטה ישנה שלך, D8) לא רשומה ככלל בוידאו.
+<div class="rec">המלצה: לרשום ככלל של טיפוס הווידאו; הסרטונים עצמם — תוכן מאייל.</div><div class="src">L1-5</div></div>
+
+<div class="q"><b class="id">ש-8</b> <b>קובץ הקאנון הכתוב עדיין מונה 37 טיפוסים</b>; המפה כבר 18 אחרי האיחוד. גם רשימת «שאלות לסבב» בו כבר נסגרה.
+<div class="rec">המלצה: לארגן את הקובץ מחדש לפי 18 הטיפוסים, להעביר את 37 הישנים לנספח היסטורי, ולסגור את רשימת השאלות.</div><div class="src">L1-1, L1-3</div></div>
+
+<h2>חלק ב — ממצאים שאני מתקן לפי מה שכבר אושר (28)</h2>
+
+<div class="f"><b class="id">L3-1</b><span class="sev b">חוסם</span> בטלפון, שלוש דוגמאות «למי מתאים» מסתירות את כל התמונות והטקסט — רואים רק כותרת.</div>
+<div class="f"><b class="id">L3-2 / L3-3</b><span class="sev">תיקון</span> תת־הכותרת בהירו זזה 30 פיקסלים מקו הרשת (בכל חמש הדוגמאות).</div>
+<div class="f"><b class="id">L3-4</b><span class="sev">תיקון</span> דוגמת ההירו הקטן עדיין מציגה «צור קשר» פעמיים — נגד הכלל שקבעת.</div>
+<div class="f"><b class="id">L3-8</b><span class="sev">תיקון</span> «איך מתחילים» — הקופסה הפנימית 1100 במקום 1104, זזה 2 פיקסלים.</div>
+<div class="f"><b class="id">L3-11–L3-13</b><span class="sev">תיקון</span> בטלפון, התמונה הראשית של הגלריה והדיוקנאות הגבוהים לא תופסים את שני הטורים — נגד כלל הטלפון.</div>
+<div class="f"><b class="id">L1-2</b><span class="sev">תיקון</span> תבנית הפוסט החדש עדיין מתירה את השמנת הכהה כרקע — היא לא אחד מחמשת הגוונים.</div>
+<div class="f"><b class="id">L1-4, L1-13</b><span class="sev">תיקון</span> קובץ הקאנון לא מתעד את כלל הכפתורים על חמשת הגוונים; הריווח 9/18 חסר בכללי המפה.</div>
+<div class="f"><b class="id">L1-6</b><span class="sev">תיקון</span> בכללי פס הקריאה לפעולה חסרים «הלוגו צמוד לקצה המסך» ו«תמיד כותרת + טקסט + כפתור».</div>
+<div class="f"><b class="id">L1-9, L4-2</b><span class="sev">תיקון</span> שורת הכפתורים במפה אומרת «כרגע לא בשימוש» — שגוי, כפתורים יש כמעט בכל עמוד.</div>
+<div class="f"><b class="id">L1-10</b><span class="sev">תיקון</span> רשימת השנים «מאושרת בחלקה» בלי לומר מה חסר.</div>
+<div class="f"><b class="id">L1-11</b><span class="sev">תיקון</span> נקודת המעבר לטלפון כתובה פעם 760 ופעם 761 — לאחד.</div>
+<div class="f"><b class="id">L1-12</b><span class="sev">תיקון</span> תוכן עניינים, תבניות העמוד, אקורדיון ורשימת שנים — מאושרים בטורים 2–5 אבל אין להם דוגמה כחולה במפה. להוסיף.</div>
+<div class="f"><b class="id">L1-14</b><span class="sev">תיקון</span> הפוסט החדש לא קיים עדיין באתר — לסמן «כרגע לא בשימוש» על הוריאנט.</div>
+<div class="f"><b class="id">L1-15, L4-3</b><span class="sev">תיקון</span> ניסוחים מיושנים: הערות «הצעה» על דברים שאושרו; ה־README סופר 17 שורות במקום 18.</div>
+<div class="f"><b class="id">L3-18, L3-21–L3-26</b><span class="sev">הערה</span> פסקאות של שורה אחת לא ביישור בלוק (אין הבדל נראה) ותגית «מאושר» שמכסה שורה בטלפון (רק במפה) — אתקן כשזה נוגע.</div>
+
+<h2>מה עבר</h2>
+<div class="pass">ניגודיות — כל טקסט עובר (הנמוך 4.60) · גלישה בטלפון — אין · כל החלוקות מהרשימה הנעולה · לכל טיפוס הגדרה, דוגמה, שדות וכללים ·
+מספרי העמודים לכל טיפוס נכונים · בנייה מחדש מאפס — זהה בדיוק · 239 הפניות לקבצים — אף אחת לא שבורה · כל ההחלטות שבוטלו מאוחר יותר — המפה הולכת לפי האחרונה.</div>
+
+<p class="src">המקורות המלאים: VERDICT-LANE-1.md ו־VERDICT-LANE-3-4.md בתיקייה הזו.</p>
+</main>
+</body>
+</html>
