@@ -433,28 +433,280 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 .cm-proof-head h1{margin:0 0 6px;font-size:1.4rem;font-weight:500;color:#f3ece2}
 .cm-proof-head p{margin:0;font-size:.9rem;opacity:.9;max-width:110ch}
 .cm-group span{letter-spacing:0!important}
-.av-ex{font-family:Heebo,sans-serif;background:#2d5f8a;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
-.av-ex b{background:#fff;color:#2d5f8a;padding:1px 8px;border-radius:3px;margin-inline-end:8px;font-family:ui-monospace,Menlo,monospace;direction:ltr;unicode-bidi:isolate}
-.kg-box{position:relative}
-.kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:170px;grid-auto-flow:row dense;gap:var(--cm-gap)}
-.kg__i{position:relative;margin:0;overflow:hidden;border-radius:4px;background:#e6dccf}
-.kg__i img{width:100%;height:100%;object-fit:cover;display:block}
-.kg__i b{position:absolute;top:8px;inset-inline-start:8px;background:#1d140dcc;color:#fff;font:600 .8rem/1 Heebo,sans-serif;padding:5px 8px;border-radius:3px}
-.cm-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
-  column-gap:var(--cm-gap);direction:rtl;pointer-events:none;z-index:5}
-.cm-grid i{border-inline:1px solid rgba(230,30,110,.8);font:600 .75rem/1 Heebo,sans-serif;font-style:normal;color:#e61e6e;
+.dq-note{font-family:Heebo,sans-serif;background:#fbf6ee;color:#2f2013;padding:10px 24px;font-size:.95rem;border-bottom:1px solid #e6dccf}
+.av-ex{font-family:Heebo,sans-serif;background:#3f7a52;color:#fff;padding:9px 24px;font-size:.95rem;margin-top:18px}
+.dq-ruler{position:absolute;inset:0;pointer-events:none;z-index:60}
+.dq-ruler>div{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(1104px,calc(100% - 96px));
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:10px;direction:rtl}
+.dq-ruler i{border-inline:1px solid rgba(230,30,110,.8);font:600 .75rem/1 Heebo,sans-serif;font-style:normal;color:#e61e6e;
   text-align:center;padding-top:4px;text-shadow:0 0 3px #fff}
-@media(max-width:760px){
- .kg{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:130px}
- .kg__i{grid-column:span 1!important;grid-row:span 1!important}
- .kg__i:is([data-c="3"],[data-c="4"],[data-c="6"]){grid-column:1/-1!important}
- .cm-grid{display:none}
-}
+@media(max-width:760px){.dq-ruler{display:none}}
+.dq-nopad .split2>:not(.split2__m){padding-inline:0!important}
+.dq-just .whom__p,.dq-just .cta-band__p,.dq-just .cta-band__txt p{text-align:justify!important;text-align-last:start!important}
+.dq-1104 .cta-band__in{max-width:1104px!important;width:min(1104px,calc(100% - 96px))!important;padding-inline:0!important;margin-inline:auto!important;box-sizing:border-box}
+/* The hero heights are svh; fix them to a 900-high screen so the page reads the same in any window. */
+header.phero.cm-h-m{min-height:594px!important;height:594px!important}
+.dq-fit .phero__media{object-fit:contain!important;background:#1d140d}
+.dq-sq .ea-contact-portrait img{aspect-ratio:1/1!important;height:auto!important}
+.dq-fit .ea-contact-portrait img{object-fit:contain!important;background:#f3ece2}
 </style></head>
 <body class="rtl wp-singular page-template page-template-page-templates page-template-tpl-service page-template-page-templatestpl-service-php page page-id-55 wp-embed-responsive wp-theme-generatepress wp-child-theme-ea-eyalamit no-sidebar nav-float-right separate-containers header-aligned-right dropdown-hover ea-wave2-shell ea-m4-polish ea-chapters">
 
-<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-href="ea-canon-map.html#g4" type="button">כרטיסים</button><button class="cm-tab" data-href="ea-canon-map.html#g5" type="button">מדיה</button><button class="cm-tab" data-href="ea-canon-map.html#g6" type="button">פעולה</button><button class="cm-tab" data-href="ea-canon-map.html#g7" type="button">תבניות עמוד</button><button class="cm-tab" data-href="ea-canon-map.html#g8" type="button">משותף</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg" data-href="open.html" type="button">הצעות פתוחות</button><button class="cm-pg is-on" data-href="grids.html" type="button">חלוקות</button><button class="cm-pg" data-href="decisions.html" type="button">החלטות</button><button class="cm-pg" data-href="grid-proof.html" type="button">מה אושר — רשת</button><button class="cm-pg" data-href="palette-check.html" type="button">בדיקת גוונים</button></span></nav>
-<main class="chapters-main"><div class="cm-proof-head"><h1>חלוקות הרשת — מאושר ונעול</h1><p><b>מאושר ונעול (team_00, 27.9).</b> כל פריט יושב על ששת הטורים; גובה שורה אחיד, ופריט גבוה תופס שתי שורות. נפסלו: 1+5 בשניים, ו«שלושה שלישים ואחד מתחת» בארבעה. כל אפשרות עם מזהה — מאשרים, פוסלים, ואז כל טיפוס שמחלק פריטים (כרטיסים, תמונות, המלצות וכו׳) יורש מהרשימה. <b>גודל התמונה — אחד לכל החלוקה:</b> או שכולן במילוי (נחתכות לתא, וכל שורה יוצאת בלוק ישר), או שכולן בהתאמה — ואז החלוקה מותרת רק כשצורות התמונות נותנות גובה שווה (למשל 3+1+1+1: הגדולה לרוחב, הקטנות לאורך). אין חצי-חצי. בטלפון: שני טורים; פריט רחב (3 טורים ומעלה) או גבוה תופס את שניהם. <b>מעל חמישה אין תבנית משלו</b> — מרכיבים משורות שברשימה (שישה = 3+3 או 4+2 וכו׳). <b>רשימה של יותר מעשרה, או שמספרה לא ידוע מראש</b> (בלוג, גלריה, המלצות): פטורה — בוחרים מספר בשורה שעומד ברשת (1, 2, 3 או 6) וזהו; השארית נשארת כמו שהיא.</p></div><div class="cm-group"><span>חלוקה</span><h2>1 פריט</h2></div><div class="av-ex" id="K-1.1"><b>K-1.1</b> רוחב מלא</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="6" style="grid-column:span 6;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-1.2"><b>K-1.2</b> ממורכז — טורים 2–5</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="4" style="grid-column:2/6;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="cm-group"><span>חלוקה</span><h2>2 פריטים</h2></div><div class="av-ex" id="K-2.1"><b>K-2.1</b> חצי וחצי — 3+3</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-2.2"><b>K-2.2</b> 4+2 — הגדול מימין</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-2.3"><b>K-2.3</b> 2+4 — הגדול משמאל</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="cm-group"><span>חלוקה</span><h2>3 פריטים</h2></div><div class="av-ex" id="K-3.1"><b>K-3.1</b> שלושה שווים — 2+2+2</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-3.2"><b>K-3.2</b> אחד גבוה מימין (2 טורים, שתי שורות) ושניים בחצי גובה ב-4 טורים</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-3.3"><b>K-3.3</b> אחד גבוה משמאל ושניים בחצי גובה ב-4 טורים</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="4" style="grid-column:span 4;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="cm-group"><span>חלוקה</span><h2>4 פריטים</h2></div><div class="av-ex" id="K-4.1"><b>K-4.1</b> שתי שורות של 2 — 3+3 / 3+3</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-4.2"><b>K-4.2</b> שניים גדולים ושניים קטנים — גדול, שני קטנים זה מעל זה, גדול (2+2+2); הכול בלוק אחד</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:3/5;grid-row:1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="2" style="grid-column:3/5;grid-row:2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="2" style="grid-column:5/7;grid-row:1/3"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-4.3"><b>K-4.3</b> אחד גדול ושלושה קטנים — 3+1+1+1, הגדול ראשון. בהתאמה: הגדול לרוחב והקטנים לאורך</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-4.4"><b>K-4.4</b> אחד גדול ושלושה קטנים — 1+1+1+3, הגדול אחרון. בהתאמה: הגדול לרוחב והקטנים לאורך</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="3" style="grid-column:span 3;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="cm-group"><span>חלוקה</span><h2>5 פריטים</h2></div><div class="av-ex" id="K-5.1"><b>K-5.1</b> אחד גדול וארבעה קטנים בשורה אחת — 2+1+1+1+1, הגדול ראשון</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-12.jpg"/><b>5</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-5.2"><b>K-5.2</b> אותו דבר, הגדול אחרון — 1+1+1+1+2</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="1" style="grid-column:span 1;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-12.jpg"/><b>5</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-5.3"><b>K-5.3</b> אחד גבוה מימין ורביעייה לידו — כל אחד 2 טורים ובחצי גובה</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-12.jpg"/><b>5</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div><div class="av-ex" id="K-5.4"><b>K-5.4</b> אחד גבוה משמאל ורביעייה לידו</div><div class="cm-spec cm-appr"><span class="cm-dummy__badge cm-appr__badge">מאושר ונעול</span><section class="sec"><div class="wrap"><div class="kg-box"><div class="kg"><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/><b>1</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-09.jpg"/><b>2</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 2"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-10.png"/><b>3</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-11.jpg"/><b>4</b></figure><figure class="kg__i" data-c="2" style="grid-column:span 2;grid-row:span 1"><img alt="" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-12.jpg"/><b>5</b></figure></div><div aria-hidden="true" class="cm-grid"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></div></section></div></main>
+<nav aria-label="קבוצות" class="cm-tabs"><button class="cm-tab" data-href="ea-canon-map.html#g1" type="button">פתיחות</button><button class="cm-tab" data-href="ea-canon-map.html#g2" type="button">טקסט</button><button class="cm-tab" data-href="ea-canon-map.html#g3" type="button">תמונה וטקסט</button><button class="cm-tab" data-href="ea-canon-map.html#g4" type="button">כרטיסים</button><button class="cm-tab" data-href="ea-canon-map.html#g5" type="button">מדיה</button><button class="cm-tab" data-href="ea-canon-map.html#g6" type="button">פעולה</button><button class="cm-tab" data-href="ea-canon-map.html#g7" type="button">תבניות עמוד</button><button class="cm-tab" data-href="ea-canon-map.html#g8" type="button">משותף</button><span class="cm-pgs"><button class="cm-pg" data-href="ea-canon-map.html" type="button">המפה</button><button class="cm-pg" data-href="open.html" type="button">הצעות פתוחות</button><button class="cm-pg" data-href="grids.html" type="button">חלוקות</button><button class="cm-pg is-on" data-href="decisions.html" type="button">החלטות</button><button class="cm-pg" data-href="grid-proof.html" type="button">מה אושר — רשת</button><button class="cm-pg" data-href="palette-check.html" type="button">בדיקת גוונים</button></span></nav>
+<main class="chapters-main"><div class="cm-proof-head"><h1>החלטות מבדיקת המפה — לבחירה בעין</h1><p>לכל שאלה: אפשרות א ואפשרות ב, מצוירות מהדוגמאות של המפה, עם רשת ששת הטורים של האתר (קווים ורודים). ענה לפי מזהה, למשל «ש-1 א, ש-3 ב».</p></div><div class="cm-group" id="ש-1"><span>ש-1</span><h2>מרווח הנשימה בטקסט ותמונה</h2></div><div class="dq-note">הטקסט מתרחק מהתמונה בתוך הטורים שלו, ולכן קצה הטקסט הגלוי לא נוגע בקו רשת (הקופסה כן על הרשת).</div><div class="av-ex">א — כמו שאישרת: עם מרווח נשימה (מומלץ)</div><div class="cm-spec"><section class="sec cm-sp" style="position:relative">
+<div class="wrap">
+<div class="split2">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">מהי שיטת <span lang="en">cbDIDG</span></h2>
+<div class="intro-body"><p>שיטת <span lang="en">cbDIDG</span> היא שיטה לעבודה עם הנשימה, המתבצעת דרך נגינה בדיג'רידו וליווי אישי, כחלק מתהליך של <a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> או במסגרת של <a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a>.</p><p>העבודה אינה מתמקדת רק בלימוד נגינה או בטכניקה, אלא בשיפור דפוסי הנשימה היומיומיים.</p><p>דרך הכלי, התרגול וההקשבה למה שקורה בגוף, נבנית בהדרגה שליטה, יציבות ויכולת ויסות של מערכת הנשימה.</p><p>הדיג'רידו משמש ככלי עבודה - לא כמטרה בפני עצמה.</p></div>
+</div>
+<figure class="figr figr--l split2__m r r2" style="margin:0">
+<img alt="אייל עמית מתרגל נשימה דרך הדיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"/>
+</figure>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — בלי מרווח: הטקסט עד קו הרשת, צמוד לתמונה</div><div class="cm-spec"><section class="sec cm-sp dq-nopad" style="position:relative">
+<div class="wrap">
+<div class="split2">
+<div class="r">
+<h2 class="h2" style="margin-bottom:18px">מהי שיטת <span lang="en">cbDIDG</span></h2>
+<div class="intro-body"><p>שיטת <span lang="en">cbDIDG</span> היא שיטה לעבודה עם הנשימה, המתבצעת דרך נגינה בדיג'רידו וליווי אישי, כחלק מתהליך של <a class="tlink" href="/treatment/">טיפול בדיג'רידו</a> או במסגרת של <a class="tlink" href="/lessons/">שיעורי נגינה בדיג'רידו</a>.</p><p>העבודה אינה מתמקדת רק בלימוד נגינה או בטכניקה, אלא בשיפור דפוסי הנשימה היומיומיים.</p><p>דרך הכלי, התרגול וההקשבה למה שקורה בגוף, נבנית בהדרגה שליטה, יציבות ויכולת ויסות של מערכת הנשימה.</p><p>הדיג'רידו משמש ככלי עבודה - לא כמטרה בפני עצמה.</p></div>
+</div>
+<figure class="figr figr--l split2__m r r2" style="margin:0">
+<img alt="אייל עמית מתרגל נשימה דרך הדיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg"/>
+</figure>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-2א"><span>ש-2א</span><h2>טקסט על תמונה בבולטים — ימין או יישור בלוק</h2></div><div class="dq-note">בשורות קצרות יישור בלוק פותח רווחים בין מילים.</div><div class="av-ex">א — טקסט תצוגה, מיושר לימין (מומלץ)</div><div class="cm-spec"><section class="sec sec--alt cm-g6 cm-g4-22 cm-hs cm-bul" id="whom" style="position:relative">
+<div class="wrap">
+<h2 class="h2 r">למי מתאים התהליך</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>
+<div class="whom">
+<div class="whom__i r">
+<span class="whom__m">
+<img alt="אייל עמית עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg"/>
+</span>
+<p class="whom__p">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>
+</div>
+<div class="whom__i r r2">
+<span class="whom__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<p class="whom__p">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>
+</div>
+<div class="whom__i r r3">
+<span class="whom__m">
+<img alt="אייל עמית ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+</span>
+<p class="whom__p">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>
+</div>
+<div class="whom__i r r4">
+<span class="whom__m">
+<img alt="דיוקן של אייל עמית" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg"/>
+</span>
+<p class="whom__p">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — יישור בלוק, כמו טקסט רץ</div><div class="cm-spec"><section class="sec sec--alt cm-g6 cm-g4-22 cm-hs cm-bul dq-just" id="whom" style="position:relative">
+<div class="wrap">
+<h2 class="h2 r">למי מתאים התהליך</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p>
+<div class="whom">
+<div class="whom__i r">
+<span class="whom__m">
+<img alt="אייל עמית עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg"/>
+</span>
+<p class="whom__p">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>
+</div>
+<div class="whom__i r r2">
+<span class="whom__m">
+<img alt="תרגול נשימה עם דיג׳רידו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg"/>
+</span>
+<p class="whom__p">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>
+</div>
+<div class="whom__i r r3">
+<span class="whom__m">
+<img alt="אייל עמית ליד חלון הסטודיו" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+</span>
+<p class="whom__p">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>
+</div>
+<div class="whom__i r r4">
+<span class="whom__m">
+<img alt="דיוקן של אייל עמית" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg"/>
+</span>
+<p class="whom__p">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-2ב"><span>ש-2ב</span><h2>הפסקה בפס הקריאה לפעולה — ימין או יישור בלוק</h2></div><div class="av-ex">א — כמו היום, מיושרת לימין</div><div class="cm-spec"><section class="cta-band cta-band--row cta-band--sand cm-cta-p" style="position:relative">
+<div class="cta-band__in">
+<span aria-hidden="true" class="cta-band__logo cta-band__logo--side"></span>
+<div class="cta-band__txt r">
+<h2 class="cta-band__h">אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם.</h2> <p class="cta-band__p">ייתכן שאתם מחפשים שינוי בנשימה, ייתכן שאתם סקרנים להבין איך זה מרגיש מבפנים, ואולי פשוט מרגישים שזה הזמן לעצור רגע ולהקשיב. שיחת היכרות מאפשרת להבין יחד האם השיטה מתאימה לכם, ולראות איך ניתן להתחיל תהליך אישי שמתאים בדיוק לכם.</p> </div>
+<div class="cta-band__act r r2">
+<a class="btn btn--terra" href="/contact/">לתיאום שיחת היכרות</a>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — יישור בלוק, כמו כל טקסט רץ (מומלץ)</div><div class="cm-spec"><section class="cta-band cta-band--row cta-band--sand cm-cta-p dq-just" style="position:relative">
+<div class="cta-band__in">
+<span aria-hidden="true" class="cta-band__logo cta-band__logo--side"></span>
+<div class="cta-band__txt r">
+<h2 class="cta-band__h">אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם.</h2> <p class="cta-band__p">ייתכן שאתם מחפשים שינוי בנשימה, ייתכן שאתם סקרנים להבין איך זה מרגיש מבפנים, ואולי פשוט מרגישים שזה הזמן לעצור רגע ולהקשיב. שיחת היכרות מאפשרת להבין יחד האם השיטה מתאימה לכם, ולראות איך ניתן להתחיל תהליך אישי שמתאים בדיוק לכם.</p> </div>
+<div class="cta-band__act r r2">
+<a class="btn btn--terra" href="/contact/">לתיאום שיחת היכרות</a>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-3"><span>ש-3</span><h2>רוחב פס הקריאה לפעולה</h2></div><div class="dq-note">הקווים הוורודים הם הרשת של כל האתר (1104). היום הפס בנוי על 1120 — הטקסט והכפתור זזים מהקווים.</div><div class="av-ex">א — כמו היום: 1120</div><div class="cm-spec"><section class="cta-band cta-band--row cta-band--sand cm-cta-p" style="position:relative">
+<div class="cta-band__in">
+<span aria-hidden="true" class="cta-band__logo cta-band__logo--side"></span>
+<div class="cta-band__txt r">
+<h2 class="cta-band__h">אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם.</h2> <p class="cta-band__p">ייתכן שאתם מחפשים שינוי בנשימה, ייתכן שאתם סקרנים להבין איך זה מרגיש מבפנים, ואולי פשוט מרגישים שזה הזמן לעצור רגע ולהקשיב. שיחת היכרות מאפשרת להבין יחד האם השיטה מתאימה לכם, ולראות איך ניתן להתחיל תהליך אישי שמתאים בדיוק לכם.</p> </div>
+<div class="cta-band__act r r2">
+<a class="btn btn--terra" href="/contact/">לתיאום שיחת היכרות</a>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — ברוחב התוכן 1104, על הרשת של כל האתר (מומלץ)</div><div class="cm-spec"><section class="cta-band cta-band--row cta-band--sand cm-cta-p dq-1104" style="position:relative">
+<div class="cta-band__in">
+<span aria-hidden="true" class="cta-band__logo cta-band__logo--side"></span>
+<div class="cta-band__txt r">
+<h2 class="cta-band__h">אם הגעתם עד לכאן, כנראה שמשהו בדרך הזו נוגע בכם.</h2> <p class="cta-band__p">ייתכן שאתם מחפשים שינוי בנשימה, ייתכן שאתם סקרנים להבין איך זה מרגיש מבפנים, ואולי פשוט מרגישים שזה הזמן לעצור רגע ולהקשיב. שיחת היכרות מאפשרת להבין יחד האם השיטה מתאימה לכם, ולראות איך ניתן להתחיל תהליך אישי שמתאים בדיוק לכם.</p> </div>
+<div class="cta-band__act r r2">
+<a class="btn btn--terra" href="/contact/">לתיאום שיחת היכרות</a>
+</div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-4"><span>ש-4</span><h2>כפתור ברוחב התווית</h2></div><div class="dq-note">מחוץ להירו ולפס הקריאה לפעולה, הכפתור לפי אורך התווית ולא ממלא טורים.</div><div class="av-ex">א — לפי התווית, מתחיל בקו הטור (מומלץ)</div><div class="cm-spec"><section class="sec" style="position:relative"><div class="wrap"><h2 class="h2" style="margin:0 0 14px">כותרת לדוגמה</h2><p style="margin:0 0 20px;max-width:none">שורת טקסט לדוגמה מעל הכפתור.</p><p style="margin:0"><a class="btn btn--terra" style="">לתיאום שיחת היכרות</a></p></div><div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — ממלא שני טורים בדיוק</div><div class="cm-spec"><section class="sec" style="position:relative"><div class="wrap"><h2 class="h2" style="margin:0 0 14px">כותרת לדוגמה</h2><p style="margin:0 0 20px;max-width:none">שורת טקסט לדוגמה מעל הכפתור.</p><p style="margin:0"><a class="btn btn--terra" style="display:inline-flex;justify-content:center;width:calc((100% - 50px) / 6 * 2 + 10px)">לתיאום שיחת היכרות</a></p></div><div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-6א"><span>ש-6א</span><h2>תמונת הירו — מילוי או התאמה</h2></div><div class="av-ex">א — תמיד מילוי: התמונה ממלאת את הבאנר (מומלץ)</div><div class="cm-spec"><header class="phero phero--media cm-h-m" style="position:relative">
+<img alt="אייל עמית מנגן בדיג׳רידו מול קיר הקשתות בסטודיו" class="phero__media" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+<span aria-hidden="true" class="phero__sc"></span>
+<span aria-hidden="true" class="arcs"></span>
+<div class="phero__in">
+<h1 class="phero__h"><span class="ea-nowrap">שיטת <span class="ea-nowrap" lang="en">cbDIDG</span></span> של אייל עמית</h1>
+<p class="phero__s">שיטה לעבודה עם הנשימה באמצעות דיג'רידו, המבוססת על תרגול עצמי דרך הכלי בליווי אישי. הדיג'רידו אינו המטרה - הוא הכלי שדרכו לומדים לעבוד עם הנשימה היומיומית, לחזק, לווסת ולהחזיר עליה את השליטה.</p> <p class="phero__cta"><a class="btn btn--gw" href="/contact/">לתיאום שיחת היכרות</a></p>
+</div>
+<span aria-hidden="true" class="phero__media-cue"></span><div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></header></div><div class="av-ex">ב — התאמה: התמונה שלמה, עם שוליים כהים</div><div class="cm-spec"><header class="phero phero--media cm-h-m dq-fit" style="position:relative">
+<img alt="אייל עמית מנגן בדיג׳רידו מול קיר הקשתות בסטודיו" class="phero__media" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg"/>
+<span aria-hidden="true" class="phero__sc"></span>
+<span aria-hidden="true" class="arcs"></span>
+<div class="phero__in">
+<h1 class="phero__h"><span class="ea-nowrap">שיטת <span class="ea-nowrap" lang="en">cbDIDG</span></span> של אייל עמית</h1>
+<p class="phero__s">שיטה לעבודה עם הנשימה באמצעות דיג'רידו, המבוססת על תרגול עצמי דרך הכלי בליווי אישי. הדיג'רידו אינו המטרה - הוא הכלי שדרכו לומדים לעבוד עם הנשימה היומיומית, לחזק, לווסת ולהחזיר עליה את השליטה.</p> <p class="phero__cta"><a class="btn btn--gw" href="/contact/">לתיאום שיחת היכרות</a></p>
+</div>
+<span aria-hidden="true" class="phero__media-cue"></span><div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></header></div><div class="cm-group" id="ש-6ב"><span>ש-6ב</span><h2>התמונה ביצירת קשר — מילוי או התאמה</h2></div><div class="dq-note">להמחשה המסגרת כאן ריבועית, כדי שההבדל ייראה: במילוי התמונה נחתכת, בהתאמה רואים אותה שלמה עם שוליים.</div><div class="av-ex">א — מילוי: נחתכת למסגרת</div><div class="cm-spec"><section class="sec ea-wave2-contact cm-ct dq-sq" data-block="contact" style="position:relative">
+<div class="wrap">
+<div class="ea-contact-form-row">
+<div class="ea-entrance">
+<h2 class="ea-contact-section__heading r">השאירו פנייה</h2>
+<div class="ea-contact-form ea-contact-form--cf7">
+<div class="wpcf7 no-js" data-wpcf7-id="392" dir="rtl" id="wpcf7-f392-o1" lang="he-IL">
+<div class="screen-reader-response"><p aria-atomic="true" aria-live="polite" role="status"></p> <ul></ul></div>
+<form action="#" aria-label="Contact form" class="wpcf7-form init ea-contact-form__form" data-status="init" method="post" novalidate="novalidate" onsubmit="return false">
+<fieldset class="hidden-fields-container"><input name="_wpcf7" type="hidden" value="392"/><input name="_wpcf7_version" type="hidden" value="6.1.7"/><input name="_wpcf7_locale" type="hidden" value="he_IL"/><input name="_wpcf7_unit_tag" type="hidden" value="wpcf7-f392-o1"/><input name="_wpcf7_container_post" type="hidden" value="0"/><input name="_wpcf7_posted_data_hash" type="hidden" value=""/>
+</fieldset>
+<div class="ea-cf7">
+<p class="ea-cf7-row"><label>שם מלא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-name"><input aria-invalid="false" aria-required="true" autocomplete="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" maxlength="400" name="your-name" placeholder="שם מלא" size="40" type="text" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>טלפון<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-phone"><input aria-invalid="false" autocomplete="tel" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" maxlength="400" name="your-phone" placeholder="טלפון" size="40" type="tel" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>אימייל<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-email"><input aria-invalid="false" aria-required="true" autocomplete="email" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" maxlength="400" name="your-email" placeholder="אימייל" size="40" type="email" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>נושא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-subject"><select aria-invalid="false" aria-required="true" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" name="your-subject"><option value="">בחרו נושא</option><option value="טיפול בדיג'רידו">טיפול בדיג'רידו</option><option value="שיעורי נגינה">שיעורי נגינה</option><option value="סאונד הילינג">סאונד הילינג</option><option value="רכישת כלי">רכישת כלי</option><option value="רכישת ספר">רכישת ספר</option><option value="תיקון כלי">תיקון כלי</option><option value="אחר">אחר</option></select></span></label>
+</p>
+<p class="ea-cf7-row"><label>הודעה<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-message"><textarea aria-invalid="false" class="wpcf7-form-control wpcf7-textarea" cols="40" maxlength="2000" name="your-message" placeholder="ספרו לנו במה נוכל לעזור" rows="10"></textarea></span></label>
+</p>
+<p class="ea-cf7-submit"><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שליחה"/>
+</p>
+</div><div aria-hidden="true" class="wpcf7-response-output"></div>
+</form>
+</div>
+</div> <div aria-label="דרכי התקשרות מהירות" class="ea-entrance ea-contact-cta r">
+<h2 class="ea-contact-section__heading">מעדיפים לכתוב ישירות?</h2>
+<p class="ea-contact-section__body">אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.</p>
+<div class="ea-cta-ab" data-ab-experiment="contact_whatsapp_cta" data-ea-ab="" data-ea-page="contact">
+<a aria-label="דברו איתי בוואטסאפ (נפתח בחלון חדש)" class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" data-ab-variant="A" data-ea-ab-wa="" href="https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%A6%D7%95%D7%A8%20%D7%94%D7%A7%D7%A9%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA" rel="noopener noreferrer" target="_blank">דברו איתי בוואטסאפ</a>
+</div>
+<ul class="ea-contact-points">
+<li>שיחת היכרות ראשונית ללא התחייבות</li>
+<li>ליווי אישי, אחד על אחד</li>
+<li>מענה אישי תוך יום עסקים אחד</li>
+</ul>
+</div></div>
+<aside class="cm-ct__side"><span aria-hidden="true" class="ea-contact-portrait ea-entrance">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-child-phone.jpg"/>
+</span><div aria-label="פרטי המרכז וכתובת" class="ea-entrance ea-contact-nap">
+<h3 class="ea-contact-nap__h">המרכז לטיפול בנשימה באמצעות דיג'רידו</h3>
+<p class="ea-contact-nap__row">רח' עמל 8 ב', פרדס חנה-כרכור</p>
+<p class="ea-contact-nap__row">טלפון / וואטסאפ: <a dir="ltr" href="tel:+972524822842" style="white-space:nowrap">052-4822842</a></p>
+<p class="ea-contact-nap__row">שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש</p>
+</div></aside></div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="av-ex">ב — התאמה: התמונה שלמה (וריאנט לבחירה, מומלץ לאפשר)</div><div class="cm-spec"><section class="sec ea-wave2-contact cm-ct dq-sq dq-fit" data-block="contact" style="position:relative">
+<div class="wrap">
+<div class="ea-contact-form-row">
+<div class="ea-entrance">
+<h2 class="ea-contact-section__heading r">השאירו פנייה</h2>
+<div class="ea-contact-form ea-contact-form--cf7">
+<div class="wpcf7 no-js" data-wpcf7-id="392" dir="rtl" id="wpcf7-f392-o1" lang="he-IL">
+<div class="screen-reader-response"><p aria-atomic="true" aria-live="polite" role="status"></p> <ul></ul></div>
+<form action="#" aria-label="Contact form" class="wpcf7-form init ea-contact-form__form" data-status="init" method="post" novalidate="novalidate" onsubmit="return false">
+<fieldset class="hidden-fields-container"><input name="_wpcf7" type="hidden" value="392"/><input name="_wpcf7_version" type="hidden" value="6.1.7"/><input name="_wpcf7_locale" type="hidden" value="he_IL"/><input name="_wpcf7_unit_tag" type="hidden" value="wpcf7-f392-o1"/><input name="_wpcf7_container_post" type="hidden" value="0"/><input name="_wpcf7_posted_data_hash" type="hidden" value=""/>
+</fieldset>
+<div class="ea-cf7">
+<p class="ea-cf7-row"><label>שם מלא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-name"><input aria-invalid="false" aria-required="true" autocomplete="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" maxlength="400" name="your-name" placeholder="שם מלא" size="40" type="text" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>טלפון<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-phone"><input aria-invalid="false" autocomplete="tel" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" maxlength="400" name="your-phone" placeholder="טלפון" size="40" type="tel" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>אימייל<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-email"><input aria-invalid="false" aria-required="true" autocomplete="email" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" maxlength="400" name="your-email" placeholder="אימייל" size="40" type="email" value=""/></span></label>
+</p>
+<p class="ea-cf7-row"><label>נושא<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-subject"><select aria-invalid="false" aria-required="true" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" name="your-subject"><option value="">בחרו נושא</option><option value="טיפול בדיג'רידו">טיפול בדיג'רידו</option><option value="שיעורי נגינה">שיעורי נגינה</option><option value="סאונד הילינג">סאונד הילינג</option><option value="רכישת כלי">רכישת כלי</option><option value="רכישת ספר">רכישת ספר</option><option value="תיקון כלי">תיקון כלי</option><option value="אחר">אחר</option></select></span></label>
+</p>
+<p class="ea-cf7-row"><label>הודעה<br/>
+<span class="wpcf7-form-control-wrap" data-name="your-message"><textarea aria-invalid="false" class="wpcf7-form-control wpcf7-textarea" cols="40" maxlength="2000" name="your-message" placeholder="ספרו לנו במה נוכל לעזור" rows="10"></textarea></span></label>
+</p>
+<p class="ea-cf7-submit"><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שליחה"/>
+</p>
+</div><div aria-hidden="true" class="wpcf7-response-output"></div>
+</form>
+</div>
+</div> <div aria-label="דרכי התקשרות מהירות" class="ea-entrance ea-contact-cta r">
+<h2 class="ea-contact-section__heading">מעדיפים לכתוב ישירות?</h2>
+<p class="ea-contact-section__body">אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.</p>
+<div class="ea-cta-ab" data-ab-experiment="contact_whatsapp_cta" data-ea-ab="" data-ea-page="contact">
+<a aria-label="דברו איתי בוואטסאפ (נפתח בחלון חדש)" class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" data-ab-variant="A" data-ea-ab-wa="" href="https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%A6%D7%95%D7%A8%20%D7%94%D7%A7%D7%A9%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA" rel="noopener noreferrer" target="_blank">דברו איתי בוואטסאפ</a>
+</div>
+<ul class="ea-contact-points">
+<li>שיחת היכרות ראשונית ללא התחייבות</li>
+<li>ליווי אישי, אחד על אחד</li>
+<li>מענה אישי תוך יום עסקים אחד</li>
+</ul>
+</div></div>
+<aside class="cm-ct__side"><span aria-hidden="true" class="ea-contact-portrait ea-entrance">
+<img alt="" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-child-phone.jpg"/>
+</span><div aria-label="פרטי המרכז וכתובת" class="ea-entrance ea-contact-nap">
+<h3 class="ea-contact-nap__h">המרכז לטיפול בנשימה באמצעות דיג'רידו</h3>
+<p class="ea-contact-nap__row">רח' עמל 8 ב', פרדס חנה-כרכור</p>
+<p class="ea-contact-nap__row">טלפון / וואטסאפ: <a dir="ltr" href="tel:+972524822842" style="white-space:nowrap">052-4822842</a></p>
+<p class="ea-contact-nap__row">שעות פעילות: א'–ה' 9:00–19:00 · ו' 9:00–14:00 · שבת סגור · ביקור בתיאום מראש</p>
+</div></aside></div>
+</div>
+<div aria-hidden="true" class="dq-ruler"><div><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div></section></div><div class="cm-group" id="ש-5"><span>ש-5</span><h2>«סרטון שעוד לא הגיע» — באיזה טיפוס רשום</h2></div><div class="dq-note">זו החלטה על סדר המפה בלבד — המראה זהה בשתי האפשרויות. ההמלצה: רק תחת «ממתין לתוכן». כך זה נראה:</div><div class="cm-spec"><section class="sec sec--alt" id="lessons-look" style="position:relative">
+<div class="wrap">
+<div style="max-width:760px">
+<h2 class="h2 r" style="margin-bottom:18px">איך נראים השיעורים בפועל</h2> <div class="intro-body r r2"><p>השיעורים מתקיימים במפגשים אישיים אחד על אחד, בסטודיו של אייל עמית בפרדס חנה, בקצב שמותאם לכל תלמיד.</p><p>כל מפגש משלב בין תרגול מעשי, הכוונה מדויקת ועבודה הדרגתית על טכניקות הנגינה והנשימה.</p><p>בשלבים הראשונים מתמקדים בהפקת הצליל, בהיכרות עם הכלי ובהטמעת יסודות הנשימה המעגלית.</p><p>בהמשך מתקדמים לעבודה על רציפות, שליטה בצליל, מקצבים ואפקטים קוליים.</p><p>במהלך השיעור ניתן דגש על דיוק - תיקון טעויות בזמן אמת, התאמה אישית של התרגול, והכוונה שמאפשרת התקדמות יציבה וברורה.</p><p>בנוסף למפגשים עצמם, ניתנות הנחיות לתרגול עצמי בין שיעורים, כדי לבסס את היכולת ולהעמיק את השליטה בנגינה.</p></div> </div>
+<div aria-label="כאן ייכנס וידאו" class="videoblk r r2" role="img" style="margin-top:48px">
+<div class="ea-pending-approval" role="status" style="position:absolute;inset:16px;margin:0">
+<span class="ea-pending-approval__badge">ממתין לאישור</span>
+<p class="ea-pending-approval__title">כאן ייכנס וידאו</p>
+</div>
+</div>
+</div>
+</section></div><div class="cm-group" id="ש-7"><span>ש-7</span><h2>«כל עמוד מקבל סרט משלו» ככלל של טיפוס הווידאו</h2></div><div class="dq-note">החלטה שלך מ־27.9 (D8) — רק לרשום אותה בכללי הטיפוס. אין הבדל חזותי.</div><div class="cm-group" id="ש-8"><span>ש-8</span><h2>קובץ הקאנון לפי 18 הטיפוסים</h2></div><div class="dq-note">סידור מסמך — המפה עצמה לא משתנה. אין הבדל חזותי.</div></main>
 
 <script>
 document.querySelectorAll('.cm-pg,.cm-tab[data-href]').forEach(function(b){b.addEventListener('click',function(){
