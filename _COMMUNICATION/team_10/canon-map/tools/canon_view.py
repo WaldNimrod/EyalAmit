@@ -59,7 +59,10 @@ for gi, (gname, types) in enumerate(GROUPS, 1):
         for o, becomes in olds:
             for sp in approved(o):
                 first = first or sp
-                ex.append(f'<div class="cm-variant cm-v-a">מאושר — {label(sp).replace("מאושר — ", "")}</div>{sp}')
+                lab_txt = label(sp).replace("מאושר — ", "")
+                if tid == "S-1":  # the approved pending look, shown inside a video block
+                    lab_txt = "המראה האחיד של «ממתין לתוכן» — כאן בתוך בלוק וידאו"
+                ex.append(f'<div class="cm-variant cm-v-a">מאושר — {lab_txt}</div>{sp}')
         for o, becomes in olds:
             t = today(o)
             if not t:

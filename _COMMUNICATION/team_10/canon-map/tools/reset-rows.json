@@ -1,0 +1,4062 @@
+{
+ "_meta": {
+  "date": "2026-09-28",
+  "pages": 35,
+  "templates": {
+   "posts": 52,
+   "qr": 49
+  },
+  "count": {
+   "green": 301,
+   "yellow": 44,
+   "red": 35
+  }
+ },
+ "pages": [
+  {
+   "path": "/snoring-sleep-apnea/",
+   "title": "דיג'רידו לנחירות ודום נשימה בשינה — מה אומר המחקר | אייל עמית",
+   "words": 2841,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">נחירות ודום נשימה בשינה:<br/>גישה טיפולית באמצעות דיג'רידו</h1>\n<p class=\"phero__s\">אם אתם נוחרים, מתעוררים עייפים או כבר אובחנתם עם דום נשימה בשינה, סביר להניח שכבר שמעתם על CPAP, סד דנטלי או אפשרויות רפואיות אחרות. אבל יש גם דרך הרבה פחות מוכרת: להשתמש בדיג'רידו ככלי לתרגול פעיל של הנשימה ושל האזורים המעורבים בדרכי האוויר העליונות. זה אולי נשמע מפתיע, אבל הקשר בין תרגול דיג'רידו, נחירות ודום נשימה בשינה נבדק גם במחקר קליני שפורסם ב-BMJ. אפילו באתר הרשמי של מכבי מופיע הדיג'רידו תחת הכותרת \"טיפולים משלימים\" לדום נשימה חסימתי בשינה.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">רוצה לדבר איתי</a></p>\n</div>\n</header>",
+     "id": "snoring-sleep-apnea.1"
+    },
+    {
+     "n": 2,
+     "type": "T-23",
+     "variant": "תוכן עניינים",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.5"
+    },
+    {
+     "n": 6,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.6"
+    },
+    {
+     "n": 7,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">רוצה לדבר איתי</a>\n</div>\n</div>\n</section>",
+     "id": "snoring-sleep-apnea.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.9"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.10"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.11"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "עם תמונה צפה (גודל אחד — השלב הבא)",
+     "html": "",
+     "id": "snoring-sleep-apnea.12"
+    },
+    {
+     "n": 13,
+     "type": "T-18",
+     "variant": "המלצות · בתוך הקריאה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.13"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.14"
+    },
+    {
+     "n": 15,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">רוצה לדבר איתי</a>\n</div>\n</div>\n</section>",
+     "id": "snoring-sleep-apnea.15"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.16"
+    },
+    {
+     "n": 17,
+     "type": "T-21",
+     "variant": "אקורדיון · מונחים (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.17"
+    },
+    {
+     "n": 18,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.18"
+    },
+    {
+     "n": 19,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">רוצה לדבר איתי</a>\n</div>\n</div>\n</section>",
+     "id": "snoring-sleep-apnea.19"
+    },
+    {
+     "n": 20,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.20"
+    },
+    {
+     "n": 21,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.21"
+    },
+    {
+     "n": 22,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "snoring-sleep-apnea.22"
+    }
+   ]
+  },
+  {
+   "path": "/press/",
+   "title": "עיתונות",
+   "words": 836,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"ea-edhero\" data-block=\"editorial-hero\">\n<div class=\"ea-edhero__inner\">\n<div class=\"ea-edhero__text ea-entrance--breath\">\n<p class=\"ea-edhero__kicker\">אודות · עיתונות</p>\n<h1 class=\"ea-edhero__title\">עיתונות</h1>\n<p class=\"ea-edhero__lead\">אזכורים, כתבות וראיונות לאורך השנים. הקישורים נפתחים בלשונית חדשה.</p>\n</div>\n<img alt=\"דיוקן של אייל עמית\" class=\"ea-edhero__portrait\" fetchpriority=\"high\" height=\"375\" loading=\"eager\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/eyal-portrait-hero.jpg\" width=\"300\"/>\n</div>\n</header>",
+     "id": "press.1"
+    },
+    {
+     "n": 2,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<div class=\"ea-metastrip\">",
+     "html": "<div class=\"ea-metastrip\" data-block=\"metastrip\">\n<div class=\"ea-metastrip__inner\">\n<div class=\"ea-metastrip__cell\">\n<p class=\"ea-metastrip__k\">פועל מאז</p>\n<p class=\"ea-metastrip__v\">1999</p>\n</div>\n<div class=\"ea-metastrip__cell\">\n<p class=\"ea-metastrip__k\">שיטה</p>\n<p class=\"ea-metastrip__v\"><span lang=\"en\">cbDIDG</span></p>\n</div>\n<div class=\"ea-metastrip__cell\">\n<p class=\"ea-metastrip__k\">סטודיו</p>\n<p class=\"ea-metastrip__v\">פרדס חנה</p>\n</div>\n<div class=\"ea-metastrip__cell\">\n<p class=\"ea-metastrip__k\">ספרים</p>\n<p class=\"ea-metastrip__v\">שלושה</p>\n</div>\n</div>\n</div>",
+     "id": "press.2"
+    },
+    {
+     "n": 3,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"\">",
+     "html": "<section aria-hidden=\"true\" data-block=\"breath-divider-1\">\n<div class=\"ea-breath-divider ea-breath-divider--delay-1\">\n<span class=\"ea-breath-divider__line\"></span>\n</div>\n</section>",
+     "id": "press.3"
+    },
+    {
+     "n": 4,
+     "type": "T-29",
+     "variant": "רשימת שנים · עיתונות",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "press.4"
+    },
+    {
+     "n": 5,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"ea-section ea-section--testimonials ea-fb-testimonials\">",
+     "html": "<section aria-label=\"ממליצים\" class=\"ea-section ea-section--testimonials ea-fb-testimonials\" data-block=\"testimonials-row\">\n<div class=\"ea-section__inner\">\n<h2 class=\"ea-section__heading ea-entrance--breath\">ממליצים</h2>\n<div class=\"ea-testimonials-accordion\">\n<details class=\"ea-testimonial-acc ea-entrance\" open=\"\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">שרון לוסקי</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">הגענו אחרי שבוע קשה… ונכנסנו לעולם אחר.<br/>\nשוכבים על רצפת עץ, עטופים בצלילים שמגיעים מכל כיוון – מעל, מתחת, מבפנים.<br/>\nפשוט להסכים להתמסר לזה.<br/>\nיצאתי בלי לדעת להסביר מה קרה… אבל עם תחושה עמוקה של וואו.</p>\n<div class=\"ea-testimonial-card__footer\">\n<a aria-label=\"המלצת שרון לוסקי בפייסבוק (נפתח בחלון חדש)\" class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1DrzXzvXjA/\" rel=\"noopener noreferrer\" target=\"_blank\">\n\t\t\t\t\t\t\t\t\t\t\tשרון לוסקי\t\t\t\t\t\t\t\t\t\t</a>\n<span aria-hidden=\"true\" class=\"ea-testimonial-card__hint\"> ↗</span>\n</div>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">לירן קלינה</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">עליתי על החללית של אייל…<br/>\nחזרתי אחרי שעתיים, אבל לא באמת.<br/>\nעדיין מרחף בין גלקסיות.<br/>\nחוויה מטלטלת, נעימה, מעיפה ומקרקעת בו זמנית.<br/>\nSound healing ברמה הכי גבוהה שאפשר לדמיין.</p>\n<div class=\"ea-testimonial-card__footer\">\n<a aria-label=\"המלצת לירן קלינה בפייסבוק (נפתח בחלון חדש)\" class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1GoxG1xRKx/\" rel=\"noopener noreferrer\" target=\"_blank\">\n\t\t\t\t\t\t\t\t\t\t\tלירן קלינה\t\t\t\t\t\t\t\t\t\t</a>\n<span aria-hidden=\"true\" class=\"ea-testimonial-card__hint\"> ↗</span>\n</div>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">רוית יונה בניהו</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">זו הייתה אחת החוויות המיוחדות שעברתי בחיים.<br/>\nתחושה של רטט עמוק שמסנכרן את הגוף מבפנים.<br/>\nנשארתי בלי מילים… וזה לא קורה לי הרבה.</p>\n<div class=\"ea-testimonial-card__footer\">\n<a aria-label=\"המלצת רוית יונה בניהו בפייסבוק (נפתח בחלון חדש)\" class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1EYoGyKsiH/\" rel=\"noopener noreferrer\" target=\"_blank\">\n\t\t\t\t\t\t\t\t\t\t\tרוית יונה בניהו\t\t\t\t\t\t\t\t\t\t</a>\n<span aria-hidden=\"true\" class=\"ea-testimonial-card__hint\"> ↗</span>\n</div>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">הילה יניב</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">אמבטיית צלילים… עטופה בתדרים מכל כיוון.<br/>\nרטט עוצמתי שממיס את הגוף וזורק למחוזות אחרים.<br/>\nחוויה של ריפוי, חיבור וקסם.<br/>\nכל פרט במקום מדויק להפליא.</p>\n<div class=\"ea-testimonial-card__footer\">\n<a aria-label=\"המלצת הילה יניב בפייסבוק (נפתח בחלון חדש)\" class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/15mvQ8YZGNt/\" rel=\"noopener noreferrer\" target=\"_blank\">\n\t\t\t\t\t\t\t\t\t\t\tהילה יניב\t\t\t\t\t\t\t\t\t\t</a>\n<span aria-hidden=\"true\" class=\"ea-testimonial-card__hint\"> ↗</span>\n</div>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">רתם פרץ</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">חוויה אל־חושית.<br/>\nעפתי לחלל, טבעתי בתוך אמבטיית צלילים.<br/>\nהרגשתי עטופה, מוגנת ומוחזקת.<br/>\nלא דומה לשום דבר שעברתי קודם.</p>\n<div class=\"ea-testimonial-card__footer\">\n<a aria-label=\"המלצת רתם פרץ בפייסבוק (נפתח בחלון חדש)\" class=\"ea-testimonial-card__name ea-link\" href=\"https://www.facebook.com/share/p/1CdeS2kWm7/\" rel=\"noopener noreferrer\" target=\"_blank\">\n\t\t\t\t\t\t\t\t\t\t\tרתם פרץ\t\t\t\t\t\t\t\t\t\t</a>\n<span aria-hidden=\"true\" class=\"ea-testimonial-card__hint\"> ↗</span>\n</div>\n</blockquote>\n</div>\n</details>\n</div>\n</div>\n</section>",
+     "id": "press.5"
+    },
+    {
+     "n": 6,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"ea-section ea-section--testimonials ea-show-testimonials\">",
+     "html": "<section aria-label=\"המלצות על המופע\" class=\"ea-section ea-section--testimonials ea-show-testimonials\" data-block=\"testimonials-row\">\n<div class=\"ea-section__inner\">\n<h2 class=\"ea-section__heading ea-entrance--breath\">המלצות על המופע</h2>\n<div class=\"ea-testimonials-accordion\">\n<details class=\"ea-testimonial-acc ea-entrance\" open=\"\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">אברהם טל</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">הייתי וזה היה מעולה. ממליץ בחום!!!</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">שי אביבי</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">אני אוהב אותו ואני חושב שמה שהוא עושה הוא דבר ייחודי ויוצא דופן. כדאי לכם להגיע לשם ולראות אותו בפעולה</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">מיכל ליבדינסקי</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">המופע של אייל הוא חוויה ייחודית, זה לא סטנד אפ, זה לא תיאטרון, זה לא מערכונים – אלה סיפורים שכתובים היטב ומוגשים בכישרון רב הישר ללבלב, אם בא לכם ערב מצחיק ומרגש, אל תחמיצו אותו, מופע חובה, הזמינו מקומות עכשיו</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">אלון נוימן</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">לא בכל מקום מוצאים השראה, הנאה, צחוק וחום אנושי. את כל אלה תמצאו בשפע בהופעה הזאת!! אל תתלבטו</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">אומינה</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">בעולם הציני שלנו כבר פיתחנו שריון כזה שקשה לדגדג אותו…אייל עמית מצליח בלי להתאמץ לפרוץ את כל הסכרים ולהביא שמחה וצחוק אמיתי כזה שמכאיב בבטן ותופס את הפה…בקיצור מי שעוד לא היה שם ממש ממש כדאי לו. זה מצחיק, שנון, עמוק, אמיתי, ופותח את הלב…סיפורים מהחיים, שמראים לנו שאנחנו פה ביחד במסע ….לכו לראות</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">רונן גוטמן</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">זה שנון. זה חכם. זה מעמיד מול המראה כמעט כל בנאדם שאני מכיר, וזה בעיקר מצחיק. מה מצחיק? קורע!!!״</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">טלי וורד קפלן</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">אייל עמית ההורס! איזה מנוע טורבו!! איזו עוצמה. חיות אינסופית. דיוק. נהניתי מכל רגע..פערתי עיני עגל ידועות וגמעתי כל מילה. מקסים וטורף, חד ושנון. מאוורר ומפתיע. חד ושנון. אייל עמית הוא תותח ירייה של הדברים הטובים. ממליצה בחום!</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">ערן שטרן</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">מומלץ בחום!! היינו בחמישי האחרון והתקשנו לנשום מרוב צחוק</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">דורית בר</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">הייתי במופע הסיפורים של אייל עמית. איך אצליח להעביר במילים חוויה כל כך משחררת? לא הפסקתי לצחוק כל המופע, אייל מביא עוצמות אדירות של ביטוי, כאלה שנוגעות עמוק בלב ובבטן, כמה עוצמה באיש! תודה אייל, היה כיף גדול, ממליצה בחום לכל מי שרוצה לצחוק בקול גדול!!!</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">קורי רונאל</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">ברגע שהוא התחיל זה לא היה דומה לשום דבר אחר שפגשתי קודם – סוחף , מרתק, מרגש, ומצחיק עד דמעות. מעשה אומנות. פיסה של חיים שלמים שעוברת אליך באופן כל כך פשוט, כל כך נכון , כל כך אמיתי, כל כך נוגע. המופע של איל הוא חוויה שאתם רוצים לחוות!</p>\n</blockquote>\n</div>\n</details>\n<details class=\"ea-testimonial-acc ea-entrance\">\n<summary class=\"ea-testimonial-acc__summary\">\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__figure\">\n<span class=\"ea-testimonial-card__avatar-placeholder\"></span>\n</span>\n<span class=\"ea-testimonial-acc__name\">אורית אור</span>\n<span aria-hidden=\"true\" class=\"ea-testimonial-acc__chevron\">⌄</span>\n</summary>\n<div class=\"ea-testimonial-acc__body\">\n<blockquote class=\"ea-testimonial-card__quote\">\n<p class=\"ea-testimonial-card__text\">חשבנו שאנחנו הולכים לערב של צחוקים.. סיפורים על התאהבות בסיני, סמים באמסטרדם, מקדונלדס בהודו… מה כבר יכול להיות מעניין כל כך? עברתי משהו עמוק ומרגש. אייל מצליח גם להצחיק (מאוד!) גם להיחשף בצורה מוחלטת, וגם לא ללגלג אפילו טיפה על אף אחד חוץ מעל עצמו.. תקשיבו, כמה שצחקתי לא בכיתי שנים.. יש משהו באנושיות הזאת שהיא כל כך נוגעת והופכת את החוויות של כולנו למשהו שונה לגמרי. עמוק, מצחיק ומטלטל. מופע מקסים. איש מקסים עם סיפור חיים מעורר השראה.. בהחלט תופעת יחיד. מאד מאד נהננו.</p>\n</blockquote>\n</div>\n</details>\n</div>\n</div>\n</section>",
+     "id": "press.6"
+    },
+    {
+     "n": 7,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"ea-services-section\">",
+     "html": "<section aria-label=\"שלושה ספרים, אותה נשימה\" class=\"ea-services-section\" data-block=\"books-crosslink\">\n<div class=\"ea-services-section__inner\">\n<p class=\"ea-services-section__label\">גם סופר</p>\n<h2 class=\"ea-services-section__heading ea-entrance--breath\">שלושה ספרים, אותה נשימה</h2>\n<div class=\"ea-books-row\">\n<img alt=\"צבע בכחול וזרוק לים\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/tsva-bechol-cover.jpg\"/>\n<img alt=\"כושי בלאנטיס\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/kushi-blantis-cover.jpg\"/>\n<img alt=\"וכתבת\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/vekatavt-cover.jpg\"/>\n</div>\n<div class=\"ea-services-grid\">\n<a class=\"ea-service-tile\" href=\"http://eyalamit-co-il-2026.s887.upress.link/eyal-amit/mokesh-dahiman/\">\n<p class=\"ea-service-tile__label\">סיפור</p>\n<h3 class=\"ea-service-tile__title\">על מוקש דהימן</h3>\n<p class=\"ea-service-tile__desc\">המאסטר ההודי לדיג׳רידו, מורו של אייל, והמורשת הממשיכה מרישיקש לפרדס חנה.</p>\n</a>\n<a class=\"ea-service-tile\" href=\"http://eyalamit-co-il-2026.s887.upress.link/books/\">\n<p class=\"ea-service-tile__label\">מוזה הוצאה לאור</p>\n<h3 class=\"ea-service-tile__title\">לעמוד הספרים</h3>\n<p class=\"ea-service-tile__desc\">ספר מסע, רומן פנטזיה, וקובץ סיפורים אוטוביוגרפי — לרכישה ישירה מהיוצר.</p>\n</a>\n</div>\n</div>\n</section>",
+     "id": "press.7"
+    },
+    {
+     "n": 8,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"ea-section ea-section--cta ea-section--cta--ink ea-section--\">",
+     "html": "<section aria-label=\"רוצים להכיר?\" class=\"ea-section ea-section--cta ea-section--cta--ink ea-section--closing\" data-block=\"contact-cta\">\n<div class=\"ea-section__inner ea-section__inner--center ea-entrance--breath\">\n<h2 class=\"ea-section__heading\">רוצים להכיר?</h2>\n<p class=\"ea-section__list\">לתיאום שיחת היכרות, ללא התחייבות.</p>\n<a class=\"ea-cta-pill ea-cta-pill--primary\" href=\"http://eyalamit-co-il-2026.s887.upress.link/contact\">\n          לתיאום שיחת היכרות        </a>\n</div>\n</section>",
+     "id": "press.8"
+    }
+   ]
+  },
+  {
+   "path": "/repair/",
+   "title": "תיקון וחידוש דיג'רידו",
+   "words": 860,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media phero--compact\">\n<img alt=\"\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">תיקון וחידוש דיג'רידו</h1>\n<p class=\"phero__s\">שירות תיקון מקצועי לדיג'רידו - לטיפול בסדקים, שברים, עיוותים, שחיקה והתאמות מבנה המשפיעות על הצליל ועל זרימת האוויר בכלי.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact\">לתיאום בדיקה לכלי</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "repair.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "עם תמונה צפה (גודל אחד — השלב הבא)",
+     "html": "",
+     "id": "repair.2"
+    },
+    {
+     "n": 3,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל · מילוי בגובה הטקסט",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "repair.3"
+    },
+    {
+     "n": 4,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "repair.4"
+    },
+    {
+     "n": 5,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה ימין · מילוי בגובה הטקסט",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "repair.5"
+    },
+    {
+     "n": 6,
+     "type": "T-09",
+     "variant": "כרטיסים → בולטים",
+     "color": "yellow",
+     "q": "bul",
+     "note": "בולטים: מספרים או לוגו",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap\">\n<h2 class=\"h2 r\" style=\"margin-bottom:18px\">למה לתקן דיג'רידו כאן?</h2> <div class=\"point-cards\">\n<div class=\"point-cards__lead intro-body\"><p>תיקון דיג'רידו הוא לא רק עבודה טכנית על עץ אלא הבנה של כלי שמשלב מבנה, צליל ותגובה לנשימה</p><p>העבודה כאן נשענת על שילוב של ניסיון, מסורת ודיוק:</p></div>\n<div class=\"point-cards__grid\">\n<article class=\"point-cards__card\">\n<h3>ניסיון של מעל שני עשורים</h3> <p>עבודה יומיומית עם דיג'רידו - בנייה, תיקון וליווי נגנים</p> </article>\n<article class=\"point-cards__card\">\n<h3>למידה ישירה ממוקש דהימן</h3> <p>מאסטר לבניית דיג'רידו, שממנו נלמדה מלאכת הבנייה והעבודה עם הכלי</p> </article>\n<article class=\"point-cards__card\">\n<h3>הבנה גיאומטרית-פיזיקלית של הכלי</h3> <p>התייחסות למבנה הפנימי, לזרימת האוויר ולהשפעה שלהם על הצליל</p> </article>\n<article class=\"point-cards__card\">\n<h3>עבודה ידנית ללא קיצורי דרך</h3> <p>שימוש בחומרים איכותיים בלבד, תוך התאמה מדויקת לכל כלי</p> </article>\n<article class=\"point-cards__card\">\n<h3>התאמה אישית לכל דיג'רידו</h3> <p>אין פתרונות אחידים - כל כלי נבדק ומטופל לפי המאפיינים שלו</p> </article>\n</div>\n<div class=\"point-cards__after intro-body\"><p>התוצאה היא תיקון שלא רק סוגר בעיה אלא מחזיר את הכלי לאיזון מדויק ונכון</p><p>למידע נוסף על הגישה והעבודה עם הכלי <a class=\"tlink\" href=\"/method\">השיטה - עבודה עם נשימה ודיג'רידו</a></p></div>\n</div>\n</div>\n</section>",
+     "id": "repair.6"
+    },
+    {
+     "n": 7,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "repair.7"
+    },
+    {
+     "n": 8,
+     "type": "T-09",
+     "variant": "כרטיסים → בולטים",
+     "color": "yellow",
+     "q": "bul",
+     "note": "בולטים: מספרים או לוגו",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap\">\n<h2 class=\"h2 r\" style=\"margin-bottom:18px\">סוגי תיקונים נפוצים בדיג'רידו</h2> <div class=\"point-cards\">\n<div class=\"point-cards__lead intro-body\"><p>לא כל בעיה בכלי נראית אותו דבר וכל תיקון דורש גישה אחרת</p><p>אלו סוגי התיקונים הנפוצים:</p></div>\n<div class=\"point-cards__grid\">\n<article class=\"point-cards__card\">\n<h3>תיקון סדקים בעץ</h3> <p>איטום וחיזוק סדקים חיצוניים ופנימיים תוך שמירה על יציבות מבנית וצליל תקין</p> </article>\n<article class=\"point-cards__card\">\n<h3>תיקון שברים</h3> <p>שיקום אזורים שבורים וחיבור מחדש של חלקים בהתאם למבנה הכלי</p> </article>\n<article class=\"point-cards__card\">\n<h3>חיזוק מבנה פנימי</h3> <p>התערבות מבוקרת בתוך חלל הכלי לצורך שיפור יציבות וזרימת אוויר</p> </article>\n<article class=\"point-cards__card\">\n<h3>שיקום או החלפת פייה (wax)</h3> <p>תיקון, עיצוב מחדש או החלפה של פיית הדונג להתאמה מדויקת לנגינה</p> </article>\n<article class=\"point-cards__card\">\n<h3>שדרוג לפיית עץ</h3> <p>מעבר מפיית דונג לפיית עץ יציבה ומדויקת יותר בהתאם להעדפה אישית</p> </article>\n<article class=\"point-cards__card\">\n<h3>התאמות זרימת אוויר</h3> <p>שינויים עדינים במבנה הכלי המשפיעים על התנגדות, לחץ אוויר ותגובה לנשימה</p> </article>\n<article class=\"point-cards__card\">\n<h3>תיקון קוסמטי - חידוש צבע</h3> <p>ריענון מראה הכלי ללא שינוי מבני כולל תיקוני גימור חיצוניים</p> </article>\n<article class=\"point-cards__card\">\n<h3>איטום וחידוש שכבות לכה</h3> <p>הגנה על העץ ושיפור עמידות הכלי לאורך זמן תוך שמירה על תכונותיו האקוסטיות</p> </article>\n<article class=\"point-cards__card\">\n<h3>תחזוקה כללית לכלי ישן</h3> <p>ניקוי, חיזוק והתאמות לכלים שלא טופלו לאורך זמן</p> </article>\n</div>\n<div class=\"point-cards__after intro-body\"><p>כל תיקון מתבצע בהתאם למבנה הספציפי של הכלי ולא לפי תבנית קבועה</p></div>\n</div>\n</div>\n</section>",
+     "id": "repair.8"
+    },
+    {
+     "n": 9,
+     "type": "T-10",
+     "variant": "פס תמונה ברוחב מלא",
+     "color": "red",
+     "q": "draw",
+     "note": "הטיפוס עוד לא שורטט",
+     "html": "<section class=\"photo-band\">\n<img alt=\"\" class=\"photo-band__media\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000220.jpeg\"/>\n<span aria-hidden=\"true\" class=\"photo-band__sc\"></span>\n<div class=\"photo-band__in\">\n<h2 class=\"h2\">יש לך דיג'רידו שצריך בדיקה?</h2> <p>אם הכלי נסדק, נשבר, איבד יציבות או פשוט לא נשמע כמו פעם אפשר להביא אותו לבדיקה ולקבל הערכת מצב מקצועית</p><p>הבדיקה כוללת אבחון של מצב הכלי הסבר על אפשרויות התיקון ומתן הצעת מחיר לפני תחילת העבודה</p> <a class=\"btn btn--sand\" href=\"/contact\">לתיאום בדיקה לכלי</a>\n</div>\n</section>",
+     "id": "repair.9"
+    },
+    {
+     "n": 10,
+     "type": "T-11",
+     "variant": "רשת תמונות · 4 תמונות",
+     "color": "yellow",
+     "q": "k4",
+     "note": "חלוקה ל-4 מהרשימה הנעולה",
+     "html": "<section class=\"sec\">\n<div class=\"wrap center\">\n<div class=\"gallery gallery--portraits r\">\n<figure class=\"gfig\">\n<img alt=\"תיקון וחידוש דיג'רידו ישנים. סטודיו נשימה מעגלית. אייל עמית. פרדס חנה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000237.jpeg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000268.jpeg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"סדנת בנייה עצמית דיג'רידו אייל עמית סטודיו נשימה מעגלית פרדס חנה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000242.jpeg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000161.jpg\"/>\n</figure>\n</div>\n</div>\n</section>",
+     "id": "repair.10"
+    }
+   ]
+  },
+  {
+   "path": "/stand-floor/",
+   "title": "סטנד רצפתי לנגינה בישיבה נמוכה",
+   "words": 533,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">סטנד רצפתי לדיג'רידו<br/>לנגינה בישיבה נמוכה</h1>\n<p class=\"phero__s\">סטנד יציב ונמוך שמאפשר להניח את הדיג'רידו בצורה מדויקת בזמן נגינה בישיבה על הרצפה. השימוש פשוט ומתאים אוניברסלית לכל הכלים - משחילים את הדיג' דרך הסטנד ומייצבים אותו. אין חלקים נעים, אין תחזוקה, קל משקל ואסתטי. תלמידים שמשתמשים בסטנד הזה מדווחים על יציבות ונוחות כבר מהשימוש הראשון</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact\">ליצירת קשר</a></p>\n</div>\n</header>",
+     "id": "stand-floor.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.7"
+    },
+    {
+     "n": 8,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stand-floor.9"
+    },
+    {
+     "n": 10,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">ליצירת קשר</a>\n</div>\n</div>\n</section>",
+     "id": "stand-floor.10"
+    }
+   ]
+  },
+  {
+   "path": "/stands-storage/",
+   "title": "סטנדים לאחסון דיג'רידו",
+   "words": 741,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">סטנדים לאחסון דיג'רידו<br/>לתלייה או בעמידה</h1>\n<p class=\"phero__s\">סטנדים מעץ שמיוצרים בעבודת יד, לאחסון נוח, יציב ואסתטי של הדיג'רידו – בבית או בסטודיו. פתרון ששומר על הכלי, ומאפשר להניח אותו בצורה מסודרת, נגישה ובטוחה לאורך זמן.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact\">לתיאום והזמנה</a></p>\n</div>\n</header>",
+     "id": "stands-storage.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.2"
+    },
+    {
+     "n": 3,
+     "type": "T-11",
+     "variant": "רשת תמונות · 5 תמונות",
+     "color": "yellow",
+     "q": "k5",
+     "note": "חלוקה ל-5 מהרשימה הנעולה",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap center\">\n<div class=\"gallery r\">\n<figure class=\"gfig\">\n<img alt=\"סטנד רצפתי\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-01.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"זה סטנד רצפתי\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-02.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"סטנד רצפתי\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-03.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"סטנד רצפתי\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-04.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"סטנד לתלייה על הקיר\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/stands-storage/stand-05.jpg\"/>\n</figure>\n</div>\n</div>\n</section>",
+     "id": "stands-storage.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.8"
+    },
+    {
+     "n": 9,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.9"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.10"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "stands-storage.11"
+    },
+    {
+     "n": 12,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">לתיאום והזמנה</a>\n</div>\n</div>\n</section>",
+     "id": "stands-storage.12"
+    }
+   ]
+  },
+  {
+   "path": "/bags/",
+   "title": "תיקים לדיג'רידו",
+   "words": 692,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">תיקים לדיג'רידו</h1>\n<p class=\"phero__s\">תיק טוב לדיג'רידו הוא לא רק עניין של נוחות. הוא מה ששומר על הכלי שלך לאורך זמן – בדרך, באחסון ובשימוש היומיומי. התיקים נבנים מתוך היכרות עמוקה עם הכלי עצמו, ומתאימים למי שמבין שדיג'רידו הוא כלי רגיש שדורש שמירה נכונה.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact\">לתיאום והתאמה של תיק לדיג'רידו</a></p>\n</div>\n</header>",
+     "id": "bags.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.4"
+    },
+    {
+     "n": 5,
+     "type": "T-10",
+     "variant": "פס תמונה ברוחב מלא",
+     "color": "red",
+     "q": "draw",
+     "note": "הטיפוס עוד לא שורטט",
+     "html": "<section aria-label=\"תיק לדיג'רידו בעבודת יד\" class=\"bleed\">\n<img alt=\"תיק לדיג'רידו בעבודת יד\" class=\"r r--fade\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-workshop.jpg\"/>\n<span aria-hidden=\"true\" class=\"bleed__sc\"></span>\n<div class=\"bleed__c\"><div class=\"bleed__in\">\n<p class=\"bleed__q r\">התאמה מדויקת לכלי, לא ייצור המוני.</p>\n<p class=\"bleed__a r\">אייל עמית</p> </div></div>\n</section>",
+     "id": "bags.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.8"
+    },
+    {
+     "n": 9,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.9"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.10"
+    },
+    {
+     "n": 11,
+     "type": "T-11",
+     "variant": "רשת תמונות · 6 תמונות — מורכב משורות מהרשימה",
+     "color": "yellow",
+     "q": "k6plus",
+     "note": "איך לחלק",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap center\">\n<div class=\"gallery r\">\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-01.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-02.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-03.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-04.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-05.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"תיק לדיג'רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/bags/bag-06.jpg\"/>\n</figure>\n</div>\n</div>\n</section>",
+     "id": "bags.11"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "bags.12"
+    },
+    {
+     "n": 13,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">לתיאום והתאמה של תיק לדיג'רידו</a>\n</div>\n</div>\n</section>",
+     "id": "bags.13"
+    }
+   ]
+  },
+  {
+   "path": "/didgeridoos/",
+   "title": "כלי דיג'רידו למכירה",
+   "words": 833,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">כלי דיג'רידו למכירה -<br/>כלים בעבודת יד</h1>\n<p class=\"phero__s\">דיג'רידו הוא לא רק כלי נגינה. זה כלי עבודה על הנשימה. כאן תמצאו כלים שנבנו בעבודת יד, מתוך הבנה עמוקה של הצליל, המבנה והקשר הישיר ביניהם לבין הנשימה. כל כלי הוא שונה. מותאם, מדויק, ונבנה מתוך ניסיון של שנים בעבודה עם אנשים ונשימה.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact\">לתיאום והתאמה אישית</a></p>\n</div>\n</header>",
+     "id": "didgeridoos.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.6"
+    },
+    {
+     "n": 7,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">לתיאום הגעה והתנסות בכלים</a>\n</div>\n</div>\n</section>",
+     "id": "didgeridoos.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.9"
+    },
+    {
+     "n": 10,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">לבדיקת זמינות והתאמה</a>\n</div>\n</div>\n</section>",
+     "id": "didgeridoos.10"
+    },
+    {
+     "n": 11,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.11"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.12"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "didgeridoos.13"
+    },
+    {
+     "n": 14,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact\">לתיאום הגעה ובחירת כלי</a>\n</div>\n</div>\n</section>",
+     "id": "didgeridoos.14"
+    }
+   ]
+  },
+  {
+   "path": "/books/tsva-bekahol/",
+   "title": "צבע בכחול וזרוק לים",
+   "words": 2466,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית, מחבר הספר «צבע בכחול וזרוק לים»\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/tsva-bechol-cover.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">צבע בכחול וזרוק לים</h1>\n<p class=\"phero__s\">ספר הביכורים של אייל עמית. 38 סיפורים קצרים על הטיול הגדול לדרום אמריקה אחרי השירות הצבאי של מוצ'ילר ישראלי בשנת 2001</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "books-tsva-bekahol.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (2466 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "books-tsva-bekahol.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.3"
+    },
+    {
+     "n": 3,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-tsva-bekahol.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · מקופלת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.6"
+    },
+    {
+     "n": 6,
+     "type": "T-11",
+     "variant": "רשת תמונות · 43 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.10"
+    },
+    {
+     "n": 10,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n<h2 class=\"cta-band__h\">רוצה להתחיל כבר עכשיו?</h2> </div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"https://www.mendele.co.il/product/tzvabekahol/\">לרכישת הספר הדיגיטלי</a>\n</div>\n</div>\n</section>",
+     "id": "books-tsva-bekahol.11"
+    },
+    {
+     "n": 11,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-tsva-bekahol.13"
+    },
+    {
+     "n": 13,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">לרכישת הספר המודפס</a>\n</div>\n</div>\n</section>",
+     "id": "books-tsva-bekahol.14"
+    }
+   ]
+  },
+  {
+   "path": "/books/vekatavta/",
+   "title": "וכתבת",
+   "words": 2737,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית — וכתבת\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/vekatavt-cover.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">וכתבת</h1>\n<p class=\"phero__s\">46 סיפורים אמיתיים מחייו של אייל עמית\nספר אישי, מעורר השראה, שנע דרך אהבה, מסעות, הורות, אובדן, שינוי וצמיחה.</p> <p class=\"phero__cta\"><a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--gw\" data-ea-book-purchase=\"\" data-ea-book-slug=\"vekatavta\" href=\"https://www.mendele.co.il/product/vekatavta/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "books-vekatavta.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (2737 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "books-vekatavta.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.3"
+    },
+    {
+     "n": 3,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"vekatavta\" href=\"https://www.mendele.co.il/product/vekatavta/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-vekatavta.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · מקופלת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.6"
+    },
+    {
+     "n": 6,
+     "type": "T-11",
+     "variant": "רשת תמונות · 95 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.10"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.11"
+    },
+    {
+     "n": 11,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"vekatavta\" href=\"https://www.mendele.co.il/product/vekatavta/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-vekatavta.12"
+    },
+    {
+     "n": 12,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.13"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.14"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.15"
+    },
+    {
+     "n": 15,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"vekatavta\" href=\"https://www.mendele.co.il/product/vekatavta/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-vekatavta.16"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-vekatavta.17"
+    }
+   ]
+  },
+  {
+   "path": "/books/kushi-blantis/",
+   "title": "כושי בלאנטיס",
+   "words": 2560,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית, מחבר הרומן כושי בלאנטיס\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/kushi-blantis-cover.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">כושי בלאנטיס</h1>\n<p class=\"phero__s\">רומן פנטזיה מאת אייל עמית על התעוררות, בחירה, חופש, חיבור ללב, והאומץ לצאת מהחיים הנוחים מדי</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "books-kushi-blantis.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (2560 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "books-kushi-blantis.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.3"
+    },
+    {
+     "n": 3,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"kushi-blantis\" href=\"https://www.mendele.co.il/product/kushibelantis/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-kushi-blantis.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · מקופלת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.6"
+    },
+    {
+     "n": 6,
+     "type": "T-11",
+     "variant": "רשת תמונות · 21 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.10"
+    },
+    {
+     "n": 10,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n<h2 class=\"cta-band__h\">רוצה להתחיל לקרוא כבר עכשיו?</h2> </div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר הדיגיטלי (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"kushi-blantis\" href=\"https://www.mendele.co.il/product/kushibelantis/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר הדיגיטלי</a>\n</div>\n</div>\n</section>",
+     "id": "books-kushi-blantis.11"
+    },
+    {
+     "n": 11,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books-kushi-blantis.13"
+    },
+    {
+     "n": 13,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a aria-label=\"לרכישת הספר (נפתח בלשונית חדשה)\" class=\"btn btn--terra\" data-ea-book-purchase=\"\" data-ea-book-slug=\"kushi-blantis\" href=\"https://www.mendele.co.il/product/kushibelantis/\" rel=\"noopener noreferrer\" target=\"_blank\">לרכישת הספר</a>\n</div>\n</div>\n</section>",
+     "id": "books-kushi-blantis.14"
+    }
+   ]
+  },
+  {
+   "path": "/privacy/",
+   "title": "מדיניות פרטיות",
+   "words": 340,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"פנים הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">משפטי</span> <h1 class=\"phero__h\">מדיניות <em>פרטיות</em></h1>\n<p class=\"phero__s\">כיצד אנו אוספים, משתמשים ושומרים על המידע שלך.</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "privacy.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "privacy.8"
+    }
+   ]
+  },
+  {
+   "path": "/testimonials/",
+   "title": "המלצות — קטלוג מרכזי (ומדיה)",
+   "words": 1168,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית מנגן בדיג'רידו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">עדויות והמלצות</h1>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "testimonials.1"
+    },
+    {
+     "n": 2,
+     "type": "T-18",
+     "variant": "המלצות · רשת (רשימה פתוחה, 3 בשורה)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "testimonials.2"
+    },
+    {
+     "n": 3,
+     "type": "T-18",
+     "variant": "המלצות · רשת (רשימה פתוחה, 3 בשורה)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "testimonials.3"
+    },
+    {
+     "n": 4,
+     "type": "T-18",
+     "variant": "המלצות · רשת (רשימה פתוחה, 3 בשורה)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "testimonials.4"
+    },
+    {
+     "n": 5,
+     "type": "?",
+     "variant": "לא זוהה",
+     "color": "red",
+     "q": "none",
+     "note": "<section class=\"sec\">",
+     "html": "<section class=\"sec\">\n<div class=\"wrap center\">\n<span class=\"chap chap--c r\">בהשלמה</span> <div aria-live=\"polite\" class=\"ea-pending-approval r\" role=\"status\">\n<span class=\"ea-pending-approval__badge\">ממתין לאישור</span>\n<p class=\"ea-pending-approval__title\">אוסף המדיה בהשלמה</p>\n<p class=\"ea-pending-approval__note\">תוכן עמוד המדיה — סרטונים, הקלטות וכתבות — ממתין להשלמה ולאישור מאייל. התמונות למטה הן תצוגה לדוגמה.</p>\n</div>\n</div>\n</section>",
+     "id": "testimonials.5"
+    },
+    {
+     "n": 6,
+     "type": "T-11",
+     "variant": "רשת תמונות · 4 תמונות",
+     "color": "yellow",
+     "q": "k4",
+     "note": "חלוקה ל-4 מהרשימה הנעולה",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap center\">\n<span class=\"chap chap--c r\">רגעים</span> <h2 class=\"h2 r\">מתוך המפגשים והנגינה</h2> <div class=\"gallery r\">\n<figure class=\"gfig\">\n<img alt=\"נגינה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-playing.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"הוראה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"מפגש קבוצתי\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"סאונד הילינג\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-receiving.jpg\"/>\n</figure>\n</div>\n</div>\n</section>",
+     "id": "testimonials.6"
+    },
+    {
+     "n": 7,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "testimonials.7"
+    }
+   ]
+  },
+  {
+   "path": "/galleries/",
+   "title": "גלריות — קטלוג מרכזי",
+   "words": 1118,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">גלריות</h1>\n</div>\n</header>",
+     "id": "galleries.1"
+    },
+    {
+     "n": 2,
+     "type": "T-11",
+     "variant": "רשת תמונות · 149 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "galleries.2"
+    }
+   ]
+  },
+  {
+   "path": "/faq/",
+   "title": "שאלות נפוצות",
+   "words": 3851,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"הסטודיו בפרדס חנה — שאלות נפוצות\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-mosaic.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">שאלות נפוצות</h1>\n<p class=\"phero__s\">שאלות נפוצות על טיפול בדיג'רידו, שיעורי נגינה בדיג'רידו, סאונד הילינג ושיטת <span lang=\"en\">cbDIDG</span>. לא כל עבודה עם דיג'רידו היא אותו דבר. כאן תמצאו תשובות לשאלות נפוצות והבנה ברורה של ההבדלים בין סוגי העבודה עם דיג'רידו.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "faq.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (3851 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "faq.2"
+    },
+    {
+     "n": 2,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "faq.3"
+    }
+   ]
+  },
+  {
+   "path": "/learning/workshops/",
+   "title": "סדנאות דיג'רידו ונשימה לקבוצות וארגונים | אייל עמית",
+   "words": 1658,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"חצר הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">סדנאות דיג'רידו ונשימה<br/>לקבוצות וארגונים</h1>\n<p class=\"phero__s\">סדנה פעילה וחווייתית שמחברת בין נשימה, דיג'רידו והתנסות מעשית</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">להזמנת סדנה לקבוצה</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "learning-workshops.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (1658 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "learning-workshops.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.3"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.6"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.10"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.11"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.13"
+    },
+    {
+     "n": 13,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.14"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.15"
+    },
+    {
+     "n": 15,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.16"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-workshops.17"
+    }
+   ]
+  },
+  {
+   "path": "/learning/lectures/",
+   "title": "הרצאות על נשימה, סטרס ודיג'רידו | אייל עמית",
+   "words": 660,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית מנחה מפגש דיג׳רידו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-didgs.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">הרצאות על נשימה,<br/>דיג'רידו, סטרס ושינה</h1>\n<p class=\"phero__s\">סיפור אישי, ידע, מחקר והדגמות חיות בדיג'רידו</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום הרצאה</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "learning-lectures.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.9"
+    },
+    {
+     "n": 10,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.10"
+    },
+    {
+     "n": 11,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.11"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-lectures.12"
+    }
+   ]
+  },
+  {
+   "path": "/learning/courses-external/",
+   "title": "קורסים",
+   "words": 0,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">לימוד והכשרה</span> <h1 class=\"phero__h\">קורסים</h1>\n<p class=\"phero__s\">יעלה בקרוב</p> </div>\n</header>",
+     "id": "learning-courses-external.1"
+    }
+   ]
+  },
+  {
+   "path": "/learning/",
+   "title": "לימוד והכשרה",
+   "words": 176,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"סטודיו הלימוד בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-didgs.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">לימוד והכשרה</span> <h1 class=\"phero__h\">ללמוד, להעמיק, <em>להנחות</em></h1>\n<p class=\"phero__s\">כל דרכי הלימוד וההכשרה במרכז — משיעור ראשון ועד מסלול הכשרת מטפלים בשיטת <span lang=\"en\">cbDIDG</span>.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "learning.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.3"
+    },
+    {
+     "n": 4,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.5"
+    },
+    {
+     "n": 6,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.7"
+    },
+    {
+     "n": 8,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.8"
+    },
+    {
+     "n": 9,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning.9"
+    }
+   ]
+  },
+  {
+   "path": "/sound-healing/",
+   "title": "סאונד הילינג פרטי בדיג'רידו | אייל עמית, פרדס חנה",
+   "words": 1417,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"מפגש סאונד הילינג בגינת הסטודיו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">סאונד הילינג</span> <h1 class=\"phero__h\">סאונד הילינג פרטי בדיג'רידו -<br/>מסע אישי בצליל ותדר<br/>ליחידים ולזוגות</h1>\n<p class=\"phero__s\">מסע אישי ופרטי בצלילים ותדרים, שבו הרטט נע בגוף כמו עיסוי פנימי עדין, מאפשר האטה, מרווח את הנשימה, מפחית עומס ויוצר מרחב מוחזק להקשבה עמוקה למה שמתרחש מבפנים</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "sound-healing.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (1417 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "sound-healing.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.3"
+    },
+    {
+     "n": 3,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.5"
+    },
+    {
+     "n": 5,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · סרטון",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.6"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.8"
+    },
+    {
+     "n": 8,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.10"
+    },
+    {
+     "n": 10,
+     "type": "T-18",
+     "variant": "המלצות · גלילה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.11"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.13"
+    },
+    {
+     "n": 13,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "sound-healing.14"
+    }
+   ]
+  },
+  {
+   "path": "/lessons/",
+   "title": "שיעורי דיג'רידו פרטיים | נשימה מעגלית בשיטת cbDIDG",
+   "words": 1440,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית מלמד נגינה בדיג'רידו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">שיעורי נגינה בדיג'רידו<br/>לפי <span class=\"ea-nowrap\">שיטת <span class=\"ea-nowrap\" lang=\"en\">cbDIDG</span></span> של אייל עמית</h1>\n<p class=\"phero__s\">במסגרת המרכז ניתן ללמוד לנגן בדיג'רידו כתהליך לימודי ממוקד - רכישת מיומנות נגינה, שליטה בטכניקות הנשימה הייחודיות לכלי, עבודה עם מקצבים, עוצמות ומהירויות, ופיתוח שליטה בצליל ובאפקטים קוליים. הלימוד מבוסס על שיטת <a class=\"tlink\" href=\"/method/\"><span lang=\"en\">cbDIDG</span></a> של אייל עמית, מתודולוגיה סדורה המשלבת עבודה עם הגוף והנשימה ומובילה לפיתוח שליטה בנגינה, דיוק ויכולת נגינה רציפה. התהליך מובנה, ברור ומותאם להתקדמות אישית. השיעורים מתקיימים במתכונת פרטית, בליווי אישי של אייל עמית ותשומת לב מלאה לכל תלמיד.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיעור ראשון</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "lessons.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (1440 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "lessons.2"
+    },
+    {
+     "n": 2,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.3"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.4"
+    },
+    {
+     "n": 4,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · סרטון",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.5"
+    },
+    {
+     "n": 5,
+     "type": "T-21",
+     "variant": "אקורדיון · מונחים (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.6"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.8"
+    },
+    {
+     "n": 8,
+     "type": "T-18",
+     "variant": "המלצות · גלילה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.9"
+    },
+    {
+     "n": 9,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.10"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "lessons.11"
+    },
+    {
+     "n": 11,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n<p class=\"cta-band__p\">אם זה מסקרן אותך, הדרך הכי טובה להבין אם זה מתאים היא פשוט לנסות.</p> </div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">לתיאום שיעור ראשון</a>\n</div>\n</div>\n</section>",
+     "id": "lessons.12"
+    }
+   ]
+  },
+  {
+   "path": "/method/",
+   "title": "שיטת cbDIDG | אייל עמית – טיפול בנשימה באמצעות דיג'רידו",
+   "words": 1743,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית מנגן בדיג׳רידו מול קיר הקשתות בסטודיו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\"><span class=\"ea-nowrap\">שיטת <span class=\"ea-nowrap\" lang=\"en\">cbDIDG</span></span> של אייל עמית</h1>\n<p class=\"phero__s\">שיטה לעבודה עם הנשימה באמצעות דיג'רידו, המבוססת על תרגול עצמי דרך הכלי בליווי אישי. הדיג'רידו אינו המטרה - הוא הכלי שדרכו לומדים לעבוד עם הנשימה היומיומית, לחזק, לווסת ולהחזיר עליה את השליטה.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "method.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (1743 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "method.2"
+    },
+    {
+     "n": 2,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.3"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.6"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.10"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.11"
+    },
+    {
+     "n": 11,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.12"
+    },
+    {
+     "n": 12,
+     "type": "T-18",
+     "variant": "המלצות · גלילה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.13"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.14"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.15"
+    },
+    {
+     "n": 15,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "method.16"
+    }
+   ]
+  },
+  {
+   "path": "/treatment/",
+   "title": "טיפול בדיג'רידו בפרדס חנה | אייל עמית – שיטת cbDIDG",
+   "words": 2203,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית במהלך עבודה עם דיג׳רידו בסטודיו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">טיפול ב<em>דיג׳רידו</em></h1>\n<p class=\"phero__s\">להחזיר שליטה על הנשימה דרך עבודה אקטיבית עם דיג׳רידו, תרגול נשימה וליווי אישי</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "treatment.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (2203 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "treatment.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.3"
+    },
+    {
+     "n": 3,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.4"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.6"
+    },
+    {
+     "n": 6,
+     "type": "T-10",
+     "variant": "פס תמונה ברוחב מלא",
+     "color": "red",
+     "q": "draw",
+     "note": "הטיפוס עוד לא שורטט",
+     "html": "<section aria-label=\"מפגש נשימה בגינת הסטודיו\" class=\"bleed\">\n<img alt=\"מפגש נשימה בגינת הסטודיו\" class=\"r r--fade\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"bleed__sc\"></span>\n<div class=\"bleed__c\"><div class=\"bleed__in\">\n<p class=\"bleed__q r\">הנשימה היא לכולם.</p>\n<p class=\"bleed__a r\">אייל עמית</p> </div></div>\n</section>",
+     "id": "treatment.7"
+    },
+    {
+     "n": 7,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · סרטון",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.8"
+    },
+    {
+     "n": 8,
+     "type": "T-21",
+     "variant": "אקורדיון · מונחים (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.9"
+    },
+    {
+     "n": 9,
+     "type": "T-18",
+     "variant": "המלצות · גלילה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.10"
+    },
+    {
+     "n": 10,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.11"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.13"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "treatment.14"
+    }
+   ]
+  },
+  {
+   "path": "/thank-you/",
+   "title": "תודה",
+   "words": 8,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">תודה</h1>\n</div>\n</header>",
+     "id": "thank-you.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "thank-you.2"
+    }
+   ]
+  },
+  {
+   "path": "/shop/",
+   "title": "כלים בעבודת יד ואביזרים",
+   "words": 60,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">כלים בעבודת יד ואביזרים</h1>\n<p class=\"phero__s\">כל מה שצריך לדיג׳רידו, במקום אחד</p> <div class=\"phero__lede\"><p>מקום אחד שמרכז את כל מה שנגן דיג׳רידו צריך - משלב בחירת הכלי ועד לנגינה, נשיאה, אחסון ותחזוקה לאורך השנים.</p><p>כאן ניתן למצוא <strong>כלי דיג׳רידו בעבודת יד</strong>, שירותי <strong>תיקון וחידוש כלי דיג׳רידו</strong>, <strong>תיקים לדיג׳רידו</strong>, <strong>סטנדים לאחסון</strong> ו<strong>סטנד רצפתי לנגינה</strong>.</p><p>כל השירותים והמוצרים נשענים על יותר משני עשורים של ניסיון, היכרות עמוקה עם הדיג׳רידו והבנה מעשית של הצרכים של נגנים - מתחילים ומנוסים כאחד.</p></div> </div>\n</header>",
+     "id": "shop.1"
+    },
+    {
+     "n": 2,
+     "type": "T-09",
+     "variant": "כרטיסים · ספרים ומוצרים",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "shop.2"
+    }
+   ]
+  },
+  {
+   "path": "/terms/",
+   "title": "תקנון",
+   "words": 283,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"פנים הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">משפטי</span> <h1 class=\"phero__h\">תקנון <em>ותנאי שימוש</em></h1>\n<p class=\"phero__s\">תנאי השימוש באתר.</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "terms.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "terms.8"
+    }
+   ]
+  },
+  {
+   "path": "/accessibility/",
+   "title": "הצהרת נגישות",
+   "words": 474,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"פנים הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">משפטי</span> <h1 class=\"phero__h\">הצהרת <em>נגישות</em></h1>\n<p class=\"phero__s\">אנו פועלים להנגיש את האתר לכלל המשתמשים.</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "accessibility.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "accessibility.7"
+    }
+   ]
+  },
+  {
+   "path": "/en/",
+   "title": "English",
+   "words": 2456,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"Eyal Amit playing the didgeridoo\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\"><span lang=\"en\">cbDIDG</span> Method - Eyal Amit</span> <h1 class=\"phero__h\">Didgeridoo Healing Center</h1>\n<p class=\"phero__s\">Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page\">Talk to Eyal on WhatsApp</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "en.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (2456 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "en.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.3"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.4"
+    },
+    {
+     "n": 4,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.6"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.7"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.8"
+    },
+    {
+     "n": 8,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.9"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.10"
+    },
+    {
+     "n": 10,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.11"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.12"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.13"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.14"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.15"
+    },
+    {
+     "n": 15,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.16"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.17"
+    },
+    {
+     "n": 17,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.18"
+    },
+    {
+     "n": 18,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.19"
+    },
+    {
+     "n": 19,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.20"
+    },
+    {
+     "n": 20,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.21"
+    },
+    {
+     "n": 21,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.22"
+    },
+    {
+     "n": 22,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.23"
+    },
+    {
+     "n": 23,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.24"
+    },
+    {
+     "n": 24,
+     "type": "S-1",
+     "variant": "ממתין לתוכן · תמונה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.25"
+    },
+    {
+     "n": 25,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.26"
+    },
+    {
+     "n": 26,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.27"
+    },
+    {
+     "n": 27,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.28"
+    },
+    {
+     "n": 28,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.29"
+    },
+    {
+     "n": 29,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.30"
+    },
+    {
+     "n": 30,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.31"
+    },
+    {
+     "n": 31,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.32"
+    },
+    {
+     "n": 32,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.33"
+    },
+    {
+     "n": 33,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.34"
+    },
+    {
+     "n": 34,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.35"
+    },
+    {
+     "n": 35,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "en.36"
+    }
+   ]
+  },
+  {
+   "path": "/historical-articles/",
+   "title": "כתבות היסטוריות",
+   "words": 3154,
+   "rows": [
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (3154 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "historical-articles.1"
+    }
+   ]
+  },
+  {
+   "path": "/contact/",
+   "title": "צור קשר",
+   "words": 93,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media phero--half\">\n<img alt=\"הגינה והסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">צור קשר</span> <h1 class=\"phero__h\">צור <em>קשר</em></h1>\n<p class=\"phero__s\">ניתן ליצור קשר לתיאום שיחת היכרות, שאלות כלליות או כל פנייה אחרת.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"https://wa.me/972524822842?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%99%D7%9C%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%A6%D7%95%D7%A8%20%D7%94%D7%A7%D7%A9%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA\">דברו איתי בוואטסאפ</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "contact.1"
+    },
+    {
+     "n": 2,
+     "type": "T-31",
+     "variant": "יצירת קשר",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "contact.2"
+    },
+    {
+     "n": 3,
+     "type": "T-31",
+     "variant": "יצירת קשר",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "contact.3"
+    },
+    {
+     "n": 4,
+     "type": "T-31",
+     "variant": "יצירת קשר",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "contact.4"
+    }
+   ]
+  },
+  {
+   "path": "/learning/therapist-training/",
+   "title": "הכשרות למטפלים",
+   "words": 176,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"פנים הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">הכשרה</span> <h1 class=\"phero__h\">הכשרת <em>מטפלים ומנחים</em><br/>ב<span class=\"ea-nowrap\">שיטת <span class=\"ea-nowrap\" lang=\"en\">cbDIDG</span></span></h1>\n<p class=\"phero__s\">להעביר את הידע הלאה — מסלול עומק למי שמבקש ללמוד, ללמד ולטפל בנשימה באמצעות דיג׳רידו.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">להשארת פרטים ולתיאום שיחה</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "learning-therapist-training.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-therapist-training.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-therapist-training.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-therapist-training.4"
+    },
+    {
+     "n": 5,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "learning-therapist-training.5"
+    }
+   ]
+  },
+  {
+   "path": "/books/",
+   "title": "ספרים",
+   "words": 488,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"מוזה הוצאה לאור — ספריו של אייל עמית\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/logo-didgs-door.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">מוזה הוצאה לאור - ספרים</h1>\n<p class=\"phero__s\">מוזה הוצאה לאור הנה הוצאת ספרים עצמית שהוקמה בשנת 2004 על ידי הסופר ומספר הסיפורים אייל עמית.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"#books-bundle\">לרכישת חבילת הספרים</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "books.1"
+    },
+    {
+     "n": 2,
+     "type": "T-09",
+     "variant": "כרטיסים · שורת זרקור",
+     "color": "yellow",
+     "q": "k4now",
+     "note": "חלוקה לארבעה: 2+2 / גדול ושלושה",
+     "html": "<section class=\"sec\" id=\"ea-now\">\n<div class=\"wrap\">\n<div class=\"ea-now\">\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/books/tsva-bekahol/\">\n<div class=\"ea-now__ph\">\n<img alt=\"צבע בכחול וזרוק לים\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/tsva-bechol-cover.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">צבע בכחול וזרוק לים</h3> <p class=\"ea-now__run\">38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה</p> <p class=\"ea-now__run\">הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/books/kushi-blantis/\">\n<div class=\"ea-now__ph\">\n<img alt=\"כושי בלאנטיס\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/kushi-blantis-cover.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">כושי בלאנטיס</h3> <p class=\"ea-now__run\">רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי</p> <p class=\"ea-now__run\">הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/\">\n<div class=\"ea-now__ph\">\n<img alt=\"וכתבת\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/vekatavt-cover.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">וכתבת</h3> <p class=\"ea-now__run\">46 סיפורים אמיתיים מחייו של אייל עמית</p> <p class=\"ea-now__run\">הספר ראה אור בשנת 2017</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/books/#books-bundle\">\n<div class=\"ea-now__ph\">\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">חבילת 3 הספרים של אייל עמית</h3> <p class=\"ea-now__run\">שלושת הספרים יחד במחיר מיוחד</p> <p class=\"ea-now__run\">150 ש״ח במקום 207 ש״ח</p> </div>\n</a>\n</div>\n</div>\n</section>",
+     "id": "books.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.4"
+    },
+    {
+     "n": 5,
+     "type": "T-09",
+     "variant": "כרטיסים · ספרים ומוצרים",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.5"
+    },
+    {
+     "n": 6,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.7"
+    },
+    {
+     "n": 8,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע כהה",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n</div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--gw\" href=\"#books-bundle\">לרכישת חבילת 3 הספרים</a>\n</div>\n<p class=\"ea-pending-inline\" role=\"status\" style=\"margin-top:10px\"><span>קישור רכישה זמני — ממתין לקישור חשבונית ירוקה מאייל.</span></p>\n</div>\n</section>",
+     "id": "books.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "books.9"
+    }
+   ]
+  },
+  {
+   "path": "/blog/",
+   "title": "בלוג",
+   "words": 477,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-mosaic.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<span class=\"chap\">הבלוג</span> <h1 class=\"phero__h\">בלוג</h1>\n<p class=\"phero__s\">מאמרים, תובנות וסיפורים על נשימה, דיג׳רידו והדרך.</p> </div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "blog.1"
+    },
+    {
+     "n": 2,
+     "type": "T-09",
+     "variant": "כרטיסים · בלוג (רשימה פתוחה, 3 בשורה)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "blog.2"
+    }
+   ]
+  },
+  {
+   "path": "/",
+   "title": "בית",
+   "words": 1324,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"hero\">\n<video class=\"hero__media\" loop=\"\" muted=\"\" playsinline=\"\" poster=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-poster.jpg\" preload=\"none\">\n<source src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/video/ea-home-hero-720-muted.mp4\" type=\"video/mp4\">\n</source></video>\n<button aria-label=\"שמע — הפעלת קול בסרטון\" aria-pressed=\"false\" class=\"hero__sound\" id=\"soundtg\" type=\"button\">\n<svg aria-hidden=\"true\" viewbox=\"0 0 24 24\"><path d=\"M4 9 h4 l5-4 v14 l-5-4 H4 z\"></path><path d=\"M17 9 a4 4 0 0 1 0 6\"></path></svg>שמע\t\t</button>\n<div aria-hidden=\"true\" class=\"hero__scrim\"></div>\n<div class=\"hero__c\">\n<span class=\"hero__trust\">אייל עמית · פועל מאז 1999 · מהוותיקים בארץ בתחום<br/>מטפל ומלמד בשיטה שפותחה לאורך השנים · בונה כלים בעבודת יד</span> <h1 class=\"hero__h\">המרכז לטיפול בנשימה באמצעות דיג'רידו –<br/><span class=\"ea-nowrap\">שיטת <span class=\"ea-nowrap\" lang=\"en\">cbDIDG</span></span> של אייל עמית</h1>\n<p class=\"hero__s\">להחזיר שליטה על הנשימה דרך עבודה עם דיג'רידו, תרגול נשימה וליווי אישי<br/>בגישה טיפולית מבוססת דיג'רידו ובהשראת חניכה אישית אצל מוקש דהימן</p>\n<a class=\"btn btn--terra\" href=\"/contact/\">לתיאום שיחת היכרות</a>\n</div>\n<div aria-hidden=\"true\" class=\"hero__cues\"><span></span><span></span></div>\n</header>",
+     "id": "home.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת (היה חלופי)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.2"
+    },
+    {
+     "n": 3,
+     "type": "T-26",
+     "variant": "וידאו · עם כותרת וטקסט",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.3"
+    },
+    {
+     "n": 4,
+     "type": "T-09",
+     "variant": "כרטיסים · שורת זרקור",
+     "color": "yellow",
+     "q": "k4now",
+     "note": "חלוקה לארבעה: 2+2 / גדול ושלושה",
+     "html": "<section class=\"sec\" id=\"ea-now\">\n<div class=\"wrap\">\n<div class=\"ea-now\">\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/treatment/\">\n<div class=\"ea-now__ph\">\n<img alt=\"טיפול בנשימה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-studio-play.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">טיפול בנשימה</h3> <p class=\"ea-now__run\">תהליך אישי לחיזוק מערכת הנשימה.</p> <p class=\"ea-now__run\">למדו להחזיר שליטה וויסות למערכת הנשימה דרך הדיג'רידו.</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/snoring-sleep-apnea/\">\n<div class=\"ea-now__ph\">\n<img alt=\"דום נשימה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/snoring/maccabi.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">דום נשימה</h3> <p class=\"ea-now__run\">האם דיג'רידו עוזר לנחירות ולדום נשימה בשינה?</p> <p class=\"ea-now__run\">מה מצא מחקר ה-BMJ (Puhan 2006), איך זה עובד ולמי זה מתאים</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/lessons/\">\n<div class=\"ea-now__ph\">\n<img alt=\"שיעורים\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-teaching.jpg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">שיעורים</h3> <p class=\"ea-now__run\">למדו לנגן בדיג'רידו אחד על אחד בפרדס חנה.</p> <p class=\"ea-now__run\">שליטה בנשימה מעגלית, מקצבים ואפקטים.</p> </div>\n</a>\n<a class=\"ea-now__card\" href=\"http://eyalamit-co-il-2026.s887.upress.link/repair/\">\n<div class=\"ea-now__ph\">\n<img alt=\"תיקון כלים\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000239.jpeg\"/>\n</div>\n<div class=\"ea-now__tx\">\n<h3 class=\"ea-now__t\">תיקון כלים</h3> <p class=\"ea-now__run\">שירות תיקון דיג'רידו מקצועי: טיפול בסדקים, שברים ושדרוג פיות עץ.</p> <p class=\"ea-now__run\">עבודה מבוססת הבנה גיאומטרית-פיזיקלית של מבנה הכלי והסאונד.</p> </div>\n</a>\n</div>\n</div>\n</section>",
+     "id": "home.4"
+    },
+    {
+     "n": 5,
+     "type": "T-09",
+     "variant": "כרטיסים · השוואה בין שניים (3+3)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.5"
+    },
+    {
+     "n": 6,
+     "type": "T-09",
+     "variant": "כרטיסים · בולטים עם תמונות (למי מתאים)",
+     "color": "yellow",
+     "q": "k4",
+     "note": "חלוקה לארבעה: 2+2 / גדול-שניים-גדול / גדול ושלושה",
+     "html": "<section class=\"sec sec--alt\" id=\"whom\">\n<div class=\"wrap center\">\n<h2 class=\"h2 r\">למי מתאים התהליך</h2>\n<div class=\"whom\">\n<div class=\"whom__i r\">\n<span class=\"whom__m\">\n<img alt=\"אייל עמית עם דיג׳רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-bright.jpg\"/>\n</span>\n<p class=\"whom__p\">מתאים למי שסובל מסימפטומים בריאותיים, גם אם לא תמיד ברור מה המקור.</p>\n</div>\n<div class=\"whom__i r r2\">\n<span class=\"whom__m\">\n<img alt=\"תרגול נשימה עם דיג׳רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/breath-practice.jpg\"/>\n</span>\n<p class=\"whom__p\">למי שמבין שמדובר בתהליך אישי עמוק, ולא מחפש פתרון קסם מהיר.</p>\n</div>\n<div class=\"whom__i r r3\">\n<span class=\"whom__m\">\n<img alt=\"אייל עמית ליד חלון הסטודיו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-window.jpg\"/>\n</span>\n<p class=\"whom__p\">למי שרוצה לעבוד עם הנשימה בצורה מעשית ומוכן להקדיש זמן לתרגול.</p>\n</div>\n<div class=\"whom__i r r4\">\n<span class=\"whom__m\">\n<img alt=\"דיוקן של אייל עמית\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-close.jpg\"/>\n</span>\n<p class=\"whom__p\">למי שמעוניין לבדוק כיוון אחר, לא שגרתי, חווייתי ומהנה.</p>\n</div>\n</div>\n</div>\n</section>",
+     "id": "home.6"
+    },
+    {
+     "n": 7,
+     "type": "T-09",
+     "variant": "כרטיסים · שלושה צעדים",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע כהה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.8"
+    },
+    {
+     "n": 9,
+     "type": "T-10",
+     "variant": "פס תמונה ברוחב מלא",
+     "color": "red",
+     "q": "draw",
+     "note": "הטיפוס עוד לא שורטט",
+     "html": "<section aria-label=\"מפגש נשימה קבוצתי בגינת הסטודיו\" class=\"bleed\">\n<img alt=\"מפגש נשימה קבוצתי בגינת הסטודיו\" class=\"r r--fade\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/group-session-garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"bleed__sc\"></span>\n<div class=\"bleed__c\"><div class=\"bleed__in\">\n<p class=\"bleed__q r\">נשימה היא הבסיס להכל</p>\n<p class=\"bleed__a r\">חיה עזריה</p>\n</div></div>\n</section>",
+     "id": "home.9"
+    },
+    {
+     "n": 10,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · טור כהה עם כפתור",
+     "color": "red",
+     "q": "draw",
+     "note": "הוריאנט עוד לא שורטט",
+     "html": "<section class=\"sec\" id=\"studio\" style=\"padding:0\">\n<div class=\"studio\">\n<div class=\"studio__t r\">\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<h2 class=\"studio__h\">הסטודיו והמרחב</h2>\n<p class=\"studio__p\">הסטודיו שבו מתקיימת העבודה תוכנן מתוך הבנה עמוקה של סאונד ואקוסטיקה.<br/>החלל מאפשר עבודה מדויקת עם צליל ותדר, ותומך בתהליך גם בטיפול וגם בסאונד הילינג.<br/><br/>הסטודיו ממוקם בלב חצר מטופחת, מוקפת ירוק, עצי פרי בוגרים, שבילי עץ, שדרת במבוקים וגינת ירק מלבלבת. תחושה של מרחב חי ונושם.<br/><br/>רבים מדווחים כי כבר בכניסה למקום, משהו בקצב משתנה והלב נפתח, עוד לפני שהמפגש מתחיל.</p>\n<a class=\"btn btn--gw\" href=\"/sound-healing/\" style=\"align-self:flex-start\">למידע נוסף על סאונד הילינג</a>\n</div>\n<div class=\"studio__m r r2\">\n<img alt=\"פנים הסטודיו — קיר הפסיפס והדיג׳רידו, פרדס חנה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg\"/>\n</div>\n</div>\n</section>",
+     "id": "home.10"
+    },
+    {
+     "n": 11,
+     "type": "T-11",
+     "variant": "רשת תמונות · 27 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.11"
+    },
+    {
+     "n": 12,
+     "type": "T-21",
+     "variant": "אקורדיון · שאלות (העיצוב — בסבב הבא)",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.12"
+    },
+    {
+     "n": 13,
+     "type": "T-18",
+     "variant": "המלצות · גלילה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "home.13"
+    },
+    {
+     "n": 14,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · תצרף שלוש תמונות",
+     "color": "red",
+     "q": "draw",
+     "note": "הוריאנט עוד לא שורטט",
+     "html": "<section class=\"sec\" id=\"about\">\n<div class=\"wrap\">\n<div class=\"about\">\n<div class=\"r\">\n<h2 class=\"h2\" style=\"margin-bottom:22px\">אייל עמית</h2>\n<div class=\"about__body\"><p>העבודה של אייל עמית עם נשימה ודיג'רידו התחילה מתוך משיכה לצליל המיוחד של הכלי.</p>\n<p>רק בהמשך הדרך, לאחר שנים של למידה אצל המאסטר ההודי מוקש דהימן, התבהר הקשר בין הנשימה למערכות הגוף.</p>\n<p>מתוך התרגול והחקירה העצמית, התגלה גם הקשר הישיר לנשימה – וליכולת להשפיע על אסתמה, אלרגיות ומצבים נוספים.</p>\n<p>בהדרגה חל שינוי משמעותי במצב הבריאותי – מערכת הנשימה התחזקה והתסמינים פחתו עד שנעלמו.</p>\n<p>התהליך הזה חוזר על עצמו אצל רבים מהאנשים שמבקשים \"רק ללמוד לנגן בדיג'רידו\". הם מגיעים מתוך סקרנות או משיכה לצליל, ורק בהמשך תוך כדי התהליך מתחילים להבין עד כמה הנשימה קשורה לסימפטומים מסוימים שמהם הם סובלים.</p>\n<p>הרקע ההנדסי של אייל איפשר לו לפרק תהליכים מורכבים לשיטה ברורה וישימה.</p>\n<p>את המרכז לטיפול בדיג'רידו הקים מתוך רצון לקדם, להנגיש וללמד את העבודה עם הדיג'רידו ככלי להשפעה על הגוף, הנשימה והתודעה.</p>\n<p><a class=\"tlink\" href=\"/eyal-amit/\">לקריאה נוספת אודות אייל עמית</a></p></div>\n</div>\n<div class=\"about__col\">\n<div class=\"collage\">\n<span class=\"collage__big r\"><img alt=\"אייל עמית בגינת הסטודיו עם הדיג׳רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-portrait-garden.jpg\"/></span>\n<span class=\"collage__sm r r2\"><img alt=\"ספירלת cbDIDG חרוטה בקצה הדיג׳רידו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/didg-spiral-detail.jpg\"/></span>\n<span class=\"collage__sm r r3\"><img alt=\"שלושה דיג׳רידו בצורת ספירלת הלוגו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/logo-didgs-door.jpg\"/></span>\n</div>\n</div>\n</div>\n</div>\n</section>",
+     "id": "home.14"
+    },
+    {
+     "n": 15,
+     "type": "T-08",
+     "variant": "פס קריאה לפעולה · רקע חול",
+     "color": "red",
+     "q": "cta",
+     "note": "חסרים כותרת או טקסט — הכלל: תמיד כותרת + טקסט + כפתור",
+     "html": "<section class=\"cta-band cta-band--row cta-band--sand\" id=\"final-cta\">\n<div class=\"cta-band__in\">\n<span aria-hidden=\"true\" class=\"cta-band__logo cta-band__logo--side\"></span>\n<div class=\"cta-band__txt r\">\n<p class=\"cta-band__p\">אם אתם מרגישים שהגיע הזמן להתחבר לנשימה שלכם, לחזק אותה, לווסת אותה ולהיכנס לתהליך הדרגתי, חווייתי ומהנה – אפשר להתחיל בצעד פשוט.</p> </div>\n<div class=\"cta-band__act r r2\">\n<a class=\"btn btn--terra\" href=\"/contact/\">לתיאום שיחת היכרות</a>\n</div>\n</div>\n</section>",
+     "id": "home.15"
+    }
+   ]
+  },
+  {
+   "path": "/eyal-amit/mokesh-dahiman/",
+   "title": "מוקש דהימן — לזכרו",
+   "words": 3450,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media mokesh-hero\">\n<img alt=\"מוקש דהימן עם אייל עמית ברישיקש, הודו\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/mokesh-eyal.jpg\"/>\n<div aria-hidden=\"true\" class=\"mokesh-hero__yt\">\n<div data-ytid=\"kf4NKSdYi9E\" id=\"ea-mokesh-trailer\"></div>\n</div>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">מי היה מוקש דהימן?</h1>\n<p class=\"phero__s\">מוקש דהימן (Mukesh Dhiman) היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו, שכבר בתחילת שנות השבעים הקדיש את חייו למלאכת בנייתו של הדיג'רידו ולהפצתו ככלי נשימה, ריפוי וחיבור ללב.</p> </div>\n<button aria-pressed=\"false\" class=\"mokesh-hero__unmute\" data-ea-mokesh-unmute=\"\" hidden=\"\" type=\"button\">\n<span aria-hidden=\"true\" class=\"mokesh-hero__unmute-icon\"></span>\n<span class=\"mokesh-hero__unmute-label\">הפעלת קול</span>\n</button>\n</header>",
+     "id": "eyal-amit-mokesh-dahiman.1"
+    },
+    {
+     "n": 0,
+     "type": "T-23",
+     "variant": "תוכן עניינים — שורה חדשה (3450 מילים)",
+     "color": "green",
+     "q": null,
+     "note": "כלל D55",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.2"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.3"
+    },
+    {
+     "n": 3,
+     "type": "T-26",
+     "variant": "וידאו · בתוך הקריאה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.4"
+    },
+    {
+     "n": 4,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.5"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.6"
+    },
+    {
+     "n": 6,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה ימין",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.7"
+    },
+    {
+     "n": 7,
+     "type": "T-10",
+     "variant": "פס תמונה ברוחב מלא",
+     "color": "red",
+     "q": "draw",
+     "note": "הטיפוס עוד לא שורטט",
+     "html": "<section aria-label=\"מוקש דהימן\" class=\"bleed\">\n<img alt=\"מוקש דהימן\" class=\"r r--fade\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/mokesh-gallery/mokesh-05.jpg\"/>\n<span aria-hidden=\"true\" class=\"bleed__sc\"></span>\n<div class=\"bleed__c\"><div class=\"bleed__in\">\n<p class=\"bleed__q r\">shanti play mantra inside – shanti coming home</p>\n<p class=\"bleed__a r\">מוקש דהימן</p> </div></div>\n</section>",
+     "id": "eyal-amit-mokesh-dahiman.8"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.9"
+    },
+    {
+     "n": 9,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.10"
+    },
+    {
+     "n": 10,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.11"
+    },
+    {
+     "n": 11,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.12"
+    },
+    {
+     "n": 12,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לאורך — טקסט 4, תמונה 2 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.13"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.14"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.15"
+    },
+    {
+     "n": 15,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.16"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.17"
+    },
+    {
+     "n": 17,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לאורך — טקסט 4, תמונה 2 · צד התמונה ימין",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.18"
+    },
+    {
+     "n": 18,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.19"
+    },
+    {
+     "n": 19,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.20"
+    },
+    {
+     "n": 20,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.21"
+    },
+    {
+     "n": 21,
+     "type": "T-28",
+     "variant": "פוסטים מפייסבוק · 2 טורים חופשיים",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.22"
+    },
+    {
+     "n": 22,
+     "type": "T-11",
+     "variant": "רשת תמונות · 19 תמונות — רשימה פתוחה, 3 בשורה, שורה לכל צורה",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.23"
+    },
+    {
+     "n": 23,
+     "type": "T-29",
+     "variant": "רשימת שנים · ציר זמן",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit-mokesh-dahiman.24"
+    }
+   ]
+  },
+  {
+   "path": "/eyal-amit/",
+   "title": "אייל עמית | טיפול בנשימה באמצעות דיג'רידו, מפתח שיטת cbDIDG",
+   "words": 1337,
+   "rows": [
+    {
+     "n": 1,
+     "type": "T-01",
+     "variant": "הירו",
+     "color": "yellow",
+     "q": "hero",
+     "note": "גובה (גדול / בינוני / קטן) ומיקום הכפתור",
+     "html": "<header class=\"phero phero--media\">\n<img alt=\"אייל עמית בגינת הסטודיו בפרדס חנה\" class=\"phero__media\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-portrait-garden.jpg\"/>\n<span aria-hidden=\"true\" class=\"phero__sc\"></span>\n<span aria-hidden=\"true\" class=\"arcs\"></span>\n<div class=\"phero__in\">\n<h1 class=\"phero__h\">אייל עמית</h1>\n<p class=\"phero__s\">מאז 1999 אני עוסק בדיג'רידו, בנשימה, בהוראה, בטיפול ובבניית כלים. לאורך השנים התחברו כל העולמות האלה לדרך עבודה אחת, שמבקשת להבין את הנשימה לעומק ולהשתמש בדיג'רידו ככלי מעשי לעבודה איתה.</p> <p class=\"phero__cta\"><a class=\"btn btn--gw\" href=\"/contact/\">לתיאום שיחת היכרות</a></p>\n</div>\n<span aria-hidden=\"true\" class=\"phero__media-cue\"></span></header>",
+     "id": "eyal-amit.1"
+    },
+    {
+     "n": 2,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.2"
+    },
+    {
+     "n": 3,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.3"
+    },
+    {
+     "n": 4,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.4"
+    },
+    {
+     "n": 5,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.5"
+    },
+    {
+     "n": 6,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לאורך — טקסט 4, תמונה 2 · צד התמונה שמאל",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.6"
+    },
+    {
+     "n": 7,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.7"
+    },
+    {
+     "n": 8,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.8"
+    },
+    {
+     "n": 9,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.9"
+    },
+    {
+     "n": 10,
+     "type": "T-06",
+     "variant": "טקסט ותמונה · לרוחב — 3+3 · צד התמונה ימין",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.10"
+    },
+    {
+     "n": 11,
+     "type": "T-11",
+     "variant": "רשת תמונות · 3 תמונות",
+     "color": "yellow",
+     "q": "k3",
+     "note": "חלוקה ל-3 מהרשימה הנעולה",
+     "html": "<section class=\"sec sec--alt\">\n<div class=\"wrap center\">\n<div class=\"gallery r\">\n<figure class=\"gfig\">\n<img alt=\"בניין הפסיפס\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-mosaic.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"הגינה\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/garden.jpg\"/>\n</figure>\n<figure class=\"gfig\">\n<img alt=\"הדיג׳רידו בסטודיו\" loading=\"lazy\" src=\"http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-didgs.jpg\"/>\n</figure>\n</div>\n</div>\n</section>",
+     "id": "eyal-amit.11"
+    },
+    {
+     "n": 12,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.12"
+    },
+    {
+     "n": 13,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.13"
+    },
+    {
+     "n": 14,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.14"
+    },
+    {
+     "n": 15,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.15"
+    },
+    {
+     "n": 16,
+     "type": "T-04",
+     "variant": "פסקת טקסט · רקע שמנת",
+     "color": "green",
+     "q": null,
+     "note": "",
+     "html": "",
+     "id": "eyal-amit.16"
+    }
+   ]
+  }
+ ]
+}
