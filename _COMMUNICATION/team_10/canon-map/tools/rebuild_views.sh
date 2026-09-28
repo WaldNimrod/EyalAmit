@@ -8,3 +8,4 @@ python3 tools/grids_view.py map-source.html grids.html
 python3 tools/grid_proof.py map-source.html grid-proof.html
 python3 tools/palette_check.py map-source.html palette-check.html
 python3 tools/decisions_view.py map-source.html decisions.html
+python3 tools/pending_view.py map-source.html pending.html
