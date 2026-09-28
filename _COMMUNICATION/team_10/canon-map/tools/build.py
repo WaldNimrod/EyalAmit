@@ -306,6 +306,11 @@ def specimen(label, page, css, idx, pred, tr):
             if "cm-tq" in keep.split():  # proposal: heading like a paragraph; quiet arrows centred above, dots below
                 for w in el.select(".wrap.center"):
                     w["class"] = [c for c in w["class"] if c != "center"]
+                for card in el.select(".tmq"):  # a small link at the bottom, in addition to the name link
+                    a = card.select_one("a.tmq__nl")
+                    if a and a.get("href"):
+                        more = BeautifulSoup(f'<a class="cm-tq__more" href="{a["href"]}" target="_blank" rel="noopener">לקריאה במקור ›</a>', "lxml").a
+                        card.append(more)
                 mq = el.select_one(".testi-mq")
                 if mq:
                     nav = BeautifulSoup('<div class="cm-tq__nav"></div>', "lxml").div
@@ -683,7 +688,7 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 /* O-2: one shape per row (team_00: a portrait in a landscape row breaks it). */
 .cm-gal .gallery .cm-por img{aspect-ratio:3/4!important;width:100%;height:auto;object-fit:cover}
 /* O-4 logo variant: the logo mark instead of the number. */
-.cm-pl-logo .point-cards__card::before{content:""!important;background:url(/wp-content/themes/ea-eyalamit/assets/images/ea-logo-mark.png) center/contain no-repeat transparent!important;border-radius:0!important}
+.cm-pl-logo .point-cards__card::before{content:""!important;background:url(/wp-content/themes/ea-eyalamit/assets/images/ea-logo-mark.png) center/contain no-repeat transparent!important;border-radius:0!important;width:26px!important;height:26px!important;top:6px!important;inset-inline-start:5px!important}
 /* O-4 (team_00: «זה נקודות — רשימה סדורה, בולטים»): the point cards become an ordered list in columns 2-5. */
 .cm-pl .point-cards__grid{display:block!important;grid-column:2/6!important;counter-reset:pl;margin-block:8px!important}
 .cm-pl .point-cards__card{counter-increment:pl;position:relative;border:0!important;background:transparent!important;box-shadow:none!important;
@@ -726,7 +731,10 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-tq .tmq{display:grid!important;grid-template-columns:40px 1fr;grid-template-areas:"av n" "q q";column-gap:10px;row-gap:12px;align-content:start;flex:none!important;width:auto!important}
 .cm-tq .tmq__avatar{grid-area:av;width:40px!important;height:40px;aspect-ratio:1!important;border-radius:50%!important}
 .cm-tq .tmq__avatar svg{width:20px;height:20px}
-.cm-tq .tmq__n{grid-area:n;margin:0!important;align-self:center;text-align:start!important;letter-spacing:.3px}
+.cm-tq .tmq{grid-template-areas:"av n" "q q" "m m"!important;grid-template-rows:auto 1fr auto;align-content:stretch!important}
+.cm-tq .tmq__n{grid-area:n;margin:0!important;align-self:center;text-align:start!important;letter-spacing:.2px;font-size:var(--fs-sm)!important;font-weight:600!important;color:#2f2013!important}
+.cm-tq .tmq__n a{color:#2f2013!important}
+.cm-tq__more{grid-area:m;justify-self:end;font:500 var(--fs-2xs)/1.4 Heebo,sans-serif;color:#9A4F2B;text-decoration:none;border-bottom:1px solid currentColor}
 .cm-tq .tmq__n::before{display:none}
 .cm-tq .tmq__n::after{content:"· תאריך";margin-inline-start:6px;opacity:.7}
 .cm-tq .tmq__q{grid-area:q;margin:0}
