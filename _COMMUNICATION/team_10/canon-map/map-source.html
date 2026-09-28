@@ -258,8 +258,8 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-hs .cm-sub{grid-column:1/-1!important;margin:0;color:#67482d;font-size:var(--fs-lead);max-width:none;text-align:start}
 /* O-2 gallery: a main image across the six columns, then three per row. */
 /* The main image is a photo (the first item here is a book cover, which cannot fill a wide frame). */
-.cm-gal .gallery>:nth-child(4){grid-column:1/-1!important;order:-1}
-.cm-gal .gallery>:nth-child(4) img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
+.cm-gal .gallery>:first-child{grid-column:1/-1!important}
+.cm-gal .gallery>:first-child img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
 /* O-2: one shape per row (team_00: a portrait in a landscape row breaks it). */
 .cm-gal .gallery .cm-por img{aspect-ratio:3/4!important;width:100%;height:auto;object-fit:cover}
 /* O-4 logo variant: the logo mark instead of the number. */
@@ -401,7 +401,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6[class*="cm-g4-"] .whom__m{flex:none;aspect-ratio:4/3!important;height:auto!important}
  .cm-pl .point-cards__card{padding-inline-start:46px!important}
  .cm-bul .whom{grid-auto-rows:220px!important}
- .cm-gal .gallery>:nth-child(4) img{height:240px}
+ .cm-gal .gallery>:first-child img{height:240px}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
@@ -1542,12 +1542,8 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
 </section></div><div class="cm-variant">הצעה לאישור — כותרת מימין עם תת-כותרת, תמונה ראשית ברוחב מלא; אחריה שורות של 3 תמונות לרוחב (4:3), ובסוף שורות של 3 תמונות לאורך (3:4) — כל שורה בצורה אחת (תת-הכותרת — תוכן דמה)</div><div class="cm-spec cm-prop"><span class="cm-dummy__badge cm-prop__badge">הצעה לאישור — עדיין לא באתר</span><section class="sec sec--alt cm-g6 cm-hs cm-gal">
 <div class="wrap">
 <h2 class="h2 r">גלריה</h2><p class="lead cm-sub">תת-כותרת — שורה אחת שמסבירה את הבלוק (תוכן דמה)</p> <div class="gallery r">
-<figure class="gfig">
-<img alt="כריכת הספר: רכב מכונף בתוך פרח לוטוס על רקע תכלת" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-04.jpg"/>
-</figure>
-<figure class="gfig">
-<img alt="כריכת הספר פרושה, צד קדמי ואחורי עם טקסט" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-05.jpg"/>
-</figure>
+
+
 
 <figure class="gfig">
 <img alt="אישה מחזיקה את הספר ליד נהר, מגדל אבן וגשר עץ ברקע" loading="lazy" src="/wp-content/themes/ea-eyalamit/assets/images/chapters/kushi/kush-08.jpg"/>

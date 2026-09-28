@@ -321,6 +321,11 @@ def specimen(label, page, css, idx, pred, tr):
                 from PIL import Image
                 site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "site")
                 g = el.select_one(".gallery")
+                # team_00: the book-cover files (white margins, front+back spread) are not gallery photos — out of the example.
+                for f in [f for f in g.children if getattr(f, "name", None)]:
+                    im = f.select_one("img")
+                    if im and im["src"].rsplit("/", 1)[-1] in ("kush-04.jpg", "kush-05.jpg"):
+                        f.decompose()
                 figs = [f for f in g.children if getattr(f, "name", None)]
                 def portrait(f):
                     im = f.select_one("img")
@@ -673,8 +678,8 @@ section.cm-fold .prose-acc .intro-body{padding-bottom:0}
 .cm-hs .cm-sub{grid-column:1/-1!important;margin:0;color:#67482d;font-size:var(--fs-lead);max-width:none;text-align:start}
 /* O-2 gallery: a main image across the six columns, then three per row. */
 /* The main image is a photo (the first item here is a book cover, which cannot fill a wide frame). */
-.cm-gal .gallery>:nth-child(4){grid-column:1/-1!important;order:-1}
-.cm-gal .gallery>:nth-child(4) img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
+.cm-gal .gallery>:first-child{grid-column:1/-1!important}
+.cm-gal .gallery>:first-child img{aspect-ratio:auto!important;width:100%!important;height:480px;object-fit:cover!important}
 /* O-2: one shape per row (team_00: a portrait in a landscape row breaks it). */
 .cm-gal .gallery .cm-por img{aspect-ratio:3/4!important;width:100%;height:auto;object-fit:cover}
 /* O-4 logo variant: the logo mark instead of the number. */
@@ -816,7 +821,7 @@ header.phero[class*="cm-h-"] .phero__cta .btn{width:100%;box-sizing:border-box;p
  .cm-g6[class*="cm-g4-"] .whom__m{flex:none;aspect-ratio:4/3!important;height:auto!important}
  .cm-pl .point-cards__card{padding-inline-start:46px!important}
  .cm-bul .whom{grid-auto-rows:220px!important}
- .cm-gal .gallery>:nth-child(4) img{height:240px}
+ .cm-gal .gallery>:first-child img{height:240px}
  .cm-k42 .gallery{grid-template-rows:none}.cm-k42 .gallery>:nth-child(n){grid-column:span 1!important;grid-row:auto}.cm-k42 .gallery .gfig{height:220px}
  .cm-k53 .point-cards__grid>:nth-child(n){grid-column:1!important;grid-row:auto}
  .cm-ct .ea-contact-form-row{display:block!important}
