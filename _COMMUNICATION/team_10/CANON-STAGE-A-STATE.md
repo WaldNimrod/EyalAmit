@@ -128,6 +128,8 @@ Nothing joined these two before; this section does. It cites, it does not restat
 | D65 | Pause for Eyal | «מעולה — קומיט, פוש, לוודא שהשרת עם גרסה עדכנית. אנחנו עוצרים כאן וממתינים לאייל. גם את הבחירה הסופית באיפוס — נבצע ישירות איתו, שלא נעבוד פעמיים.» | Stage paused. The reset choices (`reset.html`) will be made together with Eyal, not by team_00 alone. Open when work resumes: validation lane 2 (map vs live site, team_90 — the site's team_90 session must be reopened); implementation with team_90 merged with their planned cross-cutting fixes; latent live finding: timeline years #B5663D on ivory = 4.24. |
 | D12 | Maintenance model (already defined — plan to it, don't reopen) | Eyal works against an environment in free language and does not deploy; its output is a request «שורה מטיפוס A עם תוכן B בעמוד C במיקום X», with his text marked apart from drafted text ([README-INDEX](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/EYAL-WORKSPACE/README-INDEX.md)). A page is an ordered list of rows, each a type plus its fields ([POST-TEMPLATE-SETTINGS](file:///Users/nimrod/Documents/AOS_V5/EyalAmit.co.il-2026/_COMMUNICATION/team_100/S007/POST-TEMPLATE-SETTINGS.md) §6). | The map's permanent IDs are the "type A". |
 
+שני סעיפים שנרשמו ב־7 באוקטובר לחבילה, ולא לטופס: תיקיית התמונות כבר קיימת — `EyalAmit_Site_GoogleDrive_Sync/ea-media-gallery-2026-07-02.zip`, מתועדת ב־[RESEARCH-R1-27-GALLERIES-2026-08-18.md](_COMMUNICATION/team_100/S006/RESEARCH-R1-27-GALLERIES-2026-08-18.md). ועמוד מפה, אצלו בניהול, לכל עמודי הארכיון והקישורים הנסתרים כולל ה־QR. החבילה עצמה עדיין לא נבנית.
+
 ## 4 · Type status
 
 **Legend:** captured = live copy in the map, not yet reviewed · proposal = a change is shown
