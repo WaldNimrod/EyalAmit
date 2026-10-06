@@ -1,0 +1,520 @@
+{
+ "exportType": "ea-alt-corrections",
+ "exportSchema": "alt-corrections-v2",
+ "contentSig": "0ea86bf56242",
+ "exportTimestamp": "2026-10-04T17:32:58.350Z",
+ "totalImages": 108,
+ "corrections": [
+  {
+   "id": "21440ab0ee12bb2f",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/studio-interior.jpg",
+   "current": "חזית סטודיו מעוטרת פסיפס צבעוני, ובפתח נשקפים עשרות דידג'רידו עומדים",
+   "correction": "חזית הסטודיו מעוטרת פסיפס צבעוני, ובחלון נשקפים עשרות דידג'רידו עומדים"
+  },
+  {
+   "id": "3b6f9dcabc398370",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%9e%d7%95%d7%a4%d7%a2-%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-spoken-stories-15/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/08/11406568_10156001449435206_6177482397757732265_o-300x225.jpg",
+   "current": "גבר שוכב פרקדן על רחבה מרוצפת מול שער ניצחון ושדרת דקלים",
+   "correction": "אישה שוכבת פרקדן על רחבה מרוצפת מול שער ניצחון בברצלונה"
+  },
+  {
+   "id": "fbfb3efd4b869dd0",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/קולאז-של-כל-החברים-ממליצים-על-המופע-300x289.jpg",
+   "current": "קולאז' רשת של כעשרים וחמישה תצלומי פורטרט של נשים וגברים",
+   "correction": "קולאז' רשת של כעשרים וחמישה תצלומי פורטרט של נשים וגברים הממליצים על אייל עמית"
+  },
+  {
+   "id": "7b1998d8ed8c38ec",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2017/02/אייל-עמית3-300x200.jpg",
+   "current": "גבר בחולצה שחורה על במה, רכון וידיו על ברכיו, מביט הצידה",
+   "correction": "גבר בחולצה שחורה על במה, רכון וידיו על ברכיו, מביט הצידה - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "e3dc4423fe799902",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2017/02/אייל-עמית5-300x200.jpg",
+   "current": "גבר מספר על במה, פיו פתוח וידו מורמת בתנועת הסבר",
+   "correction": "גבר מספר על במה, פיו פתוח וידו מורמת בתנועת הסבר - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "f743eb19997df3d6",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-33-200x300.jpg",
+   "current": "גבר עומד על במה ופורש את שתי ידיו לצדדים, שרפרף לצידו",
+   "correction": "גבר עומד על במה ופורש את שתי ידיו לצדדים, שרפרף לצידו - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "61b5713a45368d68",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-89-300x200.jpg",
+   "current": "גבר על במה, רגלו על שרפרף וידיו על בטנו, פיו פתוח",
+   "correction": "גבר על במה, רגלו על שרפרף וידיו על בטנו, פיו פתוח - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "e9c4b271cb67bd0c",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-65-300x200.jpg",
+   "current": "גבר על במה מרים שתי אגרופים קפוצים ופיו פתוח בצעקה",
+   "correction": "גבר על במה מרים שתי אגרופים קפוצים ופיו פתוח בצעקה - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "a0216a9d15c33cac",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-93-300x200.jpg",
+   "current": "גבר יושב על שרפרף גבוה, ידו על סנטרו במבט מהורהר",
+   "correction": "גבר יושב על שרפרף גבוה, ידו על סנטרו במבט מהורהר - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "65c134043c2b9745",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-92-300x200.jpg",
+   "current": "גבר יושב על שרפרף על במה ומושיט יד פתוחה הצידה",
+   "correction": "גבר יושב על שרפרף על במה ומושיט יד פתוחה הצידה - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "abd7e9794287f8cb",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-174-300x280.jpg",
+   "current": "תקריב של גבר על במה, שתי ידיו מורמות ואצבעותיו פרושות",
+   "correction": "תקריב של גבר על במה, שתי ידיו מורמות ואצבעותיו פרושות - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "8ee7936ac414bcc2",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית11-212x300.jpg",
+   "current": "גבר יושב על שרפרף בבמה חשוכה ומדבר בתנועות ידיים",
+   "correction": "גבר יושב על שרפרף בבמה חשוכה ומדבר בתנועות ידיים - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "04dc9e081f358096",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-120-300x200.jpg",
+   "current": "גבר בפרופיל נשען על שרפרף ומצמיד את ידיו אל חזהו",
+   "correction": "גבר בפרופיל נשען על שרפרף ומצמיד את ידיו אל חזהו - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "276f688c968e88d9",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית3-300x200.jpg",
+   "current": "גבר רכון על שרפרף, ידיו בין ברכיו ופניו מופתעות קדימה",
+   "correction": "גבר רכון על שרפרף, ידיו בין ברכיו ופניו מופתעות קדימה - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "17eb07bc81f6c0d2",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-123-300x200.jpg",
+   "current": "גבר על במה מושיט יד קדימה ומצביע, זרקור דולק מעליו",
+   "correction": "גבר על במה מושיט יד קדימה ומצביע, זרקור דולק מעליו - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "10b958bfd9d76951",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-173-300x200.jpg",
+   "current": "גבר יושב על שרפרף בתנוחת מדיטציה, כפות ידיו פתוחות ומבטו למעלה",
+   "correction": "גבר יושב על שרפרף בתנוחת מדיטציה, כפות ידיו פתוחות ומבטו למעלה - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "3f750ba5f159c5fa",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/04/אייל-עמית-63-300x200.jpg",
+   "current": "גבר בחולצה שחורה נשען על שרפרף ויד אחת על חזהו",
+   "correction": "גבר בחולצה שחורה נשען על שרפרף ויד אחת על חזהו - מתוך מופע הסיפורים של אייל עמית בצוותא"
+  },
+  {
+   "id": "3cfcbd2d60731150",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh6.googleusercontent.com/e681621f8f-_25D7_2599_25D7_2595_25D7_2590_25D7_2591_2520_25D7_25A7_25D7_259C_25D7_2599_25D7_2599_25D7_259E_25D7_259F.jpg",
+   "current": "גבר מחייך אוחז מצלמת וידאו מקצועית בסמטת אבן צרה",
+   "correction": "יואב קליינמן"
+  },
+  {
+   "id": "612dae6cd28c7a88",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh5.googleusercontent.com/37826df9b5-DSC00864.jpg",
+   "current": "שני גברים צעירים, אחד נושף לתוך צינור לבן קצר והשני מחייך בידיים שלובות",
+   "correction": "אייל עמית ואדם הניוזילנדי בקוסטה ריקה"
+  },
+  {
+   "id": "1c6fc06d4f24ffc7",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh3.googleusercontent.com/a6294a12b9-_25D7_2599_25D7_2595_25D7_25A8_25D7_259D_2520_25D7_25A1_25D7_2599_25D7_2595_25D7_259F_2520_25D7_2595_25D7_2599_25D7_2590_25D7_2599_25D7_25A8_2520_25D7_2592_25D7_25A4_25D7_25A0_25D7_2599.jpg",
+   "current": "שני גברים יושבים על מחצלת ליד אוהל, אחד מהם מנגן בדידג'רידו",
+   "correction": "יורם ויאיר פסביבל בראשית"
+  },
+  {
+   "id": "0004aa107c6ed79e",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh6.googleusercontent.com/f6f1eb83d1-DSC00871.jpg",
+   "current": "שלושה גברים יושבים יחד בערב ומשוחחים, אחד מהם עטוף בשמיכה לבנה",
+   "correction": "מוקש דהימן ואייל עמית  - רישיקש 2003"
+  },
+  {
+   "id": "f59cbc4145054850",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh5.googleusercontent.com/3d071e7fd0-DSC00869.jpg",
+   "current": "קבוצת אנשים יושבים סביב מדורה קטנה בחצר, גבר מנגן בדידג'רידו ארוך",
+   "correction": "מוקש דהימן ואייל עמית בבית המלאכה של מוקש ברישיקש"
+  },
+  {
+   "id": "22cb8f068462ef40",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh6.googleusercontent.com/207900a3c7-DSC00872.jpg",
+   "current": "גבר צעיר יושב על רצפת סדנה לצד גזעי דידג'רידו מגולפים",
+   "correction": "אייל עמית עם הדיג' שנגנב (הסיפור: ג'סי ראם מהספר 'וכתבת') בבית המלאכה של מוקש דהימן ברישיקש"
+  },
+  {
+   "id": "63cd5c47ab8d0e79",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh5.googleusercontent.com/db3f17081d-DSC05940.jpg",
+   "current": "גבר מחייך עומד מאחורי עשרות גזעי עץ לדידג'רידו בנגרייה",
+   "correction": "אייל עמית מחייך עומד מאחורי עשרות גזעי עץ לדידג'רידו בנגרייה"
+  },
+  {
+   "id": "8f0b213ddb777c96",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh4.googleusercontent.com/552bc17e8d-IMG_1366.jpg",
+   "current": "חדר סטודיו ובו דידג'רידו רבים על מדפי עץ בקירות",
+   "correction": "הסטודיו לדיג'רידו של אייל עמית בתחילת דרכו"
+  },
+  {
+   "id": "703fde6b8098f552",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94-%d7%a1%d7%98%d7%95%d7%93%d7%99%d7%95-%d7%9c%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a0%d7%92%d7%99%d7%a0/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/ea-legacy/lh6.googleusercontent.com/45d0419b61-DSC00231.jpg",
+   "current": "מבנה לבן קטן עם חלונות כחולים בחצר עפר בין עצים",
+   "correction": "הסטודיו לדיג'רידו של אייל עמית בתחילת דרכו"
+  },
+  {
+   "id": "b2311b2f704d8a70",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%93%d7%a3-%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%97%d7%93%d7%a9-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%a9%d7%a0%d7%99-%d7%94%d7%9e%d7%95%d7%a4%d7%a2%d7%99/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/12/DSC_0785-199x300.jpg",
+   "current": "גבר יושב על שרפרף על במה מול מסך ובו תצלום תינוק בוכה",
+   "correction": "מופע הסיפורים של אייל עמית  - יושב על שרפרף על במה מול מסך ובו תצלום תינוק בוכה"
+  },
+  {
+   "id": "32f8b4783dc7b3d2",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2017/05/uni.jpg",
+   "current": "גבר במשקפי שמש מצטלם מול פסל חמור עם קרן כתומה ועגלת תפוזים",
+   "correction": "אייל עמית במשקפי שמש מצטלם מול פסל חמור עם קרן כתומה ועגלת תפוזים בפרדס חנה"
+  },
+  {
+   "id": "1e869df88db8ce89",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%96%d7%9e%d7%a0%d7%94-%d7%9c%d7%94%d7%a9%d7%a7%d7%aa-%d7%94%d7%a1%d7%a4%d7%a8-%d7%94%d7%97%d7%93%d7%a9-%d7%95%d7%9b%d7%aa%d7%91%d7%aa%d6%b8-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2017/05/book.jpg",
+   "current": "עטיפת הספר ״וכתבתָ״ מאת אייל עמית ורשימת הסיפורים, מצולמת על גלגל רזרבי",
+   "correction": "עטיפת הספר ״וכתבתָ״ מאת אייל עמית ורשימת הסיפורים"
+  },
+  {
+   "id": "bb79e014452e7aa3",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%9a-%d7%94%d7%aa%d7%97%d7%9c%d7%aa%d7%99-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%95%d7%9c%d7%a1%d7%a4/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/06/כל-הפרדס-אייל-עמית-257x300.jpg",
+   "current": "שער עיתון ״כל הפרדס״ עם תצלום אייל עמית והכותרת ״זה כל הסיפור״",
+   "correction": "שער עיתון ״כל הפרדס״ עם תצלום אייל עמית והכותרת ״זה כל הסיפור״"
+  },
+  {
+   "id": "3bf3378c7844dc10",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%9c/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2024/08/377997335_789649919834093_2093968922390110774_n-450x343.jpg",
+   "current": "גבר יושב בסטודיו ומחזיק דידג'רידו, לצדו גונג, קערות שירה ודידג'רידו נוספים על הקיר",
+   "correction": "אייל עמית  יושב בסטודיו ומחזיק דידג'רידו, לצדו גונג, קערות טיבטיות וכלי דידג'רידו נוספים על הקיר"
+  },
+  {
+   "id": "865c1187215fb29a",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9b%d7%aa%d7%91%d7%94-%d7%a2%d7%9c-%d7%aa%d7%95%d7%a4%d7%a2%d7%aa-%d7%99%d7%97%d7%99%d7%93-%d7%91-%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%9f-%d7%92%d7%91%d7%a2%d7%aa%d7%99%d7%99%d7%9d-%d7%a8/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/07/GIVATAIM-300x227.jpg",
+   "current": "סריקת כפולת עיתון בכותרת \"מספר הסיפורים\", ובה תצלומי גבר מנגן בדידג'רידו ויושב",
+   "correction": "כתבה על אייל עמית בשם \"מספר הסיפורים\""
+  },
+  {
+   "id": "7dc62cecbc0cd7f6",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a8%d7%92%d7%a2-%d7%9c%d7%90-%d7%91%d7%a2%d7%95%d7%93-%d7%a9%d7%a0%d7%99%d7%99%d7%94-%d7%a2-%d7%9b-%d7%a9-%d7%99-%d7%95/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/07/צוותא-אייל-עמית-300x296.jpg",
+   "current": "גבר על במה פורש ידיים וצועק בצילום שחור-לבן, מעליו הכיתוב \"צוותא\"",
+   "correction": "מופע הסיפורים של אייל עמית ב צוותא"
+  },
+  {
+   "id": "0ab8da4c58837011",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a9%d7%99%d7%a9%d7%99-23-10-15-%d7%91%d7%aa%d7%99%d7%90/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/10/arm2.jpg",
+   "current": "כרזת \"עכשיו!!! תופעת יחיד\" – שריון אביר עם פרצוף סמיילי, הקאמרי 23.10.15",
+   "correction": "כרזת \"עכשיו!!! תופעת יחיד\" – מופע הסיפורים של אייל עמית - הקאמרי"
+  },
+  {
+   "id": "0b216b301bd80f62",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-2-256x450.jpg",
+   "current": "אמן מתולתל כורע על הרצפה וכותב הקדשה בטוש על גב קנבס ממוסגר",
+   "correction": "סלאבה ויינבלאט רושם הקדה בגב הציור של מוקש דהימן"
+  },
+  {
+   "id": "abc85318008df62b",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-5-253x450.jpg",
+   "current": "סלפי של שני גברים מחייכים, ומאחוריהם ציור של איש בכובע כחול מנופף בידו",
+   "correction": "סלאבה ויינבלאט, אייל עמית וציור השמן של מוקש דהימן בסטודיו של אייל לדיגרידו"
+  },
+  {
+   "id": "841be62beb913157",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%9e%d7%95%d7%a7%d7%a9-%d7%93%d7%94%d7%99%d7%9e%d7%9f-%d7%9e%d7%90%d7%a1%d7%98%d7%a8-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%a6%d7%99%d7%95%d7%a8-%d7%9e%d7%a7%d7%95%d7%a8%d7%99-%d7%97/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2024/08/mukesh-dhiman-מוקש-דהימן-1-312x450.jpg",
+   "current": "גבר מבוגר וצנום בחולצה כתומה ובכובע, מרים שתי כפות ידיים מול מפל וצמחייה",
+   "correction": "מוקש דהימן במנח הידיים המפורסם"
+  },
+  {
+   "id": "b240e5721741cd96",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%94%d7%95%d7%a4%d7%a2%d7%94-%d7%91%d7%9e%d7%95%d7%a6%d7%a9-%d7%94%d7%a7%d7%a8%d7%95%d7%91-13-9-14-%d7%91%d7%a4%d7%a8%d7%93%d7%a1-%d7%97%d7%a0%d7%94/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/09/פרדס-חפלה-אייל-עמית.jpg",
+   "current": "צילום מסך מסרטון: גבר על הבמה מקריא מדפים מול מסך הקרנה ובו צילום רחוב",
+   "correction": "צילום מסך מסרטון: אייל עמית על הבמה מקריא מדפים מול מסך הקרנה ובו צילום רחוב - הסיפור פרדס חפלה"
+  },
+  {
+   "id": "da3ccb63f0d97a98",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/10/Screen-Shot-2014-10-28-at-10.06.19-PM.png",
+   "current": "אמן עומד על במה עם שרפרף מול אולם מלא במאות צופים",
+   "correction": "מופע הסיפורים של אייל עמית באולם הגדול של בית ציוני אמריקה"
+  },
+  {
+   "id": "c4080084f6ef9c3e",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-15-11-14-%d7%91%d7%aa/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/10/Screen-Shot-2014-10-28-at-11.59.23-PM.png",
+   "current": "מספר סיפורים עם דפים בידו על הבמה, והקהל באולם מוחא כפיים",
+   "correction": "מופע הסיפורים של אייל עמית באולם הגדול של בית ציוני אמריקה"
+  },
+  {
+   "id": "3d7ddbc9eb3e85a5",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a4%d7%95%d7%93%d7%a7%d7%90%d7%a1%d7%98-%d7%93%d7%99%d7%92%d7%a8%d7%99%d7%93%d7%95-%d7%95-%d7%a0%d7%a9%d7%99%d7%9e%d7%94-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2024/08/371822714_781671903965228_7156812037328721336_n-412x450.jpg",
+   "current": "גבר ואישה יושבים על רצפת עץ זה מול זה ומחייכים, בסטודיו עם דידג'רידו וגונג",
+   "correction": "אייל עמית ונווית צוף שטראוס בסטודיו לדיג'רידו"
+  },
+  {
+   "id": "863cae84507da489",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/02/שי-אביבי-290x300.jpg",
+   "current": "גבר קירח בחליפה שחורה ועניבת פרפר שוכב על רקע אדום",
+   "correction": "שי אביבי בחליפה שחורה ועניבת פרפר שוכב על רקע אדום"
+  },
+  {
+   "id": "175a7adf56bd3dea",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/02/AVRAHAM.jpg",
+   "current": "גבר במשקפיים ובחולצה אדומה מרים יד על רקע מעוטר",
+   "correction": "אברהם טל במשקפיים ובחולצה אדומה מרים יד על רקע מעוטר"
+  },
+  {
+   "id": "6dd0cbf8f3c9a68b",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/02/ALON.jpg",
+   "current": "גבר מזוקן עם משקפי שחייה על הראש ואצבע על השפתיים",
+   "correction": "אלון נויימן"
+  },
+  {
+   "id": "a4703681e2c8c888",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/%d7%a9%d7%a0%d7%99-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4%d7%95%d7%a8%d7%99%d7%9d-%d7%a9%d7%9c-%d7%90/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/02/ruti.jpg",
+   "current": "אישה מחייכת עם משקפי שמש על הראש, רקע צבעוני מעוטר",
+   "correction": "רותי פריש"
+  },
+  {
+   "id": "2d4803e16a3964c1",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/2-8-%d7%9e%d7%95%d7%a4%d7%a2-%d7%91%d7%a6%d7%95%d7%95%d7%aa%d7%90-20-%d7%9e%d7%94%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%91%d7%90%d7%95%d7%9c%d7%9d-%d7%97%d7%99%d7%a0%d7%9d-%d7%9c%d7%aa%d7%95%d7%a9/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2014/07/צוותא-אייל-עמית-300x296.jpg",
+   "current": "גבר על במה פורש ידיים וצועק, מעליו הלוגו ״צוותא״",
+   "correction": "גבר על במה פורש ידיים וצועק, מעליו הלוגו ״צוותא״ - מופע הסיפורים של אייל עמית"
+  },
+  {
+   "id": "67e7d12fd6d7817a",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/2228-2/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/07/katava1-225x300.jpg",
+   "current": "עמוד כתבה בעיתון בכותרת ״בלי ערסים ופרסים״ ובו תצלום במה",
+   "correction": "עמוד כתבה בעיתון בכותרת ״בלי ערסים ופרסים״ ובו תצלום במה מופע הסיפורים של אייל עמית"
+  },
+  {
+   "id": "f71b5f51b85e745d",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/2228-2/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2015/07/katava2-125x300.jpg",
+   "current": "עמוד המשך של הכתבה בעיתון, ציטוט מודגש בצד ותצלום גבר בחולצה אדומה",
+   "correction": "עמוד המשך של הכתבה בעיתון, ציטוט מודגש בצד ותצלום של שי אביבי בחולצה אדומה"
+  },
+  {
+   "id": "a58b683f9cb877ce",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/40-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa-%d7%90%d7%97%d7%aa-%d7%95%d7%97%d7%96%d7%a8%d7%a0%d7%95/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2009/08/%D7%A8%D7%95%D7%A0%D7%99-%D7%93%D7%9C%D7%95%D7%9E%D7%99.jpg",
+   "current": "גבר מתולתל במשקפיים מנשק צעירה בשמלת נצנצים בשידור טלוויזיה",
+   "correction": "רוני דלומי"
+  },
+  {
+   "id": "fab7570351fe56c0",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/11/idan.jpg",
+   "current": "צעיר יושב יחף על הקרקע וקורא ספר מאויר, אופניים ברקע",
+   "correction": "צבע בכחול וזרוק לים - בבית המלאכה של מוקש דהימן ברישיקש הודו"
+  },
+  {
+   "id": "2ccb6c99ce46b9ed",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/11/adi.jpg",
+   "current": "אישה שוכבת על כיסא במבוק בחוף וקוראת בספר כחול",
+   "correction": "צבע בכחול וזרוק לים - שרון אורן שוכבת על כיסא במבוק בחוף וקוראת בספר כחול"
+  },
+  {
+   "id": "934d944b989edb07",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/11/keren-a.jpg",
+   "current": "אישה ליד אופניים מציגה ספר כחול, שלט ביפנית ועץ פורח ברקע",
+   "correction": "צבע בכחול וזרוק לים - אישה ליד אופניים מציגה ספר כחול, שלט ביפנית ועץ פורח ברקע"
+  },
+  {
+   "id": "30732c40cf938fa2",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/mukesh.jpg",
+   "current": "גבר יושב על הרצפה ליד מדורה וקורא בספר כחול",
+   "correction": "צבע בכחול וזרוק לים - מוקש דהימן  יושב על הרצפה ליד מדורה ומעיין בספר"
+  },
+  {
+   "id": "57e42a6ac81995fd",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/11/בוטאן.jpg",
+   "current": "גבר בכובע גרב מחזיק ספר, שני סוסים בחצר כפרית הררית",
+   "correction": "צבע בכחול וזרוק לים - גבר נפאלי בכובע גרב מחזיק ספר, שני סוסים בחצר כפרית הררית בנפאל"
+  },
+  {
+   "id": "23741aca4db38ecf",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/202020-2020204.jpg",
+   "current": "גבר כורע ברפת ומציג ספר פתוח, פרות מאחוריו",
+   "correction": "גבר כורע ברפת ומציג את הספר \"כושי בלאנטיס\" פתוח, פרות מאחוריו"
+  },
+  {
+   "id": "6e29cd571866ef4b",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/202020-2020203.jpg",
+   "current": "ספר מונח על לוח המחוונים של רכב, כביש מושלג בשדרת עצים",
+   "correction": "הספר כושי בלאנטיס מונח על לוח המחוונים של רכב, כביש מושלג בשדרת עצים"
+  },
+  {
+   "id": "f6088068eaa5daa8",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/202020-2020202.jpg",
+   "current": "ספר פתוח ניצב ברפת, שתי פרות מציצות מאחוריו",
+   "correction": "הספר כושי בלאנטיס פתוח ניצב ברפת, שתי פרות מציצות מאחוריו"
+  },
+  {
+   "id": "116f5cf0a5ee7032",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/2020-.jpg",
+   "current": "צעירה במעיל חום מחזיקה ספר על גדת נהר, מגדל אבן והר מושלג ברקע",
+   "correction": "צעירה במעיל חום מחזיקה את הספר כושי בלאנטיס על גדת נהר, מגדל אבן והר מושלג ברקע"
+  },
+  {
+   "id": "f020aab94d156f13",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/20201.jpg",
+   "current": "גבר במשקפי שמש מרים ספר, מפרץ טורקיז וצוק סלעי מאחור",
+   "correction": "גבר במשקפי שמש מרים את הספר כושי בלאנטיס, מפרץ טורקיז וצוק סלעי מאחור"
+  },
+  {
+   "id": "03ce30a34a173c4d",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/niv.jpg",
+   "current": "גבר שוכב בחוף וקורא בספר, גלגל ים וסוכות קש סביבו",
+   "correction": "גבר שוכב בחוף וקורא בספר צבע בכחול וזרוק לים, גלגל ים וסוכות קש סביבו"
+  },
+  {
+   "id": "1da0237736fddd82",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/oren-agiyon-small.jpg",
+   "current": "גבר יושב על גזע דקל נטוי בחוף וקורא בספר",
+   "correction": "גבר יושב על גזע דקל נטוי בחוף וקורא בספר של אייל עמית"
+  },
+  {
+   "id": "3548e677cb97dcf2",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/P1010474.jpg",
+   "current": "גבר עם מצלמה מחזיק ספר, סטופה ודגלי תפילה בסמטת שוק",
+   "correction": "גבר עם מצלמה מחזיק ספר \"צבע בכחול וזרוק לים\", סטופה ודגלי תפילה בסמטת שוק"
+  },
+  {
+   "id": "5b394662e6d9ff34",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/Screen20Shot202013-03-1220at208.png",
+   "current": "ספר ניצב על חוף חלוקי אבן מול הים וצוקים",
+   "correction": "הספר כושי בלאנטיס ניצב על חוף חלוקי אבן מול הים וצוקים בסיני"
+  },
+  {
+   "id": "b8da879748ccf09f",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2010/12/סיני-יוני-09-285.jpg",
+   "current": "אישה מתולתלת בחולצה ורודה קוראת בספר פתוח בחוץ",
+   "correction": "אישה מתולתלת בחולצה ורודה קוראת בספר כושי בלאנטיס בסיני"
+  },
+  {
+   "id": "a4684f91432e0a0c",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/60-%d7%94%d7%98%d7%95%d7%a8-%d7%a9%d7%9c-%d7%90%d7%99%d7%99%d7%9c-%d7%a2%d7%9e%d7%99%d7%aa-%d7%90%d7%99%d7%99-%d7%90%d7%9d-%d7%91%d7%a7/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/uploads/2016/11/רותם-כהן-צבע-בכחול-וזרוק-לים-הודו-1.jpg",
+   "current": "צעירה יושבת על מיטה בחדר ירוק עם ספר, ציור חינה על רגלה",
+   "correction": "צעירה יושבת על מיטה בחדר ירוק עם הספר צבע בכחול וזרוק לים, ציור חינה על רגלה"
+  },
+  {
+   "id": "d4e3fa513ab6f837",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/vekatavta/veka-54.jpg",
+   "current": "גבר כותב הקדשה בספר בערב, אנשים עומדים סביבו",
+   "correction": "אייל עמית חותם על ספרו השלישי וכתבת"
+  },
+  {
+   "id": "7bf8e6b29bffb38a",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/vekatavta/veka-76.jpg",
+   "current": "ילדה מחייכת מחזיקה עוגת שוקולד עם הכיתוב וכתבת ותאריך השקת הספר",
+   "correction": "אביב עמית מחייכת מחזיקה עוגת שוקולד עם הכיתוב וכתבת ותאריך השקת הספר"
+  },
+  {
+   "id": "38b9d030aad21593",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/books/vekatavta/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/vekatavta/veka-99.jpg",
+   "current": "גבר בכובע קש מציג שלושה ספרים פרושים כמניפה באוהל אירוע",
+   "correction": "ירון סאנצ'ו בכובע קש מציג את שלושת הספרים של אייל עמית פרושים כמניפה"
+  },
+  {
+   "id": "98b8abc872f1a813",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/contact/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/eyal-child-phone.jpg",
+   "current": "צילום ישן של פעוט מחזיק שפופרת של טלפון חוגה",
+   "correction": "צילום ישן של אייל עמית מחזיק שפופרת של טלפון חוגה"
+  },
+  {
+   "id": "9ea41004b321a288",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/historical-articles/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/archive/stage-10.jpg",
+   "current": "גבר כורע על במה חשוכה, זרועות פרושות ופה פעור",
+   "correction": "מופע הסיפורים של אייל עמית - כורע על במה חשוכה, זרועות פרושות ופה פעור"
+  },
+  {
+   "id": "1caa964f6083f20d",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000214.jpeg",
+   "current": "גבר בחולצה אדומה בהבעת הפתעה ליד דיג'רידו מהודק במלחציים",
+   "correction": "אייל עמית בחולצה אדומה בהבעת הפתעה ליד דיג'רידו מהודק במלחציים"
+  },
+  {
+   "id": "6fd842b5c8a4382d",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000220.jpeg",
+   "current": "סדנה בחצר: קיר פסיפס, שולחן עם דיג'רידו מהודק ומדפי צנצנות",
+   "correction": "תיקון דיג'רידו - אייל עמית-  קיר פסיפס, שולחן עם דיג'רידו מהודק ומדפי צנצנות"
+  },
+  {
+   "id": "27b59662f8bdc874",
+   "page": "http://eyalamit-co-il-2026.s887.upress.link/repair/",
+   "image": "http://eyalamit-co-il-2026.s887.upress.link/wp-content/themes/ea-eyalamit/assets/images/chapters/repair/EA-000268.jpeg",
+   "current": "קצה דיג'רידו כהה עם פייה מעץ בהיר על רקע פסיפס",
+   "correction": "קצה דיג'רידו כהה עם פייה מעץ בהיר על רקע פסיפס - אייל עמית"
+  }
+ ]
+}

@@ -1,0 +1,352 @@
+{
+  "exportType": "eyal-final-form",
+  "exportSchema": "final-form-v2",
+  "formDate": "2026-09-24",
+  "formSig": "wave1-20260925",
+  "exportTimestamp": "2026-10-04T15:17:04.687Z",
+  "note": "Content answers only. These are NOT page approvals. Status lives only in S007-WORK-SSOT.json / the board.",
+  "contentAnswers": [
+    {
+      "id": "HW-C1",
+      "title": "לימוד והכשרה",
+      "choice": "",
+      "note": "שיעורי דיג'רידו   99902B17-9589-41B5-A11C-C828FB4BDB52.png\nהרצאות וסדנאות  IMG-20260508-WA0127.jpg\nהכשרת מטפלים WhatsApp Image 2026-10-04 at 14.07.35.jpeg",
+      "fields": {
+        "note-HW-C1": "שיעורי דיג'רידו   99902B17-9589-41B5-A11C-C828FB4BDB52.png\nהרצאות וסדנאות  IMG-20260508-WA0127.jpg\nהכשרת מטפלים WhatsApp Image 2026-10-04 at 14.07.35.jpeg"
+      }
+    },
+    {
+      "id": "HW-C3",
+      "title": "העמוד באנגלית",
+      "choice": "",
+      "note": "תשתמש בתמונות מהאתר הישן וגם העלתי תמונות לתקיית דרייב פה: \nhttps://drive.google.com/drive/folders/1DBiWnJRoD1ogLgIK-q-ZmsCiRknXr6vN?hl=he\n\nהירו IMG_6572.HEIC\n\nMore than learning an instrument - IMG_9445.HEIC\n\nCraftsmanship, patience and a way of working - https://www.eyalamit.co.il/wp-content/uploads/2020/07/WhatsApp-Image-2020-07-22-at-21.18.22-8.jpeg\n\nOne-on-one didgeridoo breath work - https://www.eyalamit.co.il/wp-content/uploads/2025/08/תמונה-של-WhatsApp‏-2025-08-12-בשעה-20.37.09_b0435178.jpg\n\nFrom wood to sound - https://www.eyalamit.co.il/wp-content/uploads/2020/07/2.jpg\n\nPardes Hanna, Israel - https://www.eyalamit.co.il/wp-content/uploads/2024/09/דיגרידו-אייל-עמית.jpg",
+      "fields": {
+        "note-HW-C3": "תשתמש בתמונות מהאתר הישן וגם העלתי תמונות לתקיית דרייב פה: \nhttps://drive.google.com/drive/folders/1DBiWnJRoD1ogLgIK-q-ZmsCiRknXr6vN?hl=he\n\nהירו IMG_6572.HEIC\n\nMore than learning an instrument - IMG_9445.HEIC\n\nCraftsmanship, patience and a way of working - https://www.eyalamit.co.il/wp-content/uploads/2020/07/WhatsApp-Image-2020-07-22-at-21.18.22-8.jpeg\n\nOne-on-one didgeridoo breath work - https://www.eyalamit.co.il/wp-content/uploads/2025/08/תמונה-של-WhatsApp‏-2025-08-12-בשעה-20.37.09_b0435178.jpg\n\nFrom wood to sound - https://www.eyalamit.co.il/wp-content/uploads/2020/07/2.jpg\n\nPardes Hanna, Israel - https://www.eyalamit.co.il/wp-content/uploads/2024/09/דיגרידו-אייל-עמית.jpg"
+      }
+    },
+    {
+      "id": "HW-QR-HERO",
+      "title": "תמונות ייחודיות לעמודי הקודים המודפסים",
+      "choice": "",
+      "note": "שים את התמונה הזו בכל הדפים של ה QR בהירו: https://www.eyalamit.co.il/wp-content/uploads/2016/12/header-qr-pages.jpg",
+      "fields": {
+        "note-HW-QR-HERO": "שים את התמונה הזו בכל הדפים של ה QR בהירו: https://www.eyalamit.co.il/wp-content/uploads/2016/12/header-qr-pages.jpg"
+      }
+    },
+    {
+      "id": "HW-REPAIR-ALT",
+      "title": "כיתוב לחמש תמונות בעמוד התיקון",
+      "choice": "",
+      "note": "אין צורך בכיתוב מתחת לתמונות. תשאיר ריק.",
+      "fields": {
+        "note-HW-REPAIR-ALT-EA-000220": "אין צורך בכיתוב מתחת לתמונות. תשאיר ריק."
+      }
+    },
+    {
+      "id": "HW-REPAIR-DECOR",
+      "title": "שתי תמונות נוספות בעמוד התיקון — נשאלות בנפרד מחמש התמונות שלמעלה",
+      "choice": "אני מאשר שהן דקורטיביות",
+      "note": "מאשר. ותשאיר ללא כיתוב.",
+      "fields": {
+        "note-HW-REPAIR-DECOR-EA-000268": "מאשר. ותשאיר ללא כיתוב."
+      }
+    },
+    {
+      "id": "HW-VEKATAVTA-ALT",
+      "title": "כיתוב לשש תמונות בעמוד «וכתבת»",
+      "choice": "אני מאשר שהן דקורטיביות",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "HW-VIDEO",
+      "title": "קרוסלת סרטונים בדף הבית ובדפים חשובים",
+      "choice": "אחר",
+      "note": "זו התקייה עם כל החומרים. מתוך התיקייה הזו צריך לשים 20 סרטונים ולהציג אותם בקרוסלה. שים לב שכל הסרטונים מצולמים לאורך, כך שבקרוסלה אפשר להציג בכל פעם 3 סרטונים ולאפשר לגולש לזוז, כמו שעשית בקרוסלת ממליצים.\n\nריקאפ בנייה בבית מלאכה\nסאונדהילינג (אבשלום כשחקן)\nממליצים מהכנס נשימה\nמי המציא את הנשימה המעגלית\nמה הם מצלמים?\nכמה הנשימה חשובה (נעמה כשחקנית)\nכבשים חווה חיובית\nהצד האקטיבי של הדיג'רידו\nהמרכז הטיפולי\nהמושג נשימה מעגלית\nהדיג' עוזר עם נחירות\nהגוף שלנו רגיש לתדרים\nדיג'רידו משפר חיים\nדיג' עוזר עם צרידות\nדודי ממליץ על הסדנא\nאם הייתם צריכים לבחור\nאיך אתה נושם עכשיו?\nאיך אפשר להכניס אוויר ולהוציא אוויר בו זמנית?\nנשימה מעגלית (אבשלום כשחקן)",
+      "fields": {
+        "note-HW-VIDEO": "זו התקייה עם כל החומרים. מתוך התיקייה הזו צריך לשים 20 סרטונים ולהציג אותם בקרוסלה. שים לב שכל הסרטונים מצולמים לאורך, כך שבקרוסלה אפשר להציג בכל פעם 3 סרטונים ולאפשר לגולש לזוז, כמו שעשית בקרוסלת ממליצים.\n\nריקאפ בנייה בבית מלאכה\nסאונדהילינג (אבשלום כשחקן)\nממליצים מהכנס נשימה\nמי המציא את הנשימה המעגלית\nמה הם מצלמים?\nכמה הנשימה חשובה (נעמה כשחקנית)\nכבשים חווה חיובית\nהצד האקטיבי של הדיג'רידו\nהמרכז הטיפולי\nהמושג נשימה מעגלית\nהדיג' עוזר עם נחירות\nהגוף שלנו רגיש לתדרים\nדיג'רידו משפר חיים\nדיג' עוזר עם צרידות\nדודי ממליץ על הסדנא\nאם הייתם צריכים לבחור\nאיך אתה נושם עכשיו?\nאיך אפשר להכניס אוויר ולהוציא אוויר בו זמנית?\nנשימה מעגלית (אבשלום כשחקן)"
+      }
+    },
+    {
+      "id": "HW-MUSIC",
+      "title": "מוזיקת רקע להירו, עם השתקה",
+      "choice": "אשלח קובץ",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "HW-2012-PHOTO",
+      "title": "תמונת הפוסט מ־2012 אתר ישן",
+      "choice": "אשלח תמונה",
+      "note": "תשתמש בתמונה הזו \nhttps://www.eyalamit.co.il/wp-content/uploads/2020/07/105038345_2165166216962209_7019916837117165911_o.jpg",
+      "fields": {
+        "note-HW-2012-PHOTO": "תשתמש בתמונה הזו \nhttps://www.eyalamit.co.il/wp-content/uploads/2020/07/105038345_2165166216962209_7019916837117165911_o.jpg"
+      }
+    },
+    {
+      "id": "HW-B2-GALLERY-DUP",
+      "title": "עמוד הגלריות — האם התשובה שכבר ניתנה סוגרת גם את זה",
+      "choice": "אחר",
+      "note": "כשאני נכנס היום לקישור שצירפת פה אני מגיע לדף גלריות אבל אין בו תוכן בכלל. העמוד ריק, או שאינני יכול לראות את התמונות. תקלה באתר?",
+      "fields": {
+        "note-HW-B2-GALLERY-DUP": "כשאני נכנס היום לקישור שצירפת פה אני מגיע לדף גלריות אבל אין בו תוכן בכלל. העמוד ריק, או שאינני יכול לראות את התמונות. תקלה באתר?"
+      }
+    },
+    {
+      "id": "GI-TSVA",
+      "title": "קישור רכישה — «צבע בכחול וזרוק לים»",
+      "choice": "אשלח קישור",
+      "note": "https://mrng.to/N2S2gEp11B",
+      "fields": {
+        "note-GI-TSVA": "https://mrng.to/N2S2gEp11B"
+      }
+    },
+    {
+      "id": "GI-KUSHI",
+      "title": "קישור רכישה — «כושי בלאנטיס»",
+      "choice": "אשלח קישור",
+      "note": "https://mrng.to/MTUiO3vkIg",
+      "fields": {
+        "note-GI-KUSHI": "https://mrng.to/MTUiO3vkIg"
+      }
+    },
+    {
+      "id": "GI-VEKATAVTA",
+      "title": "קישור רכישה — «וכתבת»",
+      "choice": "אשלח קישור",
+      "note": "https://mrng.to/xdwmr4PiaM",
+      "fields": {
+        "note-GI-VEKATAVTA": "https://mrng.to/xdwmr4PiaM"
+      }
+    },
+    {
+      "id": "GI-BUNDLE",
+      "title": "קישור רכישה — חבילת 3 הספרים (מבצעים)",
+      "choice": "אשלח קישור",
+      "note": "https://mrng.to/mTA8xyJhB8",
+      "fields": {
+        "note-GI-BUNDLE": "https://mrng.to/mTA8xyJhB8"
+      }
+    },
+    {
+      "id": "BLOG-COL41",
+      "title": "טור מספר 41, «חארטה בארטה»",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "OLD-PORTFOLIO",
+      "title": "עמודי תיק עבודות אתר ישן",
+      "choice": "לוותר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "OLD-SHOWS",
+      "title": "שני עמודי «מופע לדוגמה», ועמוד מופע מתוארך אחד אתר ישן",
+      "choice": "לוותר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "OLD-GALLERIES",
+      "title": "גלריות תמונות של הספרים, ואלבום אחד אתר ישן",
+      "choice": "אחר",
+      "note": "גלריה צבע בכחול  צריכה להופיע במלואה בתחתית הדף של הספר צבע בכחול וזרוק לים\nגלריה כושי בלאנטיס צריכה להופיע במלואה בתחתית הדף של הספר כושי בלאנטיס\nגלריה וכתבת צריכה להופיע במלואה בתחתית הדף של הספר וכתבת\n\nהקישור ששלמת ל\"אלבלום\" לא תקין. אז אני לא יודע איך להתיחס לזה כרגע. תן לי קישור תקין.",
+      "fields": {
+        "note-OLD-GALLERIES": "גלריה צבע בכחול  צריכה להופיע במלואה בתחתית הדף של הספר צבע בכחול וזרוק לים\nגלריה כושי בלאנטיס צריכה להופיע במלואה בתחתית הדף של הספר כושי בלאנטיס\nגלריה וכתבת צריכה להופיע במלואה בתחתית הדף של הספר וכתבת\n\nהקישור ששלמת ל\"אלבלום\" לא תקין. אז אני לא יודע איך להתיחס לזה כרגע. תן לי קישור תקין."
+      }
+    },
+    {
+      "id": "OLD-PAPER-STORIES",
+      "title": "«סיפורים מהנייר עם אייל עמית» אתר ישן",
+      "choice": "לוותר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "OLD-ARCHIVE",
+      "title": "שמונים וחמישה עמודי ארכיון (תגיות, קטגוריות, מחבר) אתר ישן",
+      "choice": "",
+      "note": "הקישור שנתת לא תקין כך שאני לא יודע כיצד להתיחס לזה ואיזה תוכן מופיע שם. תוכל לתת לי עוד כמה קישורים לתוכן המדובר?",
+      "fields": {
+        "note-OLD-ARCHIVE": "הקישור שנתת לא תקין כך שאני לא יודע כיצד להתיחס לזה ואיזה תוכן מופיע שם. תוכל לתת לי עוד כמה קישורים לתוכן המדובר?"
+      }
+    },
+    {
+      "id": "LEGAL-ACCESS",
+      "title": "הצהרת נגישות",
+      "choice": "מאושר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "LEGAL-PRIVACY",
+      "title": "מדיניות פרטיות",
+      "choice": "מאושר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "LEGAL-TERMS",
+      "title": "תקנון",
+      "choice": "מאושר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "W1-FAQ-SIX",
+      "title": "שש שאלות בדף הבית",
+      "choice": "מאשר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "W1-MUKESH",
+      "title": "עמוד מוקש דהימן — לזכרו",
+      "choice": "להשאיר",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "W1-QR-MAP",
+      "title": "מפת 48 עמודי הקודים המודפסים",
+      "choice": "מספיק",
+      "note": "מעולה. אבל איך אני מגיע למפה הזו, דרך הניהול של האתר? (המפה הזו לא צריכה להיות פתוחה לגולשים)",
+      "fields": {
+        "note-W1-QR-MAP": "מעולה. אבל איך אני מגיע למפה הזו, דרך הניהול של האתר? (המפה הזו לא צריכה להיות פתוחה לגולשים)"
+      }
+    },
+    {
+      "id": "PH-TREATMENT-VIDEO",
+      "title": "וידאו לעמוד הטיפול",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1DlgoThaH3YQ7w2Usrlq4lLMY3-gEvyks/view?usp=sharing",
+      "fields": {
+        "note-PH-TREATMENT-VIDEO": "https://drive.google.com/file/d/1DlgoThaH3YQ7w2Usrlq4lLMY3-gEvyks/view?usp=sharing"
+      }
+    },
+    {
+      "id": "PH-LESSONS-VIDEO",
+      "title": "וידאו לעמוד השיעורים",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1_dn19gBmIeo2G7DMvOR_PZRIw9RM5ue9/view?usp=sharing",
+      "fields": {
+        "note-PH-LESSONS-VIDEO": "https://drive.google.com/file/d/1_dn19gBmIeo2G7DMvOR_PZRIw9RM5ue9/view?usp=sharing"
+      }
+    },
+    {
+      "id": "PH-SOUND-HEALING-VIDEO",
+      "title": "וידאו לעמוד הסאונד הילינג",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1_dn19gBmIeo2G7DMvOR_PZRIw9RM5ue9/view?usp=sharing",
+      "fields": {
+        "note-PH-SOUND-HEALING-VIDEO": "https://drive.google.com/file/d/1_dn19gBmIeo2G7DMvOR_PZRIw9RM5ue9/view?usp=sharing"
+      }
+    },
+    {
+      "id": "PH-TESTIMONIALS-MEDIA",
+      "title": "אוסף המדיה בעמוד ההמלצות",
+      "choice": "",
+      "note": "אתה יכול לשלב את שני הסרטונים האלה בתחתית הדף. הסרטונים מצולמים לאורך כך שאתה יכול להציג את שניהם באותה שורה זה לצד זה. \nhttps://drive.google.com/file/d/1SDYi1UFKsJVzwsGCFmPyG5ruBtX25yEb/view?usp=sharing\n\nhttps://drive.google.com/file/d/1c6dW481GmaK4pcn1aY8fsD6DrJELz6vN/view?usp=sharing",
+      "fields": {
+        "note-PH-TESTIMONIALS-MEDIA": "אתה יכול לשלב את שני הסרטונים האלה בתחתית הדף. הסרטונים מצולמים לאורך כך שאתה יכול להציג את שניהם באותה שורה זה לצד זה. \nhttps://drive.google.com/file/d/1SDYi1UFKsJVzwsGCFmPyG5ruBtX25yEb/view?usp=sharing\n\nhttps://drive.google.com/file/d/1c6dW481GmaK4pcn1aY8fsD6DrJELz6vN/view?usp=sharing"
+      }
+    },
+    {
+      "id": "PH-THERAPIST-TRAINING",
+      "title": "עמוד הכשרת מטפלים — מבנה המסלול",
+      "choice": "אחר",
+      "note": "עדיין אין לי תאריכים עלויות וכו'. זה משהו שאפרסם בהמשך. בינתיים אפשר להציג לגולש רק את הטקסט + לחצן לצור קשר \n\nמבנה המסלול, תנאי קבלה, מועדי פתיחה ועלות\nהפרטים המדויקים של תוכנית ההכשרה — משך, שלבים, תנאי קבלה, מועדי פתיחה קרובים ומחיר — יתפרסמו כאן לאחר גיבוש סופי ואישור. מוזמנים כבר עכשיו להשאיר פרטים ולתאם שיחה, כדי להיות ראשונים לדעת כשהמסלול נפתח.",
+      "fields": {
+        "note-PH-THERAPIST-TRAINING": "עדיין אין לי תאריכים עלויות וכו'. זה משהו שאפרסם בהמשך. בינתיים אפשר להציג לגולש רק את הטקסט + לחצן לצור קשר \n\nמבנה המסלול, תנאי קבלה, מועדי פתיחה ועלות\nהפרטים המדויקים של תוכנית ההכשרה — משך, שלבים, תנאי קבלה, מועדי פתיחה קרובים ומחיר — יתפרסמו כאן לאחר גיבוש סופי ואישור. מוזמנים כבר עכשיו להשאיר פרטים ולתאם שיחה, כדי להיות ראשונים לדעת כשהמסלול נפתח."
+      }
+    },
+    {
+      "id": "PH-COURSES-EXTERNAL",
+      "title": "עמוד הקורסים החיצוניים — תוכן בלבד, לא נראות בתפריט",
+      "choice": "אין תוכן כרגע",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "REDIRECT-MAP-APPROVAL",
+      "title": "אישור מפת ההפניות והכתובות, לקראת מחיקת האתר הישן",
+      "choice": "עברתי ומילאתי",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-BAGS",
+      "title": "תיקים לדיג'רידו",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-BOOKS",
+      "title": "ספרים — עמוד הבית של הספרים",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-KUSHI",
+      "title": "כושי בלאנטיס",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-TSVA",
+      "title": "צבע בכחול וזרוק לים",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-VEKATAVTA",
+      "title": "וכתבת",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-DIDGERIDOOS",
+      "title": "כלי דיג'רידו למכירה",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-SNORING",
+      "title": "נחירות ודום נשימה בשינה",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-STAND-FLOOR",
+      "title": "סטנד רצפתי לנגינה בישיבה נמוכה",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "CTA-STANDS-STORAGE",
+      "title": "סטנדים לאחסון דיג'רידו",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    },
+    {
+      "id": "ALT-APPROVAL",
+      "title": "לעבור על תיאורי התמונות ולתקן את מה שצריך",
+      "choice": "",
+      "note": "",
+      "fields": {}
+    }
+  ],
+  "notesTable": []
+}
