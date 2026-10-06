@@ -12,6 +12,7 @@ Handles all three schemas:
   final-form-v2 / v1      eyal-final-form-2026-09-24.json     the 43-card form
   alt-corrections-v2      alt-corrections-<sig>.json          image description corrections
   redirects-approval-v1   eyal-redirects-approval.json        the 301 map and the two name calls
+  qr-gaps-20261006        eyal-qr-gaps-2026-10-06.json        the six QR pages that are not a clean copy
 
 What it does NOT do: decide anything. It normalises, validates against what we actually
 published, files the payload where the previous round's answers live, and prints what is
@@ -38,6 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INTAKE = ROOT / "docs/project/eyal-ceo-submissions-and-responses/from-eyal"
 
 FORM_SRC = ROOT / "_COMMUNICATION/team_100/S007/FORM-EYAL-CONTENT-GAPS-2026-09-20.html"
+QR_FORM_SRC = ROOT / "_COMMUNICATION/team_100/S007/FORM-EYAL-QR-GAPS-2026-10-06.html"
 ALT_SRC = ROOT / "_COMMUNICATION/team_100/EYAL-WORKSPACE/ea-alt-approval.html"
 REDIR_SRC = ROOT / "_COMMUNICATION/team_90/AUDIT-2026-09-26/EYAL-REDIRECTS-APPROVAL-2026-09-26.html"
 
@@ -140,6 +142,37 @@ def handle_alt_corrections(payload: dict) -> tuple[list[str], list[str]]:
     return problems, report
 
 
+def published_qr_ids() -> tuple[set[str], str]:
+    src = QR_FORM_SRC.read_text(encoding="utf-8")
+    block = re.search(r"var CARD_IDS\s*=\s*\[(.*?)\];", src, re.S)
+    ids = set(re.findall(r"'([^']+)'", block.group(1))) if block else set()
+    sig = re.search(r"var FORM_SIG\s*=\s*'([^']+)'", src)
+    return ids, (sig.group(1) if sig else "")
+
+
+def handle_qr_gaps(payload: dict) -> tuple[list[str], list[str]]:
+    problems, report = [], []
+    known, sig = published_qr_ids()
+    got_sig = payload.get("formSig", "")
+    if got_sig != sig:
+        problems.append(
+            f"form signature is {got_sig!r} but the October form is {sig!r}"
+        )
+    answers = payload.get("contentAnswers") or []
+    ids = [a.get("id", "") for a in answers]
+    unknown = sorted(set(ids) - known)
+    if unknown:
+        problems.append(f"{len(unknown)} answer id(s) not in the October form: {unknown}")
+    chose = [a for a in answers if _answered(a.get("choice"))]
+    blank = sorted(a.get("id", "") for a in answers if not _answered(a.get("choice")))
+    report.append(f"cards: {len(answers)} · with a choice: {len(chose)} · still blank: {len(blank)}")
+    if blank:
+        report.append(f"  still open: {blank}")
+    for a in chose:
+        report.append(f"  {a.get('id')} = {a.get('choice')}")
+    return problems, report
+
+
 def handle_redirects(payload: dict) -> tuple[list[str], list[str]]:
     problems, report = [], []
     known = published_redirect_ids()
@@ -160,6 +193,7 @@ HANDLERS = {
     "final-form-v1": handle_final_form,
     "alt-corrections-v2": handle_alt_corrections,
     "redirects-approval-v1": handle_redirects,
+    "qr-gaps-20261006": handle_qr_gaps,
 }
 
 
