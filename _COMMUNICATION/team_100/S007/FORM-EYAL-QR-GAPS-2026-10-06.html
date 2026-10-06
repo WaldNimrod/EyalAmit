@@ -167,6 +167,21 @@
   <textarea name="note-QR-02" placeholder="הערה"></textarea>
 </div>
 
+<h2>עיתונות</h2>
+<p class="sub">עמוד הארכיון. אינו בתפריט.</p>
+
+<div class="item" id="PRESS-ARCHIVE" data-id="PRESS-ARCHIVE">
+  <h3>עמוד העיתונות — ארכיון</h3>
+  <p class="path"><a href="http://eyalamit-co-il-2026.s887.upress.link/press/" target="_blank" rel="noopener">העמוד באתר הבדיקה</a> · <a href="https://www.eyalamit.co.il/press/" target="_blank" rel="noopener">העמוד באתר הישן</a></p>
+  <div class="now"><span class="lbl">מה מוגדר</span>העמוד חי, אינו פריט בתפריט, ומטופל כארכיון: התוכן נשאר, והוא לא מוצג לגולש דרך הניווט.</div>
+  <fieldset><legend>מה נשאר</legend>
+    <label class="opt"><input type="radio" name="PRESS-ARCHIVE" value="ארכיון"><span>לאשר: ארכיון, לא בתפריט</span></label>
+    <label class="opt"><input type="radio" name="PRESS-ARCHIVE" value="בתפריט"><span>להכניס אותו לתפריט</span></label>
+    <label class="opt"><input type="radio" name="PRESS-ARCHIVE" value="נוסח שלי"><span>אחרת — כתוב למטה</span></label>
+  </fieldset>
+  <textarea name="note-PRESS-ARCHIVE" placeholder="הערה"></textarea>
+</div>
+
 <div class="bar">
   <button type="button" id="save">שמירת JSON</button>
   <button type="button" class="ghost" id="copy">העתקה</button>
@@ -177,7 +192,7 @@
 </div>
 <script>
 (function(){
-  var CARD_IDS = ['QR-08','QR-18','QR-23','QR-30','QR-32','QR-02'];
+  var CARD_IDS = ['QR-08','QR-18','QR-23','QR-30','QR-32','QR-02','PRESS-ARCHIVE'];
   var FORM_SIG = 'october-20261006';
   var draftKey = 'ea-s007-form-' + FORM_SIG;
 
