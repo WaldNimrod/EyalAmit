@@ -261,9 +261,9 @@ $ea_nav_is_active = static function ( $key, $item, $active ) {
       <?php
       /*
        * Mobile closed-bar control cluster (<=1023px). Internal flow is LTR so
-       * the burger · sound · EN order is deterministic regardless of page dir.
+       * the burger · EN order is deterministic regardless of page dir.
        * Hidden >=1024px by ea-mobile-nav.css; the drawer below is driven by
-       * ea-mobile-nav.js. Sound is visual-only until the audio asset arrives.
+       * ea-mobile-nav.js. Sound stays on the film (hero__sound), not in this bar.
        */
       ?>
       <div class="ea-mnav-controls">
@@ -278,12 +278,6 @@ $ea_nav_is_active = static function ( $key, $item, $active ) {
                 aria-controls="ea-nav-drawer"
                 aria-haspopup="true">
           <span class="ea-mnav-burger__bars" aria-hidden="true"><span></span><span></span><span></span></span>
-        </button>
-        <button class="ea-mnav-tap ea-mnav-pill ea-mnav-sound"
-                type="button"
-                aria-pressed="false"
-                aria-label="הפעלת צליל דיג׳רידו">
-          <span aria-hidden="true">♪</span><span>שמע</span>
         </button>
         <a class="ea-mnav-tap ea-mnav-pill ea-mnav-lang"
            href="<?php echo esc_url( home_url( '/en' ) ); ?>"

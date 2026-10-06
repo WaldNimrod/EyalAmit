@@ -233,12 +233,16 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
   text alone; his words go into §3; approved rules into `CONTENT-TYPES-CANON.md` in the same commit; numbered IDs on
   everything so he can answer by ID; images sent directly with `SendUserFile`.
 
-## 8 · Rulings of 2026-10-06, from the viewing (not yet in the theme)
+## 8 · Rulings of 2026-10-06, in the theme at 1.5.151
 
-Recorded from team_00 while looking at the open designs. The map and the theme still show the previous state.
-
-- **T-04 float image — approved as it looks.** Replace the caption «להגדלה — לחצו על התמונה» with one delicate magnifying-glass icon, a single colour, fixed in the corner of every image (not only the float). Today the caption is in `parts/prose.php` and `parts/split.php`.
-- **T-21 accordion.** Closed: less space between rows. Open: the inside is ordinary running text, the site's type, not a second style. A small logo icon to the right of each question. Row tones alternate dark / light / dark, quietly.
-- **T-29 timeline.** The years sit on top of the line.
-- **T-06 text and image — approved,** including the collage and the dark column with a button, as they are on the site today.
-- **T-10 photo band — approved,** as it is on the site today.
+- **T-04 float image — approved.** The caption «להגדלה — לחצו על התמונה» is gone. A single-colour magnifying glass sits in the corner of every zoomable image (`parts/prose.php`, `parts/split.php`). The button keeps the name «הגדלת התמונה» for the screen reader.
+- **T-21 accordion.** Closed rows are tighter. The open answer uses the running-text size, line height and justification. A small logo mark sits at the right of each question. Rows alternate a quiet dark and light.
+- **T-29 timeline.** The year sits above the line.
+- **T-06 text and image — approved** as it is, including the collage and the dark column with a button.
+- **T-10 photo band — approved** as it is.
+- **Sound.** The bar button is gone from `block-topnav.php`. Sound stays on the film.
+- **Spelling.** אסטמה corrected to אסתמה in the four live posts and the stored method text.
+- **Posts.** No per-post approval. They all go up.
+- **Testimonials.** Closed 2026-09-21 by Eyal: the tools-page block removed; the home keeps fifteen.
+- **Press.** An archive, not a menu item. The October form asks Eyal to confirm or to put it in the menu.
+- **About.** `/about/` is a 301 to `/eyal-amit/`. The old page is not shown. `/services/` is 404, with no redirect.

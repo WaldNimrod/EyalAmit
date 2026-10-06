@@ -63,9 +63,9 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 					?>
 					<figure class="pfloat pfloat--<?php echo esc_attr( $ea_fsd ); ?><?php echo '' !== $ea_float_mod ? ' ' . esc_attr( $ea_float_mod ) : ''; ?>">
 						<?php if ( ! empty( $a['float_zoom'] ) ) : ?>
-							<button type="button" class="zoom" data-zoom-src="<?php echo $ea_fs; ?>" data-zoom-alt="<?php echo $ea_fa; ?>">
+							<button type="button" class="zoom" data-zoom-src="<?php echo $ea_fs; ?>" data-zoom-alt="<?php echo $ea_fa; ?>" aria-label="<?php esc_attr_e( 'הגדלת התמונה', 'ea-eyalamit' ); ?>">
 								<img src="<?php echo $ea_fs; ?>" alt="<?php echo $ea_fa; ?>" loading="lazy">
-								<span class="zoom__hint"><?php esc_html_e( 'להגדלה — לחצו על התמונה', 'ea-eyalamit' ); ?></span>
+								<span class="zoom__glass" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.6 14.6 L20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
 							</button>
 						<?php else : ?>
 							<img src="<?php echo $ea_fs; ?>" alt="<?php echo $ea_fa; ?>" loading="lazy">

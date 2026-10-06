@@ -44,9 +44,9 @@ $ea_split = 'split2' . ( ! empty( $a['reversed'] ) ? ' split2--rev' : '' ) . ( !
 			?>
 			<figure class="<?php echo esc_attr( $ea_fig_cls ); ?>" style="margin:0">
 				<?php if ( ! empty( $a['zoom'] ) ) : ?>
-					<button type="button" class="zoom" data-zoom-src="<?php echo $ea_img_src; ?>" data-zoom-alt="<?php echo $ea_img_alt; ?>">
+					<button type="button" class="zoom" data-zoom-src="<?php echo $ea_img_src; ?>" data-zoom-alt="<?php echo $ea_img_alt; ?>" aria-label="<?php esc_attr_e( 'הגדלת התמונה', 'ea-eyalamit' ); ?>">
 						<img src="<?php echo $ea_img_src; ?>" alt="<?php echo $ea_img_alt; ?>" loading="lazy">
-						<span class="zoom__hint"><?php esc_html_e( 'להגדלה — לחצו על התמונה', 'ea-eyalamit' ); ?></span>
+						<span class="zoom__glass" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.6 14.6 L20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
 					</button>
 				<?php else : ?>
 					<img src="<?php echo $ea_img_src; ?>" alt="<?php echo $ea_img_alt; ?>" loading="lazy">

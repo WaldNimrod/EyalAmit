@@ -225,12 +225,12 @@ a{color:inherit}
 .collage__sm{border-radius:8px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 20px 44px -28px rgba(42,32,22,.5)}
 .collage__sm img,.collage__big img{width:100%;height:100%;object-fit:cover}
 /* timeline */
-.tl{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);padding-top:0;list-style:none;margin-inline:0;padding-inline:0}
+.tl{margin-top:88px;display:grid;grid-template-columns:repeat(4,1fr);list-style:none;margin-inline:0;padding-inline:0}
 @media(max-width:760px){.tl{grid-template-columns:1fr 1fr;gap:8px}}
-.tl__n{position:relative;padding:28px 28px 8px 0}
+.tl__n{position:relative;margin-top:34px;padding:14px 16px 8px 0;border-top:1px solid var(--line)}
 .tl__n::before{content:"";position:absolute;top:-5px;right:0;width:9px;height:9px;border-radius:50%;background:var(--terra)}
-.tl__n:not(:last-child)::after{content:"←";position:absolute;top:24px;left:14px;color:var(--terra);opacity:.5;font-size:var(--fs-sm)}
-.tl__y{font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-h2);color:var(--terra);display:block;margin-bottom:6px}/* S007 M-07: was var(--serif) */
+.tl__n:not(:last-child)::after{content:"←";position:absolute;top:10px;left:8px;color:var(--terra);opacity:.5;font-size:var(--fs-sm)}
+.tl__y{position:absolute;top:-30px;right:0;margin:0;font-family:var(--bf);font-weight:var(--fw-medium);font-size:var(--fs-h2);color:var(--terra);display:block}/* year sits on the line */
 .tl__l{font-size:var(--fs-xs);color:var(--body);line-height:1.55;max-width:24ch}
 
 /* ---- 02 FOR WHOM — photo columns ---- */
@@ -702,9 +702,13 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
 .ea-faq-category__heading{font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-h3);color:var(--ink);margin:0 0 20px;text-align:center}
 .ea-faq-category + .ea-faq-category{margin-top:48px}
 .ea-faq-item{border-top:1px solid var(--line)}
+.ea-faq-category .ea-faq-item:nth-child(odd){background:rgba(42,26,12,.055)}
+.ea-faq-category .ea-faq-item:nth-child(even){background:transparent}
 .ea-faq-category .ea-faq-item:last-child{border-bottom:1px solid var(--line)}
 .ea-faq-item__summary,
-.ea-faq-item__question{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-body);color:var(--ink);margin:0}
+summary.ea-faq-item__question{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-body);color:var(--ink);margin:0}
+h3.ea-faq-item__question{display:flex;align-items:center;gap:8px;margin:0;padding:0;font:inherit}
+.ea-faq-item__question::before{content:"";flex:none;width:16px;height:16px;background:url('../images/ea-logo-mark.png') center/contain no-repeat;filter:brightness(0) saturate(100%) invert(14%) sepia(8%) saturate(800%) hue-rotate(350deg)}
 /* A11Y 2026-09-18 (A11Y-STRUCT-03): the embedded/filtered FAQ branch wraps its question in a
    real heading so it can be reached by heading navigation, matching what /faq/ already did.
    The <summary> keeps all of its own styling; this inner heading must add none of its own,
@@ -718,10 +722,10 @@ html [tabindex]:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-s
    topic chip failed — no new colour, brand --terra untouched. Same fix, same reason. */
 .ea-faq-item__icon{flex:none;color:var(--terra-btn);transition:transform .3s}
 .ea-faq-item[open] .ea-faq-item__icon{transform:rotate(180deg)}
-.ea-faq-item__answer{font-size:var(--fs-body);line-height:1.65;color:var(--body)}
-.ea-faq-item__answer p{margin:0 0 22px;max-width:62ch}
-.ea-faq-item__answer p:last-child{margin-bottom:22px}
-.ea-faq-item__answer ul{margin:0 0 22px;padding-inline-start:1.2em;max-width:62ch}
+.ea-faq-item__answer{font-size:var(--fs-body);line-height:1.7;color:var(--body);padding:0 12px 4px}
+.ea-faq-item__answer p{margin:0 0 14px;max-width:62ch;font-size:var(--fs-body);line-height:1.7;color:var(--body);text-align:justify}
+.ea-faq-item__answer p:last-child{margin-bottom:14px}
+.ea-faq-item__answer ul{margin:0 0 14px;padding-inline-start:1.2em;max-width:62ch}
 
 .prose-acc{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .prose-acc__t{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--hf);font-weight:var(--fw-medium);font-size:var(--fs-body);color:var(--ink)}
@@ -1366,11 +1370,11 @@ body.nav-locked{overflow:hidden}
    For document screenshots that must sit beside their text AND stay readable —
    team_00's ruling on /snoring-sleep-apnea/. Native <dialog>, so focus trap,
    Escape and focus-return are the browser's job and not ours. */
-.zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font-family:var(--bf)}
+.zoom{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font-family:var(--bf)}
 .zoom img{display:block;width:100%;height:auto}
 .zoom:focus-visible{outline:var(--focus-ring);outline-offset:3px;box-shadow:var(--focus-halo)}
-.zoom__hint{display:block;margin-top:8px;font-size:var(--fs-2xs);font-weight:var(--fw-medium);
-  letter-spacing:.4px;color:var(--terra-btn)}
+.zoom__glass{position:absolute;inset-block-start:8px;inset-inline-start:8px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(247,242,234,.92);color:#2e2b28;pointer-events:none}
+.zoom__hint{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .ea-lb{max-width:min(96vw,1200px);max-height:92vh;padding:0;border:0;border-radius:10px;
   background:#fff;overflow:visible}
 .ea-lb::backdrop{background:rgba(14,9,5,.86)}
