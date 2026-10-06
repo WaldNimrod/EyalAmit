@@ -232,3 +232,13 @@ for approval · ruled = team_00 gave direction, not yet shown · approved = done
 - **How we work (settled):** Nimrod decides by eye — every decision is brought as a picture or a link (A/B), never as
   text alone; his words go into §3; approved rules into `CONTENT-TYPES-CANON.md` in the same commit; numbered IDs on
   everything so he can answer by ID; images sent directly with `SendUserFile`.
+
+## 8 · Rulings of 2026-10-06, from the viewing (not yet in the theme)
+
+Recorded from team_00 while looking at the open designs. The map and the theme still show the previous state.
+
+- **T-04 float image — approved as it looks.** Replace the caption «להגדלה — לחצו על התמונה» with one delicate magnifying-glass icon, a single colour, fixed in the corner of every image (not only the float). Today the caption is in `parts/prose.php` and `parts/split.php`.
+- **T-21 accordion.** Closed: less space between rows. Open: the inside is ordinary running text, the site's type, not a second style. A small logo icon to the right of each question. Row tones alternate dark / light / dark, quietly.
+- **T-29 timeline.** The years sit on top of the line.
+- **T-06 text and image — approved,** including the collage and the dark column with a button, as they are on the site today.
+- **T-10 photo band — approved,** as it is on the site today.
