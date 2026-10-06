@@ -195,6 +195,7 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/תיקים לדיג_רידו/bags for didg.md · SECTION 10 */
+				'body'      => "כדי שהתיק יתאים נכון וישמור על הדיג'רידו, חשוב להתאים אותו למידות הכלי.",
 				'cta_label' => "לתיאום והתאמה של תיק לדיג'רידו",
 				/* S006 · מקור: content 13.8.26/תיקים לדיג_רידו/bags for didg.md · SECTION 10 */
 				'cta_url'   => '/contact',

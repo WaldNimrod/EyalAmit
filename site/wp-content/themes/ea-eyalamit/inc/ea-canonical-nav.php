@@ -136,7 +136,7 @@ function ea_canonical_nav_items() {
 		array( 'key' => 'method', 'label' => 'השיטה', 'href' => $h( '/method/' ) ),
 		array(
 			'key'      => 'shop',
-			'label'    => 'כלים ואביזרים',
+			'label'    => 'כלי דיג\'רידו ואביזרים',
 			'href'     => $h( '/shop/' ),
 			'children' => array(
 				/* section-nav.php's own first sub-row here is NOT "כלים ואביזרים —

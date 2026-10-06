@@ -142,6 +142,7 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md · SECTION 09 */
+				'body'      => 'רוצים לבדוק התאמה, זמינות או לקבל פרטים נוספים על המעמד?',
 				'cta_label' => 'ליצירת קשר',
 				/* S006 · מקור: content 13.8.26/סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md · SECTION 09 */
 				'cta_url'   => '/contact',

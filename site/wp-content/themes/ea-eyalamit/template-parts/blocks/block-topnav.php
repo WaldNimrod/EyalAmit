@@ -98,7 +98,7 @@ $ea_topnav_items = array(
 	),
 	'tools-and-accessories' => array(
 		'href'     => home_url( '/tools-and-accessories' ),
-		'label'    => 'כלים ואביזרים',
+		'label'    => 'כלי דיג\'רידו ואביזרים',
 		'children' => array(
 			'instruments' => array(
 				'href'  => home_url( '/instruments' ),

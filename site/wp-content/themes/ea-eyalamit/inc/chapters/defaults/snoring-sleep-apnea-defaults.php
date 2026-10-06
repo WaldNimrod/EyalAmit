@@ -120,6 +120,7 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => "מתמודדים עם נחירות או דום נשימה בשינה ורוצים להבין אם העבודה עם הדיג'רידו יכולה להתאים לכם?",
 				'cta_label' => 'רוצה לדבר איתי',
 				'cta_url'   => '/contact/',
 			),
@@ -236,12 +237,10 @@ return array(
 			),
 		),
 
-		/* S007 (2026-09-18, team_00): «cta לשכפל מוקדם יותר בעמוד עוד פעמיים».
-		   Same label and URL as the closing CTA — no new copy, only more places to act on
-		   a page that ran twenty sections before offering one. */
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => 'לפעמים שינוי מתחיל בללמוד לעבוד אחרת עם הנשימה.',
 				'cta_label' => 'רוצה לדבר איתי',
 				'cta_url'   => '/contact/',
 			),
@@ -335,7 +334,7 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
-				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 611 */
+				'body'      => 'יש לכם שאלות לפני שמתחילים? אפשר לדבר, להבין את המצב ולבדוק יחד מה נכון עבורכם.',
 				'cta_label' => 'רוצה לדבר איתי',
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 611 */
 				'cta_url'   => '/contact/',

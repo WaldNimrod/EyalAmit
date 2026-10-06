@@ -33,8 +33,8 @@ return array(
 		'sub'       => 'מוזה הוצאה לאור הנה הוצאת ספרים עצמית שהוקמה בשנת 2004 על ידי הסופר ומספר הסיפורים אייל עמית.',
 		'media'     => 'assets/images/chapters/logo-didgs-door.jpg',
 		'media_alt' => 'מוזה הוצאה לאור — ספריו של אייל עמית',
-		'cta_label' => 'לרכישת חבילת הספרים',
-		'cta_url'   => '#books-bundle',
+		'cta_label' => 'לרכישת חבילת 3 הספרים',
+		'cta_url'   => 'https://mrng.to/mTA8xyJhB8',
 	),
 
 	'sections' => array(
@@ -153,10 +153,10 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
-				'cta_label' => 'לרכישת חבילת 3 הספרים', /* S006 · BK-03 · MUZZA.md SECTION 10 — unchanged */
-				'cta_url'   => '#books-bundle',
-				'btn'       => 'btn--gw',
-				'temp_note' => 'קישור רכישה זמני — ממתין לקישור חשבונית ירוקה מאייל.',
+				'body'      => 'שלושה ספרים, שלושה מסעות, חבילה אחת.',
+				'cta_label' => 'לרכישת חבילת 3 הספרים',
+				'cta_url'   => 'https://mrng.to/mTA8xyJhB8',
+				'cta_slug'  => 'books-bundle',
 			),
 		),
 

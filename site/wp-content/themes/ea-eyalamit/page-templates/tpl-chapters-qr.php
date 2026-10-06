@@ -22,7 +22,7 @@ $GLOBALS['ea_chapters_type'] = 'qr';
 	<?php
 	while ( have_posts() ) :
 		the_post();
-		$ea_qr_phero_media = has_post_thumbnail() ? (string) get_the_post_thumbnail_url( get_the_ID(), 'large' ) : '';
+		$ea_qr_phero_media = get_stylesheet_directory_uri() . '/assets/images/chapters/qr-header.jpg';
 		get_template_part(
 			'template-parts/chapters/parts/phero',
 			null,

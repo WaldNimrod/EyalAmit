@@ -20,6 +20,7 @@ function ea_w209_legacy_redirects() {
 	$gone = array(
 		'/qr/פרק-א/',
 		'/thankyou/',
+		'/Blog/portfolio_page/',
 		'/סיני-יוני-09-154/',
 		'/סיני-יוני-09-151/',
 		'/adi/',
@@ -76,8 +77,11 @@ function ea_w209_legacy_redirects() {
 		'/shop/books/כושי-בלאנטיס/' => '/books/kushi-blantis/',
 		'/shop/books/כושי-בלנטיס/' => '/books/kushi-blantis/',
 		'/shop/books/צבע-בכחול-וזרוק-לים/' => '/books/tsva-bekahol/',
-		'/shop/books/שלושת-הספרים-וכתבתָּ-כושי-בלאנטיס-צב/' => '/books/',
-		'/shop/books/שני-הספרים-וכתבתָּ-כושי-בלאנטיס-במחי/' => '/books/',
+		'/shop/books/שלושת-הספרים-וכתבתָּ-כושי-בלאנטיס-צב/' => '/books/#books-bundle',
+		'/shop/books/שני-הספרים-וכתבתָּ-כושי-בלאנטיס-במחי/' => '/books/#books-bundle',
+		'/shop/books/שני-הספרים-וכתבתָּ-צבע-בכחול-וזרוק-לי/' => '/books/#books-bundle',
+		'/shop/books/כושי-בלנטיס-העתק/' => '/books/kushi-blantis/',
+		'/product-category/sale/' => '/books/#books-bundle',
 		'/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגרי/' => '/sound-healing/',
 		'/Blog/הכל-אודות-ריברסינג-נשימה-מעגלית-ו-דיג/' => '/ריברסינג-נשימה-מעגלית-דיגרידו/',
 		'/Blog/נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג-2/' => '/נשים-מנגנות-בדיגרידו-אישה-מנגנת-בדיג/',
@@ -98,6 +102,22 @@ function ea_w209_legacy_redirects() {
 	// rename. The full 406-URL triage found 4 live posts of Eyal's dead-ending exactly this way
 	// (e.g. /Blog/את-הספר-החדש-שלי-לא-תמצאו-בחנויות-הספרי -> the live post is ...ברשתות...).
 	// $map is now defined first and the regex yields to it. Do NOT reorder these back.
+	// 2026-10-06, his redirect form. Measured the same day against the old-site
+	// sitemaps: none of these paths is a live 200 on the new site (they only
+	// 301 through the /Blog/ catch-all onto a missing /blog/ mirror).
+	// Portfolio, shows, and leftover plugin archives: drop. Category and tag
+	// lists: send to the blog archive. An exact $map row still wins.
+	if ( ! isset( $map[ $norm ] ) && preg_match( '#^/Blog/(portfolio_page|shows|portfolio-category|testimonials-category|slides-category|carousels-category|pagescategory|author)(/|$)#', $path ) ) {
+		status_header( 410 );
+		header( 'X-EA-Redirect: w209-410' );
+		nocache_headers();
+		exit;
+	}
+	if ( ! isset( $map[ $norm ] ) && preg_match( '#^/Blog/(category|tag)(/|$)#', $path ) ) {
+		header( 'X-EA-Redirect: w209-301' );
+		wp_redirect( home_url( '/blog/' ), 301 );
+		exit;
+	}
 	if ( ! isset( $map[ $norm ] ) && preg_match( '#^/Blog/(.+)$#', $path, $m ) ) {
 		header( 'X-EA-Redirect: w209-blog' );
 		wp_redirect( home_url( '/blog/' . $m[1] ), 301 );

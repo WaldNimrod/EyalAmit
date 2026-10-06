@@ -83,6 +83,7 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
+				'body'      => "הדרך לבחור דיג'רידו מתחילה בלשמוע, להרגיש ולנסות.",
 				'cta_label' => 'לתיאום הגעה והתנסות בכלים',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
 				'cta_url'   => '/contact',
@@ -116,6 +117,7 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
+				'body'      => 'מחפשים כלי שמתאים לכם? נבדוק יחד מה זמין ומה נכון עבורכם.',
 				'cta_label' => 'לבדיקת זמינות והתאמה',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
 				'cta_url'   => '/contact',
@@ -186,6 +188,7 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
+				'body'      => 'לכל כלי יש אופי, צליל ותחושה משלו. הכי נכון לבחור אותו מקרוב.',
 				'cta_label' => 'לתיאום הגעה ובחירת כלי',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 10 */
 				'cta_url'   => '/contact',

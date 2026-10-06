@@ -43,8 +43,10 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => 'הטיול הגדול מתחיל כאן. מוכנים לצאת לדרך?',
 				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => '/contact/',
+				'cta_url'   => 'https://mrng.to/N2S2gEp11B',
+				'cta_slug'  => 'tsva-bekahol',
 			),
 		),
 
@@ -231,8 +233,10 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => 'מעדיפים את הסיפור ביד, עם דפים שאפשר לדפדף בהם?',
 				'cta_label' => 'לרכישת הספר המודפס',
-				'cta_url'   => '/contact/',
+				'cta_url'   => 'https://mrng.to/N2S2gEp11B',
+				'cta_slug'  => 'tsva-bekahol',
 				'sand'      => true,
 			),
 		),

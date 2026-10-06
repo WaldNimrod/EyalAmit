@@ -53,8 +53,9 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => 'יש סיפורים שפשוט מבקשים להיכתב.',
 				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				'cta_slug'  => 'vekatavta',
 			),
 		),
@@ -236,9 +237,10 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 R1-19 VKT-04 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 09 שורה 275 */
+				'body'      => '46 סיפורים אמיתיים על אנשים, רגעים והחיים שביניהם.',
 				'cta_label' => 'לרכישת הספר',
 				/* S006 R1-19 VKT-04 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 09 שורה 275 */
-				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				/* S006 R1-19 VKT-04 · DEV NOTES: קישור חיצוני בלשונית חדשה */
 				'cta_slug'  => 'vekatavta',
 			),
@@ -322,9 +324,10 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 R1-19 VKT-04 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 12 שורה 318 */
+				'body'      => 'אם אחד הסיפורים כבר נגע בכם, בספר מחכים עוד הרבה.',
 				'cta_label' => 'לרכישת הספר',
 				/* S006 R1-19 VKT-04 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 12 שורה 318 */
-				'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
+				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				/* S006 R1-19 VKT-04 · DEV NOTES: קישור חיצוני בלשונית חדשה */
 				'cta_slug'  => 'vekatavta',
 			),

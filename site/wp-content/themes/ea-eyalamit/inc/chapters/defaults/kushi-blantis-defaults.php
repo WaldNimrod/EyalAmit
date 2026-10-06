@@ -49,8 +49,9 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'body'      => 'רוצים לצאת למסע עם כושי בלאנטיס?',
 				'cta_label' => 'לרכישת הספר',
-				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'kushi-blantis',
 			),
 		),
@@ -231,9 +232,10 @@ return array(
 			'part' => 'cta',
 			'args' => array(
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 251 */
+				'body'      => 'אם הסיפור מסקרן אתכם, זה הזמן לפתוח את הספר.',
 				'cta_label' => 'לרכישת הספר',
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 251 */
-				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
+				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'kushi-blantis',
 				'sand'      => true,
 			),

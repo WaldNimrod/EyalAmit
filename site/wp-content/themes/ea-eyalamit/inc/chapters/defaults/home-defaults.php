@@ -112,7 +112,7 @@ return array(
 	'studio_cta_label' => 'למידע נוסף על סאונד הילינג',
 	'studio_cta_url'   => '/sound-healing/',
 	'studio_image'     => 'assets/images/chapters/studio-interior.jpg',
-	'studio_alt'       => 'פנים הסטודיו — קיר הפסיפס והדיג׳רידו, פרדס חנה',
+	'studio_alt'       => 'חזית הסטודיו מעוטרת פסיפס צבעוני, ובחלון נשקפים עשרות דידג\'רידו עומדים',
 
 	/* ── 10 TESTIMONIALS (אייל SECTION 10) ── */
 	/* S006 · H-09 · תווית הפרק עודכנה 05 → 10 לפי מספור אייל. */
