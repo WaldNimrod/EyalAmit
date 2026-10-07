@@ -197,7 +197,7 @@ a{color:inherit}
 /* S007-GROK 2026-09-20: sound control sits ON the hero video, never in the nav.
    Corner (inline-start / block-end) so it misses centred H1/CTA and the cue chevrons.
    Hit area ≥44px. Type size is the existing --fs-2xs token, not a new rung. */
-.hero__sound{position:absolute;z-index:4;inset-block-start:24px;inset-inline-end:24px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:10px 14px;font-family:var(--bf);font-size:var(--fs-2xs);color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.4);border-radius:100px;background:rgba(20,14,9,.55);cursor:pointer;transition:border-color .2s,background .2s}
+.hero__sound{position:absolute;z-index:4;inset-block-start:96px;inset-inline-end:24px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:10px 14px;font-family:var(--bf);font-size:var(--fs-2xs);color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.4);border-radius:100px;background:rgba(20,14,9,.55);cursor:pointer;transition:border-color .2s,background .2s}
 .hero__sound:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.35)}
 .hero__sound[aria-pressed="true"]{border-color:var(--terra-lt);background:rgba(181,102,61,.45);color:#fff}
 .hero__sound svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6;flex-shrink:0}
