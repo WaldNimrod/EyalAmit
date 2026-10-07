@@ -27,7 +27,6 @@ function ea_ei_t18_legacy_301() {
 	$norm = trailingslashit( $path );
 
 	$map = array(
-		'/סיפורים-מהנייר-עם-אייל-עמית/'     => '/blog/',
 		'/41-הטור-של-אייל-עמית-חארטה-בארטה/' => '/blog/',
 	);
 
