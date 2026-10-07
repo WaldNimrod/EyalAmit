@@ -1,0 +1,810 @@
+{
+  "exportType": "eyal-done-round",
+  "exportSchema": "done-20261007c",
+  "formDate": "2026-10-07",
+  "formSig": "done-20261007c",
+  "exportTimestamp": "2026-10-07T14:14:38.034Z",
+  "log": [
+    {
+      "id": "GI-TSVA",
+      "note": "לגבי הצבע של הבאנר (איפה שכפתור הרכישה). כבר ביקשתי כמה פעמים לשנות לאורך כל האתר את הצבע של הבאנר הזה. הוא כרגע נראה כמו פוטר וזה מבלבל את הגולש. בבקשה תשתמש בצע רקע אחר לבאנר הרכישה. יש לך פאלטת צבעים שהגשנו לך בתחילת הפרוייקט. גוון תשתמש באותו צבע שהשתמשת בבאנר של CTA-BAGS"
+    },
+    {
+      "id": "GI-KUSHI",
+      "note": "כנ\"ל"
+    },
+    {
+      "id": "GI-VEKATAVTA",
+      "note": "כנל"
+    },
+    {
+      "id": "GI-BUNDLE",
+      "note": "כנל"
+    },
+    {
+      "id": "CTA-BAGS",
+      "note": ""
+    },
+    {
+      "id": "CTA-DIDGERIDOOS",
+      "note": "כנ\"ל"
+    },
+    {
+      "id": "CTA-SNORING",
+      "note": "כנל"
+    },
+    {
+      "id": "CTA-STAND-FLOOR",
+      "note": ""
+    },
+    {
+      "id": "CTA-STANDS-STORAGE",
+      "note": ""
+    },
+    {
+      "id": "ALT-APPROVAL",
+      "note": "כנל"
+    },
+    {
+      "id": "HW-QR-HERO",
+      "note": ""
+    },
+    {
+      "id": "HW-2012-PHOTO",
+      "note": ""
+    },
+    {
+      "id": "PH-THERAPIST-TRAINING",
+      "note": ""
+    },
+    {
+      "id": "shop-name",
+      "note": ""
+    },
+    {
+      "id": "store-books",
+      "note": "במשבצת של מבע שלושת הספרים שים את התמונה הזאת:   https://www.eyalamit.co.il/wp-content/uploads/2017/06/שלושת-הספרים-אלקטרוני2.jpg"
+    },
+    {
+      "id": "blog-lists",
+      "note": ""
+    },
+    {
+      "id": "portfolio",
+      "note": ""
+    },
+    {
+      "id": "shows",
+      "note": ""
+    },
+    {
+      "id": "leftover-archives",
+      "note": ""
+    },
+    {
+      "id": "OLD-GALLERIES",
+      "note": "המיקום מצויין, רק שים לב שכרגע הגלריה ריקה. לא מופיע בה שום תמונה."
+    },
+    {
+      "id": "HW-REPAIR-ALT",
+      "note": ""
+    },
+    {
+      "id": "HW-REPAIR-DECOR",
+      "note": ""
+    },
+    {
+      "id": "HW-VEKATAVTA-ALT",
+      "note": ""
+    },
+    {
+      "id": "OLD-PAPER-STORIES",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-ACCESS",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-PRIVACY",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-TERMS",
+      "note": ""
+    },
+    {
+      "id": "W1-FAQ-SIX",
+      "note": ""
+    },
+    {
+      "id": "W1-MUKESH",
+      "note": ""
+    },
+    {
+      "id": "PH-COURSES-EXTERNAL",
+      "note": ""
+    },
+    {
+      "id": "W1-QR-MAP",
+      "note": ""
+    },
+    {
+      "id": "REDIRECT-MAP-APPROVAL",
+      "note": ""
+    },
+    {
+      "id": "home",
+      "note": ""
+    },
+    {
+      "id": "blog-posts",
+      "note": ""
+    },
+    {
+      "id": "address-language",
+      "note": ""
+    },
+    {
+      "id": "media",
+      "note": ""
+    }
+  ],
+  "contentAnswers": [
+    {
+      "id": "QR-08",
+      "title": "qr8 · סופה במדבר",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-18",
+      "title": "qr18 · אחד לשלושה טריליון",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-23",
+      "title": "qr23 · יום כן יום לא",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-30",
+      "title": "qr30 · פרדס חפלה",
+      "choice": "נוסח שלי",
+      "note": "תמחק את כל התוכן של העמוד הזה ובמקומו שים את הטקסט הבא + וידאו:\n\nאת הפעם הראשונה שסיפרתי את הסיפור הזה במסגרת מופע הסיפורים שלי לעולם לא אשכח!\nhttps://www.facebook.com/eyal.amit.show/videos/799116743508383/"
+    },
+    {
+      "id": "QR-32",
+      "title": "qr32 · נשימה מעגלית",
+      "choice": "",
+      "note": "שים לב, מתחת לשני היוטיובים חסרים 6 תמונות. \nבכל מקום שמופיע בו קו נטוי (/) אמורה להיות תמונה. אני מצרף לך פה את הטקסט + קישור לתמונות הרלוונטיות מהאתר הישן:\n\nיואב קליינמן. מומחה לפתיחת צ'אקרת הדיג'. תודה חבר יקר!\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%99%D7%95%D7%90%D7%91-%D7%A7%D7%9C%D7%99%D7%99%D7%9E%D7%9F.jpg/\n\nאדם הניוזילנדי מטיס אותי לחלל החיצון. רואים לא? יא אללה, איך אני עף!!! 🙂\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%90%D7%93%D7%9D-%D7%A0%D7%99%D7%95%D7%96%D7%99%D7%9C%D7%A0%D7%93.jpg\n\nיורם סיוון ויאיר גפני – (בראשית 2004). יאיר כבר בלי הראסטות.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%99%D7%95%D7%A8%D7%9D-%D7%A1%D7%99%D7%95%D7%9F-%D7%95%D7%99%D7%90%D7%99%D7%A8-%D7%92%D7%A4%D7%A0%D7%99.jpg\n\nמוקש ואני בשנת 2000. תמיד תהיתי לגבי התמונה הזו.\nקרן האור המכושפת הזאת שיוצאת לו מהמצח…\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%9E%D7%95%D7%A7%D7%A9.jpg\n\nהפסקת ניגון בחצר של מוקש. שנת 2000.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%9E%D7%95%D7%A7%D7%A91.jpg\n\nlet go !!! אבל עם חיוך 🙂 דיג' הספירלה המטורף שבניתי אצל מוקש\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA-%D7%93%D7%99%D7%92%D7%A8%D7%99%D7%93%D7%95-%D7%A8%D7%99%D7%A9%D7%99%D7%A7%D7%A9-1.jpg\n\nהמרכז לטיפול בדיג'רידו  - סטודיו נשימה מעגלית פרדס חנה. היום.\nhttps://www.eyalamit.co.il/wp-content/uploads/2024/08/378172116_789649869834098_921032953608050382_n-700x697.jpg\n\nלדף של המרכז לטיפול בדיג'רידו בפייסבוק:\nhttps://www.eyalamit.co.il/qr/qr32/#:~:text=%D7%9C%D7%93%D7%A3%20%D7%A9%D7%9C%20%27%D7%A1%D7%98%D7%95%D7%93%D7%99%D7%95%20%D7%A0%D7%A9%D7%99%D7%9E%D7%94%20%D7%9E%D7%A2%D7%92%D7%9C%D7%99%D7%AA%27%20%D7%91%D7%A4%D7%99%D7%99%D7%A1%D7%91%D7%95%D7%A7\n\nלאתר המרכז לטיפול בדיג'רידו:\nhttps://www.eyalamit.co.il/"
+    },
+    {
+      "id": "QR-02",
+      "title": "qr2 · אקדח לתוך הראש",
+      "choice": "",
+      "note": "גם כאן חסרים תמונות מתחת לוידאו. מצרף לך כאן את הטקסטים + התמונות הרלוונטיות מהאתר הישן:\n\n\"מבוהל. משותק. מצומרר בכל הגוף..\". מסתבר שאלי קפץ לביקור גם בצהריים. אפילו לא הרגשתי כשצילם עם פלאש. תמונה שווה אלף מילים. האומנם?\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/brazil1.jpg\n \nכן, זה בכדור הארץ. בבוליביה ליתר דיוק. נופים עוצרי נשימה. הוספתי גם אני אבן למגדל. איך אפשר שלא – \"יוסי מגולני היה פה\" צרוב בתודעה הקולקטיבית של כולנו.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%91%D7%95%D7%9C%D7%99%D7%91%D7%99%D7%94.jpg\n\nלה-פאז. פאבלה אחת גדולה. לגטאות של העשירים אי אפשר להיכנס.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%91%D7%95%D7%9C%D7%99%D7%91%D7%99%D7%941.jpg\n\nצ'ולות מוכרות את מרכולתן. את עלי הקוקה אפשר להריח גם דרך מסך המחשב! התאריך על התמונה אמיתי לגמרי.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%91%D7%95%D7%9C%D7%99%D7%91%D7%99%D7%942.jpg\n \nאיפה החוטיני? איפה הבקיני? אין ספק, הגעתי למקום הכי א-מיני בכדור הארץ.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%91%D7%95%D7%9C%D7%99%D7%91%D7%99%D7%943.jpg\n\nלכל בית יש מרפסת ולכל צ'ולה תינוק קשור על הגב.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%91%D7%95%D7%9C%D7%99%D7%91%D7%99%D7%944.jpg\n\nהמעגל נסגר. הפצע הגליד. ברזיל יפה. ברזיל מדהימה.\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/brazil-anat2.jpg\n\nחולם רק על היום שאחזור אליה!!!\nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/brazil-anat.jpg\n\nהספר \"צבע בכחול וזרוק לים\" ראה אור בשנת 2001. \nhttps://www.eyalamit.co.il/wp-content/uploads/2016/12/%D7%A6%D7%91%D7%A2-%D7%91%D7%9B%D7%97%D7%95%D7%9C-%D7%95%D7%96%D7%A8%D7%95%D7%A7-%D7%9C%D7%99%D7%9D-%D7%90%D7%99%D7%99%D7%9C-%D7%A2%D7%9E%D7%99%D7%AA.jpg\n\nלדף הספר>>\nhttps://www.eyalamit.co.il/books/%D7%A6%D7%91%D7%A2-%D7%91%D7%9B%D7%97%D7%95%D7%9C-%D7%95%D7%96%D7%A8%D7%95%D7%A7-%D7%9C%D7%99%D7%9D/\n \n\n \n\nהמעגל נסגר. הפצע הגליד. ברזיל יפה. ברזיל מדהימה."
+    },
+    {
+      "id": "PRESS-ARCHIVE",
+      "title": "עמוד העיתונות",
+      "choice": "ארכיון",
+      "note": ""
+    },
+    {
+      "id": "CORE-TWO",
+      "title": "26 כתובות הליבה — בחירה לכל כתובת",
+      "choice": "",
+      "note": "תגובות גולשים אודות מופע הסיפורים של אייל עמית - http://eyalamit-co-il-2026.s887.upress.link/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%9c%d7%a9%d7%99%d7%9d-%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a2%d7%9b%d7%a9%d7%99%d7%95-%d7%9e%d7%95%d7%a4%d7%a2-%d7%94%d7%a1%d7%99%d7%a4/",
+      "rows": [
+        {
+          "id": "CORE-0",
+          "path": "/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-1",
+          "path": "/כתבות-בתקשורת-אודות-מופע-הסיפורים-של-א/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-2",
+          "path": "/מוזה-הוצאה-לאור/כושי-בלאנטיס-אוטוביוגרפיה-בסיפורים/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-3",
+          "path": "/מוזה-הוצאה-לאור/וכתבת-אוטוביוגרפיה-בסיפורים/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-4",
+          "path": "/מפת-אתר-site-map/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-5",
+          "path": "/thankyou/",
+          "choice": "לוותר"
+        },
+        {
+          "id": "CORE-6",
+          "path": "/מוזה-הוצאה-לאור/דף-מבצעים-הספרים-של-אייל-עמית-רכישה-יש/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-7",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/טיפולי-סאונד-הילינג-דיגרידו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-8",
+          "path": "/והודית/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-9",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקים-לדיגרידו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-10",
+          "path": "/וכתבת-אייל-עמית/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-11",
+          "path": "/תגובות-גולשים-אודות-״מופע-הסיפורים-של/",
+          "choice": "למקום אחר"
+        },
+        {
+          "id": "CORE-12",
+          "path": "/מוזה-הוצאה-לאור/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-13",
+          "path": "/הופעות/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-14",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנד-רצפתי-לדיגרידו-לנגינה-בישיבה-נמו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-15",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקון-דיגרידו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-16",
+          "path": "/צור-קשר/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-17",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סדנאות-בנייה-עצמית-דיגרידו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-18",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנדים-לאחסון-דיגרידו-בתלייה-או-בעמיד/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-19",
+          "path": "/בלוג-דיגרידו-המרכז-לטיפול-בדיגרידו-א/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-20",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/הדיגרידו-ככלי-לריפוי-עצמי/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-21",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/שיעורי-נגינה-בדיגרידו/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-22",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/מוקש-דהימן-מאסטר-דיגרידו-דף-להנצחת-זכ/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-23",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/דיגרידו-למכירה-כלים-בעבודת-יד/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-24",
+          "path": "/אייל-עמית-אודות/",
+          "choice": "היעד מתאים"
+        },
+        {
+          "id": "CORE-25",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגריד/",
+          "choice": "היעד מתאים"
+        }
+      ]
+    },
+    {
+      "id": "OLD-STAGE-GALLERIES",
+      "title": "שתי גלריות שאינן גלריות ספר",
+      "choice": "אחר",
+      "note": "את גלריית מוקש תצרף לתחתית הדף של מוקש. את גלריית דיג'רידו תצרף לתחתית הדף של דף הבית, אבל שים אותה באקורדיון, כלומר עם לחצן לפתיחת הגלריה. אם הגולש רוצה לראות עוד תמונות שתהיה לו האפשרות."
+    },
+    {
+      "id": "OLD-ALBUM",
+      "title": "האלבום",
+      "choice": "לוותר",
+      "note": ""
+    },
+    {
+      "id": "OLD-ARCHIVE",
+      "title": "עמודי הארכיון — בחירה לכל כתובת",
+      "choice": "",
+      "note": "",
+      "rows": [
+        {
+          "id": "ARCH-0",
+          "path": "הוצאה-לאור-ספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-1",
+          "path": "כללי",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-2",
+          "path": "כתבה-על-תופעת-יחיד-מופע-הסיפורים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-3",
+          "path": "הוצאה-לאור-ספרים/סיפורים-מהספר-וכתבת",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-4",
+          "path": "הוצאה-לאור-ספרים/ספרים-בהוצאת-מוזה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-5",
+          "path": "תופעת-יחיד-מופע-הסיפורים-של-אייל-עמית",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-6",
+          "path": "אייל-עמית",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-7",
+          "path": "אמסטרדם",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-8",
+          "path": "אקדח-לתוך-הראש",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-9",
+          "path": "אקסטרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-10",
+          "path": "בייס-גאמפ",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-11",
+          "path": "ביקורות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-12",
+          "path": "ברצלונה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-13",
+          "path": "דיגרידו",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-14",
+          "path": "דרמה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-15",
+          "path": "האזור",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-16",
+          "path": "האחים-עופר",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-17",
+          "path": "הדסטארט",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-18",
+          "path": "הון-שילטון",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-19",
+          "path": "הופעה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-20",
+          "path": "הוצאה-לאור",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-21",
+          "path": "הערוץ-הראשון",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-22",
+          "path": "וידאו",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-23",
+          "path": "וידאו-בלוג",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-24",
+          "path": "וכתבת",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-25",
+          "path": "זוגיות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-26",
+          "path": "זיכרון-ילדות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-27",
+          "path": "חוק-הספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-28",
+          "path": "חלומות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-29",
+          "path": "טיולים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-30",
+          "path": "טראומה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-31",
+          "path": "ילדים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-32",
+          "path": "כושי-בלאנטיס",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-33",
+          "path": "מוזה-הוצאה-לאור-2",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-34",
+          "path": "מוסיקה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-35",
+          "path": "מופע-סיפורים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-36",
+          "path": "מיקי-רוזנטל",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-37",
+          "path": "מצחיק",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-38",
+          "path": "סמי-עופר",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-39",
+          "path": "ספורט",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-40",
+          "path": "ספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-41",
+          "path": "פוליטי",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-42",
+          "path": "פחד",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-43",
+          "path": "פרדס-חנה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-44",
+          "path": "פרדס-חפלה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-45",
+          "path": "פרוייקט-מטיילים-מצטלמים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-46",
+          "path": "צבע-בכחול-וזרוק-לים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-47",
+          "path": "צוותא",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-48",
+          "path": "קידום-אתרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-49",
+          "path": "שוד-בברזיל",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-50",
+          "path": "תגובות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-51",
+          "path": "תופעת-יחיד",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-52",
+          "path": "תל-אביב",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-53",
+          "path": "sumsumle1",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-54",
+          "path": "admin",
+          "choice": ""
+        }
+      ]
+    },
+    {
+      "id": "BLOG-COL41",
+      "title": "טור 41, «חארטה בארטה»",
+      "choice": "לוותר",
+      "note": ""
+    },
+    {
+      "id": "HW-MUSIC",
+      "title": "מוזיקת רקע",
+      "choice": "אשלח",
+      "note": "אשלח קובץ בהמשך."
+    },
+    {
+      "id": "HW-VIDEO",
+      "title": "קרוסלת 20 הסרטונים",
+      "choice": "פלייליסט",
+      "note": "תזכור את הרשימה הזו. בהמשך אשלח קישורים"
+    },
+    {
+      "id": "SOUND-BUTTON",
+      "title": "כפתור השמע",
+      "choice": "אחר",
+      "note": "לא הבנת אותי. אני מדבר על הכפתור שאחראי על ה onqoff של הsound של הסרטון. כברירת מחדל אין סאונד - הלחצן ב OFF. את הכפתור הזה שכרגע נמצא בפינה הימנית התחתונה של ההירו בבקשה תעביר לפינה השמאלית העליונה של ההירו, ככה שיהיה יותר ברור לגולש שהוא יכול ללחוץ או לכבות אותה."
+    },
+    {
+      "id": "HW-C1",
+      "title": "לימוד והכשרה — שלוש תמונות",
+      "choice": "",
+      "note": "כל התמונות האלה נמצאות כאן:\nhttps://drive.google.com/drive/folders/1DBiWnJRoD1ogLgIK-q-ZmsCiRknXr6vN?usp=drive_link"
+    },
+    {
+      "id": "HW-C3",
+      "title": "העמוד באנגלית — תמונות",
+      "choice": "",
+      "note": "התמונות נמצאות כאן:\nhttps://drive.google.com/drive/folders/1DBiWnJRoD1ogLgIK-q-ZmsCiRknXr6vN?usp=drive_link"
+    },
+    {
+      "id": "HW-B2-GALLERY-DUP",
+      "title": "עמוד הגלריות נפתח אצלך ריק",
+      "choice": "עדיין ריק",
+      "note": "בדקתי בשני דפדפנים שונים ובשניהם הגלריה מופיעה ריקה."
+    },
+    {
+      "id": "PH-TREATMENT-VIDEO",
+      "title": "וידאו לעמוד הטיפול",
+      "choice": "",
+      "note": "https://youtube.com/shorts/FeeYk_5EpYY?feature=share"
+    },
+    {
+      "id": "PH-LESSONS-VIDEO",
+      "title": "וידאו לעמוד השיעורים",
+      "choice": "",
+      "note": "https://youtube.com/shorts/Hp6a0EE-v10?feature=share"
+    },
+    {
+      "id": "PH-SOUND-HEALING-VIDEO",
+      "title": "וידאו לעמוד הסאונד הילינג",
+      "choice": "",
+      "note": "https://youtube.com/shorts/kC0VVxEIw4A?feature=share"
+    },
+    {
+      "id": "PH-TESTIMONIALS-MEDIA",
+      "title": "שני סרטונים בתחתית עמוד ההמלצות",
+      "choice": "",
+      "note": "https://youtube.com/shorts/S0r8U6huD8A?feature=share\n\nhttps://youtube.com/shorts/5l_W5zJEWFg?feature=share"
+    },
+    {
+      "id": "H-TESTIMONIALS",
+      "title": "המלצות — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-FAQ",
+      "title": "שאלות נפוצות — הירו",
+      "choice": "אחרת",
+      "note": "https://drive.google.com/file/d/1MTVxupSLAi6BHcFxG97FfPFh3lrfqkKT/view?usp=sharing"
+    },
+    {
+      "id": "H-MOKESH",
+      "title": "מוקש — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-SOUND",
+      "title": "סאונד הילינג — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-METHOD",
+      "title": "השיטה — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-SHOP",
+      "title": "כלים ואביזרים — הירו",
+      "choice": "אחרת",
+      "note": "https://drive.google.com/file/d/1CAYYPm1pW0fQYOg-dBTx_3LTFEbCi_IL/view?usp=sharing"
+    },
+    {
+      "id": "H-REPAIR",
+      "title": "תיקון וחידוש — הירו",
+      "choice": "אחרת",
+      "note": "https://drive.google.com/file/d/1SxQCKG2J2Zind9ixr8am7M-YcT3dC28K/view?usp=sharing"
+    },
+    {
+      "id": "H-BAGS",
+      "title": "תיקים — הירו",
+      "choice": "אחרת",
+      "note": "https://drive.google.com/file/d/1sLHRT4Y8LhASp42UXdVNjDrHKgFVNnZM/view?usp=sharing"
+    },
+    {
+      "id": "H-STANDS",
+      "title": "סטנדים לאחסון — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-FLOOR",
+      "title": "סטנד רצפתי — הירו",
+      "choice": "אחרת",
+      "note": "https://drive.google.com/file/d/1KmYNPXH6d4bWwHuC-EGJTZ5GxS2kRBW_/view?usp=sharing"
+    },
+    {
+      "id": "H-BLOG",
+      "title": "בלוג — הירו",
+      "choice": "זו",
+      "note": ""
+    },
+    {
+      "id": "H-DIDGERIDOOS",
+      "title": "דיג'רידו למכירה — הירו",
+      "choice": "מוצר",
+      "note": ""
+    },
+    {
+      "id": "H-CONTACT",
+      "title": "צור קשר — הירו",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-TREATMENT",
+      "title": "טיפול — הירו",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-LESSONS",
+      "title": "שיעורי נגינה — הירו",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-SNORING",
+      "title": "נחירות — הירו",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-TRAINING",
+      "title": "הכשרת מטפלים — הירו",
+      "choice": "",
+      "note": "https://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-WORKSHOPS",
+      "title": "סדנאות — הירו",
+      "choice": "",
+      "note": "שם הקובץ: IMG-20260508-WA0127.jpg \nhttps://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    },
+    {
+      "id": "H-LECTURES",
+      "title": "הרצאות — הירו",
+      "choice": "",
+      "note": "שם הקובץ: \nhttps://drive.google.com/file/d/1NyRrJt2-TLueaGKdbYdR3-F9ZRqWEqCo/view?usp=drive_link"
+    }
+  ]
+}

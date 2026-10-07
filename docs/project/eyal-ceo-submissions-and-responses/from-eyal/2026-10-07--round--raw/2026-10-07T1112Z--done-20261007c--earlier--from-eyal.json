@@ -1,0 +1,810 @@
+{
+  "exportType": "eyal-done-round",
+  "exportSchema": "done-20261007c",
+  "formDate": "2026-10-07",
+  "formSig": "done-20261007c",
+  "exportTimestamp": "2026-10-07T11:12:09.238Z",
+  "log": [
+    {
+      "id": "GI-TSVA",
+      "note": "לגבי הצבע של הבאנר (איפה שכפתור הרכישה). כבר ביקשתי כמה פעמים לשנות לאורך כל האתר את הצבע של הבאנר הזה. הוא כרגע נראה כמו פוטר וזה מבלבל את הגולש. בבקשה תשתמש בצע רקע אחר לבאנר הרכישה. יש לך פאלטת צבעים שהגשנו לך בתחילת הפרוייקט. גוון תשתמש באותו צבע שהשתמשת בבאנר של CTA-BAGS"
+    },
+    {
+      "id": "GI-KUSHI",
+      "note": "כנ\"ל"
+    },
+    {
+      "id": "GI-VEKATAVTA",
+      "note": "כנל"
+    },
+    {
+      "id": "GI-BUNDLE",
+      "note": "כנל"
+    },
+    {
+      "id": "CTA-BAGS",
+      "note": ""
+    },
+    {
+      "id": "CTA-DIDGERIDOOS",
+      "note": "כנ\"ל"
+    },
+    {
+      "id": "CTA-SNORING",
+      "note": "כנל"
+    },
+    {
+      "id": "CTA-STAND-FLOOR",
+      "note": ""
+    },
+    {
+      "id": "CTA-STANDS-STORAGE",
+      "note": ""
+    },
+    {
+      "id": "ALT-APPROVAL",
+      "note": "כנל"
+    },
+    {
+      "id": "HW-QR-HERO",
+      "note": ""
+    },
+    {
+      "id": "HW-2012-PHOTO",
+      "note": ""
+    },
+    {
+      "id": "PH-THERAPIST-TRAINING",
+      "note": ""
+    },
+    {
+      "id": "shop-name",
+      "note": ""
+    },
+    {
+      "id": "store-books",
+      "note": "במשבצת של מבע שלושת הספרים שים את התמונה הזאת:   https://www.eyalamit.co.il/wp-content/uploads/2017/06/שלושת-הספרים-אלקטרוני2.jpg"
+    },
+    {
+      "id": "blog-lists",
+      "note": ""
+    },
+    {
+      "id": "portfolio",
+      "note": ""
+    },
+    {
+      "id": "shows",
+      "note": ""
+    },
+    {
+      "id": "leftover-archives",
+      "note": ""
+    },
+    {
+      "id": "OLD-GALLERIES",
+      "note": "המיקום מצויין, רק שים לב שכרגע הגלריה ריקה. לא מופיע בה שום תמונה."
+    },
+    {
+      "id": "HW-REPAIR-ALT",
+      "note": ""
+    },
+    {
+      "id": "HW-REPAIR-DECOR",
+      "note": ""
+    },
+    {
+      "id": "HW-VEKATAVTA-ALT",
+      "note": ""
+    },
+    {
+      "id": "OLD-PAPER-STORIES",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-ACCESS",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-PRIVACY",
+      "note": ""
+    },
+    {
+      "id": "LEGAL-TERMS",
+      "note": ""
+    },
+    {
+      "id": "W1-FAQ-SIX",
+      "note": ""
+    },
+    {
+      "id": "W1-MUKESH",
+      "note": ""
+    },
+    {
+      "id": "PH-COURSES-EXTERNAL",
+      "note": ""
+    },
+    {
+      "id": "W1-QR-MAP",
+      "note": ""
+    },
+    {
+      "id": "REDIRECT-MAP-APPROVAL",
+      "note": ""
+    },
+    {
+      "id": "home",
+      "note": ""
+    },
+    {
+      "id": "blog-posts",
+      "note": ""
+    },
+    {
+      "id": "address-language",
+      "note": ""
+    },
+    {
+      "id": "media",
+      "note": ""
+    }
+  ],
+  "contentAnswers": [
+    {
+      "id": "QR-08",
+      "title": "qr8 · סופה במדבר",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-18",
+      "title": "qr18 · אחד לשלושה טריליון",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-23",
+      "title": "qr23 · יום כן יום לא",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-30",
+      "title": "qr30 · פרדס חפלה",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-32",
+      "title": "qr32 · נשימה מעגלית",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "QR-02",
+      "title": "qr2 · אקדח לתוך הראש",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "PRESS-ARCHIVE",
+      "title": "עמוד העיתונות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "CORE-TWO",
+      "title": "26 כתובות הליבה — בחירה לכל כתובת",
+      "choice": "",
+      "note": "",
+      "rows": [
+        {
+          "id": "CORE-0",
+          "path": "/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-1",
+          "path": "/כתבות-בתקשורת-אודות-מופע-הסיפורים-של-א/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-2",
+          "path": "/מוזה-הוצאה-לאור/כושי-בלאנטיס-אוטוביוגרפיה-בסיפורים/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-3",
+          "path": "/מוזה-הוצאה-לאור/וכתבת-אוטוביוגרפיה-בסיפורים/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-4",
+          "path": "/מפת-אתר-site-map/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-5",
+          "path": "/thankyou/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-6",
+          "path": "/מוזה-הוצאה-לאור/דף-מבצעים-הספרים-של-אייל-עמית-רכישה-יש/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-7",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/טיפולי-סאונד-הילינג-דיגרידו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-8",
+          "path": "/והודית/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-9",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקים-לדיגרידו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-10",
+          "path": "/וכתבת-אייל-עמית/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-11",
+          "path": "/תגובות-גולשים-אודות-״מופע-הסיפורים-של/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-12",
+          "path": "/מוזה-הוצאה-לאור/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-13",
+          "path": "/הופעות/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-14",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנד-רצפתי-לדיגרידו-לנגינה-בישיבה-נמו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-15",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/תיקון-דיגרידו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-16",
+          "path": "/צור-קשר/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-17",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סדנאות-בנייה-עצמית-דיגרידו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-18",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סטנדים-לאחסון-דיגרידו-בתלייה-או-בעמיד/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-19",
+          "path": "/בלוג-דיגרידו-המרכז-לטיפול-בדיגרידו-א/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-20",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/הדיגרידו-ככלי-לריפוי-עצמי/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-21",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/שיעורי-נגינה-בדיגרידו/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-22",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/מוקש-דהימן-מאסטר-דיגרידו-דף-להנצחת-זכ/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-23",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/דיגרידו-למכירה-כלים-בעבודת-יד/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-24",
+          "path": "/אייל-עמית-אודות/",
+          "choice": ""
+        },
+        {
+          "id": "CORE-25",
+          "path": "/דיגרידו-המרכז-לטיפול-בדיגרידו-סטודי/סאונד-הילינג-דיגרידו-מדיטציית-דיגריד/",
+          "choice": ""
+        }
+      ]
+    },
+    {
+      "id": "OLD-STAGE-GALLERIES",
+      "title": "שתי גלריות שאינן גלריות ספר",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "OLD-ALBUM",
+      "title": "האלבום",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "OLD-ARCHIVE",
+      "title": "עמודי הארכיון — בחירה לכל כתובת",
+      "choice": "",
+      "note": "",
+      "rows": [
+        {
+          "id": "ARCH-0",
+          "path": "הוצאה-לאור-ספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-1",
+          "path": "כללי",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-2",
+          "path": "כתבה-על-תופעת-יחיד-מופע-הסיפורים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-3",
+          "path": "הוצאה-לאור-ספרים/סיפורים-מהספר-וכתבת",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-4",
+          "path": "הוצאה-לאור-ספרים/ספרים-בהוצאת-מוזה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-5",
+          "path": "תופעת-יחיד-מופע-הסיפורים-של-אייל-עמית",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-6",
+          "path": "אייל-עמית",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-7",
+          "path": "אמסטרדם",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-8",
+          "path": "אקדח-לתוך-הראש",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-9",
+          "path": "אקסטרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-10",
+          "path": "בייס-גאמפ",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-11",
+          "path": "ביקורות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-12",
+          "path": "ברצלונה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-13",
+          "path": "דיגרידו",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-14",
+          "path": "דרמה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-15",
+          "path": "האזור",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-16",
+          "path": "האחים-עופר",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-17",
+          "path": "הדסטארט",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-18",
+          "path": "הון-שילטון",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-19",
+          "path": "הופעה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-20",
+          "path": "הוצאה-לאור",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-21",
+          "path": "הערוץ-הראשון",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-22",
+          "path": "וידאו",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-23",
+          "path": "וידאו-בלוג",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-24",
+          "path": "וכתבת",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-25",
+          "path": "זוגיות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-26",
+          "path": "זיכרון-ילדות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-27",
+          "path": "חוק-הספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-28",
+          "path": "חלומות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-29",
+          "path": "טיולים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-30",
+          "path": "טראומה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-31",
+          "path": "ילדים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-32",
+          "path": "כושי-בלאנטיס",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-33",
+          "path": "מוזה-הוצאה-לאור-2",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-34",
+          "path": "מוסיקה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-35",
+          "path": "מופע-סיפורים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-36",
+          "path": "מיקי-רוזנטל",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-37",
+          "path": "מצחיק",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-38",
+          "path": "סמי-עופר",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-39",
+          "path": "ספורט",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-40",
+          "path": "ספרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-41",
+          "path": "פוליטי",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-42",
+          "path": "פחד",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-43",
+          "path": "פרדס-חנה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-44",
+          "path": "פרדס-חפלה",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-45",
+          "path": "פרוייקט-מטיילים-מצטלמים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-46",
+          "path": "צבע-בכחול-וזרוק-לים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-47",
+          "path": "צוותא",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-48",
+          "path": "קידום-אתרים",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-49",
+          "path": "שוד-בברזיל",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-50",
+          "path": "תגובות",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-51",
+          "path": "תופעת-יחיד",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-52",
+          "path": "תל-אביב",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-53",
+          "path": "sumsumle1",
+          "choice": ""
+        },
+        {
+          "id": "ARCH-54",
+          "path": "admin",
+          "choice": ""
+        }
+      ]
+    },
+    {
+      "id": "BLOG-COL41",
+      "title": "טור 41, «חארטה בארטה»",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "HW-MUSIC",
+      "title": "מוזיקת רקע",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "HW-VIDEO",
+      "title": "קרוסלת 20 הסרטונים",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "SOUND-BUTTON",
+      "title": "כפתור השמע",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "HW-C1",
+      "title": "לימוד והכשרה — שלוש תמונות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "HW-C3",
+      "title": "העמוד באנגלית — תמונות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "HW-B2-GALLERY-DUP",
+      "title": "עמוד הגלריות נפתח אצלך ריק",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "PH-TREATMENT-VIDEO",
+      "title": "וידאו לעמוד הטיפול",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "PH-LESSONS-VIDEO",
+      "title": "וידאו לעמוד השיעורים",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "PH-SOUND-HEALING-VIDEO",
+      "title": "וידאו לעמוד הסאונד הילינג",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "PH-TESTIMONIALS-MEDIA",
+      "title": "שני סרטונים בתחתית עמוד ההמלצות",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-TESTIMONIALS",
+      "title": "המלצות — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-FAQ",
+      "title": "שאלות נפוצות — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-MOKESH",
+      "title": "מוקש — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-SOUND",
+      "title": "סאונד הילינג — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-METHOD",
+      "title": "השיטה — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-SHOP",
+      "title": "כלים ואביזרים — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-REPAIR",
+      "title": "תיקון וחידוש — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-BAGS",
+      "title": "תיקים — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-STANDS",
+      "title": "סטנדים לאחסון — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-FLOOR",
+      "title": "סטנד רצפתי — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-BLOG",
+      "title": "בלוג — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-DIDGERIDOOS",
+      "title": "דיג'רידו למכירה — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-CONTACT",
+      "title": "צור קשר — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-TREATMENT",
+      "title": "טיפול — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-LESSONS",
+      "title": "שיעורי נגינה — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-SNORING",
+      "title": "נחירות — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-TRAINING",
+      "title": "הכשרת מטפלים — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-WORKSHOPS",
+      "title": "סדנאות — הירו",
+      "choice": "",
+      "note": ""
+    },
+    {
+      "id": "H-LECTURES",
+      "title": "הרצאות — הירו",
+      "choice": "",
+      "note": ""
+    }
+  ]
+}
