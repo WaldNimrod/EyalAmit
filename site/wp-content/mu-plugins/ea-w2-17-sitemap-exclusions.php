@@ -73,6 +73,8 @@ function ea_w217_redirect_source_paths() {
 		 * The page shell stays published so Yoast would keep listing it.
 		 */
 		'/shows-heritage/',
+		/* 2026-10-07, team_00: /galleries/ is an admin archive, not a public page. */
+		'/galleries/',
 	);
 }
 

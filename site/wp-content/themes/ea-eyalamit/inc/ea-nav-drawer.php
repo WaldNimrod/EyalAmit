@@ -210,7 +210,6 @@ endif;
 function ea_nav_drawer_foot_links() {
 	return array(
 		array( 'href' => home_url( '/faq/' ), 'label' => 'שאלות נפוצות' ),
-		array( 'href' => home_url( '/galleries/' ), 'label' => 'גלריות' ),
 		array( 'href' => home_url( '/testimonials/' ), 'label' => 'המלצות' ),
 		array( 'href' => home_url( '/privacy/' ), 'label' => 'מדיניות פרטיות' ),
 		array( 'href' => home_url( '/accessibility/' ), 'label' => 'הצהרת נגישות' ),

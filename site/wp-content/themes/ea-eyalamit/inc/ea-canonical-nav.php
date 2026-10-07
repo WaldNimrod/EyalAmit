@@ -72,7 +72,9 @@ function ea_canonical_nav_items() {
 				array( 'key' => 'mokesh-dahiman', 'label' => 'מוקש דהימן -', 'label_emph' => 'המורה שלי', 'href' => $h( '/eyal-amit/mokesh-dahiman/' ) ),
 				array( 'key' => 'testimonials', 'label' => 'המלצות', 'href' => $h( '/testimonials/' ) ),
 				array( 'key' => 'faq', 'label' => 'שאלות ותשובות', 'href' => $h( '/faq/' ) ),
-				array( 'key' => 'galleries', 'label' => 'גלריה', 'href' => $h( '/galleries/' ) ),
+				/* 2026-10-07, team_00: admin archive. The page stays at /galleries/.
+				   It is not a public menu item. */
+				array( 'key' => 'galleries', 'label' => 'גלריה', 'href' => $h( '/galleries/' ), 'hidden' => true ),
 				/*
 				 * Round C (2026-09-24), team_00 live-meeting dictate: "ספרים" moves out
 				 * of level 1 and becomes a child here, after "גלריה" and before "צור

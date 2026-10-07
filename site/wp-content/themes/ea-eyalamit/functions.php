@@ -609,6 +609,22 @@ function ea_eyalamit_galleries_catalog_template( $template ) {
 add_filter( 'template_include', 'ea_eyalamit_galleries_catalog_template', 97 );
 
 /**
+ * 2026-10-07, team_00: /galleries/ is an admin archive. The URL stays.
+ * It is not a page for visitors, so it is not indexed.
+ *
+ * @param array $robots Robots directives.
+ * @return array
+ */
+function ea_galleries_admin_archive_robots( $robots ) {
+	if ( is_page( 'galleries' ) ) {
+		$robots['noindex']  = true;
+		$robots['nofollow'] = true;
+	}
+	return $robots;
+}
+add_filter( 'wp_robots', 'ea_galleries_admin_archive_robots' );
+
+/**
  * עמוד מדיה / המלצות — תבנית קטלוג (st-media).
  *
  * @param string $template Path to template file.
