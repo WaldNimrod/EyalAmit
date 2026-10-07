@@ -53,6 +53,7 @@ return array(
 				'cta_label' => 'לרכישת הספר',
 				'cta_url'   => 'https://mrng.to/MTUiO3vkIg',
 				'cta_slug'  => 'kushi-blantis',
+				'sand'      => true,
 			),
 		),
 
@@ -133,6 +134,7 @@ return array(
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 198 */
 				'cta_url'   => 'https://www.mendele.co.il/product/kushibelantis/',
 				'cta_slug'  => 'kushi-blantis',
+				'sand'      => true,
 			),
 		),
 

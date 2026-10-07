@@ -21,7 +21,7 @@ return array(
 		'chap'      => '',
 		'title'     => "מי היה מוקש דהימן?",
 		'sub'       => "מוקש דהימן (Mukesh Dhiman) היה אמן-נגר, בונה דיג'רידו ומורה מרישיקש שבהודו, שכבר בתחילת שנות השבעים הקדיש את חייו למלאכת בנייתו של הדיג'רידו ולהפצתו ככלי נשימה, ריפוי וחיבור ללב.",
-		'media'     => 'assets/images/chapters/mokesh-eyal.jpg', // fallback/poster — no-JS, reduced-motion, API-blocked
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-mokesh.jpg', // fallback/poster — no-JS, reduced-motion, API-blocked
 		'media_alt' => "מוקש דהימן עם אייל עמית ברישיקש, הודו",
 		'yt_id'     => 'kf4NKSdYi9E', // הטריילר הרשמי — MUKESH: The Art of Shanti Living (ערוץ Kuthli Studio)
 	),
@@ -274,6 +274,18 @@ return array(
 					array( 'image' => 'assets/images/chapters/mokesh-gallery/mokesh-17.jpg', 'alt' => 'מוקש דהימן' ),
 					array( 'image' => 'assets/images/chapters/mokesh-gallery/mokesh-18.jpg', 'alt' => 'מוקש דהימן' ),
 					array( 'image' => 'assets/images/chapters/mokesh-gallery/mokesh-14.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/008-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------152.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/009-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------1.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/011-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------171.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/012-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------170.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/013-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------164.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/014-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------160.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/016-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------161.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/017-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------162.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/018-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------163.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/019-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------169.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/020-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------168.jpeg', 'alt' => 'מוקש דהימן' ),
+					array( 'image' => 'assets/images/chapters/mokesh-gallery-extra/021-nukesh-dhiman-jungel-vibes-rishikesh-india-didgeridoo---------------------167.jpeg', 'alt' => 'מוקש דהימן' ),
 				),
 			),
 		),

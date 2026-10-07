@@ -23,7 +23,7 @@ return array(
 		'title'     => 'שאלות נפוצות',
 		/* S006 · מקור: content 13.8.26/דף FAQ/FAQ FINAL.md · SECTION 01 · שורות 18–20 */
 		'sub'       => "שאלות נפוצות על טיפול בדיג'רידו, שיעורי נגינה בדיג'רידו, סאונד הילינג ושיטת cbDIDG. לא כל עבודה עם דיג'רידו היא אותו דבר. כאן תמצאו תשובות לשאלות נפוצות והבנה ברורה של ההבדלים בין סוגי העבודה עם דיג'רידו.",
-		'media'     => 'assets/images/chapters/studio-mosaic.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-faq.jpg',
 		'media_alt' => 'הסטודיו בפרדס חנה — שאלות נפוצות',
 		/* S006 · מקור: content 13.8.26/דף FAQ/FAQ FINAL.md · SECTION 01 · שורה 22 */
 		'cta_label' => 'שיחת היכרות',

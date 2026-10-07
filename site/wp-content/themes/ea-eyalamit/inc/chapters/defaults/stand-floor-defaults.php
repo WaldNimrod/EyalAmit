@@ -21,6 +21,8 @@ return array(
 		'cta_label' => 'ליצירת קשר',
 		/* S006 · מקור: content 13.8.26/סטנד רצפתי לנגינה בישיבה נמוכה/stend for playing.md · SECTION 01 */
 		'cta_url'   => '/contact',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-floor.jpg',
+		'media_alt' => 'סטנד רצפתי לדיג\'רידו',
 	),
 
 	'sections' => array(

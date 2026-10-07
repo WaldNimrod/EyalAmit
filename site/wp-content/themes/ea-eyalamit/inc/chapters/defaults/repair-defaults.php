@@ -25,7 +25,7 @@ return array(
 		'cta_label'   => 'לתיאום בדיקה לכלי',
 		/* S006 · מקור: content 13.8.26/תיקון כלי דיג_רידו/build didg.md · SECTION 01 */
 		'cta_url'     => '/contact',
-		'media'       => $ea_repair_img . 'EA-000239.jpeg',
+		'media'       => 'assets/images/chapters/word-2026-10-07/hero-repair.jpg',
 		'media_alt'   => '',
 		'literal_alt' => true,
 		'mod'         => 'phero--compact',

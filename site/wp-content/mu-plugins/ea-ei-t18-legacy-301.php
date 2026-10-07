@@ -26,9 +26,8 @@ function ea_ei_t18_legacy_301() {
 	}
 	$norm = trailingslashit( $path );
 
-	$map = array(
-		'/41-הטור-של-אייל-עמית-חארטה-בארטה/' => '/blog/',
-	);
+	/* 7.10: «לוותר» — the path is 410 in ea-w209, not a redirect to the blog. */
+	$map = array();
 
 	if ( ! isset( $map[ $norm ] ) ) {
 		return;

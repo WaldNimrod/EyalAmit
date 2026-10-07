@@ -21,6 +21,8 @@ return array(
 		'cta_label' => 'לתיאום והתאמה אישית',
 		/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 01 */
 		'cta_url'   => '/contact',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-didg-product.jpg',
+		'media_alt' => 'כלי דיג\'רידו למכירה',
 	),
 
 	'sections' => array(
@@ -87,6 +89,7 @@ return array(
 				'cta_label' => 'לתיאום הגעה והתנסות בכלים',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 05 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 
@@ -121,6 +124,7 @@ return array(
 				'cta_label' => 'לבדיקת זמינות והתאמה',
 				/* S006 · מקור: content 13.8.26/כלים למכירה/buy didgeridoo.md · SECTION 07 */
 				'cta_url'   => '/contact',
+				'sand'      => true,
 			),
 		),
 

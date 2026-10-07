@@ -31,7 +31,7 @@ return array(
 		'chap'      => '',
 		'title'     => 'עדויות והמלצות',
 		'sub'       => 'מילים של תלמידים ומטופלים שפגשו את העבודה בסטודיו - בטיפול בדיג\'רידו, בשיעורים ובמפגשי סאונד הילינג.',
-		'media'     => 'assets/images/chapters/eyal-window.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-testimonials.jpg',
 		'media_alt' => "אייל עמית מנגן בדיג'רידו",
 	),
 

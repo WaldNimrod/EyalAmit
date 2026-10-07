@@ -34,6 +34,7 @@ return array(
 		'cta_url'   => 'https://www.mendele.co.il/product/vekatavta/',
 		/* S006 R1-19 VKT-04 · DEV NOTES SECTION 01: קישור חיצוני בלשונית חדשה (cta_slug → target=_blank) */
 		'cta_slug'  => 'vekatavta',
+				'sand'      => true,
 	),
 
 	'sections' => array(
@@ -57,6 +58,7 @@ return array(
 				'cta_label' => 'לרכישת הספר',
 				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				'cta_slug'  => 'vekatavta',
+				'sand'      => true,
 			),
 		),
 
@@ -139,6 +141,7 @@ return array(
 				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				/* S006 R1-19 VKT-04 · DEV NOTES: קישור חיצוני בלשונית חדשה */
 				'cta_slug'  => 'vekatavta',
+				'sand'      => true,
 			),
 		),
 
@@ -226,6 +229,7 @@ return array(
 				'cta_url'   => 'https://mrng.to/xdwmr4PiaM',
 				/* S006 R1-19 VKT-04 · DEV NOTES: קישור חיצוני בלשונית חדשה */
 				'cta_slug'  => 'vekatavta',
+				'sand'      => true,
 			),
 		),
 

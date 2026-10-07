@@ -21,6 +21,8 @@ return array(
 		'cta_label' => 'לתיאום והזמנה',
 		/* S006 · מקור: content 13.8.26/סטנדים לדיג_רידו לאחסון/stend for hanging.md · SECTION 01 */
 		'cta_url'   => '/contact',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-stands.jpg',
+		'media_alt' => 'סטנדים לאחסון דיג\'רידו',
 	),
 
 	'sections' => array(

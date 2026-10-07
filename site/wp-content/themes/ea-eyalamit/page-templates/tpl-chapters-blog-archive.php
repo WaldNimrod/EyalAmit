@@ -49,7 +49,7 @@ if ( ! $blog_base ) {
 		'chap'      => 'הבלוג',
 		'title'     => 'בלוג',
 		'sub'       => 'מאמרים, תובנות וסיפורים על נשימה, דיג׳רידו והדרך.',
-		'media'     => ea_chapters_asset_url( 'assets/images/chapters/studio-mosaic.jpg' ),
+		'media'     => ea_chapters_asset_url( 'assets/images/chapters/word-2026-10-07/hero-blog.jpg' ),
 		'media_alt' => 'הסטודיו בפרדס חנה',
 	) );
 

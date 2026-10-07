@@ -197,7 +197,7 @@ a{color:inherit}
 /* S007-GROK 2026-09-20: sound control sits ON the hero video, never in the nav.
    Corner (inline-start / block-end) so it misses centred H1/CTA and the cue chevrons.
    Hit area ≥44px. Type size is the existing --fs-2xs token, not a new rung. */
-.hero__sound{position:absolute;z-index:4;inset-block-end:24px;inset-inline-start:24px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:10px 14px;font-family:var(--bf);font-size:var(--fs-2xs);color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.4);border-radius:100px;background:rgba(20,14,9,.55);cursor:pointer;transition:border-color .2s,background .2s}
+.hero__sound{position:absolute;z-index:4;inset-block-start:24px;inset-inline-end:24px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:10px 14px;font-family:var(--bf);font-size:var(--fs-2xs);color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.4);border-radius:100px;background:rgba(20,14,9,.55);cursor:pointer;transition:border-color .2s,background .2s}
 .hero__sound:hover{border-color:var(--terra-lt);background:rgba(181,102,61,.35)}
 .hero__sound[aria-pressed="true"]{border-color:var(--terra-lt);background:rgba(181,102,61,.45);color:#fff}
 .hero__sound svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6;flex-shrink:0}
@@ -1576,12 +1576,14 @@ body.nav-locked{overflow:hidden}
 .ea-testi-jump a{font-weight:var(--fw-medium);margin-inline:8px}
 .ea-band-fig{margin:22px auto 0;max-width:440px}
 .ea-band-fig img{display:block;width:100%;height:auto}
-#books-bundle,#books-bundle-rest{background:var(--ivory-2)}
+#books-bundle,#books-bundle-rest{background:var(--ea-sand)}
 #books-bundle{padding-bottom:8px}
 #books-bundle-rest{padding-top:0;padding-bottom:4px}
-#books-bundle-buy.cta-band{background:var(--ivory-2);background-image:none;color:var(--ink);padding:8px 48px 36px}
+#books-bundle-buy.cta-band{background:var(--ea-sand);background-image:none;color:var(--ink);padding:8px 48px 36px}
 #books-bundle-buy .cta-band__p{color:var(--ink)}
 .ea-adj__label{margin:0 0 8px;font-size:var(--fs-2xs);letter-spacing:.04em}
+.ea-gal-acc{margin-top:8px}
+.ea-gal-acc__t{cursor:pointer;font-weight:var(--fw-medium);padding:12px 0}
 .cta-band--sand{background:var(--ea-sand);background-image:none;color:var(--ea-ink)}
 .cta-band--sand .cta-band__h,
 .cta-band--sand .cta-band__p{color:var(--ea-ink)}

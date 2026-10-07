@@ -149,6 +149,9 @@ defined( 'ABSPATH' ) || exit;
 
 	/* 4.10: «הצצה נוספת לחוויה» at the end of the page, under about. */
 	get_template_part( 'template-parts/chapters/section', 'home-09-peek' );
+
+	/* 7.10: the studio didgeridoo gallery, closed until opened. */
+	get_template_part( 'template-parts/chapters/section', 'home-studio-gallery' );
 	?>
 </main>
 

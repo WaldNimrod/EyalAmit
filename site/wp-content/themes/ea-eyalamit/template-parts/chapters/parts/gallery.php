@@ -33,6 +33,10 @@ if ( ! empty( $a['portraits'] ) ) {
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>
 		<?php if ( ! empty( $a['lead'] ) ) : ?><p class="lead r" style="margin-top:14px"><?php echo ea_esc_visible_text( $a['lead'] ); ?></p><?php endif; ?>
+		<?php if ( ! empty( $a['accordion'] ) ) : ?>
+		<details class="ea-gal-acc">
+			<summary class="ea-gal-acc__t"><?php echo ea_esc_visible_text( $a['accordion_label'] ?? 'לפתיחת הגלריה' ); ?></summary>
+		<?php endif; ?>
 		<div class="<?php echo esc_attr( $ea_gal ); ?> r">
 			<?php
 			foreach ( $items as $it ) :
@@ -70,5 +74,8 @@ if ( ! empty( $a['portraits'] ) ) {
 				</figure>
 			<?php endforeach; ?>
 		</div>
+		<?php if ( ! empty( $a['accordion'] ) ) : ?>
+		</details>
+		<?php endif; ?>
 	</div>
 </section>

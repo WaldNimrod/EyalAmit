@@ -47,6 +47,7 @@ return array(
 				'cta_label' => 'לרכישת הספר',
 				'cta_url'   => 'https://mrng.to/N2S2gEp11B',
 				'cta_slug'  => 'tsva-bekahol',
+				'sand'      => true,
 			),
 		),
 
@@ -120,6 +121,7 @@ return array(
 				'title'     => 'רוצה להתחיל כבר עכשיו?',
 				'cta_label' => 'לרכישת הספר הדיגיטלי',
 				'cta_url'   => 'https://www.mendele.co.il/product/tzvabekahol/',
+				'sand'      => true,
 			),
 		),
 
