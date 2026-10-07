@@ -90,7 +90,7 @@ return array(
 			'args' => array(
 				'chap'  => 'בהשלמה',
 				'title' => 'אוסף המדיה בהשלמה',
-				'note'  => 'תוכן עמוד המדיה — סרטונים, הקלטות וכתבות — ממתין להשלמה ולאישור מאייל. התמונות למטה הן תצוגה לדוגמה.',
+				'note'  => 'הקלטות וכתבות ממתינות להשלמה ולאישור מאייל. שני הסרטונים ששלח נמצאים בתחתית העמוד. התמונות למטה הן תצוגה לדוגמה.',
 			),
 		),
 
@@ -104,6 +104,23 @@ return array(
 					array( 'image' => 'assets/images/chapters/eyal-teaching.jpg', 'alt' => 'הוראה', 'cap' => '' ),
 					array( 'image' => 'assets/images/chapters/group-session-garden.jpg', 'alt' => 'מפגש קבוצתי', 'cap' => '' ),
 					array( 'image' => 'assets/images/chapters/eyal-receiving.jpg', 'alt' => 'סאונד הילינג', 'cap' => '' ),
+				),
+			),
+		),
+
+		array(
+			'part' => 'yt-shorts',
+			'args' => array(
+				'id'    => 'testi-videos',
+				'items' => array(
+					array(
+						'yt_id' => 'S0r8U6huD8A',
+						'title' => 'סרטון ראשון',
+					),
+					array(
+						'yt_id' => '5l_W5zJEWFg',
+						'title' => 'סרטון שני',
+					),
 				),
 			),
 		),

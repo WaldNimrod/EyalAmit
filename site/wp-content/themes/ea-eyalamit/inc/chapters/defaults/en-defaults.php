@@ -65,7 +65,8 @@ return array(
 		array(
 			'part' => 'photo-slot',
 			'args' => array(
-				'label' => 'Photo — to be chosen',
+				'image' => 'assets/images/chapters/word-2026-10-07/en-craft.jpg',
+				'alt'   => 'Craftsmanship, patience and a way of working',
 			),
 		),
 		array(
@@ -79,7 +80,8 @@ return array(
 		array(
 			'part' => 'photo-slot',
 			'args' => array(
-				'label' => 'Photo — to be chosen',
+				'image' => 'assets/images/chapters/word-2026-10-07/en-one.jpg',
+				'alt'   => 'One-on-one didgeridoo breath work',
 			),
 		),
 		array(
@@ -164,7 +166,8 @@ return array(
 		array(
 			'part' => 'photo-slot',
 			'args' => array(
-				'label' => 'Photo — to be chosen',
+				'image' => 'assets/images/chapters/word-2026-10-07/en-wood.jpg',
+				'alt'   => 'From wood to sound',
 			),
 		),
 		array(
@@ -185,7 +188,8 @@ return array(
 		array(
 			'part' => 'photo-slot',
 			'args' => array(
-				'label' => 'Photo — to be chosen',
+				'image' => 'assets/images/chapters/word-2026-10-07/en-pardes.jpg',
+				'alt'   => 'Pardes Hanna, Israel',
 			),
 		),
 		array(
