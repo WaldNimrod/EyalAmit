@@ -65,7 +65,7 @@ return array(
 			'part' => 'prose',
 			'args' => array(
 				'collapsible'   => true,
-				'preview_lines' => 4,
+				'preview_lines' => 7,
 				'toggle_label'  => 'להמשך קריאה',
 				/* S006 R1-19 VKT-03 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 03 · H2 */
 				'title' => 'קטע מתוך הספר',
@@ -240,6 +240,16 @@ return array(
 			),
 		),
 
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'title' => 'מן העיתונות',
+				'items' => array(
+					array( 'image' => 'assets/images/chapters/word-2026-10/press-veka-yediot.jpg', 'alt' => 'וכתבת' ),
+					array( 'image' => 'assets/images/chapters/word-2026-10/press-veka-katava2.jpg', 'alt' => 'וכתבת' ),
+				),
+			),
+		),
 /* S006 R1-19 VKT-03 · מקור: content 13.8.26/וכתבת/vekatavta.md · SECTION 05 · שורות 203–205 טקסט בלבד · מדיה VKT-02 לא בבנייה, בלי סלוט ריק */
 		array(
 			'part' => 'gallery',

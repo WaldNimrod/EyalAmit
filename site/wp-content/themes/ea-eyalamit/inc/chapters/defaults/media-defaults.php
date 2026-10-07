@@ -30,21 +30,32 @@ return array(
 	'phero' => array(
 		'chap'      => '',
 		'title'     => 'עדויות והמלצות',
-		'sub'       => '',
+		'sub'       => 'מילים של תלמידים ומטופלים שפגשו את העבודה בסטודיו - בטיפול בדיג\'רידו, בשיעורים ובמפגשי סאונד הילינג.',
 		'media'     => 'assets/images/chapters/eyal-window.jpg',
 		'media_alt' => "אייל עמית מנגן בדיג'רידו",
 	),
 
 	'sections' => array(
 
+		/* 4.10: jump between the three blocks he named, in that order. */
+		array(
+			'part' => 'prose',
+			'args' => array(
+				'id'   => 'testi-jump',
+				'body' => '<p class="ea-testi-jump"><a href="#testi-treatment">טיפול בדיג\'רידו</a> · <a href="#testi-lessons">שיעורים בדיג\'רידו</a> · <a href="#testi-sound">סאונד הילינג</a></p>',
+			),
+		),
+
 		/* S006 · H-15 · מקור: content 13.8.26/ריכוז כל ההמלצות…/ממליצים מהפייסבוק.docx
 		 * שלוש הקטגוריות של אייל, כל אחת כמקטע נפרד עם הכותרת שלו מהמסמך. סדר
 		 * הרשומות בכל קטגוריה הוא סדר המסמך (הקורפוס נשמר באותו סדר, אומת 48/48).
 		 * 'archive' => true מושך את הקטגוריה במלואה, כולל המלצה שאין לה snippet
-		 * בקורפוס — היא מרונדרת כשם + קישור, בלי שהומצא לה טקסט. */
+		 * בקורפוס — היא מרונדרת כשם + קישור, בלי שהומצא לה טקסט.
+		 * 4.10: הסדר על הדף הוא הסדר שביקש בתפריט — טיפול, שיעורים, סאונד הילינג. */
 		array(
 			'part' => 'testimonials',
 			'args' => array(
+				'id'      => 'testi-treatment',
 				'title'   => "טיפול בדיג'רידו",
 				'cat'     => 'treatment',
 				'archive' => true,
@@ -55,8 +66,9 @@ return array(
 		array(
 			'part' => 'testimonials',
 			'args' => array(
-				'title'   => 'סאונד הילינג',
-				'cat'     => 'sound-healing',
+				'id'      => 'testi-lessons',
+				'title'   => "שיעורי נגינה בדיג'רידו",
+				'cat'     => 'lessons',
 				'archive' => true,
 				'layout'  => 'grid',
 			),
@@ -65,8 +77,9 @@ return array(
 		array(
 			'part' => 'testimonials',
 			'args' => array(
-				'title'   => "שיעורי נגינה בדיג'רידו",
-				'cat'     => 'lessons',
+				'id'      => 'testi-sound',
+				'title'   => 'סאונד הילינג',
+				'cat'     => 'sound-healing',
 				'archive' => true,
 				'layout'  => 'grid',
 			),

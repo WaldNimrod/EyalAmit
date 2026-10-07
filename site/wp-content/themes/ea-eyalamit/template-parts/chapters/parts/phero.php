@@ -49,7 +49,8 @@ if ( ! empty( $a['mod'] ) ) {
 		<?php if ( ! empty( $a['sub'] ) ) : ?><p class="phero__s"><?php ea_chapters_kses_e( $a['sub'] ); ?></p><?php endif; ?>
 		<?php if ( ! empty( $a['lede'] ) ) : ?><div class="phero__lede"><?php echo ea_chapters_prepare_body_html( (string) $a['lede'] ); ?></div><?php endif; ?>
 		<?php if ( ! empty( $a['cta_label'] ) ) : ?>
-			<p class="phero__cta"><a class="btn btn--gw" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"<?php if ( ! empty( $a['cta_slug'] ) ) : ?> target="_blank" rel="noopener noreferrer" data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( sanitize_title( $a['cta_slug'] ) ); ?>" aria-label="<?php echo esc_attr( $a['cta_label'] . ' (נפתח בלשונית חדשה)' ); ?>"<?php endif; ?>><?php echo ea_esc_visible_text( $a['cta_label'] ); ?></a></p>
+			<?php $ea_phero_wa = false !== strpos( (string) ( $a['cta_url'] ?? '' ), 'wa.me/' ); ?>
+			<p class="phero__cta"><a class="btn btn--gw<?php echo $ea_phero_wa ? ' ea-wa-btn' : ''; ?>" href="<?php echo esc_url( $a['cta_url'] ?? '#' ); ?>"<?php if ( ! empty( $a['cta_slug'] ) ) : ?> target="_blank" rel="noopener noreferrer" data-ea-book-purchase data-ea-book-slug="<?php echo esc_attr( sanitize_title( $a['cta_slug'] ) ); ?>" aria-label="<?php echo esc_attr( $a['cta_label'] . ' (נפתח בלשונית חדשה)' ); ?>"<?php endif; ?>><?php echo ea_esc_visible_text( $a['cta_label'] ); ?></a></p>
 		<?php endif; ?>
 	</div>
 	<?php if ( $media ) : ?><span class="phero__media-cue" aria-hidden="true"></span><?php endif; ?>

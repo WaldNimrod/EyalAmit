@@ -123,6 +123,7 @@ return array(
 				'body'      => "מתמודדים עם נחירות או דום נשימה בשינה ורוצים להבין אם העבודה עם הדיג'רידו יכולה להתאים לכם?",
 				'cta_label' => 'רוצה לדבר איתי',
 				'cta_url'   => '/contact/',
+				'sand'      => true,
 			),
 		),
 
@@ -243,6 +244,7 @@ return array(
 				'body'      => 'לפעמים שינוי מתחיל בללמוד לעבוד אחרת עם הנשימה.',
 				'cta_label' => 'רוצה לדבר איתי',
 				'cta_url'   => '/contact/',
+				'sand'      => true,
 			),
 		),
 
@@ -336,6 +338,7 @@ return array(
 			'args' => array(
 				'body'      => 'יש לכם שאלות לפני שמתחילים? אפשר לדבר, להבין את המצב ולבדוק יחד מה נכון עבורכם.',
 				'cta_label' => 'רוצה לדבר איתי',
+				'sand'      => true,
 				/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 611 */
 				'cta_url'   => '/contact/',
 			),

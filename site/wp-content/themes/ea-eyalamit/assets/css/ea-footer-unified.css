@@ -170,9 +170,9 @@
 }
 
 .ea-ftr .ea-ftr__legal-in {
-	max-width: 900px;
+	max-width: 640px;
 	margin-inline: auto;
-	padding: var(--ea-space-4, 32px) var(--ea-gutter, 24px);
+	padding: 14px var(--ea-gutter, 24px);
 }
 
 .ea-ftr .ea-ftr__disc {

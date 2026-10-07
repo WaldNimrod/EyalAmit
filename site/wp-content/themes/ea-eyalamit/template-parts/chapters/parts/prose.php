@@ -73,6 +73,17 @@ $body_style  = $center ? ' style="margin-inline:auto"' : '';
 					</figure>
 				<?php endif; ?>
 				<?php echo ea_chapters_prepare_body_html( (string) ( $a['body'] ?? '' ) ); ?>
+				<?php if ( ! empty( $a['band_image'] ) ) : ?>
+					<?php
+					$ea_band_src = function_exists( 'ea_chapters_resolve_img' ) ? ea_chapters_resolve_img( $a['band_image'] ) : '';
+					$ea_band_alt = (string) ( $a['band_alt'] ?? '' );
+					?>
+					<?php if ( $ea_band_src ) : ?>
+					<figure class="ea-band-fig">
+						<img src="<?php echo esc_url( $ea_band_src ); ?>" alt="<?php echo esc_attr( $ea_band_alt ); ?>" loading="lazy">
+					</figure>
+					<?php endif; ?>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 	</div>

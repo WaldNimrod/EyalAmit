@@ -48,6 +48,37 @@ defined( 'ABSPATH' ) || exit;
 		) );
 	}
 
+	/* 4.10: the books are under «אייל עמית» in the menu, so the same three
+	   cards already on /books/ also sit in the home body. No new wording. */
+	get_template_part( 'template-parts/chapters/parts/bookcard', null, array(
+		'id'                 => 'home-books',
+		'alt'                => true,
+		'card_heading_level' => 2,
+		'items'              => array(
+			array(
+				'cover' => 'assets/images/chapters/word-2026-10/cover-tsva.jpg',
+				'title' => 'צבע בכחול וזרוק לים',
+				'blurb' => '38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
+				'url'   => '/books/tsva-bekahol/',
+				'cta'   => 'לעמוד הספר צבע בכחול וזרוק לים',
+			),
+			array(
+				'cover' => 'assets/images/chapters/word-2026-10/cover-kushi.jpg',
+				'title' => 'כושי בלאנטיס',
+				'blurb' => 'רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
+				'url'   => '/books/kushi-blantis/',
+				'cta'   => 'לעמוד הספר כושי בלאנטיס',
+			),
+			array(
+				'cover' => 'assets/images/chapters/word-2026-10/cover-veka.jpg',
+				'title' => 'וכתבת',
+				'blurb' => '46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים. הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.',
+				'url'   => '/books/vekatavta/',
+				'cta'   => 'לעמוד הספר וכתבת',
+			),
+		),
+	) );
+
 	// 03 — וידאו: שלד + פלייסהולדר 16:9. התוכן חסום (H-06).
 	get_template_part( 'template-parts/chapters/section', 'home-03-video' );
 
@@ -59,9 +90,6 @@ defined( 'ABSPATH' ) || exit;
 	get_template_part( 'template-parts/chapters/section', '03-session' );      // 07 — מה קורה במפגש
 	get_template_part( 'template-parts/chapters/section', 'photo-band' );      // מעבר צילומי (לא סקשן ממוספר אצל אייל)
 	get_template_part( 'template-parts/chapters/section', '04-studio' );       // 08 — הסטודיו והמרחב
-
-	// 09 — הצצה נוספת לחוויה: טקסט מאושר + פלייסהולדר מדיה + CTA מ-C15.
-	get_template_part( 'template-parts/chapters/section', 'home-09-peek' );
 
 	/*
 	 * Wave 1 A2 — six corpus questions, read from the ea_faq CPT
@@ -118,6 +146,9 @@ defined( 'ABSPATH' ) || exit;
 			'sand'      => true,
 		) );
 	}
+
+	/* 4.10: «הצצה נוספת לחוויה» at the end of the page, under about. */
+	get_template_part( 'template-parts/chapters/section', 'home-09-peek' );
 	?>
 </main>
 

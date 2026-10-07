@@ -73,7 +73,7 @@ $cards = static function () use ( $items, $grid ) {
 	}
 };
 ?>
-<section class="sec sec--alt">
+<section class="sec sec--alt"<?php echo ! empty( $a['id'] ) ? ' id="' . esc_attr( $a['id'] ) . '"' : ''; ?>>
 	<div class="wrap center">
 		<?php if ( ! empty( $a['chap'] ) ) : ?><span class="chap chap--c r"><?php echo ea_esc_visible_text( $a['chap'] ); ?></span><?php endif; ?>
 		<?php if ( ! empty( $a['title'] ) ) : ?><h2 class="h2 r"><?php echo ea_esc_visible_text( $a['title'] ); ?></h2><?php endif; ?>

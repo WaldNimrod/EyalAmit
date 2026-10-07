@@ -132,44 +132,66 @@ $ea_share_url   = $ea_json_dummy ? home_url( '/' ) : ( is_singular( 'post' ) ? g
 	<?php } ?>
 
 	<?php
-	// Related posts — 2-up, same-category with recent fallback (WP-W2-11).
-	$ea_post_id  = $ea_json_dummy ? 0 : (int) get_the_ID();
-	$ea_post_cat = ( ! $ea_json_dummy && is_singular( 'post' ) ) ? get_the_category() : array();
-	$ea_rel_args = array(
-		'post_type'           => 'post',
-		'post_status'         => 'publish',
-		'posts_per_page'      => 2,
-		'ignore_sticky_posts' => true,
-		'no_found_rows'       => true,
-	);
-	if ( $ea_post_id > 0 ) {
-		$ea_rel_args['post__not_in'] = array( $ea_post_id );
+	/* 4.10: the post before and the post after, by date — not two fixed cards. */
+	$ea_prev = null;
+	$ea_next = null;
+	if ( ! $ea_json_dummy && is_singular( 'post' ) ) {
+		$ea_prev = get_adjacent_post( false, '', true );
+		$ea_next = get_adjacent_post( false, '', false );
 	}
-	if ( $ea_post_cat ) {
-		$ea_rel_args['category__in'] = wp_list_pluck( $ea_post_cat, 'term_id' );
-	}
-	$ea_related = new WP_Query( $ea_rel_args );
-	if ( ! $ea_related->have_posts() && $ea_post_cat ) {
-		unset( $ea_rel_args['category__in'] );
-		$ea_related = new WP_Query( $ea_rel_args );
-	}
-	if ( $ea_related->have_posts() ) :
+	if ( $ea_prev instanceof WP_Post || $ea_next instanceof WP_Post ) :
 		?>
-		<section class="sec sec--alt ea-related" aria-labelledby="ea-related-heading">
-			<div class="wrap center">
-				<h2 class="h2 r" id="ea-related-heading"><?php esc_html_e( 'פוסטים נוספים', 'ea-eyalamit' ); ?></h2>
+		<section class="sec sec--alt ea-related" aria-label="<?php esc_attr_e( 'פוסטים סמוכים', 'ea-eyalamit' ); ?>">
+			<div class="wrap">
 				<div class="ea-blog-grid ea-related__grid">
 					<?php
-					while ( $ea_related->have_posts() ) :
-						$ea_related->the_post();
-						get_template_part( 'template-parts/blocks/block', 'blog-card' );
-					endwhile;
-					?>
+					foreach ( array(
+						array( $ea_prev, 'הפוסט שלפני' ),
+						array( $ea_next, 'הפוסט שאחרי' ),
+					) as $ea_adj ) :
+						if ( ! ( $ea_adj[0] instanceof WP_Post ) ) {
+							continue;
+						}
+						$GLOBALS['post'] = $ea_adj[0]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+						setup_postdata( $ea_adj[0] );
+						?>
+						<div class="ea-adj">
+							<p class="ea-adj__label"><?php echo esc_html( $ea_adj[1] ); ?></p>
+							<?php get_template_part( 'template-parts/blocks/block', 'blog-card' ); ?>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>
 		<?php
 		wp_reset_postdata();
+	endif;
+
+	$ea_blog_base = get_post_type_archive_link( 'post' );
+	if ( ! $ea_blog_base ) {
+		$ea_blog_base = home_url( '/blog/' );
+	}
+	$ea_blog_cats = get_categories( array( 'hide_empty' => true ) );
+	if ( $ea_blog_cats ) :
+		$ea_post_cat_id = 0;
+		if ( ! $ea_json_dummy && is_singular( 'post' ) ) {
+			$ea_post_cats = get_the_category();
+			if ( $ea_post_cats ) {
+				$ea_post_cat_id = (int) $ea_post_cats[0]->term_id;
+			}
+		}
+		?>
+		<nav class="sec" aria-label="<?php esc_attr_e( 'סינון לפי קטגוריה', 'ea-eyalamit' ); ?>">
+			<div class="wrap">
+				<div class="ea-blog-filter ea-blog-filter--post">
+				<a href="<?php echo esc_url( $ea_blog_base ); ?>" class="ea-blog-filter__item<?php echo ! $ea_post_cat_id ? ' ea-blog-filter__item--active' : ''; ?>"><?php esc_html_e( 'הכל', 'ea-eyalamit' ); ?></a>
+				<?php foreach ( $ea_blog_cats as $ea_blog_cat ) : ?>
+				<a href="<?php echo esc_url( add_query_arg( 'cat', $ea_blog_cat->term_id, $ea_blog_base ) ); ?>" class="ea-blog-filter__item<?php echo $ea_post_cat_id === (int) $ea_blog_cat->term_id ? ' ea-blog-filter__item--active' : ''; ?>"><?php echo esc_html( $ea_blog_cat->name ); ?></a>
+				<?php endforeach; ?>
+				</div>
+			</div>
+		</nav>
+		<?php
 	endif;
 	?>
 </main>

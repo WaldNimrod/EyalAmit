@@ -66,16 +66,17 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 			</div>
 
 			<!-- Child with a telephone receiver, from the old site. Contact page only. -->
-			<span class="ea-contact-portrait ea-entrance" aria-hidden="true">
+			<figure class="ea-contact-portrait ea-entrance">
 				<img src="<?php echo esc_url( ea_chapters_resolve_img( 'assets/images/chapters/eyal-child-phone.jpg' ) ); ?>" alt="" loading="lazy">
-			</span>
+				<figcaption class="ea-contact-portrait__cap">אייל עמית בן 3</figcaption>
+			</figure>
 
 		</div>
 	</div>
 </section>
 
 <!-- Dark CTA row (same look as the home page's .cta-band), replacing the plain "prefer to write" text block. -->
-<section class="sec sec--dark ea-wave2-contact__cta" data-block="contact-cta">
+<section class="sec ea-wave2-contact__cta" data-block="contact-cta">
 	<span class="cta-band__logo cta-band__logo--side" aria-hidden="true"></span>
 	<div class="wrap">
 		<div class="ea-entrance ea-contact-cta r" aria-label="<?php esc_attr_e( 'דרכי התקשרות מהירות', 'ea-eyalamit' ); ?>">
@@ -83,7 +84,7 @@ $ea_wa_url = function_exists( 'ea_wave2_wa_url' )
 			<p class="ea-contact-section__body"><?php esc_html_e( 'אפשר לפנות בוואטסאפ ולקבל מענה אישי — גם לתיאום שיחת היכרות וגם לשאלות.', 'ea-eyalamit' ); ?></p>
 
 			<div class="ea-cta-ab" data-ea-ab data-ab-experiment="contact_whatsapp_cta" data-ea-page="contact">
-				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="A" aria-label="<?php esc_attr_e( 'דברו איתי בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>"><?php esc_html_e( 'דברו איתי בוואטסאפ', 'ea-eyalamit' ); ?></a>
+				<a class="ea-cta-pill ea-cta-pill--primary ea-cta-ab__wa ea-wa-btn" href="<?php echo esc_url( $ea_wa_url ); ?>" target="_blank" rel="noopener noreferrer" data-ea-ab-wa data-ab-variant="A" aria-label="<?php esc_attr_e( 'דברו איתי בוואטסאפ (נפתח בחלון חדש)', 'ea-eyalamit' ); ?>"><?php esc_html_e( 'דברו איתי בוואטסאפ', 'ea-eyalamit' ); ?></a>
 			</div>
 
 			<ul class="ea-contact-points">

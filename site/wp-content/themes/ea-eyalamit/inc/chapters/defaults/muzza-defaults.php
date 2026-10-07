@@ -31,7 +31,7 @@ return array(
 		'chap'      => '',
 		'title'     => 'מוזה הוצאה לאור - ספרים',
 		'sub'       => 'מוזה הוצאה לאור הנה הוצאת ספרים עצמית שהוקמה בשנת 2004 על ידי הסופר ומספר הסיפורים אייל עמית.',
-		'media'     => 'assets/images/chapters/logo-didgs-door.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10/muzza-hero.jpg',
 		'media_alt' => 'מוזה הוצאה לאור — ספריו של אייל עמית',
 		'cta_label' => 'לרכישת חבילת 3 הספרים',
 		'cta_url'   => 'https://mrng.to/mTA8xyJhB8',
@@ -71,6 +71,19 @@ return array(
 			),
 		),
 
+		/* 4.10: the three pictures he named for this block. No new caption. */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'alt'   => false,
+				'items' => array(
+					array( 'image' => 'assets/images/chapters/word-2026-10/why-tsva.jpg', 'alt' => 'צבע בכחול וזרוק לים' ),
+					array( 'image' => 'assets/images/chapters/word-2026-10/why-kushi.jpg', 'alt' => 'כושי בלאנטיס' ),
+					array( 'image' => 'assets/images/chapters/word-2026-10/why-veka.jpg', 'alt' => 'וכתבת' ),
+				),
+			),
+		),
+
 		/* S006 · מקור: content 13.8.26/מוזה הוצאה לאור - ספרים/MUZZA.md · SECTION 05–07
 		 * BK-02 · title/chap «הספרים של מוזה» / «הספרים» רוקנו (אין כותרת-גריד).
 		 * BK-02 · meta «2001 · מסעות» / «2004 · פנטזיה» / «2017 · סיפורים אישיים» הוסרו.
@@ -81,21 +94,21 @@ return array(
 				'id'    => 'books',
 				'items' => array(
 					array(
-						'cover' => 'assets/images/tsva-bechol-cover.jpg',
+						'cover' => 'assets/images/chapters/word-2026-10/cover-tsva.jpg',
 						'title' => 'צבע בכחול וזרוק לים',
 						'blurb' => '38 סיפורים קצרים ובועטים על הטיול הגדול לדרום אמריקה - על שחרור, בריחה, חופש, בלבול, וכל מה שקורה בדרך החוצה ובדרך חזרה. הספר יצא לראשונה בשנת 2001 וכיום נמצא במהדורה העשירית.',
 						'url'   => '/books/tsva-bekahol/',
 						'cta'   => 'לעמוד הספר צבע בכחול וזרוק לים', /* S006 · BK-02 · MUZZA.md SECTION 05 */
 					),
 					array(
-						'cover' => 'assets/images/kushi-blantis-cover.jpg',
+						'cover' => 'assets/images/chapters/word-2026-10/cover-kushi.jpg',
 						'title' => 'כושי בלאנטיס',
 						'blurb' => 'רומן פנטזיה על התעוררות, בחירה, אומץ, והיציאה מהחיים הנוחים מדי - מסע סמלי, צבעוני ומטלטל אל מחוץ לכלוב הזהב. הספר יצא לאור בשנת 2004 ונמצא במהדורה השישית.',
 						'url'   => '/books/kushi-blantis/',
 						'cta'   => 'לעמוד הספר כושי בלאנטיס', /* S006 · BK-02 · MUZZA.md SECTION 06 */
 					),
 					array(
-						'cover' => 'assets/images/vekatavt-cover.jpg',
+						'cover' => 'assets/images/chapters/word-2026-10/cover-veka.jpg',
 						'title' => 'וכתבת',
 						'blurb' => '46 סיפורים אמיתיים מחייו של אייל עמית - ספר אישי, חי ומעורר השראה, על אהבה, מסעות, אובדן, שינוי, צמיחה, והיכולת לקום גם מהמקומות הכי קשים. הספר ראה אור בשנת 2017, ובאתר מודגש גם אלמנט ה-QR שמרחיב את חוויית הקריאה מעבר לדף.',
 						'url'   => '/books/vekatavta/',
@@ -112,9 +125,11 @@ return array(
 			'part' => 'prose',
 			'args' => array(
 				'title'  => 'חבילת 3 הספרים של אייל עמית',
-				'id'     => 'books-bundle',
-				'center' => true,
-				'alt'    => true,
+				'id'         => 'books-bundle',
+				'center'     => true,
+				'alt'        => true,
+				'band_image' => 'assets/images/chapters/word-2026-10/bundle-three.jpg',
+				'band_alt'   => 'שלושת הספרים',
 				'body'   => '<p>שלושת הספרים יחד במחיר מיוחד</p><p class="p-display"><strong>150 ש"ח</strong> במקום <del>207 ש"ח</del></p><p>זו הזדמנות להיכנס לעולם הכתיבה של אייל עמית דרך שלושה ספרים שונים מאוד באופי שלהם, אבל מחוברים באותו קול חי, אישי ולא שגרתי.</p>',
 			),
 		),
@@ -124,6 +139,8 @@ return array(
 		array(
 			'part' => 'prose',
 			'args' => array(
+				'id'    => 'books-bundle-rest',
+				'alt'   => true,
 				'title' => 'שלושה ספרים, שלושה עולמות',
 				'body'  => '<p>כל אחד מהספרים עומד בפני עצמו. יחד, הם מציעים מפגש עם שלושה שערים שונים אל תוך החיים והכתיבה:</p><ul><li>מסע והתבגרות</li><li>פנטסיה והתעוררות</li><li>סיפורים אמיתיים בגובה העיניים</li></ul><p>זו יכולה להיות דרך טובה להתחיל להכיר את הכתיבה של אייל עמית, וזו גם מתנה מקורית למי שאוהב ספרים עם קול אישי, תנועה ועומק.</p><p>הספרים נכתבו בתקופות שונות בחיים, וכל אחד מהם מביא קול אחר, זווית אחרת והתבוננות שונה.</p><p>אין סדר קריאה מחייב. כל ספר עומד בפני עצמו.</p>',
 			),
@@ -153,6 +170,8 @@ return array(
 		array(
 			'part' => 'cta',
 			'args' => array(
+				'id'        => 'books-bundle-buy',
+				'stack'     => true,
 				'body'      => 'שלושה ספרים, שלושה מסעות, חבילה אחת.',
 				'cta_label' => 'לרכישת חבילת 3 הספרים',
 				'cta_url'   => 'https://mrng.to/mTA8xyJhB8',

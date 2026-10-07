@@ -37,6 +37,21 @@ return array(
 			),
 		),
 
+		/* 5.10: the article photo in the page body, not the hero. */
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'doc'   => true,
+				'alt'   => false,
+				'items' => array(
+					array(
+						'image' => 'assets/images/chapters/word-2026-10/article-pardes.jpg',
+						'alt'   => 'כתבה על אייל עמית, המרכז לטיפול בדיג\'רידו, פרדס חנה',
+					),
+				),
+			),
+		),
+
 		/* S006 W2 · SECTION 02 · המסע שלי התחיל הרבה לפני הדיג'רידו */
 		array(
 			'part' => 'prose',

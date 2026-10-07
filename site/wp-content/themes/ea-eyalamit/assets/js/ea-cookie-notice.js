@@ -60,8 +60,9 @@
 				}
 			});
 		});
-		if (typeof dlg.showModal === 'function') {
-			dlg.showModal();
+		/* Non-modal: a bar at the bottom, not a window that blocks the page. */
+		if (typeof dlg.show === 'function') {
+			dlg.show();
 		} else {
 			dlg.setAttribute('open', '');
 		}

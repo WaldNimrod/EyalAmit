@@ -1234,11 +1234,57 @@
       min-height: 0;
       height: 4.25rem;
     }
+    .ea-contact-form-row { align-items: stretch; }
+    .ea-contact-portrait {
+      height: 100%;
+      aspect-ratio: auto;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      overflow: hidden;
+    }
     .ea-contact-portrait img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      flex: 1 1 auto;
+      min-height: 0;
       object-fit: cover;
       display: block;
+    }
+    .ea-contact-portrait__cap {
+      margin: 6px 0 0;
+      font-family: var(--ea-font);
+      font-size: var(--fs-2xs);
+      line-height: 1.3;
+      text-align: center;
+      color: var(--ea-ink);
+    }
+    .ea-wave2-contact__cta {
+      background: var(--ea-sand);
+      color: var(--ea-ink);
+    }
+    .ea-wave2-contact__cta .cta-band__logo { display: none; }
+    .ea-wave2-contact__cta .ea-contact-section__heading,
+    .ea-wave2-contact__cta .ea-contact-section__body,
+    .ea-wave2-contact__cta .ea-contact-points li { color: var(--ea-ink); }
+    .ea-wa-btn::before {
+      content: "";
+      display: inline-block;
+      width: 1.15em;
+      height: 1.15em;
+      margin-inline-end: .45em;
+      vertical-align: -0.18em;
+      background-color: currentColor;
+      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.89c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.41-.13-.95-.31-1.63-.61-2.87-1.24-4.74-4.13-4.88-4.32-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4 1.02-.4.12 0 .23 0 .33.01.29.01.43.03.62.48.24.57.81 1.97.88 2.11.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.41.48-.14.14-.28.29-.12.55.16.27.7 1.16 1.51 1.88 1.04.92 1.91 1.21 2.18 1.35.27.13.43.11.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.57.74 1.84.87.27.14.45.2.51.31.07.12.07.67-.17 1.35z'/></svg>") center / contain no-repeat;
+      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.89c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.41-.13-.95-.31-1.63-.61-2.87-1.24-4.74-4.13-4.88-4.32-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4 1.02-.4.12 0 .23 0 .33.01.29.01.43.03.62.48.24.57.81 1.97.88 2.11.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.41.48-.14.14-.28.29-.12.55.16.27.7 1.16 1.51 1.88 1.04.92 1.91 1.21 2.18 1.35.27.13.43.11.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.57.74 1.84.87.27.14.45.2.51.31.07.12.07.67-.17 1.35z'/></svg>") center / contain no-repeat;
+    }
+    .phero .ea-wa-btn,
+    .ea-cta-ab__wa.ea-wa-btn {
+      background: var(--terra-btn, #B05F38);
+      color: #fff;
+      border-color: transparent;
+      padding: 14px 22px;
+      font-size: var(--fs-body);
     }
     /* The CTA row reuses .ea-contact-section__heading/__body (defined below)
        inside a .sec--dark context, which they were never styled for before. */

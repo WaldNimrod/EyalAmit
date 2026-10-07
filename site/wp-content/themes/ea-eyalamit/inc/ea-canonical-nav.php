@@ -393,13 +393,10 @@ if ( ! function_exists( 'ea_footer_unified_columns' ) ) :
 	 * becomes its own top-level footer column, last in column order per
 	 * team_00's own enumeration ("...כלים ואביזרים · ספרים").
 	 *
-	 * Override 2 — team_00, follow-up dictate 2026-09-26: «השיטה ובלוג -
-	 * שבלוג יהיה בפוטר ילד של השיטה». "בלוג דיג׳רידו" ("blog") is a
-	 * top-level tree item with no children of its own; in the FOOTER ONLY
-	 * it is removed from the top-level column row and appended as a child
-	 * link under the "השיטה" ("method") column, which otherwise would have
-	 * been a single-link column. This is the reason the footer ends at six
-	 * columns, not seven, and none of them is a bare single link.
+	 * Override 2 — Eyal, 5.10.26: «בלוג דיג'רידו» sits under the books
+	 * column, not under "השיטה". The 2026-09-26 placement under method is
+	 * superseded for the footer only. The item stays out of the top-level
+	 * column row.
 	 *
 	 * Every other item, label, href, 'hidden' flag and 'label_emph' passes
 	 * through unchanged. No item is dropped; nothing here writes a label or
@@ -418,7 +415,7 @@ if ( ! function_exists( 'ea_footer_unified_columns' ) ) :
 				continue;
 			}
 			if ( 'blog' === $ea_item['key'] ) {
-				$ea_blog_item = $ea_item; // Override 2 — held back, appended under "method" below.
+				$ea_blog_item = $ea_item; // Held back, appended under the books column (5.10).
 				continue;
 			}
 			$ea_children = isset( $ea_item['children'] ) ? $ea_item['children'] : array();
@@ -436,17 +433,11 @@ if ( ! function_exists( 'ea_footer_unified_columns' ) ) :
 			$ea_columns[] = $ea_item;
 		}
 
-		if ( $ea_blog_item ) {
-			foreach ( $ea_columns as &$ea_col ) {
-				if ( 'method' === $ea_col['key'] ) {
-					$ea_col['children']   = isset( $ea_col['children'] ) ? $ea_col['children'] : array();
-					$ea_col['children'][] = $ea_blog_item;
-				}
-			}
-			unset( $ea_col );
-		}
-
 		if ( $ea_books_col ) {
+			if ( $ea_blog_item ) {
+				$ea_books_col['children']   = isset( $ea_books_col['children'] ) ? $ea_books_col['children'] : array();
+				$ea_books_col['children'][] = $ea_blog_item;
+			}
 			$ea_columns[] = $ea_books_col; // last column, per team_00's stated order.
 		}
 

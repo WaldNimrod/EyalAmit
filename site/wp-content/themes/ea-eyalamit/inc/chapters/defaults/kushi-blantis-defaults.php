@@ -62,7 +62,7 @@ return array(
 			'part' => 'prose',
 			'args' => array(
 				'collapsible' => true,
-				'preview_lines' => 4,
+				'preview_lines' => 7,
 				/* S006 · מקור: content 13.8.26/כושי בלאנטיס/kushi_full.md · שורה 30 */
 				'title' => 'קטע מתוך הספר – לקריאה',
 				/* 23.9 · אקסל: ארבע שורות גלויות, ואז להמשך קריאה */
@@ -206,6 +206,16 @@ return array(
 			),
 		),
 
+		array(
+			'part' => 'gallery',
+			'args' => array(
+				'title' => 'מן העיתונות',
+				'items' => array(
+					array( 'image' => 'assets/images/chapters/word-2026-10/press-kushi-1.jpg', 'alt' => 'כושי בלאנטיס' ),
+					array( 'image' => 'assets/images/chapters/word-2026-10/press-kushi-2.jpg', 'alt' => 'כושי בלאנטיס' ),
+				),
+			),
+		),
 /* S006 · KSH-06 · SECTION 05 אחרי 04 ולפני 06
 		 * KSH-02 · תמונות קיימות נשמרות עד בחירת אייל · בלי lead/כיתובים/pending שהומצאו
 		 * 2026-09-18 · team_00 אישר הסרת כפילות · 23 → 22:
