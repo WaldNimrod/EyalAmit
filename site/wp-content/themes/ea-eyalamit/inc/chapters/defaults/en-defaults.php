@@ -14,7 +14,7 @@ return array(
 		'chap' => 'cbDIDG Method - Eyal Amit',
 		'title' => 'Didgeridoo Healing Center',
 		'sub' => 'Didgeridoo-based breath work, sound healing, learning and training in Pardes Hanna, Israel',
-		'media' => 'assets/images/chapters/eyal-window.jpg',
+		'media' => 'assets/images/chapters/word-2026-10-07/en-hero.jpg',
 		'media_alt' => 'Eyal Amit playing the didgeridoo',
 		'cta_label' => 'Talk to Eyal on WhatsApp',
 		'cta_url' => 'https://wa.me/972524822842?text=Hi%20Eyal%2C%20I%20found%20you%20through%20the%20English%20page',
@@ -36,7 +36,8 @@ return array(
 		array(
 			'part' => 'photo-slot',
 			'args' => array(
-				'label' => 'Photo — to be chosen',
+				'image' => 'assets/images/chapters/word-2026-10-07/en-more.jpg',
+				'alt'   => 'More than learning an instrument',
 			),
 		),
 		array(

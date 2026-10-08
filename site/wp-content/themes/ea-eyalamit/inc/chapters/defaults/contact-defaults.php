@@ -22,7 +22,7 @@ return array(
 		'chap'      => 'צור קשר',
 		'title'     => 'צור <em>קשר</em>',
 		'sub'       => 'ניתן ליצור קשר לתיאום שיחת היכרות, שאלות כלליות או כל פנייה אחרת.',
-		'media'     => 'assets/images/chapters/garden.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
 		'media_alt' => 'הגינה והסטודיו בפרדס חנה',
 		'cta_label' => 'דברו איתי בוואטסאפ',
 		'cta_url'   => $ea_contact_wa,

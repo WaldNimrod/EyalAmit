@@ -12,7 +12,7 @@ return array(
 		'chap'      => 'הכשרה',
 		'title'     => 'הכשרת <em>מטפלים ומנחים</em><br>ב<span class="ea-nowrap">שיטת <span lang="en" class="ea-nowrap">cbDIDG</span></span>',
 		'sub'       => 'להעביר את הידע הלאה — מסלול עומק למי שמבקש ללמוד, ללמד ולטפל בנשימה באמצעות דיג׳רידו.',
-		'media'     => 'assets/images/chapters/studio-interior.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
 		'media_alt' => 'פנים הסטודיו בפרדס חנה',
 		'cta_label' => 'להשארת פרטים ולתיאום שיחה',
 		'cta_url'   => '/contact/',

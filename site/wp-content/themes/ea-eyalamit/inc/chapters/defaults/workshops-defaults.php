@@ -24,7 +24,7 @@ return array(
 		'chap'      => '',
 		'title'     => "סדנאות דיג'רידו ונשימה<br>לקבוצות וארגונים",
 		'sub'       => "סדנה פעילה וחווייתית שמחברת בין נשימה, דיג'רידו והתנסות מעשית",
-		'media'     => 'assets/images/chapters/garden.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
 		'media_alt' => 'חצר הסטודיו בפרדס חנה',
 		'cta_label' => 'להזמנת סדנה לקבוצה',
 		'cta_url'   => '/contact/',

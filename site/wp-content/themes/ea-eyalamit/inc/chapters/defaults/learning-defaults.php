@@ -37,7 +37,8 @@ return array(
 			'part' => 'photo-slot',
 			'args' => array(
 				'id'    => 'learning-photo-lessons',
-				'label' => 'תמונה תיבחר · שיעורי דיג׳רידו',
+				'image' => 'assets/images/chapters/word-2026-10-07/learning-lessons.jpg',
+				'alt'   => 'שיעורי דיג׳רידו',
 			),
 		),
 		array(
@@ -52,7 +53,8 @@ return array(
 			'part' => 'photo-slot',
 			'args' => array(
 				'id'    => 'learning-photo-lectures',
-				'label' => 'תמונה תיבחר · הרצאות וסדנאות',
+				'image' => 'assets/images/chapters/word-2026-10-07/learning-lectures.jpg',
+				'alt'   => 'הרצאות וסדנאות',
 			),
 		),
 		array(
@@ -67,7 +69,8 @@ return array(
 			'part' => 'photo-slot',
 			'args' => array(
 				'id'    => 'learning-photo-training',
-				'label' => 'תמונה תיבחר · הכשרת מטפלים',
+				'image' => 'assets/images/chapters/word-2026-10-07/learning-training.jpg',
+				'alt'   => 'הכשרת מטפלים',
 			),
 		),
 		array(

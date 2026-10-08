@@ -23,6 +23,8 @@ return array(
 		'cta_label' => 'רוצה לדבר איתי',
 		/* S006 · מקור: content 13.8.26/נחירות ודום נשימה/snoring-sleep-apnea-didgeridoo-CHECKED.md · שורה 24 */
 		'cta_url'   => '/contact/',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
+		'media_alt' => 'נחירות ודום נשימה בשינה',
 	),
 
 	'sections' => array(

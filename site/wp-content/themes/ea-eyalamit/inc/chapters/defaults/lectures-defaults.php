@@ -29,7 +29,7 @@ return array(
 		'chap'      => '',
 		'title'     => "הרצאות על נשימה,<br>דיג'רידו, סטרס ושינה",
 		'sub'       => "סיפור אישי, ידע, מחקר והדגמות חיות בדיג'רידו",
-		'media'     => 'assets/images/chapters/studio-didgs.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
 		'media_alt' => 'אייל עמית מנחה מפגש דיג׳רידו',
 		'cta_label' => 'לתיאום הרצאה',
 		'cta_url'   => '/contact/',

@@ -20,7 +20,7 @@ return array(
 		'chap'      => '',
 		'title'     => 'טיפול ב<em>דיג׳רידו</em>',
 		'sub'       => 'להחזיר שליטה על הנשימה דרך עבודה אקטיבית עם דיג׳רידו, תרגול נשימה וליווי אישי',
-		'media'     => 'assets/images/chapters/eyal-studio-play.jpg',
+		'media'     => 'assets/images/chapters/word-2026-10-07/hero-shared.jpg',
 		'media_alt' => 'אייל עמית במהלך עבודה עם דיג׳רידו בסטודיו',
 		'cta_label' => 'לתיאום שיחת היכרות',
 		'cta_url'   => '/contact/',
