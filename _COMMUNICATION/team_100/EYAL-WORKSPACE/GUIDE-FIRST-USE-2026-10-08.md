@@ -1,6 +1,8 @@
 # מדריך שימוש ראשון — אייל
 
 **תאריך:** 8 באוקטובר 2026. **נכון לתמה 1.5.160.**
+העמוד שאייל פותח, לא הקובץ הזה:
+http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-maintenance.html
 האתר שעליו עובדים הוא אתר הבדיקה:
 http://eyalamit-co-il-2026.s887.upress.link
 

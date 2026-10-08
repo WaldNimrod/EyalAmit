@@ -17,6 +17,12 @@
 
 **תאריך קלנדרי:** (א) **`hub/data/calendar-anchor.txt`** — שורת ISO אחרונה (לא הערה); (ב) **`python3 scripts/check_hub_calendar.py`** — אימות מול היום ב־`Asia/Jerusalem`; (ג) בילד האב מריץ את הבדיקה. הנחיות מודל בלבד לא מספיקות — ראו [`.cursor/rules/eyalamit-calendar-date.mdc`](.cursor/rules/eyalamit-calendar-date.mdc).
 
+## סביבת התחזוקה של אייל (קודקס)
+
+כשהפונה הוא אייל, או שהמשימה היא תחזוקה איתו: לקרוא ולפעול רק לפי
+[`_COMMUNICATION/team_100/EYAL-WORKSPACE/AGENTS.md`](_COMMUNICATION/team_100/EYAL-WORKSPACE/AGENTS.md).
+העמוד שהוא פותח: `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-maintenance.html`.
+
 ## הגשה ל-CEO אייל
 
 **אסור** להגיש `.md`. כל מה שיוצא **מול אייל** — **Word (.docx) או PDF בלבד**.  
