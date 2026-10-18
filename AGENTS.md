@@ -19,9 +19,12 @@
 
 ## סביבת התחזוקה של אייל (קודקס)
 
-כשהפונה הוא אייל, או שהמשימה היא תחזוקה איתו: לקרוא ולפעול רק לפי
-[`_COMMUNICATION/team_100/EYAL-WORKSPACE/AGENTS.md`](_COMMUNICATION/team_100/EYAL-WORKSPACE/AGENTS.md).
+כשהפונה הוא אייל, או שהסשן רץ על המחשב שלו: לקרוא ולפעול לפי
+[`_COMMUNICATION/team_100/EYAL-WORKSPACE/BATON-2026-10-18.md`](_COMMUNICATION/team_100/EYAL-WORKSPACE/BATON-2026-10-18.md).
+היומן המשותף עם הסשן של נימרוד: `BATON-LOG.md` באותה תיקייה. שני הצדדים על `main` של `WaldNimrod/EyalAmit`.
+רקע, לא המשימה: [`AGENTS.md`](_COMMUNICATION/team_100/EYAL-WORKSPACE/AGENTS.md).
 העמוד שהוא פותח: `http://eyalamit-co-il-2026.s887.upress.link/ea-eyal-hub/s007-maintenance.html`.
+סשן על המחשב של נימרוד אינו סשן התחזוקה, גם אם הוא קורא את הקבצים האלה.
 
 ## הגשה ל-CEO אייל
 
